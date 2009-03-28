@@ -40,7 +40,7 @@ $1',
 	'securepoll-no-gpg-home' => 'Unable to create GPG home directory.',
 	'securepoll-secret-gpg-error' => 'Error executing GPG.
 Use $wgSecurePollShowErrorDetail=true; in LocalSettings.php to show more detail.',
-'securepoll-full-gpg-error' => 'Error executing GPG: 
+'securepoll-full-gpg-error' => 'Error executing GPG:
 
 Command: $1
 
@@ -49,5 +49,4 @@ Error:
 	'securepoll-gpg-config-error' => 'GPG keys are configured incorrectly.',
 	'securepoll-gpg-parse-error' => 'Error interpreting GPG output.',
 	'securepoll-no-decryption-key' => 'No decryption key is configured, cannot decrypt.',
-
 );

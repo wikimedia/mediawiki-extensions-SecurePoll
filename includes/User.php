@@ -59,7 +59,7 @@ class SecurePoll_User {
 	function getLanguage() {
 		return $this->getProperty( 'language', 'en' );
 	}
-	
+
 	function getProperty( $name, $default = false ) {
 		if ( isset( $this->properties[$name] ) ) {
 			return $this->properties[$name];

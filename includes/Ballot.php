@@ -55,7 +55,7 @@ class SecurePoll_ChooseBallot extends SecurePoll_Ballot {
 				$radioId = "{$name}_opt{$optionId}";
 				$s .= Xml::radio( $name, $optionId, false, array( 'id' => $radioId ) ) .
 					'&nbsp;' .
-					Xml::tags( 'label', array( 'for' => $radioId ), $optionText ) . 
+					Xml::tags( 'label', array( 'for' => $radioId ), $optionText ) .
 					"<br/>\n";
 			}
 		}
@@ -129,6 +129,6 @@ class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 		</td></tr>";
 	}
 
-	function getForm() {}
-	function submitForm() {}
+	function getForm() { }
+	function submitForm() { }
 }

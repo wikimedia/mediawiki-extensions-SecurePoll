@@ -15,7 +15,7 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 			$wgOut->addWikiMsg( 'securepoll-too-few-params' );
 			return;
 		}
-		
+
 		$electionId = intval( $params[0] );
 		$this->election = $this->parent->getElection( $electionId );
 		if ( !$this->election ) {
@@ -32,7 +32,7 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 		$languages = array( $this->user->getLanguage(), $this->election->getLanguage() );
 		$languages = array_unique( $languages );
 		SecurePoll_Entity::setLanguages( $languages );
-		
+
 		$wgOut->setPageTitle( $this->election->getMessage( 'title' ) );
 
 		if ( !$this->election->isStarted() ) {
@@ -86,7 +86,7 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 		$encOK = wfMsgHtml( 'securepoll-submit' );
 		$encToken = htmlspecialchars( $this->parent->getEditToken() );
 
-		$wgOut->addHTML( 
+		$wgOut->addHTML(
 			"<form name=\"securepoll\" id=\"securepoll\" method=\"post\" action=\"$encAction\">\n" .
 			$this->election->getBallot()->getForm() .
 			"<input name=\"submit\" type=\"submit\" value=\"$encOK\">\n" .
@@ -128,13 +128,13 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 		$dbw->begin();
 
 		# Mark previous votes as old
-		$dbw->update( 'securepoll_votes', 
+		$dbw->update( 'securepoll_votes',
 			array( 'vote_current' => 0 ), # SET
 			array( # WHERE
 				'vote_election' => $this->election->getId(),
 				'vote_user' => $this->user->getId(),
-			), 
-			__METHOD__ 
+			),
+			__METHOD__
 		);
 
 		# Add vote to log
@@ -145,7 +145,7 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 
 		$tokenMatch = $this->parent->getEditToken() == $wgRequest->getVal( 'edit_token' );
 
-		$dbw->insert( 'securepoll_votes', 
+		$dbw->insert( 'securepoll_votes',
 			array(
 				'vote_election' => $this->election->getId(),
 				'vote_user' => $this->user->getId(),
@@ -156,7 +156,7 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 				'vote_timestamp' => $now,
 				'vote_current' => 1,
 				'vote_token_match' => $tokenMatch ? 1 : 0,
-			), 
+			),
 			__METHOD__ );
 		$dbw->commit();
 

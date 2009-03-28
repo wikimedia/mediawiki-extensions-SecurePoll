@@ -10,7 +10,7 @@
  */
 
 # Not a valid entry point, skip unless MEDIAWIKI is defined
-if( !defined('MEDIAWIKI') ) {
+if ( !defined( 'MEDIAWIKI' ) ) {
 	die( "Not a valid entry point\n" );
 }
 
@@ -41,7 +41,7 @@ $wgSecurePollTempDir = '/tmp';
  */
 $wgSecurePollShowErrorDetail = false;
 
-#### END CONFIGURATON ###
+### END CONFIGURATON ###
 
 
 
@@ -50,7 +50,7 @@ $wgAvailableRights[] = 'securepoll';
 $wgGroupPermissions['securepoll']['securepoll'] = true;
 
 // Set up the new special page
-$dir = dirname(__FILE__);
+$dir = dirname( __FILE__ );
 $wgExtensionMessagesFiles['SecurePoll'] = "$dir/SecurePoll.i18n.php";
 $wgExtensionAliasesFiles['SecurePoll'] = "$dir/SecurePoll.alias.php";
 
@@ -82,7 +82,7 @@ $wgAutoloadClasses = $wgAutoloadClasses + array(
 function wfSetupSecurePoll() {
 	wfSetupSession();
 	if ( isset( $_SESSION['bvLang'] ) && !isset( $_REQUEST['uselang'] ) ) {
-		wfDebug( __METHOD__.": Setting user language to {$_SESSION['bvLang']}\n" );
+		wfDebug( __METHOD__ . ": Setting user language to {$_SESSION['bvLang']}\n" );
 		$_REQUEST['uselang'] = $_SESSION['bvLang'];
 		global $wgLang;
 		$wgLang = Language::factory( $_SESSION['bvLang'] );

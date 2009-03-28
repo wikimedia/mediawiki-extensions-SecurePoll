@@ -15,7 +15,7 @@ class SecurePoll_Auth {
 	}
 
 	function login( $election ) {
-		if( session_id() == '' ) {
+		if ( session_id() == '' ) {
 			wfSetupSession();
 		}
 		if ( isset( $_SESSION['bvUser'] ) ) {
@@ -27,12 +27,12 @@ class SecurePoll_Auth {
 
 	function getUser( $params ) {
 		$db = wfGetDB( DB_MASTER );
-		$row = $db->selectRow( 
-			'securepoll_voters', '*', 
-			array( 
-				'voter_name' => $params['name'], 
+		$row = $db->selectRow(
+			'securepoll_voters', '*',
+			array(
+				'voter_name' => $params['name'],
 				'voter_domain' => $params['domain'],
-				'voter_authority' => $params['authority'] 
+				'voter_authority' => $params['authority']
 			),
 			__METHOD__ );
 		if ( $row ) {
@@ -82,7 +82,7 @@ class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
 		foreach ( $urlParamNames as $name ) {
 			$value = $wgRequest->getVal( $name );
 			if ( !preg_match( '/^[\w.-]*$/', $value ) ) {
-				wfDebug( __METHOD__." Invalid parameter: $name\n" );
+				wfDebug( __METHOD__ . " Invalid parameter: $name\n" );
 				return false;
 			}
 			$vars["\$$name"] = $value;
@@ -102,7 +102,7 @@ class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
 			return false;
 		}
 		if ( !$params['remote-mw-cookie'] ) {
-			wfDebug( __METHOD__.": No remote cookie configured!\n" );
+			wfDebug( __METHOD__ . ": No remote cookie configured!\n" );
 			return false;
 		}
 		$cookies = array( $params['remote-mw-cookie'] => $params['sid'] );
@@ -110,11 +110,11 @@ class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
 			$cookies[$params['remote-mw-ca-cookie']] = $params['casid'];
 		}
 		$cookieHeader = $this->encodeCookies( $cookies );
-		$url = $params['remote-mw-api-url'] . 
+		$url = $params['remote-mw-api-url'] .
 			'?action=query&format=php' .
-			'&meta=userinfo&uiprop=blockinfo|rights|editcount|options' . 
+			'&meta=userinfo&uiprop=blockinfo|rights|editcount|options' .
 			'&meta=siteinfo';
-		$curlParams = array( 
+		$curlParams = array(
 			CURLOPT_COOKIE => $cookieHeader,
 
 			// Use the default SSL certificate file
@@ -126,7 +126,7 @@ class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
 		$value = Http::get( $url, 20, $curlParams );
 
 		if ( !$value ) {
-			wfDebug( __METHOD__.": No response from server\n" );
+			wfDebug( __METHOD__ . ": No response from server\n" );
 			$_SESSION['bvCurlError'] = curl_error( $c );
 			return false;
 		}
@@ -135,11 +135,11 @@ class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
 		$userinfo = $decoded['query']['userinfo'];
 		$siteinfo = $decoded['query']['general'];
 		if ( isset( $userinfo['anon'] ) ) {
-			wfDebug( __METHOD__.": User is not logged in\n" );
+			wfDebug( __METHOD__ . ": User is not logged in\n" );
 			return false;
 		}
 		if ( !isset( $userinfo['name'] ) ) {
-			wfDebug( __METHOD__.": No username in response\n" );
+			wfDebug( __METHOD__ . ": No username in response\n" );
 			return false;
 		}
 		if ( isset( $userinfo['options']['language'] ) ) {
@@ -149,12 +149,12 @@ class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
 		}
 		$urlInfo = wfParseUrl( $decoded['query']['general']['base'] );
 		$domain = $urlInfo === false ? false : $urlInfo['host'];
-		$userPage = $siteinfo['server'] . 
-			str_replace( $siteinfo['articlepath'], '$1', '' ) . 
+		$userPage = $siteinfo['server'] .
+			str_replace( $siteinfo['articlepath'], '$1', '' ) .
 			'User:' .
 			urlencode( str_replace( $userinfo['name'], ' ', '_' ) );
 
-		wfDebug( __METHOD__." got response for user {$userinfo['name']}@{$params['wiki']}\n" );
+		wfDebug( __METHOD__ . " got response for user {$userinfo['name']}@{$params['wiki']}\n" );
 		return $this->getUser( array(
 			'name' => $userinfo['name'],
 			'type' => 'remote-mw',

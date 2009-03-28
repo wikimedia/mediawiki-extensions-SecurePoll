@@ -49,15 +49,15 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	}
 
 	function getQualifiedStatus( $user ) {
-		return Status::newGood();	
+		return Status::newGood();
 	}
 
 	function hasVoted( $user ) {
 		$db = wfGetDB( DB_MASTER );
-		$row = $db->selectRow( 
-			'securepoll_votes', 
+		$row = $db->selectRow(
+			'securepoll_votes',
 			array( "1" ),
-			array( 
+			array(
 				'vote_election' => $this->getId(),
 				'vote_user' => $user->getId(),
 			),
@@ -72,13 +72,13 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	function getQuestions() {
 		if ( $this->questions === null ) {
 			$db = wfGetDB( DB_MASTER );
-			$res = $db->select( 
+			$res = $db->select(
 				array( 'securepoll_questions', 'securepoll_options' ),
-				'*', 
-				array( 
+				'*',
+				array(
 					'qu_election' => $this->getId(),
 					'op_question=qu_entity'
-				), 
+				),
 				__METHOD__,
 				array( 'ORDER BY' => 'qu_index, qu_entity' )
 			);

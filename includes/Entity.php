@@ -55,10 +55,10 @@ class SecurePoll_Entity {
 		}
 
 		$db = wfGetDB( DB_MASTER );
-		$res = $db->select( 
+		$res = $db->select(
 			'securepoll_msgs',
 			'*',
-			array( 
+			array(
 				'msg_entity' => $ids,
 				'msg_lang' => $lang
 			),

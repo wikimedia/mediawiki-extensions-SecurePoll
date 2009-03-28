@@ -1,10 +1,10 @@
 <?php
 
-if( php_sapi_name() != 'cli' ) {
-	die("");
+if ( php_sapi_name() != 'cli' ) {
+	die( "" );
 }
 
-if( !isset( $argv[1] ) ) {
+if ( !isset( $argv[1] ) ) {
 	die( "You must provide a vote log file on the command line.\n" );
 }
 
@@ -19,7 +19,7 @@ $boardCandidates = array(	"John Doe" => "A",
 
 $end = "-----END PGP MESSAGE-----";
 $contents = file_get_contents( $argv[1] );
-if( $contents === false ) {
+if ( $contents === false ) {
 	die( "Couldn't open input file.\n" );
 }
 $entries = explode( $end, $contents );
@@ -27,7 +27,7 @@ $entries = explode( $end, $contents );
 $infile = tempnam( "/tmp", "gpg" );
 $outfile = tempnam( "/tmp", "gpg" );
 
-if( !isset( $argv[2] ) ) {
+if ( !isset( $argv[2] ) ) {
 	$votesfile = "results.txt";
 } else {
 	$votesfile = $argv[2];
@@ -40,7 +40,7 @@ foreach ( $boardCandidates as $name => $index ) {
 fwrite( $vfs, "\n== Votes ==\n" );
 
 foreach ( $entries as $i => $entry ) {
-	$entry = trim( $entry.$end );
+	$entry = trim( $entry . $end );
 
 	if ( $entry == $end ) {
 		continue;
@@ -53,15 +53,15 @@ foreach ( $entries as $i => $entry ) {
 	$lines = file( $outfile );
 	$ballot = process_line( $lines[0] );
 	$ballots[ $i ] = $ballot;
-	
+
 	asort( $ballot );
 	$vote = "# ";
 	$aliasBallot =& $ballot;
-	foreach( $aliasBallot as $cname => $crank ) {
+	foreach ( $aliasBallot as $cname => $crank ) {
 		$vote .= $boardCandidates[ $cname ];
-		
+
 		$ncrank = current( $aliasBallot ); // current() return the next element for an array alias inside a foreach()
-		if( $ncrank ) {
+		if ( $ncrank ) {
 			$vote .= ( $crank < $ncrank ) ? "," : "";
 		}
 	}
@@ -82,7 +82,7 @@ get_wvm_beatpath_matrix( $beatpathWVMatrix, $beatpathMMatrix );
 
 $orderedCandidates = sort_candidate_by_wins( $boardCandidates, $beatpathWVMatrix, $beatpathMMatrix );
 
-### Output results ###
+# ## Output results ###
 fwrite( $vfs, "== Pairwise defeats matrix ==\n" );
 output_table( $vfs, $defeatMatrix );
 fwrite( $vfs, "\nFor the above table, a row beats a column by N votes.\n\n" .
@@ -102,7 +102,7 @@ foreach ( $orderedCandidates as $winner => $l ) {
 
 fclose( $vfs );
 
-#-----------------------------------------------------------
+# -----------------------------------------------------------
 
 function process_line( $line ) {
 	$importantBit = substr( $line, strpos( $line, ":" ) + 1 );
@@ -111,8 +111,8 @@ function process_line( $line ) {
 	foreach ( $set as $i ) {
 		$rank = substr( $i, strpos( $i, "[" ) + 1 );
 		$rank = substr( $rank, 0, -1 );
-		
-		$ballot[ substr( $i, 0, -( strlen( $rank ) + 2 ) ) ] = (int)$rank;
+
+		$ballot[ substr( $i, 0, - ( strlen( $rank ) + 2 ) ) ] = (int)$rank;
 		//                                          ^^^
 		//                                        '[',']'
 	}
@@ -127,7 +127,7 @@ function get_defeat_matrix( $ballots ) {
 			$defeats[ $c ][ $opp ] = 0;
 		}
 	}
-	
+
 	foreach ( $ballots as $ballot ) {
 		foreach ( $ballot as $candidate => $rank ) {
 			foreach ( $ballot as $opponent => $oppRank ) {
@@ -139,7 +139,7 @@ function get_defeat_matrix( $ballots ) {
 			}
 		}
 	}
-	
+
 	return $defeats;
 }
 
@@ -150,7 +150,7 @@ function get_wv_matrix( $defeats ) {
 			$matrix[ $c ][ $opp ] = 0;
 		}
 	}
-	
+
 	foreach ( $defeats as $candidate => $opponents ) {
 		foreach ( $opponents as $opponent => $votes ) {
 			if ( $candidate != $opponent ) {
@@ -161,7 +161,7 @@ function get_wv_matrix( $defeats ) {
 			}
 		}
 	}
-	
+
 	return $matrix;
 }
 
@@ -183,7 +183,7 @@ function get_margin_matrix( $defeats ) {
 			}
 		}
 	}
-	
+
 	return $matrix;
 }
 
@@ -200,7 +200,7 @@ function get_beatpath_matrix( $pairwise ) {
 			}
 		}
 	}
-	
+
 	return $paths;
 }
 
@@ -212,7 +212,7 @@ function get_wvm_beatpath_matrix( &$wvp, &$mp ) {
 				foreach ( $opps as $k => $dummy2 ) {
 					if ( ( $c != $k ) && ( $opp != $k ) ) {
 						if ( ( $wvp[ $c ][ $k ] < $wvp[ $opp ][ $c ] ) ||
-							   ( ( $wvp[ $c ][ $k ] == $wvp[ $opp ][ $c ] ) &&  
+							   ( ( $wvp[ $c ][ $k ] == $wvp[ $opp ][ $c ] ) &&
 							   ( $mp[ $c ][ $k ] < $mp[ $opp ][ $c ] ) ) ) {
 							$wvipath = $wvp[ $c ][ $k ];
 							$mipath = $mp[ $c ][ $k ];
@@ -220,9 +220,9 @@ function get_wvm_beatpath_matrix( &$wvp, &$mp ) {
 							$wvipath = $wvp[ $opp ][ $c ];
 							$mipath = $mp[ $opp ][ $c ];
 						}
-						
+
 						if ( ( $wvp[ $opp ][ $k ] < $wvipath ) ||
-							   ( ( $wvp[ $opp ][ $k ] == $wvipath ) && 
+							   ( ( $wvp[ $opp ][ $k ] == $wvipath ) &&
 							   ( $mp[ $opp ][ $k ] < $mipath ) ) ) {
 							$wvp[ $opp ][ $k ] = $wvipath;
 							$mp[ $opp ][ $k ] = $mipath;
@@ -240,26 +240,26 @@ function sort_candidate_by_wins( $candidates, $wvpaths, $mpaths ) {
 	}
 
 	$winners = $candidates;
-	
+
 	foreach ( $candidates as $c => $dummy1 ) {
 		foreach ( $candidates as $opp => $dummy2 ) {
 			if ( $c != $opp ) {
 				if ( ( $wvpaths[ $c ][ $opp ] > $wvpaths[ $opp ][ $c ] ) ||
-					 ( ( $wvpaths[ $c ][ $opp ] == $wvpaths[ $opp ][ $c ] ) && 
+					 ( ( $wvpaths[ $c ][ $opp ] == $wvpaths[ $opp ][ $c ] ) &&
 					 ( $mpaths[ $c ][ $opp ] > $mpaths[ $opp ][ $c ] ) ) ) {
 					unset( $winners[ $opp ] );
 				}
 			}
 		}
 	}
-	
+
 	if ( count( $winners ) > 1 ) {
 		$ties = "";
 		foreach ( $winners as $wname => $wl ) {
 			$ties .= ( $wname . ", " );
 		}
 		$ties = substr( $ties, 0, -2 );
-		
+
 		print "Ties between : " . $ties . "\n";
 	}
 
@@ -272,7 +272,7 @@ function sort_candidate_by_wins( $candidates, $wvpaths, $mpaths ) {
 
 function output_table( &$fs, &$matrix ) {
 	global $boardCandidates;
-	
+
 	$line = "{| class=\"wikitable\" style=\"text-align:center\"\n|-\n! \n";
 	foreach ( $boardCandidates as $name => $idx ) {
 		$line .= ( "! " . $idx . "\n" );

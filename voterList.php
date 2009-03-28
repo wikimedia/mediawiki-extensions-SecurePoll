@@ -12,22 +12,22 @@ $server = str_replace( 'http://', '', $wgServer );
 $listFile = fopen( "voter-list", "a" );
 
 for ( $user = 1; $user <= $maxUser; $user++ ) {
-	$oldEdits = $dbr->selectField( 
-		'revision', 
+	$oldEdits = $dbr->selectField(
+		'revision',
 		'COUNT(*)',
-		array( 
+		array(
 			'rev_user' => $user,
 			"rev_timestamp < '200803010000'"
-		), 
+		),
 		$fname
 	);
-	$newEdits = $dbr->selectField( 
-		'revision', 
+	$newEdits = $dbr->selectField(
+		'revision',
 		'COUNT(*)',
-		array( 
+		array(
 			'rev_user' => $user,
 			"rev_timestamp BETWEEN '200801010000' AND '200805285959'"
-		), 
+		),
 		$fname
 	);
 	if ( $oldEdits >= 600 && $newEdits >= 50 ) {
@@ -37,7 +37,7 @@ for ( $user = 1; $user <= $maxUser; $user++ ) {
 			$props[] = 'bot';
 		}
 		$isBlocked = $userObj->isBlocked();
-		if ( $userObj->isBlocked() 
+		if ( $userObj->isBlocked()
 			&& $userObj->mBlock->mExpiry == 'infinity' )
 		{
 			$props[] = 'indefblocked';
@@ -47,7 +47,7 @@ for ( $user = 1; $user <= $maxUser; $user++ ) {
 		$editCount = $userObj->getEditCount();
 		$name = $userObj->getName();
 
-		fwrite( $listFile, "$wgDBname\t$server\t$name\t" . 
+		fwrite( $listFile, "$wgDBname\t$server\t$name\t" .
 			"$email\t$editCount\t$props\n" );
 	}
 }

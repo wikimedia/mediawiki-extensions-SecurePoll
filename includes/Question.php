@@ -11,5 +11,4 @@ class SecurePoll_Question extends SecurePoll_Entity {
 	function getChildren() {
 		return $this->options;
 	}
-	
 }

@@ -97,13 +97,13 @@ class SecurePoll_GpgCrypt {
 		closedir( $dir );
 		rmdir( $this->homeDir );
 	}
-	
+
 	function runGpg( $params ) {
 		global $wgSecurePollGPGCommand, $wgSecurePollShowErrorDetail;
 		$ret = 1;
-		$command = wfEscapeShellArg( $wgSecurePollGPGCommand ) . 
+		$command = wfEscapeShellArg( $wgSecurePollGPGCommand ) .
 			' --homedir ' . wfEscapeShellArg( $this->homeDir ) . ' --trust-model always --batch --yes ' .
-			$params . 
+			$params .
 			' 2>&1';
 		$output = wfShellExec( $command, $ret );
 		if ( $ret ) {

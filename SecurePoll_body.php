@@ -1,5 +1,5 @@
 <?php
-if( !defined('MEDIAWIKI') ) {
+if ( !defined( 'MEDIAWIKI' ) ) {
 	die( "Not a valid entry point\n" );
 }
 

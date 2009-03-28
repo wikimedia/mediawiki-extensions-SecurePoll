@@ -9,4 +9,3 @@ class SecurePoll_Option extends SecurePoll_Entity {
 		parent::__construct( 'option', $id );
 	}
 }
-

@@ -1,5 +1,5 @@
 <?php
-if( !defined('MEDIAWIKI') ) {
+if ( !defined( 'MEDIAWIKI' ) ) {
 	die( "Not a valid entry point\n" );
 }
 
@@ -39,7 +39,7 @@ class GoToBoardVotePage extends SpecialPage {
 		}
 
 		if ( $wgUser->isLoggedIn() ) {
-			#$url = 'http://shimmer/farm/frwiki/index.php?' . wfArrayToCGI( array(
+			# $url = 'http://shimmer/farm/frwiki/index.php?' . wfArrayToCGI( array(
 			$url = 'https://wikimedia.spi-inc.org/index.php?' . wfArrayToCGI( array(
 				'title' => 'Special:BoardVote' . ( $par ? "/$par" : '' ),
 				'sid' => session_id(),
