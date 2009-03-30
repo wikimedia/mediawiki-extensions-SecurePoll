@@ -7,9 +7,10 @@
 */
 
 $messages = array();
+
 /** English
  * @author Tim Starling
-*/
+ */
 $messages['en'] = array(
 	'securepoll' => 'SecurePoll',
 	'securepoll-desc' => 'Extension for elections and surveys',
@@ -323,6 +324,52 @@ Erro:
 	'securepoll-gpg-parse-error' => 'Erro de interpretación do GPG de saída.',
 	'securepoll-no-decryption-key' => 'Non hai unha chave de desencriptar configurada.
 Non se pode desencriptar.',
+);
+
+/** Hebrew (עברית)
+ * @author Rotem Liss
+ */
+$messages['he'] = array(
+	'securepoll' => 'הצבעה מאובטחת',
+	'securepoll-desc' => 'הרחבה המאפשרת הצבעות וסקרים',
+	'securepoll-invalid-page' => 'דף משנה בלתי תקין: "<nowiki>$1</nowiki>"',
+	'securepoll-too-few-params' => 'אין מספיק פרמטרים של דפי משנה (קישור בלתי תקין).',
+	'securepoll-invalid-election' => '"$1" אינו מספר הצבעה תקין.',
+	'securepoll-not-authorised' => 'אינכם מורשים להצביע בהצבעה זו.',
+	'securepoll-welcome' => '<strong>ברוכים הבאים, $1!</strong>',
+	'securepoll-not-started' => 'הצבעה זו טרם התחילה.
+היא מיועדת להתחיל ב־$1.',
+	'securepoll-not-qualified' => 'אינכם רשאים להצביע בהצבעה זו: $1',
+	'securepoll-change-disallowed' => 'הצבעתם כבר בהצבעה זו.
+מצטערים, אינכם רשאים להצביע שוב.',
+	'securepoll-change-allowed' => '<strong>הערה: כבר הצבעתם בהצבעה זו בעבר.</strong>
+באפשרותכם לשנות את הצבעתכם באמצעות שליחת הטופס להלן.
+אם תעשו זאת, הצבעתכם המקורית תימחק.',
+	'securepoll-submit' => 'שליחת ההצבעה',
+	'securepoll-gpg-receipt' => 'תודה על ההצבעה.
+
+אם תרצו, תוכלו לשמור את הקבלה הבאה כהוכחה להצבעתכם:
+
+<pre>$1</pre>',
+	'securepoll-thanks' => 'תודה לכם, הצבעתכם נרשמה.',
+	'securepoll-return' => 'בחזרה ל$1',
+	'securepoll-encrypt-error' => 'הצפנת רשומת ההצבעה שלכם לא הצליחה.
+הצבעתכם לא נרשמה!
+
+$1',
+	'securepoll-no-gpg-home' => 'לא ניתן ליצור את תיקיית הבית של GPG.',
+	'securepoll-secret-gpg-error' => 'שגיאה בהרצת GPG.
+הגדירו את $wgSecurePollShowErrorDetail=true; בקובץ LocalSettings.php להצגת פרטים נוספים.',
+'securepoll-full-gpg-error' => 'שגיאה בהרצת GPG:
+
+פקודה: $1
+
+שגיאה:
+<pre>$2</pre>',
+	'securepoll-gpg-config-error' => 'מפתחות GPG אינם מוגדרים כהלכה.',
+	'securepoll-gpg-parse-error' => 'שגיאה בפענוח הפלט של GPG.',
+	'securepoll-no-decryption-key' => 'לא הוגדר מפתח פיענוח.
+לא ניתן לפענח.',
 );
 
 /** Hungarian (Magyar)
