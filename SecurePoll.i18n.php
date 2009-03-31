@@ -63,6 +63,7 @@ $messages['qqq'] = array(
 	'securepoll-desc' => 'A short description of this extension shown in [[Special:Version]].
 {{doc-important|Do not translate tag names.}}
 {{doc-important|Do not translate links.}}',
+	'securepoll-not-started' => '$1 is a data/time, $2 is the date of it, $3 is its time.',
 	'securepoll-return' => '{{Identical|Return to $1}}',
 	'securepoll-secret-gpg-error' => "<span style=\"color:red\">'''DO <u>NOT</u> translate LocalSettings.php and \$wgSecurePollShowErrorDetail=true;'''</span>",
 );

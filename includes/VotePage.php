@@ -37,7 +37,9 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 
 		if ( !$this->election->isStarted() ) {
 			$wgOut->addWikiMsg( 'securepoll-not-started',
-				$wgLang->timeanddate( $this->election->getStartDate() ) );
+				$wgLang->timeanddate( $this->election->getStartDate() ) ,
+				$wgLang->date( $this->election->getStartDate() ) ,
+				$wgLang->time( $this->election->getStartDate() ) );
 			return;
 		}
 
