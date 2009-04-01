@@ -64,9 +64,10 @@ $wgAutoloadClasses = $wgAutoloadClasses + array(
 	'SecurePoll_RemoteMWAuth' => "$dir/includes/Auth.php",
 	'SecurePoll_Ballot' => "$dir/includes/Ballot.php",
 	'SecurePoll_ChooseBallot' => "$dir/includes/Ballot.php",
+	'SecurePoll_PreferentialBallot' => "$dir/includes/Ballot.php",
 	'SecurePoll_Crypt' => "$dir/includes/Crypt.php",
 	'SecurePoll_GpgCrypt' => "$dir/includes/Crypt.php",
-	'SecurePoll_PreferentialBallot' => "$dir/includes/Ballot.php",
+	'SecurePoll_DetailsPage' => "$dir/includes/DetailsPage.php",
 	'SecurePoll_DumpPage' => "$dir/includes/DumpPage.php",
 	'SecurePoll_Election' => "$dir/includes/Election.php",
 	'SecurePoll_Entity' => "$dir/includes/Entity.php",
@@ -79,6 +80,8 @@ $wgAutoloadClasses = $wgAutoloadClasses + array(
 	'SecurePoll_VotePage' => "$dir/includes/VotePage.php",
 );
 
+$wgAjaxExportList[] = 'wfSecurePollStrike';
+
 function wfSetupSecurePoll() {
 	wfSetupSession();
 	if ( isset( $_SESSION['bvLang'] ) && !isset( $_REQUEST['uselang'] ) ) {
@@ -88,3 +91,8 @@ function wfSetupSecurePoll() {
 		$wgLang = Language::factory( $_SESSION['bvLang'] );
 	}
 }
+
+function wfSecurePollStrike( $action, $id, $reason ) {
+	return SecurePoll_ListPage::ajaxStrike( $action, $id, $reason );
+}
+

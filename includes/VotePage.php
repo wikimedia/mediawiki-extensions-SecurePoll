@@ -1,16 +1,11 @@
 <?php
 
 class SecurePoll_VotePage extends SecurePoll_Page {
-	var $parent, $request, $languages;
+	var $languages;
 	var $election, $auth, $user;
 
-	function __construct( $parent ) {
-		$this->parent = $parent;
-		$this->request = $parent->request;
-	}
-
 	function execute( $params ) {
-		global $wgOut;
+		global $wgOut, $wgRequest;
 		if ( !count( $params ) ) {
 			$wgOut->addWikiMsg( 'securepoll-too-few-params' );
 			return;
@@ -29,9 +24,7 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 			$wgOut->addWikiMsg( 'securepoll-not-authorised' );
 			return;
 		}
-		$languages = array( $this->user->getLanguage(), $this->election->getLanguage() );
-		$languages = array_unique( $languages );
-		SecurePoll_Entity::setLanguages( $languages );
+		$this->initLanguage( $this->user, $this->election );
 
 		$wgOut->setPageTitle( $this->election->getMessage( 'title' ) );
 
@@ -62,7 +55,7 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 		}
 
 		// Show/submit the form
-		if ( $this->request->wasPosted() ) {
+		if ( $wgRequest->wasPosted() ) {
 			$this->doSubmit();
 		} else {
 			$this->showForm();
@@ -151,8 +144,10 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 			array(
 				'vote_election' => $this->election->getId(),
 				'vote_user' => $this->user->getId(),
+				'vote_user_name' => $this->user->getName(),
+				'vote_user_domain' => $this->user->getDomain(),
 				'vote_record' => $encrypted,
-				'vote_ip' => wfGetIP(),
+				'vote_ip' => IP::toHex( wfGetIP() ),
 				'vote_xff' => $xff,
 				'vote_ua' => $_SERVER['HTTP_USER_AGENT'],
 				'vote_timestamp' => $now,

@@ -26,20 +26,32 @@ class SecurePoll_Auth {
 	}
 
 	function getUser( $params ) {
-		$db = wfGetDB( DB_MASTER );
-		$row = $db->selectRow(
-			'securepoll_voters', '*',
-			array(
-				'voter_name' => $params['name'],
+		$dbw = wfGetDB( DB_MASTER );
+
+		# This needs to be protected by FOR UPDATE
+		# Otherwise a race condition could lead to duplicate users for a single remote user, 
+		# and thus to duplicate votes.
+		$dbw->begin();
+		$row = $dbw->selectRow( 
+			'securepoll_voters', '*', 
+			array( 
+				'voter_name' => $params['name'], 
 				'voter_domain' => $params['domain'],
 				'voter_authority' => $params['authority']
 			),
-			__METHOD__ );
+			__METHOD__,
+			array( 'FOR UPDATE' )
+		);
 		if ( $row ) {
-			return SecurePoll_User::newFromRow( $row );
+			# No need to hold the lock longer
+			$dbw->commit();
+			$user = SecurePoll_User::newFromRow( $row );
 		} else {
-			return SecurePoll_User::createUser( $params );
+			# Lock needs to be held until the row is inserted
+			$user = SecurePoll_User::createUser( $params );
+			$dbw->commit();
 		}
+		return $user;
 	}
 }
 
@@ -51,8 +63,8 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 			$params = array(
 				'name' => $wgUser->getName(),
 				'type' => 'local',
-				'domain' => $wgServer,
-				'authority' => $wgServer . $wgUser->getUserPage()->getFullURL(),
+				'domain' => preg_replace( '!.*/(.*)$!', '$1', $wgServer ),
+				'authority' => $wgUser->getUserPage()->getFullURL(),
 				'properties' => array(
 					'wiki' => wfWikiID(),
 					'blocked' => $wgUser->isBlocked(),

@@ -68,17 +68,6 @@ class SecurePoll_User {
 		}
 	}
 
-	/**
-	 * Checks if the user is allowed to administrate elections
-	 * by checking for the 'securepoll' user right
-	 *
-	 * @return boolean: true if the user has 'securepoll' right, otherwise false
-	 */
-	function isAdmin() {
-		global $wgUser;
-		return $wgUser->isAllowed( 'securepoll' );
-	}
-
 	function isRemote() {
 		return $this->type !== 'local';
 	}

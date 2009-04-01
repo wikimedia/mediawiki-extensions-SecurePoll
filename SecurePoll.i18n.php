@@ -12,9 +12,12 @@ $messages = array();
  * @author Tim Starling
  */
 $messages['en'] = array(
+	# Top-level
 	'securepoll' => 'SecurePoll',
 	'securepoll-desc' => 'Extension for elections and surveys',
 	'securepoll-invalid-page' => 'Invalid subpage "<nowiki>$1</nowiki>"',
+	
+	# Vote (most important to translate)
 	'securepoll-too-few-params' => 'Not enough subpage parameters (invalid link).',
 	'securepoll-invalid-election' => '"$1" is not a valid election ID.',
 	'securepoll-not-authorised' => 'You are not authorised to vote in this election.',
@@ -52,6 +55,41 @@ Error:
 	'securepoll-gpg-parse-error' => 'Error interpreting GPG output.',
 	'securepoll-no-decryption-key' => 'No decryption key is configured.
 Cannot decrypt.',
+	
+	# List page
+	# Mostly for admins
+	'securepoll-list-title' => 'List votes: $1',
+	'securepoll-header-timestamp' => 'Time',
+	'securepoll-header-user-name' => 'Name',
+	'securepoll-header-user-domain' => 'Domain',
+	'securepoll-header-ip' => 'IP',
+	'securepoll-header-xff' => 'XFF',
+	'securepoll-header-ua' => 'User agent',
+	'securepoll-header-token-match' => 'CSRF',
+	'securepoll-header-strike' => 'Strike',
+	'securepoll-header-details' => 'Details',
+	'securepoll-strike-button' => 'Strike',
+	'securepoll-unstrike-button' => 'Unstrike',
+	'securepoll-strike-reason' => 'Reason:',
+	'securepoll-strike-cancel' => 'Cancel',
+	'securepoll-strike-error' => 'Error performing strike/unstrike: $1',
+	'securepoll-need-admin' => 'You need to be an admin to perform this action.',
+	'securepoll-details-link' => 'Details',
+
+	# Details page
+	# Mostly for admins
+	'securepoll-details-title' => 'Vote details: #$1',
+	'securepoll-invalid-vote' => '"$1" is not a valid vote ID',
+	'securepoll-header-id' => 'ID',
+	'securepoll-header-user-type' => 'User type',
+	'securepoll-header-authority' => 'URL',
+	'securepoll-voter-properties' => 'Voter properties',
+	'securepoll-strike-log' => 'Strike log',
+	'securepoll-header-action' => 'Action',
+	'securepoll-header-reason' => 'Reason',
+	'securepoll-header-admin' => 'Admin',
+	
+	'securepoll-no-strikes' => 'No strike entries.',
 );
 
 /** Message documentation (Message documentation)

@@ -52,6 +52,11 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		return Status::newGood();
 	}
 
+	function isAdmin( User $user ) {
+		$admins = array_map( 'trim', explode( '|', $this->getProperty( 'admins' ) ) );
+		return in_array( $user->getName(), $admins );
+	}
+	
 	function hasVoted( $user ) {
 		$db = wfGetDB( DB_MASTER );
 		$row = $db->selectRow(

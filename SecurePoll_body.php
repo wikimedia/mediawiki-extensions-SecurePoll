@@ -8,6 +8,7 @@ class SecurePollPage extends UnlistedSpecialPage {
 		'entry' => 'SecurePoll_EntryPage',
 		'vote' => 'SecurePoll_VotePage',
 		'list' => 'SecurePoll_ListPage',
+		'details' => 'SecurePoll_DetailsPage',
 		'dump' => 'SecurePoll_DumpPage',
 	);
 
@@ -24,11 +25,18 @@ class SecurePollPage extends UnlistedSpecialPage {
 	 * @param $paramString Mixed: parameter passed to the page or null
 	 */
 	public function execute( $paramString ) {
-		global $wgOut, $wgRequest;
+		global $wgOut, $wgRequest, $wgScriptPath;
 
 		wfLoadExtensionMessages( 'SecurePoll' );
 
 		$this->setHeaders();
+		$wgOut->addLink( array(
+			'rel' => 'stylesheet',
+			'href' => "$wgScriptPath/extensions/SecurePoll/SecurePoll.css",
+			'type' => 'text/css'
+		) );
+		$wgOut->addScriptFile( "$wgScriptPath/extensions/SecurePoll/SecurePoll.js" );
+
 		$this->request = $wgRequest;
 
 		$paramString = strval( $paramString );

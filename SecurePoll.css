@@ -1,0 +1,32 @@
+.securepoll-old-vote {
+	color: #666;
+}
+.securepoll-struck-vote td {
+	text-decoration: line-through;
+}
+.securepoll-popup {
+	padding: 0.5em 1em 0.5em 1em;
+	border: outset;
+	position: absolute;
+	height: 7em;
+	width: 38em;
+	display: none;
+	background-color: #ffffdd;
+	overflow: auto;
+	z-index: 3;
+}
+.securepoll-confirm-button {
+	width: 16%;
+	margin-left: 16%;
+	margin-right: 16%;
+}
+#securepoll-strike-spinner {
+	display: none;
+	margin-left: auto;
+	margin-right: auto;
+	width: 30px;
+}
+.securepoll-detail-header {
+	font-weight: bold;
+	width: 20%;
+}
