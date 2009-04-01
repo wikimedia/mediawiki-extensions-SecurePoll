@@ -17,6 +17,11 @@ class SecurePoll_Entity {
 		return $this->type;
 	}
 
+	function getMessageNames() {
+		# STUB
+		return array();
+	}
+
 	function getId() {
 		return $this->id;
 	}
@@ -83,11 +88,22 @@ class SecurePoll_Entity {
 		}
 	}
 
+	function getRawMessage( $name, $language ) {
+		if ( empty( $this->messagesLoaded[$language] ) ) {
+			$this->loadMessages( $language );
+		}
+		if ( !isset( self::$messageCache[$language][$this->getId()][$name] ) ) {
+			return false;
+		} else {
+			return self::$messageCache[$language][$this->getId()][$name];
+		}
+	}
+
 	function getMessage( $name, $language = false ) {
 		if ( $language === false ) {
 			$language = reset( self::$languages );
 		}
-		if ( !$this->messagesLoaded ) {
+		if ( empty( $this->messagesLoaded[$language] ) ) {
 			$this->loadMessages( $language );
 		}
 		$id = $this->getId();
@@ -109,4 +125,5 @@ class SecurePoll_Entity {
 			return $default;
 		}
 	}
+
 }

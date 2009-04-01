@@ -5,11 +5,12 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 class SecurePollPage extends UnlistedSpecialPage {
 	static $pages = array(
-		'entry' => 'SecurePoll_EntryPage',
-		'vote' => 'SecurePoll_VotePage',
-		'list' => 'SecurePoll_ListPage',
 		'details' => 'SecurePoll_DetailsPage',
 		'dump' => 'SecurePoll_DumpPage',
+		'entry' => 'SecurePoll_EntryPage',
+		'list' => 'SecurePoll_ListPage',
+		'translate' => 'SecurePoll_TranslatePage',
+		'vote' => 'SecurePoll_VotePage',
 	);
 
 	/**
@@ -40,10 +41,10 @@ class SecurePollPage extends UnlistedSpecialPage {
 		$this->request = $wgRequest;
 
 		$paramString = strval( $paramString );
-		$params = explode( '/', $paramString );
-		if ( !isset( $params[0] ) ) {
-			$params = array( 'entry' );
+		if ( $paramString === '' ) {
+			$paramString = 'entry';
 		}
+		$params = explode( '/', $paramString );
 		$pageName = array_shift( $params );
 		$page = $this->getSubpage( $pageName );
 		if ( !$page ) {
@@ -66,7 +67,11 @@ class SecurePollPage extends UnlistedSpecialPage {
 	function getElection( $id ) {
 		$db = wfGetDB( DB_MASTER );
 		$row = $db->selectRow( 'securepoll_elections', '*', array( 'el_entity' => $id ), __METHOD__ );
-		return SecurePoll_Election::newFromRow( $row );
+		if ( $row ) {
+			return SecurePoll_Election::newFromRow( $row );
+		} else {
+			return false;
+		}
 	}
 
 	function getEditToken() {

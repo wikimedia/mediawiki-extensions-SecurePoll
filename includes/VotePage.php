@@ -140,8 +140,10 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 
 		$tokenMatch = $this->parent->getEditToken() == $wgRequest->getVal( 'edit_token' );
 
+		$voteId = $dbw->nextSequenceValue( 'securepoll_votes_vote_id' );
 		$dbw->insert( 'securepoll_votes',
 			array(
+				'vote_id' => $voteId,
 				'vote_election' => $this->election->getId(),
 				'vote_user' => $this->user->getId(),
 				'vote_user_name' => $this->user->getName(),
@@ -155,10 +157,12 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 				'vote_token_match' => $tokenMatch ? 1 : 0,
 			),
 			__METHOD__ );
+		$voteId = $dbw->insertId();
 		$dbw->commit();
 
 		if ( $crypt ) {
-			$wgOut->addWikiMsg( 'securepoll-gpg-receipt', $encrypted );
+			$receipt = sprintf( "SPID: %10d\n%s", $voteId, $encrypted );
+			$wgOut->addWikiMsg( 'securepoll-gpg-receipt', $receipt );
 		} else {
 			$wgOut->addWikiMsg( 'securepoll-thanks' );
 		}

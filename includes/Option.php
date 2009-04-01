@@ -8,4 +8,8 @@ class SecurePoll_Option extends SecurePoll_Entity {
 	function __construct( $id ) {
 		parent::__construct( 'option', $id );
 	}
+
+	function getMessageNames() {
+		return array( 'text' );
+	}
 }

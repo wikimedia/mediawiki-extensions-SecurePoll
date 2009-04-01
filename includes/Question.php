@@ -8,6 +8,10 @@ class SecurePoll_Question extends SecurePoll_Entity {
 		$this->options = $options;
 	}
 
+	function getMessageNames() {
+		return array( 'text' );
+	}
+
 	function getChildren() {
 		return $this->options;
 	}

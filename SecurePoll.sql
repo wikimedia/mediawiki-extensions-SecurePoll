@@ -53,7 +53,7 @@ CREATE TABLE /*_*/securepoll_voters (
 	voter_authority blob,
 	voter_properties blob
 );
-CREATE UNIQUE INDEX /*i*/spvoter_name_domain ON /*_*/securepoll_voters (voter_name, voter_domain);
+CREATE INDEX /*i*/spvoter_name_domain ON /*_*/securepoll_voters (voter_name, voter_domain);
 
 CREATE TABLE /*_*/securepoll_votes (
 	vote_id int not null primary key auto_increment,

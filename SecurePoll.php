@@ -76,6 +76,7 @@ $wgAutoloadClasses = $wgAutoloadClasses + array(
 	'SecurePoll_Option' => "$dir/includes/Option.php",
 	'SecurePoll_Page' => "$dir/includes/Page.php",
 	'SecurePoll_Question' => "$dir/includes/Question.php",
+	'SecurePoll_TranslatePage' => "$dir/includes/TranslatePage.php",
 	'SecurePoll_User' => "$dir/includes/User.php",
 	'SecurePoll_VotePage' => "$dir/includes/VotePage.php",
 );

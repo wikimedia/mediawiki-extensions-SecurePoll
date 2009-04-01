@@ -88,8 +88,21 @@ Cannot decrypt.',
 	'securepoll-header-action' => 'Action',
 	'securepoll-header-reason' => 'Reason',
 	'securepoll-header-admin' => 'Admin',
-	
-	'securepoll-no-strikes' => 'No strike entries.',
+
+	# Dump page
+	'securepoll-dump-title' => 'Dump: $1',
+	'securepoll-dump-no-crypt' => 'No encrypted election record is available for this election, because the election is not configured to use encryption.',
+	'securepoll-dump-not-finished' => 'Encrypted election records are only available after the finish date: $1',
+	'securepoll-dump-no-urandom' => 'Cannot open /dev/urandom. 
+To maintain voter privacy, encrypted election records are only publically available when they can be shuffled with a secure random number stream.',
+
+	# Translate page
+	'securepoll-translate-title' => 'Translate: $1',
+	'securepoll-invalid-language' => 'Invalid language code "$1"',
+	'securepoll-header-trans-id' => 'ID',
+	'securepoll-submit-translate' => 'Update',
+	'securepoll-language-label' => 'Select language: ',
+	'securepoll-submit-select-lang' => 'Translate',
 );
 
 /** Message documentation (Message documentation)

@@ -20,6 +20,10 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		return $election;
 	}
 
+	function getMessageNames() {
+		return array( 'title', 'intro' );
+	}
+
 	function getChildren() {
 		return $this->getQuestions();
 	}
@@ -34,11 +38,11 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		return !$this->startDate || $ts >= $this->startDate;
 	}
 
-	function isFinished( $ts ) {
+	function isFinished( $ts = false ) {
 		if ( $ts === false ) {
 			$ts = wfTimestampNow();
 		}
-		return $this->endDate && $ts < $this->endDate;
+		return $this->endDate && $ts >= $this->endDate;
 	}
 
 	function getBallot() {
