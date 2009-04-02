@@ -916,6 +916,17 @@ $1',
 	'securepoll-header-action' => 'פעולה',
 	'securepoll-header-reason' => 'סיבה',
 	'securepoll-header-admin' => 'מנהל',
+	'securepoll-dump-title' => 'העתק מוצפן: $1',
+	'securepoll-dump-no-crypt' => 'לא נמצאה רשומת הצבעה מוצפנת עבור הצבעה זו, כיוון שההצבעה אינה מוגדרת לשימוש בהצפנה.',
+	'securepoll-dump-not-finished' => 'רשומות ההצבעה המוצפנות זמינות רק לאחר תאריך הסיום: $1',
+	'securepoll-dump-no-urandom' => 'לא ניתן לפתוח את /dev/urandom. 
+כדי לשמור על פרטיות המצביעים, רשומות ההצבעה המוצפנות זמינותת באופן ציבורי רק כאשר ניתן לערבב אותן באמצעות זרם המשתמש במספר אקראי מאובטח.',
+	'securepoll-translate-title' => 'תרגום: $1',
+	'securepoll-invalid-language' => 'קוד שפה בלתי תקין "$1"',
+	'securepoll-header-trans-id' => 'מספר',
+	'securepoll-submit-translate' => 'עדכון',
+	'securepoll-language-label' => 'בחירת שפה:',
+	'securepoll-submit-select-lang' => 'תרגום',
 );
 
 /** Upper Sorbian (Hornjoserbsce)
