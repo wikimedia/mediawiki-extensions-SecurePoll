@@ -329,6 +329,11 @@ No es pot desencriptar.',
 	'securepoll-header-action' => 'Acció',
 	'securepoll-header-reason' => 'Motiu',
 	'securepoll-header-admin' => 'Administrador',
+	'securepoll-translate-title' => 'Traducció: $1',
+	'securepoll-invalid-language' => "Codi d'idioma «$1» no vàlid",
+	'securepoll-submit-translate' => 'Actualitza',
+	'securepoll-language-label' => 'Escolliu idioma:',
+	'securepoll-submit-select-lang' => 'Tradueix',
 );
 
 /** Czech (Česky)
@@ -420,7 +425,7 @@ Es folgt eine Bestätigung als Beweis für deine Stimmabgabe:
 Deine Stimme wurde nicht gespeichert!
 
 $1',
-	'securepoll-no-gpg-home' => 'GPG-Heimverzeichnis kann nicht erstellt werden.',
+	'securepoll-no-gpg-home' => 'GPG-Benutzerverzeichnis kann nicht erstellt werden.',
 	'securepoll-secret-gpg-error' => 'Fehler beim Ausführen von GPG.
 $wgSecurePollShowErrorDetail=true; in LocalSettings.php einfügen, um mehr Details anzuzeigen.',
 	'securepoll-full-gpg-error' => 'Fehler beim Ausführen von GPG:
@@ -494,14 +499,24 @@ $1',
  * @author Michawiki
  */
 $messages['dsb'] = array(
+	'securepoll' => 'Wěste wótgłosowanje',
 	'securepoll-desc' => 'Rozšyrjenje za wólby a napšašowanja',
 	'securepoll-invalid-page' => 'Njepłaśiwy pódbok "<nowiki>$1</nowiki>"',
 	'securepoll-too-few-params' => 'Nic dosć pódbokowych parametrow (njepłaśiwy wótkaz)',
 	'securepoll-invalid-election' => '"$1" njejo płaśiwy wólbny ID.',
+	'securepoll-not-authorised' => 'Njejsy awtorizěrowany w toś tej wólbje wótgłosowaś.',
 	'securepoll-welcome' => '<strong>Witaj $1!</strong>',
+	'securepoll-not-started' => 'Toś ta wólba hyšći njejo se zachopiła.
+Zachopijo nejskerjej $1.',
+	'securepoll-not-qualified' => 'Njejsy wopšawnjony w toś tej wólbje wótgłosowaś: $1',
+	'securepoll-change-disallowed' => 'Sy južo wótgłosował w toś tej wólbje.
+Njesmějoš hyšći raz wótgłosowaś.',
 	'securepoll-submit' => 'Głos daś',
 	'securepoll-thanks' => 'Źěkujomy se, twój głos jo se zregistrěrował.',
 	'securepoll-return' => 'Slědk k $1',
+	'securepoll-gpg-config-error' => 'GPG-kluce su wopak konfigurěrowane.',
+	'securepoll-no-decryption-key' => 'Dešifrěrowański kluc njejo konfigurěrowany.
+Njejo móžno dešifrěrowaś.',
 	'securepoll-list-title' => 'Głose nalicyś: $1',
 	'securepoll-header-timestamp' => 'Cas',
 	'securepoll-header-user-name' => 'Mě',
@@ -523,11 +538,19 @@ $messages['dsb'] = array(
 	'securepoll-header-action' => 'Akcija',
 	'securepoll-header-reason' => 'Pśicyna',
 	'securepoll-header-admin' => 'Administrator',
+	'securepoll-dump-title' => 'Wuśěg: $1',
+	'securepoll-translate-title' => 'Pśełožyś: $1',
+	'securepoll-invalid-language' => 'Njepłaśiwy rěcny kod "$1"',
+	'securepoll-submit-translate' => 'Aktualizěrowaś',
+	'securepoll-language-label' => 'Rěc wubraś:',
+	'securepoll-submit-select-lang' => 'Přełožyś',
 );
 
 /** Greek (Ελληνικά)
  * @author Consta
+ * @author Crazymadlover
  * @author Geraki
+ * @author ZaDiak
  */
 $messages['el'] = array(
 	'securepoll' => 'SecurePoll',
@@ -570,13 +593,20 @@ $1',
 	'securepoll-gpg-parse-error' => 'Σφάλμα διερμηνείας εξόδου GPG.',
 	'securepoll-no-decryption-key' => 'Δεν έχει ρυθμιστεί κλειδί αποκρυπτογράφησης.
 Δεν είναι δυνατή η αποκρυπτογράφηση.',
+	'securepoll-header-timestamp' => 'Ώρα',
 	'securepoll-header-user-name' => 'Όνομα',
 	'securepoll-header-details' => 'Λεπτομέρειες',
 	'securepoll-strike-reason' => 'Λόγος:',
+	'securepoll-strike-cancel' => 'Άκυρο',
 	'securepoll-details-link' => 'Λεπτομέρειες',
+	'securepoll-invalid-vote' => 'Η "$1" δεν είναι μια έγκυρη ψήφος βάση ταυτότητας',
 	'securepoll-header-user-type' => 'Τύπος χρήστη',
+	'securepoll-header-action' => 'Ενέργεια',
 	'securepoll-header-reason' => 'Λόγος',
 	'securepoll-header-admin' => 'Διαχειριστής',
+	'securepoll-translate-title' => 'Μετάφραση: $1',
+	'securepoll-submit-translate' => 'Ενημέρωση',
+	'securepoll-submit-select-lang' => 'Μετάφραση',
 );
 
 /** Esperanto (Esperanto)
@@ -590,6 +620,9 @@ $messages['eo'] = array(
 	'securepoll-invalid-election' => '"$1" ne estas valida voĉdonada identigo.',
 	'securepoll-not-authorised' => 'Vi ne rajtas voĉdoni en ĉi tiu voĉdonado.',
 	'securepoll-welcome' => '<strong>Bonvenon, $1!</strong>',
+	'securepoll-not-started' => 'Ĉi tiu voĉdonado ne jam estis funkciata.
+Ĝi pretos komenci je $1.',
+	'securepoll-not-qualified' => 'Vi ne rajtas voĉdoni en ĉi tiu voĉdonado: $1',
 	'securepoll-submit' => 'Enmeti voĉdonon',
 	'securepoll-thanks' => 'Dankon, via voĉdono estis registrita.',
 	'securepoll-return' => 'Reiri al $1',
@@ -597,6 +630,7 @@ $messages['eo'] = array(
 Via voĉdono ne estis rekordita!
 
 $1',
+	'securepoll-no-gpg-home' => 'Ne eblas krei GPG hejman dosierujon.',
 	'securepoll-gpg-config-error' => 'GPG-ŝlosiloj estas konfiguritaj malĝuste.',
 	'securepoll-header-timestamp' => 'Tempo',
 	'securepoll-header-user-name' => 'Nomo',
@@ -605,13 +639,20 @@ $1',
 	'securepoll-strike-reason' => 'Kialo:',
 	'securepoll-strike-cancel' => 'Nuligi',
 	'securepoll-details-link' => 'Detaloj',
+	'securepoll-details-title' => 'Detaloj de voĉdono: #$1',
 	'securepoll-header-action' => 'Ago',
 	'securepoll-header-reason' => 'Kialo',
 	'securepoll-header-admin' => 'Administranto',
+	'securepoll-translate-title' => 'Traduki: $1',
+	'securepoll-invalid-language' => 'Malvalida lingva kodo "$1"',
+	'securepoll-submit-translate' => 'Ĝisdatigi',
+	'securepoll-language-label' => 'Elekti lingvon:',
+	'securepoll-submit-select-lang' => 'Traduki',
 );
 
 /** Spanish (Español)
  * @author Crazymadlover
+ * @author Dferg
  * @author DoveBirkoff
  */
 $messages['es'] = array(
@@ -652,11 +693,14 @@ Error:
 <pre>$2</pre>',
 	'securepoll-gpg-config-error' => 'Teclas GPG están configuradas incorrectamente.',
 	'securepoll-gpg-parse-error' => 'Error interpretando salida GPG.',
+	'securepoll-list-title' => 'Lista votos: $1',
 	'securepoll-header-timestamp' => 'Tiempo',
 	'securepoll-header-user-name' => 'Nombre',
 	'securepoll-header-user-domain' => 'Dominio',
 	'securepoll-header-ua' => 'Agente de usuario',
+	'securepoll-header-strike' => 'Tachar',
 	'securepoll-header-details' => 'Detalles',
+	'securepoll-strike-button' => 'Trachar',
 	'securepoll-strike-reason' => 'Razón:',
 	'securepoll-strike-cancel' => 'Cancelar',
 	'securepoll-need-admin' => 'Necesitas ser un administrador para realizar esta acción.',
@@ -666,6 +710,105 @@ Error:
 	'securepoll-voter-properties' => 'Propiedades de votante',
 	'securepoll-header-action' => 'Acción',
 	'securepoll-header-reason' => 'Razón',
+	'securepoll-header-admin' => 'Administrador',
+	'securepoll-dump-no-crypt' => 'No se dispone de un registro encriptado para esta votación dado que esta votación no ha sido configurada para usar encriptación.',
+	'securepoll-dump-not-finished' => 'Los registros encriptados de la votación están únicamente disponibles después de la fecha de finalización: $1',
+	'securepoll-translate-title' => 'Traducir: $1',
+	'securepoll-invalid-language' => 'Código de lenguaje inválido "$1"',
+	'securepoll-submit-translate' => 'Actualizar',
+	'securepoll-language-label' => 'Seleccionar lenguaje:',
+	'securepoll-submit-select-lang' => 'Traducir',
+);
+
+/** Estonian (Eesti)
+ * @author WikedKentaur
+ */
+$messages['et'] = array(
+	'securepoll-invalid-election' => '"$1" pole õige hääletuse-ID.',
+	'securepoll-welcome' => '<strong>Tere tulemast $1!</strong>',
+	'securepoll-not-started' => 'Hääletus pole veel alanud.
+See algab $1.',
+	'securepoll-change-disallowed' => 'Sa oled oma hääle juba andnud.
+Teistkorda hääletada ei saa.',
+	'securepoll-change-allowed' => '<strong>Teade: Sa oled oma hääle juba andnud.</strong>
+Sa võid allpool oma antud häält muuta.
+Kui sa seda teed, siis sinu eelmine hääl tühistub.',
+	'securepoll-gpg-receipt' => 'Täname hääletamast.
+
+Soovi korral võid talletada järgneva kinnituse antud hääle kohta:
+
+<pre>$1</pre>',
+	'securepoll-thanks' => 'Täname, sinu hääl on talletatud.',
+	'securepoll-return' => 'Pöördu tagasi $1',
+	'securepoll-encrypt-error' => 'Sinu antud hääle andmeid ei õnnestunud krüpteerida.
+Sinu häält pole talletatud!
+
+$1',
+	'securepoll-header-timestamp' => 'Aeg',
+	'securepoll-header-user-name' => 'Nimi',
+	'securepoll-header-user-domain' => 'Domeen',
+	'securepoll-header-details' => 'Üksikasjad',
+	'securepoll-strike-reason' => 'Põhjus:',
+	'securepoll-strike-cancel' => 'Katkesta',
+	'securepoll-need-admin' => 'Selle tegevuse sooritamiseks pead sa olema administraator.',
+	'securepoll-details-title' => 'Hääletuse andmed: #$1',
+	'securepoll-invalid-vote' => '"$1" pole õige hääle-ID.',
+	'securepoll-header-reason' => 'Põhjus',
+	'securepoll-translate-title' => 'Tõlgi: $1',
+	'securepoll-invalid-language' => 'Vigane keelekood  "$1"',
+	'securepoll-submit-translate' => 'Uuenda',
+	'securepoll-language-label' => 'Vali keel:',
+	'securepoll-submit-select-lang' => 'Tõlgi',
+);
+
+/** Persian (فارسی)
+ * @author Meisam
+ */
+$messages['fa'] = array(
+	'securepoll' => 'رای‌گیری امن',
+	'securepoll-desc' => 'افزونه برای رای‌گیری‌ها و جمع‌آوری اطلاعات',
+	'securepoll-invalid-page' => 'زیرسفحه نامعتبر "<nowiki>$1</nowiki>"',
+	'securepoll-not-qualified' => 'شما واجد شرایط شرکت در این رای‌گیری نیستید: $1',
+	'securepoll-submit' => 'ارسال رای',
+	'securepoll-return' => 'بازگشت به $1',
+	'securepoll-header-timestamp' => 'زمان',
+	'securepoll-header-user-name' => 'نام',
+	'securepoll-header-user-domain' => 'دامین',
+	'securepoll-header-details' => 'جزئیات',
+	'securepoll-strike-reason' => 'دلیل:',
+	'securepoll-details-link' => 'جزئیات',
+	'securepoll-details-title' => 'جزییات رای: #$1',
+	'securepoll-header-user-type' => 'نوع کاربر',
+	'securepoll-header-reason' => 'دلیل',
+	'securepoll-header-admin' => 'مدیر',
+	'securepoll-submit-translate' => 'به‌روزآوری',
+	'securepoll-language-label' => 'انتخاب زبان:',
+	'securepoll-submit-select-lang' => 'ترجمه',
+);
+
+/** Finnish (Suomi)
+ * @author Str4nd
+ */
+$messages['fi'] = array(
+	'securepoll-desc' => 'Liitännäinen vaaleille ja kyselyille.',
+	'securepoll-invalid-page' => 'Virheellinen alasivu ”<nowiki>$1</nowiki>”',
+	'securepoll-welcome' => '<strong>Tervetuloa $1!</strong>',
+	'securepoll-thanks' => 'Kiitos, äänesi on rekisteröity.',
+	'securepoll-no-gpg-home' => 'GPG:n kotihakemistoa ei voitu luoda.',
+	'securepoll-gpg-config-error' => 'GPG-avaimet ovat asetettu virheellisesti.',
+	'securepoll-no-decryption-key' => 'Salauksen purkuavainta ei ole asetettu.
+Salausta ei voitu purkaa.',
+	'securepoll-header-timestamp' => 'Aika',
+	'securepoll-header-user-name' => 'Nimi',
+	'securepoll-header-user-domain' => 'Verkkotunnus',
+	'securepoll-strike-reason' => 'Syy',
+	'securepoll-strike-cancel' => 'Peruuta',
+	'securepoll-voter-properties' => 'Äänestäjän asetukset',
+	'securepoll-header-reason' => 'Syy',
+	'securepoll-invalid-language' => 'Virheellinen kielikoodi ”$1”',
+	'securepoll-submit-translate' => 'Päivitä',
+	'securepoll-language-label' => 'Valitse kieli',
+	'securepoll-submit-select-lang' => 'Käännä',
 );
 
 /** French (Français)
@@ -940,9 +1083,15 @@ $messages['hsb'] = array(
 	'securepoll-invalid-election' => '"$1" płaćiwy wólbny ID njeje.',
 	'securepoll-not-authorised' => 'Njejsy woprawnjeny w tutej wólbje hłoasować.',
 	'securepoll-welcome' => '<strong>Witaj $1!</strong>',
+	'securepoll-not-started' => 'Wólba hišće njeje započała.
+Započnje najskerje $1.',
+	'securepoll-not-qualified' => 'Njejsy woprawnjeny w tutej wólbje hłosować: $1',
+	'securepoll-change-disallowed' => 'Sy hižo w tutej wólbje wothłosował.
+Njesměš znowa wothłosować.',
 	'securepoll-submit' => 'Hłós wotedać',
 	'securepoll-thanks' => 'Dźakujemy so, twój hłós bu zregistrowany.',
 	'securepoll-return' => 'Wróćo k $1',
+	'securepoll-gpg-config-error' => 'GPG-kluče su wopak konfigurowane.',
 	'securepoll-no-decryption-key' => 'Žadyn dešifrowanski kluč konfigurowany.
 Dešifrowanje njemóžno.',
 	'securepoll-list-title' => 'Hłosy nalistować: $1',
@@ -966,6 +1115,12 @@ Dešifrowanje njemóžno.',
 	'securepoll-header-action' => 'Akcija',
 	'securepoll-header-reason' => 'Přičina',
 	'securepoll-header-admin' => 'Administrator',
+	'securepoll-dump-title' => 'Wućah: $1',
+	'securepoll-translate-title' => 'Přełožić: $1',
+	'securepoll-invalid-language' => 'Njepłaćiwy rěčny kod "$1"',
+	'securepoll-submit-translate' => 'Aktualizować',
+	'securepoll-language-label' => 'Rěč wubrać:',
+	'securepoll-submit-select-lang' => 'Přełožić',
 );
 
 /** Hungarian (Magyar)
@@ -1175,6 +1330,7 @@ $1',
 
 /** Korean (한국어)
  * @author Kwj2772
+ * @author Yknok29
  */
 $messages['ko'] = array(
 	'securepoll' => '비밀 투표',
@@ -1217,6 +1373,38 @@ $1',
 	'securepoll-gpg-parse-error' => 'GPG 출력을 해석하는 데 오류가 발생했습니다.',
 	'securepoll-no-decryption-key' => '암호 해독 키가 설정되지 않았습니다.
 암호를 해독할 수 없습니다.',
+	'securepoll-list-title' => '투표 목록: $1',
+	'securepoll-header-timestamp' => '기간',
+	'securepoll-header-user-name' => '이름',
+	'securepoll-header-user-domain' => '도메인',
+	'securepoll-header-ua' => '사용자 선거 사무장',
+	'securepoll-header-strike' => '결산',
+	'securepoll-header-details' => '상세한 설명',
+	'securepoll-strike-button' => '결산',
+	'securepoll-unstrike-button' => '미결산',
+	'securepoll-strike-reason' => '이유:',
+	'securepoll-strike-cancel' => '취소',
+	'securepoll-strike-error' => '결산/미결산에 오류가 있었습니다: $1',
+	'securepoll-need-admin' => '이 행동을 하시려면 관리자 권한이 필요합니다.',
+	'securepoll-details-link' => '상세한 설명',
+	'securepoll-details-title' => '투표 설명: #$1',
+	'securepoll-invalid-vote' => '"$1"은 투표할 수 있는 ID가 아닙니다.',
+	'securepoll-header-user-type' => '사용자 유형',
+	'securepoll-voter-properties' => '투표자 특성',
+	'securepoll-strike-log' => '결산 로그',
+	'securepoll-header-action' => '참여',
+	'securepoll-header-reason' => '이유',
+	'securepoll-header-admin' => '관리',
+	'securepoll-dump-title' => '출력: $1',
+	'securepoll-dump-no-crypt' => '이 선거에 대한 기록을 암호화할 수 없습니다. 왜냐하면 이 선거는 암호를 사용하도록 설정되어 있지 않기 때문입니다.',
+	'securepoll-dump-not-finished' => '암호화된 선거 기록은 오직 마지막 기한이 지난 뒤에야 이용하실 수 있습니다:$1',
+	'securepoll-dump-no-urandom' => '/dev/urandom을 열 수 없습니다.
+투표자의 사생활을 보호하기 위해서, 암호화된 선거 기록은 안전한 무작위 숫자 흐름으로 뒤섞일 수 있을 때 오직 공적으로 이용 가능합니다.',
+	'securepoll-translate-title' => '번역: $1',
+	'securepoll-invalid-language' => '"$1"은 인식되지 않는 언어 코드입니다.',
+	'securepoll-submit-translate' => '갱신',
+	'securepoll-language-label' => '선택한 언어:',
+	'securepoll-submit-select-lang' => '번역',
 );
 
 /** Ripoarisch (Ripoarisch)
@@ -1294,6 +1482,7 @@ $messages['lb'] = array(
 	'securepoll' => 'Securiséiert Ëmfro',
 	'securepoll-desc' => 'Erweiderung fir Walen an Ëmfroen',
 	'securepoll-invalid-page' => 'Net-valabel Ënnersäit "<nowiki>$1</nowiki>"',
+	'securepoll-too-few-params' => 'Net genuch Ënnersäite-Parameter (net valbele Link).',
 	'securepoll-not-authorised' => 'Dir sidd net berechtegt fir bäi dëse Wale mattzemaachen.',
 	'securepoll-welcome' => '<strong>Wëllkomm $1!</strong>',
 	'securepoll-not-started' => "D'Walen hunn nach net ugefaang.
@@ -1311,6 +1500,111 @@ $1',
 	'securepoll-gpg-parse-error' => 'Feeler beim Interpretéieren vum GPG-Ouput',
 	'securepoll-no-decryption-key' => 'Et ass keen Ëntschlësungsschlëssel agestallt.
 Ëntschlësselung onméiglech.',
+	'securepoll-list-title' => 'Lëscht vun de Stëmmen: $1',
+	'securepoll-header-timestamp' => 'Zäit',
+	'securepoll-header-user-name' => 'Numm',
+	'securepoll-header-strike' => 'Duerchsträichen',
+	'securepoll-header-details' => 'Detailer',
+	'securepoll-strike-button' => 'Duerchsträichen',
+	'securepoll-unstrike-button' => 'Duerchsträichen ewechhuelen',
+	'securepoll-strike-reason' => 'Grond:',
+	'securepoll-strike-cancel' => 'Ofbriechen',
+	'securepoll-need-admin' => 'Dir musst Admnistrateur si fir dëst kënnen ze maachen.',
+	'securepoll-details-link' => 'Detailer',
+	'securepoll-header-user-type' => 'Benotzertyp',
+	'securepoll-voter-properties' => 'Eegeschafte vum Wieler',
+	'securepoll-header-action' => 'Aktioun',
+	'securepoll-header-reason' => 'Grond',
+	'securepoll-header-admin' => 'Administrateur',
+	'securepoll-translate-title' => 'Iwwersetzen: $1',
+	'securepoll-invalid-language' => 'Net valabele Sproochecode "$1"',
+	'securepoll-submit-translate' => 'Aktualiséieren',
+	'securepoll-language-label' => 'Sprooch eraussichen:',
+	'securepoll-submit-select-lang' => 'Iwwersetzen',
+);
+
+/** Limburgish (Limburgs)
+ * @author Ooswesthoesbes
+ */
+$messages['li'] = array(
+	'securepoll' => 'VeiligSjtömme',
+	'securepoll-desc' => 'Oetbreiding veur verkeziginge en vraogelieste',
+	'securepoll-invalid-page' => 'Óngeljige subpaasj "<nowiki>$1</nowiki>"',
+	'securepoll-too-few-params' => 'Óngenóg subpaasjparamaeters (óngeljige verwiezing).',
+	'securepoll-invalid-election' => '"$1" is gein geljig verkezigingsnómmer.',
+	'securepoll-not-authorised' => 'Doe bös neet bevoog óm te sjtömme in dees sjtömming.',
+	'securepoll-welcome' => '<strong>Wèlkóm $1!</strong>',
+	'securepoll-not-started' => 'Dees sjtömming is nag neet gesjtart.
+De sjtömming vank op $1 aan.',
+	'securepoll-not-qualified' => 'Doe bös neet bevoog óm te sjtömme in dees sjtömming: $1',
+	'securepoll-change-disallowed' => 'Doe höbs al gesjtömp in dees sjtömming.
+Doe moogs neet opnuuj sjtömme.',
+	'securepoll-change-allowed' => "<strong>Opmèrking: Doe höbs al gesjtömp in dees sjtömming.</strong>
+Doe kins dien sjtöm wiezige door 't óngersjtäönde formeleer op te sjlaon.
+As se daoveur keus, wörd diene edere sjtöm verwiederd.",
+	'securepoll-submit' => 'Sjlaon sjtöm op',
+	'securepoll-gpg-receipt' => 'Danke veur diene sjtöm.
+
+Doe kins de óngersjtäönde gegaeves beware as bewies van dien deilnaam aan dees sjtömming;
+
+<pre>$1</pre>',
+	'securepoll-thanks' => 'Danke, dien sjtöm is óntvange en opgesjlage.',
+	'securepoll-return' => 'trök nao $1',
+	'securepoll-encrypt-error' => "'t Codere van dien sjtöm is misluk.
+Dien sjtöm is neet opgesjlage!
+
+$1",
+	'securepoll-no-gpg-home' => "'t Waas neet meugelik óm de thoesmap veur GPG aan te make.",
+	'securepoll-secret-gpg-error' => "d'r Is 'n fout opgetraoje bie 't oetveure van GPG.
+Gebroek \$wgSecurePollShowErrorDetail=true; in LocalSettings.php óm meer details waer te gaeve.",
+	'securepoll-full-gpg-error' => "d'r Is 'n fout opgetraoje bie 't oetveure van GPG:
+
+Beveel: $1
+
+Fotmeljing:
+<pre>$2</pre>",
+	'securepoll-gpg-config-error' => 'De GPG-sjleutels zeen ónjuus ingesjteld.',
+	'securepoll-gpg-parse-error' => "d'r Is 'n fout opgetraoje bie 't interpretere van GPG-oetveur.",
+	'securepoll-no-decryption-key' => "d'r Is geine decryptiesjleutel ingesjteld.
+Decodere is neet meugelik.",
+	'securepoll-list-title' => 'Sóm sjtömme op: $1',
+	'securepoll-header-timestamp' => 'Tied',
+	'securepoll-header-user-name' => 'Naom',
+	'securepoll-header-user-domain' => 'Domien',
+	'securepoll-header-ua' => 'Gebroekeragent',
+	'securepoll-header-strike' => 'Haol door',
+	'securepoll-header-details' => 'Details',
+	'securepoll-strike-button' => 'Haol door',
+	'securepoll-unstrike-button' => 'Haol neet door',
+	'securepoll-strike-reason' => 'Raej:',
+	'securepoll-strike-cancel' => 'Braek aaf',
+	'securepoll-strike-error' => "Fout bie 't (neet) doorhaole: $1",
+	'securepoll-need-admin' => "Doe mós 'ne beheerder zeen óm dees hanjeling te moge oetveure.",
+	'securepoll-details-link' => 'Details',
+	'securepoll-details-title' => 'Sjtömdetails: #$1',
+	'securepoll-invalid-vote' => '"$1" is gein geljig sjtömnómmer',
+	'securepoll-header-user-type' => 'Gebroekerstype',
+	'securepoll-voter-properties' => 'Sjtömbeneudighede',
+	'securepoll-strike-log' => 'Doorhaolingslogbook',
+	'securepoll-header-action' => 'Hanjeling',
+	'securepoll-header-reason' => 'Raej',
+	'securepoll-header-admin' => 'Beheer',
+	'securepoll-dump-title' => 'Dump: $1',
+	'securepoll-translate-title' => 'Vertaol: $1',
+	'securepoll-invalid-language' => 'Óngeljige taolcode "$1"',
+	'securepoll-submit-translate' => 'Wèrk bie',
+	'securepoll-language-label' => 'Selecteer taol:',
+	'securepoll-submit-select-lang' => 'Vertaol',
+);
+
+/** Macedonian (Македонски)
+ * @author Brest
+ */
+$messages['mk'] = array(
+	'securepoll-header-timestamp' => 'Време',
+	'securepoll-header-user-name' => 'Име',
+	'securepoll-header-user-domain' => 'Домен',
+	'securepoll-language-label' => 'Избери јазик:',
 );
 
 /** Malay (Bahasa Melayu)
@@ -1485,6 +1779,51 @@ Feil:
 Kan ikkje dekryptera.',
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Finnrind
+ * @author Stigmj
+ */
+$messages['no'] = array(
+	'securepoll' => 'SikkertValg',
+	'securepoll-desc' => 'En utvidelse for valg og undersøkelser',
+	'securepoll-invalid-page' => 'Ugyldig underside «<nowiki>$1</nowiki>»',
+	'securepoll-too-few-params' => 'Ikke mange nok undersideparametre (ugyldig lenke).',
+	'securepoll-invalid-election' => '"$1" er ikke en gyldig valg-id.',
+	'securepoll-not-authorised' => 'Du har ikke anledning til å stemme i dette valget.',
+	'securepoll-welcome' => '<strong>Velkommen $1!</strong>',
+	'securepoll-not-started' => 'Dette valget har enda ikke startet.
+Det starter etter planen $1.',
+	'securepoll-not-qualified' => 'Du er ikke kvalifisert til å stemme i dette valget: $1',
+	'securepoll-change-disallowed' => 'Du har allerede stemt i dette valget.
+Du kan desverre ikke stemme på nytt.',
+	'securepoll-change-allowed' => '<strong>Bemerk: Du har allerede stemt i dette valget.</strong>
+Du kan endre stemmen din ved å sende inn skjemaet nedenfor.
+Bemerk at dersom du gjør dette vil den opprinnelige stemmen din bli forkastet.',
+	'securepoll-submit' => 'Avgi stemme',
+	'securepoll-gpg-receipt' => 'Takk for at du avga stemme.
+
+Dersom du ønsker det kan du ta vare på følgende kvittering som bevis på din stemme:
+
+<pre>$1</pre>',
+	'securepoll-thanks' => 'Takk, stemmen din har blitt registrert.',
+	'securepoll-return' => 'Tilbake til $1',
+	'securepoll-encrypt-error' => 'Klarte ikke å kryptere din stemme.
+Stemmen har ikke blitt registrert!
+
+$1',
+	'securepoll-no-gpg-home' => 'Kunne ikke opprette hjemmekatalog for GPG',
+	'securepoll-secret-gpg-error' => 'Feil ved kjøring av GPG.
+bruk $wgSecurePollShowErrorDetail=true; i LocalSettings.php for å se flere detaljer.',
+	'securepoll-full-gpg-error' => 'Feil under kjøring av GPG:
+
+Kommando: $1
+
+Feil:
+<pre>$2</pre>',
+	'securepoll-gpg-config-error' => 'GPG-nøklene er ikke satt opp riktig.',
+	'securepoll-gpg-parse-error' => 'Feil under tolking av utdata fra GPG.',
+);
+
 /** Occitan (Occitan)
  * @author Cedric31
  */
@@ -1529,6 +1868,38 @@ Error :
 	'securepoll-gpg-parse-error' => "Error al moment de l'interpretacion de la sortida de GPG.",
 	'securepoll-no-decryption-key' => 'Cap de clau de descriptatge es pas estada configurada.
 Impossible de descriptar.',
+	'securepoll-list-title' => 'Lista dels vòtes : $1',
+	'securepoll-header-timestamp' => 'Ora',
+	'securepoll-header-user-name' => 'Nom',
+	'securepoll-header-user-domain' => 'Domeni',
+	'securepoll-header-ua' => "Agent d'utilizaire",
+	'securepoll-header-strike' => 'Raiar',
+	'securepoll-header-details' => 'Detalhs',
+	'securepoll-strike-button' => 'Raiar',
+	'securepoll-unstrike-button' => 'Desraiar',
+	'securepoll-strike-reason' => 'Rason :',
+	'securepoll-strike-cancel' => 'Anullar',
+	'securepoll-strike-error' => 'Error al moment del (des)raiatge : $1',
+	'securepoll-need-admin' => 'Vos cal èsser un administrator per executar aquesta accion.',
+	'securepoll-details-link' => 'Detalhs',
+	'securepoll-details-title' => 'Detalhs del vòte : #$1',
+	'securepoll-invalid-vote' => '« $1 » es pas un ID de vòte valid',
+	'securepoll-header-user-type' => "Tipe de l'utilizaire",
+	'securepoll-voter-properties' => 'Proprietats del votant',
+	'securepoll-strike-log' => 'Jornal dels raiatges',
+	'securepoll-header-action' => 'Accion',
+	'securepoll-header-reason' => 'Rason',
+	'securepoll-header-admin' => 'Administrator',
+	'securepoll-dump-title' => 'Extrach : $1',
+	'securepoll-dump-no-crypt' => 'Las donadas chifradas son pas disponiblas per aquesta eleccion, perque l’eleccion es pas configurada per utilizar un chiframent.',
+	'securepoll-dump-not-finished' => "Las donadas criptadas son disponiblas soalment aprèp la clausura de l'eleccion : $1",
+	'securepoll-dump-no-urandom' => 'Impossible de dobrir /dev/urandom.
+Per manténer la confidencialitat dels votants, las donadas criptadas son disponiblas sonque se pòdon èsser reboladas amb un nombre de caractèrs aleatòris.',
+	'securepoll-translate-title' => 'Traduire : $1',
+	'securepoll-invalid-language' => 'Còde de lenga « $1 » invalid.',
+	'securepoll-submit-translate' => 'Metre a jorn',
+	'securepoll-language-label' => 'Seleccionar la lenga :',
+	'securepoll-submit-select-lang' => 'Traduire',
 );
 
 /** Polish (Polski)
@@ -1600,6 +1971,7 @@ Odszyfrowanie nie jest możliwe.',
 );
 
 /** Portuguese (Português)
+ * @author Malafaya
  * @author Waldir
  */
 $messages['pt'] = array(
@@ -1643,6 +2015,15 @@ Erro:
 	'securepoll-gpg-parse-error' => 'Erro ao interpretar a saída GPG.',
 	'securepoll-no-decryption-key' => 'Nenhuma chave de descodificação está configurada.
 Não é possível descodificar.',
+	'securepoll-list-title' => 'Listar votos: $1',
+	'securepoll-header-timestamp' => 'Hora',
+	'securepoll-header-user-name' => 'Nome',
+	'securepoll-header-user-domain' => 'Domínio',
+	'securepoll-strike-reason' => 'Motivo:',
+	'securepoll-strike-cancel' => 'Cancelar',
+	'securepoll-header-user-type' => 'Tipo de utilizador',
+	'securepoll-header-reason' => 'Motivo',
+	'securepoll-submit-select-lang' => 'Traduzir',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
@@ -1871,6 +2252,10 @@ Fel:
 	'securepoll-gpg-parse-error' => 'Ett fel uppstod när GPG-utdatan interpreterades.',
 	'securepoll-no-decryption-key' => 'Ingen dekrypteringsnyckel är konfigurerad.
 Kan inte dekryptera.',
+	'securepoll-list-title' => 'Visa röster: $1',
+	'securepoll-header-timestamp' => 'Tid',
+	'securepoll-header-user-name' => 'Namn',
+	'securepoll-header-user-domain' => 'Domän',
 );
 
 /** Telugu (తెలుగు)
@@ -1978,6 +2363,7 @@ $messages['vep'] = array(
 );
 
 /** Vietnamese (Tiếng Việt)
+ * @author Minh Nguyen
  * @author Vinhtantran
  */
 $messages['vi'] = array(
@@ -2021,6 +2407,38 @@ Lỗi:
 	'securepoll-gpg-parse-error' => 'Có lỗi khi thông dịch dữ liệu xuất GPG.',
 	'securepoll-no-decryption-key' => 'Chưa cấu hình khóa giải mã.
 Không thể giải mã.',
+	'securepoll-list-title' => 'Liệt kê các lá phiếu: $1',
+	'securepoll-header-timestamp' => 'Thời điểm',
+	'securepoll-header-user-name' => 'Tên',
+	'securepoll-header-user-domain' => 'Tên miền',
+	'securepoll-header-ua' => 'Trình duyệt',
+	'securepoll-header-strike' => 'Gạch bỏ',
+	'securepoll-header-details' => 'Chi tiết',
+	'securepoll-strike-button' => 'Gạch bỏ',
+	'securepoll-unstrike-button' => 'Phục hồi',
+	'securepoll-strike-reason' => 'Lý do:',
+	'securepoll-strike-cancel' => 'Hủy bỏ',
+	'securepoll-strike-error' => 'Lỗi khi gạch bỏ hay phục hồi: $1',
+	'securepoll-need-admin' => 'Chỉ các quản lý viên có quyền thực hiện tác vụ này.',
+	'securepoll-details-link' => 'Chi tiết',
+	'securepoll-details-title' => 'Chi tiết lá phiếu: #$1',
+	'securepoll-invalid-vote' => '“$1” không phải là ID lá phiếu hợp lệ',
+	'securepoll-header-user-type' => 'Loại người dùng',
+	'securepoll-voter-properties' => 'Thuộc tính cử tri',
+	'securepoll-strike-log' => 'Nhật trình gạch bỏ',
+	'securepoll-header-action' => 'Tác vụ',
+	'securepoll-header-reason' => 'Lý do',
+	'securepoll-header-admin' => 'Quản lý viên',
+	'securepoll-dump-title' => 'Kết xuất: $1',
+	'securepoll-dump-no-crypt' => 'Không có sẵn hồ sơ mật mã hóa cho cuộc bầu cử này, vì tính năng mật mã hóa không được thiết lập cho cuộc bầu cử.',
+	'securepoll-dump-not-finished' => 'Các hồ sơ bầu cử mật mã hóa chỉ có sẵn sau ngày kết thúc: $1',
+	'securepoll-dump-no-urandom' => 'Không thể mở /dev/urandom.
+Để giữ gìn tính riêng tư của các cử tri, các hồ sơ bầu cử mật mã hóa cần được ngẫu nhiên hóa dùng dòng số ngẫu nhiên mã hóa trước khi công khai.',
+	'securepoll-translate-title' => 'Biên dịch: $1',
+	'securepoll-invalid-language' => 'Mã ngôn ngữ “$1” không hợp lệ',
+	'securepoll-submit-translate' => 'Cập nhật',
+	'securepoll-language-label' => 'Chọn ngôn ngữ:',
+	'securepoll-submit-select-lang' => 'Biên dịch',
 );
 
 /** Simplified Chinese (‪中文(简体)‬)
