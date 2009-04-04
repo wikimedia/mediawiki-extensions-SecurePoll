@@ -23,7 +23,7 @@ $messages['en'] = array(
 	'securepoll-not-authorised' => 'You are not authorised to vote in this election.',
 	'securepoll-welcome' => '<strong>Welcome $1!</strong>',
 	'securepoll-not-started' => 'This election has not yet started.
-It is scheduled to start at $1.',
+It is scheduled to start on $2 at $3.',
 	'securepoll-not-qualified' => 'You are not qualified to vote in this election: $1',
 	'securepoll-change-disallowed' => 'You have voted in this election before.
 Sorry, you may not vote again.',
@@ -92,7 +92,7 @@ Cannot decrypt.',
 	# Dump page
 	'securepoll-dump-title' => 'Dump: $1',
 	'securepoll-dump-no-crypt' => 'No encrypted election record is available for this election, because the election is not configured to use encryption.',
-	'securepoll-dump-not-finished' => 'Encrypted election records are only available after the finish date: $1',
+	'securepoll-dump-not-finished' => 'Encrypted election records are only available after the finish date on $1 at $2', # FIXME: date/time split in message but not yet in file DumpPage.php because locked by Tim.
 	'securepoll-dump-no-urandom' => 'Cannot open /dev/urandom. 
 To maintain voter privacy, encrypted election records are only publically available when they can be shuffled with a secure random number stream.',
 
