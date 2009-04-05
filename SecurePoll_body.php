@@ -9,6 +9,7 @@ class SecurePollPage extends UnlistedSpecialPage {
 		'dump' => 'SecurePoll_DumpPage',
 		'entry' => 'SecurePoll_EntryPage',
 		'list' => 'SecurePoll_ListPage',
+		'login' => 'SecurePoll_LoginPage',
 		'translate' => 'SecurePoll_TranslatePage',
 		'vote' => 'SecurePoll_VotePage',
 	);
@@ -75,9 +76,9 @@ class SecurePollPage extends UnlistedSpecialPage {
 	}
 
 	function getEditToken() {
-		if ( !isset( $_SESSION['bvToken'] ) ) {
-			$_SESSION['bvToken'] = sha1( mt_rand() . mt_rand() . mt_rand() );
+		if ( !isset( $_SESSION['spToken'] ) ) {
+			$_SESSION['spToken'] = sha1( mt_rand() . mt_rand() . mt_rand() );
 		}
-		return $_SESSION['bvToken'];
+		return $_SESSION['spToken'];
 	}
 }

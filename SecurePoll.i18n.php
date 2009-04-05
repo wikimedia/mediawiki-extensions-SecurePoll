@@ -20,7 +20,6 @@ $messages['en'] = array(
 	# Vote (most important to translate)
 	'securepoll-too-few-params' => 'Not enough subpage parameters (invalid link).',
 	'securepoll-invalid-election' => '"$1" is not a valid election ID.',
-	'securepoll-not-authorised' => 'You are not authorised to vote in this election.',
 	'securepoll-welcome' => '<strong>Welcome $1!</strong>',
 	'securepoll-not-started' => 'This election has not yet started.
 It is scheduled to start on $2 at $3.',
@@ -55,7 +54,21 @@ Error:
 	'securepoll-gpg-parse-error' => 'Error interpreting GPG output.',
 	'securepoll-no-decryption-key' => 'No decryption key is configured.
 Cannot decrypt.',
+	'securepoll-jump' => 'Go to the voting server',
+
+	# Authorisation related
+	'securepoll-remote-auth-error' => 'Error fetching your account information from the server.',
+	'securepoll-remote-parse-error' => 'Error interpreting the authorisation response from the server.',
 	
+	'securepoll-api-invalid-params' => 'Invalid parameters.',
+	'securepoll-api-no-user' => 'No user was found with the given ID.',
+	'securepoll-api-token-mismatch' => 'Security token mismatch, cannot log in.',
+	'securepoll-not-logged-in' => 'You must log in to vote in this election',
+	'securepoll-too-few-edits' => 'Sorry, you cannot vote. You need to have made at least $1 edits to vote in this election, you have made $2.',
+	'securepoll-blocked' => 'Sorry, you cannot vote in this election if you are currently blocked from editing.',
+	'securepoll-not-in-group' => 'Only members of the $1 group can vote in this election.',
+	'securepoll-not-in-list' => 'Sorry, you are not in the predetermined list of users authorised to vote in this election.',
+
 	# List page
 	# Mostly for admins
 	'securepoll-list-title' => 'List votes: $1',
@@ -81,8 +94,8 @@ Cannot decrypt.',
 	'securepoll-details-title' => 'Vote details: #$1',
 	'securepoll-invalid-vote' => '"$1" is not a valid vote ID',
 	'securepoll-header-id' => 'ID',
-	'securepoll-header-user-type' => 'User type',
-	'securepoll-header-authority' => 'URL',
+	'securepoll-header-user-type' => 'Voter type',
+	'securepoll-header-url' => 'URL',
 	'securepoll-voter-properties' => 'Voter properties',
 	'securepoll-strike-log' => 'Strike log',
 	'securepoll-header-action' => 'Action',
@@ -103,6 +116,15 @@ To maintain voter privacy, encrypted election records are only publically availa
 	'securepoll-submit-translate' => 'Update',
 	'securepoll-language-label' => 'Select language: ',
 	'securepoll-submit-select-lang' => 'Translate',
+
+	# Entry page
+	'securepoll-header-title' => 'Name',
+	'securepoll-header-start-date' => 'Start date',
+	'securepoll-header-end-date' => 'End date',
+	'securepoll-subpage-vote' => 'Vote',
+	'securepoll-subpage-translate' => 'Translate',
+	'securepoll-subpage-list' => 'List',
+	'securepoll-subpage-dump' => 'Dump',
 );
 
 /** Message documentation (Message documentation)

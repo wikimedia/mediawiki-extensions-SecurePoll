@@ -19,12 +19,23 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 		}
 
 		$this->auth = $this->election->getAuth();
-		$this->user = $this->auth->login( $this->election );
-		if ( !$this->user ) {
-			$wgOut->addWikiMsg( 'securepoll-not-authorised' );
-			return;
+
+		# Get voter from session
+		$this->voter = $this->auth->getVoterFromSession( $this->election );
+
+		# If there's no session, try creating one.
+		# This will fail if the user is not authorised to vote in the election
+		if ( !$this->voter ) {
+			$status = $this->auth->newAutoSession( $this->election );
+			if ( $status->isOK() ) {
+				$this->voter = $status->value;
+			} else {
+				$wgOut->addWikiText( $status->getWikiText() );
+				return;
+			}
 		}
-		$this->initLanguage( $this->user, $this->election );
+
+		$this->initLanguage( $this->voter, $this->election );
 
 		$wgOut->setPageTitle( $this->election->getMessage( 'title' ) );
 
@@ -36,20 +47,19 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 			return;
 		}
 
-		// Show welcome
-		if ( $this->user->isRemote() ) {
-			$wgOut->addWikiMsg( 'securepoll-welcome', $this->user->getName() );
-		}
-
-		// Show qualification notice
-		$status = $this->election->getQualifiedStatus( $this->user );
-		if ( !$status->isOK() ) {
-			$wgOut->addWikiText( $status->getWikiText( 'securepoll-not-qualified' ) );
+		// Show jump form if necessary
+		if ( $this->election->getProperty( 'jump-url' ) ) {
+			$this->showJumpForm();
 			return;
 		}
 
+		// Show welcome
+		if ( $this->voter->isRemote() ) {
+			$wgOut->addWikiMsg( 'securepoll-welcome', $this->voter->getName() );
+		}
+
 		// Show change notice
-		if ( $this->election->hasVoted( $this->user ) && !$this->election->allowChange() ) {
+		if ( $this->election->hasVoted( $this->voter ) && !$this->election->allowChange() ) {
 			$wgOut->addWikiMsg( 'securepoll-change-disallowed' );
 			return;
 		}
@@ -70,7 +80,7 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 		global $wgOut;
 
 		// Show introduction
-		if ( $this->election->hasVoted( $this->user ) && $this->election->allowChange() ) {
+		if ( $this->election->hasVoted( $this->voter ) && $this->election->allowChange() ) {
 			$wgOut->addWikiMsg( 'securepoll-change-allowed' );
 		}
 		$wgOut->addWikiText( $this->election->getMessage( 'intro' ) );
@@ -127,7 +137,7 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 			array( 'vote_current' => 0 ), # SET
 			array( # WHERE
 				'vote_election' => $this->election->getId(),
-				'vote_user' => $this->user->getId(),
+				'vote_user' => $this->voter->getId(),
 			),
 			__METHOD__
 		);
@@ -145,9 +155,9 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 			array(
 				'vote_id' => $voteId,
 				'vote_election' => $this->election->getId(),
-				'vote_user' => $this->user->getId(),
-				'vote_user_name' => $this->user->getName(),
-				'vote_user_domain' => $this->user->getDomain(),
+				'vote_user' => $this->voter->getId(),
+				'vote_user_name' => $this->voter->getName(),
+				'vote_user_domain' => $this->voter->getDomain(),
 				'vote_record' => $encrypted,
 				'vote_ip' => IP::toHex( wfGetIP() ),
 				'vote_xff' => $xff,
@@ -180,5 +190,26 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 	function displayInvalidVoteError() {
 		global $wgOut;
 		$wgOut->addWikiMsg( 'securepoll_invalidentered' );
+	}
+
+	function showJumpForm() {
+		global $wgOut, $wgUser;
+		$url = $this->election->getProperty( 'jump-url' );
+		if ( !$url ) {
+			throw new MWException( 'Configuration error: no jump-url' );
+		}
+		$id = $this->election->getProperty( 'jump-id' );
+		if ( !$id ) {
+			throw new MWException( 'Configuration error: no jump-id' );
+		}
+		$url .= "/login/$id";
+		$wgOut->addWikiText( $this->election->getMessage( 'jump-text' ) );
+		$wgOut->addHTML(
+			Xml::openElement( 'form', array( 'action' => $url, 'method' => 'post' ) ) .
+			Xml::hidden( 'token', SecurePoll_RemoteMWAuth::encodeToken( $wgUser->getToken() ) ) .
+			Xml::hidden( 'id', $wgUser->getId() ) .
+			Xml::submitButton( wfMsg( 'securepoll-jump' ) ) .
+			'</form>'
+		);
 	}
 }

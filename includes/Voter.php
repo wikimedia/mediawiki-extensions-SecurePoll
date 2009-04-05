@@ -1,10 +1,10 @@
 <?php
 
-class SecurePoll_User {
-	var $id, $name, $domain, $wiki, $type, $authority;
+class SecurePoll_Voter {
+	var $id, $electionId, $name, $domain, $wiki, $type, $url;
 	var $properties = array();
 
-	static $paramNames = array( 'id', 'name', 'domain', 'wiki', 'type', 'authority', 'properties' );
+	static $paramNames = array( 'id', 'electionId', 'name', 'domain', 'wiki', 'type', 'url', 'properties' );
 
 	function __construct( $params ) {
 		foreach ( self::$paramNames as $name ) {
@@ -26,23 +26,25 @@ class SecurePoll_User {
 	static function newFromRow( $row ) {
 		return new self( array(
 			'id' => $row->voter_id,
+			'electionId' => $row->voter_election,
 			'name' => $row->voter_name,
 			'domain' => $row->voter_domain,
 			'type' => $row->voter_type,
-			'authority' => $row->voter_authority,
+			'url' => $row->voter_url,
 			'properties' => self::decodeProperties( $row->voter_properties )
 		) );
 	}
 
-	static function createUser( $params ) {
+	static function createVoter( $params ) {
 		$db = wfGetDB( DB_MASTER );
 		$id = $db->nextSequenceValue( 'voters_voter_id' );
 		$row = array(
 			'voter_id' => $id,
+			'voter_election' => $params['electionId'],
 			'voter_name' => $params['name'],
 			'voter_type' => $params['type'],
 			'voter_domain' => $params['domain'],
-			'voter_authority' => $params['authority'],
+			'voter_url' => $params['url'],
 			'voter_properties' => self::encodeProperties( $params['properties'] )
 		);
 		$db->insert( 'securepoll_voters', $row, __METHOD__ );
@@ -54,7 +56,8 @@ class SecurePoll_User {
 	function getName() { return $this->name; }
 	function getType() { return $this->type; }
 	function getDomain() { return $this->domain; }
-	function getAuthority() { return $this->authority; }
+	function getUrl() { return $this->url; }
+	function getElectionId() { return $this->electionId; }
 
 	function getLanguage() {
 		return $this->getProperty( 'language', 'en' );

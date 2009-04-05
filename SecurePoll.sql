@@ -47,13 +47,15 @@ CREATE INDEX /*i*/spop_question ON /*_*/securepoll_options (op_question, op_enti
 
 CREATE TABLE /*_*/securepoll_voters (
 	voter_id int not null primary key auto_increment,
+	voter_election int not null,
 	voter_name varchar(255) binary not null,
 	voter_type varbinary(32) not null,
 	voter_domain varbinary(255) not null,
-	voter_authority blob,
+	voter_url blob,
 	voter_properties blob
 );
-CREATE INDEX /*i*/spvoter_name_domain ON /*_*/securepoll_voters (voter_name, voter_domain);
+CREATE INDEX /*i*/spvoter_elec_name_domain ON /*_*/securepoll_voters 
+	(voter_election, voter_name, voter_domain);
 
 CREATE TABLE /*_*/securepoll_votes (
 	vote_id int not null primary key auto_increment,
@@ -95,4 +97,14 @@ CREATE TABLE /*_*/securepoll_strike (
 );
 CREATE INDEX /*i*/spstrike_vote ON /*_*/securepoll_strike
 	(st_vote, st_timestamp);
+
+CREATE TABLE /*_*/securepoll_lists (
+	li_name varbinary(255),
+	li_member int not null
+);
+CREATE INDEX /*i*/splists_name ON /*_*/securepoll_lists
+	(li_name, li_member);
+CREATE INDEX /*i*/splists_member ON /*_*/securepoll_lists
+	(li_member, li_name);
+
 

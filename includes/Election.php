@@ -21,7 +21,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	}
 
 	function getMessageNames() {
-		return array( 'title', 'intro' );
+		return array( 'title', 'intro', 'jump-text' );
 	}
 
 	function getChildren() {
@@ -52,8 +52,38 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		return $this->ballot;
 	}
 
-	function getQualifiedStatus( $user ) {
-		return Status::newGood();
+	function getQualifiedStatus( $params ) {
+		$props = $params['properties'];
+		$status = Status::newGood();
+
+		# Edits
+		$minEdits = $this->getProperty( 'min-edits' );
+		$edits = isset( $props['edit-count'] ) ? $props['edit-count'] : 0;
+		if ( $minEdits && $edits < $minEdits ) {
+			$status->fatal( 'securepoll-too-few-edits', $minEdits, $edits );
+		}
+
+		# Blocked
+		$notBlocked = $this->getProperty( 'not-blocked' );
+		$isBlocked = !empty( $props['blocked'] );
+		if ( $notBlocked && $isBlocked ) {
+			$status->fatal( 'securepoll-blocked' );
+		}
+
+		# Groups
+		$needGroup = $this->getProperty( 'need-group' );
+		$groups = isset( $props['groups'] ) ? $props['groups'] : array();
+		if ( $needGroup && !in_array( $needGroup, $groups ) ) {
+			$status->fatal( 'securepoll-not-in-group', $needGroup );
+		}
+
+		# Lists
+		$needList = $this->getProperty( 'need-list' );
+		$lists = isset( $props['lists'] ) ? $props['lists'] : array();
+		if ( $needList && !in_array( $needList, $lists ) ) {
+			$status->fatal( 'securepoll-not-in-list' );
+		}
+		return $status;
 	}
 
 	function isAdmin( User $user ) {

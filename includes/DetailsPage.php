@@ -42,7 +42,7 @@ class SecurePoll_DetailsPage extends SecurePoll_Page {
 			$this->detailEntry( 'securepoll-header-user-name', $row->voter_name ) .
 			$this->detailEntry( 'securepoll-header-user-type', $row->voter_type ) .
 			$this->detailEntry( 'securepoll-header-user-domain', $row->voter_domain ) .
-			$this->detailEntry( 'securepoll-header-authority', $row->voter_authority ) .
+			$this->detailEntry( 'securepoll-header-url', $row->voter_url ) .
 			$this->detailEntry( 'securepoll-header-ip', IP::formatHex( $row->vote_ip ) ) .
 			$this->detailEntry( 'securepoll-header-xff', $row->vote_xff ) .
 			$this->detailEntry( 'securepoll-header-ua', $row->vote_ua ) .
@@ -51,7 +51,7 @@ class SecurePoll_DetailsPage extends SecurePoll_Page {
 		);
 		$wgOut->addHTML( '<h2>' . wfMsgHTML( 'securepoll-voter-properties' ) . "</h2>\n" );
 		$wgOut->addHTML( '<table class="TablePager">' );
-		$props = SecurePoll_User::decodeProperties( $row->voter_properties );
+		$props = SecurePoll_Voter::decodeProperties( $row->voter_properties );
 		foreach ( $props as $name => $value ) {
 			$wgOut->addHTML( 
 				'<td class="securepoll-detail-header">' .

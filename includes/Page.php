@@ -8,7 +8,7 @@ class SecurePoll_Page {
 	}
 
 	function initLanguage( $user, $election ) {
-		if ( $user instanceof SecurePoll_User ) {
+		if ( $user instanceof SecurePoll_Voter ) {
 			$userLang = $user->getLanguage();
 		} else {
 			$userLang = $user->getOption( 'language' );

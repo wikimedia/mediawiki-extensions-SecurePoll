@@ -73,11 +73,12 @@ $wgAutoloadClasses = $wgAutoloadClasses + array(
 	'SecurePoll_Entity' => "$dir/includes/Entity.php",
 	'SecurePoll_EntryPage' => "$dir/includes/EntryPage.php",
 	'SecurePoll_ListPage' => "$dir/includes/ListPage.php",
+	'SecurePoll_LoginPage' => "$dir/includes/LoginPage.php",
 	'SecurePoll_Option' => "$dir/includes/Option.php",
 	'SecurePoll_Page' => "$dir/includes/Page.php",
 	'SecurePoll_Question' => "$dir/includes/Question.php",
 	'SecurePoll_TranslatePage' => "$dir/includes/TranslatePage.php",
-	'SecurePoll_User' => "$dir/includes/User.php",
+	'SecurePoll_Voter' => "$dir/includes/Voter.php",
 	'SecurePoll_VotePage' => "$dir/includes/VotePage.php",
 );
 

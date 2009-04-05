@@ -14,18 +14,36 @@ class SecurePoll_Auth {
 		return new $class;
 	}
 
-	function login( $election ) {
+	function autoLogin( $election ) {
+		return Status::newFatal( 'securepoll-not-logged-in' );
+	}
+
+	function requestLogin( $election ) {
+		return $this->autoLogin();
+	}
+
+	function getVoterFromSession( $election ) {
 		if ( session_id() == '' ) {
 			wfSetupSession();
 		}
-		if ( isset( $_SESSION['bvUser'] ) ) {
-			$user = SecurePoll_User::newFromId( $_SESSION['bvUser'] );
+		if ( isset( $_SESSION['securepoll_voter'][$election->getId()] ) ) {
+			$voter = SecurePoll_Voter::newFromId( 
+				$_SESSION['securepoll_voter'][$election->getId()] );
+
+			# Sanity check election ID
+			if ( $voter->getElectionId() != $election->getId() ) {
+				var_dump( $voter );
+				return false;
+			} else {
+				return $voter;
+			}
+
 		} else {
 			return false;
 		}
 	}
 
-	function getUser( $params ) {
+	function getVoter( $params ) {
 		$dbw = wfGetDB( DB_MASTER );
 
 		# This needs to be protected by FOR UPDATE
@@ -35,9 +53,10 @@ class SecurePoll_Auth {
 		$row = $dbw->selectRow( 
 			'securepoll_voters', '*', 
 			array( 
-				'voter_name' => $params['name'], 
+				'voter_name' => $params['name'],
+				'voter_election' => $params['electionId'],
 				'voter_domain' => $params['domain'],
-				'voter_authority' => $params['authority']
+				'voter_url' => $params['url']
 			),
 			__METHOD__,
 			array( 'FOR UPDATE' )
@@ -45,51 +64,88 @@ class SecurePoll_Auth {
 		if ( $row ) {
 			# No need to hold the lock longer
 			$dbw->commit();
-			$user = SecurePoll_User::newFromRow( $row );
+			$user = SecurePoll_Voter::newFromRow( $row );
 		} else {
 			# Lock needs to be held until the row is inserted
-			$user = SecurePoll_User::createUser( $params );
+			$user = SecurePoll_Voter::createVoter( $params );
 			$dbw->commit();
 		}
 		return $user;
 	}
+
+	function newAutoSession( $election ) {
+		$status = $this->autoLogin( $election );
+		if ( $status->isGood() ) {
+			$_SESSION['securepoll_voter'][$election->getId()] = $status->value->getId();
+		}
+		return $status;
+	}
+
+	function newRequestedSession( $election ) {
+		$status = $this->requestLogin( $election );
+		if ( $status->isGood() ) {
+			$_SESSION['securepoll_voter'][$election->getId()] = $status->value->getId();
+		}
+		return $status;
+	}
 }
 
 class SecurePoll_LocalAuth extends SecurePoll_Auth {
-	function login( $election ) {
+	function autoLogin( $election ) {
 		global $wgUser, $wgServer, $wgLang;
-		$user = parent::login( $election );
-		if ( !$user && $wgUser->isLoggedIn() ) {
-			$params = array(
-				'name' => $wgUser->getName(),
-				'type' => 'local',
-				'domain' => preg_replace( '!.*/(.*)$!', '$1', $wgServer ),
-				'authority' => $wgUser->getUserPage()->getFullURL(),
-				'properties' => array(
-					'wiki' => wfWikiID(),
-					'blocked' => $wgUser->isBlocked(),
-					'edit-count' => $wgUser->getEditCount(),
-					'bot' => $wgUser->isBot(),
-					'language' => $wgLang->getCode(),
-				)
-			);
-			$user = $this->getUser( $params );
+		if ( $wgUser->isAnon() ) {
+			return Status::newFatal( 'securepoll-not-logged-in' );
 		}
-		return $user;
+		$params = self::getUserParams( $wgUser );
+		$params['electionId'] = $election->getId();
+		$qualStatus = $election->getQualifiedStatus( $params );
+		if ( !$qualStatus->isOK() ) {
+			return $qualStatus;
+		}
+		$voter = $this->getVoter( $params );
+		return Status::newGood( $voter );
+	}
+
+	static function getUserParams( $user ) {
+		global $wgServer;
+		return array(
+			'name' => $user->getName(),
+			'type' => 'local',
+			'domain' => preg_replace( '!.*/(.*)$!', '$1', $wgServer ),
+			'url' => $user->getUserPage()->getFullURL(),
+			'properties' => array(
+				'wiki' => wfWikiID(),
+				'blocked' => $user->isBlocked(),
+				'edit-count' => $user->getEditCount(),
+				'bot' => $user->isBot(),
+				'language' => $user->getOption( 'language' ),
+				'groups' => $user->getGroups(),
+				'lists' => self::getLists( $user )
+			)
+		);
+	}
+
+	static function getLists( $user ) {
+		$dbr = wfGetDB( DB_SLAVE );
+		$res = $dbr->select( 
+			'securepoll_lists',
+			array( 'li_name' ),
+			array( 'li_member' => $user->getId() ),
+			__METHOD__
+		);
+		$lists = array();
+		foreach ( $res as $row ) {
+			$lists[] = $row->li_name;
+		}
+		return $lists;
 	}
 }
 
 class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
-	function login( $election ) {
+	function requestLogin( $election ) {
 		global $wgRequest;
 
-		$user = parent::login( $election );
-		if ( $user ) {
-			return $user;
-		}
-
-		$urlParamNames = array( 'sid', 'casid', 'wiki', 'site', 'domain' );
-		$params = array();
+		$urlParamNames = array( 'id', 'token', 'wiki', 'site', 'domain' );
 		$vars = array();
 		foreach ( $urlParamNames as $name ) {
 			$value = $wgRequest->getVal( $name );
@@ -97,99 +153,63 @@ class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
 				wfDebug( __METHOD__ . " Invalid parameter: $name\n" );
 				return false;
 			}
+			$params[$name] = $value;
 			$vars["\$$name"] = $value;
-			$params[$name] = $value;
 		}
 
-		$electionParamNames = array( 'remote-mw-api-url', 'remote-mw-cookie', 'remote-mw-ca-cookie' );
-		foreach ( $electionParamNames as $name ) {
-			$value = $election->getProperty( $name );
-			if ( $value !== false ) {
-				$value = strtr( $value, $vars );
-			}
-			$params[$name] = $value;
+		$url = $election->getProperty( 'remote-mw-script-path' );
+		$url = strtr( $url, $vars );
+		if ( substr( $url, -1 ) != '/' ) {
+			$url .= '/';
 		}
+		$url .= 'extensions/SecurePoll/auth-api.php?' . 
+			wfArrayToCGI( array(
+				'token' => $params['token'],
+				'id' => $params['id']
+			) );
 
-		if ( !$params['sid'] ) {
-			return false;
-		}
-		if ( !$params['remote-mw-cookie'] ) {
-			wfDebug( __METHOD__ . ": No remote cookie configured!\n" );
-			return false;
-		}
-		$cookies = array( $params['remote-mw-cookie'] => $params['sid'] );
-		if ( $params['casid'] && $params['remote-mw-ca-cookie'] ) {
-			$cookies[$params['remote-mw-ca-cookie']] = $params['casid'];
-		}
-		$cookieHeader = $this->encodeCookies( $cookies );
-		$url = $params['remote-mw-api-url'] .
-			'?action=query&format=php' .
-			'&meta=userinfo&uiprop=blockinfo|rights|editcount|options' .
-			'&meta=siteinfo';
-		$curlParams = array(
-			CURLOPT_COOKIE => $cookieHeader,
+		// Use the default SSL certificate file
+		// Necessary on some versions of cURL, others do this by default
+		$curlParams = array( CURLOPT_CAINFO => '/etc/ssl/certs/ca-certificates.crt' );
 
-			// Use the default SSL certificate file
-			// Necessary on some versions of cURL, others do this by default
-			CURLOPT_CAINFO => '/etc/ssl/certs/ca-certificates.crt'
-		);
-
-		wfDebug( "Fetching URL $url\n" );
 		$value = Http::get( $url, 20, $curlParams );
 
 		if ( !$value ) {
-			wfDebug( __METHOD__ . ": No response from server\n" );
-			$_SESSION['bvCurlError'] = curl_error( $c );
-			return false;
+			return Status::newFatal( 'securepoll-remote-auth-error' );
 		}
 
-		$decoded = unserialize( $value );
-		$userinfo = $decoded['query']['userinfo'];
-		$siteinfo = $decoded['query']['general'];
-		if ( isset( $userinfo['anon'] ) ) {
-			wfDebug( __METHOD__ . ": User is not logged in\n" );
-			return false;
-		}
-		if ( !isset( $userinfo['name'] ) ) {
-			wfDebug( __METHOD__ . ": No username in response\n" );
-			return false;
-		}
-		if ( isset( $userinfo['options']['language'] ) ) {
-			$language = $userinfo['options']['language'];
-		} else {
-			$language = 'en';
-		}
-		$urlInfo = wfParseUrl( $decoded['query']['general']['base'] );
-		$domain = $urlInfo === false ? false : $urlInfo['host'];
-		$userPage = $siteinfo['server'] .
-			str_replace( $siteinfo['articlepath'], '$1', '' ) .
-			'User:' .
-			urlencode( str_replace( $userinfo['name'], ' ', '_' ) );
+		$status = unserialize( $value );
+		$status->cleanCallback = false;
 
-		wfDebug( __METHOD__ . " got response for user {$userinfo['name']}@{$params['wiki']}\n" );
-		return $this->getUser( array(
-			'name' => $userinfo['name'],
-			'type' => 'remote-mw',
-			'domain' => $domain,
-			'authority' => $userPage,
-			'properties' => array(
-				'wiki' => $siteinfo['wikiid'],
-				'blocked' => isset( $userinfo['blockedby'] ),
-				'edit-count' => $userinfo['edit-count'],
-				'bot' => in_array( 'bot', $userinfo['rights'] ),
-				'language' => $language,
-			)
-		) );
+		if ( !$status || !( $status instanceof Status ) ) {
+			return Status::newFatal( 'securepoll-remote-parse-error' );
+		}
+		if ( !$status->isOK() ) {
+			return $status;
+		}
+		$params = $status->value;
+		$params['type'] = 'remote-mw';
+		$params['electionId'] = $election->getId();
+
+		$qualStatus = $election->getQualifiedStatus( $params );
+		if ( !$qualStatus->isOK() ) {
+			return $qualStatus;
+		}
+
+		return Status::newGood( $this->getVoter( $params ) );
 	}
 
-	function encodeCookies( $cookies ) {
-		$s = '';
-		foreach ( $cookies as $name => $value ) {
-			if ( $s !== '' ) {
-				$s .= ';';
-			}
-			$s .= urlencode( $name ) . '=' . urlencode( $value );
-		}
-		return $s;
+	/**
+	 * Apply a one-way hash function to a string.
+	 *
+	 * The aim is to encode a user's login token so that it can be transmitted to the
+	 * voting server without giving the voting server any special rights on the wiki 
+	 * (apart from the ability to verify the user). We truncate the hash at 26 
+	 * hexadecimal digits, to provide 24 bits less information than original token. 
+	 * This makes discovery of the token difficult even if the hash function is 
+	 * completely broken.
+	 */
+	static function encodeToken( $token ) {
+		return substr( sha1( __CLASS__ . '-' . $token ), 0, 26 );
 	}
 }

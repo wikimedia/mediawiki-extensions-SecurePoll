@@ -66,18 +66,25 @@ class SecurePoll_TranslatePage extends SecurePoll_Page {
 				$controlName = 'trans_' . $entity->getId() . '_' . $messageName;
 				$primaryText = $entity->getRawMessage( $messageName, $primary );
 				$secondaryText = $entity->getRawMessage( $messageName, $secondary );
+				$attribs = array( 'class' => 'securepoll-translate-box' );
+				if ( !$this->isAdmin ) {
+					$attribs['readonly'] = '1';
+				}
 				$s .= '<tr><td>' . htmlspecialchars( "$entityName/$messageName" ) . "</td>\n" .
 					'<td>' . nl2br( htmlspecialchars( $primaryText ) ) . '</td>' .
 					'<td>' . 
-					Xml::textarea( $controlName, $secondaryText, 40, 3, 
-						array( 'class' => 'securepoll-translate-box' ) ) .
+					Xml::textarea( $controlName, $secondaryText, 40, 3, $attribs ) .
 					"</td></tr>\n";
 			}
 		}
-		$s .= '</table>' . 
+		$s .= '</table>';
+		if ( $this->isAdmin ) {
+			$s .= 
 			'<p style="text-align: center;">' . 
 			Xml::submitButton( wfMsg( 'securepoll-submit-translate' ) ) .
-			"</p></form>\n";
+			"</p>";
+		}
+		$s .= "</form>\n";
 		$wgOut->addHTML( $s );
 	}
 
@@ -114,6 +121,12 @@ class SecurePoll_TranslatePage extends SecurePoll_Page {
 
 	function doSubmit( $secondary ) {
 		global $wgRequest, $wgOut;
+
+		if ( !$this->isAdmin ) {
+			$wgOut->addWikiMsg( 'securepoll-need-admin' );
+			return;
+		}
+
 		$entities = array_merge( array( $this->election ), $this->election->getDescendants() );
 		$replaceBatch = array();
 		foreach ( $entities as $entity ) {

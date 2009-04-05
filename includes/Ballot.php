@@ -78,6 +78,9 @@ class SecurePoll_ChooseBallot extends SecurePoll_Ballot {
 	}
 }
 
+/**
+ * TODO: this is code copied directly from BoardVote, it needs to be ported.
+ */
 class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 	function getTallyTypes() {
 		return array( 'plurality', 'condorcet' );
@@ -132,3 +135,4 @@ class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 	function getForm() { }
 	function submitForm() { }
 }
+
