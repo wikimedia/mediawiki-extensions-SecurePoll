@@ -76,7 +76,7 @@ CREATE TABLE /*_*/securepoll_votes (
 	vote_ua varbinary(255) not null,
 	vote_timestamp varbinary(14) not null,
 	vote_current tinyint not null,
-	vote_token_match tinyint not null,
+	vote_token_match tinyint not null
 );
 CREATE INDEX /*i*/spvote_timestamp ON /*_*/securepoll_votes
 	(vote_election, vote_timestamp);
