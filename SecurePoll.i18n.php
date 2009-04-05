@@ -1004,7 +1004,7 @@ $messages['he'] = array(
 	'securepoll-not-authorised' => 'אינכם מורשים להצביע בהצבעה זו.',
 	'securepoll-welcome' => '<strong>ברוכים הבאים, $1!</strong>',
 	'securepoll-not-started' => 'הצבעה זו טרם התחילה.
-היא מיועדת להתחיל ב־$1.',
+היא מיועדת להתחיל ב־$3, $2.',
 	'securepoll-not-qualified' => 'אינכם רשאים להצביע בהצבעה זו: $1',
 	'securepoll-change-disallowed' => 'הצבעתם כבר בהצבעה זו.
 מצטערים, אינכם רשאים להצביע שוב.',
@@ -1061,7 +1061,7 @@ $1',
 	'securepoll-header-admin' => 'מנהל',
 	'securepoll-dump-title' => 'העתק מוצפן: $1',
 	'securepoll-dump-no-crypt' => 'לא נמצאה רשומת הצבעה מוצפנת עבור הצבעה זו, כיוון שההצבעה אינה מוגדרת לשימוש בהצפנה.',
-	'securepoll-dump-not-finished' => 'רשומות ההצבעה המוצפנות זמינות רק לאחר תאריך הסיום: $1',
+	'securepoll-dump-not-finished' => 'רשומות ההצבעה המוצפנות זמינות רק לאחר תאריך הסיום ב־$2, $1',
 	'securepoll-dump-no-urandom' => 'לא ניתן לפתוח את /dev/urandom. 
 כדי לשמור על פרטיות המצביעים, רשומות ההצבעה המוצפנות זמינותת באופן ציבורי רק כאשר ניתן לערבב אותן באמצעות זרם המשתמש במספר אקראי מאובטח.',
 	'securepoll-translate-title' => 'תרגום: $1',
