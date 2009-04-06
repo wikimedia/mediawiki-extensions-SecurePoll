@@ -64,9 +64,9 @@ Cannot decrypt.',
 	'securepoll-api-no-user' => 'No user was found with the given ID.',
 	'securepoll-api-token-mismatch' => 'Security token mismatch, cannot log in.',
 	'securepoll-not-logged-in' => 'You must log in to vote in this election',
-	'securepoll-too-few-edits' => 'Sorry, you cannot vote. You need to have made at least $1 edits to vote in this election, you have made $2.',
+	'securepoll-too-few-edits' => 'Sorry, you cannot vote. You need to have made at least $1 {{PLURAL:$1|edit|edits}} to vote in this election, you have made $2.',
 	'securepoll-blocked' => 'Sorry, you cannot vote in this election if you are currently blocked from editing.',
-	'securepoll-not-in-group' => 'Only members of the $1 group can vote in this election.',
+	'securepoll-not-in-group' => 'Only members of the "$1" group can vote in this election.',
 	'securepoll-not-in-list' => 'Sorry, you are not in the predetermined list of users authorised to vote in this election.',
 
 	# List page
