@@ -1,6 +1,13 @@
 <?php
 
+/**
+ * The entry page for SecurePoll. Shows a list of elections.
+ */
 class SecurePoll_EntryPage extends SecurePoll_Page {
+	/**
+	 * Execute the subpage.
+	 * @param $params array Array of subpage parameters.
+	 */
 	function execute() {
 		global $wgOut;
 		$pager = new SecurePoll_ElectionPager( $this );
@@ -10,11 +17,17 @@ class SecurePoll_EntryPage extends SecurePoll_Page {
 		);
 	}
 
+	/**
+	 * @return Title
+	 */
 	function getTitle() {
 		return $this->parent->getTitle( 'entry' );
 	}
 }
 
+/**
+ * Pager for an election list. See TablePager documentation.
+ */
 class SecurePoll_ElectionPager extends TablePager {
 	var $subpages = array(
 		'vote',

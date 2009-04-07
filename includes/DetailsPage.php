@@ -1,6 +1,13 @@
 <?php
 
+/**
+ * Special:SecurePoll subpage for showing the details of a given vote to an administrator.
+ */
 class SecurePoll_DetailsPage extends SecurePoll_Page {
+	/**
+	 * Execute the subpage.
+	 * @param $params array Array of subpage parameters.
+	 */
 	function execute( $params ) {
 		global $wgOut, $wgUser;
 
@@ -17,7 +24,7 @@ class SecurePoll_DetailsPage extends SecurePoll_Page {
 			array(
 				'vote_id' => $this->voteId,
 				'vote_election=el_entity',
-				'vote_user=voter_id',
+				'vote_voter=voter_id',
 			),
 			__METHOD__
 		);
@@ -39,9 +46,9 @@ class SecurePoll_DetailsPage extends SecurePoll_Page {
 			'<table class="TablePager">' .
 			$this->detailEntry( 'securepoll-header-id', $row->vote_id ) .
 			$this->detailEntry( 'securepoll-header-timestamp', $row->vote_timestamp ) .
-			$this->detailEntry( 'securepoll-header-user-name', $row->voter_name ) .
-			$this->detailEntry( 'securepoll-header-user-type', $row->voter_type ) .
-			$this->detailEntry( 'securepoll-header-user-domain', $row->voter_domain ) .
+			$this->detailEntry( 'securepoll-header-voter-name', $row->voter_name ) .
+			$this->detailEntry( 'securepoll-header-voter-type', $row->voter_type ) .
+			$this->detailEntry( 'securepoll-header-voter-domain', $row->voter_domain ) .
 			$this->detailEntry( 'securepoll-header-url', $row->voter_url ) .
 			$this->detailEntry( 'securepoll-header-ip', IP::formatHex( $row->vote_ip ) ) .
 			$this->detailEntry( 'securepoll-header-xff', $row->vote_xff ) .
@@ -69,19 +76,33 @@ class SecurePoll_DetailsPage extends SecurePoll_Page {
 		);
 	}
 
+	/**
+	 * Get a table row with a given header message and value
+	 * @param $header string
+	 * @param $value string
+	 * @return string
+	 */
 	function detailEntry( $header, $value ) {
 		return "<tr>\n" .
 			"<td class=\"securepoll-detail-header\">" .	wfMsgHTML( $header ) . "</td>\n" .
 			'<td>' . htmlspecialchars( $value ) . "</td></tr>\n";
 	}
 
+	/**
+	 * Get a Title object for the current subpage.
+	 * @return Title
+	 */
 	function getTitle() {
 		return $this->parent->getTitle( 'details/' . $this->voteId );
 	}
 }
 
+/**
+ * Pager for the strike log. See TablePager documentation.
+ */
 class SecurePoll_StrikePager extends TablePager {
 	var $detailsPage, $voteId;
+
 	function __construct( $detailsPage, $voteId ) {
 		$this->detailsPage = $detailsPage;
 		$this->voteId = $voteId;

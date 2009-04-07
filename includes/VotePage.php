@@ -1,9 +1,16 @@
 <?php
 
+/**
+ * The subpage for casting votes.
+ */
 class SecurePoll_VotePage extends SecurePoll_Page {
 	var $languages;
 	var $election, $auth, $user;
 
+	/**
+	 * Execute the subpage.
+	 * @param $params array Array of subpage parameters.
+	 */
 	function execute( $params ) {
 		global $wgOut, $wgRequest;
 		if ( !count( $params ) ) {
@@ -72,10 +79,16 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 		}
 	}
 
+	/**
+	 * @return Title
+	 */
 	function getTitle() {
 		return $this->parent->getTitle( 'vote/' . $this->election->getId() );
 	}
 
+	/**
+	 * Show the voting form.
+	 */
 	function showForm() {
 		global $wgOut;
 
@@ -100,18 +113,26 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 		);
 	}
 
+	/**
+	 * Submit the voting form. If successful, adds a record to the database. 
+	 * Shows an error message on failure.
+	 */
 	function doSubmit() {
 		global $wgOut;
 		$ballot = $this->election->getBallot();
 		$status = $ballot->submitForm();
 		if ( !$status->isOK() ) {
-			$wgOut->addWikiText( $status->getWikiText( 'securepoll_invalidentered' ) );
+			$wgOut->addWikiText( $status->getWikiText( 'securepoll-bad-ballot-submission' ) );
 			$this->showForm();
 		} else {
 			$this->logVote( $status->value );
 		}
 	}
 
+	/**
+	 * Add a vote to the database with the given unencrypted answer record.
+	 * @param $record string
+	 */
 	function logVote( $record ) {
 		global $wgOut, $wgRequest;
 
@@ -137,7 +158,7 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 			array( 'vote_current' => 0 ), # SET
 			array( # WHERE
 				'vote_election' => $this->election->getId(),
-				'vote_user' => $this->voter->getId(),
+				'vote_voter' => $this->voter->getId(),
 			),
 			__METHOD__
 		);
@@ -155,9 +176,9 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 			array(
 				'vote_id' => $voteId,
 				'vote_election' => $this->election->getId(),
-				'vote_user' => $this->voter->getId(),
-				'vote_user_name' => $this->voter->getName(),
-				'vote_user_domain' => $this->voter->getDomain(),
+				'vote_voter' => $this->voter->getId(),
+				'vote_voter_name' => $this->voter->getName(),
+				'vote_voter_domain' => $this->voter->getDomain(),
 				'vote_record' => $encrypted,
 				'vote_ip' => IP::toHex( wfGetIP() ),
 				'vote_xff' => $xff,
@@ -177,7 +198,7 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 			$wgOut->addWikiMsg( 'securepoll-thanks' );
 		}
 		$returnUrl = $this->election->getProperty( 'return-url' );
-		$returnText = $this->election->getProperty( 'return-text' );
+		$returnText = $this->election->getMessage( 'return-text' );
 		if ( $returnUrl ) {
 			if ( strval( $returnText ) === '' ) {
 				$returnText = $returnUrl;
@@ -187,11 +208,13 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 		}
 	}
 
-	function displayInvalidVoteError() {
-		global $wgOut;
-		$wgOut->addWikiMsg( 'securepoll_invalidentered' );
-	}
-
+	/**
+	 * Show a page informing the user that they must go to another wiki to
+	 * cast their vote, and a button which takes them there.
+	 *
+	 * Clicking the button transmits a hash of their auth token, so that the
+	 * remote server can authenticate them.
+	 */
 	function showJumpForm() {
 		global $wgOut, $wgUser;
 		$url = $this->election->getProperty( 'jump-url' );

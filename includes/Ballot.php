@@ -1,12 +1,38 @@
 <?php
 
+/**
+ * Parent class for ballot forms. This is the UI component of a voting method.
+ */
 abstract class SecurePoll_Ballot {
 	var $election;
 
+	/**
+	 * Get a list of names of tallying methods, which may be used to produce a 
+	 * result from this ballot type.
+	 * @return array
+	 */
 	abstract function getTallyTypes();
+
+	/**
+	 * Get the HTML for this ballot. <form> tags should not be included,
+	 * they will be added by the VotePage.
+	 * @return string
+	 */
 	abstract function getForm();
+
+	/**
+	 * Called when the form is submitted. This returns a Status object which, 
+	 * when successful, contains a voting record in the value member. To 
+	 * preserve voter privacy, voting records should be the same length 
+	 * regardless of voter choices.
+	 */
 	abstract function submitForm();
 
+	/**
+	 * Create a ballot of the given type
+	 * @param $type string
+	 * @param $election SecurePoll_Election
+	 */
 	static function factory( $type, $election ) {
 		switch ( $type ) {
 		case 'approval':
@@ -20,16 +46,37 @@ abstract class SecurePoll_Ballot {
 		}
 	}
 
+	/**
+	 * Constructor.
+	 * @param $election SecurePoll_Election
+	 */
 	function __construct( $election ) {
 		$this->election = $election;
 	}
 }
 
+/**
+ * A ballot class which asks the user to choose one answer only from the 
+ * given options, for each question.
+ *
+ * The following election properties are used:
+ *     shuffle-questions    when present and true, the questions are shown in random order
+ *     shuffle-options      when present and true, the options are shown in random order
+ */
 class SecurePoll_ChooseBallot extends SecurePoll_Ballot {
+	/**
+	 * Get a list of names of tallying methods, which may be used to produce a 
+	 * result from this ballot type.
+	 * @return array
+	 */
 	function getTallyTypes() {
 		return array( 'plurality' );
 	}
 
+	/**
+	 * Get the HTML for this ballot. 
+	 * @return string
+	 */
 	function getForm() {
 		global $wgParser, $wgTitle;
 		$questions = $this->election->getQuestions();
@@ -62,6 +109,10 @@ class SecurePoll_ChooseBallot extends SecurePoll_Ballot {
 		return $s;
 	}
 
+	/**
+	 * Called when the form is submitted. 
+	 * @return Status
+	 */
 	function submitForm() {
 		global $wgRequest;
 		$questions = $this->election->getQuestions();
@@ -69,7 +120,7 @@ class SecurePoll_ChooseBallot extends SecurePoll_Ballot {
 		foreach ( $questions as $question ) {
 			$result = $wgRequest->getInt( 'securepoll_q' . $question->getId() );
 			if ( !$result ) {
-				return Status::newFatal( 'securepoll_unanswered_questions' );
+				return Status::newFatal( 'securepoll-unanswered-questions' );
 			}
 			$record .= sprintf( 'Q%08XA%08X', $question->getId(), $result );
 		}

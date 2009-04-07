@@ -1,11 +1,21 @@
 <?php
 
+/**
+ * Class for handling guest logins and sessions. Creates SecurePoll_Voter objects.
+ */
 class SecurePoll_Auth {
+	/**
+	 * List of available authorisation modules (subclasses)
+	 */
 	static $authTypes = array(
 		'local' => 'SecurePoll_LocalAuth',
 		'remote-mw' => 'SecurePoll_RemoteMWAuth',
 	);
 
+	/**
+	 * Create an auth object of the given type
+	 * @param $type string
+	 */
 	static function factory( $type ) {
 		if ( !isset( self::$authTypes[$type] ) ) {
 			throw new MWException( "Invalid authentication type: $type" );
@@ -14,14 +24,31 @@ class SecurePoll_Auth {
 		return new $class;
 	}
 
+	/**
+	 * Create a voter transparently, without user interaction.
+	 * Sessions authorised against local accounts are created this way.
+	 * @param $election SecurePoll_Election
+	 * @return Status
+	 */
 	function autoLogin( $election ) {
 		return Status::newFatal( 'securepoll-not-logged-in' );
 	}
 
+	/**
+	 * Create a voter on a direct request from a remote site.
+	 * @param $election SecurePoll_Election
+	 * @return Status
+	 */
 	function requestLogin( $election ) {
 		return $this->autoLogin();
 	}
 
+	/**
+	 * Get the voter associated with the current session. Returns false if 
+	 * there is no session.
+	 * @param $election SecurePoll_Election
+	 * @return SecurePoll_Election
+	 */
 	function getVoterFromSession( $election ) {
 		if ( session_id() == '' ) {
 			wfSetupSession();
@@ -43,6 +70,13 @@ class SecurePoll_Auth {
 		}
 	}
 
+	/**
+	 * Get a voter object with the relevant parameters.
+	 * If no voter exists with those parameters, a new one is created. If one
+	 * does exist already, it is returned.
+	 * @param $params array
+	 * @return SecurePoll_Voter
+	 */
 	function getVoter( $params ) {
 		$dbw = wfGetDB( DB_MASTER );
 
@@ -73,6 +107,11 @@ class SecurePoll_Auth {
 		return $user;
 	}
 
+	/**
+	 * Create a voter without user interaction, and create a session for it.
+	 * @param $election SecurePoll_Election
+	 * @return Status
+	 */
 	function newAutoSession( $election ) {
 		$status = $this->autoLogin( $election );
 		if ( $status->isGood() ) {
@@ -81,6 +120,11 @@ class SecurePoll_Auth {
 		return $status;
 	}
 
+	/**
+	 * Create a voter on an explicit request, and create a session for it.
+	 * @param $election SecurePoll_Election
+	 * @return Status
+	 */
 	function newRequestedSession( $election ) {
 		$status = $this->requestLogin( $election );
 		if ( $status->isGood() ) {
@@ -90,7 +134,18 @@ class SecurePoll_Auth {
 	}
 }
 
+/**
+ * Authorisation class for locally created accounts.
+ * Certain functions in this class are also used for sending local voter 
+ * parameters to a remote SecurePoll installation.
+ */
 class SecurePoll_LocalAuth extends SecurePoll_Auth {
+	/**
+	 * Create a voter transparently, without user interaction.
+	 * Sessions authorised against local accounts are created this way.
+	 * @param $election SecurePoll_Election
+	 * @return Status
+	 */
 	function autoLogin( $election ) {
 		global $wgUser, $wgServer, $wgLang;
 		if ( $wgUser->isAnon() ) {
@@ -106,6 +161,11 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 		return Status::newGood( $voter );
 	}
 
+	/**
+	 * Get voter parameters for a local User object.
+	 * @param $user User
+	 * @return array
+	 */
 	static function getUserParams( $user ) {
 		global $wgServer;
 		return array(
@@ -125,6 +185,11 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 		);
 	}
 
+	/**
+	 * Get the lists a given local user belongs to
+	 * @param $user User
+	 * @return array
+	 */
 	static function getLists( $user ) {
 		$dbr = wfGetDB( DB_SLAVE );
 		$res = $dbr->select( 
@@ -141,7 +206,15 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 	}
 }
 
+/**
+ * Class for guest login from one MW instance running SecurePoll to another.
+ */
 class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
+	/**
+	 * Create a voter on a direct request from a remote site.
+	 * @param $election SecurePoll_Election
+	 * @return Status
+	 */
 	function requestLogin( $election ) {
 		global $wgRequest;
 

@@ -60,11 +60,11 @@ CREATE INDEX /*i*/spvoter_elec_name_domain ON /*_*/securepoll_voters
 CREATE TABLE /*_*/securepoll_votes (
 	vote_id int not null primary key auto_increment,
 	vote_election int not null,
-	vote_user int not null,
+	vote_voter int not null,
 
 	-- Denormalised fields from the user table for efficient sorting
-	vote_user_name varchar(255) binary not null,
-	vote_user_domain varbinary(32) not null,
+	vote_voter_name varchar(255) binary not null,
+	vote_voter_domain varbinary(32) not null,
 
 	-- Denormalised field from the strike table
 	-- 1 if struck, 0 if not struck
@@ -80,10 +80,10 @@ CREATE TABLE /*_*/securepoll_votes (
 );
 CREATE INDEX /*i*/spvote_timestamp ON /*_*/securepoll_votes
 	(vote_election, vote_timestamp);
-CREATE INDEX /*i*/spvote_user_name ON /*_*/securepoll_votes
-	(vote_election, vote_user_name, vote_timestamp);
-CREATE INDEX /*i*/spvote_user_domain ON /*_*/securepoll_votes
-	(vote_election, vote_user_domain, vote_timestamp);
+CREATE INDEX /*i*/spvote_voter_name ON /*_*/securepoll_votes
+	(vote_election, vote_voter_name, vote_timestamp);
+CREATE INDEX /*i*/spvote_voter_domain ON /*_*/securepoll_votes
+	(vote_election, vote_voter_domain, vote_timestamp);
 CREATE INDEX /*i*/spvote_ip ON /*_*/securepoll_votes
 	(vote_election, vote_ip, vote_timestamp);
 

@@ -33,3 +33,13 @@
 .securepoll-trans-table {
 	width: 100%;
 }
+.securepoll-error-box {
+	font-size: larger;
+	border: 2px solid;
+	padding: .5em 1em;
+	margin-bottom: 2em;
+	color: #000;
+	border-color: red;
+	background-color: #fff2f2;
+}
+

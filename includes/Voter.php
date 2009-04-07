@@ -1,11 +1,18 @@
 <?php
 
+/**
+ * Class representing a voter. A voter is associated with one election only. Voter
+ * properties include a snapshot of heuristic qualifications such as edit count.
+ */
 class SecurePoll_Voter {
 	var $id, $electionId, $name, $domain, $wiki, $type, $url;
 	var $properties = array();
 
 	static $paramNames = array( 'id', 'electionId', 'name', 'domain', 'wiki', 'type', 'url', 'properties' );
 
+	/**
+	 * Create a voter from the given associative array of parameters
+	 */
 	function __construct( $params ) {
 		foreach ( self::$paramNames as $name ) {
 			if ( isset( $params[$name] ) ) {
@@ -14,6 +21,10 @@ class SecurePoll_Voter {
 		}
 	}
 
+	/**
+	 * Create a voter object from the database
+	 * @return SecurePoll_Voter or false if the ID is not valid
+	 */
 	static function newFromId( $id ) {
 		$db = wfGetDB( DB_MASTER );
 		$row = $db->selectRow( 'securepoll_voters', '*', array( 'voter_id' => $id ), __METHOD__ );
@@ -23,6 +34,9 @@ class SecurePoll_Voter {
 		return self::newFromRow( $row );
 	}
 
+	/**
+	 * Create a voter from a DB result row
+	 */
 	static function newFromRow( $row ) {
 		return new self( array(
 			'id' => $row->voter_id,
@@ -35,6 +49,13 @@ class SecurePoll_Voter {
 		) );
 	}
 
+	/**
+	 * Create a voter with the given parameters. Assumes the voter does not exist,
+	 * and inserts it into the database.
+	 *
+	 * The row needs to be locked before this function is called, to avoid 
+	 * duplicate key errors.
+	 */
 	static function createVoter( $params ) {
 		$db = wfGetDB( DB_MASTER );
 		$id = $db->nextSequenceValue( 'voters_voter_id' );
@@ -52,17 +73,46 @@ class SecurePoll_Voter {
 		return new self( $params );
 	}
 
+	/** Get the voter ID */
 	function getId() { return $this->id; }
+
+	/** 
+	 * Get the voter name. This is a short, ambiguous name appropriate for 
+	 * display. 
+	 */
 	function getName() { return $this->name; }
+
+	/**
+	 * Get the authorisation type.
+	 */
 	function getType() { return $this->type; }
+
+	/**
+	 * Get the voter domain. The name and domain, taken together, should usually be 
+	 * unique, although this is not strictly necessary.
+	 */
 	function getDomain() { return $this->domain; }
+
+	/**
+	 * Get a URL uniquely identifying the underlying user.
+	 */
 	function getUrl() { return $this->url; }
+
+	/**
+	 * Get the associated election ID
+	 */
 	function getElectionId() { return $this->electionId; }
 
+	/**
+	 * Get the voter's preferred language
+	 */
 	function getLanguage() {
 		return $this->getProperty( 'language', 'en' );
 	}
 
+	/**
+	 * Get a property from the property blob
+	 */
 	function getProperty( $name, $default = false ) {
 		if ( isset( $this->properties[$name] ) ) {
 			return $this->properties[$name];
@@ -71,10 +121,16 @@ class SecurePoll_Voter {
 		}
 	}
 
+	/**
+	 * Returns true if the voter is a guest user.
+	 */
 	function isRemote() {
 		return $this->type !== 'local';
 	}
 
+	/**
+	 * Decode the properties blob to produce an associative array.
+	 */
 	static function decodeProperties( $blob ) {
 		if ( strval( $blob ) == '' ) {
 			return array();
@@ -83,6 +139,10 @@ class SecurePoll_Voter {
 		}
 	}
 
+	/**
+	 * Encode an associative array of properties to a blob suitable for storing
+	 * in the database.
+	 */
 	static function encodeProperties( $props ) {
 		return serialize( $props );
 	}

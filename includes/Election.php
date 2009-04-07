@@ -1,13 +1,70 @@
 <?php
 
+/**
+ * Class representing an *election*. The term is intended to include straw polls, 
+ * surveys, etc. An election has one or more *questions* which voters answer. 
+ * The *voters* submit their *votes*, which are later tallied to provide a result.
+ * An election runs only once and produces a single result.
+ *
+ * Each election has its own independent set of voters. Voters are created 
+ * when the underlying user attempts to vote. A voter may vote more than once,
+ * unless the election disallows this, but only one of their votes is counted.
+ *
+ * Elections have a list of key/value pairs called properties, which are defined 
+ * and used by various modules in order to configure the election. The properties,
+ * in order of the module that defines them, are as follows:
+ *
+ *      Election
+ *          min-edits
+ *              Minimum number of edits needed to be qualified
+ *          not-blocked
+ *              True if voters need to not be blocked
+ *          need-group
+ *              The name of an MW group voters need to be in
+ *          need-list
+ *              The name of a SecurePoll list voters need to be in
+ *          admins
+ *              A list of admin names, pipe separated
+ *          disallow-change
+ *              True if a voter is not allowed to change their vote
+ *          encrypt-type
+ *              The encryption module name
+ *      
+ *      See the other module for documentation of the following.
+ *
+ *      RemoteMWAuth
+ *          remote-mw-script-path
+ *
+ *      ChooseBallot
+ *          shuffle-questions
+ *          shuffle-options
+ *
+ *      GpgCrypt
+ *          gpg-encrypt-key
+ *          gpg-sign-key
+ *          gpg-decrypt-key
+ *
+ *      VotePage
+ *          jump-url
+ *          jump-id
+ *          return-url
+ */
 class SecurePoll_Election extends SecurePoll_Entity {
 	var $questions, $auth, $ballot;
 	var $title, $ballotType, $tallyType, $primaryLang, $startDate, $endDate, $authType;
 
+	/**
+	 * Constructor.
+	 * @param $id integer
+	 */
 	function __construct( $id ) {
 		parent::__construct( 'election', $id );
 	}
 
+	/**
+	 * Create an object based on a DB result row.
+	 * @param $row object
+	 */
 	static function newFromRow( $row ) {
 		$election = new self( $row->el_entity );
 		$election->title = $row->el_title;
@@ -20,17 +77,34 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		return $election;
 	}
 
+	/**
+	 * Get a list of localisable message names. See SecurePoll_Entity.
+	 */
 	function getMessageNames() {
-		return array( 'title', 'intro', 'jump-text' );
+		return array( 'title', 'intro', 'jump-text', 'return-text' );
 	}
 
+	/**
+	 * Get a list of child entity objects. See SecurePoll_Entity.
+	 */
 	function getChildren() {
 		return $this->getQuestions();
 	}
 
+	/**
+	 * Get the start date in MW internal form.
+	 */
 	function getStartDate() { return $this->startDate; }
+
+	/**
+	 * Get the end date in MW internal form.
+	 */
 	function getEndDate() { return $this->endDate; }
 
+	/**
+	 * Returns true if the election has started.
+	 * @param $ts The reference timestamp, or false for now.
+	 */
 	function isStarted( $ts = false ) {
 		if ( $ts === false ) {
 			$ts = wfTimestampNow();
@@ -38,6 +112,10 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		return !$this->startDate || $ts >= $this->startDate;
 	}
 
+	/**
+	 * Returns true if the election has finished.
+	 * @param $ts The reference timestamp, or false for now.
+	 */
 	function isFinished( $ts = false ) {
 		if ( $ts === false ) {
 			$ts = wfTimestampNow();
@@ -45,6 +123,10 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		return $this->endDate && $ts >= $this->endDate;
 	}
 
+	/**
+	 * Get the ballot object for this election.
+	 * @return SecurePoll_Ballot
+	 */
 	function getBallot() {
 		if ( !$this->ballot ) {
 			$this->ballot = SecurePoll_Ballot::factory( $this->ballotType, $this );
@@ -52,6 +134,12 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		return $this->ballot;
 	}
 
+	/**
+	 * Determine whether a voter would be qualified to vote in this election, 
+	 * based on the given associative array of parameters.
+	 * @param $params Associative array
+	 * @return Status
+	 */
 	function getQualifiedStatus( $params ) {
 		$props = $params['properties'];
 		$status = Status::newGood();
@@ -86,28 +174,45 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		return $status;
 	}
 
+	/**
+	 * Returns true if the user is an admin of the current election.
+	 * @param $user User
+	 */
 	function isAdmin( User $user ) {
 		$admins = array_map( 'trim', explode( '|', $this->getProperty( 'admins' ) ) );
 		return in_array( $user->getName(), $admins );
 	}
-	
-	function hasVoted( $user ) {
+
+	/**
+	 * Returns true if the voter has voted already.
+	 * @param $voter SecurePoll_Voter
+	 */
+	function hasVoted( $voter ) {
 		$db = wfGetDB( DB_MASTER );
 		$row = $db->selectRow(
 			'securepoll_votes',
 			array( "1" ),
 			array(
 				'vote_election' => $this->getId(),
-				'vote_user' => $user->getId(),
+				'vote_voter' => $voter->getId(),
 			),
 			__METHOD__ );
 		return $row !== false;
 	}
 
+	/**
+	 * Returns true if the election allows voters to change their vote after it
+	 * is initially cast.
+	 * @return bool
+	 */
 	function allowChange() {
-		return true;
+		return !$this->getProperty( 'disallow-change' );
 	}
 
+	/**
+	 * Get the questions in this election
+	 * @return array of SecurePoll_Question objects.
+	 */
 	function getQuestions() {
 		if ( $this->questions === null ) {
 			$db = wfGetDB( DB_MASTER );
@@ -141,6 +246,10 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		return $this->questions;
 	}
 
+	/**
+	 * Get the authorisation object.
+	 * @return SecurePoll_Auth
+	 */
 	function getAuth() {
 		if ( !$this->auth ) {
 			$this->auth = SecurePoll_Auth::factory( $this->authType );
@@ -148,10 +257,20 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		return $this->auth;
 	}
 
+	/**
+	 * Get the primary language for this election. This language will be used as
+	 * a default in the relevant places.
+	 * @return string
+	 */
 	function getLanguage() {
 		return $this->primaryLang;
 	}
 
+	/**
+	 * Get the cryptography module for this election, or false if none is
+	 * defined.
+	 * @return SecurePoll_Crypt or false
+	 */
 	function getCrypt() {
 		$type = $this->getProperty( 'encrypt-type' );
 		if ( $type === false || $type === 'none' ) {

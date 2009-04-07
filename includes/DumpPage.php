@@ -1,6 +1,13 @@
 <?php
 
+/**
+ * Special:SecurePoll subpage for exporting encrypted election records.
+ */
 class SecurePoll_DumpPage extends SecurePoll_Page {
+	/**
+	 * Execute the subpage.
+	 * @param $params array Array of subpage parameters.
+	 */
 	function execute( $params ) {
 		global $wgOut, $wgUser;
 
@@ -61,6 +68,10 @@ class SecurePoll_DumpPage extends SecurePoll_Page {
 		$this->closeRandom();
 	}
 
+	/**
+	 * Open the /dev/urandom device
+	 * @return bool success
+	 */
 	function openRandom() {
 		if ( wfIsWindows() ) {
 			return false;
@@ -72,6 +83,9 @@ class SecurePoll_DumpPage extends SecurePoll_Page {
 		return true;
 	}
 
+	/**
+	 * Close the urandom device
+	 */
 	function closeRandom() {
 		fclose( $this->urandom );
 	}

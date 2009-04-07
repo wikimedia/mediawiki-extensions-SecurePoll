@@ -1,8 +1,16 @@
 <?php
 
+/**
+ * SecurePoll subpage to show a list of votes for a given election.
+ * Provides an administrator interface for striking fraudulent votes.
+ */
 class SecurePoll_ListPage extends SecurePoll_Page {
 	var $election;
 
+	/**
+	 * Execute the subpage.
+	 * @param $params array Array of subpage parameters.
+	 */
 	function execute( $params ) {
 		global $wgOut, $wgUser, $wgStylePath;
 
@@ -65,6 +73,15 @@ EOT
 		}
 	}
 
+	/**
+	 * The entry point for XHR invocation of strike/unstrike.
+	 * @param $action string The action, either "strike" or "unstrike"
+	 * @param $id integer The vote ID
+	 * @param $reason string The reason for the action, specified by the admin
+	 * @return JSON object describing the result. Fields are:
+	 *    status:  "good" for success, "bad" for failure
+	 *    message: The HTML error message
+	 */
 	static function ajaxStrike( $action, $id, $reason ) {
 		wfLoadExtensionMessages( 'SecurePoll' );
 		$db = wfGetDB( DB_MASTER );
@@ -95,6 +112,13 @@ EOT
 		}
 	}
 
+	/**
+	 * The strike/unstrike backend.
+	 * @todo provide a non-AJAX frontend for this.
+	 * @param $action string strike or unstrike
+	 * @param $voteId integer The vote ID
+	 * @param $reason string The reason
+	 */
 	function strike( $action, $voteId, $reason ) {
 		global $wgUser;
 		$dbw = wfGetDB( DB_MASTER );
@@ -131,27 +155,35 @@ EOT
 		return Status::newGood();
 	}
 
+	/**
+	 * @return Title object
+	 */
 	function getTitle() {
 		return $this->parent->getTitle( 'list/' . $this->election->getId() );
 	}
 }
 
+/**
+ * A TablePager for showing a list of votes in a given election. 
+ * Shows much more information, and a strike/unstrike interface, if the user
+ * is an admin.
+ */
 class SecurePoll_ListPager extends TablePager {
 	var $listPage, $isAdmin, $election;
 
 	static $publicFields = array(
 		'details',
 		'vote_timestamp',
-		'vote_user_name',
-		'vote_user_domain',
+		'vote_voter_name',
+		'vote_voter_domain',
 	);
 
 	static $adminFields = array(
 		'details',
 		'strike',
 		'vote_timestamp',
-		'vote_user_name',
-		'vote_user_domain',
+		'vote_voter_name',
+		'vote_voter_domain',
 		'vote_ip',
 		'vote_xff',
 		'vote_ua',
@@ -179,7 +211,7 @@ class SecurePoll_ListPager extends TablePager {
 
 	function isFieldSortable( $field ) {
 		return in_array( $field, array( 
-			'vote_user_name', 'vote_user_domain', 'vote_timestamp', 'vote_ip' 
+			'vote_voter_name', 'vote_voter_domain', 'vote_timestamp', 'vote_ip' 
 		) );
 	}
 

@@ -1,6 +1,13 @@
 <?php
 
-class SecurePoll_TranslatePage extends SecurePoll_Page {
+/**
+ * A SecurePoll subpage for translating election messages.
+ */
+class SecurePoll_TranslatePage extends SecurePoll_Page {	
+	/**
+	 * Execute the subpage.
+	 * @param $params array Array of subpage parameters.
+	 */
 	function execute( $params ) {
 		global $wgOut, $wgUser, $wgLang, $wgRequest;
 
@@ -24,6 +31,7 @@ class SecurePoll_TranslatePage extends SecurePoll_Page {
 		$primary = $this->election->getLanguage();
 		$secondary = $wgRequest->getVal( 'secondary_lang' );
 		if ( $secondary !== null ) {
+			# Language selector submitted: redirect to the subpage
 			$wgOut->redirect( $this->getTitle( $secondary )->getFullUrl() );
 			return;
 		}
@@ -31,6 +39,7 @@ class SecurePoll_TranslatePage extends SecurePoll_Page {
 		if ( isset( $params[1] ) ) {
 			$secondary = $params[1];
 		} else {
+			# No language selected, show the selector
 			$this->showLanguageSelector( $primary );
 			return;
 		}
@@ -44,11 +53,13 @@ class SecurePoll_TranslatePage extends SecurePoll_Page {
 			return;
 		}
 
+		# If the request was posted, do the submit
 		if ( $wgRequest->wasPosted() && $wgRequest->getVal( 'action' ) == 'submit' ) {
 			$this->doSubmit( $secondary );
 			return;
 		}
 
+		# Show the form
 		$action = $this->getTitle( $secondary )->getLocalUrl( 'action=submit' );
 		$s = 
 			Xml::openElement( 'form', array( 'method' => 'post', 'action' => $action ) ) .
@@ -88,18 +99,26 @@ class SecurePoll_TranslatePage extends SecurePoll_Page {
 		$wgOut->addHTML( $s );
 	}
 
+	/**
+	 * @return Title
+	 */
 	function getTitle( $lang ) {
-		return $this->parent->getTitle( 'translate/' . 
-			$this->election->getId() . '/' .
-			$lang
-		);
+		$subpage = 'translate/' . $this->election->getId();
+		if ( $lang !== false ) {
+			$subpage .= '/' . $lang;
+		}
+		return $this->parent->getTitle( $subpage );
 	}
 
+	/**
+	 * Show a language selector to allow the user to choose the language to
+	 * translate.
+	 */
 	function showLanguageSelector( $selectedCode ) {
 		$s = 
 			Xml::openElement( 'form', 
 				array( 
-					'action' => $this->getTitle( '' )->getLocalUrl()
+					'action' => $this->getTitle( false )->getLocalUrl()
 				) 
 			) .
 			Xml::openElement( 
@@ -119,6 +138,9 @@ class SecurePoll_TranslatePage extends SecurePoll_Page {
 		$wgOut->addHTML( $s );
 	}
 
+	/**
+	 * Submit message text changes.
+	 */
 	function doSubmit( $secondary ) {
 		global $wgRequest, $wgOut;
 

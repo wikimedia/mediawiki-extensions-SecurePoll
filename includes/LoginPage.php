@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * A simple SecurePoll subpage which handles guest logins from a remote website, 
+ * starts a session, and then redirects to the voting page.
+ */
 class SecurePoll_LoginPage extends SecurePoll_Page {
 	function execute( $params ) {
 		global $wgOut;

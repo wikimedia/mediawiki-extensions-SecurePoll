@@ -4,9 +4,26 @@
  * Cryptography module
  */
 abstract class SecurePoll_Crypt {
+	/**
+	 * Encrypt some data. When successful, the value member of the Status object 
+	 * will contain the encrypted record.
+	 * @param string $record
+	 * @return Status
+	 */
 	abstract function encrypt( $record );
+
+	/**
+	 * Decrypt some data. When successful, the value member of the Status object 
+	 * will contain the encrypted record.
+	 * @param string $record
+	 * @return Status
+	 */
 	abstract function decrypt( $record );
 
+	/**
+	 * Create an encryption object of the given type. Currently only "gpg" is 
+	 * implemented.
+	 */
 	static function factory( $type, $election ) {
 		if ( $type === 'gpg' ) {
 			return new SecurePoll_GpgCrypt( $election );
@@ -16,14 +33,32 @@ abstract class SecurePoll_Crypt {
 	}
 }
 
+/**
+ * Cryptography module that shells out to GPG
+ *
+ * Election properties used:
+ *     gpg-encrypt-key:    The public key used for encrypting (from gpg --export)
+ *     gpg-sign-key:       The private key used for signing (from gpg --export-secret-keys)
+ *     gpg-decrypt-key:    The private key used for decrypting.
+ *
+ * Generally only gpg-encrypt-key and gpg-sign-key are required for voting,
+ * gpg-decrypt-key is for tallying.
+ */
 class SecurePoll_GpgCrypt {
 	var $election;
 	var $recipient, $signer, $homeDir;
 
+	/**
+	 * Constructor.
+	 * @param $election SecurePoll_Election
+	 */
 	function __construct( $election ) {
 		$this->election = $election;
 	}
 
+	/**
+	 * Create a new GPG home directory and import the encryption keys into it.
+	 */
 	function setupHome() {
 		global $wgSecurePollTempDir;
 		if ( $this->homeDir ) {
@@ -66,6 +101,10 @@ class SecurePoll_GpgCrypt {
 		return Status::newGood();
 	}
 
+	/**
+	 * Import a given exported key.
+	 * @param $key string The full key data.
+	 */
 	function importKey( $key ) {
 		# Import the key
 		file_put_contents( "{$this->homeDir}/key", $key );
@@ -80,6 +119,9 @@ class SecurePoll_GpgCrypt {
 		return Status::newGood( $m[1] );
 	}
 
+	/**
+	 * Delete the temporary home directory
+	 */
 	function deleteHome() {
 		if ( !$this->homeDir ) {
 			return;
@@ -98,7 +140,12 @@ class SecurePoll_GpgCrypt {
 		rmdir( $this->homeDir );
 	}
 
-	function runGpg( $params ) {
+	/**
+	 * Shell out to GPG with the given additional command-line parameters
+	 * @param $params string
+	 * @return Status
+	 */
+	protected function runGpg( $params ) {
 		global $wgSecurePollGPGCommand, $wgSecurePollShowErrorDetail;
 		$ret = 1;
 		$command = wfEscapeShellArg( $wgSecurePollGPGCommand ) .
@@ -117,6 +164,12 @@ class SecurePoll_GpgCrypt {
 		}
 	}
 
+	/**
+	 * Encrypt some data. When successful, the value member of the Status object 
+	 * will contain the encrypted record.
+	 * @param string $record
+	 * @return Status
+	 */
 	function encrypt( $record ) {
 		$status = $this->setupHome();
 		if ( !$status->isOK() ) {
@@ -149,6 +202,12 @@ class SecurePoll_GpgCrypt {
 		return $status;
 	}
 
+	/**
+	 * Decrypt some data. When successful, the value member of the Status object 
+	 * will contain the encrypted record.
+	 * @param string $record
+	 * @return Status
+	 */
 	function decrypt( $encrypted ) {
 		$status = $this->setupHome();
 		if ( !$status->isOK() ) {
