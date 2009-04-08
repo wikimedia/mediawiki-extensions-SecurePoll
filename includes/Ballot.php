@@ -29,6 +29,11 @@ abstract class SecurePoll_Ballot {
 	abstract function submitForm();
 
 	/**
+	 * Unpack a string record into an array format suitable for the tally type
+	 */
+	abstract function unpackRecord( $record );
+
+	/**
 	 * Create a ballot of the given type
 	 * @param $type string
 	 * @param $election SecurePoll_Election
@@ -122,10 +127,29 @@ class SecurePoll_ChooseBallot extends SecurePoll_Ballot {
 			if ( !$result ) {
 				return Status::newFatal( 'securepoll-unanswered-questions' );
 			}
-			$record .= sprintf( 'Q%08XA%08X', $question->getId(), $result );
+			$record .= $this->packRecord( $question->getId(), $result );
 		}
 		$record .= "\n";
 		return Status::newGood( $record );
+	}
+
+	function packRecord( $qid, $oid ) {
+		return sprintf( 'Q%08XA%08X', $qid, $oid );
+	}
+
+	function unpackRecord( $record ) {
+		$result = array();
+		$record = trim( $record );
+		for ( $offset = 0; $offset < strlen( $record ); $offset += 18 ) {
+			if ( !preg_match( '/Q([0-9A-F]{8})A([0-9A-F]{8})/A', $record, $m, 0, $offset ) ) {
+				wfDebug( __METHOD__.": regex doesn't match\n" );
+				return false;
+			}
+			$qid = intval( base_convert( $m[1], 16, 10 ) );
+			$oid = intval( base_convert( $m[2], 16, 10 ) );
+			$result[$qid] = array( $oid => 1 );
+		}
+		return $result;
 	}
 }
 
@@ -185,5 +209,6 @@ class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 
 	function getForm() { }
 	function submitForm() { }
+	function unpackRecord( $record ) {}
 }
 

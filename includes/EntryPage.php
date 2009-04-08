@@ -8,7 +8,7 @@ class SecurePoll_EntryPage extends SecurePoll_Page {
 	 * Execute the subpage.
 	 * @param $params array Array of subpage parameters.
 	 */
-	function execute() {
+	function execute( $params ) {
 		global $wgOut;
 		$pager = new SecurePoll_ElectionPager( $this );
 		$wgOut->addHTML( 
@@ -33,7 +33,8 @@ class SecurePoll_ElectionPager extends TablePager {
 		'vote',
 		'translate',
 		'list',
-		'dump'
+		'dump',
+		'tally'
 	);
 	var $fields = array(
 		'el_title',

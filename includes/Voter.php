@@ -146,4 +146,45 @@ class SecurePoll_Voter {
 	static function encodeProperties( $props ) {
 		return serialize( $props );
 	}
+
+	function doCookieCheck() {
+		$cookieName = wfWikiID() . '_securepoll_check';
+		if ( isset( $_COOKIE[$cookieName] ) ) {
+			$otherVoterId = intval( $_COOKIE[$cookieName] );
+			if ( $otherVoterId != $this->getId() ) {
+				$otherVoter = self::newFromId( $otherVoterId );
+				if ( $otherVoter->getElectionId() == $this->getElectionId() ) {
+					$this->addCookieDup( $otherVoterId );
+				}
+			}
+		} else {
+			setcookie( $cookieName, $this->getId(), time() + 86400*3 );
+		}
+	}
+
+	/**
+	 * Flag a duplicate voter
+	 */
+	function addCookieDup( $voterId ) {
+		$dbw = wfGetDB( DB_MASTER );
+		# Insert the log record
+		$dbw->insert( 'securepoll_cookie_match',
+			array(
+				'cm_election' => $this->getElectionId(),
+				'cm_voter_1' => $this->getId(),
+				'cm_voter_2' => $voterId,
+				'cm_timestamp' => wfTimestampNow( TS_DB )
+			), 
+			__METHOD__ );
+
+		# Update the denormalised fields
+		$dbw->update( 'securepoll_votes', 
+			array( 'vote_cookie_dup' => 1 ),
+			array(
+				'vote_election' => $this->getElectionId(),
+				'vote_voter' => array( $this->getId(), $voterId )
+			),
+			__METHOD__ );
+	}
+
 }

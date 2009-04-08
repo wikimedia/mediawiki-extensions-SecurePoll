@@ -188,6 +188,7 @@ class SecurePoll_ListPager extends TablePager {
 		'vote_xff',
 		'vote_ua',
 		'vote_token_match',
+		'vote_cookie_dup',
 	);
 	
 	function __construct( $listPage ) {
@@ -217,17 +218,23 @@ class SecurePoll_ListPager extends TablePager {
 
 	function formatValue( $name, $value ) {
 		global $wgLang;
+		$critical = Xml::element( 'img', 
+			array( 'src' => $GLOBALS['wgStylePath'] . '/common/images/critical-32.png' ) 
+		);
+
 		switch ( $name ) {
 		case 'vote_timestamp':
 			return $wgLang->timeanddate( $value );
 		case 'vote_ip':
 			return IP::formatHex( $value );
+		case 'vote_cookie_dup':
+			$value = !$value;
+			// fall through
 		case 'vote_token_match':
 			if ( $value ) {
 				return '';
 			} else {
-				return Xml::element( 'img', array( 'src' => 
-					$GLOBALS['wgStylePath'] . '/common/images/critical-32.png' ) );
+				return $critical;
 			}
 		case 'details':
 			$voteId = intval( $this->mCurrentRow->vote_id );

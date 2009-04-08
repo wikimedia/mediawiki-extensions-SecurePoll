@@ -9,7 +9,7 @@ class SecurePoll_DetailsPage extends SecurePoll_Page {
 	 * @param $params array Array of subpage parameters.
 	 */
 	function execute( $params ) {
-		global $wgOut, $wgUser;
+		global $wgOut, $wgUser, $wgLang;
 
 		if ( !count( $params ) ) {
 			$wgOut->addWikiMsg( 'securepoll-too-few-params' );
@@ -39,6 +39,7 @@ class SecurePoll_DetailsPage extends SecurePoll_Page {
 			$wgOut->addWikiMsg( 'securepoll-need-admin' );
 			return;
 		}
+		# Show vote properties
 		$wgOut->setPageTitle( wfMsg( 
 			'securepoll-details-title', $this->voteId ) );
 
@@ -56,6 +57,8 @@ class SecurePoll_DetailsPage extends SecurePoll_Page {
 			$this->detailEntry( 'securepoll-header-token-match', $row->vote_token_match ) .
 			'</table>'
 		);
+
+		# Show voter properties
 		$wgOut->addHTML( '<h2>' . wfMsgHTML( 'securepoll-voter-properties' ) . "</h2>\n" );
 		$wgOut->addHTML( '<table class="TablePager">' );
 		$props = SecurePoll_Voter::decodeProperties( $row->voter_properties );
@@ -66,9 +69,37 @@ class SecurePoll_DetailsPage extends SecurePoll_Page {
 				'<td>' . htmlspecialchars( $value ) . "</td></tr>\n"
 			);
 		}
-		$wgOut->addHTML( 
-			'</table>' .
-			'<h2>' . wfMsgHTML( 'securepoll-strike-log' ) . "</h2>\n" );
+		$wgOut->addHTML( '</table>' );
+
+		# Show cookie dups
+		$cmTable = $db->tableName( 'securepoll_cookie_match' );
+		$voterId = intval( $row->voter_id );
+		$sql = "(SELECT cm_voter_2 as voter, cm_timestamp FROM $cmTable WHERE cm_voter_1=$voterId)" .
+			" UNION " . 
+			"(SELECT cm_voter_1 as voter, cm_timestamp FROM $cmTable WHERE cm_voter_2=$voterId)";
+		$res = $db->query( $sql, __METHOD__ );
+		if ( $res->numRows() ) {
+			$wgOut->addHTML( '<h2>' . wfMsgHTML( 'securepoll-cookie-dup-list' ) . '</h2>' );
+			$wgOut->addHTML( '<table class="TablePager">' );
+			foreach ( $res as $row ) {
+				$voter = SecurePoll_Voter::newFromId( $row->voter );
+				$wgOut->addHTML(
+					'<tr>' .
+					'<td>' . htmlspecialchars( $wgLang->timeanddate( $row->cm_timestamp ) ) . '</td>' . 
+					'<td>' . 
+					Xml::element( 
+						'a', 
+						array( 'href' => $voter->getUrl() ), 
+						$voter->getName() . '@' . $voter->getDomain()
+					) .
+					'</td></tr>'
+				);
+			}
+			$wgOut->addHTML( '</table>' );
+		}		
+
+		# Show strike log
+		$wgOut->addHTML( '<h2>' . wfMsgHTML( 'securepoll-strike-log' ) . "</h2>\n" );
 		$pager = new SecurePoll_StrikePager( $this, $this->voteId );
 		$wgOut->addHTML(
 			$pager->getBody() .

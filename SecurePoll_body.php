@@ -10,6 +10,7 @@ class SecurePollPage extends UnlistedSpecialPage {
 		'entry' => 'SecurePoll_EntryPage',
 		'list' => 'SecurePoll_ListPage',
 		'login' => 'SecurePoll_LoginPage',
+		'tally' => 'SecurePoll_TallyPage',
 		'translate' => 'SecurePoll_TranslatePage',
 		'vote' => 'SecurePoll_VotePage',
 	);

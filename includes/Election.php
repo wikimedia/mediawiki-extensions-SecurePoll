@@ -282,5 +282,19 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		}
 		return $crypt;
 	}
+
+	/**
+	 * Get the tallier object
+	 * @return SecurePoll_Tallier
+	 */
+	function getTallier() {
+		$type = $this->getProperty( 'tally-type' );
+		$tallier = SecurePoll_Tallier::factory( $type, $this );
+		if ( !$tallier ) {
+			throw new MWException( 'Invalid tally type' );
+		}
+		return $tallier;
+	}
+
 }
 

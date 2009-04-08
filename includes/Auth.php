@@ -54,17 +54,26 @@ class SecurePoll_Auth {
 			wfSetupSession();
 		}
 		if ( isset( $_SESSION['securepoll_voter'][$election->getId()] ) ) {
-			$voter = SecurePoll_Voter::newFromId( 
-				$_SESSION['securepoll_voter'][$election->getId()] );
+			$voterId = $_SESSION['securepoll_voter'][$election->getId()];
+			$voter = SecurePoll_Voter::newFromId( $voterId );
+			
+			# Perform cookie fraud check
+			$status = $this->autoLogin( $election );
+			if ( $status->isOK() ) {
+				$otherVoter = $status->value;
+				if ( $otherVoter->getId() != $voterId ) {
+					$otherVoter->addCookieDup( $voterId );
+					$_SESSION['securepoll_voter'][$election->getId()] = $otherVoter->getId();
+					return $otherVoter;
+				}
+			}
 
 			# Sanity check election ID
 			if ( $voter->getElectionId() != $election->getId() ) {
-				var_dump( $voter );
 				return false;
 			} else {
 				return $voter;
 			}
-
 		} else {
 			return false;
 		}
@@ -115,7 +124,9 @@ class SecurePoll_Auth {
 	function newAutoSession( $election ) {
 		$status = $this->autoLogin( $election );
 		if ( $status->isGood() ) {
-			$_SESSION['securepoll_voter'][$election->getId()] = $status->value->getId();
+			$voter = $status->value;
+			$_SESSION['securepoll_voter'][$election->getId()] = $voter->getId();
+			$voter->doCookieCheck();
 		}
 		return $status;
 	}
@@ -127,9 +138,22 @@ class SecurePoll_Auth {
 	 */
 	function newRequestedSession( $election ) {
 		$status = $this->requestLogin( $election );
-		if ( $status->isGood() ) {
-			$_SESSION['securepoll_voter'][$election->getId()] = $status->value->getId();
+		if ( !$status->isOK() ) {
+			return $status;
 		}
+
+		# Do cookie dup flagging
+		$voter = $status->value;
+		if ( isset( $_SESSION['securepoll_voter'][$election->getId()] ) ) {
+			$otherVoterId = $_SESSION['securepoll_voter'][$election->getId()];
+			if ( $voter->getId() != $otherVoterId ) {
+				$voter->addCookieDup( $otherVoterId );
+			}
+		} else {
+			$voter->doCookieCheck();
+		}
+
+		$_SESSION['securepoll_voter'][$election->getId()] = $voter->getId();
 		return $status;
 	}
 }

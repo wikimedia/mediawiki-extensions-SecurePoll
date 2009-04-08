@@ -21,6 +21,11 @@ abstract class SecurePoll_Crypt {
 	abstract function decrypt( $record );
 
 	/**
+	 * Returns true if the object can decrypt data, false otherwise.
+	 */
+	abstract function canDecrypt();
+
+	/**
 	 * Create an encryption object of the given type. Currently only "gpg" is 
 	 * implemented.
 	 */
@@ -138,6 +143,7 @@ class SecurePoll_GpgCrypt {
 		}
 		closedir( $dir );
 		rmdir( $this->homeDir );
+		$this->homeDir = false;
 	}
 
 	/**
@@ -241,4 +247,10 @@ class SecurePoll_GpgCrypt {
 		$this->deleteHome();
 		return $status;
 	}
+
+	function canDecrypt() {
+		$decryptKey = strval( $this->election->getProperty( 'gpg-decrypt-key' ) );
+		return $decryptKey !== '';
+	}
+
 }

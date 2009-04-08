@@ -16,6 +16,7 @@ $messages['en'] = array(
 	'securepoll' => 'SecurePoll',
 	'securepoll-desc' => 'Extension for elections and surveys',
 	'securepoll-invalid-page' => 'Invalid subpage "<nowiki>$1</nowiki>"',
+	'securepoll-need-admin' => 'You need to be an admin to perform this action.',
 	
 	# Vote (most important to translate)
 	'securepoll-too-few-params' => 'Not enough subpage parameters (invalid link).',
@@ -83,6 +84,7 @@ Cannot decrypt.',
 	'securepoll-header-xff' => 'XFF',
 	'securepoll-header-ua' => 'User agent',
 	'securepoll-header-token-match' => 'CSRF',
+	'securepoll-header-cookie-dup' => 'Dup', # Duplicate user with same session
 	'securepoll-header-strike' => 'Strike',
 	'securepoll-header-details' => 'Details',
 	'securepoll-strike-button' => 'Strike',
@@ -90,7 +92,6 @@ Cannot decrypt.',
 	'securepoll-strike-reason' => 'Reason:',
 	'securepoll-strike-cancel' => 'Cancel',
 	'securepoll-strike-error' => 'Error performing strike/unstrike: $1',
-	'securepoll-need-admin' => 'You need to be an admin to perform this action.',
 	'securepoll-details-link' => 'Details',
 
 	# Details page
@@ -105,6 +106,7 @@ Cannot decrypt.',
 	'securepoll-header-action' => 'Action',
 	'securepoll-header-reason' => 'Reason',
 	'securepoll-header-admin' => 'Admin',
+	'securepoll-cookie-dup-list' => 'Cookie duplicate users',
 
 	# Dump page
 	'securepoll-dump-title' => 'Dump: $1',
@@ -129,6 +131,20 @@ To maintain voter privacy, encrypted election records are only publically availa
 	'securepoll-subpage-translate' => 'Translate',
 	'securepoll-subpage-list' => 'List',
 	'securepoll-subpage-dump' => 'Dump',
+	'securepoll-subpage-tally' => 'Tally',
+
+	# Tally page (admin-only)
+	'securepoll-tally-title' => 'Tally: $1',
+	'securepoll-tally-not-finished' => 'Sorry, you cannot tally the election until after voting is complete.',
+	'securepoll-can-decrypt' => 'The election record has been encrypted, but the decryption key is available. 
+	You can choose to either tally the results present in the database, or to tally encrypted results from an uploaded file.',
+	'securepoll-tally-no-key' => 'You cannot tally this election, because the votes are encrypted, and the decryption key is not available.',
+	'securepoll-tally-local-legend' => 'Tally stored results',
+	'securepoll-tally-local-submit' => 'Create tally',
+	'securepoll-tally-upload-legend' => 'Upload encrypted dump',
+	'securepoll-tally-upload-submit' => 'Create tally',
+	'securepoll-tally-error' => 'Error interpreting vote record, cannot produce a tally.',
+	'securepoll-no-upload' => 'No file was uploaded, cannot tally results.',
 );
 
 /** Message documentation (Message documentation)
