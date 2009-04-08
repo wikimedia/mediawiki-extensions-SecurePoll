@@ -242,7 +242,7 @@ class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
 	function requestLogin( $election ) {
 		global $wgRequest;
 
-		$urlParamNames = array( 'id', 'token', 'wiki', 'site', 'domain' );
+		$urlParamNames = array( 'id', 'token', 'wiki', 'site', 'lang', 'domain' );
 		$vars = array();
 		foreach ( $urlParamNames as $name ) {
 			$value = $wgRequest->getVal( $name );
