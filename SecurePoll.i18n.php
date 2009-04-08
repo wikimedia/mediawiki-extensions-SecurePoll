@@ -24,6 +24,7 @@ $messages['en'] = array(
 	'securepoll-welcome' => '<strong>Welcome $1!</strong>',
 	'securepoll-not-started' => 'This election has not yet started.
 It is scheduled to start on $2 at $3.',
+	'securepoll-finished' => 'This election has finished, you can no longer vote.',
 	'securepoll-not-qualified' => 'You are not qualified to vote in this election: $1',
 	'securepoll-change-disallowed' => 'You have voted in this election before.
 Sorry, you may not vote again.',
@@ -71,6 +72,7 @@ Cannot decrypt.',
 	'securepoll-not-logged-in' => 'You must log in to vote in this election',
 	'securepoll-too-few-edits' => 'Sorry, you cannot vote. You need to have made at least $1 {{PLURAL:$1|edit|edits}} to vote in this election, you have made $2.',
 	'securepoll-blocked' => 'Sorry, you cannot vote in this election if you are currently blocked from editing.',
+	'securepoll-bot' => 'Sorry, accounts with the bot flag are not allowed to vote in this election.',
 	'securepoll-not-in-group' => 'Only members of the "$1" group can vote in this election.',
 	'securepoll-not-in-list' => 'Sorry, you are not in the predetermined list of users authorised to vote in this election.',
 

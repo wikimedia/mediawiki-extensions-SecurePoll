@@ -19,6 +19,8 @@
  *              Minimum number of edits needed to be qualified
  *          not-blocked
  *              True if voters need to not be blocked
+ *          not-bot
+ *              True if voters need to not have the bot permission
  *          need-group
  *              The name of an MW group voters need to be in
  *          need-list
@@ -158,6 +160,13 @@ class SecurePoll_Election extends SecurePoll_Entity {
 			$status->fatal( 'securepoll-blocked' );
 		}
 
+		# Bot
+		$notBot = $this->getProperty( 'not-bot' );
+		$isBot = !empty( $props['bot'] );
+		if ( $notBot && $isBot ) {
+			$status->fatal( 'securepoll-bot' );
+		}
+
 		# Groups
 		$needGroup = $this->getProperty( 'need-group' );
 		$groups = isset( $props['groups'] ) ? $props['groups'] : array();
@@ -288,8 +297,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * @return SecurePoll_Tallier
 	 */
 	function getTallier() {
-		$type = $this->getProperty( 'tally-type' );
-		$tallier = SecurePoll_Tallier::factory( $type, $this );
+		$tallier = SecurePoll_Tallier::factory( $this->tallyType, $this );
 		if ( !$tallier ) {
 			throw new MWException( 'Invalid tally type' );
 		}

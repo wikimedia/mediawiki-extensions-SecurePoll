@@ -12,7 +12,7 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 	 * @param $params array Array of subpage parameters.
 	 */
 	function execute( $params ) {
-		global $wgOut, $wgRequest;
+		global $wgOut, $wgRequest, $wgLang;
 		if ( !count( $params ) ) {
 			$wgOut->addWikiMsg( 'securepoll-too-few-params' );
 			return;
@@ -51,6 +51,14 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 				$wgLang->timeanddate( $this->election->getStartDate() ) ,
 				$wgLang->date( $this->election->getStartDate() ) ,
 				$wgLang->time( $this->election->getStartDate() ) );
+			return;
+		}
+
+		if ( $this->election->isFinished() ) {
+			$wgOut->addWikiMsg( 'securepoll-finished',
+				$wgLang->timeanddate( $this->election->getEndDate() ) ,
+				$wgLang->date( $this->election->getEndDate() ) ,
+				$wgLang->time( $this->election->getEndDate() ) );
 			return;
 		}
 

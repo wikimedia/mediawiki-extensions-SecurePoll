@@ -1,54 +1,42 @@
 <?php
 $IP = getenv( 'MW_INSTALL_PATH' );
-if ( !$IP ) {
-	exit;
+if ( strval( $IP ) === '' ) {
+	$IP = dirname( __FILE__ ).'/../..';
 }
-require_once( $IP . '/maintenance/commandLine.inc' );
+if ( !file_exists( "$IP/includes/WebStart.php" ) ) {
+	$IP .= '/phase3';
+}
+
+$optionsWithArgs = array( 'before', 'edits' );
+require( $IP . '/maintenance/commandLine.inc' );
 
 $dbr = wfGetDB( DB_SLAVE );
+$dbw = wfGetDB( DB_MASTER );
 $fname = 'voterList.php';
 $maxUser = $dbr->selectField( 'user', 'MAX(user_id)', false );
-$server = str_replace( 'http://', '', $wgServer );
-$listFile = fopen( "voter-list", "a" );
+$before = isset( $options['before'] ) ? wfTimestamp( TS_MW, strtotime( $options['before'] ) ) : false;
+$minEdits = isset( $options['edits'] ) ? intval( $options['edits'] ) : false;
+
+if ( !isset( $args[0] ) ) {
+	echo "Usage: php voterList.php [--before=<date>] [--edits=<date>] <name>\n";
+	exit( 1 );
+}
+$name = $args[0];
 
 for ( $user = 1; $user <= $maxUser; $user++ ) {
-	$oldEdits = $dbr->selectField(
-		'revision',
-		'COUNT(*)',
-		array(
-			'rev_user' => $user,
-			"rev_timestamp < '200803010000'"
-		),
-		$fname
-	);
-	$newEdits = $dbr->selectField(
-		'revision',
-		'COUNT(*)',
-		array(
-			'rev_user' => $user,
-			"rev_timestamp BETWEEN '200801010000' AND '200805285959'"
-		),
-		$fname
-	);
-	if ( $oldEdits >= 600 && $newEdits >= 50 ) {
-		$userObj = User::newFromId( $user );
-		$props = array();
-		if ( $userObj->isAllowed( 'bot' ) ) {
-			$props[] = 'bot';
-		}
-		$isBlocked = $userObj->isBlocked();
-		if ( $userObj->isBlocked()
-			&& $userObj->mBlock->mExpiry == 'infinity' )
-		{
-			$props[] = 'indefblocked';
-		}
-		$props = implode( ',', $props );
-		$email = $userObj->getEmail();
-		$editCount = $userObj->getEditCount();
-		$name = $userObj->getName();
+	$insertRow = array( 'li_name' => $name, 'li_member' => $user );
+	if ( $minEdits === false ) {
+		$dbw->insert( 'securepoll_lists', $insertRow, $fname );
+		continue;
+	}
 
-		fwrite( $listFile, "$wgDBname\t$server\t$name\t" .
-			"$email\t$editCount\t$props\n" );
+	# Count edits
+	$conds = array( 'rev_user' => $user );
+	if ( $before !== false ) {
+		$conds[] = 'rev_timestamp < ' . $dbr->addQuotes( $before );
+	}
+	$edits = $dbr->selectField( 'revision', 'COUNT(*)', $conds, $fname );
+	if ( $edits >= $minEdits ) {
+		$dbw->insert( 'securepoll_lists', $insertRow, $fname );
 	}
 }
-fclose( $listFile );

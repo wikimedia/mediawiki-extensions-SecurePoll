@@ -37,5 +37,10 @@ abstract class SecurePoll_Page {
 		);
 		$languages = array_unique( $languages );
 		SecurePoll_Entity::setLanguages( $languages );
+
+		global $wgLang;
+		$topLang = reset( $languages );
+		$wgLang = Language::factory( $topLang );
+		wfLoadExtensionMessages( 'SecurePoll', $topLang );
 	}
 }

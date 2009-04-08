@@ -55,7 +55,6 @@ class SecurePoll_Auth {
 		}
 		if ( isset( $_SESSION['securepoll_voter'][$election->getId()] ) ) {
 			$voterId = $_SESSION['securepoll_voter'][$election->getId()];
-			$voter = SecurePoll_Voter::newFromId( $voterId );
 			
 			# Perform cookie fraud check
 			$status = $this->autoLogin( $election );
@@ -69,7 +68,8 @@ class SecurePoll_Auth {
 			}
 
 			# Sanity check election ID
-			if ( $voter->getElectionId() != $election->getId() ) {
+			$voter = SecurePoll_Voter::newFromId( $voterId );
+			if ( !$voter || $voter->getElectionId() != $election->getId() ) {
 				return false;
 			} else {
 				return $voter;
