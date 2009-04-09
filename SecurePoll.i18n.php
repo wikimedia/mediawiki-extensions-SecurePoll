@@ -2853,7 +2853,6 @@ $messages['nds'] = array(
 	'securepoll-desc' => 'Extension för Wahlen un Ümfragen',
 	'securepoll-invalid-page' => 'Ungüllige Ünnersied „<nowiki>$1</nowiki>“',
 	'securepoll-invalid-election' => '„$1“ is keen güllige Wahl-ID.',
-	'securepoll-not-authorised' => 'Du dröffst bi disse Wahl nich mit afstimmen.',
 	'securepoll-welcome' => '<strong>Willkamen $1!</strong>',
 	'securepoll-not-qualified' => 'Du dröffst bi disse Wahl nich mit afstimmen: $1',
 	'securepoll-submit' => 'Stimm afgeven',
