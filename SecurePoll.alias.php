@@ -26,3 +26,13 @@ $aliases['ja'] = array(
 	'SecurePoll' => array( '暗号投票' ),
 );
 
+/** Korean (한국어) */
+$aliases['ko'] = array(
+	'SecurePoll' => array( '비밀투표' ),
+);
+
+/** Polish (Polski) */
+$aliases['pl'] = array(
+	'SecurePoll' => array( 'Bezpieczne głosowanie' ),
+);
+
