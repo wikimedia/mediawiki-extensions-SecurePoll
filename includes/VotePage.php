@@ -130,7 +130,9 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 		$ballot = $this->election->getBallot();
 		$status = $ballot->submitForm();
 		if ( !$status->isOK() ) {
-			$wgOut->addWikiText( $status->getWikiText( 'securepoll-bad-ballot-submission' ) );
+			$wgOut->addWikiText( '<div class="securepoll-error-box">' . 
+					$status->getWikiText( 'securepoll-bad-ballot-submission' ) . 
+					'</div>' );
 			$this->showForm();
 		} else {
 			$this->logVote( $status->value );
