@@ -63,6 +63,9 @@ class SecurePoll_DetailsPage extends SecurePoll_Page {
 		$wgOut->addHTML( '<table class="TablePager">' );
 		$props = SecurePoll_Voter::decodeProperties( $row->voter_properties );
 		foreach ( $props as $name => $value ) {
+			if ( is_array( $value ) ) {
+				$value = implode( ', ', $value );
+			}
 			$wgOut->addHTML( 
 				'<td class="securepoll-detail-header">' .
 				htmlspecialchars( $name ) . "</td>\n" .
