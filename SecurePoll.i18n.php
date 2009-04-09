@@ -57,8 +57,9 @@ Error:
 	'securepoll-no-decryption-key' => 'No decryption key is configured.
 Cannot decrypt.',
 	'securepoll-jump' => 'Go to the voting server',
-	'securepoll-bad-ballot-submission' => 'g	Your vote was invalid: $1
-	g',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+	Your vote was invalid: $1
+	</div>',
 	'securepoll-unanswered-questions' => 'You must answer all questions.',
 
 	# Authorisation related
@@ -320,7 +321,9 @@ $1',
 	'securepoll-no-decryption-key' => 'Няма скафігураваных ключоў для расшыфраваньня.
 Немагчыма расшыфраваць.',
 	'securepoll-jump' => 'Перайсьці на сэрвэр галасаваньня',
-	'securepoll-bad-ballot-submission' => 'gВаш голас ня быў залічаны: $1g',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+Ваш голас ня быў залічаны: $1
+</div>',
 	'securepoll-unanswered-questions' => 'Вам неабходна адказаць на ўсе пытаньні.',
 	'securepoll-remote-auth-error' => 'Памылка атрыманьня інфармацыі пра Ваш рахунак з сэрвэра.',
 	'securepoll-remote-parse-error' => 'Памылка інтэрпрэтацыі адказу аўтарызацыі з сэрвэра.',
@@ -439,7 +442,9 @@ Grešaka:
 	'securepoll-no-decryption-key' => 'Nijedan dekripcijski ključ nije podešen.
 Ne može se dekriptovati.',
 	'securepoll-jump' => 'Idi na server za glasanje',
-	'securepoll-bad-ballot-submission' => 'gVaš glas nije valjan: $1g',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+Vaš glas nije valjan: $1
+</div>',
 	'securepoll-unanswered-questions' => 'Morate odgovoriti na sva pitanja.',
 	'securepoll-remote-auth-error' => 'Greška pri preuzimanju podataka o Vašem računu sa servera.',
 	'securepoll-remote-parse-error' => 'Greška pri interpretaciji autentifikacijskog odgovora sa servera.',
@@ -540,7 +545,9 @@ $1",
 	'securepoll-no-decryption-key' => 'No està configurada la clau de desxifrat.
 No es pot desencriptar.',
 	'securepoll-jump' => 'Tornar al servidor de votació',
-	'securepoll-bad-ballot-submission' => 'gEl vostre vot no és vàlid: $1 g',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+El vostre vot no és vàlid: $1 
+</div>',
 	'securepoll-unanswered-questions' => 'Heu de respondre totes les qüestions.',
 	'securepoll-not-logged-in' => "Heu d'estar connectats en un compte per a votar en aquesta elecció",
 	'securepoll-too-few-edits' => "Ho sentim, però no podeu votar.
@@ -630,7 +637,9 @@ Chyba:
 	'securepoll-no-decryption-key' => 'Nebyl nakonfigurován dešifrovací klíč.
 Nelze dešifrovat.',
 	'securepoll-jump' => 'Přejít na hlasovací server',
-	'securepoll-bad-ballot-submission' => 'gVáš hlas je neplatný: $1g',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+Váš hlas je neplatný: $1
+</div>',
 	'securepoll-unanswered-questions' => 'Musíte zodpovědět všechny otázky.',
 	'securepoll-remote-auth-error' => 'Při čtení informací o vašem uživatelském účtu ze serveru nastala chyba.',
 	'securepoll-remote-parse-error' => 'Při zpracovávání autorizační odpovědi od serveru nastala chyba.',
@@ -822,7 +831,9 @@ Fehler:
 	'securepoll-no-decryption-key' => 'Es ist kein Entschlüsselungsschlüssel konfiguriert.
 Entschlüsselung nicht möglich.',
 	'securepoll-jump' => 'Gehe zum Abstimmungsserver',
-	'securepoll-bad-ballot-submission' => 'gDeine Stimme war ungültig: $1g',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+Deine Stimme war ungültig: $1
+</div>',
 	'securepoll-unanswered-questions' => 'Du musst alle Fragen beantworten.',
 	'securepoll-remote-auth-error' => 'Fehler beim Abruf deiner Konteninformationen vom Server.',
 	'securepoll-remote-parse-error' => 'Fehler beim Interpretieren der Berechtigungsantwort des Servers.',
@@ -933,7 +944,9 @@ Njesmějoš hyšći raz wótgłosowaś.',
 	'securepoll-gpg-config-error' => 'GPG-kluce su wopak konfigurěrowane.',
 	'securepoll-no-decryption-key' => 'Dešifrěrowański kluc njejo konfigurěrowany.
 Njejo móžno dešifrěrowaś.',
-	'securepoll-bad-ballot-submission' => 'gTwój głos jo njepłaśiwy był: $1g',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+Twój głos jo njepłaśiwy był: $1
+</div>',
 	'securepoll-unanswered-questions' => 'Musyš na wše pšašanja wótegroniś.',
 	'securepoll-api-invalid-params' => 'Njepłaśiwe parametry.',
 	'securepoll-api-no-user' => 'Wužywaŕ z pódanym ID njejo.',
@@ -1174,7 +1187,9 @@ Error:
 	'securepoll-gpg-config-error' => 'Teclas GPG están configuradas incorrectamente.',
 	'securepoll-gpg-parse-error' => 'Error interpretando salida GPG.',
 	'securepoll-jump' => 'Ir al servidor de votación',
-	'securepoll-bad-ballot-submission' => 'gTu voto fue inválido: $1g',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+Tu voto fue inválido: $1
+</div>',
 	'securepoll-unanswered-questions' => 'Debes responder todas las preguntas.',
 	'securepoll-api-invalid-params' => 'Parámetros inválidos.',
 	'securepoll-api-no-user' => 'Ningún usuario fue encontrado con el ID dado.',
@@ -1355,7 +1370,9 @@ Erreur :
 	'securepoll-no-decryption-key' => 'Aucune clé de décryptage n’a été configurée.
 Impossible de décrypter.',
 	'securepoll-jump' => 'Aller au serveur de vote',
-	'securepoll-bad-ballot-submission' => 'gVotre vote est invalide : $1g',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+Votre vote est invalide : $1
+</div>',
 	'securepoll-unanswered-questions' => 'Vous devez répondre à toutes les questions.',
 	'securepoll-remote-auth-error' => 'Erreur lors de la récupération des informations de votre compte depuis le serveur.',
 	'securepoll-remote-parse-error' => 'Erreur lors de l’interprétation de la réponse d’autorisation du serveur.',
@@ -1478,7 +1495,9 @@ Erro:
 	'securepoll-no-decryption-key' => 'Non hai unha chave de desencriptar configurada.
 Non se pode desencriptar.',
 	'securepoll-jump' => 'Ir ao servidor de votos',
-	'securepoll-bad-ballot-submission' => 'gO seu voto foi inválido: $1g',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+O seu voto foi inválido: $1
+</div>',
 	'securepoll-unanswered-questions' => 'Debe responder a todas as preguntas.',
 	'securepoll-remote-auth-error' => 'Erro ao enviar a información da túa conta desde o servidor.',
 	'securepoll-remote-parse-error' => 'Erro ao interpretar a autorización de resposta desde o servidor.',
@@ -1575,7 +1594,9 @@ Fähler:
 	'securepoll-no-decryption-key' => 'S isch kei Entschlisseligsschlissel konfiguriert.
 Entschlisselig nit megli.',
 	'securepoll-jump' => 'Gang zum Stimm-Server',
-	'securepoll-bad-ballot-submission' => 'gDyy Stimm isch nit giltig: $1g',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+Dyy Stimm isch nit giltig: $1
+</div>',
 	'securepoll-unanswered-questions' => 'Du muesch uf alli Froge Antwort gee.',
 	'securepoll-remote-auth-error' => 'Fähler bim Abruefe vu Dyyne Benutzerkontoinformatione vum Server.',
 	'securepoll-remote-parse-error' => 'Fähler bim Dyte vu dr Autorisierigsantwort vum Server',
@@ -1675,8 +1696,9 @@ $1',
 	'securepoll-no-decryption-key' => 'לא הוגדר מפתח פיענוח.
 לא ניתן לפענח.',
 	'securepoll-jump' => 'מעבר לשרת ההצבעה',
-	'securepoll-bad-ballot-submission' => 'g	הצבעתכם הייתה בלתי תקינה: $1
-	g',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+	הצבעתכם הייתה בלתי תקינה: $1
+	</div>',
 	'securepoll-unanswered-questions' => 'עליכם לענות על כל השאלות.',
 	'securepoll-remote-auth-error' => 'שגיאה בקבלת פרטי החשבון שלכם מהשרת.',
 	'securepoll-remote-parse-error' => 'שגיאה בפענוח התגובה על מידע הכניסה מהשרת.',
@@ -1791,7 +1813,9 @@ Zmylk:
 	'securepoll-no-decryption-key' => 'Žadyn dešifrowanski kluč konfigurowany.
 Dešifrowanje njemóžno.',
 	'securepoll-jump' => 'K serwerej wothłosowanja',
-	'securepoll-bad-ballot-submission' => 'gTwój hłós bě njepłaćiwy: $1g',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+Twój hłós bě njepłaćiwy: $1
+</div>',
 	'securepoll-unanswered-questions' => 'Dyrbiš na wšě prašenja wotmołwić.',
 	'securepoll-api-invalid-params' => 'Njepłaćiwe parametry.',
 	'securepoll-api-no-user' => 'Wužiwar z podatym ID njeje.',
@@ -2065,7 +2089,9 @@ Kesalahan:
 	'securepoll-no-decryption-key' => 'Kunci dekripsi belum dikonfigurasikan.
 Tidak dapat melakukan dekripsi.',
 	'securepoll-jump' => 'Pergi ke server pemungutan suara',
-	'securepoll-bad-ballot-submission' => 'gSuara Anda tidak valid: $1g',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+Suara Anda tidak valid: $1
+</div>',
 	'securepoll-unanswered-questions' => 'Anda harus menjawab semua pertanyaan.',
 	'securepoll-remote-auth-error' => 'Terjadi kesalahan ketika menarik informasi akun Anda dari server.',
 	'securepoll-remote-parse-error' => 'Terjadi kesalahan interpretasi atas respons otorisasi dari server.',
@@ -2245,7 +2271,9 @@ $1',
 	'securepoll-gpg-parse-error' => 'GPG 出力の解釈に失敗しました。',
 	'securepoll-no-decryption-key' => '復号鍵が設定されておらず、復号できません。',
 	'securepoll-jump' => '投票サーバへ移動',
-	'securepoll-bad-ballot-submission' => 'gあなたの投票は無効でした: $1g',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+あなたの投票は無効でした: $1
+</div>',
 	'securepoll-unanswered-questions' => 'すべての質問に答えなくてはなりません。',
 	'securepoll-remote-auth-error' => 'エラー：サーバからあなたのアカウント情報を取得できませんでした',
 	'securepoll-remote-parse-error' => 'サーバーからの認証応答の解釈に失敗しました。',
@@ -2344,7 +2372,9 @@ $1',
 	'securepoll-no-decryption-key' => '암호 해독 키가 설정되지 않았습니다.
 암호를 해독할 수 없습니다.',
 	'securepoll-jump' => '선거서버로 이동하기',
-	'securepoll-bad-ballot-submission' => 'g사용자분의 투표가 무효화되었습니다: $1g',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+사용자분의 투표가 무효화되었습니다: $1
+</div>',
 	'securepoll-unanswered-questions' => '모든 질문에 답을 하셔야 합니다.',
 	'securepoll-remote-auth-error' => '귀하의 계정정보 오류를 서버와 동기화하기',
 	'securepoll-remote-parse-error' => '서버로부터 권한응답에 따른 번역오류가 발생',
@@ -2444,7 +2474,9 @@ Fähler:
 	'securepoll-gpg-parse-error' => 'Ene Fähler es opjetrodde bemm Beärbeide vun dämm, wat GPG ußjejovve hät.',
 	'securepoll-no-decryption-key' => 'Mer han keine Schlößel för et Äntschlößele, un et es och keine enjeshtallt. Alsu künne mer nix Äntschlößele.',
 	'securepoll-jump' => 'Jangk op dä Server för de Afshtemmung',
-	'securepoll-bad-ballot-submission' => 'gDing Shtemm woh nit jöltesch: $1g',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+Ding Shtemm woh nit jöltesch: $1
+</div>',
 	'securepoll-unanswered-questions' => 'Do moß op alle Froore en Antwoot jävve.',
 	'securepoll-remote-auth-error' => 'Ene Fähler es opjetrodde, wi mer däm Server öm Ding Daate jefrooch hann.',
 	'securepoll-remote-parse-error' => 'Ene Fähler es opjetrodde. Mer kunnte met däm Server singem Zoshtemmungs_Kood nix aanfange.',
@@ -2785,7 +2817,7 @@ Foutmelding:
 	'securepoll-no-decryption-key' => 'Er is geen decryptiesleutel ingesteld.
 Decoderen is niet mogelijk.',
 	'securepoll-jump' => 'Naar de stemserver gaan',
-	'securepoll-bad-ballot-submission' => 'gUw stem is ongeldig: $1g',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">Uw stem is ongeldig: $1</div>',
 	'securepoll-unanswered-questions' => 'U moet alle vragen beantwoorden.',
 	'securepoll-remote-auth-error' => 'Er is een fout opgetreden bij het ophalen van uw gebruikersinformatie van de server.',
 	'securepoll-remote-parse-error' => 'Er is een fout opgetreden bij het interpreteren van het antwoord van de server.',
@@ -3075,7 +3107,9 @@ Błąd:
 	'securepoll-no-decryption-key' => 'Klucz odszyfrowujący nie został skonfigurowany.
 Odszyfrowanie nie jest możliwe.',
 	'securepoll-jump' => 'Przejdź do serwera obsługującego głosowanie',
-	'securepoll-bad-ballot-submission' => 'gTwój głos był nieważny – $1g',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+Twój głos był nieważny – $1
+</div>',
 	'securepoll-unanswered-questions' => 'Musisz odpowiedzieć na wszystkie pytania.',
 	'securepoll-remote-auth-error' => 'Wystąpił błąd podczas pobierania informacji z serwera o Twoim koncie.',
 	'securepoll-remote-parse-error' => 'Wystąpił błąd interpretacji odpowiedzi autoryzującej z serwera.',
@@ -3306,7 +3340,9 @@ $1',
 	'securepoll-no-decryption-key' => 'Не настроен ключ расшифровки.
 Невозможно  расшифровать.',
 	'securepoll-jump' => 'Перейти на сервер голосований',
-	'securepoll-bad-ballot-submission' => 'gВаш голос не действителен: $1g',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+Ваш голос не действителен: $1
+</div>',
 	'securepoll-unanswered-questions' => 'Вы должны ответить на все вопросы.',
 	'securepoll-remote-auth-error' => 'Ошибка получения информации об учётной записи с сервера.',
 	'securepoll-remote-parse-error' => 'Ошибка интерпретации ответа авторизации с сервера.',
@@ -3496,7 +3532,9 @@ Chyba:
 	'securepoll-no-decryption-key' => 'Nie je nakonfigurovaný žiadny dešifrovací kľúč.
 Nie je možné dešifrovať.',
 	'securepoll-jump' => 'Prejsť na hlasovací server',
-	'securepoll-bad-ballot-submission' => 'gVáš hlas bol neplatný: $1g',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+Váš hlas bol neplatný: $1
+</div>',
 	'securepoll-unanswered-questions' => 'Musíte zodpovedať všetky otázky.',
 	'securepoll-remote-auth-error' => 'Pri zisťovaní vašich prihlasovacích informácií zo servera nastala chyba.',
 	'securepoll-remote-parse-error' => 'Pri interpretácii odpovede o autorizácii od servera nastala chyba.',
@@ -3679,7 +3717,9 @@ Hata:
 	'securepoll-no-decryption-key' => 'Hiç deşifre anahtarı ayarlanmamış.
 Deşifrelenemiyor.',
 	'securepoll-jump' => 'Oylama sunucusuna git',
-	'securepoll-bad-ballot-submission' => 'gOyunuz geçersiz: $1g',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+Oyunuz geçersiz: $1
+</div>',
 	'securepoll-unanswered-questions' => 'Tüm sorulara cevap vermelisiniz.',
 	'securepoll-remote-auth-error' => 'Sunucudan hesap bilgileriniz alınırken hata.',
 	'securepoll-remote-parse-error' => 'Sunucunun yetkilendirme cevabı değerlendirilirken hata.',
@@ -3900,7 +3940,9 @@ Lỗi:
 	'securepoll-no-decryption-key' => 'Chưa cấu hình khóa giải mã.
 Không thể giải mã.',
 	'securepoll-jump' => 'Đi đến máy chủ bỏ phiếu',
-	'securepoll-bad-ballot-submission' => 'gPhiếu bầu của bạn không hợp lệ: $1g',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+Phiếu bầu của bạn không hợp lệ: $1
+</div>',
 	'securepoll-unanswered-questions' => 'Bạn phải trả lời tất cả các câu hỏi.',
 	'securepoll-remote-auth-error' => 'Lỗi khi truy xuất thông tin tài khoản của bạn từ máy chủ.',
 	'securepoll-remote-parse-error' => 'Lỗi khi thông dịch phản hồi ủy quyền từ máy chủ.',
@@ -4011,7 +4053,9 @@ $1',
 	'securepoll-no-decryption-key' => '解密密匙未配置。
 无法解密。',
 	'securepoll-jump' => '进入投票服务器',
-	'securepoll-bad-ballot-submission' => 'g您的投票无效：$1g',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+您的投票无效：$1
+</div>',
 	'securepoll-unanswered-questions' => '您必须回答所有问题。',
 	'securepoll-remote-auth-error' => '从服务器提取您的用户信息时出错。',
 	'securepoll-remote-parse-error' => '服务器验证出错。',
@@ -4123,7 +4167,9 @@ $1',
 	'securepoll-no-decryption-key' => '解密密匙未配置。
 無法解密。',
 	'securepoll-jump' => '進入投票伺服器',
-	'securepoll-bad-ballot-submission' => 'g您的投票無效︰$1g',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+您的投票無效︰$1
+</div>',
 	'securepoll-unanswered-questions' => '您必須回答所有問題。',
 	'securepoll-remote-auth-error' => '在投票伺服器提取您的用户信息時出錯',
 	'securepoll-remote-parse-error' => '伺服器驗證錯誤',
