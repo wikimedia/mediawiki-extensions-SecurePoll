@@ -167,17 +167,13 @@ class SecurePoll_Entity {
 	 * a placeholder string is returned.
 	 *
 	 * @param $name string
-	 * @param $language string Set this to false for the current language.
 	 */
-	function getMessage( $name, $language = false ) {
-		if ( $language === false ) {
-			$language = reset( self::$languages );
-		}
-		if ( empty( $this->messagesLoaded[$language] ) ) {
-			$this->loadMessages( $language );
-		}
+	function getMessage( $name ) {
 		$id = $this->getId();
 		foreach ( self::$languages as $language ) {
+			if ( empty( $this->messagesLoaded[$language] ) ) {
+				$this->loadMessages( $language );
+			}
 			if ( isset( self::$messageCache[$language][$id][$name] ) ) {
 				return self::$messageCache[$language][$id][$name];
 			}
