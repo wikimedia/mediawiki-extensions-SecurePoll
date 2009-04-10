@@ -25,22 +25,29 @@ abstract class SecurePoll_Page {
 	 * fallback sequence.
 	 */
 	function initLanguage( $user, $election ) {
-		if ( $user instanceof SecurePoll_Voter ) {
+		global $wgRequest, $wgLang;
+		$uselang = $wgRequest->getVal( 'uselang' );
+		if ( $uselang !== null ) {
+			$userLang = $uselang;
+		} elseif ( $user instanceof SecurePoll_Voter ) {
 			$userLang = $user->getLanguage();
 		} else {
 			$userLang = $user->getOption( 'language' );
 		}
-		$languages = array( 
-			$userLang, 
-			$election->getLanguage(),
-			'en'
-		);
-		$languages = array_unique( $languages );
+		$wgLang = Language::factory( $userLang );
+		wfLoadExtensionMessages( 'SecurePoll', $userLang );
+		$languages = array( $userLang );
+		$fallback = $userLang;
+		while ( $fallback = Language::getFallbackFor( $fallback ) ) {
+			$languages[] = $fallback;
+		}
+		if ( $fallback != $election->getLanguage() ) {
+			$fallback = $election->getLanguage();
+			$languages[] = $fallback;
+		}
+		if ( $fallback != 'en' ) {
+			$languages[] = 'en';
+		}
 		SecurePoll_Entity::setLanguages( $languages );
-
-		global $wgLang;
-		$topLang = reset( $languages );
-		$wgLang = Language::factory( $topLang );
-		wfLoadExtensionMessages( 'SecurePoll', $topLang );
 	}
 }
