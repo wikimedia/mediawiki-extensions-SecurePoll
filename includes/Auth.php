@@ -40,7 +40,7 @@ class SecurePoll_Auth {
 	 * @return Status
 	 */
 	function requestLogin( $election ) {
-		return $this->autoLogin();
+		return $this->autoLogin( $election );
 	}
 
 	/**
