@@ -85,9 +85,10 @@ EOT
 	static function ajaxStrike( $action, $id, $reason ) {
 		wfLoadExtensionMessages( 'SecurePoll' );
 		$db = wfGetDB( DB_MASTER );
+		$table = $db->tableName( 'securepoll_elections' );
 		$row = $db->selectRow( 
 			array( 'securepoll_votes', 'securepoll_elections' ),
-			'securepoll_elections.*', 
+			"$table.*", 
 			array( 'vote_id' => $id, 'vote_election=el_entity' ), 
 			__METHOD__
 		);
