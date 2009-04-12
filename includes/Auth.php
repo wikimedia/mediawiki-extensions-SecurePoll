@@ -137,6 +137,9 @@ class SecurePoll_Auth {
 	 * @return Status
 	 */
 	function newRequestedSession( $election ) {
+		if ( session_id() == '' ) {
+			wfSetupSession();
+		}
 		$status = $this->requestLogin( $election );
 		if ( !$status->isOK() ) {
 			return $status;
