@@ -1400,6 +1400,7 @@ Salausta ei voitu purkaa.',
 /** French (Français)
  * @author Crochet.david
  * @author IAlex
+ * @author Louperivois
  * @author PieRRoMaN
  */
 $messages['fr'] = array(
@@ -1409,7 +1410,7 @@ $messages['fr'] = array(
 	'securepoll-need-admin' => 'Vous devez être un administrateur pour exécuter cette action.',
 	'securepoll-too-few-params' => 'Pas assez de paramètres de sous-page (lien invalide).',
 	'securepoll-invalid-election' => '« $1 » n’est pas un identifiant d’élection valide.',
-	'securepoll-welcome' => '<strong>Bienvenu $1 !</strong>',
+	'securepoll-welcome' => '<strong>Bienvenue $1 !</strong>',
 	'securepoll-not-started' => 'L’élection n’a pas encore commencé.
 Elle débutera le $2 à $3.',
 	'securepoll-finished' => 'Cette élection est terminée, vous ne pouvez plus voter.',
@@ -2010,14 +2011,16 @@ Hiba:
 	'securepoll-gpg-parse-error' => 'Hiba történt a GPG kimenetének értelmezése közben.',
 	'securepoll-no-decryption-key' => 'Nincs visszafejtő kulcs beállítva.
 Nem lehet visszafejteni.',
-	'securepoll-jump' => 'Vissza a szavazás-szerverre',
+	'securepoll-jump' => 'Irány a szavazás-szerverre',
 	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
 A szavazatod érvénytelen volt: $1
 </div>',
 	'securepoll-unanswered-questions' => 'Minden kérdésre válaszolnod kell.',
 	'securepoll-remote-auth-error' => 'Nem sikerült lekérdezni a felhasználói fiókod adatait a szerverről.',
+	'securepoll-remote-parse-error' => 'Nem sikerült értelmezni a szerver autorizációs válaszát.',
 	'securepoll-api-invalid-params' => 'Érvénytelen paraméterek.',
 	'securepoll-api-no-user' => 'Nem található az adott ID-hez tartozó felhasználó.',
+	'securepoll-api-token-mismatch' => 'Sikertelen bejelentkezés, nem egyezik a biztonsági token.',
 	'securepoll-not-logged-in' => 'Be kell jelentkezned, hogy szavazhass.',
 	'securepoll-too-few-edits' => 'Sajnos nem szavazhatsz. A részvételhez legalább $1 szerkesztés kell, neked csak $2 van.',
 	'securepoll-blocked' => 'Nem szavazhatsz ezen a választáson, amíg blokkolva vagy.',
@@ -2775,6 +2778,7 @@ $1',
 	'securepoll-tally-local-legend' => 'Déi gespäichert Resultater auszielen',
 	'securepoll-tally-local-submit' => 'Auszielung uleeën',
 	'securepoll-tally-upload-submit' => 'Auszielung uleeën',
+	'securepoll-no-upload' => "Et gouf kee Fichier eropgelueden, d'Resultater kënnen net ausgezielt ginn.",
 );
 
 /** Limburgish (Limburgs)
@@ -2872,6 +2876,17 @@ Dien sjtöm is óngeldig: $1
 	'securepoll-submit-translate' => 'Wèrk bie',
 	'securepoll-language-label' => 'Selecteer taol:',
 	'securepoll-submit-select-lang' => 'Vertaol',
+	'securepoll-header-title' => 'Naom',
+	'securepoll-header-start-date' => 'Begindatum',
+	'securepoll-header-end-date' => 'Einddatum',
+	'securepoll-subpage-vote' => 'Sjtöm',
+	'securepoll-subpage-translate' => 'Vertaal',
+	'securepoll-subpage-list' => 'Lies',
+	'securepoll-subpage-dump' => 'Dump',
+	'securepoll-subpage-tally' => 'Telling',
+	'securepoll-tally-title' => 'Telling: $1',
+	'securepoll-tally-not-finished' => 'Doe kins gein telling oetveure totdet de sjtömming is aafgeloupe.',
+	'securepoll-no-upload' => "d'r Is gei besjtandj opgelaje, resultate kinne neet geteld waere.",
 );
 
 /** Macedonian (Македонски)
