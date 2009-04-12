@@ -35,7 +35,7 @@ class SecurePoll_MessageDumpPage extends SecurePoll_Page {
 		if ( !$res->numRows() ) {
 			return;
 		}
-		echo "INSERT INTO securepoll_msgs (msg_entity,msg_lang, msg_key, msg_value) VALUES\n";
+		echo "INSERT INTO securepoll_msgs (msg_entity,msg_lang, msg_key, msg_text) VALUES\n";
 		$first = true;
 		foreach ( $res as $row ) {
 			$values = array(
