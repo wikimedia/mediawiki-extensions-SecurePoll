@@ -1125,24 +1125,36 @@ $1',
 	'securepoll-not-logged-in' => 'Πρέπει να συνδεθείτε για να ψηφίσετε στις εκλογές',
 	'securepoll-too-few-edits' => 'Συγνώμη, δεν μπορείτε να ψηφίσετε. Χρειάζεται να έχετε κάνει τουλάχιστον $1 {{PLURAL:$1|επεξεργασία|επεξεργασίες}} για να ψηφίσετε σε αυτή την ψηφοφορία, έχετε κάνει $2.',
 	'securepoll-blocked' => 'Συγνώμη δεν μπορείτε να ψηφίσετε σε αυτή την ψηφοφορία αν είστε επί του παρόντος υπό φραγή από την επεξεργασία.',
+	'securepoll-bot' => 'Συγνώμη, οι λογαριασμοί με σημαία μποτ δεν επιτρέπεται να ψηφίσουν σε αυτήν την ψηφοφορία.',
 	'securepoll-not-in-group' => "Μόνο τα μέλη της ομάδας $1 μπορούν να ψηφίσουν σ' αυτές τις εκλογές.",
 	'securepoll-not-in-list' => 'Λυπούμαστε, αλλά δεν βρίσκεστε στην προκαθορισμένη λίστα χρηστών που επιτρέπεται να ψηφίσουν στις εκλογές αυτές.',
 	'securepoll-list-title' => 'Λίστα ψήφων: $1',
 	'securepoll-header-timestamp' => 'Ώρα',
 	'securepoll-header-voter-name' => 'Όνομα',
 	'securepoll-header-voter-domain' => 'Περιοχή',
+	'securepoll-header-ua' => 'Αντιπρόσωπος χρήστη',
+	'securepoll-header-cookie-dup' => 'Διπλότυπες',
+	'securepoll-header-strike' => 'Σβήσιμο',
 	'securepoll-header-details' => 'Λεπτομέρειες',
+	'securepoll-strike-button' => 'Σβήσιμο',
+	'securepoll-unstrike-button' => 'Ακύρωση σβησίματος',
 	'securepoll-strike-reason' => 'Λόγος:',
 	'securepoll-strike-cancel' => 'Άκυρο',
+	'securepoll-strike-error' => 'Σφάλμα κατά το σβήσιμο/την αναίρεση σβησίματος: $1',
 	'securepoll-details-link' => 'Λεπτομέρειες',
 	'securepoll-details-title' => 'Πληροφορίες ψήφου: #$1',
 	'securepoll-invalid-vote' => 'Η "$1" δεν είναι μια έγκυρη ψήφος βάση ταυτότητας',
 	'securepoll-header-voter-type' => 'Τύπος ψηφοφόρου',
 	'securepoll-voter-properties' => 'Ιδιότητες ψηφοφόρου',
+	'securepoll-strike-log' => 'Ιστορικό σβησιμάτων',
 	'securepoll-header-action' => 'Ενέργεια',
 	'securepoll-header-reason' => 'Λόγος',
 	'securepoll-header-admin' => 'Διαχειριστής',
+	'securepoll-cookie-dup-list' => 'Χρήστες που έχουν διπλότυπο cookie',
+	'securepoll-dump-title' => 'Διπλότυπες: $1',
+	'securepoll-dump-no-crypt' => 'Κανένα κρυπτογραφημένο εκλογικό αρχείο δεν είναι διαθέσιμο για αυτήν την εκλογή, επειδή αυτή δεν είναι διαμορφωμένη για χρήση κρυπτογράφησης.',
 	'securepoll-translate-title' => 'Μετάφραση: $1',
+	'securepoll-invalid-language' => 'Άκυρος κώδικας γλώσσας "$1"',
 	'securepoll-submit-translate' => 'Ενημέρωση',
 	'securepoll-language-label' => 'Επιλογή γλώσσας:',
 	'securepoll-submit-select-lang' => 'Μετάφραση',
@@ -1152,6 +1164,16 @@ $1',
 	'securepoll-subpage-vote' => 'Ψήφος',
 	'securepoll-subpage-translate' => 'Μετάφραση',
 	'securepoll-subpage-list' => 'Λίστα',
+	'securepoll-subpage-dump' => 'Διπλότυπες',
+	'securepoll-subpage-tally' => 'Καταμέτρηση',
+	'securepoll-tally-title' => 'Καταμέτρηση: $1',
+	'securepoll-tally-not-finished' => 'Συγγνώμη, δεν είναι δυνατή η καταμέτρηση των ψήφων μέχρι να ολοκληρωθεί η ψηφοφορία.',
+	'securepoll-tally-local-legend' => 'Καταμέτρηση αποκατεστημένων αποτελεσμάτων',
+	'securepoll-tally-local-submit' => 'Δημιουργία καταμέτρησης',
+	'securepoll-tally-upload-legend' => 'Επιφόρτωση κρυπτογραφημένης διπλότυπης',
+	'securepoll-tally-upload-submit' => 'Δημιουργία καταμέτρησης',
+	'securepoll-tally-error' => 'Σφάλμα κατά την ερμηνεία του αρχείου ψήφων· αδύνατη η καταμέτρηση.',
+	'securepoll-no-upload' => 'Κανένα αρχείο δεν επιφορτίστηκε· τα αποτελέσματα δεν μπορούν να καταμετρηθούν',
 );
 
 /** Esperanto (Esperanto)
@@ -1538,6 +1560,7 @@ $messages['gl'] = array(
 	'securepoll-welcome' => '<strong>Dámoslle a benvida, $1!</strong>',
 	'securepoll-not-started' => 'Estas eleccións aínda non comezaron.
 Están programadas para empezar o $2 ás $3.',
+	'securepoll-finished' => 'Estas eleccións xa remataron, non se pode votar máis.',
 	'securepoll-not-qualified' => 'Non está cualificado para votar nestas eleccións: $1',
 	'securepoll-change-disallowed' => 'Xa votou nestas eleccións.
 Sentímolo, non pode votar de novo.',
@@ -1580,6 +1603,7 @@ Non se pode desencriptar.',
 	'securepoll-not-logged-in' => 'Debe acceder ao sistema para votar nestas eleccións',
 	'securepoll-too-few-edits' => 'Sentímolo, non pode votar nestas eleccións. Debe ter feito polo menos $1 edicións, e só ten feito $2.',
 	'securepoll-blocked' => 'Sentímolo, non pode votar nestas eleccións se está actualmente bloqueado fronte á edición.',
+	'securepoll-bot' => 'Sentímolo, as contas con dereitos de bot non están autorizadas a votar nestas eleccións.',
 	'securepoll-not-in-group' => 'Só os membros pertencentes ao grupo dos $1 poden votar nestas eleccións.',
 	'securepoll-not-in-list' => 'Sentímolo, non está na lista predeterminada de usuarios autorizados a votar nestas eleccións.',
 	'securepoll-list-title' => 'Lista de votos: $1',
@@ -1587,6 +1611,7 @@ Non se pode desencriptar.',
 	'securepoll-header-voter-name' => 'Nome',
 	'securepoll-header-voter-domain' => 'Dominio',
 	'securepoll-header-ua' => 'Axente usuario',
+	'securepoll-header-cookie-dup' => 'Dupl.',
 	'securepoll-header-strike' => 'Riscar',
 	'securepoll-header-details' => 'Detalles',
 	'securepoll-strike-button' => 'Riscar',
@@ -1603,6 +1628,7 @@ Non se pode desencriptar.',
 	'securepoll-header-action' => 'Acción',
 	'securepoll-header-reason' => 'Motivo',
 	'securepoll-header-admin' => 'Administrador',
+	'securepoll-cookie-dup-list' => 'Usuarios cunha cookie duplicada',
 	'securepoll-dump-title' => 'Desbotar: $1',
 	'securepoll-dump-no-crypt' => 'Non hai dispoñible ningún rexistro das eleccións encriptado, porque as eleccións non están configuradas para usar encriptación.',
 	'securepoll-dump-not-finished' => 'Os rexistros das eleccións encriptados só están dispoñibles despois da data de fin o $1 ás $2',
@@ -1620,6 +1646,18 @@ Para manter a protección dos datos, os rexistros das eleccións encriptados só
 	'securepoll-subpage-translate' => 'Traducir',
 	'securepoll-subpage-list' => 'Lista',
 	'securepoll-subpage-dump' => 'Desbotar',
+	'securepoll-subpage-tally' => 'Escrutinio',
+	'securepoll-tally-title' => 'Escrutinio: $1',
+	'securepoll-tally-not-finished' => 'Sentímolo, non pode escrutar os votos das eleccións antes de que a votación remate.',
+	'securepoll-can-decrypt' => 'O rexistro electoral foi codificado, pero a clave para desencriptalo está dispoñible.  
+Pode optar por escrutar os resultados presentes na base de datos ou por escrutar os resultados encriptados nun ficheiro cargado.',
+	'securepoll-tally-no-key' => 'Non pode escrutar os votos destas eleccións, porque estes votos están encriptados e clave para desencriptalos non está dispoñible.',
+	'securepoll-tally-local-legend' => 'Resultados almacenados do escrutinio',
+	'securepoll-tally-local-submit' => 'Crear o escrutinio',
+	'securepoll-tally-upload-legend' => 'Cargar unha copia de seguridade codificada',
+	'securepoll-tally-upload-submit' => 'Crear o escrutinio',
+	'securepoll-tally-error' => 'Erro de interpretación no rexistro da votación, non se pode producir un escrutinio.',
+	'securepoll-no-upload' => 'Non foi cargado ningún ficheiro, non se poden escrutar os resultados.',
 );
 
 /** Swiss German (Alemannisch)
@@ -2185,6 +2223,7 @@ $messages['id'] = array(
 	'securepoll-welcome' => '<strong>Selamat datang $1!</strong>',
 	'securepoll-not-started' => 'Pemungutan suara ini belum dimulai
 dan baru akan berlangsung pada $3, $2.',
+	'securepoll-finished' => 'Pemungutan suara telah selesai, Anda sudah tidak dapat memberikan suara.',
 	'securepoll-not-qualified' => 'Anda belum memenuhi syarat untuk memberikan suara dalam pemungutan suara ini: $1',
 	'securepoll-change-disallowed' => 'Anda telah memberikan suara dalam pemilihan ini sebelumnya.
 Maaf, Anda tidak dapat memberikan suara lagi.',
@@ -2226,6 +2265,7 @@ Tidak dapat melakukan dekripsi.',
 	'securepoll-not-logged-in' => 'Anda harus masuk log untuk dapat memberikan suara dalam pemilihan ini',
 	'securepoll-too-few-edits' => 'Maaf, Anda tidak dapat memberikan suara. Anda harus memiliki minimal $1 {{PLURAL:$1|suntingan|suntingan}} untuk dapat memberikan suara dalam pemilihan ini, Anda hanya memiliki $2.',
 	'securepoll-blocked' => 'Maaf, Anda tidak dapat memberikan suara karena akun Anda sedang diblokir.',
+	'securepoll-bot' => 'Maaf, akun dengan status bot tidak diperbolehkan untuk memberikan suara dalam pemilihan ini.',
 	'securepoll-not-in-group' => 'Hanya anggota kelompok "$1" yang dapat memberikan suara pada pemilihan ini.',
 	'securepoll-not-in-list' => 'Maaf, Anda tidak terdaftar dalam daftar pemilih yang dapat memberikan suara.',
 	'securepoll-list-title' => 'Daftar suara: $1',
@@ -2233,6 +2273,7 @@ Tidak dapat melakukan dekripsi.',
 	'securepoll-header-voter-name' => 'Nama',
 	'securepoll-header-voter-domain' => 'Domain',
 	'securepoll-header-ua' => 'Aplikasi pengguna',
+	'securepoll-header-cookie-dup' => 'Duplikat',
 	'securepoll-header-strike' => 'Coret',
 	'securepoll-header-details' => 'Rincian',
 	'securepoll-strike-button' => 'Coret',
@@ -2249,6 +2290,7 @@ Tidak dapat melakukan dekripsi.',
 	'securepoll-header-action' => 'Tindakan',
 	'securepoll-header-reason' => 'Alasan',
 	'securepoll-header-admin' => 'Admin',
+	'securepoll-cookie-dup-list' => 'Cookie pengguna duplikat',
 	'securepoll-dump-title' => 'Dump: $1',
 	'securepoll-dump-no-crypt' => 'Tidak ada catatan pemilihan yang terenkripsi untuk pemilihan ini, karena pemilihan ini tidak dikonfigurasikan untuk menggunakan enkripsi.',
 	'securepoll-dump-not-finished' => 'Catatan pemilihan terenkripsi hanya tersedia setelah selesainya pemungutan suara pada $2, $1.',
@@ -2266,6 +2308,18 @@ Untuk memastikan privasi pemberi suara, catatan pemilihan terenkripsi hanya akan
 	'securepoll-subpage-translate' => 'Terjemahkan',
 	'securepoll-subpage-list' => 'Daftar',
 	'securepoll-subpage-dump' => 'Dump',
+	'securepoll-subpage-tally' => 'Penghitungan suara',
+	'securepoll-tally-title' => 'Penghitungan suara: $1',
+	'securepoll-tally-not-finished' => 'Maaf, Anda tidak dapat menghitung suara sampai pemungutan selesai.',
+	'securepoll-can-decrypt' => 'Catatan pemilihan telah dienkripsi, tapi kunci dekripsi tersedia.
+Anda dapat memilih antara menghitung dari hasil suara yang terdapat di basis data, atau untuk menghitung hasil yang terenkripsi dari berkas yang dimuatkan.',
+	'securepoll-tally-no-key' => 'Anda tidak dapat melakukan penghitungan suara, karena suara-suaranya terenkripsi dan kunci dekripsinya tidak tersedia.',
+	'securepoll-tally-local-legend' => 'Menghitung hasil yang tersimpan',
+	'securepoll-tally-local-submit' => 'Lakukan penghitungan',
+	'securepoll-tally-upload-legend' => 'Muat dump terenkripsi',
+	'securepoll-tally-upload-submit' => 'Membuat perhitungan',
+	'securepoll-tally-error' => 'Terjadi kesalahan dalam menginterpretasikan catatan pemungutan suara, tidak dapat melakukan penghitungan.',
+	'securepoll-no-upload' => 'Tidak ada berkas yang dimuatkan, tidak dapat melakukan penghitungan hasil.',
 );
 
 /** Italian (Italiano)
@@ -2732,7 +2786,11 @@ $1',
 	'securepoll-no-decryption-key' => 'Et ass keen Ëntschlësungsschlëssel agestallt.
 Ëntschlësselung onméiglech.',
 	'securepoll-jump' => 'Op den Ofstëmmungs-Server goen',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+Är Stëmm ass net valabel: $1
+</div>',
 	'securepoll-unanswered-questions' => 'Dir musst all Froe beäntwerten',
+	'securepoll-remote-auth-error' => 'Feeler beim Ofruf vun Äre Benotzerkontinformatioune vum Server.',
 	'securepoll-api-invalid-params' => 'Parameter déi net valabel sinn.',
 	'securepoll-api-no-user' => 'Et gouf kee Benotzer mat der ID fonnt déi ugi war.',
 	'securepoll-not-logged-in' => 'Dir musst Iech aloggen fir bäi dëse Walen ofstëmmen ze kënnen',
@@ -2775,6 +2833,7 @@ $1',
 	'securepoll-subpage-tally' => 'Auszielung',
 	'securepoll-tally-title' => 'Auszielung: $1',
 	'securepoll-tally-not-finished' => "Pardon, Dir kënnt d'Walen net auszielen bis d'Ofstëmmung fäerdeg ass.",
+	'securepoll-tally-no-key' => "Dir kënnt dës Walen net auszielen, well d'Stëmme verschlësselt sinn, a den Entschlësselungs-Schlëssel net disponibel ass.",
 	'securepoll-tally-local-legend' => 'Déi gespäichert Resultater auszielen',
 	'securepoll-tally-local-submit' => 'Auszielung uleeën',
 	'securepoll-tally-upload-submit' => 'Auszielung uleeën',
@@ -3322,6 +3381,121 @@ Podètz causir de comptar los resultats dempuèi la banca de donadas o dempuèi 
 	'securepoll-no-upload' => 'Cap de fichièr es pas estat telecargat, impossible de comptar los resultats.',
 );
 
+/** Papiamento (Papiamentu)
+ * @author Sdm1985
+ */
+$messages['pap'] = array(
+	'securepoll' => 'Enkuesta protehá',
+	'securepoll-desc' => 'Ekstenshonnan pa elekshon i enkuestanan',
+	'securepoll-invalid-page' => 'E pagina no ta balido "<nowiki>$1</nowiki>"',
+	'securepoll-need-admin' => 'Bo mester ta un administradó pa por skohe e akshon aki.',
+	'securepoll-too-few-params' => 'No tin sufisiente parámetro (e lenk no ta balido)',
+	'securepoll-invalid-election' => '"$1" no ta un ID di eskoho balido.',
+	'securepoll-welcome' => '<strong>Bon Bini $1!</strong>',
+	'securepoll-not-started' => 'E elekshon aki no a kuminsá ainda.
+E ta programá pa kuminsá $3 dia $2',
+	'securepoll-finished' => ' E elekshon aki kaba, bo no por vota mas.',
+	'securepoll-not-qualified' => 'Bo no por vota den e elekshon aki: $1',
+	'securepoll-change-disallowed' => 'Bo a vota den e elekshon aki kaba.
+Despensa, pero no ta posibel pa vota atrobe.',
+	'securepoll-change-allowed' => '<strong>Nota: Bo a vota den e elekshon aki kaba.</strong>
+Bo por kambia e voto ku bo a manda usando e formulario akibou.
+Si bo hasi esaki bo voto original lo no koknta mas.',
+	'securepoll-submit' => 'Manda bo voto',
+	'securepoll-gpg-receipt' => 'Danki pa bo voto.
+
+Si bo ta deseá esei, bo por keda ku e resibu aki ku ta verifiká ku bo a vota:
+
+<pre>$1</pre>',
+	'securepoll-thanks' => 'Danki, bo voto a wòrdu prosesá.',
+	'securepoll-return' => 'Bolbe bèk na $1',
+	'securepoll-encrypt-error' => 'No por a encrypt bo voto.
+Bo voto no a wòrdu prosesá!
+
+$1',
+	'securepoll-no-gpg-home' => 'No por a krea e direktorio di GPG home.',
+	'securepoll-secret-gpg-error' => 'Tabatin un eror na momentu di ehekuta GPG.
+Usa $wgSecurePollShowErrorDetail=true; den LocalSettings.php pa haña mas detaye.',
+	'securepoll-full-gpg-error' => 'Eror den ehekushon di GPG:
+
+command: $1
+
+Eror:
+<pre>$2</pre>',
+	'securepoll-gpg-config-error' => 'E konfigurashon di e klavenan di GPG no ta korekto.',
+	'securepoll-gpg-parse-error' => 'Tabatin un eror na ora di interpretá e output di GPG.',
+	'securepoll-no-decryption-key' => 'No tin un klave deskriptivó konfigurá.
+No por decrypt.',
+	'securepoll-jump' => 'Bai na e server di votashon',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+Bo voto no ta balido: $1
+</div>',
+	'securepoll-unanswered-questions' => 'Bo mester kontestá tur e preguntanan.',
+	'securepoll-remote-auth-error' => 'Tabatin problema na ora di buska informashonnan tokante di bo kuenta riba e server.',
+	'securepoll-remote-parse-error' => 'Tabatin problema na ora di interpretá e derechinan for di riba e server.',
+	'securepoll-api-invalid-params' => 'Parámetronan no ta balido',
+	'securepoll-api-no-user' => 'Nos no por a haña un usuario bo di e ID aki.',
+	'securepoll-api-token-mismatch' => 'Tabating un problema di seguridad, no por hasi e log in.',
+	'securepoll-not-logged-in' => 'Bo mester hasi e log in pa vota den e elekshon aki',
+	'securepoll-too-few-edits' => 'Despensa, pero bo no por vota. Bo mester a hasi por lo menos $1 {{PLURAL:$1|kambio|kambionan}} pa vota den e elekshon aki, abo a hasi $2.',
+	'securepoll-blocked' => 'Despensa, pero bo no por vota den e elekshon aki si bo derechi pa hasi kambionan ta blòkia.',
+	'securepoll-bot' => 'Despensa, kuentanan ku marká ku e `bot flag´ no por vota den e elekshon aki.',
+	'securepoll-not-in-group' => 'Solamente miembronan di e grupo "$1" por vota den e elekshon aki.',
+	'securepoll-not-in-list' => 'Despensa, pero abo no ta den e lista di usuarionan ku ta outorisá pa vota den e elekshon aki.',
+	'securepoll-list-title' => 'Lista di votonan: $1',
+	'securepoll-header-timestamp' => 'Tempu',
+	'securepoll-header-voter-name' => 'Nòmber',
+	'securepoll-header-voter-domain' => 'Dominio/Domain',
+	'securepoll-header-ua' => 'Usuario',
+	'securepoll-header-cookie-dup' => 'Dupliká',
+	'securepoll-header-strike' => 'Pone',
+	'securepoll-header-details' => 'Detaye',
+	'securepoll-strike-button' => 'Pone',
+	'securepoll-unstrike-button' => 'Kita',
+	'securepoll-strike-reason' => 'Motibu:',
+	'securepoll-strike-cancel' => 'Kanselá',
+	'securepoll-strike-error' => 'Eror na momentu di pone/kita: $1',
+	'securepoll-details-link' => 'Detaye',
+	'securepoll-details-title' => 'Detayenan di voto: #$1',
+	'securepoll-invalid-vote' => '"$1" no ta un ID di voto balido',
+	'securepoll-header-voter-type' => 'Tipo di votadó',
+	'securepoll-voter-properties' => 'Propiedatnan di votadó',
+	'securepoll-strike-log' => 'Resumen di kuantu biaha algu a wòrdu poní',
+	'securepoll-header-action' => 'Akshon',
+	'securepoll-header-reason' => 'Motibu',
+	'securepoll-header-admin' => 'Administrashon',
+	'securepoll-cookie-dup-list' => 'Kantidat di usuarionan ku a bai vota un di dos biaha',
+	'securepoll-dump-title' => 'Laga numa: $1',
+	'securepoll-dump-no-crypt' => 'No tin ningun encryption stipulá pa e elekshon aki, pasobra e elekshon aki no ta konfigurá pa husa encryptions.',
+	'securepoll-dump-not-finished' => 'Resultadonan encrypt di elekshon no ta aksesibel promé ku e fecha di klousura ku ta $2 riba $1',
+	'securepoll-dump-no-urandom' => 'No por habri /dev/urandom.
+Pa mantené e privasidat di kada votadó, elekshonnan encrypt por wòrdu mirá dor di publiko solamente ora ku nan por wòrdu di shòbel dor di otro ku un stream di numbernan bruá dor di otro.',
+	'securepoll-translate-title' => 'Tradusí: $1',
+	'securepoll-invalid-language' => 'E kodigo di idioma no ta balido "$1"',
+	'securepoll-submit-translate' => 'Aktualisá',
+	'securepoll-language-label' => 'Skohe un idioma:',
+	'securepoll-submit-select-lang' => 'Tradusí',
+	'securepoll-header-title' => 'Nòmber',
+	'securepoll-header-start-date' => 'Fecha di kuminsamentu',
+	'securepoll-header-end-date' => 'Fecha ku e ta terminá',
+	'securepoll-subpage-vote' => 'Voto',
+	'securepoll-subpage-translate' => 'Tradusí',
+	'securepoll-subpage-list' => 'Lista',
+	'securepoll-subpage-dump' => 'Laga numa',
+	'securepoll-subpage-tally' => 'Konteo',
+	'securepoll-tally-title' => 'Konteo: $1',
+	'securepoll-tally-not-finished' => 'Despensa, pero bo no por krea e konteo di e votonan promé ku e elekshon sera.',
+	'securepoll-can-decrypt' => 'E elekshon a wòrdu encrypt, pero e klave di deskripshon ta disponibel.
+Bo por skohe pa sea konta e resultadonan di e votona ya risibí òf konta e resultadonan encrypy di un file ku bo por load.',
+	'securepoll-tally-no-key' => 'Bo no por hasi e konteo di e elekshon aki, pasobra e votonan ta encrypt i e klave deskriptivo no ta disponibel.',
+	'securepoll-tally-local-legend' => 'Konta e resultadonan di votonan warda',
+	'securepoll-tally-local-submit' => 'Krea konteo',
+	'securepoll-tally-upload-legend' => 'Trese dumpnan encrypted',
+	'securepoll-tally-upload-submit' => 'Krea konteo',
+	'securepoll-tally-error' => 'Tabatin un eror  den e interpretashon di e votonan wardá, no por krea un konteo.',
+	'securepoll-no-upload' => 'Ningun dokumento no a wòrdu di load, no por kalkulá resultadonan.',
+);
+
 /** Polish (Polski)
  * @author Sp5uhe
  */
@@ -3438,6 +3612,7 @@ Można podliczyć wyniki obecne w bazie danych lub podliczyć wyniki z przesłan
 );
 
 /** Portuguese (Português)
+ * @author Lijealso
  * @author Malafaya
  * @author Waldir
  */
@@ -3449,7 +3624,7 @@ $messages['pt'] = array(
 	'securepoll-invalid-election' => '"$1" não é um identificador de eleição válido.',
 	'securepoll-welcome' => '<strong>Bem-vindo $1!</strong>',
 	'securepoll-not-started' => 'Esta eleição ainda não se iniciou.
-Está programada para começar em $1.',
+Está programada para começar em $2 às $3.',
 	'securepoll-not-qualified' => 'Você não está qualificado a votar nesta eleição: $1',
 	'securepoll-change-disallowed' => 'Você já votou nesta eleição antes.
 Desculpe, você não pode votar novamente.',
@@ -3489,7 +3664,14 @@ Não é possível descodificar.',
 	'securepoll-strike-cancel' => 'Cancelar',
 	'securepoll-header-voter-type' => 'Tipo de utilizador',
 	'securepoll-header-reason' => 'Motivo',
+	'securepoll-translate-title' => 'Traduzir: $1',
+	'securepoll-language-label' => 'Escolha a língua:',
 	'securepoll-submit-select-lang' => 'Traduzir',
+	'securepoll-header-title' => 'Nome',
+	'securepoll-header-start-date' => 'Data de início',
+	'securepoll-header-end-date' => 'Data de fim',
+	'securepoll-subpage-vote' => 'Votar',
+	'securepoll-subpage-translate' => 'Traduzir',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
@@ -3609,6 +3791,16 @@ Você pode escolher entre realizar a contagem de votos dos resultados presentes 
 	'securepoll-no-upload' => 'Nenhum arquivo foi carregado, não foi possível contar os votos para o resultado.',
 );
 
+/** Tarandíne (Tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'securepoll-invalid-page' => 'Sottepàgene invalide "<nowiki>$1</nowiki>"',
+	'securepoll-submit' => "Conferme 'u vote",
+	'securepoll-unanswered-questions' => 'Tu a responnere a tutte le domande.',
+	'securepoll-api-invalid-params' => 'Parametre invalide.',
+);
+
 /** Russian (Русский)
  * @author HalanTul
  * @author Александр Сигачёв
@@ -3633,7 +3825,7 @@ $messages['ru'] = array(
 	'securepoll-submit' => 'Отправить голос',
 	'securepoll-gpg-receipt' => 'Благодарим за участие в голосовании.
 
-При желании вы можете сохранить следующие строки как подтверждение вашего голоса:
+При желании вы можете сохранить следующие строки в качестве подтверждения вашего голоса:
 
 <pre>$1</pre>',
 	'securepoll-thanks' => 'Спасибо, ваш голос записан.',
@@ -3982,6 +4174,121 @@ $messages['th'] = array(
 	'securepoll-invalid-page' => 'ไม่มีหน้าย่อย "<nowiki>$1</nowiki>"',
 	'securepoll-strike-reason' => 'เหตุผล:',
 	'securepoll-header-reason' => 'เหตุผล',
+);
+
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
+$messages['tl'] = array(
+	'securepoll' => 'Ligtas na Halalan',
+	'securepoll-desc' => 'Karugtong para sa mga halalan at mga pagtatanung-tanong',
+	'securepoll-invalid-page' => 'Hindi tanggap na kabahaging pahinang "<nowiki>$1</nowiki>"',
+	'securepoll-need-admin' => 'Kailangan mong maging isang tagapangasiwa upang maisagawa ang galaw na ito.',
+	'securepoll-too-few-params' => 'Hindi sapat na mga parametro ng kabahaging pahina (hindi tanggap na kawing).',
+	'securepoll-invalid-election' => 'Ang "$1" ay hindi isang tanggap na ID ng halalan.',
+	'securepoll-welcome' => '<strong>Maligayang pagdating, $1!</strong>',
+	'securepoll-not-started' => 'Hindi pa nagsisimula ang halalang ito.
+Nakatakdang magsimula ito sa $2 sa $3.',
+	'securepoll-finished' => 'Natapos na ang halalang ito, hindi ka na makaboboto.',
+	'securepoll-not-qualified' => 'Hindi ka pa karapat-dapat na bumoto sa halalang ito: $1',
+	'securepoll-change-disallowed' => 'Bumoto ka na dati sa halalang ito.
+Paumanhin, hindi ka na maaaring bumoto uli.',
+	'securepoll-change-allowed' => '<strong>Paunawa: Bumoto ka na dati sa halalang ito.</strong>
+Maaari mong baguhin ang iyong boto sa pamamagitan ng pagpasa ng pormularyong nasa ibaba.
+Pakitandaan na kapag ginawa mot ito, itatapon ang nauna mong boto.',
+	'securepoll-submit' => 'Ipasa ang boto',
+	'securepoll-gpg-receipt' => 'Salamat sa pagboto mo.
+
+Kung nais mo, maaari mong itabi ang sumusunod na resibo bilang katibayan ng pagboto mo:
+
+<pre>$1</pre>',
+	'securepoll-thanks' => 'Salamat sa iyo, naitala na ang boto mo.',
+	'securepoll-return' => 'Bumalik sa $1',
+	'securepoll-encrypt-error' => 'Nabigong ikodigo ang iyong tala ng pagboto.
+Hindi naitala ang boto mo!
+
+$1',
+	'securepoll-no-gpg-home' => 'Hindi nagawang likhain ang tahanang direktoryong GPG.',
+	'securepoll-secret-gpg-error' => 'Kamalian sa pagpapatupad ng GPG.
+Gamitin ang $wgSecurePollShowErrorDetail=true; sa loob ng LocalSettings.php upang makapagpakita ng marami pang detalye.',
+	'securepoll-full-gpg-error' => 'Kamalian sa pagpapatupad ng GPG:
+
+Utos: $1
+
+Kamalian:
+<pre>$2</pre>',
+	'securepoll-gpg-config-error' => 'Hindi nakaayos ng tama ang mga susi ng GPG.',
+	'securepoll-gpg-parse-error' => 'Kamalian sa pagpapaliwanag ng kinalabasan ng GPG.',
+	'securepoll-no-decryption-key' => 'Walang nakaayos na susing pangtanggal ng kodigo.
+Hindi matanggal ang kodigo.',
+	'securepoll-jump' => 'Pumunta sa tagapaghain ng pagboto',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+Hindi tinanggap ang boto mo: $1
+</div>',
+	'securepoll-unanswered-questions' => 'Dapat mong sagutin ang lahat ng mga katanungan.',
+	'securepoll-remote-auth-error' => 'Kamalian sa pagpulot ng kabatiran ng akawnt mo mula sa tagapaghain.',
+	'securepoll-remote-parse-error' => 'Kamalian sa pagpapaliwanag ng tugon ng pagpapahintulot mula sa tagapaghain.',
+	'securepoll-api-invalid-params' => 'Hindi tanggap na mga parametro.',
+	'securepoll-api-no-user' => 'Walang tagagamit na natagpuang may ibinigay na ID.',
+	'securepoll-api-token-mismatch' => 'Maling pagtutugma ng tandang pangkaligtasan, hindi makalalagdang papasok.',
+	'securepoll-not-logged-in' => 'Kailangan mong lumagdang papasok upang makaboto sa halalang ito',
+	'securepoll-too-few-edits' => 'Paumanhin, hindi ka makakaboto. Kailangan mong maging nakagawa ng kahit na mga $1 {{PLURAL:$1|pamamatnugot|mga pamamatnugot}} upang makaboto sa halalang ito, nakagawa ka na ng $2.',
+	'securepoll-blocked' => 'Paumanhin, hindi ka makakaboto sa halalang ito kung pangkasalukuyan kang hinahadlangan mula sa pamamatnugot.',
+	'securepoll-bot' => 'Paumanhin, ang mga akawnt na may watawat ng robot ay hindi pinapayagang bumoto sa halalang ito.',
+	'securepoll-not-in-group' => 'Mga kasapi lamang ng pangkat na "$1" ang makakaboto sa halalang ito.',
+	'securepoll-not-in-list' => 'Paumanhin, wala ka sa loob ng mga natiyak na talaan ng mga tagagamit na pinapayagang bumoto sa halalang ito.',
+	'securepoll-list-title' => 'Itala ang mga boto: $1',
+	'securepoll-header-timestamp' => 'Oras',
+	'securepoll-header-voter-name' => 'Pangalan',
+	'securepoll-header-voter-domain' => 'Nasasakupan',
+	'securepoll-header-ua' => 'Ahente ng tagagamit',
+	'securepoll-header-cookie-dup' => 'Sipi',
+	'securepoll-header-strike' => 'Kalusin',
+	'securepoll-header-details' => 'Mga detalye',
+	'securepoll-strike-button' => 'Kalusin',
+	'securepoll-unstrike-button' => 'Huwag kalusin',
+	'securepoll-strike-reason' => 'Dahilan:',
+	'securepoll-strike-cancel' => 'Huwag ipagpatuloy',
+	'securepoll-strike-error' => 'Kamalian sa pagsasagawa ng kalusin/huwag kalusin: $1',
+	'securepoll-details-link' => 'Mga detalye',
+	'securepoll-details-title' => 'Mga detalye ng boto: #$1',
+	'securepoll-invalid-vote' => 'Ang "$1" ay hindi isang tanggap na ID ng boto',
+	'securepoll-header-voter-type' => 'Uri ng tagapaghalal',
+	'securepoll-voter-properties' => 'Mga pag-aari ng botante',
+	'securepoll-strike-log' => 'Talaan ng pagkalos',
+	'securepoll-header-action' => 'Galaw',
+	'securepoll-header-reason' => 'Dahilan',
+	'securepoll-header-admin' => 'Tagapangasiwa',
+	'securepoll-cookie-dup-list' => "Mga tagagamit ng dalawahang \"otap\" o ''cookie''",
+	'securepoll-dump-title' => 'Itapon: $1',
+	'securepoll-dump-no-crypt' => 'Walang makuhang nakakodigong tala ng halalan para sa halalang ito, dahil ang halalan ay hindi nakaayos na gumamit ng kodigo.',
+	'securepoll-dump-not-finished' => 'Makakakuha lamang ng nakakodigong mga tala ng halalan pagkalipas ng petsa ng katapusang $1 sa $2',
+	'securepoll-dump-no-urandom' => 'Hindi mabuksan /dev/urandom.
+Upang mapanitili ang paglilihim ng manghahalal, makukuha lamang ng madla ang nakakodigong mga talaan ng halalan kapag mababalasa na sila sa isang ligtas na daloy ng alin mang bilang.',
+	'securepoll-translate-title' => 'Isalinwika: $1',
+	'securepoll-invalid-language' => 'Hindi tanggap na kodigo ng wikang "$1"',
+	'securepoll-submit-translate' => 'Isapanahon',
+	'securepoll-language-label' => 'Piliin ang wika:',
+	'securepoll-submit-select-lang' => 'Isalinwika',
+	'securepoll-header-title' => 'Pangalan',
+	'securepoll-header-start-date' => 'Petsa ng simula',
+	'securepoll-header-end-date' => 'Petsa ng katapusan',
+	'securepoll-subpage-vote' => 'Bumoto',
+	'securepoll-subpage-translate' => 'Isalinwika',
+	'securepoll-subpage-list' => 'Itala',
+	'securepoll-subpage-dump' => 'Itapon',
+	'securepoll-subpage-tally' => 'Itala ang bilang',
+	'securepoll-tally-title' => 'Talaan ng bilang: $1',
+	'securepoll-tally-not-finished' => "Paumanhin, hindi mo maitatala ang bilang ng halalan hangga't hindi pa natatapos ang halalan.",
+	'securepoll-can-decrypt' => 'Nakakodigo ang talaan ng halalan, subalit makukuha ang susing pantanggal ng kodigo.
+Maaari mong piliin ang itala ang bilang ng mga kinalabasang naroroon sa loob ng kalipunan ng dato, o kaya itala ang bilang ng nakakodigong mga kinalabasan mula sa talaksang ikinargang papasok.',
+	'securepoll-tally-no-key' => 'Hindi mo maitatala ang bilang ng halalang ito, dahil nakakodigo ang mga boto, at ang susi ng pagtanggal ng kodigo ay hindi makukuha.',
+	'securepoll-tally-local-legend' => 'Itala ang nakatabing mga kinalabasan',
+	'securepoll-tally-local-submit' => 'Likhain ang talaan ng mga bilang',
+	'securepoll-tally-upload-legend' => 'Ikargang paitaas ang nakakodigong pagtapon',
+	'securepoll-tally-upload-submit' => 'Likhain ang talaan ng mga bilang',
+	'securepoll-tally-error' => 'Kamalian sa pagpapaliwanag ng talaan ng boto, hindi malikha ang isang talaan ng bilang.',
+	'securepoll-no-upload' => 'Walang naikargang talaksan, hindi maitatala ang mga kinalabasan.',
 );
 
 /** Turkish (Türkçe)

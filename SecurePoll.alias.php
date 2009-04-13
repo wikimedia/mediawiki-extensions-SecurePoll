@@ -14,6 +14,11 @@ $aliases['en'] = array(
     'SecurePoll' => array( 'SecurePoll' ),
 );
 
+/** German (Deutsch) */
+$aliases['de'] = array(
+	'SecurePoll' => array( 'Sichere Abstimmung' ),
+);
+
 /** Hebrew (עברית)
  * @author Rotem Liss
  */
