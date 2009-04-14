@@ -113,7 +113,7 @@ Cannot decrypt.',
 	# Dump page
 	'securepoll-dump-title' => 'Dump: $1',
 	'securepoll-dump-no-crypt' => 'No encrypted election record is available for this election, because the election is not configured to use encryption.',
-	'securepoll-dump-not-finished' => 'Encrypted election records are only available after the finish date on $1 at $2', # FIXME: date/time split in message but not yet in file DumpPage.php because locked by Tim.
+	'securepoll-dump-not-finished' => 'Encrypted election records are only available after the finish date on $1 at $2',
 	'securepoll-dump-no-urandom' => 'Cannot open /dev/urandom. 
 To maintain voter privacy, encrypted election records are only publically available when they can be shuffled with a secure random number stream.',
 

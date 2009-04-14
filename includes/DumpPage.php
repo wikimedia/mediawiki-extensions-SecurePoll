@@ -35,7 +35,8 @@ class SecurePoll_DumpPage extends SecurePoll_Page {
 		if ( !$this->election->isFinished() ) {
 			global $wgLang;
 			$wgOut->addWikiMsg( 'securepoll-dump-not-finished', 
-				$wgLang->timeanddate( $this->election->getEndDate() ) );
+				$wgLang->date( $this->election->getEndDate() ),
+				$wgLang->time( $this->election->getEndDate() ) );
 			return;
 		}
 
