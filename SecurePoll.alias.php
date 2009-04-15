@@ -14,6 +14,11 @@ $aliases['en'] = array(
     'SecurePoll' => array( 'SecurePoll' ),
 );
 
+/** Arabic (العربية) */
+$aliases['ar'] = array(
+	'SecurePoll' => array( 'اقتراع_آمن' ),
+);
+
 /** German (Deutsch) */
 $aliases['de'] = array(
 	'SecurePoll' => array( 'Sichere Abstimmung' ),
@@ -34,6 +39,11 @@ $aliases['ja'] = array(
 /** Korean (한국어) */
 $aliases['ko'] = array(
 	'SecurePoll' => array( '비밀투표' ),
+);
+
+/** Dutch (Nederlands) */
+$aliases['nl'] = array(
+	'SecurePoll' => array( 'BeveiligdStemmen' ),
 );
 
 /** Polish (Polski) */
