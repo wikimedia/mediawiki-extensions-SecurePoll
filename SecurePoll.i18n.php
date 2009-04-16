@@ -4730,6 +4730,141 @@ Bạn có thể lựa chọn hoặc kiểm kết quả hiện có trong cơ sở
 	'securepoll-no-upload' => 'Không có tập tin nào được tải lên, không thể kiểm phiếu.',
 );
 
+/** Cantonese
+ * @author Shinjiman
+ */
+$messages['yue'] = array(
+	# Top-level
+	'securepoll' => '安全投票',
+	'securepoll-desc' => '選舉同調查嘅擴展',
+	'securepoll-invalid-page' => '無效嘅細頁 "<nowiki>$1</nowiki>"',
+	'securepoll-need-admin' => '你需要係一位管理員去做呢個動作。',
+	
+	# Vote (most important to translate)
+	'securepoll-too-few-params' => '唔夠細頁參數（無效連結）。',
+	'securepoll-invalid-election' => '"$1"唔係一個有效嘅選舉ID。',
+	'securepoll-welcome' => '<strong>歡迎$1！</strong>',
+	'securepoll-not-started' => '個選舉重未開始。
+佢將會響$2 $3開始。',
+	'securepoll-finished' => '個選舉已經結束，你唔可以再投票。',
+	'securepoll-not-qualified' => '你未有資格響呢次選舉度投票: $1',
+	'securepoll-change-disallowed' => '你之前已經響呢次選舉度投咗票。
+對唔住，你唔可以再投。',
+	'securepoll-change-allowed' => '<strong>注意: 你之前已經響呢次選舉度投咗票。</strong>
+你可以用下面嘅表格去改你嘅投票。
+要留意如果你做呢個，噉你原先嘅投票就會捨棄。',
+	'securepoll-submit' => '遞交投票',
+	'securepoll-gpg-receipt' => '多謝你嘅投票。
+
+如果你想嘅話，你可以留底下面嘅收條去證明咗你已經投咗票:
+
+<pre>$1</pre>',
+	'securepoll-thanks' => '多謝，你嘅一票已經紀錄咗。',
+	'securepoll-return' => '返去$1',
+	'securepoll-encrypt-error' => '加密你嘅投票紀錄失敗。
+你嘅投票無紀錄到！
+
+$1',
+	'securepoll-no-gpg-home' => '開唔到GPG home目錄。',
+	'securepoll-secret-gpg-error' => '執行GPG出錯。
+響LocalSettings.php用$wgSecurePollShowErrorDetail=true;去顯示更多資料。',
+'securepoll-full-gpg-error' => '執行GPG出錯:
+
+指令: $1
+
+錯:
+<pre>$2</pre>',
+	'securepoll-gpg-config-error' => 'GPG匙未能正班噉設定。',
+	'securepoll-gpg-parse-error' => '處理GPG輸出出錯。',
+	'securepoll-no-decryption-key' => '未設定解密匙。
+唔可以解密。',
+	'securepoll-jump' => '去緊投票伺服器',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+	你嘅投票無效: $1
+	</div>',
+	'securepoll-unanswered-questions' => '你一定要答全部嘅問題。',
+
+	# Authorisation related
+	'securepoll-remote-auth-error' => '由伺服器度擷取你戶口時出錯。',
+	'securepoll-remote-parse-error' => '由伺服器處理認證回應時出錯。',
+	
+	'securepoll-api-invalid-params' => '無效嘅參數。',
+	'securepoll-api-no-user' => '呢個ID搵唔到用戶。',
+	'securepoll-api-token-mismatch' => '安全幣唔對，唔可以登入。',
+	'securepoll-not-logged-in' => '你一定要登入咗先可以響呢次選舉度投票',
+	'securepoll-too-few-edits' => '對唔住，你唔可以投票。你需要有最少$1次編輯先可以投票，你而家有$2次。',
+	'securepoll-blocked' => '對唔住，當你而家被封鎖嗰陣唔可以響呢次選舉度投票。',
+	'securepoll-bot' => '對唔住，有機械人旗嘅戶口係唔容許響呢次選舉度投票。',
+	'securepoll-not-in-group' => '只有『$1』組嘅成員先可以響呢次選舉度投票。',
+	'securepoll-not-in-list' => '對唔住，你唔係響呢個認可用戶表響呢次選舉度投票。',
+
+	# List page
+	# Mostly for admins
+	'securepoll-list-title' => '列票: $1',
+	'securepoll-header-timestamp' => '時間',
+	'securepoll-header-voter-name' => '名',
+	'securepoll-header-voter-domain' => '網域',
+	'securepoll-header-ua' => '用戶客戶',
+	'securepoll-header-cookie-dup' => '重覆', # Duplicate user with same session
+	'securepoll-header-strike' => '刪除綫',
+	'securepoll-header-details' => '細節',
+	'securepoll-strike-button' => '刪除綫',
+	'securepoll-unstrike-button' => '反刪除綫',
+	'securepoll-strike-reason' => '原因:',
+	'securepoll-strike-cancel' => '取消',
+	'securepoll-strike-error' => '進行刪除／反刪除時出錯: $1',
+	'securepoll-details-link' => '細節',
+
+	# Details page
+	# Mostly for admins
+	'securepoll-details-title' => '投票細節: #$1',
+	'securepoll-invalid-vote' => '"$1"唔係一個有效嘅投票ID',
+	'securepoll-header-voter-type' => '投票者類型',
+	'securepoll-voter-properties' => '投票者屬性',
+	'securepoll-strike-log' => '刪除紀錄',
+	'securepoll-header-action' => '動作',
+	'securepoll-header-reason' => '原因',
+	'securepoll-header-admin' => '管理',
+	'securepoll-cookie-dup-list' => '重覆cookie嘅用戶',
+
+	# Dump page
+	'securepoll-dump-title' => ' 傾印: $1',
+	'securepoll-dump-no-crypt' => '呢次選舉無加密選舉紀錄，因為選舉未設定去用加密。',
+	'securepoll-dump-not-finished' => '加密選舉紀錄只會響 $1 $2 投票結束之後先至會提供',
+	'securepoll-dump-no-urandom' => '開唔到 /dev/urandom。 
+去維持投票者嘅私隱，加密咗嘅紀錄只會響佢哋用亂數重整之後先會公開。',
+
+	# Translate page
+	'securepoll-translate-title' => '翻譯: $1',
+	'securepoll-invalid-language' => '無效嘅語言碼"$1"',
+	'securepoll-submit-translate' => '更新',
+	'securepoll-language-label' => '揀語言: ',
+	'securepoll-submit-select-lang' => '翻譯',
+
+	# Entry page
+	'securepoll-header-title' => '名',
+	'securepoll-header-start-date' => '開始日',
+	'securepoll-header-end-date' => '結束日',
+	'securepoll-subpage-vote' => '投票',
+	'securepoll-subpage-translate' => '翻譯',
+	'securepoll-subpage-list' => '表',
+	'securepoll-subpage-dump' => '傾印',
+	'securepoll-subpage-tally' => '記數',
+
+	# Tally page (admin-only)
+	'securepoll-tally-title' => '記數: $1',
+	'securepoll-tally-not-finished' => '對唔住，響投票完成之前，你唔可以將選舉記數。',
+	'securepoll-can-decrypt' => '個選舉紀錄加密咗，但係有解密匙。 
+	你可以揀個記數響個資料庫做，或者衵一個上載檔案度記數個加密咗嘅結果。',
+	'securepoll-tally-no-key' => '你唔可以響呢次選舉度記數，因為投票加密咗，又有解密匙。',
+	'securepoll-tally-local-legend' => '記數存咗嘅結果',
+	'securepoll-tally-local-submit' => '整記數',
+	'securepoll-tally-upload-legend' => '上載加密咗嘅傾印',
+	'securepoll-tally-upload-submit' => '整記數',
+	'securepoll-tally-error' => '處理投票紀錄時出錯，整唔到記數。',
+	'securepoll-no-upload' => '無檔案上載，整唔到記數結果。',
+);
+
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Bencmq
  * @author Skjackey tse
