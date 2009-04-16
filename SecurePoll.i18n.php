@@ -198,6 +198,7 @@ $messages['qqq'] = array(
 
 /** Arabic (العربية)
  * @author Meno25
+ * @author OsamaK
  * @author Shipmaster
  */
 $messages['ar'] = array(
@@ -210,6 +211,7 @@ $messages['ar'] = array(
 	'securepoll-welcome' => '<strong>مرحبا $1!</strong>',
 	'securepoll-not-started' => 'هذه الانتخابات لم تبدأ بعد.
 من المقرر لها ان تبدأ في  $2 ب $3.',
+	'securepoll-finished' => 'انتهت هذه الانتخابات، لم تعد قادرا على التصويت.',
 	'securepoll-not-qualified' => 'أنت غير مؤهل للتصويت في هذه الانتخابات: $1',
 	'securepoll-change-disallowed' => 'لقد قمت بالتصويت في هذه الانتخابات من قبل.
 عذرا، لا يمكنك التصويت مرة أخرى.',
@@ -245,6 +247,9 @@ $1',
 	'securepoll-jump' => 'اذهب إلى خادم التصويت',
 	'securepoll-unanswered-questions' => 'يجب أن تجيب على كل الأسئلة.',
 	'securepoll-api-invalid-params' => 'محددات غير صحيحة.',
+	'securepoll-api-no-user' => 'لم يوجد أي مستخدم بالهوية المعطاة.',
+	'securepoll-not-logged-in' => 'يجب أن تدخل لتصوت في هذه الانتخابات',
+	'securepoll-not-in-group' => 'فقط المستخدمين من المجموعة "$1" يمكنهم التصويت في هذه الانتخابات.',
 	'securepoll-list-title' => 'قائمة التصويتات: $1',
 	'securepoll-header-timestamp' => 'الوقت',
 	'securepoll-header-voter-name' => 'الاسم',
@@ -281,6 +286,7 @@ $1',
 	'securepoll-header-end-date' => 'تاريخ الانتهاء',
 	'securepoll-subpage-vote' => 'صوت',
 	'securepoll-subpage-translate' => 'ترجم',
+	'securepoll-subpage-list' => 'قائمة',
 );
 
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
@@ -2344,6 +2350,7 @@ Anda dapat memilih antara menghitung dari hasil suara yang terdapat di basis dat
  * @author Darth Kule
  * @author Melos
  * @author Nemo bis
+ * @author Stefano-c
  */
 $messages['it'] = array(
 	'securepoll' => 'SecurePoll',
@@ -2389,10 +2396,15 @@ Errore:
 Impossibile decifrare.',
 	'securepoll-jump' => 'Vai al server della votazione',
 	'securepoll-unanswered-questions' => 'È necessario rispondere a tutte le domande.',
+	'securepoll-remote-auth-error' => 'Errore durante il recupero delle informazioni sul tuo account dal server.',
 	'securepoll-api-invalid-params' => 'Parametri non validi.',
 	'securepoll-api-no-user' => "Non è stato trovato alcun utente con l'ID fornito.",
 	'securepoll-not-logged-in' => "È necessario eseguire l'accesso per votare il questa elezione",
+	'securepoll-too-few-edits' => 'Spiacente, non puoi votare. Devi aver effettuato almeno $1 {{PLURAL:$1|modifica|modifiche}} per votare in questa elezione, tu ne hai fatte $2.',
+	'securepoll-blocked' => 'Spiacente, non puoi votare in questa elezione se sei stato bloccato dalla modifica.',
+	'securepoll-bot' => 'Spiacente, gli account con lo status di bot non sono ammessi a votare in questa elezione.',
 	'securepoll-not-in-group' => 'Solo i membri del gruppo "$1" possono votare in questa elezione.',
+	'securepoll-not-in-list' => 'Spiacente, non sei nella lista predeterminata degli utenti autorizzati a votare in questa elezione.',
 	'securepoll-list-title' => 'Elenco voti: $1',
 	'securepoll-header-timestamp' => 'Data e ora',
 	'securepoll-header-voter-name' => 'Nome',
@@ -3055,6 +3067,15 @@ $messages['nds'] = array(
 	'securepoll-subpage-list' => 'List',
 );
 
+/** Nedersaksisch (Nedersaksisch)
+ * @author Servien
+ */
+$messages['nds-nl'] = array(
+	'securepoll-translate-title' => 'Vertalen: $1',
+	'securepoll-submit-select-lang' => 'Vertalen',
+	'securepoll-subpage-translate' => 'Vertalen',
+);
+
 /** Dutch (Nederlands)
  * @author Mwpnl
  * @author SPQRobin
@@ -3226,6 +3247,7 @@ Kan ikkje dekryptera.',
 	'securepoll-not-in-group' => 'Berre brukarar som er med i gruppa $1 kan røysta i denne avrøystinga.',
 	'securepoll-not-in-list' => 'Du er diverre ikkje på lista over brukarar som har løyve til å røysta i denne avrøystinga.',
 	'securepoll-header-timestamp' => 'Tid',
+	'securepoll-header-voter-name' => 'Namn',
 	'securepoll-header-voter-domain' => 'Domene',
 	'securepoll-header-ua' => 'Brukaragent',
 	'securepoll-header-details' => 'Opplysingar',
@@ -4245,9 +4267,25 @@ $messages['te'] = array(
 /** Thai (ไทย)
  * @author Octahedron80
  * @author Passawuth
+ * @author Watcharakorn
  */
 $messages['th'] = array(
+	'securepoll-desc' => 'ส่วนขยายสำหรับการลงคะแนนและการสำรวจ',
 	'securepoll-invalid-page' => 'ไม่มีหน้าย่อย "<nowiki>$1</nowiki>"',
+	'securepoll-need-admin' => 'คุณต้องเป็นผู้ดูแลระบบในการกระทำสิ่งนี้',
+	'securepoll-too-few-params' => 'พารามิเตอร์ของหน้าย่อยไม่เพียงพอ (ไม่มีลิงก์ดังกล่าว)',
+	'securepoll-invalid-election' => '"$1" ไม่ใช่ไอดีลงคะแนนที่ถูกต้อง',
+	'securepoll-welcome' => '<strong>ยินดีต้อนรับ $1!</strong>',
+	'securepoll-not-started' => 'การลงคะแนนครั้งนี้ยังไม่เริ่มเปิดลงคะแนน
+การลงคะแนนจะเริ่มในวันที่ $2 เวลา $3',
+	'securepoll-change-disallowed' => 'คุณเคยทำการออกเสียงในการลงคะแนนครั้งนี้ไปแล้ว
+ขออภัย คุณไม่สามารถออกเสียงใหม่ได้อีก',
+	'securepoll-change-allowed' => '<strong>หมายเหตุ: คุณเคยทำการออกเสียงในการลงคะแนนครั้งนี้ไปแล้ว</strong>
+คุณสามารถเปลี่ยนคะแนนเสียงได้โดยการเลือกจากแบบฟอร์มด้านล่าง
+หากคุณกระทำเช่นนี้ คะแนนเสียงเดิมของคุณจะไม่ถูกนำมาพิจารณา',
+	'securepoll-submit' => 'ยอมรับการออกเสียง',
+	'securepoll-thanks' => 'ขอบคุณ, คะแนนเสียงของคุณได้รับการบันทึกแล้ว',
+	'securepoll-jump' => 'ไปยังเซิร์ฟเวอร์ลงคะแนน',
 	'securepoll-strike-reason' => 'เหตุผล:',
 	'securepoll-header-reason' => 'เหตุผล',
 );
@@ -4730,17 +4768,14 @@ Bạn có thể lựa chọn hoặc kiểm kết quả hiện có trong cơ sở
 	'securepoll-no-upload' => 'Không có tập tin nào được tải lên, không thể kiểm phiếu.',
 );
 
-/** Cantonese
+/** Yue (粵語)
  * @author Shinjiman
  */
 $messages['yue'] = array(
-	# Top-level
 	'securepoll' => '安全投票',
 	'securepoll-desc' => '選舉同調查嘅擴展',
 	'securepoll-invalid-page' => '無效嘅細頁 "<nowiki>$1</nowiki>"',
 	'securepoll-need-admin' => '你需要係一位管理員去做呢個動作。',
-	
-	# Vote (most important to translate)
 	'securepoll-too-few-params' => '唔夠細頁參數（無效連結）。',
 	'securepoll-invalid-election' => '"$1"唔係一個有效嘅選舉ID。',
 	'securepoll-welcome' => '<strong>歡迎$1！</strong>',
@@ -4768,7 +4803,7 @@ $1',
 	'securepoll-no-gpg-home' => '開唔到GPG home目錄。',
 	'securepoll-secret-gpg-error' => '執行GPG出錯。
 響LocalSettings.php用$wgSecurePollShowErrorDetail=true;去顯示更多資料。',
-'securepoll-full-gpg-error' => '執行GPG出錯:
+	'securepoll-full-gpg-error' => '執行GPG出錯:
 
 指令: $1
 
@@ -4783,11 +4818,8 @@ $1',
 	你嘅投票無效: $1
 	</div>',
 	'securepoll-unanswered-questions' => '你一定要答全部嘅問題。',
-
-	# Authorisation related
 	'securepoll-remote-auth-error' => '由伺服器度擷取你戶口時出錯。',
 	'securepoll-remote-parse-error' => '由伺服器處理認證回應時出錯。',
-	
 	'securepoll-api-invalid-params' => '無效嘅參數。',
 	'securepoll-api-no-user' => '呢個ID搵唔到用戶。',
 	'securepoll-api-token-mismatch' => '安全幣唔對，唔可以登入。',
@@ -4797,15 +4829,12 @@ $1',
 	'securepoll-bot' => '對唔住，有機械人旗嘅戶口係唔容許響呢次選舉度投票。',
 	'securepoll-not-in-group' => '只有『$1』組嘅成員先可以響呢次選舉度投票。',
 	'securepoll-not-in-list' => '對唔住，你唔係響呢個認可用戶表響呢次選舉度投票。',
-
-	# List page
-	# Mostly for admins
 	'securepoll-list-title' => '列票: $1',
 	'securepoll-header-timestamp' => '時間',
 	'securepoll-header-voter-name' => '名',
 	'securepoll-header-voter-domain' => '網域',
 	'securepoll-header-ua' => '用戶客戶',
-	'securepoll-header-cookie-dup' => '重覆', # Duplicate user with same session
+	'securepoll-header-cookie-dup' => '重覆',
 	'securepoll-header-strike' => '刪除綫',
 	'securepoll-header-details' => '細節',
 	'securepoll-strike-button' => '刪除綫',
@@ -4814,9 +4843,6 @@ $1',
 	'securepoll-strike-cancel' => '取消',
 	'securepoll-strike-error' => '進行刪除／反刪除時出錯: $1',
 	'securepoll-details-link' => '細節',
-
-	# Details page
-	# Mostly for admins
 	'securepoll-details-title' => '投票細節: #$1',
 	'securepoll-invalid-vote' => '"$1"唔係一個有效嘅投票ID',
 	'securepoll-header-voter-type' => '投票者類型',
@@ -4826,22 +4852,16 @@ $1',
 	'securepoll-header-reason' => '原因',
 	'securepoll-header-admin' => '管理',
 	'securepoll-cookie-dup-list' => '重覆cookie嘅用戶',
-
-	# Dump page
 	'securepoll-dump-title' => ' 傾印: $1',
 	'securepoll-dump-no-crypt' => '呢次選舉無加密選舉紀錄，因為選舉未設定去用加密。',
 	'securepoll-dump-not-finished' => '加密選舉紀錄只會響 $1 $2 投票結束之後先至會提供',
 	'securepoll-dump-no-urandom' => '開唔到 /dev/urandom。 
 去維持投票者嘅私隱，加密咗嘅紀錄只會響佢哋用亂數重整之後先會公開。',
-
-	# Translate page
 	'securepoll-translate-title' => '翻譯: $1',
 	'securepoll-invalid-language' => '無效嘅語言碼"$1"',
 	'securepoll-submit-translate' => '更新',
-	'securepoll-language-label' => '揀語言: ',
+	'securepoll-language-label' => '揀語言:',
 	'securepoll-submit-select-lang' => '翻譯',
-
-	# Entry page
 	'securepoll-header-title' => '名',
 	'securepoll-header-start-date' => '開始日',
 	'securepoll-header-end-date' => '結束日',
@@ -4850,8 +4870,6 @@ $1',
 	'securepoll-subpage-list' => '表',
 	'securepoll-subpage-dump' => '傾印',
 	'securepoll-subpage-tally' => '記數',
-
-	# Tally page (admin-only)
 	'securepoll-tally-title' => '記數: $1',
 	'securepoll-tally-not-finished' => '對唔住，響投票完成之前，你唔可以將選舉記數。',
 	'securepoll-can-decrypt' => '個選舉紀錄加密咗，但係有解密匙。 
