@@ -14,7 +14,9 @@ $aliases['en'] = array(
     'SecurePoll' => array( 'SecurePoll' ),
 );
 
-/** Arabic (العربية) */
+/** Arabic (العربية)
+ * @author Meno25
+ */
 $aliases['ar'] = array(
 	'SecurePoll' => array( 'اقتراع_آمن' ),
 );
