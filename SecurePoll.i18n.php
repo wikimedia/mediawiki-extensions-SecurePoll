@@ -1411,6 +1411,7 @@ Eraro:
  * @author Crazymadlover
  * @author Dferg
  * @author DoveBirkoff
+ * @author Remember the dot
  */
 $messages['es'] = array(
 	'securepoll' => 'SecurePoll',
@@ -1466,6 +1467,7 @@ Error:
 	'securepoll-header-voter-name' => 'Nombre',
 	'securepoll-header-voter-domain' => 'Dominio',
 	'securepoll-header-ua' => 'Agente de usuario',
+	'securepoll-header-cookie-dup' => 'Dup',
 	'securepoll-header-strike' => 'Tachar',
 	'securepoll-header-details' => 'Detalles',
 	'securepoll-strike-button' => 'Trachar',
@@ -1478,6 +1480,7 @@ Error:
 	'securepoll-header-action' => 'Acción',
 	'securepoll-header-reason' => 'Razón',
 	'securepoll-header-admin' => 'Administrador',
+	'securepoll-dump-title' => 'Volcado: $1',
 	'securepoll-dump-no-crypt' => 'No se dispone de un registro encriptado para esta votación dado que esta votación no ha sido configurada para usar encriptación.',
 	'securepoll-dump-not-finished' => 'Los registros encriptados de la votación están únicamente disponibles después de la fecha de finalización en $1 de $2',
 	'securepoll-translate-title' => 'Traducir: $1',
@@ -1491,6 +1494,7 @@ Error:
 	'securepoll-subpage-vote' => 'Votar',
 	'securepoll-subpage-translate' => 'Traducir',
 	'securepoll-subpage-list' => 'Lista',
+	'securepoll-subpage-dump' => 'Volcar',
 );
 
 /** Estonian (Eesti)
