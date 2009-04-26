@@ -1570,6 +1570,13 @@ $messages['fi'] = array(
 	'securepoll-desc' => 'Liitännäinen vaaleille ja kyselyille.',
 	'securepoll-invalid-page' => 'Virheellinen alasivu ”<nowiki>$1</nowiki>”',
 	'securepoll-welcome' => '<strong>Tervetuloa $1!</strong>',
+	'securepoll-finished' => 'Äänestys on päättynyt, et voi enää äänestää.',
+	'securepoll-submit' => 'Lähetä ääni',
+	'securepoll-gpg-receipt' => 'Kiitos äänestäsi.
+
+Jos haluat, voit säilyttää seuraavan kuitin todisteena äänestäsi:
+
+<pre>$1</pre>',
 	'securepoll-thanks' => 'Kiitos, äänesi on rekisteröity.',
 	'securepoll-no-gpg-home' => 'GPG:n kotihakemistoa ei voitu luoda.',
 	'securepoll-gpg-config-error' => 'GPG-avaimet ovat asetettu virheellisesti.',
@@ -1583,10 +1590,12 @@ Salausta ei voitu purkaa.',
 	'securepoll-header-voter-type' => 'Käyttäjätyyppi',
 	'securepoll-voter-properties' => 'Äänestäjän asetukset',
 	'securepoll-header-reason' => 'Syy',
+	'securepoll-translate-title' => 'Käännä: $1',
 	'securepoll-invalid-language' => 'Virheellinen kielikoodi ”$1”',
 	'securepoll-submit-translate' => 'Päivitä',
 	'securepoll-language-label' => 'Valitse kieli',
 	'securepoll-submit-select-lang' => 'Käännä',
+	'securepoll-subpage-vote' => 'Äänestä',
 );
 
 /** French (Français)
@@ -3839,6 +3848,7 @@ $messages['pt'] = array(
 	'securepoll' => 'Sondagem Segura',
 	'securepoll-desc' => 'Extensão para eleições e sondagens',
 	'securepoll-invalid-page' => 'Subpágina inválida: "<nowiki>$1</nowiki>"',
+	'securepoll-need-admin' => 'Você precisa de ser um administrador para efetuar esta ação.',
 	'securepoll-too-few-params' => 'Parâmetros de subpágina insuficientes (ligação inválida).',
 	'securepoll-invalid-election' => '"$1" não é um identificador de eleição válido.',
 	'securepoll-welcome' => '<strong>Bem-vindo $1!</strong>',
@@ -3882,7 +3892,10 @@ Não é possível descodificar.',
 	'securepoll-header-voter-domain' => 'Domínio',
 	'securepoll-strike-reason' => 'Motivo:',
 	'securepoll-strike-cancel' => 'Cancelar',
+	'securepoll-details-link' => 'Detalhes',
+	'securepoll-invalid-vote' => '"$1" não é um ID de voto válido',
 	'securepoll-header-voter-type' => 'Tipo de utilizador',
+	'securepoll-header-action' => 'Ação',
 	'securepoll-header-reason' => 'Motivo',
 	'securepoll-translate-title' => 'Traduzir: $1',
 	'securepoll-invalid-language' => 'Código de língua "$1" inválido',

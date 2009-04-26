@@ -26,11 +26,21 @@ $aliases['de'] = array(
 	'SecurePoll' => array( 'Sichere Abstimmung' ),
 );
 
+/** Lower Sorbian (Dolnoserbski) */
+$aliases['dsb'] = array(
+	'SecurePoll' => array( 'Wěste wótgłosowanje' ),
+);
+
 /** Hebrew (עברית)
  * @author Rotem Liss
  */
 $aliases['he'] = array(
 	'SecurePoll' => array( 'הצבעה_מאובטחת' ),
+);
+
+/** Upper Sorbian (Hornjoserbsce) */
+$aliases['hsb'] = array(
+	'SecurePoll' => array( 'Wěste wothłosowanje' ),
 );
 
 /** Japanese (日本語) */
