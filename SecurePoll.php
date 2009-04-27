@@ -16,6 +16,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 # Extension credits
 $wgExtensionCredits['other'][] = array(
+	'path' => __FILE__,
 	'name' => 'SecurePoll',
 	'author' => array( 'Tim Starling', 'Kwan Ting Chan', 'others' ),
 	'url' => 'http://www.mediawiki.org/wiki/Extension:SecurePoll',
