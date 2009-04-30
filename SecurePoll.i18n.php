@@ -1539,6 +1539,7 @@ $1',
 );
 
 /** Persian (فارسی)
+ * @author Mardetanha
  * @author Meisam
  */
 $messages['fa'] = array(
@@ -1548,11 +1549,13 @@ $messages['fa'] = array(
 	'securepoll-not-qualified' => 'شما واجد شرایط شرکت در این رای‌گیری نیستید: $1',
 	'securepoll-submit' => 'ارسال رای',
 	'securepoll-return' => 'بازگشت به $1',
+	'securepoll-unanswered-questions' => 'شما باید به تمامی سوالات پاسخ دهید.',
 	'securepoll-header-timestamp' => 'زمان',
 	'securepoll-header-voter-name' => 'نام',
 	'securepoll-header-voter-domain' => 'دامین',
 	'securepoll-header-details' => 'جزئیات',
 	'securepoll-strike-reason' => 'دلیل:',
+	'securepoll-strike-cancel' => 'لغو',
 	'securepoll-details-link' => 'جزئیات',
 	'securepoll-details-title' => 'جزییات رای: #$1',
 	'securepoll-header-voter-type' => 'نوع کاربر',
@@ -1561,6 +1564,9 @@ $messages['fa'] = array(
 	'securepoll-submit-translate' => 'به‌روزآوری',
 	'securepoll-language-label' => 'انتخاب زبان:',
 	'securepoll-submit-select-lang' => 'ترجمه',
+	'securepoll-header-title' => 'نام',
+	'securepoll-header-start-date' => 'تاریخ آغاز',
+	'securepoll-header-end-date' => 'تاریخ پایان',
 );
 
 /** Finnish (Suomi)
@@ -3854,6 +3860,7 @@ $messages['pt'] = array(
 	'securepoll-welcome' => '<strong>Bem-vindo $1!</strong>',
 	'securepoll-not-started' => 'Esta eleição ainda não se iniciou.
 Está programada para começar em $2 às $3.',
+	'securepoll-finished' => 'Esta eleição já se encerrou, você já não pode votar.',
 	'securepoll-not-qualified' => 'Você não está qualificado a votar nesta eleição: $1',
 	'securepoll-change-disallowed' => 'Você já votou nesta eleição antes.
 Desculpe, você não pode votar novamente.',
@@ -3886,6 +3893,20 @@ Erro:
 	'securepoll-no-decryption-key' => 'Nenhuma chave de descodificação está configurada.
 Não é possível descodificar.',
 	'securepoll-jump' => 'Ir para o servidor de votação',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+O seu voto foi inválido: $1
+</div>',
+	'securepoll-unanswered-questions' => 'Você deve responder todas as perguntas.',
+	'securepoll-remote-auth-error' => 'Erro ao buscar as informações da sua conta a partir do servidor.',
+	'securepoll-remote-parse-error' => 'Erro ao interpretar a resposta de autorização do servidor.',
+	'securepoll-api-invalid-params' => 'Parâmetros inválidos.',
+	'securepoll-api-no-user' => 'Nenhum utilizador foi encontrado com o ID fornecido.',
+	'securepoll-not-logged-in' => 'Você deve efetuar login para votar nesta eleição',
+	'securepoll-too-few-edits' => 'Desculpe, você não pode votar. Você precisa ter feito pelo menos $1 {{PLURAL:$1|edição|edições}} para votar nesta eleição, você apenas fez $2.',
+	'securepoll-blocked' => 'Desculpe, você não pode votar nesta eleição, se você está atualmente bloqueado de editar.',
+	'securepoll-bot' => 'Desculpe, contas com a marca de robô não estão autorizadas a votar nesta eleição.',
+	'securepoll-not-in-group' => 'Só os membros do grupo "$1" podem votar nesta eleição.',
+	'securepoll-not-in-list' => 'Desculpe, você não está na lista de usuários previamente autorizados a votar nesta eleição.',
 	'securepoll-list-title' => 'Listar votos: $1',
 	'securepoll-header-timestamp' => 'Hora',
 	'securepoll-header-voter-name' => 'Nome',
@@ -4444,16 +4465,21 @@ Din röst var ogiltig: $1
 	'securepoll-header-timestamp' => 'Tid',
 	'securepoll-header-voter-name' => 'Namn',
 	'securepoll-header-voter-domain' => 'Domän',
+	'securepoll-header-strike' => 'Stryk',
 	'securepoll-header-details' => 'Detaljer',
+	'securepoll-strike-button' => 'Stryk',
+	'securepoll-unstrike-button' => 'Ta bort strykningen',
 	'securepoll-strike-reason' => 'Anledning:',
 	'securepoll-strike-cancel' => 'Avbryt',
 	'securepoll-details-link' => 'Detaljer',
 	'securepoll-invalid-vote' => '"$1" är inte en giltig röst.',
 	'securepoll-header-voter-type' => 'Röstningstyp',
+	'securepoll-header-reason' => 'Anledning',
 	'securepoll-header-admin' => 'Administratör',
 	'securepoll-translate-title' => 'Översätt: $1',
 	'securepoll-invalid-language' => 'Felaktig språkkod "$1"',
 	'securepoll-submit-translate' => 'Uppdatera',
+	'securepoll-language-label' => 'Välj språk:',
 	'securepoll-submit-select-lang' => 'Översätt',
 	'securepoll-header-title' => 'Namn',
 	'securepoll-header-start-date' => 'Startdatum',
