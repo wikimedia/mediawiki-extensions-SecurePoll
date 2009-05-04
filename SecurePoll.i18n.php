@@ -2982,6 +2982,7 @@ $1',
 </div>',
 	'securepoll-unanswered-questions' => 'Dir musst all Froe beäntwerten',
 	'securepoll-remote-auth-error' => 'Feeler beim Ofruf vun Äre Benotzerkontinformatioune vum Server.',
+	'securepoll-remote-parse-error' => 'Feeler beim Interpretéiere vun der Autorisatioun déi de Server geschéckt huet.',
 	'securepoll-api-invalid-params' => 'Parameter déi net valabel sinn.',
 	'securepoll-api-no-user' => 'Et gouf kee Benotzer mat der ID fonnt déi ugi war.',
 	'securepoll-not-logged-in' => 'Dir musst Iech aloggen fir bäi dëse Walen ofstëmmen ze kënnen',
@@ -3156,15 +3157,19 @@ $messages['mk'] = array(
 
 /** Malay (Bahasa Melayu)
  * @author Aurora
+ * @author Izzudin
  */
 $messages['ms'] = array(
+	'securepoll' => 'SecurePoll',
 	'securepoll-desc' => 'Sambungan untuk pemilihan dan tinjauan',
 	'securepoll-invalid-page' => 'Sublaman tidak sah "<nowiki>$1</nowiki>"',
+	'securepoll-need-admin' => 'Anda perlu menjadi penyelia untuk lakukan ini.',
 	'securepoll-too-few-params' => 'Parameter sublaman tidak cukup (pautan tidak sah).',
 	'securepoll-invalid-election' => '"$1" bukan merupakan ID pemilihan yang sah.',
 	'securepoll-welcome' => '<strong>Selamat datang $1!</strong>',
 	'securepoll-not-started' => 'Pemilihan ini belum lagi bermula.
-Ia dijadualkan bermula pada $1.',
+Ia dijadualkan bermula pada $2 pukul $3.',
+	'securepoll-finished' => 'Pemilihan ini telah tamat, anda tidak lagi boleh mengundi.',
 	'securepoll-not-qualified' => 'Anda tidak layak mengundi di dalam pemilihan ini: $1',
 	'securepoll-change-disallowed' => 'Anda telah mengundi di dalam pemilihan ini sebelum ini.
 Maaf, anda tidak boleh mengundi sekali lagi.',
@@ -3197,12 +3202,36 @@ Ralat:
 	'securepoll-no-decryption-key' => 'Tiada kunci penyahsulitan dibentuk.
 Tidak dapat menyahsulit.',
 	'securepoll-jump' => 'Pergi ke pelayan undian',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+Undi anda tak sah: $1
+</div>',
+	'securepoll-unanswered-questions' => 'Anda perlu jawab kesemua soalan.',
 	'securepoll-remote-auth-error' => 'Ralat dalam mengambil maklumat akaun anda dari pelayan.',
 	'securepoll-remote-parse-error' => 'Ralat menafsirkan jawapan kebenaran dari pelayan.',
 	'securepoll-api-invalid-params' => 'Parameter tidak sah.',
 	'securepoll-api-no-user' => 'Tiada pengguna dengan ID yang diberi dijumpai.',
 	'securepoll-api-token-mismatch' => 'Token keselamatan tidak serasi, tidak dapat log masuk.',
 	'securepoll-not-logged-in' => 'Anda mesti log masuk untuk mengundi dalam pemilihan ini',
+	'securepoll-too-few-edits' => 'Maaf, anda tak boleh undi. Anda perlu mempunyai sekurang-kurangnya $1 suntingan untuk undi dalam pemilihan ini, anda kini ada $2 sahaja.',
+	'securepoll-blocked' => 'Maaf, anda tak boleh mengundi jika anda kini telah disekat daripada menyunting.',
+	'securepoll-bot' => 'Maaf, akaun dengan bendera bot tak dibenarkan untuk mengundi dalam pemilihan ini.',
+	'securepoll-not-in-group' => 'Hanya ahli kumpulan "$1" sahaja boleh undi dalam pemilihan ini.',
+	'securepoll-not-in-list' => 'Maaf, anda tidak berada dalam senarai pengguna yang dibenarkan untuk undi dalam pemilihan ini.',
+	'securepoll-list-title' => 'Senarai undi: $1',
+	'securepoll-header-timestamp' => 'Waktu',
+	'securepoll-header-voter-name' => 'Nama',
+	'securepoll-header-voter-domain' => 'Domain',
+	'securepoll-header-ua' => 'Ejen pengguna',
+	'securepoll-header-cookie-dup' => 'Bgd',
+	'securepoll-header-strike' => 'Buang',
+	'securepoll-header-details' => 'Lanjut',
+	'securepoll-strike-button' => 'Buang',
+	'securepoll-unstrike-button' => 'Kembalikan',
+	'securepoll-strike-reason' => 'Alasan:',
+	'securepoll-strike-cancel' => 'Batal',
+	'securepoll-strike-error' => 'Ralat membuang/kembalikan: $1',
+	'securepoll-details-link' => 'Lanjut',
+	'securepoll-details-title' => 'Maklumat undi: #$1',
 );
 
 /** Low German (Plattdüütsch)
