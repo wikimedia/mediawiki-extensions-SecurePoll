@@ -164,7 +164,8 @@ $messages['qqq'] = array(
 	'securepoll-desc' => 'A short description of this extension shown in [[Special:Version]].
 {{doc-important|Do not translate tag names.}}
 {{doc-important|Do not translate links.}}',
-	'securepoll-not-started' => '$1 is a data/time, $2 is the date of it, $3 is its time.',
+	'securepoll-not-started' => '* $2 is the date of it
+* $3 is its time.',
 	'securepoll-return' => '{{Identical|Return to $1}}',
 	'securepoll-secret-gpg-error' => "<span style=\"color:red\">'''DO <u>NOT</u> translate LocalSettings.php and \$wgSecurePollShowErrorDetail=true;'''</span>",
 	'securepoll-header-timestamp' => '{{Identical|Time}}',
@@ -3023,6 +3024,7 @@ $1',
 	'securepoll-cookie-dup-list' => 'Benotzer matt engem Cookie deen duebel ass',
 	'securepoll-dump-title' => 'Dump: $1',
 	'securepoll-dump-no-crypt' => "Fir dës Wale gëtt et keng verschlësselt Donnéeë vun der Ofstëmmung, well d'Walen net esou agestallt sinn fir d'Verschlësselung ze benotzen.",
+	'securepoll-dump-not-finished' => 'Verschlësselt Donnéeë vun de Wale sinn eréischt nom Enn vun de Walen den $1 ëm $2 disponibel',
 	'securepoll-translate-title' => 'Iwwersetzen: $1',
 	'securepoll-invalid-language' => 'Net valabele Sproochecode "$1"',
 	'securepoll-submit-translate' => 'Aktualiséieren',
@@ -3338,7 +3340,7 @@ Decoderen is niet mogelijk.',
 Aanmelden is niet mogelijk.',
 	'securepoll-not-logged-in' => 'U moet aanmelden om aan deze stemming deel te nemen',
 	'securepoll-too-few-edits' => 'Sorry, u kunt niet deelnemen aan de stemming.
-U moet ten minste $1 bewerkingen hebben gemaakt om te kunnen stemmen in deze verkiezing, en u hebt er $2.',
+U moet ten minste $1 {{PLURAL:$1|bewerking|bewerkingen}} hebben gemaakt om te kunnen stemmen in deze stemming, en u hebt er $2.',
 	'securepoll-blocked' => 'Sorry, u kunt niet deelnemen aan de stemming omdat u geblokkeerd bent.',
 	'securepoll-bot' => 'Sorry, gebruikers met een botvlag mogen niet stemmen in deze stemming.',
 	'securepoll-not-in-group' => 'Alleen leden van de groep "$1" kunnen aan deze stemming deelnemen.',
@@ -3553,7 +3555,7 @@ $messages['oc'] = array(
 	'securepoll-invalid-election' => "« $1 » es pas un identificant d'eleccion valid.",
 	'securepoll-welcome' => '<strong>Benvenguda $1 !</strong>',
 	'securepoll-not-started' => "L'eleccion a pas encara començat.
-Lo començament es programat pel $1 a $3.",
+Lo començament es programat pel $2 a $3.",
 	'securepoll-finished' => 'Aquesta eleccion es acabada, Podètz pas pus votar.',
 	'securepoll-not-qualified' => 'Sètz pas qualificat(ada) per votar dins aquesta eleccion : $1',
 	'securepoll-change-disallowed' => 'Ja avètz votat per aquesta eleccion.
@@ -3781,7 +3783,7 @@ $messages['pl'] = array(
 	'securepoll-invalid-election' => '„$1” nie jest prawidłowym identyfikatorem głosowania.',
 	'securepoll-welcome' => '<strong>Witamy Cię $1!</strong>',
 	'securepoll-not-started' => 'Wybory jeszcze się nie rozpoczęły.
-Planowane rozpoczęcie $2 o $1.',
+Planowane rozpoczęcie $2 o $3.',
 	'securepoll-finished' => 'Te wybory są zakończone, nie można zagłosować.',
 	'securepoll-not-qualified' => 'Nie jesteś upoważniony do głosowania w wyborach $1',
 	'securepoll-change-disallowed' => 'W tych wyborach już głosowałeś.
@@ -4254,7 +4256,7 @@ $messages['sah'] = array(
 	'securepoll-invalid-election' => '"$1" быыбар дьиҥнээх нүөмэрэ буолбатах.',
 	'securepoll-welcome' => '<strong>Нөрүөн нөргүй, $1!</strong>',
 	'securepoll-not-started' => 'Бу быыбар өссө саҕалана илик.
-Баччаҕа саҕаланар: $1, $3.',
+Баччаҕа саҕаланар: $2, $3.',
 	'securepoll-finished' => 'Куоластааһын түмүктэммитэ, онон куоластыыр кыах суох.',
 	'securepoll-not-qualified' => 'Бу быыбарга куоластыыр кыаҕыҥ суох: $1',
 	'securepoll-change-disallowed' => 'Бу быыбарга куолатсаабыт эбиккин.
@@ -4490,7 +4492,7 @@ $messages['sv'] = array(
 	'securepoll-invalid-election' => '"$1" är inte ett giltigt omröstnings-ID.',
 	'securepoll-welcome' => '<strong>Välkommen $1!</strong>',
 	'securepoll-not-started' => 'Den här omröstningen är inte startat ännu.
-Den planeras starta den $1 kl $3.',
+Den planeras starta den $2 kl $3.',
 	'securepoll-finished' => 'Valet är avslutat, så du kan inte längre rösta.',
 	'securepoll-not-qualified' => 'Du är inte kvalificerad att rösta i den här omröstningen: $1',
 	'securepoll-change-disallowed' => 'Du har redan röstat i den här omröstningen.
@@ -4565,12 +4567,16 @@ Din röst var ogiltig: $1
  * @author Veeven
  */
 $messages['te'] = array(
+	'securepoll-header-timestamp' => 'సమయం',
 	'securepoll-header-voter-name' => 'పేరు',
 	'securepoll-header-details' => 'వివరాలు',
 	'securepoll-strike-reason' => 'కారణం:',
 	'securepoll-details-link' => 'వివరాలు',
 	'securepoll-header-action' => 'చర్య',
 	'securepoll-header-reason' => 'కారణం',
+	'securepoll-header-title' => 'పేరు',
+	'securepoll-header-start-date' => 'ఆరంభ తేదీ',
+	'securepoll-header-end-date' => 'ముగింపు తేదీ',
 );
 
 /** Thai (ไทย)

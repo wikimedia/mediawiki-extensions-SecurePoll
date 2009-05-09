@@ -53,9 +53,19 @@ $aliases['ko'] = array(
 	'SecurePoll' => array( '비밀투표' ),
 );
 
+/** Ripoarisch (Ripoarisch) */
+$aliases['ksh'] = array(
+	'SecurePoll' => array( 'Affshtemme' ),
+);
+
 /** Dutch (Nederlands) */
 $aliases['nl'] = array(
 	'SecurePoll' => array( 'BeveiligdStemmen' ),
+);
+
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬) */
+$aliases['no'] = array(
+	'SecurePoll' => array( 'Sikker avstemning' ),
 );
 
 /** Polish (Polski) */
