@@ -1388,7 +1388,11 @@ Eraro:
 	'securepoll-no-decryption-key' => 'Neniu malĉifra ŝlosilo estas konfigurita.
 Ne eblas malĉifri.',
 	'securepoll-jump' => 'Iri al la voĉdona servilo',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+Via voĉdono estis malvalida: $1
+</div>',
 	'securepoll-unanswered-questions' => 'Vi devas respondi al ĉiuj demandoj.',
+	'securepoll-remote-auth-error' => 'Eraro akirante vian kontinformon de la servilo.',
 	'securepoll-api-invalid-params' => 'Malvalidaj parametroj.',
 	'securepoll-not-logged-in' => 'Vi devas ensaluti por voĉdoni en ĉi tiu voĉdonado',
 	'securepoll-blocked' => 'Bedaŭrinde, vi ne povas voĉdoni en ĉi tiu voĉdonado se vi nune estas forbarita de redaktado.',
@@ -1416,6 +1420,9 @@ Ne eblas malĉifri.',
 	'securepoll-header-end-date' => 'Fina dato',
 	'securepoll-subpage-vote' => 'Voĉdono',
 	'securepoll-subpage-translate' => 'Traduki',
+	'securepoll-subpage-tally' => 'Kalkuli',
+	'securepoll-tally-title' => 'Kalkulo: $1',
+	'securepoll-tally-not-finished' => 'Bedaŭrinde vi ne povas kalkuli la voĉdonado ĝis post voĉdonado finas.',
 );
 
 /** Spanish (Español)
@@ -3253,24 +3260,112 @@ $messages['nds'] = array(
 	'securepoll' => 'SekerAfstimmen',
 	'securepoll-desc' => 'Extension för Wahlen un Ümfragen',
 	'securepoll-invalid-page' => 'Ungüllige Ünnersied „<nowiki>$1</nowiki>“',
+	'securepoll-need-admin' => 'Du musst Administrater wesen, dat du dat doon kannst.',
+	'securepoll-too-few-params' => 'Nich noog Ünnersiedenparameters (Lenk verkehrt).',
 	'securepoll-invalid-election' => '„$1“ is keen güllige Wahl-ID.',
 	'securepoll-welcome' => '<strong>Willkamen $1!</strong>',
+	'securepoll-not-started' => 'De Wahl hett noch nich anfungen.
+De Wahl schall an’n $2 üm $3 anfangen.',
+	'securepoll-finished' => 'De Wahl is toenn, du kannst nich mehr afstimmen.',
 	'securepoll-not-qualified' => 'Du dröffst bi disse Wahl nich mit afstimmen: $1',
+	'securepoll-change-disallowed' => 'Du hest bi disse Wahl al afstimmt.
+Du dröffst nich noch wedder afstimmen.',
+	'securepoll-change-allowed' => '<strong>Henwies: Du hest bi disse Wahl al afstimmt.</strong>
+Du kannst dien Stimm ännern, wenn du dat Formular ünnen afschickst.
+Wenn du dat deist, denn warrt dien ole Stimm överschreven.',
 	'securepoll-submit' => 'Stimm afgeven',
+	'securepoll-gpg-receipt' => 'Wees bedankt dat du bi de Wahl mitmaakt hest.
+
+Wenn du wullt, kannst du disse Quittung opbewohren as Nawies, dat du bi de Wahl mitmaakt hest:
+
+<pre>$1</pre>',
 	'securepoll-thanks' => 'Wees bedankt, dien Stimm is optekent.',
 	'securepoll-return' => 'Trüch na $1',
+	'securepoll-encrypt-error' => 'Fehler bi’t Verslöteln vun dien Stimm.
+Dien Stimm is nich spiekert worrn!
+
+$1',
+	'securepoll-no-gpg-home' => 'Kann de GPG-Tohuus-Mapp nich opstellen.',
+	'securepoll-secret-gpg-error' => 'Fehler bi’t Utföhren vun GPG.
+Du kannst $wgSecurePollShowErrorDetail=true; in LocalSettings.php infögen, mehr Details to wiesen.',
+	'securepoll-full-gpg-error' => 'Fehler bi’t Utföhren vun GPG:
+
+Befehl: $1
+
+Fehler:
+<pre>$2</pre>',
+	'securepoll-gpg-config-error' => 'De GPG-Slötels sünd verkehrt instellt.',
+	'securepoll-gpg-parse-error' => 'Fehler bi’t Interpreteren vun de GPG-Utgaav.',
+	'securepoll-no-decryption-key' => 'Keen Opslötel-Slötel instellt.
+Opslöteln geiht nich.',
+	'securepoll-jump' => 'Na’n Afstimmserver gahn',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+Dien Stimm weer ungüllig: $1
+</div>',
+	'securepoll-unanswered-questions' => 'Du musst all Fragen antern.',
+	'securepoll-remote-auth-error' => 'Fehler bi’t Afropen vun dien Brukerkonteninfos vun’n Server.',
+	'securepoll-remote-parse-error' => 'Fehler bi’t Interpreteren vun de Antwoord vun’n Server to de Rechten.',
+	'securepoll-api-invalid-params' => 'Ungüllige Parameters.',
+	'securepoll-api-no-user' => 'Keen Bruker mit de angeven ID funnen.',
+	'securepoll-api-token-mismatch' => 'Verkehrt Sekerheitstoken, Anmellen hett nich klappt.',
+	'securepoll-not-logged-in' => 'Du musst anmellt wesen, dat du bi disse Wahl afstimmen dröffst',
+	'securepoll-too-few-edits' => 'Du dröffst nich afstimmen. Du musst opminnst $1 {{PLURAL:$1|Ännern|Ännern}}, dat du bi disse Wahl afstimmen dröffst, du hest aver blot $2.',
+	'securepoll-blocked' => 'Du dröffst bi disse Wahl nich afstimmen. Du büst opstunns as Bruker sperrt.',
+	'securepoll-bot' => 'Du dröffst bi disse Wahl nich afstimmen. Dien Brukerkonto is as Bot kenntekent.',
+	'securepoll-not-in-group' => 'Blot Maten vun de Grupp „$1“ dröfft bi de Wahl afstimmen.',
+	'securepoll-not-in-list' => 'Du büst nich op de List vun Brukers, de bi disse Wahl afstimmen dröfft.',
+	'securepoll-list-title' => 'Stimmen wiesen: $1',
 	'securepoll-header-timestamp' => 'Tied',
 	'securepoll-header-voter-name' => 'Naam',
 	'securepoll-header-voter-domain' => 'Domään',
+	'securepoll-header-ua' => 'Brukeragent',
+	'securepoll-header-cookie-dup' => 'Dubbel',
+	'securepoll-header-strike' => 'Strieken',
+	'securepoll-header-details' => 'Details',
+	'securepoll-strike-button' => 'Strieken',
+	'securepoll-unstrike-button' => 'Strieken trüchnehmen',
 	'securepoll-strike-reason' => 'Grund:',
 	'securepoll-strike-cancel' => 'Afbreken',
+	'securepoll-strike-error' => 'Fehler bi’t Strieken/Strieken rutnehmen: $1',
+	'securepoll-details-link' => 'Details',
+	'securepoll-details-title' => 'Afstimmdetails: #$1',
+	'securepoll-invalid-vote' => '„$1“ is keen güllige Afstimm-ID',
+	'securepoll-header-voter-type' => 'Wählertyp',
+	'securepoll-voter-properties' => 'Wähleregenschoppen',
+	'securepoll-strike-log' => 'Striek-Logbook',
+	'securepoll-header-action' => 'Akschoon',
 	'securepoll-header-reason' => 'Grund',
 	'securepoll-header-admin' => 'Admin',
+	'securepoll-cookie-dup-list' => 'Brukers, de dubbelt afstimmt hebbt',
+	'securepoll-dump-title' => 'Dump: $1',
+	'securepoll-dump-no-crypt' => 'Dat gifft för disse Wahl keen verslötelt Stimmopteeknungen, för disse Wahl is keen Slötel instellt.',
+	'securepoll-dump-not-finished' => 'Verslötelt Stimmopteeknungen sünd eerst verföögbor, nadem de Wahl toenn is (an’n $1 üm $2)',
+	'securepoll-dump-no-urandom' => 'Kann /dev/urandom nixh apen maken.
+Dat de Wählerdatenschutz sekerstellt is, sünd verslötelt Stimmopteeknungen blot denn apen to sehn, wenn se mit en sekern Tofallstallenstroom dörmengelt warrn köönt.',
+	'securepoll-translate-title' => 'Översetten: $1',
+	'securepoll-invalid-language' => 'Verkehrt Spraakkood „$1“',
+	'securepoll-submit-translate' => 'Aktuell maken',
+	'securepoll-language-label' => 'Spraak utwählen:',
+	'securepoll-submit-select-lang' => 'Översetten',
 	'securepoll-header-title' => 'Naam',
 	'securepoll-header-start-date' => 'Starttied',
 	'securepoll-header-end-date' => 'Enntied',
 	'securepoll-subpage-vote' => 'Afstimmen',
+	'securepoll-subpage-translate' => 'Översetten',
 	'securepoll-subpage-list' => 'List',
+	'securepoll-subpage-dump' => 'Dump',
+	'securepoll-subpage-tally' => 'Tell',
+	'securepoll-tally-title' => 'Tell: $1',
+	'securepoll-tally-not-finished' => 'Du kannst keen Tell opstellen, solang de Wahl nich toenn is.',
+	'securepoll-can-decrypt' => 'De Stimmopteeknungen sünd verslötelt, aver de Opslötel-Slötel is verföögbor.  
+Du kannst de Resultaten in de Datenbank tohooptellen laten, oder de verslötelt Resultaten ut en hoochlaadt Datei.',
+	'securepoll-tally-no-key' => 'Du kannst keen Tell opstellen laten. De Stimmen sünd verslötelt un de Opslötel-Slötel is nich verföögbor.',
+	'securepoll-tally-local-legend' => 'Spiekert Resultaten tohooptellen',
+	'securepoll-tally-local-submit' => 'Tell opstellen',
+	'securepoll-tally-upload-legend' => 'Verslötelt Dump hoochladen',
+	'securepoll-tally-upload-submit' => 'Tell opstellen',
+	'securepoll-tally-error' => 'Fehler bi’t Interpreteren vun de Stimmopteeknungen, kann keen Tell opstellen.',
+	'securepoll-no-upload' => 'Keen Datei hoochlaadt, kann keen Tell opstellen.',
 );
 
 /** Nedersaksisch (Nedersaksisch)
