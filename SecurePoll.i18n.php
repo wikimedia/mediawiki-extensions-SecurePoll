@@ -1334,6 +1334,7 @@ $1',
 	'securepoll-subpage-tally' => 'Καταμέτρηση',
 	'securepoll-tally-title' => 'Καταμέτρηση: $1',
 	'securepoll-tally-not-finished' => 'Συγγνώμη, δεν είναι δυνατή η καταμέτρηση των ψήφων μέχρι να ολοκληρωθεί η ψηφοφορία.',
+	'securepoll-tally-no-key' => 'Δεν μπορείτε να διεξάγετε ψηφομέτρηση σε αυτές τις εκλογές διότι οι ψήφοι είναι κρυπτογραφημένες και το κλειδί αποκρυπτογράφησης δεν είναι διαθέσιμο.',
 	'securepoll-tally-local-legend' => 'Καταμέτρηση αποκατεστημένων αποτελεσμάτων',
 	'securepoll-tally-local-submit' => 'Δημιουργία καταμέτρησης',
 	'securepoll-tally-upload-legend' => 'Επιφόρτωση κρυπτογραφημένης διπλότυπης',
@@ -1396,6 +1397,7 @@ Via voĉdono estis malvalida: $1
 	'securepoll-api-invalid-params' => 'Malvalidaj parametroj.',
 	'securepoll-not-logged-in' => 'Vi devas ensaluti por voĉdoni en ĉi tiu voĉdonado',
 	'securepoll-blocked' => 'Bedaŭrinde, vi ne povas voĉdoni en ĉi tiu voĉdonado se vi nune estas forbarita de redaktado.',
+	'securepoll-list-title' => 'Listigi voĉdonojn: $1',
 	'securepoll-header-timestamp' => 'Tempo',
 	'securepoll-header-voter-name' => 'Nomo',
 	'securepoll-header-voter-domain' => 'Domajno',
@@ -1407,6 +1409,7 @@ Via voĉdono estis malvalida: $1
 	'securepoll-details-title' => 'Detaloj de voĉdono: #$1',
 	'securepoll-invalid-vote' => '"$1" ne estas valida voĉdona identigo',
 	'securepoll-header-voter-type' => 'Speco de voĉdonanto',
+	'securepoll-voter-properties' => 'Atribuoj de voĉdonantoj',
 	'securepoll-header-action' => 'Ago',
 	'securepoll-header-reason' => 'Kialo',
 	'securepoll-header-admin' => 'Administranto',
@@ -4576,6 +4579,7 @@ $messages['sr-ec'] = array(
 
 /** Swedish (Svenska)
  * @author Gabbe.g
+ * @author Micke
  * @author Najami
  */
 $messages['sv'] = array(
@@ -4625,6 +4629,8 @@ Kan inte dekryptera.',
 Din röst var ogiltig: $1
 </div>',
 	'securepoll-unanswered-questions' => 'Du måste svara på alla frågor.',
+	'securepoll-remote-auth-error' => 'Fel uppstod vid hämtning av din kontoinformation från servern.',
+	'securepoll-remote-parse-error' => 'Fel uppstod vid tolkning av auktorisationssvar från servern.',
 	'securepoll-api-invalid-params' => 'Felaktig parameter.',
 	'securepoll-api-no-user' => 'Ingen användare hittades med det angivna ID:t.',
 	'securepoll-not-logged-in' => 'Du måste logga in för att kunna rösta i det här valet.',

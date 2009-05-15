@@ -43,6 +43,11 @@ $aliases['hsb'] = array(
 	'SecurePoll' => array( 'Wěste wothłosowanje' ),
 );
 
+/** Interlingua (Interlingua) */
+$aliases['ia'] = array(
+	'SecurePoll' => array( 'Voto secur' ),
+);
+
 /** Japanese (日本語) */
 $aliases['ja'] = array(
 	'SecurePoll' => array( '暗号投票' ),
