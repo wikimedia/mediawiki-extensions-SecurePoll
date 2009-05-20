@@ -3577,6 +3577,7 @@ Kan ikkje dekryptera.',
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Finnrind
  * @author Guaca
+ * @author Nghtwlkr
  * @author Stigmj
  */
 $messages['no'] = array(
@@ -3619,26 +3620,66 @@ Feil:
 <pre>$2</pre>',
 	'securepoll-gpg-config-error' => 'GPG-nøklene er ikke satt opp riktig.',
 	'securepoll-gpg-parse-error' => 'Feil under tolking av utdata fra GPG.',
+	'securepoll-jump' => 'Gå til stemmetjeneren',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+Din stemme var ugyldig: $1
+</div>',
 	'securepoll-unanswered-questions' => 'Du må besvare alle spørsmålene.',
 	'securepoll-api-invalid-params' => 'Ugyldige parametere.',
 	'securepoll-api-no-user' => 'Det ble ikke funnet noen bruker med den oppgitte IDen.',
 	'securepoll-not-logged-in' => 'Du må logge inn for å kunne stemme i dette valget.',
 	'securepoll-too-few-edits' => 'Beklager, du kan ikke stemme. Du må ha gjort minst $1 {{PLURAL:$1|redigering|redigeringer}} for å delta i denne avstemningen. Du har gjort $2.',
 	'securepoll-blocked' => 'Beklager, du kan ikke stemme i dette valget hvis du er blokkert fra å redigere.',
+	'securepoll-list-title' => 'Vis stemmer: $1',
+	'securepoll-header-timestamp' => 'Tid',
 	'securepoll-header-voter-name' => 'Navn',
 	'securepoll-header-voter-domain' => 'Domene',
+	'securepoll-header-ua' => 'Brukeragent',
+	'securepoll-header-cookie-dup' => 'Dupl',
+	'securepoll-header-strike' => 'Stryk',
+	'securepoll-header-details' => 'Detaljer',
+	'securepoll-strike-button' => 'Stryk',
+	'securepoll-unstrike-button' => 'Opphev strykning',
 	'securepoll-strike-reason' => 'Årsak:',
 	'securepoll-strike-cancel' => 'Avbryt',
+	'securepoll-strike-error' => 'Feil ved fjerning eller ved opphevelse av fjerning: $1',
+	'securepoll-details-link' => 'Detaljer',
+	'securepoll-details-title' => 'Stemmedetaljer: #$1',
+	'securepoll-invalid-vote' => '«$1» er ikke en gyldig stemme-ID',
+	'securepoll-header-voter-type' => 'Stemmegivertype',
+	'securepoll-voter-properties' => 'Stemmegiveregenskaper',
+	'securepoll-strike-log' => 'Strykningslogg',
 	'securepoll-header-action' => 'Handling',
 	'securepoll-header-reason' => 'Årsak',
+	'securepoll-header-admin' => 'Admin',
+	'securepoll-dump-title' => 'Dump: $1',
+	'securepoll-dump-not-finished' => 'Krypterte valgregistre er kun tilgjengelige etter avsluttningen den $1 klokken $2',
+	'securepoll-dump-no-urandom' => 'Kan ikke åpne /dev/urandom.
+For å sikre en hemmelig avstemning er de krypterte valgregistrene kun offentlig tilgjengelig når de kan blandes med en sikker strøm av tilfeldige tall.',
+	'securepoll-translate-title' => 'Oversett: $1',
+	'securepoll-invalid-language' => 'Ugyldig språkkode «$1»',
 	'securepoll-submit-translate' => 'Oppdater',
 	'securepoll-language-label' => 'Velg språk:',
 	'securepoll-submit-select-lang' => 'Oversett',
 	'securepoll-header-title' => 'Navn',
 	'securepoll-header-start-date' => 'Startdato',
 	'securepoll-header-end-date' => 'Sluttdato',
+	'securepoll-subpage-vote' => 'Stemme',
 	'securepoll-subpage-translate' => 'Oversett',
+	'securepoll-subpage-list' => 'List opp',
 	'securepoll-subpage-dump' => 'Dump',
+	'securepoll-subpage-tally' => 'Opptelling',
+	'securepoll-tally-title' => 'Opptelling: $1',
+	'securepoll-tally-not-finished' => 'Beklager, du kan ikke telle opp valgresultatet før valget er fullført.',
+	'securepoll-can-decrypt' => 'Valgregisteret har blitt kryptert, men dekrypteringsnøkkelen er tilgjengelig.
+Du kan velge å enten telle opp resultatene tilgjengelig i databasen, eller å telle opp de krypterte resultatene fra en opplastet fil.',
+	'securepoll-tally-no-key' => 'Du kan ikke telle opp dette valget fordi stemmene er kryptert og dekrypteringsnøkkelen er utilgjengelig.',
+	'securepoll-tally-local-legend' => 'Opptelling lagret resultatene',
+	'securepoll-tally-local-submit' => 'Opprett en opptelling',
+	'securepoll-tally-upload-legend' => 'Last opp en kryptert dump',
+	'securepoll-tally-upload-submit' => 'Opprett en opptelling',
+	'securepoll-tally-error' => 'Feil ved tolking av stemmeregisteret, kan ikke opprette en opptelling.',
+	'securepoll-no-upload' => 'Ingen fil ble lastet opp, kan ikke summere opp resultatene.',
 );
 
 /** Occitan (Occitan)
@@ -5311,8 +5352,25 @@ $1',
 	'securepoll-no-upload' => '無檔案上載，整唔到記數結果。',
 );
 
+/** Zhuang (Sawcuengh)
+ * @author Biŋhai
+ */
+$messages['za'] = array(
+	'securepoll' => 'Douzbiuq Ancienz',
+	'securepoll-desc' => 'senjgij caez gyahung douzbiuq',
+	'securepoll-invalid-page' => 'bienj fouzyauq "<nowiki>$1</nowiki>"',
+	'securepoll-welcome' => '<strong>Vanhyingz $1!</strong>',
+	'securepoll-return' => 'baema $1',
+	'securepoll-header-admin' => 'guenjleixguenj',
+	'securepoll-submit-translate' => 'swnggaep',
+	'securepoll-header-title' => 'Mingz',
+	'securepoll-subpage-vote' => 'Douzbiuq',
+	'securepoll-subpage-list' => 'Biuj',
+);
+
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Bencmq
+ * @author Biŋhai
  * @author Skjackey tse
  */
 $messages['zh-hans'] = array(
