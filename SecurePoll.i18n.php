@@ -3621,16 +3621,21 @@ Feil:
 <pre>$2</pre>',
 	'securepoll-gpg-config-error' => 'GPG-nøklene er ikke satt opp riktig.',
 	'securepoll-gpg-parse-error' => 'Feil under tolking av utdata fra GPG.',
+	'securepoll-no-decryption-key' => 'Ingen dekrypteringsnøkkel er konfigurert.
+Kan ikke dekryptere.',
 	'securepoll-jump' => 'Gå til stemmetjeneren',
 	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
 Din stemme var ugyldig: $1
 </div>',
 	'securepoll-unanswered-questions' => 'Du må besvare alle spørsmålene.',
+	'securepoll-remote-auth-error' => 'Feil oppsto ved henting av din kontoinformasjon fra tjeneren.',
+	'securepoll-remote-parse-error' => 'Feil oppsto ved tolkning av autorisasjonssvar fra tjeneren.',
 	'securepoll-api-invalid-params' => 'Ugyldige parametere.',
 	'securepoll-api-no-user' => 'Det ble ikke funnet noen bruker med den oppgitte IDen.',
 	'securepoll-not-logged-in' => 'Du må logge inn for å kunne stemme i dette valget.',
 	'securepoll-too-few-edits' => 'Beklager, du kan ikke stemme. Du må ha gjort minst $1 {{PLURAL:$1|redigering|redigeringer}} for å delta i denne avstemningen. Du har gjort $2.',
 	'securepoll-blocked' => 'Beklager, du kan ikke stemme i dette valget hvis du er blokkert fra å redigere.',
+	'securepoll-not-in-group' => 'Kun brukere i gruppen «$1» kan delta i denne avstemningen.',
 	'securepoll-list-title' => 'Vis stemmer: $1',
 	'securepoll-header-timestamp' => 'Tid',
 	'securepoll-header-voter-name' => 'Navn',
