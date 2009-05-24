@@ -1460,7 +1460,7 @@ Si deseas, puedes retener el siguiente comprobante como evidencia de tu voto:
 	'securepoll-thanks' => 'Gracias, tu voto ha sido guardado.',
 	'securepoll-return' => 'Retornar a $1',
 	'securepoll-encrypt-error' => 'Fracasaste en encriptar tu registro de voto.
-Tu voto no ha sido registrado!
+¡Tu voto no ha sido registrado!
 
 $1',
 	'securepoll-secret-gpg-error' => 'Error ejecutando GPG.
@@ -3024,11 +3024,13 @@ $1',
 	'securepoll-unstrike-button' => 'Duerchsträichen ewechhuelen',
 	'securepoll-strike-reason' => 'Grond:',
 	'securepoll-strike-cancel' => 'Ofbriechen',
+	'securepoll-strike-error' => 'Feeler beim Sträiche respektiv Ophiewe vum Sträichen: $1',
 	'securepoll-details-link' => 'Detailer',
 	'securepoll-details-title' => 'Detailer vun der Ofstëmmung: #$1',
 	'securepoll-invalid-vote' => '"$1" ass keng valabel Ofstëmmngs-ID',
 	'securepoll-header-voter-type' => 'Typ vu Wieler',
 	'securepoll-voter-properties' => 'Eegeschafte vum Wieler',
+	'securepoll-strike-log' => 'Logbuch vun de Sträichungen',
 	'securepoll-header-action' => 'Aktioun',
 	'securepoll-header-reason' => 'Grond',
 	'securepoll-header-admin' => 'Administrateur',
