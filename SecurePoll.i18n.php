@@ -1729,16 +1729,16 @@ Pour maintenir la confidentialité des votants, les données cryptées ne sont d
 	'securepoll-subpage-dump' => 'Dump',
 	'securepoll-subpage-tally' => 'Comptage',
 	'securepoll-tally-title' => 'Comptage : $1',
-	'securepoll-tally-not-finished' => "Désolé, vous ne pouvez pas compter les résultats de l'élection avant qu'elle ne soit terminée.",
-	'securepoll-can-decrypt' => "L'enregistrement de l'élection a été crypté, mais la clé de décryptage est disponible.
-Vous pouvez choisir de compter les résultats depuis la base de données ou depuis un fichier téléversé.",
-	'securepoll-tally-no-key' => "Vous ne pouvez pas faire le décompte des résultats de cette élection parce que les votes sont cryptés et que la clé de décryptage n'est pas disponible.",
+	'securepoll-tally-not-finished' => 'Désolé, vous ne pouvez pas compter les résultats de l’élection avant qu’elle ne soit terminée.',
+	'securepoll-can-decrypt' => 'L’enregistrement de l’élection a été crypté, mais la clé de décryptage est disponible.
+Vous pouvez choisir de compter les résultats depuis la base de données ou depuis un fichier téléversé.',
+	'securepoll-tally-no-key' => 'Vous ne pouvez pas faire le décompte des résultats de cette élection parce que les votes sont cryptés et que la clé de décryptage n’est pas disponible.',
 	'securepoll-tally-local-legend' => 'Compter les résultats sauvegardés',
 	'securepoll-tally-local-submit' => 'Créer un comptage',
 	'securepoll-tally-upload-legend' => 'Téléverser une sauvegarde cryptée',
 	'securepoll-tally-upload-submit' => 'Créer une comptage',
-	'securepoll-tally-error' => "Erreur lors de l'interprétation des enregistements de vote, impossible de produire un résultat.",
-	'securepoll-no-upload' => "Aucun fichier n'a été téléchargé, impossible de compter les résultats.",
+	'securepoll-tally-error' => 'Erreur lors de l’interprétation des enregistrements de vote, impossible de produire un résultat.',
+	'securepoll-no-upload' => 'Aucun fichier n’a été téléchargé, impossible de compter les résultats.',
 );
 
 /** Irish (Gaeilge)
