@@ -1395,8 +1395,12 @@ Via voĉdono estis malvalida: $1
 	'securepoll-unanswered-questions' => 'Vi devas respondi al ĉiuj demandoj.',
 	'securepoll-remote-auth-error' => 'Eraro akirante vian kontinformon de la servilo.',
 	'securepoll-api-invalid-params' => 'Malvalidaj parametroj.',
+	'securepoll-api-no-user' => 'Neniu uzanto estis trovita kun tiu identigo.',
 	'securepoll-not-logged-in' => 'Vi devas ensaluti por voĉdoni en ĉi tiu voĉdonado',
+	'securepoll-too-few-edits' => 'Bedaŭrinde, vi ne povas voĉdoni. Vi nepre havas almenaŭ $1 {{PLURAL:$1|redakto|redaktoj}} por voĉdoni en ĉi tiu voĉdonado; vi faris $2 redaktojn.',
 	'securepoll-blocked' => 'Bedaŭrinde, vi ne povas voĉdoni en ĉi tiu voĉdonado se vi nune estas forbarita de redaktado.',
+	'securepoll-bot' => 'Bedaŭrinde, kontoj kun la robotflago nen estas permesata voĉdoni en ĉi tiu voĉdonado.',
+	'securepoll-not-in-group' => 'Nur membroj de la grupo "$1" povas voĉdoni en ĉi tiu elekto.',
 	'securepoll-list-title' => 'Listigi voĉdonojn: $1',
 	'securepoll-header-timestamp' => 'Tempo',
 	'securepoll-header-voter-name' => 'Nomo',
@@ -1423,6 +1427,7 @@ Via voĉdono estis malvalida: $1
 	'securepoll-header-end-date' => 'Fina dato',
 	'securepoll-subpage-vote' => 'Voĉdono',
 	'securepoll-subpage-translate' => 'Traduki',
+	'securepoll-subpage-list' => 'Listigi',
 	'securepoll-subpage-tally' => 'Kalkuli',
 	'securepoll-tally-title' => 'Kalkulo: $1',
 	'securepoll-tally-not-finished' => 'Bedaŭrinde vi ne povas kalkuli la voĉdonado ĝis post voĉdonado finas.',
@@ -3580,6 +3585,7 @@ Kan ikkje dekryptera.',
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Finnrind
  * @author Guaca
+ * @author Laaknor
  * @author Nghtwlkr
  * @author Stigmj
  */
@@ -3634,10 +3640,13 @@ Din stemme var ugyldig: $1
 	'securepoll-remote-parse-error' => 'Feil oppsto ved tolkning av autorisasjonssvar fra tjeneren.',
 	'securepoll-api-invalid-params' => 'Ugyldige parametere.',
 	'securepoll-api-no-user' => 'Det ble ikke funnet noen bruker med den oppgitte IDen.',
+	'securepoll-api-token-mismatch' => 'Sikkerhetsnøkkel manglet, kan ikke logge inn.',
 	'securepoll-not-logged-in' => 'Du må logge inn for å kunne stemme i dette valget.',
 	'securepoll-too-few-edits' => 'Beklager, du kan ikke stemme. Du må ha gjort minst $1 {{PLURAL:$1|redigering|redigeringer}} for å delta i denne avstemningen. Du har gjort $2.',
 	'securepoll-blocked' => 'Beklager, du kan ikke stemme i dette valget hvis du er blokkert fra å redigere.',
+	'securepoll-bot' => 'Beklager, kontoer med botflagg kan ikke stemme i dette valget.',
 	'securepoll-not-in-group' => 'Kun brukere i gruppen «$1» kan delta i denne avstemningen.',
+	'securepoll-not-in-list' => 'Du er desverre ikke i lista over brukere som kan stemme i dette valget.',
 	'securepoll-list-title' => 'Vis stemmer: $1',
 	'securepoll-header-timestamp' => 'Tid',
 	'securepoll-header-voter-name' => 'Navn',
@@ -3660,7 +3669,9 @@ Din stemme var ugyldig: $1
 	'securepoll-header-action' => 'Handling',
 	'securepoll-header-reason' => 'Årsak',
 	'securepoll-header-admin' => 'Admin',
+	'securepoll-cookie-dup-list' => 'Cookie duplikatbruker',
 	'securepoll-dump-title' => 'Dump: $1',
+	'securepoll-dump-no-crypt' => 'Ingen kryptert valgregistrering er tilgjengelig for dette valget, på grunn av at valget ikke er satt opp til å benytte kryptering.',
 	'securepoll-dump-not-finished' => 'Krypterte valgregistre er kun tilgjengelige etter avsluttningen den $1 klokken $2',
 	'securepoll-dump-no-urandom' => 'Kan ikke åpne /dev/urandom.
 For å sikre en hemmelig avstemning er de krypterte valgregistrene kun offentlig tilgjengelig når de kan blandes med en sikker strøm av tilfeldige tall.',
@@ -4630,6 +4641,7 @@ $messages['sr-ec'] = array(
  * @author Gabbe.g
  * @author Micke
  * @author Najami
+ * @author Poxnar
  */
 $messages['sv'] = array(
 	'securepoll' => 'SäkerOmröstning',
@@ -4685,6 +4697,8 @@ Din röst var ogiltig: $1
 	'securepoll-not-logged-in' => 'Du måste logga in för att kunna rösta i det här valet.',
 	'securepoll-too-few-edits' => 'Ledsen, men du kan inte rösta. Du måste ha minst $1 {{PLURAL:$1|redigering|redigeringar}} för att rösta i det här valet. Du har gjort $2 {{PLURAL:$2|redigering|redigeringar}}.',
 	'securepoll-blocked' => 'Ledsen, men du kan inte rösta om du är blockerad från redigering.',
+	'securepoll-bot' => 'Tyvärr, konton med botflaga tillåts inte att rösta i denna omröstning.',
+	'securepoll-not-in-group' => 'Endast meddlemmar i gruppen "$1" kan rösta i denna omröstning.',
 	'securepoll-list-title' => 'Visa röster: $1',
 	'securepoll-header-timestamp' => 'Tid',
 	'securepoll-header-voter-name' => 'Namn',
