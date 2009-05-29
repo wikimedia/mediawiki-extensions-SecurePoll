@@ -3063,7 +3063,7 @@ $1',
 	'securepoll-tally-local-submit' => 'Auszielung uleeën',
 	'securepoll-tally-upload-legend' => 'Verschlësselten Dump eroplueden',
 	'securepoll-tally-upload-submit' => 'Auszielung uleeën',
-	'securepoll-tally-error' => "Feeler bäi der Interpretatioun vun de gespäicherten Donnéeë vun de Walen, d'auszieleung kann net gemaach ginn.",
+	'securepoll-tally-error' => "Feeler bäi der Interpretatioun vun de gespäicherten Donnéeë vun de Walen, d'Auszieleung kann net gemaach ginn.",
 	'securepoll-no-upload' => "Et gouf kee Fichier eropgelueden, d'Resultater kënnen net ausgezielt ginn.",
 );
 
@@ -3173,6 +3173,13 @@ Dien sjtöm is óngeldig: $1
 	'securepoll-tally-title' => 'Telling: $1',
 	'securepoll-tally-not-finished' => 'Doe kins gein telling oetveure totdet de sjtömming is aafgeloupe.',
 	'securepoll-no-upload' => "d'r Is gei besjtandj opgelaje, resultate kinne neet geteld waere.",
+);
+
+/** Lithuanian (Lietuvių)
+ * @author Matasg
+ */
+$messages['lt'] = array(
+	'securepoll-submit' => 'Balsuoti',
 );
 
 /** Macedonian (Македонски)
@@ -4711,6 +4718,7 @@ Din röst var ogiltig: $1
 	'securepoll-strike-reason' => 'Anledning:',
 	'securepoll-strike-cancel' => 'Avbryt',
 	'securepoll-details-link' => 'Detaljer',
+	'securepoll-details-title' => 'Röstningsdetaljer: #$1',
 	'securepoll-invalid-vote' => '"$1" är inte en giltig röst.',
 	'securepoll-header-voter-type' => 'Röstningstyp',
 	'securepoll-header-reason' => 'Anledning',
