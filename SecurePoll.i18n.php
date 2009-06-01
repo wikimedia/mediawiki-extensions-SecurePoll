@@ -970,6 +970,7 @@ For at sikre en hemmelig afstemning er de krypterede valgregistrering kun offent
 /** German (Deutsch)
  * @author ChrisiPK
  * @author Metalhead64
+ * @author Umherirrender
  */
 $messages['de'] = array(
 	'securepoll' => 'Sichere Abstimmung',
@@ -980,7 +981,7 @@ $messages['de'] = array(
 	'securepoll-invalid-election' => '„$1“ ist keine gültige Abstimmungs-ID.',
 	'securepoll-welcome' => '<strong>Willkommen $1!</strong>',
 	'securepoll-not-started' => 'Diese Wahl hat noch nicht begonnen.
-Sie beginnt voraussichtlich am $2 um $3.',
+Sie beginnt voraussichtlich am $2 um $3 Uhr.',
 	'securepoll-finished' => 'Diese Wahl ist beendet, du kannst nicht mehr abstimmen.',
 	'securepoll-not-qualified' => 'Du bist nicht qualifiziert, bei dieser Wahl abzustimmen: $1',
 	'securepoll-change-disallowed' => 'Du hast bei dieser Wahl bereits abgestimmt.
@@ -1052,7 +1053,7 @@ Entschlüsselung nicht möglich.',
 	'securepoll-cookie-dup-list' => 'Benutzer, die doppelt abgestimmt haben',
 	'securepoll-dump-title' => 'Auszug: $1',
 	'securepoll-dump-no-crypt' => 'Für diese Wahl sind keine verschlüsselten Abstimmungsaufzeichnungen verfügbar, da die Wahl nicht für Verschlüsselung konfiguriert wurde.',
-	'securepoll-dump-not-finished' => 'Verschlüsselte Abstimmungsaufzeichnungen sind nur nach dem Endtermin am $1 um $2 verfügbar',
+	'securepoll-dump-not-finished' => 'Verschlüsselte Abstimmungsaufzeichnungen sind nur nach dem Endtermin am $1 um $2 Uhr verfügbar',
 	'securepoll-dump-no-urandom' => '/dev/urandom kann nicht geöffnet werden.
 Um den Wählerdatenschutz zu wahren, sind verschlüsselte Abstimmungsaufzeichnungen nur öffentlich verfügbar, wenn sie mit einem sicheren Zufallszahlenstrom gemischt werden können.',
 	'securepoll-translate-title' => 'Übersetzen: $1',
@@ -4588,7 +4589,7 @@ Nie je možné dešifrovať.',
 	'securepoll-api-no-user' => 'Nebol nájdený žiadny používateľ so zadaným ID.',
 	'securepoll-api-token-mismatch' => 'Bezpečnostné identifikátory sa nezhodujú, nie je možné prihlásiť.',
 	'securepoll-not-logged-in' => 'Aby ste mohli hlasovať, musíte sa prihlásiť',
-	'securepoll-too-few-edits' => 'Prepáčte, nemôžete hlasovať. Aby ste sa mohli zúčastniť tohto hlasovania, museli by ste mať aspoň $1 úprav. Máte $2 úprav.',
+	'securepoll-too-few-edits' => 'Prepáčte, nemôžete hlasovať. Aby ste sa mohli zúčastniť tohto hlasovania, museli by ste mať aspoň $1 {{PLURAL:$1|úpravu|úpravy|úprav}}. Máte $2 {{PLURAL:$2|úpravu|úpravy|úprav}}.',
 	'securepoll-blocked' => 'Prepáčte, tohto hlasovania sa nemôžete zúčastniť, pretože ste momentálne zablokovaný.',
 	'securepoll-bot' => 'Ľutujem, účty s príznakom bot nemôžu v tomto hlasovaní hlasovať.',
 	'securepoll-not-in-group' => 'Tohto hlasovania sa môžu zúčastniť iba členovia skuupiny $1.',
@@ -4976,7 +4977,7 @@ Deşifrelenemiyor.',
 	'securepoll-api-no-user' => 'Verilen ID ile hiçbir kullanıcı bulunamadı.',
 	'securepoll-api-token-mismatch' => 'Güvenlik simgesi uyuşmuyor, giriş yapılamıyor.',
 	'securepoll-not-logged-in' => 'Bu seçimde oy kullanmak için giriş yapmanız gerekiyor',
-	'securepoll-too-few-edits' => 'Üzgünüz, oy veremezsiniz. Bu seçimlerde oy kullanmak için en az $1 değişiklik yapmanız gerekir, sizin $2 değişikliğiniz var.',
+	'securepoll-too-few-edits' => 'Üzgünüz, oy veremezsiniz. Bu seçimlerde oy kullanmak için en az $1 {{PLURAL:$1|değişiklik|değişiklik}} yapmanız gerekir, sizin $2 değişikliğiniz var.',
 	'securepoll-blocked' => 'Üzgünüz, eğer şu anda değişiklik yapmaya engellenmiş iseniz bu seçimlerde oy kullanamazsınız.',
 	'securepoll-bot' => 'Üzgünüz, bot olarak işaretli hesaplar bu seçimde oy kullanamaz.',
 	'securepoll-not-in-group' => 'Bu seçimlerde sadece $1 grubu üyeleri oy verebilir.',
