@@ -1402,22 +1402,30 @@ Via voĉdono estis malvalida: $1
 	'securepoll-blocked' => 'Bedaŭrinde, vi ne povas voĉdoni en ĉi tiu voĉdonado se vi nune estas forbarita de redaktado.',
 	'securepoll-bot' => 'Bedaŭrinde, kontoj kun la robotflago nen estas permesata voĉdoni en ĉi tiu voĉdonado.',
 	'securepoll-not-in-group' => 'Nur membroj de la grupo "$1" povas voĉdoni en ĉi tiu elekto.',
+	'securepoll-not-in-list' => 'Bedaŭrinde, vi ne estas unu el la antaŭdetermitaj uzantoj kiuj estas permesitaj voĉdoni dum ĉi tiu voĉdono.',
 	'securepoll-list-title' => 'Listigi voĉdonojn: $1',
 	'securepoll-header-timestamp' => 'Tempo',
 	'securepoll-header-voter-name' => 'Nomo',
 	'securepoll-header-voter-domain' => 'Domajno',
 	'securepoll-header-ua' => 'Klienta aplikaĵo',
+	'securepoll-header-cookie-dup' => 'Duplikato',
+	'securepoll-header-strike' => 'Forstreki',
 	'securepoll-header-details' => 'Detaloj',
+	'securepoll-strike-button' => 'Forstreki',
+	'securepoll-unstrike-button' => 'Malforstreki',
 	'securepoll-strike-reason' => 'Kialo:',
 	'securepoll-strike-cancel' => 'Nuligi',
+	'securepoll-strike-error' => 'Eraro farante forstrekadon/malforstrekadon: $1',
 	'securepoll-details-link' => 'Detaloj',
 	'securepoll-details-title' => 'Detaloj de voĉdono: #$1',
 	'securepoll-invalid-vote' => '"$1" ne estas valida voĉdona identigo',
 	'securepoll-header-voter-type' => 'Speco de voĉdonanto',
 	'securepoll-voter-properties' => 'Atribuoj de voĉdonantoj',
+	'securepoll-strike-log' => 'Protokolo pri forstrekado',
 	'securepoll-header-action' => 'Ago',
 	'securepoll-header-reason' => 'Kialo',
 	'securepoll-header-admin' => 'Administranto',
+	'securepoll-cookie-dup-list' => 'Uzi seancan kuketon por duplikataj uzantoj',
 	'securepoll-translate-title' => 'Traduki: $1',
 	'securepoll-invalid-language' => 'Malvalida lingva kodo "$1"',
 	'securepoll-submit-translate' => 'Ĝisdatigi',
@@ -4533,6 +4541,14 @@ $wgSecurePollShowErrorDetail=true; туруоруутун LocalSettings.php би
 	'securepoll-tally-upload-submit' => 'Куолаһы аах',
 	'securepoll-tally-error' => 'Куолас суруллуута алҕастаах буолан куолас ахсаанын ааҕар табыллыбата.',
 	'securepoll-no-upload' => 'Билэ хачайдамматах буолан быыбар түмүгүн ааҕар табыллыбата.',
+);
+
+/** Sardinian (Sardu)
+ * @author Marzedu
+ */
+$messages['sc'] = array(
+	'securepoll-header-voter-name' => 'Nòmene',
+	'securepoll-header-title' => 'Nòmene',
 );
 
 /** Slovak (Slovenčina)
