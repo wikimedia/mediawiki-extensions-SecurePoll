@@ -2801,15 +2801,17 @@ $1',
 	'securepoll-no-decryption-key' => '암호 해독 키가 설정되지 않았습니다.
 암호를 해독할 수 없습니다.',
 	'securepoll-jump' => '선거 서버로 이동하기',
-	'securepoll-bad-ballot-submission' => '사용자분의 투표가 무효화되었습니다: $1',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+당신의 투표가 무효화되었습니다: $1
+</div>',
 	'securepoll-unanswered-questions' => '모든 질문에 답을 하셔야 합니다.',
 	'securepoll-remote-auth-error' => '귀하의 계정 정보를 불러오는 중에 오류가 발생하였습니다.',
 	'securepoll-remote-parse-error' => '서버로부터 권한 응답에 따른 해석 오류가 발생',
 	'securepoll-api-invalid-params' => '명령 변수가 잘못되었습니다.',
 	'securepoll-api-no-user' => '등록되어 있지 않은 ID 입니다.',
-	'securepoll-api-token-mismatch' => '암호화 통신상의 오류가 발생하여 로그인 하지 못했습니다.',
-	'securepoll-not-logged-in' => '이 선거에 투표를 하시려면 먼저 로그인 하셔야 합니다.',
-	'securepoll-too-few-edits' => '죄송하지만, 투표에 참여하실 수 없습니다. 투표에 참여하시려면 최소 $1 회의 편집기여를 하셔야 하지만 귀하의 편집기여는 $2 회 입니다.',
+	'securepoll-api-token-mismatch' => '암호화 통신상의 오류가 발생하여 로그인하지 못했습니다.',
+	'securepoll-not-logged-in' => '이 선거에 투표를 하시려면 먼저 로그인하셔야 합니다.',
+	'securepoll-too-few-edits' => '죄송하지만, 투표에 참여하실 수 없습니다. 투표에 참여하시려면 최소 $1{{PLURAL:$1|회}}의 편집기여를 하셔야 하지만 귀하의 편집 수는 $2회 입니다.',
 	'securepoll-blocked' => '죄송하지만, 귀하의 계정은 차단당한 상태이므로 이 선거에 투표하실 수 없습니다.',
 	'securepoll-bot' => '죄송합니다. 봇 권한을 가진 계정으로는 투표할 수 없습니다.',
 	'securepoll-not-in-group' => '이 선거에는 "$1" 모임에 속하는 회원만 투표하실 수 있습니다.',
@@ -2847,13 +2849,13 @@ $1',
 	'securepoll-submit-translate' => '갱신',
 	'securepoll-language-label' => '선택한 언어:',
 	'securepoll-submit-select-lang' => '번역',
-	'securepoll-header-title' => '성명',
+	'securepoll-header-title' => '이름',
 	'securepoll-header-start-date' => '시작일',
 	'securepoll-header-end-date' => '종료일',
 	'securepoll-subpage-vote' => '투표',
 	'securepoll-subpage-translate' => '번역',
-	'securepoll-subpage-list' => '리스트',
-	'securepoll-subpage-dump' => '덤프',
+	'securepoll-subpage-list' => '목록',
+	'securepoll-subpage-dump' => '기록 내용',
 	'securepoll-subpage-tally' => '개표',
 	'securepoll-tally-title' => '개표: $1',
 	'securepoll-tally-not-finished' => '죄송합니다. 투표가 끝나기 전까지는 개표할 수 없습니다.',
@@ -2862,8 +2864,8 @@ $1',
 	'securepoll-tally-no-key' => '투표가 암호화되었으나 복호화 키가 없기 때문에 개표할 수 없습니다.',
 	'securepoll-tally-local-legend' => '저장된 결과 집계하기',
 	'securepoll-tally-local-submit' => '계정 만들기',
-	'securepoll-tally-upload-legend' => '암호화된 기억 영역의 내용을 올리기',
-	'securepoll-tally-upload-submit' => '계정 만들기',
+	'securepoll-tally-upload-legend' => '암호화된 기록 내용을 올리기',
+	'securepoll-tally-upload-submit' => '개표하기',
 	'securepoll-tally-error' => '투표 기록의 해석에 오류가 생겨서, 계정을 만들 수 없습니다.',
 	'securepoll-no-upload' => '파일이 올려지지 않아서, 결과를 집계할 수 없습니다.',
 );
@@ -4302,6 +4304,23 @@ Você pode escolher entre realizar a contagem de votos dos resultados presentes 
 	'securepoll-tally-upload-submit' => 'Criar contagem de votos',
 	'securepoll-tally-error' => 'Erro ao interpretar registro de votos, não foi possível produzir uma contagem.',
 	'securepoll-no-upload' => 'Nenhum arquivo foi carregado, não foi possível contar os votos para o resultado.',
+);
+
+/** Romanian (Română)
+ * @author Mihai
+ */
+$messages['ro'] = array(
+	'securepoll-submit' => 'Trimite votul',
+	'securepoll-submit-translate' => 'Actualizează',
+	'securepoll-language-label' => 'Marchează limba:',
+	'securepoll-submit-select-lang' => 'Traducere',
+	'securepoll-header-title' => 'Nume',
+	'securepoll-header-start-date' => 'Dată început',
+	'securepoll-header-end-date' => 'Dată sfârşit',
+	'securepoll-subpage-vote' => 'Vot',
+	'securepoll-subpage-translate' => 'Traducere',
+	'securepoll-subpage-list' => 'Listă',
+	'securepoll-subpage-dump' => 'Dump',
 );
 
 /** Tarandíne (Tarandíne)
