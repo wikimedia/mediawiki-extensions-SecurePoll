@@ -1395,6 +1395,7 @@ Via voĉdono estis malvalida: $1
 </div>',
 	'securepoll-unanswered-questions' => 'Vi devas respondi al ĉiuj demandoj.',
 	'securepoll-remote-auth-error' => 'Eraro akirante vian kontinformon de la servilo.',
+	'securepoll-remote-parse-error' => 'Eraro interpretante la aŭtoritadan respondon de la servilo.',
 	'securepoll-api-invalid-params' => 'Malvalidaj parametroj.',
 	'securepoll-api-no-user' => 'Neniu uzanto estis trovita kun tiu identigo.',
 	'securepoll-not-logged-in' => 'Vi devas ensaluti por voĉdoni en ĉi tiu voĉdonado',
@@ -1493,7 +1494,7 @@ Error:
 	'securepoll-api-invalid-params' => 'Parámetros inválidos.',
 	'securepoll-api-no-user' => 'Ningún usuario fue encontrado con el ID dado.',
 	'securepoll-not-logged-in' => 'Debes iniciar sesión para votar en esta elección',
-	'securepoll-too-few-edits' => 'Perdón, no puedes votar. Necesitas haber hecho al menos $1 ediciones para votar en esta elección, has hecho $2.',
+	'securepoll-too-few-edits' => 'Perdón, no puedes votar. Necesitas haber hecho al menos $1 {{PLURAL:$1|edición|ediciones}} para votar en esta elección, has hecho $2.',
 	'securepoll-blocked' => 'Perdón, no puedes votar en esta elección si estás actualmente bloqueado para ediciones.',
 	'securepoll-not-in-group' => 'Solamente mimbros del grupo $1 pueden votar en esta elección.',
 	'securepoll-not-in-list' => 'Perdón, no estás en el lista predetermindad de usuarios autorizados a votar en esta elección.',
@@ -3200,7 +3201,18 @@ Dien sjtöm is óngeldig: $1
  * @author Matasg
  */
 $messages['lt'] = array(
+	'securepoll-invalid-election' => '"$1" nėra tinkamas rinkimų ID.',
+	'securepoll-welcome' => '<strong>Sveiki $1!</strong>',
 	'securepoll-submit' => 'Balsuoti',
+	'securepoll-thanks' => 'Ačiū, jūsų balsas buvo įrašytas.',
+	'securepoll-return' => 'Grįžti į $1',
+	'securepoll-gpg-config-error' => 'GPG raktai sukonfigūruoti netinkamai.',
+	'securepoll-jump' => 'Eiti į balsavimo serverį',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+Jūsų balsas netinkamas: $1
+</div>',
+	'securepoll-api-invalid-params' => 'Netinkami parametrai',
+	'securepoll-api-no-user' => 'Nerastas naudotojas su duotu ID.',
 );
 
 /** Macedonian (Македонски)
@@ -5156,6 +5168,7 @@ El to voto no\'l xe mia vàłido: $1
 	'securepoll-remote-parse-error' => 'Se gà verificà un eròr interpretando la risposta de autorixassion dal server.',
 	'securepoll-api-invalid-params' => 'Paràmetri mia vàlidi.',
 	'securepoll-api-no-user' => 'No xe stà catà nissun utente co sto ID.',
+	'securepoll-api-token-mismatch' => 'I token de sicuressa no i coincide, no te podi entrar.',
 	'securepoll-not-logged-in' => 'Ti gà da far el login par votar in sta elession',
 	'securepoll-too-few-edits' => "Me dispiase, no te pol mia votar. Te ghè da ver fato almanco $1 {{PLURAL:$1|modifica|modifiche}} par votar in sta elession, ti te ghe n'è fate $2.",
 	'securepoll-blocked' => 'Me dispiase, no te pol mia votar in sta elession se te sì stà blocà dal far le modifiche.',
@@ -5184,6 +5197,7 @@ El to voto no\'l xe mia vàłido: $1
 	'securepoll-header-action' => 'Assion',
 	'securepoll-header-reason' => 'Motivo',
 	'securepoll-header-admin' => 'Aministrador',
+	'securepoll-cookie-dup-list' => 'Utenti duplici par cookie',
 	'securepoll-dump-title' => 'Dump: $1',
 	'securepoll-dump-no-crypt' => "Par sta elession no xe disponibile nissuna registrassion criptada, parché l'elession no la xe inpostà par doparar la critassion.",
 	'securepoll-dump-not-finished' => "Le registrasion criptade de l'elesion le xe disponibiłi solo dopo ła data de conclusion: $1 a łe $2",

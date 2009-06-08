@@ -63,6 +63,11 @@ $aliases['ksh'] = array(
 	'SecurePoll' => array( 'Affshtemme' ),
 );
 
+/** Nedersaksisch (Nedersaksisch) */
+$aliases['nds-nl'] = array(
+	'SecurePoll' => array( 'Beveilig_stemmen' ),
+);
+
 /** Dutch (Nederlands) */
 $aliases['nl'] = array(
 	'SecurePoll' => array( 'BeveiligdStemmen' ),
