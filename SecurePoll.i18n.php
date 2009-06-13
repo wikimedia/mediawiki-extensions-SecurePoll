@@ -1606,38 +1606,118 @@ $messages['fa'] = array(
 );
 
 /** Finnish (Suomi)
+ * @author Cimon Avaro
  * @author Str4nd
  */
 $messages['fi'] = array(
+	'securepoll' => 'TurvaÄänestys',
 	'securepoll-desc' => 'Liitännäinen vaaleille ja kyselyille.',
 	'securepoll-invalid-page' => 'Virheellinen alasivu ”<nowiki>$1</nowiki>”',
+	'securepoll-need-admin' => 'Vain ylläpitäjät voivat suorittaa tämän toiminnon.',
+	'securepoll-too-few-params' => 'Ei tarpeeksi alasivu parametrejä (linkki ei toimi).',
+	'securepoll-invalid-election' => '"$1" ei ole kelvollinen vaalitunniste.',
 	'securepoll-welcome' => '<strong>Tervetuloa $1!</strong>',
+	'securepoll-not-started' => 'Nämä vaalit eivät ole vielä käynnissä.
+Niiden on määra käynnistyä $2 klo. $3.',
 	'securepoll-finished' => 'Äänestys on päättynyt, et voi enää äänestää.',
-	'securepoll-submit' => 'Lähetä ääni',
+	'securepoll-not-qualified' => 'Et täytä ehtoja näiden vaalien äänestäjäksi: $1',
+	'securepoll-change-disallowed' => 'Sinä olet jo äänestänyt näissä vaaleissa.
+Valitettavasti et saa äänestää uudestaan.',
+	'securepoll-change-allowed' => '<strong>Huomio: Sinä olet jo äänestänyt näissä vaaleissa.</strong>
+Sinä voit muuttaa äänestystäsi seuraavan lomakkeen tallentamalla.
+Huomioi että jos teet tämän, sinun edellinen äänestyksesi menetetään.',
+	'securepoll-submit' => 'Tallenna ääni',
 	'securepoll-gpg-receipt' => 'Kiitos äänestäsi.
 
 Jos haluat, voit säilyttää seuraavan kuitin todisteena äänestäsi:
 
 <pre>$1</pre>',
 	'securepoll-thanks' => 'Kiitos, äänesi on rekisteröity.',
+	'securepoll-return' => 'Palaa kohteeseen $1',
+	'securepoll-encrypt-error' => 'Sinun äänestys tietueesi salaus epäonnistui.
+Sinun ääntäsi ei ole tallennettu!
+
+$1',
 	'securepoll-no-gpg-home' => 'GPG:n kotihakemistoa ei voitu luoda.',
+	'securepoll-secret-gpg-error' => 'Virhe tapahtui GPG:n suorittamisessa.
+Käytä $wgSecurePollShowErrorDetail=true; LocalSettings.php asetuksissa nähdäksesi tarkemmat tiedot.',
+	'securepoll-full-gpg-error' => 'Virhe GPG:n suorittamisessa:
+
+Komento: $1
+
+Virhe:
+<pre>$2</pre>',
 	'securepoll-gpg-config-error' => 'GPG-avaimet ovat asetettu virheellisesti.',
+	'securepoll-gpg-parse-error' => 'Virhe tapahtui tulkittaessa GPG:n tulosta.',
 	'securepoll-no-decryption-key' => 'Salauksen purkuavainta ei ole asetettu.
 Salausta ei voitu purkaa.',
+	'securepoll-jump' => 'Mene äänestyspalvelimelle.',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+Äänestyksesi ei toiminut: $1
+</div>',
+	'securepoll-unanswered-questions' => 'Sinun täytyy vastata kaikkiin kysymyksiin.',
+	'securepoll-remote-auth-error' => 'Virhe tapahtui kuin käyttäjätilisi tietoja haettiin palvelimelta.',
+	'securepoll-remote-parse-error' => 'Virhe palvelimelta tulleen oikeuksien vahvistus vastineen tulkinnassa tapahtui.',
+	'securepoll-api-invalid-params' => 'Vääriä parametrejä.',
+	'securepoll-api-no-user' => 'Ei löytynyt käyttäjää tarjotulla tunnisteella.',
+	'securepoll-api-token-mismatch' => 'Turvaus valtuusjono ei täsmää, ei voida kirjautua sisään.',
+	'securepoll-not-logged-in' => 'Sinun pitää kirjautua sisään käyttäjätunnuksellasi voidaksesi äänestää näissä vaaleissa.',
+	'securepoll-too-few-edits' => 'Valitettavasti et voi äänestää. Sinulla pitää olla tehtynä vähintään {{PLURAL:$1|muokkaus|muokkausta}} voidaksesi äänestää tässä vaalissa. Sinä olet tehnyt $2.',
+	'securepoll-blocked' => 'Et valitettavasti voi äänestää näissä vaaleissa jos olet tällä hetkellä estetty muokkaamasta.',
+	'securepoll-bot' => 'Valitettavasti käyttäjätilit joilla on botti-asetus kytkettynä päälle eivät saa äänestää näissä vaaleissa.',
+	'securepoll-not-in-group' => 'Vain jäsenet jotka kuuluvat "$1" ryhmään voivat äänestää näissä vaaleissa.',
+	'securepoll-not-in-list' => 'Valitamme että sinä et ole etukäteen valitussa listassa käyttäjiä jotka ovat oikeutettuja äänestämään näissä vaaleissa.',
+	'securepoll-list-title' => 'Luettelo äänistä: $1',
 	'securepoll-header-timestamp' => 'Aika',
 	'securepoll-header-voter-name' => 'Nimi',
 	'securepoll-header-voter-domain' => 'Verkkotunnus',
+	'securepoll-header-ua' => 'Selaintunniste',
+	'securepoll-header-cookie-dup' => 'Kopio toisesta',
+	'securepoll-header-strike' => 'Poisto',
+	'securepoll-header-details' => 'Tiedot',
+	'securepoll-strike-button' => 'Poisto',
+	'securepoll-unstrike-button' => 'Palautus',
 	'securepoll-strike-reason' => 'Syy',
 	'securepoll-strike-cancel' => 'Peruuta',
+	'securepoll-strike-error' => 'Tapahtui virhe poistossa/palautuksessa: $1',
+	'securepoll-details-link' => 'Tarkat tiedot',
+	'securepoll-details-title' => 'Äänestystiedot: #$1',
+	'securepoll-invalid-vote' => '"$1" ei ole kelpaava tunniste.',
 	'securepoll-header-voter-type' => 'Käyttäjätyyppi',
 	'securepoll-voter-properties' => 'Äänestäjän asetukset',
+	'securepoll-strike-log' => 'Poistoloki',
+	'securepoll-header-action' => 'Toiminto',
 	'securepoll-header-reason' => 'Syy',
+	'securepoll-header-admin' => 'Ylläpitäjä',
+	'securepoll-cookie-dup-list' => 'Käyttäjät joilla on yhtäläinen eväste.',
+	'securepoll-dump-title' => 'Vedos: $1',
+	'securepoll-dump-no-crypt' => 'Salauksella suojattua vaalitiedostoa ei ole tarjolla tälle äänestykselle, koska vaaleja ei ole asetuksissa säädetty käyttämään salausta.',
+	'securepoll-dump-not-finished' => 'Salauksin suojatut tietueet ovat tarjolla vasta vaalien päättymispäivän jälkeen $1 klo. $2',
+	'securepoll-dump-no-urandom' => 'Ei pystytty avaamaan /dev/urandom toimintoa.
+Varmistaaksemme äänestyssalaisuuden, salauksin suojatut tietueet ovat ainoastaan julkisesti tarjolla silloin kun niiden järjestys voidaan sekoittaa turvallisella satunnaislukuvirralla.',
 	'securepoll-translate-title' => 'Käännä: $1',
 	'securepoll-invalid-language' => 'Virheellinen kielikoodi ”$1”',
 	'securepoll-submit-translate' => 'Päivitä',
 	'securepoll-language-label' => 'Valitse kieli',
 	'securepoll-submit-select-lang' => 'Käännä',
+	'securepoll-header-title' => 'Nimi',
+	'securepoll-header-start-date' => 'Käynnistymispäivämäärä',
+	'securepoll-header-end-date' => 'Päättymispäivämäärä',
 	'securepoll-subpage-vote' => 'Äänestä',
+	'securepoll-subpage-translate' => 'Käännä',
+	'securepoll-subpage-list' => 'Luettelo',
+	'securepoll-subpage-dump' => 'Vedos',
+	'securepoll-subpage-tally' => 'Laskenta',
+	'securepoll-tally-title' => 'Laskenta: $1',
+	'securepoll-tally-not-finished' => 'Valitettavasti et voi suorittaa laskentaa vaalille ennen kuin äänestys on päättynyt.',
+	'securepoll-can-decrypt' => 'Äänestys tiedot on suojattu salauksella, mutta salauksen purku avain on tarjottu. Voit valita joko suorittaa laskennan tuloksista jotka ovat tietokannassa valmiina, tai suorittaa laskennan salauksin suojatuista tuloksista jotka ovat ladattavassa tiedostossa.',
+	'securepoll-tally-no-key' => 'Et voi suorittaa laskentaa näille vaaleille, koska äänet on suojattu salauksella, eikä salauksen avainkoodia ole tarjottu.',
+	'securepoll-tally-local-legend' => 'Laske tallenetuista tuloksista',
+	'securepoll-tally-local-submit' => 'Tuota laskenta',
+	'securepoll-tally-upload-legend' => 'Lataa sisään salauksella suojattu vedos',
+	'securepoll-tally-upload-submit' => 'Tuota laskenta',
+	'securepoll-tally-error' => 'Virhe tapahtui äänestystiedoston tulkinnassa, ei voitu tuottaa laskentaa.',
+	'securepoll-no-upload' => 'Mitään tiedostoa ei ole ladattuna, ei voitu suorittaa laskentaa tuloksista.',
 );
 
 /** French (Français)
@@ -2476,7 +2556,9 @@ Kesalahan:
 	'securepoll-no-decryption-key' => 'Kunci dekripsi belum dikonfigurasikan.
 Tidak dapat melakukan dekripsi.',
 	'securepoll-jump' => 'Pergi ke server pemungutan suara',
-	'securepoll-bad-ballot-submission' => 'Suara Anda tidak valid: $1',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+Suara Anda tidak valid: $1
+</div>',
 	'securepoll-unanswered-questions' => 'Anda harus menjawab semua pertanyaan.',
 	'securepoll-remote-auth-error' => 'Terjadi kesalahan ketika menarik informasi akun Anda dari server.',
 	'securepoll-remote-parse-error' => 'Terjadi kesalahan interpretasi atas respons otorisasi dari server.',
@@ -3593,6 +3675,7 @@ Feil:
 	'securepoll-no-decryption-key' => 'Ingen dekrypteringsnøkkel er sett opp.
 Kan ikkje dekryptera.',
 	'securepoll-unanswered-questions' => 'Du må svara på alle spørsmåla.',
+	'securepoll-remote-auth-error' => 'Feil oppstod ved henting av di kontoinformasjon frå filtenaren.',
 	'securepoll-api-no-user' => 'Ingen brukar var funnen med oppgjeven ID.',
 	'securepoll-not-logged-in' => 'Du må vera innlogga for å kunna røysta i dette valet',
 	'securepoll-blocked' => 'Du kan diverre ikkje røysta i dette valet om du for tida er blokkert frå å gjera endringar',
@@ -3618,6 +3701,7 @@ Kan ikkje dekryptera.',
 	'securepoll-header-title' => 'Namn',
 	'securepoll-header-start-date' => 'Start dato',
 	'securepoll-header-end-date' => 'Sluttdato',
+	'securepoll-subpage-vote' => 'Stem',
 	'securepoll-subpage-translate' => 'Set om',
 	'securepoll-subpage-list' => 'Utslisting',
 );
@@ -5496,6 +5580,7 @@ $messages['za'] = array(
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Bencmq
  * @author Biŋhai
+ * @author FireJackey
  * @author Skjackey tse
  */
 $messages['zh-hans'] = array(
@@ -5546,7 +5631,7 @@ $1',
 	'securepoll-api-no-user' => '无法找到指定ID的用户。',
 	'securepoll-api-token-mismatch' => '安全标记不符，无法登录。',
 	'securepoll-not-logged-in' => '您必须登录后方可投票。',
-	'securepoll-too-few-edits' => '对不起，您不能投票。您必须至少进行$1次编辑才能参与本次投票。您目前的编辑次数为$2。',
+	'securepoll-too-few-edits' => '对不起，您不能投票。您必须至少进行$1{{PLURAL:$1|次|次}}编辑才能参与本次投票。您目前的编辑次数为$2。',
 	'securepoll-blocked' => '对不起，您目前被封禁因此无法参与本次投票。',
 	'securepoll-bot' => '对不起，拥有机器人权限的账户不能参与本次投票。',
 	'securepoll-not-in-group' => '只有属于“$1”用户组的用户可以投票。',
