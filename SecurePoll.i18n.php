@@ -1607,25 +1607,26 @@ $messages['fa'] = array(
 
 /** Finnish (Suomi)
  * @author Cimon Avaro
+ * @author Crt
  * @author Str4nd
  */
 $messages['fi'] = array(
-	'securepoll' => 'TurvaÄänestys',
-	'securepoll-desc' => 'Liitännäinen vaaleille ja kyselyille.',
+	'securepoll' => 'Turvaäänestys',
+	'securepoll-desc' => 'Laajennus vaaleille ja kyselyille.',
 	'securepoll-invalid-page' => 'Virheellinen alasivu ”<nowiki>$1</nowiki>”',
 	'securepoll-need-admin' => 'Vain ylläpitäjät voivat suorittaa tämän toiminnon.',
-	'securepoll-too-few-params' => 'Ei tarpeeksi alasivu parametrejä (linkki ei toimi).',
+	'securepoll-too-few-params' => 'Ei tarpeeksi alasivuparametrejä (linkki ei toimi).',
 	'securepoll-invalid-election' => '"$1" ei ole kelvollinen vaalitunniste.',
 	'securepoll-welcome' => '<strong>Tervetuloa $1!</strong>',
-	'securepoll-not-started' => 'Nämä vaalit eivät ole vielä käynnissä.
-Niiden on määra käynnistyä $2 klo. $3.',
+	'securepoll-not-started' => 'Nämä vaalit eivät ole vielä alkaneet.
+Niiden on määrä alkaa $2 kello $3.',
 	'securepoll-finished' => 'Äänestys on päättynyt, et voi enää äänestää.',
 	'securepoll-not-qualified' => 'Et täytä ehtoja näiden vaalien äänestäjäksi: $1',
-	'securepoll-change-disallowed' => 'Sinä olet jo äänestänyt näissä vaaleissa.
-Valitettavasti et saa äänestää uudestaan.',
-	'securepoll-change-allowed' => '<strong>Huomio: Sinä olet jo äänestänyt näissä vaaleissa.</strong>
-Sinä voit muuttaa äänestystäsi seuraavan lomakkeen tallentamalla.
-Huomioi että jos teet tämän, sinun edellinen äänestyksesi menetetään.',
+	'securepoll-change-disallowed' => 'Olet jo äänestänyt näissä vaaleissa.
+Et voi äänestää uudestaan.',
+	'securepoll-change-allowed' => '<strong>Huomio: Olet jo äänestänyt näissä vaaleissa.</strong>
+Voit muuttaa ääntäsi tallentamalla alla olevan lomakkeen.
+Huomioi, että siinä tapauksessa edellinen äänesi hylätään.',
 	'securepoll-submit' => 'Tallenna ääni',
 	'securepoll-gpg-receipt' => 'Kiitos äänestäsi.
 
@@ -1634,39 +1635,39 @@ Jos haluat, voit säilyttää seuraavan kuitin todisteena äänestäsi:
 <pre>$1</pre>',
 	'securepoll-thanks' => 'Kiitos, äänesi on rekisteröity.',
 	'securepoll-return' => 'Palaa kohteeseen $1',
-	'securepoll-encrypt-error' => 'Sinun äänestys tietueesi salaus epäonnistui.
-Sinun ääntäsi ei ole tallennettu!
+	'securepoll-encrypt-error' => 'Äänestystietueesi salaus epäonnistui.
+Ääntäsi ei ole tallennettu!
 
 $1',
-	'securepoll-no-gpg-home' => 'GPG:n kotihakemistoa ei voitu luoda.',
-	'securepoll-secret-gpg-error' => 'Virhe tapahtui GPG:n suorittamisessa.
-Käytä $wgSecurePollShowErrorDetail=true; LocalSettings.php asetuksissa nähdäksesi tarkemmat tiedot.',
+	'securepoll-no-gpg-home' => 'GPG-kotihakemistoa ei voitu luoda.',
+	'securepoll-secret-gpg-error' => 'Virhe GPG:n suorittamisessa.
+Käytä $wgSecurePollShowErrorDetail=true; LocalSettings.php-asetuksissa nähdäksesi tarkemmat tiedot.',
 	'securepoll-full-gpg-error' => 'Virhe GPG:n suorittamisessa:
 
 Komento: $1
 
 Virhe:
 <pre>$2</pre>',
-	'securepoll-gpg-config-error' => 'GPG-avaimet ovat asetettu virheellisesti.',
-	'securepoll-gpg-parse-error' => 'Virhe tapahtui tulkittaessa GPG:n tulosta.',
+	'securepoll-gpg-config-error' => 'GPG-avaimet ovat virheellisesti asetettu.',
+	'securepoll-gpg-parse-error' => 'Virhe tulkittaessa GPG:n tietoja.',
 	'securepoll-no-decryption-key' => 'Salauksen purkuavainta ei ole asetettu.
-Salausta ei voitu purkaa.',
-	'securepoll-jump' => 'Mene äänestyspalvelimelle.',
+Salausta ei voi purkaa.',
+	'securepoll-jump' => 'Siirry äänestyspalvelimelle.',
 	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
-Äänestyksesi ei toiminut: $1
+Äänesi oli epäkelpo: $1
 </div>',
 	'securepoll-unanswered-questions' => 'Sinun täytyy vastata kaikkiin kysymyksiin.',
-	'securepoll-remote-auth-error' => 'Virhe tapahtui kuin käyttäjätilisi tietoja haettiin palvelimelta.',
-	'securepoll-remote-parse-error' => 'Virhe palvelimelta tulleen oikeuksien vahvistus vastineen tulkinnassa tapahtui.',
-	'securepoll-api-invalid-params' => 'Vääriä parametrejä.',
-	'securepoll-api-no-user' => 'Ei löytynyt käyttäjää tarjotulla tunnisteella.',
-	'securepoll-api-token-mismatch' => 'Turvaus valtuusjono ei täsmää, ei voida kirjautua sisään.',
-	'securepoll-not-logged-in' => 'Sinun pitää kirjautua sisään käyttäjätunnuksellasi voidaksesi äänestää näissä vaaleissa.',
-	'securepoll-too-few-edits' => 'Valitettavasti et voi äänestää. Sinulla pitää olla tehtynä vähintään {{PLURAL:$1|muokkaus|muokkausta}} voidaksesi äänestää tässä vaalissa. Sinä olet tehnyt $2.',
-	'securepoll-blocked' => 'Et valitettavasti voi äänestää näissä vaaleissa jos olet tällä hetkellä estetty muokkaamasta.',
-	'securepoll-bot' => 'Valitettavasti käyttäjätilit joilla on botti-asetus kytkettynä päälle eivät saa äänestää näissä vaaleissa.',
-	'securepoll-not-in-group' => 'Vain jäsenet jotka kuuluvat "$1" ryhmään voivat äänestää näissä vaaleissa.',
-	'securepoll-not-in-list' => 'Valitamme että sinä et ole etukäteen valitussa listassa käyttäjiä jotka ovat oikeutettuja äänestämään näissä vaaleissa.',
+	'securepoll-remote-auth-error' => 'Virhe hakiessa käyttäjätilisi tietoja palvelimelta.',
+	'securepoll-remote-parse-error' => 'Virhe tulkittaessa lupavastausta palvelimelta.',
+	'securepoll-api-invalid-params' => 'Virheellisiä parametrejä.',
+	'securepoll-api-no-user' => 'Annetulla tunnisteella ei löytynyt käyttäjää.',
+	'securepoll-api-token-mismatch' => 'Turvallisuusmerkintä ei täsmää. Sisäänkirjautuminen ei onnistu.',
+	'securepoll-not-logged-in' => 'Sinun pitää kirjautua sisään voidaksesi äänestää.',
+	'securepoll-too-few-edits' => 'Valitettavasti et voi äänestää. Sinulla täytyy olla vähintään $1 {{PLURAL:$1|muokkaus|muokkausta}} voidaksesi äänestää näissä vaaleissa. Olet tehnyt $2.',
+	'securepoll-blocked' => 'Et voi äänestää näissä vaaleissa, jos sinulla on muokkausesto tällä hetkellä.',
+	'securepoll-bot' => 'Käyttäjätilit, joilla on bottimerkintä eivät saa äänestää näissä vaaleissa.',
+	'securepoll-not-in-group' => 'Vain jäsenet jotka kuuluvat ryhmään $1, voivat äänestää näissä vaaleissa.',
+	'securepoll-not-in-list' => 'Et ole etukäteen valitussa listassa käyttäjiä, jotka ovat oikeutettuja äänestämään näissä vaaleissa.',
 	'securepoll-list-title' => 'Luettelo äänistä: $1',
 	'securepoll-header-timestamp' => 'Aika',
 	'securepoll-header-voter-name' => 'Nimi',
@@ -1680,29 +1681,29 @@ Salausta ei voitu purkaa.',
 	'securepoll-strike-reason' => 'Syy',
 	'securepoll-strike-cancel' => 'Peruuta',
 	'securepoll-strike-error' => 'Tapahtui virhe poistossa/palautuksessa: $1',
-	'securepoll-details-link' => 'Tarkat tiedot',
+	'securepoll-details-link' => 'Tiedot',
 	'securepoll-details-title' => 'Äänestystiedot: #$1',
-	'securepoll-invalid-vote' => '"$1" ei ole kelpaava tunniste.',
-	'securepoll-header-voter-type' => 'Käyttäjätyyppi',
+	'securepoll-invalid-vote' => '"$1" ei ole kelvollinen tunniste.',
+	'securepoll-header-voter-type' => 'Äänestäjätyyppi',
 	'securepoll-voter-properties' => 'Äänestäjän asetukset',
 	'securepoll-strike-log' => 'Poistoloki',
 	'securepoll-header-action' => 'Toiminto',
 	'securepoll-header-reason' => 'Syy',
 	'securepoll-header-admin' => 'Ylläpitäjä',
-	'securepoll-cookie-dup-list' => 'Käyttäjät joilla on yhtäläinen eväste.',
+	'securepoll-cookie-dup-list' => 'Käyttäjät, joilla on yhtäläinen eväste.',
 	'securepoll-dump-title' => 'Vedos: $1',
-	'securepoll-dump-no-crypt' => 'Salauksella suojattua vaalitiedostoa ei ole tarjolla tälle äänestykselle, koska vaaleja ei ole asetuksissa säädetty käyttämään salausta.',
-	'securepoll-dump-not-finished' => 'Salauksin suojatut tietueet ovat tarjolla vasta vaalien päättymispäivän jälkeen $1 klo. $2',
-	'securepoll-dump-no-urandom' => 'Ei pystytty avaamaan /dev/urandom toimintoa.
-Varmistaaksemme äänestyssalaisuuden, salauksin suojatut tietueet ovat ainoastaan julkisesti tarjolla silloin kun niiden järjestys voidaan sekoittaa turvallisella satunnaislukuvirralla.',
+	'securepoll-dump-no-crypt' => 'Salattua vaalitiedostoa ei ole saatavilla tälle äänestykselle, koska vaaleja ei ole asetuksissa säädetty käyttämään salausta.',
+	'securepoll-dump-not-finished' => 'Salauksin suojatut vaalitiedot ovat saatavilla vaalien päättymispäivän jälkeen $1 kello $2',
+	'securepoll-dump-no-urandom' => 'Toimintoa /dev/urandom ei voitu avata.
+Äänestyssalaisuuden varmistamiseksi salatut tietueet ovat julkisesti saatavilla ainoastaan silloin, kun niiden järjestys voidaan sekoittaa turvallisella satunnaislukuvirralla.',
 	'securepoll-translate-title' => 'Käännä: $1',
 	'securepoll-invalid-language' => 'Virheellinen kielikoodi ”$1”',
 	'securepoll-submit-translate' => 'Päivitä',
 	'securepoll-language-label' => 'Valitse kieli',
 	'securepoll-submit-select-lang' => 'Käännä',
 	'securepoll-header-title' => 'Nimi',
-	'securepoll-header-start-date' => 'Käynnistymispäivämäärä',
-	'securepoll-header-end-date' => 'Päättymispäivämäärä',
+	'securepoll-header-start-date' => 'Alkamispäivä',
+	'securepoll-header-end-date' => 'Päättymispäivä',
 	'securepoll-subpage-vote' => 'Äänestä',
 	'securepoll-subpage-translate' => 'Käännä',
 	'securepoll-subpage-list' => 'Luettelo',
@@ -1715,7 +1716,7 @@ Varmistaaksemme äänestyssalaisuuden, salauksin suojatut tietueet ovat ainoasta
 	'securepoll-tally-local-legend' => 'Laske tallenetuista tuloksista',
 	'securepoll-tally-local-submit' => 'Tuota laskenta',
 	'securepoll-tally-upload-legend' => 'Lataa sisään salauksella suojattu vedos',
-	'securepoll-tally-upload-submit' => 'Tuota laskenta',
+	'securepoll-tally-upload-submit' => 'Luo laskenta',
 	'securepoll-tally-error' => 'Virhe tapahtui äänestystiedoston tulkinnassa, ei voitu tuottaa laskentaa.',
 	'securepoll-no-upload' => 'Mitään tiedostoa ei ole ladattuna, ei voitu suorittaa laskentaa tuloksista.',
 );
