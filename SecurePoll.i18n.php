@@ -1611,15 +1611,15 @@ $messages['fa'] = array(
  * @author Str4nd
  */
 $messages['fi'] = array(
-	'securepoll' => 'Turvaäänestys',
+	'securepoll' => 'Turvattu äänestys',
 	'securepoll-desc' => 'Laajennus vaaleille ja kyselyille.',
 	'securepoll-invalid-page' => 'Virheellinen alasivu ”<nowiki>$1</nowiki>”',
 	'securepoll-need-admin' => 'Vain ylläpitäjät voivat suorittaa tämän toiminnon.',
 	'securepoll-too-few-params' => 'Ei tarpeeksi alasivuparametrejä (linkki ei toimi).',
 	'securepoll-invalid-election' => '"$1" ei ole kelvollinen vaalitunniste.',
 	'securepoll-welcome' => '<strong>Tervetuloa $1!</strong>',
-	'securepoll-not-started' => 'Nämä vaalit eivät ole vielä alkaneet.
-Niiden on määrä alkaa $2 kello $3.',
+	'securepoll-not-started' => 'Tämä vaali ei ole vielä alkanut.
+Sen on määrä alkaa $2 kello $3.',
 	'securepoll-finished' => 'Äänestys on päättynyt, et voi enää äänestää.',
 	'securepoll-not-qualified' => 'Et täytä ehtoja näiden vaalien äänestäjäksi: $1',
 	'securepoll-change-disallowed' => 'Olet jo äänestänyt näissä vaaleissa.
@@ -1630,18 +1630,18 @@ Huomioi, että siinä tapauksessa edellinen äänesi hylätään.',
 	'securepoll-submit' => 'Tallenna ääni',
 	'securepoll-gpg-receipt' => 'Kiitos äänestäsi.
 
-Jos haluat, voit säilyttää seuraavan kuitin todisteena äänestäsi:
+Jos haluat, voit säilyttää seuraavan todisteena äänestäsi:
 
 <pre>$1</pre>',
 	'securepoll-thanks' => 'Kiitos, äänesi on rekisteröity.',
 	'securepoll-return' => 'Palaa kohteeseen $1',
-	'securepoll-encrypt-error' => 'Äänestystietueesi salaus epäonnistui.
+	'securepoll-encrypt-error' => 'Äänestystietueesi salakirjoitus epäonnistui.
 Ääntäsi ei ole tallennettu!
 
 $1',
 	'securepoll-no-gpg-home' => 'GPG-kotihakemistoa ei voitu luoda.',
 	'securepoll-secret-gpg-error' => 'Virhe GPG:n suorittamisessa.
-Käytä $wgSecurePollShowErrorDetail=true; LocalSettings.php-asetuksissa nähdäksesi tarkemmat tiedot.',
+Käytä asetusta $wgSecurePollShowErrorDetail=true; tiedostossa LocalSettings.php nähdäksesi tarkemmat tiedot.',
 	'securepoll-full-gpg-error' => 'Virhe GPG:n suorittamisessa:
 
 Komento: $1
@@ -1661,19 +1661,19 @@ Salausta ei voi purkaa.',
 	'securepoll-remote-parse-error' => 'Virhe tulkittaessa lupavastausta palvelimelta.',
 	'securepoll-api-invalid-params' => 'Virheellisiä parametrejä.',
 	'securepoll-api-no-user' => 'Annetulla tunnisteella ei löytynyt käyttäjää.',
-	'securepoll-api-token-mismatch' => 'Turvallisuusmerkintä ei täsmää. Sisäänkirjautuminen ei onnistu.',
+	'securepoll-api-token-mismatch' => 'Turvallisuusmerkintä ei täsmää, joten sisäänkirjautuminen ei onnistu.',
 	'securepoll-not-logged-in' => 'Sinun pitää kirjautua sisään voidaksesi äänestää.',
 	'securepoll-too-few-edits' => 'Valitettavasti et voi äänestää. Sinulla täytyy olla vähintään $1 {{PLURAL:$1|muokkaus|muokkausta}} voidaksesi äänestää näissä vaaleissa. Olet tehnyt $2.',
 	'securepoll-blocked' => 'Et voi äänestää näissä vaaleissa, jos sinulla on muokkausesto tällä hetkellä.',
 	'securepoll-bot' => 'Käyttäjätilit, joilla on bottimerkintä eivät saa äänestää näissä vaaleissa.',
 	'securepoll-not-in-group' => 'Vain jäsenet jotka kuuluvat ryhmään $1, voivat äänestää näissä vaaleissa.',
-	'securepoll-not-in-list' => 'Et ole etukäteen valitussa listassa käyttäjiä, jotka ovat oikeutettuja äänestämään näissä vaaleissa.',
+	'securepoll-not-in-list' => 'Et ole etukäteen valitussa listassa käyttäjiä, jotka ovat oikeutettuja äänestämään tässä vaalissa.',
 	'securepoll-list-title' => 'Luettelo äänistä: $1',
 	'securepoll-header-timestamp' => 'Aika',
 	'securepoll-header-voter-name' => 'Nimi',
 	'securepoll-header-voter-domain' => 'Verkkotunnus',
 	'securepoll-header-ua' => 'Selaintunniste',
-	'securepoll-header-cookie-dup' => 'Kopio toisesta',
+	'securepoll-header-cookie-dup' => 'Kaksoiskappale',
 	'securepoll-header-strike' => 'Poisto',
 	'securepoll-header-details' => 'Tiedot',
 	'securepoll-strike-button' => 'Poisto',
@@ -1711,14 +1711,15 @@ Salausta ei voi purkaa.',
 	'securepoll-subpage-tally' => 'Laskenta',
 	'securepoll-tally-title' => 'Laskenta: $1',
 	'securepoll-tally-not-finished' => 'Valitettavasti et voi suorittaa laskentaa vaalille ennen kuin äänestys on päättynyt.',
-	'securepoll-can-decrypt' => 'Äänestys tiedot on suojattu salauksella, mutta salauksen purku avain on tarjottu. Voit valita joko suorittaa laskennan tuloksista jotka ovat tietokannassa valmiina, tai suorittaa laskennan salauksin suojatuista tuloksista jotka ovat ladattavassa tiedostossa.',
+	'securepoll-can-decrypt' => 'Äänestystiedot on salakirjoitettu, mutta salauksenpurkuavain on saatavilla.
+Voit valita tuloslaskennan tietokantatiedoista, tai salakirjoitetuista tuloksista, jotka ovat peräisin lähetettävästä tiedostosta.',
 	'securepoll-tally-no-key' => 'Et voi suorittaa laskentaa näille vaaleille, koska äänet on suojattu salauksella, eikä salauksen avainkoodia ole tarjottu.',
 	'securepoll-tally-local-legend' => 'Laske tallenetuista tuloksista',
 	'securepoll-tally-local-submit' => 'Tuota laskenta',
-	'securepoll-tally-upload-legend' => 'Lataa sisään salauksella suojattu vedos',
+	'securepoll-tally-upload-legend' => 'Tallenna salakirjoitettu vedos',
 	'securepoll-tally-upload-submit' => 'Luo laskenta',
-	'securepoll-tally-error' => 'Virhe tapahtui äänestystiedoston tulkinnassa, ei voitu tuottaa laskentaa.',
-	'securepoll-no-upload' => 'Mitään tiedostoa ei ole ladattuna, ei voitu suorittaa laskentaa tuloksista.',
+	'securepoll-tally-error' => 'Virhe äänestystiedoston tulkinnassa, joten ei voitu tuottaa laskentaa.',
+	'securepoll-no-upload' => 'Tiedostoa ei lähetettynä, joten laskenta ei onnistunut.',
 );
 
 /** French (Français)
@@ -3638,7 +3639,7 @@ De resultaten kunnen niet geteld worden.',
 $messages['nn'] = array(
 	'securepoll-desc' => 'Ei utviding for val og undersøkingar',
 	'securepoll-invalid-page' => 'Ugyldig underside «<nowiki>$1</nowiki>»',
-	'securepoll-need-admin' => 'Du må vera ein administrator, for å utføra denne handlinga.',
+	'securepoll-need-admin' => 'Du må vera ein administrator for å kunna utføra denne handlinga.',
 	'securepoll-too-few-params' => 'Ikkje nok undersideparametrar (ugyldig lenkje)',
 	'securepoll-invalid-election' => '«$1» er ikkje ein gyldig val-ID.',
 	'securepoll-welcome' => '<strong>Velkomen, $1!</strong>',
@@ -3676,7 +3677,7 @@ Feil:
 	'securepoll-no-decryption-key' => 'Ingen dekrypteringsnøkkel er sett opp.
 Kan ikkje dekryptera.',
 	'securepoll-unanswered-questions' => 'Du må svara på alle spørsmåla.',
-	'securepoll-remote-auth-error' => 'Feil oppstod ved henting av di kontoinformasjon frå filtenaren.',
+	'securepoll-remote-auth-error' => 'Feil oppstod ved henting av kontoinformasjonen din frå filtenaren.',
 	'securepoll-api-no-user' => 'Ingen brukar var funnen med oppgjeven ID.',
 	'securepoll-not-logged-in' => 'Du må vera innlogga for å kunna røysta i dette valet',
 	'securepoll-blocked' => 'Du kan diverre ikkje røysta i dette valet om du for tida er blokkert frå å gjera endringar',
