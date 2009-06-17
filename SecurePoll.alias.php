@@ -31,6 +31,11 @@ $aliases['dsb'] = array(
 	'SecurePoll' => array( 'Wěste wótgłosowanje' ),
 );
 
+/** French (Français) */
+$aliases['fr'] = array(
+	'SecurePoll' => array( 'Vote sécurisé' ),
+);
+
 /** Hebrew (עברית)
  * @author Rotem Liss
  */

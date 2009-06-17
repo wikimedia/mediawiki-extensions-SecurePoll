@@ -4055,6 +4055,14 @@ Bo por skohe pa sea konta e resultadonan di e votona ya risibí òf konta e resu
 	'securepoll-no-upload' => 'Ningun dokumento no a wòrdu di load, no por kalkulá resultadonan.',
 );
 
+/** Deitsch (Deitsch)
+ * @author Xqt
+ */
+$messages['pdc'] = array(
+	'securepoll-header-timestamp' => 'Zeit',
+	'securepoll-header-voter-name' => 'Naame',
+);
+
 /** Polish (Polski)
  * @author Sp5uhe
  */
