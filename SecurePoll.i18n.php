@@ -3637,6 +3637,7 @@ De resultaten kunnen niet geteld worden.',
  * @author Harald Khan
  */
 $messages['nn'] = array(
+	'securepoll' => 'TrygtVal',
 	'securepoll-desc' => 'Ei utviding for val og undersøkingar',
 	'securepoll-invalid-page' => 'Ugyldig underside «<nowiki>$1</nowiki>»',
 	'securepoll-need-admin' => 'Du må vera ein administrator for å kunna utføra denne handlinga.',
@@ -3676,25 +3677,45 @@ Feil:
 	'securepoll-gpg-parse-error' => 'Feil ved tolking av utdata frå GPG.',
 	'securepoll-no-decryption-key' => 'Ingen dekrypteringsnøkkel er sett opp.
 Kan ikkje dekryptera.',
+	'securepoll-jump' => 'Gå til stemmetenaren',
+	'securepoll-bad-ballot-submission' => '<div class="securepoll-error-box">
+Di stemme var ugyldig: $1
+</div>',
 	'securepoll-unanswered-questions' => 'Du må svara på alle spørsmåla.',
 	'securepoll-remote-auth-error' => 'Feil oppstod ved henting av kontoinformasjonen din frå filtenaren.',
+	'securepoll-remote-parse-error' => 'Feil oppsto i samband med tolking av autorisasjonssvar frå tenaren',
+	'securepoll-api-invalid-params' => 'Ugyldige parametrar.',
 	'securepoll-api-no-user' => 'Ingen brukar var funnen med oppgjeven ID.',
 	'securepoll-not-logged-in' => 'Du må vera innlogga for å kunna røysta i dette valet',
 	'securepoll-blocked' => 'Du kan diverre ikkje røysta i dette valet om du for tida er blokkert frå å gjera endringar',
 	'securepoll-not-in-group' => 'Berre brukarar som er med i gruppa $1 kan røysta i denne avrøystinga.',
 	'securepoll-not-in-list' => 'Du er diverre ikkje på lista over brukarar som har løyve til å røysta i denne avrøystinga.',
+	'securepoll-list-title' => 'Vis stemmer: $1',
 	'securepoll-header-timestamp' => 'Tid',
 	'securepoll-header-voter-name' => 'Namn',
 	'securepoll-header-voter-domain' => 'Domene',
 	'securepoll-header-ua' => 'Brukaragent',
+	'securepoll-header-cookie-dup' => 'Dublett',
+	'securepoll-header-strike' => 'Stryk',
 	'securepoll-header-details' => 'Opplysingar',
+	'securepoll-strike-button' => 'Fjern',
+	'securepoll-unstrike-button' => 'Opphev strykinga',
 	'securepoll-strike-reason' => 'Grunngjeving:',
+	'securepoll-strike-cancel' => 'Avbryt',
+	'securepoll-strike-error' => 'Feil ved fjerning eller ved oppheving av fjerning: $1',
 	'securepoll-details-link' => 'Detaljar',
+	'securepoll-details-title' => 'Stemmedetaljar: #$1',
 	'securepoll-invalid-vote' => '«$1» er ikkje ein gyldig røyst-ID',
+	'securepoll-header-voter-type' => 'Stemmegjevartype',
+	'securepoll-voter-properties' => 'Eigenskapar for røystaren',
+	'securepoll-strike-log' => 'Strykingslogg',
 	'securepoll-header-action' => 'Handling',
 	'securepoll-header-reason' => 'Grunn',
 	'securepoll-header-admin' => 'Administrator',
+	'securepoll-cookie-dup-list' => 'Cookie duplikatbrukar',
+	'securepoll-dump-title' => 'Dump: $1',
 	'securepoll-dump-no-crypt' => 'Inga kryptert valregistrering er tilgjengeleg for dette valet, på grunn av at valet ikkje er sett opp til å nytta kryptering.',
+	'securepoll-dump-not-finished' => 'Krypterte valregister er berre tilgjengelege etter avsluttinga den $1 klokka $2',
 	'securepoll-translate-title' => 'Set om: $1',
 	'securepoll-invalid-language' => 'Ugyldig språkode "$1"',
 	'securepoll-submit-translate' => 'Oppdater',
@@ -3706,6 +3727,15 @@ Kan ikkje dekryptera.',
 	'securepoll-subpage-vote' => 'Stem',
 	'securepoll-subpage-translate' => 'Set om',
 	'securepoll-subpage-list' => 'Utslisting',
+	'securepoll-subpage-dump' => 'Dump',
+	'securepoll-subpage-tally' => 'Oppteljing',
+	'securepoll-tally-title' => 'Oppteljing: $1',
+	'securepoll-tally-not-finished' => 'Diverre, du kan ikkje telja opp valresultatet før valet er fullført.',
+	'securepoll-can-decrypt' => 'Valregisteret har vorte kryptert, men dekrypteringsnøkkelen er tilgjengeleg.
+Du kan velja å anten telja opp resultata tilgjengelege i databasen, eller å telja opp dei krypterte resultata frå ei opplasta fil.',
+	'securepoll-tally-no-key' => 'Du kan ikkje telja opp dette valet fordi stemmene er krypterte og dekrypteringsnøkkelen er utilgjengeleg.',
+	'securepoll-tally-upload-submit' => 'Opprett ei oppteljing',
+	'securepoll-no-upload' => 'Ingen fil vart lasta opp, kan ikkje summera resultata.',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
@@ -4059,8 +4089,12 @@ Bo por skohe pa sea konta e resultadonan di e votona ya risibí òf konta e resu
  * @author Xqt
  */
 $messages['pdc'] = array(
+	'securepoll-return' => 'Zerick zu $1',
 	'securepoll-header-timestamp' => 'Zeit',
 	'securepoll-header-voter-name' => 'Naame',
+	'securepoll-strike-reason' => 'Grund:',
+	'securepoll-header-reason' => 'Grund',
+	'securepoll-header-title' => 'Naame',
 );
 
 /** Polish (Polski)
