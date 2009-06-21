@@ -4970,6 +4970,7 @@ $messages['te'] = array(
 	'securepoll-header-title' => 'పేరు',
 	'securepoll-header-start-date' => 'ఆరంభ తేదీ',
 	'securepoll-header-end-date' => 'ముగింపు తేదీ',
+	'securepoll-subpage-list' => 'జాబితా',
 );
 
 /** Thai (ไทย)
