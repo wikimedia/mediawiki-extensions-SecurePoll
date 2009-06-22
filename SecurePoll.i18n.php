@@ -187,6 +187,7 @@ $messages['qqq'] = array(
 	'securepoll-invalid-vote' => 'The vote ID identifies a specific voting process.',
 	'securepoll-header-id' => '{{optional}}',
 	'securepoll-header-url' => '{{optional}}',
+	'securepoll-header-action' => '{{Identical|Action}}',
 	'securepoll-header-reason' => '{{Identical|Reason}}',
 	'securepoll-cookie-dup-list' => 'Header of a list on [[Special:SecurePoll/details/1]]. The list shows duplicate voters detected by having a cookie from the first voting.',
 	'securepoll-dump-not-finished' => '* $1 is the date
