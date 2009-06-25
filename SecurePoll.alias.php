@@ -68,6 +68,11 @@ $aliases['ksh'] = array(
 	'SecurePoll' => array( 'Affshtemme' ),
 );
 
+/** Luxembourgish (Lëtzebuergesch) */
+$aliases['lb'] = array(
+	'SecurePoll' => array( 'Sécher Ofstëmmung' ),
+);
+
 /** Nedersaksisch (Nedersaksisch) */
 $aliases['nds-nl'] = array(
 	'SecurePoll' => array( 'Beveilig_stemmen' ),
@@ -81,6 +86,11 @@ $aliases['nl'] = array(
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬) */
 $aliases['no'] = array(
 	'SecurePoll' => array( 'Sikker avstemning' ),
+);
+
+/** Occitan (Occitan) */
+$aliases['oc'] = array(
+	'SecurePoll' => array( 'Vòte securizat' ),
 );
 
 /** Polish (Polski) */

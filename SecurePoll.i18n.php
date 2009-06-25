@@ -5142,7 +5142,7 @@ Eğer dilerseniz, aşağıdaki makbuzu oyunuzun delili olarak muhafaza edebilirs
 
 <pre>$1</pre>',
 	'securepoll-thanks' => 'Teşekkürler, oyunuz kaydedildi.',
-	'securepoll-return' => "$1'e geri dön",
+	'securepoll-return' => '$1 sayfasına geri dön',
 	'securepoll-encrypt-error' => 'Oy kaydınızın şifrelenmesi başarısız oldu.
 Oyunuz kaydedilmedi!
 
