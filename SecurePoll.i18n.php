@@ -2193,6 +2193,45 @@ $1',
 	'securepoll-no-upload' => 'לא הועלה קובץ, לא ניתן לחשב את התוצאות.',
 );
 
+/** Croatian (Hrvatski)
+ * @author Suradnik13
+ */
+$messages['hr'] = array(
+	'securepoll-header-timestamp' => 'Vrijeme',
+	'securepoll-header-voter-name' => 'Ime',
+	'securepoll-header-voter-domain' => 'Domena',
+	'securepoll-header-ua' => 'Suradnički posrednik',
+	'securepoll-header-cookie-dup' => 'Dupl',
+	'securepoll-header-strike' => 'Prekriži',
+	'securepoll-header-details' => 'Detalji',
+	'securepoll-strike-button' => 'Prekriži',
+	'securepoll-unstrike-button' => 'Ukloni prekriženo',
+	'securepoll-strike-reason' => 'Razlog:',
+	'securepoll-strike-cancel' => 'Odustani',
+	'securepoll-strike-error' => 'Pogreška tijekom izvođenja prekriži/ukloni prekriženo: $1',
+	'securepoll-details-link' => 'Detalji',
+	'securepoll-details-title' => 'Detalji glasovanja: #$1',
+	'securepoll-invalid-vote' => '"$1" nije valjan glasački ID',
+	'securepoll-header-voter-type' => 'Vrsta glasača',
+	'securepoll-voter-properties' => 'Svojstva glasača',
+	'securepoll-strike-log' => 'Evidencija križanja',
+	'securepoll-header-action' => 'Radnja',
+	'securepoll-header-reason' => 'Razlog',
+	'securepoll-header-admin' => 'Admin',
+	'securepoll-cookie-dup-list' => 'Suradnici s dvostrukim kolačićima',
+	'securepoll-translate-title' => 'Prevedi: $1',
+	'securepoll-invalid-language' => 'Neispravan jezični kôd "$1"',
+	'securepoll-submit-translate' => 'Ažuriraj',
+	'securepoll-language-label' => 'Odaberite jezik:',
+	'securepoll-submit-select-lang' => 'Prevedi',
+	'securepoll-header-title' => 'Ime',
+	'securepoll-header-start-date' => 'Početni datum',
+	'securepoll-header-end-date' => 'Krajnji datum',
+	'securepoll-subpage-vote' => 'Glasaj',
+	'securepoll-subpage-translate' => 'Prevedi',
+	'securepoll-subpage-list' => 'Popis',
+);
+
 /** Upper Sorbian (Hornjoserbsce)
  * @author Michawiki
  */
@@ -2515,6 +2554,7 @@ Tu pote optar pro contar le resultatos presente in le base de datos, o pro conta
 );
 
 /** Indonesian (Bahasa Indonesia)
+ * @author Bennylin
  * @author Rex
  */
 $messages['id'] = array(
@@ -2583,9 +2623,9 @@ Suara Anda tidak valid: $1
 	'securepoll-header-strike' => 'Coret',
 	'securepoll-header-details' => 'Rincian',
 	'securepoll-strike-button' => 'Coret',
-	'securepoll-unstrike-button' => 'Batal coret',
+	'securepoll-unstrike-button' => 'Hapus coretan',
 	'securepoll-strike-reason' => 'Alasan:',
-	'securepoll-strike-cancel' => 'Batal',
+	'securepoll-strike-cancel' => 'Batalkan',
 	'securepoll-strike-error' => 'Gagal mencoret/membatalkan pencoretan: $1',
 	'securepoll-details-link' => 'Rincian',
 	'securepoll-details-title' => 'Rincian suara: #$1',
