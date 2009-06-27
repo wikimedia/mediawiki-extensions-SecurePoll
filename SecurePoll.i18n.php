@@ -3728,6 +3728,7 @@ Di stemme var ugyldig: $1
 	'securepoll-api-invalid-params' => 'Ugyldige parametrar.',
 	'securepoll-api-no-user' => 'Ingen brukar var funnen med oppgjeven ID.',
 	'securepoll-not-logged-in' => 'Du må vera innlogga for å kunna røysta i dette valet',
+	'securepoll-too-few-edits' => 'Orsak, du kan ikkje røysta. Du lyt ha gjort minst {{PLURAL:$1|éi endring|$1 endringar}} for å kunna røysta ved dette valet. Du har gjort {{PLURAL:$2|éi|$2}}.',
 	'securepoll-blocked' => 'Du kan diverre ikkje røysta i dette valet om du for tida er blokkert frå å gjera endringar',
 	'securepoll-not-in-group' => 'Berre brukarar som er med i gruppa $1 kan røysta i denne avrøystinga.',
 	'securepoll-not-in-list' => 'Du er diverre ikkje på lista over brukarar som har løyve til å røysta i denne avrøystinga.',
