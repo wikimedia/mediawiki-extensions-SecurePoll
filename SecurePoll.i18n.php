@@ -1457,7 +1457,7 @@ $messages['es'] = array(
 	'securepoll-need-admin' => 'Necesitas ser un administrador para realizar esta acción.',
 	'securepoll-too-few-params' => 'Parámetros de subpágina insuficientes (vínculo inválido).',
 	'securepoll-invalid-election' => '"$1" no es un identificador de elección valido.',
-	'securepoll-welcome' => '<strong>Bienvenido $1!</strong>',
+	'securepoll-welcome' => '<strong>¡Bienvenido $1!</strong>',
 	'securepoll-not-started' => 'Esta elección aún no ha comenzado.
 Está programada de comenzar en $2 de $3.',
 	'securepoll-finished' => 'Esta elección ha concluido, no puedes votar más.',
@@ -1479,6 +1479,7 @@ Si deseas, puedes retener el siguiente comprobante como evidencia de tu voto:
 ¡Tu voto no ha sido registrado!
 
 $1',
+	'securepoll-no-gpg-home' => 'Imposible crear un directorio hogar GPG.',
 	'securepoll-secret-gpg-error' => 'Error ejecutando GPG.
 Usar $wgSecurePollShowErrorDetail=true; en LocalSettings.php para mostrar más detalle.',
 	'securepoll-full-gpg-error' => 'Error ejecutando GPG:
@@ -1489,14 +1490,20 @@ Error:
 <pre>$2</pre>',
 	'securepoll-gpg-config-error' => 'Teclas GPG están configuradas incorrectamente.',
 	'securepoll-gpg-parse-error' => 'Error interpretando salida GPG.',
+	'securepoll-no-decryption-key' => 'No se ha especificado ninguna clave de desencriptación.
+No se puede desencriptar.',
 	'securepoll-jump' => 'Ir al servidor de votación',
 	'securepoll-bad-ballot-submission' => 'Tu voto fue inválido: $1',
 	'securepoll-unanswered-questions' => 'Debes responder todas las preguntas.',
+	'securepoll-remote-auth-error' => 'Se ha producido un error al obtener su información de cuenta del servidor.',
+	'securepoll-remote-parse-error' => 'Se ha producido un error al interpretar la respuesta de autorización del servidor.',
 	'securepoll-api-invalid-params' => 'Parámetros inválidos.',
 	'securepoll-api-no-user' => 'Ningún usuario fue encontrado con el ID dado.',
+	'securepoll-api-token-mismatch' => 'Clave de seguridad no coincidente, no se puede iniciar sesión.',
 	'securepoll-not-logged-in' => 'Debes iniciar sesión para votar en esta elección',
 	'securepoll-too-few-edits' => 'Perdón, no puedes votar. Necesitas haber hecho al menos $1 {{PLURAL:$1|edición|ediciones}} para votar en esta elección, has hecho $2.',
 	'securepoll-blocked' => 'Perdón, no puedes votar en esta elección si estás actualmente bloqueado para ediciones.',
+	'securepoll-bot' => 'Lo sentimos, las cuentas con flag de bot no están autorizadas a votar en esta elección.',
 	'securepoll-not-in-group' => 'Solamente mimbros del grupo $1 pueden votar en esta elección.',
 	'securepoll-not-in-list' => 'Perdón, no estás en el lista predetermindad de usuarios autorizados a votar en esta elección.',
 	'securepoll-list-title' => 'Lista votos: $1',
@@ -1508,15 +1515,20 @@ Error:
 	'securepoll-header-strike' => 'Tachar',
 	'securepoll-header-details' => 'Detalles',
 	'securepoll-strike-button' => 'Trachar',
+	'securepoll-unstrike-button' => 'Validar',
 	'securepoll-strike-reason' => 'Razón:',
 	'securepoll-strike-cancel' => 'Cancelar',
+	'securepoll-strike-error' => 'Se ha producido un error al invalidar/validar: $1',
 	'securepoll-details-link' => 'Detalles',
 	'securepoll-details-title' => 'Detalles de voto: #$1',
+	'securepoll-invalid-vote' => '"$1" no es una identidad de voto válida',
 	'securepoll-header-voter-type' => 'Tipo de votante',
 	'securepoll-voter-properties' => 'Propiedades de votante',
+	'securepoll-strike-log' => 'Registro de votos invalidados',
 	'securepoll-header-action' => 'Acción',
 	'securepoll-header-reason' => 'Razón',
 	'securepoll-header-admin' => 'Administrador',
+	'securepoll-cookie-dup-list' => 'Usuarios con cookies duplicadas',
 	'securepoll-dump-title' => 'Volcado: $1',
 	'securepoll-dump-no-crypt' => 'No se dispone de un registro encriptado para esta votación dado que esta votación no ha sido configurada para usar encriptación.',
 	'securepoll-dump-not-finished' => 'Los registros encriptados de la votación están únicamente disponibles después de la fecha de finalización en $1 de $2',
@@ -1532,6 +1544,18 @@ Error:
 	'securepoll-subpage-translate' => 'Traducir',
 	'securepoll-subpage-list' => 'Lista',
 	'securepoll-subpage-dump' => 'Volcar',
+	'securepoll-subpage-tally' => 'Contador',
+	'securepoll-tally-title' => 'Contador: $1',
+	'securepoll-tally-not-finished' => 'Lo sentimos, no puede actualizar los contadores de la elección hasta que la votación no haya finalizado.',
+	'securepoll-can-decrypt' => 'El registro de elección ha sido encriptado pero la clave de desencriptación está disponible.
+Puede escoger entre escrutar los resultados de la base de datos, o escrutar los resultados encriptados desde un fichero subido.',
+	'securepoll-tally-no-key' => 'No puede actualizar el contador de la elección, debido a que los votos están encriptados y la clave de desencriptación no está disponible.',
+	'securepoll-tally-local-legend' => 'Cuenta de resultados actualizada',
+	'securepoll-tally-local-submit' => 'Crear cuenta',
+	'securepoll-tally-upload-legend' => 'Subir dump encriptado',
+	'securepoll-tally-upload-submit' => 'Crear cuenta',
+	'securepoll-tally-error' => 'Se ha producido un error interpretando el registro de votos, no se puede crear un contador.',
+	'securepoll-no-upload' => 'No se ha subido ningún fichero, no se pueden contar los resultados.',
 );
 
 /** Estonian (Eesti)
