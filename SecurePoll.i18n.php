@@ -5672,7 +5672,7 @@ $1',
 	'securepoll-no-upload' => '無檔案上載，整唔到記數結果。',
 );
 
-/** Zhuang (Sawcuengh)
+/** Zhuang (Vahcuengh)
  * @author Biŋhai
  */
 $messages['za'] = array(
