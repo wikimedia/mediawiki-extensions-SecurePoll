@@ -1988,6 +1988,17 @@ Pode optar por escrutar os resultados presentes na base de datos ou por escrutar
 	'securepoll-no-upload' => 'Non foi cargado ningún ficheiro, non se poden escrutar os resultados.',
 );
 
+/** Ancient Greek (Ἀρχαία ἑλληνικὴ)
+ * @author Omnipaedista
+ */
+$messages['grc'] = array(
+	'securepoll-header-timestamp' => 'Χρόνος',
+	'securepoll-header-voter-name' => 'Ὄνομα',
+	'securepoll-header-voter-domain' => 'Περιοχή',
+	'securepoll-header-reason' => 'Αἰτία',
+	'securepoll-header-title' => 'Ὄνομα',
+);
+
 /** Swiss German (Alemannisch)
  * @author Als-Holder
  */
@@ -4513,12 +4524,13 @@ Você pode escolher entre realizar a contagem de votos dos resultados presentes 
 );
 
 /** Romanian (Română)
+ * @author Firilacroco
  * @author Mihai
  */
 $messages['ro'] = array(
 	'securepoll-submit' => 'Trimite votul',
 	'securepoll-unanswered-questions' => 'Trebuie să răspunzi la toate întrebările.',
-	'securepoll-api-invalid-params' => 'Parametri invalizi.',
+	'securepoll-api-invalid-params' => 'Parametri incorecţi.',
 	'securepoll-api-no-user' => 'Niciun  utilizator cu acest ID nu a fost găsit.',
 	'securepoll-list-title' => 'Listă voturi: $1',
 	'securepoll-header-voter-name' => 'Nume',
