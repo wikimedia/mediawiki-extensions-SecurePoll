@@ -4357,7 +4357,7 @@ O seu voto foi inválido: $1
 	'securepoll-header-voter-name' => 'Nome',
 	'securepoll-header-voter-domain' => 'Domínio',
 	'securepoll-header-ua' => 'Agente de utilizador',
-	'securepoll-header-cookie-dup' => 'Dup',
+	'securepoll-header-cookie-dup' => 'Duplicado',
 	'securepoll-header-strike' => 'Riscar',
 	'securepoll-header-details' => 'Detalhes',
 	'securepoll-strike-button' => 'Riscar',
