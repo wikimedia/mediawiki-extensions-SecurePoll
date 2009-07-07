@@ -3225,6 +3225,8 @@ $1',
 	'securepoll-dump-title' => 'Dump: $1',
 	'securepoll-dump-no-crypt' => "Fir dës Wale gëtt et keng verschlësselt Donnéeë vun der Ofstëmmung, well d'Walen net esou agestallt sinn fir d'Verschlësselung ze benotzen.",
 	'securepoll-dump-not-finished' => 'Verschlësselt Donnéeë vun de Wale sinn eréischt nom Enn vun de Walen den $1 ëm $2 disponibel',
+	'securepoll-dump-no-urandom' => "/dev/urandom kann net opgemaach ginn.
+Fir d'Konfidentialitéit vun de Wieler z'assuréieren, si verschlësselt Opzeechnunge vun de Walen nëmmen disponibel wa se mat engem sécheren Zoufallszuelestroum kënne gemescht ginn.",
 	'securepoll-translate-title' => 'Iwwersetzen: $1',
 	'securepoll-invalid-language' => 'Net valabele Sproochecode "$1"',
 	'securepoll-submit-translate' => 'Aktualiséieren',
@@ -4287,6 +4289,15 @@ Można podliczyć wyniki obecne w bazie danych lub podliczyć wyniki z przesłan
 	'securepoll-tally-upload-submit' => 'Utwórz rejestr',
 	'securepoll-tally-error' => 'Błąd interpretacji rekordu głosu, nie można wykonać podliczenia.',
 	'securepoll-no-upload' => 'Żaden plik nie został przesłany, nie można podliczyć głosów.',
+);
+
+/** Piedmontese (Piemontèis)
+ * @author Dragonòt
+ */
+$messages['pms'] = array(
+	'securepoll-desc' => 'Estension për elession e arserche',
+	'securepoll-invalid-page' => 'Sotpàgina nen vàlida "<nowiki>$1</nowiki>"',
+	'securepoll-need-admin' => "It deuve esse aministrador për fé st'assion-sì",
 );
 
 /** Portuguese (Português)
