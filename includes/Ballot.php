@@ -14,11 +14,11 @@ abstract class SecurePoll_Ballot {
 	abstract function getTallyTypes();
 
 	/**
-	 * Get the HTML for this ballot. <form> tags should not be included,
-	 * they will be added by the VotePage.
+	 * Get the HTML form segment for a single question
+	 * @param $question SecurePoll_Question
 	 * @return string
 	 */
-	abstract function getForm();
+	abstract function getQuestionForm( $question );
 
 	/**
 	 * Called when the form is submitted. This returns a Status object which, 
@@ -58,6 +58,28 @@ abstract class SecurePoll_Ballot {
 	function __construct( $election ) {
 		$this->election = $election;
 	}
+
+	/**
+	 * Get the HTML for this ballot. <form> tags should not be included,
+	 * they will be added by the VotePage.
+	 * @return string
+	 */
+	function getForm() {
+		global $wgParser, $wgTitle;
+		$questions = $this->election->getQuestions();
+		if ( $this->election->getProperty( 'shuffle-questions' ) ) {
+			shuffle( $questions );
+		}
+
+		$s = '';
+		foreach ( $questions as $question ) {
+			$s .= "<hr/>\n" .
+				$question->parseMessage( 'text' ) .
+				$this->getQuestionForm( $question ) .
+				"\n";
+		}
+		return $s;
+	}
 }
 
 /**
@@ -79,37 +101,25 @@ class SecurePoll_ChooseBallot extends SecurePoll_Ballot {
 	}
 
 	/**
-	 * Get the HTML for this ballot. 
+	 * Get the HTML form segment for a single question
+	 * @param $question SecurePoll_Question
 	 * @return string
 	 */
-	function getForm() {
-		global $wgParser, $wgTitle;
-		$questions = $this->election->getQuestions();
-		if ( $this->election->getProperty( 'shuffle-questions' ) ) {
-			shuffle( $questions );
+	function getQuestionForm( $question ) {
+		$options = $question->getChildren();
+		if ( $this->election->getProperty( 'shuffle-options' ) ) {
+			shuffle( $options );
 		}
-
+		$name = 'securepoll_q' . $question->getId();
 		$s = '';
-		$parserOpts = new ParserOptions;
-
-		foreach ( $questions as $question ) {
-			$s .= "<hr/>\n";
-			$s .= $wgParser->parse( $question->getMessage( 'text' ), $wgTitle, $parserOpts )->getText();
-			$options = $question->getChildren();
-			if ( $this->election->getProperty( 'shuffle-options' ) ) {
-				shuffle( $options );
-			}
-			$name = 'securepoll_q' . $question->getId();
-			foreach ( $options as $option ) {
-				$optionText = $option->getMessage( 'text' );
-				$optionHTML = $wgParser->parse( $optionText, $wgTitle, $parserOpts, false )->getText();
-				$optionId = $option->getId();
-				$radioId = "{$name}_opt{$optionId}";
-				$s .= Xml::radio( $name, $optionId, false, array( 'id' => $radioId ) ) .
-					'&nbsp;' .
-					Xml::tags( 'label', array( 'for' => $radioId ), $optionText ) .
-					"<br/>\n";
-			}
+		foreach ( $options as $option ) {
+			$optionHTML = $option->parseMessageInline( 'text' );
+			$optionId = $option->getId();
+			$radioId = "{$name}_opt{$optionId}";
+			$s .= Xml::radio( $name, $optionId, false, array( 'id' => $radioId ) ) .
+				'&nbsp;' .
+				Xml::tags( 'label', array( 'for' => $radioId ), $optionHTML ) .
+				"<br/>\n";
 		}
 		return $s;
 	}
@@ -154,61 +164,99 @@ class SecurePoll_ChooseBallot extends SecurePoll_Ballot {
 }
 
 /**
- * TODO: this is code copied directly from BoardVote, it needs to be ported.
+ * Ballot for preferential voting
+ * Properties:
+ *     shuffle-questions
+ *     shuffle-options
+ *     must-rank-all
  */
 class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 	function getTallyTypes() {
-		return array( 'plurality', 'condorcet' );
+		return array( 'schulze' );
 	}
 
-	function getRecord() {
-		global $wgBoardCandidates;
-
-		$record = "I prefer: ";
-	  	$num_candidates = count( $wgBoardCandidates );
-		$cnt = 0;
-		foreach ( $this->mVotedFor as $i => $rank ) {
-			$cnt++;
-
-			$record .= $wgBoardCandidates[ $i ] . "[";
-			$record .= ( $rank == '' ) ? 100 : $rank;
-			$record .= "]";
-			$record .= ( $cnt != $num_candidates ) ? ", " : "";
+	function getQuestionForm( $question ) {
+		global $wgRequest;
+		$options = $question->getChildren();
+		if ( $this->election->getProperty( 'shuffle-options' ) ) {
+			shuffle( $options );
 		}
-		$record .= "\n";
-
-		// Pad it out with spaces to a constant length, so that the encrypted record is secure
-		$padLength = array_sum( array_map( 'strlen', $wgBoardCandidates ) ) +     $num_candidates * 8    + 20;
-		//           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^   ^^^^^^^^^^^^^^^^^^^^^^^^^^  ^^^^
-		//               length of the candidate names added together         room for rank & separators   extra
-
-		$record = str_pad( $record, $padLength );
-		return $record;
+		$name = 'securepoll_q' . $question->getId();
+		$s = '';
+		foreach ( $options as $option ) {
+			$optionHTML = $option->parseMessageInline( 'text' );
+			$optionId = $option->getId();
+			$inputId = "{$name}_opt{$optionId}";
+			$oldValue = $wgRequest->getVal( $inputId, '' );
+			$s .= 
+				Xml::input( $inputId, '3', $oldValue, array(
+					'id' => $inputId,
+					'maxlength' => 3,
+				) ) .
+				'&nbsp;' .
+				Xml::tags( 'label', array( 'for' => $inputId ), $optionHTML ) .
+				'&nbsp;' .
+				"<br/>\n";
+		}
+		return $s;
 	}
 
-	function validVote() {
-		foreach ( $this->mVotedFor as $rank ) {
-			if ( $rank != '' ) {
-				if ( !preg_match( '/^[1-9]\d?$/', $rank ) ) {
-					return false;
+	function submitForm() {
+		global $wgRequest;
+		$questions = $this->election->getQuestions();
+		$record = '';
+		$status = Status::newGood();
+
+		foreach ( $questions as $question ) {
+			$options = $question->getOptions();
+			foreach ( $options as $option ) {
+				$id = 'securepoll_q' . $question->getId() . '_opt' . $option->getId();
+				$rank = $wgRequest->getVal( $id );
+
+				if ( is_numeric( $rank ) ) {
+					if ( $rank <= 0 || $rank >= 1000 ) {
+						$status->fatal( 'securepoll-invalid-rank', $id );
+						continue;
+					} else {
+						$rank = intval( $rank );
+					}
+				} elseif ( strval( $rank ) === '' ) {
+					if ( $this->election->getProperty( 'must-rank-all' ) ) {
+						$status->fatal( 'securepoll-unranked-options', $id );
+						continue;
+					} else {
+						$rank = 1000;
+					}
+				} else {
+					$status->fatal( 'securepoll-invalid-rank', $id );
+					continue;
 				}
+				$record .= sprintf( 'Q%08X-A%08X-R%08X--', 
+					$question->getId(), $option->getId(), $rank );
 			}
 		}
-
-		return true;
+		if ( $status->isOK() ) {
+			$status->value = $record . "\n";
+		}
+		return $status;
 	}
 
-	function voteEntry( $index, $candidate ) {
-		return "
-		<tr><td align=\"right\">
-		  <input type=\"text\" maxlength=\"2\" size=\"2\" name=\"candidate[{$index}]\" />
-		</td><td align=\"left\">
-		  $candidate
-		</td></tr>";
+	function unpackRecord( $record ) {
+		$ranks = array();
+		$itemLength = 3*8 + 7;
+		for ( $offset = 0; $offset < strlen( $record ); $offset += $itemLength ) {
+			if ( !preg_match( '/Q([0-9A-F]{8})-A([0-9A-F]{8})-R([0-9A-F]{8})--/A', 
+				$record, $m, 0, $offset ) ) 
+			{
+				wfDebug( __METHOD__.": regex doesn't match\n" );
+				return false;
+			}
+			$qid = intval( base_convert( $m[1], 16, 10 ) );
+			$oid = intval( base_convert( $m[2], 16, 10 ) );
+			$rank = intval( base_convert( $m[3], 16, 10 ) );
+			$ranks[$qid][$oid] = $rank;
+		}
+		return $ranks;
 	}
-
-	function getForm() { }
-	function submitForm() { }
-	function unpackRecord( $record ) {}
 }
 

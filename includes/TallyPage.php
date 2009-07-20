@@ -17,7 +17,7 @@ class SecurePoll_TallyPage extends SecurePoll_Page {
 		}
 		
 		$electionId = intval( $params[0] );
-		$this->election = $this->parent->getElection( $electionId );
+		$this->election = SecurePoll::getElection( $electionId );
 		if ( !$this->election ) {
 			$wgOut->addWikiMsg( 'securepoll-invalid-election', $electionId );
 			return;
@@ -136,19 +136,46 @@ class SecurePoll_TallyPage extends SecurePoll_Page {
 			), __METHOD__
 		);
 		$crypt = $this->election->getCrypt();
-		$tallier = $this->election->getTallier();
+		$ballot = $this->election->getBallot();
+		$questions = $this->election->getQuestions();
+		$talliers = $this->election->getTalliers();
 		foreach ( $res as $row ) {
-			$status = $crypt->decrypt( $row->vote_record );
-			if ( !$status->isOK() ) {
-				$wgOut->addWikiText( $status->getWikiText() );
-				return;
+			$record = $row->vote_record;
+			if ( $crypt ) {
+				$status = $crypt->decrypt( $record );
+				if ( !$status->isOK() ) {
+					$wgOut->addWikiText( $status->getWikiText() );
+					return;
+				}
+				$record = $status->value;
 			}
-			if ( !$tallier->addRecord( $status->value ) ) {
-				$wgOut->addWikiMsg( 'securepoll-tally-error' );
-				return;
+			$record = rtrim( $record );
+			$scores = $ballot->unpackRecord( $record );
+			foreach ( $questions as $question ) {
+				$qid = $question->getId();
+				if ( !isset( $scores[$qid] ) ) {
+					$wgOut->addWikiMsg( 'securepoll-tally-error' );
+					return;
+				}
+				if ( !$talliers[$qid]->addVote( $scores[$qid] ) ) {
+					$wgOut->addWikiMsg( 'securepoll-tally-error' );
+					return;
+				}
 			}
 		}
-		$wgOut->addHTML( $tallier->getResult() );
+		$first = true;
+		foreach ( $questions as $question ) {
+			if ( $first ) {
+				$first = false;
+			} else {
+				$wgOut->addHTML( "<hr/>\n" );
+			}
+			$tallier = $talliers[$question->getId()];
+			$tallier->finishTally();
+			$wgOut->addHTML(
+				$question->parseMessage( 'text' ) .
+				$tallier->getHtmlResult() );
+		}
 	}
 
 	/**
@@ -182,7 +209,8 @@ class SecurePoll_TallyPage extends SecurePoll_Page {
 				return;
 			}
 		}
-		$wgOut->addHTML( $tallier->getResult() );
+		$tallier->finishTally();
+		$wgOut->addHTML( $tallier->getHtmlResult() );
 	}
 
 	function getTitle() {

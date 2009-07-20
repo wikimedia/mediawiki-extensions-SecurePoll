@@ -20,7 +20,7 @@ class SecurePoll_ListPage extends SecurePoll_Page {
 		}
 		
 		$electionId = intval( $params[0] );
-		$this->election = $this->parent->getElection( $electionId );
+		$this->election = SecurePoll::getElection( $electionId );
 		if ( !$this->election ) {
 			$wgOut->addWikiMsg( 'securepoll-invalid-election', $electionId );
 			return;
@@ -220,7 +220,7 @@ class SecurePoll_ListPager extends TablePager {
 	function formatValue( $name, $value ) {
 		global $wgLang;
 		$critical = Xml::element( 'img', 
-			array( 'src' => $GLOBALS['wgStylePath'] . '/common/images/critical-32.png' ) 
+			array( 'src' => $GLOBALS['wgScriptPath'] . '/extensions/SecurePoll/resources/critical-32.png' ) 
 		);
 
 		switch ( $name ) {

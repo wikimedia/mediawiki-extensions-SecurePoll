@@ -1,11 +1,8 @@
 <?php
 /**
- * Wikimedia Foundation Board of Trustees Election
- *
  * @file
  * @ingroup Extensions
  * @author Tim Starling <tstarling@wikimedia.org>
- * @author Kwan Ting Chan
  * @link http://www.mediawiki.org/wiki/Extension:SecurePoll Documentation
  */
 
@@ -18,7 +15,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'SecurePoll',
-	'author' => array( 'Tim Starling', 'Kwan Ting Chan', 'others' ),
+	'author' => array( 'Tim Starling', 'others' ),
 	'url' => 'http://www.mediawiki.org/wiki/Extension:SecurePoll',
 	'svn-date' => '$LastChangedDate$',
 	'svn-revision' => '$LastChangedRevision$',
@@ -50,14 +47,15 @@ $dir = dirname( __FILE__ );
 $wgExtensionMessagesFiles['SecurePoll'] = "$dir/SecurePoll.i18n.php";
 $wgExtensionAliasesFiles['SecurePoll'] = "$dir/SecurePoll.alias.php";
 
-$wgAutoloadClasses['SecurePollPage'] = "$dir/SecurePoll_body.php";
-$wgSpecialPages['SecurePoll'] = 'SecurePollPage';
+$wgSpecialPages['SecurePoll'] = 'SecurePoll_BasePage';
 
 $wgAutoloadClasses = $wgAutoloadClasses + array(
+	'SecurePoll' => "$dir/includes/Base.php",
 	'SecurePoll_Auth' => "$dir/includes/Auth.php",
 	'SecurePoll_LocalAuth' => "$dir/includes/Auth.php",
 	'SecurePoll_RemoteMWAuth' => "$dir/includes/Auth.php",
 	'SecurePoll_Ballot' => "$dir/includes/Ballot.php",
+	'SecurePoll_BasePage' => "$dir/includes/Base.php",
 	'SecurePoll_ChooseBallot' => "$dir/includes/Ballot.php",
 	'SecurePoll_PreferentialBallot' => "$dir/includes/Ballot.php",
 	'SecurePoll_Crypt' => "$dir/includes/Crypt.php",
@@ -73,6 +71,7 @@ $wgAutoloadClasses = $wgAutoloadClasses + array(
 	'SecurePoll_Option' => "$dir/includes/Option.php",
 	'SecurePoll_Page' => "$dir/includes/Page.php",
 	'SecurePoll_Question' => "$dir/includes/Question.php",
+	'SecurePoll_Random' => "$dir/includes/Random.php",
 	'SecurePoll_Tallier' => "$dir/includes/Tallier.php",
 	'SecurePoll_PluralityTallier' => "$dir/includes/Tallier.php",
 	'SecurePoll_TallyPage' => "$dir/includes/TallyPage.php",

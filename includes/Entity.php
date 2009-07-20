@@ -15,8 +15,9 @@ class SecurePoll_Entity {
 	var $messagesLoaded = array();
 	var $properties;
 
-	static $languages = array();
+	static $languages = array( 'en' );
 	static $messageCache = array();
+	static $parserOptions;
 
 	/**
 	 * Create an entity of the given type. This is typically called from the 
@@ -182,6 +183,31 @@ class SecurePoll_Entity {
 	}
 
 	/**
+	 * Get a message, and interpret it as wikitext, converting it to HTML.
+	 */
+	function parseMessage( $name, $lineStart = true ) {
+		global $wgParser, $wgTitle;
+		if ( !self::$parserOptions ) {
+			self::$parserOptions = new ParserOptions;
+		}
+		if ( $wgTitle ) {
+			$title = $wgTitle;
+		} else {
+			$title = SpecialPage::getTitleFor( 'SecurePoll' );
+		}
+		$wikiText = $this->getMessage( $name );
+		$out = $wgParser->parse( $wikiText, $title, self::$parserOptions, $lineStart );
+		return $out->getText();
+	}
+
+	/**
+	 * Get a message and convert it from wikitext to HTML, without <p> tags.
+	 */
+	function parseMessageInline( $name ) {
+		return $this->parseMessage( $name, false );
+	}
+
+	/**
 	 * Get a property value. If it does not exist, the $default parameter
 	 * is passed back.
 	 * @param $name string
@@ -196,6 +222,42 @@ class SecurePoll_Entity {
 		} else {
 			return $default;
 		}
+	}
+
+	/**
+	 * Get all defined properties as an associative array
+	 */
+	function getAllProperties() {
+		if ( $this->properties === null ) {
+			$this->loadProperties();
+		}
+		return $this->properties;
+	}
+
+	/**
+	 * Get configuration XML. Overridden by most subclasses.
+	 */
+	function getConfXml() {
+		return "<{$this->type}>\n" .
+			$this->getConfXmlEntityStuff() .
+			"</{$this->type}>\n";
+	}
+
+	/**
+	 * Get an XML snippet giving the messages and properties
+	 */
+	function getConfXmlEntityStuff() {
+		$s = Xml::element( 'id', array(), $this->getId() ) . "\n";
+		foreach ( $this->getAllProperties() as $name => $value ) {
+			$s .= Xml::element( 'property', array( 'name' => $name ), $value ) . "\n";
+		}
+		foreach ( $this->getMessageNames() as $name ) {
+			foreach ( self::$languages as $lang ) {
+				$s .= Xml::element( 'message', array( 'name' => $name, 'lang' => $lang ),
+					$this->getRawMessage( $name, $lang ) ) . "\n";
+			}
+		}
+		return $s;
 	}
 
 }

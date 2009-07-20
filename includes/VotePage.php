@@ -19,7 +19,7 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 		}
 
 		$electionId = intval( $params[0] );
-		$this->election = $this->parent->getElection( $electionId );
+		$this->election = SecurePoll::getElection( $electionId );
 		if ( !$this->election ) {
 			$wgOut->addWikiMsg( 'securepoll-invalid-election', $electionId );
 			return;
@@ -236,6 +236,7 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 			throw new MWException( 'Configuration error: no jump-id' );
 		}
 		$url .= "/login/$id";
+		wfRunHooks( 'SecurePoll_JumpUrl', array( $this, &$url ) );
 		$wgOut->addWikiText( $this->election->getMessage( 'jump-text' ) );
 		$wgOut->addHTML(
 			Xml::openElement( 'form', array( 'action' => $url, 'method' => 'post' ) ) .

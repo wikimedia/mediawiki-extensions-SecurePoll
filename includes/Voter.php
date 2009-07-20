@@ -158,7 +158,7 @@ class SecurePoll_Voter {
 				}
 			}
 		} else {
-			setcookie( $cookieName, $this->getId(), time() + 86400*3 );
+			setcookie( $cookieName, $this->getId(), time() + 86400*30 );
 		}
 	}
 

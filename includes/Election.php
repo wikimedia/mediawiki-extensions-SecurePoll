@@ -56,7 +56,10 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	var $title, $ballotType, $tallyType, $primaryLang, $startDate, $endDate, $authType;
 
 	/**
-	 * Constructor.
+	 * Constructor. 
+	 *
+	 * Do not use this constructor directly, instead use SecurePoll::getElection(). 
+	 *
 	 * @param $id integer
 	 */
 	function __construct( $id ) {
@@ -293,16 +296,74 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	}
 
 	/**
-	 * Get the tallier object
+	 * Get the tallier objects
 	 * @return SecurePoll_Tallier
 	 */
-	function getTallier() {
-		$tallier = SecurePoll_Tallier::factory( $this->tallyType, $this );
-		if ( !$tallier ) {
-			throw new MWException( 'Invalid tally type' );
+	function getTalliers() {
+		$talliers = array();
+		foreach ( $this->getQuestions() as $question ) {
+			$tallier = SecurePoll_Tallier::factory( $this->tallyType, $question );
+			if ( !$tallier ) {
+				throw new MWException( 'Invalid tally type' );
+			}
+			$talliers[$question->getId()] = $tallier;
 		}
-		return $tallier;
+		return $talliers;
 	}
 
+	/**
+	 * Call a callback function for each valid vote record, in random order.
+	 */
+	function dumpVotesToCallback( $callback ) {
+		if ( !$this->getCrypt() ) {
+			return Status::newFatal( 'securepoll-dump-no-crypt' );
+		}
+
+		$random = SecurePoll::getRandom();
+		$status = $random->open();
+		if ( !$status->isOK() ) {
+			return $status;
+		}
+		$db = wfGetDB( DB_SLAVE );
+		$res = $db->select(
+			'securepoll_votes',
+			array( '*' ),
+			array(
+				'vote_election' => $this->getId(),
+				'vote_current' => 1,
+				'vote_struck' => 0
+			),
+			__METHOD__
+		);
+		if ( $res->numRows() ) {
+			$order = $random->shuffle( range( 0, $res->numRows() - 1 ) );
+			foreach ( $order as $i ) {
+				$res->seek( $i );
+				call_user_func( $callback, $this, $res->fetchObject() );
+			}
+		}
+		$random->close();
+		return Status::newGood();
+	}
+
+	/**
+	 * Get an XML snippet describing the configuration of this object
+	 */
+	function getConfXml() {
+		$s = "<configuration>\n" .
+			Xml::element( 'title', array(), $this->title ) . "\n" .
+			Xml::element( 'ballot', array(), $this->ballotType ) . "\n" .
+			Xml::element( 'tally', array(), $this->tallyType ) . "\n" .
+			Xml::element( 'lang', array(), $this->primaryLang ) . "\n" .
+			Xml::element( 'startDate', array(), wfTimestamp( TS_ISO_8601, $this->startDate ) ) . "\n" .
+			Xml::element( 'endDate', array(), wfTimestamp( TS_ISO_8601, $this->endDate ) ) . "\n" .
+			Xml::element( 'auth', array(), $this->authType ) . "\n" . 
+			$this->getConfXmlEntityStuff();
+		foreach ( $this->getQuestions() as $question ) {
+			$s .= $question->getConfXml();
+		}
+		$s .= "</configuration>\n";
+		return $s;
+	}
 }
 

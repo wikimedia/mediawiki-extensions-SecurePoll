@@ -1,9 +1,37 @@
 <?php
-if ( !defined( 'MEDIAWIKI' ) ) {
-	die( "Not a valid entry point\n" );
+
+class SecurePoll {
+	static $random;
+
+	static function getElection( $id ) {
+		$db = wfGetDB( DB_MASTER );
+		$row = $db->selectRow( 'securepoll_elections', '*', array( 'el_entity' => $id ), __METHOD__ );
+		if ( $row ) {
+			return SecurePoll_Election::newFromRow( $row );
+		} else {
+			return false;
+		}
+	}
+
+	static function getElectionByTitle( $name ) {
+		$db = wfGetDB( DB_MASTER );
+		$row = $db->selectRow( 'securepoll_elections', '*', array( 'el_title' => $name ), __METHOD__ );
+		if ( $row ) {
+			return SecurePoll_Election::newFromRow( $row );
+		} else {
+			return false;
+		}
+	}
+
+	static function getRandom() {
+		if ( !self::$random ) {
+			self::$random = new SecurePoll_Random;
+		}
+		return self::$random;
+	}
 }
 
-class SecurePollPage extends UnlistedSpecialPage {
+class SecurePoll_BasePage extends UnlistedSpecialPage {
 	static $pages = array(
 		'details' => 'SecurePoll_DetailsPage',
 		'dump' => 'SecurePoll_DumpPage',
@@ -36,10 +64,10 @@ class SecurePollPage extends UnlistedSpecialPage {
 		$this->setHeaders();
 		$wgOut->addLink( array(
 			'rel' => 'stylesheet',
-			'href' => "$wgScriptPath/extensions/SecurePoll/SecurePoll.css",
+			'href' => "$wgScriptPath/extensions/SecurePoll/resources/SecurePoll.css",
 			'type' => 'text/css'
 		) );
-		$wgOut->addScriptFile( "$wgScriptPath/extensions/SecurePoll/SecurePoll.js" );
+		$wgOut->addScriptFile( "$wgScriptPath/extensions/SecurePoll/resources/SecurePoll.js" );
 
 		$this->request = $wgRequest;
 
@@ -65,16 +93,6 @@ class SecurePollPage extends UnlistedSpecialPage {
 		$className = self::$pages[$name];
 		$page = new $className( $this );
 		return $page;
-	}
-
-	function getElection( $id ) {
-		$db = wfGetDB( DB_MASTER );
-		$row = $db->selectRow( 'securepoll_elections', '*', array( 'el_entity' => $id ), __METHOD__ );
-		if ( $row ) {
-			return SecurePoll_Election::newFromRow( $row );
-		} else {
-			return false;
-		}
 	}
 
 	function getEditToken() {
