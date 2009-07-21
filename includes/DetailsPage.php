@@ -91,7 +91,7 @@ class SecurePoll_DetailsPage extends SecurePoll_Page {
 			$wgOut->addHTML( '<h2>' . wfMsgHTML( 'securepoll-cookie-dup-list' ) . '</h2>' );
 			$wgOut->addHTML( '<table class="TablePager">' );
 			foreach ( $res as $row ) {
-				$voter = SecurePoll_Voter::newFromId( $row->voter );
+				$voter = $this->context->getVoter( $row->voter );
 				$wgOut->addHTML(
 					'<tr>' .
 					'<td>' . htmlspecialchars( $wgLang->timeanddate( $row->cm_timestamp ) ) . '</td>' . 

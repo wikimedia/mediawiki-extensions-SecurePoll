@@ -154,7 +154,7 @@ class SecurePoll_Voter {
 			$otherVoterId = intval( $_COOKIE[$cookieName] );
 			if ( $otherVoterId != $this->getId() ) {
 				$otherVoter = self::newFromId( $this->context, $otherVoterId );
-				if ( $otherVoter->getElectionId() == $this->getElectionId() ) {
+				if ( $otherVoter && $otherVoter->getElectionId() == $this->getElectionId() ) {
 					$this->addCookieDup( $otherVoterId );
 				}
 			}

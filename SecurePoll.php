@@ -86,8 +86,12 @@ $wgAutoloadClasses = $wgAutoloadClasses + array(
 );
 
 $wgAjaxExportList[] = 'wfSecurePollStrike';
+$wgHooks['UserLogout'][] = 'wfSecurePollLogout';
 
 function wfSecurePollStrike( $action, $id, $reason ) {
 	return SecurePoll_ListPage::ajaxStrike( $action, $id, $reason );
 }
-
+function wfSecurePollLogout( $user ) {
+	$_SESSION['securepoll_voter'] = null;
+	return true;
+}

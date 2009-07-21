@@ -121,6 +121,32 @@ class SecurePoll_Context {
 	}
 
 	/**
+	 * Get a voter object from a securepoll_voters row
+	 */
+	function newVoterFromRow( $row ) {
+		return SecurePoll_Voter::newFromRow( $this, $row );
+	}
+
+	/**
+	 * Create a voter with the given parameters. Assumes the voter does not exist,
+	 * and inserts it into the database.
+	 *
+	 * The row needs to be locked before this function is called, to avoid 
+	 * duplicate key errors.
+	 */
+	function createVoter( $params ) {
+		return SecurePoll_Voter::createVoter( $this, $params );
+	}
+
+	/**
+	 * Create a voter object from the database
+	 * @return SecurePoll_Voter or false if the ID is not valid
+	 */
+	function getVoter( $id ) {
+		return SecurePoll_Voter::newFromId( $this, $id );
+	}
+
+	/**
 	 * Get a SecurePoll_Random instance. This provides cryptographic random 
 	 * number generation.
 	 */
@@ -229,6 +255,10 @@ class SecurePoll_Context {
 	function newAuth( $type ) {
 		return SecurePoll_Auth::factory( $this, $type );
 	}
+
+	function newVoter( $params ) {
+		return new SecurePoll_Voter( $this, $params );
+	}	
 
 	function newElectionTallier( $election ) {
 		return new SecurePoll_ElectionTallier( $this, $election );

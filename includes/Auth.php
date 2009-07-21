@@ -74,7 +74,7 @@ class SecurePoll_Auth {
 			}
 
 			# Sanity check election ID
-			$voter = SecurePoll_Voter::newFromId( $this->context, $voterId );
+			$voter = $this->context->getVoter( $voterId );
 			if ( !$voter || $voter->getElectionId() != $election->getId() ) {
 				return false;
 			} else {
@@ -113,10 +113,10 @@ class SecurePoll_Auth {
 		if ( $row ) {
 			# No need to hold the lock longer
 			$dbw->commit();
-			$user = SecurePoll_Voter::newFromRow( $this->context, $row );
+			$user = $this->context->newVoterFromRow( $row );
 		} else {
 			# Lock needs to be held until the row is inserted
-			$user = SecurePoll_Voter::createVoter( $this->context, $params );
+			$user = $this->context->createVoter( $params );
 			$dbw->commit();
 		}
 		return $user;
@@ -201,7 +201,7 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 	 */
 	function getUserParams( $user ) {
 		global $wgServer;
-		return array(
+		$params = array(
 			'name' => $user->getName(),
 			'type' => 'local',
 			'domain' => preg_replace( '!.*/(.*)$!', '$1', $wgServer ),
@@ -216,6 +216,8 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 				'lists' => $this->getLists( $user )
 			)
 		);
+		wfRunHooks( 'SecurePoll_GetUserParams', array( $this, $user, &$params ) );
+		return $params;
 	}
 
 	/**
