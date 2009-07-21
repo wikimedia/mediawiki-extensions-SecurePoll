@@ -17,7 +17,7 @@ class SecurePoll_TranslatePage extends SecurePoll_Page {
 		}
 		
 		$electionId = intval( $params[0] );
-		$this->election = SecurePoll::getElection( $electionId );
+		$this->election = $this->context->getElection( $electionId );
 		if ( !$this->election ) {
 			$wgOut->addWikiMsg( 'securepoll-invalid-election', $electionId );
 			return;
@@ -52,6 +52,11 @@ class SecurePoll_TranslatePage extends SecurePoll_Page {
 			$this->showLanguageSelector( $primary );
 			return;
 		}
+
+		# Set a subtitle to return to the language selector
+		$this->parent->setSubtitle( array( 
+			$this->getTitle(),
+			wfMsg( 'securepoll-translate-title', $this->election->getMessage( 'title' ) ) ) );
 
 		# If the request was posted, do the submit
 		if ( $wgRequest->wasPosted() && $wgRequest->getVal( 'action' ) == 'submit' ) {
@@ -102,7 +107,7 @@ class SecurePoll_TranslatePage extends SecurePoll_Page {
 	/**
 	 * @return Title
 	 */
-	function getTitle( $lang ) {
+	function getTitle( $lang = false ) {
 		$subpage = 'translate/' . $this->election->getId();
 		if ( $lang !== false ) {
 			$subpage .= '/' . $lang;
@@ -166,7 +171,7 @@ class SecurePoll_TranslatePage extends SecurePoll_Page {
 			}
 		}
 		if ( $replaceBatch ) {
-			$dbw = wfGetDB( DB_MASTER );
+			$dbw = $this->context->getDB();	
 			$dbw->replace( 
 				'securepoll_msgs', 
 				array( array( 'msg_entity', 'msg_lang', 'msg_key' ) ),

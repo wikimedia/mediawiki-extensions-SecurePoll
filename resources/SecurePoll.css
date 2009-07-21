@@ -42,3 +42,24 @@
 	border-color: red;
 	background-color: #fff2f2;
 }
+.securepoll-option-preferential {
+	margin-bottom: 0.5em;
+}
+.securepoll-results {
+    margin: 1em 1em 1em 0;
+    background: #f9f9f9;
+    border: 1px #aaa solid;
+    border-collapse: collapse;
+}
+.securepoll-results th, .securepoll-results td {
+    border: 1px #aaa solid;
+    padding: 0.4em;
+}
+.securepoll-results th {
+    background: #f2f2f2;
+    text-align: center;
+}
+.securepoll-results caption {
+    font-weight: bold;
+}
+

@@ -13,7 +13,8 @@ class SecurePoll_Voter {
 	/**
 	 * Create a voter from the given associative array of parameters
 	 */
-	function __construct( $params ) {
+	function __construct( $context, $params ) {
+		$this->context = $context;
 		foreach ( self::$paramNames as $name ) {
 			if ( isset( $params[$name] ) ) {
 				$this->$name = $params[$name];
@@ -25,20 +26,20 @@ class SecurePoll_Voter {
 	 * Create a voter object from the database
 	 * @return SecurePoll_Voter or false if the ID is not valid
 	 */
-	static function newFromId( $id ) {
-		$db = wfGetDB( DB_MASTER );
+	static function newFromId( $context, $id ) {
+		$db = $context->getDB();
 		$row = $db->selectRow( 'securepoll_voters', '*', array( 'voter_id' => $id ), __METHOD__ );
 		if ( !$row ) {
 			return false;
 		}
-		return self::newFromRow( $row );
+		return self::newFromRow( $context, $row );
 	}
 
 	/**
 	 * Create a voter from a DB result row
 	 */
-	static function newFromRow( $row ) {
-		return new self( array(
+	static function newFromRow( $context, $row ) {
+		return new self( $context, array(
 			'id' => $row->voter_id,
 			'electionId' => $row->voter_election,
 			'name' => $row->voter_name,
@@ -56,8 +57,8 @@ class SecurePoll_Voter {
 	 * The row needs to be locked before this function is called, to avoid 
 	 * duplicate key errors.
 	 */
-	static function createVoter( $params ) {
-		$db = wfGetDB( DB_MASTER );
+	static function createVoter( $context, $params ) {
+		$db = $context->getDB();
 		$id = $db->nextSequenceValue( 'voters_voter_id' );
 		$row = array(
 			'voter_id' => $id,
@@ -70,7 +71,7 @@ class SecurePoll_Voter {
 		);
 		$db->insert( 'securepoll_voters', $row, __METHOD__ );
 		$params['id'] = $db->insertId();
-		return new self( $params );
+		return new self( $context, $params );
 	}
 
 	/** Get the voter ID */
@@ -152,7 +153,7 @@ class SecurePoll_Voter {
 		if ( isset( $_COOKIE[$cookieName] ) ) {
 			$otherVoterId = intval( $_COOKIE[$cookieName] );
 			if ( $otherVoterId != $this->getId() ) {
-				$otherVoter = self::newFromId( $otherVoterId );
+				$otherVoter = self::newFromId( $this->context, $otherVoterId );
 				if ( $otherVoter->getElectionId() == $this->getElectionId() ) {
 					$this->addCookieDup( $otherVoterId );
 				}
@@ -166,7 +167,7 @@ class SecurePoll_Voter {
 	 * Flag a duplicate voter
 	 */
 	function addCookieDup( $voterId ) {
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = $this->context->getDB();
 		# Insert the log record
 		$dbw->insert( 'securepoll_cookie_match',
 			array(

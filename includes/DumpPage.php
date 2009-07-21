@@ -19,7 +19,7 @@ class SecurePoll_DumpPage extends SecurePoll_Page {
 		}
 		
 		$electionId = intval( $params[0] );
-		$this->election = SecurePoll::getElection( $electionId );
+		$this->election = $this->context->getElection( $electionId );
 		if ( !$this->election ) {
 			$wgOut->addWikiMsg( 'securepoll-invalid-election', $electionId );
 			return;
@@ -66,12 +66,12 @@ class SecurePoll_DumpPage extends SecurePoll_Page {
 
 		$this->headersSent = true;
 		$wgOut->disable();
-		header( 'Content-Type: text/plain' );
+		header( 'Content-Type: application/vnd.mediawiki.securepoll' );
 		$electionId = $this->election->getId();
-		$filename = urlencode( "SecurePoll-$electionId-" . wfTimestampNow() );
+		$filename = urlencode( "$electionId-" . wfTimestampNow() . '.securepoll' );
 		header( "Content-Disposition: attachment; filename=$filename" );
 		echo "<SecurePoll>\n<election>\n" .
 			$this->election->getConfXml();
-		SecurePoll_Entity::setLanguages( array( $this->election->getLanguage() ) );
+		$this->context->setLanguages( array( $this->election->getLanguage() ) );
 	}
 }

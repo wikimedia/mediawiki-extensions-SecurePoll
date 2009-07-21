@@ -58,28 +58,19 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	/**
 	 * Constructor. 
 	 *
-	 * Do not use this constructor directly, instead use SecurePoll::getElection(). 
+	 * Do not use this constructor directly, instead use SecurePoll_Context::getElection(). 
 	 *
 	 * @param $id integer
 	 */
-	function __construct( $id ) {
-		parent::__construct( 'election', $id );
-	}
-
-	/**
-	 * Create an object based on a DB result row.
-	 * @param $row object
-	 */
-	static function newFromRow( $row ) {
-		$election = new self( $row->el_entity );
-		$election->title = $row->el_title;
-		$election->ballotType = $row->el_ballot;
-		$election->tallyType = $row->el_tally;
-		$election->primaryLang = $row->el_primary_lang;
-		$election->startDate = $row->el_start_date;
-		$election->endDate = $row->el_end_date;
-		$election->authType = $row->el_auth_type;
-		return $election;
+	function __construct( $context, $info ) {
+		parent::__construct( $context, 'election', $info );
+		$this->title = $info['title'];
+		$this->ballotType = $info['ballot'];
+		$this->tallyType = $info['tally'];
+		$this->primaryLang = $info['primaryLang'];
+		$this->startDate = $info['startDate'];
+		$this->endDate = $info['endDate'];
+		$this->authType = $info['auth'];
 	}
 
 	/**
@@ -134,7 +125,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 */
 	function getBallot() {
 		if ( !$this->ballot ) {
-			$this->ballot = SecurePoll_Ballot::factory( $this->ballotType, $this );
+			$this->ballot = $this->context->newBallot( $this->ballotType, $this );
 		}
 		return $this->ballot;
 	}
@@ -190,7 +181,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * Returns true if the user is an admin of the current election.
 	 * @param $user User
 	 */
-	function isAdmin( User $user ) {
+	function isAdmin( $user ) {
 		$admins = array_map( 'trim', explode( '|', $this->getProperty( 'admins' ) ) );
 		return in_array( $user->getName(), $admins );
 	}
@@ -200,7 +191,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * @param $voter SecurePoll_Voter
 	 */
 	function hasVoted( $voter ) {
-		$db = wfGetDB( DB_MASTER );
+		$db = $this->context->getDB();
 		$row = $db->selectRow(
 			'securepoll_votes',
 			array( "1" ),
@@ -227,32 +218,10 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 */
 	function getQuestions() {
 		if ( $this->questions === null ) {
-			$db = wfGetDB( DB_MASTER );
-			$res = $db->select(
-				array( 'securepoll_questions', 'securepoll_options' ),
-				'*',
-				array(
-					'qu_election' => $this->getId(),
-					'op_question=qu_entity'
-				),
-				__METHOD__,
-				array( 'ORDER BY' => 'qu_index, qu_entity' )
-			);
-
+			$info = $this->context->getStore()->getQuestionInfo( $this->getId() );
 			$this->questions = array();
-			$options = array();
-			$questionId = false;
-			foreach ( $res as $row ) {
-				if ( $questionId === false ) {
-				} elseif ( $questionId !== $row->qu_entity ) {
-					$this->questions[] = new SecurePoll_Question( $questionId, $options );
-					$options = array();
-				}
-				$options[] = SecurePoll_Option::newFromRow( $row );
-				$questionId = $row->qu_entity;
-			}
-			if ( $questionId !== false ) {
-				$this->questions[] = new SecurePoll_Question( $questionId, $options );
+			foreach ( $info as $questionInfo ) {
+				$this->questions[] = $this->context->newQuestion( $questionInfo );
 			}
 		}
 		return $this->questions;
@@ -264,7 +233,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 */
 	function getAuth() {
 		if ( !$this->auth ) {
-			$this->auth = SecurePoll_Auth::factory( $this->authType );
+			$this->auth = $this->context->newAuth( $this->authType );
 		}
 		return $this->auth;
 	}
@@ -288,7 +257,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		if ( $type === false || $type === 'none' ) {
 			return false;
 		}
-		$crypt = SecurePoll_Crypt::factory( $type, $this );
+		$crypt = $this->context->newCrypt( $type, $this );
 		if ( !$crypt ) {
 			throw new MWException( 'Invalid encryption type' );
 		}
@@ -296,19 +265,10 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	}
 
 	/**
-	 * Get the tallier objects
-	 * @return SecurePoll_Tallier
+	 * Get the tally type
 	 */
-	function getTalliers() {
-		$talliers = array();
-		foreach ( $this->getQuestions() as $question ) {
-			$tallier = SecurePoll_Tallier::factory( $this->tallyType, $question );
-			if ( !$tallier ) {
-				throw new MWException( 'Invalid tally type' );
-			}
-			$talliers[$question->getId()] = $tallier;
-		}
-		return $talliers;
+	function getTallyType() {
+		return $this->tallyType;
 	}
 
 	/**
@@ -319,12 +279,12 @@ class SecurePoll_Election extends SecurePoll_Entity {
 			return Status::newFatal( 'securepoll-dump-no-crypt' );
 		}
 
-		$random = SecurePoll::getRandom();
+		$random = $this->context->getRandom();
 		$status = $random->open();
 		if ( !$status->isOK() ) {
 			return $status;
 		}
-		$db = wfGetDB( DB_SLAVE );
+		$db = $this->context->getDB();
 		$res = $db->select(
 			'securepoll_votes',
 			array( '*' ),
@@ -354,7 +314,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 			Xml::element( 'title', array(), $this->title ) . "\n" .
 			Xml::element( 'ballot', array(), $this->ballotType ) . "\n" .
 			Xml::element( 'tally', array(), $this->tallyType ) . "\n" .
-			Xml::element( 'lang', array(), $this->primaryLang ) . "\n" .
+			Xml::element( 'primaryLang', array(), $this->primaryLang ) . "\n" .
 			Xml::element( 'startDate', array(), wfTimestamp( TS_ISO_8601, $this->startDate ) ) . "\n" .
 			Xml::element( 'endDate', array(), wfTimestamp( TS_ISO_8601, $this->endDate ) ) . "\n" .
 			Xml::element( 'auth', array(), $this->authType ) . "\n" . 
@@ -364,6 +324,21 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		}
 		$s .= "</configuration>\n";
 		return $s;
+	}
+
+	/**
+	 * Tally the valid votes for this election.
+	 * Returns a Status object. On success, the value property will contain a
+	 * SecurePoll_ElectionTallier object.
+	 */
+	function tally() {
+		$tallier = $this->context->newElectionTallier( $this );
+		$status = $tallier->execute();
+		if ( $status->isOK() ) {
+			return Status::newGood( $tallier );
+		} else {
+			return $status;
+		}
 	}
 }
 

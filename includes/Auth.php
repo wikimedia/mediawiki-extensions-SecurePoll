@@ -4,6 +4,8 @@
  * Class for handling guest logins and sessions. Creates SecurePoll_Voter objects.
  */
 class SecurePoll_Auth {
+	var $context;
+
 	/**
 	 * List of available authorisation modules (subclasses)
 	 */
@@ -16,12 +18,16 @@ class SecurePoll_Auth {
 	 * Create an auth object of the given type
 	 * @param $type string
 	 */
-	static function factory( $type ) {
+	static function factory( $context, $type ) {
 		if ( !isset( self::$authTypes[$type] ) ) {
 			throw new MWException( "Invalid authentication type: $type" );
 		}
 		$class = self::$authTypes[$type];
-		return new $class;
+		return new $class( $context );
+	}
+
+	function __construct( $context ) {
+		$this->context = $context;
 	}
 
 	/**
@@ -68,7 +74,7 @@ class SecurePoll_Auth {
 			}
 
 			# Sanity check election ID
-			$voter = SecurePoll_Voter::newFromId( $voterId );
+			$voter = SecurePoll_Voter::newFromId( $this->context, $voterId );
 			if ( !$voter || $voter->getElectionId() != $election->getId() ) {
 				return false;
 			} else {
@@ -87,7 +93,7 @@ class SecurePoll_Auth {
 	 * @return SecurePoll_Voter
 	 */
 	function getVoter( $params ) {
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = $this->context->getDB();
 
 		# This needs to be protected by FOR UPDATE
 		# Otherwise a race condition could lead to duplicate users for a single remote user, 
@@ -107,10 +113,10 @@ class SecurePoll_Auth {
 		if ( $row ) {
 			# No need to hold the lock longer
 			$dbw->commit();
-			$user = SecurePoll_Voter::newFromRow( $row );
+			$user = SecurePoll_Voter::newFromRow( $this->context, $row );
 		} else {
 			# Lock needs to be held until the row is inserted
-			$user = SecurePoll_Voter::createVoter( $params );
+			$user = SecurePoll_Voter::createVoter( $this->context, $params );
 			$dbw->commit();
 		}
 		return $user;
@@ -178,7 +184,7 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 		if ( $wgUser->isAnon() ) {
 			return Status::newFatal( 'securepoll-not-logged-in' );
 		}
-		$params = self::getUserParams( $wgUser );
+		$params = $this->getUserParams( $wgUser );
 		$params['electionId'] = $election->getId();
 		$qualStatus = $election->getQualifiedStatus( $params );
 		if ( !$qualStatus->isOK() ) {
@@ -193,7 +199,7 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 	 * @param $user User
 	 * @return array
 	 */
-	static function getUserParams( $user ) {
+	function getUserParams( $user ) {
 		global $wgServer;
 		return array(
 			'name' => $user->getName(),
@@ -207,7 +213,7 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 				'bot' => $user->isBot(),
 				'language' => $user->getOption( 'language' ),
 				'groups' => $user->getGroups(),
-				'lists' => self::getLists( $user )
+				'lists' => $this->getLists( $user )
 			)
 		);
 	}
@@ -217,8 +223,8 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 	 * @param $user User
 	 * @return array
 	 */
-	static function getLists( $user ) {
-		$dbr = wfGetDB( DB_SLAVE );
+	function getLists( $user ) {
+		$dbr = $this->context->getDB();
 		$res = $dbr->select( 
 			'securepoll_lists',
 			array( 'li_name' ),

@@ -4,7 +4,7 @@
  * Parent class for ballot forms. This is the UI component of a voting method.
  */
 abstract class SecurePoll_Ballot {
-	var $election;
+	var $election, $context;
 
 	/**
 	 * Get a list of names of tallying methods, which may be used to produce a 
@@ -35,17 +35,18 @@ abstract class SecurePoll_Ballot {
 
 	/**
 	 * Create a ballot of the given type
+	 * @param $context SecurePoll_Context
 	 * @param $type string
 	 * @param $election SecurePoll_Election
 	 */
-	static function factory( $type, $election ) {
+	static function factory( $context, $type, $election ) {
 		switch ( $type ) {
 		case 'approval':
-			return new SecurePoll_ApprovalBallot( $election );
+			return new SecurePoll_ApprovalBallot( $context, $election );
 		case 'preferential':
-			return new SecurePoll_PreferentialBallot( $election );
+			return new SecurePoll_PreferentialBallot( $context, $election );
 		case 'choose':
-			return new SecurePoll_ChooseBallot( $election );
+			return new SecurePoll_ChooseBallot( $context, $election );
 		default:
 			throw new MWException( "Invalid ballot type: $type" );
 		}
@@ -53,9 +54,11 @@ abstract class SecurePoll_Ballot {
 
 	/**
 	 * Constructor.
+	 * @param $context SecurePoll_Context
 	 * @param $election SecurePoll_Election
 	 */
-	function __construct( $election ) {
+	function __construct( $context, $election ) {
+		$this->context = $context;
 		$this->election = $election;
 	}
 
@@ -116,10 +119,12 @@ class SecurePoll_ChooseBallot extends SecurePoll_Ballot {
 			$optionHTML = $option->parseMessageInline( 'text' );
 			$optionId = $option->getId();
 			$radioId = "{$name}_opt{$optionId}";
-			$s .= Xml::radio( $name, $optionId, false, array( 'id' => $radioId ) ) .
+			$s .= 
+				'<div class="securepoll-option-choose">' .
+				Xml::radio( $name, $optionId, false, array( 'id' => $radioId ) ) .
 				'&nbsp;' .
 				Xml::tags( 'label', array( 'for' => $radioId ), $optionHTML ) .
-				"<br/>\n";
+				"</div>\n";
 		}
 		return $s;
 	}
@@ -189,6 +194,7 @@ class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 			$inputId = "{$name}_opt{$optionId}";
 			$oldValue = $wgRequest->getVal( $inputId, '' );
 			$s .= 
+				'<div class="securepoll-option-preferential">' .
 				Xml::input( $inputId, '3', $oldValue, array(
 					'id' => $inputId,
 					'maxlength' => 3,
@@ -196,7 +202,7 @@ class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 				'&nbsp;' .
 				Xml::tags( 'label', array( 'for' => $inputId ), $optionHTML ) .
 				'&nbsp;' .
-				"<br/>\n";
+				"</div>\n";
 		}
 		return $s;
 	}

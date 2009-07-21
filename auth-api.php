@@ -37,6 +37,8 @@ if ( $token2 !== $token ) {
 	echo serialize( Status::newFatal( 'securepoll-api-token-mismatch' ) );
 	exit;
 }
-$status = Status::newGood( SecurePoll_LocalAuth::getUserParams( $user ) );
+$context = new SecurePoll_Context;
+$auth = $context->newAuth( 'local' );
+$status = Status::newGood( $auth->getUserParams( $user ) );
 echo serialize( $status );
 

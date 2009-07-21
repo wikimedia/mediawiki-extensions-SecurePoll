@@ -12,7 +12,8 @@ if ( !isset( $args[0] ) ) {
 	spFatal( "Usage: php dump.php [-o <outfile>] <election name>" );
 }
 
-$election = SecurePoll::getElectionByTitle( $args[0] );
+$context = new SecurePoll_Context;
+$election = $context->getElectionByTitle( $args[0] );
 if ( !$election ) {
 	spFatal( "There is no election called \"$args[0]\"" );
 }
@@ -23,7 +24,7 @@ if ( !isset( $options['o'] ) ) {
 	$fileName = $options['o'];
 }
 if ( $fileName === '-' ) {
-	$outFile = STDIN;
+	$outFile = STDOUT;
 } else {
 	$outFile = fopen( $fileName, 'w' );
 }
@@ -31,7 +32,7 @@ if ( !$outFile ) {
 	spFatal( "Unable to open $fileName for writing" );
 }
 
-SecurePoll_Entity::setLanguages( array( $election->getLanguage() ) );
+$context->setLanguages( array( $election->getLanguage() ) );
 
 $cbdata = array(
 	'header' => "<SecurePoll>\n<election>\n" . $election->getConfXml(),
@@ -45,7 +46,7 @@ if ( !$status->isOK() ) {
 	spFatal( $status->getWikiText() );
 }
 if ( $election->cbdata['header'] ) {
-	echo $election->cbdata['header'];
+	fwrite( $outFile, $election->cbdata['header'] );
 }
 
 fwrite( $outFile, "</election>\n</SecurePoll>\n" );
@@ -57,7 +58,7 @@ function spFatal( $message ) {
 
 function spDumpVote( $election, $row ) {
 	if ( $election->cbdata['header'] ) {
-		echo $election->cbdata['header'];
+		fwrite( $election->cbdata['outFile'], $election->cbdata['header'] );
 		$election->cbdata['header'] = false;
 	}
 	fwrite( $election->cbdata['outFile'], "<vote>" . $row->vote_record . "</vote>\n" );

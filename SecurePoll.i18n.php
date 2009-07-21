@@ -151,6 +151,8 @@ To maintain voter privacy, encrypted election records are only publically availa
 	'securepoll-tally-upload-submit' => 'Create tally',
 	'securepoll-tally-error' => 'Error interpreting vote record, cannot produce a tally.',
 	'securepoll-no-upload' => 'No file was uploaded, cannot tally results.',
+	'securepoll-dump-corrupt' => 'The dump file is corrupt and cannot be processed.',
+	'securepoll-tally-upload-error' => 'Error tallying dump file: $1',
 );
 
 /** Message documentation (Message documentation)

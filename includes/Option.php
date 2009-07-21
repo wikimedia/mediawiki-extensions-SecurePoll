@@ -6,19 +6,12 @@
  */
 class SecurePoll_Option extends SecurePoll_Entity {
 	/**
-	 * Create a new option from a DB row
-	 * @param $row object
+	 * Constructor
+	 * @param $context SecurePoll_Context
+	 * @param $info Associative array of entity info
 	 */
-	static function newFromRow( $row ) {
-		return new self( $row->op_entity );
-	}
-
-	/**
-	 * Constructor, from entity ID
-	 * @param $id integer
-	 */
-	function __construct( $id ) {
-		parent::__construct( 'option', $id );
+	function __construct( $context, $info ) {
+		parent::__construct( $context, 'option', $info );
 	}
 
 	/**

@@ -29,9 +29,9 @@ abstract class SecurePoll_Crypt {
 	 * Create an encryption object of the given type. Currently only "gpg" is 
 	 * implemented.
 	 */
-	static function factory( $type, $election ) {
+	static function factory( $context, $type, $election ) {
 		if ( $type === 'gpg' ) {
-			return new SecurePoll_GpgCrypt( $election );
+			return new SecurePoll_GpgCrypt( $context, $election );
 		} else {
 			return false;
 		}
@@ -50,14 +50,15 @@ abstract class SecurePoll_Crypt {
  * gpg-decrypt-key is for tallying.
  */
 class SecurePoll_GpgCrypt {
-	var $election;
+	var $context, $election;
 	var $recipient, $signer, $homeDir;
 
 	/**
 	 * Constructor.
 	 * @param $election SecurePoll_Election
 	 */
-	function __construct( $election ) {
+	function __construct( $context, $election ) {
+		$this->context = $context;
 		$this->election = $election;
 	}
 

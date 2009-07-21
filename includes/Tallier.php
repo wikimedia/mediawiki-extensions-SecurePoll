@@ -1,7 +1,7 @@
 <?php
 
 abstract class SecurePoll_Tallier {
-	var $question;
+	var $context, $question;
 
 	abstract function addVote( $scores );
 	abstract function getHtmlResult();
@@ -9,18 +9,19 @@ abstract class SecurePoll_Tallier {
 
 	abstract function finishTally();
 
-	static function factory( $type, $question ) {
+	static function factory( $context, $type, $question ) {
 		switch ( $type ) {
 		case 'plurality':
-			return new SecurePoll_PluralityTallier( $question );
+			return new SecurePoll_PluralityTallier( $context, $question );
 		case 'schulze':
-			return new SecurePoll_SchulzeTallier( $question );
+			return new SecurePoll_SchulzeTallier( $context, $question );
 		default:
 			throw new MWException( "Invalid tallier type: $type" );
 		}
 	}
 
-	function __construct( $question ) {
+	function __construct( $context, $question ) {
+		$this->context = $context;
 		$this->question = $question;
 	}
 }
@@ -31,8 +32,8 @@ abstract class SecurePoll_Tallier {
 class SecurePoll_PluralityTallier extends SecurePoll_Tallier {
 	var $tally = array();
 
-	function __construct( $question ) {
-		parent::__construct( $question );
+	function __construct( $context, $question ) {
+		parent::__construct( $context, $question );
 		foreach ( $question->getOptions() as $option ) {
 			$this->tally[$option->getId()] = 0;
 		}
@@ -56,7 +57,7 @@ class SecurePoll_PluralityTallier extends SecurePoll_Tallier {
 
 	function getHtmlResult() {
 		// Show the results
-		$s = '';
+		$s = "<table class=\"securepoll-results\">\n";
 
 		foreach ( $this->question->getOptions() as $option ) {
 			$s .= '<tr><td>' . $option->getMessage( 'text' ) . "</td>\n" .
@@ -70,7 +71,7 @@ class SecurePoll_PluralityTallier extends SecurePoll_Tallier {
 	function getTextResult() {
 		// Calculate column width
 		$width = 10;
-		foreach ( $question->getOptions() as $option ) {
+		foreach ( $this->question->getOptions() as $option ) {
 			$width = max( $width, strlen( $option->getMessage( 'text' ) ) );
 		}
 		if ( $width > 57 ) {
@@ -78,8 +79,12 @@ class SecurePoll_PluralityTallier extends SecurePoll_Tallier {
 		}
 
 		// Show the results
-		$s = wordwrap( $question->getMessage( 'text' ) ) . "\n";
-		foreach ( $question->getOptions() as $option ) {
+		$qtext = $this->question->getMessage( 'text' );
+		$s = '';
+		if ( $qtext !== '' ) {
+			$s .= wordwrap( $qtext ) . "\n";
+		}
+		foreach ( $this->question->getOptions() as $option ) {
 			$otext = $option->getMessage( 'text' );
 			if ( strlen( $otext ) > $width ) {
 				$otext = substr( $otext, 0, $width - 3 ) . '...';
@@ -87,7 +92,7 @@ class SecurePoll_PluralityTallier extends SecurePoll_Tallier {
 				$otext = str_pad( $otext, $width );
 			}
 			$s .= $otext . ' | ' . 
-				$this->tally[$question->getId()][$option->getId()] . "\n";
+				$this->tally[$option->getId()] . "\n";
 		}
 		return $s;
 	}
@@ -111,8 +116,8 @@ abstract class SecurePoll_PairwiseTallier extends SecurePoll_Tallier {
 	var $optionIds = array();
 	var $victories = array();
 
-	function __construct( $question ) {
-		parent::__construct( $question );
+	function __construct( $context, $question ) {
+		parent::__construct( $context, $question );
 		$this->optionIds = array();
 		foreach ( $question->getOptions() as $option ) {
 			$this->optionIds[] = $option->getId();
@@ -218,7 +223,6 @@ class SecurePoll_SchulzeTallier extends SecurePoll_PairwiseTallier {
 
 	function getHtmlResult() {
 		return '<pre>' . $this->getTextResult() . '</pre>';
-
 	}
 
 	function getTextResult() {

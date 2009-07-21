@@ -5,6 +5,7 @@
  */
 abstract class SecurePoll_Page {
 	var $parent, $election, $auth, $user;
+	var $context;
 
 	/**
 	 * Constructor.
@@ -12,6 +13,7 @@ abstract class SecurePoll_Page {
 	 */
 	function __construct( $parent ) {
 		$this->parent = $parent;
+		$this->context = $parent->sp_context;
 	}
 
 	/**
@@ -48,6 +50,6 @@ abstract class SecurePoll_Page {
 		if ( $fallback != 'en' ) {
 			$languages[] = 'en';
 		}
-		SecurePoll_Entity::setLanguages( $languages );
+		$this->context->setLanguages( $languages );
 	}
 }

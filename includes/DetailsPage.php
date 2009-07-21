@@ -17,7 +17,8 @@ class SecurePoll_DetailsPage extends SecurePoll_Page {
 		}
 		
 		$this->voteId = intval( $params[0] );
-		$db = wfGetDB( DB_MASTER );
+
+		$db = $this->context->getDB();
 		$row = $db->selectRow( 
 			array( 'securepoll_votes', 'securepoll_elections', 'securepoll_voters' ),
 			'*',
@@ -33,8 +34,13 @@ class SecurePoll_DetailsPage extends SecurePoll_Page {
 			return;
 		}
 
-		$this->election = SecurePoll_Election::newFromRow( $row );
+		$this->election = $this->context->newElectionFromRow( $row );
 		$this->initLanguage( $wgUser, $this->election );
+
+		$this->parent->setSubtitle( array( 
+			$this->parent->getTitle( 'list/' . $this->election->getId() ), 
+			wfMsg( 'securepoll-list-title', $this->election->getMessage( 'title' ) ) ) );
+
 		if ( !$this->election->isAdmin( $wgUser ) ) {
 			$wgOut->addWikiMsg( 'securepoll-need-admin' );
 			return;

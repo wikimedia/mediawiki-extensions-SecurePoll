@@ -1,36 +1,5 @@
 <?php
 
-class SecurePoll {
-	static $random;
-
-	static function getElection( $id ) {
-		$db = wfGetDB( DB_MASTER );
-		$row = $db->selectRow( 'securepoll_elections', '*', array( 'el_entity' => $id ), __METHOD__ );
-		if ( $row ) {
-			return SecurePoll_Election::newFromRow( $row );
-		} else {
-			return false;
-		}
-	}
-
-	static function getElectionByTitle( $name ) {
-		$db = wfGetDB( DB_MASTER );
-		$row = $db->selectRow( 'securepoll_elections', '*', array( 'el_title' => $name ), __METHOD__ );
-		if ( $row ) {
-			return SecurePoll_Election::newFromRow( $row );
-		} else {
-			return false;
-		}
-	}
-
-	static function getRandom() {
-		if ( !self::$random ) {
-			self::$random = new SecurePoll_Random;
-		}
-		return self::$random;
-	}
-}
-
 class SecurePoll_BasePage extends UnlistedSpecialPage {
 	static $pages = array(
 		'details' => 'SecurePoll_DetailsPage',
@@ -44,11 +13,14 @@ class SecurePoll_BasePage extends UnlistedSpecialPage {
 		'vote' => 'SecurePoll_VotePage',
 	);
 
+	var $sp_context;
+
 	/**
 	 * Constructor
 	 */
 	public function __construct() {
 		parent::__construct( 'SecurePoll' );
+		$this->sp_context = new SecurePoll_Context;
 	}
 
 	/**
@@ -57,7 +29,7 @@ class SecurePoll_BasePage extends UnlistedSpecialPage {
 	 * @param $paramString Mixed: parameter passed to the page or null
 	 */
 	public function execute( $paramString ) {
-		global $wgOut, $wgRequest, $wgScriptPath;
+		global $wgOut, $wgUser, $wgRequest, $wgScriptPath;
 
 		wfLoadExtensionMessages( 'SecurePoll' );
 
@@ -83,9 +55,16 @@ class SecurePoll_BasePage extends UnlistedSpecialPage {
 			return;
 		}
 
+		if ( !($page instanceof SecurePoll_EntryPage ) ) {
+			$this->setSubtitle();
+		}
+
 		$page->execute( $params );
 	}
 
+	/**
+	 * Get a SecurePoll_Page subclass object for the given subpage name
+	 */
 	function getSubpage( $name ) {
 		if ( !isset( self::$pages[$name] ) ) {
 			return false;
@@ -95,10 +74,32 @@ class SecurePoll_BasePage extends UnlistedSpecialPage {
 		return $page;
 	}
 
+	/**
+	 * Get a random token for CSRF protection
+	 */
 	function getEditToken() {
 		if ( !isset( $_SESSION['spToken'] ) ) {
 			$_SESSION['spToken'] = sha1( mt_rand() . mt_rand() . mt_rand() );
 		}
 		return $_SESSION['spToken'];
+	}
+
+	/**
+	 * Set a navigation subtitle.
+	 * Each argument is a two-element array giving a Title object to be used as 
+	 * a link target, and the link text.
+	 */
+	function setSubtitle( /*...*/ ) {
+		global $wgUser, $wgOut;
+		$skin = $wgUser->getSkin();
+		$title = $this->getTitle();
+		$subtitle = '&lt; ' . $skin->linkKnown( $title, htmlspecialchars( $title->getText() ) );
+		$pipe = wfMsg( 'pipe-separator' );
+		$links = func_get_args();
+		foreach ( $links as $link ) {
+			list( $title, $text ) = $link;
+			$subtitle .= $pipe . $skin->linkKnown( $title, htmlspecialchars( $text ) );
+		}
+		$wgOut->setSubtitle( $subtitle );
 	}
 }
