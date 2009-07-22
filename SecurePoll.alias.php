@@ -98,3 +98,8 @@ $aliases['pl'] = array(
 	'SecurePoll' => array( 'Bezpieczne głosowanie' ),
 );
 
+/** Slovak (Slovenčina) */
+$aliases['sk'] = array(
+	'SecurePoll' => array( 'BezpečnéHlasovanie' ),
+);
+

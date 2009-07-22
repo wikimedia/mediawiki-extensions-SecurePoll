@@ -168,9 +168,7 @@ To maintain voter privacy, encrypted election records are only publically availa
  * @author Siebrand
  */
 $messages['qqq'] = array(
-	'securepoll-desc' => 'A short description of this extension shown in [[Special:Version]].
-{{doc-important|Do not translate tag names.}}
-{{doc-important|Do not translate links.}}',
+	'securepoll-desc' => '{{desc}}',
 	'securepoll-not-started' => '* $2 is the date of it
 * $3 is its time.',
 	'securepoll-return' => '{{Identical|Return to $1}}',
@@ -382,6 +380,9 @@ $1',
 	'securepoll-jump' => 'Перайсьці на сэрвэр галасаваньня',
 	'securepoll-bad-ballot-submission' => 'Ваш голас ня быў залічаны: $1',
 	'securepoll-unanswered-questions' => 'Вам неабходна адказаць на ўсе пытаньні.',
+	'securepoll-invalid-rank' => 'Няслушны ранг. Вам неабходна даць кандыдатам ранг паміж 1 і 999.',
+	'securepoll-unranked-options' => 'Некаторыя пункты ня маюць рангу.
+Вам неабходна даць усім пунктам ранг паміж 1 і 999.',
 	'securepoll-remote-auth-error' => 'Памылка атрыманьня інфармацыі пра Ваш рахунак з сэрвэра.',
 	'securepoll-remote-parse-error' => 'Памылка інтэрпрэтацыі адказу аўтарызацыі з сэрвэра.',
 	'securepoll-api-invalid-params' => 'Няслушныя парамэтры.',
@@ -406,6 +407,7 @@ $1',
 	'securepoll-strike-reason' => 'Прычына:',
 	'securepoll-strike-cancel' => 'Адмяніць',
 	'securepoll-strike-error' => 'Памылка пад час закрэсьліваньня/адкрэсьліваньня: $1',
+	'securepoll-strike-token-mismatch' => 'Зьвесткі сэсіі страчаныя',
 	'securepoll-details-link' => 'Падрабязнасьці',
 	'securepoll-details-title' => 'Падрабязнасьці галасаваньня: #$1',
 	'securepoll-invalid-vote' => '«$1» не зьяўляецца слушным ідэнтыфікатарам голасу',
@@ -421,6 +423,8 @@ $1',
 	'securepoll-dump-not-finished' => 'Зашыфраваныя выбарчыя запісы даступны толькі пасьля $1 у $2.',
 	'securepoll-dump-no-urandom' => 'Не магчыма адкрыць /dev/urandom.
 Каб захаваць прыватнасьць галасоў, зашыфраваныя выбарчыя запісы будуць даступныя для грамадзкасьці, толькі калі іх парадак будуць будзе зьменены з дапамогай бясьпечнай крыніцы выпадковых лікаў.',
+	'securepoll-urandom-not-supported' => 'Гэты сэрвэр не падтрымлівае генэрацыю крыптаграфічных выпадковых лікаў.
+У мэтах захаваньня прыватнасьці галасаваўшых, зашыфраваныя запісы выбараў будуць агульнадаступнымі толькі калі яны могуць быць зьмешаныя са струменем выпадковых лікаў.',
 	'securepoll-translate-title' => 'Пераклад: $1',
 	'securepoll-invalid-language' => 'Няслушны код мовы «$1»',
 	'securepoll-submit-translate' => 'Абнавіць',
@@ -445,6 +449,8 @@ $1',
 	'securepoll-tally-upload-submit' => 'Падлічыць',
 	'securepoll-tally-error' => 'Памылка інтэрпрэтацыі запісу голасу, немагчыма падлічыць.',
 	'securepoll-no-upload' => 'Файл не загружаны, немагчыма падлічыць.',
+	'securepoll-dump-corrupt' => 'Вывадны файл пашкоджаны і ня можа быць апрацаваны.',
+	'securepoll-tally-upload-error' => 'Памылка цэласнасьці вываднога файла: $1',
 );
 
 /** Bulgarian (Български)
@@ -855,6 +861,9 @@ Ni ellir dadgryptio.",
 	'securepoll-jump' => 'Mynd i weinydd y pleidleisio',
 	'securepoll-bad-ballot-submission' => 'Nid oedd eich pleidlais yn ddilys: $1',
 	'securepoll-unanswered-questions' => 'Rhaid ateb pob cwestiwn.',
+	'securepoll-invalid-rank' => "Gradd annilys yn y drefn restrol. Rhaid ichi roi gradd rhwng 1 a 999 i'r ymgeiswyr.",
+	'securepoll-unranked-options' => 'Gadawyd rhai dewisiadau heb eu rhestru.
+Rhaid ichi roi gradd rhwng 1 a 999 i bob dewis.',
 	'securepoll-remote-auth-error' => "Cafwyd gwall wrth nôl gwybodaeth eich cyfrif o'r gweinydd.",
 	'securepoll-remote-parse-error' => "Cafwyd gwall wrth ddehongli ymateb y gweinydd i'r cais awdurdodi.",
 	'securepoll-api-invalid-params' => 'Paramedrau annilys.',
@@ -879,6 +888,7 @@ Ni ellir dadgryptio.",
 	'securepoll-strike-reason' => 'Rheswm:',
 	'securepoll-strike-cancel' => 'Canslo',
 	'securepoll-strike-error' => 'Gwall wrth geisio annilysu/ail-ddilysu: $1',
+	'securepoll-strike-token-mismatch' => "Collwyd data'r sesiwn",
 	'securepoll-details-link' => 'Manylion',
 	'securepoll-details-title' => 'Manylion y bleidlais: #$1',
 	'securepoll-invalid-vote' => 'Nid yw "$1" yn ID dilys ar gyfer y bleidlais',
@@ -894,6 +904,8 @@ Ni ellir dadgryptio.",
 	'securepoll-dump-not-finished' => "Ni fydd y cofnodion amgryptiedig o'r etholiad ar gael hyd at ddiwedd yr etholiad am $2 ar $1",
 	'securepoll-dump-no-urandom' => "Ni ellir agor /dev/urandom.
 Er mwyn diogelu cyfrinachedd pleidleiswyr, nid yw cofnodion yr etholiad ar gael i'r cyhoedd ond pan y gellir eu cymysgu trwy ddefnyddio llif haprifau diogel.",
+	'securepoll-urandom-not-supported' => "Nid yw'r gweinydd hwn yn gallu cynhyrchu haprifau mewn modd amgryptiedig.
+Er mwyn diogelu cyfrinachedd y pleidleiswyr, nid yw cofnodion amgryptiedig yr etholiad ar gael i'r cyhoedd ond pan fo modd eu cymysgu trwy ddefnyddio ffrwd diogel o haprifau.",
 	'securepoll-translate-title' => 'Cyfieithu: $1',
 	'securepoll-invalid-language' => 'Côd iaith annilys, "$1"',
 	'securepoll-submit-translate' => 'Diweddaru',
@@ -918,6 +930,8 @@ Gallwch naill ai gyfrif y canlyniadau sydd yn y bas data, neu gallwch gyfrif y c
 	'securepoll-tally-upload-submit' => 'Cadw cyfrif',
 	'securepoll-tally-error' => "Cafwyd gwall wrth ddehongli'r cofnod pleidleisio, ni ellir cadw cyfrif.",
 	'securepoll-no-upload' => 'Ni uwchlwythwyd unrhyw ffeil, ni ellir cyfrif y canlyniadau.',
+	'securepoll-dump-corrupt' => 'Mae ffeil y dymp yn llygredig ac ni ellir weithredu arno.',
+	'securepoll-tally-upload-error' => 'Cafwyd gwall wrth gyfrif y ffeil dymp: $1',
 );
 
 /** Danish (Dansk)
@@ -970,6 +984,9 @@ Kan ikke dekryptere.',
 	'securepoll-jump' => 'Gå til stemmeserveren',
 	'securepoll-bad-ballot-submission' => 'Din stemme var ugyldig: $1',
 	'securepoll-unanswered-questions' => 'Du skal besvare alle spørgsmålene.',
+	'securepoll-invalid-rank' => 'Ugyldig rangorden. Du skal give kandidaterne en rangorden mellem 1 og 999.',
+	'securepoll-unranked-options' => 'Nogle muligheder blev ikke rangordnet.
+Du skal give alle muligheder en rangordning mellem 1 og 999.',
 	'securepoll-remote-auth-error' => 'Der opstod en fejl under hentning af dine kontoinformationer fra serveren.',
 	'securepoll-remote-parse-error' => 'Der opstod en fejl under læsning af autorisationssvarene fra serveren.',
 	'securepoll-api-invalid-params' => 'Ugyldige parametere.',
@@ -994,6 +1011,7 @@ Kan ikke dekryptere.',
 	'securepoll-strike-reason' => 'Årsag:',
 	'securepoll-strike-cancel' => 'Annuller',
 	'securepoll-strike-error' => 'Fejl ved fjernelse eller ophævelse af fjernelse: $1',
+	'securepoll-strike-token-mismatch' => 'Sessionsdata mistet',
 	'securepoll-details-link' => 'Oplysninger',
 	'securepoll-details-title' => 'Valgoplysninger: #$1',
 	'securepoll-invalid-vote' => '"$1" er ikke en gyldig valg-id',
@@ -1009,6 +1027,8 @@ Kan ikke dekryptere.',
 	'securepoll-dump-not-finished' => 'Krypterede valgregistreringer er kun tilgængelige efter afstemningen den $1 klokken $2.',
 	'securepoll-dump-no-urandom' => 'Kan ikke åbne /dev/urandom.
 For at sikre en hemmelig afstemning er de krypterede valgregistrering kun offentligt  tilgængelige, når de kan blandes med en sikker strøm af tilfældige tal.',
+	'securepoll-urandom-not-supported' => 'Denne server understøtter ikke generering af tilfældige kryptografiske tal.
+For at vedligeholde personlige oplysninger om vælgeren, er krypterede valgregistreringer kun offentligt tilgængelige, når de kan blandes med en strøm af sikre tilfældige tal.',
 	'securepoll-translate-title' => 'Oversæt: $1',
 	'securepoll-invalid-language' => 'Ugyldig sprogkode "$1"',
 	'securepoll-submit-translate' => 'Opdater',
@@ -1033,6 +1053,8 @@ Du kan enten optælle de nuværende stemmer i databasen, eller optælle kryptere
 	'securepoll-tally-upload-submit' => 'Opret optælling',
 	'securepoll-tally-error' => 'Fejl under læsning af stemmeregisteret, kan ikke oprette en optælling.',
 	'securepoll-no-upload' => 'Ingen fil blev lagt op; kan ikke tælle resultatet op.',
+	'securepoll-dump-corrupt' => 'Dumpfilen er korrupt og kan ikke behandles.',
+	'securepoll-tally-upload-error' => 'Fejl ved optælling af dumpfilen: $1',
 );
 
 /** German (Deutsch)
@@ -2019,6 +2041,9 @@ Non se pode desencriptar.',
 	'securepoll-jump' => 'Ir ao servidor de votos',
 	'securepoll-bad-ballot-submission' => 'O seu voto foi inválido: $1',
 	'securepoll-unanswered-questions' => 'Debe responder a todas as preguntas.',
+	'securepoll-invalid-rank' => 'Clasificación inválida. Debe darlles aos candidatos unha clasificación que estea entre 1 e 999.',
+	'securepoll-unranked-options' => 'Algunhas opcións non foron clasificadas.
+Debe darlles a todas as opcións unha clasificación que estea entre 1 e 999.',
 	'securepoll-remote-auth-error' => 'Erro ao enviar a información da túa conta desde o servidor.',
 	'securepoll-remote-parse-error' => 'Erro ao interpretar a autorización de resposta desde o servidor.',
 	'securepoll-api-invalid-params' => 'Parámetros inválidos.',
@@ -2043,6 +2068,7 @@ Non se pode desencriptar.',
 	'securepoll-strike-reason' => 'Motivo:',
 	'securepoll-strike-cancel' => 'Cancelar',
 	'securepoll-strike-error' => 'Erro ao levar a cabo o risco/a retirada do risco: $1',
+	'securepoll-strike-token-mismatch' => 'Perdéronse os datos da sesión',
 	'securepoll-details-link' => 'Detalles',
 	'securepoll-details-title' => 'Detalles do voto: #$1',
 	'securepoll-invalid-vote' => '"$1" non é un ID de voto válido',
@@ -2058,6 +2084,8 @@ Non se pode desencriptar.',
 	'securepoll-dump-not-finished' => 'Os rexistros das eleccións encriptados só están dispoñibles despois da data de fin o $1 ás $2',
 	'securepoll-dump-no-urandom' => 'Non se pode abrir /dev/urandom.  
 Para manter a protección dos datos, os rexistros das eleccións encriptados só están dispoñibles publicamente cando poden ser baraxados cunha secuencia de números aleatorios.',
+	'securepoll-urandom-not-supported' => 'Este servidor non soporta a xeración criptográfica de números aleatorios.
+Para manter a confidencialidade dos votantes, os rexistros cifrados das eleccións só están dispoñibles publicamente cando se poden barallar cun fluxo de números aleatorios.',
 	'securepoll-translate-title' => 'Traducir: $1',
 	'securepoll-invalid-language' => 'Código de lingua inválido "$1"',
 	'securepoll-submit-translate' => 'Actualizar',
@@ -2082,6 +2110,8 @@ Pode optar por escrutar os resultados presentes na base de datos ou por escrutar
 	'securepoll-tally-upload-submit' => 'Crear o escrutinio',
 	'securepoll-tally-error' => 'Erro de interpretación no rexistro da votación, non se pode producir un escrutinio.',
 	'securepoll-no-upload' => 'Non foi cargado ningún ficheiro, non se poden escrutar os resultados.',
+	'securepoll-dump-corrupt' => 'O ficheiro de descarga está danado e non pode ser procesado.',
+	'securepoll-tally-upload-error' => 'Erro ao enumerar o ficheiro de descarga: $1',
 );
 
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)
@@ -2220,6 +2250,7 @@ Du chasch wehle zwische dr Uuszellig vu dr aktuällen Ergebnis in dr Datebank un
 
 /** Hebrew (עברית)
  * @author Rotem Liss
+ * @author Rotemliss
  * @author דניאל ב.
  */
 $messages['he'] = array(
@@ -2267,6 +2298,9 @@ $1',
 	'securepoll-jump' => 'מעבר לשרת ההצבעה',
 	'securepoll-bad-ballot-submission' => 'הצבעתכם הייתה בלתי תקינה: $1',
 	'securepoll-unanswered-questions' => 'עליכם לענות על כל השאלות.',
+	'securepoll-invalid-rank' => 'הדירוג אינו תקין. יש לתת למועמדים דירוג בין 1 ל־999.',
+	'securepoll-unranked-options' => 'כמה מהאפשרויות לא דורגו.
+יש לקבוע לכל האפשרויות דירוג בין 1 ל־999.',
 	'securepoll-remote-auth-error' => 'שגיאה בקבלת פרטי החשבון שלכם מהשרת.',
 	'securepoll-remote-parse-error' => 'שגיאה בפענוח התגובה על מידע הכניסה מהשרת.',
 	'securepoll-api-invalid-params' => 'פרמטרים בלתי תקינים.',
@@ -2291,6 +2325,7 @@ $1',
 	'securepoll-strike-reason' => 'סיבה:',
 	'securepoll-strike-cancel' => 'ביטול',
 	'securepoll-strike-error' => 'שגיאה בביצוע הסתרה או בביטול הסתרה: $1',
+	'securepoll-strike-token-mismatch' => 'מידע הכניסה אבד',
 	'securepoll-details-link' => 'פרטים',
 	'securepoll-details-title' => 'פרטי ההצבעה: #$1',
 	'securepoll-invalid-vote' => '"$1" אינו מספר הצבעה תקין',
@@ -2307,6 +2342,8 @@ $1',
 	'securepoll-dump-not-finished' => 'רשומות ההצבעה המוצפנות זמינות רק לאחר תאריך הסיום ב־$2, $1',
 	'securepoll-dump-no-urandom' => 'לא ניתן לפתוח את /dev/urandom. 
 כדי לשמור על פרטיות המצביעים, רשומות ההצבעה המוצפנות זמינותת באופן ציבורי רק כאשר ניתן לערבב אותן באמצעות זרם המשתמש במספר אקראי מאובטח.',
+	'securepoll-urandom-not-supported' => 'שרת זה אינו תומך ביצירת מספרים אקראיים לצורך הצפנה.
+כדי לשמור על פרטיות הבוחרים, רשומות ההצבעה המוצפנות תהיינה זמינות לציבור רק כאשר ניתן יהיה לערבלן באמצעות זרם מספרים אקראיים מאובטח.',
 	'securepoll-translate-title' => 'תרגום: $1',
 	'securepoll-invalid-language' => 'קוד שפה בלתי תקין "$1"',
 	'securepoll-header-trans-id' => 'מספר',
@@ -2565,6 +2602,8 @@ Móžeš pak wuslědki w datowej bance ličić pak zaklučowane wuslědki z nahr
 	'securepoll-tally-upload-submit' => 'Ličenje wutworić',
 	'securepoll-tally-error' => 'Zmylk při interpretowanju zapisow wothłosowanja, ličenje njeda so wutworić.',
 	'securepoll-no-upload' => 'Njeje so žana dataja nahrała, wuslědki njehodźa so ličić.',
+	'securepoll-dump-corrupt' => 'Dataja składowakoweho wobsaha je poškodźeny a njeda so předźěłać.',
+	'securepoll-tally-upload-error' => 'Zmylk při wuličowanju dataje składowakeho wobsaha: $1',
 );
 
 /** Hungarian (Magyar)
@@ -2846,6 +2885,9 @@ Tidak dapat melakukan dekripsi.',
 	'securepoll-jump' => 'Pergi ke server pemungutan suara',
 	'securepoll-bad-ballot-submission' => 'Suara Anda tidak valid: $1',
 	'securepoll-unanswered-questions' => 'Anda harus menjawab semua pertanyaan.',
+	'securepoll-invalid-rank' => 'Peringat tidak sah. Anda harus memberi peringkat kandidat antara 1 dan 99.',
+	'securepoll-unranked-options' => 'Beberapa pilihan tidak diberi peringkat.
+Anda harus memberi peringkat antara 1 dan 99 untuk semua pilihan.',
 	'securepoll-remote-auth-error' => 'Terjadi kesalahan ketika menarik informasi akun Anda dari server.',
 	'securepoll-remote-parse-error' => 'Terjadi kesalahan interpretasi atas respons otorisasi dari server.',
 	'securepoll-api-invalid-params' => 'Parameter tidak valid.',
@@ -2870,6 +2912,7 @@ Tidak dapat melakukan dekripsi.',
 	'securepoll-strike-reason' => 'Alasan:',
 	'securepoll-strike-cancel' => 'Batalkan',
 	'securepoll-strike-error' => 'Gagal mencoret/membatalkan pencoretan: $1',
+	'securepoll-strike-token-mismatch' => 'Data sesi terhilang',
 	'securepoll-details-link' => 'Rincian',
 	'securepoll-details-title' => 'Rincian suara: #$1',
 	'securepoll-invalid-vote' => 'ID suara tidak sah: "$1"',
@@ -2885,6 +2928,8 @@ Tidak dapat melakukan dekripsi.',
 	'securepoll-dump-not-finished' => 'Catatan pemilihan terenkripsi hanya tersedia setelah selesainya pemungutan suara pada $2, $1.',
 	'securepoll-dump-no-urandom' => 'Tidak dapat membuka /dev/urandom.
 Untuk memastikan privasi pemberi suara, catatan pemilihan terenkripsi hanya akan tersedia secara publik jika menggunakan sebuah rangkaian nomor keamanan acak.',
+	'securepoll-urandom-not-supported' => 'Peladen ini tidak mendukung kriptografi pembuatan angka acak.
+Untuk menjaga kerahasiaan pemilih, catatan pemilihan ter-enkripsi hanya tersedia secara publik jika catatan tersebut dapat diacak dengan angka acak yang aman.',
 	'securepoll-translate-title' => 'Terjemahkan: $1',
 	'securepoll-invalid-language' => 'Kode bahasa tidak sah "$1"',
 	'securepoll-submit-translate' => 'Perbarui',
@@ -2909,6 +2954,8 @@ Anda dapat memilih antara menghitung dari hasil suara yang terdapat di basis dat
 	'securepoll-tally-upload-submit' => 'Membuat perhitungan',
 	'securepoll-tally-error' => 'Terjadi kesalahan dalam menginterpretasikan catatan pemungutan suara, tidak dapat melakukan penghitungan.',
 	'securepoll-no-upload' => 'Tidak ada berkas yang dimuatkan, tidak dapat melakukan penghitungan hasil.',
+	'securepoll-dump-corrupt' => 'Berkas dump terkorpusi dan tidak dapat diproses.',
+	'securepoll-tally-upload-error' => 'Kesalahan pada saat menjumlah berkas dump: $1',
 );
 
 /** Ido (Ido)
@@ -3303,6 +3350,9 @@ Fähler:
 	'securepoll-jump' => 'Jangk op dä Server för de Afshtemmung',
 	'securepoll-bad-ballot-submission' => 'Ding Shtemm woh nit jöltesch: $1',
 	'securepoll-unanswered-questions' => 'Do moß op alle Froore en Antwoot jävve.',
+	'securepoll-invalid-rank' => 'Dat es ene verkeehte Rang. Do moß Dinge Kandidaate ene Rang zwesche 1 un 999 jävve.',
+	'securepoll-unranked-options' => 'Ene Deil vun dä Müjjeleschkeite hät keine Rang.
+Do moß alle Müjjeleschkeite ene Rang zwesche 1 un 999 jevve.',
 	'securepoll-remote-auth-error' => 'Ene Fähler es opjetrodde, wi mer däm Server öm Ding Daate jefrooch hann.',
 	'securepoll-remote-parse-error' => 'Ene Fähler es opjetrodde. Mer kunnte met däm Server singem Zoshtemmungs_Kood nix aanfange.',
 	'securepoll-api-invalid-params' => 'Verkeehte Parrameeterre.',
@@ -3328,6 +3378,7 @@ Fähler:
 	'securepoll-strike-reason' => 'Aaanlaß o Jrund:',
 	'securepoll-strike-cancel' => 'Ophüre!',
 	'securepoll-strike-error' => 'Ene Fähler is opjetrodde beim Ußshtriishe odder widder zerök holle: $1',
+	'securepoll-strike-token-mismatch' => 'De Sezungsdaate sin fott',
 	'securepoll-details-link' => 'Einzelheite',
 	'securepoll-details-title' => 'Einzelheite vun dä Shtemm met dä Kennong: „$1“',
 	'securepoll-invalid-vote' => '„$1“ kein reschtijje Kännong för en Afshtemmung',
@@ -3345,6 +3396,8 @@ Fähler:
 	'securepoll-dump-no-urandom' => 'Mer künne <code>/dev/random</code> nit opmaache.
 Öm dä Afshtemmer ze schötze, don mer verschlößelte Datesäz bloß dann ußjävve,
 wann mer se met enem seschere, zohfällije Dateshtrom verwörfelle künne.',
+	'securepoll-urandom-not-supported' => 'Hee dä ßööver kann kein Zohfallszahle för et Verschößele maache.
+Öm et Wahljeheimnis ze bewaahre, sin de verschößelte Opzeichnunge vun der Stemme bloß dann öffentlich ze han, wann mer se en ene seshere zofällije Reijefollsh zeije künne.',
 	'securepoll-translate-title' => 'Övveräze: $1',
 	'securepoll-invalid-language' => '„<code>$1</code>“ es enne onjöltijje Shprooche_Kood',
 	'securepoll-header-trans-id' => 'Kennong',
@@ -3370,6 +3423,8 @@ Donn Desch entscheide doh zwesche, de neuste Zahle en de Datebangk uß_ze_zälle
 	'securepoll-tally-upload-submit' => 'Lohß Jonn!',
 	'securepoll-tally-error' => 'Beim Ungersöke vun ene Shtemm es jet donevve jejange, dröm künne mer nix ußzälle.',
 	'securepoll-no-upload' => 'Nix huhjelaade, do künne mer kein Shtemme ußzälle.',
+	'securepoll-dump-corrupt' => 'De <i lang="en">dump</i>-Dattei es kappoott un kann nit verärbeidt wääde.',
+	'securepoll-tally-upload-error' => 'Ene Fähler es opjetrodde beim Ußzälle noh dä <i lang="en">dump</i>-Dattei: $1',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -3404,6 +3459,7 @@ Wann Dir wëllt, kënnt Dir dës Confirmatioun vun Ärem Vote behalen:
 Är Stëmm gouf net gespäichert!
 
 $1',
+	'securepoll-no-gpg-home' => 'De Basis-Repertoire GPG konnt net ugeluecht ginn.',
 	'securepoll-gpg-config-error' => "D'GPG-Schlëssele sinn net korrekt konfiguréiert.",
 	'securepoll-gpg-parse-error' => 'Feeler beim Interpretéieren vum GPG-Ouput',
 	'securepoll-no-decryption-key' => 'Et ass keen Ëntschlësungsschlëssel agestallt.
@@ -3411,6 +3467,9 @@ $1',
 	'securepoll-jump' => 'Op den Ofstëmmungs-Server goen',
 	'securepoll-bad-ballot-submission' => 'Är Stëmm ass net valabel: $1',
 	'securepoll-unanswered-questions' => 'Dir musst all Froe beäntwerten',
+	'securepoll-invalid-rank' => 'Ongëltegt Classement. Dir musst de Kandidaten e Classement tëschent 1 an 999 ginn.',
+	'securepoll-unranked-options' => 'E puer Optioune krute kee Classement.
+Dir musst allen optiounen e Classement tëschent 1 an 999 ginn.',
 	'securepoll-remote-auth-error' => 'Feeler beim Ofruf vun Äre Benotzerkontinformatioune vum Server.',
 	'securepoll-remote-parse-error' => 'Feeler beim Interpretéiere vun der Autorisatioun déi de Server geschéckt huet.',
 	'securepoll-api-invalid-params' => 'Parameter déi net valabel sinn.',
@@ -3472,6 +3531,7 @@ Fir d'Konfidentialitéit vun de Wieler z'assuréieren, si verschlësselt Opzeech
 	'securepoll-tally-upload-submit' => 'Auszielung uleeën',
 	'securepoll-tally-error' => "Feeler bäi der Interpretatioun vun de gespäicherten Donnéeë vun de Walen, d'Auszieleung kann net gemaach ginn.",
 	'securepoll-no-upload' => "Et gouf kee Fichier eropgelueden, d'Resultater kënnen net ausgezielt ginn.",
+	'securepoll-dump-corrupt' => 'Den Dump-Fichier ass futti a kann net verschafft ginn.',
 );
 
 /** Limburgish (Limburgs)
@@ -5191,6 +5251,9 @@ $1',
 	'securepoll-jump' => 'Перейти на сервер голосований',
 	'securepoll-bad-ballot-submission' => 'Ваш голос не действителен: $1',
 	'securepoll-unanswered-questions' => 'Вы должны ответить на все вопросы.',
+	'securepoll-invalid-rank' => 'Недействительный ранг. Вы должны указать для кандидата ранг от 1 до 999.',
+	'securepoll-unranked-options' => 'Некоторые записи не проранжированы.
+Вам необходимо указать ранг от 1 до 999 для всех записей.',
 	'securepoll-remote-auth-error' => 'Ошибка получения информации об учётной записи с сервера.',
 	'securepoll-remote-parse-error' => 'Ошибка интерпретации ответа авторизации с сервера.',
 	'securepoll-api-invalid-params' => 'Ошибочные параметры.',
@@ -5215,6 +5278,7 @@ $1',
 	'securepoll-strike-reason' => 'Причина:',
 	'securepoll-strike-cancel' => 'Отмена',
 	'securepoll-strike-error' => 'Ошибка при вычёркивании или снятии вычёркивания: $1',
+	'securepoll-strike-token-mismatch' => 'Потеря данных сессии',
 	'securepoll-details-link' => 'Подробности',
 	'securepoll-details-title' => 'Подробности голосования: #$1',
 	'securepoll-invalid-vote' => '«$1» не является допустимым идентификатором голосования',
@@ -5230,6 +5294,8 @@ $1',
 	'securepoll-dump-not-finished' => 'Зашифрованные записи подачи голосов доступны только после окончания голосования $1 $2',
 	'securepoll-dump-no-urandom' => 'Не удаётся открыть /dev/urandom.
 Для обеспечения конфиденциальности избирателей, зашифрованные записи подачи голосов можно делать общедоступными, когда порядок их следования изменён с использованием безопасного источника случайных чисел.',
+	'securepoll-urandom-not-supported' => 'Этот сервер не поддерживает криптографические генерирование случайных чисел.
+Чтобы сохранить конфиденциальность голосующих, закодированные записи голосования станут общедоступными только после того, как они смогут быть перемешаны безопасным потоком случайных чисел.',
 	'securepoll-translate-title' => 'Перевод: $1',
 	'securepoll-invalid-language' => 'Ошибочный код языка «$1»',
 	'securepoll-submit-translate' => 'Обновить',
@@ -5254,6 +5320,8 @@ $1',
 	'securepoll-tally-upload-submit' => 'Произвести подсчёт',
 	'securepoll-tally-error' => 'Ошибка интерпретации записи голоса, невозможно произвести подсчёт.',
 	'securepoll-no-upload' => 'Файл не был загружен, невозможно подсчитать результаты.',
+	'securepoll-dump-corrupt' => 'Файл дампа повреждён и не может быть обработан.',
+	'securepoll-tally-upload-error' => 'Ошибка согласованности файла дампа: $1',
 );
 
 /** Yakut (Саха тыла)
@@ -5425,6 +5493,9 @@ Nie je možné dešifrovať.',
 	'securepoll-jump' => 'Prejsť na hlasovací server',
 	'securepoll-bad-ballot-submission' => 'Váš hlas bol neplatný: $1',
 	'securepoll-unanswered-questions' => 'Musíte zodpovedať všetky otázky.',
+	'securepoll-invalid-rank' => 'Neplatné hodnotenie. Musíte zadať kandidátov s hodnotením medzi 1 a 999.',
+	'securepoll-unranked-options' => 'Niektoré možnosti neboli ohodnotené.
+Musíte dať každej možnosti hodnotenie medzi 1 a 999.',
 	'securepoll-remote-auth-error' => 'Pri zisťovaní vašich prihlasovacích informácií zo servera nastala chyba.',
 	'securepoll-remote-parse-error' => 'Pri interpretácii odpovede o autorizácii od servera nastala chyba.',
 	'securepoll-api-invalid-params' => 'Neplatné parametre.',
@@ -5449,6 +5520,7 @@ Nie je možné dešifrovať.',
 	'securepoll-strike-reason' => 'Dôvod:',
 	'securepoll-strike-cancel' => 'Zrušiť',
 	'securepoll-strike-error' => 'Chyba operácie škrtnutie/zrušenie škrtnutia: $1',
+	'securepoll-strike-token-mismatch' => 'Údaje o relácii boli stratené',
 	'securepoll-details-link' => 'Podrobnosti',
 	'securepoll-details-title' => 'Podrobnosti hlasovania: #$1',
 	'securepoll-invalid-vote' => '„$1“ nie je platný ID hlasovania',
@@ -5464,6 +5536,8 @@ Nie je možné dešifrovať.',
 	'securepoll-dump-not-finished' => 'Šifrované záznamy o voľbách sú dostupné len po dátume ich skončenia: $1 $2',
 	'securepoll-dump-no-urandom' => 'Nie je možné otvoriť /dev/urandom.
 Aby bola zabezpečená anonymita hlasujúceho, šifrované záznamy o voľbách sú dostupné verejne len keď bôžu byť zamiešané náhodným tokom čísel.',
+	'securepoll-urandom-not-supported' => 'Tento server nepodporuje tvorbu kryptograficky náhodných čísiel.
+Aby sa zachovalo súkromie hlasujúcich, šifrovaný záznam o voľbách je verejne dostupný iba keď ho možno kryptograficky zabezpečiť tokom náhodných čísiel.',
 	'securepoll-translate-title' => 'Preložiť: $1',
 	'securepoll-invalid-language' => 'Neplatný kód jazyka „$1“',
 	'securepoll-submit-translate' => 'Aktualizovať',
@@ -5488,6 +5562,8 @@ Môžete buď zistiť výsledok hlasovania z výsledkov dostupných v databáze 
 	'securepoll-tally-upload-submit' => 'Vytvoriť vyhodnotenie',
 	'securepoll-tally-error' => 'Chyba pri interpretácii záznamu o hlasovaní, nemožno vyhodnotiť hlasovanie.',
 	'securepoll-no-upload' => 'Nebol nahraný súbor, nemožno vyhodnotiť hlasovanie.',
+	'securepoll-dump-corrupt' => 'Súbor s výpisom je poškodený a nemožno ho spracovať.',
+	'securepoll-tally-upload-error' => 'Chyba pri kontrole súboru výpisu: $1',
 );
 
 /** Serbian Cyrillic ekavian (ћирилица)
