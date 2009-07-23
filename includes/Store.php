@@ -22,6 +22,12 @@ interface SecurePoll_Store {
 	function getMessages( $lang, $ids );
 
 	/**
+	 * Get a list of languages that the given entity IDs have messages for. 
+	 * Returns an array of language codes.
+	 */
+	function getLangList( $ids );
+
+	/**
 	 * Get an array of properties for a given set of IDs. Returns a 2-d array 
 	 * mapping IDs and property keys to values.
 	 */
@@ -82,6 +88,22 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 			$messages[$row->msg_entity][$row->msg_key] = $row->msg_text;
 		}
 		return $messages;
+	}
+
+	function getLangList( $ids ) {
+		$db = $this->getDB();
+		$res = $db->select(
+			'securepoll_msgs',
+			'DISTINCT msg_lang',
+			array(
+				'msg_entity' => $ids
+			),
+			__METHOD__ );
+		$langs = array();
+		foreach ( $res as $row ) {
+			$langs[] = $row->msg_lang;
+		}
+		return $langs;
 	}
 
 	function getProperties( $ids ) {
@@ -235,6 +257,19 @@ class SecurePoll_MemoryStore implements SecurePoll_Store {
 			return array();
 		}
 		return array_intersect_key( $this->messages[$lang], array_flip( $ids ) );
+	}
+
+	function getLangList( $ids ) {
+		$langs = array();
+		foreach ( $this->messages as $lang => $langMessages ) {
+			foreach ( $ids as $id ) {
+				if ( isset( $langMessages[$id] ) ) {
+					$langs[] = $lang;
+					break;
+				}
+			}
+		}
+		return $langs;
 	}
 
 	function getProperties( $ids ) {

@@ -74,6 +74,11 @@ class SecurePoll_Context {
 		return $this->store;
 	}
 
+	/** Get a Title object for Special:SecurePoll */
+	function getSpecialTitle( $subpage = false ) {
+		return SpecialPage::getTitleFor( 'SecurePoll', $subpage );
+	}
+
 	/** Set the store class */
 	function setStoreClass( $class ) {
 		$this->store = null;

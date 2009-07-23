@@ -38,10 +38,10 @@ class SecurePoll_Question extends SecurePoll_Entity {
 		return $this->options;
 	}
 
-	function getConfXml() {
-		$s = "<question>\n" . $this->getConfXmlEntityStuff();
+	function getConfXml( $options = array() ) {
+		$s = "<question>\n" . $this->getConfXmlEntityStuff( $options );
 		foreach ( $this->getOptions() as $option ) {
-			$s .= $option->getConfXml();
+			$s .= $option->getConfXml( $options );
 		}
 		$s .= "</question>\n";
 		return $s;

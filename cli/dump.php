@@ -8,6 +8,15 @@
 $optionsWithArgs = array( 'o' );
 require( dirname(__FILE__).'/cli.inc' );
 
+$usage = <<<EOT
+Usage: php dump.php [options...] <election name>
+Options:
+    -o <outfile>                Output to the specified file
+    --votes                     Include vote records
+	--all-langs                 Include messages for all languages instead of just the primary
+    --jump                      Produce a configuration dump suitable for setting up a jump wiki
+EOT;
+
 if ( !isset( $args[0] ) ) {
 	spFatal( "Usage: php dump.php [-o <outfile>] <election name>" );
 }
@@ -32,18 +41,28 @@ if ( !$outFile ) {
 	spFatal( "Unable to open $fileName for writing" );
 }
 
-$context->setLanguages( array( $election->getLanguage() ) );
+if ( isset( $options['all-langs'] ) ) {
+	$langs = $election->getLangList();
+} else {
+	$langs = array( $election->getLanguage() );
+}
+$confXml = $election->getConfXml( array(
+	'jump' => isset( $options['jump'] ),
+	'langs' => $langs 
+) );
 
 $cbdata = array(
-	'header' => "<SecurePoll>\n<election>\n" . $election->getConfXml(),
+	'header' => "<SecurePoll>\n<election>\n$confXml",
 	'outFile' => $outFile
 );
+$election->cbdata = $cbdata;
 
 # Write vote records
-$election->cbdata = $cbdata;
-$status = $election->dumpVotesToCallback( 'spDumpVote' );
-if ( !$status->isOK() ) {
-	spFatal( $status->getWikiText() );
+if ( isset( $options['votes'] ) ) {
+	$status = $election->dumpVotesToCallback( 'spDumpVote' );
+	if ( !$status->isOK() ) {
+		spFatal( $status->getWikiText() );
+	}
 }
 if ( $election->cbdata['header'] ) {
 	fwrite( $outFile, $election->cbdata['header'] );

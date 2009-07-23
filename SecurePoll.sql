@@ -89,6 +89,7 @@ CREATE INDEX /*i*/spqu_election_index ON /*_*/securepoll_questions (qu_election,
 
 
 -- Options for answering a given question, see Option.php
+-- FIXME: needs op_election index for import.php
 CREATE TABLE /*_*/securepoll_options (
 	-- securepoll_entity.en_id
 	op_entity int not null primary key,
@@ -98,6 +99,7 @@ CREATE TABLE /*_*/securepoll_options (
 	op_question int not null
 ) /*$wgDBTableOptions*/;
 CREATE INDEX /*i*/spop_question ON /*_*/securepoll_options (op_question, op_entity);
+
 
 -- Voter list, independent for each election
 -- See Voter.php

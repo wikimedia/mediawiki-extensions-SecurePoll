@@ -309,7 +309,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	/**
 	 * Get an XML snippet describing the configuration of this object
 	 */
-	function getConfXml() {
+	function getConfXml( $options = array() ) {
 		$s = "<configuration>\n" .
 			Xml::element( 'title', array(), $this->title ) . "\n" .
 			Xml::element( 'ballot', array(), $this->ballotType ) . "\n" .
@@ -317,10 +317,27 @@ class SecurePoll_Election extends SecurePoll_Entity {
 			Xml::element( 'primaryLang', array(), $this->primaryLang ) . "\n" .
 			Xml::element( 'startDate', array(), wfTimestamp( TS_ISO_8601, $this->startDate ) ) . "\n" .
 			Xml::element( 'endDate', array(), wfTimestamp( TS_ISO_8601, $this->endDate ) ) . "\n" .
-			Xml::element( 'auth', array(), $this->authType ) . "\n" . 
-			$this->getConfXmlEntityStuff();
+			$this->getConfXmlEntityStuff( $options );
+
+		# If we're making a jump dump, we need to add some extra properties, and 
+		# override the auth type
+		if ( !empty( $options['jump'] ) ) {
+			$s .= 
+				Xml::element( 'auth', array(), 'local' ) . "\n" .
+				Xml::element( 'property', 
+					array( 'name' => 'jump-url' ), 
+					$this->context->getSpecialTitle()->getFullURL()
+				) . "\n" .
+				Xml::element( 'property',
+					array( 'name' => 'jump-id' ),
+					$this->getId() 
+				) . "\n";
+		} else {
+			$s .= Xml::element( 'auth', array(), $this->authType ) . "\n";
+		}
+
 		foreach ( $this->getQuestions() as $question ) {
-			$s .= $question->getConfXml();
+			$s .= $question->getConfXml( $options );
 		}
 		$s .= "</configuration>\n";
 		return $s;

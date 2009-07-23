@@ -168,6 +168,18 @@ class SecurePoll_Entity {
 	}
 
 	/**
+	 * Get a list of languages for which we have translations, for this entity 
+	 * and its descendants.
+	 */
+	function getLangList() {
+		$ids = array( $this->getId() );
+		foreach ( $this->getDescendants() as $child ) {
+			$ids[] = $child->getId();
+		}
+		return $this->context->getStore()->getLangList( $ids );
+	}
+
+	/**
 	 * Get a property value. If it does not exist, the $default parameter
 	 * is passed back.
 	 * @param $name string
@@ -197,24 +209,35 @@ class SecurePoll_Entity {
 	/**
 	 * Get configuration XML. Overridden by most subclasses.
 	 */
-	function getConfXml() {
+	function getConfXml( $options = array() ) {
 		return "<{$this->type}>\n" .
-			$this->getConfXmlEntityStuff() .
+			$this->getConfXmlEntityStuff( $options ) .
 			"</{$this->type}>\n";
 	}
 
 	/**
 	 * Get an XML snippet giving the messages and properties
 	 */
-	function getConfXmlEntityStuff() {
+	function getConfXmlEntityStuff( $options = array() ) {
 		$s = Xml::element( 'id', array(), $this->getId() ) . "\n";
 		foreach ( $this->getAllProperties() as $name => $value ) {
 			$s .= Xml::element( 'property', array( 'name' => $name ), $value ) . "\n";
 		}
+		if ( isset( $options['langs'] ) ) {
+			$langs = $options['langs'];
+		} else {
+			$langs = $this->context->languages;
+		}
 		foreach ( $this->getMessageNames() as $name ) {
-			foreach ( $this->context->languages as $lang ) {
-				$s .= Xml::element( 'message', array( 'name' => $name, 'lang' => $lang ),
-					$this->getRawMessage( $name, $lang ) ) . "\n";
+			foreach ( $langs as $lang ) {
+				$value = $this->getRawMessage( $name, $lang );
+				if ( $value !== false ) {
+					$s .= Xml::element( 
+							'message', 
+							array( 'name' => $name, 'lang' => $lang ),
+							$value 
+						) . "\n";
+				}
 			}
 		}
 		return $s;
