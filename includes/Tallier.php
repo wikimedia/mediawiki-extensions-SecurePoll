@@ -464,17 +464,15 @@ class SecurePoll_SchulzeTallier extends SecurePoll_PairwiseTallier {
 				}
 				$v12 = $victories[$oid1][$oid2];
 				$v21 = $victories[$oid2][$oid1];
-				#if ( $v12 > $v21 ) {
+				if ( $v12 > $v21 ) {
 					# Direct victory
 					$strengths[$oid1][$oid2] = array( $v12, $v21 );
-				#} else {
+				} else {
 					# Direct loss
-				#	$strengths[$oid1][$oid2] = array( 0, 0 );
-				#}
+					$strengths[$oid1][$oid2] = array( 0, 0 );
+				}
 			}
 		}
-
-		echo $this->convertMatrixToText( $strengths, $this->optionIds ) . "\n";
 
 		# Next (continuing the Floyd-Warshall algorithm) we calculate the strongest indirect
 		# paths. This part dominates the O(N^3) time order.
