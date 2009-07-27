@@ -76,6 +76,7 @@ You must give all options a rank between 1 and 999.',
 	'securepoll-bot' => 'Sorry, accounts with the bot flag are not allowed to vote in this election.',
 	'securepoll-not-in-group' => 'Only members of the "$1" group can vote in this election.',
 	'securepoll-not-in-list' => 'Sorry, you are not in the predetermined list of users authorised to vote in this election.',
+	'securepoll-custom-unqualified' => '$1',
 
 	# List page
 	# Mostly for admins

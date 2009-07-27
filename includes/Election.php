@@ -77,7 +77,13 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * Get a list of localisable message names. See SecurePoll_Entity.
 	 */
 	function getMessageNames() {
-		return array( 'title', 'intro', 'jump-text', 'return-text' );
+		return array(
+			'title',
+			'intro',
+			'jump-text',
+			'return-text',
+			'unqualified-error',
+		);
 	}
 
 	/**
@@ -173,6 +179,14 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		$lists = isset( $props['lists'] ) ? $props['lists'] : array();
 		if ( $needList && !in_array( $needList, $lists ) ) {
 			$status->fatal( 'securepoll-not-in-list' );
+		}
+
+		# Get custom error message
+		if ( !$status->isOK() ) {
+			$errorMsg = $this->getMessage( 'unqualified-error' );
+			if ( $errorMsg !== '[unqualified-error]' && $errorMsg !== '' ) {
+				$status = Status::newFatal( 'securepoll-custom-unqualified', $errorMsg );
+			}
 		}
 		return $status;
 	}
