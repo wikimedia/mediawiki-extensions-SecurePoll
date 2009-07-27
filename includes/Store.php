@@ -505,7 +505,13 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 
 			# Info elements
 			if ( in_array( $xr->name, self::$entityInfoKeys[$entityType] ) ) {
-				$info[$xr->name] = $this->readStringElement();
+				$name = $xr->name;
+				$value = $this->readStringElement();
+				# Fix date format
+				if ( $name == 'startDate' || $name == 'endDate' ) {
+					$value = wfTimestamp( TS_MW, $value );
+				}
+				$info[$name] = $value;
 				continue;
 			}
 

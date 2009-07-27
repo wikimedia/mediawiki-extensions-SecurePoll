@@ -160,8 +160,8 @@ function spImportConfiguration( $store, $electionInfo ) {
 			'el_ballot' => $electionInfo['ballot'],
 			'el_tally' => $electionInfo['tally'],
 			'el_primary_lang' => $electionInfo['primaryLang'],
-			'el_start_date' => $electionInfo['startDate'],
-			'el_end_date' => $electionInfo['endDate'],
+			'el_start_date' => $dbw->timestamp( $electionInfo['startDate'] ),
+			'el_end_date' => $dbw->timestamp( $electionInfo['endDate'] ),
 			'el_auth_type' => $electionInfo['auth']
 		),
 		__METHOD__ );
