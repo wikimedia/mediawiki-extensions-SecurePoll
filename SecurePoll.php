@@ -79,6 +79,7 @@ $wgAutoloadClasses = $wgAutoloadClasses + array(
 	'SecurePoll_XMLStore' => "$dir/includes/Store.php",
 	'SecurePoll_Tallier' => "$dir/includes/Tallier.php",
 	'SecurePoll_PluralityTallier' => "$dir/includes/Tallier.php",
+	'SecurePoll_SchulzeTallier' => "$dir/includes/Tallier.php",
 	'SecurePoll_TallyPage' => "$dir/includes/TallyPage.php",
 	'SecurePoll_TranslatePage' => "$dir/includes/TranslatePage.php",
 	'SecurePoll_Voter' => "$dir/includes/Voter.php",

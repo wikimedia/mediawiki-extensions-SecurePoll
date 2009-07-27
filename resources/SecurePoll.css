@@ -62,4 +62,6 @@
 .securepoll-results caption {
     font-weight: bold;
 }
-
+.securepoll-results-row-heading {
+    background: #f2f2f2;
+}
