@@ -13,12 +13,12 @@ Usage: php dump.php [options...] <election name>
 Options:
     -o <outfile>                Output to the specified file
     --votes                     Include vote records
-	--all-langs                 Include messages for all languages instead of just the primary
+    --all-langs                 Include messages for all languages instead of just the primary
     --jump                      Produce a configuration dump suitable for setting up a jump wiki
 EOT;
 
 if ( !isset( $args[0] ) ) {
-	spFatal( "Usage: php dump.php [-o <outfile>] <election name>" );
+	spFatal( $usage );
 }
 
 $context = new SecurePoll_Context;

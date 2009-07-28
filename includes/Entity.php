@@ -220,8 +220,11 @@ class SecurePoll_Entity {
 	 */
 	function getConfXmlEntityStuff( $options = array() ) {
 		$s = Xml::element( 'id', array(), $this->getId() ) . "\n";
+		$blacklist = $this->getPropertyDumpBlacklist( $options );
 		foreach ( $this->getAllProperties() as $name => $value ) {
-			$s .= Xml::element( 'property', array( 'name' => $name ), $value ) . "\n";
+			if ( !in_array( $name, $blacklist ) ) {
+				$s .= Xml::element( 'property', array( 'name' => $name ), $value ) . "\n";
+			}
 		}
 		if ( isset( $options['langs'] ) ) {
 			$langs = $options['langs'];
@@ -241,6 +244,14 @@ class SecurePoll_Entity {
 			}
 		}
 		return $s;
+	}
+
+	/**
+	 * Get property names which aren't included in an XML dump.
+	 * Overloaded by Election.
+	 */
+	function getPropertyDumpBlacklist( $options = array() ) {
+		return array();
 	}
 
 }

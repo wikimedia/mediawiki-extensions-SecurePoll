@@ -358,6 +358,21 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	}
 
 	/**
+	 * Get property names which aren't included in an XML dump
+	 */
+	function getPropertyDumpBlacklist( $options = array() ) {
+		if ( !empty( $options['jump'] ) ) {
+			return array(
+				'gpg-encrypt-key',
+				'gpg-sign-key',
+				'gpg-decrypt-key'
+			);
+		} else {
+			return array();
+		}
+	}
+
+	/**
 	 * Tally the valid votes for this election.
 	 * Returns a Status object. On success, the value property will contain a
 	 * SecurePoll_ElectionTallier object.
