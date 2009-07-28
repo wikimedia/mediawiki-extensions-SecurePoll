@@ -8,8 +8,8 @@ $spConf = array(
 	'basePage' => 'Board elections/2009/Vote interface',
 	'langs' => array(
 		'ar',
-		'ca',
-		'cs',
+		#'ca',
+		#'cs',
 		'de',
 		'el',
 		'en',
@@ -23,6 +23,7 @@ $spConf = array(
 		'it',
 		'ja',
 		'jv',
+		'ko',
 		'ms',
 		'nb',
 		'nl',
@@ -30,9 +31,10 @@ $spConf = array(
 		'pt',
 		'pt-br',
 		'ru',
-		'sk',
+		#'sk',
 		'sv',
 		'tr',
+		'uk',
 		'vi',
 		'zh-hans',
 		'zh-hant',
@@ -47,11 +49,11 @@ $header = <<<EOT
 <ballot>preferential</ballot>
 <tally>schulze</tally>
 <primaryLang>en</primaryLang>
-<startDate>2009-07-28T08:00:00Z</startDate>
+<startDate>2009-07-28T12:00:00Z</startDate>
 <endDate>2009-08-10T23:59:59Z</endDate>
 <auth>remote-mw</auth>
 <id>{$spConf['baseId']}</id>
-<property name="admins">Pathoschild|Daniel|Yann|Dvortygirl|IAlex|Mardetanha|Werdna|Philippe Beaudette</property>
+<property name="admins">Tim Starling|Philippe|Werdna|Daniel|Yann|Mardetanha</property>
 <property name="not-blocked">1</property>
 <property name="not-bot">1</property>
 <property name="need-list">board-vote-2009</property>
