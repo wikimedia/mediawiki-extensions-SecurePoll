@@ -160,6 +160,7 @@ To maintain voter privacy, encrypted election records are only publically availa
 );
 
 /** Message documentation (Message documentation)
+ * @author Bennylin
  * @author Darth Kule
  * @author EugeneZelenko
  * @author Fryed-peach
@@ -177,6 +178,7 @@ $messages['qqq'] = array(
 	'securepoll-desc' => '{{desc}}',
 	'securepoll-not-started' => '* $2 is the date of it
 * $3 is its time.',
+	'securepoll-submit' => '{{Identical|Submit}}',
 	'securepoll-return' => '{{Identical|Return to $1}}',
 	'securepoll-no-gpg-home' => 'GPG stands for [http://en.wikipedia.org/wiki/GNU_Privacy_Guard GNU Privacy Guard].',
 	'securepoll-secret-gpg-error' => "<span style=\"color:red\">'''DO <u>NOT</u> translate LocalSettings.php and \$wgSecurePollShowErrorDetail=true;'''</span>
@@ -219,7 +221,7 @@ The /dev/urandom cryptographic random number generation device is not supported 
 	'securepoll-header-trans-id' => '{{optional}}',
 	'securepoll-submit-select-lang' => '{{Identical|Translate}}',
 	'securepoll-header-title' => '{{Identical|Name}}',
-	'securepoll-subpage-vote' => 'వోటు',
+	'securepoll-subpage-vote' => '{{delete}}',
 	'securepoll-subpage-translate' => '{{Identical|Translate}}',
 );
 
@@ -476,6 +478,9 @@ $1',
 	'securepoll-no-upload' => 'Файл не загружаны, немагчыма падлічыць.',
 	'securepoll-dump-corrupt' => 'Вывадны файл пашкоджаны і ня можа быць апрацаваны.',
 	'securepoll-tally-upload-error' => 'Памылка цэласнасьці вываднога файла: $1',
+	'securepoll-pairwise-victories' => 'Матрыца падвойных перамогаў',
+	'securepoll-strength-matrix' => 'Матрыца моцы шляхоў',
+	'securepoll-ranks' => 'Канчатковыя вынікі',
 );
 
 /** Bulgarian (Български)
@@ -866,6 +871,9 @@ Můžete si vybrat, zda chcete sečíst výsledky v databázi, nebo sečíst ši
 	'securepoll-no-upload' => 'Nebyl načten žádný soubor, hlasování nelze sečíst.',
 	'securepoll-dump-corrupt' => 'Soubor se záznamem je poškozený a nelze ho zpracovat.',
 	'securepoll-tally-upload-error' => 'Chyba při sčítání záznamu: $1',
+	'securepoll-pairwise-victories' => 'Matice vzájemných vítězství',
+	'securepoll-strength-matrix' => 'Matice síly cest',
+	'securepoll-ranks' => 'Konečné pořadí',
 );
 
 /** Welsh (Cymraeg)
@@ -987,6 +995,8 @@ Gallwch naill ai gyfrif y canlyniadau sydd yn y bas data, neu gallwch gyfrif y c
 	'securepoll-no-upload' => 'Ni uwchlwythwyd unrhyw ffeil, ni ellir cyfrif y canlyniadau.',
 	'securepoll-dump-corrupt' => 'Mae ffeil y dymp yn llygredig ac ni ellir weithredu arno.',
 	'securepoll-tally-upload-error' => 'Cafwyd gwall wrth gyfrif y ffeil dymp: $1',
+	'securepoll-strength-matrix' => 'Matrics cryfder y llwybr',
+	'securepoll-ranks' => 'Y drefn rhestrol terfynol',
 );
 
 /** Danish (Dansk)
@@ -1518,6 +1528,7 @@ $1',
 
 /** Esperanto (Esperanto)
  * @author ArnoLagrange
+ * @author Marcos
  * @author Yekrats
  */
 $messages['eo'] = array(
@@ -1540,7 +1551,7 @@ Notu, ke se vi farus ĉi tiel, via originala voĉdono estos forviŝita.',
 	'securepoll-submit' => 'Enmeti voĉdonon',
 	'securepoll-gpg-receipt' => 'Dankon por via voĉdono.
 
-Laŭvole, vi povas konservi la jena konfirmo de via voĉdono:
+Laŭvole, vi povas konservi la jenan konfirmon de via voĉdono:
 
 <pre>$1</pre>',
 	'securepoll-thanks' => 'Dankon, via voĉdono estis registrita.',
@@ -1636,6 +1647,9 @@ Vi povas elekti nombri ĉu la rezultojn el la datumbazo, ĉu ĉifritajn rezultoj
 	'securepoll-no-upload' => 'Neniu dosiero estis elŝutita, ne eblas nombri rezulton.',
 	'securepoll-dump-corrupt' => 'La elŝutdosiero estas difektita kaj ne povas esti traktita.',
 	'securepoll-tally-upload-error' => 'Eraro dum nombrado de elŝutdosiero: $1',
+	'securepoll-pairwise-victories' => 'Matrico de paraj venkoj',
+	'securepoll-strength-matrix' => 'Matrico de vojforteco',
+	'securepoll-ranks' => 'Fina rangigo',
 );
 
 /** Spanish (Español)
@@ -1977,6 +1991,7 @@ Voit valita tuloslaskennan tietokantatiedoista, tai salakirjoitetuista tuloksist
  * @author Louperivois
  * @author Omnipaedista
  * @author PieRRoMaN
+ * @author Yann
  */
 $messages['fr'] = array(
 	'securepoll' => 'Sondage sécurisé',
@@ -2094,6 +2109,8 @@ Vous pouvez choisir de compter les résultats depuis la base de données ou depu
 	'securepoll-no-upload' => 'Aucun fichier n’a été téléchargé, impossible de compter les résultats.',
 	'securepoll-dump-corrupt' => 'Le fichier de sauvegarde est corrompu et ne peut pas être utilisé.',
 	'securepoll-tally-upload-error' => 'Erreur lors du dépouillement du fichier de sauvegarde : $1',
+	'securepoll-pairwise-victories' => 'Matrice des victoires par pair',
+	'securepoll-ranks' => 'Classement final',
 );
 
 /** Irish (Gaeilge)
@@ -2227,6 +2244,9 @@ Pode optar por escrutar os resultados presentes na base de datos ou por escrutar
 	'securepoll-no-upload' => 'Non foi cargado ningún ficheiro, non se poden escrutar os resultados.',
 	'securepoll-dump-corrupt' => 'O ficheiro de descarga está danado e non pode ser procesado.',
 	'securepoll-tally-upload-error' => 'Erro ao enumerar o ficheiro de descarga: $1',
+	'securepoll-pairwise-victories' => 'Matriz de vitoria por parellas',
+	'securepoll-strength-matrix' => 'Matriz da fortaleza de ruta',
+	'securepoll-ranks' => 'Valoración final',
 );
 
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)
@@ -2981,9 +3001,9 @@ Tu pote optar pro contar le resultatos presente in le base de datos, o pro conta
  */
 $messages['id'] = array(
 	'securepoll' => 'SecurePoll',
-	'securepoll-desc' => 'Ekstensi untuk pemungutan suara dan survei',
+	'securepoll-desc' => 'Pengaya untuk pemungutan suara dan survei',
 	'securepoll-invalid-page' => 'Subhalaman tidak sah "<nowiki>$1</nowiki>"',
-	'securepoll-need-admin' => 'Tindakan ini hanya dapat dilakukan oleh administrator.',
+	'securepoll-need-admin' => 'Tindakan ini hanya dapat dilakukan oleh seorang pengurus.',
 	'securepoll-too-few-params' => 'Parameter subhalaman tidak lengkap (pranala tidak sah).',
 	'securepoll-invalid-election' => 'ID pemilihan tidak sah: "$1"',
 	'securepoll-welcome' => '<strong>Selamat datang $1!</strong>',
@@ -3003,8 +3023,8 @@ Jika diperlukan, Anda dapat menyimpan bukti penerimaan suara Anda di bawah ini:
 <pre>$1</pre>',
 	'securepoll-thanks' => 'Terima kasih, suara Anda telah dicatat.',
 	'securepoll-return' => 'Kembali ke $1',
-	'securepoll-encrypt-error' => 'Gagal mengenkripsi catatan suara Anda.
-Suara Anda belum direkam!
+	'securepoll-encrypt-error' => 'Gagal meng-enkripsi catatan suara Anda.
+Voting Anda belum tercatat!
 
 $1',
 	'securepoll-no-gpg-home' => 'Gagal membuat direktori utama GPG.',
@@ -3014,22 +3034,22 @@ Gunakan $wgSecurePollShowErrorDetail=true; di LocalSettings.php untuk menampilka
 
 Perintah: $1
 
-Kesalahan:
+Galat:
 <pre>$2</pre>',
 	'securepoll-gpg-config-error' => 'Kesalahan konfigurasi kunci GPG.',
-	'securepoll-gpg-parse-error' => 'Gagal menginterpretasikan hasil keluaran GPG.',
+	'securepoll-gpg-parse-error' => 'Gagal meng-interpretasikan hasil keluaran GPG.',
 	'securepoll-no-decryption-key' => 'Kunci dekripsi belum dikonfigurasikan.
 Tidak dapat melakukan dekripsi.',
-	'securepoll-jump' => 'Pergi ke server pemungutan suara',
-	'securepoll-bad-ballot-submission' => 'Suara Anda tidak valid: $1',
+	'securepoll-jump' => 'Pergi ke peladen pemungutan suara',
+	'securepoll-bad-ballot-submission' => 'Suara Anda tidak sah: $1',
 	'securepoll-unanswered-questions' => 'Anda harus menjawab semua pertanyaan.',
-	'securepoll-invalid-rank' => 'Peringat tidak sah. Anda harus memberi peringkat kandidat antara 1 dan 99.',
+	'securepoll-invalid-rank' => 'Peringkat tidak sah. Anda harus memberi peringkat kandidat antara 1 dan 99.',
 	'securepoll-unranked-options' => 'Beberapa pilihan tidak diberi peringkat.
 Anda harus memberi peringkat antara 1 dan 99 untuk semua pilihan.',
-	'securepoll-remote-auth-error' => 'Terjadi kesalahan ketika menarik informasi akun Anda dari server.',
-	'securepoll-remote-parse-error' => 'Terjadi kesalahan interpretasi atas respons otorisasi dari server.',
-	'securepoll-api-invalid-params' => 'Parameter tidak valid.',
-	'securepoll-api-no-user' => 'Tidak ditemukan nama pengguna tersebut.',
+	'securepoll-remote-auth-error' => 'Terjadi kesalahan ketika mengambil informasi akun Anda dari peladen.',
+	'securepoll-remote-parse-error' => 'Terjadi kesalahan interpretasi atas respon otorisasi dari peladen.',
+	'securepoll-api-invalid-params' => 'Parameter tidak sah.',
+	'securepoll-api-no-user' => 'Tidak ditemukan nama pengguna dengan ID tersebut.',
 	'securepoll-api-token-mismatch' => 'Kode keamanan tidak sesuai, tidak dapat masuk log.',
 	'securepoll-not-logged-in' => 'Anda harus masuk log untuk dapat memberikan suara dalam pemilihan ini',
 	'securepoll-too-few-edits' => 'Maaf, Anda tidak dapat memberikan suara. Anda harus memiliki minimal $1 {{PLURAL:$1|suntingan|suntingan}} untuk dapat memberikan suara dalam pemilihan ini, Anda hanya memiliki $2.',
@@ -3060,12 +3080,12 @@ Anda harus memberi peringkat antara 1 dan 99 untuk semua pilihan.',
 	'securepoll-header-action' => 'Tindakan',
 	'securepoll-header-reason' => 'Alasan',
 	'securepoll-header-admin' => 'Admin',
-	'securepoll-cookie-dup-list' => 'Cookie pengguna duplikat',
+	'securepoll-cookie-dup-list' => "''Cookie'' pengguna duplikat",
 	'securepoll-dump-title' => 'Dump: $1',
-	'securepoll-dump-no-crypt' => 'Tidak ada catatan pemilihan yang terenkripsi untuk pemilihan ini, karena pemilihan ini tidak dikonfigurasikan untuk menggunakan enkripsi.',
-	'securepoll-dump-not-finished' => 'Catatan pemilihan terenkripsi hanya tersedia setelah selesainya pemungutan suara pada $2, $1.',
+	'securepoll-dump-no-crypt' => 'Tidak ada catatan pemilihan yang ter-enkripsi untuk pemilihan ini, karena pemilihan ini tidak dikonfigurasikan untuk menggunakan enkripsi.',
+	'securepoll-dump-not-finished' => 'Catatan pemilihan ter-enkripsi hanya tersedia setelah selesainya pemungutan suara pada $2, $1.',
 	'securepoll-dump-no-urandom' => 'Tidak dapat membuka /dev/urandom.
-Untuk memastikan privasi pemberi suara, catatan pemilihan terenkripsi hanya akan tersedia secara publik jika menggunakan sebuah rangkaian nomor keamanan acak.',
+Untuk memastikan kerahasiaan pemberi suara, catatan pemilihan ter-enkripsi hanya akan tersedia secara publik jika menggunakan sebuah rangkaian nomor keamanan acak.',
 	'securepoll-urandom-not-supported' => 'Peladen ini tidak mendukung kriptografi pembuatan angka acak.
 Untuk menjaga kerahasiaan pemilih, catatan pemilihan ter-enkripsi hanya tersedia secara publik jika catatan tersebut dapat diacak dengan angka acak yang aman.',
 	'securepoll-translate-title' => 'Terjemahkan: $1',
@@ -3075,25 +3095,28 @@ Untuk menjaga kerahasiaan pemilih, catatan pemilihan ter-enkripsi hanya tersedia
 	'securepoll-submit-select-lang' => 'Terjemahkan',
 	'securepoll-header-title' => 'Nama',
 	'securepoll-header-start-date' => 'Tanggal mulai',
-	'securepoll-header-end-date' => 'Tanggal akhir',
-	'securepoll-subpage-vote' => 'Suara',
+	'securepoll-header-end-date' => 'Tanggal berakhir',
+	'securepoll-subpage-vote' => 'Voting',
 	'securepoll-subpage-translate' => 'Terjemahkan',
 	'securepoll-subpage-list' => 'Daftar',
 	'securepoll-subpage-dump' => 'Dump',
 	'securepoll-subpage-tally' => 'Penghitungan suara',
 	'securepoll-tally-title' => 'Penghitungan suara: $1',
 	'securepoll-tally-not-finished' => 'Maaf, Anda tidak dapat menghitung suara sampai pemungutan selesai.',
-	'securepoll-can-decrypt' => 'Catatan pemilihan telah dienkripsi, tapi kunci dekripsi tersedia.
-Anda dapat memilih antara menghitung dari hasil suara yang terdapat di basis data, atau untuk menghitung hasil yang terenkripsi dari berkas yang dimuatkan.',
-	'securepoll-tally-no-key' => 'Anda tidak dapat melakukan penghitungan suara, karena suara-suaranya terenkripsi dan kunci dekripsinya tidak tersedia.',
+	'securepoll-can-decrypt' => 'Catatan pemilihan telah di-enkripsi, tapi kunci dekripsi tersedia.
+Anda dapat memilih antara menghitung dari hasil suara yang terdapat di basis data, atau untuk menghitung hasil yang ter-enkripsi dari berkas yang dimuatkan.',
+	'securepoll-tally-no-key' => 'Anda tidak dapat melakukan penghitungan suara, karena suara-suaranya ter-enkripsi dan kunci dekripsinya tidak tersedia.',
 	'securepoll-tally-local-legend' => 'Menghitung hasil yang tersimpan',
 	'securepoll-tally-local-submit' => 'Lakukan penghitungan',
-	'securepoll-tally-upload-legend' => 'Muat dump terenkripsi',
-	'securepoll-tally-upload-submit' => 'Membuat perhitungan',
-	'securepoll-tally-error' => 'Terjadi kesalahan dalam menginterpretasikan catatan pemungutan suara, tidak dapat melakukan penghitungan.',
+	'securepoll-tally-upload-legend' => 'Muat dump ter-enkripsi',
+	'securepoll-tally-upload-submit' => 'Melakukan penghitungan',
+	'securepoll-tally-error' => 'Terjadi kesalahan dalam meng-interpretasikan catatan pemungutan suara, tidak dapat melakukan penghitungan.',
 	'securepoll-no-upload' => 'Tidak ada berkas yang dimuatkan, tidak dapat melakukan penghitungan hasil.',
-	'securepoll-dump-corrupt' => 'Berkas dump terkorpusi dan tidak dapat diproses.',
+	'securepoll-dump-corrupt' => 'Berkas dump terkorupsi dan tidak dapat diproses.',
 	'securepoll-tally-upload-error' => 'Kesalahan pada saat menjumlah berkas dump: $1',
+	'securepoll-pairwise-victories' => 'Matriks kemenangan berpasangan',
+	'securepoll-strength-matrix' => 'Matriks kekuatan jalan',
+	'securepoll-ranks' => 'Peringkat akhir',
 );
 
 /** Ido (Ido)
@@ -3106,6 +3129,7 @@ $messages['io'] = array(
 
 /** Italian (Italiano)
  * @author BrokenArrow
+ * @author Capmo
  * @author Darth Kule
  * @author Massimiliano Lincetto
  * @author Melos
@@ -3229,6 +3253,9 @@ Puoi scegliere di effettuare il conteggio dei risultati presenti nel database o 
 	'securepoll-no-upload' => 'Nessun file è stato caricato, non è possibile effettuare il conteggio.',
 	'securepoll-dump-corrupt' => 'Il file di dump è corrotto e non può essere elaborato.',
 	'securepoll-tally-upload-error' => "Errore nell'effettuare il conteggio sul file di dump: $1",
+	'securepoll-pairwise-victories' => 'Matrice di vittoria a due a due',
+	'securepoll-strength-matrix' => 'Matrice di fortezza del percorso',
+	'securepoll-ranks' => 'Classifica finale',
 );
 
 /** Japanese (日本語)
@@ -3646,6 +3673,7 @@ Donn Desch entscheide doh zwesche, de neuste Zahle en de Datebangk uß_ze_zälle
 );
 
 /** Luxembourgish (Lëtzebuergesch)
+ * @author Les Meloures
  * @author Robby
  */
 $messages['lb'] = array(
@@ -3701,8 +3729,8 @@ Dir musst allen optiounen e Classement tëschent 1 an 999 ginn.',
 	'securepoll-api-invalid-params' => 'Parameter déi net valabel sinn.',
 	'securepoll-api-no-user' => 'Et gouf kee Benotzer mat der ID fonnt déi ugi war.',
 	'securepoll-api-token-mismatch' => 'Falsche Sécerheeets-Token, Aloggen ass net méiglech.',
-	'securepoll-not-logged-in' => 'Dir musst Iech aloggen fir bäi dëse Walen ofstëmmen ze kënnen',
-	'securepoll-too-few-edits' => 'Pardon, Dir däerft net ofstëmmen. Dir musst mindestens $1 {{PLURAL:$1|Ännerung|Ännerunge}} gemaacht hun, fir bäi dëse Walen ofstëmmen ze kënnen, Dir hutt der $2 gemaach.',
+	'securepoll-not-logged-in' => 'Dir musst Iech alogge fir bäi dëse Walen ofstëmmen ze kënnen',
+	'securepoll-too-few-edits' => 'Pardon, Dir däerft net ofstëmmen. Dir musst mindestens $1 {{PLURAL:$1|Ännerung|Ännerunge}} gemaacht hunn, fir bäi dëse Walen ofstëmmen ze kënnen, Dir hutt der $2 gemaach.',
 	'securepoll-blocked' => 'Pardon, Dir kënnt net bäi dëse Walen ofstëmmen wann dir elo fir Ännerunge gespaart sidd.',
 	'securepoll-bot' => 'Pardon, Benotzerkonte matt engem Bottefändel (bot flag) däerfe bäi dëse Walen net ofstëmmen.',
 	'securepoll-not-in-group' => 'Nëmme Membere vum Grupp $1 kënne bäi dëse Walen ofstëmmen.',
@@ -3760,6 +3788,7 @@ Fir d'Konfidentialitéit vun de Wieler z'assuréieren, si verschlësselt Opzeech
 	'securepoll-no-upload' => "Et gouf kee Fichier eropgelueden, d'Resultater kënnen net ausgezielt ginn.",
 	'securepoll-dump-corrupt' => 'Den Dump-Fichier ass futti a kann net verschafft ginn.',
 	'securepoll-tally-upload-error' => 'Feeler bei der Auswertung vum Dump-Fichier: $1',
+	'securepoll-ranks' => 'Schlussclassement',
 );
 
 /** Limburgish (Limburgs)
@@ -4040,6 +4069,9 @@ Tidak dapat menyahsulit.',
 	'securepoll-jump' => 'Pergi ke pelayan undian',
 	'securepoll-bad-ballot-submission' => 'Undi anda tak sah: $1',
 	'securepoll-unanswered-questions' => 'Anda perlu jawab kesemua soalan.',
+	'securepoll-invalid-rank' => 'Pangkat tidak sah. Anda mesti memberi calon pangkat di antara 1 dan 999.',
+	'securepoll-unranked-options' => 'Ada pilihan yang tidak diberi pangkat.
+Semua pilihan perlu diberikan pangkat di antara 1 dan 999.',
 	'securepoll-remote-auth-error' => 'Ralat dalam mengambil maklumat akaun anda dari pelayan.',
 	'securepoll-remote-parse-error' => 'Ralat menafsirkan jawapan kebenaran dari pelayan.',
 	'securepoll-api-invalid-params' => 'Parameter tidak sah.',
@@ -4064,6 +4096,7 @@ Tidak dapat menyahsulit.',
 	'securepoll-strike-reason' => 'Alasan:',
 	'securepoll-strike-cancel' => 'Batal',
 	'securepoll-strike-error' => 'Ralat membuang/kembalikan: $1',
+	'securepoll-strike-token-mismatch' => 'Data sesi hilang',
 	'securepoll-details-link' => 'Lanjut',
 	'securepoll-details-title' => 'Maklumat undi: #$1',
 	'securepoll-invalid-vote' => '"$1" bukan ID undian yang sah',
@@ -4079,6 +4112,8 @@ Tidak dapat menyahsulit.',
 	'securepoll-dump-not-finished' => 'Rekod sulit pemilihan hanya ada setelah tarikh tamat pada $1 pukul $2',
 	'securepoll-dump-no-urandom' => 'Gagal membuka /dev/urandom.  
 Untuk mengekalkan privasi pengundi, rekod sulit pemilihan hanya tersedia untuk awam apabila ia dirombak dengan aliran nombor rawak yang selamat.',
+	'securepoll-urandom-not-supported' => 'Pelayan ini tidak menyokong penjanaan nombor rawak kriptografi.
+Untuk mengekalkan keadaan berahsia pengundi, rekod pemilihan tersulit cuma boleh didapati umum apabila ia boleh diubah dengan aliran nombor rawak selamat.',
 	'securepoll-translate-title' => 'Terjemah: $1',
 	'securepoll-invalid-language' => 'Kod bahasa tidak sah "$1"',
 	'securepoll-submit-translate' => 'Kemas kini',
@@ -4103,6 +4138,11 @@ Anda boleh memilih untuk menyemak keputusan yang ada dalam pangkalan data, atau 
 	'securepoll-tally-upload-submit' => 'Cipta semakan',
 	'securepoll-tally-error' => 'Ralat mentafsir rekod undian, tidak dapat menghasilkan semakan.',
 	'securepoll-no-upload' => 'Tiada fail dimuat naik, tidak dapat menyemak keputusan.',
+	'securepoll-dump-corrupt' => 'Fail longgokan tercemar dan tidak dapat diproses.',
+	'securepoll-tally-upload-error' => 'Ralat menyemak fail longgokan: $1',
+	'securepoll-pairwise-victories' => 'Matriks kemenangan berpasangan',
+	'securepoll-strength-matrix' => 'Matriks kekuatan laluan',
+	'securepoll-ranks' => 'Kedudukan akhir',
 );
 
 /** Maltese (Malti)
@@ -4464,6 +4504,11 @@ U kunt de in de database beschikbare resultaten tellen, of de resultaten uit een
 Het is niet mogelijk een telling uit te voeren.',
 	'securepoll-no-upload' => 'Er is geen bestand geüpload.
 De resultaten kunnen niet geteld worden.',
+	'securepoll-dump-corrupt' => 'Het dumpbestand is beschadigd en kan niet worden verwerkt.',
+	'securepoll-tally-upload-error' => 'Er is een fout opgetreden bij het tellen uit de dump: $1',
+	'securepoll-pairwise-victories' => 'Paarsgewijze overwinningsmatrix',
+	'securepoll-strength-matrix' => 'Padgesterkte matrix',
+	'securepoll-ranks' => 'Definitieve rangschikking',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
@@ -4949,6 +4994,7 @@ $messages['pdc'] = array(
 );
 
 /** Polish (Polski)
+ * @author Leinad
  * @author Saper
  * @author Sp5uhe
  */
@@ -4997,6 +5043,9 @@ Odszyfrowanie nie jest możliwe.',
 	'securepoll-jump' => 'Przejdź do serwera obsługującego głosowanie',
 	'securepoll-bad-ballot-submission' => 'Twój głos był nieważny – $1',
 	'securepoll-unanswered-questions' => 'Musisz odpowiedzieć na wszystkie pytania.',
+	'securepoll-invalid-rank' => 'Błąd w rankingu kandydatów. Musisz przypisać kandydatom rangę z przedziału od 1 do 999.',
+	'securepoll-unranked-options' => 'Niektóre pola nie otrzymały rangi.
+Każde pole musi mieć przypisaną rangę z przedziału od 1 do 999.',
 	'securepoll-remote-auth-error' => 'Wystąpił błąd podczas pobierania informacji z serwera o Twoim koncie.',
 	'securepoll-remote-parse-error' => 'Wystąpił błąd interpretacji odpowiedzi autoryzującej z serwera.',
 	'securepoll-api-invalid-params' => 'Nieprawidłowe parametry.',
@@ -5037,7 +5086,7 @@ Odszyfrowanie nie jest możliwe.',
 	'securepoll-dump-not-finished' => 'Zaszyfrowane rekordy głosów dostępne będą dopiero po zakończeniu wyborów $1 o $2',
 	'securepoll-dump-no-urandom' => 'Nie można otworzyć /dev/urandom. 
 Dla zapewnienia wyborcom poufności, zaszyfrowane rekordy głosów są publicznie dostępne wyłącznie wymieszane z danymi losowymi.',
-	'securepoll-urandom-not-supported' => 'System operacyjny na serwerze nie pozwala na korzystanie z urządzenia do tworzenia liczb losowych spełniających wymagania kryptografii. 
+	'securepoll-urandom-not-supported' => 'Serwer nie umożliwia generowania liczb pseudolosowych spełniających wymagania kryptografii. 
 Dla zapewnienia wyborcom poufności, zaszyfrowane rekordy głosów są publicznie dostępne wyłącznie wymieszane z danymi losowymi.',
 	'securepoll-translate-title' => 'Tłumaczenie $1',
 	'securepoll-invalid-language' => 'Nieprawidłowy kod języka „$1”',
@@ -5065,6 +5114,9 @@ Można podliczyć wyniki obecne w bazie danych lub podliczyć wyniki z przesłan
 	'securepoll-no-upload' => 'Żaden plik nie został przesłany, nie można podliczyć głosów.',
 	'securepoll-dump-corrupt' => 'Plik ze zrzutem danych jest uszkodzony i nie być przetworzony.',
 	'securepoll-tally-upload-error' => 'Podczas podliczania pliku ze zrzutem danych wystąpił błąd: $1',
+	'securepoll-pairwise-victories' => 'Wybór spośród pary kandydatów',
+	'securepoll-strength-matrix' => 'Wybór poprzez ustawienie w kolejności',
+	'securepoll-ranks' => 'Ranking końcowy',
 );
 
 /** Piedmontese (Piemontèis)
@@ -5631,6 +5683,9 @@ $wgSecurePollShowErrorDetail=true; туруоруутун LocalSettings.php би
 	'securepoll-jump' => 'Куоластааһын сиэрбэригэр көһүү',
 	'securepoll-bad-ballot-submission' => 'Эн куолаһыҥ ааҕыллыбат: $1',
 	'securepoll-unanswered-questions' => 'Бары ыйытыыларга хоруйдуохтааххын.',
+	'securepoll-invalid-rank' => 'Рангата алҕастаах. Бииртэн 999 дылы раанганы ыйыахтааххын.',
+	'securepoll-unranked-options' => 'Сорохторугар раангаларын нүөмэрэ турбатах.
+Барыларыгар бииртэн 999 дылы раанганы туруоруохтааххын.',
 	'securepoll-remote-auth-error' => 'Аат-суол туһунан сибидиэнньэлэри сиэрбэртэн ылыыга алҕас таҕыста.',
 	'securepoll-remote-parse-error' => 'Сиэрбэртэн авторизацияны сыыһа көрүү буолбутун туһунан хоруй кэллэ.',
 	'securepoll-api-invalid-params' => 'Сыыһа туруоруулар.',
@@ -5655,6 +5710,7 @@ $wgSecurePollShowErrorDetail=true; туруоруутун LocalSettings.php би
 	'securepoll-strike-reason' => 'Төрүөтэ:',
 	'securepoll-strike-cancel' => 'Төннөрүү',
 	'securepoll-strike-error' => 'Сотууга / сотуутун устууга алҕас таҕыста: $1',
+	'securepoll-strike-token-mismatch' => 'Сиэссийэ дааннайдара сүттүлэр',
 	'securepoll-details-link' => 'Сиһилии',
 	'securepoll-details-title' => 'Куоластааһын туһунан сиһилии: #$1',
 	'securepoll-invalid-vote' => '"$1" куоластааһын көнүллэммит нүөмэрэ буолбатах',
@@ -5670,6 +5726,8 @@ $wgSecurePollShowErrorDetail=true; туруоруутун LocalSettings.php би
 	'securepoll-dump-not-finished' => 'Куоластааһын хаамыытын быыбар бүппүтүн кэннэ баччаҕа көрүөххүн сөп: $1, $2',
 	'securepoll-dump-no-urandom' => '/dev/urandom кыайан аһыллыбат.
 Быыбар хаамыытын аһаҕас гыныахха сөп, ол гынан баран ким хайдах куоластаабытын көрдөрбөт туһуттан куоластааччылар бэрээдэктэрин түбэспиччэ чыыһылалары туруоран уларытыллар.',
+	'securepoll-urandom-not-supported' => 'Бу сиэрбэр түбэспиччэ чыыһылалары оҥорор криптография генератора суох.
+Куоластаабыт дьон кистэлэҥнэрин көмүскүүр соруктаах куоластааһын туһунан куодтаммыт суруктары түбэспиччэ чыыһылалар көмөлөрүнэн буккуллубуттарын эрэ кэннэ уопсай көрүүгэ таһаарыахтара.',
 	'securepoll-translate-title' => 'Тылбаас: $1',
 	'securepoll-invalid-language' => 'Тыл куода алҕастаах: "$1"',
 	'securepoll-submit-translate' => 'Саҥардан биэр',
@@ -5694,6 +5752,10 @@ $wgSecurePollShowErrorDetail=true; туруоруутун LocalSettings.php би
 	'securepoll-tally-upload-submit' => 'Куолаһы аах',
 	'securepoll-tally-error' => 'Куолас суруллуута алҕастаах буолан куолас ахсаанын ааҕар табыллыбата.',
 	'securepoll-no-upload' => 'Билэ хачайдамматах буолан быыбар түмүгүн ааҕар табыллыбата.',
+	'securepoll-dump-corrupt' => 'Дамп билэтэ буорту буолбут, онон кыайан ааҕыллыбат.',
+	'securepoll-tally-upload-error' => 'Дамп билэтэ сөпсөспөтө: $1',
+	'securepoll-pairwise-victories' => 'Пааранан кыайыылар матрицалара',
+	'securepoll-ranks' => 'Раанганан бүтэһиктээх наардааһын',
 );
 
 /** Sardinian (Sardu)
