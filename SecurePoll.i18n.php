@@ -1786,10 +1786,11 @@ Puede escoger entre escrutar los resultados de la base de datos, o escrutar los 
 );
 
 /** Estonian (Eesti)
+ * @author Pikne
  * @author WikedKentaur
  */
 $messages['et'] = array(
-	'securepoll-need-admin' => 'Selle tegevuse sooritamiseks pead sa olema administraator.',
+	'securepoll-need-admin' => 'Selle tegevuse sooritamiseks pead sa olema ülem.',
 	'securepoll-invalid-election' => '"$1" pole õige hääletuse-ID.',
 	'securepoll-welcome' => '<strong>Tere tulemast $1!</strong>',
 	'securepoll-not-started' => 'Hääletus pole veel alanud.
@@ -5036,6 +5037,9 @@ Podètz causir de comptar los resultats dempuèi la banca de donadas o dempuèi 
 	'securepoll-no-upload' => 'Cap de fichièr es pas estat telecargat, impossible de comptar los resultats.',
 	'securepoll-dump-corrupt' => 'Lo fichièr de salvament es corromput e pòt pas èsser utilizat.',
 	'securepoll-tally-upload-error' => 'Error al moment del decargament del fichièr de salvament : $1',
+	'securepoll-pairwise-victories' => 'Matritz de las victòrias per par',
+	'securepoll-strength-matrix' => 'Matritz de fòrça dels camins',
+	'securepoll-ranks' => 'Classament final',
 );
 
 /** Papiamento (Papiamentu)
@@ -6068,7 +6072,61 @@ Môžete buď zistiť výsledok hlasovania z výsledkov dostupných v databáze 
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
+	'securepoll-desc' => 'Екстензија за изборе и анкете',
+	'securepoll-invalid-page' => 'Немогућа подстрана „<nowiki>$1</nowiki>“',
+	'securepoll-need-admin' => 'Морате бити администратор да бисте извели ову акцију.',
+	'securepoll-too-few-params' => 'Недовољно параметара подстране (неисправна веза).',
+	'securepoll-invalid-election' => '„$1“ није валидан ID за изборе.',
+	'securepoll-welcome' => '<strong>Добро дошли, $1!</strong>',
+	'securepoll-not-started' => 'Ово су избори, који још увек нису почели.
+Почетак је планиран за $2 у $3.',
+	'securepoll-finished' => 'Ови избори су завршени. Не можете више да гласате.',
+	'securepoll-not-qualified' => 'Не квалификујете се за гласача у овим изборима: $1',
+	'securepoll-change-disallowed' => 'Већ сте гласали на овим изборима.
+Жао нам је, не можете да гласате опет.',
+	'securepoll-submit' => 'Пошаљи глас',
+	'securepoll-thanks' => 'Хвала Вам. Ваш глас је снимљен.',
+	'securepoll-return' => 'Врати се на $1',
+	'securepoll-gpg-config-error' => 'GPG кључеви су погрешно подешени.',
+	'securepoll-gpg-parse-error' => 'Грешка приликом интерпретације GPG излаза.',
+	'securepoll-jump' => 'Иди на сервер за гласање',
+	'securepoll-bad-ballot-submission' => 'Ваш глас је неисправан: $1',
 	'securepoll-unanswered-questions' => 'Морате одговорити на сва питања.',
+	'securepoll-invalid-rank' => 'Погрешно рангирање. Кнадидате можете рангирати бројевима између 1 и 999.',
+	'securepoll-remote-auth-error' => 'Грешка приликом преузимања информација о Вашем налогу са сервера.',
+	'securepoll-api-invalid-params' => 'Погрешни параметри.',
+	'securepoll-api-no-user' => 'Није нађен корисник са датим ID.',
+	'securepoll-not-logged-in' => 'Морате се улоговати да бисте гласали на овим изборима',
+	'securepoll-list-title' => 'Прикажи гласове: $1',
+	'securepoll-header-timestamp' => 'Време',
+	'securepoll-header-voter-name' => 'Име',
+	'securepoll-header-voter-domain' => 'Домен',
+	'securepoll-header-ua' => 'Кориснички клијент',
+	'securepoll-header-details' => 'Појединости',
+	'securepoll-strike-reason' => 'Разлог:',
+	'securepoll-strike-cancel' => 'Поништи',
+	'securepoll-strike-token-mismatch' => 'Изгубљени подаци о сесији',
+	'securepoll-details-link' => 'Појединости',
+	'securepoll-details-title' => 'Појединости о гласу: #$1',
+	'securepoll-invalid-vote' => '„$1“ није валидан ID за гласање',
+	'securepoll-header-voter-type' => 'Тип гласача',
+	'securepoll-header-action' => 'Акција',
+	'securepoll-header-reason' => 'Разлог',
+	'securepoll-header-admin' => 'Админ',
+	'securepoll-cookie-dup-list' => 'Корисници са дупликатима колачића',
+	'securepoll-dump-title' => 'Дамп: $1',
+	'securepoll-translate-title' => 'Преведи: $1',
+	'securepoll-invalid-language' => 'Непрепознатљив код језика: „$1“',
+	'securepoll-submit-translate' => 'Ажурирај',
+	'securepoll-language-label' => 'Изабери језик:',
+	'securepoll-submit-select-lang' => 'Преведи',
+	'securepoll-header-title' => 'Име',
+	'securepoll-header-start-date' => 'Датум почетка',
+	'securepoll-header-end-date' => 'Датум краја',
+	'securepoll-subpage-vote' => 'Глас',
+	'securepoll-subpage-translate' => 'Преведи',
+	'securepoll-subpage-list' => 'Списак',
+	'securepoll-subpage-dump' => 'Дамп',
 );
 
 /** Swedish (Svenska)
