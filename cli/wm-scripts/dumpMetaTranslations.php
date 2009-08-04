@@ -20,7 +20,7 @@ $spConf = array(
 		'fi',
 		'fr',
 		'gl',
-		'hi'
+		'hi',
 		'hr',
 		'hu',
 		'ia',
