@@ -84,7 +84,9 @@ EOT
 	 */
 	static function ajaxStrike( $action, $id, $reason ) {
 		wfLoadExtensionMessages( 'SecurePoll' );
-		$db = $this->context->getDB();
+		$page = new SecurePoll_BasePage;
+		$context = $page->sp_context;
+		$db = $context->getDB();
 		$table = $db->tableName( 'securepoll_elections' );
 		$row = $db->selectRow( 
 			array( 'securepoll_votes', 'securepoll_elections' ),
@@ -100,7 +102,7 @@ EOT
 		}
 		$page = new SecurePoll_BasePage;
 		$subpage = new self( $page );
-		$subpage->election = $subpage->context->newElectionFromRow( $row );
+		$subpage->election = $context->newElectionFromRow( $row );
 		$status = $subpage->strike( $action, $id, $reason );
 		if ( $status->isGood() ) {
 			return Xml::encodeJsVar( (object)array( 'status' => 'good' ) );
