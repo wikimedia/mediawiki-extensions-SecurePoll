@@ -1829,10 +1829,12 @@ $1',
 
 /** Basque (Euskara)
  * @author An13sa
+ * @author Kobazulo
  */
 $messages['eu'] = array(
 	'securepoll' => 'BozketaSegurua',
 	'securepoll-invalid-page' => '"<nowiki>$1</nowiki>" azpiorrialde okerra',
+	'securepoll-need-admin' => 'Ekintza hori burutzeko administratzailea izan behar duzu.',
 	'securepoll-welcome' => '<strong>Ongi etorri $1!</strong>',
 	'securepoll-submit' => 'Bozka eman',
 	'securepoll-thanks' => 'Eskerrik asko, zure bozka gorde egin da.',
