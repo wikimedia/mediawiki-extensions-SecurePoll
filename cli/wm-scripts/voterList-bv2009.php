@@ -4,13 +4,14 @@ require( dirname( __FILE__ ) . '/../cli.inc' );
 $dbr = wfGetDB( DB_SLAVE );
 $dbw = wfGetDB( DB_MASTER );
 $fname = 'voterList-bv2009.php';
+$listName = 'board-vote-2009-amended';
 
 if ( !$wgCentralAuthDatabase ) {
 	echo wfWikiID() . ": CentralAuth not active, skipping\n";
 	exit( 0 );
 }
 
-$dbw->delete( 'securepoll_lists', array( 'li_name' => 'board-vote-2009' ), $fname );
+$dbw->delete( 'securepoll_lists', array( 'li_name' => $listName ), $fname );
 
 $userId = 0;
 $numQualified = 0;
@@ -32,7 +33,7 @@ while ( true ) {
 	$insertBatch = array();
 	foreach ( $qualifieds as $id => $name ) {
 		$insertBatch[] = array(
-			'li_name' => 'board-vote-2009',
+			'li_name' => $listName,
 			'li_member' => $id
 		);
 	}
@@ -74,6 +75,7 @@ function spGetQualifiedUsers( $users ) {
 	$attached = array_diff( $attached, $nonLocalUsers );
 	
 	# Check all global accounts
+	$localWiki = wfWikiID();
 	if ( $attached ) {
 		$res = $dbc->select( 'localuser', 
 			array( 'lu_name', 'lu_wiki' ),
@@ -81,7 +83,9 @@ function spGetQualifiedUsers( $users ) {
 			__METHOD__ );
 		$foreignUsers = array();
 		foreach ( $res as $row ) {
-			$foreignUsers[$row->lu_wiki][] = $row->lu_name;
+			if ( $row->lu_wiki != $localWiki ) {
+				$foreignUsers[$row->lu_wiki][] = $row->lu_name;
+			}
 		}
 
 		foreach ( $foreignUsers as $wiki => $wikiUsers ) {
