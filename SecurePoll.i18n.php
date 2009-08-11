@@ -1690,6 +1690,8 @@ $1',
 	'securepoll-no-upload' => 'Κανένα αρχείο δεν επιφορτίστηκε· τα αποτελέσματα δεν μπορούν να καταμετρηθούν',
 	'securepoll-dump-corrupt' => 'Το αρχείο ψήφων είναι κατεστραμμένο και δεν μπορεί να υποστεί επεξεργασία.',
 	'securepoll-tally-upload-error' => 'Σφάλμα στην καταμέτρηση του αρχείου ψήφων: $1',
+	'securepoll-pairwise-victories' => 'Πίνακας νικών ανά ζεύγος',
+	'securepoll-strength-matrix' => 'Πίνακας ισχύος διαδρομών',
 	'securepoll-ranks' => 'Τελική κατάταξη',
 );
 
@@ -1956,7 +1958,7 @@ $messages['et'] = array(
 	'securepoll-invalid-election' => '"$1" pole õige hääletuse-ID.',
 	'securepoll-welcome' => '<strong>Tere tulemast $1!</strong>',
 	'securepoll-not-started' => 'Hääletus pole veel alanud.
-See algab $1.',
+See algab $2 kell $3.',
 	'securepoll-finished' => 'Hääletus on lõppenud, enam ei saa hääletada.',
 	'securepoll-not-qualified' => 'Sa ei ole kvalifitseerunud siin valimistel hääletama: $1',
 	'securepoll-change-disallowed' => 'Sa oled oma hääle juba andnud.
@@ -1975,18 +1977,27 @@ Soovi korral võid talletada järgneva kinnituse antud hääle kohta:
 Sinu häält pole talletatud!
 
 $1',
+	'securepoll-no-decryption-key' => 'Dekrüptimise võtit ei ole valmis seatud.
+Ei saa dekrüptida.',
 	'securepoll-jump' => 'Mine hääletamise serverisse',
 	'securepoll-bad-ballot-submission' => 'Hääletus oli vigane: $1',
 	'securepoll-unanswered-questions' => 'Vastata tuleb kõigile küsimustele.',
+	'securepoll-not-logged-in' => 'Hääletamiseks pead olema sisse logitud.',
+	'securepoll-blocked' => 'Vabandust, sa ei saa hääletada, kui oled hetkel blokeeritud.',
+	'securepoll-bot' => 'Vabandust, boti staatusega kontod ei saa hääletada neil valimistel.',
+	'securepoll-not-in-group' => 'Ainult rühma $1 kuuluvad liikmed saavad hääletada neil valimistel.',
+	'securepoll-list-title' => 'Häälte loend: $1',
 	'securepoll-header-timestamp' => 'Aeg',
 	'securepoll-header-voter-name' => 'Nimi',
 	'securepoll-header-voter-domain' => 'Domeen',
 	'securepoll-header-details' => 'Üksikasjad',
 	'securepoll-strike-reason' => 'Põhjus:',
 	'securepoll-strike-cancel' => 'Katkesta',
+	'securepoll-details-link' => 'Üksikasjad',
 	'securepoll-details-title' => 'Hääletuse andmed: #$1',
 	'securepoll-invalid-vote' => '"$1" pole õige hääle-ID.',
 	'securepoll-header-reason' => 'Põhjus',
+	'securepoll-header-admin' => 'Administraator',
 	'securepoll-translate-title' => 'Tõlgi: $1',
 	'securepoll-invalid-language' => 'Vigane keelekood  "$1"',
 	'securepoll-submit-translate' => 'Uuenda',
@@ -2468,6 +2479,7 @@ $messages['grc'] = array(
 	'securepoll-header-timestamp' => 'Χρόνος',
 	'securepoll-header-voter-name' => 'Ὄνομα',
 	'securepoll-header-voter-domain' => 'Περιοχή',
+	'securepoll-header-details' => 'Λεπτομέρειαι',
 	'securepoll-strike-reason' => 'Αἰτία:',
 	'securepoll-strike-cancel' => 'Ἀκυροῦν',
 	'securepoll-details-link' => 'Λεπτομέρειαι',
@@ -2479,6 +2491,7 @@ $messages['grc'] = array(
 	'securepoll-subpage-vote' => 'Ψηφίζειν',
 	'securepoll-subpage-tally' => 'Ψηφομέτρησις',
 	'securepoll-tally-title' => 'Ψηφομέτρησις: $1',
+	'securepoll-ranks' => 'Τελικὴ κατάταξις',
 );
 
 /** Swiss German (Alemannisch)
@@ -2886,7 +2899,7 @@ Počinju dana $2 u $3 sati.',
 	'securepoll-change-allowed' => '<strong>Napomena: Vi ste već glasovali na ovim izborima.</strong>
 Možete promijeniti svoj glas/svoje glasove ispunjavanjem donjeg obrasca.
 No ako to učinite, vaše će prvo glasovanje biti poništeno.',
-	'securepoll-submit' => 'Pošalji (glasuj)',
+	'securepoll-submit' => 'Glasuj',
 	'securepoll-gpg-receipt' => 'Hvala vam na glasovanju.
 
 Ako želite, možete zadržati (snimiti) slijedeći izraz kao dokaz vašeg glasovanja:
@@ -2967,7 +2980,7 @@ Kako bi se očuvala privatnost glasača, enkriptirani zapisi izbora javno su dos
 	'securepoll-header-title' => 'Ime',
 	'securepoll-header-start-date' => 'Početni datum',
 	'securepoll-header-end-date' => 'Krajnji datum',
-	'securepoll-subpage-vote' => 'Glasaj',
+	'securepoll-subpage-vote' => 'Glasuj',
 	'securepoll-subpage-translate' => 'Prevedi',
 	'securepoll-subpage-list' => 'Popis',
 	'securepoll-subpage-dump' => 'Ispis',
@@ -2984,6 +2997,10 @@ Možete odabrati bilo prikaz rezultata iz baze podataka, ili prikaz enkriptirani
 	'securepoll-tally-error' => 'Pogreška pri prijevodu zapisa glasa, nije moguće prikazati raspodjelu glasova.',
 	'securepoll-no-upload' => 'Datoteka nije učitana, ne mogu prikazati raspodjelu rezultata.',
 	'securepoll-dump-corrupt' => 'Ispisana datoteka je oštećena i ne može biti obrađena.',
+	'securepoll-tally-upload-error' => 'Pogreška pri prikazu rezultata iz ispisane datoteke: $1',
+	'securepoll-pairwise-victories' => 'Udvoji pobjedničku matricu',
+	'securepoll-strength-matrix' => 'Putanja ojačane matrice',
+	'securepoll-ranks' => 'Završno rangiranje',
 );
 
 /** Upper Sorbian (Hornjoserbsce)
@@ -3816,8 +3833,35 @@ $messages['ka'] = array(
  * @author វ័ណថារិទ្ធ
  */
 $messages['km'] = array(
+	'securepoll' => 'បោះ​ឆ្នោត​សុវត្ថិភាព​ (SecurePoll)',
 	'securepoll-need-admin' => 'អ្នក​ចាំបាច់ត្រូវមានមុខងារ​ជា​អ្នកអភិបាល​ដើម្បី​អនុវត្ត​សកម្មភាពនេះ​។',
+	'securepoll-invalid-election' => '"$1" មិនមែន​ជា​លេខ ID បោះឆ្នោត​​មានសុពលភាពទេ​។',
 	'securepoll-welcome' => '<strong>សូមស្វាគមន៍ $1!</strong>',
+	'securepoll-not-started' => 'ការ​បោះ​ឆ្នោត​នេះ​មិនទាន់​បាន​ចាប់​ផ្ដើម​ទេ​។
+វា​នឹង​ចាប់​ផ្ដើម​នៅ $2 វេលា​ម៉ោង​ $3 ។',
+	'securepoll-gpg-receipt' => 'សូម​អរគុណ​ចំពោះ​ការ​ចូលរួម​បោះ​ឆ្នោត​។
+ប្រសិន​បើ​អ្នក​ចង់ទទួល​បាន​បង្កាន់​ដៃ​ខាង​ក្រោម​នេះ​ជា​ផស្តុតាង​នៃ​ឆ្នោត​របស់​អ្នក​៖
+<pre>$1</pre>',
+	'securepoll-thanks' => 'សូម​អរគុណ​ ឆ្នោត​របស់​អ្នក​ត្រូវ​បាន​កត់​ត្រា​ចូល​ហើយ​។',
+	'securepoll-return' => 'ត្រឡប់ទៅ $1 វិញ',
+	'securepoll-header-timestamp' => 'ពេលវេលា',
+	'securepoll-header-voter-name' => 'ឈ្មោះ',
+	'securepoll-header-details' => 'ព័ត៌មាន​លម្អិត​',
+	'securepoll-strike-reason' => 'មូលហេតុ៖',
+	'securepoll-strike-cancel' => 'បោះបង់',
+	'securepoll-details-link' => 'ព័ត៌មាន​លម្អិត​',
+	'securepoll-header-action' => 'សកម្មភាព',
+	'securepoll-header-reason' => 'មូលហេតុ',
+	'securepoll-translate-title' => 'បកប្រែ៖ $1',
+	'securepoll-submit-translate' => 'បន្ទាន់សម័យ',
+	'securepoll-language-label' => 'ជ្រើសរើស​ភាសា​៖',
+	'securepoll-submit-select-lang' => 'បកប្រែ',
+	'securepoll-header-title' => 'ឈ្មោះ',
+	'securepoll-header-start-date' => 'កាលបរិច្ឆេទចាប់ផ្តើម',
+	'securepoll-header-end-date' => 'កាលបរិច្ឆេទបញ្ចប់',
+	'securepoll-subpage-vote' => 'បោះឆ្នោត',
+	'securepoll-subpage-translate' => 'បកប្រែ',
+	'securepoll-subpage-list' => 'បញ្ជី',
 );
 
 /** Korean (한국어)
@@ -5993,6 +6037,7 @@ Você pode escolher entre realizar a contagem de votos dos resultados presentes 
 
 /** Romanian (Română)
  * @author Firilacroco
+ * @author KlaudiuMihaila
  * @author Mihai
  */
 $messages['ro'] = array(
@@ -6002,6 +6047,7 @@ $messages['ro'] = array(
 	'securepoll-api-invalid-params' => 'Parametri incorecţi.',
 	'securepoll-api-no-user' => 'Niciun  utilizator cu acest ID nu a fost găsit.',
 	'securepoll-list-title' => 'Listă voturi: $1',
+	'securepoll-header-timestamp' => 'Timp',
 	'securepoll-header-voter-name' => 'Nume',
 	'securepoll-header-voter-domain' => 'Domeniu',
 	'securepoll-header-details' => 'Detalii',
@@ -6289,6 +6335,21 @@ $wgSecurePollShowErrorDetail=true; туруоруутун LocalSettings.php би
 $messages['sc'] = array(
 	'securepoll-header-voter-name' => 'Nòmene',
 	'securepoll-header-title' => 'Nòmene',
+);
+
+/** Sicilian (Sicilianu)
+ * @author Melos
+ */
+$messages['scn'] = array(
+	'securepoll-list-title' => 'Elencu voti: $1',
+	'securepoll-header-voter-name' => 'Nomu',
+	'securepoll-header-voter-domain' => 'Dominiu',
+	'securepoll-header-ua' => 'Agente utenti',
+	'securepoll-strike-button' => 'Annulla stu votu',
+	'securepoll-unstrike-button' => 'Elimina annullamentu',
+	'securepoll-strike-reason' => 'Mutivu:',
+	'securepoll-strike-cancel' => 'Annulla',
+	'securepoll-header-action' => 'Azzioni',
 );
 
 /** Slovak (Slovenčina)
