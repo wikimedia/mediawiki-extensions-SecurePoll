@@ -348,6 +348,8 @@ $1',
 	'securepoll-no-upload' => 'لم يرفع ملف، تعذّر تحصيل النتائج.',
 	'securepoll-dump-corrupt' => 'ملف التفريغ تالف و لا يمكن معالجته.',
 	'securepoll-tally-upload-error' => 'خطأ أثناء فرز ملف التفريغ: $1',
+	'securepoll-pairwise-victories' => 'مصفوفة انتصار الثنائيات',
+	'securepoll-strength-matrix' => 'مصفوفة قوة المسار',
 	'securepoll-ranks' => 'الترتيب النهائي',
 );
 
@@ -1953,9 +1955,12 @@ Puede escoger entre escrutar los resultados de la base de datos, o escrutar los 
  * @author WikedKentaur
  */
 $messages['et'] = array(
+	'securepoll' => 'Turvahääletus',
 	'securepoll-desc' => 'Hääletuste ja küsitluste laiendus',
+	'securepoll-invalid-page' => 'Vigane alamlehekülg "<nowiki>$1</nowiki>"',
 	'securepoll-need-admin' => 'Selle tegevuse sooritamiseks pead sa olema ülem.',
-	'securepoll-invalid-election' => '"$1" pole õige hääletuse-ID.',
+	'securepoll-too-few-params' => 'Alamlehekülg on puudulikult kirjeldatud (vigane link).',
+	'securepoll-invalid-election' => '"$1" pole õige hääletus-ID.',
 	'securepoll-welcome' => '<strong>Tere tulemast $1!</strong>',
 	'securepoll-not-started' => 'Hääletus pole veel alanud.
 See algab $2 kell $3.',
@@ -1977,28 +1982,61 @@ Soovi korral võid talletada järgneva kinnituse antud hääle kohta:
 Sinu häält pole talletatud!
 
 $1',
+	'securepoll-no-gpg-home' => 'GPG-kodukataloogi ei saa luua.',
+	'securepoll-secret-gpg-error' => 'Tõrge GPG täitmisel.
+Üksikasjade jaoks kasuta $wgSecurePollShowErrorDetail=true failis LocalSettings.php.',
+	'securepoll-full-gpg-error' => 'Tõrge GPG täitmisel.
+
+Käsk: $1
+
+Tõrge:
+<pre>$2</pre>',
+	'securepoll-gpg-config-error' => 'GPG-võtmed on valesti üles seatud.',
 	'securepoll-no-decryption-key' => 'Dekrüptimise võtit ei ole valmis seatud.
 Ei saa dekrüptida.',
 	'securepoll-jump' => 'Mine hääletamise serverisse',
-	'securepoll-bad-ballot-submission' => 'Hääletus oli vigane: $1',
+	'securepoll-bad-ballot-submission' => 'Sinu hääl oli vigane: $1',
 	'securepoll-unanswered-questions' => 'Vastata tuleb kõigile küsimustele.',
+	'securepoll-remote-auth-error' => 'Tõrge serverist sinu andmete saamisel.',
+	'securepoll-remote-parse-error' => 'Tõrge serverist saadud volitusvastuse tõlgendamisel.',
+	'securepoll-api-invalid-params' => 'Vigased parameetrid.',
+	'securepoll-api-no-user' => 'Etteantud ID-ga kasutajat ei leidu.',
+	'securepoll-api-token-mismatch' => 'Turvatunnus ei klapi, ei saa sisse logida.',
 	'securepoll-not-logged-in' => 'Hääletamiseks pead olema sisse logitud.',
+	'securepoll-too-few-edits' => 'Sa ei saa hääletada. Hääletamiseks pead olema teinud vähemalt $1 muudatust. Oled teinud $2 muudatust.',
 	'securepoll-blocked' => 'Vabandust, sa ei saa hääletada, kui oled hetkel blokeeritud.',
 	'securepoll-bot' => 'Vabandust, boti staatusega kontod ei saa hääletada neil valimistel.',
-	'securepoll-not-in-group' => 'Ainult rühma $1 kuuluvad liikmed saavad hääletada neil valimistel.',
+	'securepoll-not-in-group' => 'Ainult rühma $1 liikmed saavad hääletada neil valimistel.',
+	'securepoll-not-in-list' => 'Sa ei ole sellel hääletusel osalema volitatud kasutajate nimekirjas.',
 	'securepoll-list-title' => 'Häälte loend: $1',
 	'securepoll-header-timestamp' => 'Aeg',
 	'securepoll-header-voter-name' => 'Nimi',
 	'securepoll-header-voter-domain' => 'Domeen',
+	'securepoll-header-strike' => 'Mahatõmbamine',
 	'securepoll-header-details' => 'Üksikasjad',
+	'securepoll-strike-button' => 'Tõmba maha',
+	'securepoll-unstrike-button' => 'Tühista mahatõmbamine',
 	'securepoll-strike-reason' => 'Põhjus:',
 	'securepoll-strike-cancel' => 'Katkesta',
+	'securepoll-strike-error' => 'Tõrge mahatõmbamisel või mahatõmbamise tühistamisel: $1',
+	'securepoll-strike-token-mismatch' => 'Seansiandmed kaotsiläinud',
 	'securepoll-details-link' => 'Üksikasjad',
 	'securepoll-details-title' => 'Hääletuse andmed: #$1',
 	'securepoll-invalid-vote' => '"$1" pole õige hääle-ID.',
+	'securepoll-header-voter-type' => 'Hääletajatüüp',
+	'securepoll-voter-properties' => 'Hääletaja omadused',
+	'securepoll-strike-log' => 'Mahatõmbamislogi',
+	'securepoll-header-action' => 'Toiming',
 	'securepoll-header-reason' => 'Põhjus',
 	'securepoll-header-admin' => 'Administraator',
-	'securepoll-translate-title' => 'Tõlgi: $1',
+	'securepoll-cookie-dup-list' => 'Sama küpsisega kasutajad',
+	'securepoll-dump-title' => 'Tõmmis: $1',
+	'securepoll-dump-no-crypt' => 'Selle valimise kohta ei ole krüptitud valimiskirjet saadaval, sest valimine ei ole seatud krüptimist kasutama.',
+	'securepoll-dump-not-finished' => 'Krüptitud valimiskirje on saadaval alles pärast valimise lõppu $1 kell $2',
+	'securepoll-dump-no-urandom' => 'Toimingut /dev/urandom ei saa avada.
+Hääletaja privaatsuse säilitamiseks on krüptitud valimiskirjed avalikult saadaval vaid siis, kui neid on võimalik turvalise juhusliku numbrivooga segi ajada.',
+	'securepoll-urandom-not-supported' => 'See server ei toeta juhusliku krüptograafilise numbri tekitamist. Hääletaja privaatsuse säilitamiseks on krüptitud valimiskirjed avalikult saadaval vaid siis, kui neid on võimalik turvalise juhusliku numbrivooga segi ajada.',
+	'securepoll-translate-title' => 'Tõlkimine: $1',
 	'securepoll-invalid-language' => 'Vigane keelekood  "$1"',
 	'securepoll-submit-translate' => 'Uuenda',
 	'securepoll-language-label' => 'Vali keel:',
@@ -2009,6 +2047,23 @@ Ei saa dekrüptida.',
 	'securepoll-subpage-vote' => 'Hääleta',
 	'securepoll-subpage-translate' => 'Tõlgi',
 	'securepoll-subpage-list' => 'Loend',
+	'securepoll-subpage-dump' => 'Tõmmis',
+	'securepoll-subpage-tally' => 'Arvestus',
+	'securepoll-tally-title' => 'Arvestus: $1',
+	'securepoll-tally-not-finished' => 'Enne valimise lõppu ei saa hääli üle lugeda.',
+	'securepoll-can-decrypt' => 'Valimiskirje on krüptitud, aga dekrüptimisvõti on saadaval.
+
+Sa võid üle lugeda kas andmebaasis olevad tulemused või üleslaaditavas failis olevad tulemused.',
+	'securepoll-tally-no-key' => 'Sa ei saa selle valimise hääli üle lugeda, sest hääled on krüptitud ja dekrüptimisvõtit ei ole saadaval.',
+	'securepoll-tally-local-legend' => 'Loe talletatud tulemused üle',
+	'securepoll-tally-local-submit' => 'Loe üle',
+	'securepoll-tally-upload-legend' => 'Laadi üles krüptitud tõmmis',
+	'securepoll-tally-upload-submit' => 'Loe üle',
+	'securepoll-tally-error' => 'Tõrge hääletuskirje tõlgendamisel, ei saa üle lugeda.',
+	'securepoll-no-upload' => 'Faili ei laaditud üles, tulemusi ei saa üle lugeda.',
+	'securepoll-dump-corrupt' => 'Tõmmisfail on rikutud ja seda ei saa kasutada.',
+	'securepoll-tally-upload-error' => 'Tõrge tõmmisfaili arvestamisel: $1',
+	'securepoll-ranks' => 'Lõplik pingerida',
 );
 
 /** Basque (Euskara)
