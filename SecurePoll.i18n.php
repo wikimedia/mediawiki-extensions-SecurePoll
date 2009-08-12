@@ -2390,6 +2390,31 @@ Vous pouvez choisir de compter les résultats depuis la base de données ou depu
 	'securepoll-ranks' => 'Classement final',
 );
 
+/** Franco-Provençal (Arpetan)
+ * @author Cedric31
+ */
+$messages['frp'] = array(
+	'securepoll-header-timestamp' => 'Hora',
+	'securepoll-header-voter-name' => 'Nom',
+	'securepoll-header-details' => 'Dètalys',
+	'securepoll-strike-reason' => 'Rêson :',
+	'securepoll-strike-cancel' => 'Anular',
+	'securepoll-details-link' => 'Dètalys',
+	'securepoll-details-title' => 'Dètalys du voto : #$1',
+	'securepoll-header-action' => 'Accion',
+	'securepoll-header-reason' => 'Rêson',
+	'securepoll-header-admin' => 'Administrator',
+	'securepoll-translate-title' => 'Traduire : $1',
+	'securepoll-invalid-language' => 'Code de lengoua « $1 » invalido.',
+	'securepoll-submit-select-lang' => 'Traduire',
+	'securepoll-header-title' => 'Nom',
+	'securepoll-header-start-date' => 'Dâta de comencement',
+	'securepoll-header-end-date' => 'Dâta de fin',
+	'securepoll-subpage-vote' => 'Voto',
+	'securepoll-subpage-translate' => 'Traduire',
+	'securepoll-subpage-list' => 'Lista',
+);
+
 /** Irish (Gaeilge)
  * @author Alison
  * @author Stifle
