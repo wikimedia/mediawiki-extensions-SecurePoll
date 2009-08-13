@@ -225,6 +225,16 @@ The /dev/urandom cryptographic random number generation device is not supported 
 	'securepoll-subpage-translate' => '{{Identical|Translate}}',
 );
 
+/** Afrikaans (Afrikaans)
+ * @author Naudefj
+ */
+$messages['af'] = array(
+	'securepoll-list-title' => 'Wys stemme: $1',
+	'securepoll-header-timestamp' => 'Tyd',
+	'securepoll-header-voter-name' => 'Naam',
+	'securepoll-header-voter-domain' => 'Domein',
+);
+
 /** Arabic (العربية)
  * @author Meno25
  * @author Orango
@@ -1411,8 +1421,10 @@ Du kannst wählen zwischen der Zählung der aktuellen Ergebnisse in der Datenban
 
 /** German (formal address) (Deutsch (Sie-Form))
  * @author ChrisiPK
+ * @author Imre
  */
 $messages['de-formal'] = array(
+	'securepoll-need-admin' => 'Sie müssen ein Administrator sein, um diese Aktion durchzuführen.',
 	'securepoll-finished' => 'Diese Wahl ist beendet, Sie können nicht mehr abstimmen.',
 	'securepoll-not-qualified' => 'Sie sind nicht qualifiziert, bei dieser Wahl abzustimmen: $1',
 	'securepoll-change-disallowed' => 'Sie haben bei dieser Wahl bereits abgestimmt.
@@ -1432,6 +1444,9 @@ Ihre Stimme wurde nicht gespeichert!
 $1',
 	'securepoll-bad-ballot-submission' => 'Ihre Stimme war ungültig: $1',
 	'securepoll-unanswered-questions' => 'Sie müssen alle Fragen beantworten.',
+	'securepoll-invalid-rank' => 'Ungültige Rangfolge. Sie müssen den Kandidaten eine Rangnummer zwischen 1 und 999 geben.',
+	'securepoll-unranked-options' => 'Einige Optionen wurden nicht mit einer Rangnummer versehen.
+Sie müssen allen Optionen eine Rangnummer zwischen 1 und 999 geben.',
 	'securepoll-remote-auth-error' => 'Fehler beim Abruf Ihrer Benutzerkonteninformationen vom Server.',
 	'securepoll-not-logged-in' => 'Sie müssen angemeldet sein, um bei dieser Wahl abstimmen zu können',
 	'securepoll-too-few-edits' => 'Sie dürfen leider nicht abstimmen. Sie brauchen mindestens $1 {{PLURAL:$1|Bearbeitung|Bearbeitungen}}, um bei dieser Wahl abzustimmen, Sie haben jedoch $2.',
@@ -1829,6 +1844,7 @@ Vi povas elekti nombri ĉu la rezultojn el la datumbazo, ĉu ĉifritajn rezultoj
  * @author DoveBirkoff
  * @author Galio
  * @author Góngora
+ * @author Imre
  * @author Remember the dot
  */
 $messages['es'] = array(
@@ -1947,6 +1963,7 @@ Puede escoger entre escrutar los resultados de la base de datos, o escrutar los 
 	'securepoll-no-upload' => 'No se ha subido ningún fichero, no se pueden contar los resultados.',
 	'securepoll-dump-corrupt' => 'El archivo volcado se encuentra dañado y no puede ser procesado.',
 	'securepoll-tally-upload-error' => 'Error al contar el archivo volcado: $1',
+	'securepoll-ranks' => 'Rango final',
 );
 
 /** Estonian (Eesti)
@@ -6836,7 +6853,9 @@ $2 న, $3 లకు మోదలు అవుతుంది',
 	'securepoll-too-few-edits' => 'క్షమించండి, తమరు వోటు వేయలేరు. ఈ ఎన్నికలో వోటు వేసేందుకు తమరు కనీసము $1 {{PLURAL:$1|మార్పు|మార్పులు}} చేసివుండాలి, కాని తమరు $2 చేసారు.',
 	'securepoll-header-timestamp' => 'సమయం',
 	'securepoll-header-voter-name' => 'పేరు',
+	'securepoll-header-voter-domain' => 'డొమైన్',
 	'securepoll-header-ua' => 'వాడుకరి తరుపు ఏజంటు',
+	'securepoll-header-cookie-dup' => 'నకలు',
 	'securepoll-header-strike' => 'కొట్టివేయి',
 	'securepoll-header-details' => 'వివరాలు',
 	'securepoll-strike-button' => 'కొట్టివేయి',
@@ -6845,6 +6864,7 @@ $2 న, $3 లకు మోదలు అవుతుంది',
 	'securepoll-strike-cancel' => 'రద్దు',
 	'securepoll-details-link' => 'వివరాలు',
 	'securepoll-details-title' => 'వోటు వివరాలు: #$1',
+	'securepoll-header-voter-type' => 'వోటర్ టైపు',
 	'securepoll-header-action' => 'చర్య',
 	'securepoll-header-reason' => 'కారణం',
 	'securepoll-header-admin' => 'నిర్వహణాధికారి',
