@@ -2409,6 +2409,7 @@ Vous pouvez choisir de compter les résultats depuis la base de données ou depu
 
 /** Franco-Provençal (Arpetan)
  * @author Cedric31
+ * @author ChrisPtDe
  */
 $messages['frp'] = array(
 	'securepoll-header-timestamp' => 'Hora',
@@ -2422,14 +2423,21 @@ $messages['frp'] = array(
 	'securepoll-header-reason' => 'Rêson',
 	'securepoll-header-admin' => 'Administrator',
 	'securepoll-translate-title' => 'Traduire : $1',
-	'securepoll-invalid-language' => 'Code de lengoua « $1 » invalido.',
+	'securepoll-invalid-language' => 'Code lengoua « $1 » envalido.',
 	'securepoll-submit-select-lang' => 'Traduire',
 	'securepoll-header-title' => 'Nom',
 	'securepoll-header-start-date' => 'Dâta de comencement',
 	'securepoll-header-end-date' => 'Dâta de fin',
-	'securepoll-subpage-vote' => 'Voto',
+	'securepoll-subpage-vote' => 'Votar',
 	'securepoll-subpage-translate' => 'Traduire',
 	'securepoll-subpage-list' => 'Lista',
+);
+
+/** Western Frisian (Frysk)
+ * @author SK-luuut
+ */
+$messages['fy'] = array(
+	'securepoll-strike-cancel' => 'Ofbrekke',
 );
 
 /** Irish (Gaeilge)
@@ -4565,7 +4573,7 @@ $messages['mk'] = array(
 	'securepoll-too-few-params' => 'Нема доволно параметри за потстраници (неважечка врска).',
 	'securepoll-invalid-election' => '„$1“ не претставува важечки идентификационен број.',
 	'securepoll-welcome' => '<strong>Добредојдовте $1!</strong>',
-	'securepoll-not-started' => 'Изборите сеуште не се започнати.
+	'securepoll-not-started' => 'Изборите сè уште не се започнати.
 Предвидено е да започнат на $2 во $3.',
 	'securepoll-finished' => 'Изборите завршија, повеќе не можете да гласате.',
 	'securepoll-not-qualified' => 'Не сте квалификувани да гласате на овие избори: $1',
