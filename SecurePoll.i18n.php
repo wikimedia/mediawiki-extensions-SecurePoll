@@ -233,6 +233,10 @@ $messages['af'] = array(
 	'securepoll-header-timestamp' => 'Tyd',
 	'securepoll-header-voter-name' => 'Naam',
 	'securepoll-header-voter-domain' => 'Domein',
+	'securepoll-strike-reason' => 'Rede',
+	'securepoll-strike-cancel' => 'Kanselleer',
+	'securepoll-header-reason' => 'Rede',
+	'securepoll-header-title' => 'Naam',
 );
 
 /** Arabic (العربية)
@@ -3969,6 +3973,14 @@ $messages['km'] = array(
 	'securepoll-subpage-list' => 'បញ្ជី',
 );
 
+/** Kannada (ಕನ್ನಡ)
+ * @author Nayvik
+ */
+$messages['kn'] = array(
+	'securepoll-header-voter-name' => 'ಹೆಸರು',
+	'securepoll-header-title' => 'ಹೆಸರು',
+);
+
 /** Korean (한국어)
  * @author Klutzy
  * @author Kwj2772
@@ -6703,6 +6715,14 @@ Početak je planiran za $2 u $3.',
 	'securepoll-subpage-dump' => 'Damp',
 );
 
+/** Sundanese (Basa Sunda)
+ * @author Irwangatot
+ */
+$messages['su'] = array(
+	'securepoll-strike-reason' => 'Alesan:',
+	'securepoll-header-reason' => 'Alesan',
+);
+
 /** Swedish (Svenska)
  * @author Fluff
  * @author Gabbe.g
@@ -7767,6 +7787,7 @@ $messages['za'] = array(
  * @author Bencmq
  * @author Biŋhai
  * @author FireJackey
+ * @author Liangent
  * @author PhiLiP
  * @author Skjackey tse
  */
@@ -7880,6 +7901,7 @@ $1',
 	'securepoll-no-upload' => '没有上传文件。',
 	'securepoll-dump-corrupt' => '无法处理损坏的转储文件。',
 	'securepoll-tally-upload-error' => '转储文件记录错误：$1',
+	'securepoll-ranks' => '最终排名',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
