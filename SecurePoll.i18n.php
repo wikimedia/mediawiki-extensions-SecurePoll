@@ -219,6 +219,7 @@ Servers running Microsoft Windows will present [[MediaWiki:Securepoll-urandom-no
 The /dev/urandom cryptographic random number generation device is not supported on servers running Microsoft Windows. On other platforms the [[MediaWiki:Securepoll-dump-no-urandom/en|Securepoll-dump-no-urandom]] message is generated if opening of the /dev/urandom device fails.",
 	'securepoll-translate-title' => '{{Identical|Translate}}',
 	'securepoll-header-trans-id' => '{{optional}}',
+	'securepoll-submit-translate' => '{{Identical|Update}}',
 	'securepoll-submit-select-lang' => '{{Identical|Translate}}',
 	'securepoll-header-title' => '{{Identical|Name}}',
 	'securepoll-subpage-vote' => '{{delete}}',
@@ -236,6 +237,7 @@ $messages['af'] = array(
 	'securepoll-strike-reason' => 'Rede',
 	'securepoll-strike-cancel' => 'Kanselleer',
 	'securepoll-header-reason' => 'Rede',
+	'securepoll-submit-translate' => 'Opdateer',
 	'securepoll-header-title' => 'Naam',
 );
 
