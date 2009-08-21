@@ -234,8 +234,11 @@ $messages['af'] = array(
 	'securepoll-header-timestamp' => 'Tyd',
 	'securepoll-header-voter-name' => 'Naam',
 	'securepoll-header-voter-domain' => 'Domein',
+	'securepoll-header-details' => 'Details',
 	'securepoll-strike-reason' => 'Rede',
 	'securepoll-strike-cancel' => 'Kanselleer',
+	'securepoll-details-link' => 'Details',
+	'securepoll-header-action' => 'Handeling',
 	'securepoll-header-reason' => 'Rede',
 	'securepoll-submit-translate' => 'Opdateer',
 	'securepoll-header-title' => 'Naam',
@@ -7226,6 +7229,7 @@ Veritabanında mevcut sonuçları saymayı, ya da yüklenen bir dosyadan şifrel
 	'securepoll-no-upload' => 'Hiçbir dosya yüklenmedi, sonuçlar sayılamıyor.',
 	'securepoll-dump-corrupt' => 'Yığın dosyası bozuk ve işlenebilir değil.',
 	'securepoll-tally-upload-error' => 'Yığın dosyası sayımında hata: $1',
+	'securepoll-ranks' => 'Son sıralama',
 );
 
 /** Ukrainian (Українська)
