@@ -16,7 +16,7 @@ $messages['en'] = array(
 	'securepoll' => 'SecurePoll',
 	'securepoll-desc' => 'Extension for elections and surveys',
 	'securepoll-invalid-page' => 'Invalid subpage "<nowiki>$1</nowiki>"',
-	'securepoll-need-admin' => 'You need to be an admin to perform this action.',
+	'securepoll-need-admin' => 'You need to be an election administrator to perform this action.',
 	
 	# Vote (most important to translate)
 	'securepoll-too-few-params' => 'Not enough subpage parameters (invalid link).',
