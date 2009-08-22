@@ -802,6 +802,9 @@ Možete da izvršite prebrojavanje glasova koji su prisutni u bazi podataka ili 
 	'securepoll-no-upload' => 'Nijedna datoteka nije postavljena, ne mogu se prebrojati rezultati.',
 	'securepoll-dump-corrupt' => 'Dump datoteka je pokvarena i ne može biti obrađena.',
 	'securepoll-tally-upload-error' => 'Greška pri ažuriranju dump datoteke: $1',
+	'securepoll-pairwise-victories' => 'Parna matrica pobjednika',
+	'securepoll-strength-matrix' => 'Matriks snage putanje',
+	'securepoll-ranks' => 'Konačni poredak',
 );
 
 /** Catalan (Català)
@@ -1425,6 +1428,7 @@ Du kannst wählen zwischen der Zählung der aktuellen Ergebnisse in der Datenban
 	'securepoll-dump-corrupt' => 'Die Dump-Datei ist korrupt und kann nicht verarbeitet werden.',
 	'securepoll-tally-upload-error' => 'Fehler beim Zählen der Dump-Datei: $1',
 	'securepoll-pairwise-victories' => 'Paarweise Siegesmatrix',
+	'securepoll-strength-matrix' => 'Wegstärkenmatrix',
 	'securepoll-ranks' => 'Schlussranking',
 );
 
@@ -2727,6 +2731,9 @@ Du chasch wehle zwische dr Uuszellig vu dr aktuällen Ergebnis in dr Datebank un
 	'securepoll-no-upload' => 'S isch kei Datei ufeglade wore, cha d Ergebnis nit uuszelle.',
 	'securepoll-dump-corrupt' => 'D Uusgabe-Datei isch fählerhaft un cha nit verarbeitet wäre.',
 	'securepoll-tally-upload-error' => 'Fähler in dr gwichtete Uusgabe-Datei: $1',
+	'securepoll-pairwise-victories' => 'Paarwys Siigmatrix',
+	'securepoll-strength-matrix' => 'Pfad Sterkimatrix',
+	'securepoll-ranks' => 'Schlussreihefolg',
 );
 
 /** Hebrew (עברית)
@@ -3236,6 +3243,9 @@ Móžeš pak wuslědki w datowej bance ličić pak zaklučowane wuslědki z nahr
 	'securepoll-no-upload' => 'Njeje so žana dataja nahrała, wuslědki njehodźa so ličić.',
 	'securepoll-dump-corrupt' => 'Dataja składowakoweho wobsaha je poškodźeny a njeda so předźěłać.',
 	'securepoll-tally-upload-error' => 'Zmylk při wuličowanju dataje składowakeho wobsaha: $1',
+	'securepoll-pairwise-victories' => 'Dobyćerski matriks po porach',
+	'securepoll-strength-matrix' => 'Šćežka matriksa sylnosće',
+	'securepoll-ranks' => 'Kónčny porjad',
 );
 
 /** Hungarian (Magyar)
@@ -3361,6 +3371,9 @@ Választhatod az adatbázisban szereplő eredmények összesítését vagy a tit
 	'securepoll-no-upload' => 'Semmilyen fájlt nem töltöttek fel, az eredményt így nem lehet összesíteni.',
 	'securepoll-dump-corrupt' => 'A dump fájl hibás, nem sikerült feldolgozni.',
 	'securepoll-tally-upload-error' => 'Hiba a dump fájl összesítésekor: $1',
+	'securepoll-pairwise-victories' => 'Páronkénti győzelmi mátrix',
+	'securepoll-strength-matrix' => 'Útvonalerősség-mátrix',
+	'securepoll-ranks' => 'Végső rangsor',
 );
 
 /** Interlingua (Interlingua)
@@ -3482,6 +3495,9 @@ Tu pote optar pro contar le resultatos presente in le base de datos, o pro conta
 	'securepoll-no-upload' => 'Nulle file ha essite cargate; non pote contar le resultatos.',
 	'securepoll-dump-corrupt' => 'Le file de dump es corrumpite e non pote esser processate.',
 	'securepoll-tally-upload-error' => 'Error de contar ex le file de dump: $1',
+	'securepoll-pairwise-victories' => 'Matrice de vincimento in pares',
+	'securepoll-strength-matrix' => 'Matrice de fortia de cammino',
+	'securepoll-ranks' => 'Rango final',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -3756,7 +3772,7 @@ $messages['ja'] = array(
 	'securepoll' => '暗号投票',
 	'securepoll-desc' => '選挙と意識調査のための拡張機能',
 	'securepoll-invalid-page' => '「<nowiki>$1</nowiki>」は無効なサブページです',
-	'securepoll-need-admin' => 'この操作を行うには管理者権限が必要です。',
+	'securepoll-need-admin' => 'この操作を行うにはあなたが選挙管理者である必要があります。',
 	'securepoll-too-few-params' => 'サブページ引数が足りません（リンクが無効です）。',
 	'securepoll-invalid-election' => '「$1」は有効な選挙IDではありません。',
 	'securepoll-welcome' => '<strong>$1さん、ようこそ！</strong>',
@@ -3855,6 +3871,11 @@ $1',
 	'securepoll-tally-upload-submit' => '集計開始',
 	'securepoll-tally-error' => '投票記録の解釈に失敗し、集計結果を出力できません。',
 	'securepoll-no-upload' => 'ファイルがアップロードされておらず、結果を集計できません。',
+	'securepoll-dump-corrupt' => 'ダンプファイルが破損しており、処理できません。',
+	'securepoll-tally-upload-error' => 'ダンプファイルの集計中にエラー: $1',
+	'securepoll-pairwise-victories' => '対勝利行列',
+	'securepoll-strength-matrix' => 'パス強度行列',
+	'securepoll-ranks' => '最終順位',
 );
 
 /** Javanese (Basa Jawa)
@@ -4232,6 +4253,9 @@ Donn Desch entscheide doh zwesche, de neuste Zahle en de Datebangk uß_ze_zälle
 	'securepoll-no-upload' => 'Nix huhjelaade, do künne mer kein Shtemme ußzälle.',
 	'securepoll-dump-corrupt' => 'De <i lang="en">dump</i>-Dattei es kappoott un kann nit verärbeidt wääde.',
 	'securepoll-tally-upload-error' => 'Ene Fähler es opjetrodde beim Ußzälle noh dä <i lang="en">dump</i>-Dattei: $1',
+	'securepoll-pairwise-victories' => 'Krüztabäll mer de paawiiß Jewenner',
+	'securepoll-strength-matrix' => 'De Krüztabäll mem Jeweesch fun jedem Pat',
+	'securepoll-ranks' => 'De Rangfollesch zom Afschloß',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -4242,7 +4266,7 @@ $messages['lb'] = array(
 	'securepoll' => 'Securiséiert Ëmfro',
 	'securepoll-desc' => 'Erweiderung fir Walen an Ëmfroen',
 	'securepoll-invalid-page' => 'Net-valabel Ënnersäit "<nowiki>$1</nowiki>"',
-	'securepoll-need-admin' => 'Dir musst Admnistrateur si fir dëst kënnen ze maachen.',
+	'securepoll-need-admin' => 'Dir musst Admnistrateur vun de Wale si fir dëst kënnen ze maachen.',
 	'securepoll-too-few-params' => 'Net genuch Ënnersäite-Parameter (net valbele Link).',
 	'securepoll-invalid-election' => '"$1" ass keng ID déi fir d\'Wale gëlteg ass.',
 	'securepoll-welcome' => '<strong>Wëllkomm $1!</strong>',
@@ -5072,7 +5096,7 @@ $messages['nl'] = array(
 	'securepoll' => 'VeiligStemmen',
 	'securepoll-desc' => 'Uitbreiding voor stemmingen en enquêtes',
 	'securepoll-invalid-page' => 'Ongeldige subpagina "<nowiki>$1</nowiki>"',
-	'securepoll-need-admin' => 'U moet een beheerder zijn om deze handeling te mogen uitvoeren.',
+	'securepoll-need-admin' => 'U moet een stemmingenbeheerder zijn om deze handeling te mogen uitvoeren.',
 	'securepoll-too-few-params' => 'Onvoldoende subpaginaparameters (ongeldige verwijzing).',
 	'securepoll-invalid-election' => '"$1" is geen geldig stemmingsnummer.',
 	'securepoll-welcome' => '<strong>Welkom $1!</strong>',
@@ -5920,6 +5944,7 @@ It peule serne sia ëd conté j'arzultà present ant ël database, sia ëd cont�
 );
 
 /** Portuguese (Português)
+ * @author Capmo
  * @author Everton137
  * @author Lijealso
  * @author Malafaya
@@ -5932,7 +5957,7 @@ $messages['pt'] = array(
 	'securepoll-need-admin' => 'Você precisa de ser um administrador para efetuar esta ação.',
 	'securepoll-too-few-params' => 'Parâmetros de subpágina insuficientes (ligação inválida).',
 	'securepoll-invalid-election' => '"$1" não é um identificador de eleição válido.',
-	'securepoll-welcome' => '<strong>Bem-vindo $1!</strong>',
+	'securepoll-welcome' => '<strong>Bem-vindo(a) $1!</strong>',
 	'securepoll-not-started' => 'Esta eleição ainda não se iniciou.
 Está programada para começar em $2 às $3.',
 	'securepoll-finished' => 'Esta eleição já se encerrou, você já não pode votar.',
@@ -5954,7 +5979,7 @@ Se desejar, você pode guardar o seguinte recibo como prova do seu voto:
 O seu voto não foi registado!
 
 $1',
-	'securepoll-no-gpg-home' => 'Não foi possível criar diretório GPG de base.',
+	'securepoll-no-gpg-home' => 'Não foi possível criar o diretório-base do GPG.',
 	'securepoll-secret-gpg-error' => 'Erro ao executar GPG.
 Use $wgSecurePollShowErrorDetail=true; em LocalSettings.php para mostrar mais detalhes.',
 	'securepoll-full-gpg-error' => 'Erro ao executar GPG:
@@ -5964,7 +5989,7 @@ Comando: $1
 Erro:
 <pre>$2</pre>',
 	'securepoll-gpg-config-error' => 'As chaves GPG estão mal configuradas.',
-	'securepoll-gpg-parse-error' => 'Erro ao interpretar a saída GPG.',
+	'securepoll-gpg-parse-error' => 'Erro ao interpretar os dados gerados pelo GPG.',
 	'securepoll-no-decryption-key' => 'Nenhuma chave de descodificação está configurada.
 Não é possível descodificar.',
 	'securepoll-jump' => 'Ir para o servidor de votação',
@@ -5977,7 +6002,7 @@ Você deve fornecer para todas opções um ranque entre 1 e 999.',
 	'securepoll-remote-parse-error' => 'Erro ao interpretar a resposta de autorização do servidor.',
 	'securepoll-api-invalid-params' => 'Parâmetros inválidos.',
 	'securepoll-api-no-user' => 'Nenhum utilizador foi encontrado com o ID fornecido.',
-	'securepoll-api-token-mismatch' => 'Token de seguraça não corresponde, não foi possível autenticar.',
+	'securepoll-api-token-mismatch' => 'Token de segurança não corresponde, não foi possível autenticar.',
 	'securepoll-not-logged-in' => 'Você deve efetuar login para votar nesta eleição',
 	'securepoll-too-few-edits' => 'Desculpe, você não pode votar. Você precisa ter feito pelo menos $1 {{PLURAL:$1|edição|edições}} para votar nesta eleição, você apenas fez $2.',
 	'securepoll-blocked' => 'Desculpe, você não pode votar nesta eleição, se você está atualmente bloqueado de editar.',
@@ -5989,7 +6014,7 @@ Você deve fornecer para todas opções um ranque entre 1 e 999.',
 	'securepoll-header-voter-name' => 'Nome',
 	'securepoll-header-voter-domain' => 'Domínio',
 	'securepoll-header-ua' => 'Agente de utilizador',
-	'securepoll-header-cookie-dup' => 'Duplicado',
+	'securepoll-header-cookie-dup' => 'Dupl.',
 	'securepoll-header-strike' => 'Riscar',
 	'securepoll-header-details' => 'Detalhes',
 	'securepoll-strike-button' => 'Riscar',
@@ -6013,6 +6038,8 @@ Você deve fornecer para todas opções um ranque entre 1 e 999.',
 	'securepoll-dump-not-finished' => 'Registos de eleição encriptados estão disponíveis somente após a data de término em $1 às $2',
 	'securepoll-dump-no-urandom' => 'Não é possível abrir /dev/urandom.
 Para manter a privacidade do votante, registos de eleição codificados são publicamente disponibilizados apenas quando puderem ser encriptadas com uma fonte segura de números aleatórios.',
+	'securepoll-urandom-not-supported' => 'Este servidor não suporta geração criptográfica de números aleatórios.
+Para manter a privacidade dos votantes, os resultados criptografados da eleição são tornados públicos apenas quando podem ser embaralhados com uma sequência de números aleatórios.',
 	'securepoll-translate-title' => 'Traduzir: $1',
 	'securepoll-invalid-language' => 'Código de língua "$1" inválido',
 	'securepoll-submit-translate' => 'Atualizar',
@@ -6037,17 +6064,22 @@ Você pode escolher entre apurar os resultados presentes na base de dados, ou ap
 	'securepoll-tally-upload-submit' => 'Criar apuramento',
 	'securepoll-tally-error' => 'Erro na interpretação de registo de voto, não é possível produzir apuramento.',
 	'securepoll-no-upload' => 'Nenhum ficheiro foi carregado, não é possível apurar resultados.',
-	'securepoll-dump-corrupt' => 'O arquivo dump está corrompido e não pode ser processado.',
+	'securepoll-dump-corrupt' => 'O arquivo de dump está corrompido e não pode ser processado.',
+	'securepoll-tally-upload-error' => 'Erro ao contar o arquivo de dump: $1',
+	'securepoll-pairwise-victories' => 'Matriz de vitórias par a par',
+	'securepoll-strength-matrix' => 'Matriz de forças de caminho',
+	'securepoll-ranks' => 'Classificação final',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
+ * @author Capmo
  * @author Eduardo.mps
  * @author Everton137
  * @author GKnedo
  * @author Heldergeovane
  */
 $messages['pt-br'] = array(
-	'securepoll' => 'SecurePoll',
+	'securepoll' => 'VotaçãoSegura',
 	'securepoll-desc' => 'Extensão para eleições e pesquisas',
 	'securepoll-invalid-page' => 'Subpágina inválida "<nowiki>$1</nowiki>"',
 	'securepoll-need-admin' => 'Você precisa ser um administrador para realizar esta ação',
@@ -6091,6 +6123,9 @@ Não foi possível descriptografar.',
 	'securepoll-jump' => 'Ir para o servidor de votação',
 	'securepoll-bad-ballot-submission' => 'Seu voto foi inválido: $1',
 	'securepoll-unanswered-questions' => 'Você deve responder todas as questões.',
+	'securepoll-invalid-rank' => 'Nota inválida. Você deve classificar os candidatos com notas entre 1 e 999.',
+	'securepoll-unranked-options' => 'Algumas opções não foram classificadas.
+Você deve classificar todas as opções com uma nota entre 1 e 999.',
 	'securepoll-remote-auth-error' => 'Erro ao tentar obter suas informações de conta do servidor.',
 	'securepoll-remote-parse-error' => 'Erro ao interpretar a resposta de autorização do servidor.',
 	'securepoll-api-invalid-params' => 'Parâmetros inválidos.',
@@ -6099,7 +6134,7 @@ Não foi possível descriptografar.',
 	'securepoll-not-logged-in' => 'Você deve se registrar para votar nesta eleição',
 	'securepoll-too-few-edits' => 'Desculpe, você não pode votar. É preciso ter feito no mínimo $1 {{PLURAL:$1|edição|edições}} para votar nesta eleição, você fez $2.',
 	'securepoll-blocked' => 'Desculpe, você não pode votar nesta eleição se no momento você está bloqueado de editar.',
-	'securepoll-bot' => "Desculpe, contas com marcadas como ''bot'' não podem votar nesta eleição.",
+	'securepoll-bot' => "Desculpe, contas de programas robôs (marcadas como ''bot'') não podem votar nesta eleição.",
 	'securepoll-not-in-group' => 'Apenas os membros do grupo "$1" podem votar nesta eleição.',
 	'securepoll-not-in-list' => 'Desculpe, você não está na lista predeterminada de usuários autorizados a votar nesta eleição.',
 	'securepoll-list-title' => 'Lista de votos: $1',
@@ -6107,7 +6142,7 @@ Não foi possível descriptografar.',
 	'securepoll-header-voter-name' => 'Nome',
 	'securepoll-header-voter-domain' => 'Domínio',
 	'securepoll-header-ua' => 'Agente utilizador',
-	'securepoll-header-cookie-dup' => 'Dup',
+	'securepoll-header-cookie-dup' => 'Dupl.',
 	'securepoll-header-strike' => 'Riscados',
 	'securepoll-header-details' => 'Detalhes',
 	'securepoll-strike-button' => 'Riscar',
@@ -6115,21 +6150,24 @@ Não foi possível descriptografar.',
 	'securepoll-strike-reason' => 'Motivo:',
 	'securepoll-strike-cancel' => 'Cancelar',
 	'securepoll-strike-error' => 'Erro ao riscar/remover risco: $1',
+	'securepoll-strike-token-mismatch' => 'Dados da sessão perdidos',
 	'securepoll-details-link' => 'Detalhes',
 	'securepoll-details-title' => 'Detalhes do voto: #$1',
 	'securepoll-invalid-vote' => '"$1" não é um ID de voto válido',
-	'securepoll-header-voter-type' => 'Tipo de utilizador',
+	'securepoll-header-voter-type' => 'Tipo de usuário',
 	'securepoll-voter-properties' => 'Propriedades do votante',
 	'securepoll-strike-log' => 'Registro de riscados',
 	'securepoll-header-action' => 'Ação',
 	'securepoll-header-reason' => 'Motivo',
 	'securepoll-header-admin' => 'Administrador',
-	'securepoll-cookie-dup-list' => 'Utilizadores com cookie duplicado',
+	'securepoll-cookie-dup-list' => "Usuários com ''cookie'' duplicado",
 	'securepoll-dump-title' => 'Dump: $1',
 	'securepoll-dump-no-crypt' => 'Nenhum registro criptografado de eleição está disponível para esta eleição, porque a eleição não está configurada para usar criptografia.',
 	'securepoll-dump-not-finished' => 'Registros criptografados da eleição estarão disponíveis apenas após a data de encerramento em $1 às $2',
 	'securepoll-dump-no-urandom' => 'Não foi possível abrir /dev/urandom.
 Para mantes a privacidade do eleitor, os registros criptografados da eleição são disponibilizados publicamente quando eles podem ser embaralhados com uma sequência segura de números aleatórios.',
+	'securepoll-urandom-not-supported' => 'Este servidor não suporta geração criptográfica de números aleatórios.
+Para manter a privacidade dos votantes, os resultados criptografados da eleição são tornados públicos apenas quando podem ser embaralhados com uma sequência de números aleatórios.',
 	'securepoll-translate-title' => 'Traduzir: $1',
 	'securepoll-invalid-language' => 'Código de língua "$1" inválido',
 	'securepoll-submit-translate' => 'Atualizar',
@@ -6142,19 +6180,23 @@ Para mantes a privacidade do eleitor, os registros criptografados da eleição s
 	'securepoll-subpage-translate' => 'Traduzir',
 	'securepoll-subpage-list' => 'Lista',
 	'securepoll-subpage-dump' => 'Dump',
-	'securepoll-subpage-tally' => 'Contagem de Votos',
+	'securepoll-subpage-tally' => 'Apuração',
 	'securepoll-tally-title' => 'Contagem de votos: $1',
-	'securepoll-tally-not-finished' => 'Desculpe, você não pode realizar a contagem de votos desta eleição até a votação ser encerrada.',
+	'securepoll-tally-not-finished' => 'Desculpe, você não pode apurar os resultados da eleição antes do término da votação.',
 	'securepoll-can-decrypt' => 'O registro de eleição foi criptografado, mas a chave de descriptografia está disponível.
 Você pode escolher entre realizar a contagem de votos dos resultados presentes na base de dados, ou realizá-la a partir de resultados criptografados de um arquivo carregado.',
-	'securepoll-tally-no-key' => 'Você não pode realizar a contagem de votos desta eleição, pois os votos estão criptografados, e a chave de descriptografia não está disponível.',
-	'securepoll-tally-local-legend' => 'Contar os votos dos resultados guardados',
+	'securepoll-tally-no-key' => 'Você não pode realizar a apuração de votos desta eleição, pois os votos estão criptografados, e a chave de descriptografia não está disponível.',
+	'securepoll-tally-local-legend' => 'Apurar resultados armazenados',
 	'securepoll-tally-local-submit' => 'Criar contagem de votos',
 	'securepoll-tally-upload-legend' => 'Carregar dump criptografado',
 	'securepoll-tally-upload-submit' => 'Criar contagem de votos',
 	'securepoll-tally-error' => 'Erro ao interpretar registro de votos, não foi possível produzir uma contagem.',
 	'securepoll-no-upload' => 'Nenhum arquivo foi carregado, não foi possível contar os votos para o resultado.',
-	'securepoll-ranks' => 'Ranque final.',
+	'securepoll-dump-corrupt' => 'O arquivo de dump está corrompido e não pode ser processado.',
+	'securepoll-tally-upload-error' => 'Erro ao contar o arquivo de dump: $1',
+	'securepoll-pairwise-victories' => 'Matriz de vitórias par a par',
+	'securepoll-strength-matrix' => 'Matriz de forças de caminho',
+	'securepoll-ranks' => 'Classificação final',
 );
 
 /** Romanian (Română)
@@ -6326,6 +6368,9 @@ $1',
 	'securepoll-no-upload' => 'Файл не был загружен, невозможно подсчитать результаты.',
 	'securepoll-dump-corrupt' => 'Файл дампа повреждён и не может быть обработан.',
 	'securepoll-tally-upload-error' => 'Ошибка согласованности файла дампа: $1',
+	'securepoll-pairwise-victories' => 'Матрица попарных побед',
+	'securepoll-strength-matrix' => 'Матрица сил путей',
+	'securepoll-ranks' => 'Окончательное ранжирование',
 );
 
 /** Yakut (Саха тыла)
@@ -6598,7 +6643,7 @@ Môžete buď zistiť výsledok hlasovania z výsledkov dostupných v databáze 
 	'securepoll-ranks' => 'Finálne hodnotenie',
 );
 
-/** Serbian Cyrillic ekavian (ћирилица)
+/** Serbian Cyrillic ekavian (Српски (ћирилица))
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
@@ -6659,7 +6704,7 @@ $messages['sr-ec'] = array(
 	'securepoll-subpage-dump' => 'Дамп',
 );
 
-/** latinica (latinica)
+/** Serbian Latin ekavian (Srpski (latinica))
  * @author Michaello
  */
 $messages['sr-el'] = array(
@@ -7649,6 +7694,7 @@ $messages['yi'] = array(
 	'securepoll-bad-ballot-submission' => 'אייער שטים איז געווען אומגילטיג.',
 	'securepoll-unanswered-questions' => 'איר מוזט ענטפערן אלע שאלות.',
 	'securepoll-api-invalid-params' => 'אומגילטיגע פאראמעטערס',
+	'securepoll-not-logged-in' => 'איר מוזט אריינלאגירן צו שטימען אין דער אפשטימונג',
 	'securepoll-header-timestamp' => 'צײַט',
 	'securepoll-header-voter-name' => 'נאָמען',
 	'securepoll-header-reason' => 'אורזאַך',
