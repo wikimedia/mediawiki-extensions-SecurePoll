@@ -292,8 +292,8 @@ $1',
 <pre>$2</pre>',
 	'securepoll-gpg-config-error' => 'مفاتيح GPG مهيئة بشكل غير صحيح.',
 	'securepoll-gpg-parse-error' => 'خطأ بتفسير نتيجة GPG .',
-	'securepoll-no-decryption-key' => 'لا توجد مفاتيح فك شفرة مهيئة.
-لا يمكن فك الشفرة.',
+	'securepoll-no-decryption-key' => 'لا توجد مفاتيح فك تعمية مهيئة.
+لا يمكن فك التعمية.',
 	'securepoll-jump' => 'اذهب إلى خادم التصويت',
 	'securepoll-bad-ballot-submission' => 'تصويتك ليس صحيحا: $1',
 	'securepoll-unanswered-questions' => 'يجب أن تجيب على كل الأسئلة.',
@@ -390,7 +390,7 @@ $messages['be-tarask'] = array(
 	'securepoll' => 'Бясьпечнае галасаваньне',
 	'securepoll-desc' => 'Пашырэньне для выбараў і апытаньняў',
 	'securepoll-invalid-page' => 'Няслушная падстаронка «<nowiki>$1</nowiki>»',
-	'securepoll-need-admin' => 'Вам неабходна мець правы адміністратара, каб выканаць гэтае дзеяньне.',
+	'securepoll-need-admin' => 'Вам неабходна мець правы адміністратара выбараў, каб выканаць гэтае дзеяньне.',
 	'securepoll-too-few-params' => 'Недастаткова парамэтраў падстаронкі (няслушная спасылка).',
 	'securepoll-invalid-election' => '«$1» — няслушны ідэнтыфікатар выбараў.',
 	'securepoll-welcome' => '<strong>Вітаем, $1!</strong>',
@@ -4140,7 +4140,7 @@ $messages['ksh'] = array(
 	'securepoll' => 'Sescher Afshtemme',
 	'securepoll-desc' => 'E Zohsatz-Projramm för Wahle, Meinunge, un Afstemmunge.',
 	'securepoll-invalid-page' => '„<nowiki>$1</nowiki>“ es en onjöltijje Ongersigg',
-	'securepoll-need-admin' => 'Do moß ene {{int:group-sysadmin-member}} sin, öm dat maache ze dörve.',
+	'securepoll-need-admin' => 'Do moß ene Betreuer för de Wahl sin, öm dat maache ze dörve.',
 	'securepoll-too-few-params' => 'Dä Lengk es verkeht, et sin nit jenooch Parrameetere för Ongersigge do dren.',
 	'securepoll-invalid-election' => '„$1“ es kein jöltije Kennung för en Afshtemmung',
 	'securepoll-welcome' => '<strong>Hallo $1,</strong>',
@@ -6525,12 +6525,13 @@ $messages['scn'] = array(
 
 /** Slovak (Slovenčina)
  * @author Helix84
+ * @author Rudko
  */
 $messages['sk'] = array(
 	'securepoll' => 'Zabezpečené hlasovanie',
 	'securepoll-desc' => 'Rozšírenie pre voľby a dotazníky',
 	'securepoll-invalid-page' => 'Neplatná podstránka „<nowiki>$1</nowiki>“',
-	'securepoll-need-admin' => 'Aby ste mohli vykonať túto operáciu, musíte byť správca.',
+	'securepoll-need-admin' => 'Aby ste mohli vykonať túto operáciu musíte byť volebný správca.',
 	'securepoll-too-few-params' => 'Nedostatok parametrov podstránky (neplatný odkaz).',
 	'securepoll-invalid-election' => '„$1“ nie je platný ID hlasovania.',
 	'securepoll-welcome' => '<strong>Vitajte $1!</strong>',
