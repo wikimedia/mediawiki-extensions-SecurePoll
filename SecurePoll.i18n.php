@@ -230,6 +230,7 @@ The /dev/urandom cryptographic random number generation device is not supported 
  * @author Naudefj
  */
 $messages['af'] = array(
+	'securepoll-return' => 'Keer terug na $1',
 	'securepoll-list-title' => 'Wys stemme: $1',
 	'securepoll-header-timestamp' => 'Tyd',
 	'securepoll-header-voter-name' => 'Naam',
@@ -691,7 +692,7 @@ $messages['bs'] = array(
 	'securepoll' => 'Sigurno glasanje',
 	'securepoll-desc' => 'Proširenje za izbore i ankete',
 	'securepoll-invalid-page' => 'Nevaljana podstranica "<nowiki>$1</nowiki>"',
-	'securepoll-need-admin' => 'Morate biti admin da bi ste izvršili ovu akciju.',
+	'securepoll-need-admin' => 'Morate biti administrator izbora da bi ste izvršili ovu akciju.',
 	'securepoll-too-few-params' => 'Nema dovoljno parametara podstranice (nevaljan link).',
 	'securepoll-invalid-election' => '"$1" nije valjan izborni ID.',
 	'securepoll-welcome' => '<strong>Dobrodošao $1!</strong>',
@@ -941,7 +942,7 @@ $messages['cs'] = array(
 	'securepoll' => 'Bezpečné hlasování',
 	'securepoll-desc' => 'Rozšíření pro hlasování a průzkumy',
 	'securepoll-invalid-page' => 'Neplatná podstránka „<nowiki>$1</nowiki>“',
-	'securepoll-need-admin' => 'K provedení této operace byste {{GENDER:|musel|musela|musel}} být správce.',
+	'securepoll-need-admin' => 'K provedení této operace byste {{GENDER:|musel|musela|musel}} být volební správce.',
 	'securepoll-too-few-params' => 'Nedostatek parametrů pro podstránku (neplatný odkaz).',
 	'securepoll-invalid-election' => '„$1“ není platný identifikátor hlasování.',
 	'securepoll-welcome' => '<strong>Vítejte, {{GENDER:$1|uživateli|uživatelko|uživateli}} $1!</strong>',
@@ -1315,7 +1316,7 @@ $messages['de'] = array(
 	'securepoll' => 'Sichere Abstimmung',
 	'securepoll-desc' => 'Erweiterung für Wahlen und Umfragen',
 	'securepoll-invalid-page' => 'Ungültige Unterseite „<nowiki>$1</nowiki>“',
-	'securepoll-need-admin' => 'Du musst ein Administrator sein, um diese Aktion durchzuführen.',
+	'securepoll-need-admin' => 'Du musst ein Wahl-Administrator sein, um diese Aktion durchzuführen.',
 	'securepoll-too-few-params' => 'Nicht genügend Unterseitenparameter (ungültiger Link).',
 	'securepoll-invalid-election' => '„$1“ ist keine gültige Abstimmungs-ID.',
 	'securepoll-welcome' => '<strong>Willkommen $1!</strong>',
@@ -1435,9 +1436,10 @@ Du kannst wählen zwischen der Zählung der aktuellen Ergebnisse in der Datenban
 /** German (formal address) (Deutsch (Sie-Form))
  * @author ChrisiPK
  * @author Imre
+ * @author Umherirrender
  */
 $messages['de-formal'] = array(
-	'securepoll-need-admin' => 'Sie müssen ein Administrator sein, um diese Aktion durchzuführen.',
+	'securepoll-need-admin' => 'Sie müssen ein Wahl-Administrator sein, um diese Aktion durchzuführen.',
 	'securepoll-finished' => 'Diese Wahl ist beendet, Sie können nicht mehr abstimmen.',
 	'securepoll-not-qualified' => 'Sie sind nicht qualifiziert, bei dieser Wahl abzustimmen: $1',
 	'securepoll-change-disallowed' => 'Sie haben bei dieser Wahl bereits abgestimmt.
@@ -1864,7 +1866,7 @@ $messages['es'] = array(
 	'securepoll' => 'SecurePoll',
 	'securepoll-desc' => 'Extensiones para elecciones y encuentas',
 	'securepoll-invalid-page' => 'Subpágina inválida "<nowiki>$1</nowiki>"',
-	'securepoll-need-admin' => 'Necesitas ser un administrador para realizar esta acción.',
+	'securepoll-need-admin' => 'Necesitas ser un administrador de elecciones para realizar esta acción.',
 	'securepoll-too-few-params' => 'Parámetros de subpágina insuficientes (vínculo inválido).',
 	'securepoll-invalid-election' => '"$1" no es un identificador de elección valido.',
 	'securepoll-welcome' => '<strong>¡Bienvenido $1!</strong>',
@@ -1988,7 +1990,7 @@ $messages['et'] = array(
 	'securepoll' => 'Turvahääletus',
 	'securepoll-desc' => 'Hääletuste ja küsitluste laiendus',
 	'securepoll-invalid-page' => 'Vigane alamlehekülg "<nowiki>$1</nowiki>"',
-	'securepoll-need-admin' => 'Selle tegevuse sooritamiseks pead sa olema ülem.',
+	'securepoll-need-admin' => 'Selle tegevuse sooritamiseks pead sa olema valimise ülem.',
 	'securepoll-too-few-params' => 'Alamlehekülg on puudulikult kirjeldatud (vigane link).',
 	'securepoll-invalid-election' => '"$1" pole õige hääletus-ID.',
 	'securepoll-welcome' => '<strong>Tere tulemast $1!</strong>',
@@ -2001,6 +2003,7 @@ Teistkorda hääletada ei saa.',
 	'securepoll-change-allowed' => '<strong>Teade: Sa oled oma hääle juba andnud.</strong>
 Sa võid allpool oma antud häält muuta.
 Kui sa seda teed, siis sinu eelmine hääl tühistub.',
+	'securepoll-submit' => 'Hääleta',
 	'securepoll-gpg-receipt' => 'Täname hääletamast.
 
 Soovi korral võid talletada järgneva kinnituse antud hääle kohta:
@@ -2033,7 +2036,7 @@ Ei saa dekrüptida.',
 	'securepoll-api-no-user' => 'Etteantud ID-ga kasutajat ei leidu.',
 	'securepoll-api-token-mismatch' => 'Turvatunnus ei klapi, ei saa sisse logida.',
 	'securepoll-not-logged-in' => 'Hääletamiseks pead olema sisse logitud.',
-	'securepoll-too-few-edits' => 'Sa ei saa hääletada. Hääletamiseks pead olema teinud vähemalt $1 muudatust. Oled teinud $2 muudatust.',
+	'securepoll-too-few-edits' => 'Sa ei saa hääletada. Hääletamiseks pead olema teinud vähemalt $1 {{PLURAL:$1|muudatuse|muudatust}}. Oled teinud $2.',
 	'securepoll-blocked' => 'Vabandust, sa ei saa hääletada, kui oled hetkel blokeeritud.',
 	'securepoll-bot' => 'Vabandust, boti staatusega kontod ei saa hääletada neil valimistel.',
 	'securepoll-not-in-group' => 'Ainult rühma $1 liikmed saavad hääletada neil valimistel.',
@@ -2303,7 +2306,7 @@ $messages['fr'] = array(
 	'securepoll' => 'Sondage sécurisé',
 	'securepoll-desc' => 'Extension pour des élections et sondages',
 	'securepoll-invalid-page' => 'Sous-page « <nowiki>$1</nowiki> » invalide',
-	'securepoll-need-admin' => 'Vous devez être un administrateur pour exécuter cette action.',
+	'securepoll-need-admin' => "Vous devez être un administrateur de l'élection pour exécuter cette action.",
 	'securepoll-too-few-params' => 'Pas assez de paramètres de sous-page (lien invalide).',
 	'securepoll-invalid-election' => '« $1 » n’est pas un identifiant d’élection valide.',
 	'securepoll-welcome' => '<strong>Bienvenue $1 !</strong>',
@@ -3131,7 +3134,7 @@ $messages['hsb'] = array(
 	'securepoll' => 'Wěste hłosowanje',
 	'securepoll-desc' => 'Rozšěrjenje za wólby a naprašniki',
 	'securepoll-invalid-page' => 'Njepłaćiwa podstrona "<nowiki>$1</nowiki>',
-	'securepoll-need-admin' => 'Dyrbiš administrator być, zo by tutu akciju přewjedł.',
+	'securepoll-need-admin' => 'Dyrbiš wólbny administrator być, zo by tutu akciju přewjedł.',
 	'securepoll-too-few-params' => 'Nic dosć parametrow podstrony (njepłaćiwy wotkaz).',
 	'securepoll-invalid-election' => '"$1" płaćiwy wólbny ID njeje.',
 	'securepoll-welcome' => '<strong>Witaj $1!</strong>',
@@ -5457,7 +5460,7 @@ $messages['oc'] = array(
 	'securepoll' => 'Sondatge securizat',
 	'securepoll-desc' => "Extension per d'eleccions e de sondatges",
 	'securepoll-invalid-page' => 'Sospagina « <nowiki>$1</nowiki> » invalida',
-	'securepoll-need-admin' => 'Vos cal èsser un administrator per executar aquesta accion.',
+	'securepoll-need-admin' => "Vos cal èsser un administrator de l'eleccion per executar aquesta accion.",
 	'securepoll-too-few-params' => 'Pas pro de paramètres de sospagina (ligam invalid).',
 	'securepoll-invalid-election' => "« $1 » es pas un identificant d'eleccion valid.",
 	'securepoll-welcome' => '<strong>Benvenguda $1 !</strong>',
@@ -6250,13 +6253,14 @@ $messages['roa-tara'] = array(
 
 /** Russian (Русский)
  * @author HalanTul
+ * @author Kv75
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
 	'securepoll' => 'БезопасноеГолосование',
 	'securepoll-desc' => 'Расширение для проведения выборов и опросов',
 	'securepoll-invalid-page' => 'Ошибочная подстраница «<nowiki>$1</nowiki>»',
-	'securepoll-need-admin' => 'Вы должны быть администратором, чтобы выполнить это действие.',
+	'securepoll-need-admin' => 'Чтобы выполнить это действие, вы должны быть администратором выборов.',
 	'securepoll-too-few-params' => 'Не хватает параметров подстраницы (ошибочная ссылка).',
 	'securepoll-invalid-election' => '«$1» не является допустимым идентификатором выборов.',
 	'securepoll-welcome' => '<strong>Добро пожаловать, $1!</strong>',
@@ -7438,7 +7442,7 @@ $messages['vec'] = array(
 	'securepoll' => 'SecurePoll',
 	'securepoll-desc' => 'Estension par le elession e i sondagi',
 	'securepoll-invalid-page' => 'Sotopàxena mia vàlida: "<nowiki>$1</nowiki>"',
-	'securepoll-need-admin' => 'Ti gà da èssar un aministrador par poder far sta assion.',
+	'securepoll-need-admin' => "Ti gà da èssar un aministrador de l'elession par poder far sta azion.",
 	'securepoll-too-few-params' => 'Paràmetri de la sotopàxena mia suficenti (colegamento mia vàlido).',
 	'securepoll-invalid-election' => '"$1" no xe un ID vàlido par l\'elession.',
 	'securepoll-welcome' => '<strong>Benvegnù $1!</strong>',
@@ -7678,7 +7682,7 @@ Bạn có thể lựa chọn hoặc kiểm kết quả hiện có trong cơ sở
  */
 $messages['yi'] = array(
 	'securepoll-invalid-page' => 'אומגילטיקער אונטערבלאט "<nowiki>$1</nowiki>"',
-	'securepoll-need-admin' => 'איר דארפט זיין א סיסאפ אדורכצופירן די פעולה.',
+	'securepoll-need-admin' => 'איר דארפט זיין א וואלן אדמיניסטראטאר אדורכצופירן די פעולה.',
 	'securepoll-too-few-params' => 'נישט גענוג אונטערבלאט פאראמעטערס (אומגילטיקער לינק).',
 	'securepoll-invalid-election' => '"$1" איז נישט קיין גילטיקער אפשטימונג  ID.',
 	'securepoll-welcome' => '<strong>ברוך הבא, $1!</strong>',
@@ -7695,10 +7699,15 @@ $messages['yi'] = array(
 	'securepoll-unanswered-questions' => 'איר מוזט ענטפערן אלע שאלות.',
 	'securepoll-api-invalid-params' => 'אומגילטיגע פאראמעטערס',
 	'securepoll-not-logged-in' => 'איר מוזט אריינלאגירן צו שטימען אין דער אפשטימונג',
+	'securepoll-not-in-group' => 'נאר מיטגלידער פון דער "$1" גרופע קענען שטימען אין די וואלן. ',
 	'securepoll-header-timestamp' => 'צײַט',
 	'securepoll-header-voter-name' => 'נאָמען',
+	'securepoll-strike-reason' => 'אורזאַך:',
 	'securepoll-header-reason' => 'אורזאַך',
+	'securepoll-translate-title' => 'פֿארטייטשן : $1',
+	'securepoll-invalid-language' => 'אומגילטיקער שפראך קאד  "$1"',
 	'securepoll-submit-translate' => 'דערהײַנטיקן',
+	'securepoll-language-label' => 'אויסקלייבן שפראך:',
 	'securepoll-submit-select-lang' => 'פארטייטשן',
 	'securepoll-header-title' => 'נאָמען',
 	'securepoll-subpage-list' => 'ליסטע',
@@ -8081,6 +8090,7 @@ $1',
 );
 
 /** Chinese (Hong Kong) (‪中文(香港)‬)
+ * @author FireJackey
  * @author Skjackey tse
  */
 $messages['zh-hk'] = array(
