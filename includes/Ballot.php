@@ -34,6 +34,19 @@ abstract class SecurePoll_Ballot {
 	abstract function unpackRecord( $record );
 
 	/**
+	 * Convert a record to a string of some kind
+	 */
+	function convertRecord( $record, $options = array() ) {
+		$scores = $this->unpackRecord( $record );
+		return $this->convertScores( $scores );
+	}
+
+	/**
+	 * Convert a score array to a string of some kind
+	 */
+	abstract function convertScores( $scores, $options = array() );
+
+	/**
 	 * Create a ballot of the given type
 	 * @param $context SecurePoll_Context
 	 * @param $type string
@@ -166,6 +179,23 @@ class SecurePoll_ChooseBallot extends SecurePoll_Ballot {
 		}
 		return $result;
 	}
+
+	function convertScores( $scores, $options = array() ) {
+		$s = '';
+		foreach ( $this->election->getQuestions() as $question ) {
+			$qid = $question->getId();
+			if ( !isset( $scores[$qid] ) ) {
+				return false;
+			}
+			if ( $s !== '' ) {
+				$s .= '; ';
+			}
+			$oid = keys( $scores );
+			$option = $this->election->getOption( $oid );
+			$s .= $option->getMessage( 'name' );
+		}
+		return $s;
+	}
 }
 
 /**
@@ -263,6 +293,34 @@ class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 			$ranks[$qid][$oid] = $rank;
 		}
 		return $ranks;
+	}
+
+	function convertScores( $scores, $options = array() ) {
+		$result = array();
+		foreach ( $this->election->getQuestions() as $question ) {
+			$qid = $question->getId();
+			if ( !isset( $scores[$qid] ) ) {
+				return false;
+			}
+			$s = '';
+			$qscores = $scores[$qid];
+			ksort( $qscores );
+			$first = true;
+			foreach ( $qscores as $rank ) {
+				if ( $first ) {
+					$first = false;
+				} else {
+					$s .= ', ';
+				}
+				if ( $rank == 1000 ) {
+					$s .= '-';
+				} else {
+					$s .= $rank;
+				}
+			}
+			$result[$qid] = $s;
+		}
+		return $result;
 	}
 }
 

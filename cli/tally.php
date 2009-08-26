@@ -10,6 +10,8 @@
 $optionsWithArgs = array( 'name' );
 require( dirname(__FILE__).'/cli.inc' );
 
+$wgTitle = Title::newFromText( 'Special:SecurePoll' );
+
 $usage = <<<EOT
 Usage: 
   php tally.php [--html] --name <election name>

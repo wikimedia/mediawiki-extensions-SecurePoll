@@ -259,14 +259,14 @@ abstract class SecurePoll_PairwiseTallier extends SecurePoll_Tallier {
 
 		# Header row
 		foreach ( $rankedIds as $oid ) {
-			$s .= Xml::element( 'th', array(), $abbrevs[$oid] ) . "\n";
+			$s .= Xml::tags( 'th', array(), $abbrevs[$oid] ) . "\n";
 		}
 		$s .= "</tr>\n";
 
 		foreach ( $rankedIds as $oid1 ) {
 			# Header column
 			$s .= "<tr>\n";
-			$s .= Xml::element( 'td', array( 'class' => 'securepoll-results-row-heading' ),
+			$s .= Xml::tags( 'td', array( 'class' => 'securepoll-results-row-heading' ),
 				$rowLabels[$oid1] );
 			# Rest of the matrix
 			foreach ( $rankedIds as $oid2 ) {
@@ -283,6 +283,7 @@ abstract class SecurePoll_PairwiseTallier extends SecurePoll_Tallier {
 			$s .= "</tr>\n";
 		}
 		$s .= "</table>";
+		return $s;
 	}
 
 	function convertMatrixToText( $matrix, $rankedIds ) {
@@ -567,7 +568,7 @@ class SecurePoll_SchulzeTallier extends SecurePoll_PairwiseTallier {
 		$s = $wgOut->parse( '<h2>' . wfMsgNoTrans( 'securepoll-ranks' ) . "</h2>\n" );
 		$s .= $this->convertRanksToHtml( $this->ranks );
 
-		$s = $wgOut->parse( '<h2>' . wfMsgNoTrans( 'securepoll-pairwise-victories' ) . "</h2>\n" );
+		$s .= $wgOut->parse( '<h2>' . wfMsgNoTrans( 'securepoll-pairwise-victories' ) . "</h2>\n" );
 		$rankedIds = array_keys( $this->ranks );
 		$s .= $this->convertMatrixToHtml( $this->victories, $rankedIds );
 

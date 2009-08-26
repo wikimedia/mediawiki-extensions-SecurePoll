@@ -323,7 +323,7 @@ class SecurePoll_MemoryStore implements SecurePoll_Store {
  */
 class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 	var $xmlReader, $fileName;
-	var $voteCallback, $voteElectionId;
+	var $voteCallback, $voteElectionId, $voteCallbackStatus;
 
 	/** Valid entity info keys by entity type. */
 	static $entityInfoKeys = array(
@@ -440,7 +440,11 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 					&& $electionInfo['id'] == $this->voteElectionId ) 
 				{
 					$record = $this->readStringElement();
-					call_user_func( $this->voteCallback, $this, $record );
+					$status = call_user_func( $this->voteCallback, $this, $record );
+					if ( !$status->isOK() ) {
+						$this->voteCallbackStatus = $status;
+						return false;
+					}
 				} else {
 					$xr->next();
 				}
@@ -579,9 +583,12 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 	function callbackValidVotes( $electionId, $callback ) {
 		$this->voteCallback = $callback;
 		$this->voteElectionId = $electionId;
+		$this->voteCallbackStatus = Status::newGood();
 		$success = $this->readFile();
 		$this->voteCallback = $this->voteElectionId = null;
-		if ( $success ) {
+		if ( !$this->voteCallbackStatus->isOK() ) {
+			return $this->voteCallbackStatus;
+		} elseif ( $success ) {
 			return Status::newGood();
 		} else {
 			return Status::newFatal( 'securepoll-dump-file-corrupt' );
