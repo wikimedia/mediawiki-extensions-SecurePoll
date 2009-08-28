@@ -567,9 +567,9 @@ $messages['br'] = array(
 	'securepoll' => 'Mouezhiadeg suraet',
 	'securepoll-desc' => 'Astenn evit dilennadegoù ha sontadegoù',
 	'securepoll-invalid-page' => 'Ispajenn "<nowiki>$1</nowiki>" direizh',
-	'securepoll-need-admin' => "Ret eo deoc'h bezañ ur merout evit seveniñ an ober-mañ.",
+	'securepoll-need-admin' => "Ret eo deoc'h bezañ unan eus merourien an dilennadeg evit gellout seveniñ an ober-mañ.",
 	'securepoll-too-few-params' => 'Diouer a arventennoù ispajenn (liamm fall)',
-	'securepoll-invalid-election' => 'N\'eo ket "$1" un anavezer mouezhiañ degemeret.',
+	'securepoll-invalid-election' => 'N\'eo ket "$1" un ID mouezhiañ degemeret.',
 	'securepoll-welcome' => '<strong>Degemer mat $1!</strong>',
 	'securepoll-not-started' => "N'eo ket kroget ar vouezhiadeg evit c'hoazh.
 Emañ da gregiñ d'an $2 da $3.",
@@ -606,7 +606,7 @@ Fazi :
 	'securepoll-no-decryption-key' => "N'eus bet spisaet alc'hwez disrinegañ ebet.
 Dibosupl disrinegañ.",
 	'securepoll-jump' => "Mont d'ar servijer mouezhiañ",
-	'securepoll-bad-ballot-submission' => 'Direizh eo vot : $1',
+	'securepoll-bad-ballot-submission' => 'Direizh eo ho vot : $1',
 	'securepoll-unanswered-questions' => "Ret eo deoc'h respont d'an holl c'houlennoù.",
 	'securepoll-invalid-rank' => 'Renk direizh. Rankout a rit renkañ an emstriverien etre 1 ha 999.',
 	'securepoll-unranked-options' => "Dibarzhioù zo n'int ket bet urzhiet.
@@ -617,8 +617,8 @@ Ret deoc'h renkañ pep dibarzh etre 1 ha 999.",
 	'securepoll-api-no-user' => "N'eus bet kavet implijer ebet dezhañ an ID merket.",
 	'securepoll-api-token-mismatch' => 'Ne glot ket ar jedouer surentez, dibosupl emlugañ',
 	'securepoll-not-logged-in' => 'Rankout a rin en em lugañ a-benn votiñ en dilennadeg-mañ',
-	'securepoll-too-few-edits' => "Ho tigarez, n'hallit ket votiñ. Ret eo bezañ graet da nebeutañ $1 {{PLURAL:$1|degasadenn|degasadenn}} a-benn gallout mouezhiañ en dilennadeg-mañ, ha graet ac'h eus $2.",
-	'securepoll-blocked' => "Ho tigarez, n'oc'h ket evit votiñ en dilennadeg-mañ ma'z eo stanket ho tegasadennoù evit ar mare.",
+	'securepoll-too-few-edits' => "Ho tigarez, n'hallit ket votiñ. Ret eo bezañ graet da nebeutañ $1 {{PLURAL:$1|degasadenn|degasadenn}} a-benn gallout mouezhiañ en dilennadeg-mañ, ha graet hoc'h eus $2.",
+	'securepoll-blocked' => "Ho tigarez, n'oc'h ket evit votiñ en dilennadeg-mañ pa'z eo stanket ho tegasadennoù evit ar mare.",
 	'securepoll-bot' => "Ho tigarez, n'hall ket ar c'hontoù dezho ar statud robod votiñ en dilennadeg-mañ",
 	'securepoll-not-in-group' => 'N\'eus nemet izili ar strollad "$1" a c\'hall kemer perzh ar votadeg-mañ.',
 	'securepoll-not-in-list' => "Ho tigarez, n'emaoc'h ket war roll raktermenet an implijerien aotreet da vouezhiañ er votadeg-mañ.",
@@ -631,15 +631,15 @@ Ret deoc'h renkañ pep dibarzh etre 1 ha 999.",
 	'securepoll-header-strike' => 'Barrenniñ',
 	'securepoll-header-details' => 'Munudoù',
 	'securepoll-strike-button' => 'Barrenniñ',
-	'securepoll-unstrike-button' => 'Lemel an nulladenn',
+	'securepoll-unstrike-button' => 'Divarrenniñ',
 	'securepoll-strike-reason' => 'Abeg :',
 	'securepoll-strike-cancel' => 'Nullañ',
-	'securepoll-strike-error' => 'Ur fazi zo bet e-ser barrennañ / divarrennañ : $1',
+	'securepoll-strike-error' => 'Ur fazi zo bet e-ser barrenniñ/divarrenniñ : $1',
 	'securepoll-strike-token-mismatch' => 'Kollet eo bet roadennoù an estez',
 	'securepoll-details-link' => 'Munudoù',
 	'securepoll-details-title' => 'Munudoù ar vouezhiadeg : #$1',
 	'securepoll-invalid-vote' => 'N\'eo ket "$1" un ID votiñ reizh',
-	'securepoll-header-voter-type' => 'Doare ar mouezhier',
+	'securepoll-header-voter-type' => 'Doare ar voter',
 	'securepoll-voter-properties' => 'Perzhioù ar voter',
 	'securepoll-strike-log' => 'Marilh ar barrenniñ',
 	'securepoll-header-action' => 'Ober',
@@ -649,7 +649,7 @@ Ret deoc'h renkañ pep dibarzh etre 1 ha 999.",
 	'securepoll-dump-title' => 'Enrolladenn : $1',
 	'securepoll-dump-no-crypt' => "N'haller ket kaout ar roadennoù enrineget evit ar votadeg-mañ rak n'eo ket bet kefluniet ar vouezhiadeg evit bezañ enrineget.",
 	'securepoll-dump-not-finished' => "N'hallor gwelet ar roadennoù enrineget nemet goude ma vo kloz an dilennadeg d'an $1 da $2",
-	'securepoll-dump-no-urandom' => "Dibosupl digeriñ / dev/urandom.
+	'securepoll-dump-no-urandom' => "Dibosupl digeriñ /dev/urandom.
 A-benn mirout prevezded ar voterien n'haller tapout ar roadennoù enrineget nemet ma c'hallont bezañ strafuilhet gant ur ganer niveroù dargouezhek.",
 	'securepoll-urandom-not-supported' => "N'eo ket skoret gant ar servijer-mañ ganadur enrineget dargouezhek an niveroù.
 A-benn mirout prevezded ar voterien ne vez embannet ar roadennoù enrineget nemet pa c'hallont bezañ strafuilhet gant ul lanvad niveroù dargouezhek.",
@@ -681,7 +681,7 @@ Gallout a rit kontañ an disoc'hoù adal an diaz roadennoù pe adal ur restr enp
 	'securepoll-tally-upload-error' => 'Fazi e-ser kontañ ar restr savete : $1',
 	'securepoll-pairwise-victories' => "Matris an trec'hoù dre goubladoù",
 	'securepoll-strength-matrix' => 'Matris nerzh an hentoù moned',
-	'securepoll-ranks' => 'Renakadur diwezhañ',
+	'securepoll-ranks' => 'Renkadur diwezhañ',
 );
 
 /** Bosnian (Bosanski)
@@ -1611,7 +1611,7 @@ $messages['el'] = array(
 	'securepoll' => 'SecurePoll',
 	'securepoll-desc' => 'Επέκταση για εκλογές και δημοσκοπήσεις',
 	'securepoll-invalid-page' => 'Άκυρη υποσελίδα "<nowiki>$1</nowiki>"',
-	'securepoll-need-admin' => 'Πρέπει να είστε διαχειριστής για να κάνετε αυτή την ενέργεια.',
+	'securepoll-need-admin' => 'Πρέπει να είστε διαχειριστής εκλογών για να κάνετε αυτή την ενέργεια.',
 	'securepoll-too-few-params' => 'Μη αρκετές παράμετροι υποσελίδας (άκυρος σύνδεσμος).',
 	'securepoll-invalid-election' => '"$1" δεν είναι ένα αποδεκτό ID ψηφοφορίας.',
 	'securepoll-welcome' => '<strong>Καλωσήρθατε $1!</strong>',
@@ -2597,6 +2597,7 @@ Pode optar por escrutar os resultados presentes na base de datos ou por escrutar
  * @author Omnipaedista
  */
 $messages['grc'] = array(
+	'securepoll' => 'Ἠσφαλισμένη Κάλπη',
 	'securepoll-header-timestamp' => 'Χρόνος',
 	'securepoll-header-voter-name' => 'Ὄνομα',
 	'securepoll-header-voter-domain' => 'Περιοχή',
@@ -2606,10 +2607,12 @@ $messages['grc'] = array(
 	'securepoll-details-link' => 'Λεπτομέρειαι',
 	'securepoll-header-action' => 'Δρᾶσις',
 	'securepoll-header-reason' => 'Αἰτία',
+	'securepoll-submit-translate' => 'Ἐνημέρωσις',
 	'securepoll-language-label' => 'Ἐπιλέγειν γλῶτταν:',
 	'securepoll-submit-select-lang' => 'Μεταγλωττίζειν',
 	'securepoll-header-title' => 'Ὄνομα',
 	'securepoll-subpage-vote' => 'Ψηφίζειν',
+	'securepoll-subpage-list' => 'Κατάλογος',
 	'securepoll-subpage-tally' => 'Ψηφομέτρησις',
 	'securepoll-tally-title' => 'Ψηφομέτρησις: $1',
 	'securepoll-ranks' => 'Τελικὴ κατάταξις',
@@ -3649,7 +3652,7 @@ $messages['it'] = array(
 	'securepoll' => 'SecurePoll',
 	'securepoll-desc' => 'Estensione per le elezioni e le indagini',
 	'securepoll-invalid-page' => 'Sottopagina non valida "<nowiki>$1</nowiki>"',
-	'securepoll-need-admin' => 'Devi essere un amministratore per compiere questa azione.',
+	'securepoll-need-admin' => "Devi essere un amministratore dell'elezione per compiere questa azione.",
 	'securepoll-too-few-params' => 'Parametri della sottopagina non sufficienti (collegamento non valido).',
 	'securepoll-invalid-election' => '"$1" non è un ID valido per l\'elezione.',
 	'securepoll-welcome' => '<strong>Benvenuto $1!</strong>',
@@ -5948,6 +5951,7 @@ It peule serne sia ëd conté j'arzultà present ant ël database, sia ëd cont�
 
 /** Portuguese (Português)
  * @author Capmo
+ * @author Crazymadlover
  * @author Everton137
  * @author Lijealso
  * @author Malafaya
@@ -5957,7 +5961,7 @@ $messages['pt'] = array(
 	'securepoll' => 'Sondagem Segura',
 	'securepoll-desc' => 'Extensão para eleições e sondagens',
 	'securepoll-invalid-page' => 'Subpágina inválida: "<nowiki>$1</nowiki>"',
-	'securepoll-need-admin' => 'Você precisa de ser um administrador para efetuar esta ação.',
+	'securepoll-need-admin' => 'Você precisa de ser um administrador de eleição para efetuar esta ação.',
 	'securepoll-too-few-params' => 'Parâmetros de subpágina insuficientes (ligação inválida).',
 	'securepoll-invalid-election' => '"$1" não é um identificador de eleição válido.',
 	'securepoll-welcome' => '<strong>Bem-vindo(a) $1!</strong>',
@@ -7167,7 +7171,7 @@ $messages['tr'] = array(
 	'securepoll' => 'GüvenliAnket',
 	'securepoll-desc' => 'Seçimler ve anketler için eklenti',
 	'securepoll-invalid-page' => 'Geçersiz altsayfa "<nowiki>$1</nowiki>"',
-	'securepoll-need-admin' => 'Bu eylemi gerçekleştirebilmek için bir yönetici olmanız gerekir.',
+	'securepoll-need-admin' => 'Bu eylemi gerçekleştirebilmek için bir seçim yöneticisi olmanız gerekir.',
 	'securepoll-too-few-params' => 'Yeterli altsayfa parametresi yok (geçersiz bağlantı).',
 	'securepoll-invalid-election' => '"$1" geçerli bir seçim IDsi değil.',
 	'securepoll-welcome' => '<strong>Hoş Geldin $1!</strong>',
@@ -7279,6 +7283,8 @@ Veritabanında mevcut sonuçları saymayı, ya da yüklenen bir dosyadan şifrel
 	'securepoll-no-upload' => 'Hiçbir dosya yüklenmedi, sonuçlar sayılamıyor.',
 	'securepoll-dump-corrupt' => 'Yığın dosyası bozuk ve işlenebilir değil.',
 	'securepoll-tally-upload-error' => 'Yığın dosyası sayımında hata: $1',
+	'securepoll-pairwise-victories' => 'İkili zafer matrisi',
+	'securepoll-strength-matrix' => 'Yol gücü matrisi',
 	'securepoll-ranks' => 'Son sıralama',
 );
 
