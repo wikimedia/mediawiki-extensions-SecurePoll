@@ -812,6 +812,7 @@ Možete da izvršite prebrojavanje glasova koji su prisutni u bazi podataka ili 
  * @author Cbrown1023
  * @author Góngora
  * @author Jordi Roqué
+ * @author Paucabot
  * @author SMP
  * @author Vriullop
  */
@@ -819,7 +820,7 @@ $messages['ca'] = array(
 	'securepoll' => 'Vot segur',
 	'securepoll-desc' => 'Extensió per a eleccions i enquestes',
 	'securepoll-invalid-page' => 'Subpàgina «<nowiki>$1</nowiki>» invàlida',
-	'securepoll-need-admin' => 'Heu de ser administrador per a realitzar aquesta acció.',
+	'securepoll-need-admin' => 'Heu de ser administrador electoral per a realitzar aquesta acció.',
 	'securepoll-too-few-params' => 'No hi ha prou paràmetres de subpàgina (enllaç invàlid).',
 	'securepoll-invalid-election' => "«$1» no és un identificador d'elecció vàlid.",
 	'securepoll-welcome' => '<strong>Benvingut $1!</strong>',
@@ -6089,7 +6090,7 @@ $messages['pt-br'] = array(
 	'securepoll' => 'VotaçãoSegura',
 	'securepoll-desc' => 'Extensão para eleições e pesquisas',
 	'securepoll-invalid-page' => 'Subpágina inválida "<nowiki>$1</nowiki>"',
-	'securepoll-need-admin' => 'Você precisa ser um administrador para realizar esta ação',
+	'securepoll-need-admin' => 'Você precisa ser um administrador de eleição para realizar esta ação',
 	'securepoll-too-few-params' => 'Sem parâmetros de subpágina suficientes (ligação inválida).',
 	'securepoll-invalid-election' => '"$1" não é um ID de eleição válido.',
 	'securepoll-welcome' => '<strong>Bem vindo(a) $1!</strong>',
