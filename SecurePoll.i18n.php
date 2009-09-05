@@ -2870,6 +2870,7 @@ $1',
 
 /** Hindi (हिन्दी)
  * @author Vsrawat
+ * @author आलोक
  */
 $messages['hi'] = array(
 	'securepoll' => 'सुरक्षितनिर्वाचन',
@@ -2989,18 +2990,17 @@ $1',
 	'securepoll-subpage-tally' => 'मिलान करें',
 	'securepoll-tally-title' => 'मिलान करें: $1',
 	'securepoll-tally-not-finished' => 'क्षमा कीजिए, आप इस निर्वाचन का मिलान तब नहीं कर सकते जब तक मतदान पूरा नहीं हो जाता है।',
-	'securepoll-can-decrypt' => 'यह निर्वाचन रिकॉर्ड कूटबद्धीकृत किया गया है, परंतु इसकी कूटमुक्तिकरण कुंजी उपलब्ध नहीं है।
-
-आप या तो इस आँकड़ासंग्रह में उपस्थित परिणामों का मिलान करने का, या किसी अपलोड की गई फ़ाइल से कूटबद्धीकृत परिणामों का मिलान करने का चयन कर सकते हैं।',
+	'securepoll-can-decrypt' => 'यह निर्वाचन जानकारी कूटबद्धीकृत की गई है, परंतु इसकी कूटमुक्तिकरण कुंजी उपलब्ध नहीं है।
+या तो आप आँकड़ाकोष में मौजूद परिणामों का मिलान कर सकते हैं, या किसी चढ़ाई गई संचिका से कूटबद्धीकृत परिणामों का मिलान कर सकते हैं।',
 	'securepoll-tally-no-key' => 'आप इस निर्वाचन का मिलान नहीं कर सकते हैं, क्योंकि ये मत कूटबद्धीकृत हैं, और इसकी कूटमुक्तिकरण कुंजी उपलब्ध नहीं है।',
 	'securepoll-tally-local-legend' => 'भंडारित परिणामों का मिलान करें',
 	'securepoll-tally-local-submit' => 'मिलान बनाएँ',
 	'securepoll-tally-upload-legend' => 'कूटबद्धीकृत ढेर अपलोड करें',
 	'securepoll-tally-upload-submit' => 'मिलान बनाएँ',
 	'securepoll-tally-error' => 'मत के रिकॉर्ड को बाँचने में त्रुटि, किसी मिलान का निर्माण नहीं कर सकते।',
-	'securepoll-no-upload' => 'कोई फ़ाइल अपलोड नहीं की गई, परिणामों का मिलान नहीं कर सकते।',
-	'securepoll-dump-corrupt' => 'यह ढेर फ़ाइल भ्रष्ट है और प्रक्रियाकृत नहीं की जा सकती है।',
-	'securepoll-tally-upload-error' => 'ढेर फ़ाइल का मिलान करने में त्रुटि: $1',
+	'securepoll-no-upload' => 'कोई संचिका अपलोड नहीं की गई, परिणामों का मिलान नहीं कर सकते।',
+	'securepoll-dump-corrupt' => 'यह निपात संचिका भ्रष्ट है और प्रक्रियाकृत नहीं की जा सकती है।',
+	'securepoll-tally-upload-error' => 'निपात संचिका का मिलान करने में त्रुटि: $1',
 	'securepoll-pairwise-victories' => 'जोड़ीबद्ध विजय मैट्रिक्स',
 	'securepoll-strength-matrix' => 'पथ की शक्ति का मैट्रिक्स',
 	'securepoll-ranks' => 'अंतिम क्रम',
@@ -7515,6 +7515,7 @@ No se pole decritar.',
 	'securepoll-strike-reason' => 'Motivo:',
 	'securepoll-strike-cancel' => 'Anùla',
 	'securepoll-strike-error' => "Eròr durante l'anulamento o el ripristino del voto: $1",
+	'securepoll-strike-token-mismatch' => 'I dati de la session i xe ndà persi',
 	'securepoll-details-link' => 'Detagli',
 	'securepoll-details-title' => 'Detagli del voto: #$1',
 	'securepoll-invalid-vote' => '"$1" no xe l\'ID de un voto vàlido',
