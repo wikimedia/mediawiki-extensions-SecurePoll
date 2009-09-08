@@ -3260,13 +3260,14 @@ Móžeš pak wuslědki w datowej bance ličić pak zaklučowane wuslědki z nahr
  * @author Cassandro
  * @author Cbrown1023
  * @author Dani
+ * @author Glanthor Reviol
  * @author Tgr
  */
 $messages['hu'] = array(
 	'securepoll' => 'BiztonságosSzavazás',
 	'securepoll-desc' => 'Kiegészítő választások és közvéleménykutatások lebonyolítására',
 	'securepoll-invalid-page' => 'Érvénytelen allap: „"<nowiki>$1</nowiki>"”',
-	'securepoll-need-admin' => 'Csak adminisztrátorok hajthatják végre ezt a műveletet.',
+	'securepoll-need-admin' => 'Csak választási adminisztrátorok hajthatják végre ezt a műveletet.',
 	'securepoll-too-few-params' => 'Nincs elég paraméter az allaphoz (érvénytelen hivatkozás).',
 	'securepoll-invalid-election' => '„$1” nem érvényes választási azonosító.',
 	'securepoll-welcome' => '<strong>Üdvözlünk $1!</strong>',
