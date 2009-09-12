@@ -1185,6 +1185,7 @@ Gallwch naill ai gyfrif y canlyniadau sydd yn y bas data, neu gallwch gyfrif y c
 );
 
 /** Danish (Dansk)
+ * @author Byrial
  * @author Kaare
  * @author Masz
  * @author Sir48
@@ -1193,7 +1194,7 @@ $messages['da'] = array(
 	'securepoll' => 'SecurePoll',
 	'securepoll-desc' => 'En udvidelse til valg og undersøgelser',
 	'securepoll-invalid-page' => 'Ugyldig underside "<nowiki>$1</nowiki>"',
-	'securepoll-need-admin' => 'Du skal være administrator, for at udføre denne handling.',
+	'securepoll-need-admin' => 'Du skal være valgadministrator for at udføre denne handling.',
 	'securepoll-too-few-params' => 'Ikke tilstrækkeligt mange undersideparametre (ugyldigt link).',
 	'securepoll-invalid-election' => '"$1" er ikke en gyldig valg-id.',
 	'securepoll-welcome' => '<strong>Velkommen $1!</strong>',
@@ -7566,11 +7567,19 @@ $messages['vep'] = array(
 	'securepoll-header-voter-name' => 'Nimi',
 	'securepoll-header-voter-domain' => 'Domen',
 	'securepoll-header-ua' => 'Kävutajan agent',
+	'securepoll-header-details' => 'Detalid',
 	'securepoll-strike-reason' => 'Sü:',
 	'securepoll-strike-cancel' => 'Heitta pätand',
 	'securepoll-header-action' => 'Tego',
 	'securepoll-header-reason' => 'Sü',
 	'securepoll-header-admin' => 'Admin',
+	'securepoll-submit-translate' => 'Udištada',
+	'securepoll-language-label' => "Valiče kel':",
+	'securepoll-submit-select-lang' => 'Käta',
+	'securepoll-header-title' => 'Nimi',
+	'securepoll-subpage-vote' => 'Änesta',
+	'securepoll-subpage-translate' => 'Käta',
+	'securepoll-subpage-list' => 'Nimikirjutez',
 );
 
 /** Vietnamese (Tiếng Việt)
