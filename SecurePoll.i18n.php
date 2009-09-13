@@ -2108,7 +2108,7 @@ Sa võid üle lugeda kas andmebaasis olevad tulemused või üleslaaditavas faili
 $messages['eu'] = array(
 	'securepoll' => 'BozketaSegurua',
 	'securepoll-invalid-page' => '"<nowiki>$1</nowiki>" azpiorrialde okerra',
-	'securepoll-need-admin' => 'Ekintza hori burutzeko administratzailea izan behar duzu.',
+	'securepoll-need-admin' => 'Ekintza hori burutzeko hauteskundeetako administratzailea izan behar duzu.',
 	'securepoll-welcome' => '<strong>Ongi etorri $1!</strong>',
 	'securepoll-submit' => 'Bozka eman',
 	'securepoll-thanks' => 'Eskerrik asko, zure bozka gorde egin da.',
@@ -7557,6 +7557,7 @@ Par protègiare la riservatessa dei votanti, le registrassion criptade de l'eles
 	'securepoll-subpage-list' => 'Lista',
 	'securepoll-subpage-dump' => 'Dump',
 	'securepoll-tally-upload-legend' => 'Carga su un dump criptà',
+	'securepoll-ranks' => 'Classifica final',
 );
 
 /** Veps (Vepsan kel')
