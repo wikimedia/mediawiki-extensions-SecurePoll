@@ -7302,6 +7302,16 @@ Veritabanında mevcut sonuçları saymayı, ya da yüklenen bir dosyadan şifrel
 	'securepoll-ranks' => 'Son sıralama',
 );
 
+/** Tatar (Cyrillic) (Татарча/Tatarça (Cyrillic))
+ * @author KhayR
+ */
+$messages['tt-cyrl'] = array(
+	'securepoll-header-timestamp' => 'Вакыт',
+	'securepoll-header-voter-name' => 'Исем',
+	'securepoll-header-voter-domain' => 'Домен',
+	'securepoll-header-ua' => 'Кулланучы агенты',
+);
+
 /** Ukrainian (Українська)
  * @author AS
  * @author Ahonc
