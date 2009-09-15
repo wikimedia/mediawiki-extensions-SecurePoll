@@ -7574,6 +7574,8 @@ Par protègiare la riservatessa dei votanti, le registrassion criptade de l'eles
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
+	'securepoll-submit' => "Oigeta än'",
+	'securepoll-api-invalid-params' => 'Värad parametrad',
 	'securepoll-header-timestamp' => 'Aig',
 	'securepoll-header-voter-name' => 'Nimi',
 	'securepoll-header-voter-domain' => 'Domen',
@@ -7581,16 +7583,24 @@ $messages['vep'] = array(
 	'securepoll-header-details' => 'Detalid',
 	'securepoll-strike-reason' => 'Sü:',
 	'securepoll-strike-cancel' => 'Heitta pätand',
+	'securepoll-details-link' => 'Detalid',
 	'securepoll-header-action' => 'Tego',
 	'securepoll-header-reason' => 'Sü',
 	'securepoll-header-admin' => 'Admin',
+	'securepoll-cookie-dup-list' => 'Kävutajad, kudambad kävutadas ühten "cookie"-n',
 	'securepoll-submit-translate' => 'Udištada',
 	'securepoll-language-label' => "Valiče kel':",
 	'securepoll-submit-select-lang' => 'Käta',
 	'securepoll-header-title' => 'Nimi',
+	'securepoll-header-start-date' => 'Augotiždat',
+	'securepoll-header-end-date' => 'Lopdat',
 	'securepoll-subpage-vote' => 'Änesta',
 	'securepoll-subpage-translate' => 'Käta',
 	'securepoll-subpage-list' => 'Nimikirjutez',
+	'securepoll-subpage-tally' => 'Lugemine',
+	'securepoll-tally-title' => 'Lugemine: $1',
+	'securepoll-tally-local-submit' => 'Säta lugemine',
+	'securepoll-tally-upload-submit' => 'Säta lugemine',
 );
 
 /** Vietnamese (Tiếng Việt)
