@@ -222,6 +222,8 @@ The /dev/urandom cryptographic random number generation device is not supported 
 	'securepoll-submit-translate' => '{{Identical|Update}}',
 	'securepoll-submit-select-lang' => '{{Identical|Translate}}',
 	'securepoll-header-title' => '{{Identical|Name}}',
+	'securepoll-header-start-date' => '{{Identical|Start date}}',
+	'securepoll-header-end-date' => '{{Identical|End date}}',
 	'securepoll-subpage-vote' => '{{delete}}',
 	'securepoll-subpage-translate' => '{{Identical|Translate}}',
 );
@@ -243,6 +245,8 @@ $messages['af'] = array(
 	'securepoll-header-reason' => 'Rede',
 	'securepoll-submit-translate' => 'Opdateer',
 	'securepoll-header-title' => 'Naam',
+	'securepoll-header-start-date' => 'Begindatum',
+	'securepoll-header-end-date' => 'Einddatum',
 );
 
 /** Arabic (العربية)
@@ -2110,9 +2114,21 @@ $messages['eu'] = array(
 	'securepoll-invalid-page' => '"<nowiki>$1</nowiki>" azpiorrialde okerra',
 	'securepoll-need-admin' => 'Ekintza hori burutzeko hauteskundeetako administratzailea izan behar duzu.',
 	'securepoll-welcome' => '<strong>Ongi etorri $1!</strong>',
+	'securepoll-finished' => 'Hauteskundeak bukatu dira, beraz, ezin duzu bozkatu.',
 	'securepoll-submit' => 'Bozka eman',
+	'securepoll-gpg-receipt' => 'Milesker bozkatzeagatik.
+
+Nahi baduzu, ondorengo agiria gorde dezakezu zure bozkaren frogabide bezala:
+
+<pre>$1</pre>',
 	'securepoll-thanks' => 'Eskerrik asko, zure bozka gorde egin da.',
 	'securepoll-return' => '$1-(e)ra itzuli',
+	'securepoll-full-gpg-error' => 'Errorea GPG exekutatzen:
+
+Agindua: $1
+
+Errorea:
+<pre>$1</pre>',
 	'securepoll-jump' => 'Joan bozketa zerbitzarira',
 	'securepoll-bad-ballot-submission' => 'Zure bozka ez da zuzena: $1',
 	'securepoll-unanswered-questions' => 'Galdera guztiak erantzun behar dituzu.',
