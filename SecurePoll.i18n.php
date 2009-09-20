@@ -4042,7 +4042,7 @@ $messages['ko'] = array(
 	'securepoll' => '비밀 투표',
 	'securepoll-desc' => '선거와 여론 조사를 위한 확장 기능',
 	'securepoll-invalid-page' => '"<nowiki>$1</nowiki>" 하위 문서가 잘못되었습니다.',
-	'securepoll-need-admin' => '해당 동작을 수행하려면 관리자 권한이 필요합니다.',
+	'securepoll-need-admin' => '해당 동작을 수행하려면 선거 관리자 권한이 필요합니다.',
 	'securepoll-too-few-params' => '하위 문서 변수가 충분하지 않습니다 (잘못된 링크).',
 	'securepoll-invalid-election' => '"$1"은 유효한 선거 ID가 아닙니다.',
 	'securepoll-welcome' => '<strong>$1님, 환영합니다!</strong>',
@@ -4153,6 +4153,7 @@ $1',
 	'securepoll-no-upload' => '파일이 올라가지 않아, 결과 집계를 할 수 없습니다.',
 	'securepoll-dump-corrupt' => '기록 파일에 문제가 있어서 처리할 수 없습니다.',
 	'securepoll-tally-upload-error' => '기록 파일을 개표하는 중 오류 발생: $1',
+	'securepoll-ranks' => '최종 순위',
 );
 
 /** Ripoarisch (Ripoarisch)
