@@ -127,7 +127,7 @@ To maintain voter privacy, encrypted election records are only publically availa
 	'securepoll-invalid-language' => 'Invalid language code "$1"',
 	'securepoll-header-trans-id' => 'ID',
 	'securepoll-submit-translate' => 'Update',
-	'securepoll-language-label' => 'Select language: ',
+	'securepoll-language-label' => 'Select language:',
 	'securepoll-submit-select-lang' => 'Translate',
 
 	# Entry page
