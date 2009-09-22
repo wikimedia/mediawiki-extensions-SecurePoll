@@ -2882,6 +2882,10 @@ $1',
 	'securepoll-tally-upload-submit' => 'חישוב התוצאות',
 	'securepoll-tally-error' => 'שגיאה בפענוח ההצבעה, לא ניתן לחשב את התוצאות.',
 	'securepoll-no-upload' => 'לא הועלה קובץ, לא ניתן לחשב את התוצאות.',
+	'securepoll-dump-corrupt' => 'העותק המוצפן הוא פגום ולא ניתן לעבדו.',
+	'securepoll-tally-upload-error' => 'שגיאה בחישוב התוצאות מתוך ההעתק המוצפן: $1',
+	'securepoll-pairwise-victories' => 'טבלת הניצחון בזוגות',
+	'securepoll-strength-matrix' => 'טבלת חוזק הנתיב',
 	'securepoll-ranks' => 'דירוג סופי',
 );
 
