@@ -5984,6 +5984,22 @@ It peule serne sia ëd conté j'arzultà present ant ël database, sia ëd cont�
 	'securepoll-ranks' => 'Votassion final',
 );
 
+/** Pashto (پښتو)
+ * @author Ahmed-Najib-Biabani-Ibrahimkhel
+ */
+$messages['ps'] = array(
+	'securepoll-strike-reason' => 'سبب:',
+	'securepoll-header-reason' => 'سبب',
+	'securepoll-submit-translate' => 'اوسمهاله کول',
+	'securepoll-language-label' => 'ژبه ټاکل:',
+	'securepoll-submit-select-lang' => 'ژباړل',
+	'securepoll-header-title' => 'نوم',
+	'securepoll-header-start-date' => 'د پيل نېټه',
+	'securepoll-header-end-date' => 'د پای نېټه',
+	'securepoll-subpage-translate' => 'ژباړل',
+	'securepoll-subpage-list' => 'لړليک',
+);
+
 /** Portuguese (Português)
  * @author Capmo
  * @author Crazymadlover
@@ -7776,6 +7792,7 @@ $messages['yi'] = array(
 	'securepoll-header-voter-name' => 'נאָמען',
 	'securepoll-strike-reason' => 'אורזאַך:',
 	'securepoll-header-reason' => 'אורזאַך',
+	'securepoll-header-admin' => 'אַדמיניסטראַטאר',
 	'securepoll-translate-title' => 'פֿארטייטשן : $1',
 	'securepoll-invalid-language' => 'אומגילטיקער שפראך קאד  "$1"',
 	'securepoll-submit-translate' => 'דערהײַנטיקן',
