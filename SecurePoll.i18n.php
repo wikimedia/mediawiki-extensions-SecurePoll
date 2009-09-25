@@ -2125,10 +2125,10 @@ Nahi baduzu, ondorengo agiria gorde dezakezu zure bozkaren frogabide bezala:
 	'securepoll-return' => '$1-(e)ra itzuli',
 	'securepoll-full-gpg-error' => 'Errorea GPG exekutatzen:
 
-Agindua: $1
+Komandoa: $1
 
 Errorea:
-<pre>$1</pre>',
+<pre>$2</pre>',
 	'securepoll-jump' => 'Joan bozketa zerbitzarira',
 	'securepoll-bad-ballot-submission' => 'Zure bozka ez da zuzena: $1',
 	'securepoll-unanswered-questions' => 'Galdera guztiak erantzun behar dituzu.',
