@@ -4157,6 +4157,7 @@ $1',
 	'securepoll-no-upload' => '파일이 올라가지 않아, 결과 집계를 할 수 없습니다.',
 	'securepoll-dump-corrupt' => '기록 파일에 문제가 있어서 처리할 수 없습니다.',
 	'securepoll-tally-upload-error' => '기록 파일을 개표하는 중 오류 발생: $1',
+	'securepoll-pairwise-victories' => '조합비교 행렬',
 	'securepoll-ranks' => '최종 순위',
 );
 
