@@ -4786,6 +4786,9 @@ $2-ൽ $3 മുതലാണ് ആരംഭിക്കുന്നത്.',
 <pre>$1</pre>',
 	'securepoll-thanks' => 'നന്ദി, താങ്കളുടെ വോട്ട് ശേഖരിക്കപ്പെട്ടിരിക്കുന്നു.',
 	'securepoll-return' => '$1 -ലേയ്ക്കു തിരിച്ചു പോവുക',
+	'securepoll-jump' => 'വോട്ടിങ് സെർവറിലേയ്ക്ക് പോവുക',
+	'securepoll-bad-ballot-submission' => 'താങ്കളുടെ വോട്ട് അസാധുവാണ്: $1',
+	'securepoll-unanswered-questions' => 'താങ്കൾ എല്ലാ ചോദ്യങ്ങൾക്കും ഉത്തരം നൽകേണ്ടതാണ്.',
 );
 
 /** Malay (Bahasa Melayu)
