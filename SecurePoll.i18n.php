@@ -3629,7 +3629,7 @@ Untuk menjaga kerahasiaan pemilih, catatan pemilihan ter-enkripsi hanya tersedia
 	'securepoll-submit-select-lang' => 'Terjemahkan',
 	'securepoll-header-title' => 'Nama',
 	'securepoll-header-start-date' => 'Tanggal mulai',
-	'securepoll-header-end-date' => 'Tanggal berakhir',
+	'securepoll-header-end-date' => 'Tanggal selesai',
 	'securepoll-subpage-vote' => 'Voting',
 	'securepoll-subpage-translate' => 'Terjemahkan',
 	'securepoll-subpage-list' => 'Daftar',
