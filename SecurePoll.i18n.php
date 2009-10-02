@@ -326,7 +326,7 @@ $1',
 	'securepoll-strike-button' => 'اشطب',
 	'securepoll-unstrike-button' => 'الغاء الشطب',
 	'securepoll-strike-reason' => 'السبب:',
-	'securepoll-strike-cancel' => 'الغاء',
+	'securepoll-strike-cancel' => 'ألغِ',
 	'securepoll-strike-error' => 'خطأ اثناء القيام بالشطب/الغاء الشطب: $1',
 	'securepoll-strike-token-mismatch' => 'فقدت بيانات الجلسة',
 	'securepoll-details-link' => 'التفاصيل',
@@ -4521,6 +4521,7 @@ Decodere is neet meugelik.",
 );
 
 /** Lithuanian (Lietuvių)
+ * @author Homo
  * @author Matasg
  */
 $messages['lt'] = array(
@@ -4568,7 +4569,7 @@ Negalima iššifruoti.',
 	'securepoll-jump' => 'Eiti į balsavimo serverį',
 	'securepoll-bad-ballot-submission' => 'Jūsų balsas netinkamas: $1',
 	'securepoll-unanswered-questions' => 'Turite atsakyti į visus klausimus.',
-	'securepoll-remote-auth-error' => 'Įvyko klaida pristatant jūsų sąskaitos informaciją iš serverio.',
+	'securepoll-remote-auth-error' => 'Įvyko klaida pristatant jūsų paskyros informaciją iš serverio.',
 	'securepoll-remote-parse-error' => 'Klaida interpretuojant leidimo atsakymą iš serverio.',
 	'securepoll-api-invalid-params' => 'Netinkami parametrai',
 	'securepoll-api-no-user' => 'Nerastas naudotojas su duotu ID.',
