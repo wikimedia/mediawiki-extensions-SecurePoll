@@ -5401,7 +5401,7 @@ $messages['no'] = array(
 	'securepoll' => 'SikkertValg',
 	'securepoll-desc' => 'En utvidelse for valg og undersøkelser',
 	'securepoll-invalid-page' => 'Ugyldig underside «<nowiki>$1</nowiki>»',
-	'securepoll-need-admin' => 'Du må være administrator for å utføre denne handlingen.',
+	'securepoll-need-admin' => 'Du må være valgadministrator for å kunne utføre dette.',
 	'securepoll-too-few-params' => 'Ikke mange nok undersideparametre (ugyldig lenke).',
 	'securepoll-invalid-election' => '"$1" er ikke en gyldig valg-id.',
 	'securepoll-welcome' => '<strong>Velkommen $1!</strong>',
@@ -5513,6 +5513,9 @@ Du kan velge å enten telle opp resultatene tilgjengelig i databasen, eller å t
 	'securepoll-no-upload' => 'Ingen fil ble lastet opp, kan ikke summere opp resultatene.',
 	'securepoll-dump-corrupt' => 'Dumpfila er ødelagt og kan ikke behandles.',
 	'securepoll-tally-upload-error' => 'Feil ved opptelling av dumpfila: $1',
+	'securepoll-pairwise-victories' => 'Matrise over parvis seier',
+	'securepoll-strength-matrix' => 'Matrise over stistyrke',
+	'securepoll-ranks' => 'Endelig resultat',
 );
 
 /** Occitan (Occitan)
