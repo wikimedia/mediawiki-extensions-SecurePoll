@@ -3661,6 +3661,17 @@ $messages['io'] = array(
 	'securepoll-desc' => 'Extensilo por elekti e voti',
 );
 
+/** Icelandic (Íslenska)
+ * @author Spacebirdy
+ */
+$messages['is'] = array(
+	'securepoll-header-voter-name' => 'Nafn',
+	'securepoll-header-voter-domain' => 'Lén',
+	'securepoll-header-url' => 'Veffang',
+	'securepoll-language-label' => 'Velja tungumál:',
+	'securepoll-header-title' => 'Nafn',
+);
+
 /** Italian (Italiano)
  * @author BrokenArrow
  * @author Capmo
