@@ -3667,9 +3667,12 @@ $messages['io'] = array(
 $messages['is'] = array(
 	'securepoll-header-voter-name' => 'Nafn',
 	'securepoll-header-voter-domain' => 'Lén',
+	'securepoll-header-ua' => 'Aðgangsbúnaður',
 	'securepoll-header-url' => 'Veffang',
 	'securepoll-language-label' => 'Velja tungumál:',
+	'securepoll-submit-select-lang' => 'Þýða',
 	'securepoll-header-title' => 'Nafn',
+	'securepoll-subpage-translate' => 'Þýða',
 );
 
 /** Italian (Italiano)
@@ -4820,6 +4823,16 @@ $2-ൽ $3 മുതലാണ് ആരംഭിക്കുന്നത്.',
 	'securepoll-strike-cancel' => 'റദ്ദാക്കുക',
 	'securepoll-details-title' => 'വോട്ടിന്റെ വിവരങ്ങൾ: #$1',
 	'securepoll-invalid-vote' => '"$1" ഒരു സാധുവായ വോട്ട് ഐ.ഡി. അല്ല',
+	'securepoll-translate-title' => 'തർജ്ജമ ചെയ്യുക:$1',
+	'securepoll-invalid-language' => 'അസാധുവാന ഭാഷാ കോഡ് "$1"',
+	'securepoll-submit-translate' => 'പുതുക്കുക',
+	'securepoll-language-label' => 'ഭാഷ തിരഞ്ഞെടുക്കുക:',
+	'securepoll-submit-select-lang' => 'തർജ്ജമ ചെയ്യുക',
+	'securepoll-header-title' => 'പേര്',
+	'securepoll-header-start-date' => 'തുടങ്ങുന്ന തീയതി',
+	'securepoll-header-end-date' => 'അവസാനിക്കുന്ന തീയതി',
+	'securepoll-subpage-vote' => 'വോട്ട്',
+	'securepoll-subpage-translate' => 'തർജ്ജമ ചെയ്യുക',
 );
 
 /** Malay (Bahasa Melayu)
