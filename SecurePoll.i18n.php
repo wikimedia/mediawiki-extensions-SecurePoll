@@ -1479,6 +1479,13 @@ Sie können wählen zwischen der Zählung der aktuellen Ergebnisse in der Datenb
 	'securepoll-tally-no-key' => 'Sie können die Stimmen nicht auszählen, da die Stimmen verschlüsselt sind und der Entschlüsselungsschlüssel nicht verfügbar ist.',
 );
 
+/** Zazaki (Zazaki)
+ * @author Aspar
+ */
+$messages['diq'] = array(
+	'securepoll-ranks' => 'rêzkerdışa peyin',
+);
+
 /** Lower Sorbian (Dolnoserbski)
  * @author Michawiki
  */
