@@ -109,3 +109,53 @@ function securepoll_modify_document( action, voteId ) {
 		securepoll_strike_popup( event, action == 'strike' ? 'unstrike' : 'strike', voteId );
 	}
 }
+
+function securepoll_ballot_setup() {
+	if ( !document.getElementsByTagName ) {
+		return;
+	}
+	var anchors = document.getElementsByTagName( 'a' );
+	for ( var i = 0; i < anchors.length; i++ ) {
+		var elt = anchors.item( i );
+		if ( elt.className != 'securepoll-error-jump' ) {
+			continue;
+		}
+		if ( elt.addEventListener ) {
+			elt.addEventListener( 'click', 
+					function() {
+						securepoll_error_jump( this, anchors );
+					}, 
+					false );
+		} else {
+			elt.attachEvent( 'onclick', securepoll_error_jump );
+		}
+	}
+}
+
+/**
+ * TODO: make prettier
+ */
+function securepoll_error_jump( source, anchors ) {
+	for ( var i = 0; i < anchors.length; i++ ) {
+		var anchor = anchors.item( i );
+		if ( anchor.className != 'securepoll-error-jump' ) {
+			continue;
+		}
+		var id = anchor.getAttribute( 'href' ).substr( 1 );
+		var elt = document.getElementById( id );
+		if ( !elt ) {
+			continue;
+		}
+
+		try {
+			if ( anchor == source ) {
+				elt.style.borderColor = '#ff0000';
+				elt.style.backgroundColor = '#ffcc99';
+			} else {
+				elt.style.backgroundColor = 'transparent';
+				elt.style.borderColor = 'transparent';
+			}
+		} catch ( e ) {}
+	}
+}
+

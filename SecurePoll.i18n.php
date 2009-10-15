@@ -62,6 +62,8 @@ Cannot decrypt.',
 	'securepoll-invalid-rank' => 'Invalid rank. You must give candidates a rank between 1 and 999.',
 	'securepoll-unranked-options' => 'Some options were not ranked.
 You must give all options a rank between 1 and 999.',
+	'securepoll-invalid-score' => 'The score must be a number between $1 and $2.',
+	'securepoll-unanswered-options' => 'You must give a response for every question.',
 
 	# Authorisation related
 	'securepoll-remote-auth-error' => 'Error fetching your account information from the server.',

@@ -209,25 +209,25 @@ class SecurePoll_Entity {
 	/**
 	 * Get configuration XML. Overridden by most subclasses.
 	 */
-	function getConfXml( $options = array() ) {
+	function getConfXml( $params = array() ) {
 		return "<{$this->type}>\n" .
-			$this->getConfXmlEntityStuff( $options ) .
+			$this->getConfXmlEntityStuff( $params ) .
 			"</{$this->type}>\n";
 	}
 
 	/**
 	 * Get an XML snippet giving the messages and properties
 	 */
-	function getConfXmlEntityStuff( $options = array() ) {
+	function getConfXmlEntityStuff( $params = array() ) {
 		$s = Xml::element( 'id', array(), $this->getId() ) . "\n";
-		$blacklist = $this->getPropertyDumpBlacklist( $options );
+		$blacklist = $this->getPropertyDumpBlacklist( $params );
 		foreach ( $this->getAllProperties() as $name => $value ) {
 			if ( !in_array( $name, $blacklist ) ) {
 				$s .= Xml::element( 'property', array( 'name' => $name ), $value ) . "\n";
 			}
 		}
-		if ( isset( $options['langs'] ) ) {
-			$langs = $options['langs'];
+		if ( isset( $params['langs'] ) ) {
+			$langs = $params['langs'];
 		} else {
 			$langs = $this->context->languages;
 		}
@@ -250,7 +250,7 @@ class SecurePoll_Entity {
 	 * Get property names which aren't included in an XML dump.
 	 * Overloaded by Election.
 	 */
-	function getPropertyDumpBlacklist( $options = array() ) {
+	function getPropertyDumpBlacklist( $params = array() ) {
 		return array();
 	}
 

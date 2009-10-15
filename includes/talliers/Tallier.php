@@ -34,7 +34,7 @@ abstract class SecurePoll_Tallier {
 	}
 
 	function convertRanksToHtml( $ranks ) {
-		$s = "<table class=\"securepoll-results\">";
+		$s = "<table class=\"securepoll-table\">";
 		$ids = array_keys( $ranks );
 		foreach ( $ids as $i => $oid ) {
 			$rank = $ranks[$oid];

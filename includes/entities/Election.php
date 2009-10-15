@@ -323,7 +323,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	/**
 	 * Get an XML snippet describing the configuration of this object
 	 */
-	function getConfXml( $options = array() ) {
+	function getConfXml( $params = array() ) {
 		$s = "<configuration>\n" .
 			Xml::element( 'title', array(), $this->title ) . "\n" .
 			Xml::element( 'ballot', array(), $this->ballotType ) . "\n" .
@@ -331,11 +331,11 @@ class SecurePoll_Election extends SecurePoll_Entity {
 			Xml::element( 'primaryLang', array(), $this->primaryLang ) . "\n" .
 			Xml::element( 'startDate', array(), wfTimestamp( TS_ISO_8601, $this->startDate ) ) . "\n" .
 			Xml::element( 'endDate', array(), wfTimestamp( TS_ISO_8601, $this->endDate ) ) . "\n" .
-			$this->getConfXmlEntityStuff( $options );
+			$this->getConfXmlEntityStuff( $params );
 
 		# If we're making a jump dump, we need to add some extra properties, and 
 		# override the auth type
-		if ( !empty( $options['jump'] ) ) {
+		if ( !empty( $params['jump'] ) ) {
 			$s .= 
 				Xml::element( 'auth', array(), 'local' ) . "\n" .
 				Xml::element( 'property', 
@@ -351,7 +351,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		}
 
 		foreach ( $this->getQuestions() as $question ) {
-			$s .= $question->getConfXml( $options );
+			$s .= $question->getConfXml( $params );
 		}
 		$s .= "</configuration>\n";
 		return $s;
@@ -360,8 +360,8 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	/**
 	 * Get property names which aren't included in an XML dump
 	 */
-	function getPropertyDumpBlacklist( $options = array() ) {
-		if ( !empty( $options['jump'] ) ) {
+	function getPropertyDumpBlacklist( $params = array() ) {
+		if ( !empty( $params['jump'] ) ) {
 			return array(
 				'gpg-encrypt-key',
 				'gpg-sign-key',

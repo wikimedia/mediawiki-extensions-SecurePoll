@@ -97,7 +97,7 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 	/**
 	 * Show the voting form.
 	 */
-	function showForm() {
+	function showForm( $status = false ) {
 		global $wgOut;
 
 		// Show introduction
@@ -114,7 +114,8 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 
 		$wgOut->addHTML(
 			"<form name=\"securepoll\" id=\"securepoll\" method=\"post\" action=\"$encAction\">\n" .
-			$this->election->getBallot()->getForm() .
+			$this->election->getBallot()->getForm( $status ) .
+			"<br/>\n" . 
 			"<input name=\"submit\" type=\"submit\" value=\"$encOK\">\n" .
 			"<input type='hidden' name='edit_token' value=\"{$encToken}\" /></td>\n" .
 			"</form>"
@@ -130,10 +131,7 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 		$ballot = $this->election->getBallot();
 		$status = $ballot->submitForm();
 		if ( !$status->isOK() ) {
-			$wgOut->addWikiText( '<div class="securepoll-error-box">' . 
-					$status->getWikiText( 'securepoll-bad-ballot-submission' ) . 
-					'</div>' );
-			$this->showForm();
+			$this->showForm( $status );
 		} else {
 			$this->logVote( $status->value );
 		}

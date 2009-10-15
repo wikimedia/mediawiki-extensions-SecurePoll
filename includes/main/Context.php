@@ -82,11 +82,13 @@ class SecurePoll_Context {
 	/** Set the store class */
 	function setStoreClass( $class ) {
 		$this->store = null;
+		$this->messageCache = $this->messagesLoaded = array();
 		$this->storeClass = $class;
 	}
 
 	/** Set the store object. Overrides any previous store class. */
 	function setStore( $store ) {
+		$this->messageCache = $this->messagesLoaded = array();
 		$this->store = $store;
 	}
 
@@ -311,4 +313,9 @@ class SecurePoll_Context {
 			echo $s;
 		}
 	}
+
+	function getResourceUrl( $resource ) {
+		global $wgScriptPath;
+		return "$wgScriptPath/extensions/SecurePoll/resources/$resource";
+	}	
 }

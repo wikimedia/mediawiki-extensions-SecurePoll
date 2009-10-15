@@ -49,9 +49,11 @@ $wgSpecialPages['SecurePoll'] = 'SecurePoll_BasePage';
 
 $wgAutoloadClasses = $wgAutoloadClasses + array(
 	# ballots
+	'SecurePoll_ApprovalBallot' => "$dir/includes/ballots/ApprovalBallot.php",
 	'SecurePoll_Ballot' => "$dir/includes/ballots/Ballot.php",
 	'SecurePoll_ChooseBallot' => "$dir/includes/ballots/ChooseBallot.php",
 	'SecurePoll_PreferentialBallot' => "$dir/includes/ballots/PreferentialBallot.php",
+	'SecurePoll_RadioRangeBallot' => "$dir/includes/ballots/RadioRangeBallot.php",
 
 	# crypt
 	'SecurePoll_Crypt' => "$dir/includes/crypt/Crypt.php",

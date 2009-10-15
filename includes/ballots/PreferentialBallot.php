@@ -12,12 +12,8 @@ class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 		return array( 'schulze' );
 	}
 
-	function getQuestionForm( $question ) {
+	function getQuestionForm( $question, $options ) {
 		global $wgRequest;
-		$options = $question->getChildren();
-		if ( $this->election->getProperty( 'shuffle-options' ) ) {
-			shuffle( $options );
-		}
 		$name = 'securepoll_q' . $question->getId();
 		$s = '';
 		foreach ( $options as $option ) {
@@ -32,6 +28,7 @@ class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 					'maxlength' => 3,
 				) ) .
 				'&nbsp;' .
+				$this->errorLocationIndicator( $inputId ) .
 				Xml::tags( 'label', array( 'for' => $inputId ), $optionHTML ) .
 				'&nbsp;' .
 				"</div>\n";
@@ -39,44 +36,43 @@ class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 		return $s;
 	}
 
-	function submitForm() {
+	function submitQuestion( $question, $status ) {
 		global $wgRequest;
-		$questions = $this->election->getQuestions();
+
+		$options = $question->getOptions();
 		$record = '';
-		$status = Status::newGood();
+		$ok = true;
+		foreach ( $options as $option ) {
+			$id = 'securepoll_q' . $question->getId() . '_opt' . $option->getId();
+			$rank = $wgRequest->getVal( $id );
 
-		foreach ( $questions as $question ) {
-			$options = $question->getOptions();
-			foreach ( $options as $option ) {
-				$id = 'securepoll_q' . $question->getId() . '_opt' . $option->getId();
-				$rank = $wgRequest->getVal( $id );
-
-				if ( is_numeric( $rank ) ) {
-					if ( $rank <= 0 || $rank >= 1000 ) {
-						$status->fatal( 'securepoll-invalid-rank', $id );
-						continue;
-					} else {
-						$rank = intval( $rank );
-					}
-				} elseif ( strval( $rank ) === '' ) {
-					if ( $this->election->getProperty( 'must-rank-all' ) ) {
-						$status->fatal( 'securepoll-unranked-options', $id );
-						continue;
-					} else {
-						$rank = 1000;
-					}
-				} else {
-					$status->fatal( 'securepoll-invalid-rank', $id );
+			if ( is_numeric( $rank ) ) {
+				if ( $rank <= 0 || $rank >= 1000 ) {
+					$status->sp_fatal( 'securepoll-invalid-rank', $id );
+					$ok = false;
 					continue;
+				} else {
+					$rank = intval( $rank );
 				}
-				$record .= sprintf( 'Q%08X-A%08X-R%08X--', 
-					$question->getId(), $option->getId(), $rank );
+			} elseif ( strval( $rank ) === '' ) {
+				if ( $this->election->getProperty( 'must-rank-all' ) ) {
+					$status->sp_fatal( 'securepoll-unranked-options', $id );
+					$ok = false;
+					continue;
+				} else {
+					$rank = 1000;
+				}
+			} else {
+				$status->sp_fatal( 'securepoll-invalid-rank', $id );
+				$ok = false;
+				continue;
 			}
+			$record .= sprintf( 'Q%08X-A%08X-R%08X--', 
+				$question->getId(), $option->getId(), $rank );
 		}
-		if ( $status->isOK() ) {
-			$status->value = $record . "\n";
+		if ( $ok ) {
+			return $record;
 		}
-		return $status;
 	}
 
 	function unpackRecord( $record ) {
@@ -97,7 +93,7 @@ class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 		return $ranks;
 	}
 
-	function convertScores( $scores, $options = array() ) {
+	function convertScores( $scores, $params = array() ) {
 		$result = array();
 		foreach ( $this->election->getQuestions() as $question ) {
 			$qid = $question->getId();
