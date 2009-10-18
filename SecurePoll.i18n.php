@@ -245,10 +245,13 @@ $messages['af'] = array(
 	'securepoll-details-link' => 'Details',
 	'securepoll-header-action' => 'Handeling',
 	'securepoll-header-reason' => 'Rede',
+	'securepoll-translate-title' => 'Vertaal: $1',
 	'securepoll-submit-translate' => 'Opdateer',
+	'securepoll-submit-select-lang' => 'Vertaal',
 	'securepoll-header-title' => 'Naam',
 	'securepoll-header-start-date' => 'Begindatum',
 	'securepoll-header-end-date' => 'Einddatum',
+	'securepoll-subpage-translate' => 'Vertaal',
 );
 
 /** Arabic (العربية)
@@ -619,6 +622,8 @@ Dibosupl disrinegañ.",
 	'securepoll-invalid-rank' => 'Renk direizh. Rankout a rit renkañ an emstriverien etre 1 ha 999.',
 	'securepoll-unranked-options' => "Dibarzhioù zo n'int ket bet urzhiet.
 Ret deoc'h renkañ pep dibarzh etre 1 ha 999.",
+	'securepoll-invalid-score' => 'Rankout a ra ar skor bezan un niver etre $1 ha $2.',
+	'securepoll-unanswered-options' => 'Ur respont a rankit reiñ evit kement goulenn zo.',
 	'securepoll-remote-auth-error' => 'Ur fazi zo bet e-ser adtapout roadennoù ho kont digant ar servijer.',
 	'securepoll-remote-parse-error' => 'Ur fazi zo bet e-ser dielfennañ ar respont aotren gant ar servijer.',
 	'securepoll-api-invalid-params' => 'Arventennoù direizh.',
@@ -1492,6 +1497,120 @@ Sie können wählen zwischen der Zählung der aktuellen Ergebnisse in der Datenb
  * @author Aspar
  */
 $messages['diq'] = array(
+	'securepoll' => 'anketo bawerbiyayeyi',
+	'securepoll-invalid-page' => 'pelo bıni yo nemeqbul: $1',
+	'securepoll-need-admin' => 'qey no kari şıma gani serkaribi',
+	'securepoll-too-few-params' => 'Yeterli altsayfa parametresi yok (geçersiz bağlantı).',
+	'securepoll-invalid-election' => '"$1" terciheko nemeqbul o ID.',
+	'securepoll-welcome' => '<strong>Ti xeyr ameyî $1!</strong>',
+	'securepoll-not-started' => 'Bu seçim henüz başlamadı.
+$2 tarihinde $3 saatinde başlaması planlanıyor.',
+	'securepoll-finished' => 'no tercih temam bı, şıma hıni nêeşkeni rey bıdi.',
+	'securepoll-not-qualified' => 'no vıcinayiş de şıma muqtedirê reydayişi niyi: $1',
+	'securepoll-change-disallowed' => 'şıma tiya de cıwa ver rey da, 
+ma meluli şıma hıni nêşkeni rey bıdi',
+	'securepoll-change-allowed' => '<strong>Not: şıma no vıcinayiş de reyê xo da.</strong>
+şıma eşkeni pê dekerdışê formê cêrıni reyê xo bıvurni.
+Eke şıma ın kerd bızane ke reyo şıma verin ibtal beno.',
+	'securepoll-submit' => 'rey bışaw',
+	'securepoll-gpg-receipt' => 'qey reydayişi ma tekkur keni.
+
+qey delaletê reydayişi meqbuzo cêrın muhefeze bıkerê, eke şıma wazeni:
+
+<pre>$1</pre>',
+	'securepoll-thanks' => 'ma teşekkur keni reyê şıma qeyd bı',
+	'securepoll-return' => 'agêr no pel $1',
+	'securepoll-encrypt-error' => 'şifre biyayişê qeydê reyê şıma serkewte nêbı.
+reyê şıma qeyd nêbı!
+
+$1',
+	'securepoll-no-gpg-home' => 'rêza keyeyê GPGyi nêvıraziyeno .',
+	'securepoll-secret-gpg-error' => 'GPG xebiıtyenê xeta da.
+qey teferruati LocalSettings.php\'de $wgSecurePollShowErrorDetail=true bışuxulnê.',
+	'securepoll-full-gpg-error' => 'GPG çalıştırırken hata:
+
+Komut: $1
+
+Hata:
+<pre>$2</pre>',
+	'securepoll-gpg-config-error' => 'kılitê GPGyi şaş eyar biyo',
+	'securepoll-gpg-parse-error' => 'wexta ke raporê GPGyi mışore bene xeta da.',
+	'securepoll-no-decryption-key' => 'çı mefteyê deşifreyi eyar nêbı.
+Deşifre biyayiş nebeno.',
+	'securepoll-jump' => 'şo pêşkeşwanê reydayişi',
+	'securepoll-bad-ballot-submission' => 'reyê şima nemeqbulo: $1',
+	'securepoll-unanswered-questions' => 'gani şıma heme sualan re cewab bıdi.',
+	'securepoll-invalid-rank' => 'Dereceya nemeqbul. şima gani nazedan re benatê 1 u 999  de yew derece bıdi.',
+	'securepoll-unranked-options' => 'tayê tercihi derece nêbiyi.
+heme tercihan re gani şıma benateyê 1 u 999  de yew derece bıdi.',
+	'securepoll-invalid-score' => 'Puan benateyê $1 u $2 de gani yew amar bo.',
+	'securepoll-unanswered-options' => 'her suali re gani şıma yew cewab bıdi.',
+	'securepoll-remote-auth-error' => 'wexta pêşkeşwani ra malumatê hesabê şıma geriyayene xeta vıraziya.',
+	'securepoll-remote-parse-error' => 'wexta cewabê desthelatiyê pêşkeşwani mışore bêne xeta bı.',
+	'securepoll-api-invalid-params' => 'parametreyê nemeqbuli.',
+	'securepoll-api-no-user' => 'ID nişan biyo wina yew karber çino.',
+	'securepoll-api-token-mismatch' => 'simgeya pawıtışi zepê niyo, cıkewtış nêbeno',
+	'securepoll-not-logged-in' => 'na vıcinayiş de qey reydayişi gani şıma cıkewe.',
+	'securepoll-too-few-edits' => 'ma meluli, şıma nêşkeni rey bıdi. çunke qey reydayişi gani şıma tewr tay  $1 {{PLURAL:$1|vuriyayiş|vuriyayiş}} bıkeri. vuriyayişê şıma ındeko  $2.',
+	'securepoll-blocked' => 'Üma meluli, eke şıma bloke biyi şıma nêşkeni rey bıdi.',
+	'securepoll-bot' => 'ma meluli, hesabê ke pê boti işaret biyê nêşkeni rey bıdi.',
+	'securepoll-not-in-group' => 'na vıcinayiş de tena azayê na $1 grubi eşkeni rey bıdi.',
+	'securepoll-not-in-list' => 'Üma meluli, na vıcinayiş de rey3e şıma çino, çunke şıma karberê şınasnaye niyê, desthelati şıma çino.',
+	'securepoll-list-title' => 'reyan liste ker: $1',
+	'securepoll-header-timestamp' => 'wext',
+	'securepoll-header-voter-name' => 'name',
+	'securepoll-header-voter-domain' => 'domain',
+	'securepoll-header-ua' => 'teösilkarê karberi',
+	'securepoll-header-cookie-dup' => 'kopya',
+	'securepoll-header-strike' => 'serê ey de xetek bıanc.',
+	'securepoll-header-details' => 'teferruati',
+	'securepoll-strike-button' => 'serê ey de xetek bıanc.',
+	'securepoll-unstrike-button' => 'serê ey de xetek meanc.',
+	'securepoll-strike-reason' => 'Sebep:',
+	'securepoll-strike-cancel' => 'İptal',
+	'securepoll-strike-error' => 'serê ey de xeta bıanc/meanc ardene ca  xeta da: $1',
+	'securepoll-strike-token-mismatch' => 'datayê hesabi vindbiyayeyo',
+	'securepoll-details-link' => 'teferruati',
+	'securepoll-details-title' => 'teferruatê reyi: #$1',
+	'securepoll-invalid-vote' => '"$1" IDyê reyi yo nemeqbul',
+	'securepoll-header-voter-type' => 'tipa reydayoxi',
+	'securepoll-voter-properties' => 'xususiyetê reydayoxi',
+	'securepoll-strike-log' => 'rocaneyê xet antışi',
+	'securepoll-header-action' => 'kar/gure',
+	'securepoll-header-reason' => 'Sebep',
+	'securepoll-header-admin' => 'serkar',
+	'securepoll-cookie-dup-list' => 'karberê çerezi',
+	'securepoll-dump-title' => 'belge: $1',
+	'securepoll-dump-no-crypt' => 'qey no vıcinayişi, qeydê vıcinayişi yo şifrebiyayeyi çino, çunke eyar nêbo.',
+	'securepoll-dump-not-finished' => 'qeydê vıcinayişi yo şifrebiyayeyi tena tarixê qediyayişi ey seet $1 ra heta $2 yo .',
+	'securepoll-dump-no-urandom' => '/dêw/urandom a nêbeno.
+qey idame kerdışi pinaniyê reydayoxi, eke pawıte bo a beno.',
+	'securepoll-urandom-not-supported' => 'no pêşkeşwan amarê kriptografiki yo raştameye qebul nêkerdo.
+qey idame kerdışi pinaniyê reydayoxi, eke pawıte bo a beno.',
+	'securepoll-translate-title' => 'açarn: $1',
+	'securepoll-invalid-language' => 'kodê zıwani yo nemeqbul "$1"',
+	'securepoll-submit-translate' => 'rocane bıker',
+	'securepoll-language-label' => 'zıwan bıvıcin:',
+	'securepoll-submit-select-lang' => 'açarn',
+	'securepoll-header-title' => 'name',
+	'securepoll-header-start-date' => 'tarixê destpêkerdışi',
+	'securepoll-header-end-date' => 'tarixê qediyayişi',
+	'securepoll-subpage-vote' => 'rey bıd.',
+	'securepoll-subpage-translate' => 'açarn',
+	'securepoll-subpage-list' => 'liste bıker',
+	'securepoll-subpage-dump' => 'belge',
+	'securepoll-subpage-tally' => 'amartış',
+	'securepoll-tally-title' => 'amartış: $1',
+	'securepoll-tally-not-finished' => 'ma meluli, heya reydayiş temam nêbo şıma nêeşkeni bıamari.',
+	'securepoll-can-decrypt' => 'qeydê vıcinayişi şifre biyo labele kılitê ey mewcudo.',
+	'securepoll-tally-no-key' => 'Bu seçimişıma nêşkeni nê reyan bıamari, çunke reyi şifre biyê u mefteyê deşifreyi mewcud niyo.',
+	'securepoll-tally-local-legend' => 'neticeyê ke qeydbiyê bıamar.',
+	'securepoll-tally-local-submit' => 'bıamar',
+	'securepoll-tally-upload-legend' => 'ewraqo şifrebiyayeyi bar ker.',
+	'securepoll-tally-upload-submit' => 'bıamar',
+	'securepoll-tally-error' => 'qeydê reyi mışpre bene xeta vıraziya,',
+	'securepoll-no-upload' => 'dosyayi bar nêbeni, neticeyi nêamariyeni',
+	'securepoll-dump-corrupt' => 'dosyaya kombiyaye xerepnaye yo u pê kar nêbeno.',
 	'securepoll-tally-upload-error' => 'amartışê dosyaya kombiyayeyan de xeta: $1',
 	'securepoll-pairwise-victories' => 'matrisê dı zaferın',
 	'securepoll-strength-matrix' => 'matrisê quwwetê rayi',
@@ -1549,6 +1668,8 @@ Njejo móžno dešifrěrowaś.',
 	'securepoll-invalid-rank' => 'Njepłaśiwe pódaśe pozicije. Dejš kandidatam poziciju mjazy 1 a 999 daś.',
 	'securepoll-unranked-options' => 'Někotare opcije njamaju pódaśe pozicije.
 Dejš wšyknym opcijam pódaśe pozicije mjazy 1 a 999 daś.',
+	'securepoll-invalid-score' => 'Wuslědk musy licba mjazy $1 a $2 byś.',
+	'securepoll-unanswered-options' => 'Musyš na kužde pšašanje wótegroniś.',
 	'securepoll-remote-auth-error' => 'Zmólka pśi wótwołowanju twójich kontowych informacijow ze serwera.',
 	'securepoll-remote-parse-error' => 'Zmólka pśi interpretěrowanju awtorizěrowańskego wótegrona serwera.',
 	'securepoll-api-invalid-params' => 'Njepłaśiwe parametry.',
@@ -2558,7 +2679,9 @@ Non se pode desencriptar.',
 	'securepoll-invalid-rank' => 'Clasificación inválida. Debe darlles aos candidatos unha clasificación que estea entre 1 e 999.',
 	'securepoll-unranked-options' => 'Algunhas opcións non foron clasificadas.
 Debe darlles a todas as opcións unha clasificación que estea entre 1 e 999.',
-	'securepoll-remote-auth-error' => 'Erro ao enviar a información da túa conta desde o servidor.',
+	'securepoll-invalid-score' => 'A puntuación debe ser un número entre $1 e $2.',
+	'securepoll-unanswered-options' => 'Ten que dar unha resposta para cada pregunta.',
+	'securepoll-remote-auth-error' => 'Erro ao enviar a información da súa conta desde o servidor.',
 	'securepoll-remote-parse-error' => 'Erro ao interpretar a autorización de resposta desde o servidor.',
 	'securepoll-api-invalid-params' => 'Parámetros inválidos.',
 	'securepoll-api-no-user' => 'Non se atopou ningún usuario co ID introducido.',
@@ -2708,6 +2831,8 @@ Entschlisselig nit megli.',
 	'securepoll-invalid-rank' => 'Nit giltigi Rangfolg. Du muesch dr Kandidate e Rangnummere zwische 1 un 999 gee.',
 	'securepoll-unranked-options' => 'E Teil Optione hän kei Rangnummere.
 Du muesch allene Optione e Rangnummere zwische 1 un 999 gee.',
+	'securepoll-invalid-score' => 'S Ergebnis muess e Zahl zwische $1 un $2 syy.',
+	'securepoll-unanswered-options' => 'Du muesch uf jedi Frog e Antwort gee.',
 	'securepoll-remote-auth-error' => 'Fähler bim Abruefe vu Dyyne Benutzerkontoinformatione vum Server.',
 	'securepoll-remote-parse-error' => 'Fähler bim Dyte vu dr Autorisierigsantwort vum Server',
 	'securepoll-api-invalid-params' => 'Nit giltigi Parameter.',
@@ -3224,6 +3349,8 @@ Dešifrowanje njemóžno.',
 	'securepoll-invalid-rank' => 'Njepłaćiwy rjad. Dyrbiš kandidatam rjad mjez 1 a 999 dać.',
 	'securepoll-unranked-options' => 'Někotre opcije rjad nimaja.
 Dyrbiš wšěm opcijam rjad mjez 1 a 999 dać.',
+	'securepoll-invalid-score' => 'Wuslědk dyrbi ličba mjez $1 a $2 być.',
+	'securepoll-unanswered-options' => 'Dyrbiš na kóžde prašenje wotmołwić.',
 	'securepoll-remote-auth-error' => 'Zmylk při wotwołowanju kontowych informacijow ze serwera.',
 	'securepoll-remote-parse-error' => 'Zmylk při interpretowanju awtorizaciskeje wotmołwy serwera.',
 	'securepoll-api-invalid-params' => 'Njepłaćiwe parametry.',
@@ -4251,6 +4378,8 @@ Fähler:
 	'securepoll-invalid-rank' => 'Dat es ene verkeehte Rang. Do moß Dinge Kandidaate ene Rang zwesche 1 un 999 jävve.',
 	'securepoll-unranked-options' => 'Ene Deil vun dä Müjjeleschkeite hät keine Rang.
 Do moß alle Müjjeleschkeite ene Rang zwesche 1 un 999 jevve.',
+	'securepoll-invalid-score' => 'Wad_eruß küt moß en Zahl zwesche $1 un $2 sin.',
+	'securepoll-unanswered-options' => 'Do moss_en Antwoot oop jeede Frooch jävve.',
 	'securepoll-remote-auth-error' => 'Ene Fähler es opjetrodde, wi mer däm Server öm Ding Daate jefrooch hann.',
 	'securepoll-remote-parse-error' => 'Ene Fähler es opjetrodde. Mer kunnte met däm Server singem Zoshtemmungs_Kood nix aanfange.',
 	'securepoll-api-invalid-params' => 'Verkeehte Parrameeterre.',
@@ -4380,6 +4509,8 @@ Feeler:
 	'securepoll-invalid-rank' => 'Ongëltegt Classement. Dir musst de Kandidaten e Classement tëschent 1 an 999 ginn.',
 	'securepoll-unranked-options' => 'E puer Optioune krute kee Classement.
 Dir musst allen optiounen e Classement tëschent 1 an 999 ginn.',
+	'securepoll-invalid-score' => 'De Score muss eng Zuel tëschent $1 a(n) $2 sinn.',
+	'securepoll-unanswered-options' => 'Dir musst op all Fro eng Äntwert ginn.',
 	'securepoll-remote-auth-error' => 'Feeler beim Ofruf vun Äre Benotzerkontinformatioune vum Server.',
 	'securepoll-remote-parse-error' => 'Feeler beim Interpretéiere vun der Autorisatioun déi de Server geschéckt huet.',
 	'securepoll-api-invalid-params' => 'Parameter déi net valabel sinn.',
@@ -5285,6 +5416,8 @@ Decoderen is niet mogelijk.',
 U moet de kandidaten een rang geven tussen 1 en 999.',
 	'securepoll-unranked-options' => 'Sommige stemmogelijkheden hebben geen rang.
 U moet alle mogelijkheden een rang geven tussen 1 en 999.',
+	'securepoll-invalid-score' => 'De score moet een getal tussen $1 en $2 zijn.',
+	'securepoll-unanswered-options' => 'U moet iedere vraag beantwoorden.',
 	'securepoll-remote-auth-error' => 'Er is een fout opgetreden bij het ophalen van uw gebruikersinformatie van de server.',
 	'securepoll-remote-parse-error' => 'Er is een fout opgetreden bij het interpreteren van het antwoord van de server.',
 	'securepoll-api-invalid-params' => 'Ongeldige parameters.',
@@ -5904,7 +6037,8 @@ Odszyfrowanie nie jest możliwe.',
 	'securepoll-invalid-rank' => 'Błąd w rankingu kandydatów. Musisz przypisać kandydatom rangę z przedziału od 1 do 999.',
 	'securepoll-unranked-options' => 'Niektóre pola nie otrzymały rangi.
 Każde pole musi mieć przypisaną rangę z przedziału od 1 do 999.',
-	'securepoll-unanswered-options' => 'Musisz udzielić odpowiedź na każde pytanie.',
+	'securepoll-invalid-score' => 'Ocena musi być liczbą pomiędzy $1 a $2.',
+	'securepoll-unanswered-options' => 'Musisz udzielić odpowiedzi na każde z pytań.',
 	'securepoll-remote-auth-error' => 'Wystąpił błąd podczas pobierania informacji z serwera o Twoim koncie.',
 	'securepoll-remote-parse-error' => 'Wystąpił błąd interpretacji odpowiedzi autoryzującej z serwera.',
 	'securepoll-api-invalid-params' => 'Nieprawidłowe parametry.',
@@ -6958,6 +7092,7 @@ $messages['su'] = array(
  * @author Gabbe.g
  * @author Micke
  * @author Najami
+ * @author Per
  * @author Poxnar
  * @author StefanB
  */
@@ -6965,7 +7100,7 @@ $messages['sv'] = array(
 	'securepoll' => 'SäkerOmröstning',
 	'securepoll-desc' => 'Ett programtillägg för omröstningar och enkäter',
 	'securepoll-invalid-page' => 'Ogiltig undersida "<nowiki>$1</nowiki>"',
-	'securepoll-need-admin' => 'Du måste vara administratör för att kunna utföra denna handling.',
+	'securepoll-need-admin' => 'Du måste vara valadministratör för att kunna utföra denna handling.',
 	'securepoll-too-few-params' => 'Ej tillräckligt många undersideparametrar (ogiltig länk).',
 	'securepoll-invalid-election' => '"$1" är inte ett giltigt omröstnings-ID.',
 	'securepoll-welcome' => '<strong>Välkommen $1!</strong>',
@@ -7009,6 +7144,7 @@ Kan inte dekryptera.',
 	'securepoll-invalid-rank' => 'Ogiltig rangordning. Du måste rangordna kandidater mellan 1 och 999.',
 	'securepoll-unranked-options' => 'Något eller några valmöjligheter rangordnades inte.
 Du måste rangordna alla valmöjligheter mellan 1 och 999.',
+	'securepoll-unanswered-options' => 'Du måste ge ett svar på varje fråga.',
 	'securepoll-remote-auth-error' => 'Fel uppstod vid hämtning av din kontoinformation från servern.',
 	'securepoll-remote-parse-error' => 'Fel uppstod vid tolkning av auktorisationssvar från servern.',
 	'securepoll-api-invalid-params' => 'Felaktig parameter.',
@@ -7386,6 +7522,8 @@ Deşifrelenemiyor.',
 	'securepoll-invalid-rank' => 'Geçersiz derece. Adaylara 1 ile 999 arasında bir derece vermelisiniz.',
 	'securepoll-unranked-options' => 'Bazı seçenekler derecelendirilmemiş.
 Tüm seçeneklere 1 ile 999 arasında bir derece vermelisiniz.',
+	'securepoll-invalid-score' => 'Puan $1 ile $2 arasında bir sayı olmalıdır.',
+	'securepoll-unanswered-options' => 'Her soruya bir cevap vermelisiniz.',
 	'securepoll-remote-auth-error' => 'Sunucudan hesap bilgileriniz alınırken hata.',
 	'securepoll-remote-parse-error' => 'Sunucunun yetkilendirme cevabı değerlendirilirken hata.',
 	'securepoll-api-invalid-params' => 'Geçersiz değişkenler.',
