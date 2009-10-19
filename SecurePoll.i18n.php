@@ -3681,6 +3681,7 @@ Tu pote optar pro contar le resultatos presente in le base de datos, o pro conta
 
 /** Indonesian (Bahasa Indonesia)
  * @author Bennylin
+ * @author Irwangatot
  * @author Rex
  */
 $messages['id'] = array(
@@ -3730,6 +3731,8 @@ Tidak dapat melakukan dekripsi.',
 	'securepoll-invalid-rank' => 'Peringkat tidak sah. Anda harus memberi peringkat kandidat antara 1 dan 99.',
 	'securepoll-unranked-options' => 'Beberapa pilihan tidak diberi peringkat.
 Anda harus memberi peringkat antara 1 dan 99 untuk semua pilihan.',
+	'securepoll-invalid-score' => 'Nilai haruslah nomor antara $1 dan $2.',
+	'securepoll-unanswered-options' => 'Anda harus memberi tanggapan terhadap setiap pertanyaan.',
 	'securepoll-remote-auth-error' => 'Terjadi kesalahan ketika mengambil informasi akun Anda dari peladen.',
 	'securepoll-remote-parse-error' => 'Terjadi kesalahan interpretasi atas respon otorisasi dari peladen.',
 	'securepoll-api-invalid-params' => 'Parameter tidak sah.',
@@ -7223,6 +7226,7 @@ Du kan välja att antingen räkna upp resultaten som finns tillgängliga i datab
 $messages['te'] = array(
 	'securepoll' => 'సంరక్షితఎన్నిక',
 	'securepoll-desc' => 'ఎన్నికలకు, సర్వేలకు పొడగింపు',
+	'securepoll-invalid-page' => 'తప్పుడు ఉపపేజీ "<nowiki>$1</nowiki>"',
 	'securepoll-need-admin' => 'ఈ పని పూర్తి చేయటకు మీరు ఎన్నికల అధికారి అయి వుండాలి.',
 	'securepoll-invalid-election' => '"$1" అన్నది సరైన ఎన్నిక గుర్తింపు కాదు.',
 	'securepoll-welcome' => '<strong>స్వాగతం $1!</strong>',
