@@ -2960,6 +2960,8 @@ $1',
 	'securepoll-invalid-rank' => 'הדירוג אינו תקין. יש לתת למועמדים דירוג בין 1 ל־999.',
 	'securepoll-unranked-options' => 'כמה מהאפשרויות לא דורגו.
 יש לקבוע לכל האפשרויות דירוג בין 1 ל־999.',
+	'securepoll-invalid-score' => 'על התוצאה שלכם להיות בטווח שבין $1 ל־$2.',
+	'securepoll-unanswered-options' => 'עליכם להגיב על כל שאלה.',
 	'securepoll-remote-auth-error' => 'שגיאה בקבלת פרטי החשבון שלכם מהשרת.',
 	'securepoll-remote-parse-error' => 'שגיאה בפענוח התגובה על מידע הכניסה מהשרת.',
 	'securepoll-api-invalid-params' => 'פרמטרים בלתי תקינים.',
@@ -4964,12 +4966,19 @@ $2-ൽ $3 മുതലാണ് ആരംഭിക്കുന്നത്.',
 താങ്കളുടെ വോട്ട് രേഖപ്പെടുത്തിയില്ല!
 
 $1',
+	'securepoll-full-gpg-error' => 'ജി.പി.ജി. പ്രവർത്തിപ്പിക്കുമ്പോൾ പിശക്:
+നിർദ്ദേശം: $1
+
+പിശക്:
+<pre>$2</pre>',
 	'securepoll-jump' => 'വോട്ടിങ് സെർവറിലേയ്ക്ക് പോവുക',
 	'securepoll-bad-ballot-submission' => 'താങ്കളുടെ വോട്ട് അസാധുവാണ്: $1',
 	'securepoll-unanswered-questions' => 'താങ്കൾ എല്ലാ ചോദ്യങ്ങൾക്കും ഉത്തരം നൽകേണ്ടതാണ്.',
 	'securepoll-invalid-rank' => 'അസാധുവായ റാങ്ക്. സ്ഥാനാർത്ഥികൾക്ക് 1 മുതൽ 999 വരെയുള്ള റാങ്കുകളിലൊന്നാണ് കൊടുക്കേണ്ടത്.',
 	'securepoll-unranked-options' => 'ചിലവയ്ക്ക് റാങ്ക് നൽകിയിട്ടില്ല.
 താങ്കൾ 1 മുതൽ 999 വരെയുള്ളതിനിടയ്ക്കുള്ള റാങ്ക് എല്ലാത്തിനും നൽകേണ്ടതാണ്.',
+	'securepoll-invalid-score' => 'നൽകുന്ന വില $1, $2 എന്നിവയുടെ ഇടയിലുള്ളതായിരിക്കണം.',
+	'securepoll-unanswered-options' => 'എല്ലാ ചോദ്യങ്ങൾക്കും താങ്കൾ പ്രതികരിക്കേണ്ടതാണ്.',
 	'securepoll-api-invalid-params' => 'അസാധുവായ ചരങ്ങൾ.',
 	'securepoll-api-no-user' => 'ലഭ്യമാക്കിയ ഐ.ഡി.യിൽ ഉപയോക്താക്കളെ ഒന്നും കണ്ടെത്താനായില്ല.',
 	'securepoll-not-logged-in' => 'ഈ തിരഞ്ഞെടുപ്പിൽ വോട്ട് ചെയ്യാൻ താങ്കൾ ലോഗിൻ ചെയ്യേണ്ടതാകുന്നു',
@@ -5784,6 +5793,8 @@ Impossible de descriptar.',
 	'securepoll-invalid-rank' => 'Reng invalid. Vos cal balhar als candidats un reng entre 1 e 999.',
 	'securepoll-unranked-options' => "D'unas opcions an pas recebut de reng.
 Vos cal balhar un reng entre 1 e 999 a totas las opcions.",
+	'securepoll-invalid-score' => 'La marca deu èsser un nombre comprés entre $1 e $2.',
+	'securepoll-unanswered-options' => 'Vos cal balhar una responsa per totas las questions.',
 	'securepoll-remote-auth-error' => 'Error al moment de la recuperacion de las informacions de vòstre compte dempuèi lo servidor.',
 	'securepoll-remote-parse-error' => 'Error al moment de l’interpretacion de la responsa d’autorizacion del servidor.',
 	'securepoll-api-invalid-params' => 'Paramètres invalids.',
