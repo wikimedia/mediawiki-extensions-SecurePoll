@@ -1495,9 +1495,11 @@ Sie können wählen zwischen der Zählung der aktuellen Ergebnisse in der Datenb
 
 /** Zazaki (Zazaki)
  * @author Aspar
+ * @author Xoser
  */
 $messages['diq'] = array(
 	'securepoll' => 'anketo bawerbiyayeyi',
+	'securepoll-desc' => 'Qe weçinayîşan u anketan extensiyon',
 	'securepoll-invalid-page' => 'pelo bıni yo nemeqbul: $1',
 	'securepoll-need-admin' => 'qey no kari şıma gani serkaribi',
 	'securepoll-too-few-params' => 'Yeterli altsayfa parametresi yok (geçersiz bağlantı).',
@@ -4861,6 +4863,8 @@ $1',
 	'securepoll-invalid-rank' => 'Погрешен ранг. Кандидадите морате да ги рангирате со бројка помеѓу 1 и 999.',
 	'securepoll-unranked-options' => 'Некои опции не беа рангирани.
 Морате на сите опции да им доделите ранг помеѓу 1 и 999.',
+	'securepoll-invalid-score' => 'Оцената мора да биде број од $1 до $2.',
+	'securepoll-unanswered-options' => 'Мора да дадете одговор на секое прашање.',
 	'securepoll-remote-auth-error' => 'Грешка при преземање на информациите за вашата сметка од серверот.',
 	'securepoll-remote-parse-error' => 'Грешка при толкувањето на одговорот при барањето на дозвола за пристап на серверот.',
 	'securepoll-api-invalid-params' => 'Неважечки параметри.',
