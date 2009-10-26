@@ -2009,6 +2009,7 @@ Vi povas elekti nombri ĉu la rezultojn el la datumbazo, ĉu ĉifritajn rezultoj
  * @author Góngora
  * @author Imre
  * @author Remember the dot
+ * @author Translationista
  */
 $messages['es'] = array(
 	'securepoll' => 'SecurePoll',
@@ -2058,6 +2059,7 @@ No se puede desencriptar.',
 	'securepoll-invalid-rank' => 'Rango inválido. Debes clasificar a los candidatos con un rango entre 1 y 999.',
 	'securepoll-unranked-options' => 'Algunas opciones no fueron clasificadas.
 Debes clasificar a todas las opciones con un rango entre 1 y 999.',
+	'securepoll-unanswered-options' => 'Debes dar una respuesta a cada pregunta.',
 	'securepoll-remote-auth-error' => 'Se ha producido un error al obtener su información de cuenta del servidor.',
 	'securepoll-remote-parse-error' => 'Se ha producido un error al interpretar la respuesta de autorización del servidor.',
 	'securepoll-api-invalid-params' => 'Parámetros inválidos.',
