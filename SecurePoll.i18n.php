@@ -226,7 +226,7 @@ The /dev/urandom cryptographic random number generation device is not supported 
 	'securepoll-header-title' => '{{Identical|Name}}',
 	'securepoll-header-start-date' => '{{Identical|Start date}}',
 	'securepoll-header-end-date' => '{{Identical|End date}}',
-	'securepoll-subpage-vote' => '{{delete}}',
+	'securepoll-subpage-vote' => '{{Identical|Vote}}',
 	'securepoll-subpage-translate' => '{{Identical|Translate}}',
 );
 
@@ -251,6 +251,7 @@ $messages['af'] = array(
 	'securepoll-header-title' => 'Naam',
 	'securepoll-header-start-date' => 'Begindatum',
 	'securepoll-header-end-date' => 'Einddatum',
+	'securepoll-subpage-vote' => 'Stem',
 	'securepoll-subpage-translate' => 'Vertaal',
 );
 
@@ -749,6 +750,8 @@ Ne može se dekriptovati.',
 	'securepoll-invalid-rank' => 'Nevaljan rang. Morate dati kandidatima rang između 1 i 999.',
 	'securepoll-unranked-options' => 'Neke opcije nisu rangirane.
 Morate dati svim opcijama rang između 1 i 999.',
+	'securepoll-invalid-score' => 'Rezultat mora biti broj između $1 i $2.',
+	'securepoll-unanswered-options' => 'Morate odgovoriti na svako pitanje.',
 	'securepoll-remote-auth-error' => 'Greška pri preuzimanju podataka o Vašem računu sa servera.',
 	'securepoll-remote-parse-error' => 'Greška pri interpretaciji autentifikacijskog odgovora sa servera.',
 	'securepoll-api-invalid-params' => 'Nevaljani parametri.',
@@ -2059,6 +2062,7 @@ No se puede desencriptar.',
 	'securepoll-invalid-rank' => 'Rango inválido. Debes clasificar a los candidatos con un rango entre 1 y 999.',
 	'securepoll-unranked-options' => 'Algunas opciones no fueron clasificadas.
 Debes clasificar a todas las opciones con un rango entre 1 y 999.',
+	'securepoll-invalid-score' => 'La puntuación debe ser un valor entre $1 y $2.',
 	'securepoll-unanswered-options' => 'Debes dar una respuesta a cada pregunta.',
 	'securepoll-remote-auth-error' => 'Se ha producido un error al obtener su información de cuenta del servidor.',
 	'securepoll-remote-parse-error' => 'Se ha producido un error al interpretar la respuesta de autorización del servidor.',
@@ -3486,6 +3490,8 @@ Nem lehet visszafejteni.',
 	'securepoll-invalid-rank' => 'Érvénytelen helyezés. A jelölteknek csak 1 és 999 közötti helyezést adhatsz.',
 	'securepoll-unranked-options' => 'Néhány javaslatra nem adtál helyezést.
 Minden javaslathoz egy 1 és 999 közötti helyezést kell adnod.',
+	'securepoll-invalid-score' => 'A pontszámnak $1 és $2 közti számnak kell lennie.',
+	'securepoll-unanswered-options' => 'Minden kérdést meg kell válaszolnod.',
 	'securepoll-remote-auth-error' => 'Nem sikerült lekérdezni a felhasználói fiókod adatait a szerverről.',
 	'securepoll-remote-parse-error' => 'Nem sikerült értelmezni a szerver autorizációs válaszát.',
 	'securepoll-api-invalid-params' => 'Érvénytelen paraméterek.',
@@ -4594,13 +4600,14 @@ Dir kënnt wielen tëschent der Auswäertung vun den aktuelle Resultater an der 
 );
 
 /** Limburgish (Limburgs)
+ * @author Aelske
  * @author Benopat
  * @author Ooswesthoesbes
  */
 $messages['li'] = array(
 	'securepoll' => 'VeiligSjtömme',
 	'securepoll-desc' => 'Oetbreiding veur verkeziginge en vraogelieste',
-	'securepoll-invalid-page' => 'Óngeljige subpaasj "<nowiki>$1</nowiki>"',
+	'securepoll-invalid-page' => 'Óngeldige subpagina "<nowiki>$1</nowiki>"',
 	'securepoll-need-admin' => "Doe mós 'ne beheerder zeen óm dees hanjeling te moge oetveure.",
 	'securepoll-too-few-params' => 'Óngenóg subpaasjparamaeters (óngeljige verwiezing).',
 	'securepoll-invalid-election' => '"$1" is gein geljig verkezigingsnómmer.',
@@ -4647,7 +4654,7 @@ Decodere is neet meugelik.",
 	'securepoll-api-invalid-params' => 'Óngeldige paramaeters.',
 	'securepoll-api-no-user' => "d'r Is geine gebroeker gevónje mit 't opgegaeve ID.",
 	'securepoll-api-token-mismatch' => 'Beveiligingstoke kömp neet euverein, inlogge is neet meugelik.',
-	'securepoll-not-logged-in' => 'Doe mós aanmelje óm aan dees sjtömming deil te nömme',
+	'securepoll-not-logged-in' => 'Doe mós aanmelde óm aan dees sjtömming deil te nömme',
 	'securepoll-too-few-edits' => "Sorry, doe kins neet deilnömme aan de sjtömming. Doe mós temisnte $1 bewèrkinge höbbe gemaak óm te kinne sjtömme in dees verkeziging en doe höbs d'r $2.",
 	'securepoll-blocked' => 'Sorry, doe kins neet deilnömme aan de sjtömming ómdet se geblokkeerd bös.',
 	'securepoll-bot' => "Sorry, gebroekers mit 'ne botvlag moge neet sjtömme in dees sjtömming.",
@@ -4656,7 +4663,7 @@ Decodere is neet meugelik.",
 	'securepoll-list-title' => 'Sóm sjtömme op: $1',
 	'securepoll-header-timestamp' => 'Tied',
 	'securepoll-header-voter-name' => 'Naom',
-	'securepoll-header-voter-domain' => 'Domien',
+	'securepoll-header-voter-domain' => 'Domein',
 	'securepoll-header-ua' => 'Gebroekeragent',
 	'securepoll-header-cookie-dup' => 'Dóbbel',
 	'securepoll-header-strike' => 'Haol door',
