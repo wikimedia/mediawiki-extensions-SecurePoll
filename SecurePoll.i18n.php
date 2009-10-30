@@ -4992,6 +4992,7 @@ $1',
 താങ്കൾ 1 മുതൽ 999 വരെയുള്ളതിനിടയ്ക്കുള്ള റാങ്ക് എല്ലാത്തിനും നൽകേണ്ടതാണ്.',
 	'securepoll-invalid-score' => 'നൽകുന്ന വില $1, $2 എന്നിവയുടെ ഇടയിലുള്ളതായിരിക്കണം.',
 	'securepoll-unanswered-options' => 'എല്ലാ ചോദ്യങ്ങൾക്കും താങ്കൾ പ്രതികരിക്കേണ്ടതാണ്.',
+	'securepoll-remote-auth-error' => 'താങ്കളുടെ അംഗത്വ വിവരങ്ങൾ സെർവറിൽ നിന്ന് ശേഖരിക്കുമ്പോൾ പിശക് സംഭവിച്ചിരിക്കുന്നു.',
 	'securepoll-api-invalid-params' => 'അസാധുവായ ചരങ്ങൾ.',
 	'securepoll-api-no-user' => 'ലഭ്യമാക്കിയ ഐ.ഡി.യിൽ ഉപയോക്താക്കളെ ഒന്നും കണ്ടെത്താനായില്ല.',
 	'securepoll-not-logged-in' => 'ഈ തിരഞ്ഞെടുപ്പിൽ വോട്ട് ചെയ്യാൻ താങ്കൾ ലോഗിൻ ചെയ്യേണ്ടതാകുന്നു',
@@ -5003,6 +5004,8 @@ $1',
 	'securepoll-list-title' => 'വോട്ടുകളുടെ പട്ടിക: $1',
 	'securepoll-header-timestamp' => 'സമയം',
 	'securepoll-header-voter-name' => 'പേര്',
+	'securepoll-header-voter-domain' => 'ഡൈമൈൻ',
+	'securepoll-header-cookie-dup' => 'അപര(ൻ)',
 	'securepoll-header-details' => 'വിവരങ്ങൾ',
 	'securepoll-strike-reason' => 'കാരണം:',
 	'securepoll-strike-cancel' => 'റദ്ദാക്കുക',
@@ -6144,6 +6147,7 @@ Można podliczyć wyniki obecne w bazie danych lub podliczyć wyniki z przesłan
 );
 
 /** Piedmontese (Piemontèis)
+ * @author Borichèt
  * @author Dragonòt
  */
 $messages['pms'] = array(
@@ -6195,7 +6199,7 @@ As peul pa decifré.',
 	'securepoll-unranked-options' => 'Cheich opsion a son pa stàite votà.
 It deuve deje a minca vos un vot tra 1 e 999.',
 	'securepoll-invalid-score' => 'Ël pontegi a deuv esse un nùmer an tra $1 e $2.',
-	'securepoll-unanswered-options' => "It deuve dé n'arspòsta për minca custion.",
+	'securepoll-unanswered-options' => "A dev dé n'arspòsta për minca chestion.",
 	'securepoll-remote-auth-error' => 'Eror an lesend le anformassion ëd tò cont dal server.',
 	'securepoll-remote-parse-error' => "Eror an antërpretand l'arspòsta d'autorisassion dal server.",
 	'securepoll-api-invalid-params' => 'Paràmetr pa vàlid.',
@@ -7317,6 +7321,7 @@ $2 న, $3 లకు మోదలు అవుతుంది',
 );
 
 /** Thai (ไทย)
+ * @author Ans
  * @author Octahedron80
  * @author Passawuth
  * @author Watcharakorn
@@ -7325,7 +7330,7 @@ $2 న, $3 లకు మోదలు అవుతుంది',
 $messages['th'] = array(
 	'securepoll-desc' => 'ส่วนขยายสำหรับการลงคะแนนและการสำรวจ',
 	'securepoll-invalid-page' => 'ไม่มีหน้าย่อย "<nowiki>$1</nowiki>"',
-	'securepoll-need-admin' => 'คุณต้องเป็นผู้ดูแลระบบในการกระทำสิ่งนี้',
+	'securepoll-need-admin' => 'คุณต้องเป็นผู้ดูแลระบบการเลือกตั้งในการกระทำสิ่งนี้',
 	'securepoll-too-few-params' => 'พารามิเตอร์ของหน้าย่อยไม่เพียงพอ (ไม่มีลิงก์ดังกล่าว)',
 	'securepoll-invalid-election' => '"$1" ไม่ใช่ไอดีลงคะแนนที่ถูกต้อง',
 	'securepoll-welcome' => '<strong>ยินดีต้อนรับ $1!</strong>',
@@ -7986,6 +7991,8 @@ Không thể giải mã.',
 	'securepoll-invalid-rank' => 'Xếp hạng không hợp lệ. Bạn phải xếp hạng cho ứng viên trong khoảng từ 1 đến 999.',
 	'securepoll-unranked-options' => 'Một số ứng viên chưa được xếp hạng.
 Bạn phải xếp hạng từ 1 đến 999 cho tất cả các ứng viên.',
+	'securepoll-invalid-score' => 'Số điểm phải nằm giữa $1 và $2.',
+	'securepoll-unanswered-options' => 'Bạn phải cung cấp phản hồi cho mỗi câu hỏi.',
 	'securepoll-remote-auth-error' => 'Lỗi khi truy xuất thông tin tài khoản của bạn từ máy chủ.',
 	'securepoll-remote-parse-error' => 'Lỗi khi thông dịch phản hồi ủy quyền từ máy chủ.',
 	'securepoll-api-invalid-params' => 'Thông số không hợp lệ.',
