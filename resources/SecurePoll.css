@@ -94,3 +94,6 @@
 .securepoll-error-jump {
 	margin-right: 0.5em;
 }
+.securepoll-election-closed {
+	color: #aaa;
+}

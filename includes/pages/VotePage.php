@@ -67,6 +67,10 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 			$this->showJumpForm();
 			return;
 		}
+		
+		// This is when it starts getting all serious; disable JS
+		// that might be used to sniff cookies or log voting data.
+		$wgOut->disallowUserJs();
 
 		// Show welcome
 		if ( $this->voter->isRemote() ) {

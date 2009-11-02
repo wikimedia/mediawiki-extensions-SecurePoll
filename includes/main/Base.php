@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * The page that's initially called by MediaWiki when navigating to 
+ * Special:SecurePoll.  The actual pages are not actually subclasses of
+ * this or of SpecialPage, they're subclassed from SecurePoll_Page.
+ */
 class SecurePoll_BasePage extends UnlistedSpecialPage {
 	static $pages = array(
 		'details' => 'SecurePoll_DetailsPage',
@@ -30,8 +35,6 @@ class SecurePoll_BasePage extends UnlistedSpecialPage {
 	 */
 	public function execute( $paramString ) {
 		global $wgOut, $wgUser, $wgRequest, $wgScriptPath;
-
-		wfLoadExtensionMessages( 'SecurePoll' );
 
 		$this->setHeaders();
 		$wgOut->addLink( array(

@@ -175,7 +175,6 @@ class SecurePoll_ListPager extends TablePager {
 	var $listPage, $isAdmin, $election;
 
 	static $publicFields = array(
-		'details',
 		'vote_timestamp',
 		'vote_voter_name',
 		'vote_voter_domain',
@@ -220,9 +219,13 @@ class SecurePoll_ListPager extends TablePager {
 	}
 
 	function formatValue( $name, $value ) {
-		global $wgLang;
-		$critical = Xml::element( 'img', 
-			array( 'src' => $GLOBALS['wgScriptPath'] . '/extensions/SecurePoll/resources/critical-32.png' ) 
+		global $wgLang, $wgScriptPath;
+		$critical = Xml::element( 'img', array( 
+			'src' => "$wgScriptPath/extensions/SecurePoll/resources/critical-32.png" ) 
+		);
+		$voter = SecurePoll_Voter::newFromId( 
+			$this->listPage->context, 
+			$this->mCurrentRow->vote_voter
 		);
 
 		switch ( $name ) {
@@ -264,6 +267,15 @@ class SecurePoll_ListPager extends TablePager {
 					'value' => $label,
 					'onclick' => "securepoll_strike_popup(event, $action, $voteId)"
 				) );
+		case 'vote_voter_name':
+			$msg = $voter->isRemote()
+				? 'securepoll-votername-remote'
+				: 'securepoll-votername-local';
+			return wfMsgExt(
+				$msg,
+				'parseinline',
+				array( $value )
+			);
 		default:
 			return htmlspecialchars( $value );
 		}

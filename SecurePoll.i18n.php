@@ -100,6 +100,8 @@ You must give all options a rank between 1 and 999.',
 	'securepoll-strike-error' => 'Error performing strike/unstrike: $1',
 	'securepoll-strike-token-mismatch' => 'Session data lost',
 	'securepoll-details-link' => 'Details',
+	'securepoll-votername-local' => '[[User:$1|$1]]',
+	'securepoll-votername-remote' => '$1',
 
 	# Details page
 	# Mostly for admins
@@ -133,6 +135,7 @@ To maintain voter privacy, encrypted election records are only publically availa
 	'securepoll-submit-select-lang' => 'Translate',
 
 	# Entry page
+	'securepoll-entry-text' => 'Below is the list of polls.',
 	'securepoll-header-title' => 'Name',
 	'securepoll-header-start-date' => 'Start date',
 	'securepoll-header-end-date' => 'End date',

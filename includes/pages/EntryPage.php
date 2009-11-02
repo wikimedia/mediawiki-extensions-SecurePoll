@@ -11,6 +11,7 @@ class SecurePoll_EntryPage extends SecurePoll_Page {
 	function execute( $params ) {
 		global $wgOut;
 		$pager = new SecurePoll_ElectionPager( $this );
+		$wgOut->addWikiMsg( 'securepoll-entry-text' );
 		$wgOut->addHTML( 
 			$pager->getBody() .
 			$pager->getNavigationBar()
@@ -29,13 +30,6 @@ class SecurePoll_EntryPage extends SecurePoll_Page {
  * Pager for an election list. See TablePager documentation.
  */
 class SecurePoll_ElectionPager extends TablePager {
-	var $subpages = array(
-		'vote',
-		'translate',
-		'list',
-		'dump',
-		'tally'
-	);
 	var $fields = array(
 		'el_title',
 		'el_start_date',
@@ -63,6 +57,18 @@ class SecurePoll_ElectionPager extends TablePager {
 			'el_title', 'el_start_date', 'el_end_date' 
 		) );
 	}
+	
+	/**
+	 * Add classes based on whether the poll is open or closed
+	 * @param $row database object
+	 * @return String
+	 * @see TablePager::getRowClass()
+	 */
+	function getRowClass( $row ){
+		return $row->el_end_date > wfTimestampNow( TS_DB )
+			? 'securepoll-election-open'
+			: 'securepoll-election-closed';
+	}
 
 	function formatValue( $name, $value ) {
 		global $wgLang;
@@ -76,20 +82,47 @@ class SecurePoll_ElectionPager extends TablePager {
 			return htmlspecialchars( $value );
 		}
 	}
+	
+	function formatRow( $row ){
+		global $wgUser;
+		$id = $row->el_entity;
+		$this->election = $this->entryPage->context->getElection( $id );
+		if( !$this->election ) {
+			$this->isAdmin = false;
+		} else {
+			$this->isAdmin = $this->election->isAdmin( $wgUser );
+		}
+		return parent::formatRow( $row );
+	}
 
 	function getLinks() {
 		global $wgUser;
 		$id = $this->mCurrentRow->el_entity;
+
+		$links = array(
+			                      # visible to non-admins
+			                             # visible after election is closed
+			'vote'      => array( true,  false ),
+			'translate' => array( false, false ),
+			'list'      => array( true,  true ),
+			'dump'      => array( false, true ),
+			'tally'     => array( false, true ),
+		);
+		
 		$s = '';
 		$sep = wfMsg( 'pipe-separator' );
 		$skin = $wgUser->getSkin();
-		foreach ( $this->subpages as $subpage ) {
-			$title = $this->entryPage->parent->getTitle( "$subpage/$id" );
-			$linkText = wfMsg( "securepoll-subpage-$subpage" );
-			if ( $s !== '' ) {
-				$s .= $sep;
+		foreach ( $links as $subpage => $criteria ) {
+			if( ( $this->isAdmin || $criteria[0] )
+			    && ( !$this->election->isFinished() || $criteria[1] )
+			){
+				$title = $this->entryPage->parent->getTitle( "$subpage/$id" );
+				$linkText = wfMsgExt( "securepoll-subpage-$subpage", 'parseinline' );
+				if ( $s !== '' ) {
+					$s .= $sep;
+				}
+				$s .= $skin->makeKnownLinkObj( $title, $linkText );
 			}
-			$s .= $skin->makeKnownLinkObj( $title, $linkText );
 		}
 		return $s;
 	}
