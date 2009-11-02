@@ -2465,6 +2465,7 @@ Voit valita tuloslaskennan tietokantatiedoista, tai salakirjoitetuista tuloksist
 /** French (Français)
  * @author Crochet.david
  * @author IAlex
+ * @author Jean-Frédéric
  * @author Louperivois
  * @author Omnipaedista
  * @author PieRRoMaN
@@ -2568,6 +2569,7 @@ Pour assurer la confidentialité des votants, les données cryptées ne sont pub
 	'securepoll-submit-translate' => 'Mettre à jour',
 	'securepoll-language-label' => 'Sélectionner la langue :',
 	'securepoll-submit-select-lang' => 'Traduire',
+	'securepoll-entry-text' => 'Ci-dessous la liste des sondages.',
 	'securepoll-header-title' => 'Nom',
 	'securepoll-header-start-date' => 'Date de début',
 	'securepoll-header-end-date' => 'Date de fin',
