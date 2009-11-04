@@ -3551,6 +3551,7 @@ A szavazás titkosságának megőrzésére a titkosított szavazatok csak akkor 
 	'securepoll-submit-translate' => 'Frissítés',
 	'securepoll-language-label' => 'Nyelv kiválasztása:',
 	'securepoll-submit-select-lang' => 'Fordítás',
+	'securepoll-entry-text' => 'Alább látható a szavazások listája.',
 	'securepoll-header-title' => 'Név',
 	'securepoll-header-start-date' => 'Kezdődátum',
 	'securepoll-header-end-date' => 'Záródátum',
@@ -3707,6 +3708,7 @@ Tu pote optar pro contar le resultatos presente in le base de datos, o pro conta
 /** Indonesian (Bahasa Indonesia)
  * @author Bennylin
  * @author Irwangatot
+ * @author IvanLanin
  * @author Rex
  */
 $messages['id'] = array(
@@ -3805,6 +3807,7 @@ Untuk menjaga kerahasiaan pemilih, catatan pemilihan ter-enkripsi hanya tersedia
 	'securepoll-submit-translate' => 'Perbarui',
 	'securepoll-language-label' => 'Pilih bahasa:',
 	'securepoll-submit-select-lang' => 'Terjemahkan',
+	'securepoll-entry-text' => 'Berikut adalah daftar pemungutan suara',
 	'securepoll-header-title' => 'Nama',
 	'securepoll-header-start-date' => 'Tanggal mulai',
 	'securepoll-header-end-date' => 'Tanggal selesai',
@@ -5887,6 +5890,7 @@ Per assegurar la confidencialitat dels votants, las donadas criptadas son public
 	'securepoll-submit-translate' => 'Metre a jorn',
 	'securepoll-language-label' => 'Seleccionar la lenga :',
 	'securepoll-submit-select-lang' => 'Traduire',
+	'securepoll-entry-text' => 'Çaijós la lista dels sondatges.',
 	'securepoll-header-title' => 'Nom',
 	'securepoll-header-start-date' => 'Data de començament',
 	'securepoll-header-end-date' => 'Data de fin',
