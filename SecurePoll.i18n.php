@@ -1085,6 +1085,7 @@ Můžete si vybrat, zda chcete sečíst výsledky v databázi, nebo sečíst ši
 	'securepoll-pairwise-victories' => 'Matice vzájemných vítězství',
 	'securepoll-strength-matrix' => 'Matice síly cest',
 	'securepoll-ranks' => 'Konečné pořadí',
+	'securepoll-average-score' => 'Průměrné hodnocení',
 );
 
 /** Welsh (Cymraeg)
@@ -1610,6 +1611,7 @@ qey idame kerdışi pinaniyê reydayoxi, eke pawıte bo a beno.',
 	'securepoll-submit-translate' => 'rocane bıker',
 	'securepoll-language-label' => 'zıwan bıvıcin:',
 	'securepoll-submit-select-lang' => 'açarn',
+	'securepoll-entry-text' => 'Binê de listeyê anketan estê.',
 	'securepoll-header-title' => 'name',
 	'securepoll-header-start-date' => 'tarixê destpêkerdışi',
 	'securepoll-header-end-date' => 'tarixê qediyayişi',
@@ -1760,6 +1762,7 @@ Móžoš pak wuslědki licyś, kótarež su w datowej bance pak skoděrowane wus
 	'securepoll-pairwise-victories' => 'Matriks dobyśa pó dwěma',
 	'securepoll-strength-matrix' => 'Matriks mócy drogi',
 	'securepoll-ranks' => 'Kóńcny slědowy pórěd',
+	'securepoll-average-score' => 'Pśerězne pógódnośenje',
 );
 
 /** Greek (Ελληνικά)
@@ -2605,6 +2608,7 @@ Vous pouvez choisir de compter les résultats depuis la base de données ou depu
 	'securepoll-pairwise-victories' => 'Matrice des victoires par pair',
 	'securepoll-strength-matrix' => 'Matrice de force des chemins',
 	'securepoll-ranks' => 'Classement final',
+	'securepoll-average-score' => 'Score moyen',
 );
 
 /** Franco-Provençal (Arpetan)
@@ -2777,6 +2781,7 @@ Pode optar por escrutar os resultados presentes na base de datos ou por escrutar
 	'securepoll-pairwise-victories' => 'Matriz de vitoria por parellas',
 	'securepoll-strength-matrix' => 'Matriz da fortaleza de ruta',
 	'securepoll-ranks' => 'Valoración final',
+	'securepoll-average-score' => 'Puntuación media',
 );
 
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)
@@ -3451,6 +3456,7 @@ Móžeš pak wuslědki w datowej bance ličić pak zaklučowane wuslědki z nahr
 	'securepoll-pairwise-victories' => 'Dobyćerski matriks po porach',
 	'securepoll-strength-matrix' => 'Šćežka matriksa sylnosće',
 	'securepoll-ranks' => 'Kónčny porjad',
+	'securepoll-average-score' => 'Přerězne pohódnoćenje',
 );
 
 /** Hungarian (Magyar)
@@ -3839,6 +3845,7 @@ Anda dapat memilih antara menghitung dari hasil suara yang terdapat di basis dat
 	'securepoll-pairwise-victories' => 'Matriks kemenangan berpasangan',
 	'securepoll-strength-matrix' => 'Matriks kekuatan jalan',
 	'securepoll-ranks' => 'Peringkat akhir',
+	'securepoll-average-score' => 'Nilai rerata',
 );
 
 /** Ido (Ido)
@@ -6767,6 +6774,7 @@ $1',
 	'securepoll-pairwise-victories' => 'Матрица попарных побед',
 	'securepoll-strength-matrix' => 'Матрица сил путей',
 	'securepoll-ranks' => 'Окончательное ранжирование',
+	'securepoll-average-score' => 'Средняя оценка',
 );
 
 /** Yakut (Саха тыла)
