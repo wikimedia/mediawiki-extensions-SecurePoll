@@ -89,6 +89,7 @@ $wgAutoloadClasses = $wgAutoloadClasses + array(
 
 	# talliers
 	'SecurePoll_ElectionTallier' => "$dir/includes/talliers/ElectionTallier.php",
+	'SecurePoll_HistogramRangeTallier' => "$dir/includes/talliers/HistogramRangeTallier.php",
 	'SecurePoll_PairwiseTallier' => "$dir/includes/talliers/PairwiseTallier.php",
 	'SecurePoll_PluralityTallier' => "$dir/includes/talliers/PluralityTallier.php",
 	'SecurePoll_SchulzeTallier' => "$dir/includes/talliers/SchulzeTallier.php",

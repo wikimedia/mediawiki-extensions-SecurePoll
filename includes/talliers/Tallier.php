@@ -6,7 +6,7 @@
  * questions.
  */
 abstract class SecurePoll_Tallier {
-	var $context, $question, $optionsById;
+	var $context, $question, $electionTallier, $election, $optionsById;
 
 	abstract function addVote( $scores );
 	abstract function getHtmlResult();
@@ -14,20 +14,24 @@ abstract class SecurePoll_Tallier {
 
 	abstract function finishTally();
 
-	static function factory( $context, $type, $question ) {
+	static function factory( $context, $type, $electionTallier, $question ) {
 		switch ( $type ) {
 		case 'plurality':
-			return new SecurePoll_PluralityTallier( $context, $question );
+			return new SecurePoll_PluralityTallier( $context, $electionTallier, $question );
 		case 'schulze':
-			return new SecurePoll_SchulzeTallier( $context, $question );
+			return new SecurePoll_SchulzeTallier( $context, $electionTallier, $question );
+		case 'histogram-range':
+			return new SecurePoll_HistogramRangeTallier( $context, $electionTallier, $question );
 		default:
 			throw new MWException( "Invalid tallier type: $type" );
 		}
 	}
 
-	function __construct( $context, $question ) {
+	function __construct( $context, $electionTallier, $question ) {
 		$this->context = $context;
 		$this->question = $question;
+		$this->electionTallier = $electionTallier;
+		$this->election = $electionTallier->election;
 		foreach ( $this->question->getOptions() as $option ) {
 			$this->optionsById[$option->getId()] = $option;
 		}

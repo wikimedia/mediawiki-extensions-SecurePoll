@@ -251,8 +251,8 @@ class SecurePoll_Context {
 		return SecurePoll_Crypt::factory( $this, $type, $election );
 	}
 
-	function newTallier( $type, $question ) {
-		return SecurePoll_Tallier::factory( $this, $type, $question );
+	function newTallier( $type, $electionTallier, $question ) {
+		return SecurePoll_Tallier::factory( $this, $type, $electionTallier, $question );
 	}
 
 	function newBallot( $type, $election ) {

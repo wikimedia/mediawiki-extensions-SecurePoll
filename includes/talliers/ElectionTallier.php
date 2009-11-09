@@ -32,7 +32,7 @@ class SecurePoll_ElectionTallier {
 		$this->talliers = array();
 		$tallyType = $this->election->getTallyType();
 		foreach ( $questions as $question ) {
-			$tallier = $this->context->newTallier( $tallyType, $question );
+			$tallier = $this->context->newTallier( $tallyType, $this, $question );
 			if ( !$tallier ) {
 				throw new MWException( 'Invalid tally type' );
 			}

@@ -269,8 +269,8 @@ class SecurePoll_ListPager extends TablePager {
 				) );
 		case 'vote_voter_name':
 			$msg = $voter->isRemote()
-				? 'securepoll-votername-remote'
-				: 'securepoll-votername-local';
+				? 'securepoll-voter-name-remote'
+				: 'securepoll-voter-name-local';
 			return wfMsgExt(
 				$msg,
 				'parseinline',

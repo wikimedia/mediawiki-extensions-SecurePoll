@@ -10,8 +10,8 @@ abstract class SecurePoll_PairwiseTallier extends SecurePoll_Tallier {
 	var $abbrevs;
 	var $rowLabels = array();
 
-	function __construct( $context, $question ) {
-		parent::__construct( $context, $question );
+	function __construct( $context, $electionTallier, $question ) {
+		parent::__construct( $context, $electionTallier, $question );
 		$this->optionIds = array();
 		foreach ( $question->getOptions() as $option ) {
 			$this->optionIds[] = $option->getId();

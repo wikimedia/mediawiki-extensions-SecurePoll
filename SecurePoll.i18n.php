@@ -100,8 +100,8 @@ You must give all options a rank between 1 and 999.',
 	'securepoll-strike-error' => 'Error performing strike/unstrike: $1',
 	'securepoll-strike-token-mismatch' => 'Session data lost',
 	'securepoll-details-link' => 'Details',
-	'securepoll-votername-local' => '[[User:$1|$1]]',
-	'securepoll-votername-remote' => '$1',
+	'securepoll-voter-name-local' => '[[User:$1|$1]]',
+	'securepoll-voter-name-remote' => '$1',
 
 	# Details page
 	# Mostly for admins
@@ -162,6 +162,7 @@ To maintain voter privacy, encrypted election records are only publically availa
 	'securepoll-pairwise-victories' => 'Pairwise victory matrix',
 	'securepoll-strength-matrix' => 'Path strength matrix',
 	'securepoll-ranks' => 'Final ranking',
+	'securepoll-average-score' => 'Average score',
 );
 
 /** Message documentation (Message documentation)

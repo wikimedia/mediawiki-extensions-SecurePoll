@@ -30,6 +30,28 @@ class SecurePoll_EntryPage extends SecurePoll_Page {
  * Pager for an election list. See TablePager documentation.
  */
 class SecurePoll_ElectionPager extends TablePager {
+	var $subpages = array(
+		'vote' => array(
+			'public' => true,
+			'visible-after-close' => false,
+		),
+		'translate' => array(
+			'public' => true,
+			'visible-after-close' => true,
+		),
+		'list' => array(
+			'public' => true,
+			'visible-after-close' => true,
+		),
+		'dump' => array(
+			'public' => false,
+			'visible-after-close' => true,
+		),
+		'tally' => array(
+			'public' => false,
+			'visible-after-close' => true,
+		),
+	);
 	var $fields = array(
 		'el_title',
 		'el_start_date',
@@ -64,7 +86,7 @@ class SecurePoll_ElectionPager extends TablePager {
 	 * @return String
 	 * @see TablePager::getRowClass()
 	 */
-	function getRowClass( $row ){
+	function getRowClass( $row ) {
 		return $row->el_end_date > wfTimestampNow( TS_DB )
 			? 'securepoll-election-open'
 			: 'securepoll-election-closed';
@@ -83,7 +105,7 @@ class SecurePoll_ElectionPager extends TablePager {
 		}
 	}
 	
-	function formatRow( $row ){
+	function formatRow( $row ) {
 		global $wgUser;
 		$id = $row->el_entity;
 		$this->election = $this->entryPage->context->getElection( $id );
@@ -98,30 +120,23 @@ class SecurePoll_ElectionPager extends TablePager {
 	function getLinks() {
 		global $wgUser;
 		$id = $this->mCurrentRow->el_entity;
-
-		$links = array(
-			                      # visible to non-admins
-			                             # visible after election is closed
-			'vote'      => array( true,  false ),
-			'translate' => array( false, false ),
-			'list'      => array( true,  true ),
-			'dump'      => array( false, true ),
-			'tally'     => array( false, true ),
-		);
 		
 		$s = '';
 		$sep = wfMsg( 'pipe-separator' );
 		$skin = $wgUser->getSkin();
-		foreach ( $links as $subpage => $criteria ) {
-			if( ( $this->isAdmin || $criteria[0] )
-			    && ( !$this->election->isFinished() || $criteria[1] )
-			){
+		foreach ( $this->subpages as $subpage => $props ) {
+			$linkText = wfMsgExt( "securepoll-subpage-$subpage", 'parseinline' );
+			if ( $s !== '' ) {
+				$s .= $sep;
+			}
+			if( ( $this->isAdmin || $props['public'] )
+			    && ( !$this->election->isFinished() || $props['visible-after-close'] ) )
+			{
 				$title = $this->entryPage->parent->getTitle( "$subpage/$id" );
-				$linkText = wfMsgExt( "securepoll-subpage-$subpage", 'parseinline' );
-				if ( $s !== '' ) {
-					$s .= $sep;
-				}
 				$s .= $skin->makeKnownLinkObj( $title, $linkText );
+			} else {
+				$s .= "<span class=\"securepoll-link-disabled\">" . 
+					$linkText . "</span>";
 			}
 		}
 		return $s;

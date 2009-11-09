@@ -86,6 +86,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 		foreach ( $labels as $label ) {
 			$s .= Xml::element( 'th', array(), $label ) . "\n";
 		}
+		$s .= "</tr>\n";
 		$defaultScore = $question->getProperty( 'default-score' );
 
 		foreach ( $options as $option ) {
@@ -179,6 +180,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 			list( $min, $max ) = $this->getMinMax( $questions[$qid] );
 			if ( $score < $min || $score > $max ) {
 				wfDebug( __METHOD__.": score out of range\n" );
+				return false;
 			}
 			$scores[$qid][$oid] = $score;
 		}
