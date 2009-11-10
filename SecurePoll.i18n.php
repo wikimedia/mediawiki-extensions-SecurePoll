@@ -830,6 +830,7 @@ Možete da izvršite prebrojavanje glasova koji su prisutni u bazi podataka ili 
 	'securepoll-pairwise-victories' => 'Parna matrica pobjednika',
 	'securepoll-strength-matrix' => 'Matriks snage putanje',
 	'securepoll-ranks' => 'Konačni poredak',
+	'securepoll-average-score' => 'Prosječan rezultat',
 );
 
 /** Catalan (Català)
@@ -1213,6 +1214,7 @@ Gallwch naill ai gyfrif y canlyniadau sydd yn y bas data, neu gallwch gyfrif y c
 	'securepoll-pairwise-victories' => 'Matrics cymharu buddugoliaethau fesul dau',
 	'securepoll-strength-matrix' => 'Matrics cryfder y llwybr',
 	'securepoll-ranks' => 'Y drefn rhestrol terfynol',
+	'securepoll-average-score' => 'Cyfartaledd y sgôr',
 );
 
 /** Danish (Dansk)
@@ -2935,6 +2937,7 @@ Du chasch wehle zwische dr Uuszellig vu dr aktuällen Ergebnis in dr Datebank un
 	'securepoll-pairwise-victories' => 'Paarwys Siigmatrix',
 	'securepoll-strength-matrix' => 'Pfad Sterkimatrix',
 	'securepoll-ranks' => 'Schlussreihefolg',
+	'securepoll-average-score' => 'Durschnittlige Stand',
 );
 
 /** Hebrew (עברית)
@@ -3589,6 +3592,7 @@ Választhatod az adatbázisban szereplő eredmények összesítését vagy a tit
 	'securepoll-pairwise-victories' => 'Páronkénti győzelmi mátrix',
 	'securepoll-strength-matrix' => 'Útvonalerősség-mátrix',
 	'securepoll-ranks' => 'Végső rangsor',
+	'securepoll-average-score' => 'Átlagpontszám',
 );
 
 /** Interlingua (Interlingua)
@@ -3716,6 +3720,7 @@ Tu pote optar pro contar le resultatos presente in le base de datos, o pro conta
 	'securepoll-pairwise-victories' => 'Matrice de vincimento in pares',
 	'securepoll-strength-matrix' => 'Matrice de fortia de cammino',
 	'securepoll-ranks' => 'Rango final',
+	'securepoll-average-score' => 'Score medie',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -4117,6 +4122,7 @@ $1',
 	'securepoll-pairwise-victories' => '対勝利行列',
 	'securepoll-strength-matrix' => 'パス強度行列',
 	'securepoll-ranks' => '最終順位',
+	'securepoll-average-score' => '平均点',
 );
 
 /** Javanese (Basa Jawa)
@@ -4979,6 +4985,7 @@ $1',
 	'securepoll-pairwise-victories' => 'Спарена матрица за пресметка на победникот',
 	'securepoll-strength-matrix' => 'Матрица за јачина на патеката',
 	'securepoll-ranks' => 'Конечно рангирање',
+	'securepoll-average-score' => 'Просечна оценка',
 );
 
 /** Malayalam (മലയാളം)
@@ -5572,6 +5579,7 @@ De resultaten kunnen niet geteld worden.',
 	'securepoll-pairwise-victories' => 'Paarsgewijze overwinningsmatrix',
 	'securepoll-strength-matrix' => 'Padgesterkte matrix',
 	'securepoll-ranks' => 'Definitieve rangschikking',
+	'securepoll-average-score' => 'Gemiddelde score',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
@@ -6170,6 +6178,7 @@ Dla zapewnienia wyborcom poufności, zaszyfrowane rekordy głosów są publiczni
 	'securepoll-submit-translate' => 'Uaktualnij',
 	'securepoll-language-label' => 'Wybierz język',
 	'securepoll-submit-select-lang' => 'Przetłumacz',
+	'securepoll-entry-text' => 'Poniżej znajduje się lista głosowań.',
 	'securepoll-header-title' => 'Nazwa',
 	'securepoll-header-start-date' => 'Data rozpoczęcia',
 	'securepoll-header-end-date' => 'Data zakończenia',
@@ -6194,6 +6203,7 @@ Można podliczyć wyniki obecne w bazie danych lub podliczyć wyniki z przesłan
 	'securepoll-pairwise-victories' => 'Wybór spośród pary kandydatów',
 	'securepoll-strength-matrix' => 'Wybór poprzez ustawienie w kolejności',
 	'securepoll-ranks' => 'Ranking końcowy',
+	'securepoll-average-score' => 'Średni wynik',
 );
 
 /** Piedmontese (Piemontèis)
@@ -6322,6 +6332,7 @@ It peule serne sia ëd conté j'arzultà present ant ël database, sia ëd cont�
 	'securepoll-pairwise-victories' => 'Matris ëd vìnsita a cobie',
 	'securepoll-strength-matrix' => 'Matris ëd fòrsa dël path',
 	'securepoll-ranks' => 'Votassion final',
+	'securepoll-average-score' => 'Pontegi medi',
 );
 
 /** Pashto (پښتو)
@@ -6353,54 +6364,56 @@ $messages['pt'] = array(
 	'securepoll' => 'Sondagem Segura',
 	'securepoll-desc' => 'Extensão para eleições e sondagens',
 	'securepoll-invalid-page' => 'Subpágina inválida: "<nowiki>$1</nowiki>"',
-	'securepoll-need-admin' => 'Você precisa de ser um administrador de eleição para efetuar esta ação.',
+	'securepoll-need-admin' => 'Precisa de ser um administrador de eleições para realizar esta operação.',
 	'securepoll-too-few-params' => 'Parâmetros de subpágina insuficientes (ligação inválida).',
 	'securepoll-invalid-election' => '"$1" não é um identificador de eleição válido.',
 	'securepoll-welcome' => '<strong>Bem-vindo(a) $1!</strong>',
-	'securepoll-not-started' => 'Esta eleição ainda não se iniciou.
-Está programada para começar em $2 às $3.',
-	'securepoll-finished' => 'Esta eleição já se encerrou, você já não pode votar.',
-	'securepoll-not-qualified' => 'Você não está qualificado a votar nesta eleição: $1',
-	'securepoll-change-disallowed' => 'Você já votou nesta eleição antes.
-Desculpe, você não pode votar novamente.',
-	'securepoll-change-allowed' => '<strong>Nota: Você já votou nesta eleição antes.</strong>
-Você pode mudar o seu voto, enviando o formulário abaixo.
-Note que se você fizer isso, o seu voto original será removido.',
+	'securepoll-not-started' => 'Esta eleição ainda não começou.
+Está programado iniciar-se a $2 às $3.',
+	'securepoll-finished' => 'Esta eleição terminou, já não pode votar.',
+	'securepoll-not-qualified' => 'Não cumpre os requisitos para votar nesta eleição: $1',
+	'securepoll-change-disallowed' => 'Já votou nesta eleição.
+Desculpe, mas não pode votar de novo.',
+	'securepoll-change-allowed' => '<strong>Nota: Já votou nesta eleição.</strong>
+Pode alterar o seu voto, enviando o formulário abaixo.
+Note que, se o fizer, o voto original será descartado.',
 	'securepoll-submit' => 'Enviar voto',
-	'securepoll-gpg-receipt' => 'Obrigado pelo seu voto.
+	'securepoll-gpg-receipt' => 'Obrigado por ter votado.
 
-Se desejar, você pode guardar o seguinte recibo como prova do seu voto:
+Se desejar, guarde o seguinte recibo como prova do seu voto:
 
 <pre>$1</pre>',
 	'securepoll-thanks' => 'Obrigado, o seu voto foi registado.',
 	'securepoll-return' => 'Voltar para $1',
-	'securepoll-encrypt-error' => 'Falha ao codificar o registo do seu voto.
-O seu voto não foi registado!
+	'securepoll-encrypt-error' => 'Não foi possível codificar o registo do seu voto.
+O voto não foi registado!
 
 $1',
-	'securepoll-no-gpg-home' => 'Não foi possível criar o diretório-base do GPG.',
-	'securepoll-secret-gpg-error' => 'Erro ao executar GPG.
-Use $wgSecurePollShowErrorDetail=true; em LocalSettings.php para mostrar mais detalhes.',
-	'securepoll-full-gpg-error' => 'Erro ao executar GPG:
+	'securepoll-no-gpg-home' => 'Não foi possível criar o directório de raiz do GNU Privacy Guard.',
+	'securepoll-secret-gpg-error' => 'Erro de execução do GNU Privacy Guard.
+Adicione $wgSecurePollShowErrorDetail=true; ao ficheiro LocalSettings.php para mostrar mais detalhes.',
+	'securepoll-full-gpg-error' => 'Erro de execução do GNU Privacy Guard:
 
 Comando: $1
 
 Erro:
 <pre>$2</pre>',
-	'securepoll-gpg-config-error' => 'As chaves GPG estão mal configuradas.',
+	'securepoll-gpg-config-error' => 'As chaves GNU Privacy Guard estão mal configuradas.',
 	'securepoll-gpg-parse-error' => 'Erro ao interpretar os dados gerados pelo GPG.',
-	'securepoll-no-decryption-key' => 'Nenhuma chave de descodificação está configurada.
+	'securepoll-no-decryption-key' => 'Não está configurada nenhuma chave criptográfica.
 Não é possível descodificar.',
 	'securepoll-jump' => 'Ir para o servidor de votação',
 	'securepoll-bad-ballot-submission' => 'O seu voto foi inválido: $1',
-	'securepoll-unanswered-questions' => 'Você deve responder todas as perguntas.',
-	'securepoll-invalid-rank' => 'Ranque inválido. Você deve fornecer aos candidatos um ranque entre 1 e 999.',
-	'securepoll-unranked-options' => 'Algumas opções não foram ranqueadas.
-Você deve fornecer para todas opções um ranque entre 1 e 999.',
-	'securepoll-remote-auth-error' => 'Erro ao buscar as informações da sua conta a partir do servidor.',
+	'securepoll-unanswered-questions' => 'Tem de responder a todas as perguntas.',
+	'securepoll-invalid-rank' => 'Classificação inválida. Deve atribuir aos candidatos uma classificação entre 1 e 999.',
+	'securepoll-unranked-options' => 'Algumas opções não foram classificadas.
+Deve atribuir a todas as opções uma classificação entre 1 e 999.',
+	'securepoll-invalid-score' => 'A pontuação deve ser um número entre $1 e $2.',
+	'securepoll-unanswered-options' => 'Tem de dar uma resposta a todas as perguntas.',
+	'securepoll-remote-auth-error' => 'Erro ao tentar obter do servidor as informações da sua conta.',
 	'securepoll-remote-parse-error' => 'Erro ao interpretar a resposta de autorização do servidor.',
 	'securepoll-api-invalid-params' => 'Parâmetros inválidos.',
-	'securepoll-api-no-user' => 'Nenhum utilizador foi encontrado com o ID fornecido.',
+	'securepoll-api-no-user' => 'Nenhum utilizador foi encontrado com a identificação fornecida.',
 	'securepoll-api-token-mismatch' => 'Token de segurança não corresponde, não foi possível autenticar.',
 	'securepoll-not-logged-in' => 'Você deve efetuar login para votar nesta eleição',
 	'securepoll-too-few-edits' => 'Desculpe, você não pode votar. Você precisa ter feito pelo menos $1 {{PLURAL:$1|edição|edições}} para votar nesta eleição, você apenas fez $2.',
@@ -6444,6 +6457,7 @@ Para manter a privacidade dos votantes, os resultados criptografados da eleiçã
 	'securepoll-submit-translate' => 'Atualizar',
 	'securepoll-language-label' => 'Escolha a língua:',
 	'securepoll-submit-select-lang' => 'Traduzir',
+	'securepoll-entry-text' => 'Encontra abaixo a lista de eleições.',
 	'securepoll-header-title' => 'Nome',
 	'securepoll-header-start-date' => 'Data de início',
 	'securepoll-header-end-date' => 'Data de fim',
@@ -6468,6 +6482,7 @@ Você pode escolher entre apurar os resultados presentes na base de dados, ou ap
 	'securepoll-pairwise-victories' => 'Matriz de vitórias par a par',
 	'securepoll-strength-matrix' => 'Matriz de forças de caminho',
 	'securepoll-ranks' => 'Classificação final',
+	'securepoll-average-score' => 'Pontuação média',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
@@ -7832,6 +7847,7 @@ $1',
 	'securepoll-pairwise-victories' => 'Матриця попарних перемог',
 	'securepoll-strength-matrix' => 'Матриця сил шляхів',
 	'securepoll-ranks' => 'Остаточний рейтинг',
+	'securepoll-average-score' => 'Середня оцінка',
 );
 
 /** Urdu (اردو)
@@ -8151,6 +8167,7 @@ $messages['yi'] = array(
 	'securepoll-unanswered-questions' => 'איר מוזט ענטפערן אלע שאלות.',
 	'securepoll-api-invalid-params' => 'אומגילטיגע פאראמעטערס',
 	'securepoll-not-logged-in' => 'איר מוזט אריינלאגירן צו שטימען אין דער אפשטימונג',
+	'securepoll-blocked' => 'אנטשולדיגט, איר קענט נישט שטימען אין די וואלן אויב איר זענט אצינד בלאקירט פון רעדאקטירן.',
 	'securepoll-not-in-group' => 'נאר מיטגלידער פון דער "$1" גרופע קענען שטימען אין די וואלן. ',
 	'securepoll-header-timestamp' => 'צײַט',
 	'securepoll-header-voter-name' => 'נאָמען',
