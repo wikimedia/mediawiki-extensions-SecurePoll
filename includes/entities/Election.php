@@ -37,7 +37,7 @@
  *      RemoteMWAuth
  *          remote-mw-script-path
  *
- *      ChooseBallot
+ *      Ballot
  *          shuffle-questions
  *          shuffle-options
  *

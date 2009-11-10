@@ -5,7 +5,7 @@
  * more than one question in an election.
  */
 class SecurePoll_Question extends SecurePoll_Entity {
-	var $options;
+	var $options, $electionId;
 
 	/**
 	 * Constructor
@@ -18,13 +18,16 @@ class SecurePoll_Question extends SecurePoll_Entity {
 		foreach ( $info['options'] as $optionInfo ) {
 			$this->options[] = new SecurePoll_Option( $context, $optionInfo );
 		}
+		$this->electionId = $info['election'];
 	}
 
 	/**
 	 * Get a list of localisable message names.
 	 */
 	function getMessageNames() {
-		return array( 'text' );
+		$ballot = $this->context->getElection( $this->electionId )->getBallot();
+		return array_merge( $ballot->getMessageNames( $this ), array( 'text' ) );
+		
 	}
 
 	/**

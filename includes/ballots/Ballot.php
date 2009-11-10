@@ -21,6 +21,14 @@ abstract class SecurePoll_Ballot {
 	 * @return string
 	 */
 	abstract function getQuestionForm( $question, $options );
+	
+	/**
+	 * Get any extra messages that this ballot type uses to render questions.
+	 * Used to get the list of translatable messages for TranslatePage.
+	 * @return Array
+	 * @see SecurePoll_Election::getMessageNames()
+	 */
+	function getMessageNames(){ return array(); }
 
 	/**
 	 * Called when the form is submitted. This returns a Status object which, 

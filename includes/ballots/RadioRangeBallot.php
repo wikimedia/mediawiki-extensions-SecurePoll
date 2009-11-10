@@ -49,16 +49,16 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 		return $labels;
 	}
 
-	function getMessageNames( $entity ) {
-		if ( $entity->getType() !== 'question' ) {
+	function getMessageNames( $entity=null ) {
+		if( $entity===null || $entity->getType() !== 'question' ) {
 			return array();
 		}
-		if ( !$entity->getProperty( 'column-label-msgs' ) ) {
+		if( !$entity->getProperty( 'column-label-msgs' ) ) {
 			return array();
 		}
 		$msgs = array();
 		list( $min, $max ) = $this->getMinMax( $entity );
-		for ( $score = min; $score <= $max; $score++ ) {
+		for ( $score = $min; $score <= $max; $score++ ) {
 			$signedScore = $this->addSign( $entity, $score );
 			$msgs[] = "column$signedScore";
 		}

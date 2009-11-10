@@ -193,17 +193,27 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 		$questions = array();
 		$options = array();
 		$questionId = false;
+		$electionId = false;
 		foreach ( $res as $row ) {
 			if ( $questionId === false ) {
 			} elseif ( $questionId !== $row->qu_entity ) {
-				$questions[] = array( 'id' => $questionId, 'options' => $options );
+				$questions[] = array( 
+					'id' => $questionId, 
+					'election' => $electionId, 
+					'options' => $options
+				);
 				$options = array();
 			}
 			$options[] = array( 'id' => $row->op_entity );
 			$questionId = $row->qu_entity;
+			$electionId = $row->qu_election;
 		}
 		if ( $questionId !== false ) {
-			$questions[] = array( 'id' => $questionId, 'options' => $options );
+			$questions[] = array( 
+				'id' => $questionId, 
+				'election' => $electionId,
+				'options' => $options
+			);
 		}
 		return $questions;
 	}
@@ -337,7 +347,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 			'endDate',
 			'auth'
 		),
-		'question' => array( 'id' ),
+		'question' => array( 'id', 'election' ),
 		'option' => array( 'id' ),
 	);
 
