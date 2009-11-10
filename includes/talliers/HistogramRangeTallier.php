@@ -51,7 +51,7 @@ class SecurePoll_HistogramRangeTallier extends SecurePoll_Tallier {
 		}
 		$optionLabels = array();
 		foreach ( $this->question->getOptions() as $option ) {
-			$optionLabels[$option->getId()] = $option->getMessage( 'text' );
+			$optionLabels[$option->getId()] = $option->parseMessageInline( 'text' );
 		}
 
 		$labels = $ballot->getColumnLabels( $this->question );
@@ -66,7 +66,7 @@ class SecurePoll_HistogramRangeTallier extends SecurePoll_Tallier {
 		
 		foreach ( $this->averages as $oid => $average ) {
 			$s .= "<tr>\n" . 
-				Xml::element( 'td', array( 'class' => 'securepoll-results-row-heading' ),
+				Xml::tags( 'td', array( 'class' => 'securepoll-results-row-heading' ),
 					$optionLabels[$oid] ) .
 				"\n";
 			foreach ( $labels as $score => $label ) {
