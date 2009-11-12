@@ -1637,6 +1637,7 @@ qey idame kerdışi pinaniyê reydayoxi, eke pawıte bo a beno.',
 	'securepoll-pairwise-victories' => 'matrisê dı zaferın',
 	'securepoll-strength-matrix' => 'matrisê quwwetê rayi',
 	'securepoll-ranks' => 'rêzkerdışa peyin',
+	'securepoll-average-score' => 'Puanê miyanin',
 );
 
 /** Lower Sorbian (Dolnoserbski)
@@ -2021,6 +2022,7 @@ Vi povas elekti nombri ĉu la rezultojn el la datumbazo, ĉu ĉifritajn rezultoj
 	'securepoll-pairwise-victories' => 'Matrico de paraj venkoj',
 	'securepoll-strength-matrix' => 'Matrico de vojforteco',
 	'securepoll-ranks' => 'Fina rangigo',
+	'securepoll-average-score' => 'Averaĝa poentaro',
 );
 
 /** Spanish (Español)
@@ -5140,6 +5142,8 @@ Tidak dapat menyahsulit.',
 	'securepoll-invalid-rank' => 'Pangkat tidak sah. Anda mesti memberi calon pangkat di antara 1 dan 999.',
 	'securepoll-unranked-options' => 'Ada pilihan yang tidak diberi pangkat.
 Semua pilihan perlu diberikan pangkat di antara 1 dan 999.',
+	'securepoll-invalid-score' => 'Mata mestilah nombor di antara $1 dan $2.',
+	'securepoll-unanswered-options' => 'Anda mesti memberikan jawapan untuk setiap soalan.',
 	'securepoll-remote-auth-error' => 'Ralat dalam mengambil maklumat akaun anda dari pelayan.',
 	'securepoll-remote-parse-error' => 'Ralat menafsirkan jawapan kebenaran dari pelayan.',
 	'securepoll-api-invalid-params' => 'Parameter tidak sah.',
@@ -5187,6 +5191,7 @@ Untuk mengekalkan keadaan berahsia pengundi, rekod pemilihan tersulit cuma boleh
 	'securepoll-submit-translate' => 'Kemas kini',
 	'securepoll-language-label' => 'Pilih bahasa:',
 	'securepoll-submit-select-lang' => 'Terjemah',
+	'securepoll-entry-text' => 'Di bawah ialah senarai undian.',
 	'securepoll-header-title' => 'Nama',
 	'securepoll-header-start-date' => 'Tarikh mula',
 	'securepoll-header-end-date' => 'Tarikh tamat',
@@ -5211,6 +5216,7 @@ Anda boleh memilih untuk menyemak keputusan yang ada dalam pangkalan data, atau 
 	'securepoll-pairwise-victories' => 'Matriks kemenangan berpasangan',
 	'securepoll-strength-matrix' => 'Matriks kekuatan laluan',
 	'securepoll-ranks' => 'Kedudukan akhir',
+	'securepoll-average-score' => 'Mata purataba',
 );
 
 /** Maltese (Malti)
@@ -7197,6 +7203,7 @@ $messages['su'] = array(
 );
 
 /** Swedish (Svenska)
+ * @author Boivie
  * @author Fluff
  * @author Gabbe.g
  * @author Micke
@@ -7253,6 +7260,7 @@ Kan inte dekryptera.',
 	'securepoll-invalid-rank' => 'Ogiltig rangordning. Du måste rangordna kandidater mellan 1 och 999.',
 	'securepoll-unranked-options' => 'Något eller några valmöjligheter rangordnades inte.
 Du måste rangordna alla valmöjligheter mellan 1 och 999.',
+	'securepoll-invalid-score' => 'Betyget måste vara ett tal mellan $1 och $2.',
 	'securepoll-unanswered-options' => 'Du måste ge ett svar på varje fråga.',
 	'securepoll-remote-auth-error' => 'Fel uppstod vid hämtning av din kontoinformation från servern.',
 	'securepoll-remote-parse-error' => 'Fel uppstod vid tolkning av auktorisationssvar från servern.',
@@ -7301,6 +7309,7 @@ För att säkerställa väljarnas integritet så kan krypterade valresultat enba
 	'securepoll-submit-translate' => 'Uppdatera',
 	'securepoll-language-label' => 'Välj språk:',
 	'securepoll-submit-select-lang' => 'Översätt',
+	'securepoll-entry-text' => 'Nedan finns listan över omröstningar.',
 	'securepoll-header-title' => 'Namn',
 	'securepoll-header-start-date' => 'Startdatum',
 	'securepoll-header-end-date' => 'Slutdatum',
@@ -7322,7 +7331,10 @@ Du kan välja att antingen räkna upp resultaten som finns tillgängliga i datab
 	'securepoll-no-upload' => 'Ingen fil laddades upp, kan inte räkna fram ett resultat.',
 	'securepoll-dump-corrupt' => 'Dumpningsfilen är korrupt och kan inte bearbetas.',
 	'securepoll-tally-upload-error' => 'Fel vid rösträkning av dumpfil: $1',
+	'securepoll-pairwise-victories' => 'Matris över parvis vinnare',
+	'securepoll-strength-matrix' => 'Matris över vägstyrka',
 	'securepoll-ranks' => 'Slutgilltig rankning',
+	'securepoll-average-score' => 'Genomsnittligt betyg',
 );
 
 /** Telugu (తెలుగు)
@@ -7584,6 +7596,7 @@ Maaari mong piliin ang itala ang bilang ng mga kinalabasang naroroon sa loob ng 
 /** Turkish (Türkçe)
  * @author Joseph
  * @author Noumenon
+ * @author Vito Genovese
  */
 $messages['tr'] = array(
 	'securepoll' => 'GüvenliAnket',
@@ -7707,6 +7720,7 @@ Veritabanında mevcut sonuçları saymayı, ya da yüklenen bir dosyadan şifrel
 	'securepoll-pairwise-victories' => 'İkili zafer matrisi',
 	'securepoll-strength-matrix' => 'Yol gücü matrisi',
 	'securepoll-ranks' => 'Son sıralama',
+	'securepoll-average-score' => 'Ortalama skor',
 );
 
 /** Tatar (Cyrillic) (Татарча/Tatarça (Cyrillic))
