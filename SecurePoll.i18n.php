@@ -703,6 +703,7 @@ Gallout a rit kontañ an disoc'hoù adal an diaz roadennoù pe adal ur restr enp
 	'securepoll-pairwise-victories' => "Matris an trec'hoù dre goubladoù",
 	'securepoll-strength-matrix' => 'Matris nerzh an hentoù moned',
 	'securepoll-ranks' => 'Renkadur diwezhañ',
+	'securepoll-average-score' => 'Skor keitat',
 );
 
 /** Bosnian (Bosanski)
@@ -4510,6 +4511,7 @@ Donn Desch entscheide doh zwesche, de neuste Zahle en de Datebangk uß_ze_zälle
 	'securepoll-pairwise-victories' => 'Krüztabäll mer de paawiiß Jewenner',
 	'securepoll-strength-matrix' => 'De Krüztabäll mem Jeweesch fun jedem Pat',
 	'securepoll-ranks' => 'De Rangfollesch zom Afschloß',
+	'securepoll-average-score' => 'Dorschschnettlesche Treffer',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -4638,6 +4640,7 @@ Dir kënnt wielen tëschent der Auswäertung vun den aktuelle Resultater an der 
 	'securepoll-pairwise-victories' => 'Matrice vun de Gewënner pro Koppel',
 	'securepoll-strength-matrix' => 'Matrice vun der Stäerkt vum Pad',
 	'securepoll-ranks' => 'Schlussclassement',
+	'securepoll-average-score' => 'Duerchschnëttleche Score',
 );
 
 /** Limburgish (Limburgs)
@@ -6210,7 +6213,7 @@ Można podliczyć wyniki obecne w bazie danych lub podliczyć wyniki z przesłan
 	'securepoll-pairwise-victories' => 'Wybór spośród pary kandydatów',
 	'securepoll-strength-matrix' => 'Wybór poprzez ustawienie w kolejności',
 	'securepoll-ranks' => 'Ranking końcowy',
-	'securepoll-average-score' => 'Średni wynik',
+	'securepoll-average-score' => 'Wynik średni',
 );
 
 /** Piedmontese (Piemontèis)
@@ -8158,6 +8161,7 @@ Bạn có thể lựa chọn hoặc kiểm kết quả hiện có trong cơ sở
 	'securepoll-pairwise-victories' => 'Ma trận chiến thắng theo cặp',
 	'securepoll-strength-matrix' => 'Ma trận độ mạnh đường đi',
 	'securepoll-ranks' => 'Xếp hạng sau cùng',
+	'securepoll-average-score' => 'Điểm số trung bình',
 );
 
 /** Yiddish (ייִדיש)
