@@ -119,7 +119,7 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 		$wgOut->addHTML(
 			"<form name=\"securepoll\" id=\"securepoll\" method=\"post\" action=\"$encAction\">\n" .
 			$this->election->getBallot()->getForm( $status ) .
-			"<br/>\n" . 
+			"<br />\n" . 
 			"<input name=\"submit\" type=\"submit\" value=\"$encOK\">\n" .
 			"<input type='hidden' name='edit_token' value=\"{$encToken}\" /></td>\n" .
 			"</form>"
