@@ -1470,6 +1470,7 @@ Du kannst wählen zwischen der Zählung der aktuellen Ergebnisse in der Datenban
 	'securepoll-pairwise-victories' => 'Paarweise Siegesmatrix',
 	'securepoll-strength-matrix' => 'Wegstärkenmatrix',
 	'securepoll-ranks' => 'Schlussranking',
+	'securepoll-average-score' => 'Durchschnittliches Ergebnis',
 );
 
 /** German (formal address) (Deutsch (Sie-Form))
