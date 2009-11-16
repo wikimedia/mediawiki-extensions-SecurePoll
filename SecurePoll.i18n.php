@@ -3858,11 +3858,15 @@ Anda dapat memilih antara menghitung dari hasil suara yang terdapat di basis dat
 );
 
 /** Ido (Ido)
+ * @author Malafaya
  * @author Wyvernoid
  */
 $messages['io'] = array(
 	'securepoll' => 'SekuraVoto',
 	'securepoll-desc' => 'Extensilo por elekti e voti',
+	'securepoll-header-voter-name' => 'Nomo',
+	'securepoll-strike-reason' => 'Motivo:',
+	'securepoll-subpage-list' => 'Listo',
 );
 
 /** Icelandic (Íslenska)
