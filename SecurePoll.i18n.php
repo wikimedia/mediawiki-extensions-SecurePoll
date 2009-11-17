@@ -523,18 +523,21 @@ $1',
 	'securepoll-pairwise-victories' => 'Матрыца падвойных перамогаў',
 	'securepoll-strength-matrix' => 'Матрыца моцы шляхоў',
 	'securepoll-ranks' => 'Канчатковыя вынікі',
+	'securepoll-average-score' => 'Сярэдні вынік',
 );
 
 /** Bulgarian (Български)
  * @author DCLXVI
  */
 $messages['bg'] = array(
+	'securepoll-header-voter-name' => 'Име',
 	'securepoll-header-details' => 'Подробности',
 	'securepoll-strike-reason' => 'Причина:',
 	'securepoll-strike-cancel' => 'Отмяна',
 	'securepoll-details-link' => 'Подробности',
 	'securepoll-header-action' => 'Действие',
 	'securepoll-header-reason' => 'Причина',
+	'securepoll-header-admin' => 'Админ',
 	'securepoll-invalid-language' => 'Невалиден езиков код „$1“',
 	'securepoll-submit-translate' => 'Актуализиране',
 	'securepoll-language-label' => 'Избиране на език:',
@@ -5646,6 +5649,7 @@ Kan ikkje dekryptera.',
 	'securepoll-jump' => 'Gå til stemmetenaren',
 	'securepoll-bad-ballot-submission' => 'Di stemme var ugyldig: $1',
 	'securepoll-unanswered-questions' => 'Du må svara på alle spørsmåla.',
+	'securepoll-invalid-rank' => 'Ugyldig rangering. Du må gje kandidatane ei rangering mellom 1 og 999.',
 	'securepoll-remote-auth-error' => 'Feil oppstod ved henting av kontoinformasjonen din frå filtenaren.',
 	'securepoll-remote-parse-error' => 'Feil oppsto i samband med tolking av autorisasjonssvar frå tenaren',
 	'securepoll-api-invalid-params' => 'Ugyldige parametrar.',
@@ -5699,6 +5703,7 @@ Kan ikkje dekryptera.',
 	'securepoll-can-decrypt' => 'Valregisteret har vorte kryptert, men dekrypteringsnøkkelen er tilgjengeleg.
 Du kan velja å anten telja opp resultata tilgjengelege i databasen, eller å telja opp dei krypterte resultata frå ei opplasta fil.',
 	'securepoll-tally-no-key' => 'Du kan ikkje telja opp dette valet fordi stemmene er krypterte og dekrypteringsnøkkelen er utilgjengeleg.',
+	'securepoll-tally-local-submit' => 'Opprett ei oppteljing',
 	'securepoll-tally-upload-submit' => 'Opprett ei oppteljing',
 	'securepoll-no-upload' => 'Ingen fil vart lasta opp, kan ikkje summera resultata.',
 );
@@ -8168,6 +8173,16 @@ Bạn có thể lựa chọn hoặc kiểm kết quả hiện có trong cơ sở
 	'securepoll-strength-matrix' => 'Ma trận độ mạnh đường đi',
 	'securepoll-ranks' => 'Xếp hạng sau cùng',
 	'securepoll-average-score' => 'Điểm số trung bình',
+);
+
+/** Volapük (Volapük)
+ * @author Malafaya
+ */
+$messages['vo'] = array(
+	'securepoll-welcome' => '<strong>Benokömö, $1!</strong>',
+	'securepoll-header-voter-name' => 'Nem',
+	'securepoll-strike-reason' => 'Kod:',
+	'securepoll-header-reason' => 'Kod',
 );
 
 /** Yiddish (ייִדיש)
