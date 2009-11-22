@@ -5097,6 +5097,12 @@ $1',
 	'securepoll-header-end-date' => 'അവസാനിക്കുന്ന തീയതി',
 	'securepoll-subpage-vote' => 'വോട്ട്',
 	'securepoll-subpage-translate' => 'തർജ്ജമ ചെയ്യുക',
+	'securepoll-subpage-list' => 'ലിസ്റ്റ്',
+	'securepoll-subpage-tally' => 'തുലനം ചെയ്യുക',
+	'securepoll-tally-title' => 'തുലനം ചെയ്യുക: $1',
+	'securepoll-tally-not-finished' => 'ക്ഷമിക്കുക, വോട്ടിങ് പൂർണ്ണമാകുന്നതുവരെ തിരഞ്ഞെടുപ്പ് തുലനം ചെയ്ത് നോക്കാൻ താങ്കൾക്ക് കഴിയില്ല.',
+	'securepoll-tally-local-legend' => 'ശേഖരിക്കപ്പെട്ടിട്ടുള്ള ഫലങ്ങൾ തുലനം ചെയ്യുക',
+	'securepoll-no-upload' => 'യാതൊരു പ്രമാണവും അപ്‌‌ലോഡ് ചെയ്തിട്ടില്ല, ഫലങ്ങൾ തുലനം ചെയ്യാൻ കഴിയില്ല.',
 	'securepoll-ranks' => 'അന്തിമ റാങ്കിങ്',
 	'securepoll-average-score' => 'ശരാശരി സ്കോർ',
 );
@@ -6680,6 +6686,16 @@ $messages['roa-tara'] = array(
 	'securepoll-submit' => "Conferme 'u vote",
 	'securepoll-unanswered-questions' => 'Tu a responnere a tutte le domande.',
 	'securepoll-api-invalid-params' => 'Parametre invalide.',
+	'securepoll-header-timestamp' => 'Orarie',
+	'securepoll-header-voter-name' => 'Nome',
+	'securepoll-header-voter-domain' => 'Dominie',
+	'securepoll-strike-reason' => 'Mutive:',
+	'securepoll-strike-cancel' => 'Annulle',
+	'securepoll-header-action' => 'Azione',
+	'securepoll-header-reason' => 'Mutive',
+	'securepoll-subpage-vote' => 'Vote',
+	'securepoll-subpage-translate' => 'Traduce',
+	'securepoll-subpage-list' => 'Elenghe',
 );
 
 /** Russian (Русский)
@@ -8011,6 +8027,7 @@ Par protègiare la riservatessa dei votanti, le registrassion criptade de l'eles
 	'securepoll-subpage-dump' => 'Dump',
 	'securepoll-tally-upload-legend' => 'Carga su un dump criptà',
 	'securepoll-ranks' => 'Classifica final',
+	'securepoll-average-score' => 'Puntejo medio',
 );
 
 /** Veps (Vepsan kel')
