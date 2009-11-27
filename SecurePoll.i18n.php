@@ -8030,7 +8030,11 @@ Par protègiare la riservatessa dei votanti, le registrassion criptade de l'eles
 	'securepoll-subpage-translate' => 'Traduxi',
 	'securepoll-subpage-list' => 'Lista',
 	'securepoll-subpage-dump' => 'Dump',
+	'securepoll-subpage-tally' => 'Conta',
+	'securepoll-tally-title' => 'Conta: $1',
+	'securepoll-tally-local-submit' => 'Fà na conta',
 	'securepoll-tally-upload-legend' => 'Carga su un dump criptà',
+	'securepoll-tally-upload-submit' => 'Fà la conta',
 	'securepoll-ranks' => 'Classifica final',
 	'securepoll-average-score' => 'Puntejo medio',
 );
