@@ -11,6 +11,7 @@
  *     min-score
  *     max-score
  *     column-label-msgs
+ *     column-order
  *
  * Question messages:
  *     column-1, column0, column+1, etc.
@@ -31,18 +32,46 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 		return array( $min, $max );
 	}
 
+	function getColumnDirection( $question ) {
+		$order = $question->getProperty( 'column-order' );
+		if ( !$order ) {
+			return 1;
+		} elseif ( preg_match( '/^asc/i', $order ) ) {
+			return 1;
+		} elseif ( preg_match( '/^desc/i', $order ) ) {
+			return -1;
+		} else {
+			throw new MWException( __METHOD__.': column-order configured incorrectly' );
+		}
+	}
+
+
+	function getScoresLeftToRight( $question ) {
+		$incr = $this->getColumnDirection( $question );
+		list( $min, $max ) = $this->getMinMax( $question );
+		if ( $incr > 0 ) {
+			$left = $min;
+			$right = $max;
+		} else {
+			$left = $max;
+			$right = $min;
+		}
+		return range( $left, $right );
+	}
+
 	function getColumnLabels( $question ) {
 		list( $min, $max ) = $this->getMinMax( $question );
 		$labels = array();
 		$useMessageLabels = $question->getProperty( 'column-label-msgs' );
+		$scores = $this->getScoresLeftToRight( $question );
 		if ( $useMessageLabels ) {
-			for ( $score = $min; $score <= $max; $score++ ) {
+			foreach ( $scores as $score ) {
 				$signedScore = $this->addSign( $question, $score );
 				$labels[$score] = $question->getMessage( "column$signedScore" );
 			}
 		} else {
 			global $wgLang;
-			for ( $score = $min; $score <= $max; $score++ ) {
+			foreach ( $scores as $score ) {
 				$labels[$score] = $wgLang->formatNum( $score );
 			}
 		}
