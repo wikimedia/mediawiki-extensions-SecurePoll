@@ -1359,8 +1359,8 @@ $messages['de'] = array(
 	'securepoll-too-few-params' => 'Nicht genügend Unterseitenparameter (ungültiger Link).',
 	'securepoll-invalid-election' => '„$1“ ist keine gültige Abstimmungs-ID.',
 	'securepoll-welcome' => '<strong>Willkommen $1!</strong>',
-	'securepoll-not-started' => 'Diese Wahl hat noch nicht begonnen.
-Sie beginnt voraussichtlich am $2 um $3 Uhr.',
+	'securepoll-not-started' => 'Die Wahl hat noch nicht begonnen.
+Ihr Start ist für den $2 um $3 Uhr geplant.',
 	'securepoll-finished' => 'Diese Wahl ist beendet, du kannst nicht mehr abstimmen.',
 	'securepoll-not-qualified' => 'Du bist nicht qualifiziert, bei dieser Wahl abzustimmen: $1',
 	'securepoll-change-disallowed' => 'Du hast bei dieser Wahl bereits abgestimmt.
@@ -5105,6 +5105,7 @@ $1',
 	'securepoll-tally-not-finished' => 'ക്ഷമിക്കുക, വോട്ടിങ് പൂർണ്ണമാകുന്നതുവരെ തിരഞ്ഞെടുപ്പ് തുലനം ചെയ്ത് നോക്കാൻ താങ്കൾക്ക് കഴിയില്ല.',
 	'securepoll-tally-local-legend' => 'ശേഖരിക്കപ്പെട്ടിട്ടുള്ള ഫലങ്ങൾ തുലനം ചെയ്യുക',
 	'securepoll-tally-local-submit' => 'ഒത്തുനോക്കൽ സൃഷ്ടിക്കുക',
+	'securepoll-tally-upload-legend' => 'നിഗൂഢീകരിക്കപ്പെട്ട ഡമ്പ് അപ്‌‌ലോഡ് ചെയ്യുക',
 	'securepoll-tally-upload-submit' => 'ഒത്തുനോക്കുക',
 	'securepoll-no-upload' => 'യാതൊരു പ്രമാണവും അപ്‌‌ലോഡ് ചെയ്തിട്ടില്ല, ഫലങ്ങൾ തുലനം ചെയ്യാൻ കഴിയില്ല.',
 	'securepoll-tally-upload-error' => 'ഒത്തുനോക്കുന്നതിൽ പിശകുണ്ടായ ഡമ്പ് പ്രമാണം: $1',
