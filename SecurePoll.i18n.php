@@ -7081,6 +7081,7 @@ Aby sa zachovalo súkromie hlasujúcich, šifrovaný záznam o voľbách je vere
 	'securepoll-submit-translate' => 'Aktualizovať',
 	'securepoll-language-label' => 'Vyberte jazyk:',
 	'securepoll-submit-select-lang' => 'Preložiť',
+	'securepoll-entry-text' => 'Dolu je zoznam hlasovaní.',
 	'securepoll-header-title' => 'Meno',
 	'securepoll-header-start-date' => 'Dátum začiatku',
 	'securepoll-header-end-date' => 'Dátum ukončenia',
@@ -7105,6 +7106,7 @@ Môžete buď zistiť výsledok hlasovania z výsledkov dostupných v databáze 
 	'securepoll-pairwise-victories' => 'Párová matica víťazstiev',
 	'securepoll-strength-matrix' => 'Párová matica sily',
 	'securepoll-ranks' => 'Finálne hodnotenie',
+	'securepoll-average-score' => 'Priemerné skóre',
 );
 
 /** Serbian Cyrillic ekavian (Српски (ћирилица))
