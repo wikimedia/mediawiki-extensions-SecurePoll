@@ -330,6 +330,8 @@ $1',
 	'securepoll-header-timestamp' => 'الوقت',
 	'securepoll-header-voter-name' => 'الاسم',
 	'securepoll-header-voter-domain' => 'النطاق',
+	'securepoll-header-ip' => 'أيبي',
+	'securepoll-header-xff' => 'إكس إف إف',
 	'securepoll-header-ua' => 'وكيل المستخدم',
 	'securepoll-header-cookie-dup' => 'مزدوج',
 	'securepoll-header-strike' => 'اشطب',
@@ -343,7 +345,9 @@ $1',
 	'securepoll-details-link' => 'التفاصيل',
 	'securepoll-details-title' => 'تفاصيل التصويت: #$1',
 	'securepoll-invalid-vote' => '"$1" ليس رمز تعريف تصويت صحيح.',
+	'securepoll-header-id' => 'رقم',
 	'securepoll-header-voter-type' => 'نوع المستخدم',
+	'securepoll-header-url' => 'مسار',
 	'securepoll-voter-properties' => 'خصائص التصويت',
 	'securepoll-strike-log' => 'سجل الشطب',
 	'securepoll-header-action' => 'الاجراء',
@@ -359,6 +363,7 @@ $1',
 للحفاظ على خصوصية الناخبين ، سجلات الانتخابات المشفرة ليست متاحة علانية الا عندما يمكن خلطهم عن طريق دفق رقمي عشوائي آمن  .',
 	'securepoll-translate-title' => 'ترجم: $1',
 	'securepoll-invalid-language' => 'كود لغة غير صحيح "$1"',
+	'securepoll-header-trans-id' => 'رقم',
 	'securepoll-submit-translate' => 'تحديث',
 	'securepoll-language-label' => 'اختر اللغة:',
 	'securepoll-submit-select-lang' => 'ترجم',
@@ -843,6 +848,7 @@ Možete da izvršite prebrojavanje glasova koji su prisutni u bazi podataka ili 
  * @author Jordi Roqué
  * @author Paucabot
  * @author SMP
+ * @author Ssola
  * @author Vriullop
  */
 $messages['ca'] = array(
@@ -901,7 +907,7 @@ Heu de donar a totes les opcions, un rang entre 1 i 999.',
 	'securepoll-api-token-mismatch' => "El token de seguretat no coincideix. No s'ha pogut accedir.",
 	'securepoll-not-logged-in' => "Heu d'estar connectats en un compte per a votar en aquesta elecció",
 	'securepoll-too-few-edits' => "Ho sentim, però no podeu votar.
-Per a votar en aquesta elecció cal haver fet un mínim {{PLURAL:$1|d'una edició|de $1 edicions}}, i n'heu fet $2.",
+Per a votar en aquesta elecció cal haver fet un mínim {{PLURAL:$1|d'una modificació|de $1 modificacions}}, i n'heu fet $2.",
 	'securepoll-blocked' => "Ho sentim però no podeu votar en aquesta elecció perquè el vostre compte està blocat a l'edició.",
 	'securepoll-bot' => 'Ho sentim, però els comptes de bot no poden votar en aquestes eleccions.',
 	'securepoll-not-in-group' => 'Només els membres del grup «$1» poden votar en aquesta elecció.',
