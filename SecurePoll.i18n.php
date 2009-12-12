@@ -4173,6 +4173,7 @@ Yèn perlu panjenengan bisa nyimpen resi pangiriman ing ngisor iki minangka bukt
 );
 
 /** Georgian (ქართული)
+ * @author BRUTE
  * @author David1010
  * @author გიორგიმელა
  */
@@ -4180,6 +4181,7 @@ $messages['ka'] = array(
 	'securepoll' => 'უსაფრთხო კეჭისყრა',
 	'securepoll-invalid-election' => '"$1" არ წარმოადგენს არჩევნებისათვის დასაშვებ იდენტიფიკატორს.',
 	'securepoll-welcome' => '<strong>კეთილი იყოს თქვენი მობრძანება $1!</strong>',
+	'securepoll-not-qualified' => 'თქვენ არ შეგიძლიათ ამ არჩევნებში ხმის მიცემა: $1',
 	'securepoll-submit' => 'ხმის მიცემა',
 	'securepoll-thanks' => 'გმადლობთ, თქვენი ხმა მიღებულია.',
 	'securepoll-return' => 'დაბრუნება $1–ზე',
@@ -4394,6 +4396,17 @@ $1',
 	'securepoll-tally-upload-error' => '기록 파일을 개표하는 중 오류 발생: $1',
 	'securepoll-pairwise-victories' => '조합비교 행렬',
 	'securepoll-ranks' => '최종 순위',
+);
+
+/** Karachay-Balkar (Къарачай-Малкъар)
+ * @author Iltever
+ */
+$messages['krc'] = array(
+	'securepoll-header-timestamp' => 'Заман',
+	'securepoll-header-voter-name' => 'Ат',
+	'securepoll-header-voter-domain' => 'Домен',
+	'securepoll-header-reason' => 'Чурум',
+	'securepoll-header-admin' => 'Админ',
 );
 
 /** Ripoarisch (Ripoarisch)
@@ -6961,6 +6974,7 @@ $wgSecurePollShowErrorDetail=true; туруоруутун LocalSettings.php би
 	'securepoll-tally-upload-error' => 'Дамп билэтэ сөпсөспөтө: $1',
 	'securepoll-pairwise-victories' => 'Пааранан кыайыылар матрицалара',
 	'securepoll-ranks' => 'Раанганан бүтэһиктээх наардааһын',
+	'securepoll-average-score' => 'Ортоку сыана',
 );
 
 /** Sardinian (Sardu)
@@ -7407,6 +7421,7 @@ $2 న, $3 లకు మోదలు అవుతుంది',
 	'securepoll-thanks' => 'ధన్యవాదాలు! మీ వోటుని భద్రపరచడమైనది.',
 	'securepoll-return' => 'తిరిగి $1కి',
 	'securepoll-jump' => 'వోటింగ్ సర్వరుకు వెళ్ళుము',
+	'securepoll-bad-ballot-submission' => 'మీ వోటు చెల్లదు: $1',
 	'securepoll-unanswered-questions' => 'మీరు అన్ని ప్రశ్నలకి సమాధానము ఇవ్వవలెను.',
 	'securepoll-not-logged-in' => 'ఈ ఎన్నికలో తమ వోటు హక్కును వినియోగించుకునేందుకు తమరు లోనికి ప్రవేశించి ఉండాలి',
 	'securepoll-too-few-edits' => 'క్షమించండి, తమరు వోటు వేయలేరు. ఈ ఎన్నికలో వోటు వేసేందుకు తమరు కనీసము $1 {{PLURAL:$1|మార్పు|మార్పులు}} చేసివుండాలి, కాని తమరు $2 చేసారు.',
@@ -7424,6 +7439,7 @@ $2 న, $3 లకు మోదలు అవుతుంది',
 	'securepoll-details-link' => 'వివరాలు',
 	'securepoll-details-title' => 'వోటు వివరాలు: #$1',
 	'securepoll-header-voter-type' => 'వోటర్ టైపు',
+	'securepoll-voter-properties' => 'వోటరు లక్షణాలు',
 	'securepoll-header-action' => 'చర్య',
 	'securepoll-header-reason' => 'కారణం',
 	'securepoll-header-admin' => 'నిర్వహణాధికారి',
