@@ -4197,6 +4197,7 @@ $messages['ka'] = array(
 	'securepoll-remote-auth-error' => 'შეცდომა ანგარიშზე ინფორმაციის მიღებისას სერვერიდან.',
 	'securepoll-api-invalid-params' => 'არასწორი პარამეტრები.',
 	'securepoll-api-no-user' => 'მომხმარებელი მითითებული იდენტიფიკატორით ვერ მოიძებნა.',
+	'securepoll-not-logged-in' => 'ხმის მისაცემად თქვენ უნდა შეხვიდეთ სისტემაში',
 	'securepoll-list-title' => 'ხმების სია: $1',
 	'securepoll-header-timestamp' => 'დრო',
 	'securepoll-header-voter-name' => 'სახელი',
