@@ -533,8 +533,16 @@ $1',
 
 /** Bulgarian (Български)
  * @author DCLXVI
+ * @author Spiritia
  */
 $messages['bg'] = array(
+	'securepoll-api-token-mismatch' => 'Невалидна идентификация, неуспешен опит за влизане в системата.',
+	'securepoll-not-logged-in' => 'Трябва да сте влезли в системата с потребителското си име, за да участвате в това гласуване.',
+	'securepoll-too-few-edits' => 'За съжаление, не можете да гласувате. Трябва да сте направили най-малко $1 {{PLURAL:$1|редакция|редакции}}, за да имате право да участвате в гласуването, а вие сте направили $2.',
+	'securepoll-blocked' => 'За съжаление, не можете да участвате в това гласуване, защото в момента сте блокирани.',
+	'securepoll-bot' => 'За съжаление, потребителски сметки, отбелязани като ботове, не могат да вземат участие в това гласуване.',
+	'securepoll-not-in-group' => 'Само членове на потребителска група "$1" могат да вземат участие в това гласуване.',
+	'securepoll-not-in-list' => 'За съжаление, вашето потребителско име не фигурира в предварително определения списък на потребителите с право на участие в това гласуване.',
 	'securepoll-header-voter-name' => 'Име',
 	'securepoll-header-details' => 'Подробности',
 	'securepoll-strike-reason' => 'Причина:',
@@ -8488,7 +8496,7 @@ $1',
 	'securepoll-header-details' => '细节',
 	'securepoll-strike-button' => '删除选票',
 	'securepoll-unstrike-button' => '恢复选票',
-	'securepoll-strike-reason' => '理由：',
+	'securepoll-strike-reason' => '原因：',
 	'securepoll-strike-cancel' => '取消',
 	'securepoll-strike-error' => '进行删除选票/恢复被删除选票时出错：$1',
 	'securepoll-strike-token-mismatch' => '丢失会话数据',
