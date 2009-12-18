@@ -5805,6 +5805,8 @@ Kan ikke dekryptere.',
 	'securepoll-invalid-rank' => 'Ugyldig rangering. Du må gi kandidatene en rangering mellom 1 og 999.',
 	'securepoll-unranked-options' => 'Noen valg var urangerte.
 Du må gi alle alternativene en rangering mellom 1 og 999.',
+	'securepoll-invalid-score' => 'Karakteren må være et tall mellom $1 og $2.',
+	'securepoll-unanswered-options' => 'Du må gi et svar på hver spørsmål.',
 	'securepoll-remote-auth-error' => 'Feil oppsto ved henting av din kontoinformasjon fra tjeneren.',
 	'securepoll-remote-parse-error' => 'Feil oppsto ved tolkning av autorisasjonssvar fra tjeneren.',
 	'securepoll-api-invalid-params' => 'Ugyldige parametere.',
@@ -5852,6 +5854,7 @@ For å opprettholde velgernes anonymitet vil de enkelte stemmene kun offentliggj
 	'securepoll-submit-translate' => 'Oppdater',
 	'securepoll-language-label' => 'Velg språk:',
 	'securepoll-submit-select-lang' => 'Oversett',
+	'securepoll-entry-text' => 'Under er listen over avstemninger',
 	'securepoll-header-title' => 'Navn',
 	'securepoll-header-start-date' => 'Startdato',
 	'securepoll-header-end-date' => 'Sluttdato',
@@ -5876,6 +5879,7 @@ Du kan velge å enten telle opp resultatene tilgjengelig i databasen, eller å t
 	'securepoll-pairwise-victories' => 'Matrise over parvis seier',
 	'securepoll-strength-matrix' => 'Matrise over stistyrke',
 	'securepoll-ranks' => 'Endelig resultat',
+	'securepoll-average-score' => 'Gjennomsnittlig karakter',
 );
 
 /** Occitan (Occitan)
