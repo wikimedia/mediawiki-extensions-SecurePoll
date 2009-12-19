@@ -6007,6 +6007,7 @@ Podètz causir de comptar los resultats dempuèi la banca de donadas o dempuèi 
 	'securepoll-pairwise-victories' => 'Matritz de las victòrias per par',
 	'securepoll-strength-matrix' => 'Matritz de fòrça dels camins',
 	'securepoll-ranks' => 'Classament final',
+	'securepoll-average-score' => 'Marca mejana',
 );
 
 /** Papiamento (Papiamentu)
