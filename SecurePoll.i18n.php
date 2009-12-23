@@ -238,18 +238,36 @@ The /dev/urandom cryptographic random number generation device is not supported 
  * @author Naudefj
  */
 $messages['af'] = array(
+	'securepoll' => 'VeiligStem',
+	'securepoll-invalid-election' => '"$1" is nie \'n geldig ID vir \'n stemmig nie.',
+	'securepoll-welcome' => '<strong>Welkom, $1!</strong>',
 	'securepoll-submit' => 'Dien stem in',
 	'securepoll-return' => 'Keer terug na $1',
+	'securepoll-bad-ballot-submission' => 'U stem is ongeldig: $1',
+	'securepoll-unanswered-questions' => 'U moet alle vrae beantwoord.',
+	'securepoll-api-invalid-params' => 'Ongeldige parameters.',
 	'securepoll-list-title' => 'Wys stemme: $1',
 	'securepoll-header-timestamp' => 'Tyd',
 	'securepoll-header-voter-name' => 'Naam',
 	'securepoll-header-voter-domain' => 'Domein',
+	'securepoll-header-ua' => 'Gebruikers-agent',
+	'securepoll-header-cookie-dup' => 'Duplikaat',
+	'securepoll-header-strike' => 'Trek dood',
 	'securepoll-header-details' => 'Details',
+	'securepoll-strike-button' => 'Trek dood',
+	'securepoll-unstrike-button' => 'Maak doodtrek ongedaan',
 	'securepoll-strike-reason' => 'Rede',
 	'securepoll-strike-cancel' => 'Kanselleer',
+	'securepoll-strike-token-mismatch' => 'Sessie-data het verlore gegaan',
 	'securepoll-details-link' => 'Details',
+	'securepoll-details-title' => 'Stemdetails: #$1',
+	'securepoll-invalid-vote' => '"$1" is nie \'n geldig stem-ID nie',
+	'securepoll-header-voter-type' => 'Gebruikerstipe',
+	'securepoll-voter-properties' => 'Kieserseienskappe',
+	'securepoll-strike-log' => 'Logboek van doodgetrekte stemme',
 	'securepoll-header-action' => 'Handeling',
 	'securepoll-header-reason' => 'Rede',
+	'securepoll-header-admin' => 'Beheer',
 	'securepoll-translate-title' => 'Vertaal: $1',
 	'securepoll-submit-translate' => 'Opdateer',
 	'securepoll-submit-select-lang' => 'Vertaal',
@@ -258,6 +276,11 @@ $messages['af'] = array(
 	'securepoll-header-end-date' => 'Einddatum',
 	'securepoll-subpage-vote' => 'Stem',
 	'securepoll-subpage-translate' => 'Vertaal',
+	'securepoll-subpage-list' => 'Lys',
+	'securepoll-subpage-tally' => 'Telling',
+	'securepoll-tally-title' => 'Telling: $1',
+	'securepoll-ranks' => 'Eindstand',
+	'securepoll-average-score' => 'Gemiddelde punt',
 );
 
 /** Arabic (العربية)
@@ -315,6 +338,8 @@ $1',
 	'securepoll-invalid-rank' => 'رتبة غير مقبولة. يجب أن تعطي المرشحين رتبة بين 1 و 999.',
 	'securepoll-unranked-options' => 'لم يتم اعطاء رتبة لبعض الخيارات.
 يجب أن تعطي كل الخيارات رتبة ما بين 1 و 999.',
+	'securepoll-invalid-score' => 'الناتج يجب أن يكون عددا بين $1 و $2.',
+	'securepoll-unanswered-options' => 'يجب أن تعطي ردا لكل سؤال.',
 	'securepoll-remote-auth-error' => 'خطأ عند جلب معلومات حسابك من الخادوم.',
 	'securepoll-remote-parse-error' => 'خطأ عند تفسير رد التصريح من الخادوم.',
 	'securepoll-api-invalid-params' => 'محددات غير صحيحة.',
@@ -333,6 +358,7 @@ $1',
 	'securepoll-header-ip' => 'أيبي',
 	'securepoll-header-xff' => 'إكس إف إف',
 	'securepoll-header-ua' => 'وكيل المستخدم',
+	'securepoll-header-token-match' => 'سي إس آر إف',
 	'securepoll-header-cookie-dup' => 'مزدوج',
 	'securepoll-header-strike' => 'اشطب',
 	'securepoll-header-details' => 'التفاصيل',
@@ -367,6 +393,7 @@ $1',
 	'securepoll-submit-translate' => 'تحديث',
 	'securepoll-language-label' => 'اختر اللغة:',
 	'securepoll-submit-select-lang' => 'ترجم',
+	'securepoll-entry-text' => 'بالأسفل قائمة بالاقتراعات.',
 	'securepoll-header-title' => 'اسم',
 	'securepoll-header-start-date' => 'تاريخ البدء',
 	'securepoll-header-end-date' => 'تاريخ الانتهاء',
@@ -391,6 +418,7 @@ $1',
 	'securepoll-pairwise-victories' => 'مصفوفة انتصار الثنائيات',
 	'securepoll-strength-matrix' => 'مصفوفة قوة المسار',
 	'securepoll-ranks' => 'الترتيب النهائي',
+	'securepoll-average-score' => 'نتيجة متوسطة',
 );
 
 /** Aramaic (ܐܪܡܝܐ)
@@ -534,8 +562,22 @@ $1',
 /** Bulgarian (Български)
  * @author DCLXVI
  * @author Spiritia
+ * @author Turin
  */
 $messages['bg'] = array(
+	'securepoll-welcome' => '<strong>Добре дошли, $1!</strong>',
+	'securepoll-return' => 'Връщане към $1',
+	'securepoll-gpg-parse-error' => 'Грешка при интерпретирането на изхода на GNU Privacy Guard.',
+	'securepoll-jump' => 'Към сървъра за гласуване',
+	'securepoll-bad-ballot-submission' => 'Гласът ви беше невалиден: $1',
+	'securepoll-unanswered-questions' => 'Трябва да отговорите на всички въпроси.',
+	'securepoll-invalid-rank' => 'Невалиден ранг. За рангове на кандидатите трябва да посочвате цели числа между 1 и 999.',
+	'securepoll-unranked-options' => 'Някои от опциите не бяха ранжирани.
+На всяка от опциите трябва да поставите ранг цяло число между 1 и 999.',
+	'securepoll-unanswered-options' => 'Трябва да отговорите на всеки от въпросите.',
+	'securepoll-remote-auth-error' => 'Грешка при извличане от сървъра на информация за потребителската ви сметка.',
+	'securepoll-api-invalid-params' => 'Неправилни параметри.',
+	'securepoll-api-no-user' => 'Не е открит потребител, отговарящ на посочения идентификатор.',
 	'securepoll-api-token-mismatch' => 'Невалидна идентификация, неуспешен опит за влизане в системата.',
 	'securepoll-not-logged-in' => 'Трябва да сте влезли в системата с потребителското си име, за да участвате в това гласуване.',
 	'securepoll-too-few-edits' => 'За съжаление, не можете да гласувате. Трябва да сте направили най-малко $1 {{PLURAL:$1|редакция|редакции}}, за да имате право да участвате в гласуването, а вие сте направили $2.',
@@ -560,6 +602,7 @@ $messages['bg'] = array(
 	'securepoll-header-end-date' => 'Крайна дата',
 	'securepoll-subpage-vote' => 'Гласуване',
 	'securepoll-subpage-translate' => 'Превеждане',
+	'securepoll-subpage-list' => 'Списък',
 );
 
 /** Bengali (বাংলা)
@@ -856,6 +899,7 @@ Možete da izvršite prebrojavanje glasova koji su prisutni u bazi podataka ili 
  * @author Jordi Roqué
  * @author Paucabot
  * @author SMP
+ * @author Solde
  * @author Ssola
  * @author Vriullop
  */
@@ -977,6 +1021,7 @@ Podeu triar entre comptar els resultats presents a la base de dades, o de compta
 	'securepoll-no-upload' => "No s'ha carregat cap arxiu, no s'en poden comptar els resultats.",
 	'securepoll-dump-corrupt' => 'El fitxer bolcat es troba danyat i no pot ser processat.',
 	'securepoll-tally-upload-error' => 'Error al contar el fitxer bolcat: $1',
+	'securepoll-ranks' => 'Classificació final',
 );
 
 /** Czech (Česky)
@@ -2303,6 +2348,10 @@ $messages['eu'] = array(
 	'securepoll-need-admin' => 'Ekintza hori burutzeko hauteskundeetako administratzailea izan behar duzu.',
 	'securepoll-welcome' => '<strong>Ongi etorri $1!</strong>',
 	'securepoll-finished' => 'Hauteskundeak bukatu dira, beraz, ezin duzu bozkatu.',
+	'securepoll-not-qualified' => 'Ez zara bozketa honetan bozkatzen gai: $1',
+	'securepoll-change-allowed' => '<strong>Oharra: Bozketa honetan aurretik bozkatu duzu.</strong>
+Zure bozka alda dezakezu azpi orria betez.
+Kontuan izan hau egiten baduzu, zure jatorrizko bozka aldatuko dela.',
 	'securepoll-submit' => 'Bozka eman',
 	'securepoll-gpg-receipt' => 'Milesker bozkatzeagatik.
 
@@ -2321,16 +2370,22 @@ Errorea:
 	'securepoll-bad-ballot-submission' => 'Zure bozka ez da zuzena: $1',
 	'securepoll-unanswered-questions' => 'Galdera guztiak erantzun behar dituzu.',
 	'securepoll-api-invalid-params' => 'Parametro okerrak.',
+	'securepoll-not-logged-in' => 'Bozketa honetan parte hartzeko saioa hasi behar duzu',
 	'securepoll-list-title' => 'Bozken zerrenda: $1',
 	'securepoll-header-timestamp' => 'Ordua',
 	'securepoll-header-voter-name' => 'Izena',
 	'securepoll-header-details' => 'Xehetasunak',
 	'securepoll-strike-reason' => 'Arrazoia:',
 	'securepoll-strike-cancel' => 'Utzi',
+	'securepoll-strike-token-mismatch' => 'Saioko informazioa galdu da',
 	'securepoll-details-link' => 'Xehetasunak',
 	'securepoll-details-title' => 'Bozkaren xehetasunak: #$1',
+	'securepoll-header-voter-type' => 'Hautesle mota',
+	'securepoll-voter-properties' => 'Hauteslearen hobespenak',
 	'securepoll-header-reason' => 'Arrazoia',
+	'securepoll-header-admin' => 'Admin',
 	'securepoll-translate-title' => 'Itzuli: $1',
+	'securepoll-invalid-language' => '"$1" hizkuntza kodea okerra',
 	'securepoll-submit-translate' => 'Eguneratu',
 	'securepoll-language-label' => 'Hikuntza aukeratu:',
 	'securepoll-submit-select-lang' => 'Itzuli',
@@ -3901,6 +3956,7 @@ $messages['is'] = array(
 );
 
 /** Italian (Italiano)
+ * @author Aushulz
  * @author BrokenArrow
  * @author Capmo
  * @author Darth Kule
@@ -3958,6 +4014,7 @@ Impossibile decifrare.',
 	'securepoll-invalid-rank' => 'Voto non valido. Devi dare ai candidati un voto compreso tra 1 e 999.',
 	'securepoll-unranked-options' => 'Alcune voci sono prive di voto.
 Devi assegnare a ciascuna voce un voto compreso tra 1 e 999.',
+	'securepoll-unanswered-options' => 'Devi rispondere a tutte le domande.',
 	'securepoll-remote-auth-error' => 'Errore durante il recupero delle informazioni sul tuo account dal server.',
 	'securepoll-remote-parse-error' => "Errore nell'interpretare la risposta di autorizzazione dal server.",
 	'securepoll-api-invalid-params' => 'Parametri non validi.',
@@ -4005,6 +4062,7 @@ Al fine di garantire la privacy dei votanti, la procedura di votazione cifrata �
 	'securepoll-submit-translate' => 'Aggiorna',
 	'securepoll-language-label' => 'Scegli lingua:',
 	'securepoll-submit-select-lang' => 'Traduci',
+	'securepoll-entry-text' => 'Di seguito si trova la lista dei sondaggi.',
 	'securepoll-header-title' => 'Nome',
 	'securepoll-header-start-date' => 'Data di inizio',
 	'securepoll-header-end-date' => 'Data di fine',
@@ -4029,6 +4087,7 @@ Puoi scegliere di effettuare il conteggio dei risultati presenti nel database o 
 	'securepoll-pairwise-victories' => 'Matrice di vittoria a due a due',
 	'securepoll-strength-matrix' => 'Matrice di fortezza del percorso',
 	'securepoll-ranks' => 'Classifica finale',
+	'securepoll-average-score' => 'Media dei punteggi',
 );
 
 /** Japanese (日本語)
@@ -6683,17 +6742,39 @@ Você pode escolher entre realizar a contagem de votos dos resultados presentes 
  * @author Firilacroco
  * @author KlaudiuMihaila
  * @author Mihai
+ * @author Stelistcristi
  */
 $messages['ro'] = array(
+	'securepoll' => 'SondajSecurizat',
+	'securepoll-desc' => 'Extensie pentru alegeri şi anchete',
+	'securepoll-invalid-page' => 'Subpagină invalidă „<nowiki>$1</nowiki>”',
+	'securepoll-finished' => 'Alegerile s-au sfârşit, nu mai puteţi vota.',
+	'securepoll-not-qualified' => 'Nu sunteţi calificat să votaţi în aceste alegeri: $1',
 	'securepoll-submit' => 'Trimite votul',
+	'securepoll-gpg-receipt' => 'Mulţumesc pentru vot.
+
+Dacă doriţi aţi putea păstra următorul bon ca dovadă a votului dvs:
+
+<pre>$1</pre>',
+	'securepoll-thanks' => 'Mulţumim, votul tău a fost înregistrat,',
 	'securepoll-return' => 'Înapoi la $1',
+	'securepoll-encrypt-error' => 'A eşuat să se cripteze înregistrarea votului dvs.
+Votul dvs nu a fost înregistrat ! 
+
+$1',
+	'securepoll-jump' => 'Mergeţi la serverul de votare',
 	'securepoll-unanswered-questions' => 'Trebuie să răspunzi la toate întrebările.',
+	'securepoll-unanswered-options' => 'Trebuie să daţi un răspuns pentru fiecare întrebare.',
 	'securepoll-api-invalid-params' => 'Parametri incorecţi.',
 	'securepoll-api-no-user' => 'Niciun  utilizator cu acest ID nu a fost găsit.',
+	'securepoll-api-token-mismatch' => 'Semnul de securitate s-a dereglat, nu te poţi loga.',
+	'securepoll-not-logged-in' => 'Trebuie să vă autentificaţi pentru a vota în aceste alegeri',
+	'securepoll-too-few-edits' => 'Ne pare rău, nu puteţi vota. Trebuie să aveţi făcute cel puţin $1 {{PLURAL:$1|modificare|modificări}} pentru a vota în aceste alegeri, dvs aveţi făcute $2.',
 	'securepoll-list-title' => 'Listă voturi: $1',
 	'securepoll-header-timestamp' => 'Timp',
 	'securepoll-header-voter-name' => 'Nume',
 	'securepoll-header-voter-domain' => 'Domeniu',
+	'securepoll-header-ua' => 'Agent utilizator',
 	'securepoll-header-details' => 'Detalii',
 	'securepoll-strike-reason' => 'Motiv:',
 	'securepoll-strike-cancel' => 'Anulare',
@@ -6716,6 +6797,7 @@ $messages['ro'] = array(
 	'securepoll-subpage-translate' => 'Traducere',
 	'securepoll-subpage-list' => 'Listă',
 	'securepoll-subpage-dump' => 'Dump',
+	'securepoll-average-score' => 'Scorul mediu',
 );
 
 /** Tarandíne (Tarandíne)
@@ -7441,8 +7523,19 @@ $2 న, $3 లకు మోదలు అవుతుంది',
 	'securepoll-jump' => 'వోటింగ్ సర్వరుకు వెళ్ళుము',
 	'securepoll-bad-ballot-submission' => 'మీ వోటు చెల్లదు: $1',
 	'securepoll-unanswered-questions' => 'మీరు అన్ని ప్రశ్నలకి సమాధానము ఇవ్వవలెను.',
+	'securepoll-invalid-rank' => 'చెల్లని ర్యాంకు. మీరు అభ్యర్ధులకి రాంకులని 1 మరియు 999 మధ్యలో ఇవ్వాలి.',
+	'securepoll-unranked-options' => 'కొన్ని వికల్పాలకి మీరు ర్యాంకులు ఇవ్వలేదు.
+మీరు తప్పనిసరిగా అన్ని వికల్పాలకీ 1 మరియు 999 మధ్యలో ఒక ర్యాంకుని ఇవ్వాలి.',
+	'securepoll-unanswered-options' => 'మీరు తప్పనిసరిగా ప్రతీ ప్రశ్నకీ ఒక స్పందనని ఇవ్వాలి.',
+	'securepoll-remote-auth-error' => 'మీ ఖాతా సమాచారాన్ని సేవకి నుండి తేవడంలో పొరపాటు జరిగింది.',
+	'securepoll-api-no-user' => 'ఇచ్చిన IDతో వాడుకరులు ఎవరూ లేరు.',
 	'securepoll-not-logged-in' => 'ఈ ఎన్నికలో తమ వోటు హక్కును వినియోగించుకునేందుకు తమరు లోనికి ప్రవేశించి ఉండాలి',
 	'securepoll-too-few-edits' => 'క్షమించండి, తమరు వోటు వేయలేరు. ఈ ఎన్నికలో వోటు వేసేందుకు తమరు కనీసము $1 {{PLURAL:$1|మార్పు|మార్పులు}} చేసివుండాలి, కాని తమరు $2 చేసారు.',
+	'securepoll-blocked' => 'క్షమించండి, మిమ్మల్ని మార్చడం నుండి నిరోధించినందున మీరు ఈ ఎన్నికలో వోటు వేయలేరు.',
+	'securepoll-bot' => 'క్షమించండి, బాటు గుర్తుతో ఉన్న ఖాతాలకు ఈ ఎన్నికలో వోటేయడానికి అనుమతి లేదు.',
+	'securepoll-not-in-group' => 'ఈ ఎన్నికలలో "$1" గుంపు యొక్క సభ్యులు మాత్రమే వోటువేయగలరు.',
+	'securepoll-not-in-list' => 'క్షమించండి, ఈ ఎన్నికలో వోటేయడానికి ముందే నిర్ణయించిన అధీకృత వాడుకరుల జాబితాలో మీరు లేరు.',
+	'securepoll-list-title' => 'వోట్లను చూపించు: $1',
 	'securepoll-header-timestamp' => 'సమయం',
 	'securepoll-header-voter-name' => 'పేరు',
 	'securepoll-header-voter-domain' => 'డొమైన్',
@@ -7456,6 +7549,7 @@ $2 న, $3 లకు మోదలు అవుతుంది',
 	'securepoll-strike-cancel' => 'రద్దు',
 	'securepoll-details-link' => 'వివరాలు',
 	'securepoll-details-title' => 'వోటు వివరాలు: #$1',
+	'securepoll-invalid-vote' => '"$1" అనేది సరైన వోటు ID కాదు',
 	'securepoll-header-voter-type' => 'వోటర్ టైపు',
 	'securepoll-voter-properties' => 'వోటరు లక్షణాలు',
 	'securepoll-header-action' => 'చర్య',
@@ -7478,6 +7572,7 @@ $2 న, $3 లకు మోదలు అవుతుంది',
 	'securepoll-tally-local-legend' => 'భద్రపరిచిన ఫలితాలను సరిచూడు',
 	'securepoll-tally-error' => 'వోటు రికార్డును అర్ధం చేసుకోవదములో తప్పు దొర్లినది, లెక్కలను సరిచూడలేము.',
 	'securepoll-no-upload' => 'ఫైల్ ఏమి అప్లోడ్ అవ్వబడలేదు, ఫలితాలను సరి చూడలేము.',
+	'securepoll-average-score' => 'సగటు స్కోరు',
 );
 
 /** Thai (ไทย)
@@ -7556,6 +7651,54 @@ $1',
 	'securepoll-subpage-dump' => 'รวบรวม',
 	'securepoll-tally-not-finished' => 'ขออภัย คุณไม่สามารถนับคะแนนเลือกตั้งได้จนกว่าการลงคะแนนจะเสร็จสิ้น',
 	'securepoll-tally-no-key' => 'คุณไม่สามารถนับคะแนนเลือกตั้งนี้ได้ เพราะการลงคะแนนได้ถูกเข้ารหัสไว้ และไม่มีกุญแจถอดรหัส',
+);
+
+/** Turkmen (Türkmençe)
+ * @author Hanberke
+ */
+$messages['tk'] = array(
+	'securepoll' => 'HowpsuzSesberişlik',
+	'securepoll-invalid-page' => 'Nädogry kiçi sahypa "<nowiki>$1</nowiki>"',
+	'securepoll-too-few-params' => 'Kiçi sahypa parametrleri ýeterlik däl (nädogry çykgyt).',
+	'securepoll-welcome' => '<strong>Hoş geldiň, $1!</strong>',
+	'securepoll-finished' => 'Bu saýlaw gutardy, indi ses berip bilmeýärsiňiz.',
+	'securepoll-submit' => 'Sesi tabşyr',
+	'securepoll-bad-ballot-submission' => 'Sesiňiz hasap edilmeýär: $1',
+	'securepoll-unanswered-questions' => 'Ähli soraglara jogap bermelisiňiz.',
+	'securepoll-api-invalid-params' => 'Nädogry parametrler',
+	'securepoll-list-title' => 'Sesleriň sanawy: $1',
+	'securepoll-header-timestamp' => 'Wagt',
+	'securepoll-header-voter-name' => 'At',
+	'securepoll-header-voter-domain' => 'Domen',
+	'securepoll-header-strike' => 'Üstüni çyz',
+	'securepoll-header-details' => 'Jikme-jiklikler',
+	'securepoll-strike-button' => 'Üstüni çyz',
+	'securepoll-strike-reason' => 'Sebäp:',
+	'securepoll-strike-cancel' => 'Goýbolsun et',
+	'securepoll-details-link' => 'Jikme-jiklikler',
+	'securepoll-header-voter-type' => 'Saýlawçy tipi',
+	'securepoll-voter-properties' => 'Saýlawçy aýratynlyklary',
+	'securepoll-strike-log' => 'Üstüni çyzma gündeligi',
+	'securepoll-header-reason' => 'Sebäp',
+	'securepoll-header-admin' => 'Admin',
+	'securepoll-dump-title' => 'Damp: $1',
+	'securepoll-translate-title' => 'Terjime et: $1',
+	'securepoll-language-label' => 'Dil saýla:',
+	'securepoll-submit-select-lang' => 'Terjime et',
+	'securepoll-entry-text' => 'Aşakdaky ses berişlikleriň sanawydyr.',
+	'securepoll-header-title' => 'At',
+	'securepoll-header-start-date' => 'Başlangyç senesi',
+	'securepoll-header-end-date' => 'Gutaryş senesi',
+	'securepoll-subpage-vote' => 'Ses',
+	'securepoll-subpage-translate' => 'Terjime et',
+	'securepoll-subpage-list' => 'Sanaw',
+	'securepoll-subpage-dump' => 'Damp',
+	'securepoll-subpage-tally' => 'Sanama',
+	'securepoll-tally-title' => 'Sanama: $1',
+	'securepoll-tally-local-submit' => 'Sanama döret',
+	'securepoll-tally-upload-submit' => 'Sanama döret',
+	'securepoll-tally-upload-error' => 'Damp faýl sanamakda säwlik: $1',
+	'securepoll-average-score' => 'Ortaça baha',
 );
 
 /** Tagalog (Tagalog)
@@ -8547,13 +8690,17 @@ $1',
 	'securepoll-no-upload' => '没有上传文件。',
 	'securepoll-dump-corrupt' => '无法处理损坏的转储文件。',
 	'securepoll-tally-upload-error' => '转储文件记录错误：$1',
+	'securepoll-pairwise-victories' => '对比矩阵',
+	'securepoll-strength-matrix' => 'Path strength矩阵',
 	'securepoll-ranks' => '最终排名',
+	'securepoll-average-score' => '平均分',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
  * @author Alexsh
  * @author Bencmq
  * @author FireJackey
+ * @author Gaoxuewei
  * @author PhiLiP
  * @author Skjackey tse
  * @author Wong128hk
@@ -8562,7 +8709,7 @@ $messages['zh-hant'] = array(
 	'securepoll' => '安全投票',
 	'securepoll-desc' => '投票及選舉擴展',
 	'securepoll-invalid-page' => '無效的子頁面「<nowiki>$1</nowiki>」',
-	'securepoll-need-admin' => '您必須是管理員才能進行此操作。',
+	'securepoll-need-admin' => '您必須是選舉管理員才能進行此操作。',
 	'securepoll-too-few-params' => '缺少子頁面參數（無效鏈接）。',
 	'securepoll-invalid-election' => '「$1」不是有效的選舉編號。',
 	'securepoll-welcome' => '<strong>歡迎$1！</strong>',
@@ -8605,6 +8752,8 @@ $1',
 	'securepoll-unanswered-questions' => '您必須回答所有問題。',
 	'securepoll-invalid-rank' => '評級無效。給候選人的評級分數必須在1到999之間。',
 	'securepoll-unranked-options' => '部分選項尚未評級。所有選項均應評級，且分數應在1到999之間。',
+	'securepoll-invalid-score' => '分數必須介於$1和$2之間。',
+	'securepoll-unanswered-options' => '您必須回答每一個問題。',
 	'securepoll-remote-auth-error' => '在投票伺服器提取您的用户信息時出錯',
 	'securepoll-remote-parse-error' => '伺服器驗證錯誤',
 	'securepoll-api-invalid-params' => '參數無效',
@@ -8652,6 +8801,7 @@ $1',
 	'securepoll-submit-translate' => '更新',
 	'securepoll-language-label' => '請選擇語言：',
 	'securepoll-submit-select-lang' => '翻譯',
+	'securepoll-entry-text' => '下面是所有選舉的列表。',
 	'securepoll-header-title' => '名稱',
 	'securepoll-header-start-date' => '開始日期',
 	'securepoll-header-end-date' => '結束日期',
@@ -8672,6 +8822,8 @@ $1',
 	'securepoll-no-upload' => '沒有上傳文件。',
 	'securepoll-dump-corrupt' => '無法處理損壞的轉儲檔案。',
 	'securepoll-tally-upload-error' => '轉儲檔案記錄錯誤：$1',
+	'securepoll-ranks' => '最終排名',
+	'securepoll-average-score' => '平均分',
 );
 
 /** Chinese (Hong Kong) (‪中文(香港)‬)
