@@ -239,13 +239,35 @@ The /dev/urandom cryptographic random number generation device is not supported 
  */
 $messages['af'] = array(
 	'securepoll' => 'VeiligStem',
+	'securepoll-desc' => 'Uitbreiding vir stemmings en opnames',
+	'securepoll-invalid-page' => 'Ongeldige subbladsy "<nowiki>$1</nowiki>"',
 	'securepoll-invalid-election' => '"$1" is nie \'n geldig ID vir \'n stemmig nie.',
 	'securepoll-welcome' => '<strong>Welkom, $1!</strong>',
+	'securepoll-finished' => 'Hierdie stemming is afgehandel, u kan nie meer stem nie.',
 	'securepoll-submit' => 'Dien stem in',
+	'securepoll-gpg-receipt' => 'Baie dankie vir u stem.
+
+As u wil, kan u kan die volgende kwitansie as bewys hou:
+
+<pre>$1</pre>',
+	'securepoll-thanks' => 'Dankie, u stem is ontvang en vasgelê.',
 	'securepoll-return' => 'Keer terug na $1',
+	'securepoll-no-gpg-home' => 'Nie in staat om GPG-tuisgids te skep nie.',
+	'securepoll-full-gpg-error' => 'Fout met die uitvoer van GPG:
+
+Bevel: $1
+
+Fout: <pre>$2</pre>',
+	'securepoll-jump' => 'Gaan na die stemming-bediener',
 	'securepoll-bad-ballot-submission' => 'U stem is ongeldig: $1',
 	'securepoll-unanswered-questions' => 'U moet alle vrae beantwoord.',
+	'securepoll-invalid-score' => "Die telling moet 'n getal tussen $1 en $2 wees.",
+	'securepoll-unanswered-options' => 'U moet al die vrae beantwoord.',
+	'securepoll-remote-auth-error' => "'n Fout het voorgekom met die opkyk van u rekening se inligting vanaf die bediener.",
 	'securepoll-api-invalid-params' => 'Ongeldige parameters.',
+	'securepoll-api-no-user' => 'Geen gebruiker met die gegewe ID gevind nie.',
+	'securepoll-bot' => "Jammer, gebruikers met 'n botvlag word nie toegelaat om aan die stemming deel te neem nie.",
+	'securepoll-not-in-group' => 'Slegs lede van die groep "$1" kan aan hierdie stemming deelneem.',
 	'securepoll-list-title' => 'Wys stemme: $1',
 	'securepoll-header-timestamp' => 'Tyd',
 	'securepoll-header-voter-name' => 'Naam',
@@ -268,17 +290,27 @@ $messages['af'] = array(
 	'securepoll-header-action' => 'Handeling',
 	'securepoll-header-reason' => 'Rede',
 	'securepoll-header-admin' => 'Beheer',
+	'securepoll-cookie-dup-list' => 'Gebruikers met duplikaat koekies',
+	'securepoll-dump-title' => 'Dump: $1',
 	'securepoll-translate-title' => 'Vertaal: $1',
+	'securepoll-invalid-language' => 'Ongeldige taalkode "$1"',
 	'securepoll-submit-translate' => 'Opdateer',
+	'securepoll-language-label' => 'Kies taal:',
 	'securepoll-submit-select-lang' => 'Vertaal',
+	'securepoll-entry-text' => 'Hieronder is die lys van stemmings.',
 	'securepoll-header-title' => 'Naam',
 	'securepoll-header-start-date' => 'Begindatum',
 	'securepoll-header-end-date' => 'Einddatum',
 	'securepoll-subpage-vote' => 'Stem',
 	'securepoll-subpage-translate' => 'Vertaal',
 	'securepoll-subpage-list' => 'Lys',
+	'securepoll-subpage-dump' => 'Dump',
 	'securepoll-subpage-tally' => 'Telling',
 	'securepoll-tally-title' => 'Telling: $1',
+	'securepoll-tally-local-submit' => 'Skep telling',
+	'securepoll-tally-upload-submit' => 'Skep telling',
+	'securepoll-no-upload' => 'Geen lêer is opgelaai nie.
+Die resultate kan nie getel word nie.',
 	'securepoll-ranks' => 'Eindstand',
 	'securepoll-average-score' => 'Gemiddelde punt',
 );
@@ -580,6 +612,7 @@ $messages['bg'] = array(
 	'securepoll-change-allowed' => '<strong>Забележка: Вие вече сте участвали в това гласуване.</strong>
 Можете да промените подадения вече глас, като попълните формуляра по-долу.
 По този начин първоначално подаденият ви глас ще бъде анулиран.',
+	'securepoll-submit' => 'Гласуване',
 	'securepoll-gpg-receipt' => 'Благодарим ви за участието в гласуването.
 
 Ако желаете, можете да запазите следния код като доказателство за вашето гласуване:
@@ -622,6 +655,7 @@ $1',
 	'securepoll-bot' => 'За съжаление, потребителски сметки, отбелязани като ботове, не могат да вземат участие в това гласуване.',
 	'securepoll-not-in-group' => 'Само членове на потребителска група "$1" могат да вземат участие в това гласуване.',
 	'securepoll-not-in-list' => 'За съжаление, вашето потребителско име не фигурира в предварително определения списък на потребителите с право на участие в това гласуване.',
+	'securepoll-list-title' => 'Списък на гласуванията: $1',
 	'securepoll-header-timestamp' => 'Време',
 	'securepoll-header-voter-name' => 'Име',
 	'securepoll-header-voter-domain' => 'Домейн',
@@ -1984,6 +2018,7 @@ $1',
 	'securepoll-submit-translate' => 'Ενημέρωση',
 	'securepoll-language-label' => 'Επιλογή γλώσσας:',
 	'securepoll-submit-select-lang' => 'Μετάφραση',
+	'securepoll-entry-text' => 'Παρακάτω είναι η λίστα των δημοσκοπήσεων.',
 	'securepoll-header-title' => 'Όνομα',
 	'securepoll-header-start-date' => 'Ημερομηνία έναρξης',
 	'securepoll-header-end-date' => 'Ημερομηνία λήξης',
@@ -2270,6 +2305,7 @@ Puede escoger entre escrutar los resultados de la base de datos, o escrutar los 
 	'securepoll-dump-corrupt' => 'El archivo volcado se encuentra dañado y no puede ser procesado.',
 	'securepoll-tally-upload-error' => 'Error al contar el archivo volcado: $1',
 	'securepoll-ranks' => 'Rango final',
+	'securepoll-average-score' => 'Puntuación media',
 );
 
 /** Estonian (Eesti)
@@ -2535,6 +2571,7 @@ Salausta ei voi purkaa.',
 	'securepoll-unanswered-questions' => 'Sinun täytyy vastata kaikkiin kysymyksiin.',
 	'securepoll-invalid-rank' => 'Virheellinen sijanumero. Ehdokkaille antamasi sijanumeron on sijaittava välillä 1 ja 999.',
 	'securepoll-unranked-options' => 'Joitain vaihtoehtoja ei asetettu paremmuusjärjestykseen. Jokaiselle vaihtoehdolle pitää tarjota sijoitus väliltä 1 ja 999.',
+	'securepoll-invalid-score' => 'Pisteiden tulee olla välillä $1 ja $2.',
 	'securepoll-unanswered-options' => 'Sinun täytyy antaa vastaus kaikkiin kysymyksiin.',
 	'securepoll-remote-auth-error' => 'Virhe hakiessa käyttäjätilisi tietoja palvelimelta.',
 	'securepoll-remote-parse-error' => 'Virhe tulkittaessa lupavastausta palvelimelta.',
@@ -5299,6 +5336,7 @@ $1',
 	'securepoll-invalid-score' => 'നൽകുന്ന വില $1, $2 എന്നിവയുടെ ഇടയിലുള്ളതായിരിക്കണം.',
 	'securepoll-unanswered-options' => 'എല്ലാ ചോദ്യങ്ങൾക്കും താങ്കൾ പ്രതികരിക്കേണ്ടതാണ്.',
 	'securepoll-remote-auth-error' => 'താങ്കളുടെ അംഗത്വ വിവരങ്ങൾ സെർവറിൽ നിന്ന് ശേഖരിക്കുമ്പോൾ പിഴവ് സംഭവിച്ചിരിക്കുന്നു.',
+	'securepoll-remote-parse-error' => 'സെർവറിൽ നിന്നുള്ള അംഗീകരണ പ്രതികരണം വ്യാഖ്യാനിക്കുന്നതിൽ പിഴവുണ്ടായി.',
 	'securepoll-api-invalid-params' => 'അസാധുവായ ചരങ്ങൾ.',
 	'securepoll-api-no-user' => 'ലഭ്യമാക്കിയ ഐ.ഡി.യിൽ ഉപയോക്താക്കളെ ഒന്നും കണ്ടെത്താനായില്ല.',
 	'securepoll-api-token-mismatch' => 'സുരക്ഷാ ചീട്ട് ഒത്തുപോകുന്നില്ല, പ്രവേശിക്കാൻ കഴിയില്ല.',
@@ -5359,6 +5397,7 @@ $1',
 	'securepoll-tally-upload-legend' => 'നിഗൂഢീകരിക്കപ്പെട്ട ഡമ്പ് അപ്‌‌ലോഡ് ചെയ്യുക',
 	'securepoll-tally-upload-submit' => 'ഒത്തുനോക്കുക',
 	'securepoll-no-upload' => 'യാതൊരു പ്രമാണവും അപ്‌‌ലോഡ് ചെയ്തിട്ടില്ല, ഫലങ്ങൾ തുലനം ചെയ്യാൻ കഴിയില്ല.',
+	'securepoll-dump-corrupt' => 'ഡമ്പ് പ്രമാണം കേടാണ്, അതുകൊണ്ട് മുന്നോട്ടുപോകാൻ കഴിയില്ല.',
 	'securepoll-tally-upload-error' => 'ഒത്തുനോക്കുന്നതിൽ പിഴവുണ്ടായ ഡമ്പ് പ്രമാണം: $1',
 	'securepoll-ranks' => 'അന്തിമ റാങ്കിങ്',
 	'securepoll-average-score' => 'ശരാശരി സ്കോർ',
@@ -7906,6 +7945,7 @@ $2 న, $3 లకు మోదలు అవుతుంది',
  * @author Woraponboonkerd
  */
 $messages['th'] = array(
+	'securepoll' => 'การลงคะแนนลับ',
 	'securepoll-desc' => 'ส่วนขยายสำหรับการลงคะแนนและการสำรวจ',
 	'securepoll-invalid-page' => 'ไม่มีหน้าย่อย "<nowiki>$1</nowiki>"',
 	'securepoll-need-admin' => 'คุณต้องเป็นผู้ดูแลระบบการเลือกตั้งในการกระทำสิ่งนี้',
@@ -7934,12 +7974,31 @@ $messages['th'] = array(
 
 $1',
 	'securepoll-no-gpg-home' => 'ไม่สามารถสร้างไดเร็กทอรีหลักของ GPG ได้',
+	'securepoll-secret-gpg-error' => 'เกิดความผิดพลาดในการเข้าถึง GPG
+กรุณาใช้ $wgSecurePollShowErrorDetail=true; ใน LocalSettings.php เพิ่อแสดงรายละเอียดเพิ่มเติม',
+	'securepoll-full-gpg-error' => 'เกิดความผิดพลาดในการเข้าถึง GPG:
+
+คำสั่ง: $1
+
+ความผิดพลาด:
+<pre>$2</pre>',
+	'securepoll-gpg-config-error' => 'รหัสกุญแจของ GPG ไม่ได้ถูกตั้งค่าอย่างถูกต้อง',
+	'securepoll-gpg-parse-error' => 'ผิดพลาดในการแปลรหัส GPG ขาออก',
 	'securepoll-no-decryption-key' => 'ไม่ได้ตั้งค่ากุญแจถอดรหัสไว้
 ไม่สามารถถอดรหัสได้',
 	'securepoll-jump' => 'ไปยังเซิร์ฟเวอร์ลงคะแนน',
 	'securepoll-bad-ballot-submission' => 'การลงคะแนนของคุณไม่ถูกต้อง: $1',
 	'securepoll-unanswered-questions' => 'คุณต้องตอบคำถามให้ครบทุกข้อ',
+	'securepoll-invalid-rank' => 'เรียงอันดับไม่ถูกต้อง คุณต้องให้อันดับแก่ผู้สมัครตั้งแต่ 1 ถึง 999',
+	'securepoll-unranked-options' => 'ตัวเลือกบางอย่างไม่ได้ถูกจัดอันดับ
+คุณต้องจัดอันดับตัวเลือกทุกตัวระหว่าง 1 ถึง 999',
+	'securepoll-invalid-score' => 'คะแนนต้องเป็นตัวเลขระหว่าง $1 และ $2',
+	'securepoll-unanswered-options' => 'คุณต้องตอบคำถามทุกข้อ',
 	'securepoll-remote-auth-error' => 'เิกิดความผิดพลา่ดในการดึงข้อมูลของชื่อบัญชีของคุณจากเซิร์ฟเวอร์',
+	'securepoll-remote-parse-error' => 'ผิดพลาดในการแปลข้อมูลการอนุญาตตอบกลับจากเซิร์ฟเวอร์',
+	'securepoll-api-invalid-params' => 'ค่าตัวแปรไม่ถูกต้อง',
+	'securepoll-api-no-user' => 'ไม่พบผู้ใช้ที่มีรหัส ID ที่กำหนด',
+	'securepoll-api-token-mismatch' => 'รหัสรักษาความปลอดภัยไม่ตรงกัน ไม่สามารถลงชื่อเข้าใช้ได้',
 	'securepoll-not-logged-in' => 'คุณต้องลงชื่อเข้าระบบเพื่อลงคะแนนในการเลือกตั้งครั้งนี้',
 	'securepoll-too-few-edits' => 'ขออภัย คุณไม่สามารถลงคะแนนได้ คุณต้องเข้าร่วมแก้ไขอย่างน้อย $1 ครั้ง จึงจะสามารถเข้าร่่วมลงคะแนนในการเลือกตั้งครั้งนี้ได้ ซึ่งที่ผ่านมาคุณได้เข้าร่วมแก้ไขจำนวน $2 ครั้ง',
 	'securepoll-blocked' => 'ขออภัย คุณไม่สามารถลงคะแนนในการเลือกตั้งครั้งนี้ได้ หากคุณกำลังอยู่ในระหว่างการถูกห้ามการแก้ไข',
@@ -7955,12 +8014,20 @@ $1',
 	'securepoll-strike-reason' => 'เหตุผล:',
 	'securepoll-strike-cancel' => 'ยกเลิก',
 	'securepoll-strike-error' => 'เกิดความผิดพลาดในการขีดฆ่า/ยกเลิกขีดฆ่า: $1',
+	'securepoll-strike-token-mismatch' => 'ข้อมูลของภาคนี้สูญหาย',
 	'securepoll-details-link' => 'รายละเอียด',
 	'securepoll-details-title' => 'รายละเอียดการลงคะแนน: #$1',
 	'securepoll-invalid-vote' => '"$1" ไม่ใช่รหัสประจำการลงคะแนนที่ถูกต้อง',
 	'securepoll-header-voter-type' => 'ประเภทของผู้ลงคะแนน',
 	'securepoll-voter-properties' => 'คุณสมบัติของผู้ลงคะแนน',
+	'securepoll-header-action' => 'การกระทำ',
 	'securepoll-header-reason' => 'เหตุผล',
+	'securepoll-header-admin' => 'ผู้ดูแลระบบ',
+	'securepoll-cookie-dup-list' => 'ผู้ใช้ที่มี Cookie ซ้ำกัน',
+	'securepoll-dump-no-crypt' => 'ไม่มีบันทึกการเลือกตั้งที่ถูกเข้ารหัสไว้สำหรับการเลือกตั้งนี้ เพราะการเลือกตั้งนี้ไม่ได้ถูกตั้งให้เข้ารหัสไว้',
+	'securepoll-dump-not-finished' => 'บันทึกการเลือกตั้งที่ถูกเข้ารหัสไว้ จะมีหลังจากเสร็จสิ้นการเลือกตั้งวันที่ $1 เวลา $2',
+	'securepoll-dump-no-urandom' => 'ไม่สามารถเปิด /dev/urandom ได้
+เพื่อรักษาความเป็นส่วนตัวของผู้ลงคะแนน บันทึกการเลือกตั้งที่ถูกเข้ารหัสไว้จะเปิดเผยต่อสาธารณะเมื่อบันทึกเหล่านั้นได้ถูกสุ่มเลือกด้วยระบบสุ่มหมายเลขลับ',
 	'securepoll-translate-title' => 'แปลภาษา: $1',
 	'securepoll-invalid-language' => 'รหัสภาษา "$1" ไม่ถูกต้อง',
 	'securepoll-language-label' => 'เลือกภาษา:',
@@ -7973,7 +8040,16 @@ $1',
 	'securepoll-subpage-list' => 'รายการ',
 	'securepoll-subpage-dump' => 'รวบรวม',
 	'securepoll-tally-not-finished' => 'ขออภัย คุณไม่สามารถนับคะแนนเลือกตั้งได้จนกว่าการลงคะแนนจะเสร็จสิ้น',
+	'securepoll-can-decrypt' => 'บันทึกการเลือกตั้งได้ถูกเข้ารหัสไว้ แต่ไม่มีรหัสสำหรับการถอดรหัส
+คุณสามารถเลือกที่จะนับผลการเลือกตั้งที่ปรากฎในฐานข้อมูล หรือนับคะแนนของบันทึกที่ถูกเข้ารหัสจากไฟล์ที่ถูกอัพโหลดไว้',
 	'securepoll-tally-no-key' => 'คุณไม่สามารถนับคะแนนเลือกตั้งนี้ได้ เพราะการลงคะแนนได้ถูกเข้ารหัสไว้ และไม่มีกุญแจถอดรหัส',
+	'securepoll-tally-local-legend' => 'ผลการนับคะแนนที่ถูกเก็บไว้',
+	'securepoll-tally-local-submit' => 'สร้างผลการนับคะแนน',
+	'securepoll-tally-upload-submit' => 'สร้างผลการนับคะแนน',
+	'securepoll-tally-error' => 'ผิดพลาดในการแปลบันทึกการลงคะแนน ไม่สามารถนับคะแนนได้',
+	'securepoll-no-upload' => 'ไม่มีไฟล์ใดๆ ถูกอัพโหลด ไม่สามารถนับคะแนนได้',
+	'securepoll-ranks' => 'อันดับอย่างเป็นทางการ',
+	'securepoll-average-score' => 'คะแนนเฉลี่ย',
 );
 
 /** Turkmen (Türkmençe)
