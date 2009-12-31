@@ -462,6 +462,135 @@ $messages['arc'] = array(
 	'securepoll-header-reason' => 'ܥܠܬܐ',
 );
 
+/** Egyptian Spoken Arabic (مصرى)
+ * @author Meno25
+ */
+$messages['arz'] = array(
+	'securepoll' => 'استطلاع رأى آمن',
+	'securepoll-desc' => 'امتداد لأجل الانتخابات و استطلاعات الرأي',
+	'securepoll-invalid-page' => 'صفحه فرعيه غير صحيحه "<nowiki>$1</nowiki>"',
+	'securepoll-need-admin' => 'يجب أن تكون إدارى انتخابات للقيام بهذا الفعل.',
+	'securepoll-too-few-params' => 'قيم وسيطه صفحه فرعيه غير كافيه (وصله غير صحيحة).',
+	'securepoll-invalid-election' => '"$1" ليس رمز تعريف انتخابات صحيح.',
+	'securepoll-welcome' => '<strong>مرحبا $1!</strong>',
+	'securepoll-not-started' => 'هذه الانتخابات لم تبدأ بعد.
+من المقرر لها ان تبدأ فى  $2 ب $3.',
+	'securepoll-finished' => 'انتهت هذه الانتخابات، لم تعد قادرا على التصويت.',
+	'securepoll-not-qualified' => 'أنت غير مؤهل للتصويت فى هذه الانتخابات: $1',
+	'securepoll-change-disallowed' => 'لقد قمت بالتصويت فى هذه الانتخابات من قبل.
+عذرا، لا يمكنك التصويت مره أخرى.',
+	'securepoll-change-allowed' => '<strong>ملاحظة: لقد قمت بالتصويت فى هذه الانتخابات من قبل</strong>
+يمكنك تغيير صوتك باستخدام النموذج بالأسفل.
+لاحظ انه اذا قمت بذلك، سيتم اهمال تصويتك السابق.',
+	'securepoll-submit' => 'قدم صوتك',
+	'securepoll-gpg-receipt' => 'شكرا لتصويتك
+
+لو اردت، يمكنك الاحتفاظ بالايصال التالى كدليل على تصويتك:
+
+<pre>$1</pre>',
+	'securepoll-thanks' => 'شكرا لك، تم تسجيل تصويتك.',
+	'securepoll-return' => 'ارجع الى $1',
+	'securepoll-encrypt-error' => 'قد فشل تشفير سجل تصويتك.
+تصويتك لم يتم تسجيله!
+
+$1',
+	'securepoll-no-gpg-home' => 'لم يمكن خلق دليل الموطن ل GPG.',
+	'securepoll-secret-gpg-error' => 'خطأ أثناء تشغيل GPG.
+قم باستخدام $wgSecurePollShowErrorDetail=true; فى LocalSettings.php لاظهار المزيد من التفاصيل.',
+	'securepoll-full-gpg-error' => 'خطأ أثناء تشغيل GPG:
+
+الأمر: $1
+
+الخطأ:
+
+<pre>$2</pre>',
+	'securepoll-gpg-config-error' => 'مفاتيح GPG مهيئه بشكل غير صحيح.',
+	'securepoll-gpg-parse-error' => 'خطأ بتفسير نتيجه GPG .',
+	'securepoll-no-decryption-key' => 'لا توجد مفاتيح فك تعميه مهيئه.
+لا يمكن فك التعميه.',
+	'securepoll-jump' => 'اذهب إلى خادم التصويت',
+	'securepoll-bad-ballot-submission' => 'تصويتك ليس صحيحا: $1',
+	'securepoll-unanswered-questions' => 'يجب أن تجيب على كل الأسئله.',
+	'securepoll-invalid-rank' => 'رتبه غير مقبوله. يجب أن تعطى المرشحين رتبه بين 1 و 999.',
+	'securepoll-unranked-options' => 'لم يتم اعطاء رتبه لبعض الخيارات.
+يجب أن تعطى كل الخيارات رتبه ما بين 1 و 999.',
+	'securepoll-invalid-score' => 'الناتج يجب أن يكون عددا بين $1 و $2.',
+	'securepoll-unanswered-options' => 'يجب أن تعطى ردا لكل سؤال.',
+	'securepoll-remote-auth-error' => 'خطأ عند جلب معلومات حسابك من الخادوم.',
+	'securepoll-remote-parse-error' => 'خطأ عند تفسير رد التصريح من الخادوم.',
+	'securepoll-api-invalid-params' => 'محددات غير صحيحه.',
+	'securepoll-api-no-user' => 'لم يوجد أى مستخدم بالهويه المعطاه.',
+	'securepoll-api-token-mismatch' => 'نص الأمان لا يطابق، لا يمكن تسجيل الدخول.',
+	'securepoll-not-logged-in' => 'يجب أن تدخل لتصوت فى هذه الانتخابات',
+	'securepoll-too-few-edits' => 'عذرا لا يمكنك التصويت. يجب أن تقوم ب{{PLURAL:$1||تعديل واحد|تعديلين|$1 تعديلات|$1 تعديلًا|$1 تعديل}} على الأقل لتصوت فى هذه الانتخابات، بينما قمت ب$2.',
+	'securepoll-blocked' => 'عذرا، لا تستطيع التصويت فى هذه الانتخابات إذا كنت ممنوعا حاليا من التعديل.',
+	'securepoll-bot' => 'عذرا، الحسابات ذات أعلام البوت غير مسموح لها بالتصويت فى هذه الانتخابات.',
+	'securepoll-not-in-group' => 'فقط المستخدمين من المجموعه "$1" يمكنهم التصويت فى هذه الانتخابات.',
+	'securepoll-not-in-list' => 'عذرا، لست فى القائمه المُعدّه للمستخدمين المصرح لهم بالتصويت فى هذه الانتخابات.',
+	'securepoll-list-title' => 'قائمه التصويتات: $1',
+	'securepoll-header-timestamp' => 'الوقت',
+	'securepoll-header-voter-name' => 'الاسم',
+	'securepoll-header-voter-domain' => 'النطاق',
+	'securepoll-header-ua' => 'وكيل المستخدم',
+	'securepoll-header-cookie-dup' => 'مزدوج',
+	'securepoll-header-strike' => 'اشطب',
+	'securepoll-header-details' => 'التفاصيل',
+	'securepoll-strike-button' => 'اشطب',
+	'securepoll-unstrike-button' => 'الغاء الشطب',
+	'securepoll-strike-reason' => 'السبب:',
+	'securepoll-strike-cancel' => 'ألغِ',
+	'securepoll-strike-error' => 'خطأ اثناء القيام بالشطب/الغاء الشطب: $1',
+	'securepoll-strike-token-mismatch' => 'فقدت بيانات الجلسة',
+	'securepoll-details-link' => 'التفاصيل',
+	'securepoll-details-title' => 'تفاصيل التصويت: #$1',
+	'securepoll-invalid-vote' => '"$1" ليس رمز تعريف تصويت صحيح.',
+	'securepoll-header-voter-type' => 'نوع المستخدم',
+	'securepoll-voter-properties' => 'خصائص التصويت',
+	'securepoll-strike-log' => 'سجل الشطب',
+	'securepoll-header-action' => 'الاجراء',
+	'securepoll-header-reason' => 'السبب',
+	'securepoll-header-admin' => 'الادارة',
+	'securepoll-cookie-dup-list' => 'المستخدمون مزدوجو الكوكي',
+	'securepoll-dump-title' => 'النتيجة: $1',
+	'securepoll-dump-no-crypt' => 'لا يوجد سجل انتخابات مشفر متاح لهذه الانتخابات، بسبب ان الانتخابات غير مهيئه لاستخدام التشفير.',
+	'securepoll-dump-not-finished' => 'سجلات الانتخابات المشفره متاحه فقط بعد تاريخ الانتهاء فى $1 ب $2',
+	'securepoll-dump-no-urandom' => 'لا يمكن فتح /dev/urandom.
+للحفاظ على خصوصيه المصوتين، سجلات الانتخابات المشفره تتاح على الملأ عندما يمكن خلطهم عن طريق سيل ارقام عشوائيه آمن.',
+	'securepoll-urandom-not-supported' => 'هذا الخادم لا يدعم توليد أرقام عن طريق الترميز العشوائى.
+للحفاظ على خصوصيه الناخبين ، سجلات الانتخابات المشفره ليست متاحه علانيه الا عندما يمكن خلطهم عن طريق دفق رقمى عشوائى آمن  .',
+	'securepoll-translate-title' => 'ترجم: $1',
+	'securepoll-invalid-language' => 'كود لغه غير صحيح "$1"',
+	'securepoll-submit-translate' => 'تحديث',
+	'securepoll-language-label' => 'اختر اللغة:',
+	'securepoll-submit-select-lang' => 'ترجم',
+	'securepoll-entry-text' => 'بالأسفل قائمه بالاقتراعات.',
+	'securepoll-header-title' => 'اسم',
+	'securepoll-header-start-date' => 'تاريخ البدء',
+	'securepoll-header-end-date' => 'تاريخ الانتهاء',
+	'securepoll-subpage-vote' => 'صوت',
+	'securepoll-subpage-translate' => 'ترجم',
+	'securepoll-subpage-list' => 'قائمة',
+	'securepoll-subpage-dump' => 'تخزين',
+	'securepoll-subpage-tally' => 'المحصلة',
+	'securepoll-tally-title' => 'المحصلة: $1',
+	'securepoll-tally-not-finished' => 'عذرا، لن تستطيع تحصيل الانتخابات حتى يكتمل التصويت.',
+	'securepoll-can-decrypt' => 'لقد عُمّى سجل الانتخابات، لكن مفتاح فك التعميه متوفر.
+تستطيع الاختيار بين تحصيل الانتخابات فى  قاعده البيانات مباشره، أو تحصيل نتائج معماه من ملفٍ مرفوع.',
+	'securepoll-tally-no-key' => 'لا تستطيع تحصيل هذه الانتخابات، لأن التصويتات مُعمّاه، ومفتاح فك التعميه غير متوفر.',
+	'securepoll-tally-local-legend' => 'محصله النتائج المخزنة',
+	'securepoll-tally-local-submit' => 'أنشئ محصلة',
+	'securepoll-tally-upload-legend' => 'رفع خزين مشفر',
+	'securepoll-tally-upload-submit' => 'أنشئ محصلة',
+	'securepoll-tally-error' => 'خطأ فى تفسير سجل التصويت، تعذّر توليد محصله.',
+	'securepoll-no-upload' => 'لم يرفع ملف، تعذّر تحصيل النتائج.',
+	'securepoll-dump-corrupt' => 'ملف التفريغ تالف و لا يمكن معالجته.',
+	'securepoll-tally-upload-error' => 'خطأ أثناء فرز ملف التفريغ: $1',
+	'securepoll-pairwise-victories' => 'مصفوفه انتصار الثنائيات',
+	'securepoll-strength-matrix' => 'مصفوفه قوه المسار',
+	'securepoll-ranks' => 'الترتيب النهائي',
+	'securepoll-average-score' => 'نتيجه متوسطة',
+);
+
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
  * @author Jim-by
@@ -8066,8 +8195,12 @@ $messages['tk'] = array(
 	'securepoll-invalid-election' => '"$1" dogry saylaw ID-si däl',
 	'securepoll-welcome' => '<strong>Hoş geldiň, $1!</strong>',
 	'securepoll-finished' => 'Bu saýlaw gutardy, indi ses berip bilmeýärsiňiz.',
+	'securepoll-not-qualified' => 'Bu saýlawda ses bermäge hukugyňyz ýok: $1',
 	'securepoll-submit' => 'Sesi tabşyr',
+	'securepoll-return' => '$1 sahypasyna gaýdyp bar',
+	'securepoll-no-gpg-home' => 'GPG öý direktoriýasyny döredip bilmeýär.',
 	'securepoll-gpg-config-error' => 'GPG açarlary nädogry konfigurirlenipdir.',
+	'securepoll-gpg-parse-error' => 'GPG önümi interpretasiýasynda säwlik.',
 	'securepoll-no-decryption-key' => 'Rasşifrowka açary konfigurirlenmändir.
 Rasşifrowka edip bolmaýar.',
 	'securepoll-jump' => 'Ses beriş serwerine git',
@@ -8081,7 +8214,9 @@ Rasşifrowka edip bolmaýar.',
 	'securepoll-api-no-user' => 'Berlen ID-de hiç hili ulanyjy tapylmady',
 	'securepoll-api-token-mismatch' => 'Howpsuzlyk belligi gabat gelmeýär, sessiýa açyp bolmaýar.',
 	'securepoll-not-logged-in' => 'Saýlawda ses bermek üçin sessiýa açmaly',
+	'securepoll-too-few-edits' => 'Gynansak-da, ses berip bilmeýärsiňiz. Bu saýlawda ses bermek üçin iň bolmanda $1 sany {{PLURAL:$1|özgerdiş|özgerdiş}} etmegiňiz zerurdyr, siziň $2 özgerdişiňiz bar.',
 	'securepoll-blocked' => 'Bagyşlaň, redkatirlemez ýaly blokirlenen bolsaňyz onda ses berip bilmeýärsiňiz.',
+	'securepoll-bot' => 'Gynansak-da, bot diýlip belenilen hasaplar bu saýlawda ses berip bilmeýär.',
 	'securepoll-not-in-group' => 'Bu saýlawda diňe "$1" toparynyň agzalary ses berip bilýär.',
 	'securepoll-list-title' => 'Sesleriň sanawy: $1',
 	'securepoll-header-timestamp' => 'Wagt',
@@ -8109,6 +8244,7 @@ Rasşifrowka edip bolmaýar.',
 	'securepoll-cookie-dup-list' => 'Kuki dublikat uanyjylary',
 	'securepoll-dump-title' => 'Damp: $1',
 	'securepoll-translate-title' => 'Terjime et: $1',
+	'securepoll-invalid-language' => 'Nädogry dil kody "$1"',
 	'securepoll-submit-translate' => 'Täzele',
 	'securepoll-language-label' => 'Dil saýla:',
 	'securepoll-submit-select-lang' => 'Terjime et',
@@ -8122,6 +8258,7 @@ Rasşifrowka edip bolmaýar.',
 	'securepoll-subpage-dump' => 'Damp',
 	'securepoll-subpage-tally' => 'Sanama',
 	'securepoll-tally-title' => 'Sanama: $1',
+	'securepoll-tally-not-finished' => 'Gynansak-da, saýlaw gutarýança sesleri sanap bilmeýärsiňiz.',
 	'securepoll-tally-local-legend' => 'Ýazdyrylan sesleri sana',
 	'securepoll-tally-local-submit' => 'Sanama döret',
 	'securepoll-tally-upload-legend' => 'Şifrli dampy ýükle',
