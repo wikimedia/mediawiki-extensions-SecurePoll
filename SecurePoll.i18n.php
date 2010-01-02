@@ -5036,7 +5036,7 @@ Dir musst allen optiounen e Classement tëschent 1 an 999 ginn.',
 	'securepoll-dump-not-finished' => 'Verschlësselt Donnéeë vun de Wale sinn eréischt nom Enn vun de Walen den $1 ëm $2 disponibel',
 	'securepoll-dump-no-urandom' => "/dev/urandom kann net opgemaach ginn.
 Fir d'Konfidentialitéit vun de Wieler z'assuréieren, si verschlësselt Opzeechnunge vun de Walen nëmmen disponibel wa se mat engem sécheren Zoufallszuelestroum kënne gemescht ginn.",
-	'securepoll-urandom-not-supported' => 'Dëse Server ënnerstetzt keng krypotgrfesch Zoufallszuelen.
+	'securepoll-urandom-not-supported' => 'Dëse Server ënnerstëtzt keng krypotgrfesch Zoufallszuelen.
 Fir Är privat Donnéeën ze schützen si verschlësselt Opzeechnunge vun de Walen nëmmen ëfentlech disponibel wa si mat enger Rei vu  sécheren Zoufallszuele geméccht kënne ginn.',
 	'securepoll-translate-title' => 'Iwwersetzen: $1',
 	'securepoll-invalid-language' => 'Net valabele Sproochecode "$1"',
@@ -5501,6 +5501,7 @@ $1',
 	'securepoll-header-action' => 'പ്രവൃത്തി',
 	'securepoll-header-reason' => 'കാരണം',
 	'securepoll-header-admin' => 'കാര്യനിർവാഹകൻ',
+	'securepoll-cookie-dup-list' => 'ഒരേ ഉപയോക്താക്കൾക്കായുള്ള കുക്കി',
 	'securepoll-dump-title' => 'ഡമ്പ്: $1',
 	'securepoll-dump-no-crypt' => 'തിരഞ്ഞെടുപ്പിൽ ഗൂഢീകരണം ക്രമീകരിച്ചിട്ടില്ലാത്തതിനാൽ, ഈ തിരഞ്ഞെടുപ്പിൽ ഗൂഢീകരിച്ച തിരഞ്ഞെടുപ്പ് വിവരങ്ങളൊന്നും ലഭ്യമല്ല.',
 	'securepoll-dump-not-finished' => 'നിഗൂഢമാക്കപ്പെട്ട തിരഞ്ഞെടുപ്പ് രേഖകൾ തിരഞ്ഞെടുപ്പ് പൂർണ്ണമാകുന്ന $1 $2 -വിനു ശേഷം മാത്രമേ ലഭ്യമാവുകയുള്ളു',
@@ -5531,6 +5532,7 @@ $1',
 	'securepoll-no-upload' => 'യാതൊരു പ്രമാണവും അപ്‌‌ലോഡ് ചെയ്തിട്ടില്ല, ഫലങ്ങൾ തുലനം ചെയ്യാൻ കഴിയില്ല.',
 	'securepoll-dump-corrupt' => 'ഡമ്പ് പ്രമാണം കേടാണ്, അതുകൊണ്ട് മുന്നോട്ടുപോകാൻ കഴിയില്ല.',
 	'securepoll-tally-upload-error' => 'ഒത്തുനോക്കുന്നതിൽ പിഴവുണ്ടായ ഡമ്പ് പ്രമാണം: $1',
+	'securepoll-pairwise-victories' => 'ജോഡിയായുള്ള വിജയ മട്രിക്സ്',
 	'securepoll-ranks' => 'അന്തിമ റാങ്കിങ്',
 	'securepoll-average-score' => 'ശരാശരി സ്കോർ',
 );
@@ -6798,14 +6800,20 @@ It peule serne sia ëd conté j'arzultà present ant ël database, sia ëd cont�
  * @author Ahmed-Najib-Biabani-Ibrahimkhel
  */
 $messages['ps'] = array(
+	'securepoll-header-timestamp' => 'وخت',
+	'securepoll-header-voter-name' => 'نوم',
+	'securepoll-header-details' => 'تفصيلات',
 	'securepoll-strike-reason' => 'سبب:',
+	'securepoll-strike-cancel' => 'ناګارل',
 	'securepoll-header-reason' => 'سبب',
+	'securepoll-header-admin' => 'پازوال',
 	'securepoll-submit-translate' => 'اوسمهاله کول',
 	'securepoll-language-label' => 'ژبه ټاکل:',
 	'securepoll-submit-select-lang' => 'ژباړل',
 	'securepoll-header-title' => 'نوم',
 	'securepoll-header-start-date' => 'د پيل نېټه',
 	'securepoll-header-end-date' => 'د پای نېټه',
+	'securepoll-subpage-vote' => 'رايه ورکول',
 	'securepoll-subpage-translate' => 'ژباړل',
 	'securepoll-subpage-list' => 'لړليک',
 );
@@ -8018,6 +8026,7 @@ $2 న, $3 లకు మోదలు అవుతుంది',
 	'securepoll-invalid-rank' => 'చెల్లని ర్యాంకు. మీరు అభ్యర్ధులకి రాంకులని 1 మరియు 999 మధ్యలో ఇవ్వాలి.',
 	'securepoll-unranked-options' => 'కొన్ని వికల్పాలకి మీరు ర్యాంకులు ఇవ్వలేదు.
 మీరు తప్పనిసరిగా అన్ని వికల్పాలకీ 1 మరియు 999 మధ్యలో ఒక ర్యాంకుని ఇవ్వాలి.',
+	'securepoll-invalid-score' => 'స్కోరు తప్పనిసరిగా $1 మరియు $2 ల మధ్యనున్న సంఖ్య అయివుండాలి.',
 	'securepoll-unanswered-options' => 'మీరు తప్పనిసరిగా ప్రతీ ప్రశ్నకీ ఒక స్పందనని ఇవ్వాలి.',
 	'securepoll-remote-auth-error' => 'మీ ఖాతా సమాచారాన్ని సేవకి నుండి తేవడంలో పొరపాటు జరిగింది.',
 	'securepoll-api-no-user' => 'ఇచ్చిన IDతో వాడుకరులు ఎవరూ లేరు.',
