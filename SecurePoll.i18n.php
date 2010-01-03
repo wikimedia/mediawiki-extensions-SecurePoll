@@ -4960,8 +4960,8 @@ Si fänke viraussiichtlech den $2 ëm $3 un.',
 	'securepoll-not-qualified' => 'Dir sidd net qualifizéiert fir bäi dëse Walen ofzestëmmen: $1',
 	'securepoll-change-disallowed' => 'Dir hutt bäi dëse Walen virdru schonn ofgestëmmt.
 Pardon, mee dir däerft net nach eng Kéier ofstëmmen.',
-	'securepoll-change-allowed' => '<strong>Hiweis: Dir hutt bäi dëse Wale schonn ofgestëmmt</strong>
-Dir kënnt Är Stëmm änneren, andem Dir de Formulaire heiënndrënner fortschéckt.
+	'securepoll-change-allowed' => '<strong>Hiweis: Dir hutt bei dëse Wale schonn ofgestëmmt</strong>
+Dir kënnt Är Stëmm änneren, andeems Dir de Formulaire heiënnendrënner fortschéckt.
 Wann Dir dat maacht, gëtt Är vireg Stëmm iwwerschriwwen.',
 	'securepoll-submit' => 'Stëmm ofginn',
 	'securepoll-gpg-receipt' => 'Merci datt Dir Iech un de Wale bedeelegt huet.
@@ -5453,6 +5453,9 @@ $2-ൽ $3 മുതലാണ് ആരംഭിക്കുന്നത്.',
 താങ്കളുടെ വോട്ട് രേഖപ്പെടുത്തിയില്ല!
 
 $1',
+	'securepoll-no-gpg-home' => 'അടിസ്ഥാന ജി.പി.ജി. ഡയറക്ടറി സൃഷ്ടിക്കാൻ കഴിയില്ല.',
+	'securepoll-secret-gpg-error' => 'ജി.പി.ജി. ഉപയോഗിക്കുന്നതിൽ പിഴവ്.
+കൂടുതൽ വിവരങ്ങൾക്ക് LocalSettings.php എന്നതിൽ $wgSecurePollShowErrorDetail=true; എന്നു നൽകുക.',
 	'securepoll-full-gpg-error' => 'ജി.പി.ജി. പ്രവർത്തിപ്പിക്കുമ്പോൾ പിഴവ്:
 നിർദ്ദേശം: $1
 
