@@ -28,7 +28,9 @@ abstract class SecurePoll_Ballot {
 	 * @return Array
 	 * @see SecurePoll_Election::getMessageNames()
 	 */
-	function getMessageNames(){ return array(); }
+	function getMessageNames() {
+		return array();
+	}
 
 	/**
 	 * Called when the form is submitted. This returns a Status object which, 
