@@ -3612,8 +3612,8 @@ $1',
 );
 
 /** Croatian (Hrvatski)
+ * @author Ex13
  * @author SpeedyGonsales
- * @author Suradnik13
  */
 $messages['hr'] = array(
 	'securepoll' => 'SigurnoGlasovanje',
