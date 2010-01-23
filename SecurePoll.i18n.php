@@ -6538,6 +6538,8 @@ $messages['pdc'] = array(
 	'securepoll-translate-title' => 'Iwwersetze: $1',
 	'securepoll-submit-select-lang' => 'Iwwersetze',
 	'securepoll-header-title' => 'Naame',
+	'securepoll-header-start-date' => 'Beginn',
+	'securepoll-header-end-date' => 'End',
 	'securepoll-subpage-translate' => 'Iwwersetze',
 	'securepoll-subpage-list' => 'Lischt',
 );
