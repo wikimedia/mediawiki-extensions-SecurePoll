@@ -2565,6 +2565,7 @@ Sa võid üle lugeda kas andmebaasis olevad tulemused või üleslaaditavas faili
 /** Basque (Euskara)
  * @author An13sa
  * @author Kobazulo
+ * @author Unai Fdz. de Betoño
  */
 $messages['eu'] = array(
 	'securepoll' => 'BozketaSegurua',
@@ -2573,6 +2574,8 @@ $messages['eu'] = array(
 	'securepoll-welcome' => '<strong>Ongi etorri $1!</strong>',
 	'securepoll-finished' => 'Hauteskundeak bukatu dira, beraz, ezin duzu bozkatu.',
 	'securepoll-not-qualified' => 'Ez zara bozketa honetan bozkatzen gai: $1',
+	'securepoll-change-disallowed' => 'Hauteskundean jada bozkatu duzu.
+Barkatu, baina ezin duzu berriro bozkatu.',
 	'securepoll-change-allowed' => '<strong>Oharra: Bozketa honetan aurretik bozkatu duzu.</strong>
 Zure bozka alda dezakezu azpi orria betez.
 Kontuan izan hau egiten baduzu, zure jatorrizko bozka aldatuko dela.',
@@ -2606,6 +2609,7 @@ Errorea:
 	'securepoll-details-title' => 'Bozkaren xehetasunak: #$1',
 	'securepoll-header-voter-type' => 'Hautesle mota',
 	'securepoll-voter-properties' => 'Hauteslearen hobespenak',
+	'securepoll-header-action' => 'Ekintza',
 	'securepoll-header-reason' => 'Arrazoia',
 	'securepoll-header-admin' => 'Admin',
 	'securepoll-translate-title' => 'Itzuli: $1',
