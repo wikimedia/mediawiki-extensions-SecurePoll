@@ -5470,6 +5470,8 @@ $1',
 പിഴവ്:
 <pre>$2</pre>',
 	'securepoll-gpg-config-error' => 'GPG താക്കോലുകൾ തെറ്റായാണ് ക്രമീകരിക്കപ്പെട്ടിരിക്കുന്നത്.',
+	'securepoll-no-decryption-key' => 'ഗൂഢീകരണം മാറ്റാനുള്ള ചാവി ക്രമീകരിച്ചിട്ടില്ല.
+ഗൂഢീകരണം മാറ്റാൻ കഴിയില്ല.',
 	'securepoll-jump' => 'വോട്ടിങ് സെർവറിലേയ്ക്ക് പോവുക',
 	'securepoll-bad-ballot-submission' => 'താങ്കളുടെ വോട്ട് അസാധുവാണ്: $1',
 	'securepoll-unanswered-questions' => 'താങ്കൾ എല്ലാ ചോദ്യങ്ങൾക്കും ഉത്തരം നൽകേണ്ടതാണ്.',
@@ -7611,6 +7613,21 @@ $messages['scn'] = array(
 	'securepoll-strike-reason' => 'Mutivu:',
 	'securepoll-strike-cancel' => 'Annulla',
 	'securepoll-header-action' => 'Azzioni',
+);
+
+/** Sinhala (සිංහල)
+ * @author Calcey
+ */
+$messages['si'] = array(
+	'securepoll-thanks' => 'ස්තුතියි,ඔබේ ඡන්දය ‍පටිගත වී ඇත.',
+	'securepoll-jump' => 'ඡන්දය දෙන සේවාදායකයට යන්න',
+	'securepoll-bad-ballot-submission' => 'ඔබගේ ඡන්දය අවලංගුයි :$1',
+	'securepoll-unanswered-questions' => 'ඔබ සියලුම ප්‍රශ්නවලට පිළිතුරු සැපයිය යුතුය.',
+	'securepoll-unanswered-options' => 'සෑම ප්‍රශ්නයක් සඳහාම ඔබ ප්‍රතිචාරයක් දිය යුතුය.',
+	'securepoll-remote-auth-error' => 'සේවාදායකයෙන් ඔබේ ගිණුම් තොරතුරු ගෙනයෑමේ දෝෂය.',
+	'securepoll-remote-parse-error' => 'සේවාදායකයෙන් අවසරදීමේ ප්‍රතිචාරය පහදාදීමේ දෝෂය.',
+	'securepoll-api-invalid-params' => 'අවලංගු පරාමිති.',
+	'securepoll-not-logged-in' => 'මෙම ඡන්ද විමසීමේදී ඡන්දය දීම සඳහා ඔබ ප්‍රවිෂ්ට විය යුතුය.',
 );
 
 /** Slovak (Slovenčina)
