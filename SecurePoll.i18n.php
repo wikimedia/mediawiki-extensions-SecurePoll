@@ -4119,7 +4119,7 @@ Tu pote optar pro contar le resultatos presente in le base de datos, o pro conta
 	'securepoll-tally-no-key' => 'Tu non pote contar le resultatos de iste election proque le votos es cryptate e le clave de decryptation non es disponibile.',
 	'securepoll-tally-local-legend' => 'Contar le resulatos immagazinate',
 	'securepoll-tally-local-submit' => 'Contar resultatos',
-	'securepoll-tally-upload-legend' => 'Cargar un file de datos cryptate',
+	'securepoll-tally-upload-legend' => 'Incargar un file de datos cryptate',
 	'securepoll-tally-upload-submit' => 'Contar resultatos',
 	'securepoll-tally-error' => 'Error durante le interpretation del registro de voto; non pote producer un conto.',
 	'securepoll-no-upload' => 'Nulle file ha essite cargate; non pote contar le resultatos.',
