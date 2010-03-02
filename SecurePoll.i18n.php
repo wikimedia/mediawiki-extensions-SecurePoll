@@ -9070,6 +9070,7 @@ $messages['yi'] = array(
 	'securepoll-language-label' => 'אויסקלייבן שפראך:',
 	'securepoll-submit-select-lang' => 'פארטייטשן',
 	'securepoll-header-title' => 'נאָמען',
+	'securepoll-header-start-date' => 'אָנהייב דאַטע',
 	'securepoll-subpage-list' => 'ליסטע',
 );
 
