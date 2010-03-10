@@ -1108,6 +1108,7 @@ Možete da izvršite prebrojavanje glasova koji su prisutni u bazi podataka ili 
 );
 
 /** Catalan (Català)
+ * @author Aleator
  * @author Cbrown1023
  * @author Góngora
  * @author Jordi Roqué
@@ -1206,9 +1207,9 @@ Per a votar en aquesta elecció cal haver fet un mínim {{PLURAL:$1|d'una modifi
 	'securepoll-dump-no-crypt' => 'No existeix cap registre encriptat en aquesta elecció perquè no està configurada per usar encriptació.',
 	'securepoll-dump-not-finished' => "Els registres encriptats de l'elecció només estaran disponibles després de la seva conclusió, a $1 del $2",
 	'securepoll-dump-no-urandom' => "No es pot obrir /dev/urandom.
-Per mantenir la privacitat dels votants, els registres encriptats de l'elecció es fan públics només quan poden ser barrejats amb un generador segur de nombres aleatoris.",
+Per mantenir la privadesa dels votants, els registres encriptats de l'elecció es fan públics només quan poden ser barrejats amb un generador segur de nombres aleatoris.",
 	'securepoll-urandom-not-supported' => "Aquest servidor no suporta la generació criptogràfica de nombres aleatoris.
-Per mantenir la privacitat del votant, els registres d'elecció encriptats només són públicament disponibles quan es poden emetre amb un flux segur de nombres aleatoris.",
+Per mantenir la privadesa del votant, els registres d'elecció encriptats només són públicament disponibles quan es poden emetre amb un flux segur de nombres aleatoris.",
 	'securepoll-translate-title' => 'Traducció: $1',
 	'securepoll-invalid-language' => "Codi d'idioma «$1» no vàlid",
 	'securepoll-submit-translate' => 'Actualitza',
