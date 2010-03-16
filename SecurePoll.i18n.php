@@ -2602,6 +2602,7 @@ Errorea:
 	'securepoll-list-title' => 'Bozken zerrenda: $1',
 	'securepoll-header-timestamp' => 'Ordua',
 	'securepoll-header-voter-name' => 'Izena',
+	'securepoll-header-voter-domain' => 'Domeinua',
 	'securepoll-header-details' => 'Xehetasunak',
 	'securepoll-strike-reason' => 'Arrazoia:',
 	'securepoll-strike-cancel' => 'Utzi',
