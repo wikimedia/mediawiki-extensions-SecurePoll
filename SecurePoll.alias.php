@@ -74,7 +74,7 @@ $aliases['ko'] = array(
 	'SecurePoll' => array( '비밀투표' ),
 );
 
-/** Ripoarisch (Ripoarisch) */
+/** Colognian (Ripoarisch) */
 $aliases['ksh'] = array(
 	'SecurePoll' => array( 'Affshtemme' ),
 );
