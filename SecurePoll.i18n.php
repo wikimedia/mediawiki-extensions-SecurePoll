@@ -2565,6 +2565,7 @@ Sa võid üle lugeda kas andmebaasis olevad tulemused või üleslaaditavas faili
 
 /** Basque (Euskara)
  * @author An13sa
+ * @author Joxemai
  * @author Kobazulo
  * @author Unai Fdz. de Betoño
  */
@@ -2626,6 +2627,7 @@ Errorea:
 	'securepoll-subpage-translate' => 'Itzuli',
 	'securepoll-subpage-list' => 'Zerrenda',
 	'securepoll-ranks' => 'Azken rankinga',
+	'securepoll-average-score' => 'Batez besteko puntuazioa',
 );
 
 /** Persian (فارسی)
@@ -2796,6 +2798,7 @@ Voit valita tuloslaskennan tietokantatiedoista, tai salakirjoitetuista tuloksist
  * @author Louperivois
  * @author Omnipaedista
  * @author PieRRoMaN
+ * @author Urhixidur
  * @author Verdy p
  * @author Yann
  */
@@ -2883,12 +2886,12 @@ Vous devez donner un rang entre 1 et 999 à toutes les options.",
 	'securepoll-header-action' => 'Action',
 	'securepoll-header-reason' => 'Raison',
 	'securepoll-header-admin' => 'Administrateur',
-	'securepoll-cookie-dup-list' => 'Utilisateurs ayant un cookie déjà rencontré',
-	'securepoll-dump-title' => 'Dump : $1',
+	'securepoll-cookie-dup-list' => 'Utilisateurs ayant un témoin déjà rencontré',
+	'securepoll-dump-title' => 'Vidage : $1',
 	'securepoll-dump-no-crypt' => 'Les données chiffrées ne sont pas disponibles pour cette élection, car l’élection n’est pas configurée pour utiliser un chiffrement.',
-	'securepoll-dump-not-finished' => 'Les données cryptées ne sont disponibles qu’après la clôture de l’élection le $1 à $2',
+	'securepoll-dump-not-finished' => 'Les données chiffrées ne sont disponibles qu’après la clôture de l’élection le $1 à $2',
 	'securepoll-dump-no-urandom' => 'Impossible d’ouvrir /dev/urandom.
-Pour maintenir la confidentialité des votants, les données cryptées ne sont disponibles que si elles peuvent être brouillées avec un nombre de caractères aléatoires.',
+Pour maintenir la confidentialité des votants, les données chiffrées ne sont disponibles que si elles peuvent être brassées à l’aide d’une suite de nombres aléatoires.',
 	'securepoll-urandom-not-supported' => 'Ce serveur ne supporte pas la génération cryptographique aléatoire de nombres.
 Pour assurer la confidentialité des votants, les données cryptées ne sont publiés uniquement quand ils peuvent être brouillés avec un flux de nombres aléatoires.',
 	'securepoll-translate-title' => 'Traduire : $1',
@@ -2903,7 +2906,7 @@ Pour assurer la confidentialité des votants, les données cryptées ne sont pub
 	'securepoll-subpage-vote' => 'Vote',
 	'securepoll-subpage-translate' => 'Traduire',
 	'securepoll-subpage-list' => 'Liste',
-	'securepoll-subpage-dump' => 'Dump',
+	'securepoll-subpage-dump' => 'Vidage',
 	'securepoll-subpage-tally' => 'Comptage',
 	'securepoll-tally-title' => 'Comptage : $1',
 	'securepoll-tally-not-finished' => 'Désolé, vous ne pouvez pas compter les résultats de l’élection avant qu’elle ne soit terminée.',
