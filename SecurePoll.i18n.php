@@ -2806,7 +2806,7 @@ $messages['fr'] = array(
 	'securepoll' => 'Sondage sécurisé',
 	'securepoll-desc' => 'Extension pour des élections et sondages',
 	'securepoll-invalid-page' => 'Sous-page « <nowiki>$1</nowiki> » invalide',
-	'securepoll-need-admin' => "Vous devez être un administrateur de l'élection pour exécuter cette action.",
+	'securepoll-need-admin' => 'Vous devez être un administrateur électoral pour exécuter cette action.',
 	'securepoll-too-few-params' => 'Pas assez de paramètres de sous-page (lien invalide).',
 	'securepoll-invalid-election' => '« $1 » n’est pas un identifiant d’élection valide.',
 	'securepoll-welcome' => '<strong>Bienvenue $1 !</strong>',
@@ -2848,8 +2848,8 @@ Impossible de décrypter.',
 	'securepoll-bad-ballot-submission' => 'Votre vote est invalide : $1',
 	'securepoll-unanswered-questions' => 'Vous devez répondre à toutes les questions.',
 	'securepoll-invalid-rank' => 'Rang invalide. Vous devez donner aux candidats un rang entre 1 et 999.',
-	'securepoll-unranked-options' => "Certaines options n'ont pas reçu de rang.
-Vous devez donner un rang entre 1 et 999 à toutes les options.",
+	'securepoll-unranked-options' => 'Certaines options n’ont pas reçu de rang.
+Vous devez donner un rang entre 1 et 999 (inclus) à toutes les options.',
 	'securepoll-invalid-score' => 'Le score doit être un nombre compris entre $1 et $2.',
 	'securepoll-unanswered-options' => 'Vous devez donner une réponse pour toutes les questions.',
 	'securepoll-remote-auth-error' => 'Erreur lors de la récupération des informations de votre compte depuis le serveur.',
@@ -4604,6 +4604,10 @@ $messages['ka'] = array(
 	'securepoll-api-invalid-params' => 'არასწორი პარამეტრები.',
 	'securepoll-api-no-user' => 'მომხმარებელი მითითებული იდენტიფიკატორით ვერ მოიძებნა.',
 	'securepoll-not-logged-in' => 'ხმის მისაცემად თქვენ უნდა შეხვიდეთ სისტემაში',
+	'securepoll-too-few-edits' => 'უკაცრავად, თქვენ არ შეგიძლიათ ხმის მიცემა. თქვენ განხორციელებული უნდა გქონდეთ მინიმუმ $1 {{PLURAL:$1|რედაქტირება|რედაქტირება}} ამ არჩევნებში ხმის მისაცემად, თქვენ გაქვთ $2.',
+	'securepoll-blocked' => 'უკაცრავად, თქვენ არ შეგიძლიათ ხმის მიცემა ამ არჩევნებში, თუკი თქვენ ამჟამად დაბლოკილი ხართ.',
+	'securepoll-bot' => 'უკაცრავად, ანგარიშებს, ბოტის სტატუსით, არ შეუძლიათ ამ არჩევნებში ხმის მიცემა.',
+	'securepoll-not-in-group' => 'მხოლოდ ჯგუფ "$1"-ის წევრებს შეუძლიათ ამ არჩევნებში ხმის მიცემა.',
 	'securepoll-list-title' => 'ხმების სია: $1',
 	'securepoll-header-timestamp' => 'დრო',
 	'securepoll-header-voter-name' => 'სახელი',
@@ -5799,6 +5803,16 @@ Inti tista' tagħżel jew li tgħodd ir-riżultati preżenti fid-databażi, jew 
 	'securepoll-tally-upload-submit' => 'Oħloq talja',
 	'securepoll-tally-error' => 'Żball fl-interpretazzjoni tar-reġistrazzjoni tal-vot, ir-riżultati ma jistgħux jingħaddu.',
 	'securepoll-no-upload' => "L-ebda fajl ma ġie mtella', ir-riżultati ma jistgħux jingħaddu.",
+);
+
+/** Erzya (Эрзянь)
+ * @author Botuzhaleny-sodamo
+ */
+$messages['myv'] = array(
+	'securepoll-strike-button' => 'Черькстамс',
+	'securepoll-unstrike-button' => 'Саемс черькстамонть',
+	'securepoll-strike-reason' => 'Тувталось:',
+	'securepoll-details-link' => 'Мезде моли кортамось',
 );
 
 /** Low German (Plattdüütsch)
