@@ -2574,6 +2574,7 @@ $messages['eu'] = array(
 	'securepoll-invalid-page' => '"<nowiki>$1</nowiki>" azpiorrialde okerra',
 	'securepoll-need-admin' => 'Ekintza hori burutzeko hauteskundeetako administratzailea izan behar duzu.',
 	'securepoll-welcome' => '<strong>Ongi etorri $1!</strong>',
+	'securepoll-not-started' => 'Bozketa ez da oraindik hasi. $2 ko $3 etan hastekoa da.',
 	'securepoll-finished' => 'Hauteskundeak bukatu dira, beraz, ezin duzu bozkatu.',
 	'securepoll-not-qualified' => 'Ez zara bozketa honetan bozkatzen gai: $1',
 	'securepoll-change-disallowed' => 'Hauteskundean jada bozkatu duzu.
@@ -2598,6 +2599,7 @@ Errorea:
 	'securepoll-jump' => 'Joan bozketa zerbitzarira',
 	'securepoll-bad-ballot-submission' => 'Zure bozka ez da zuzena: $1',
 	'securepoll-unanswered-questions' => 'Galdera guztiak erantzun behar dituzu.',
+	'securepoll-unanswered-options' => 'Konfiantzazko lankideak.',
 	'securepoll-api-invalid-params' => 'Parametro okerrak.',
 	'securepoll-not-logged-in' => 'Bozketa honetan parte hartzeko saioa hasi behar duzu',
 	'securepoll-list-title' => 'Bozken zerrenda: $1',
