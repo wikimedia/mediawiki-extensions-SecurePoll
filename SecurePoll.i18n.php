@@ -6842,6 +6842,8 @@ It peule serne sia ëd conté j'arzultà present ant ël database, sia ëd cont�
 $messages['ps'] = array(
 	'securepoll-header-timestamp' => 'وخت',
 	'securepoll-header-voter-name' => 'نوم',
+	'securepoll-header-voter-domain' => 'شپول',
+	'securepoll-header-ua' => 'د کارن پلاوی',
 	'securepoll-header-details' => 'تفصيلات',
 	'securepoll-strike-reason' => 'سبب:',
 	'securepoll-strike-cancel' => 'ناګارل',
