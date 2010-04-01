@@ -21,6 +21,9 @@ class SecurePoll_Context {
 
 	/** Message text cache */
 	var $messageCache = array();
+	
+	/** election cache */
+	var $electionCache = array();
 
 	/** 
 	 * Which messages are loaded. 2-d array: language and entity ID, value arbitrary. 
@@ -91,18 +94,26 @@ class SecurePoll_Context {
 		$this->messageCache = $this->messagesLoaded = array();
 		$this->store = $store;
 	}
+	
+	/** Get the type of a particular entity **/
+	function getEntityType( $id ){
+		return $this->getStore()->getEntityType( $id );
+	}
 
 	/** 
 	 * Get an election object from the store, with a given entity ID. Returns 
 	 * false if it does not exist.
 	 */
 	function getElection( $id ) {
-		$info = $this->getStore()->getElectionInfo( array( $id ) );
-		if ( $info ) {
-			return $this->newElection( reset( $info ) );
-		} else {
-			return false;
+		if( !isset( $this->electionCache[$id] ) ){
+			$info = $this->getStore()->getElectionInfo( array( $id ) );
+			if ( $info ) {
+				$this->electionCache[$id] = $this->newElection( reset( $info ) );
+			} else {
+				$this->electionCache[$id] = false;
+			}
 		}
+		return $this->electionCache[$id];
 	}
 
 	/**

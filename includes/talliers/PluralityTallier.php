@@ -35,7 +35,7 @@ class SecurePoll_PluralityTallier extends SecurePoll_Tallier {
 
 		foreach ( $this->tally as $oid => $rank ) {
 			$option = $this->optionsById[$oid];
-			$s .= '<tr><td>' . $option->getMessage( 'text' ) . "</td>\n" .
+			$s .= '<tr><td>' . $option->parseMessageInline( 'text' ) . "</td>\n" .
 				'<td>' . $this->tally[$oid] . "</td>\n" .
 				"</tr>\n";
 		}

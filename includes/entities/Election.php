@@ -53,17 +53,20 @@
  */
 class SecurePoll_Election extends SecurePoll_Entity {
 	var $questions, $auth, $ballot;
-	var $title, $ballotType, $tallyType, $primaryLang, $startDate, $endDate, $authType;
+	var $id, $title, $ballotType, $tallyType, $primaryLang;
+	var $startDate, $endDate, $authType;
 
 	/**
 	 * Constructor. 
 	 *
-	 * Do not use this constructor directly, instead use SecurePoll_Context::getElection(). 
+	 * Do not use this constructor directly, instead use 
+	 * SecurePoll_Context::getElection(). 
 	 *
 	 * @param $id integer
 	 */
 	function __construct( $context, $info ) {
 		parent::__construct( $context, 'election', $info );
+		$this->id = $info['id'];
 		$this->title = $info['title'];
 		$this->ballotType = $info['ballot'];
 		$this->tallyType = $info['tally'];
@@ -84,6 +87,13 @@ class SecurePoll_Election extends SecurePoll_Entity {
 			'return-text',
 			'unqualified-error',
 		);
+	}
+	
+	/**
+	 * Get the election's parent election... hmm...
+	 */
+	function getElection() {
+		return $this->id;
 	}
 
 	/**
