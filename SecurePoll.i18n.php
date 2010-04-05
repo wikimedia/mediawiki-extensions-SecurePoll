@@ -3128,7 +3128,7 @@ Debe darlles a todas as opcións unha clasificación que estea entre 1 e 999.',
 	'securepoll-remote-parse-error' => 'Erro ao interpretar a autorización de resposta desde o servidor.',
 	'securepoll-api-invalid-params' => 'Parámetros inválidos.',
 	'securepoll-api-no-user' => 'Non se atopou ningún usuario co ID introducido.',
-	'securepoll-api-token-mismatch' => 'Desaxuste dun token de seguridade, non pode acceder ao sistema.',
+	'securepoll-api-token-mismatch' => 'Desaxuste dun pase de seguridade; non pode acceder ao sistema.',
 	'securepoll-not-logged-in' => 'Debe acceder ao sistema para votar nestas eleccións',
 	'securepoll-too-few-edits' => 'Sentímolo, non pode votar nestas eleccións. Debe ter feito, polo menos, {{PLURAL:$1|unha edición|$1 edicións}}, e só ten feito $2.',
 	'securepoll-blocked' => 'Sentímolo, non pode votar nestas eleccións se está actualmente bloqueado fronte á edición.',
@@ -7802,6 +7802,13 @@ Môžete buď zistiť výsledok hlasovania z výsledkov dostupných v databáze 
 	'securepoll-strength-matrix' => 'Párová matica sily',
 	'securepoll-ranks' => 'Finálne hodnotenie',
 	'securepoll-average-score' => 'Priemerné skóre',
+);
+
+/** Slovenian (Slovenščina)
+ * @author Dbc334
+ */
+$messages['sl'] = array(
+	'securepoll-welcome' => '<strong>Dobrodošli, $1!</strong>',
 );
 
 /** Serbian Cyrillic ekavian (Српски (ћирилица))
