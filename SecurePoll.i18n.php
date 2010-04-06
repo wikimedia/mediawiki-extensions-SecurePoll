@@ -3078,7 +3078,7 @@ $messages['gl'] = array(
 	'securepoll' => 'Sondaxe de seguridade',
 	'securepoll-desc' => 'Extensión para as eleccións e sondaxes',
 	'securepoll-invalid-page' => 'Subpáxina "<nowiki>$1</nowiki>" inválida',
-	'securepoll-need-admin' => 'Ten que ser un administrador de eleccións para poder levar a cabo esta acción.',
+	'securepoll-need-admin' => 'Ten que ser administrador das eleccións para poder levar a cabo esta acción.',
 	'securepoll-too-few-params' => 'Non hai parámetros de subpáxina suficientes (ligazón inválida).',
 	'securepoll-invalid-election' => '"$1" non é un número de identificación das eleccións válido.',
 	'securepoll-welcome' => '<strong>Dámoslle a benvida, $1!</strong>',
@@ -4296,6 +4296,7 @@ $messages['is'] = array(
 
 /** Italian (Italiano)
  * @author Aushulz
+ * @author Beta16
  * @author BrokenArrow
  * @author Capmo
  * @author Darth Kule
@@ -4353,6 +4354,7 @@ Impossibile decifrare.',
 	'securepoll-invalid-rank' => 'Voto non valido. Devi dare ai candidati un voto compreso tra 1 e 999.',
 	'securepoll-unranked-options' => 'Alcune voci sono prive di voto.
 Devi assegnare a ciascuna voce un voto compreso tra 1 e 999.',
+	'securepoll-invalid-score' => 'Il voto deve essere un numero compreso tra $1 e $2.',
 	'securepoll-unanswered-options' => 'Devi rispondere a tutte le domande.',
 	'securepoll-remote-auth-error' => 'Errore durante il recupero delle informazioni sul tuo account dal server.',
 	'securepoll-remote-parse-error' => "Errore nell'interpretare la risposta di autorizzazione dal server.",
@@ -6874,7 +6876,7 @@ $messages['pt'] = array(
 	'securepoll-desc' => 'Extensão para eleições e sondagens',
 	'securepoll-invalid-page' => 'Subpágina inválida: "<nowiki>$1</nowiki>"',
 	'securepoll-need-admin' => 'Precisa de ser um administrador de eleições para realizar esta operação.',
-	'securepoll-too-few-params' => 'Parâmetros de subpágina insuficientes (ligação inválida).',
+	'securepoll-too-few-params' => 'Parâmetros de subpágina insuficientes (link inválido).',
 	'securepoll-invalid-election' => '"$1" não é um identificador de eleição válido.',
 	'securepoll-welcome' => '<strong>Bem-vindo(a) $1!</strong>',
 	'securepoll-not-started' => 'Esta eleição ainda não começou.
