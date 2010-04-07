@@ -2187,9 +2187,9 @@ $1',
 $messages['eo'] = array(
 	'securepoll' => 'Sekura Enketo',
 	'securepoll-desc' => 'Kromprogramo por voĉdonadoj kaj enketoj',
-	'securepoll-invalid-page' => 'Nevalida subpaĝo "<nowiki>$1</nowiki>"',
+	'securepoll-invalid-page' => 'Malvalida subpaĝo "<nowiki>$1</nowiki>"',
 	'securepoll-need-admin' => 'Vi devas esti voĉdona administranto por fari ĉi tiun agon.',
-	'securepoll-too-few-params' => 'Ne sufiĉaj subpaĝaj parametroj (nevalida ligilo).',
+	'securepoll-too-few-params' => 'Ne sufiĉaj subpaĝaj parametroj (malvalida ligilo).',
 	'securepoll-invalid-election' => '"$1" ne estas valida voĉdonada identigo.',
 	'securepoll-welcome' => '<strong>Bonvenon, $1!</strong>',
 	'securepoll-not-started' => 'Ĉi tiu voĉdonado ne jam pretas.
@@ -2213,7 +2213,7 @@ Laŭvole, vi povas konservi la jenan konfirmon de via voĉdono:
 Via voĉdono ne estis rekordita!
 
 $1',
-	'securepoll-no-gpg-home' => 'Ne eblas krei GPG hejman dosierujon.',
+	'securepoll-no-gpg-home' => 'Ne povas krei GPG hejman dosierujon.',
 	'securepoll-secret-gpg-error' => 'Eraro funkciigante GPG.
 Uzu $wgSecurePollShowErrorDetail=true; en LocalSettings.php por montri pliajn detalojn.',
 	'securepoll-full-gpg-error' => 'Eraro funkciigante GPG:
@@ -2225,11 +2225,11 @@ Eraro:
 	'securepoll-gpg-config-error' => 'GPG-ŝlosiloj estas konfiguritaj malĝuste.',
 	'securepoll-gpg-parse-error' => 'Eraro interpretante GPG-eligon.',
 	'securepoll-no-decryption-key' => 'Neniu malĉifra ŝlosilo estas konfigurita.
-Ne eblas malĉifri.',
+Ne povas malĉifri.',
 	'securepoll-jump' => 'Iri al la voĉdona servilo',
 	'securepoll-bad-ballot-submission' => 'Via voĉdono estis malvalida: $1',
 	'securepoll-unanswered-questions' => 'Vi devas respondi al ĉiuj demandoj.',
-	'securepoll-invalid-rank' => 'Nevalida loko. Vi devas doni al kandidatoj lokon inter 1 kaj 999.',
+	'securepoll-invalid-rank' => 'Malvalida loko. Vi devas doni al kandidatoj lokon inter 1 kaj 999.',
 	'securepoll-unranked-options' => 'Kelkaj opcioj ne estis ordigitaj. 
 Vi devas doni al ĉiuj opcioj lokon inter 1 kaj 999.',
 	'securepoll-invalid-score' => 'La poentaro devas esti nombro inter $1 kaj $2.',
@@ -2272,7 +2272,7 @@ Vi devas doni al ĉiuj opcioj lokon inter 1 kaj 999.',
 	'securepoll-dump-title' => 'Elŝuto: $1',
 	'securepoll-dump-no-crypt' => 'Neniu ĉifrita registraĵo havebla por tiu ĉi baloto, ĉar la baloto ne estas aranĝita por uzi ĉifradon.',
 	'securepoll-dump-not-finished' => 'Ĉifrita registraĵo estos havebla por tiu ĉi baloto nur post la findato $1 je $2',
-	'securepoll-dump-no-urandom' => 'Ne eblas malfermi /dev/urandom
+	'securepoll-dump-no-urandom' => 'Ne povas malfermi /dev/urandom.
 Por garantii privatecon de balotinto, ĉifrita balotregistraĵo estas publike havebla nur kiam ĝi povas esti malnetigita per sekura hazarda nombrofluo.',
 	'securepoll-urandom-not-supported' => 'Ĉi tiu servilo ne eltenas generadon de ĉifrhazardnombroj. 
 Por garantii privatecon de balotinto, ĉifrita balotregistraĵo estas publike havebla nur kiam ĝi povas esti malnetigita per sekura hazarda nombrofluo.',
@@ -2299,8 +2299,8 @@ Vi povas elekti nombri ĉu la rezultojn el la datumbazo, ĉu ĉifritajn rezultoj
 	'securepoll-tally-local-submit' => 'Krei nombradon',
 	'securepoll-tally-upload-legend' => 'Elŝuti ĉifritan dosieron',
 	'securepoll-tally-upload-submit' => 'Krei nombradon',
-	'securepoll-tally-error' => 'Eraro dum interpretado de balotregistraĵo, ne eblas krei nombradon.',
-	'securepoll-no-upload' => 'Neniu dosiero estis elŝutita, ne eblas nombri rezulton.',
+	'securepoll-tally-error' => 'Eraro dum interpretado de balotregistraĵo, ne povas krei nombradon.',
+	'securepoll-no-upload' => 'Neniu dosiero estis elŝutita, ne povas nombri rezulton.',
 	'securepoll-dump-corrupt' => 'La elŝutdosiero estas difektita kaj ne povas esti traktita.',
 	'securepoll-tally-upload-error' => 'Eraro dum nombrado de elŝutdosiero: $1',
 	'securepoll-pairwise-victories' => 'Matrico de paraj venkoj',
