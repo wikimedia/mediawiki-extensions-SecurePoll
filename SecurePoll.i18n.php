@@ -6431,7 +6431,7 @@ Vos cal balhar un reng entre 1 e 999 a totas las opcions.",
 	'securepoll-dump-no-urandom' => 'Impossible de dobrir /dev/urandom.
 Per manténer la confidencialitat dels votants, las donadas criptadas son disponiblas sonque se pòdon èsser reboladas amb un nombre de caractèrs aleatòris.',
 	'securepoll-urandom-not-supported' => 'Aqueste servidor supòrta pas la generacion criptografica aleatòri de nombres.
-Per assegurar la confidencialitat dels votants, las donadas criptadas son publicadas unicament quand pòdon trebolar un flus aleatòri de nombres.',
+Per assegurar la confidencialitat dels votants, las donadas criptadas son publicadas unicament quand pòdon trebolar un flux aleatòri de nombres.',
 	'securepoll-translate-title' => 'Traduire : $1',
 	'securepoll-invalid-language' => 'Còde de lenga « $1 » invalid.',
 	'securepoll-submit-translate' => 'Metre a jorn',
