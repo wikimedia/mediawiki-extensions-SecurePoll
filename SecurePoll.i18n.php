@@ -4851,7 +4851,7 @@ $messages['krc'] = array(
 	'securepoll-header-admin' => 'Админ',
 );
 
-/** Ripoarisch (Ripoarisch)
+/** Colognian (Ripoarisch)
  * @author Purodha
  */
 $messages['ksh'] = array(
@@ -9137,7 +9137,7 @@ $messages['yi'] = array(
 	'securepoll-subpage-list' => 'ליסטע',
 );
 
-/** Yue (粵語)
+/** Cantonese (粵語)
  * @author Shinjiman
  */
 $messages['yue'] = array(
