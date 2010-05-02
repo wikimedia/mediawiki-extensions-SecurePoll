@@ -315,6 +315,13 @@ Die resultate kan nie getel word nie.',
 	'securepoll-average-score' => 'Gemiddelde punt',
 );
 
+/** Aragonese (Aragonés)
+ * @author Juanpabl
+ */
+$messages['an'] = array(
+	'securepoll-header-action' => 'Acción',
+);
+
 /** Arabic (العربية)
  * @author Meno25
  * @author Orango
