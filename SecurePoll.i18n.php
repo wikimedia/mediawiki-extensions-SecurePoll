@@ -4639,6 +4639,7 @@ $messages['ka'] = array(
 	'securepoll-header-action' => 'მოქმედება',
 	'securepoll-header-reason' => 'მიზეზი',
 	'securepoll-header-admin' => 'ადმინი',
+	'securepoll-dump-title' => 'დამპი: $1',
 	'securepoll-translate-title' => 'თარგმნა: $1',
 	'securepoll-invalid-language' => 'არასწორი ენობრივი კოდი «$1»',
 	'securepoll-submit-translate' => 'განახლება',
