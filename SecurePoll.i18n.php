@@ -319,6 +319,7 @@ Die resultate kan nie getel word nie.',
  * @author Juanpabl
  */
 $messages['an'] = array(
+	'securepoll-strike-cancel' => 'Cancelar',
 	'securepoll-header-action' => 'Acción',
 );
 
