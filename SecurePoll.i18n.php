@@ -6348,6 +6348,7 @@ Du kan velge å enten telle opp resultatene tilgjengelig i databasen, eller å t
 
 /** Occitan (Occitan)
  * @author Cedric31
+ * @author Jfblanc
  */
 $messages['oc'] = array(
 	'securepoll' => 'Sondatge securizat',
@@ -6404,7 +6405,7 @@ Vos cal balhar un reng entre 1 e 999 a totas las opcions.",
 	'securepoll-api-invalid-params' => 'Paramètres invalids.',
 	'securepoll-api-no-user' => "Cap d'utilizaire amb l’identificant balhat es pas estat trobat.",
 	'securepoll-api-token-mismatch' => 'Geton de seguretat diferent, connexion impossibla.',
-	'securepoll-not-logged-in' => 'Vos cal vos connectar per votar dins aquesta eleccion.',
+	'securepoll-not-logged-in' => 'Vos cal connectar per votar dins aquesta eleccion.',
 	'securepoll-too-few-edits' => 'O planhèm, podètz pas votar. Vos cal aver efectuat al mens {{PLURAL:$1|una modificacion|$1 modificacions}} per votar dins aquesta eleccion, ne totalizatz $2.',
 	'securepoll-blocked' => 'O planhèm, podètz pas votar dins aquesta eleccion perque sètz blocat(ada) en escritura.',
 	'securepoll-bot' => "O planhèm, los comptes amb l'estatut de robòt son pas autorizats a votar a aquesta eleccion.",
