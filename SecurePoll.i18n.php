@@ -5348,7 +5348,7 @@ Galite pasirinkti, ar sutampa rezultatai, esantys duomenų bazėje bei rezultatu
  */
 $messages['mk'] = array(
 	'securepoll' => 'SecurePoll',
-	'securepoll-desc' => 'Проширување за избори и истражувања',
+	'securepoll-desc' => 'Додаток за избори и анкети',
 	'securepoll-invalid-page' => 'Неважечка потстраница „<nowiki>$1</nowiki>“',
 	'securepoll-need-admin' => 'Треба да бидете изборен администратор за да можете да го сторите тоа.',
 	'securepoll-too-few-params' => 'Нема доволно параметри за потстраници (неважечка врска).',
