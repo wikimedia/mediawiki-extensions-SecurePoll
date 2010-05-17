@@ -14,128 +14,106 @@ $aliases['en'] = array(
     'SecurePoll' => array( 'SecurePoll' ),
 );
 
-/** Arabic (العربية) */
 $aliases['ar'] = array(
-	'SecurePoll' => array( 'اقتراع_آمن' ),
+	'SecurePoll'   => array( 'اقتراع_آمن' ),
 );
 
-/** Egyptian Spoken Arabic (مصرى) */
 $aliases['arz'] = array(
-	'SecurePoll' => array( 'اقتراع_آمن' ),
+	'SecurePoll'   => array( 'استطلاع_رأى_امان' ),
 );
 
-/** Czech (Česky) */
 $aliases['cs'] = array(
-	'SecurePoll' => array( 'Bezpečné hlasování' ),
+	'SecurePoll'   => array( 'Bezpečné hlasování' ),
 );
 
-/** German (Deutsch) */
 $aliases['de'] = array(
-	'SecurePoll' => array( 'Sichere Abstimmung' ),
+	'SecurePoll'   => array( 'Sichere Abstimmung' ),
 );
 
-/** Lower Sorbian (Dolnoserbski) */
 $aliases['dsb'] = array(
-	'SecurePoll' => array( 'Wěste wótgłosowanje' ),
+	'SecurePoll'   => array( 'Wěste wótgłosowanje' ),
 );
 
-/** French (Français) */
 $aliases['fr'] = array(
-	'SecurePoll' => array( 'Vote sécurisé' ),
+	'SecurePoll'   => array( 'Vote sécurisé' ),
 );
 
-/** Franco-Provençal (Arpetan) */
 $aliases['frp'] = array(
-	'SecurePoll' => array( 'Voto sècurisâ', 'VotoSècurisâ' ),
+	'SecurePoll'   => array( 'Voto sècurisâ', 'VotoSècurisâ' ),
 );
 
-/** Hebrew (עברית) */
 $aliases['he'] = array(
-	'SecurePoll' => array( 'הצבעה_מאובטחת' ),
+	'SecurePoll'   => array( 'הצבעה_מאובטחת' ),
 );
 
-/** Upper Sorbian (Hornjoserbsce) */
+$aliases['hr'] = array(
+	'SecurePoll'   => array( 'Sigurno_glasovanje' ),
+);
+
 $aliases['hsb'] = array(
-	'SecurePoll' => array( 'Wěste wothłosowanje' ),
+	'SecurePoll'   => array( 'Wěste wothłosowanje' ),
 );
 
-/** Interlingua (Interlingua) */
 $aliases['ia'] = array(
-	'SecurePoll' => array( 'Voto secur' ),
+	'SecurePoll'   => array( 'Voto secur' ),
 );
 
-/** Japanese (日本語) */
 $aliases['ja'] = array(
-	'SecurePoll' => array( '暗号投票' ),
+	'SecurePoll'   => array( '暗号投票' ),
 );
 
-/** Korean (한국어) */
 $aliases['ko'] = array(
-	'SecurePoll' => array( '비밀투표' ),
+	'SecurePoll'   => array( '비밀투표' ),
 );
 
-/** Colognian (Ripoarisch) */
 $aliases['ksh'] = array(
-	'SecurePoll' => array( 'Affshtemme' ),
+	'SecurePoll'   => array( 'Affshtemme' ),
 );
 
-/** Luxembourgish (Lëtzebuergesch) */
 $aliases['lb'] = array(
-	'SecurePoll' => array( 'Sécher Ofstëmmung' ),
+	'SecurePoll'   => array( 'Sécher Ofstëmmung' ),
 );
 
-/** Malayalam (മലയാളം) */
 $aliases['ml'] = array(
-	'SecurePoll' => array( 'സുരക്ഷിതവോട്ടെടുപ്പ്' ),
+	'SecurePoll'   => array( 'സുരക്ഷിതവോട്ടെടുപ്പ്' ),
 );
 
-/** Marathi (मराठी) */
 $aliases['mr'] = array(
-	'SecurePoll' => array( 'सुरक्षीतकौल' ),
+	'SecurePoll'   => array( 'सुरक्षीतकौल' ),
 );
 
-/** Nedersaksisch (Nedersaksisch) */
 $aliases['nds-nl'] = array(
-	'SecurePoll' => array( 'Beveilig_stemmen' ),
+	'SecurePoll'   => array( 'Beveilig_stemmen' ),
 );
 
-/** Dutch (Nederlands) */
 $aliases['nl'] = array(
-	'SecurePoll' => array( 'BeveiligdStemmen' ),
+	'SecurePoll'   => array( 'BeveiligdStemmen' ),
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬) */
 $aliases['no'] = array(
-	'SecurePoll' => array( 'Sikker avstemning' ),
+	'SecurePoll'   => array( 'Sikker avstemning' ),
 );
 
-/** Occitan (Occitan) */
 $aliases['oc'] = array(
-	'SecurePoll' => array( 'Vòte securizat' ),
+	'SecurePoll'   => array( 'Vòte securizat' ),
 );
 
-/** Polish (Polski) */
 $aliases['pl'] = array(
-	'SecurePoll' => array( 'Bezpieczne głosowanie' ),
+	'SecurePoll'   => array( 'Bezpieczne głosowanie' ),
 );
 
-/** Slovak (Slovenčina) */
 $aliases['sk'] = array(
-	'SecurePoll' => array( 'BezpečnéHlasovanie' ),
+	'SecurePoll'   => array( 'BezpečnéHlasovanie' ),
 );
 
-/** Turkish (Türkçe) */
 $aliases['tr'] = array(
-	'SecurePoll' => array( 'GüvenliHavuz' ),
+	'SecurePoll'   => array( 'GüvenliHavuz' ),
 );
 
-/** Simplified Chinese (‪中文(简体)‬) */
 $aliases['zh-hans'] = array(
-	'SecurePoll' => array( '安全投票' ),
+	'SecurePoll'   => array( '安全投票' ),
 );
 
-/** Traditional Chinese (‪中文(繁體)‬) */
 $aliases['zh-hant'] = array(
-	'SecurePoll' => array( '安全投票' ),
+	'SecurePoll'   => array( '安全投票' ),
 );
-
