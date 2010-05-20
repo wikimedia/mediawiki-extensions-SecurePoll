@@ -315,6 +315,62 @@ Die resultate kan nie getel word nie.',
 	'securepoll-average-score' => 'Gemiddelde punt',
 );
 
+/** Gheg Albanian (Gegë)
+ * @author Mdupont
+ */
+$messages['aln'] = array(
+	'securepoll-remote-parse-error' => 'Gabim gjatë interpretimit përgjigje autorizim nga serveri.',
+	'securepoll-api-invalid-params' => 'parametrat e pavlefshme.',
+	'securepoll-api-no-user' => 'Asnjë përdorues u gjet me ID e dhënë.',
+	'securepoll-api-token-mismatch' => 'dhëna të dëmtuara në shenjë të Sigurimit, nuk mund të hyni in',
+	'securepoll-not-logged-in' => 'Ju duhet të identifikoheni për të votuar në këto zgjedhje',
+	'securepoll-too-few-edits' => 'Na vjen keq, ju nuk mund të votojnë. Ju duhet të keni bërë së paku $1 {{PLURAL:$1||redaktim|redaktimet}} për të votuar në këto zgjedhje, ju keni bërë $2.',
+	'securepoll-blocked' => 'Na vjen keq, ju nuk mund të votojnë në këto zgjedhje, nëse ju jeni bllokuar për momentin nga redaktimi.',
+	'securepoll-bot' => 'Na vjen keq, llogaritë me flamurin bot nuk lejohen të votojnë në këto zgjedhje.',
+	'securepoll-not-in-group' => 'Vetëm anëtarët e "$1 grup" mund të votojnë në këto zgjedhje.',
+	'securepoll-not-in-list' => 'Na vjen keq, ju nuk jeni në listën e të paracaktuar të përdoruesve të autorizuar për të votuar në këto zgjedhje.',
+	'securepoll-list-title' => 'vota List: $1',
+	'securepoll-header-timestamp' => 'Kohë',
+	'securepoll-header-voter-name' => 'Emër',
+	'securepoll-header-voter-domain' => 'Sferë',
+	'securepoll-header-ua' => 'Agjent Përdoruesi',
+	'securepoll-header-cookie-dup' => 'Dup',
+	'securepoll-header-strike' => 'Grevë',
+	'securepoll-header-details' => 'Detaje',
+	'securepoll-strike-button' => 'Grevë',
+	'securepoll-unstrike-button' => 'Unstrike',
+	'securepoll-strike-reason' => 'Arsyeja:',
+	'securepoll-strike-cancel' => 'Anuloj',
+	'securepoll-strike-error' => 'Greva Gabim kryerjes / unstrike: $1',
+	'securepoll-strike-token-mismatch' => 'Të dhënat Sesioni humbur',
+	'securepoll-details-link' => 'Detaje',
+	'securepoll-details-title' => 'Voto detajet: # 1 $',
+	'securepoll-invalid-vote' => '"$1" nuk është një votë të vlefshme ID',
+	'securepoll-header-voter-type' => 'Lloji i votuesve',
+	'securepoll-voter-properties' => 'pronat e votuesve',
+	'securepoll-strike-log' => 'log Strike',
+	'securepoll-header-action' => 'Veprim',
+	'securepoll-header-reason' => 'Arsye',
+	'securepoll-header-admin' => 'Admin',
+	'securepoll-cookie-dup-list' => 'Cookie kopjuar përdoruesit',
+	'securepoll-dump-title' => 'Derdhin: $1',
+	'securepoll-dump-no-crypt' => 'Nuk ka rekord Encrypted zgjedhore është në dispozicion për këtë zgjedhje, sepse zgjedhjet nuk është i konfiguruar të përdorë encryption.',
+	'securepoll-dump-not-finished' => 'Encrypted zgjedhjeve të dhënat janë në dispozicion vetëm pas datës përfundojë më $1 tek $2',
+	'securepoll-dump-no-urandom' => 'Nuk mund te hap / dev / urandom. Për të ruajtur fshehtësinë e votuesve, Encrypted të dhënat e zgjedhjeve janë vetëm publikisht në dispozicion kur ato mund të jenë riorganizoi me një lumë të rastit numër të sigurt.',
+	'securepoll-urandom-not-supported' => 'Ky server nuk suporton kriptografike numër të brezit të rastit. Për të ruajtur fshehtësinë e votuesve, Encrypted të dhënat e zgjedhjeve janë vetëm publikisht në dispozicion kur ato mund të jenë riorganizoi me një lumë të rastit numër të sigurt.',
+	'securepoll-translate-title' => 'Translate: $1',
+	'securepoll-invalid-language' => 'kod i pavlefshëm gjuhën "$1"',
+	'securepoll-submit-translate' => 'Update',
+	'securepoll-language-label' => 'Zgjidh gjuhën:',
+	'securepoll-submit-select-lang' => 'Përkthej',
+	'securepoll-entry-text' => 'Më poshtë është lista e votimit.',
+	'securepoll-header-title' => 'Emër',
+	'securepoll-header-start-date' => 'Data Fillim',
+	'securepoll-header-end-date' => 'Data Fundi',
+	'securepoll-subpage-vote' => 'Votim',
+	'securepoll-subpage-translate' => 'Përkthej',
+);
+
 /** Aragonese (Aragonés)
  * @author Juanpabl
  */
@@ -3106,7 +3162,7 @@ Se o desexa, pode gardar o seguinte recibo como proba do seu voto:
 
 <pre>$1</pre>',
 	'securepoll-thanks' => 'Grazas, o seu voto foi rexistrado.',
-	'securepoll-return' => 'Voltar a $1',
+	'securepoll-return' => 'Volver a $1',
 	'securepoll-encrypt-error' => 'Non se puido encriptar o rexistro do seu voto.
 O seu voto non foi gardado!
 
