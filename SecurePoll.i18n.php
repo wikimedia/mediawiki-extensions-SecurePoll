@@ -344,7 +344,7 @@ $messages['aln'] = array(
 	'securepoll-strike-error' => 'Greva Gabim kryerjes / unstrike: $1',
 	'securepoll-strike-token-mismatch' => 'Të dhënat Sesioni humbur',
 	'securepoll-details-link' => 'Detaje',
-	'securepoll-details-title' => 'Voto detajet: # 1 $',
+	'securepoll-details-title' => 'Voto detajet: #$1',
 	'securepoll-invalid-vote' => '"$1" nuk është një votë të vlefshme ID',
 	'securepoll-header-voter-type' => 'Lloji i votuesve',
 	'securepoll-voter-properties' => 'pronat e votuesve',
@@ -4330,6 +4330,13 @@ Anda dapat memilih antara menghitung dari hasil suara yang terdapat di basis dat
 	'securepoll-strength-matrix' => 'Matriks kekuatan jalan',
 	'securepoll-ranks' => 'Peringkat akhir',
 	'securepoll-average-score' => 'Nilai rerata',
+);
+
+/** Igbo (Igbo) */
+$messages['ig'] = array(
+	'securepoll-strike-reason' => 'Mgbaghaputa:',
+	'securepoll-strike-cancel' => 'Emekwàlà',
+	'securepoll-header-reason' => 'Mgbaghaputa',
 );
 
 /** Ido (Ido)
