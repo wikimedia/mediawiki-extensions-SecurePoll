@@ -4661,6 +4661,8 @@ $messages['ka'] = array(
 	'securepoll-too-few-params' => 'არ არის საკმარისი ქვეკატეგორიების პარამეტრები (არასწორი ბმული).',
 	'securepoll-invalid-election' => '"$1" არ წარმოადგენს არჩევნებისათვის დასაშვებ იდენტიფიკატორს.',
 	'securepoll-welcome' => '<strong>კეთილი იყოს თქვენი მობრძანება $1!</strong>',
+	'securepoll-not-started' => 'ხმიც მიცემა ჯერ არ დაწყებულა.
+დაიწყება $3-ის $2-ზე.',
 	'securepoll-finished' => 'ეს არჩევნები დასრულებულია, თქვენ აღარ შეგიძლიათ ხმის მიცემა.',
 	'securepoll-not-qualified' => 'თქვენ არ შეგიძლიათ ამ არჩევნებში ხმის მიცემა: $1',
 	'securepoll-submit' => 'ხმის მიცემა',
@@ -7716,11 +7718,12 @@ $wgSecurePollShowErrorDetail=true; туруоруутун LocalSettings.php би
 );
 
 /** Sardinian (Sardu)
+ * @author Andria
  * @author Marzedu
  */
 $messages['sc'] = array(
-	'securepoll-header-voter-name' => 'Nòmene',
-	'securepoll-header-title' => 'Nòmene',
+	'securepoll-header-voter-name' => 'Nùmene',
+	'securepoll-header-title' => 'Nùmene',
 );
 
 /** Sicilian (Sicilianu)
@@ -8468,7 +8471,7 @@ $messages['tl'] = array(
 	'securepoll' => 'Ligtas na Halalan',
 	'securepoll-desc' => 'Karugtong para sa mga halalan at mga pagtatanung-tanong',
 	'securepoll-invalid-page' => 'Hindi tanggap na kabahaging pahinang "<nowiki>$1</nowiki>"',
-	'securepoll-need-admin' => 'Kailangan mong maging isang tagapangasiwa upang maisagawa ang galaw na ito.',
+	'securepoll-need-admin' => 'Kailangan mong maging isang tagapangasiwa ng halalan upang maisagawa ang galaw na ito.',
 	'securepoll-too-few-params' => 'Hindi sapat na mga parametro ng kabahaging pahina (hindi tanggap na kawing).',
 	'securepoll-invalid-election' => 'Ang "$1" ay hindi isang tanggap na ID ng halalan.',
 	'securepoll-welcome' => '<strong>Maligayang pagdating, $1!</strong>',
