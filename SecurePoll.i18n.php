@@ -9182,7 +9182,7 @@ $messages['yi'] = array(
 
 <pre>$1</pre>',
 	'securepoll-return' => 'צוריק צו $1',
-	'securepoll-bad-ballot-submission' => 'אייער שטים איז געווען אומגילטיג.',
+	'securepoll-bad-ballot-submission' => 'אײַער שטים איז געווען אומגילטיג: $1',
 	'securepoll-unanswered-questions' => 'איר מוזט ענטפערן אלע שאלות.',
 	'securepoll-api-invalid-params' => 'אומגילטיגע פאראמעטערס',
 	'securepoll-not-logged-in' => 'איר מוזט אריינלאגירן צו שטימען אין דער אפשטימונג',
