@@ -83,6 +83,7 @@ EOT
 	 *    message: The HTML error message
 	 */
 	static function ajaxStrike( $action, $id, $reason ) {
+		wfLoadExtensionMessages( 'SecurePoll' );
 		$page = new SecurePoll_BasePage;
 		$context = $page->sp_context;
 		$db = $context->getDB();

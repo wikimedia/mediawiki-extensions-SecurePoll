@@ -16,6 +16,7 @@ if ( !class_exists( 'SecurePoll_RemoteMWAuth' ) ) {
 	echo "SecurePoll is disabled.\n";
 	exit( 1 );
 }
+wfLoadExtensionMessages( 'SecurePoll' );
 
 header( 'Content-Type: application/vnd.php.serialized; charset=utf-8' );
 
