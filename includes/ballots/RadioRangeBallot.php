@@ -111,7 +111,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 		
 		$s = "<table class=\"securepoll-ballot-table\">\n" . 
 			"<tr>\n" .
-			"<th>&nbsp;</th>\n";
+			"<th>&#160;</th>\n";
 		foreach ( $labels as $label ) {
 			$s .= Xml::element( 'th', array(), $label ) . "\n";
 		}
