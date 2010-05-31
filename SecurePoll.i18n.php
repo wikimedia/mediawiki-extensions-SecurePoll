@@ -4654,10 +4654,12 @@ Yèn perlu panjenengan bisa nyimpen resi pangiriman ing ngisor iki minangka bukt
 /** Georgian (ქართული)
  * @author BRUTE
  * @author David1010
+ * @author ITshnik
  * @author გიორგიმელა
  */
 $messages['ka'] = array(
 	'securepoll' => 'უსაფრთხო კეჭისყრა',
+	'securepoll-need-admin' => 'თქვენ უნდა იყოთ საარჩევნო ადმინისტრატორი, რომ შეასრულოთ ეს ქმედება.',
 	'securepoll-too-few-params' => 'არ არის საკმარისი ქვეკატეგორიების პარამეტრები (არასწორი ბმული).',
 	'securepoll-invalid-election' => '"$1" არ წარმოადგენს არჩევნებისათვის დასაშვებ იდენტიფიკატორს.',
 	'securepoll-welcome' => '<strong>კეთილი იყოს თქვენი მობრძანება $1!</strong>',
@@ -4665,6 +4667,9 @@ $messages['ka'] = array(
 დაიწყება $3-ის $2-ზე.',
 	'securepoll-finished' => 'ეს არჩევნები დასრულებულია, თქვენ აღარ შეგიძლიათ ხმის მიცემა.',
 	'securepoll-not-qualified' => 'თქვენ არ შეგიძლიათ ამ არჩევნებში ხმის მიცემა: $1',
+	'securepoll-change-disallowed' => 'თქვენ უკვე გავქვთ ხმა მიცემული ამ არჩევნებში. 
+ვწუხვართ, მაგრამ თქვენ ვეღარ მისცემთ ხმას მეორედ.',
+	'securepoll-change-allowed' => '<strong>შენიშვნა: თქვენ უკვე გაქვთ მიცემული ხმა ამ არჩევნებში.</strong> თქვენ შეგიძლიათ შეცვალოთ თქვენი არჩევანი ქვემოთ მოცემული ფორმის შევსებით. გაითვალისწინეთ, რომ თუ თქვენ ასე მოიქცევით, თქვენი პირვანდელი არჩევანი გაუქმდება.',
 	'securepoll-submit' => 'ხმის მიცემა',
 	'securepoll-thanks' => 'გმადლობთ, თქვენი ხმა მიღებულია.',
 	'securepoll-return' => 'დაბრუნება $1–ზე',
