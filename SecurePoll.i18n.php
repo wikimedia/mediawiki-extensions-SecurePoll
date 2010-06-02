@@ -4682,6 +4682,7 @@ $messages['ka'] = array(
 	'securepoll-jump' => 'ხმის მიცემის სერვერზე გადასვლა',
 	'securepoll-bad-ballot-submission' => 'თქვენი ხმა ძალადაკარგულია: $1',
 	'securepoll-unanswered-questions' => 'თქვენ უნდა უპასუხოთ ყველა შეკითხვას.',
+	'securepoll-invalid-score' => 'ანგარიში უნდა იყოს რიცხვი $ 1 -სა და $ 2 -ს შორის.',
 	'securepoll-unanswered-options' => 'თქვენ უნდა გასცეთ პასუხი ყოველ კითხვაზე.',
 	'securepoll-remote-auth-error' => 'შეცდომა ანგარიშზე ინფორმაციის მიღებისას სერვერიდან.',
 	'securepoll-api-invalid-params' => 'არასწორი პარამეტრები.',
@@ -5425,7 +5426,7 @@ $messages['mk'] = array(
 	'securepoll-invalid-election' => '„$1“ не претставува важечки идентификационен број.',
 	'securepoll-welcome' => '<strong>Добредојдовте $1!</strong>',
 	'securepoll-not-started' => 'Изборите сè уште не се започнати.
-Предвидено е да започнат на $2 во $3.',
+Предвидено е да започнат на $2 во $3 ч.',
 	'securepoll-finished' => 'Изборите завршија, повеќе не можете да гласате.',
 	'securepoll-not-qualified' => 'Не сте квалификувани да гласате на овие избори: $1',
 	'securepoll-change-disallowed' => 'Веќе имате гласано на овие избори.
