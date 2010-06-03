@@ -2697,6 +2697,7 @@ Errorea:
 );
 
 /** Persian (فارسی)
+ * @author Huji
  * @author Mardetanha
  * @author Meisam
  */
@@ -2719,7 +2720,7 @@ $messages['fa'] = array(
 	'securepoll-header-voter-type' => 'نوع کاربر',
 	'securepoll-header-reason' => 'دلیل',
 	'securepoll-header-admin' => 'مدیر',
-	'securepoll-submit-translate' => 'به‌روزآوری',
+	'securepoll-submit-translate' => 'به روز رسانی',
 	'securepoll-language-label' => 'انتخاب زبان:',
 	'securepoll-submit-select-lang' => 'ترجمه',
 	'securepoll-header-title' => 'نام',
