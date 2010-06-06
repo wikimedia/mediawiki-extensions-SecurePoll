@@ -1303,6 +1303,12 @@ Podeu triar entre comptar els resultats presents a la base de dades, o de compta
 	'securepoll-ranks' => 'Classificació final',
 );
 
+/** Chechen (Нохчийн) */
+$messages['ce'] = array(
+	'securepoll-strike-reason' => 'Бахьан:',
+	'securepoll-header-reason' => 'Бахьан',
+);
+
 /** Czech (Česky)
  * @author Mormegil
  */
@@ -5476,7 +5482,7 @@ $1',
 	'securepoll-not-logged-in' => 'Морате да сте најавени за да гласате',
 	'securepoll-too-few-edits' => 'Жалиме, но не можете да гласате. Треба да имате барем $1 {{PLURAL:$1|уредување|уредувања}} за да можете да гласате, а вие имате $2.',
 	'securepoll-blocked' => 'Жалиме, но немате право да гласате ако сте моментално блокирани од уредување.',
-	'securepoll-bot' => 'Жалиме, но сметките со бот-знаменце не се дозволени на изборите.',
+	'securepoll-bot' => 'Жалиме, но сметките со ботовско знаменце не се дозволени на изборите.',
 	'securepoll-not-in-group' => 'На овие избори можат да гласаат само припадници на групата „$1“.',
 	'securepoll-not-in-list' => 'Жалиме, но вие не сте на предодредениот список на корисници овластени да гласаат на овие избори.',
 	'securepoll-list-title' => 'Наведи гласови: $1',
