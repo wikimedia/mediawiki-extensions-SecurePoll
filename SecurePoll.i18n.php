@@ -377,6 +377,8 @@ $messages['aln'] = array(
 $messages['an'] = array(
 	'securepoll-strike-cancel' => 'Cancelar',
 	'securepoll-header-action' => 'Acción',
+	'securepoll-header-start-date' => 'Calendata de prencipio',
+	'securepoll-header-end-date' => 'Calendata de fin',
 );
 
 /** Arabic (العربية)
