@@ -4357,6 +4357,8 @@ $messages['io'] = array(
 	'securepoll-desc' => 'Extensilo por elekti e voti',
 	'securepoll-header-voter-name' => 'Nomo',
 	'securepoll-strike-reason' => 'Motivo:',
+	'securepoll-header-reason' => 'Motivo',
+	'securepoll-language-label' => 'Selektez linguo:',
 	'securepoll-subpage-list' => 'Listo',
 );
 
