@@ -9247,13 +9247,14 @@ $messages['yi'] = array(
 );
 
 /** Cantonese (粵語)
+ * @author Horacewai2
  * @author Shinjiman
  */
 $messages['yue'] = array(
 	'securepoll' => '安全投票',
 	'securepoll-desc' => '選舉同調查嘅擴展',
 	'securepoll-invalid-page' => '無效嘅細頁 "<nowiki>$1</nowiki>"',
-	'securepoll-need-admin' => '你需要係一位管理員去做呢個動作。',
+	'securepoll-need-admin' => '你需要係投票一位管理員去做呢個動作。',
 	'securepoll-too-few-params' => '唔夠細頁參數（無效連結）。',
 	'securepoll-invalid-election' => '"$1"唔係一個有效嘅選舉ID。',
 	'securepoll-welcome' => '<strong>歡迎$1！</strong>',
