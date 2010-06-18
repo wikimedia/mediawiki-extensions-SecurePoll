@@ -6955,6 +6955,7 @@ It peule serne sia ëd conté j'arzultà present ant ël database, sia ëd cont�
  */
 $messages['ps'] = array(
 	'securepoll-submit' => 'رايه سپارل',
+	'securepoll-return' => '$1 ته ورګرځېدل',
 	'securepoll-header-timestamp' => 'وخت',
 	'securepoll-header-voter-name' => 'نوم',
 	'securepoll-header-voter-domain' => 'شپول',
