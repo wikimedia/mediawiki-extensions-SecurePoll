@@ -7115,6 +7115,7 @@ Pode escolher entre apurar os resultados presentes na base de dados, ou apurar r
  * @author Eduardo.mps
  * @author Everton137
  * @author GKnedo
+ * @author Giro720
  * @author Heldergeovane
  */
 $messages['pt-br'] = array(
@@ -7165,6 +7166,7 @@ Não foi possível descriptografar.',
 	'securepoll-invalid-rank' => 'Nota inválida. Você deve classificar os candidatos com notas entre 1 e 999.',
 	'securepoll-unranked-options' => 'Algumas opções não foram classificadas.
 Você deve classificar todas as opções com uma nota entre 1 e 999.',
+	'securepoll-unanswered-options' => 'Você tem que responder todas as perguntas.',
 	'securepoll-remote-auth-error' => 'Erro ao tentar obter suas informações de conta do servidor.',
 	'securepoll-remote-parse-error' => 'Erro ao interpretar a resposta de autorização do servidor.',
 	'securepoll-api-invalid-params' => 'Parâmetros inválidos.',
@@ -7212,6 +7214,7 @@ Para manter a privacidade dos votantes, os resultados criptografados da eleiçã
 	'securepoll-submit-translate' => 'Atualizar',
 	'securepoll-language-label' => 'Selecionar língua:',
 	'securepoll-submit-select-lang' => 'Traduzir',
+	'securepoll-entry-text' => 'Encontra-se abaixo a lista de eleições.',
 	'securepoll-header-title' => 'Título',
 	'securepoll-header-start-date' => 'Data do Início',
 	'securepoll-header-end-date' => 'Data do Encerramento',
@@ -7236,6 +7239,7 @@ Você pode escolher entre realizar a contagem de votos dos resultados presentes 
 	'securepoll-pairwise-victories' => 'Matriz de vitórias par a par',
 	'securepoll-strength-matrix' => 'Matriz de forças de caminho',
 	'securepoll-ranks' => 'Classificação final',
+	'securepoll-average-score' => 'Pontuação média',
 );
 
 /** Romanian (Română)
