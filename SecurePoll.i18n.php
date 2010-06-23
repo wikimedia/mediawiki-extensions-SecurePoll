@@ -4684,6 +4684,7 @@ $messages['ka'] = array(
 	'securepoll-submit' => 'ხმის მიცემა',
 	'securepoll-thanks' => 'გმადლობთ, თქვენი ხმა მიღებულია.',
 	'securepoll-return' => 'დაბრუნება $1–ზე',
+	'securepoll-no-gpg-home' => 'შეუძლებელია GPG საშინაო კატალოგის შექმნა.',
 	'securepoll-full-gpg-error' => 'შეცდომა GPG შესრულებისას:
 
 ბრძანება: $1
@@ -7243,6 +7244,7 @@ Você pode escolher entre realizar a contagem de votos dos resultados presentes 
 );
 
 /** Romanian (Română)
+ * @author Cin
  * @author Firilacroco
  * @author KlaudiuMihaila
  * @author Mihai
@@ -7254,9 +7256,9 @@ $messages['ro'] = array(
 	'securepoll-invalid-page' => 'Subpagină invalidă „<nowiki>$1</nowiki>”',
 	'securepoll-need-admin' => 'Trebuie să fiți un administrator de alegeri pentru a efectua această acțiune.',
 	'securepoll-invalid-election' => '„$1” nu este un ID valid de alegeri.',
-	'securepoll-welcome' => '<strong>Bun venit $1 !</strong>',
-	'securepoll-not-started' => 'Aceste elegeri nu au început încă.
-Sunt programate pentru a începe pe $2 la $3.',
+	'securepoll-welcome' => '<strong>Bun venit $1!</strong>',
+	'securepoll-not-started' => 'Această alegere nu a început încă.
+Este programată să înceapă pe $2 la $3.',
 	'securepoll-finished' => 'Alegerile s-au sfârșit, nu mai puteți vota.',
 	'securepoll-not-qualified' => 'Nu sunteți calificat să votați în aceste alegeri: $1',
 	'securepoll-change-disallowed' => 'Ați votat în aceste alegeri înainte.
@@ -7310,7 +7312,7 @@ Trebuie să oferi tuturor opțiunilor un rang între 1 și 999.',
 	'securepoll-header-details' => 'Detalii',
 	'securepoll-unstrike-button' => 'Anulare ștergere',
 	'securepoll-strike-reason' => 'Motiv:',
-	'securepoll-strike-cancel' => 'Anulare',
+	'securepoll-strike-cancel' => 'Renunţă',
 	'securepoll-strike-error' => 'Eroare la efectuarea ștergerii/anulării ștergerii: $1',
 	'securepoll-strike-token-mismatch' => 'Informațiile despre sesiune s-au pierdut',
 	'securepoll-details-link' => 'Detalii',
@@ -7322,14 +7324,14 @@ Trebuie să oferi tuturor opțiunilor un rang între 1 și 999.',
 	'securepoll-header-action' => 'Acțiune',
 	'securepoll-header-reason' => 'Motiv',
 	'securepoll-header-admin' => 'Administrator',
-	'securepoll-cookie-dup-list' => 'utilizatori duplicați prin cookie',
+	'securepoll-cookie-dup-list' => 'Utilizatori duplicați prin cookie',
 	'securepoll-dump-title' => 'Dump: $1',
 	'securepoll-dump-no-crypt' => 'Nu există o înregistrare a alegerilor criptată valabilă pentru aceste alegeri, deoarece alegerile nu sunt configurate pentru a folosi criptarea.',
 	'securepoll-dump-not-finished' => 'Înregistrările alegerilor criptate sunt valabile doar după data de încheiere în $1 la $2',
 	'securepoll-translate-title' => 'Traducere: $1',
 	'securepoll-invalid-language' => 'Cod de limbă incorect "$1"',
 	'securepoll-submit-translate' => 'Actualizează',
-	'securepoll-language-label' => 'Marchează limba:',
+	'securepoll-language-label' => 'Selectează limba:',
 	'securepoll-submit-select-lang' => 'Traducere',
 	'securepoll-entry-text' => 'Mai jos este lista de sondaje.',
 	'securepoll-header-title' => 'Nume',
