@@ -7167,6 +7167,7 @@ Não foi possível descriptografar.',
 	'securepoll-invalid-rank' => 'Nota inválida. Você deve classificar os candidatos com notas entre 1 e 999.',
 	'securepoll-unranked-options' => 'Algumas opções não foram classificadas.
 Você deve classificar todas as opções com uma nota entre 1 e 999.',
+	'securepoll-invalid-score' => 'A pontuação deve ser um número entre $1 e $2.',
 	'securepoll-unanswered-options' => 'Você tem que responder todas as perguntas.',
 	'securepoll-remote-auth-error' => 'Erro ao tentar obter suas informações de conta do servidor.',
 	'securepoll-remote-parse-error' => 'Erro ao interpretar a resposta de autorização do servidor.',
@@ -7244,6 +7245,7 @@ Você pode escolher entre realizar a contagem de votos dos resultados presentes 
 );
 
 /** Romanian (Română)
+ * @author AdiJapan
  * @author Cin
  * @author Firilacroco
  * @author KlaudiuMihaila
@@ -7325,7 +7327,7 @@ Trebuie să oferi tuturor opțiunilor un rang între 1 și 999.',
 	'securepoll-header-action' => 'Acțiune',
 	'securepoll-header-reason' => 'Motiv',
 	'securepoll-header-admin' => 'Administrator',
-	'securepoll-cookie-dup-list' => 'Utilizatori duplicați prin cookie',
+	'securepoll-cookie-dup-list' => 'Utilizatori reveniți, identificați după cookie',
 	'securepoll-dump-title' => 'Dump: $1',
 	'securepoll-dump-no-crypt' => 'Nu există o înregistrare a alegerilor criptată valabilă pentru aceste alegeri, deoarece alegerile nu sunt configurate pentru a folosi criptarea.',
 	'securepoll-dump-not-finished' => 'Înregistrările alegerilor criptate sunt valabile doar după data de încheiere în $1 la $2',
