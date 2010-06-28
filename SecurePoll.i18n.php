@@ -7617,6 +7617,22 @@ $1',
 	'securepoll-average-score' => 'Средняя оценка',
 );
 
+/** Rusyn (русиньскый язык)
+ * @author Gazeb
+ */
+$messages['rue'] = array(
+	'securepoll-header-timestamp' => 'Час',
+	'securepoll-header-voter-name' => 'Мено',
+	'securepoll-header-voter-domain' => 'Домена',
+	'securepoll-header-cookie-dup' => 'Дуп.',
+	'securepoll-header-details' => 'Детайлы:',
+	'securepoll-strike-reason' => 'Причіна:',
+	'securepoll-strike-cancel' => 'Сторно',
+	'securepoll-details-link' => 'Детайлы',
+	'securepoll-subpage-translate' => 'Переклад',
+	'securepoll-subpage-list' => 'Список',
+);
+
 /** Yakut (Саха тыла)
  * @author HalanTul
  */
@@ -7770,6 +7786,7 @@ $messages['scn'] = array(
 
 /** Sinhala (සිංහල)
  * @author Calcey
+ * @author බිඟුවා
  */
 $messages['si'] = array(
 	'securepoll-desc' => 'මැතිවරණ හා සමීක්ෂණ සඳහා දිඟුව',
@@ -7799,6 +7816,9 @@ $messages['si'] = array(
 	'securepoll-header-details' => 'විස්තර',
 	'securepoll-strike-reason' => 'හේතුව:',
 	'securepoll-strike-cancel' => 'අත් හරින්න',
+	'securepoll-details-link' => 'විස්තර',
+	'securepoll-header-admin' => 'පරිපාලක',
+	'securepoll-header-title' => 'නම',
 );
 
 /** Slovak (Slovenčina)
