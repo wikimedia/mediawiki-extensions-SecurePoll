@@ -2872,6 +2872,7 @@ Voit valita tuloslaskennan tietokantatiedoista, tai salakirjoitetuista tuloksist
  * @author Jean-Frédéric
  * @author Louperivois
  * @author Omnipaedista
+ * @author Peter17
  * @author PieRRoMaN
  * @author Urhixidur
  * @author Verdy p
@@ -2948,7 +2949,7 @@ Vous devez donner un rang entre 1 et 999 (inclus) à toutes les options.',
 	'securepoll-header-details' => 'Détails',
 	'securepoll-strike-button' => 'Biffer',
 	'securepoll-unstrike-button' => 'Débiffer',
-	'securepoll-strike-reason' => 'Raison :',
+	'securepoll-strike-reason' => 'Motif :',
 	'securepoll-strike-cancel' => 'Annuler',
 	'securepoll-strike-error' => 'Erreur lors du (dé)biffage : $1',
 	'securepoll-strike-token-mismatch' => 'Perte des données de session',
@@ -7629,6 +7630,9 @@ $messages['rue'] = array(
 	'securepoll-strike-reason' => 'Причіна:',
 	'securepoll-strike-cancel' => 'Сторно',
 	'securepoll-details-link' => 'Детайлы',
+	'securepoll-header-reason' => 'Причіна',
+	'securepoll-translate-title' => 'Переклад: $1',
+	'securepoll-submit-select-lang' => 'Перекласти',
 	'securepoll-subpage-translate' => 'Переклад',
 	'securepoll-subpage-list' => 'Список',
 );
@@ -8356,7 +8360,7 @@ $2 న, $3 లకు మోదలు అవుతుంది',
 	'securepoll-header-admin' => 'నిర్వహణాధికారి',
 	'securepoll-translate-title' => 'అనువదించు: $1',
 	'securepoll-invalid-language' => 'తప్పుడు భాషా సంకేతం "$1"',
-	'securepoll-submit-translate' => 'అప్డేట్',
+	'securepoll-submit-translate' => 'తాజాకరించు',
 	'securepoll-language-label' => 'భాషను ఎన్నుకో:',
 	'securepoll-submit-select-lang' => 'అనువదించు',
 	'securepoll-header-title' => 'పేరు',
