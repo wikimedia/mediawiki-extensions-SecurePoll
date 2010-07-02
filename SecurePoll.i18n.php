@@ -4804,6 +4804,7 @@ $messages['kn'] = array(
 );
 
 /** Korean (한국어)
+ * @author Albamhandae
  * @author Klutzy
  * @author Kwj2772
  * @author Mhha
@@ -4833,7 +4834,7 @@ $messages['ko'] = array(
 
 <pre>$1</pre>',
 	'securepoll-thanks' => '감사합니다. 당신의 투표가 기록되었습니다.',
-	'securepoll-return' => '$1로 돌아가기',
+	'securepoll-return' => '$1(으)로 돌아가기',
 	'securepoll-encrypt-error' => '당신의 투표를 암호화하는 데 실패했습니다.
 당신의 투표가 기록되지 않았습니다.
 
