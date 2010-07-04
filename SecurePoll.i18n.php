@@ -9300,6 +9300,13 @@ $messages['vo'] = array(
 	'securepoll-header-reason' => 'Kod',
 );
 
+/** Wu (吴语) */
+$messages['wuu'] = array(
+	'securepoll-strike-reason' => '理由：',
+	'securepoll-strike-cancel' => '取消',
+	'securepoll-header-reason' => '理由：',
+);
+
 /** Yiddish (ייִדיש)
  * @author פוילישער
  */
