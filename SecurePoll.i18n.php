@@ -4360,6 +4360,7 @@ $messages['io'] = array(
 	'securepoll-strike-reason' => 'Motivo:',
 	'securepoll-header-reason' => 'Motivo',
 	'securepoll-language-label' => 'Selektez linguo:',
+	'securepoll-header-title' => 'Nomo',
 	'securepoll-subpage-list' => 'Listo',
 );
 
