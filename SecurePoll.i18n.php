@@ -919,6 +919,7 @@ $messages['bn'] = array(
 
 /** Breton (Brezhoneg)
  * @author Fulup
+ * @author Y-M D
  */
 $messages['br'] = array(
 	'securepoll' => 'Mouezhiadeg suraet',
@@ -975,7 +976,7 @@ Ret deoc'h renkañ pep dibarzh etre 1 ha 999.",
 	'securepoll-api-invalid-params' => 'Arventennoù direizh.',
 	'securepoll-api-no-user' => "N'eus bet kavet implijer ebet dezhañ an ID merket.",
 	'securepoll-api-token-mismatch' => 'Ne glot ket ar jedouer surentez, dibosupl emlugañ',
-	'securepoll-not-logged-in' => 'Rankout a rin en em lugañ a-benn votiñ en dilennadeg-mañ',
+	'securepoll-not-logged-in' => 'Rankout a rit kevreañ a-benn votiñ en dilennadeg-mañ.',
 	'securepoll-too-few-edits' => "Ho tigarez, n'hallit ket votiñ. Ret eo bezañ graet da nebeutañ $1 {{PLURAL:$1|degasadenn|degasadenn}} a-benn gallout mouezhiañ en dilennadeg-mañ, ha graet hoc'h eus $2.",
 	'securepoll-blocked' => "Ho tigarez, n'oc'h ket evit votiñ en dilennadeg-mañ pa'z eo stanket ho tegasadennoù evit ar mare.",
 	'securepoll-bot' => "Ho tigarez, n'hall ket ar c'hontoù dezho ar statud robod votiñ en dilennadeg-mañ",
