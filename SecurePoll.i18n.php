@@ -7636,7 +7636,9 @@ $messages['rue'] = array(
 	'securepoll-details-link' => 'Детайлы',
 	'securepoll-header-reason' => 'Причіна',
 	'securepoll-translate-title' => 'Переклад: $1',
+	'securepoll-language-label' => 'Выбер языка:',
 	'securepoll-submit-select-lang' => 'Перекласти',
+	'securepoll-header-title' => 'Назва',
 	'securepoll-subpage-translate' => 'Переклад',
 	'securepoll-subpage-list' => 'Список',
 );
