@@ -4343,11 +4343,18 @@ Anda dapat memilih antara menghitung dari hasil suara yang terdapat di basis dat
 	'securepoll-average-score' => 'Nilai rerata',
 );
 
-/** Igbo (Igbo) */
+/** Igbo (Igbo)
+ * @author Ukabia
+ */
 $messages['ig'] = array(
-	'securepoll-strike-reason' => 'Mgbaghaputa:',
-	'securepoll-strike-cancel' => 'Emekwàlà',
+	'securepoll-strike-reason' => 'Mgbághapụtà:',
+	'securepoll-strike-cancel' => 'Kàchá',
 	'securepoll-header-reason' => 'Mgbaghaputa',
+	'securepoll-submit-select-lang' => 'Kuwaria na asụsụ ozor',
+	'securepoll-header-title' => 'Áhà',
+	'securepoll-subpage-vote' => 'Votu',
+	'securepoll-subpage-list' => 'Ndetu',
+	'securepoll-subpage-dump' => 'Nkwáfù',
 );
 
 /** Ido (Ido)
