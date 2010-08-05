@@ -4347,9 +4347,15 @@ Anda dapat memilih antara menghitung dari hasil suara yang terdapat di basis dat
  * @author Ukabia
  */
 $messages['ig'] = array(
+	'securepoll-header-timestamp' => 'Ógẹ',
+	'securepoll-header-voter-name' => 'Áhà',
 	'securepoll-strike-reason' => 'Mgbághapụtà:',
 	'securepoll-strike-cancel' => 'Kàchá',
+	'securepoll-details-link' => 'Nkȯwa',
+	'securepoll-header-action' => 'Ọmé',
 	'securepoll-header-reason' => 'Mgbaghaputa',
+	'securepoll-submit-translate' => 'Dịnwanye mmā',
+	'securepoll-language-label' => 'Nwèré asụsụ:',
 	'securepoll-submit-select-lang' => 'Kuwaria na asụsụ ozor',
 	'securepoll-header-title' => 'Áhà',
 	'securepoll-subpage-vote' => 'Votu',
