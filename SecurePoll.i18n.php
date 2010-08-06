@@ -3428,6 +3428,12 @@ Du chasch wehle zwische dr Uuszellig vu dr aktuällen Ergebnis in dr Datebank un
 	'securepoll-average-score' => 'Durschnittlige Stand',
 );
 
+/** Hausa (هَوُسَ) */
+$messages['ha'] = array(
+	'securepoll-strike-cancel' => 'Soke',
+	'securepoll-header-reason' => 'Dalili',
+);
+
 /** Hebrew (עברית)
  * @author Rotem Liss
  * @author Rotemliss
