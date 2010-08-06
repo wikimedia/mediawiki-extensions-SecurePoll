@@ -210,7 +210,7 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 				'wiki' => wfWikiID(),
 				'blocked' => $user->isBlocked(),
 				'edit-count' => $user->getEditCount(),
-				'bot' => $user->isBot(),
+				'bot' => $user->isAllowed( 'bot' ),
 				'language' => $user->getOption( 'language' ),
 				'groups' => $user->getGroups(),
 				'lists' => $this->getLists( $user )
