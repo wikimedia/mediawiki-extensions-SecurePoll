@@ -1312,6 +1312,12 @@ $messages['ce'] = array(
 	'securepoll-header-reason' => 'Бахьан',
 );
 
+/** Sorani (کوردی) */
+$messages['ckb'] = array(
+	'securepoll-strike-reason' => 'هۆکار:',
+	'securepoll-header-reason' => 'هۆکار',
+);
+
 /** Czech (Česky)
  * @author Mormegil
  */
