@@ -5068,7 +5068,7 @@ Do moß alle Müjjeleschkeite ene Rang zwesche 1 un 999 jevve.',
 	'securepoll-dump-no-urandom' => 'Mer künne <code>/dev/random</code> nit opmaache.
 Öm dä Afshtemmer ze schötze, don mer verschlößelte Datesäz bloß dann ußjävve,
 wann mer se met enem seschere, zohfällije Dateshtrom verwörfelle künne.',
-	'securepoll-urandom-not-supported' => 'Hee dä ßööver kann kein Zohfallszahle för et Verschößele maache.
+	'securepoll-urandom-not-supported' => 'Hee dä ẞööver kann kein Zohfallszahle för et Verschößele maache.
 Öm et Wahljeheimnis ze bewaahre, sin de verschößelte Opzeichnunge vun der Stemme bloß dann öffentlich ze han, wann mer se en ene seshere zofällije Reijefollsh zeije künne.',
 	'securepoll-translate-title' => 'Övveräze: $1',
 	'securepoll-invalid-language' => '„<code>$1</code>“ es enne onjöltijje Shprooche_Kood',
@@ -6987,6 +6987,7 @@ It peule serne sia ëd conté j'arzultà present ant ël database, sia ëd cont�
 $messages['ps'] = array(
 	'securepoll-submit' => 'رايه سپارل',
 	'securepoll-return' => '$1 ته ورګرځېدل',
+	'securepoll-unanswered-questions' => 'تاسې بايد ټولې پوښتنې ځواب کړۍ.',
 	'securepoll-header-timestamp' => 'وخت',
 	'securepoll-header-voter-name' => 'نوم',
 	'securepoll-header-voter-domain' => 'شپول',
@@ -9065,6 +9066,9 @@ $messages['ur'] = array(
 <pre>$1</pre>',
 	'securepoll-thanks' => 'شکریہ، آپ کی رائے محفوظ کرلی گئی.',
 	'securepoll-return' => 'واپس بطرف $1',
+	'securepoll-strike-reason' => 'وجہ:',
+	'securepoll-strike-cancel' => 'منسوخ',
+	'securepoll-header-reason' => 'وجہ',
 );
 
 /** Vèneto (Vèneto)
