@@ -893,6 +893,8 @@ $messages['bn'] = array(
 	'securepoll-thanks' => 'ধন্যবাদ, আপনার ভোট সংরক্ষণ করা হয়েছে।',
 	'securepoll-return' => '$1 এ ফিরে যাও।',
 	'securepoll-jump' => 'ভোটিং সার্ভারে যাও',
+	'securepoll-unanswered-questions' => 'আপনাকে অবশ্যই সব প্রশ্নের উত্তর দিতে হবে।',
+	'securepoll-list-title' => 'ভোটের তালিকা: $1',
 	'securepoll-header-timestamp' => 'সময়',
 	'securepoll-header-voter-name' => 'নাম',
 	'securepoll-header-voter-domain' => 'ডোমেইন',
@@ -915,6 +917,7 @@ $messages['bn'] = array(
 	'securepoll-subpage-vote' => 'ভোট',
 	'securepoll-subpage-translate' => 'অনুবাদ করুন',
 	'securepoll-subpage-list' => 'তালিকা',
+	'securepoll-average-score' => 'গড় স্কোর',
 );
 
 /** Breton (Brezhoneg)
