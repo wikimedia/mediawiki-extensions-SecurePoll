@@ -2715,35 +2715,103 @@ Errorea:
 );
 
 /** Persian (فارسی)
+ * @author Bersam
+ * @author Ebraminio
  * @author Huji
  * @author Mardetanha
  * @author Meisam
+ * @author Wayiran
  */
 $messages['fa'] = array(
 	'securepoll' => 'رای‌گیری امن',
 	'securepoll-desc' => 'افزونه برای رای‌گیری‌ها و جمع‌آوری اطلاعات',
 	'securepoll-invalid-page' => 'زیرسفحه نامعتبر "<nowiki>$1</nowiki>"',
+	'securepoll-need-admin' => 'نیاز است که شما یک مدیر انتخابات باشید که چنین کاری را بتوانید انجام دهید.',
+	'securepoll-too-few-params' => 'مولفه‌های ناکافی زیرمجموعه (پیوند نامعتبر)',
+	'securepoll-invalid-election' => '«$1» یک آی‌دی معتبر انتخابات نیست.',
+	'securepoll-welcome' => '<strong>$1 خوش آمدید!</strong>',
+	'securepoll-not-started' => 'این رای‌گیری هنوز آغاز نشده است.
+قرار است در تاریخ $2 در ساعت $3 آغاز شود.',
+	'securepoll-finished' => 'رای‌گیری به پایان رسیده‌است، شما دیگر نمی‌توانید رای دهید.',
 	'securepoll-not-qualified' => 'شما واجد شرایط شرکت در این رای‌گیری نیستید: $1',
+	'securepoll-change-disallowed' => 'شما پیش‌تر در این رای‌گیری رای داده‌اید.
+متاسفیم، نمی‌توانید دوباره رای دهید.',
 	'securepoll-submit' => 'ارسال رای',
+	'securepoll-gpg-receipt' => 'سپاس از شما بابت رای‌دادن.
+
+اگر تمایل دارید، می‌توانید رسید زیر را به عنوان گواه رای‌تان حفظ کنید:
+
+<pre>$1</pre>',
+	'securepoll-thanks' => 'متشکریم، رای شما ثبت شده‌است.',
 	'securepoll-return' => 'بازگشت به $1',
+	'securepoll-no-gpg-home' => 'قادر به ایجاد دایرکتوری مرکزی GPG نبود.',
+	'securepoll-secret-gpg-error' => '↓ خطا در اجرای executing GPG.
+از $wgSecurePollShowErrorDetail=true; استفاده کنید ، در LocalSettings.php اطلاعات بیشتری موجود است.',
+	'securepoll-gpg-config-error' => 'کلیدهای GPG درست پیکربندی نشده‌اند.',
+	'securepoll-gpg-parse-error' => 'خطا در تفسیر خروجی GPG.',
+	'securepoll-no-decryption-key' => 'کلید رمزگشایی تنظیم نشده‌است.
+نمی‌توان رمزگشایی کرد.',
+	'securepoll-jump' => 'برو به کارساز رای‌گیری',
+	'securepoll-bad-ballot-submission' => 'رای شما نامعتبر بود: $1',
 	'securepoll-unanswered-questions' => 'شما باید به تمامی سوالات پاسخ دهید.',
+	'securepoll-invalid-rank' => 'رتبهٔ نامعتبر. شما باید به نامزدها رتبه‌ای بین ۱ و ۹۹۹ بدهید.',
+	'securepoll-invalid-score' => 'نمره باید عددی بین $1 و $2 باشد.',
+	'securepoll-unanswered-options' => 'باید به هر سوال پاسخ دهید.',
+	'securepoll-api-invalid-params' => 'مولفه‌های نامعتبر.',
+	'securepoll-api-no-user' => 'هیچ کاربری با شناسهٔ داده‌شده پیدا نشد.',
+	'securepoll-api-token-mismatch' => 'توکن امنیتی تطابق ندارد، نمی‌توان وارد شد.',
+	'securepoll-not-logged-in' => 'شما باید برای رای‌دادن در این رای‌گیری وارد سیستم شوید.',
+	'securepoll-blocked' => 'متاسفیم، اگر دچار محدودیت ویرایشی هستید نمی‌توانید در این رای‌گیری رای دهید.',
+	'securepoll-bot' => 'متاسفیم، حساب‌های با پرچم روبات اجازهٔ رای دادن در این رای‌گیری را ندارند.',
+	'securepoll-not-in-group' => 'فقط اعضای گروه «$1» می‌توانند در این رای‌گیری رای دهند.',
+	'securepoll-not-in-list' => 'متاسفیم، شما در فهرست ازپیش‌تعیین‌شدهٔ کاربران مجاز برای رای دادن در این رای‌گیری نیستید.',
+	'securepoll-list-title' => 'فهرست رای‌ها: $1',
 	'securepoll-header-timestamp' => 'زمان',
 	'securepoll-header-voter-name' => 'نام',
 	'securepoll-header-voter-domain' => 'دامین',
+	'securepoll-header-ua' => 'مرورگر کاربر',
+	'securepoll-header-cookie-dup' => 'تکراری',
 	'securepoll-header-details' => 'جزئیات',
 	'securepoll-strike-reason' => 'دلیل:',
 	'securepoll-strike-cancel' => 'لغو',
 	'securepoll-details-link' => 'جزئیات',
 	'securepoll-details-title' => 'جزییات رای: #$1',
 	'securepoll-header-voter-type' => 'نوع کاربر',
+	'securepoll-voter-properties' => 'خصوصیت‌های رای دهندگان',
+	'securepoll-header-action' => 'اقدام',
 	'securepoll-header-reason' => 'دلیل',
 	'securepoll-header-admin' => 'مدیر',
+	'securepoll-dump-no-crypt' => 'هیچ رکورد رای‌گیری رمزگذاری‌شده‌ای برای این رای‌گیری در دسترس نیست، چراکه رای‌گیری برای استفاده از رمزگذاری، پیکربندی نشده است.',
+	'securepoll-dump-not-finished' => 'رکوردهای رمزگذاری‌شدهٔ رای‌گیری تنها پس از پایان تاریخ $1 در $2 قابل دسترس خواهد بود.',
+	'securepoll-translate-title' => 'ترجمه: $1',
+	'securepoll-invalid-language' => 'کد زبانی نامعتبر "$1"',
 	'securepoll-submit-translate' => 'به روز رسانی',
 	'securepoll-language-label' => 'انتخاب زبان:',
 	'securepoll-submit-select-lang' => 'ترجمه',
 	'securepoll-header-title' => 'نام',
 	'securepoll-header-start-date' => 'تاریخ آغاز',
 	'securepoll-header-end-date' => 'تاریخ پایان',
+	'securepoll-subpage-vote' => 'رای',
+	'securepoll-subpage-translate' => 'ترجمه',
+	'securepoll-subpage-list' => 'فهرست',
+	'securepoll-subpage-dump' => 'دامپ',
+	'securepoll-subpage-tally' => 'شمارش',
+	'securepoll-tally-title' => 'شمارش: $1',
+	'securepoll-tally-not-finished' => 'شرمنده، شما نمی‌توانید رای‌ها را قبل از کامل شدن رای‌گیری شمارش کنید.',
+	'securepoll-can-decrypt' => 'این انتخابات رمزنگاری شده‌است، ولی کلید رمزگشایی موجود است.
+شما می‌توانید انتخاب که یا نتایج فعلی شمارش شوند، یا نتایج رمزگذاری شدهٔ بارگذاری شده، شمارش شوند.',
+	'securepoll-tally-no-key' => 'شما نمی‌توانید این رای‌گیری را شمارش کنید، چراکه رای‌ها رمزگذاری‌شده هستند، و کلید رمزگشایی در دسترس نیست.',
+	'securepoll-tally-local-legend' => 'نتایج ذخیره‌شدهٔ شمارش',
+	'securepoll-tally-local-submit' => 'ایجاد شمارش',
+	'securepoll-tally-upload-submit' => 'ایجاد شمارش',
+	'securepoll-tally-error' => 'خطا در تفسیر رکورد رای، نمی‌توان شمارش تولید کرد.',
+	'securepoll-no-upload' => 'هیچ پرونده‌ای بارگذاری نشده، نمی‌توان نتایج را شمارش کرد.',
+	'securepoll-dump-corrupt' => 'پروندهٔ روگرفت خراب است و نمی‌تواند پردازش شود.',
+	'securepoll-tally-upload-error' => 'خطا در شمارش پروندهٔ روگرفت: $1',
+	'securepoll-pairwise-victories' => 'ماتریس پیشروی جفت‌جفت',
+	'securepoll-strength-matrix' => 'ماتریس نقاط قوت مسیر',
+	'securepoll-ranks' => 'رتبه‌بندی نهایی',
+	'securepoll-average-score' => 'میانگین نمره',
 );
 
 /** Finnish (Suomi)
