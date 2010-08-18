@@ -889,11 +889,19 @@ $1',
  * @author Bellayet
  */
 $messages['bn'] = array(
+	'securepoll-invalid-election' => '"$1" সঠিক ভোট আইডি নয়।',
 	'securepoll-submit' => 'ভোট প্রদান করুন',
+	'securepoll-gpg-receipt' => 'ভোট দেওয়ার জন্য ধন্যবাদ।
+
+আপনি চাইলে, ভোটের প্রমাণ সরূপ এই রিসিপ্টটি সংরক্ষণ করতে পারেন:
+
+<pre>$1</pre>',
 	'securepoll-thanks' => 'ধন্যবাদ, আপনার ভোট সংরক্ষণ করা হয়েছে।',
 	'securepoll-return' => '$1 এ ফিরে যাও।',
 	'securepoll-jump' => 'ভোটিং সার্ভারে যাও',
+	'securepoll-bad-ballot-submission' => 'আপনার ভোট ঠিক নয়: $1',
 	'securepoll-unanswered-questions' => 'আপনাকে অবশ্যই সব প্রশ্নের উত্তর দিতে হবে।',
+	'securepoll-invalid-score' => 'স্কোর অবশ্যই $1 এবং $2 মধ্যে একটি সংখ্যা হবে।',
 	'securepoll-list-title' => 'ভোটের তালিকা: $1',
 	'securepoll-header-timestamp' => 'সময়',
 	'securepoll-header-voter-name' => 'নাম',
@@ -2718,6 +2726,7 @@ Errorea:
  * @author Bersam
  * @author Ebraminio
  * @author Huji
+ * @author Ladsgroup
  * @author Mardetanha
  * @author Meisam
  * @author Wayiran
@@ -2727,8 +2736,8 @@ $messages['fa'] = array(
 	'securepoll-desc' => 'افزونه برای رای‌گیری‌ها و جمع‌آوری اطلاعات',
 	'securepoll-invalid-page' => 'زیرسفحه نامعتبر "<nowiki>$1</nowiki>"',
 	'securepoll-need-admin' => 'نیاز است که شما یک مدیر انتخابات باشید که چنین کاری را بتوانید انجام دهید.',
-	'securepoll-too-few-params' => 'مولفه‌های ناکافی زیرمجموعه (پیوند نامعتبر)',
-	'securepoll-invalid-election' => '«$1» یک آی‌دی معتبر انتخابات نیست.',
+	'securepoll-too-few-params' => 'پارامترهای ناکافی در زیرصفحه (پیوند نامعتبر)',
+	'securepoll-invalid-election' => '«$1» یک شناسهٔ معتبر رای‌گیری نیست.',
 	'securepoll-welcome' => '<strong>$1 خوش آمدید!</strong>',
 	'securepoll-not-started' => 'این رای‌گیری هنوز آغاز نشده است.
 قرار است در تاریخ $2 در ساعت $3 آغاز شود.',
@@ -2736,6 +2745,9 @@ $messages['fa'] = array(
 	'securepoll-not-qualified' => 'شما واجد شرایط شرکت در این رای‌گیری نیستید: $1',
 	'securepoll-change-disallowed' => 'شما پیش‌تر در این رای‌گیری رای داده‌اید.
 متاسفیم، نمی‌توانید دوباره رای دهید.',
+	'securepoll-change-allowed' => '<strong>نکته:شما قبلا در این رای‌گیری رای داده‌اید.</strong>
+شما ممکن است مایل باشید رایتان را تغییر دهید.در این صورت فرم زیر را پر کنید.
+توجه داشته باشید که اگر رای دهید.رای قبلی باطل خواهد شد.',
 	'securepoll-submit' => 'ارسال رای',
 	'securepoll-gpg-receipt' => 'سپاس از شما بابت رای‌دادن.
 
@@ -2744,6 +2756,10 @@ $messages['fa'] = array(
 <pre>$1</pre>',
 	'securepoll-thanks' => 'متشکریم، رای شما ثبت شده‌است.',
 	'securepoll-return' => 'بازگشت به $1',
+	'securepoll-encrypt-error' => 'ثبت رای شما شکست خورد.
+رای شما ثبت نشده‌است!
+
+$1',
 	'securepoll-no-gpg-home' => 'قادر به ایجاد دایرکتوری مرکزی GPG نبود.',
 	'securepoll-secret-gpg-error' => '↓ خطا در اجرای executing GPG.
 از $wgSecurePollShowErrorDetail=true; استفاده کنید ، در LocalSettings.php اطلاعات بیشتری موجود است.',
@@ -2755,12 +2771,17 @@ $messages['fa'] = array(
 	'securepoll-bad-ballot-submission' => 'رای شما نامعتبر بود: $1',
 	'securepoll-unanswered-questions' => 'شما باید به تمامی سوالات پاسخ دهید.',
 	'securepoll-invalid-rank' => 'رتبهٔ نامعتبر. شما باید به نامزدها رتبه‌ای بین ۱ و ۹۹۹ بدهید.',
+	'securepoll-unranked-options' => 'برخی گزینه‌ها امتیاز نگرفته‌اند.
+شما باید به همهٔ گزینه‌ها امتیازی بین ۱ تا ۹۹۹ بدهید.',
 	'securepoll-invalid-score' => 'نمره باید عددی بین $1 و $2 باشد.',
 	'securepoll-unanswered-options' => 'باید به هر سوال پاسخ دهید.',
-	'securepoll-api-invalid-params' => 'مولفه‌های نامعتبر.',
+	'securepoll-remote-auth-error' => 'خطا در واکشی اطلاعات حساب شما از سرور.',
+	'securepoll-remote-parse-error' => 'خطا در تفسیر پاسخ مجازشناسی از سرور.',
+	'securepoll-api-invalid-params' => 'پارامترهای نامعتبر.',
 	'securepoll-api-no-user' => 'هیچ کاربری با شناسهٔ داده‌شده پیدا نشد.',
 	'securepoll-api-token-mismatch' => 'توکن امنیتی تطابق ندارد، نمی‌توان وارد شد.',
 	'securepoll-not-logged-in' => 'شما باید برای رای‌دادن در این رای‌گیری وارد سیستم شوید.',
+	'securepoll-too-few-edits' => 'متاسفیم، شما نمی‌توانید رای دهید. برای رای‌دادن در این رای‌گیری لازم است تا حداقل $1 ویرایش داشته باشید، اما شما $2 ویرایش دارید.',
 	'securepoll-blocked' => 'متاسفیم، اگر دچار محدودیت ویرایشی هستید نمی‌توانید در این رای‌گیری رای دهید.',
 	'securepoll-bot' => 'متاسفیم، حساب‌های با پرچم روبات اجازهٔ رای دادن در این رای‌گیری را ندارند.',
 	'securepoll-not-in-group' => 'فقط اعضای گروه «$1» می‌توانند در این رای‌گیری رای دهند.',
@@ -2771,16 +2792,24 @@ $messages['fa'] = array(
 	'securepoll-header-voter-domain' => 'دامین',
 	'securepoll-header-ua' => 'مرورگر کاربر',
 	'securepoll-header-cookie-dup' => 'تکراری',
+	'securepoll-header-strike' => 'خط‌زدن',
 	'securepoll-header-details' => 'جزئیات',
+	'securepoll-strike-button' => 'خط‌زدن',
+	'securepoll-unstrike-button' => 'خط‌نازدن',
 	'securepoll-strike-reason' => 'دلیل:',
 	'securepoll-strike-cancel' => 'لغو',
+	'securepoll-strike-error' => 'خطا در انجام خط‌زدن/خط‌نازدن: $1',
+	'securepoll-strike-token-mismatch' => 'داده‌های جلسه از دست رفت',
 	'securepoll-details-link' => 'جزئیات',
 	'securepoll-details-title' => 'جزییات رای: #$1',
+	'securepoll-invalid-vote' => '«$1» شناسهٔ رایِ معتبری نیست.',
 	'securepoll-header-voter-type' => 'نوع کاربر',
 	'securepoll-voter-properties' => 'خصوصیت‌های رای دهندگان',
+	'securepoll-strike-log' => 'لاگ خط‌زدن',
 	'securepoll-header-action' => 'اقدام',
 	'securepoll-header-reason' => 'دلیل',
 	'securepoll-header-admin' => 'مدیر',
+	'securepoll-dump-title' => 'دامپ: $1',
 	'securepoll-dump-no-crypt' => 'هیچ رکورد رای‌گیری رمزگذاری‌شده‌ای برای این رای‌گیری در دسترس نیست، چراکه رای‌گیری برای استفاده از رمزگذاری، پیکربندی نشده است.',
 	'securepoll-dump-not-finished' => 'رکوردهای رمزگذاری‌شدهٔ رای‌گیری تنها پس از پایان تاریخ $1 در $2 قابل دسترس خواهد بود.',
 	'securepoll-translate-title' => 'ترجمه: $1',
@@ -2788,6 +2817,7 @@ $messages['fa'] = array(
 	'securepoll-submit-translate' => 'به روز رسانی',
 	'securepoll-language-label' => 'انتخاب زبان:',
 	'securepoll-submit-select-lang' => 'ترجمه',
+	'securepoll-entry-text' => 'در زیر فهرستی از رای‌گیری‌ها موجود است.',
 	'securepoll-header-title' => 'نام',
 	'securepoll-header-start-date' => 'تاریخ آغاز',
 	'securepoll-header-end-date' => 'تاریخ پایان',
