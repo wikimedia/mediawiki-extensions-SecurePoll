@@ -180,7 +180,7 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 	 * @return Status
 	 */
 	function autoLogin( $election ) {
-		global $wgUser, $wgServer, $wgLang;
+		global $wgUser;
 		if ( $wgUser->isAnon() ) {
 			return Status::newFatal( 'securepoll-not-logged-in' );
 		}

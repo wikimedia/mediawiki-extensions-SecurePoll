@@ -131,7 +131,6 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 	 * Shows an error message on failure.
 	 */
 	function doSubmit() {
-		global $wgOut;
 		$ballot = $this->election->getBallot();
 		$status = $ballot->submitForm();
 		if ( !$status->isOK() ) {

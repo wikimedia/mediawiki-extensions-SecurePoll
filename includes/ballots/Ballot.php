@@ -118,7 +118,6 @@ abstract class SecurePoll_Ballot {
 	 * @return string
 	 */
 	function getForm( $prevStatus = false ) {
-		global $wgParser, $wgTitle;
 		$questions = $this->election->getQuestions();
 		if ( $this->election->getProperty( 'shuffle-questions' ) ) {
 			shuffle( $questions );
