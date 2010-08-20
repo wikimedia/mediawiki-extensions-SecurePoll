@@ -2729,6 +2729,7 @@ Errorea:
  * @author Ladsgroup
  * @author Mardetanha
  * @author Meisam
+ * @author Sahim
  * @author Wayiran
  */
 $messages['fa'] = array(
@@ -2763,14 +2764,18 @@ $1',
 	'securepoll-no-gpg-home' => 'قادر به ایجاد دایرکتوری مرکزی GPG نبود.',
 	'securepoll-secret-gpg-error' => '↓ خطا در اجرای executing GPG.
 از $wgSecurePollShowErrorDetail=true; استفاده کنید ، در LocalSettings.php اطلاعات بیشتری موجود است.',
+	'securepoll-full-gpg-error' => 'خطا در اجرای GPG:
+فرمان: $1
+خطا:
+<pre>$2</pre>',
 	'securepoll-gpg-config-error' => 'کلیدهای GPG درست پیکربندی نشده‌اند.',
 	'securepoll-gpg-parse-error' => 'خطا در تفسیر خروجی GPG.',
 	'securepoll-no-decryption-key' => 'کلید رمزگشایی تنظیم نشده‌است.
 نمی‌توان رمزگشایی کرد.',
-	'securepoll-jump' => 'برو به کارساز رای‌گیری',
+	'securepoll-jump' => 'برو به سرور رای‌گیری',
 	'securepoll-bad-ballot-submission' => 'رای شما نامعتبر بود: $1',
 	'securepoll-unanswered-questions' => 'شما باید به تمامی سوالات پاسخ دهید.',
-	'securepoll-invalid-rank' => 'رتبهٔ نامعتبر. شما باید به نامزدها رتبه‌ای بین ۱ و ۹۹۹ بدهید.',
+	'securepoll-invalid-rank' => 'امتیاز نامعتبر. شما باید به نامزدها امتیازی بین ۱ و ۹۹۹ بدهید.',
 	'securepoll-unranked-options' => 'برخی گزینه‌ها امتیاز نگرفته‌اند.
 شما باید به همهٔ گزینه‌ها امتیازی بین ۱ تا ۹۹۹ بدهید.',
 	'securepoll-invalid-score' => 'نمره باید عددی بین $1 و $2 باشد.',
@@ -2809,9 +2814,14 @@ $1',
 	'securepoll-header-action' => 'اقدام',
 	'securepoll-header-reason' => 'دلیل',
 	'securepoll-header-admin' => 'مدیر',
-	'securepoll-dump-title' => 'دامپ: $1',
+	'securepoll-cookie-dup-list' => 'کاربران تکراری کوکی',
+	'securepoll-dump-title' => 'روگرفت: $1',
 	'securepoll-dump-no-crypt' => 'هیچ رکورد رای‌گیری رمزگذاری‌شده‌ای برای این رای‌گیری در دسترس نیست، چراکه رای‌گیری برای استفاده از رمزگذاری، پیکربندی نشده است.',
 	'securepoll-dump-not-finished' => 'رکوردهای رمزگذاری‌شدهٔ رای‌گیری تنها پس از پایان تاریخ $1 در $2 قابل دسترس خواهد بود.',
+	'securepoll-dump-no-urandom' => 'نمی‌توان /dev/urandom را باز کرد.
+برای حفظ حریم شخصی رای‌دهنده، رکوردهای رمزگذاری‌شدهٔ رای‌گیری تنها هنگامی به صورت عمومی در دسترس خواهند بود که با یک جریان عددی تصادفی امن به‌هم‌زده شده باشند.',
+	'securepoll-urandom-not-supported' => 'این سرور نسل رمزنگاری عدد تصادفی را پشتیبانی نمی کند. 
+برای حفظ حریم شخصی رای دهندگان ، رمزگذاری اسناد در انتخابات نه تنها علنی شد بلکه می توان آنها را با جریان امن عدد تصادفی یا همان یه هم آمیختگی  بوجود آورد.',
 	'securepoll-translate-title' => 'ترجمه: $1',
 	'securepoll-invalid-language' => 'کد زبانی نامعتبر "$1"',
 	'securepoll-submit-translate' => 'به روز رسانی',
@@ -2824,7 +2834,7 @@ $1',
 	'securepoll-subpage-vote' => 'رای',
 	'securepoll-subpage-translate' => 'ترجمه',
 	'securepoll-subpage-list' => 'فهرست',
-	'securepoll-subpage-dump' => 'دامپ',
+	'securepoll-subpage-dump' => 'روگرفت',
 	'securepoll-subpage-tally' => 'شمارش',
 	'securepoll-tally-title' => 'شمارش: $1',
 	'securepoll-tally-not-finished' => 'شرمنده، شما نمی‌توانید رای‌ها را قبل از کامل شدن رای‌گیری شمارش کنید.',
@@ -2833,6 +2843,7 @@ $1',
 	'securepoll-tally-no-key' => 'شما نمی‌توانید این رای‌گیری را شمارش کنید، چراکه رای‌ها رمزگذاری‌شده هستند، و کلید رمزگشایی در دسترس نیست.',
 	'securepoll-tally-local-legend' => 'نتایج ذخیره‌شدهٔ شمارش',
 	'securepoll-tally-local-submit' => 'ایجاد شمارش',
+	'securepoll-tally-upload-legend' => 'بارگذاری روگرفت رمزگذاری‌شده',
 	'securepoll-tally-upload-submit' => 'ایجاد شمارش',
 	'securepoll-tally-error' => 'خطا در تفسیر رکورد رای، نمی‌توان شمارش تولید کرد.',
 	'securepoll-no-upload' => 'هیچ پرونده‌ای بارگذاری نشده، نمی‌توان نتایج را شمارش کرد.',
@@ -2840,7 +2851,7 @@ $1',
 	'securepoll-tally-upload-error' => 'خطا در شمارش پروندهٔ روگرفت: $1',
 	'securepoll-pairwise-victories' => 'ماتریس پیشروی جفت‌جفت',
 	'securepoll-strength-matrix' => 'ماتریس نقاط قوت مسیر',
-	'securepoll-ranks' => 'رتبه‌بندی نهایی',
+	'securepoll-ranks' => 'امتیازدهی نهایی',
 	'securepoll-average-score' => 'میانگین نمره',
 );
 
@@ -6323,12 +6334,13 @@ De resultaten kunnen niet geteld worden.',
  * @author Eirik
  * @author Gunnernett
  * @author Harald Khan
+ * @author Ranveig
  */
 $messages['nn'] = array(
 	'securepoll' => 'TrygtVal',
 	'securepoll-desc' => 'Ei utviding for val og undersøkingar',
 	'securepoll-invalid-page' => 'Ugyldig underside «<nowiki>$1</nowiki>»',
-	'securepoll-need-admin' => 'Du må vera ein administrator for å kunna utføra denne handlinga.',
+	'securepoll-need-admin' => 'Du må vera valadministrator for å kunna utføra denne handlinga.',
 	'securepoll-too-few-params' => 'Ikkje nok undersideparametrar (ugyldig lenkje)',
 	'securepoll-invalid-election' => '«$1» er ikkje ein gyldig val-ID.',
 	'securepoll-welcome' => '<strong>Velkomen, $1!</strong>',
