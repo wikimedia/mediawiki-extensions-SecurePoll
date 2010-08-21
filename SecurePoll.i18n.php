@@ -2775,7 +2775,7 @@ $1',
 	'securepoll-jump' => 'برو به سرور رای‌گیری',
 	'securepoll-bad-ballot-submission' => 'رای شما نامعتبر بود: $1',
 	'securepoll-unanswered-questions' => 'شما باید به تمامی سوالات پاسخ دهید.',
-	'securepoll-invalid-rank' => 'امتیاز نامعتبر. شما باید به نامزدها امتیازی بین ۱ و ۹۹۹ بدهید.',
+	'securepoll-invalid-rank' => 'رتبهٔ نامعتبر. شما باید به نامزدها رتبه‌ای بین ۱ و ۹۹۹ بدهید.',
 	'securepoll-unranked-options' => 'برخی گزینه‌ها امتیاز نگرفته‌اند.
 شما باید به همهٔ گزینه‌ها امتیازی بین ۱ تا ۹۹۹ بدهید.',
 	'securepoll-invalid-score' => 'نمره باید عددی بین $1 و $2 باشد.',
@@ -2820,8 +2820,8 @@ $1',
 	'securepoll-dump-not-finished' => 'رکوردهای رمزگذاری‌شدهٔ رای‌گیری تنها پس از پایان تاریخ $1 در $2 قابل دسترس خواهد بود.',
 	'securepoll-dump-no-urandom' => 'نمی‌توان /dev/urandom را باز کرد.
 برای حفظ حریم شخصی رای‌دهنده، رکوردهای رمزگذاری‌شدهٔ رای‌گیری تنها هنگامی به صورت عمومی در دسترس خواهند بود که با یک جریان عددی تصادفی امن به‌هم‌زده شده باشند.',
-	'securepoll-urandom-not-supported' => 'این سرور نسل رمزنگاری عدد تصادفی را پشتیبانی نمی کند. 
-برای حفظ حریم شخصی رای دهندگان ، رمزگذاری اسناد در انتخابات نه تنها علنی شد بلکه می توان آنها را با جریان امن عدد تصادفی یا همان یه هم آمیختگی  بوجود آورد.',
+	'securepoll-urandom-not-supported' => 'این میزبان تولید اعداد تصادفی رمزنگاری شده را پشتیبانی نمی‌کند. 
+برای حفظ حریم خصوصی رای‌دهندگان، مدارک رمزنگاری‌شدهٔ رای‌گیری فقط زمانی عمومی خواهند شد که بتوان آن‌ها را با یک سری اعداد تصادفی جاری در هم ریخته کرد.',
 	'securepoll-translate-title' => 'ترجمه: $1',
 	'securepoll-invalid-language' => 'کد زبانی نامعتبر "$1"',
 	'securepoll-submit-translate' => 'به روز رسانی',
@@ -2851,7 +2851,7 @@ $1',
 	'securepoll-tally-upload-error' => 'خطا در شمارش پروندهٔ روگرفت: $1',
 	'securepoll-pairwise-victories' => 'ماتریس پیشروی جفت‌جفت',
 	'securepoll-strength-matrix' => 'ماتریس نقاط قوت مسیر',
-	'securepoll-ranks' => 'امتیازدهی نهایی',
+	'securepoll-ranks' => 'رتبه‌بندی نهایی',
 	'securepoll-average-score' => 'میانگین نمره',
 );
 
@@ -5450,7 +5450,19 @@ Decodere is neet meugelik.",
 	'securepoll-subpage-tally' => 'Telling',
 	'securepoll-tally-title' => 'Telling: $1',
 	'securepoll-tally-not-finished' => 'Doe kins gein telling oetveure totdet de sjtömming is aafgeloupe.',
+	'securepoll-tally-no-key' => 'De kins gein telling uutveure veur dees stumming, omdet de stumme versleuteld zeen en de sleutel neet besjikbaar is.',
+	'securepoll-tally-local-legend' => 'Ópgeslage resultare',
+	'securepoll-tally-local-submit' => 'Veur telling oet',
+	'securepoll-tally-upload-legend' => 'Laaj versleutelde dump óp',
+	'securepoll-tally-upload-submit' => 'Veur telling oet',
+	'securepoll-tally-error' => 'Fout bie stömmingsresultate-interpretaie. Kèn gein tèlling oetveure.',
 	'securepoll-no-upload' => "d'r Is gei besjtandj opgelaje, resultate kinne neet geteld waere.",
+	'securepoll-dump-corrupt' => 'Dumpbestandj is besjadig en kin neet verwerk waere.',
+	'securepoll-tally-upload-error' => 'Fout bie tellen oete dump: $1',
+	'securepoll-pairwise-victories' => 'Paarsgewies euverwinningsmatrix',
+	'securepoll-strength-matrix' => 'Padgestèrk matrix',
+	'securepoll-ranks' => 'Definitief ranksjikking',
+	'securepoll-average-score' => 'Gemiddeldje skore',
 );
 
 /** Lithuanian (Lietuvių)
