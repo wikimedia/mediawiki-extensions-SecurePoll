@@ -9476,9 +9476,12 @@ Bạn có thể lựa chọn hoặc kiểm kết quả hiện có trong cơ sở
  */
 $messages['vo'] = array(
 	'securepoll-welcome' => '<strong>Benokömö, $1!</strong>',
+	'securepoll-header-timestamp' => 'Tim',
 	'securepoll-header-voter-name' => 'Nem',
 	'securepoll-strike-reason' => 'Kod:',
 	'securepoll-header-reason' => 'Kod',
+	'securepoll-submit-select-lang' => 'Tradutön',
+	'securepoll-header-title' => 'Nem',
 );
 
 /** Wu (吴语) */
