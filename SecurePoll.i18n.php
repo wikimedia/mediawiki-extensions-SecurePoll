@@ -3831,6 +3831,7 @@ $1',
 
 /** Croatian (Hrvatski)
  * @author Ex13
+ * @author Roberta F.
  * @author SpeedyGonsales
  */
 $messages['hr'] = array(
@@ -3881,6 +3882,8 @@ Dekripcija nije moguća.',
 	'securepoll-invalid-rank' => 'Pogrešan rang. Kandidatima morate dati rang između 1 i 999.',
 	'securepoll-unranked-options' => 'Neke opcije nisu rangirane.
 Morate dati svim opcijama rang između 1 i 999.',
+	'securepoll-invalid-score' => 'Rezultat mora biti broj između $1 i $2.',
+	'securepoll-unanswered-options' => 'Morate dati odgovor na svako pitanje.',
 	'securepoll-remote-auth-error' => 'Pogreška pri dobavljanje informacije o Vašem računu s poslužitelja.',
 	'securepoll-remote-parse-error' => 'Pogreška pri tumačenju autorizacijskog odgovora s poslužitelja.',
 	'securepoll-api-invalid-params' => 'Nevažeći parametri.',
@@ -5766,6 +5769,7 @@ $1',
 പിഴവ്:
 <pre>$2</pre>',
 	'securepoll-gpg-config-error' => 'GPG താക്കോലുകൾ തെറ്റായാണ് ക്രമീകരിക്കപ്പെട്ടിരിക്കുന്നത്.',
+	'securepoll-gpg-parse-error' => 'ജി.പി.ജി. ഔട്ട്പുട്ട് മനസ്സിലാക്കുന്നതിൽ പിഴവുണ്ടായിരിക്കുന്നു.',
 	'securepoll-no-decryption-key' => 'ഗൂഢീകരണം മാറ്റാനുള്ള ചാവി ക്രമീകരിച്ചിട്ടില്ല.
 ഗൂഢീകരണം മാറ്റാൻ കഴിയില്ല.',
 	'securepoll-jump' => 'വോട്ടിങ് സെർവറിലേയ്ക്ക് പോവുക',
