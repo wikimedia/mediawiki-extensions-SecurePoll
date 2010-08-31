@@ -3931,6 +3931,7 @@ Kako bi se očuvala privatnost glasača, enkriptirani zapisi izbora javno su dos
 	'securepoll-submit-translate' => 'Ažuriraj',
 	'securepoll-language-label' => 'Odaberite jezik:',
 	'securepoll-submit-select-lang' => 'Prevedi',
+	'securepoll-entry-text' => 'Ispod je popis glasovanja.',
 	'securepoll-header-title' => 'Ime',
 	'securepoll-header-start-date' => 'Početni datum',
 	'securepoll-header-end-date' => 'Krajnji datum',
@@ -3955,6 +3956,7 @@ Možete odabrati bilo prikaz rezultata iz baze podataka, ili prikaz enkriptirani
 	'securepoll-pairwise-victories' => 'Udvoji pobjedničku matricu',
 	'securepoll-strength-matrix' => 'Putanja ojačane matrice',
 	'securepoll-ranks' => 'Završno rangiranje',
+	'securepoll-average-score' => 'Prosječni rezultat',
 );
 
 /** Upper Sorbian (Hornjoserbsce)
