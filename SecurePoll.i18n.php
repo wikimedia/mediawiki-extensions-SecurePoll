@@ -7408,7 +7408,7 @@ Para manter a privacidade dos votantes, os resultados criptografados da eleiçã
 	'securepoll-entry-text' => 'Encontra-se abaixo a lista de eleições.',
 	'securepoll-header-title' => 'Título',
 	'securepoll-header-start-date' => 'Data do Início',
-	'securepoll-header-end-date' => 'Data do Encerramento',
+	'securepoll-header-end-date' => 'Data de fim',
 	'securepoll-subpage-vote' => 'Votar',
 	'securepoll-subpage-translate' => 'Traduzir',
 	'securepoll-subpage-list' => 'Lista',
@@ -8526,6 +8526,21 @@ Du kan välja att antingen räkna upp resultaten som finns tillgängliga i datab
 	'securepoll-strength-matrix' => 'Matris över vägstyrka',
 	'securepoll-ranks' => 'Slutgilltig rankning',
 	'securepoll-average-score' => 'Genomsnittligt betyg',
+);
+
+/** Swahili (Kiswahili) */
+$messages['sw'] = array(
+	'securepoll-header-voter-name' => 'Jina',
+	'securepoll-strike-reason' => 'Sababu:',
+	'securepoll-strike-cancel' => 'Batilisha',
+	'securepoll-header-reason' => 'Sababu',
+	'securepoll-submit-translate' => 'Sasisha',
+	'securepoll-submit-select-lang' => 'Kutafsiri',
+	'securepoll-header-title' => 'Jina',
+	'securepoll-header-start-date' => 'Tarehe ya kuanza',
+	'securepoll-header-end-date' => 'Tarehe ya kumaliza',
+	'securepoll-subpage-translate' => 'Kutafsiri',
+	'securepoll-subpage-list' => 'Orodha',
 );
 
 /** Telugu (తెలుగు)
