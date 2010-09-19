@@ -6,141 +6,142 @@
  * @ingroup Extensions
  */
 
-$aliases = array();
-
-/** English
- */
-$aliases['en'] = array(
-    'SecurePoll' => array( 'SecurePoll' ),
+/** English (English) */
+$specialPageAliases['en'] = array(
+	'SecurePoll' => array( 'SecurePoll' ),
 );
 
 /** Arabic (العربية) */
-$aliases['ar'] = array(
+$specialPageAliases['ar'] = array(
 	'SecurePoll' => array( 'اقتراع_آمن' ),
 );
 
 /** Egyptian Spoken Arabic (مصرى) */
-$aliases['arz'] = array(
+$specialPageAliases['arz'] = array(
 	'SecurePoll' => array( 'استطلاع_رأى_امان' ),
 );
 
 /** Czech (Česky) */
-$aliases['cs'] = array(
+$specialPageAliases['cs'] = array(
 	'SecurePoll' => array( 'Bezpečné hlasování' ),
 );
 
 /** German (Deutsch) */
-$aliases['de'] = array(
+$specialPageAliases['de'] = array(
 	'SecurePoll' => array( 'Sichere Abstimmung' ),
 );
 
 /** Lower Sorbian (Dolnoserbski) */
-$aliases['dsb'] = array(
+$specialPageAliases['dsb'] = array(
 	'SecurePoll' => array( 'Wěste wótgłosowanje' ),
 );
 
 /** French (Français) */
-$aliases['fr'] = array(
+$specialPageAliases['fr'] = array(
 	'SecurePoll' => array( 'Vote sécurisé' ),
 );
 
 /** Franco-Provençal (Arpetan) */
-$aliases['frp'] = array(
+$specialPageAliases['frp'] = array(
 	'SecurePoll' => array( 'Voto sècurisâ', 'VotoSècurisâ' ),
 );
 
 /** Hebrew (עברית) */
-$aliases['he'] = array(
+$specialPageAliases['he'] = array(
 	'SecurePoll' => array( 'הצבעה_מאובטחת' ),
 );
 
 /** Croatian (Hrvatski) */
-$aliases['hr'] = array(
+$specialPageAliases['hr'] = array(
 	'SecurePoll' => array( 'Sigurno_glasovanje' ),
 );
 
 /** Upper Sorbian (Hornjoserbsce) */
-$aliases['hsb'] = array(
+$specialPageAliases['hsb'] = array(
 	'SecurePoll' => array( 'Wěste wothłosowanje' ),
 );
 
 /** Interlingua (Interlingua) */
-$aliases['ia'] = array(
+$specialPageAliases['ia'] = array(
 	'SecurePoll' => array( 'Voto secur' ),
 );
 
 /** Japanese (日本語) */
-$aliases['ja'] = array(
+$specialPageAliases['ja'] = array(
 	'SecurePoll' => array( '暗号投票' ),
 );
 
 /** Korean (한국어) */
-$aliases['ko'] = array(
+$specialPageAliases['ko'] = array(
 	'SecurePoll' => array( '비밀투표' ),
 );
 
 /** Colognian (Ripoarisch) */
-$aliases['ksh'] = array(
+$specialPageAliases['ksh'] = array(
 	'SecurePoll' => array( 'Affshtemme' ),
 );
 
 /** Luxembourgish (Lëtzebuergesch) */
-$aliases['lb'] = array(
-	'SecurePoll' => array( 'Sécher Ofstëmmung' ),
+$specialPageAliases['lb'] = array(
+	'SecurePoll' => array( 'Sécher_Ofstëmmung' ),
 );
 
 /** Malayalam (മലയാളം) */
-$aliases['ml'] = array(
+$specialPageAliases['ml'] = array(
 	'SecurePoll' => array( 'സുരക്ഷിതവോട്ടെടുപ്പ്' ),
 );
 
 /** Marathi (मराठी) */
-$aliases['mr'] = array(
+$specialPageAliases['mr'] = array(
 	'SecurePoll' => array( 'सुरक्षीतकौल' ),
 );
 
 /** Nedersaksisch (Nedersaksisch) */
-$aliases['nds-nl'] = array(
+$specialPageAliases['nds-nl'] = array(
 	'SecurePoll' => array( 'Beveilig_stemmen' ),
 );
 
 /** Dutch (Nederlands) */
-$aliases['nl'] = array(
+$specialPageAliases['nl'] = array(
 	'SecurePoll' => array( 'BeveiligdStemmen' ),
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬) */
-$aliases['no'] = array(
+$specialPageAliases['no'] = array(
 	'SecurePoll' => array( 'Sikker avstemning' ),
 );
 
 /** Occitan (Occitan) */
-$aliases['oc'] = array(
+$specialPageAliases['oc'] = array(
 	'SecurePoll' => array( 'Vòte securizat' ),
 );
 
 /** Polish (Polski) */
-$aliases['pl'] = array(
-	'SecurePoll' => array( 'Bezpieczne głosowanie' ),
+$specialPageAliases['pl'] = array(
+	'SecurePoll' => array( 'Bezpieczne_głosowanie' ),
 );
 
 /** Slovak (Slovenčina) */
-$aliases['sk'] = array(
+$specialPageAliases['sk'] = array(
 	'SecurePoll' => array( 'BezpečnéHlasovanie' ),
 );
 
 /** Turkish (Türkçe) */
-$aliases['tr'] = array(
+$specialPageAliases['tr'] = array(
 	'SecurePoll' => array( 'GüvenliHavuz' ),
 );
 
 /** Simplified Chinese (‪中文(简体)‬) */
-$aliases['zh-hans'] = array(
+$specialPageAliases['zh-hans'] = array(
 	'SecurePoll' => array( '安全投票' ),
 );
 
 /** Traditional Chinese (‪中文(繁體)‬) */
-$aliases['zh-hant'] = array(
+$specialPageAliases['zh-hant'] = array(
 	'SecurePoll' => array( '安全投票' ),
 );
 
+/**
+ * For backwards compatibility with MediaWiki 1.15 and earlier.
+ */
+$aliases =& $specialPageAliases;
