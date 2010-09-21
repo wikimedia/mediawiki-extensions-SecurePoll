@@ -1848,6 +1848,7 @@ Du kannst wählen zwischen der Zählung der aktuellen Ergebnisse in der Datenban
 /** German (formal address) (Deutsch (Sie-Form))
  * @author ChrisiPK
  * @author Imre
+ * @author The Evil IP address
  * @author Umherirrender
  */
 $messages['de-formal'] = array(
@@ -1882,7 +1883,7 @@ Sie müssen allen Optionen eine Rangnummer zwischen 1 und 999 geben.',
 	'securepoll-not-in-list' => 'Sie sind leider nicht auf der Liste der Benutzer, die bei dieser Wahl abstimmen dürfen.',
 	'securepoll-tally-not-finished' => 'Sie können leider keine Stimmen auszählen, bevor die Abstimmung beendet wurde.',
 	'securepoll-can-decrypt' => 'Die Wahlaufzeichnung wurde verschlüsselt, aber der Entschlüsselungsschlüssel ist verfügbar.
-Sie können wählen zwischen der Zählung der aktuellen Ergebnisse in der Datenbank und der Zählung der verschlüsselten Ergebnisse einer hochgeladenen Datei.',
+Sie können zwischen der Zählung der aktuellen Ergebnisse in der Datenbank und der Zählung der verschlüsselten Ergebnisse einer hochgeladenen Datei wählen.',
 	'securepoll-tally-no-key' => 'Sie können die Stimmen nicht auszählen, da die Stimmen verschlüsselt sind und der Entschlüsselungsschlüssel nicht verfügbar ist.',
 );
 
@@ -7806,7 +7807,7 @@ $1',
 	'securepoll-average-score' => 'Средняя оценка',
 );
 
-/** Rusyn (русиньскый язык)
+/** Rusyn (Русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(
