@@ -8544,6 +8544,21 @@ $messages['sw'] = array(
 	'securepoll-subpage-list' => 'Orodha',
 );
 
+/** Tamil (தமிழ்)
+ * @author TRYPPN
+ */
+$messages['ta'] = array(
+	'securepoll-header-timestamp' => 'நேரம்',
+	'securepoll-header-voter-name' => 'பெயர்',
+	'securepoll-strike-reason' => 'காரணம்:',
+	'securepoll-strike-cancel' => 'விட்டுவிடு',
+	'securepoll-details-link' => 'விளக்கம்',
+	'securepoll-header-action' => 'செயல்',
+	'securepoll-header-reason' => 'காரணம்',
+	'securepoll-subpage-translate' => 'மொழி பெயர்ப்பு',
+	'securepoll-subpage-list' => 'பட்டியல்',
+);
+
 /** Telugu (తెలుగు)
  * @author Kiranmayee
  * @author Veeven
