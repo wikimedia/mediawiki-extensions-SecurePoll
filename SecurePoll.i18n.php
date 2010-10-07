@@ -7811,6 +7811,7 @@ $1',
  * @author Gazeb
  */
 $messages['rue'] = array(
+	'securepoll-return' => 'Вернути ся на $1',
 	'securepoll-header-timestamp' => 'Час',
 	'securepoll-header-voter-name' => 'Мено',
 	'securepoll-header-voter-domain' => 'Домена',
@@ -7819,6 +7820,7 @@ $messages['rue'] = array(
 	'securepoll-strike-reason' => 'Причіна:',
 	'securepoll-strike-cancel' => 'Сторно',
 	'securepoll-details-link' => 'Детайлы',
+	'securepoll-header-action' => 'Дїя',
 	'securepoll-header-reason' => 'Причіна',
 	'securepoll-translate-title' => 'Переклад: $1',
 	'securepoll-language-label' => 'Выбер языка:',
@@ -7826,6 +7828,7 @@ $messages['rue'] = array(
 	'securepoll-header-title' => 'Назва',
 	'securepoll-header-start-date' => 'Датум початку',
 	'securepoll-header-end-date' => 'Датум закінчіня',
+	'securepoll-subpage-vote' => 'Голосовати',
 	'securepoll-subpage-translate' => 'Переклад',
 	'securepoll-subpage-list' => 'Список',
 	'securepoll-subpage-dump' => 'Дамп',
