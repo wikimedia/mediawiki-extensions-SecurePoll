@@ -657,6 +657,27 @@ $1',
 	'securepoll-average-score' => 'نتيجه متوسطة',
 );
 
+/** Bashkir (Башҡорт)
+ * @author Haqmar
+ */
+$messages['ba'] = array(
+	'securepoll-list-title' => 'Тауыштар исемлеге: $1',
+	'securepoll-header-timestamp' => 'Ваҡыт',
+	'securepoll-header-voter-name' => 'Исем',
+	'securepoll-header-voter-domain' => 'Домен',
+	'securepoll-header-ua' => 'Ҡулланыусы агенты',
+	'securepoll-header-strike' => 'Өҫтө һыҙыҡ',
+	'securepoll-header-details' => 'Ентеклерәк',
+	'securepoll-strike-button' => 'Өҫтө һыҙыҡ',
+	'securepoll-unstrike-button' => 'Өҫтөн һыҙма',
+	'securepoll-strike-reason' => 'Сәбәп:',
+	'securepoll-strike-cancel' => 'Кире алырға',
+	'securepoll-strike-error' => 'Өҫтөн һыҙ/һыҙма ғәмәлен башҡарғанда хата: $1',
+	'securepoll-strike-token-mismatch' => 'Ултырыш мәғлүмәттәре юғалған',
+	'securepoll-details-link' => 'Ентеклерәк',
+	'securepoll-details-title' => 'Тауыш биреү мәғлүмәттәре: $1',
+);
+
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
  * @author Jim-by
@@ -4956,6 +4977,7 @@ $messages['km'] = array(
 $messages['kn'] = array(
 	'securepoll-header-voter-name' => 'ಹೆಸರು',
 	'securepoll-strike-reason' => 'ಕಾರಣ:',
+	'securepoll-strike-cancel' => 'ರದ್ದು ಮಾಡು',
 	'securepoll-header-reason' => 'ಕಾರಣ',
 	'securepoll-header-title' => 'ಹೆಸರು',
 );
@@ -5861,6 +5883,15 @@ $1',
 	'securepoll-pairwise-victories' => 'ജോഡിയായുള്ള വിജയ മട്രിക്സ്',
 	'securepoll-ranks' => 'അന്തിമ റാങ്കിങ്',
 	'securepoll-average-score' => 'ശരാശരി സ്കോർ',
+);
+
+/** Mongolian (Монгол)
+ * @author Chinneeb
+ */
+$messages['mn'] = array(
+	'securepoll-strike-reason' => 'Шалтгаан:',
+	'securepoll-strike-cancel' => 'Цуцлах',
+	'securepoll-header-reason' => 'Шалтгаан',
 );
 
 /** Malay (Bahasa Melayu)
@@ -7509,6 +7540,7 @@ Trebuie să oferi tuturor opțiunilor un rang între 1 și 999.',
 	'securepoll-header-cookie-dup' => '',
 	'securepoll-header-strike' => 'Ştergeți',
 	'securepoll-header-details' => 'Detalii',
+	'securepoll-strike-button' => 'Ştergeți',
 	'securepoll-unstrike-button' => 'Anulare ștergere',
 	'securepoll-strike-reason' => 'Motiv:',
 	'securepoll-strike-cancel' => 'Renunţă',
@@ -9348,6 +9380,8 @@ No se pole decritar.',
 	'securepoll-jump' => 'Và al server de ła votasion',
 	'securepoll-bad-ballot-submission' => "El to voto no'l xe mia vàłido: $1",
 	'securepoll-unanswered-questions' => 'Ti gà da rispóndar a tute le domande.',
+	'securepoll-invalid-rank' => 'Voto mia valido. Te ghè da dare un voto tra 1 e 999.',
+	'securepoll-invalid-score' => 'El voto el ga da essare un numaro tra $1 e $2.',
 	'securepoll-unanswered-options' => 'Te ghè da rispondar a tute le domande.',
 	'securepoll-remote-auth-error' => 'Eròr durante el recupero de le informassion su la to utensa dal server.',
 	'securepoll-remote-parse-error' => 'Se gà verificà un eròr interpretando la risposta de autorixassion dal server.',
@@ -9405,9 +9439,16 @@ Par protègiare la riservatessa dei votanti, le registrassion criptade de l'eles
 	'securepoll-subpage-tally' => 'Conta',
 	'securepoll-tally-title' => 'Conta: $1',
 	'securepoll-tally-not-finished' => 'Ne dispiase, ma no se pole contar i voti prima che la votassion la sia finìa.',
+	'securepoll-tally-local-legend' => 'Conta dei risultati memorizà',
 	'securepoll-tally-local-submit' => 'Fà na conta',
 	'securepoll-tally-upload-legend' => 'Carga su un dump criptà',
 	'securepoll-tally-upload-submit' => 'Fà la conta',
+	'securepoll-tally-error' => 'Eror elaborando le informassion de voto, no se pol far la conta.',
+	'securepoll-no-upload' => 'Nissun file caricà, no se pol far la conta.',
+	'securepoll-dump-corrupt' => 'El file de dump el xe roto e no se pole elaborarlo.',
+	'securepoll-tally-upload-error' => 'Eror fasendo la conta del file de dump: $1',
+	'securepoll-pairwise-victories' => 'Matrice de vitoria a do a do',
+	'securepoll-strength-matrix' => 'Matrice de fortezza del percorso',
 	'securepoll-ranks' => 'Classifica final',
 	'securepoll-average-score' => 'Puntejo medio',
 );
