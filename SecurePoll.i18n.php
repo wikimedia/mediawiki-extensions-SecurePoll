@@ -676,6 +676,17 @@ $messages['ba'] = array(
 	'securepoll-strike-token-mismatch' => 'Ултырыш мәғлүмәттәре юғалған',
 	'securepoll-details-link' => 'Ентеклерәк',
 	'securepoll-details-title' => 'Тауыш биреү мәғлүмәттәре: $1',
+	'securepoll-translate-title' => 'Тәржемә: $1',
+	'securepoll-invalid-language' => 'Хаталы тел коды "$1"',
+	'securepoll-submit-translate' => 'Яңыртырға',
+	'securepoll-language-label' => 'Тел һайлау:',
+	'securepoll-submit-select-lang' => 'Тәржемә итергә:',
+	'securepoll-header-title' => 'Исем',
+	'securepoll-header-start-date' => 'Башланыу ваҡыты',
+	'securepoll-header-end-date' => 'Тамамланыу ваҡыты',
+	'securepoll-subpage-vote' => 'Тауыш биреү',
+	'securepoll-subpage-translate' => 'Тәржемә итергә',
+	'securepoll-subpage-list' => 'Исемлек',
 );
 
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
