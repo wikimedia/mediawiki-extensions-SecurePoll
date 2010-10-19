@@ -7861,9 +7861,65 @@ $1',
  */
 $messages['rue'] = array(
 	'securepoll' => 'Безпечне голосованя',
+	'securepoll-desc' => 'Росшырїня про голосованя і вызвідованя',
+	'securepoll-invalid-page' => 'Неплатна підсторінка „<nowiki>$1</nowiki>“',
+	'securepoll-need-admin' => 'Треба, жебы сьте  {{GENDER:|быв|была|быв}} адміністратор волеб, жебы сьте могли выконати тоту дїю.',
+	'securepoll-too-few-params' => 'Недостаток параметрів про підсторінку (неплатный одказ).',
+	'securepoll-invalid-election' => '«$1» — неправилный ідентіфікатор голосованя',
 	'securepoll-welcome' => '<strong>Витайте, $1!</strong>',
+	'securepoll-not-started' => 'Тото голосованя дотеперь не зачало.
+Мало бы зачати в  $3, $2.',
+	'securepoll-finished' => 'Тото голосованя скінчіло, уж не можете голосовати.',
+	'securepoll-not-qualified' => 'Не сповнюєте подмінкы про участь у тім голосованю: $1',
+	'securepoll-change-disallowed' => 'У того голосованя сьте уж {{GENDER:|брав|брала|брав}} участь.
+Перебачте, но знову голосовати не можете.',
+	'securepoll-change-allowed' => '<strong>Познамка: Того голосованя сьте ся уж {{GENDER:|участнив|участнила|участнив}}.</strong>
+Кідь хочете змінити свій голос, пошлите ниже уведеный формуларь.
+Усвідомте собі, же кідь то зробите, ваш попередній голос не буде врахованый.',
 	'securepoll-submit' => 'Одослати голос',
+	'securepoll-gpg-receipt' => 'Дякуєме за ваше голосованя.
+
+Кідь хочете, можете собі усховати наслїдне підтверджіня вашого голосованя:
+
+<pre>$1</pre>',
+	'securepoll-thanks' => 'Дякуєме вам, ваш голос быв записаный.',
 	'securepoll-return' => 'Вернути ся на $1',
+	'securepoll-encrypt-error' => 'Не подарило зашіфровати запис про ваш голос.
+Ваш голос не быв записаный!
+
+$1',
+	'securepoll-no-gpg-home' => 'Не подарило ся створити домашнїй адресарь про GPG.',
+	'securepoll-secret-gpg-error' => 'Хыба почас выконаня GPG.
+Кідь хочете указати детайлы, наставте <code>$wgSecurePollShowErrorDetail=true;</code> в <tt>LocalSettings.php</tt>.',
+	'securepoll-full-gpg-error' => 'Хыба выконаня GPG:
+
+Команд: $1
+
+Хыба:
+<pre>$2</pre>',
+	'securepoll-gpg-config-error' => 'GPG ключі суть неправилно наконфіґурованы.',
+	'securepoll-gpg-parse-error' => 'Хыба інтерпретації выступу GPG.',
+	'securepoll-no-decryption-key' => 'Не быв конфіґурованый ключ росшіфрованя.
+Не годен росшіфровати.',
+	'securepoll-jump' => 'Перейти на сервер голосованя',
+	'securepoll-bad-ballot-submission' => 'Ваш голос не є платный: $1',
+	'securepoll-unanswered-questions' => 'Мусите одповісти на вшыткы вопросы.',
+	'securepoll-invalid-rank' => 'Неправилне місце. Кандідатам мусите дати місце міджі 1 і 999.',
+	'securepoll-unranked-options' => 'Дакотры можности не были оцінены.
+Мусите вшыткым можностям задати місце міджі 1 і 999.',
+	'securepoll-invalid-score' => 'Оцінка мусить быти чісло од $1 до $2.',
+	'securepoll-unanswered-options' => 'Мусите выповнити одповідь на вшыткы вопросы.',
+	'securepoll-remote-auth-error' => 'Почас чітаня інформацій о вашім хосновательскім конту із сервера настала хыба.',
+	'securepoll-remote-parse-error' => 'Почас інтерпретації одповідї од сервера настала хыба.',
+	'securepoll-api-invalid-params' => 'Хыбны параметры.',
+	'securepoll-api-no-user' => 'Не нашов ся хоснователь із заданым ID.',
+	'securepoll-api-token-mismatch' => 'Незгодує ся безпечностный код, не годен ся приголосити.',
+	'securepoll-not-logged-in' => 'Жебы сьте міг(могла) голосовати, мусите ся приголосити.',
+	'securepoll-too-few-edits' => 'Перебачте, але не можете голосовати. У тых вольбах можуть голосовати лем хоснователї з найменєй $1 {{PLURAL:$1|едітованя|едітованями}}, у вас є $2.',
+	'securepoll-blocked' => 'Перебачте, але не можете голосовати, покы є вам заблоковане едітованя.',
+	'securepoll-bot' => 'Перебачте, але конта із статусом бота ся не можуть брати участь у тім голосованю.',
+	'securepoll-not-in-group' => 'Лем члены ґрупы "$1" можуть брати участь у тім голосованює',
+	'securepoll-not-in-list' => 'Перебачте, але не сьте в пририхтованім списку хоснователїв припущеных до участи на тім голосованю.',
 	'securepoll-list-title' => 'Список голосів: $1',
 	'securepoll-header-timestamp' => 'Час',
 	'securepoll-header-voter-name' => 'Мено',
@@ -7876,6 +7932,7 @@ $messages['rue'] = array(
 	'securepoll-unstrike-button' => 'Зняти перечаркнутя',
 	'securepoll-strike-reason' => 'Причіна:',
 	'securepoll-strike-cancel' => 'Сторно',
+	'securepoll-strike-error' => 'Не подарило ся выконати перечаркнутя ці ёго зрушіня: $1',
 	'securepoll-strike-token-mismatch' => 'Дата сеансу страчены',
 	'securepoll-details-link' => 'Детайлы',
 	'securepoll-details-title' => 'Детайлы голосованя: #$1',
@@ -7888,6 +7945,12 @@ $messages['rue'] = array(
 	'securepoll-header-admin' => 'Адміністратор',
 	'securepoll-cookie-dup-list' => 'Дупліцітны хоснователї подля кукіс',
 	'securepoll-dump-title' => 'Дамп: $1',
+	'securepoll-dump-no-crypt' => 'У тых волеб не є про діспозіцію шіфрованый запис голосованя, бо у їх конфіґурації не є шіфрованя запнуте.',
+	'securepoll-dump-not-finished' => 'Шіфрованый запис голосованя буде про діспозіцію аж по укончіню волеб, $1, $2',
+	'securepoll-dump-no-urandom' => 'Не годен отворити<tt>/dev/urandom</tt>.
+Про забезпечіня утаїня голосованя є шіфрованый запис голосованя доступный публічности лем тогды, же голосы можуть быти помішаны за помочі жрідла нагодных чісел.',
+	'securepoll-urandom-not-supported' => 'Тот сервер не підпорує кріптоґрафічне ґенерованя нагодных чісел.
+Про притаїня голосованя є шіфрованый запис голосованя публічный лем тогды, кідь голосы можуть быти замішаны за помочі безпечного жрідла нагодных чісел.',
 	'securepoll-translate-title' => 'Переклад: $1',
 	'securepoll-invalid-language' => 'Неправилный код языка «$1»',
 	'securepoll-submit-translate' => 'Обновити',
@@ -9055,6 +9118,14 @@ Maaari mong piliin ang itala ang bilang ng mga kinalabasang naroroon sa loob ng 
 	'securepoll-strength-matrix' => 'Matris ng lakas ng landas',
 	'securepoll-ranks' => 'Pinakahuling pag-aantas',
 	'securepoll-average-score' => 'Pangkaraniwang kutab',
+);
+
+/** Tok Pisin (Tok Pisin)
+ * @author Iketsi
+ */
+$messages['tpi'] = array(
+	'securepoll-header-timestamp' => 'Taim',
+	'securepoll-subpage-translate' => 'Tantok',
 );
 
 /** Turkish (Türkçe)
