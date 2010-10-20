@@ -2672,6 +2672,7 @@ Hääletaja privaatsuse säilitamiseks on krüptitud valimiskirjed avalikult saa
 	'securepoll-submit-translate' => 'Uuenda',
 	'securepoll-language-label' => 'Vali keel:',
 	'securepoll-submit-select-lang' => 'Tõlgi',
+	'securepoll-entry-text' => 'Allpool on küsitluste loend.',
 	'securepoll-header-title' => 'Nimi',
 	'securepoll-header-start-date' => 'Alguse kuupäev',
 	'securepoll-header-end-date' => 'Lõpu kuupäev',
@@ -4305,7 +4306,7 @@ Error:
 	'securepoll-no-decryption-key' => 'Nulle clave de decryptation es configurate.
 Impossibile decryptar.',
 	'securepoll-jump' => 'Ir al servitor de votation',
-	'securepoll-bad-ballot-submission' => 'Tu voto esseva invalide: $1',
+	'securepoll-bad-ballot-submission' => 'Tu voto es invalide: $1',
 	'securepoll-unanswered-questions' => 'Tu debe responder a tote le questiones.',
 	'securepoll-invalid-rank' => 'Rango invalide. Tu debe dar al candidatos un rango inter 1 e 999.',
 	'securepoll-unranked-options' => 'Alcun optiones non ha un rango.
@@ -9791,7 +9792,26 @@ $messages['yi'] = array(
 	'securepoll-submit-select-lang' => 'פֿאַרטײַטשן',
 	'securepoll-header-title' => 'נאָמען',
 	'securepoll-header-start-date' => 'אָנהייב דאַטע',
+	'securepoll-subpage-translate' => 'פֿאַרטײַטשן',
 	'securepoll-subpage-list' => 'ליסטע',
+);
+
+/** Yoruba (Yorùbá)
+ * @author Demmy
+ */
+$messages['yo'] = array(
+	'securepoll-return' => 'Padà sí $1',
+	'securepoll-header-timestamp' => 'Àsìkò',
+	'securepoll-header-voter-name' => 'Orúkọ',
+	'securepoll-strike-reason' => 'Ìdíẹ̀:',
+	'securepoll-header-reason' => 'Ìdíẹ̀',
+	'securepoll-translate-title' => 'Yédèpadà: $1',
+	'securepoll-submit-select-lang' => 'Yédèpadà',
+	'securepoll-header-title' => 'Orúkọ',
+	'securepoll-header-start-date' => 'Ọjọ́ọdún ìbẹ̀rẹ̀',
+	'securepoll-header-end-date' => 'Ọjọ́ọdún ìparí',
+	'securepoll-subpage-vote' => 'Dìbò',
+	'securepoll-subpage-translate' => 'Yédèpadà',
 );
 
 /** Cantonese (粵語)
