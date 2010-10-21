@@ -689,6 +689,14 @@ $messages['ba'] = array(
 	'securepoll-subpage-list' => 'Исемлек',
 );
 
+/** Belarusian (Беларуская)
+ * @author Тест
+ */
+$messages['be'] = array(
+	'securepoll-strike-reason' => 'Прычына:',
+	'securepoll-header-reason' => 'Прычына',
+);
+
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
  * @author Jim-by
@@ -5642,6 +5650,25 @@ Galite pasirinkti, ar sutampa rezultatai, esantys duomenų bazėje bei rezultatu
 	'securepoll-no-upload' => 'Failas nebuvo įkeltas, negalima skaičiuoti rezultatų.',
 );
 
+/** Latvian (Latviešu)
+ * @author Papuass
+ */
+$messages['lv'] = array(
+	'securepoll-submit' => 'Iesniegt balsojumu',
+	'securepoll-return' => 'Atgriezties uz $1',
+	'securepoll-unanswered-questions' => 'Tev ir jāatbild uz visiem jautājumiem.',
+	'securepoll-api-invalid-params' => 'Nederīgi parametri.',
+	'securepoll-header-timestamp' => 'Laiks',
+	'securepoll-header-voter-name' => 'Vārds',
+	'securepoll-header-voter-domain' => 'Domēns',
+	'securepoll-strike-reason' => 'Iemesls:',
+	'securepoll-strike-cancel' => 'Atcelt',
+	'securepoll-strike-token-mismatch' => 'Sesijas dati zaudēti',
+	'securepoll-header-reason' => 'Iemesls',
+	'securepoll-submit-select-lang' => 'Tulkot',
+	'securepoll-average-score' => 'Vidējais rezultāts',
+);
+
 /** Macedonian (Македонски)
  * @author Bjankuloski06
  * @author Brest
@@ -5684,9 +5711,9 @@ $1',
 
 Грешка:
 <pre>$2</pre>',
-	'securepoll-gpg-config-error' => 'GPG клучевите се погрешно конфигурирани.',
+	'securepoll-gpg-config-error' => 'GPG-клучевите се погрешно наместени.',
 	'securepoll-gpg-parse-error' => 'Грешка при толкувањето на излезните информации за GPG.',
-	'securepoll-no-decryption-key' => 'Не е конфигуриран описниот клуч.
+	'securepoll-no-decryption-key' => 'Не е поставен описниот клуч.
 Не можам да дешифрирам.',
 	'securepoll-jump' => 'Оди на опслужувачот за гласање',
 	'securepoll-bad-ballot-submission' => 'Вашиот глас е неважечки: $1',
