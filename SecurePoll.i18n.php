@@ -8346,7 +8346,15 @@ Začetek je načrtovan dne $2 ob $3.',
 	'securepoll-not-qualified' => 'Niste primerni za glasovanje na teh volitvah: $1',
 	'securepoll-change-disallowed' => 'Na teh volitvah ste že glasovali.
 Žal ne morete ponovno glasovati.',
+	'securepoll-change-allowed' => '<strong>Opomba: V teh volitvah ste že volili.</strong>
+Svoj glas lahko spremenite s potrditvijo spodnjega obrazca.
+Pomnite, da če to storite, bo vaš prvotni glas zavržen.',
 	'securepoll-submit' => 'Pošlji glas',
+	'securepoll-gpg-receipt' => 'Hvala za glasovanje.
+
+Če želite, lahko obdržite spodnje potrdilo kot dokaz o vašem glasovanju:
+
+<pre>$1</pre>',
 	'securepoll-thanks' => 'Hvala, vaš glas je bil zabeležen.',
 	'securepoll-return' => 'Vrnitev na $1',
 	'securepoll-encrypt-error' => 'Šifriranje zapisa vašega glasu je spodletelo.
@@ -8373,13 +8381,18 @@ Ne morem dešifrirati.',
 	'securepoll-unranked-options' => 'Nekatere možnosti niso bile uvrščene.
 Vsem možnostim morate določiti uvrstitev med 1 in 999.',
 	'securepoll-invalid-score' => 'Ocena mora biti število med $1 in $2.',
+	'securepoll-unanswered-options' => 'Odgovoriti morate na vsako vprašanje.',
+	'securepoll-remote-auth-error' => 'Napaka pri pridobivanju informacij o vašem računu s strežnika.',
+	'securepoll-remote-parse-error' => 'Napaka pri tolmačenju pooblastitvenega odgovora od strežnika.',
 	'securepoll-api-invalid-params' => 'Neveljavni parametri.',
 	'securepoll-api-no-user' => 'Najden ni bil noben uporabnik z danim ID.',
 	'securepoll-not-logged-in' => 'Za glasovanje na teh volitvah se morate prijaviti.',
+	'securepoll-list-title' => 'Seznam glasov: $1',
 	'securepoll-header-timestamp' => 'Čas',
 	'securepoll-header-voter-name' => 'Uporabnik',
 	'securepoll-header-voter-domain' => 'Domena',
 	'securepoll-header-ua' => 'Uporabniški agent',
+	'securepoll-header-cookie-dup' => 'Dvoj',
 	'securepoll-header-strike' => 'Prečrtaj',
 	'securepoll-header-details' => 'Podrobnosti',
 	'securepoll-strike-button' => 'Prečrtaj',
@@ -8397,6 +8410,7 @@ Vsem možnostim morate določiti uvrstitev med 1 in 999.',
 	'securepoll-header-action' => 'Dejanje',
 	'securepoll-header-reason' => 'Razlog',
 	'securepoll-header-admin' => 'Admin',
+	'securepoll-cookie-dup-list' => 'Piškotki podvojenih uporabnikov',
 	'securepoll-dump-title' => 'Odloži: $1',
 	'securepoll-translate-title' => 'Prevedi: $1',
 	'securepoll-invalid-language' => 'Neveljavna koda jezika »$1«',
@@ -8423,6 +8437,8 @@ Vsem možnostim morate določiti uvrstitev med 1 in 999.',
 	'securepoll-no-upload' => 'Nobena datoteka ni bila naložena, ni mogoče evidentirati rezultatov.',
 	'securepoll-dump-corrupt' => 'Odložena datoteka je poškodovana in je ni mogoče obdelati.',
 	'securepoll-tally-upload-error' => 'Napaka pri evidentiranju odložene datoteke: $1',
+	'securepoll-pairwise-victories' => 'Matrica zmage parov',
+	'securepoll-strength-matrix' => 'Matrica moči poti',
 	'securepoll-ranks' => 'Končna uvrstitev',
 	'securepoll-average-score' => 'Povprečni rezultat',
 );
@@ -9827,18 +9843,27 @@ $messages['yi'] = array(
  * @author Demmy
  */
 $messages['yo'] = array(
+	'securepoll' => 'SecurePoll',
+	'securepoll-invalid-page' => 'Ojúewéabẹ́ àìtọ́ "<nowiki>$1</nowiki>"',
+	'securepoll-welcome' => '<strong>$1 Ẹkúàbọ̀!</strong>',
 	'securepoll-return' => 'Padà sí $1',
 	'securepoll-header-timestamp' => 'Àsìkò',
 	'securepoll-header-voter-name' => 'Orúkọ',
 	'securepoll-strike-reason' => 'Ìdíẹ̀:',
+	'securepoll-strike-cancel' => 'Fagilé',
+	'securepoll-details-link' => 'Ẹ̀kúnrẹ́rẹ́',
+	'securepoll-header-action' => 'Ìgbéṣe',
 	'securepoll-header-reason' => 'Ìdíẹ̀',
+	'securepoll-header-admin' => 'Olùmójútó',
 	'securepoll-translate-title' => 'Yédèpadà: $1',
+	'securepoll-language-label' => 'Àṣàyàn èdè:',
 	'securepoll-submit-select-lang' => 'Yédèpadà',
 	'securepoll-header-title' => 'Orúkọ',
 	'securepoll-header-start-date' => 'Ọjọ́ọdún ìbẹ̀rẹ̀',
 	'securepoll-header-end-date' => 'Ọjọ́ọdún ìparí',
 	'securepoll-subpage-vote' => 'Dìbò',
 	'securepoll-subpage-translate' => 'Yédèpadà',
+	'securepoll-subpage-list' => 'Àkójọ',
 );
 
 /** Cantonese (粵語)
