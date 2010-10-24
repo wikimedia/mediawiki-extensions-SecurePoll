@@ -523,9 +523,24 @@ $1',
  * @author Basharh
  */
 $messages['arc'] = array(
+	'securepoll-submit' => 'ܫܕܪ ܩܠܐ',
+	'securepoll-header-timestamp' => 'ܙܒܢܐ',
+	'securepoll-header-voter-name' => 'ܫܡܐ',
+	'securepoll-header-ua' => 'ܩܝܝܘܡܐ ܕܡܬܚܫܚܢܐ',
+	'securepoll-header-details' => 'ܐܪ̈ܝܟܬܐ',
 	'securepoll-strike-reason' => 'ܥܠܬܐ:',
 	'securepoll-strike-cancel' => 'ܒܛܘܠ',
+	'securepoll-details-link' => 'ܐܪ̈ܝܟܬܐ',
+	'securepoll-header-action' => 'ܥܒܕܐ',
 	'securepoll-header-reason' => 'ܥܠܬܐ',
+	'securepoll-translate-title' => 'ܬܪܓܡ: $1',
+	'securepoll-submit-translate' => 'ܚܘܕܬܐ',
+	'securepoll-language-label' => 'ܓܒܝ ܠܫܢܐ:',
+	'securepoll-submit-select-lang' => 'ܬܪܓܡ',
+	'securepoll-header-title' => 'ܫܡܐ',
+	'securepoll-subpage-vote' => 'ܝܗܒ ܩܠܐ',
+	'securepoll-subpage-translate' => 'ܬܪܓܡ',
+	'securepoll-subpage-list' => 'ܡܟܬܒܘܬܐ',
 );
 
 /** Egyptian Spoken Arabic (مصرى)
@@ -8135,6 +8150,7 @@ $wgSecurePollShowErrorDetail=true; туруоруутун LocalSettings.php би
 	'securepoll-dump-corrupt' => 'Дамп билэтэ буорту буолбут, онон кыайан ааҕыллыбат.',
 	'securepoll-tally-upload-error' => 'Дамп билэтэ сөпсөспөтө: $1',
 	'securepoll-pairwise-victories' => 'Пааранан кыайыылар матрицалара',
+	'securepoll-strength-matrix' => 'Матрица сил путей',
 	'securepoll-ranks' => 'Раанганан бүтэһиктээх наардааһын',
 	'securepoll-average-score' => 'Ортоку сыана',
 );
@@ -8386,7 +8402,13 @@ Vsem možnostim morate določiti uvrstitev med 1 in 999.',
 	'securepoll-remote-parse-error' => 'Napaka pri tolmačenju pooblastitvenega odgovora od strežnika.',
 	'securepoll-api-invalid-params' => 'Neveljavni parametri.',
 	'securepoll-api-no-user' => 'Najden ni bil noben uporabnik z danim ID.',
+	'securepoll-api-token-mismatch' => 'Neujemanje varnostnega žetona; ne morem vas prijaviti.',
 	'securepoll-not-logged-in' => 'Za glasovanje na teh volitvah se morate prijaviti.',
+	'securepoll-too-few-edits' => 'Oprostite, ne morete voliti. Morali bi storiti najmanj $1 {{PLURAL:$1|urejanje|urejanji|urejanja|urejanj}} za voljenje na teh volitvah; naredili ste jih $2.',
+	'securepoll-blocked' => 'Oprostite, ne morete voliti na teh volitvah, če vam je urejanje trenutno preprečeno.',
+	'securepoll-bot' => 'Oprostite, računom z oznako robota ni dovoljeno voliti na teh volitvah.',
+	'securepoll-not-in-group' => 'Samo člani skupine »$1« lahko volijo na teh volitvah.',
+	'securepoll-not-in-list' => 'Oprostite, vendar niste na predpripravljenem seznamu uporabnikov, ki so pooblaščeni za voljenje na teh volitvah.',
 	'securepoll-list-title' => 'Seznam glasov: $1',
 	'securepoll-header-timestamp' => 'Čas',
 	'securepoll-header-voter-name' => 'Uporabnik',
@@ -8412,6 +8434,12 @@ Vsem možnostim morate določiti uvrstitev med 1 in 999.',
 	'securepoll-header-admin' => 'Admin',
 	'securepoll-cookie-dup-list' => 'Piškotki podvojenih uporabnikov',
 	'securepoll-dump-title' => 'Odloži: $1',
+	'securepoll-dump-no-crypt' => 'Za te volitve ni na voljo šifriranega volilnega zapisa, ker volitve niso konfigurirane tako, da bi uporabljale šifriranje.',
+	'securepoll-dump-not-finished' => 'Šifrirani volilni zapisi so na voljo šele po datumu zaključka dne $1 ob $2',
+	'securepoll-dump-no-urandom' => 'Ne morem odpreti /dev/urandom. 
+Za zagotavljanje zasebnosti volivcev so šifrirani volilni zapisi javno vidni šele po tem, ko so lahko premešani z varnim tokom naključnih števil.',
+	'securepoll-urandom-not-supported' => 'Ta strežnik ne podpira kriptografskega ustvarjanja naključnih števil.
+Za zagotavljanje zasebnosti volivcev so šifrirani volilni zapisi javno vidni šele po tem, ko so lahko premešani z varnim tokom naključnih števil.',
 	'securepoll-translate-title' => 'Prevedi: $1',
 	'securepoll-invalid-language' => 'Neveljavna koda jezika »$1«',
 	'securepoll-submit-translate' => 'Posodobi',
@@ -8428,6 +8456,8 @@ Vsem možnostim morate določiti uvrstitev med 1 in 999.',
 	'securepoll-subpage-tally' => 'Evidentiraj',
 	'securepoll-tally-title' => 'Evidenca: $1',
 	'securepoll-tally-not-finished' => 'Žal ne morete evidentirati volitev preden se glasovanje zaključi.',
+	'securepoll-can-decrypt' => 'Volitveni zapis je šifriran, vendar je na voljo ključ za dešifriranje.
+	Izberete lahko da ali združite trenutne rezultate v zbirki podatkov ali da združite šifrirane rezultate iz naložene datoteke.',
 	'securepoll-tally-no-key' => 'Ne morete evidentirati teh volitev, saj so glasovi šifrirani in dešifrirni ključ ni na voljo.',
 	'securepoll-tally-local-legend' => 'Evidentiraj shranjene rezultate',
 	'securepoll-tally-local-submit' => 'Ustvari evidenco',
@@ -8957,11 +8987,22 @@ $messages['tk'] = array(
 	'securepoll-too-few-params' => 'Kiçi sahypa parametrleri ýeterlik däl (nädogry çykgyt).',
 	'securepoll-invalid-election' => '"$1" dogry saylaw ID-si däl',
 	'securepoll-welcome' => '<strong>Hoş geldiň, $1!</strong>',
+	'securepoll-not-started' => 'Bu saýlaw heniz başlamady.
+Ol $2 senesinde $3 sagatynda başlaýar.',
 	'securepoll-finished' => 'Bu saýlaw gutardy, indi ses berip bilmeýärsiňiz.',
 	'securepoll-not-qualified' => 'Bu saýlawda ses bermäge hukugyňyz ýok: $1',
+	'securepoll-change-disallowed' => 'Bu saýlawda ozal ses beripsiňiz.
+Bagyşlaň, gaýtadan ses berip bilmeýärsiňiz.',
 	'securepoll-submit' => 'Sesi tabşyr',
+	'securepoll-thanks' => 'Sag boluň, sesiňiz hasaba alyndy.',
 	'securepoll-return' => '$1 sahypasyna gaýdyp bar',
 	'securepoll-no-gpg-home' => 'GPG öý direktoriýasyny döredip bilmeýär.',
+	'securepoll-full-gpg-error' => 'GPG işleýärkä säwlik:
+
+Buýruk: $1
+
+Säwlik:
+<pre>$2</pre>',
 	'securepoll-gpg-config-error' => 'GPG açarlary nädogry konfigurirlenipdir.',
 	'securepoll-gpg-parse-error' => 'GPG önümi interpretasiýasynda säwlik.',
 	'securepoll-no-decryption-key' => 'Rasşifrowka açary konfigurirlenmändir.
@@ -8970,6 +9011,8 @@ Rasşifrowka edip bolmaýar.',
 	'securepoll-bad-ballot-submission' => 'Sesiňiz hasap edilmeýär: $1',
 	'securepoll-unanswered-questions' => 'Ähli soraglara jogap bermelisiňiz.',
 	'securepoll-invalid-rank' => 'Nädogry rang. 1 bilen 999 arasynda bir rang bermeli',
+	'securepoll-unranked-options' => 'Käbir opsiýalar derejelendirilmändir.
+Ähli opsiýalara 1 bilen 999 aralygynda bir dereje bermeli.',
 	'securepoll-invalid-score' => 'Bahalandyrma $1 bilen $2 aralygynda bolmalydyr.',
 	'securepoll-unanswered-options' => 'Her soraga jogap bermelisiňiz.',
 	'securepoll-remote-auth-error' => 'Serwerden hasap maglumatyny almak säwligi.',
@@ -9007,6 +9050,8 @@ Rasşifrowka edip bolmaýar.',
 	'securepoll-header-admin' => 'Admin',
 	'securepoll-cookie-dup-list' => 'Kuki dublikat uanyjylary',
 	'securepoll-dump-title' => 'Damp: $1',
+	'securepoll-dump-no-urandom' => '/dev/urandom açylmaýar.
+Saýlawçynyň gizlinligini üpjün etmek üçin, şifrli saýlaw ýazgylary diňe ynamdar bir duş gelen san akymy arkaly garylan ýagdaýynda, ol köpçülige elýeterli bolup bilýär.',
 	'securepoll-translate-title' => 'Terjime et: $1',
 	'securepoll-invalid-language' => 'Nädogry dil kody "$1"',
 	'securepoll-submit-translate' => 'Täzele',
