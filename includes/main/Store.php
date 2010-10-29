@@ -262,8 +262,8 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 			'*',
 			array( 'en_id' => $id ),
 			__METHOD__ );
-		return $row
-			? $row->en_type
+		return $res
+			? $res->en_type
 			: false;
 	}
 }
@@ -515,7 +515,6 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 		$info = array( 'type' => $entityType );
 		$messages = array();
 		$properties = array();
-		$children = array();
 		if ( $xr->isEmptyElement ) {
 			wfDebug( __METHOD__.": unexpected empty element\n" );
 			$xr->read();
