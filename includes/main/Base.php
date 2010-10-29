@@ -36,8 +36,6 @@ class SecurePoll_BasePage extends UnlistedSpecialPage {
 	public function execute( $paramString ) {
 		global $wgOut, $wgRequest, $wgScriptPath;
 
-		wfLoadExtensionMessages( 'SecurePoll' );
-
 		$this->setHeaders();
 		$wgOut->addLink( array(
 			'rel' => 'stylesheet',
