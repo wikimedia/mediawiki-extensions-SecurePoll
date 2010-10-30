@@ -521,12 +521,13 @@ $1',
 
 /** Aramaic (ܐܪܡܝܐ)
  * @author Basharh
+ * @author Michaelovic
  */
 $messages['arc'] = array(
 	'securepoll-submit' => 'ܫܕܪ ܩܠܐ',
 	'securepoll-header-timestamp' => 'ܙܒܢܐ',
 	'securepoll-header-voter-name' => 'ܫܡܐ',
-	'securepoll-header-ua' => 'ܩܝܝܘܡܐ ܕܡܬܚܫܚܢܐ',
+	'securepoll-header-ua' => 'ܩܝܝܘܡܐ ܕܡܦܠܚܢܐ',
 	'securepoll-header-details' => 'ܐܪ̈ܝܟܬܐ',
 	'securepoll-strike-reason' => 'ܥܠܬܐ:',
 	'securepoll-strike-cancel' => 'ܒܛܘܠ',
