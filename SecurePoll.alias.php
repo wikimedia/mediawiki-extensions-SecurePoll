@@ -30,7 +30,7 @@ $specialPageAliases['cs'] = array(
 
 /** German (Deutsch) */
 $specialPageAliases['de'] = array(
-	'SecurePoll' => array( 'Sichere Abstimmung' ),
+	'SecurePoll' => array( 'Sichere_Abstimmung' ),
 );
 
 /** Lower Sorbian (Dolnoserbski) */
@@ -65,7 +65,7 @@ $specialPageAliases['hsb'] = array(
 
 /** Interlingua (Interlingua) */
 $specialPageAliases['ia'] = array(
-	'SecurePoll' => array( 'Voto secur' ),
+	'SecurePoll' => array( 'Voto_secur' ),
 );
 
 /** Japanese (日本語) */
