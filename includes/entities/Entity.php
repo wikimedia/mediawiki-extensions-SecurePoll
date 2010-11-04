@@ -148,7 +148,6 @@ class SecurePoll_Entity {
 	 * @param $name string
 	 */
 	function getMessage( $name ) {
-		$id = $this->getId();
 		foreach ( $this->context->languages as $language ) {
 			if ( empty( $this->messagesLoaded[$language] ) ) {
 				$this->loadMessages( $language );
