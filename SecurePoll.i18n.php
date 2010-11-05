@@ -5713,7 +5713,7 @@ $messages['mk'] = array(
 
 <pre>$1</pre>',
 	'securepoll-thanks' => 'Ви благодариме, вашиот глас е заведен.',
-	'securepoll-return' => 'Врати се на $1',
+	'securepoll-return' => 'Назад на $1',
 	'securepoll-encrypt-error' => 'Не можев да го шифрирам вашиот гласачки запис.
 Вашиот глас не беше регистриран!
 
