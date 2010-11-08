@@ -674,9 +674,63 @@ $1',
 );
 
 /** Bashkir (Башҡорт)
+ * @author Assele
  * @author Haqmar
  */
 $messages['ba'] = array(
+	'securepoll' => 'ХәүефһеҙТауышБиреү',
+	'securepoll-desc' => 'Һайлауҙар үткәреү һәм һорауҙар алыу өсөн киңәйтеү',
+	'securepoll-invalid-page' => '"<nowiki>$1</nowiki>" эске бите дөрөҫ түгел',
+	'securepoll-need-admin' => 'Был ғәмәлде башҡарыу өсөн, һеҙ һайлауҙың етәксеһе булырға тейешһегеҙ.',
+	'securepoll-too-few-params' => 'Эксе бит параметрҙары етмәй (һылтанма дөрөҫ түгел).',
+	'securepoll-invalid-election' => '"$1" — дөрөҫ һайлау идентификаторы түгел.',
+	'securepoll-welcome' => '<strong>Рәхим итегеҙ, $1!</strong>',
+	'securepoll-not-started' => 'Был һайлауҙар башланманы әле.
+Уның башланыу ваҡыты тип $2 $3 билдәләнгән.',
+	'securepoll-finished' => 'Был һайлауҙар тамамланған, һеҙ тауыш бирә алмайһығыҙ инде.',
+	'securepoll-not-qualified' => 'Һеҙҙең был һайлауҙарҙа тауыш биреү хоҡуғығыҙ юҡ: $1',
+	'securepoll-change-disallowed' => 'Һеҙ был һайлауҙарҙа тауыш биргәнһегеҙ инде.
+Ғәфү итегеҙ, һеҙ башҡа тауыш бирә алмайһығыҙ.',
+	'securepoll-change-allowed' => '<strong>Иҫкәрмә: Һеҙ был һайлауҙарҙа тауыш биргәнһегеҙ инде.</strong>
+Һеҙ, түбәндә килтерелгән форманы ебәреп, тауышығыҙҙы үҙгәртә алаһығыҙ.
+Әгәр быны эшләһәгеҙ, бығаса биргән тауышығыҙ иҫәпкә алынмаясаҡ икәнен иғтибарға алығыҙ.',
+	'securepoll-submit' => 'Тауышты ебәрергә',
+	'securepoll-gpg-receipt' => 'Тауыш биреүегеҙ өсөн рәхмәт.
+
+Әгәр теләһәгеҙ, тауышығыҙҙы раҫлау өсөн, түбәндәге юлдарҙы һаҡлай алаһығыҙ:
+
+<pre>$1</pre>',
+	'securepoll-thanks' => 'Рәхмәт, һеҙҙең тауышығыҙ яҙҙырып ҡуйылды.',
+	'securepoll-return' => '$1 битенә ҡайтырға',
+	'securepoll-encrypt-error' => 'Һеҙҙең тауышығыҙ тураһындағы яҙманы уҡыу мөмкин түгел.
+Һеҙҙең тауышығыҙ яҙҙырылманы!
+
+$1',
+	'securepoll-no-gpg-home' => 'GPG баш директорияһын булдырыу мөмкин түгел.',
+	'securepoll-secret-gpg-error' => 'GPG башҡарылыу хатаһы.
+Тулыраҡ мәғлүмәт алыр өсөн, LocalSettings.php файлында $wgSecurePollShowErrorDetail=true; ҡулланығыҙ.',
+	'securepoll-full-gpg-error' => 'GPG башҡарылыу хатаһы:
+
+Фарман: $1
+
+Хата:
+<pre>$2</pre>',
+	'securepoll-gpg-config-error' => 'GPG асҡыстары дөрөҫ көйләнмәгән.',
+	'securepoll-gpg-parse-error' => 'GPG сығарған мәғлүмәтте уҡыу хатаһы.',
+	'securepoll-no-decryption-key' => 'Шифрҙы уҡыу асҡысы көйләнмәгән.
+Шифрҙы уҡыу мөмкин түгел.',
+	'securepoll-jump' => 'Тауыш биреү серверына күсергә',
+	'securepoll-bad-ballot-submission' => 'Һеҙҙең тауышығыҙ дөрөҫ түгел: $1',
+	'securepoll-unanswered-questions' => 'Һеҙ бөтә һорауҙарға ла яуап бирергә тейешһегеҙ.',
+	'securepoll-invalid-rank' => 'Тәртип һаны дөрөҫ түгел. Һеҙ кандидаттар өсөн 1 менән 999 араһындағы тәртип һанын бирергә тейешһегеҙ.',
+	'securepoll-unranked-options' => 'Ҡайһы бер яҙмаларға тәртип һаны бирелмәгән. Һеҙ бөтә яҙмалар өсөн 1 менән 999 араһындағы тәртип һанын бирергә тейешһегеҙ.',
+	'securepoll-invalid-score' => 'Баһа — $1 менән $2 араһындағы һан булырға тейеш.',
+	'securepoll-unanswered-options' => 'Һеҙ һәр һорауға яуап бирергә тейешһегеҙ.',
+	'securepoll-remote-auth-error' => 'Һеҙҙең иҫәп яҙмағыҙ тураһында серверҙан мәғлүмәт алыу хатаһы.',
+	'securepoll-remote-parse-error' => 'Серверҙан алынған танылыу яуабын уҡыу хатаһы.',
+	'securepoll-api-invalid-params' => 'Параметрҙар дөрөҫ түгел.',
+	'securepoll-api-no-user' => 'Бирелгән идентификаторлы ҡатнашыусы табылманы.',
+	'securepoll-api-token-mismatch' => 'Хәүефһеҙлек токены тап килмәй, танылыу мөмкин түгел.',
 	'securepoll-list-title' => 'Тауыштар исемлеге: $1',
 	'securepoll-header-timestamp' => 'Ваҡыт',
 	'securepoll-header-voter-name' => 'Исем',
