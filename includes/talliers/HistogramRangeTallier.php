@@ -69,7 +69,7 @@ class SecurePoll_HistogramRangeTallier extends SecurePoll_Tallier {
 				Xml::tags( 'td', array( 'class' => 'securepoll-results-row-heading' ),
 					$optionLabels[$oid] ) .
 				"\n";
-			foreach ( $labels as $score ) {
+			foreach ( $labels as $score => $label ) {
 				$s .= Xml::element( 'td', array(), $this->histogram[$oid][$score] ) . "\n";
 			}
 			$s .= Xml::element( 'td', array(), $average ) . "\n";

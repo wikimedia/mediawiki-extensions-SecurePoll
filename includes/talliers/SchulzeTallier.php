@@ -93,7 +93,7 @@ class SecurePoll_SchulzeTallier extends SecurePoll_PairwiseTallier {
 			}
 
 			# Now $winners is the list of candidates that tie for this position
-			foreach ( $winners as $oid ) {
+			foreach ( $winners as $oid => $unused ) {
 				$ranks[$oid] = $currentRank;
 			}
 			$currentRank += count( $winners );

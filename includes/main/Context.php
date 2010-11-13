@@ -197,7 +197,7 @@ class SecurePoll_Context {
 		if ( isset( $this->messagesLoaded[$lang] ) ) {
 			$cacheRow = $this->messagesLoaded[$lang];
 			$uncachedIds = array_flip( $ids );
-			foreach ( $uncachedIds as $id ) {
+			foreach ( $uncachedIds as $id => $unused ) {
 				if ( isset( $cacheRow[$id] ) ) {
 					unset( $uncachedIds[$id] );
 				}

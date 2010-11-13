@@ -33,7 +33,7 @@ class SecurePoll_PluralityTallier extends SecurePoll_Tallier {
 		// Show the results
 		$s = "<table class=\"securepoll-results\">\n";
 
-		foreach ( $this->tally as $oid ) {
+		foreach ( $this->tally as $oid => $rank ) {
 			$option = $this->optionsById[$oid];
 			$s .= '<tr><td>' . $option->parseMessageInline( 'text' ) . "</td>\n" .
 				'<td>' . $this->tally[$oid] . "</td>\n" .
@@ -46,7 +46,7 @@ class SecurePoll_PluralityTallier extends SecurePoll_Tallier {
 	function getTextResult() {
 		// Calculate column width
 		$width = 10;
-		foreach ( $this->tally as $oid ) {
+		foreach ( $this->tally as $oid => $rank ) {
 			$option = $this->optionsById[$oid];
 			$width = max( $width, strlen( $option->getMessage( 'text' ) ) );
 		}
@@ -60,7 +60,7 @@ class SecurePoll_PluralityTallier extends SecurePoll_Tallier {
 		if ( $qtext !== '' ) {
 			$s .= wordwrap( $qtext ) . "\n";
 		}
-		foreach ( $this->tally as $oid ) {
+		foreach ( $this->tally as $oid => $rank ) {
 			$option = $this->optionsById[$oid];
 			$otext = $option->getMessage( 'text' );
 			if ( strlen( $otext ) > $width ) {
