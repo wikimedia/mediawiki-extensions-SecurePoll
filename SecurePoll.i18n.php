@@ -6291,10 +6291,15 @@ Inti tista' tagħżel jew li tgħodd ir-riżultati preżenti fid-databażi, jew 
  * @author Botuzhaleny-sodamo
  */
 $messages['myv'] = array(
+	'securepoll-submit' => 'Каямс вайгель',
+	'securepoll-header-strike' => 'Черькстамс',
 	'securepoll-strike-button' => 'Черькстамс',
 	'securepoll-unstrike-button' => 'Саемс черькстамонть',
 	'securepoll-strike-reason' => 'Тувталось:',
 	'securepoll-details-link' => 'Мезде моли кортамось',
+	'securepoll-header-reason' => 'Тувтал',
+	'securepoll-language-label' => 'Кочкамс келенть:',
+	'securepoll-submit-select-lang' => 'Ютавтомс',
 );
 
 /** Low German (Plattdüütsch)
