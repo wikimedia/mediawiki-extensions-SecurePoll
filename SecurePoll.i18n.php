@@ -195,6 +195,7 @@ GPG stands for [http://en.wikipedia.org/wiki/GNU_Privacy_Guard GNU Privacy Guard
 	'securepoll-gpg-parse-error' => 'GPG stands for [http://en.wikipedia.org/wiki/GNU_Privacy_Guard GNU Privacy Guard].',
 	'securepoll-header-timestamp' => '{{Identical|Time}}',
 	'securepoll-header-voter-name' => '{{Identical|Name}}',
+	'securepoll-header-voter-domain' => '{{Identical|Domain}}',
 	'securepoll-header-ip' => '{{optional}}',
 	'securepoll-header-xff' => '{{optional}}',
 	'securepoll-header-token-match' => '{{optional}}',
