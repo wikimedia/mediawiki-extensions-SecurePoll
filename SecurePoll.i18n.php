@@ -8579,6 +8579,30 @@ Za zagotavljanje zasebnosti volivcev so šifrirani volilni zapisi javno vidni š
 	'securepoll-average-score' => 'Povprečni rezultat',
 );
 
+/** Albanian (Shqip)
+ * @author Mikullovci11
+ */
+$messages['sq'] = array(
+	'securepoll-header-timestamp' => 'Kohë',
+	'securepoll-header-voter-name' => 'Emri',
+	'securepoll-header-details' => 'Detajet',
+	'securepoll-strike-reason' => 'Arsyeja:',
+	'securepoll-strike-cancel' => 'Anullo',
+	'securepoll-details-link' => 'Detajet',
+	'securepoll-header-action' => 'Veprimet',
+	'securepoll-header-reason' => 'Arsyeja',
+	'securepoll-header-admin' => 'Admin',
+	'securepoll-submit-translate' => 'Përditësime të reja',
+	'securepoll-language-label' => 'Zgjidh gjuhën',
+	'securepoll-submit-select-lang' => 'Përkthime',
+	'securepoll-header-title' => 'Emri',
+	'securepoll-header-start-date' => 'Data e fillimit',
+	'securepoll-header-end-date' => 'Data e përfundimit',
+	'securepoll-subpage-vote' => 'Voto',
+	'securepoll-subpage-translate' => 'Përkthime',
+	'securepoll-subpage-list' => 'Lista',
+);
+
 /** Serbian Cyrillic ekavian (Српски (ћирилица))
  * @author Михајло Анђелковић
  */
