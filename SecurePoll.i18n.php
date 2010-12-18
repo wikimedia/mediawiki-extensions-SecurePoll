@@ -8583,6 +8583,7 @@ Za zagotavljanje zasebnosti volivcev so šifrirani volilni zapisi javno vidni š
  * @author Mikullovci11
  */
 $messages['sq'] = array(
+	'securepoll-thanks' => 'Falemnderit, vota juaj është regjistruar.',
 	'securepoll-header-timestamp' => 'Kohë',
 	'securepoll-header-voter-name' => 'Emri',
 	'securepoll-header-details' => 'Detajet',
@@ -8592,6 +8593,7 @@ $messages['sq'] = array(
 	'securepoll-header-action' => 'Veprimet',
 	'securepoll-header-reason' => 'Arsyeja',
 	'securepoll-header-admin' => 'Admin',
+	'securepoll-translate-title' => 'Përkthime: $1',
 	'securepoll-submit-translate' => 'Përditësime të reja',
 	'securepoll-language-label' => 'Zgjidh gjuhën',
 	'securepoll-submit-select-lang' => 'Përkthime',
