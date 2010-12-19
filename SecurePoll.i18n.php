@@ -3690,7 +3690,7 @@ Ass es Wahlgheimnis sicher gstellt isch, sin verschlssleti Wahlufzeichnige nume 
 	'securepoll-header-start-date' => 'Aafangsdatum',
 	'securepoll-header-end-date' => 'Änddatum',
 	'securepoll-subpage-vote' => 'Abstimme',
-	'securepoll-subpage-translate' => 'Iberseze',
+	'securepoll-subpage-translate' => 'Ibersetze',
 	'securepoll-subpage-list' => 'Lischt',
 	'securepoll-subpage-dump' => 'Uusgab',
 	'securepoll-subpage-tally' => 'Uuszellig',
@@ -8286,12 +8286,15 @@ $messages['scn'] = array(
 );
 
 /** Sinhala (සිංහල)
+ * @author Budhajeewa
  * @author Calcey
  * @author බිඟුවා
  */
 $messages['si'] = array(
 	'securepoll-desc' => 'මැතිවරණ හා සමීක්ෂණ සඳහා දිඟුව',
+	'securepoll-invalid-page' => '"<nowiki>$1</nowiki>" වැරදි උපපිටුව',
 	'securepoll-need-admin' => 'මෙම ක්‍රියාව සිදු කිරීම සඳහා ඔබ මැතිවරණ පරිපාලකයෙකු විය යුතුය.',
+	'securepoll-too-few-params' => 'අවැසි තරම් උපපිටු පරාමිති නොමැ. (වරදි සබැඳියකි).',
 	'securepoll-welcome' => '<strong>ආයුබෝවන් $1!</strong>',
 	'securepoll-not-started' => 'මෙම මැතිවරණය තවම ආරම්භ කර නොමැත.
 එය $2 වනදා $3ට ආරම්භවීමට නියමිතය.',
@@ -8304,22 +8307,57 @@ $messages['si'] = array(
 
 <pre>$1</pre>',
 	'securepoll-thanks' => 'ස්තුතියි,ඔබේ ඡන්දය ‍පටිගත වී ඇත.',
+	'securepoll-return' => '$1 ට නැවත යන්න',
+	'securepoll-no-gpg-home' => 'GPG නිවස්න නාමාවලිය තැනුමට නොහැකිවිය.',
+	'securepoll-secret-gpg-error' => 'GPG ය ක්‍රියාත්මක කිරීමේ දෝෂයකි.
+වැඩි විස්තර සඳහා LocalSettings.phpහි $wgSecurePollShowErrorDetail=true; භාවිතා කරන්න.',
+	'securepoll-full-gpg-error' => 'GPG ය ක්‍රියාත්මක කෙරුමේ දෝෂයකි:
+
+විධානය: $1
+
+දෝෂය:
+<pre>$2</pre>',
 	'securepoll-jump' => 'ඡන්දය දෙන සේවාදායකයට යන්න',
 	'securepoll-bad-ballot-submission' => 'ඔබගේ ඡන්දය අවලංගුයි :$1',
 	'securepoll-unanswered-questions' => 'ඔබ සියලුම ප්‍රශ්නවලට පිළිතුරු සැපයිය යුතුය.',
+	'securepoll-invalid-score' => 'ලකුණ $1 හා $2 අතර අංකයක් විය යුතුය.',
 	'securepoll-unanswered-options' => 'සෑම ප්‍රශ්නයක් සඳහාම ඔබ ප්‍රතිචාරයක් දිය යුතුය.',
 	'securepoll-remote-auth-error' => 'සේවාදායකයෙන් ඔබේ ගිණුම් තොරතුරු ගෙනයෑමේ දෝෂය.',
 	'securepoll-remote-parse-error' => 'සේවාදායකයෙන් අවසරදීමේ ප්‍රතිචාරය පහදාදීමේ දෝෂය.',
 	'securepoll-api-invalid-params' => 'අවලංගු පරාමිති.',
+	'securepoll-api-no-user' => 'දෙන ලද හැඳුනුම සහිත පරිශීලකයන් කිසිවෙකු හමු නොවිනි.',
 	'securepoll-not-logged-in' => 'මෙම ඡන්ද විමසීමේදී ඡන්දය දීම සඳහා ඔබ ප්‍රවිෂ්ට විය යුතුය.',
 	'securepoll-header-timestamp' => 'වේලාව',
 	'securepoll-header-voter-name' => 'නම',
+	'securepoll-header-voter-domain' => 'ඩෝමේනය',
+	'securepoll-header-ua' => 'පරිශීලක නියෝජිත',
 	'securepoll-header-details' => 'විස්තර',
 	'securepoll-strike-reason' => 'හේතුව:',
 	'securepoll-strike-cancel' => 'අත් හරින්න',
 	'securepoll-details-link' => 'විස්තර',
+	'securepoll-details-title' => 'ඡන්ද තොරතුරු: #$1',
+	'securepoll-invalid-vote' => '"$1" යනු නිවැරදි ඡන්ද හැඳුනුමක් නොවේ',
+	'securepoll-header-voter-type' => 'ඡන්ද දායක වර්ගය',
+	'securepoll-voter-properties' => 'ඡන්ද දායක වත්කම්',
+	'securepoll-header-action' => 'කාර්යය',
+	'securepoll-header-reason' => 'හේතුව',
 	'securepoll-header-admin' => 'පරිපාලක',
+	'securepoll-translate-title' => 'පරිවර්තනය කරන්න: $1',
+	'securepoll-invalid-language' => '"$1" වැරදි භාෂා කේතය',
+	'securepoll-submit-translate' => 'යාවත්කාලීනය',
+	'securepoll-language-label' => 'භාෂාව තෝරන්න:',
+	'securepoll-submit-select-lang' => 'පරිවර්තනය කරන්න',
+	'securepoll-entry-text' => 'පහත දැක්වෙන්නේ ඡන්ද විමසුම් ලයිස්තුවයි.',
 	'securepoll-header-title' => 'නම',
+	'securepoll-header-start-date' => 'ආරම්භක දිනය',
+	'securepoll-header-end-date' => 'අවසන් දිනය',
+	'securepoll-subpage-vote' => 'ඡන්දය දෙන්න',
+	'securepoll-subpage-translate' => 'පරිවර්තනය කරන්න',
+	'securepoll-subpage-list' => 'ලැයිස්තුව',
+	'securepoll-subpage-tally' => 'සැසඳෙයි',
+	'securepoll-tally-title' => 'සැසඳුම: $1',
+	'securepoll-tally-local-legend' => 'තැන්පත් කළ ප්‍රතිඵල සසඳන්න',
+	'securepoll-average-score' => 'සාමාන්‍ය ලකුණ',
 );
 
 /** Slovak (Slovenčina)
