@@ -8288,6 +8288,7 @@ $messages['scn'] = array(
 /** Sinhala (සිංහල)
  * @author Budhajeewa
  * @author Calcey
+ * @author තඹරු විජේසේකර
  * @author බිඟුවා
  */
 $messages['si'] = array(
@@ -8300,6 +8301,8 @@ $messages['si'] = array(
 එය $2 වනදා $3ට ආරම්භවීමට නියමිතය.',
 	'securepoll-finished' => 'මෙම මැතිවරණය අවසන් වී ඇත,ඔබට තව දුරටත් ඡන්දය ලබා දිය නොහැකිය.',
 	'securepoll-not-qualified' => 'මෙම මැතිවරණයේදී ඡන්දය දීමට ඔබ සුදුසුකම් ලබා නැත: $1',
+	'securepoll-change-disallowed' => 'ඔබ වරක් මෙහි මනාපය පළ කර තිබේ.
+කනගාටුයි, නැවත ඊට ඉඩදිය නොහැක.',
 	'securepoll-submit' => 'ඡන්දය ලබාදෙන්න',
 	'securepoll-gpg-receipt' => 'ඡන්දය දීම ගැන ස්තුතියි.
 
@@ -8327,6 +8330,10 @@ $messages['si'] = array(
 	'securepoll-api-invalid-params' => 'අවලංගු පරාමිති.',
 	'securepoll-api-no-user' => 'දෙන ලද හැඳුනුම සහිත පරිශීලකයන් කිසිවෙකු හමු නොවිනි.',
 	'securepoll-not-logged-in' => 'මෙම ඡන්ද විමසීමේදී ඡන්දය දීම සඳහා ඔබ ප්‍රවිෂ්ට විය යුතුය.',
+	'securepoll-blocked' => 'කනගාටුයි, ඔබ සංස්කරණ වාරණයකට ලක්ව ඇති බැවින් මෙහි ඡන්‍දය පළ කළ නොහැක.',
+	'securepoll-bot' => 'කනගාටුයි, රොබෝවරුන් සහිත පරිශීලක ගිණුම් හිමියනට මෙහි ඡන්‍දය පළ කළ නොහැක.',
+	'securepoll-not-in-group' => '“$1“ කණ්ඩායමේ අයට මෙහි මනාපය පළ කළ හැක.',
+	'securepoll-list-title' => 'මනාප සංඛ්‍යාව: $1',
 	'securepoll-header-timestamp' => 'වේලාව',
 	'securepoll-header-voter-name' => 'නම',
 	'securepoll-header-voter-domain' => 'ඩෝමේනය',
@@ -8354,6 +8361,7 @@ $messages['si'] = array(
 	'securepoll-subpage-vote' => 'ඡන්දය දෙන්න',
 	'securepoll-subpage-translate' => 'පරිවර්තනය කරන්න',
 	'securepoll-subpage-list' => 'ලැයිස්තුව',
+	'securepoll-subpage-dump' => 'නික්‍ෂේපය',
 	'securepoll-subpage-tally' => 'සැසඳෙයි',
 	'securepoll-tally-title' => 'සැසඳුම: $1',
 	'securepoll-tally-local-legend' => 'තැන්පත් කළ ප්‍රතිඵල සසඳන්න',
