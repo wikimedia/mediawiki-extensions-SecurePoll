@@ -8320,6 +8320,8 @@ $messages['si'] = array(
 
 දෝෂය:
 <pre>$2</pre>',
+	'securepoll-no-decryption-key' => 'කිසිදු decryption keyක් හැඩනොගැස්විණි.
+decrypt කළ නොහැක.',
 	'securepoll-jump' => 'ඡන්දය දෙන සේවාදායකයට යන්න',
 	'securepoll-bad-ballot-submission' => 'ඔබගේ ඡන්දය අවලංගුයි :$1',
 	'securepoll-unanswered-questions' => 'ඔබ සියලුම ප්‍රශ්නවලට පිළිතුරු සැපයිය යුතුය.',
@@ -8329,6 +8331,7 @@ $messages['si'] = array(
 	'securepoll-remote-parse-error' => 'සේවාදායකයෙන් අවසරදීමේ ප්‍රතිචාරය පහදාදීමේ දෝෂය.',
 	'securepoll-api-invalid-params' => 'අවලංගු පරාමිති.',
 	'securepoll-api-no-user' => 'දෙන ලද හැඳුනුම සහිත පරිශීලකයන් කිසිවෙකු හමු නොවිනි.',
+	'securepoll-api-token-mismatch' => 'ආරක්‍ෂණ සංකේතය නොගැලපෙන බැවින් ඇතුළුවිය නොහැක.',
 	'securepoll-not-logged-in' => 'මෙම ඡන්ද විමසීමේදී ඡන්දය දීම සඳහා ඔබ ප්‍රවිෂ්ට විය යුතුය.',
 	'securepoll-blocked' => 'කනගාටුයි, ඔබ සංස්කරණ වාරණයකට ලක්ව ඇති බැවින් මෙහි ඡන්‍දය පළ කළ නොහැක.',
 	'securepoll-bot' => 'කනගාටුයි, රොබෝවරුන් සහිත පරිශීලක ගිණුම් හිමියනට මෙහි ඡන්‍දය පළ කළ නොහැක.',
@@ -8365,6 +8368,7 @@ $messages['si'] = array(
 	'securepoll-subpage-tally' => 'සැසඳෙයි',
 	'securepoll-tally-title' => 'සැසඳුම: $1',
 	'securepoll-tally-local-legend' => 'තැන්පත් කළ ප්‍රතිඵල සසඳන්න',
+	'securepoll-tally-upload-submit' => 'tally තනන්න.',
 	'securepoll-average-score' => 'සාමාන්‍ය ලකුණ',
 );
 
