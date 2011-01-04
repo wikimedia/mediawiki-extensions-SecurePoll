@@ -8702,6 +8702,7 @@ $messages['sq'] = array(
 );
 
 /** Serbian Cyrillic ekavian (Српски (ћирилица))
+ * @author Rancher
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
@@ -8737,7 +8738,7 @@ $messages['sr-ec'] = array(
 	'securepoll-header-ua' => 'Кориснички клијент',
 	'securepoll-header-details' => 'Појединости',
 	'securepoll-strike-reason' => 'Разлог:',
-	'securepoll-strike-cancel' => 'Поништи',
+	'securepoll-strike-cancel' => 'Откажи',
 	'securepoll-strike-token-mismatch' => 'Изгубљени подаци о сесији',
 	'securepoll-details-link' => 'Појединости',
 	'securepoll-details-title' => 'Појединости о гласу: #$1',
