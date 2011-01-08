@@ -4979,6 +4979,7 @@ Yèn perlu panjenengan bisa nyimpen resi pangiriman ing ngisor iki minangka bukt
 /** Georgian (ქართული)
  * @author BRUTE
  * @author David1010
+ * @author Dawid Deutschland
  * @author ITshnik
  * @author გიორგიმელა
  */
@@ -5023,6 +5024,7 @@ $messages['ka'] = array(
 	'securepoll-header-voter-name' => 'სახელი',
 	'securepoll-header-voter-domain' => 'დომენი',
 	'securepoll-header-ua' => 'მომხმარებლის აგენტი',
+	'securepoll-header-cookie-dup' => 'დუბლიკატი',
 	'securepoll-header-strike' => 'გადახაზვა',
 	'securepoll-header-details' => 'დეტალები',
 	'securepoll-strike-button' => 'გადახაზვა',
