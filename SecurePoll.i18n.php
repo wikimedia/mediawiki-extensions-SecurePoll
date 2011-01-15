@@ -8703,7 +8703,7 @@ $messages['sq'] = array(
 	'securepoll-subpage-list' => 'Lista',
 );
 
-/** Serbian Cyrillic ekavian (Српски (ћирилица))
+/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
  * @author Rancher
  * @author Михајло Анђелковић
  */
@@ -8746,9 +8746,9 @@ $messages['sr-ec'] = array(
 	'securepoll-details-title' => 'Појединости о гласу: #$1',
 	'securepoll-invalid-vote' => '„$1“ није валидан ID за гласање',
 	'securepoll-header-voter-type' => 'Тип гласача',
-	'securepoll-header-action' => 'Акција',
+	'securepoll-header-action' => 'Радња',
 	'securepoll-header-reason' => 'Разлог',
-	'securepoll-header-admin' => 'Админ',
+	'securepoll-header-admin' => 'Администратор',
 	'securepoll-cookie-dup-list' => 'Корисници са дупликатима колачића',
 	'securepoll-dump-title' => 'Дамп: $1',
 	'securepoll-translate-title' => 'Преведи: $1',
