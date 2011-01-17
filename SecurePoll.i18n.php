@@ -810,9 +810,10 @@ $messages['be'] = array(
 	'securepoll-header-reason' => 'Прычына',
 );
 
-/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
+ * @author Wizardist
  */
 $messages['be-tarask'] = array(
 	'securepoll' => 'Бясьпечнае галасаваньне',
@@ -886,7 +887,7 @@ $1',
 	'securepoll-strike-button' => 'Закрэсьліць',
 	'securepoll-unstrike-button' => 'Адкрэсьліць',
 	'securepoll-strike-reason' => 'Прычына:',
-	'securepoll-strike-cancel' => 'Адмяніць',
+	'securepoll-strike-cancel' => 'Скасаваць',
 	'securepoll-strike-error' => 'Памылка пад час закрэсьліваньня/адкрэсьліваньня: $1',
 	'securepoll-strike-token-mismatch' => 'Зьвесткі сэсіі страчаныя',
 	'securepoll-details-link' => 'Падрабязнасьці',
@@ -10414,21 +10415,21 @@ $1',
  */
 $messages['zh-hant'] = array(
 	'securepoll' => '安全投票',
-	'securepoll-desc' => '投票及選舉擴展',
+	'securepoll-desc' => '投票及選舉擴充套件',
 	'securepoll-invalid-page' => '無效的子頁面「<nowiki>$1</nowiki>」',
 	'securepoll-need-admin' => '您必須是選舉管理員才能進行此操作。',
-	'securepoll-too-few-params' => '缺少子頁面參數（無效鏈接）。',
+	'securepoll-too-few-params' => '缺少子頁面參數（無效連結）。',
 	'securepoll-invalid-election' => '「$1」不是有效的選舉編號。',
 	'securepoll-welcome' => '<strong>歡迎$1！</strong>',
 	'securepoll-not-started' => '這個選舉尚未開始。
-按計劃將於$2 $3開始。',
+按計畫將於 $2 $3 開始。',
 	'securepoll-finished' => '投票已經結束，無法投票。',
 	'securepoll-not-qualified' => '您不具有於是次選舉中參與表決的資格︰$1',
-	'securepoll-change-disallowed' => '您已於是次選舉中投票。
+	'securepoll-change-disallowed' => '您已於是本次選舉中投票。
 閣下恕未可再次投票。',
-	'securepoll-change-allowed' => '<strong>請注意您已於較早前於是次選舉中投票。</strong>
-您可以透過遞交以下的表格改動您的投票。
-惟請注意，若然閣下作出此番舉動，閣下原先所投之票將變為廢票。',
+	'securepoll-change-allowed' => '<strong>注意：您曾經在本次投票中投下一票。
+您可以提交下面的表格並更改您的選票。
+請注意若您更改選票，原先的選票將作廢。',
 	'securepoll-submit' => '遞交投票',
 	'securepoll-gpg-receipt' => '多謝您參與投票。
 
@@ -10441,34 +10442,34 @@ $messages['zh-hant'] = array(
 您的投票未被紀錄。
 
 $1',
-	'securepoll-no-gpg-home' => '無法建立GPG主目錄。',
-	'securepoll-secret-gpg-error' => '執行GPG出錯。
-於LocalSettings.php中使用$wgSecurePollShowErrorDetail=true;以展示更多細節。',
-	'securepoll-full-gpg-error' => '執行GPG錯誤：
+	'securepoll-no-gpg-home' => '無法建立 GPG 主目錄。',
+	'securepoll-secret-gpg-error' => '執行 GPG 出錯。
+於 LocalSettings.php 中使用 $wgSecurePollShowErrorDetail=true; 以展示更多細節。',
+	'securepoll-full-gpg-error' => '執行 GPG 錯誤：
 
 命令：$1
 
 錯誤：
 <pre>$2</pre>',
-	'securepoll-gpg-config-error' => 'GPG密匙配置錯誤。',
-	'securepoll-gpg-parse-error' => '解釋GPG輸出時出錯。',
+	'securepoll-gpg-config-error' => 'GPG 密匙配置錯誤。',
+	'securepoll-gpg-parse-error' => '解釋 GPG 輸出時出錯。',
 	'securepoll-no-decryption-key' => '解密密匙未配置。
 無法解密。',
 	'securepoll-jump' => '進入投票伺服器',
 	'securepoll-bad-ballot-submission' => '您的投票無效︰$1',
 	'securepoll-unanswered-questions' => '您必須回答所有問題。',
-	'securepoll-invalid-rank' => '評級無效。給候選人的評級分數必須在1到999之間。',
-	'securepoll-unranked-options' => '部分選項尚未評級。所有選項均應評級，且分數應在1到999之間。',
-	'securepoll-invalid-score' => '分數必須介於$1和$2之間。',
+	'securepoll-invalid-rank' => '評級無效。給候選人的評級分數必須在 1 到 999 之間。',
+	'securepoll-unranked-options' => '部分選項尚未評級。所有選項均應評級，且分數應在 1 到 999 之間。',
+	'securepoll-invalid-score' => '分數必須介於 $1 和 $2 之間。',
 	'securepoll-unanswered-options' => '您必須回答每一個問題。',
-	'securepoll-remote-auth-error' => '在投票伺服器提取您的用户資訊時出錯',
+	'securepoll-remote-auth-error' => '在投票伺服器提取您的用戶資訊時出錯',
 	'securepoll-remote-parse-error' => '伺服器驗證錯誤',
 	'securepoll-api-invalid-params' => '參數無效',
-	'securepoll-api-no-user' => '無法找到此指定ID的用戶。',
-	'securepoll-api-token-mismatch' => '安全信物不符，無法登入。',
-	'securepoll-not-logged-in' => '您必須在投票前登錄。',
-	'securepoll-too-few-edits' => '對不起，您未能參與投票。您必須最少進行$1次編輯才能參與是次投票，而您目前的編輯次數為$2。',
-	'securepoll-blocked' => '對不起，因為您目前已被封禁所以您無法參與本之投票。',
+	'securepoll-api-no-user' => '無法找到此指定 ID 的用戶。',
+	'securepoll-api-token-mismatch' => '安全標記不符，無法登入。',
+	'securepoll-not-logged-in' => '您必須在投票前登入。',
+	'securepoll-too-few-edits' => '對不起，您未能參與投票。您必須最少進行 $1 次編輯才能參與本次投票，而您目前的編輯次數為 $2。',
+	'securepoll-blocked' => '對不起，因為您目前已被封禁所以您無法參與本次投票。',
 	'securepoll-bot' => '抱歉，擁有機器人權限的用戶不能參與本投票。',
 	'securepoll-not-in-group' => '只有屬於用戶組「$1」的用戶才可以投票。',
 	'securepoll-not-in-list' => '對不起，由於您不在投票人名單，所以您無權參與是次投票。',
@@ -10485,18 +10486,18 @@ $1',
 	'securepoll-strike-reason' => '理由：',
 	'securepoll-strike-cancel' => '取消',
 	'securepoll-strike-error' => '進行刪除選票/恢復被刪除選票時出錯：$1',
-	'securepoll-strike-token-mismatch' => '丟失會話資料',
+	'securepoll-strike-token-mismatch' => '會話資料遺失',
 	'securepoll-details-link' => '細節',
 	'securepoll-details-title' => '投票詳情︰#$1',
-	'securepoll-invalid-vote' => '「$1」不是有效的投票ID',
+	'securepoll-invalid-vote' => '「$1」不是有效的投票 ID',
 	'securepoll-header-voter-type' => '投票用戶類型',
 	'securepoll-voter-properties' => '投票人資訊',
 	'securepoll-strike-log' => '刪除選票日誌',
 	'securepoll-header-action' => '動作',
 	'securepoll-header-reason' => '原因',
 	'securepoll-header-admin' => '管理員',
-	'securepoll-cookie-dup-list' => 'Cookie重複的用戶',
-	'securepoll-dump-title' => '傾卸：$1',
+	'securepoll-cookie-dup-list' => 'Cookie 重複的用戶',
+	'securepoll-dump-title' => 'Dump：$1',
 	'securepoll-dump-no-crypt' => '本次投票沒有被加密的投票記錄，因為它被設定為不須加密。',
 	'securepoll-dump-not-finished' => '被加密的投票記錄只有在截止日期$1 $2後方可取得',
 	'securepoll-dump-no-urandom' => '無法打開/dev/urandom。
@@ -10526,11 +10527,11 @@ $1',
 	'securepoll-tally-upload-legend' => '上傳已加密的數據',
 	'securepoll-tally-upload-submit' => '新增計票數據',
 	'securepoll-tally-error' => '投票記錄發生錯誤，無法新增計票數據。',
-	'securepoll-no-upload' => '沒有上傳文件。',
+	'securepoll-no-upload' => '沒有上傳檔案。',
 	'securepoll-dump-corrupt' => '無法處理損壞的轉儲檔案。',
 	'securepoll-tally-upload-error' => '轉儲檔案記錄錯誤：$1',
 	'securepoll-pairwise-victories' => '對比矩陣',
-	'securepoll-strength-matrix' => 'Path strength矩陣',
+	'securepoll-strength-matrix' => 'Path strength 矩陣',
 	'securepoll-ranks' => '最終排名',
 	'securepoll-average-score' => '平均分',
 );
