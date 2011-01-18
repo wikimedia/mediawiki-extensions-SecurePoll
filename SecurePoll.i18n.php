@@ -2931,8 +2931,8 @@ $messages['fa'] = array(
 
 $1',
 	'securepoll-no-gpg-home' => 'قادر به ایجاد دایرکتوری مرکزی GPG نبود.',
-	'securepoll-secret-gpg-error' => '↓ خطا در اجرای executing GPG.
-از $wgSecurePollShowErrorDetail=true; استفاده کنید ، در LocalSettings.php اطلاعات بیشتری موجود است.',
+	'securepoll-secret-gpg-error' => 'خطا در اجرای GPG.
+از <span style="direction:ltr;">$wgSecurePollShowErrorDetail=true;</span> استفاده کنید، در LocalSettings.php اطلاعات بیشتری موجود است.',
 	'securepoll-full-gpg-error' => 'خطا در اجرای GPG:
 فرمان: $1
 خطا:
