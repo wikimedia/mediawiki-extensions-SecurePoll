@@ -674,7 +674,7 @@ $1',
 	'securepoll-average-score' => 'نتيجه متوسطة',
 );
 
-/** Bashkir (Башҡорт)
+/** Bashkir (Башҡортса)
  * @author Assele
  * @author Haqmar
  */
@@ -2005,7 +2005,7 @@ Du kannst wählen zwischen der Zählung der aktuellen Ergebnisse in der Datenban
 	'securepoll-average-score' => 'Durchschnittliches Ergebnis',
 );
 
-/** German (formal address) (Deutsch (Sie-Form))
+/** German (formal address) (‪Deutsch (Sie-Form)‬)
  * @author ChrisiPK
  * @author Imre
  * @author The Evil IP address
@@ -7509,6 +7509,7 @@ Pode escolher entre apurar os resultados presentes na base de dados, ou apurar r
  * @author Everton137
  * @author GKnedo
  * @author Giro720
+ * @author Helder.wiki
  * @author Heldergeovane
  */
 $messages['pt-br'] = array(
@@ -8766,7 +8767,7 @@ $messages['sr-ec'] = array(
 	'securepoll-subpage-dump' => 'Дамп',
 );
 
-/** Serbian Latin ekavian (Srpski (latinica))
+/** Serbian Latin ekavian (‪Srpski (latinica)‬)
  * @author Michaello
  */
 $messages['sr-el'] = array(
@@ -10146,6 +10147,7 @@ $messages['yo'] = array(
 /** Cantonese (粵語)
  * @author Horacewai2
  * @author Shinjiman
+ * @author Waihorace
  */
 $messages['yue'] = array(
 	'securepoll' => '安全投票',
