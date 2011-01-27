@@ -8684,9 +8684,16 @@ Za zagotavljanje zasebnosti volivcev so šifrirani volilni zapisi javno vidni š
  */
 $messages['sq'] = array(
 	'securepoll-thanks' => 'Falemnderit, vota juaj është regjistruar.',
+	'securepoll-list-title' => 'Lista e Votave: $1',
 	'securepoll-header-timestamp' => 'Kohë',
 	'securepoll-header-voter-name' => 'Emri',
+	'securepoll-header-voter-domain' => 'Domen',
+	'securepoll-header-ua' => 'Agjent përdorues',
+	'securepoll-header-cookie-dup' => 'Dublikatë',
+	'securepoll-header-strike' => 'Nënvizoj',
 	'securepoll-header-details' => 'Detajet',
+	'securepoll-strike-button' => 'Nënvizoj',
+	'securepoll-unstrike-button' => 'Zhbëje nënvizojën',
 	'securepoll-strike-reason' => 'Arsyeja:',
 	'securepoll-strike-cancel' => 'Anullo',
 	'securepoll-details-link' => 'Detajet',
