@@ -229,7 +229,7 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 		return $questions;
 	}
 
-	function callbackValidVotes( $electionId, $callback, $voterId=null ) {
+	function callbackValidVotes( $electionId, $callback, $voterId = null ) {
 		$dbr = $this->getDB();
 		$where = array( 
 			'vote_election' => $electionId,
@@ -356,7 +356,7 @@ class SecurePoll_MemoryStore implements SecurePoll_Store {
 	}
 	
 	function getEntityType( $id ){
-		return array_key_exists( $this->entityInfo[$id] )
+		return isset( $this->entityInfo[$id] )
 			? $this->entityInfo[$id]['type']
 			: false;
 	}

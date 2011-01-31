@@ -93,7 +93,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * Get the election's parent election... hmm...
 	 */
 	function getElection() {
-		return $this->id;
+		return $this;
 	}
 
 	/**

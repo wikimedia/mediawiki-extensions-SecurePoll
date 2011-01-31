@@ -96,7 +96,7 @@ class SecurePoll_Context {
 	}
 	
 	/** Get the type of a particular entity **/
-	function getEntityType( $id ){
+	function getEntityType( $id ) {
 		return $this->getStore()->getEntityType( $id );
 	}
 
@@ -105,7 +105,7 @@ class SecurePoll_Context {
 	 * false if it does not exist.
 	 */
 	function getElection( $id ) {
-		if( !isset( $this->electionCache[$id] ) ){
+		if( !isset( $this->electionCache[$id] ) ) {
 			$info = $this->getStore()->getElectionInfo( array( $id ) );
 			if ( $info ) {
 				$this->electionCache[$id] = $this->newElection( reset( $info ) );

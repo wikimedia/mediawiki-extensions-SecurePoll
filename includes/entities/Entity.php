@@ -62,7 +62,7 @@ class SecurePoll_Entity {
 	
 	/**
 	 * Get the parent election
-	 * @return Int
+	 * @return SecurePoll_Election
 	 */
 	public function getElection() {
 		return $this->electionId !== null
