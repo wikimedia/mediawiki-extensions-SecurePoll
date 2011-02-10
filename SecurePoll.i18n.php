@@ -5099,6 +5099,7 @@ $messages['km'] = array(
 	'securepoll-header-action' => 'សកម្មភាព',
 	'securepoll-header-reason' => 'មូលហេតុ',
 	'securepoll-translate-title' => 'បកប្រែ៖ $1',
+	'securepoll-invalid-language' => 'កូដភាសា "$1" មិនត្រឹមត្រូវ',
 	'securepoll-submit-translate' => 'បន្ទាន់សម័យ',
 	'securepoll-language-label' => 'ជ្រើសរើស​ភាសា​៖',
 	'securepoll-submit-select-lang' => 'បកប្រែ',
