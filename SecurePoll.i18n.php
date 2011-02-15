@@ -8815,7 +8815,7 @@ Ju mund të zgjidhni ose të shënoni rezultatin e tanishëm në bazën e të dh
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
-	'securepoll-desc' => 'Екстензија за изборе и анкете',
+	'securepoll-desc' => 'Проширење за изборе и анкете',
 	'securepoll-invalid-page' => 'Неисправна подстраница „<nowiki>$1</nowiki>“',
 	'securepoll-need-admin' => 'Морате бити изборни администратор да бисте извели ову акцију.',
 	'securepoll-too-few-params' => 'Недовољно параметара подстране (неисправна веза).',
@@ -9694,6 +9694,15 @@ $messages['tt-cyrl'] = array(
 	'securepoll-header-voter-name' => 'Исем',
 	'securepoll-header-voter-domain' => 'Домен',
 	'securepoll-header-ua' => 'Кулланучы агенты',
+);
+
+/** Tuvinian (Тыва дыл)
+ * @author Sborsody
+ */
+$messages['tyv'] = array(
+	'securepoll-strike-reason' => 'Чылдагаан:',
+	'securepoll-header-reason' => 'Чылдагаан',
+	'securepoll-header-title' => 'Ат',
 );
 
 /** Ukrainian (Українська)
