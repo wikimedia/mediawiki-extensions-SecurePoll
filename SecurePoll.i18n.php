@@ -1482,10 +1482,13 @@ Podeu triar entre comptar els resultats presents a la base de dades, o de compta
 	'securepoll-average-score' => 'Puntuació mitjana',
 );
 
-/** Chechen (Нохчийн) */
+/** Chechen (Нохчийн)
+ * @author Sasan700
+ */
 $messages['ce'] = array(
 	'securepoll-strike-reason' => 'Бахьан:',
 	'securepoll-header-reason' => 'Бахьан',
+	'securepoll-header-admin' => 'Адманкуьйгалхо',
 );
 
 /** Sorani (کوردی) */
@@ -5394,6 +5397,19 @@ Donn Desch entscheide doh zwesche, de neuste Zahle en de Datebangk uß_ze_zälle
 	'securepoll-strength-matrix' => 'De Krüztabäll mem Jeweesch fun jedem Pat',
 	'securepoll-ranks' => 'De Rangfollesch zom Afschloß',
 	'securepoll-average-score' => 'Dorschschnettlesche Treffer',
+);
+
+/** Kurdish (Latin) (Kurdî (Latin))
+ * @author George Animal
+ */
+$messages['ku-latn'] = array(
+	'securepoll-header-voter-name' => 'Nav',
+	'securepoll-strike-reason' => 'Sedem:',
+	'securepoll-strike-cancel' => 'Betal bike',
+	'securepoll-header-reason' => 'Sedem',
+	'securepoll-header-title' => 'Nav',
+	'securepoll-subpage-translate' => 'Wergerrîne',
+	'securepoll-subpage-list' => 'Lîste',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
