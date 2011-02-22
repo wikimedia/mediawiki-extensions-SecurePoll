@@ -5404,10 +5404,12 @@ Donn Desch entscheide doh zwesche, de neuste Zahle en de Datebangk uß_ze_zälle
  * @author George Animal
  */
 $messages['ku-latn'] = array(
+	'securepoll-header-timestamp' => 'Dem',
 	'securepoll-header-voter-name' => 'Nav',
 	'securepoll-strike-reason' => 'Sedem:',
 	'securepoll-strike-cancel' => 'Betal bike',
 	'securepoll-header-reason' => 'Sedem',
+	'securepoll-language-label' => 'Ziman bijêre:',
 	'securepoll-header-title' => 'Nav',
 	'securepoll-subpage-translate' => 'Wergerrîne',
 	'securepoll-subpage-list' => 'Lîste',
