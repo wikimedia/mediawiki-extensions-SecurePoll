@@ -8833,12 +8833,13 @@ Ju mund të zgjidhni ose të shënoni rezultatin e tanishëm në bazën e të dh
 
 /** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
  * @author Rancher
+ * @author Милан Јелисавчић
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
 	'securepoll-desc' => 'Проширење за изборе и анкете',
 	'securepoll-invalid-page' => 'Неисправна подстраница „<nowiki>$1</nowiki>“',
-	'securepoll-need-admin' => 'Морате бити изборни администратор да бисте извели ову акцију.',
+	'securepoll-need-admin' => 'Морате бити изборни администратор да бисте извели ову радњу.',
 	'securepoll-too-few-params' => 'Недовољно параметара подстране (неисправна веза).',
 	'securepoll-invalid-election' => '„$1“ није валидан ID за изборе.',
 	'securepoll-welcome' => '<strong>Добро дошли, $1!</strong>',
