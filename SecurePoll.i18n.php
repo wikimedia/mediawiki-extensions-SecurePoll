@@ -1191,7 +1191,7 @@ A-benn mirout prevezded ar voterien ne vez embannet ar roadennoù enrineget neme
 	'securepoll-entry-text' => 'A-is emañ roll ar mouezhiadegoù.',
 	'securepoll-header-title' => 'Anv',
 	'securepoll-header-start-date' => 'Deiziad kregiñ',
-	'securepoll-header-end-date' => 'Deiziad termen',
+	'securepoll-header-end-date' => 'Deiziad echuiñ',
 	'securepoll-subpage-vote' => 'Mouezhiañ',
 	'securepoll-subpage-translate' => 'Treiñ',
 	'securepoll-subpage-list' => 'Roll',
