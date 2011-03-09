@@ -4990,6 +4990,8 @@ Yèn perlu panjenengan bisa nyimpen resi pangiriman ing ngisor iki minangka bukt
  */
 $messages['ka'] = array(
 	'securepoll' => 'უსაფრთხო კეჭისყრა',
+	'securepoll-desc' => 'არჩევნებისა და გამოკითხვის გახანგრძლივება',
+	'securepoll-invalid-page' => 'არასწორი ქვეგვერდი „<nowiki>$1</nowiki>“',
 	'securepoll-need-admin' => 'თქვენ უნდა იყოთ საარჩევნო ადმინისტრატორი, რომ შეასრულოთ ეს ქმედება.',
 	'securepoll-too-few-params' => 'არ არის საკმარისი ქვეკატეგორიების პარამეტრები (არასწორი ბმული).',
 	'securepoll-invalid-election' => '"$1" არ წარმოადგენს არჩევნებისათვის დასაშვებ იდენტიფიკატორს.',
@@ -5004,19 +5006,30 @@ $messages['ka'] = array(
 	'securepoll-submit' => 'ხმის მიცემა',
 	'securepoll-thanks' => 'გმადლობთ, თქვენი ხმა მიღებულია.',
 	'securepoll-return' => 'დაბრუნება $1–ზე',
+	'securepoll-encrypt-error' => 'თქვენი ხმის დაშიფრვისას მოხდა შეცდომა.
+თქვენი ხმა ვერ შეინახა!
+
+$1',
 	'securepoll-no-gpg-home' => 'შეუძლებელია GPG საშინაო კატალოგის შექმნა.',
+	'securepoll-secret-gpg-error' => 'შეცდომა GPG-ის შესრულებისას.
+$wgSecurePollShowErrorDetail=true; LocalSettings.php-ში დამატება მეტი დეტალის სანახავად.',
 	'securepoll-full-gpg-error' => 'შეცდომა GPG შესრულებისას:
 
 ბრძანება: $1
 
 შეცდომა:
 <pre>$2</pre>',
+	'securepoll-gpg-config-error' => 'GPG-კოდი არასწორადაა კონფიგურირებული.',
+	'securepoll-no-decryption-key' => 'დეშიფრაციის კოდი კონფიგურირებული არაა.
+დეშიფრაცია შეუძლებელია.',
 	'securepoll-jump' => 'ხმის მიცემის სერვერზე გადასვლა',
 	'securepoll-bad-ballot-submission' => 'თქვენი ხმა ძალადაკარგულია: $1',
 	'securepoll-unanswered-questions' => 'თქვენ უნდა უპასუხოთ ყველა შეკითხვას.',
-	'securepoll-invalid-score' => 'ანგარიში უნდა იყოს რიცხვი $ 1 -სა და $ 2 -ს შორის.',
+	'securepoll-invalid-rank' => 'არასწორი ადგილი. თქვენ უნდა მიუთითოთ კანდიდატის ადგილი 1-დან 999-მდე.',
+	'securepoll-invalid-score' => 'ანგარიში უნდა იყოს რიცხვ $1-სა და $2-ს შორის.',
 	'securepoll-unanswered-options' => 'თქვენ უნდა გასცეთ პასუხი ყოველ კითხვაზე.',
 	'securepoll-remote-auth-error' => 'შეცდომა ანგარიშზე ინფორმაციის მიღებისას სერვერიდან.',
+	'securepoll-remote-parse-error' => 'შეცდომა სერვერის ავტორიზაციის პასუხის ინტერპრეტირებისას.',
 	'securepoll-api-invalid-params' => 'არასწორი პარამეტრები.',
 	'securepoll-api-no-user' => 'მომხმარებელი მითითებული იდენტიფიკატორით ვერ მოიძებნა.',
 	'securepoll-not-logged-in' => 'ხმის მისაცემად თქვენ უნდა შეხვიდეთ სისტემაში',
@@ -5024,6 +5037,7 @@ $messages['ka'] = array(
 	'securepoll-blocked' => 'უკაცრავად, თქვენ არ შეგიძლიათ ხმის მიცემა ამ არჩევნებში, თუკი თქვენ ამჟამად დაბლოკილი ხართ.',
 	'securepoll-bot' => 'უკაცრავად, ანგარიშებს, ბოტის სტატუსით, არ შეუძლიათ ამ არჩევნებში ხმის მიცემა.',
 	'securepoll-not-in-group' => 'მხოლოდ ჯგუფ "$1"-ის წევრებს შეუძლიათ ამ არჩევნებში ხმის მიცემა.',
+	'securepoll-not-in-list' => 'სამწუხაროდ თქვენ არ ხართ იმ მომხმარებელთა სიაში, რომლებსაც ამ არჩევნებში მონაწილეობა შეუძლიათ.',
 	'securepoll-list-title' => 'ხმების სია: $1',
 	'securepoll-header-timestamp' => 'დრო',
 	'securepoll-header-voter-name' => 'სახელი',
@@ -5041,9 +5055,11 @@ $messages['ka'] = array(
 	'securepoll-invalid-vote' => '"$1" არ წარმოადგენს ხმის მიცემისთვის დასაშვებ იდენტიფიკატორს',
 	'securepoll-header-voter-type' => 'ხმის მიმცემის ტიპი',
 	'securepoll-header-url' => 'URL',
+	'securepoll-voter-properties' => 'ამომრჩეველთა თვისებები',
 	'securepoll-header-action' => 'მოქმედება',
 	'securepoll-header-reason' => 'მიზეზი',
 	'securepoll-header-admin' => 'ადმინი',
+	'securepoll-cookie-dup-list' => 'მომხმარებლები, რომლებმაც ორჯერ მისცეს ხმა',
 	'securepoll-dump-title' => 'დამპი: $1',
 	'securepoll-translate-title' => 'თარგმნა: $1',
 	'securepoll-invalid-language' => 'არასწორი ენობრივი კოდი «$1»',
@@ -5932,7 +5948,7 @@ $1',
 	'securepoll-tally-upload-submit' => 'Создај пребројување',
 	'securepoll-tally-error' => 'Грешка при толкување на гласовите, не можам да создадам пребројување.',
 	'securepoll-no-upload' => 'Не беше подигната податотека, па не може да се пребројуваат резултатите.',
-	'securepoll-dump-corrupt' => 'Податотеката со базната резерва е расипана и не може да се обработи.',
+	'securepoll-dump-corrupt' => 'Податотеката со базната резерва е оштетена и не може да се обработи.',
 	'securepoll-tally-upload-error' => 'Грешка при пребројување на отпаднатите гласови: $1',
 	'securepoll-pairwise-victories' => 'Спарена матрица за пресметка на победникот',
 	'securepoll-strength-matrix' => 'Матрица за јачина на патеката',
