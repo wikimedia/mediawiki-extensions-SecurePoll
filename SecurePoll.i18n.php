@@ -5805,6 +5805,13 @@ Galite pasirinkti, ar sutampa rezultatai, esantys duomenų bazėje bei rezultatu
 	'securepoll-no-upload' => 'Failas nebuvo įkeltas, negalima skaičiuoti rezultatų.',
 );
 
+/** Latgalian (Latgaļu)
+ * @author Dark Eagle
+ */
+$messages['ltg'] = array(
+	'securepoll-submit-translate' => 'Atjaunynuot',
+);
+
 /** Latvian (Latviešu)
  * @author Papuass
  */
