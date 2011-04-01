@@ -6099,6 +6099,7 @@ $messages['mn'] = array(
 );
 
 /** Malay (Bahasa Melayu)
+ * @author Anakmalaysia
  * @author Aurora
  * @author Izzudin
  */
@@ -6174,7 +6175,7 @@ Semua pilihan perlu diberikan pangkat di antara 1 dan 999.',
 	'securepoll-strike-button' => 'Buang',
 	'securepoll-unstrike-button' => 'Kembalikan',
 	'securepoll-strike-reason' => 'Alasan:',
-	'securepoll-strike-cancel' => 'Batal',
+	'securepoll-strike-cancel' => 'Batalkan',
 	'securepoll-strike-error' => 'Ralat membuang/kembalikan: $1',
 	'securepoll-strike-token-mismatch' => 'Data sesi hilang',
 	'securepoll-details-link' => 'Lanjut',
