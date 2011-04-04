@@ -2311,6 +2311,7 @@ Móžoš pak wuslědki licyś, kótarež su w datowej bance pak skoděrowane wus
  * @author Badseed
  * @author Consta
  * @author Crazymadlover
+ * @author Evropi
  * @author Geraki
  * @author Glavkos
  * @author Omnipaedista
@@ -2321,7 +2322,7 @@ $messages['el'] = array(
 	'securepoll' => 'SecurePoll',
 	'securepoll-desc' => 'Επέκταση για εκλογές και δημοσκοπήσεις',
 	'securepoll-invalid-page' => 'Άκυρη υποσελίδα "<nowiki>$1</nowiki>"',
-	'securepoll-need-admin' => 'Πρέπει να είστε διαχειριστής εκλογών για να κάνετε αυτή την ενέργεια.',
+	'securepoll-need-admin' => 'Πρέπει να είστε διαχειριστής εκλογών για να το κάνετε αυτό.',
 	'securepoll-too-few-params' => 'Μη αρκετές παράμετροι υποσελίδας (άκυρος σύνδεσμος).',
 	'securepoll-invalid-election' => '"$1" δεν είναι ένα αποδεκτό ID ψηφοφορίας.',
 	'securepoll-welcome' => '<strong>Καλωσήρθατε $1!</strong>',
