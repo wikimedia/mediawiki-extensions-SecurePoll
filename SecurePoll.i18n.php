@@ -3800,6 +3800,7 @@ $messages['ha'] = array(
 );
 
 /** Hebrew (עברית)
+ * @author Amire80
  * @author Rotem Liss
  * @author Rotemliss
  * @author YaronSh
@@ -3812,9 +3813,9 @@ $messages['he'] = array(
 	'securepoll-need-admin' => 'עליכם להיות מנהלי ההצבעה כדי לבצע פעולה זו.',
 	'securepoll-too-few-params' => 'אין מספיק פרמטרים של דפי משנה (קישור בלתי תקין).',
 	'securepoll-invalid-election' => '"$1" אינו מספר הצבעה תקין.',
-	'securepoll-welcome' => '<strong>ברוכים הבאים, $1!</strong>',
+	'securepoll-welcome' => '<strong>ברוך בואך, $1!</strong>',
 	'securepoll-not-started' => 'הצבעה זו טרם התחילה.
-היא מיועדת להתחיל ב־$3, $2.',
+תחילתה נקבעה ל־$3, $2.',
 	'securepoll-finished' => 'הצבעה זו הסתיימה, אינכם יכולים עוד להצביע.',
 	'securepoll-not-qualified' => 'אינכם רשאים להצביע בהצבעה זו: $1',
 	'securepoll-change-disallowed' => 'הצבעתם כבר בהצבעה זו.
@@ -3829,7 +3830,7 @@ $messages['he'] = array(
 
 <pre>$1</pre>',
 	'securepoll-thanks' => 'תודה לכם, הצבעתכם נרשמה.',
-	'securepoll-return' => 'בחזרה ל$1',
+	'securepoll-return' => 'בחזרה ל{{GRAMMAR:תחילית|$1}}',
 	'securepoll-encrypt-error' => 'הצפנת רשומת ההצבעה שלכם לא הצליחה.
 הצבעתכם לא נרשמה!
 
@@ -3861,7 +3862,7 @@ $1',
 	'securepoll-api-no-user' => 'לא נמצא משתמש עם מספר זה.',
 	'securepoll-api-token-mismatch' => 'אסימון האבטחה לא מתאים, לא ניתן להיכנס לחשבון.',
 	'securepoll-not-logged-in' => 'עליכם להיכנס לחשבון כדי להצביע בהצבעה זו',
-	'securepoll-too-few-edits' => 'מצטערים, אינכם יכולים להצביע. היה עליכם לערוך לפחות {{PLURAL:עריכה אחת|$1 עריכות}} כדי להצביע בהצבעה זו, וערכתם רק {{PLURAL:$2|אחת|$2}}.',
+	'securepoll-too-few-edits' => 'מצטערים, אינכם יכולים להצביע. היה עליכם לעשות לפחות {{PLURAL:עריכה אחת|$1 עריכות}} כדי להצביע בהצבעה זו, ועשיתם רק {{PLURAL:$2|אחת|$2}}.',
 	'securepoll-blocked' => 'מצטערים, אינכם יכולים להצביע בהצבעה זו אם אתם חסומים כרגע מעריכה.',
 	'securepoll-bot' => 'מצטערים, חשבונות עם דגל בוט אינם רשאים להצביע בהצבעה זו.',
 	'securepoll-not-in-group' => 'רק חברים בקבוצה "$1" יכולים להצביע בהצבעה זו.',
@@ -3869,7 +3870,7 @@ $1',
 	'securepoll-list-title' => 'רשימת הצבעות: $1',
 	'securepoll-header-timestamp' => 'זמן',
 	'securepoll-header-voter-name' => 'שם',
-	'securepoll-header-voter-domain' => 'דומיין',
+	'securepoll-header-voter-domain' => 'מתחם',
 	'securepoll-header-ua' => 'זיהוי דפדפן',
 	'securepoll-header-cookie-dup' => 'יצירת עותק',
 	'securepoll-header-strike' => 'מחיקה',
@@ -3894,10 +3895,10 @@ $1',
 	'securepoll-dump-title' => 'העתק מוצפן: $1',
 	'securepoll-dump-no-crypt' => 'לא נמצאה רשומת הצבעה מוצפנת עבור הצבעה זו, כיוון שההצבעה אינה מוגדרת לשימוש בהצפנה.',
 	'securepoll-dump-not-finished' => 'רשומות ההצבעה המוצפנות זמינות רק לאחר תאריך הסיום ב־$2, $1',
-	'securepoll-dump-no-urandom' => 'לא ניתן לפתוח את /dev/urandom. 
-כדי לשמור על פרטיות המצביעים, רשומות ההצבעה המוצפנות זמינותת באופן ציבורי רק כאשר ניתן לערבב אותן באמצעות זרם המשתמש במספר אקראי מאובטח.',
+	'securepoll-dump-no-urandom' => 'לא ניתן לפתוח את ‎/dev/urandom. 
+כדי לשמור על פרטיות המצביעים, רשומות ההצבעה המוצפנות זמינות לציבור רק כאשר ניתן לערבלן באמצעות זרם מספרים אקראיים מאובטח.',
 	'securepoll-urandom-not-supported' => 'שרת זה אינו תומך ביצירת מספרים אקראיים לצורך הצפנה.
-כדי לשמור על פרטיות הבוחרים, רשומות ההצבעה המוצפנות תהיינה זמינות לציבור רק כאשר ניתן יהיה לערבלן באמצעות זרם מספרים אקראיים מאובטח.',
+כדי לשמור על פרטיות המצביעים, רשומות ההצבעה המוצפנות זמינות לציבור רק כאשר ניתן לערבלן באמצעות זרם מספרים אקראיים מאובטח.',
 	'securepoll-translate-title' => 'תרגום: $1',
 	'securepoll-invalid-language' => 'קוד שפה בלתי תקין "$1"',
 	'securepoll-header-trans-id' => 'מספר',
@@ -4543,7 +4544,7 @@ Tu debe dar a tote le optiones un rango inter 1 e 999.',
 	'securepoll-details-title' => 'Detalios del voto: #$1',
 	'securepoll-invalid-vote' => '"$1" non es un identificator valide de un voto',
 	'securepoll-header-voter-type' => 'Typo de usator',
-	'securepoll-voter-properties' => 'Proprietates del votator',
+	'securepoll-voter-properties' => 'Proprietates del votante',
 	'securepoll-strike-log' => 'Registro de cancellationes',
 	'securepoll-header-action' => 'Action',
 	'securepoll-header-reason' => 'Motivo',
@@ -4553,9 +4554,9 @@ Tu debe dar a tote le optiones un rango inter 1 e 999.',
 	'securepoll-dump-no-crypt' => 'Nulle registro cryptate es disponibile pro iste election, proque le election non es configurate pro usar cryptation.',
 	'securepoll-dump-not-finished' => 'Le registro cryptate del election non essera disponibile usque le data final: le $1 a $2',
 	'securepoll-dump-no-urandom' => 'Impossibile aperir /dev/urandom.
-Pro mantener le confidentialitate del votatores, le registro cryptate del election non essera disponibile al publico usque illo pote esser miscite con un fluxo secur de numeros aleatori.',
+Pro assecurar le confidentialitate del votantes, le datos cryptate del election es solmente disponibile al publico si illos pote esser miscite con un fluxo de numeros aleatori secur.',
 	'securepoll-urandom-not-supported' => 'Iste servitor non supporta le generation de numeros aleatori cryptographic.
-Pro assecurar le confidentialitate del votatores, le datos cryptate del election es solo publicamente disponibile si illos pote esser miscite con un fluxo de numeros aleatori secur.',
+Pro assecurar le confidentialitate del votantes, le datos cryptate del election es solmente disponibile al publico si illos pote esser miscite con un fluxo de numeros aleatori secur.',
 	'securepoll-translate-title' => 'Traducer: $1',
 	'securepoll-invalid-language' => 'Le codice de lingua "$1" es invalide',
 	'securepoll-submit-translate' => 'Actualisar',
@@ -7587,9 +7588,9 @@ Deve atribuir a todas as opções uma classificação entre 1 e 999.',
 	'securepoll-dump-no-crypt' => 'Nenhum registo codificado de eleição está disponível para esta eleição, porque a eleição não está configurada para usar encriptação.',
 	'securepoll-dump-not-finished' => 'Registos de eleição encriptados estarão disponíveis apenas após a eleição terminar a $1 às $2',
 	'securepoll-dump-no-urandom' => 'Não é possível abrir /dev/urandom.
-Para manter a privacidade do votante, registos de eleição codificados são tornados públicos apenas quando podem ser encriptados com uma fonte segura de números aleatórios.',
-	'securepoll-urandom-not-supported' => 'Este servidor não suporta geração criptográfica de números aleatórios.
-Para manter a privacidade dos votantes, os resultados criptografados da eleição são tornados públicos apenas quando podem ser embaralhados com uma sequência de números aleatórios.',
+Para manter a privacidade dos votantes, os registos de eleição encriptados só são tornados públicos quando podem ser reordenados usando uma fonte segura de números aleatórios.',
+	'securepoll-urandom-not-supported' => 'Este servidor não sustenta a geração de números aleatórios para uso criptográfico.
+Para manter a privacidade dos votantes, os registos de eleição encriptados só são tornados públicos quando podem ser reordenados usando uma fonte segura de números aleatórios.',
 	'securepoll-translate-title' => 'Traduzir: $1',
 	'securepoll-invalid-language' => 'Código de língua "$1" inválido',
 	'securepoll-submit-translate' => 'Actualizar',
