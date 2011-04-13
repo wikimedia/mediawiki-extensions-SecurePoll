@@ -231,8 +231,13 @@ The /dev/urandom cryptographic random number generation device is not supported 
 	'securepoll-header-title' => '{{Identical|Name}}',
 	'securepoll-header-start-date' => '{{Identical|Start date}}',
 	'securepoll-header-end-date' => '{{Identical|End date}}',
-	'securepoll-subpage-vote' => '{{Identical|Vote}}',
-	'securepoll-subpage-translate' => '{{Identical|Translate}}',
+	'securepoll-subpage-vote' => '{{Identical|Vote}}
+Link text to a sub page in the SecurePoll extension where users can vote.',
+	'securepoll-subpage-translate' => '{{Identical|Translate}}
+Link text to a sub page in the SecurePoll extension where users can translate poll related texts.',
+	'securepoll-subpage-list' => 'Link text to a sub page in the SecurePoll extension where users can list poll information.',
+	'securepoll-subpage-dump' => 'Link text to a sub page in the SecurePoll extension where users can dump results.',
+	'securepoll-subpage-tally' => 'Link text to a sub page in the SecurePoll extension where users can tally.',
 );
 
 /** Afrikaans (Afrikaans)
