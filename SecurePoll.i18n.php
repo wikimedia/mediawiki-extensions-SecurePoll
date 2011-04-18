@@ -679,6 +679,48 @@ $1',
 	'securepoll-average-score' => 'نتيجه متوسطة',
 );
 
+/** Asturian (Asturianu)
+ * @author Xuacu
+ */
+$messages['ast'] = array(
+	'securepoll' => 'SecurePoll',
+	'securepoll-desc' => 'Estensión pa eleiciones y encuestes',
+	'securepoll-invalid-page' => 'Subpáxina non válida "<nowiki>$1</nowiki>"',
+	'securepoll-need-admin' => 'Has de ser un alministrador de la eleición pa facer esto.',
+	'securepoll-too-few-params' => 'Nun hai parámetros de subpáxina bastantes (enllaz inválidu).',
+	'securepoll-invalid-election' => '"$1" nun ye una ID d\'eleición válida.',
+	'securepoll-welcome' => '<strong>¡Bienveníu $1!</strong>',
+	'securepoll-not-started' => "Esta eleición entá nun principió.
+Ta programada p'aniciase'l $2 a les $3.",
+	'securepoll-finished' => 'Esta eleición finó, yá nun pues votar.',
+	'securepoll-not-qualified' => 'Nun tas cualificáu pa votar nesta eleición: $1',
+	'securepoll-list-title' => 'Llista de votos: $1',
+	'securepoll-header-timestamp' => 'Hora',
+	'securepoll-header-voter-name' => 'Nome',
+	'securepoll-header-voter-domain' => 'Dominiu',
+	'securepoll-header-ua' => "Axente d'usuariu",
+	'securepoll-header-cookie-dup' => 'Dup',
+	'securepoll-header-strike' => 'Tachar',
+	'securepoll-header-details' => 'Detalles',
+	'securepoll-strike-button' => 'Tachar',
+	'securepoll-unstrike-button' => 'Destachar',
+	'securepoll-strike-reason' => 'Motivu:',
+	'securepoll-strike-cancel' => 'Encaboxar',
+	'securepoll-strike-error' => 'Fallu al tachar/destachar: $1',
+	'securepoll-strike-token-mismatch' => 'Perdiéronse los datos de sesión',
+	'securepoll-details-link' => 'Detalles',
+	'securepoll-details-title' => 'Detalles del votu: #$1',
+	'securepoll-invalid-vote' => '"$1" nun ye una ID de votu válida.',
+	'securepoll-header-voter-type' => 'Triba de votante',
+	'securepoll-voter-properties' => 'Propiedaes del votante',
+	'securepoll-strike-log' => 'Rexistru de tachaos',
+	'securepoll-header-action' => 'Aición',
+	'securepoll-header-reason' => 'Motivu',
+	'securepoll-header-admin' => 'Almin',
+	'securepoll-cookie-dup-list' => 'Usuarios duplicaos de cookie',
+	'securepoll-dump-title' => 'Volcáu: $1',
+);
+
 /** Bashkir (Башҡортса)
  * @author Assele
  * @author Haqmar
@@ -5483,7 +5525,9 @@ Do moß alle Müjjeleschkeite ene Rang zwesche 1 un 999 jevve.',
 	'securepoll-header-voter-name' => 'Name',
 	'securepoll-header-voter-domain' => 'Domähn',
 	'securepoll-header-ip' => '<code lang="en">IP</code>-Addreß',
+	'securepoll-header-xff' => '<i lang="en">XFF</i>',
 	'securepoll-header-ua' => 'Däm Metmaacher singe Brauser',
+	'securepoll-header-token-match' => '<i lang="en">CSRF</i>',
 	'securepoll-header-cookie-dup' => 'Dubbelt Afjeshtemmp',
 	'securepoll-header-strike' => 'Ußshtrieshe?',
 	'securepoll-header-details' => 'Einzelheite',
@@ -5498,6 +5542,7 @@ Do moß alle Müjjeleschkeite ene Rang zwesche 1 un 999 jevve.',
 	'securepoll-invalid-vote' => '„$1“ kein reschtijje Kännong för en Afshtemmung',
 	'securepoll-header-id' => 'Kennong',
 	'securepoll-header-voter-type' => 'Zoot Affshtemmer',
+	'securepoll-header-url' => '<i lang="en">URL</i>',
 	'securepoll-voter-properties' => 'Dem Metmaacher sing Eijeschaffte för et Afshtemme',
 	'securepoll-strike-log' => 'Logboch övver de ußjeshtersche un widder jehollte Shtemme en Afshtemmunge',
 	'securepoll-header-action' => 'Akßjuhn',
@@ -5966,16 +6011,16 @@ $messages['lv'] = array(
  * @author Brest
  */
 $messages['mk'] = array(
-	'securepoll' => 'SecurePoll',
+	'securepoll' => 'БезбедноГласање',
 	'securepoll-desc' => 'Додаток за избори и анкети',
 	'securepoll-invalid-page' => 'Неважечка потстраница „<nowiki>$1</nowiki>“',
 	'securepoll-need-admin' => 'Треба да бидете изборен администратор за да можете да го сторите тоа.',
 	'securepoll-too-few-params' => 'Нема доволно параметри за потстраници (неважечка врска).',
-	'securepoll-invalid-election' => '„$1“ не претставува важечки идентификационен број.',
+	'securepoll-invalid-election' => '„$1“ не претставува важечка назнака.',
 	'securepoll-welcome' => '<strong>Добредојдовте $1!</strong>',
 	'securepoll-not-started' => 'Изборите сè уште не се започнати.
 Предвидено е да започнат на $2 во $3 ч.',
-	'securepoll-finished' => 'Изборите завршија, повеќе не можете да гласате.',
+	'securepoll-finished' => 'Изборите завршија - повеќе не можете да гласате.',
 	'securepoll-not-qualified' => 'Не сте квалификувани да гласате на овие избори: $1',
 	'securepoll-change-disallowed' => 'Веќе имате гласано на овие избори.
 Жалиме, но не ви е дозволено да гласате повторно.',
@@ -5996,7 +6041,7 @@ $messages['mk'] = array(
 $1',
 	'securepoll-no-gpg-home' => 'Не можам да создадам GPG именик.',
 	'securepoll-secret-gpg-error' => 'Грешка при извршување на GPG.
-Употребете $wgSecurePollShowErrorDetail=true; во LocalSettings.php за да се прикажат повеќе детали.',
+Поставете го $wgSecurePollShowErrorDetail=true; во LocalSettings.php за да добиете повеќе подробности.',
 	'securepoll-full-gpg-error' => 'Грешка при извршување на GPG:
 
 Наредба: $1
@@ -6018,7 +6063,7 @@ $1',
 	'securepoll-remote-auth-error' => 'Грешка при преземање на информациите за вашата сметка од опслужувачот.',
 	'securepoll-remote-parse-error' => 'Грешка при толкувањето на одговорот при барањето на дозвола за пристап од опслужувачот.',
 	'securepoll-api-invalid-params' => 'Неважечки параметри.',
-	'securepoll-api-no-user' => 'Не бепе пронајден корисник со зададениот идентификационен број.',
+	'securepoll-api-no-user' => 'Не бепе пронајден корисник со зададената назнака.',
 	'securepoll-api-token-mismatch' => 'Не се совпаѓаат безбедносните кодови, не можам да ве најавам.',
 	'securepoll-not-logged-in' => 'Морате да сте најавени за да гласате',
 	'securepoll-too-few-edits' => 'Жалиме, но не можете да гласате. Треба да имате барем $1 {{PLURAL:$1|уредување|уредувања}} за да можете да гласате, а вие имате $2.',
@@ -6043,7 +6088,7 @@ $1',
 	'securepoll-strike-token-mismatch' => 'Сесиските податоци се изгубени',
 	'securepoll-details-link' => 'Детали',
 	'securepoll-details-title' => 'Детали за гласот: #$1',
-	'securepoll-invalid-vote' => '„$1“ е неважечки гласачки идентификационен број',
+	'securepoll-invalid-vote' => '„$1“ е претставува важечка гласачка назнака',
 	'securepoll-header-id' => 'Назнака',
 	'securepoll-header-voter-type' => 'Тип на гласач',
 	'securepoll-voter-properties' => 'Својства на гласачот',
