@@ -2003,17 +2003,18 @@ Du kan enten optælle de nuværende stemmer i databasen, eller optælle kryptere
 
 /** German (Deutsch)
  * @author ChrisiPK
+ * @author Kghbln
  * @author Metalhead64
  * @author Pill
  * @author Umherirrender
  */
 $messages['de'] = array(
 	'securepoll' => 'Sichere Abstimmung',
-	'securepoll-desc' => 'Erweiterung für Wahlen und Umfragen',
+	'securepoll-desc' => 'Ermöglicht sichere Wahlen, Abstimmungen und Umfragen',
 	'securepoll-invalid-page' => 'Ungültige Unterseite „<nowiki>$1</nowiki>“',
 	'securepoll-need-admin' => 'Du musst ein Wahl-Administrator sein, um diese Aktion durchzuführen.',
 	'securepoll-too-few-params' => 'Nicht genügend Unterseitenparameter (ungültiger Link).',
-	'securepoll-invalid-election' => '„$1“ ist keine gültige Abstimmungs-ID.',
+	'securepoll-invalid-election' => '„$1“ ist keine gültige Abstimmungskennung.',
 	'securepoll-welcome' => '<strong>Willkommen $1!</strong>',
 	'securepoll-not-started' => 'Die Wahl hat noch nicht begonnen.
 Ihr Start ist für den $2 um $3 Uhr geplant.',
@@ -2060,7 +2061,7 @@ Du musst allen Optionen eine Rangnummer zwischen 1 und 999 geben.',
 	'securepoll-remote-auth-error' => 'Fehler beim Abruf deiner Benutzerkonteninformationen vom Server.',
 	'securepoll-remote-parse-error' => 'Fehler beim Interpretieren der Berechtigungsantwort des Servers.',
 	'securepoll-api-invalid-params' => 'Ungültige Parameter.',
-	'securepoll-api-no-user' => 'Es wurde kein Benutzer mit der angegebenen ID gefunden.',
+	'securepoll-api-no-user' => 'Es wurde kein Benutzer mit der angegebenen Kennung gefunden.',
 	'securepoll-api-token-mismatch' => 'Falsche Sicherheitstoken, Anmeldung fehlgeschlagen.',
 	'securepoll-not-logged-in' => 'Du musst angemeldet sein, um bei dieser Wahl abstimmen zu können',
 	'securepoll-too-few-edits' => 'Du darfst leider nicht abstimmen. Du brauchst mindestens $1 {{PLURAL:$1|Bearbeitung|Bearbeitungen}}, um bei dieser Wahl abzustimmen, du hast jedoch $2.',
@@ -2084,7 +2085,7 @@ Du musst allen Optionen eine Rangnummer zwischen 1 und 999 geben.',
 	'securepoll-strike-token-mismatch' => 'Sitzungsdaten verloren',
 	'securepoll-details-link' => 'Details',
 	'securepoll-details-title' => 'Abstimmungsdetails: #$1',
-	'securepoll-invalid-vote' => '„$1“ ist keine gültige Abstimmungs-ID',
+	'securepoll-invalid-vote' => '„$1“ ist keine gültige Abstimmungskennung',
 	'securepoll-header-voter-type' => 'Wählertyp',
 	'securepoll-voter-properties' => 'Wählereigenschaften',
 	'securepoll-strike-log' => 'Streichungs-Logbuch',
@@ -3605,7 +3606,7 @@ Níl cead agat vótáil arís.',
  * @author Toliño
  */
 $messages['gl'] = array(
-	'securepoll' => 'Sondaxe de seguridade',
+	'securepoll' => 'Sondaxe segura',
 	'securepoll-desc' => 'Extensión para as eleccións e sondaxes',
 	'securepoll-invalid-page' => 'Subpáxina "<nowiki>$1</nowiki>" inválida',
 	'securepoll-need-admin' => 'Ten que ser administrador das eleccións para poder levar a cabo esta acción.',
@@ -5869,6 +5870,7 @@ Doe kins de in de database besjikbare resultate telle, of de resultate oet 'n be
 /** Lithuanian (Lietuvių)
  * @author Homo
  * @author Matasg
+ * @author Perkunas
  */
 $messages['lt'] = array(
 	'securepoll' => 'Saugus balsavimas',
@@ -5915,6 +5917,11 @@ Negalima iššifruoti.',
 	'securepoll-jump' => 'Eiti į balsavimo serverį',
 	'securepoll-bad-ballot-submission' => 'Jūsų balsas netinkamas: $1',
 	'securepoll-unanswered-questions' => 'Turite atsakyti į visus klausimus.',
+	'securepoll-invalid-rank' => 'Neteisingas įvertinimas. Kandidatų įvertinimas turi būti tarp 1 ir 999.',
+	'securepoll-unranked-options' => 'Kai kurios parinktys nebuvo įvertintos.
+Visoms parinktims turite skirti įvertinimą tarp 1 ir 999.',
+	'securepoll-invalid-score' => 'Įvertinimas turi būti skaičius tarp $1 ir $2.',
+	'securepoll-unanswered-options' => 'Jūs turite įvertinti kiekvieną klausimą.',
 	'securepoll-remote-auth-error' => 'Įvyko klaida pristatant jūsų paskyros informaciją iš serverio.',
 	'securepoll-remote-parse-error' => 'Klaida interpretuojant leidimo atsakymą iš serverio.',
 	'securepoll-api-invalid-params' => 'Netinkami parametrai',
@@ -5939,6 +5946,7 @@ Negalima iššifruoti.',
 	'securepoll-strike-reason' => 'Priežastis:',
 	'securepoll-strike-cancel' => 'Atšaukti',
 	'securepoll-strike-error' => 'Klaida atliekant uždraudimą/nebedraudimą: $1',
+	'securepoll-strike-token-mismatch' => 'Prarasti sesijos duomenys',
 	'securepoll-details-link' => 'Detalės',
 	'securepoll-details-title' => 'Balsavimo detalės: #$1',
 	'securepoll-invalid-vote' => '"$1" nėra teisingas balsavimo ID',
@@ -5954,11 +5962,14 @@ Negalima iššifruoti.',
 	'securepoll-dump-not-finished' => 'Šifruoti rinkimų įrašai prieinami tik po $1 $2',
 	'securepoll-dump-no-urandom' => 'Nepavyko atidaryti /dev/urandom.  
 Siekiant išlaikyti balsuotojų privatumą, šifruoti rinkimų įrašai viešai prieinami tik kai jie sumaišyti su saugiu atsitiktinių skaičių srautu.',
+	'securepoll-urandom-not-supported' => 'Šis serveris nepalaiko šifruotų atsitiktinių skaičių generavimo.
+Kad užtikrintume balsuojančiųjų slaptumą, šifruoti rinkimų rezultatai viešai pateikiami tik po to, kai jie sumaišomi su saugia atsitiktinių skaičių seka.',
 	'securepoll-translate-title' => 'Išversti: $1',
 	'securepoll-invalid-language' => 'Neleistinas kalbos kodas "$1"',
 	'securepoll-submit-translate' => 'Atnaujinti',
 	'securepoll-language-label' => 'Pasirinkite kalbą:',
 	'securepoll-submit-select-lang' => 'Išversti',
+	'securepoll-entry-text' => 'Žemiau pateikiamas balsavimų sąrašas.',
 	'securepoll-header-title' => 'Pavadinimas',
 	'securepoll-header-start-date' => 'Pradžios data',
 	'securepoll-header-end-date' => 'Pabaigos data',
@@ -5978,6 +5989,10 @@ Galite pasirinkti, ar sutampa rezultatai, esantys duomenų bazėje bei rezultatu
 	'securepoll-tally-upload-submit' => 'Sukurti rezultatus',
 	'securepoll-tally-error' => 'Klaida interpretuojant balsavimo įrašą, negalima sukurti suvestinių.',
 	'securepoll-no-upload' => 'Failas nebuvo įkeltas, negalima skaičiuoti rezultatų.',
+	'securepoll-dump-corrupt' => 'Iškelties failas nekorektiškas, todėl negali būti apdorotas.',
+	'securepoll-tally-upload-error' => 'Klaida kuriant iškelties failą: $1',
+	'securepoll-ranks' => 'Galutinis įvertinimas',
+	'securepoll-average-score' => 'Vidutinis rezultatas',
 );
 
 /** Latgalian (Latgaļu)
