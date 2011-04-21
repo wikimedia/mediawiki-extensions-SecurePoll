@@ -6566,6 +6566,7 @@ Biex tinżamm il-privatezza tal-votant, ir-reġistrazzjonijieet kriptati tal-ele
 	'securepoll-submit-translate' => 'Aġġorna',
 	'securepoll-language-label' => 'Agħżel lingwa:',
 	'securepoll-submit-select-lang' => 'Ittraduċi',
+	'securepoll-entry-text' => 'Hawn taħt hawn il-lista tas-sondaġġi.',
 	'securepoll-header-title' => 'Isem',
 	'securepoll-header-start-date' => 'Data tal-bidu',
 	'securepoll-header-end-date' => 'Data tat-tmiem',
@@ -10607,6 +10608,7 @@ $messages['vo'] = array(
 	'securepoll-header-reason' => 'Kod',
 	'securepoll-submit-select-lang' => 'Tradutön',
 	'securepoll-header-title' => 'Nem',
+	'securepoll-subpage-translate' => 'Tradutön',
 );
 
 /** Wu (吴语) */
