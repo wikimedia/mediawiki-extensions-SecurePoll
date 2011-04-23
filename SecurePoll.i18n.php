@@ -410,7 +410,7 @@ $messages['ar'] = array(
 	'securepoll-change-allowed' => '<strong>ملاحظة: لقد قمت بالتصويت في هذه الانتخابات من قبل</strong>
 يمكنك تغيير صوتك باستخدام النموذج بالأسفل.
 لاحظ انه اذا قمت بذلك، سيتم اهمال تصويتك السابق.',
-	'securepoll-submit' => 'قدم صوتك',
+	'securepoll-submit' => 'أرسل صوتك',
 	'securepoll-gpg-receipt' => 'شكرا لتصويتك
 
 لو اردت، يمكنك الاحتفاظ بالايصال التالي كدليل على تصويتك:
@@ -774,6 +774,29 @@ Has de dar a toles opciones un rangu ente 1 y 999.',
 	'securepoll-subpage-translate' => 'Traducir',
 	'securepoll-subpage-list' => 'Llistar',
 	'securepoll-subpage-dump' => 'Volcar',
+);
+
+/** Azerbaijani (Azərbaycanca)
+ * @author Cekli829
+ */
+$messages['az'] = array(
+	'securepoll-header-timestamp' => 'Zaman',
+	'securepoll-header-voter-name' => 'Ad',
+	'securepoll-header-voter-domain' => 'Domen',
+	'securepoll-header-details' => 'Detallar',
+	'securepoll-strike-reason' => 'Səbəb:',
+	'securepoll-strike-cancel' => 'Ləğv et',
+	'securepoll-details-link' => 'Detallar',
+	'securepoll-header-admin' => 'İdarəçi',
+	'securepoll-language-label' => 'Dili seçin:',
+	'securepoll-submit-select-lang' => 'Tərcümə et',
+	'securepoll-header-title' => 'Ad',
+	'securepoll-header-start-date' => 'Başlanğıc tarixi',
+	'securepoll-header-end-date' => 'Son tarix',
+	'securepoll-subpage-vote' => 'Səs',
+	'securepoll-subpage-translate' => 'Tərcümə et',
+	'securepoll-subpage-list' => 'Siyahı',
+	'securepoll-subpage-dump' => 'Xam',
 );
 
 /** Bashkir (Башҡортса)
@@ -4729,14 +4752,14 @@ Pro assecurar le confidentialitate del votantes, le datos cryptate del election 
 	'securepoll-tally-title' => 'Conto: $1',
 	'securepoll-tally-not-finished' => 'Pardono, tu non pote contar le resultatos del election ante que le illo ha finite.',
 	'securepoll-can-decrypt' => 'Le registro del election ha essite cryptate, ma le clave de decryptation es disponibile.
-Tu pote optar pro contar le resultatos presente in le base de datos, o pro contar le resultatos cryptate ab un file que tu cargara.',
+Tu pote optar pro contar le resultatos presente in le base de datos, o pro contar le resultatos cryptate ab un file incargate.',
 	'securepoll-tally-no-key' => 'Tu non pote contar le resultatos de iste election proque le votos es cryptate e le clave de decryptation non es disponibile.',
 	'securepoll-tally-local-legend' => 'Contar le resulatos immagazinate',
 	'securepoll-tally-local-submit' => 'Contar resultatos',
 	'securepoll-tally-upload-legend' => 'Incargar un file de datos cryptate',
 	'securepoll-tally-upload-submit' => 'Contar resultatos',
 	'securepoll-tally-error' => 'Error durante le interpretation del registro de voto; non pote producer un conto.',
-	'securepoll-no-upload' => 'Nulle file ha essite cargate; non pote contar le resultatos.',
+	'securepoll-no-upload' => 'Nulle file ha essite incargate; non pote contar le resultatos.',
 	'securepoll-dump-corrupt' => 'Le file de dump es corrumpite e non pote esser processate.',
 	'securepoll-tally-upload-error' => 'Error de contar ex le file de dump: $1',
 	'securepoll-pairwise-victories' => 'Matrice de vincimento in pares',
