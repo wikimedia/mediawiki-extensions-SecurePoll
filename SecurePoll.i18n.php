@@ -780,6 +780,7 @@ Has de dar a toles opciones un rangu ente 1 y 999.',
  * @author Cekli829
  */
 $messages['az'] = array(
+	'securepoll-submit' => 'Səs ver',
 	'securepoll-header-timestamp' => 'Zaman',
 	'securepoll-header-voter-name' => 'Ad',
 	'securepoll-header-voter-domain' => 'Domen',
@@ -787,6 +788,7 @@ $messages['az'] = array(
 	'securepoll-strike-reason' => 'Səbəb:',
 	'securepoll-strike-cancel' => 'Ləğv et',
 	'securepoll-details-link' => 'Detallar',
+	'securepoll-header-action' => 'Fəaliyyət',
 	'securepoll-header-admin' => 'İdarəçi',
 	'securepoll-language-label' => 'Dili seçin:',
 	'securepoll-submit-select-lang' => 'Tərcümə et',
