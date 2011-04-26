@@ -2014,7 +2014,7 @@ Du skal give alle muligheder en rangordning mellem 1 og 999.',
 	'securepoll-api-no-user' => 'Ingen brugere med den angivne ID blev fundet.',
 	'securepoll-api-token-mismatch' => 'Sikkerhedskoden er forkert, du kan ikke logge ind.',
 	'securepoll-not-logged-in' => 'Du skal logge ind for at stemme i dette valg',
-	'securepoll-too-few-edits' => 'Beklager, men du kan ikke stemme. Du skal lave mindst $1 {{PLURAL:$1|redigering|redigeringer}}. Du har kun lavet $2.',
+	'securepoll-too-few-edits' => 'Beklager, men du kan ikke stemme. Du skal have gennemført mindst $1 {{PLURAL:$1|redigering|redigeringer}}. Du har kun gennemført $2.',
 	'securepoll-blocked' => 'Du kan ikke stemme, fordi du i øjeblikket er blokeret fra at redigere.',
 	'securepoll-bot' => 'Beklager, men konti med botflag kan ikke stemme i dette valg.',
 	'securepoll-not-in-group' => 'Kun brugere af gruppen "$1" kan stemme.',
@@ -2044,10 +2044,10 @@ Du skal give alle muligheder en rangordning mellem 1 og 999.',
 	'securepoll-header-admin' => 'Admin',
 	'securepoll-cookie-dup-list' => 'Cookie dubletbrugere',
 	'securepoll-dump-title' => 'Dump: $1',
-	'securepoll-dump-no-crypt' => 'Ingen krypterede valgregistreringer er tilgængelige til dette valg, fordi valget ikke er opsat til at anvende kryptering.',
+	'securepoll-dump-no-crypt' => 'Ingen krypterede valgregistreringer er tilgængelige ved dette valg, fordi valget ikke er opsat til at anvende kryptering.',
 	'securepoll-dump-not-finished' => 'Krypterede valgregistreringer er kun tilgængelige efter afstemningen den $1 klokken $2.',
 	'securepoll-dump-no-urandom' => 'Kan ikke åbne /dev/urandom.
-For at sikre en hemmelig afstemning er de krypterede valgregistrering kun offentligt  tilgængelige, når de kan blandes med en sikker strøm af tilfældige tal.',
+For at sikre en hemmelig afstemning er de krypterede valgregistreringer kun offentligt tilgængelige, når de kan blandes med en strøm af sikre ilfældige tal.',
 	'securepoll-urandom-not-supported' => 'Denne server understøtter ikke generering af tilfældige kryptografiske tal.
 For at vedligeholde personlige oplysninger om vælgeren, er krypterede valgregistreringer kun offentligt tilgængelige, når de kan blandes med en strøm af sikre tilfældige tal.',
 	'securepoll-translate-title' => 'Oversæt: $1',
@@ -2067,16 +2067,18 @@ For at vedligeholde personlige oplysninger om vælgeren, er krypterede valgregis
 	'securepoll-tally-title' => 'Optælling: $1',
 	'securepoll-tally-not-finished' => 'Du kan desværre ikke optælle valgresultatet før afstemningen er slut.',
 	'securepoll-can-decrypt' => 'Valgregisteret er blevet krypteret, men en dekrypteringsnøgle er tilgængelig.
-Du kan enten optælle de nuværende stemmer i databasen, eller optælle krypterede resultater fra et oplagt fil.',
+Du kan enten optælle de nuværende stemmer i databasen, eller optælle krypterede resultater fra en oplagt fil.',
 	'securepoll-tally-no-key' => 'Du kan ikke tælle resultatet op, fordi stemmerne er krypterede, og dekrypteringsnøglen er utilgængelig.',
 	'securepoll-tally-local-legend' => 'Optællig af stemmerne',
 	'securepoll-tally-local-submit' => 'Opret en optælling',
-	'securepoll-tally-upload-legend' => 'Læg en krypteret dump op',
+	'securepoll-tally-upload-legend' => 'Læg et krypteret dump op',
 	'securepoll-tally-upload-submit' => 'Opret optælling',
 	'securepoll-tally-error' => 'Fejl under læsning af stemmeregisteret, kan ikke oprette en optælling.',
 	'securepoll-no-upload' => 'Ingen fil blev lagt op; kan ikke tælle resultatet op.',
 	'securepoll-dump-corrupt' => 'Dumpfilen er korrupt og kan ikke behandles.',
 	'securepoll-tally-upload-error' => 'Fejl ved optælling af dumpfilen: $1',
+	'securepoll-pairwise-victories' => 'Matrix over parvise vindere',
+	'securepoll-strength-matrix' => 'Matrix over stistyrke',
 	'securepoll-ranks' => 'Endeligt resultat',
 	'securepoll-average-score' => 'Gennemsnitlig karakter',
 );
@@ -7254,6 +7256,15 @@ Podètz causir de comptar los resultats dempuèi la banca de donadas o dempuèi 
 	'securepoll-strength-matrix' => 'Matritz de fòrça dels camins',
 	'securepoll-ranks' => 'Classament final',
 	'securepoll-average-score' => 'Marca mejana',
+);
+
+/** Oriya (ଓଡ଼ିଆ)
+ * @author Odisha1
+ */
+$messages['or'] = array(
+	'securepoll-strike-reason' => 'କାରଣ:',
+	'securepoll-header-reason' => 'କାରଣ',
+	'securepoll-header-start-date' => 'ଆରମ୍ଭ ତାରିଖ',
 );
 
 /** Papiamento (Papiamentu)
