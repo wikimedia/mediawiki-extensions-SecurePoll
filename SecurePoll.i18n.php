@@ -1956,6 +1956,7 @@ Gallwch naill ai gyfrif y canlyniadau sydd yn y bas data, neu gallwch gyfrif y c
  * @author Christian List
  * @author Kaare
  * @author Masz
+ * @author Peter Alberti
  * @author Sir48
  */
 $messages['da'] = array(
@@ -2047,7 +2048,7 @@ Du skal give alle muligheder en rangordning mellem 1 og 999.',
 	'securepoll-dump-no-crypt' => 'Ingen krypterede valgregistreringer er tilgængelige ved dette valg, fordi valget ikke er opsat til at anvende kryptering.',
 	'securepoll-dump-not-finished' => 'Krypterede valgregistreringer er kun tilgængelige efter afstemningen den $1 klokken $2.',
 	'securepoll-dump-no-urandom' => 'Kan ikke åbne /dev/urandom.
-For at sikre en hemmelig afstemning er de krypterede valgregistreringer kun offentligt tilgængelige, når de kan blandes med en strøm af sikre ilfældige tal.',
+For at sikre en hemmelig afstemning er de krypterede valgregistreringer kun offentligt tilgængelige, når de kan blandes med en strøm af sikre tilfældige tal.',
 	'securepoll-urandom-not-supported' => 'Denne server understøtter ikke generering af tilfældige kryptografiske tal.
 For at vedligeholde personlige oplysninger om vælgeren, er krypterede valgregistreringer kun offentligt tilgængelige, når de kan blandes med en strøm af sikre tilfældige tal.',
 	'securepoll-translate-title' => 'Oversæt: $1',
