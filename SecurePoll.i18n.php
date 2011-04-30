@@ -9697,6 +9697,14 @@ $2 న, $3 లకు మోదలు అవుతుంది',
 	'securepoll-average-score' => 'సగటు స్కోరు',
 );
 
+/** Tetum (Tetun)
+ * @author MF-Warburg
+ */
+$messages['tet'] = array(
+	'securepoll-header-voter-name' => 'Naran',
+	'securepoll-header-title' => 'Naran',
+);
+
 /** Thai (ไทย)
  * @author Ans
  * @author Octahedron80
