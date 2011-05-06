@@ -10821,6 +10821,7 @@ $messages['yi'] = array(
 	'securepoll-not-started' => 'די אפשטימונג האט נאך נישט אנגעהויבן.
 זי איז באשטימט אנצוהייבן אום $2 אזייגער $3.',
 	'securepoll-finished' => 'די אפשטימונג האט שוין געקאנטשעט, איר קענט מער נישט אפשטימען.',
+	'securepoll-not-qualified' => 'איר זענט נישט קוואליפֿיצירט צו שטימען אין די וואלן: $1',
 	'securepoll-submit' => 'אָפגעבן שטים',
 	'securepoll-gpg-receipt' => 'א דאנק פארן שטימען.
 
@@ -10829,13 +10830,17 @@ $messages['yi'] = array(
 <pre>$1</pre>',
 	'securepoll-thanks' => ' ייש"כ, אײַער שטים איז געווארן פֿאַרשריבן.',
 	'securepoll-return' => 'צוריק צו $1',
+	'securepoll-jump' => 'גייט צום אָפּשטימונג סערווירער',
 	'securepoll-bad-ballot-submission' => 'אײַער שטים איז געווען אומגילטיג: $1',
 	'securepoll-unanswered-questions' => 'איר מוזט ענטפערן אלע שאלות.',
+	'securepoll-unanswered-options' => 'איר דאַרפֿט געבן אַן ענטפער פֿאַר יעדער פֿראַגע.',
 	'securepoll-api-invalid-params' => 'אומגילטיגע פאראמעטערס',
 	'securepoll-api-no-user' => 'קיין באַניצער נישט געפֿונען מיט דעם נומער.',
 	'securepoll-not-logged-in' => 'איר מוזט אריינלאגירן צו שטימען אין דער אפשטימונג',
+	'securepoll-too-few-edits' => 'איר קענט ליידער ניט שטימען. איר דאַרפֿט האָבן מינדסטערטנס $1 {{PLURAL:$1| רעדאַקטירונג| רעדאַקטירונגען}} צו שטימען אין די וואַלן; איר האָט נאר $2 .',
 	'securepoll-blocked' => 'אנטשולדיגט, איר קענט נישט שטימען אין די וואלן אויב איר זענט אצינד בלאקירט פון רעדאקטירן.',
 	'securepoll-not-in-group' => 'נאר מיטגלידער פון דער "$1" גרופע קענען שטימען אין די וואלן. ',
+	'securepoll-list-title' => 'רשימה פֿון שטימען: $1',
 	'securepoll-header-timestamp' => 'צײַט',
 	'securepoll-header-voter-name' => 'נאָמען',
 	'securepoll-header-voter-domain' => 'פֿעלד',
@@ -10860,6 +10865,7 @@ $messages['yi'] = array(
 	'securepoll-header-title' => 'נאָמען',
 	'securepoll-header-start-date' => 'אָנהייב דאַטע',
 	'securepoll-header-end-date' => 'סוף דאַטע',
+	'securepoll-subpage-vote' => 'שטימען',
 	'securepoll-subpage-translate' => 'פֿאַרטײַטשן',
 	'securepoll-subpage-list' => 'ליסטע',
 	'securepoll-average-score' => 'דורכשניטלעכע פונקטן',
