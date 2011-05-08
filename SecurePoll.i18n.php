@@ -10661,13 +10661,14 @@ $messages['vep'] = array(
 
 /** Vietnamese (Tiếng Việt)
  * @author Minh Nguyen
+ * @author Trần Nguyễn Minh Huy
  * @author Vinhtantran
  */
 $messages['vi'] = array(
 	'securepoll' => 'Bỏ phiếu An toàn',
 	'securepoll-desc' => 'Bộ mở rộng dành cho bầu cử và thăm dò ý kiến',
 	'securepoll-invalid-page' => 'Trang con không hợp lệ “<nowiki>$1</nowiki>”',
-	'securepoll-need-admin' => 'Chỉ các quản lý viên được bầu mới có quyền thực hiện tác vụ này.',
+	'securepoll-need-admin' => 'Chỉ các quản trị viên được bầu mới có quyền thực hiện tác vụ này.',
 	'securepoll-too-few-params' => 'Không đủ thông số trang con (liên kết không hợp lệ).',
 	'securepoll-invalid-election' => '“$1” không phải là mã số bầu cử hợp lệ.',
 	'securepoll-welcome' => '<strong>Xin chào $1!</strong>',
@@ -10679,8 +10680,8 @@ Dự kiến nó sẽ bắt đầu vào ngày $2 lúc $3.',
 Rất tiếc, bạn không thể bỏ phiếu được nữa.',
 	'securepoll-change-allowed' => '<strong>Chú ý: Bạn đã bỏ phiếu trong cuộc bầu cử này rồi.</strong>
 Bạn có thể thay đổi lá phiếu bằng cách điền vào mẫu đơn phía dưới.
-Ghi nhớ rằng nếu bạn làm điều này, lá phiếu trước đây của bạn sẽ bị hủy.',
-	'securepoll-submit' => 'Gửi lá phiếu',
+Lưu ý rằng nếu bạn làm điều này, lá phiếu trước đây của bạn sẽ bị hủy.',
+	'securepoll-submit' => 'Gửi phiếu',
 	'securepoll-gpg-receipt' => 'Cảm ơn bạn đã tham gia bỏ phiếu.
 
 Nếu muốn, bạn có thể nhận biên lai sau để làm bằng chứng cho lá phiếu của mình:
@@ -10746,7 +10747,7 @@ Bạn phải xếp hạng từ 1 đến 999 cho tất cả các ứng viên.',
 	'securepoll-strike-log' => 'Nhật trình gạch bỏ',
 	'securepoll-header-action' => 'Tác vụ',
 	'securepoll-header-reason' => 'Lý do',
-	'securepoll-header-admin' => 'Quản lý viên',
+	'securepoll-header-admin' => 'Quản trị viên',
 	'securepoll-cookie-dup-list' => 'Các thành viên trùng cookie',
 	'securepoll-dump-title' => 'Kết xuất: $1',
 	'securepoll-dump-no-crypt' => 'Không có sẵn bản ghi đã mã hóa cho cuộc bầu cử này, vì cuộc bầu cử không được thiết lập tính năng mã hóa.',
@@ -10780,8 +10781,8 @@ Bạn có thể lựa chọn hoặc kiểm kết quả hiện có trong cơ sở
 	'securepoll-tally-upload-submit' => 'Tạo cuộc kiểm phiếu',
 	'securepoll-tally-error' => 'Lỗi khi thông dịch bản ghi lá phiếu, không thể tạo cuộc kiểm phiếu.',
 	'securepoll-no-upload' => 'Không có tập tin nào được tải lên, không thể kiểm phiếu.',
-	'securepoll-dump-corrupt' => 'Tập tin kho bị hư và không thể được xử lý.',
-	'securepoll-tally-upload-error' => 'Có lỗi khi kiểm tập tin kho: $1',
+	'securepoll-dump-corrupt' => 'Tập tin kết xuất bị hỏng và không thể xử lý được.',
+	'securepoll-tally-upload-error' => 'Có lỗi khi kiểm tập tin kết xuất: $1',
 	'securepoll-pairwise-victories' => 'Ma trận chiến thắng theo cặp',
 	'securepoll-strength-matrix' => 'Ma trận độ mạnh đường đi',
 	'securepoll-ranks' => 'Xếp hạng sau cùng',
