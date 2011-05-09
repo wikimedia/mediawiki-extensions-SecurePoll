@@ -8114,6 +8114,42 @@ Você pode escolher entre realizar a contagem de votos dos resultados presentes 
 	'securepoll-average-score' => 'Pontuação média',
 );
 
+/** Quechua (Runa Simi)
+ * @author AlimanRuna
+ */
+$messages['qu'] = array(
+	'securepoll-list-title' => 'Akllasqakunata sutisuyunchay: $1',
+	'securepoll-header-timestamp' => 'Pacha',
+	'securepoll-header-voter-name' => 'Suti',
+	'securepoll-header-strike' => 'Sikwipuy',
+	'securepoll-header-details' => 'Imaymana',
+	'securepoll-strike-button' => 'Sikwipuy',
+	'securepoll-details-link' => 'Imaymana',
+	'securepoll-header-voter-type' => 'Akllaq laya',
+	'securepoll-voter-properties' => 'Akllaqpa kaqninkuna',
+	'securepoll-strike-log' => "Sikwipuy hallch'a",
+	'securepoll-header-action' => 'Ruray',
+	'securepoll-header-reason' => 'Kayrayku',
+	'securepoll-header-admin' => 'Kamachiq',
+	'securepoll-translate-title' => "T'ikray: $1",
+	'securepoll-invalid-language' => 'Mana kaq rimay tuyru "$1"',
+	'securepoll-submit-translate' => 'Musuqchay',
+	'securepoll-language-label' => 'Rimayta akllay:',
+	'securepoll-submit-select-lang' => "T'ikray",
+	'securepoll-header-title' => 'Suti',
+	'securepoll-header-start-date' => "Qallarisqanpa p'unchawnin",
+	'securepoll-header-end-date' => "Puchukana p'unchaw",
+	'securepoll-subpage-vote' => 'Akllay',
+	'securepoll-subpage-translate' => "T'ikray",
+	'securepoll-subpage-list' => 'Sutisuyu',
+	'securepoll-subpage-dump' => "K'uktiy",
+	'securepoll-subpage-tally' => 'Yupaq',
+	'securepoll-tally-title' => 'Yupaq: $1',
+	'securepoll-tally-local-submit' => 'Yupaqta kamariy',
+	'securepoll-tally-upload-submit' => 'Yupaqta kamariy',
+	'securepoll-average-score' => 'Kuskanchaku taripasqakuna',
+);
+
 /** Romanian (Română)
  * @author AdiJapan
  * @author Cin
@@ -8915,10 +8951,11 @@ Možete da izvršite prebrojavanje glasova koji su prisutni u bazi podataka ili 
  * @author Budhajeewa
  * @author Calcey
  * @author තඹරු විජේසේකර
+ * @author පසිඳු කාවින්ද
  * @author බිඟුවා
  */
 $messages['si'] = array(
-	'securepoll' => 'SecurePoll',
+	'securepoll' => 'සුරක්ෂිත ඡන්ද විමසීම',
 	'securepoll-desc' => 'මැතිවරණ හා සමීක්ෂණ සඳහා දිඟුව',
 	'securepoll-invalid-page' => '"<nowiki>$1</nowiki>" වැරදි උපපිටුව',
 	'securepoll-need-admin' => 'මෙම ක්‍රියාව සිදු කිරීම සඳහා ඔබ මැතිවරණ පරිපාලකයෙකු විය යුතුය.',
@@ -8957,8 +8994,8 @@ $1',
 <pre>$2</pre>',
 	'securepoll-gpg-config-error' => 'GPG යතුරු වැරදි ලෙස සකසා ඇත.',
 	'securepoll-gpg-parse-error' => 'GPG ප්‍රතිදානය අර්ථ-පැහැදුමේ දෝෂයකි.',
-	'securepoll-no-decryption-key' => 'කිසිදු decryption keyක් හැඩනොගැස්විණි.
-decrypt කළ නොහැක.',
+	'securepoll-no-decryption-key' => 'ප්‍රහේලිකාව නිරවුල් කිරීමේ කිසිදු යතුරක් හැඩ නොගැස්විණි.
+ක්‍රමය දැනගත නොහැක.',
 	'securepoll-jump' => 'ඡන්දය දෙන සේවාදායකයට යන්න',
 	'securepoll-bad-ballot-submission' => 'ඔබගේ ඡන්දය අවලංගුයි :$1',
 	'securepoll-unanswered-questions' => 'ඔබ සියලුම ප්‍රශ්නවලට පිළිතුරු සැපයිය යුතුය.',
@@ -8983,7 +9020,7 @@ decrypt කළ නොහැක.',
 	'securepoll-header-voter-name' => 'නම',
 	'securepoll-header-voter-domain' => 'ඩෝමේනය',
 	'securepoll-header-ua' => 'පරිශීලක නියෝජිත',
-	'securepoll-header-cookie-dup' => 'Dup',
+	'securepoll-header-cookie-dup' => 'රවටන්න',
 	'securepoll-header-strike' => 'කපා හරින්න',
 	'securepoll-header-details' => 'විස්තර',
 	'securepoll-strike-button' => 'කපා හරින්න',
@@ -9002,7 +9039,7 @@ decrypt කළ නොහැක.',
 	'securepoll-header-reason' => 'හේතුව',
 	'securepoll-header-admin' => 'පරිපාලක',
 	'securepoll-cookie-dup-list' => 'කුකී පිටපත් පරිශීලකයින්',
-	'securepoll-dump-title' => 'Dump: $1',
+	'securepoll-dump-title' => 'නික්ෂේපය: $1',
 	'securepoll-dump-no-crypt' => 'ගුප්ත කේතනය යොදාගැනුමට මෙම ඡන්ද විමසුම සකසා නොමැති නිසා, ගුප්ත-කේතිත ඡන්ද විමසුම් වාර්තාවක් මෙම ඡන්ද විමසුම සඳහා ලබාගත නොහැක.',
 	'securepoll-dump-not-finished' => 'ගුප්ත-කේතිත ඡන්ද විමසුම් වාර්තා ලබාගත හැක්කේ $1දා $2 ට පසුව පමණි',
 	'securepoll-dump-no-urandom' => '/dev/urandom විවෘත කළ නොහැක.
@@ -9030,12 +9067,12 @@ decrypt කළ නොහැක.',
 	'securepoll-tally-no-key' => 'ගුප්ත-කේත-විකේතන යතුර ලබාගත නොහැකි නිසා ඔබට මෙම ඡන්දය සැසඳිය නොහැක, මන්ද ඡන්ද ප්‍රකාශකිරීම් ගුප්ත-කේතිතය.',
 	'securepoll-tally-local-legend' => 'තැන්පත් කළ ප්‍රතිඵල සසඳන්න',
 	'securepoll-tally-local-submit' => 'සැසඳුම තනන්න',
-	'securepoll-tally-upload-legend' => 'ගුප්ත කේතිත dump පටවන්න',
-	'securepoll-tally-upload-submit' => 'tally තනන්න.',
+	'securepoll-tally-upload-legend' => 'ගුප්ත කේතිත කුණු ගොඩ පටවන්න',
+	'securepoll-tally-upload-submit' => 'සැසඳුම තනන්න',
 	'securepoll-tally-error' => 'ඡන්ද වාර්තා අර්ථ-පැහැදුමේ දෝෂයකි, සැසඳුමක් තැනිය නොහැක.',
 	'securepoll-no-upload' => 'ගොනුවක් පටවා නැත, ප්‍රතිඵල සැසඳිය නොහැක.',
-	'securepoll-dump-corrupt' => 'dump ගොනුව දෝෂ සහගත බැවින් ක්‍රියාවට බඳුන් කළ නොහැක.',
-	'securepoll-tally-upload-error' => 'dump ගොනුව සැසඳුමේ දෝෂයකි: $1',
+	'securepoll-dump-corrupt' => 'නික්ෂේප ගොනුව දෝෂ සහගත බැවින් ක්‍රියාවට බඳුන් කළ නොහැක.',
+	'securepoll-tally-upload-error' => 'නික්ෂේප ගොනුව සැසඳුමේ දෝෂයකි: $1',
 	'securepoll-pairwise-victories' => 'යුගලානුකූල ජයග්‍රහන න්‍යාසය',
 	'securepoll-strength-matrix' => 'මාර්ග ශක්ති න්‍යාසය',
 	'securepoll-ranks' => 'අවසන් ශ්‍රේණිගතකෙරුම',
@@ -9713,10 +9750,13 @@ $messages['sw'] = array(
 
 /** Tamil (தமிழ்)
  * @author TRYPPN
+ * @author පසිඳු කාවින්ද
  */
 $messages['ta'] = array(
+	'securepoll' => 'செகிறேபோல்',
 	'securepoll-header-timestamp' => 'நேரம்',
 	'securepoll-header-voter-name' => 'பெயர்',
+	'securepoll-header-voter-domain' => 'டொமைன்',
 	'securepoll-header-details' => 'விளக்கம்',
 	'securepoll-strike-reason' => 'காரணம்:',
 	'securepoll-strike-cancel' => 'விட்டுவிடு',
@@ -9730,6 +9770,7 @@ $messages['ta'] = array(
 	'securepoll-header-title' => 'பெயர்',
 	'securepoll-header-start-date' => 'ஆரம்பத்தேதி',
 	'securepoll-header-end-date' => 'முடிவுத்தேதி',
+	'securepoll-subpage-vote' => 'வோடே',
 	'securepoll-subpage-translate' => 'மொழி பெயர்ப்பு',
 	'securepoll-subpage-list' => 'பட்டியல்',
 );
