@@ -10875,6 +10875,7 @@ $messages['yi'] = array(
 	'securepoll-jump' => 'גייט צום אָפּשטימונג סערווירער',
 	'securepoll-bad-ballot-submission' => 'אײַער שטים איז געווען אומגילטיג: $1',
 	'securepoll-unanswered-questions' => 'איר מוזט ענטפערן אלע שאלות.',
+	'securepoll-invalid-rank' => 'אומגילטיקער ראנג. איר מוזט געבן די קאנדידאטן א ראנג צווישן  1 און 999.',
 	'securepoll-unanswered-options' => 'איר דאַרפֿט געבן אַן ענטפער פֿאַר יעדער פֿראַגע.',
 	'securepoll-api-invalid-params' => 'אומגילטיגע פאראמעטערס',
 	'securepoll-api-no-user' => 'קיין באַניצער נישט געפֿונען מיט דעם נומער.',
@@ -10887,6 +10888,7 @@ $messages['yi'] = array(
 	'securepoll-header-voter-name' => 'נאָמען',
 	'securepoll-header-voter-domain' => 'פֿעלד',
 	'securepoll-header-ua' => 'באַניצער אַגענט',
+	'securepoll-header-cookie-dup' => 'דופליקאַט',
 	'securepoll-header-details' => 'פרטים',
 	'securepoll-strike-reason' => 'אורזאַך:',
 	'securepoll-strike-cancel' => 'אַנולירן',
@@ -10910,6 +10912,8 @@ $messages['yi'] = array(
 	'securepoll-subpage-vote' => 'שטימען',
 	'securepoll-subpage-translate' => 'פֿאַרטײַטשן',
 	'securepoll-subpage-list' => 'ליסטע',
+	'securepoll-subpage-tally' => 'רעכענען',
+	'securepoll-tally-title' => 'רעכענען: $1',
 	'securepoll-average-score' => 'דורכשניטלעכע פונקטן',
 );
 
