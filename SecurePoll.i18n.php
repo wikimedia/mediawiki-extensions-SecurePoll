@@ -8972,22 +8972,23 @@ Možete da izvršite prebrojavanje glasova koji su prisutni u bazi podataka ili 
 /** Sinhala (සිංහල)
  * @author Budhajeewa
  * @author Calcey
+ * @author Singhalawap
  * @author තඹරු විජේසේකර
  * @author පසිඳු කාවින්ද
  * @author බිඟුවා
  */
 $messages['si'] = array(
 	'securepoll' => 'සුරක්ෂිත ඡන්ද විමසීම',
-	'securepoll-desc' => 'මැතිවරණ හා සමීක්ෂණ සඳහා දිඟුව',
+	'securepoll-desc' => 'ඡන්ද හා සමීක්ෂණ සඳහා දිඟුව',
 	'securepoll-invalid-page' => '"<nowiki>$1</nowiki>" වැරදි උපපිටුව',
-	'securepoll-need-admin' => 'මෙම ක්‍රියාව සිදු කිරීම සඳහා ඔබ මැතිවරණ පරිපාලකයෙකු විය යුතුය.',
+	'securepoll-need-admin' => 'මෙම ක්‍රියාව සිදු කිරීම සඳහා ඔබ ඡන්ද පරිපාලකයෙකු විය යුතුය.',
 	'securepoll-too-few-params' => 'අවැසි තරම් උපපිටු පරාමිති නොමැ. (වරදි සබැඳියකි).',
 	'securepoll-invalid-election' => '"$1" යනු නිවැරදි ඡන්ද හැඳුනුමක් නොවේ',
 	'securepoll-welcome' => '<strong>ආයුබෝවන් $1!</strong>',
 	'securepoll-not-started' => 'මෙම මැතිවරණය තවම ආරම්භ කර නොමැත.
 එය $2 වනදා $3ට ආරම්භවීමට නියමිතය.',
-	'securepoll-finished' => 'මෙම මැතිවරණය අවසන් වී ඇත,ඔබට තව දුරටත් ඡන්දය ලබා දිය නොහැකිය.',
-	'securepoll-not-qualified' => 'මෙම මැතිවරණයේදී ඡන්දය දීමට ඔබ සුදුසුකම් ලබා නැත: $1',
+	'securepoll-finished' => 'මෙම ඡන්ද අවසන් වී ඇත,ඔබට තව දුරටත් ඡන්දය ලබා දිය නොහැකිය.',
+	'securepoll-not-qualified' => 'මෙම ඡන්දයේදී ඡන්දය දීමට ඔබ සුදුසුකම් ලබා නැත: $1',
 	'securepoll-change-disallowed' => 'ඔබ වරක් මෙහි මනාපය පළ කර තිබේ.
 කනගාටුයි, නැවත ඊට ඉඩදිය නොහැක.',
 	'securepoll-change-allowed' => '<strong>සටහන: ඔබ මෙම ඡන්ද විමසුමේ මීට පෙර මනාපය පළ කර ඇත.</strong>
@@ -8999,7 +9000,7 @@ $messages['si'] = array(
 ඔබ කැමතිනම්,ඔබේ ඡන්දයේ සාක්ෂියක් ලෙස පහත රිසිට්ටුව ඔබ ළඟ තබා ගත හැක:
 
 <pre>$1</pre>',
-	'securepoll-thanks' => 'ස්තුතියි,ඔබේ ඡන්දය ‍පටිගත වී ඇත.',
+	'securepoll-thanks' => 'ස්තුතියි,ඔබේ ඡන්දය ‍වාර්තාගවිය.',
 	'securepoll-return' => '$1 ට නැවත යන්න',
 	'securepoll-encrypt-error' => 'ඡන්ද පළකෙරුම් වාර්තාව ගුප්ත-කේතනය කෙරුමට නොහැකි විය.
 ඔබේ ඡන්ද පළ කෙරුම වාර්තාගත නොවිනි!
@@ -9016,8 +9017,8 @@ $1',
 <pre>$2</pre>',
 	'securepoll-gpg-config-error' => 'GPG යතුරු වැරදි ලෙස සකසා ඇත.',
 	'securepoll-gpg-parse-error' => 'GPG ප්‍රතිදානය අර්ථ-පැහැදුමේ දෝෂයකි.',
-	'securepoll-no-decryption-key' => 'ප්‍රහේලිකාව නිරවුල් කිරීමේ කිසිදු යතුරක් හැඩ නොගැස්විණි.
-ක්‍රමය දැනගත නොහැක.',
+	'securepoll-no-decryption-key' => 'No decryption key is configured.
+Cannot decrypt.',
 	'securepoll-jump' => 'ඡන්දය දෙන සේවාදායකයට යන්න',
 	'securepoll-bad-ballot-submission' => 'ඔබගේ ඡන්දය අවලංගුයි :$1',
 	'securepoll-unanswered-questions' => 'ඔබ සියලුම ප්‍රශ්නවලට පිළිතුරු සැපයිය යුතුය.',
@@ -9042,7 +9043,7 @@ $1',
 	'securepoll-header-voter-name' => 'නම',
 	'securepoll-header-voter-domain' => 'ඩෝමේනය',
 	'securepoll-header-ua' => 'පරිශීලක නියෝජිත',
-	'securepoll-header-cookie-dup' => 'රවටන්න',
+	'securepoll-header-cookie-dup' => '',
 	'securepoll-header-strike' => 'කපා හරින්න',
 	'securepoll-header-details' => 'විස්තර',
 	'securepoll-strike-button' => 'කපා හරින්න',
@@ -9080,7 +9081,7 @@ $1',
 	'securepoll-subpage-vote' => 'ඡන්දය දෙන්න',
 	'securepoll-subpage-translate' => 'පරිවර්තනය කරන්න',
 	'securepoll-subpage-list' => 'ලැයිස්තුව',
-	'securepoll-subpage-dump' => 'නික්‍ෂේපය',
+	'securepoll-subpage-dump' => 'අත්හරින්න',
 	'securepoll-subpage-tally' => 'සැසඳෙයි',
 	'securepoll-tally-title' => 'සැසඳුම: $1',
 	'securepoll-tally-not-finished' => 'සමාවන්න, ඡන්දය පළ කෙරුම නිමවනතෙක් ඔබට ඡන්දය සැසඳිය නොහැක.',
@@ -9089,7 +9090,7 @@ $1',
 	'securepoll-tally-no-key' => 'ගුප්ත-කේත-විකේතන යතුර ලබාගත නොහැකි නිසා ඔබට මෙම ඡන්දය සැසඳිය නොහැක, මන්ද ඡන්ද ප්‍රකාශකිරීම් ගුප්ත-කේතිතය.',
 	'securepoll-tally-local-legend' => 'තැන්පත් කළ ප්‍රතිඵල සසඳන්න',
 	'securepoll-tally-local-submit' => 'සැසඳුම තනන්න',
-	'securepoll-tally-upload-legend' => 'ගුප්ත කේතිත කුණු ගොඩ පටවන්න',
+	'securepoll-tally-upload-legend' => '',
 	'securepoll-tally-upload-submit' => 'සැසඳුම තනන්න',
 	'securepoll-tally-error' => 'ඡන්ද වාර්තා අර්ථ-පැහැදුමේ දෝෂයකි, සැසඳුමක් තැනිය නොහැක.',
 	'securepoll-no-upload' => 'ගොනුවක් පටවා නැත, ප්‍රතිඵල සැසඳිය නොහැක.',
