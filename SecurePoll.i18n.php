@@ -10379,12 +10379,20 @@ Veritabanında mevcut sonuçları saymayı, ya da yüklenen bir dosyadan şifrel
 
 /** Tatar (Cyrillic) (Татарча/Tatarça (Cyrillic))
  * @author KhayR
+ * @author Ильнар
  */
 $messages['tt-cyrl'] = array(
 	'securepoll-header-timestamp' => 'Вакыт',
 	'securepoll-header-voter-name' => 'Исем',
 	'securepoll-header-voter-domain' => 'Домен',
 	'securepoll-header-ua' => 'Кулланучы агенты',
+	'securepoll-header-cookie-dup' => 'Дублләр',
+	'securepoll-header-strike' => 'Сызу',
+	'securepoll-header-details' => 'Тулырак',
+	'securepoll-strike-button' => 'Сызу',
+	'securepoll-unstrike-button' => 'Сызуны алу',
+	'securepoll-strike-reason' => 'Сәбәп:',
+	'securepoll-strike-cancel' => 'Баш тарту',
 );
 
 /** Tuvinian (Тыва дыл)
