@@ -5752,6 +5752,22 @@ $messages['ku-latn'] = array(
 	'securepoll-subpage-list' => 'Lîste',
 );
 
+/** Latin (Latina)
+ * @author Tutleman
+ */
+$messages['la'] = array(
+	'securepoll-header-title' => 'Nomen',
+	'securepoll-header-start-date' => 'Satus diem',
+	'securepoll-header-end-date' => 'Ultima diem',
+	'securepoll-subpage-vote' => 'Suffragium Fero',
+	'securepoll-subpage-translate' => 'Traducere',
+	'securepoll-subpage-list' => 'Index',
+	'securepoll-subpage-dump' => 'Effundite',
+	'securepoll-subpage-tally' => 'Numera',
+	'securepoll-tally-title' => 'Numerat: $1',
+	'securepoll-tally-not-finished' => 'Paenitet, tu ne posse numerare electio quamdiu suffragium non est finis.',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Les Meloures
  * @author Robby
