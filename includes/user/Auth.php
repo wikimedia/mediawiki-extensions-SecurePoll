@@ -213,7 +213,8 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 				'bot' => $user->isAllowed( 'bot' ),
 				'language' => $user->getOption( 'language' ),
 				'groups' => $user->getGroups(),
-				'lists' => $this->getLists( $user )
+				'lists' => $this->getLists( $user ),
+				'registration' => $user->getRegistration(),
 			)
 		);
 		wfRunHooks( 'SecurePoll_GetUserParams', array( $this, $user, &$params ) );

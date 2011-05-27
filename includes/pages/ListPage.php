@@ -32,7 +32,8 @@ class SecurePoll_ListPage extends SecurePoll_Page {
 
 		$pager = new SecurePoll_ListPager( $this );
 		$wgOut->addHTML( 
-			$pager->getLimitForm() . '<br />' .
+			$pager->getLimitForm() . 
+			$pager->getNavigationBar() . 
 			$pager->getBody() . 
 			$pager->getNavigationBar()
 		);

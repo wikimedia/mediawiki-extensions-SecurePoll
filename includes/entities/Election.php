@@ -17,6 +17,8 @@
  *      Election
  *          min-edits
  *              Minimum number of edits needed to be qualified
+ *          max-registration
+ *              Latest acceptable registration date
  *          not-blocked
  *              True if voters need to not be blocked
  *          not-bot
@@ -163,6 +165,17 @@ class SecurePoll_Election extends SecurePoll_Entity {
 			$status->fatal( 'securepoll-too-few-edits', $minEdits, $edits );
 		}
 
+		# Registration date
+		$maxDate = $this->getProperty( 'max-registration' );
+		$date = isset( $props['registration'] ) ? $props['registration'] : 0;
+		if ( $maxDate && $date > $maxDate ) {
+			global $wgLang;
+			$status->fatal( 
+				'securepoll-too-new', 
+				$wgLang->timeanddate( $maxDate ), 
+				$wgLang->timeanddate( $date )
+			);
+		}
 		# Blocked
 		$notBlocked = $this->getProperty( 'not-blocked' );
 		$isBlocked = !empty( $props['blocked'] );
