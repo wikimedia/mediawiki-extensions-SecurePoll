@@ -22,6 +22,8 @@ abstract class SecurePoll_Tallier {
 			return new SecurePoll_SchulzeTallier( $context, $electionTallier, $question );
 		case 'histogram-range':
 			return new SecurePoll_HistogramRangeTallier( $context, $electionTallier, $question );
+		case 'alternative-vote':
+			return new SecurePoll_AlternativeVoteTallier( $context, $electionTallier, $question );
 		default:
 			throw new MWException( "Invalid tallier type: $type" );
 		}

@@ -163,6 +163,9 @@ To maintain voter privacy, encrypted election records are only publically availa
 	'securepoll-strength-matrix' => 'Path strength matrix',
 	'securepoll-ranks' => 'Final ranking',
 	'securepoll-average-score' => 'Average score',
+	'securepoll-round' => 'Round $1',
+	'securepoll-spoilt' => '(Spoilt)',
+	'securepoll-exhausted' => '(Exhausted)',
 );
 
 /** Message documentation (Message documentation)
@@ -238,6 +241,9 @@ Link text to a sub page in the SecurePoll extension where users can translate po
 	'securepoll-subpage-list' => 'Link text to a sub page in the SecurePoll extension where users can list poll information.',
 	'securepoll-subpage-dump' => 'Link text to a sub page in the SecurePoll extension where users can dump results.',
 	'securepoll-subpage-tally' => 'Link text to a sub page in the SecurePoll extension where users can tally.',
+	'securepoll-round' => 'Column header for tables on tallies which take place over multiple rounds; parameter is a roman numeral.',
+	'securepoll-spoilt' => 'Row label for counting ballots which were spoilt (not correctly filled in or indecipherable',
+	'securepoll-exhausted' => 'Row label for counting ballots which have been exhausted in a multi-round counting system',
 );
 
 /** Afrikaans (Afrikaans)

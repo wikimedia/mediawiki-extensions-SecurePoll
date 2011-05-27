@@ -97,3 +97,17 @@
 .securepoll-election-closed {
 	color: #aaa;
 }
+
+.securepoll-results th {
+	padding-right:5px;
+	text-align: left;
+}
+
+tr.securepoll-exhausted th, tr.securepoll-exhausted td {
+	font-style: italic;
+	border-top: 1px solid #aaa;
+}
+
+tr.securepoll-spoilt {
+	font-style: italic;
+}
