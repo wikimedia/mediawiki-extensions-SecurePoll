@@ -1901,6 +1901,9 @@ Můžete si vybrat, zda chcete sečíst výsledky v databázi, nebo sečíst ši
 	'securepoll-strength-matrix' => 'Matice síly cest',
 	'securepoll-ranks' => 'Konečné pořadí',
 	'securepoll-average-score' => 'Průměrné hodnocení',
+	'securepoll-round' => '$1. kolo',
+	'securepoll-spoilt' => '(neplatné)',
+	'securepoll-exhausted' => '(vyčerpané)',
 );
 
 /** Welsh (Cymraeg)
@@ -2228,6 +2231,7 @@ Du musst allen Optionen eine Rangnummer zwischen 1 und 999 geben.',
 	'securepoll-api-token-mismatch' => 'Falsche Sicherheitstoken, Anmeldung fehlgeschlagen.',
 	'securepoll-not-logged-in' => 'Du musst angemeldet sein, um bei dieser Wahl abstimmen zu können',
 	'securepoll-too-few-edits' => 'Du darfst leider nicht abstimmen. Du brauchst mindestens $1 {{PLURAL:$1|Bearbeitung|Bearbeitungen}}, um bei dieser Wahl abzustimmen, du hast jedoch $2.',
+	'securepoll-too-new' => 'Du kannst leider nicht abstimmen. Dein Benutzerkonto hätte vor dem $1 registriert werden müssen. Du hast dich am $2 registriert.',
 	'securepoll-blocked' => 'Du kannst bei dieser Wahl leider nicht abstimmen, wenn du gesperrt bist.',
 	'securepoll-bot' => 'Konten mit Botstatus sind leider nicht berechtigt, bei dieser Wahl abzustimmen.',
 	'securepoll-not-in-group' => 'Nur Mitglieder der Gruppe „$1“ können bei dieser Wahl abstimmen.',
@@ -2294,11 +2298,15 @@ Du kannst wählen zwischen der Zählung der aktuellen Ergebnisse in der Datenban
 	'securepoll-strength-matrix' => 'Wegstärkenmatrix',
 	'securepoll-ranks' => 'Schlussranking',
 	'securepoll-average-score' => 'Durchschnittliches Ergebnis',
+	'securepoll-round' => 'Runde $1',
+	'securepoll-spoilt' => '(Ungültig)',
+	'securepoll-exhausted' => '(Beendet)',
 );
 
 /** German (formal address) (‪Deutsch (Sie-Form)‬)
  * @author ChrisiPK
  * @author Imre
+ * @author Kghbln
  * @author The Evil IP address
  * @author Umherirrender
  */
@@ -2330,6 +2338,7 @@ Sie müssen allen Optionen eine Rangnummer zwischen 1 und 999 geben.',
 	'securepoll-remote-auth-error' => 'Fehler beim Abruf Ihrer Benutzerkonteninformationen vom Server.',
 	'securepoll-not-logged-in' => 'Sie müssen angemeldet sein, um bei dieser Wahl abstimmen zu können',
 	'securepoll-too-few-edits' => 'Sie dürfen leider nicht abstimmen. Sie brauchen mindestens $1 {{PLURAL:$1|Bearbeitung|Bearbeitungen}}, um bei dieser Wahl abzustimmen, Sie haben jedoch $2.',
+	'securepoll-too-new' => 'Sie können leider nicht abstimmen. Ihr Benutzerkonto hätte vor dem $1 registriert werden müssen. Sie haben sich am $2 registriert.',
 	'securepoll-blocked' => 'Sie können bei dieser Wahl leider nicht abstimmen, wenn Sie gesperrt sind.',
 	'securepoll-not-in-list' => 'Sie sind leider nicht auf der Liste der Benutzer, die bei dieser Wahl abstimmen dürfen.',
 	'securepoll-tally-not-finished' => 'Sie können leider keine Stimmen auszählen, bevor die Abstimmung beendet wurde.',
@@ -3892,6 +3901,9 @@ Pode optar por escrutar os resultados presentes na base de datos ou por escrutar
 	'securepoll-strength-matrix' => 'Matriz da fortaleza de ruta',
 	'securepoll-ranks' => 'Valoración final',
 	'securepoll-average-score' => 'Puntuación media',
+	'securepoll-round' => 'Ronda $1',
+	'securepoll-spoilt' => '(Nulos)',
+	'securepoll-exhausted' => '(Esgotados)',
 );
 
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)
@@ -4194,6 +4206,9 @@ $1',
 	'securepoll-strength-matrix' => 'טבלת חוזק הנתיב',
 	'securepoll-ranks' => 'דירוג סופי',
 	'securepoll-average-score' => 'ניקוד ממוצע',
+	'securepoll-round' => 'סיבוב $1',
+	'securepoll-spoilt' => '(פסולות)',
+	'securepoll-exhausted' => '(מוצו)',
 );
 
 /** Hindi (हिन्दी)
@@ -4851,6 +4866,9 @@ Tu pote optar pro contar le resultatos presente in le base de datos, o pro conta
 	'securepoll-strength-matrix' => 'Matrice de fortia de cammino',
 	'securepoll-ranks' => 'Rango final',
 	'securepoll-average-score' => 'Score medie',
+	'securepoll-round' => 'Ronda $1',
+	'securepoll-spoilt' => '(Invalide)',
+	'securepoll-exhausted' => '(Exhaurite)',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -6331,6 +6349,9 @@ $1',
 	'securepoll-strength-matrix' => 'Матрица за јачина на патеката',
 	'securepoll-ranks' => 'Конечно рангирање',
 	'securepoll-average-score' => 'Просечна оценка',
+	'securepoll-round' => 'Коло $1',
+	'securepoll-spoilt' => '(Расипани)',
+	'securepoll-exhausted' => '(Исцрпени)',
 );
 
 /** Malayalam (മലയാളം)
@@ -6457,6 +6478,9 @@ $1',
 	'securepoll-pairwise-victories' => 'ജോഡിയായുള്ള വിജയ മട്രിക്സ്',
 	'securepoll-ranks' => 'അന്തിമ റാങ്കിങ്',
 	'securepoll-average-score' => 'ശരാശരി സ്കോർ',
+	'securepoll-round' => 'ഘട്ടം  1',
+	'securepoll-spoilt' => '(അസ്പഷ്ടം)',
+	'securepoll-exhausted' => '(തീർന്നവ)',
 );
 
 /** Mongolian (Монгол)
@@ -7745,6 +7769,9 @@ Można podliczyć wyniki obecne w bazie danych lub podliczyć wyniki z przesłan
 	'securepoll-strength-matrix' => 'Wybór poprzez ustawienie w kolejności',
 	'securepoll-ranks' => 'Ranking końcowy',
 	'securepoll-average-score' => 'Wynik średni',
+	'securepoll-round' => '$1 tura',
+	'securepoll-spoilt' => '(nieważny)',
+	'securepoll-exhausted' => '(wyczerpany)',
 );
 
 /** Piedmontese (Piemontèis)
@@ -8035,6 +8062,9 @@ Pode escolher entre apurar os resultados presentes na base de dados, ou apurar r
 	'securepoll-strength-matrix' => 'Matriz de forças de caminho',
 	'securepoll-ranks' => 'Classificação final',
 	'securepoll-average-score' => 'Pontuação média',
+	'securepoll-round' => 'Ronda $1',
+	'securepoll-spoilt' => '(Danificadas)',
+	'securepoll-exhausted' => '(Esgotadas)',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
@@ -8103,6 +8133,7 @@ Você deve classificar todas as opções com uma nota entre 1 e 999.',
 	'securepoll-api-token-mismatch' => 'Token de segurança não confere, não foi possível autenticar.',
 	'securepoll-not-logged-in' => 'Você deve se registrar para votar nesta eleição',
 	'securepoll-too-few-edits' => 'Desculpe, você não pode votar. É preciso ter feito no mínimo $1 {{PLURAL:$1|edição|edições}} para votar nesta eleição, você fez $2.',
+	'securepoll-too-new' => 'Desculpe-nos, você não pode votar. Sua conta precisaria ter sido registrada antes de $1 para votar nesta eleição, e você se registrou em $2.',
 	'securepoll-blocked' => 'Desculpe, você não pode votar nesta eleição se no momento você está bloqueado de editar.',
 	'securepoll-bot' => "Desculpe, contas de programas robôs (marcadas como ''bot'') não podem votar nesta eleição.",
 	'securepoll-not-in-group' => 'Apenas os membros do grupo "$1" podem votar nesta eleição.',
@@ -8169,6 +8200,9 @@ Você pode escolher entre realizar a contagem de votos dos resultados presentes 
 	'securepoll-strength-matrix' => 'Matriz de forças de caminho',
 	'securepoll-ranks' => 'Classificação final',
 	'securepoll-average-score' => 'Pontuação média',
+	'securepoll-round' => 'Ronda $1',
+	'securepoll-spoilt' => '(Danificadas)',
+	'securepoll-exhausted' => '(Esgotadas)',
 );
 
 /** Quechua (Runa Simi)
@@ -9326,6 +9360,7 @@ Vsem možnostim morate določiti uvrstitev med 1 in 999.',
 	'securepoll-api-token-mismatch' => 'Neujemanje varnostnega žetona; ne morem vas prijaviti.',
 	'securepoll-not-logged-in' => 'Za glasovanje na teh volitvah se morate prijaviti.',
 	'securepoll-too-few-edits' => 'Oprostite, ne morete voliti. Morali bi storiti najmanj $1 {{PLURAL:$1|urejanje|urejanji|urejanja|urejanj}} za voljenje na teh volitvah; naredili ste jih $2.',
+	'securepoll-too-new' => 'Oprostite, ne morete glasovati. Za glasovanje mora biti vaš račun registriran pred dnem $1; registrirali ste se dne $2.',
 	'securepoll-blocked' => 'Oprostite, ne morete voliti na teh volitvah, če vam je urejanje trenutno preprečeno.',
 	'securepoll-bot' => 'Oprostite, računom z oznako robota ni dovoljeno voliti na teh volitvah.',
 	'securepoll-not-in-group' => 'Samo člani skupine »$1« lahko volijo na teh volitvah.',
@@ -9392,6 +9427,9 @@ Za zagotavljanje zasebnosti volivcev so šifrirani volilni zapisi javno vidni š
 	'securepoll-strength-matrix' => 'Matrica moči poti',
 	'securepoll-ranks' => 'Končna uvrstitev',
 	'securepoll-average-score' => 'Povprečni rezultat',
+	'securepoll-round' => 'Krog $1',
+	'securepoll-spoilt' => '(Neveljavno)',
+	'securepoll-exhausted' => '(Izkoriščeno)',
 );
 
 /** Albanian (Shqip)
