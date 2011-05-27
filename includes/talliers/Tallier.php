@@ -29,6 +29,11 @@ abstract class SecurePoll_Tallier {
 		}
 	}
 
+	/**
+	 * @param  $context SecurePoll_Context
+	 * @param  $electionTallier SecurePoll_ElectionTallier
+	 * @param  $question SecurePoll_Question
+	 */
 	function __construct( $context, $electionTallier, $question ) {
 		$this->context = $context;
 		$this->question = $question;

@@ -61,7 +61,10 @@ class SecurePoll_Context {
 		}
 	}
 
-	/** Get the ParserOptions instance */
+	/**
+	 * Get the ParserOptions instance
+	 * @return ParserOptions
+	 */
 	function getParserOptions() {
 		if ( !$this->parserOptions ) {
 			$this->parserOptions = new ParserOptions;
@@ -69,7 +72,10 @@ class SecurePoll_Context {
 		return $this->parserOptions;
 	}
 
-	/** Get the SecurePoll_Store instance */
+	/**
+	 * Get the SecurePoll_Store instance
+	 * @return SecurePoll_Store
+	 */
 	function getStore() {
 		if ( !isset( $this->store ) ) {
 			$this->store = new $this->storeClass;
@@ -167,6 +173,7 @@ class SecurePoll_Context {
 	/**
 	 * Get a SecurePoll_Random instance. This provides cryptographic random 
 	 * number generation.
+	 * @return SecurePoll_Random
 	 */
 	function getRandom() {
 		if ( !$this->random ) {
@@ -238,6 +245,7 @@ class SecurePoll_Context {
 	/**
 	 * Get a database object, or throw an exception if the current store object 
 	 * does not support database operations.
+	 * @return DatabaseBase
 	 */
 	function getDB() {
 		if ( !isset( $this->db ) ) {

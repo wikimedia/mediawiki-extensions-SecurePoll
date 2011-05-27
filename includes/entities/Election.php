@@ -176,6 +176,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 				$wgLang->timeanddate( $date )
 			);
 		}
+
 		# Blocked
 		$notBlocked = $this->getProperty( 'not-blocked' );
 		$isBlocked = !empty( $props['blocked'] );

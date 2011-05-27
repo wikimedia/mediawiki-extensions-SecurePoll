@@ -6,6 +6,11 @@
 class SecurePoll_PluralityTallier extends SecurePoll_Tallier {
 	var $tally = array();
 
+	/**
+	 * @param  $context SecurePoll_Context
+	 * @param  $electionTallier SecurePoll_ElectionTallier
+	 * @param  $question SecurePoll_Question
+	 */
 	function __construct( $context, $electionTallier, $question ) {
 		parent::__construct( $context, $electionTallier, $question );
 		foreach ( $question->getOptions() as $option ) {
