@@ -159,6 +159,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * @return Status
 	 */
 	function getQualifiedStatus( $params ) {
+		global $wgLang;
 		$props = $params['properties'];
 		$status = Status::newGood();
 
@@ -166,14 +167,13 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		$minEdits = $this->getProperty( 'min-edits' );
 		$edits = isset( $props['edit-count'] ) ? $props['edit-count'] : 0;
 		if ( $minEdits && $edits < $minEdits ) {
-			$status->fatal( 'securepoll-too-few-edits', $minEdits, $edits );
+			$status->fatal( 'securepoll-too-few-edits', $wgLang->formatNum( $minEdits), $wgLang->formatNum( $edits ) );
 		}
 
 		# Registration date
 		$maxDate = $this->getProperty( 'max-registration' );
 		$date = isset( $props['registration'] ) ? $props['registration'] : 0;
 		if ( $maxDate && $date > $maxDate ) {
-			global $wgLang;
 			$status->fatal( 
 				'securepoll-too-new', 
 				$wgLang->timeanddate( $maxDate ), 
@@ -193,7 +193,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		$centralBlockCount = isset( $props['central-block-count'] ) ? $props['central-block-count'] : 0;
 		$centralBlockThreshold = $this->getProperty( 'central-block-threshold', 1 );
 		if ( $centralBlockCount >= $centralBlockThreshold ) {
-			$status->fatal( 'securepoll-blocked-centrally', $centralBlockThreshold );
+			$status->fatal( 'securepoll-blocked-centrally', $wgLang->formatNum( $centralBlockThreshold ) );
 		}
 
 		# Bot
