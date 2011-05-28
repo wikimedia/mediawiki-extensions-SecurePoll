@@ -253,7 +253,7 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 			return 0;
 		}
 		
-		$centralUser = new CentralAuthUser( $user );
+		$centralUser = new CentralAuthUser( $user->getName() );
 		
 		$attached = $centralUser->queryAttached();
 		$blockCount = 0;
