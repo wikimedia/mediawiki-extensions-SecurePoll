@@ -1841,7 +1841,9 @@ Musíte všem možnostem přidělit pořadí mezi 1 a 999.',
 	'securepoll-api-token-mismatch' => 'Nesouhlasí bezpečnostní kód, nelze se přihlásit.',
 	'securepoll-not-logged-in' => 'Abyste mohl(a) hlasovat, musíte se přihlásit.',
 	'securepoll-too-few-edits' => 'Promiňte, ale nemůžete hlasovat. V těchto volbách mohou hlasovat jen uživatelé s nejméně $1 {{PLURAL:$1|editací|editacemi}}, vy máte $2.',
+	'securepoll-too-new' => 'Je nám líto, ale nemůžete hlasovat. Pro účast v tomto hlasování by váš účet musel být založen před $1, {{gender:|zaregistroval|zaregistrovala|zaregistrovali}} jste se však $2.',
 	'securepoll-blocked' => 'Promiňte, ale nemůžete se zúčastnit tohoto hlasování, pokud je vám momentálně zablokována editace.',
+	'securepoll-blocked-centrally' => 'Je nám líto, ale tohoto hlasování se nemůžete zúčastnit, pokud jste {{gender:|blokován|blokována|blokováni}} na $1 nebo více wiki.',
 	'securepoll-bot' => 'Promiňte, ale účty s příznakem bot se nemohou tohoto hlasování účastnit.',
 	'securepoll-not-in-group' => 'Tohoto hlasování se mohou účastnit pouze uživatelé ve skupině „$1“.',
 	'securepoll-not-in-list' => 'Promiňte, ale nejste v předpřipraveném seznamu uživatelů oprávněných zúčasnit se tohoto hlasování.',
@@ -3773,6 +3775,9 @@ Vos dête balyér un rang entre-mié 1 et 999 a tôs los chouèx.',
 	'securepoll-strength-matrix' => 'Matrice de fôrce des chemins',
 	'securepoll-ranks' => 'Cllassement final',
 	'securepoll-average-score' => 'Mârca moyena',
+	'securepoll-round' => 'Tôrn $1',
+	'securepoll-spoilt' => '(Blancs ou ben nuls)',
+	'securepoll-exhausted' => '(Èpouesiê)',
 );
 
 /** Western Frisian (Frysk)
@@ -8825,6 +8830,13 @@ $1',
 	'securepoll-strength-matrix' => 'Матріця силы стежок',
 	'securepoll-ranks' => 'Конечный рейтінґ',
 	'securepoll-average-score' => 'Середнє оцінїня',
+);
+
+/** Sanskrit (संस्कृत)
+ * @author Vibhijain
+ */
+$messages['sa'] = array(
+	'securepoll-api-invalid-params' => 'अपुष्ट प्राचलक।',
 );
 
 /** Yakut (Саха тыла)
