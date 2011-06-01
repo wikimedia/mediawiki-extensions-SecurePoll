@@ -10948,7 +10948,9 @@ Bạn phải xếp hạng từ 1 đến 999 cho tất cả các ứng viên.',
 	'securepoll-api-token-mismatch' => 'Dấu hiệu bảo mật không trùng, không thể đăng nhập.',
 	'securepoll-not-logged-in' => 'Bạn phải đăng nhập để bỏ phiếu trong cuộc bầu cử này',
 	'securepoll-too-few-edits' => 'Xin lỗi, bạn không thể bỏ phiếu. Bạn cần thực hiện tối thiểu $1 {{PLURAL:$1|sửa đổi|sửa đổi}} để bỏ phiếu trong cuộc bầu cử này, bạn chỉ mới thực hiện $2 sửa đổi.',
+	'securepoll-too-new' => 'Rất tiếc, bạn không được phép bỏ phiếu. Để được phép tham gia cuộc bầu cử này, bạn cần phải mở tài khoản trước $1, nhưng bạn đăng ký vào $2.',
 	'securepoll-blocked' => 'Xin lỗi, bạn không thể bỏ phiếu trong cuộc bầu cử này nếu bạn đang bị cấm không được sửa đổi.',
+	'securepoll-blocked-centrally' => 'Rất tiếc, bạn không được phép tham gia cuộc bầu cử này nếu bị cấm tại $1 wiki trở lên.',
 	'securepoll-bot' => 'Xin lỗi, tài khoản có cờ bot không được phép bỏ phiếu trong cuộc bầu cử này.',
 	'securepoll-not-in-group' => 'Chỉ có những thành viên của nhóm “$1” mới có thể bỏ phiếu trong cuộc bầu cử này.',
 	'securepoll-not-in-list' => 'Xin lỗi, bạn không nằm trong danh sách các thành viên được phép bỏ phiếu trong cuộc bầu cử này.',
@@ -11014,6 +11016,9 @@ Bạn có thể lựa chọn hoặc kiểm kết quả hiện có trong cơ sở
 	'securepoll-strength-matrix' => 'Ma trận độ mạnh đường đi',
 	'securepoll-ranks' => 'Xếp hạng sau cùng',
 	'securepoll-average-score' => 'Điểm số trung bình',
+	'securepoll-round' => 'Vòng $1',
+	'securepoll-spoilt' => '(Hỏng)',
+	'securepoll-exhausted' => '(Quá hạn)',
 );
 
 /** Volapük (Volapük)
