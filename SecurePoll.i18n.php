@@ -10533,10 +10533,14 @@ Veritabanında mevcut sonuçları saymayı, ya da yüklenen bir dosyadan şifrel
 );
 
 /** Tatar (Cyrillic) (Татарча/Tatarça (Cyrillic))
+ * @author Bulatbulat
  * @author KhayR
  * @author Ильнар
  */
 $messages['tt-cyrl'] = array(
+	'securepoll-not-started' => 'Бу тавыш бирүләр әле башланмаганнар.
+Башлану вакыты:$2 $3',
+	'securepoll-finished' => 'Бу тавыш бирү тәмамланган, хәзер сез тавыш бирә алмыйсыз.',
 	'securepoll-header-timestamp' => 'Вакыт',
 	'securepoll-header-voter-name' => 'Исем',
 	'securepoll-header-voter-domain' => 'Домен',
@@ -11070,6 +11074,19 @@ $messages['yi'] = array(
 <pre>$1</pre>',
 	'securepoll-thanks' => ' ייש"כ, אײַער שטים איז געווארן פֿאַרשריבן.',
 	'securepoll-return' => 'צוריק צו $1',
+	'securepoll-encrypt-error' => 'האט נישט געקענט אויסבאהאלטן אייער שטים רעקארד.
+אייער שטים איז נישט געווארן איינגעשפייכלערט!
+
+$1',
+	'securepoll-no-gpg-home' => 'נישט געקענט שאפן GPG היים טעקע־האלטער',
+	'securepoll-secret-gpg-error' => 'גרײַז ביים אויספירן GPG.
+ניצט $wgSecurePollShowErrorDetail=true; אין LocalSettings.php צו ווייזן נאך פרטים.',
+	'securepoll-full-gpg-error' => 'גרײַז ביים אויספירן GPG:
+
+באפעל: $1
+
+גרײַז:
+<pre>$2</pre>',
 	'securepoll-jump' => 'גייט צום אָפּשטימונג סערווירער',
 	'securepoll-bad-ballot-submission' => 'אײַער שטים איז געווען אומגילטיג: $1',
 	'securepoll-unanswered-questions' => 'איר מוזט ענטפערן אלע שאלות.',
@@ -11079,7 +11096,10 @@ $messages['yi'] = array(
 	'securepoll-api-no-user' => 'קיין באַניצער נישט געפֿונען מיט דעם נומער.',
 	'securepoll-not-logged-in' => 'איר מוזט אריינלאגירן צו שטימען אין דער אפשטימונג',
 	'securepoll-too-few-edits' => 'איר קענט ליידער ניט שטימען. איר דאַרפֿט האָבן מינדסטערטנס $1 {{PLURAL:$1| רעדאַקטירונג| רעדאַקטירונגען}} צו שטימען אין די וואַלן; איר האָט נאר $2 .',
+	'securepoll-too-new' => 'אנטשולדיגט, איר קענט ניט שטימען. אייער קאנטע דאַרף צו האָבן געווען רעגיסטרירט פֿאַר $1 צו שטימען אין די וואַלן, איר האט רעגיסטרירט אום $2 .',
 	'securepoll-blocked' => 'אנטשולדיגט, איר קענט נישט שטימען אין די וואלן אויב איר זענט אצינד בלאקירט פון רעדאקטירן.',
+	'securepoll-blocked-centrally' => 'אנטשולדיגט, איר קענט ניט שטימען אין די וואַלן ווען איר זענט בלאקירט אויף $1 אדער מער {{PLURAL:$1|וויקי|וויקיס}}.',
+	'securepoll-bot' => 'אנטשולדיגט, קאנטעס מיטן באָט פאָן זענען נישט ערלויבט צו שטימען אין די וואַלן.',
 	'securepoll-not-in-group' => 'נאר מיטגלידער פון דער "$1" גרופע קענען שטימען אין די וואלן. ',
 	'securepoll-list-title' => 'רשימה פֿון שטימען: $1',
 	'securepoll-header-timestamp' => 'צײַט',
@@ -11299,6 +11319,7 @@ $messages['za'] = array(
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Bencmq
  * @author Biŋhai
+ * @author Deryck Chan
  * @author FireJackey
  * @author Liangent
  * @author PhiLiP
@@ -11357,7 +11378,9 @@ $1',
 	'securepoll-api-token-mismatch' => '安全标记不符，无法登录。',
 	'securepoll-not-logged-in' => '您必须登录后方可投票。',
 	'securepoll-too-few-edits' => '对不起，您不能投票。您必须至少进行$1{{PLURAL:$1|次|次}}编辑才能参与本次投票。您目前的编辑次数为$2。',
+	'securepoll-too-new' => '对不起，您不能投票。$1 之前登记的帐户才能在这次选举中投票，而你登记的日期是 $2 。',
 	'securepoll-blocked' => '对不起，您目前被封禁因此无法参与本次投票。',
+	'securepoll-blocked-centrally' => '对不起，由于你的帐户在 $1 或 其他 {{PLURAL:$1|wiki|wiki}} 被封禁，所以你并不能在这次选举中投票。',
 	'securepoll-bot' => '对不起，拥有机器人权限的账户不能参与本次投票。',
 	'securepoll-not-in-group' => '只有属于“$1”用户组的用户可以投票。',
 	'securepoll-not-in-list' => '对不起，您不在投票人名单中，无法参与本次投票。',
@@ -11421,11 +11444,15 @@ $1',
 	'securepoll-strength-matrix' => 'Path strength矩阵',
 	'securepoll-ranks' => '最终排名',
 	'securepoll-average-score' => '平均分',
+	'securepoll-round' => '第$1轮',
+	'securepoll-spoilt' => '(废票)',
+	'securepoll-exhausted' => '(用尽)',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
  * @author Alexsh
  * @author Bencmq
+ * @author Deryck Chan
  * @author FireJackey
  * @author Gaoxuewei
  * @author Liangent
@@ -11491,7 +11518,7 @@ $1',
 	'securepoll-api-token-mismatch' => '安全標記不符，無法登入。',
 	'securepoll-not-logged-in' => '您必須在投票前登入。',
 	'securepoll-too-few-edits' => '對不起，您未能參與投票。您必須最少進行 $1 次編輯才能參與本次投票，而您目前的編輯次數為 $2。',
-	'securepoll-too-new' => '對不起，你的帳戶需要在$1註冊，你才合乎資格在這次選舉中投票，而你的在$2註冊。',
+	'securepoll-too-new' => '對不起，你的帳戶需要在$1註冊，你才合乎資格在這次選舉中投票，而你註冊的日期是$2 。',
 	'securepoll-blocked' => '對不起，因為您目前已被封禁所以您無法參與本次投票。',
 	'securepoll-blocked-centrally' => '對不起，由於你的帳戶在$1 或 其他 {{PLURAL:$1|wiki|wiki}} 被封禁，所以你並不能在這次選舉中投票。',
 	'securepoll-bot' => '抱歉，擁有機器人權限的用戶不能參與本投票。',
@@ -11558,6 +11585,9 @@ $1',
 	'securepoll-strength-matrix' => 'Path strength 矩陣',
 	'securepoll-ranks' => '最終排名',
 	'securepoll-average-score' => '平均分',
+	'securepoll-round' => '第$1輪',
+	'securepoll-spoilt' => '(廢票)',
+	'securepoll-exhausted' => '(用盡)',
 );
 
 /** Chinese (Hong Kong) (‪中文(香港)‬)
