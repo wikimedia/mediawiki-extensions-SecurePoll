@@ -5147,7 +5147,7 @@ Devi assegnare a ciascuna voce un voto compreso tra 1 e 999.',
 	'securepoll-api-invalid-params' => 'Parametri non validi.',
 	'securepoll-api-no-user' => "Non è stato trovato alcun utente con l'ID fornito.",
 	'securepoll-api-token-mismatch' => 'I token di sicurezza non coincidono, non puoi entrare.',
-	'securepoll-not-logged-in' => "È necessario eseguire l'accesso per votare il questa elezione",
+	'securepoll-not-logged-in' => "È necessario eseguire l'accesso per votare in queste elezioni",
 	'securepoll-too-few-edits' => 'Spiacente, non puoi votare. Devi aver effettuato almeno $1 {{PLURAL:$1|modifica|modifiche}} per votare in questa elezione, tu ne hai fatte $2.',
 	'securepoll-blocked' => 'Spiacente, non puoi votare in questa elezione se sei stato bloccato dalla modifica.',
 	'securepoll-bot' => 'Spiacente, gli account con lo status di bot non sono ammessi a votare in questa elezione.',
@@ -6542,6 +6542,31 @@ $messages['mn'] = array(
 	'securepoll-strike-reason' => 'Шалтгаан:',
 	'securepoll-strike-cancel' => 'Цуцлах',
 	'securepoll-header-reason' => 'Шалтгаан',
+);
+
+/** Marathi (मराठी)
+ * @author Sau6402
+ */
+$messages['mr'] = array(
+	'securepoll-invalid-election' => '"$1" हे योग्य  निवडनुक ओळखपत्र नाही.',
+	'securepoll-welcome' => '<strong>$1 चे स्वागत ! </strong>',
+	'securepoll-not-started' => 'अजुन निवडणुक सुरु झालेली नाही. ती $2 ला $3 वाजता आयोजित केली गेली आहे.',
+	'securepoll-finished' => 'निवडणुका संपल्या आहेत.आपण मतदान करू चाकात नाही.',
+	'securepoll-not-qualified' => 'आपण या निवडणुकीत मत देण्यास पात्र नाही आहात :$1',
+	'securepoll-submit' => 'मत नोंदवा',
+	'securepoll-header-timestamp' => 'वेळ',
+	'securepoll-header-voter-name' => 'नाव',
+	'securepoll-strike-reason' => 'कारण:',
+	'securepoll-details-link' => 'तपशील',
+	'securepoll-header-action' => 'क्रिया',
+	'securepoll-header-reason' => 'कारण',
+	'securepoll-header-start-date' => 'सुरूवात दिनांक',
+	'securepoll-header-end-date' => 'अंतिम दिनांक',
+	'securepoll-subpage-vote' => 'मत',
+	'securepoll-subpage-translate' => 'भाषांतर करा',
+	'securepoll-subpage-list' => 'यादी',
+	'securepoll-spoilt' => '(खराब होणे)',
+	'securepoll-exhausted' => '(थकून जाणे)',
 );
 
 /** Malay (Bahasa Melayu)
@@ -11169,6 +11194,7 @@ $messages['yo'] = array(
 );
 
 /** Cantonese (粵語)
+ * @author Deryck Chan
  * @author Horacewai2
  * @author Shinjiman
  * @author Waihorace
@@ -11232,6 +11258,7 @@ $1',
 	'securepoll-api-token-mismatch' => '安全幣唔對，唔可以登入。',
 	'securepoll-not-logged-in' => '你一定要登入咗先可以響呢次選舉度投票',
 	'securepoll-too-few-edits' => '對唔住，你唔可以投票。你需要有最少$1次編輯先可以投票，你而家有$2次。',
+	'securepoll-too-new' => '對唔住，你唔投得票。$1之前註冊嘅用戶先有資格喺今次選舉投票，而你註冊嘅時間係$2。',
 	'securepoll-blocked' => '對唔住，當你而家被封鎖嗰陣唔可以響呢次選舉度投票。',
 	'securepoll-bot' => '對唔住，有機械人旗嘅戶口係唔容許響呢次選舉度投票。',
 	'securepoll-not-in-group' => '只有『$1』組嘅成員先可以響呢次選舉度投票。',
@@ -11298,6 +11325,9 @@ $1',
 	'securepoll-strength-matrix' => '實力矩陣嘅路徑',
 	'securepoll-ranks' => '最後評分',
 	'securepoll-average-score' => '平均分',
+	'securepoll-round' => '第$1輪',
+	'securepoll-spoilt' => '(廢票)',
+	'securepoll-exhausted' => '(用盡)',
 );
 
 /** Zhuang (Vahcuengh)
