@@ -396,6 +396,7 @@ $messages['an'] = array(
 );
 
 /** Arabic (العربية)
+ * @author Aiman titi
  * @author Meno25
  * @author Orango
  * @author OsamaK
@@ -459,7 +460,9 @@ $1',
 	'securepoll-api-token-mismatch' => 'نص الأمان لا يطابق، لا يمكن تسجيل الدخول.',
 	'securepoll-not-logged-in' => 'يجب أن تدخل لتصوت في هذه الانتخابات',
 	'securepoll-too-few-edits' => 'عذرا لا يمكنك التصويت. يجب أن تقوم ب{{PLURAL:$1||تعديل واحد|تعديلين|$1 تعديلات|$1 تعديلًا|$1 تعديل}} على الأقل لتصوت في هذه الانتخابات، بينما قمت ب$2.',
+	'securepoll-too-new' => 'عذراً، لا يمكنك التصويت.  يسمح فقط بالتصويت للحسابات المسجلة قبل $1 في هذه الانتخابات، يمكنك تسجيل على $2.',
 	'securepoll-blocked' => 'عذرا، لا تستطيع التصويت في هذه الانتخابات إذا كنت ممنوعا حاليا من التعديل.',
+	'securepoll-blocked-centrally' => 'عذراً، لا يمكنك التصويت في هذه الانتخابات بسبب منعك على $1 أو أكثر {{PLURAL:$1|wiki|wikis}}.',
 	'securepoll-bot' => 'عذرا، الحسابات ذات أعلام البوت غير مسموح لها بالتصويت في هذه الانتخابات.',
 	'securepoll-not-in-group' => 'فقط المستخدمين من المجموعة "$1" يمكنهم التصويت في هذه الانتخابات.',
 	'securepoll-not-in-list' => 'عذرا، لست في القائمة المُعدّة للمستخدمين المصرح لهم بالتصويت في هذه الانتخابات.',
@@ -531,6 +534,9 @@ $1',
 	'securepoll-strength-matrix' => 'مصفوفة قوة المسار',
 	'securepoll-ranks' => 'الترتيب النهائي',
 	'securepoll-average-score' => 'نتيجة متوسطة',
+	'securepoll-round' => 'الجولة $1',
+	'securepoll-spoilt' => '(محيرة)',
+	'securepoll-exhausted' => '(منهك)',
 );
 
 /** Aramaic (ܐܪܡܝܐ)
@@ -6554,17 +6560,33 @@ $messages['mr'] = array(
 	'securepoll-finished' => 'निवडणुका संपल्या आहेत.आपण मतदान करू चाकात नाही.',
 	'securepoll-not-qualified' => 'आपण या निवडणुकीत मत देण्यास पात्र नाही आहात :$1',
 	'securepoll-submit' => 'मत नोंदवा',
+	'securepoll-thanks' => 'धन्यावाद ,आपले मत नोंदवले गेले आहेत.',
+	'securepoll-return' => '$1 कडे परत चला.',
+	'securepoll-jump' => 'मतदान सर्वरला जा',
+	'securepoll-bad-ballot-submission' => 'आपले मत अयोग्य होते : $1',
+	'securepoll-unanswered-questions' => 'आपणास सर्व प्रश्नांची उत्तरे द्यायची आहेत.',
+	'securepoll-invalid-score' => 'आपले गुण $1 ते $2 या आकड्यान मधेच पाहिजे.',
+	'securepoll-unanswered-options' => 'आपल्याला प्रत्येक प्रश्नाला काहीतरी प्रतिक्रिया द्यायचीच आहे.',
 	'securepoll-header-timestamp' => 'वेळ',
 	'securepoll-header-voter-name' => 'नाव',
+	'securepoll-header-details' => 'तपशील',
 	'securepoll-strike-reason' => 'कारण:',
+	'securepoll-strike-cancel' => 'रद्द करा',
 	'securepoll-details-link' => 'तपशील',
 	'securepoll-header-action' => 'क्रिया',
 	'securepoll-header-reason' => 'कारण',
+	'securepoll-translate-title' => '$1 या भाषेत भाषांतर करा',
+	'securepoll-language-label' => 'भाषा निवडा :',
+	'securepoll-submit-select-lang' => 'भाषांतर करा',
+	'securepoll-entry-text' => ' मतांची यादी खालील प्रमाणे आहे.',
+	'securepoll-header-title' => 'नाव',
 	'securepoll-header-start-date' => 'सुरूवात दिनांक',
 	'securepoll-header-end-date' => 'अंतिम दिनांक',
 	'securepoll-subpage-vote' => 'मत',
 	'securepoll-subpage-translate' => 'भाषांतर करा',
 	'securepoll-subpage-list' => 'यादी',
+	'securepoll-average-score' => 'सारासरी गुण',
+	'securepoll-round' => 'फेरी $1',
 	'securepoll-spoilt' => '(खराब होणे)',
 	'securepoll-exhausted' => '(थकून जाणे)',
 );
