@@ -6567,15 +6567,21 @@ $messages['mr'] = array(
 	'securepoll-unanswered-questions' => 'आपणास सर्व प्रश्नांची उत्तरे द्यायची आहेत.',
 	'securepoll-invalid-score' => 'आपले गुण $1 ते $2 या आकड्यान मधेच पाहिजे.',
 	'securepoll-unanswered-options' => 'आपल्याला प्रत्येक प्रश्नाला काहीतरी प्रतिक्रिया द्यायचीच आहे.',
+	'securepoll-list-title' => 'मत यादी: $1',
 	'securepoll-header-timestamp' => 'वेळ',
 	'securepoll-header-voter-name' => 'नाव',
+	'securepoll-header-cookie-dup' => 'उघडणे',
 	'securepoll-header-details' => 'तपशील',
 	'securepoll-strike-reason' => 'कारण:',
 	'securepoll-strike-cancel' => 'रद्द करा',
 	'securepoll-details-link' => 'तपशील',
+	'securepoll-header-voter-type' => 'उमेद्वाराचे प्रकार',
+	'securepoll-voter-properties' => 'उमेद्वाराचे गुणधर्म',
 	'securepoll-header-action' => 'क्रिया',
 	'securepoll-header-reason' => 'कारण',
 	'securepoll-translate-title' => '$1 या भाषेत भाषांतर करा',
+	'securepoll-invalid-language' => 'अयोग्य भाषा क्रमांक "$1"',
+	'securepoll-submit-translate' => 'अद्ययावत',
 	'securepoll-language-label' => 'भाषा निवडा :',
 	'securepoll-submit-select-lang' => 'भाषांतर करा',
 	'securepoll-entry-text' => ' मतांची यादी खालील प्रमाणे आहे.',
@@ -6585,6 +6591,7 @@ $messages['mr'] = array(
 	'securepoll-subpage-vote' => 'मत',
 	'securepoll-subpage-translate' => 'भाषांतर करा',
 	'securepoll-subpage-list' => 'यादी',
+	'securepoll-ranks' => 'अंतिम क्रमवारी',
 	'securepoll-average-score' => 'सारासरी गुण',
 	'securepoll-round' => 'फेरी $1',
 	'securepoll-spoilt' => '(खराब होणे)',
@@ -9563,6 +9570,7 @@ Za zagotavljanje zasebnosti volivcev so šifrirani volilni zapisi javno vidni š
 /** Albanian (Shqip)
  * @author Mikullovci11
  * @author Olsi
+ * @author Vinie007
  */
 $messages['sq'] = array(
 	'securepoll' => 'SondazhiSigurt',
@@ -9621,7 +9629,9 @@ Ju  duhet tu jepni të gjitha opsioneve një renditej ndërmjet 1 dhe 999.',
 	'securepoll-api-token-mismatch' => 'Shenja e sigurisë mungon, nuk mund të hyjë brenda.',
 	'securepoll-not-logged-in' => 'Ju duhet të hyni brenda për të votuar në këtë zgjedhje',
 	'securepoll-too-few-edits' => 'Na vjen keq, ju nuk mund të votoni. Ju duhe të keni bërë të paktën $1 {{PLURAL:$1|redaktim|redaktime}} për të votuar në këtë zgjedhje, ju keni bërë $2.',
+	'securepoll-too-new' => 'Na vjen keq, ju nuk mund të votojnë. Llogaria juaj duhet të ketë qenë regjistruar para se të $1 për të votuar në këto zgjedhje, jeni regjistruar në $2 .',
 	'securepoll-blocked' => 'Na vjen keq, ju nuk mund të votoni në këtë zgjedhje nëse jeni aktualisht bllokuar nga redaktimi.',
+	'securepoll-blocked-centrally' => 'Na vjen keq, ju nuk mund të votojnë në këto zgjedhje, nëse ju jeni bllokuar nga $1 ose më shumë {{PLURAL:$1| wiki|wikis}}.',
 	'securepoll-bot' => 'Na vjen keq, llogaritë me flamur robori nuk lejohen që të votojnë në këtë zgjedhje.',
 	'securepoll-not-in-group' => 'Vetëm anëtarët e grupit "$1" mund të votojnë në këtë zgjedhje.',
 	'securepoll-not-in-list' => 'Na vjen keq, ju nuk listën e paracaktuar të përdoruesve të autorizuar për të votuar në këtë zgjedhje.',
@@ -9687,6 +9697,9 @@ Ju mund të zgjidhni ose të shënoni rezultatin e tanishëm në bazën e të dh
 	'securepoll-strength-matrix' => 'Path strength matrix',
 	'securepoll-ranks' => 'Rendtija përfundimtare',
 	'securepoll-average-score' => 'Rezultati mesatar',
+	'securepoll-round' => 'Round $1',
+	'securepoll-spoilt' => '(Spoilt)',
+	'securepoll-exhausted' => '(Lodhur)',
 );
 
 /** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
