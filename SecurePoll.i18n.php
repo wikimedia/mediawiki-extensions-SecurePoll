@@ -4246,6 +4246,7 @@ $1',
 );
 
 /** Hindi (हिन्दी)
+ * @author Sau6402
  * @author Vsrawat
  * @author आलोक
  */
@@ -4253,7 +4254,7 @@ $messages['hi'] = array(
 	'securepoll' => 'सुरक्षितनिर्वाचन',
 	'securepoll-desc' => 'निर्वाचनों और सर्वेक्षणों के लिए विस्तार',
 	'securepoll-invalid-page' => 'अवैध उपपृष्ठ "<nowiki>$1</nowiki>"',
-	'securepoll-need-admin' => 'यह क्रिया करने के लिए आपको एक एडमिन होना चाहिए।',
+	'securepoll-need-admin' => 'यह क्रिया करने के लिए आपको एक चुनाव व्यवस्थापक होना चाहिए।',
 	'securepoll-too-few-params' => 'उपपृष्ठ के समुचित प्राचलक नहीं है (अमान्य कड़ी).',
 	'securepoll-invalid-election' => '"$1" कोई वैध निर्वाचन आई डी नहीं है।',
 	'securepoll-welcome' => '<strong>स्वागत $1!</strong>',
@@ -4302,6 +4303,8 @@ $1',
 	'securepoll-unranked-options' => 'कुछ विकल्पों को क्रम नहीं दिया गया था।
 
 आपको सभी विकल्पों को 1 से 999 के बीच में कोई क्रम देना चाहिए।',
+	'securepoll-invalid-score' => 'आपके गुण $1 और $2 संख्या के बीचमे होनी चाहिए',
+	'securepoll-unanswered-options' => 'आपको हर सवाल के लिए प्रतिसाद देना आवश्यक है।',
 	'securepoll-remote-auth-error' => 'इस सर्वर से आपके खाते की जानकारी ले के आने में त्रुटि।',
 	'securepoll-remote-parse-error' => 'इस सर्वर से इस अधिकृतिकरण के उत्तर को बाँचने में त्रुटि।',
 	'securepoll-api-invalid-params' => 'अवैध प्राचलक।',
@@ -4310,6 +4313,7 @@ $1',
 	'securepoll-not-logged-in' => 'आपको इस निर्वाचन में मतदान करने के लिए लॉग इन अवश्य करना चाहिए।',
 	'securepoll-too-few-edits' => 'क्षमा कीजिए, आप मतदान नहीं कर सकते। इस निर्वाचन में मतदान करने के लिए आपको न्यूनतम $1 संपादन {{PLURAL:$1|किया होना चाहिए|संपादन किए होने चाहिएँ}}, परंतु आपने $2 {{PLURAL:$2|किया है|किए हैं}}।',
 	'securepoll-blocked' => 'क्षमा कीजिए, आप इस निर्वाचन में मतदान नहीं कर सकते यदि आप वर्तमान में संपादन करने से बाधित हैं।',
+	'securepoll-blocked-centrally' => 'यदि आप पर अवरुद्ध कर रहे हैं खेद है, आप इस चुनाव में वोट नहीं कर सकते $1 या एक से अधिक {{PLURAL:$1| विकि | विकि}}',
 	'securepoll-bot' => 'क्षमा कीजिए, बोट झंडे वाले खातों को इस निर्वाचन में मतदान करने की अनुमति नहीं है।',
 	'securepoll-not-in-group' => 'केवल समूह "$1" के सदस्य ही इस निर्वाचन में मतदान कर सकते हैं।',
 	'securepoll-not-in-list' => 'क्षमा कीजिए, आपका नाम इस निर्वाचन में मतदान करने के लिए अधिकृत प्रयोक्ताओं की पूर्वनिर्धारित सूची में नहीं है।',
@@ -4357,6 +4361,7 @@ $1',
 	'securepoll-submit-translate' => 'अद्यतनित करें',
 	'securepoll-language-label' => 'भाषा का चयन करें:',
 	'securepoll-submit-select-lang' => 'अनुवाद करें',
+	'securepoll-entry-text' => 'नीचे चुनावों की सूची है ।',
 	'securepoll-header-title' => 'नाम',
 	'securepoll-header-start-date' => 'प्रारंभ समय',
 	'securepoll-header-end-date' => 'समाप्ति समय',
@@ -4381,6 +4386,10 @@ $1',
 	'securepoll-pairwise-victories' => 'जोड़ीबद्ध विजय मैट्रिक्स',
 	'securepoll-strength-matrix' => 'पथ की शक्ति का मैट्रिक्स',
 	'securepoll-ranks' => 'अंतिम क्रम',
+	'securepoll-average-score' => 'औसत गुण',
+	'securepoll-round' => 'दौर $1',
+	'securepoll-spoilt' => '(खराब)',
+	'securepoll-exhausted' => '(समाप्त)',
 );
 
 /** Croatian (Hrvatski)
