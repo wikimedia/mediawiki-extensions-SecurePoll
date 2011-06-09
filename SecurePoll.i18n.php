@@ -6669,7 +6669,9 @@ Semua pilihan perlu diberikan pangkat di antara 1 dan 999.',
 	'securepoll-api-token-mismatch' => 'Token keselamatan tidak serasi, tidak dapat log masuk.',
 	'securepoll-not-logged-in' => 'Anda mesti log masuk untuk mengundi dalam pemilihan ini',
 	'securepoll-too-few-edits' => 'Maaf, anda tak boleh undi. Anda perlu mempunyai sekurang-kurangnya $1 suntingan untuk undi dalam pemilihan ini, anda kini ada $2 sahaja.',
+	'securepoll-too-new' => 'Maaf, anda tidak boleh mengundi. Akaun mesti didaftarkan sebelum $1 untuk mengundi; anda berdaftar pada $2.',
 	'securepoll-blocked' => 'Maaf, anda tak boleh mengundi jika anda kini telah disekat daripada menyunting.',
+	'securepoll-blocked-centrally' => 'Maaf, anda tidak boleh mengundi dalam pemilihan ini jika anda disekat di $1 wiki atau lebih.',
 	'securepoll-bot' => 'Maaf, akaun dengan bendera bot tak dibenarkan untuk mengundi dalam pemilihan ini.',
 	'securepoll-not-in-group' => 'Hanya ahli kumpulan "$1" sahaja boleh undi dalam pemilihan ini.',
 	'securepoll-not-in-list' => 'Maaf, anda tidak berada dalam senarai pengguna yang dibenarkan untuk undi dalam pemilihan ini.',
@@ -6735,6 +6737,9 @@ Anda boleh memilih untuk menyemak keputusan yang ada dalam pangkalan data, atau 
 	'securepoll-strength-matrix' => 'Matriks kekuatan laluan',
 	'securepoll-ranks' => 'Kedudukan akhir',
 	'securepoll-average-score' => 'Mata purataba',
+	'securepoll-round' => 'Pusingan $1',
+	'securepoll-spoilt' => '(Rosak)',
+	'securepoll-exhausted' => '(Lupus)',
 );
 
 /** Maltese (Malti)
