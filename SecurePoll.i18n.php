@@ -2693,7 +2693,9 @@ $1',
 	'securepoll-api-token-mismatch' => 'Μη ταυτοποίηση κουπονιού ασφαλείας, δεν μπορείτε να συνδεθείτε.',
 	'securepoll-not-logged-in' => 'Πρέπει να συνδεθείτε για να ψηφίσετε σε αυτές τις εκλογές',
 	'securepoll-too-few-edits' => 'Λυπούμαστε, δεν μπορείτε να ψηφίσετε. Χρειάζεται να έχετε κάνει τουλάχιστον $1 {{PLURAL:$1|επεξεργασία|επεξεργασίες}} για να ψηφίσετε σε αυτή την ψηφοφορία, έχετε κάνει $2.',
+	'securepoll-too-new' => 'Συγνώμη, δεν μπορείτε να ψηφίσετε.  Ο λογαριασμός σας πρέπει να έχει δημιουργηθεί πριν από την $1 για να ψηφίσει σε αυτή την εκλογή, εσείς έχετε εγγραφεί την $2.',
 	'securepoll-blocked' => 'Λυπούμαστε, δεν μπορείτε να ψηφίσετε σε αυτή την ψηφοφορία αν είστε επί του παρόντος υπό φραγή από την επεξεργασία.',
+	'securepoll-blocked-centrally' => 'Συγγνώμη, δεν έχετε δικαίωμα ψήφου στην παρούσα εκλογή, αν είστε αποκλεισμένοι από τη $1 ή περισσότερα {{PLURAL:$1|wiki|wikis}}.',
 	'securepoll-bot' => 'Λυπούμαστε, οι λογαριασμοί με ιδιότητα bot δεν επιτρέπεται να ψηφίσουν σε αυτήν την ψηφοφορία.',
 	'securepoll-not-in-group' => "Μόνο τα μέλη της ομάδας $1 μπορούν να ψηφίσουν σ' αυτές τις εκλογές.",
 	'securepoll-not-in-list' => 'Λυπούμαστε, αλλά δεν βρίσκεστε στην προκαθορισμένη λίστα χρηστών που επιτρέπεται να ψηφίσουν στις εκλογές αυτές.',
@@ -2758,6 +2760,9 @@ $1',
 	'securepoll-strength-matrix' => 'Πίνακας ισχύος διαδρομών',
 	'securepoll-ranks' => 'Τελική κατάταξη',
 	'securepoll-average-score' => 'Μέσο σκορ',
+	'securepoll-round' => 'Γύρος $1',
+	'securepoll-spoilt' => '(Άκυρα)',
+	'securepoll-exhausted' => '(Εξαντλημένα)',
 );
 
 /** Esperanto (Esperanto)
@@ -7621,8 +7626,14 @@ Podètz causir de comptar los resultats dempuèi la banca de donadas o dempuèi 
  * @author Odisha1
  */
 $messages['or'] = array(
+	'securepoll-header-voter-name' => 'ନାମ',
 	'securepoll-strike-reason' => 'କାରଣ:',
+	'securepoll-strike-cancel' => 'ନାକଚ କରିଦିଅନ୍ତୁ',
+	'securepoll-details-link' => 'ଆହୁରି ଅଧିକ',
+	'securepoll-header-action' => 'କାମ',
 	'securepoll-header-reason' => 'କାରଣ',
+	'securepoll-submit-translate' => 'ଅପଡେଟ',
+	'securepoll-header-title' => 'ନାମ',
 	'securepoll-header-start-date' => 'ଆରମ୍ଭ ତାରିଖ',
 );
 
