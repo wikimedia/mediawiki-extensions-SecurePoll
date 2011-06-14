@@ -1438,7 +1438,9 @@ Ret deoc'h renkañ pep dibarzh etre 1 ha 999.",
 	'securepoll-api-token-mismatch' => 'Ne glot ket ar jedouer surentez, dibosupl emlugañ',
 	'securepoll-not-logged-in' => 'Rankout a rit kevreañ a-benn votiñ en dilennadeg-mañ.',
 	'securepoll-too-few-edits' => "Ho tigarez, n'hallit ket votiñ. Ret eo bezañ graet da nebeutañ $1 {{PLURAL:$1|degasadenn|degasadenn}} a-benn gallout mouezhiañ en dilennadeg-mañ, ha graet hoc'h eus $2.",
+	'securepoll-too-new' => "Ho tigarez, votiñ, n'hallit ket. Ret eo d'ho kont bezañ bet enrollet kent an $1 da c'hallout votiñ en dilennadeg-mañ. En em enrollet oc'h d'an $2.",
 	'securepoll-blocked' => "Ho tigarez, n'oc'h ket evit votiñ en dilennadeg-mañ pa'z eo stanket ho tegasadennoù evit ar mare.",
+	'securepoll-blocked-centrally' => "Ho tigarez, n'hallit ket votiñ en dilennadeg-mañ m'emaoc'h oc'h stanket war $1 pe {{PLURAL:$1|ur wiki|wikioù}} all.",
 	'securepoll-bot' => "Ho tigarez, n'hall ket ar c'hontoù dezho ar statud robod votiñ en dilennadeg-mañ",
 	'securepoll-not-in-group' => 'N\'eus nemet izili ar strollad "$1" a c\'hall kemer perzh ar votadeg-mañ.',
 	'securepoll-not-in-list' => "Ho tigarez, n'emaoc'h ket war roll raktermenet an implijerien aotreet da vouezhiañ er votadeg-mañ.",
@@ -3534,6 +3536,7 @@ Voit valita tuloslaskennan tietokantatiedoista, tai salakirjoitetuista tuloksist
  * @author Peter17
  * @author PieRRoMaN
  * @author Sherbrooke
+ * @author TouzaxA
  * @author Urhixidur
  * @author Verdy p
  * @author Yann
@@ -3549,7 +3552,7 @@ $messages['fr'] = array(
 	'securepoll-not-started' => 'L’élection n’a pas encore commencé.
 Elle débutera le $2 à $3.',
 	'securepoll-finished' => 'Cette élection est terminée, vous ne pouvez plus voter.',
-	'securepoll-not-qualified' => 'Vous n’êtes pas qualifié pour voter dans cette élection : $1',
+	'securepoll-not-qualified' => 'Vous n’êtes pas qualifié pour voter pour cette élection : $1',
 	'securepoll-change-disallowed' => 'Vous avez déjà voté pour cette élection.
 Désolé, vous ne pouvez pas voter une nouvelle fois.',
 	'securepoll-change-allowed' => '<strong>Note : Vous avez déjà voté pour cette élection.</strong>
@@ -3594,13 +3597,13 @@ Vous devez donner un rang entre 1 et 999 (inclus) à toutes les options.',
 	'securepoll-api-no-user' => 'Aucun utilisateur avec l’identifiant donné n’a été trouvé.',
 	'securepoll-api-token-mismatch' => 'Jeton de sécurité différent, connexion impossible.',
 	'securepoll-not-logged-in' => 'Vous devez vous connecter pour voter dans cette élection.',
-	'securepoll-too-few-edits' => 'Désolé, vous ne pouvez pas voter. Vous devez avoir effectué au moins {{PLURAL:$1|une modification|$1 modifications}} pour voter dans cette élection, vous en totalisez $2.',
-	'securepoll-too-new' => 'Désolé, vous ne pouvez pas voter. Votre compte devait être enregistré avant le $1 pour voter dans cette élection, vous vous êtes enregistré ​​le $2.',
-	'securepoll-blocked' => 'Désolé, vous ne pouvez pas voter dans cette élection car vous êtes bloqué en écriture.',
-	'securepoll-blocked-centrally' => 'Désolé, vous ne pouvez pas voter à cette élection si vous êtes bloqué sur $1 ou plusieurs {{PLURAL:$1| wiki | wikis}}.',
-	'securepoll-bot' => 'Désolé, les comptes avec le statut de robot ne sont pas autorisés à voter à cette élection.',
-	'securepoll-not-in-group' => 'Seuls les membres du groupe « $1 » peuvent voter dans cette élection.',
-	'securepoll-not-in-list' => 'Désolé, vous n’êtes pas sur la liste prédéterminée des utilisateurs autorisés à voter dans cette élection.',
+	'securepoll-too-few-edits' => 'Désolé, vous ne pouvez pas voter. Vous devez avoir effectué au moins {{PLURAL:$1|une modification|$1 modifications}} pour voter pour cette élection, vous en totalisez $2.',
+	'securepoll-too-new' => 'Désolé, vous ne pouvez pas voter. Votre compte devait être enregistré avant le $1 pour voter pour cette élection, vous vous êtes enregistré ​​le $2.',
+	'securepoll-blocked' => 'Désolé, vous ne pouvez pas voter pour cette élection car vous êtes bloqué en écriture.',
+	'securepoll-blocked-centrally' => 'Désolé, vous ne pouvez pas voter pour cette élection si vous êtes bloqué sur $1 ou plusieurs {{PLURAL:$1| wiki | wikis}}.',
+	'securepoll-bot' => 'Désolé, les comptes avec le statut de robot (bot) ne sont pas autorisés à voter pour cette élection.',
+	'securepoll-not-in-group' => 'Seuls les membres du groupe « $1 » peuvent voter pour cette élection.',
+	'securepoll-not-in-list' => 'Désolé, vous n’êtes pas sur la liste prédéterminée des utilisateurs autorisés à voter pour cette élection.',
 	'securepoll-list-title' => 'Liste des votes : $1',
 	'securepoll-header-timestamp' => 'Heure',
 	'securepoll-header-voter-name' => 'Nom',
@@ -3792,6 +3795,27 @@ Vos dête balyér un rang entre-mié 1 et 999 a tôs los chouèx.',
 	'securepoll-round' => 'Tôrn $1',
 	'securepoll-spoilt' => '(Blancs ou ben nuls)',
 	'securepoll-exhausted' => '(Èpouesiê)',
+);
+
+/** Friulian (Furlan)
+ * @author Akaahdudeson
+ */
+$messages['fur'] = array(
+	'securepoll' => '↓SecurePoll',
+	'securepoll-welcome' => '↓<strong>Benvignût! $1!</strong>',
+	'securepoll-not-started' => "↓Chiste elezion a no jè ančhemò comenčâde.
+L'elezion a comenčârà il $2 a li $3.",
+	'securepoll-finished' => 'Chiste elezion a jè finide, i no ti pòs plui votâ.',
+	'securepoll-not-qualified' => '↓I no ti as la cualìfiche par votâ in chiste elezion: $1',
+	'securepoll-change-disallowed' => '↓ I ti as bielğà votât par chiste elezion.
+Scuse, i no ti puèdis plui votâ.',
+	'securepoll-thanks' => '↓Graciis, il to vôt a jè stat registrât',
+	'securepoll-return' => '↓Torne a $1',
+	'securepoll-encrypt-error' => '↓Impusibul codificâ les informazions dal vôt.
+Il to vôt a no jè stat registrât.
+
+$1',
+	'securepoll-header-timestamp' => '↓Ore',
 );
 
 /** Western Frisian (Frysk)
@@ -7109,6 +7133,7 @@ LocalSettings.phpमा $wgSecurePollShowErrorDetail=true; को प्रय�
 	'securepoll-tally-local-legend' => 'संग्रहित गरिएका टैली परिणामहरु',
 	'securepoll-tally-local-submit' => 'ट्याली बनाउने',
 	'securepoll-tally-upload-submit' => 'ट्याली बनाउने',
+	'securepoll-ranks' => 'अन्तिम र्‌याङ्किङ्ग',
 	'securepoll-average-score' => 'औसत स्कोर',
 );
 
