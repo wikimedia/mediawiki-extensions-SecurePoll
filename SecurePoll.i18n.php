@@ -2191,6 +2191,7 @@ Du kan enten optælle de nuværende stemmer i databasen, eller optælle kryptere
 	'securepoll-strength-matrix' => 'Matrix over stistyrke',
 	'securepoll-ranks' => 'Endeligt resultat',
 	'securepoll-average-score' => 'Gennemsnitlig karakter',
+	'securepoll-round' => 'Runde $1',
 );
 
 /** German (Deutsch)
