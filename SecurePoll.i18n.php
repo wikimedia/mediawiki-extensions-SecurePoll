@@ -1572,7 +1572,9 @@ Morate dati svim opcijama rang između 1 i 999.',
 	'securepoll-api-token-mismatch' => 'Nepodudata se sigurnosni token, ne može se prijaviti.',
 	'securepoll-not-logged-in' => 'Morate se prijaviti za glasanje na ovim izborima',
 	'securepoll-too-few-edits' => 'Žao nam je, ne možete glasati. Morate imati najmanje $1 {{PLURAL:$1|izmjenu|izmjene|izmjena}} da glasate na ovim izborima, Vi ste dosad napravili $2 izmjena.',
+	'securepoll-too-new' => 'Žao nam je, ne možete glasati.  Vaš račun treba biti registrovan prije $1 da biste glasali na ovim izborima, vi ste registrovani dana $2.',
 	'securepoll-blocked' => 'Žao nam je, ne možete trenutno glasati na ovim izborima ako ste trenutno blokirani za uređivanje.',
+	'securepoll-blocked-centrally' => 'Žao nam je, vi ne možete glasati na ovim izborima ako ste blokirani na $1 ili više {{PLURAL:$1|wikija|wikija}}.',
 	'securepoll-bot' => 'Žao nam je, računima sa oznakom bota nije dopušteno da glasaju na ovim izborima.',
 	'securepoll-not-in-group' => 'Samo članovi iz grupe $1 mogu učestovavati na ovim izborima.',
 	'securepoll-not-in-list' => 'Žao nam je, niste na spisku korisnika kojima je odobreno glasanje na ovim izborima.',
@@ -1638,6 +1640,7 @@ Možete da izvršite prebrojavanje glasova koji su prisutni u bazi podataka ili 
 	'securepoll-ranks' => 'Konačni poredak',
 	'securepoll-average-score' => 'Prosječan rezultat',
 	'securepoll-round' => 'Runda $1',
+	'securepoll-spoilt' => '(Nevaljano)',
 	'securepoll-exhausted' => '(Iskorišteno)',
 );
 
