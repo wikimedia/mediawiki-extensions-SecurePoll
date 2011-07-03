@@ -753,7 +753,9 @@ Has de dar a toles opciones un rangu ente 1 y 999.',
 	'securepoll-api-token-mismatch' => 'El token de seguridá nun concuaya, nun pues entrar.',
 	'securepoll-not-logged-in' => "Tienes d'aniciar sesión pa votar nesta eleición",
 	'securepoll-too-few-edits' => 'Perdona, pero nun pues votar. Necesites tener feches polo menos $1 {{PLURAL:$1|edición|ediciones}} pa votar nesta eleición, pero tienes feches $2.',
+	'securepoll-too-new' => "Sentímoslo, pero nun pues votar nestes eleiciones. Hai que tener una cuenta rexistrada enantes del $1 pa poder votar; la to data de rexistru ye'l $2.",
 	'securepoll-blocked' => 'Perdona, nun pues votar nesta eleición mientres tengas bloquiaes les ediciones.',
+	'securepoll-blocked-centrally' => 'Sentímoslo, nun pues votar nestes eleiciones si tas bloquiáu en $1 {{PLURAL:$1|wiki|wikis}} o más.',
 	'securepoll-bot' => 'Perdona, les cuentes marcaes como de bot nun tienen permisu pa votar nesta eleición.',
 	'securepoll-not-in-group' => 'Namái los miembros del grupu «$1» puen votar nesta eleición.',
 	'securepoll-not-in-list' => "Perdona, nun tas na llista predeterminada d'usuarios con permisu pa votar nesta eleición.",
@@ -782,6 +784,8 @@ Has de dar a toles opciones un rangu ente 1 y 999.',
 	'securepoll-header-admin' => 'Almin',
 	'securepoll-cookie-dup-list' => 'Usuarios con cookies duplicaes',
 	'securepoll-dump-title' => 'Volcáu: $1',
+	'securepoll-dump-no-crypt' => 'Nun ta disponible dengún rexistru cifráu pa esta eleición, porque la eleición nun ta configurada pa usar cifráu.',
+	'securepoll-dump-not-finished' => 'Los rexistros cifraos de la eleición namái tan disponibles dempués de la data de finalización el $1 a les $2',
 	'securepoll-translate-title' => 'Traducir: $1',
 	'securepoll-invalid-language' => 'Códigu de llingua inválidu "$1"',
 	'securepoll-submit-translate' => 'Anovar',
@@ -4431,6 +4435,8 @@ $1',
 );
 
 /** Croatian (Hrvatski)
+ * @author Anton008
+ * @author Bugoslav
  * @author Ex13
  * @author Roberta F.
  * @author SpeedyGonsales
@@ -4492,7 +4498,9 @@ Morate dati svim opcijama rang između 1 i 999.',
 	'securepoll-api-token-mismatch' => 'Neslaganje sigurnosnog tokena, neuspjela prijava.',
 	'securepoll-not-logged-in' => 'Morate se prijaviti da bi mogli glasovati na ovim izborima',
 	'securepoll-too-few-edits' => 'Nažalost, ne možete glasovati. Morate imati najmanje $1 {{PLURAL:$1|uređivanje|uređivanja|uređivanja}} da bi mogli glasovati na ovim izborima, vi ih imate $2.',
+	'securepoll-too-new' => 'Nažalost, ne možete glasovati. Vaš suradnički račun je morao biti registriran prije $1 za glasovanje na ovim izborima, Vi ste se registrirali $2.',
 	'securepoll-blocked' => 'Nažalost, ne možete glasovati na ovim izborima ako ste trenutačno blokirani',
+	'securepoll-blocked-centrally' => 'Nažalost, ne možete glasovati na ovim izborima ako ste blokirani na $1 ili više {{PLURAL:$1| wiki|wikija}}.',
 	'securepoll-bot' => 'Nažalost, računi s bot statusom ne mogu glasovati na ovim izborima.',
 	'securepoll-not-in-group' => 'Samo članovi "$1" grupe mogu glasovati na ovim izborima.',
 	'securepoll-not-in-list' => 'Nažalost, niste na popisu ovlaštenih suradnika koji mogu glasovati na ovim izborima.',
@@ -4558,6 +4566,9 @@ Možete odabrati bilo prikaz rezultata iz baze podataka, ili prikaz enkriptirani
 	'securepoll-strength-matrix' => 'Putanja ojačane matrice',
 	'securepoll-ranks' => 'Završno rangiranje',
 	'securepoll-average-score' => 'Prosječni rezultat',
+	'securepoll-round' => 'Izborni krug $1',
+	'securepoll-spoilt' => '(Nevrijedeće glasovanje)',
+	'securepoll-exhausted' => '(Iscrpljen)',
 );
 
 /** Upper Sorbian (Hornjoserbsce)
@@ -4958,6 +4969,7 @@ Tu pote optar pro contar le resultatos presente in le base de datos, o pro conta
  * @author Bennylin
  * @author Irwangatot
  * @author IvanLanin
+ * @author Kenrick95
  * @author Rex
  */
 $messages['id'] = array(
@@ -5016,7 +5028,9 @@ Anda harus memberi peringkat antara 1 dan 99 untuk semua pilihan.',
 	'securepoll-api-token-mismatch' => 'Kode keamanan tidak sesuai, tidak dapat masuk log.',
 	'securepoll-not-logged-in' => 'Anda harus masuk log untuk dapat memberikan suara dalam pemilihan ini',
 	'securepoll-too-few-edits' => 'Maaf, Anda tidak dapat memberikan suara. Anda harus memiliki minimal $1 {{PLURAL:$1|suntingan|suntingan}} untuk dapat memberikan suara dalam pemilihan ini, Anda hanya memiliki $2.',
+	'securepoll-too-new' => 'Maaf, Anda tidak dapat memilih. Akun Anda perlu telah terdaftar sebelum $1 untuk memilih dalam pemilu ini, Anda terdaftar di $2 .',
 	'securepoll-blocked' => 'Maaf, Anda tidak dapat memberikan suara karena akun Anda sedang diblokir.',
+	'securepoll-blocked-centrally' => 'Maaf, Anda tidak dapat memberikan suara dalam pemilihan ini jika Anda diblokir pada $1 atau lebih {{PLURAL:$1| wiki | wiki}}.',
 	'securepoll-bot' => 'Maaf, akun dengan status bot tidak diperbolehkan untuk memberikan suara dalam pemilihan ini.',
 	'securepoll-not-in-group' => 'Hanya anggota kelompok "$1" yang dapat memberikan suara pada pemilihan ini.',
 	'securepoll-not-in-list' => 'Maaf, Anda tidak terdaftar dalam daftar pemilih yang dapat memberikan suara.',
@@ -5082,6 +5096,9 @@ Anda dapat memilih antara menghitung dari hasil suara yang terdapat di basis dat
 	'securepoll-strength-matrix' => 'Matriks kekuatan jalan',
 	'securepoll-ranks' => 'Peringkat akhir',
 	'securepoll-average-score' => 'Nilai rerata',
+	'securepoll-round' => 'Ronde $1',
+	'securepoll-spoilt' => '(Spoilt)',
+	'securepoll-exhausted' => '(Habis)',
 );
 
 /** Igbo (Igbo)
@@ -5144,6 +5161,7 @@ $messages['is'] = array(
  * @author Nemo bis
  * @author Pietrodn
  * @author Stefano-c
+ * @author Vituzzu
  */
 $messages['it'] = array(
 	'securepoll' => 'SecurePoll',
@@ -5202,7 +5220,9 @@ Devi assegnare a ciascuna voce un voto compreso tra 1 e 999.',
 	'securepoll-api-token-mismatch' => 'I token di sicurezza non coincidono, non puoi entrare.',
 	'securepoll-not-logged-in' => "È necessario eseguire l'accesso per votare in queste elezioni",
 	'securepoll-too-few-edits' => 'Spiacente, non puoi votare. Devi aver effettuato almeno $1 {{PLURAL:$1|modifica|modifiche}} per votare in questa elezione, tu ne hai fatte $2.',
+	'securepoll-too-new' => 'Spiacente ma non puoi votare in queste elezioni. Per farlo devi essere esserti registrato prima del $1 mentre invece ti sei registrato il $2.',
 	'securepoll-blocked' => 'Spiacente, non puoi votare in questa elezione se sei stato bloccato dalla modifica.',
+	'securepoll-blocked-centrally' => "Spiacente ma non puoi votare in quest'elezione poiché sei bloccato su $1 o più {{PLURAL:$1|wiki|wiki}}.",
 	'securepoll-bot' => 'Spiacente, gli account con lo status di bot non sono ammessi a votare in questa elezione.',
 	'securepoll-not-in-group' => 'Solo i membri del gruppo "$1" possono votare in questa elezione.',
 	'securepoll-not-in-list' => 'Spiacente, non sei nella lista predeterminata degli utenti autorizzati a votare in questa elezione.',
@@ -5268,6 +5288,9 @@ Puoi scegliere di effettuare il conteggio dei risultati presenti nel database o 
 	'securepoll-strength-matrix' => 'Matrice di fortezza del percorso',
 	'securepoll-ranks' => 'Classifica finale',
 	'securepoll-average-score' => 'Media dei punteggi',
+	'securepoll-round' => 'Turno numero $1.',
+	'securepoll-spoilt' => '(imbarazzante)',
+	'securepoll-exhausted' => '(Esaurito)',
 );
 
 /** Japanese (日本語)
@@ -11593,10 +11616,10 @@ $1',
 $messages['zh-hant'] = array(
 	'securepoll' => '安全投票',
 	'securepoll-desc' => '投票及選舉擴充套件',
-	'securepoll-invalid-page' => '無效的子頁面「<nowiki>$1</nowiki>」',
-	'securepoll-need-admin' => '您必須是選舉管理員才能進行此操作。',
-	'securepoll-too-few-params' => '缺少子頁面參數（無效連結）。',
-	'securepoll-invalid-election' => '「$1」不是有效的選舉編號。',
+	'securepoll-invalid-page' => '無效子頁「<nowiki>$1</nowiki>」',
+	'securepoll-need-admin' => '閣下須為選舉管理員才可進行此操作。',
+	'securepoll-too-few-params' => '缺乏子頁參數（無效連結）。',
+	'securepoll-invalid-election' => '「$1」並非有效之選舉編號。',
 	'securepoll-welcome' => '<strong>歡迎$1！</strong>',
 	'securepoll-not-started' => '這個選舉尚未開始。
 按計畫將於 $2 $3 開始。',
