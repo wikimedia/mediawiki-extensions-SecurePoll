@@ -8711,6 +8711,7 @@ Tu puè scacchià o de fà 'u condegge de le vote da 'u database oppure ausanne 
 
 /** Russian (Русский)
  * @author HalanTul
+ * @author Kaganer
  * @author Kv75
  * @author Александр Сигачёв
  */
@@ -8757,7 +8758,7 @@ $1',
 	'securepoll-no-decryption-key' => 'Не настроен ключ расшифровки.
 Невозможно  расшифровать.',
 	'securepoll-jump' => 'Перейти на сервер голосований',
-	'securepoll-bad-ballot-submission' => 'Ваш голос не действителен: $1',
+	'securepoll-bad-ballot-submission' => 'Ваш голос недействителен: $1',
 	'securepoll-unanswered-questions' => 'Вы должны ответить на все вопросы.',
 	'securepoll-invalid-rank' => 'Недействительный ранг. Вы должны указать для кандидата ранг от 1 до 999.',
 	'securepoll-unranked-options' => 'Некоторые записи не проранжированы.
@@ -10773,7 +10774,9 @@ $1',
 	'securepoll-api-token-mismatch' => 'Невідповідність коду безпеки, не в змозі ввійти до системи.',
 	'securepoll-not-logged-in' => 'Ви маєте ввійти до системи, щоб взяти участь в голосуванні',
 	'securepoll-too-few-edits' => 'Вибачте, ви не можете проголосувати. Вам треба мати не менше $1 {{PLURAL:$1|редагування|редагувань|редагувань}} для участі в цьому голосуванні, у вас є $2.',
+	'securepoll-too-new' => 'На жаль, ви не можете голосувати.  Ваш обліковий запис повинен були зареєстрований до $1 для голосування в цих виборах, ви зареєстровані $2.',
 	'securepoll-blocked' => 'Вибачте, ви не можете голосувати на виборах, оскільки вас заблоковано.',
+	'securepoll-blocked-centrally' => 'На жаль, ви не може голосувати в цих виборах, якщо ви заблоковані на $1 або більше {{PLURAL:$1|wiki|wikis}}.',
 	'securepoll-bot' => 'Вибачте, облікові записи зі статусом бота не допускаються до участі в голосуванні.',
 	'securepoll-not-in-group' => 'Тільки члени групи "$1" можуть голосувати на цих виборах.',
 	'securepoll-not-in-list' => 'Вибачте, ви не входите в список користувачів, допущених до голосування на цих виборах.',
@@ -10839,6 +10842,9 @@ $1',
 	'securepoll-strength-matrix' => 'Матриця сил шляхів',
 	'securepoll-ranks' => 'Остаточний рейтинг',
 	'securepoll-average-score' => 'Середня оцінка',
+	'securepoll-round' => '$1 тур',
+	'securepoll-spoilt' => '(Зіпсовані)',
+	'securepoll-exhausted' => '(Вичерпані)',
 );
 
 /** Urdu (اردو)
