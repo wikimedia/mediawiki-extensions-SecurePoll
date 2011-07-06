@@ -1718,7 +1718,9 @@ Heu de donar a totes les opcions, un rang entre 1 i 999.',
 	'securepoll-not-logged-in' => "Heu d'estar connectats en un compte per a votar en aquesta elecció",
 	'securepoll-too-few-edits' => "Ho sentim, però no podeu votar.
 Per a votar en aquesta elecció cal haver fet un mínim {{PLURAL:$1|d'una modificació|de $1 modificacions}}, i n'heu fet $2.",
+	'securepoll-too-new' => "Sentint-ho molt no podeu votar. El vostre compte ha d'estar registrat abans del $1 per participar en aquesta votació, i la vostra data de registre és $2.",
 	'securepoll-blocked' => "Ho sentim però no podeu votar en aquesta elecció perquè el vostre compte està blocat a l'edició.",
+	'securepoll-blocked-centrally' => 'Ho sentim, però no podeu votar en aquestes eleccions si esteu blocats en $1 o més {{PLURAL:$1|wikis|wikis}}.',
 	'securepoll-bot' => 'Ho sentim, però els comptes de bot no poden votar en aquestes eleccions.',
 	'securepoll-not-in-group' => 'Només els membres del grup «$1» poden votar en aquesta elecció.',
 	'securepoll-not-in-list' => 'Ho sentim, però no esteu en la llista dels usuaris autoritzats a votar en aquesta elecció.',
@@ -1784,6 +1786,9 @@ Podeu triar entre comptar els resultats presents a la base de dades, o de compta
 	'securepoll-strength-matrix' => 'Matriu de força del camí',
 	'securepoll-ranks' => 'Classificació final',
 	'securepoll-average-score' => 'Puntuació mitjana',
+	'securepoll-round' => 'Ronda $1',
+	'securepoll-spoilt' => '(Nul)',
+	'securepoll-exhausted' => '(Esgotat)',
 );
 
 /** Chechen (Нохчийн)
