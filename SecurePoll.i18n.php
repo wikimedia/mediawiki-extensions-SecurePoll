@@ -8519,8 +8519,10 @@ Trebuie să oferiți tuturor opțiunilor un grad cuprins între 1 și 999.',
 	'securepoll-api-no-user' => 'Niciun utilizator cu acest ID nu a fost găsit.',
 	'securepoll-api-token-mismatch' => 'Jetonul de securitate nu se potrivește. Nu se poate efectua autentificarea.',
 	'securepoll-not-logged-in' => 'Trebuie să vă autentificați pentru a vota în cadrul acestor alegeri.',
-	'securepoll-too-few-edits' => 'Ne pare rău, dar nu puteți vota. Trebuie să fi contribuit cu cel puțin $1 {{PLURAL:$1|modificare|modificări}} pentru a vota în cadrul acestor alegeri. În schimb, dumneavoastră ați efectuat doar $2.',
+	'securepoll-too-few-edits' => 'Ne pare rău, dar nu puteți vota. Trebuie să fi contribuit cu cel puțin $1 {{PLURAL:$1|modificare|modificări}} pentru a vota în cadrul acestor alegeri. Dumneavoastră ați efectuat doar $2.',
+	'securepoll-too-new' => 'Ne pare rău, dar nu puteți vota. Pentru a vă exprima votul în cadrul acestor alegeri este necesar ca contul dumneavoastră să fi fost înregistrat înainte de $1. Dumneavoastră v-ați înregistrat pe $2.',
 	'securepoll-blocked' => 'Ne pare rău, dar nu puteți vota în cadrul acestor alegeri deoarece sunteți blocat (nu puteți face modificări).',
+	'securepoll-blocked-centrally' => 'Ne pare rău, dar nu puteți vota în cadrul acestor alegerilor dacă sunteți blocat pe $1 sau mai multe {{PLURAL:$1|wiki|wikiuri}}.',
 	'securepoll-bot' => 'Ne pare rău, dar conturilor cu statut de robot nu li se permite să voteze în cadrul acestor alegeri.',
 	'securepoll-not-in-group' => 'Doar membrii grupului „$1” pot vota în cadrul acestor alegeri.',
 	'securepoll-not-in-list' => 'Ne pare rău, nu sunteți în lista predeterminată de utilizatori autorizați să voteze în aceste alegeri.',
@@ -8584,6 +8586,9 @@ Puteți alege fie să efectuați numărătoarea rezultatelor din baza de date, f
 	'securepoll-tally-upload-error' => 'Eroare în timpul efectuării numărătorii din fișierul dump: $1',
 	'securepoll-ranks' => 'Clasament final',
 	'securepoll-average-score' => 'Scor mediu',
+	'securepoll-round' => 'Runda $1',
+	'securepoll-spoilt' => '(Anulate)',
+	'securepoll-exhausted' => '(Epuizate)',
 );
 
 /** Tarandíne (Tarandíne)
