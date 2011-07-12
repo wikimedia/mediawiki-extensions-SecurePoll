@@ -9936,6 +9936,7 @@ $messages['su'] = array(
  * @author Boivie
  * @author Fluff
  * @author Gabbe.g
+ * @author Lokal Profil
  * @author Micke
  * @author Najami
  * @author Per
@@ -9999,7 +10000,9 @@ Du måste rangordna alla valmöjligheter mellan 1 och 999.',
 	'securepoll-api-token-mismatch' => 'Säkerhetsnyckel saknas, kan inte logga in.',
 	'securepoll-not-logged-in' => 'Du måste logga in för att kunna rösta i det här valet.',
 	'securepoll-too-few-edits' => 'Ledsen, men du kan inte rösta. Du måste ha minst $1 {{PLURAL:$1|redigering|redigeringar}} för att rösta i det här valet. Du har gjort $2 {{PLURAL:$2|redigering|redigeringar}}.',
+	'securepoll-too-new' => 'Du kan tyvärr inte rösta. Ditt konto måste ha varit registrerade före $1 för att rösta i detta val; du registrerade dig $2.',
 	'securepoll-blocked' => 'Ledsen, men du kan inte rösta om du är blockerad från redigering.',
+	'securepoll-blocked-centrally' => 'Du kan tyvärr inte rösta i detta val om du är blockerade på $1 eller flera {{PLURAL:$1|wiki|wikier}}.',
 	'securepoll-bot' => 'Tyvärr, konton med botflaga tillåts inte att rösta i denna omröstning.',
 	'securepoll-not-in-group' => 'Endast meddlemmar i gruppen "$1" kan rösta i denna omröstning.',
 	'securepoll-not-in-list' => 'Du ligger tyvärr inte på listan över användare som kan rösta i den här omröstningen.',
@@ -10065,6 +10068,8 @@ Du kan välja att antingen räkna upp resultaten som finns tillgängliga i datab
 	'securepoll-strength-matrix' => 'Matris över vägstyrka',
 	'securepoll-ranks' => 'Slutgilltig rankning',
 	'securepoll-average-score' => 'Genomsnittligt betyg',
+	'securepoll-round' => 'Omgång $1',
+	'securepoll-spoilt' => '(Ogiltig)',
 );
 
 /** Swahili (Kiswahili) */
