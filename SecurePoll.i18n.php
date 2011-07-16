@@ -2280,7 +2280,7 @@ Du musst allen Optionen eine Rangnummer zwischen 1 und 999 geben.',
 	'securepoll-header-timestamp' => 'Zeit',
 	'securepoll-header-voter-name' => 'Name',
 	'securepoll-header-voter-domain' => 'Domäne',
-	'securepoll-header-ua' => 'Benutzeragent',
+	'securepoll-header-ua' => 'Browser',
 	'securepoll-header-cookie-dup' => 'Duplikat',
 	'securepoll-header-strike' => 'Streichen',
 	'securepoll-header-details' => 'Details',
@@ -4974,6 +4974,7 @@ Tu pote optar pro contar le resultatos presente in le base de datos, o pro conta
  * @author Bennylin
  * @author Irwangatot
  * @author IvanLanin
+ * @author Iwan Novirion
  * @author Kenrick95
  * @author Rex
  */
@@ -5102,7 +5103,7 @@ Anda dapat memilih antara menghitung dari hasil suara yang terdapat di basis dat
 	'securepoll-ranks' => 'Peringkat akhir',
 	'securepoll-average-score' => 'Nilai rerata',
 	'securepoll-round' => 'Ronde $1',
-	'securepoll-spoilt' => '(Spoilt)',
+	'securepoll-spoilt' => '(Rusak)',
 	'securepoll-exhausted' => '(Habis)',
 );
 
