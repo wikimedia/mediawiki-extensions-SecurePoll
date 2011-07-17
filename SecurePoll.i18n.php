@@ -7695,7 +7695,7 @@ Podètz causir de comptar los resultats dempuèi la banca de donadas o dempuèi 
 $messages['or'] = array(
 	'securepoll-header-voter-name' => 'ନାମ',
 	'securepoll-strike-reason' => 'କାରଣ:',
-	'securepoll-strike-cancel' => 'ନାକଚ କରିଦିଅନ୍ତୁ',
+	'securepoll-strike-cancel' => 'ବାତିଲ',
 	'securepoll-details-link' => 'ଆହୁରି ଅଧିକ',
 	'securepoll-header-action' => 'କାମ',
 	'securepoll-header-reason' => 'କାରଣ',
