@@ -5823,8 +5823,10 @@ Do moß alle Müjjeleschkeite ene Rang zwesche 1 un 999 jevve.',
 	'securepoll-api-no-user' => 'Mer han keine Metmaacher jefonge jehatt met dä aanjejovve Kännong.',
 	'securepoll-api-token-mismatch' => 'Dä Sesherheitß_Kood deiht nit paße, do kanns De Desch nit ennlogge.',
 	'securepoll-not-logged-in' => 'Do moß Desch ald enlogge, för bei dää Afshtemmung metzemaache!',
-	'securepoll-too-few-edits' => 'Schadt: Do kanns diß Mol nit affshtemme. En dämm Fall mööts De ald {{PLURAL:$1|einmol|$1 Mol|övverhou noch nie}} en Sigg em Wiki jeändert han, Do häß ävver {{PLURAL:$2|blooß eimol|blooß $2 Mol|övverhoup noch nie}} en Sigg em Wiki jeändert.',
-	'securepoll-blocked' => 'Schahdt: Do kanns diß Mol nit affshtemme, weil jraadt för et Ändere aam Wiki jeshperrt beß.',
+	'securepoll-too-few-edits' => 'Schadt: Do kanns diß Mol nit affshtemme. En dämm Fall mööts De ald {{PLURAL:$1|einmol|$1 Mol|övverhoup noch nie}} en Sigg em Wiki jeändert han, Do häß ävver {{PLURAL:$2|blooß eimol|blooß $2 Mol|övverhoup noch nie}} en Sigg em Wiki jeändert.',
+	'securepoll-too-new' => 'Schadt: Do kanns diß Mol nit affshtemme. Do mööts Desch ald vör dem $1 heh aanjemöldt han, et es ävver der $2 jewääse.',
+	'securepoll-blocked' => 'Schahdt: Do kanns diß Mol nit affshtemme, weil De jraadt för et Ändere aam Wiki jeshperrt beß.',
+	'securepoll-blocked-centrally' => 'Schahdt: Do kanns diß Mol nit affshtemme, weil De jraadt för et Ändere en {{PLURAL:$1|einem Wiki|$1 Wikis|keinem Wiki}} jeshperrt beß.',
 	'securepoll-bot' => 'Hee en dä Afshtemmung kann bloß met metmaache, wä keine Bots es.',
 	'securepoll-not-in-group' => 'Schadt: Do kanns diß Mol nit affshtemme. Bloß de Metmaacher en dä {{NS:Category}} $1 künne hee en Shtemm afjevve!',
 	'securepoll-not-in-list' => 'Schadt: Do kanns diß Mol nit affshtemme. De beß nit en de su jenannte Wähler_Leß met de Metmaacher, die hee afshtemme dörve.',
@@ -5897,6 +5899,9 @@ Donn Desch entscheide doh zwesche, de neuste Zahle en de Datebangk uß_ze_zälle
 	'securepoll-strength-matrix' => 'De Krüztabäll mem Jeweesch fun jedem Pat',
 	'securepoll-ranks' => 'De Rangfollesch zom Afschloß',
 	'securepoll-average-score' => 'Dorschschnettlesche Treffer',
+	'securepoll-round' => 'Der $1-te Rötsch',
+	'securepoll-spoilt' => '(onjöltesch)',
+	'securepoll-exhausted' => '(aam Engk)',
 );
 
 /** Kurdish (Latin) (Kurdî (Latin))
