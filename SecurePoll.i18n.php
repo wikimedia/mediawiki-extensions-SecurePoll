@@ -5568,6 +5568,17 @@ $wgSecurePollShowErrorDetail=true; LocalSettings.php-ში დამატე�
 	'securepoll-average-score' => 'საშუალო შედეგი',
 );
 
+/** کھوار (کھوار)
+ * @author Rachitrali
+ */
+$messages['khw'] = array(
+	'securepoll-gpg-receipt' => 'رائےدہندگیو بچے شکریہ.
+
+تو درج ذیل رسیدو تان رائےدہندگیو ثبوتو طورا لاکھیکو بوس:
+
+<pre>$1</pre>',
+);
+
 /** Khmer (ភាសាខ្មែរ)
  * @author គីមស៊្រុន
  * @author វ័ណថារិទ្ធ
