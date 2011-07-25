@@ -3814,20 +3814,21 @@ Vos dête balyér un rang entre-mié 1 et 999 a tôs los chouèx.',
 
 /** Friulian (Furlan)
  * @author Akaahdudeson
+ * @author Klenje
  */
 $messages['fur'] = array(
 	'securepoll' => '↓SecurePoll',
 	'securepoll-welcome' => '↓<strong>Benvignût! $1!</strong>',
-	'securepoll-not-started' => "↓Chiste elezion a no jè ančhemò comenčâde.
-L'elezion a comenčârà il $2 a li $3.",
+	'securepoll-not-started' => '↓Cheste elezion no je ancjemò començade.
+La elezion e començarà il $2 a lis $3.',
 	'securepoll-finished' => 'Chiste elezion a jè finide, i no ti pòs plui votâ.',
-	'securepoll-not-qualified' => '↓I no ti as la cualìfiche par votâ in chiste elezion: $1',
-	'securepoll-change-disallowed' => '↓ I ti as bielğà votât par chiste elezion.
-Scuse, i no ti puèdis plui votâ.',
-	'securepoll-thanks' => '↓Graciis, il to vôt a jè stat registrât',
+	'securepoll-not-qualified' => '↓I no ti âs la cualifiche par votâ in cheste elezion: $1',
+	'securepoll-change-disallowed' => '↓ I tu as bielzà votât par cheste elezion.
+Scuse, i no ti puedis plui votâ.',
+	'securepoll-thanks' => '↓Graciis, il to vôt al è stât regjistrât',
 	'securepoll-return' => '↓Torne a $1',
-	'securepoll-encrypt-error' => '↓Impusibul codificâ les informazions dal vôt.
-Il to vôt a no jè stat registrât.
+	'securepoll-encrypt-error' => '↓Impussibil codificâ lis informazions dal vôt.
+Il to vôt nol è stât regjistrât!
 
 $1',
 	'securepoll-header-timestamp' => '↓Ore',
