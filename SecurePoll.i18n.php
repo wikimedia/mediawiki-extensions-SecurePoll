@@ -3925,7 +3925,7 @@ Debe darlles a todas as opcións unha clasificación que estea entre 1 e 999.',
 	'securepoll-header-timestamp' => 'Hora',
 	'securepoll-header-voter-name' => 'Nome',
 	'securepoll-header-voter-domain' => 'Dominio',
-	'securepoll-header-ua' => 'Axente usuario',
+	'securepoll-header-ua' => 'Axente de usuario',
 	'securepoll-header-cookie-dup' => 'Dupl.',
 	'securepoll-header-strike' => 'Riscar',
 	'securepoll-header-details' => 'Detalles',
@@ -10090,6 +10090,7 @@ Du kan välja att antingen räkna upp resultaten som finns tillgängliga i datab
 	'securepoll-average-score' => 'Genomsnittligt betyg',
 	'securepoll-round' => 'Omgång $1',
 	'securepoll-spoilt' => '(Ogiltig)',
+	'securepoll-exhausted' => '(Uttömd)',
 );
 
 /** Swahili (Kiswahili) */
