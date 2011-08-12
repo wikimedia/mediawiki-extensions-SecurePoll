@@ -97,6 +97,8 @@ abstract class SecurePoll_Ballot {
 			return new SecurePoll_ChooseBallot( $context, $election );
 		case 'radio-range':
 			return new SecurePoll_RadioRangeBallot( $context, $election );
+		case 'radio-range-comment':
+			return new SecurePoll_RadioRangeCommentBallot( $context, $election );
 		default:
 			throw new MWException( "Invalid ballot type: $type" );
 		}

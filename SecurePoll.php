@@ -53,6 +53,7 @@ $wgAutoloadClasses = $wgAutoloadClasses + array(
 	'SecurePoll_ChooseBallot' => "$dir/includes/ballots/ChooseBallot.php",
 	'SecurePoll_PreferentialBallot' => "$dir/includes/ballots/PreferentialBallot.php",
 	'SecurePoll_RadioRangeBallot' => "$dir/includes/ballots/RadioRangeBallot.php",
+	'SecurePoll_RadioRangeCommentBallot' => "$dir/includes/ballots/RadioRangeCommentBallot.php",
 
 	# crypt
 	'SecurePoll_Crypt' => "$dir/includes/crypt/Crypt.php",
