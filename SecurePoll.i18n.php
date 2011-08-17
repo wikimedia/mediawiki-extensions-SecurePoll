@@ -2790,6 +2790,7 @@ $1',
 /** Esperanto (Esperanto)
  * @author ArnoLagrange
  * @author Marcos
+ * @author ThomasPusch
  * @author Yekrats
  */
 $messages['eo'] = array(
@@ -2849,7 +2850,9 @@ Vi devas doni al ĉiuj opcioj lokon inter 1 kaj 999.',
 	'securepoll-api-token-mismatch' => 'Nekongrua sekurecmarkilo. Neeblas ensaluti.',
 	'securepoll-not-logged-in' => 'Vi devas ensaluti por voĉdoni en ĉi tiu voĉdonado',
 	'securepoll-too-few-edits' => 'Bedaŭrinde, vi ne povas voĉdoni. Vi nepre havas almenaŭ $1 {{PLURAL:$1|redakto|redaktoj}} por voĉdoni en ĉi tiu voĉdonado; vi faris $2 redaktojn.',
+	'securepoll-too-new' => 'Pardonu, vi ne rajtas voĉdoni. Por rajti je voĉdono en tiu ĉi baloto, via uzantokonto devas esti registrita antaŭ $1, sed vi registriĝis nur je $2.',
 	'securepoll-blocked' => 'Bedaŭrinde, vi ne povas voĉdoni en ĉi tiu voĉdonado se vi nune estas forbarita de redaktado.',
+	'securepoll-blocked-centrally' => 'Pardonu, vi ne rajtas voĉdoni se vi estas blokata en $1 aŭ pli da {{PLURAL:$1|vikio|vikioj}}.',
 	'securepoll-bot' => 'Bedaŭrinde, kontoj kun la robotflago nen estas permesata voĉdoni en ĉi tiu voĉdonado.',
 	'securepoll-not-in-group' => 'Nur membroj de la grupo "$1" povas voĉdoni en ĉi tiu elekto.',
 	'securepoll-not-in-list' => 'Bedaŭrinde, vi ne estas unu el la antaŭdetermitaj uzantoj kiuj estas permesitaj voĉdoni dum ĉi tiu voĉdono.',
@@ -2915,6 +2918,8 @@ Vi povas elekti nombri ĉu la rezultojn el la datumbazo, ĉu ĉifritajn rezultoj
 	'securepoll-strength-matrix' => 'Matrico de vojforteco',
 	'securepoll-ranks' => 'Fina rangigo',
 	'securepoll-average-score' => 'Averaĝa poentaro',
+	'securepoll-round' => 'Balota parto $1',
+	'securepoll-spoilt' => 'voĉdono ne valida',
 );
 
 /** Spanish (Español)
@@ -4713,6 +4718,7 @@ Móžeš pak wuslědki w datowej bance ličić pak zaklučowane wuslědki z nahr
  * @author Cbrown1023
  * @author Dani
  * @author Glanthor Reviol
+ * @author Hunyadym
  * @author Tgr
  */
 $messages['hu'] = array(
@@ -4772,7 +4778,9 @@ Minden javaslathoz egy 1 és 999 közötti helyezést kell adnod.',
 	'securepoll-api-token-mismatch' => 'Sikertelen bejelentkezés, nem egyezik a biztonsági token.',
 	'securepoll-not-logged-in' => 'Be kell jelentkezned, hogy szavazhass.',
 	'securepoll-too-few-edits' => 'Sajnos nem szavazhatsz. A részvételhez legalább $1 szerkesztés kell, neked csak $2 van.',
+	'securepoll-too-new' => 'Sajnos nem szavazhatsz. A szavazáshoz $1 előtt kellett volna regisztrálnod, a te regisztrációd dátuma: $2',
 	'securepoll-blocked' => 'Nem szavazhatsz ezen a választáson, amíg blokkolva vagy.',
+	'securepoll-blocked-centrally' => 'Sajnos nem szavazhatsz a választáson, ha blokkolva vagy $1 vagy több wikin.',
 	'securepoll-bot' => 'Botnak jelölt felhasználók nem szavazhatnak ezen a választáson.',
 	'securepoll-not-in-group' => 'Csak a „$1” csoport tagjai szavazhatnak ezen a választáson.',
 	'securepoll-not-in-list' => 'Nem szerepelsz azoknak a felhasználóknak a listáján, akik szavazhatnak ezen a választáson.',
@@ -4838,6 +4846,9 @@ Választhatod az adatbázisban szereplő eredmények összesítését vagy a tit
 	'securepoll-strength-matrix' => 'Útvonalerősség-mátrix',
 	'securepoll-ranks' => 'Végső rangsor',
 	'securepoll-average-score' => 'Átlagpontszám',
+	'securepoll-round' => '$1. forduló',
+	'securepoll-spoilt' => '(Rontott)',
+	'securepoll-exhausted' => '(Kiesett)',
 );
 
 /** Interlingua (Interlingua)
@@ -9010,7 +9021,7 @@ $messages['sa'] = array(
 	'securepoll-api-invalid-params' => 'अपुष्ट प्राचलक।',
 );
 
-/** Yakut (Саха тыла)
+/** Sakha (Саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(
@@ -9222,7 +9233,9 @@ Morate dati svim opcijama rang između 1 i 999.',
 	'securepoll-api-token-mismatch' => 'Ne podudara se sigurnosni token, ne može se prijaviti.',
 	'securepoll-not-logged-in' => 'Morate se prijaviti za glasanje na ovim izborima',
 	'securepoll-too-few-edits' => 'Žao nam je, ne možete glasati. Morate imati najmanje $1 {{PLURAL:$1|izmjenu|izmjene|izmjena}} da glasate na ovim izborima, Vi ste dosad napravili $2 izmjena.',
+	'securepoll-too-new' => 'Žao nam je, ne možete glasati.  Vaš račun treba biti registrovan prije $1 da biste glasali na ovim izborima, vi ste registrovani dana $2.',
 	'securepoll-blocked' => 'Žao nam je, ne možete trenutno glasati na ovim izborima ako ste trenutno blokirani za uređivanje.',
+	'securepoll-blocked-centrally' => 'Žao nam je, vi ne možete glasati na ovim izborima ako ste blokirani na $1 ili više {{PLURAL:$1|wikija|wikija}}.',
 	'securepoll-bot' => 'Žao nam je, računima sa oznakom bota nije dopušteno da glasaju na ovim izborima.',
 	'securepoll-not-in-group' => 'Samo članovi iz grupe $1 mogu učestovavati na ovim izborima.',
 	'securepoll-not-in-list' => 'Žao nam je, niste na spisku korisnika kojima je odobreno glasanje na ovim izborima.',
@@ -9287,6 +9300,9 @@ Možete da izvršite prebrojavanje glasova koji su prisutni u bazi podataka ili 
 	'securepoll-strength-matrix' => 'Matriks snage putanje',
 	'securepoll-ranks' => 'Konačni poredak',
 	'securepoll-average-score' => 'Prosječan rezultat',
+	'securepoll-round' => 'Runda $1',
+	'securepoll-spoilt' => '(Nevaljano)',
+	'securepoll-exhausted' => '(Iskorišteno)',
 );
 
 /** Sinhala (සිංහල)
@@ -9354,7 +9370,9 @@ Cannot decrypt.',
 	'securepoll-api-token-mismatch' => 'ආරක්‍ෂණ සංකේතය නොගැලපෙන බැවින් ඇතුළුවිය නොහැක.',
 	'securepoll-not-logged-in' => 'මෙම ඡන්ද විමසීමේදී ඡන්දය දීම සඳහා ඔබ ප්‍රවිෂ්ට විය යුතුය.',
 	'securepoll-too-few-edits' => 'සමාවෙන්න, ඔබට ඡන්දය පළ කළ නොහැක. මෙම ඡන්දයේදී ඡන්දය පළ කෙරුමට අවම වශයෙන් සංස්කරණ $1 {{PLURAL:$1|ක්|ක්}} හෝ කර තිබිය යුතුය, ඔබ කර ඇත්තේ $2 කි.',
+	'securepoll-too-new' => 'කණගාටුයි, ඔබට මනාප දිය නොහැක. මෙම ඡන්දය සඳහා මනාප ලබා දීමට නම් ඔබේ ගිණුම $1 ට පෙර ලියාපදිංචි කර තිබිය යුතුය, ඔබ ලියාපදිංචි වුයේ $2.',
 	'securepoll-blocked' => 'කනගාටුයි, ඔබ සංස්කරණ වාරණයකට ලක්ව ඇති බැවින් මෙහි ඡන්‍දය පළ කළ නොහැක.',
+	'securepoll-blocked-centrally' => 'කණගාටුයි, ඔබ විසින් $1 හෝ තවත් {{PLURAL:$1|විකි|විකිවල}} වාරණය වී නම් මෙම ඡන්දය සඳහා මනාප ලබා දිය නොහැක.',
 	'securepoll-bot' => 'කනගාටුයි, රොබෝවරුන් සහිත පරිශීලක ගිණුම් හිමියනට මෙහි ඡන්‍දය පළ කළ නොහැක.',
 	'securepoll-not-in-group' => '“$1“ කණ්ඩායමේ අයට මෙහි මනාපය පළ කළ හැක.',
 	'securepoll-not-in-list' => 'සමාවෙන්න, ඡන්දය පළ කිරීමට අවසර ලබා ඇති පරිශීලක ලයිස්තුවේ ඔබ නැත.',
@@ -9363,7 +9381,7 @@ Cannot decrypt.',
 	'securepoll-header-voter-name' => 'නම',
 	'securepoll-header-voter-domain' => 'ඩෝමේනය',
 	'securepoll-header-ua' => 'පරිශීලක නියෝජිත',
-	'securepoll-header-cookie-dup' => '',
+	'securepoll-header-cookie-dup' => 'ඩප්',
 	'securepoll-header-strike' => 'කපා හරින්න',
 	'securepoll-header-details' => 'විස්තර',
 	'securepoll-strike-button' => 'කපා හරින්න',
@@ -9410,7 +9428,7 @@ Cannot decrypt.',
 	'securepoll-tally-no-key' => 'ගුප්ත-කේත-විකේතන යතුර ලබාගත නොහැකි නිසා ඔබට මෙම ඡන්දය සැසඳිය නොහැක, මන්ද ඡන්ද ප්‍රකාශකිරීම් ගුප්ත-කේතිතය.',
 	'securepoll-tally-local-legend' => 'තැන්පත් කළ ප්‍රතිඵල සසඳන්න',
 	'securepoll-tally-local-submit' => 'සැසඳුම තනන්න',
-	'securepoll-tally-upload-legend' => '',
+	'securepoll-tally-upload-legend' => 'සුරක්ෂිත ඩම්ප් එකක් උඩුගත කරන්න',
 	'securepoll-tally-upload-submit' => 'සැසඳුම තනන්න',
 	'securepoll-tally-error' => 'ඡන්ද වාර්තා අර්ථ-පැහැදුමේ දෝෂයකි, සැසඳුමක් තැනිය නොහැක.',
 	'securepoll-no-upload' => 'ගොනුවක් පටවා නැත, ප්‍රතිඵල සැසඳිය නොහැක.',
@@ -9420,6 +9438,9 @@ Cannot decrypt.',
 	'securepoll-strength-matrix' => 'මාර්ග ශක්ති න්‍යාසය',
 	'securepoll-ranks' => 'අවසන් ශ්‍රේණිගතකෙරුම',
 	'securepoll-average-score' => 'සාමාන්‍ය ලකුණ',
+	'securepoll-round' => '$1 වන වටය',
+	'securepoll-spoilt' => '(නරක් වූ)',
+	'securepoll-exhausted' => '(හිස් වූ)',
 );
 
 /** Slovak (Slovenčina)
@@ -10587,6 +10608,7 @@ $messages['tpi'] = array(
 
 /** Turkish (Türkçe)
  * @author Joseph
+ * @author Koc61
  * @author Noumenon
  * @author Vito Genovese
  */
@@ -10647,6 +10669,7 @@ Tüm seçeneklere 1 ile 999 arasında bir derece vermelisiniz.',
 	'securepoll-api-token-mismatch' => 'Güvenlik simgesi uyuşmuyor, giriş yapılamıyor.',
 	'securepoll-not-logged-in' => 'Bu seçimde oy kullanmak için giriş yapmanız gerekiyor',
 	'securepoll-too-few-edits' => 'Üzgünüz, oy veremezsiniz. Bu seçimlerde oy kullanmak için en az $1 {{PLURAL:$1|değişiklik|değişiklik}} yapmanız gerekir, sizin $2 değişikliğiniz var.',
+	'securepoll-too-new' => 'Üzgünüz, oyunuz kabul edilmedi. Bu oylamada oy kullanabilmek için hesabınızın $1 tarihinden önce açılmış olması gerekiyor. Siz $2 tarihinde kayıt olmuşsunuz.',
 	'securepoll-blocked' => 'Üzgünüz, eğer şu anda değişiklik yapmaya engellenmiş iseniz bu seçimlerde oy kullanamazsınız.',
 	'securepoll-bot' => 'Üzgünüz, bot olarak işaretli hesaplar bu seçimde oy kullanamaz.',
 	'securepoll-not-in-group' => 'Bu seçimlerde sadece $1 grubu üyeleri oy verebilir.',
