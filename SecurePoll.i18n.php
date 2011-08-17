@@ -2990,7 +2990,9 @@ Debes clasificar a todas las opciones con un rango entre 1 y 999.',
 	'securepoll-api-token-mismatch' => 'Clave de seguridad no coincidente, no se puede iniciar sesión.',
 	'securepoll-not-logged-in' => 'Debes iniciar sesión para votar en esta elección',
 	'securepoll-too-few-edits' => 'Perdón, no puedes votar. Necesitas haber hecho al menos $1 {{PLURAL:$1|edición|ediciones}} para votar en esta elección, has hecho $2.',
+	'securepoll-too-new' => 'Lo sentimos, no puedes votar. Tu cuenta debió registrarse antes del $1 para poder votar en esta elección, estás registrado desde el $2.',
 	'securepoll-blocked' => 'Perdón, no puedes votar en esta elección si estás actualmente bloqueado para ediciones.',
+	'securepoll-blocked-centrally' => 'Lo sentimos, no puedes votar si estás bloqueado en $1 o más {{PLURAL:$1|wiki|wikis}}.',
 	'securepoll-bot' => 'Lo sentimos, las cuentas con flag de bot no están autorizadas a votar en esta elección.',
 	'securepoll-not-in-group' => 'Solo los miembros del grupo «$1» pueden votar en esta elección.',
 	'securepoll-not-in-list' => 'Lo sentimos, no estás en la lista predeterminada de usuarios autorizados a votar en esta elección.',
@@ -3064,7 +3066,7 @@ Puede escoger entre escrutar los resultados de la base de datos, o escrutar los 
  * @author WikedKentaur
  */
 $messages['et'] = array(
-	'securepoll' => 'Turvahääletus',
+	'securepoll' => 'Turvaline hääletus',
 	'securepoll-desc' => 'Hääletuste ja küsitluste laiendus',
 	'securepoll-invalid-page' => 'Vigane alamlehekülg "<nowiki>$1</nowiki>"',
 	'securepoll-need-admin' => 'Selle tegevuse sooritamiseks pead sa olema valimise ülem.',
@@ -3286,6 +3288,7 @@ Aukera guztiei 1etik 999ra arteko balio bat eman behar diezu.',
 );
 
 /** Persian (فارسی)
+ * @author Americophile
  * @author Bersam
  * @author Ebraminio
  * @author Huji
@@ -3350,7 +3353,9 @@ $1',
 	'securepoll-api-token-mismatch' => 'توکن امنیتی تطابق ندارد، نمی‌توان وارد شد.',
 	'securepoll-not-logged-in' => 'شما باید برای رای‌دادن در این رای‌گیری وارد سیستم شوید.',
 	'securepoll-too-few-edits' => 'متاسفیم، شما نمی‌توانید رای دهید. برای رای‌دادن در این رای‌گیری لازم است تا حداقل $1 ویرایش داشته باشید، اما شما $2 ویرایش دارید.',
+	'securepoll-too-new' => 'با عرض پوزش، شما نمی‌توانید رأی دهید. برای شرکت در این رأی‌گیری، حساب کاربری شما می‌بایست پیش از $1 ثبت می‌شد، حال آن‌که در $2 ثبت شده‌است.',
 	'securepoll-blocked' => 'متاسفیم، اگر دچار محدودیت ویرایشی هستید نمی‌توانید در این رای‌گیری رای دهید.',
+	'securepoll-blocked-centrally' => 'با عرض پوزش، اگر حساب کاربری شما در $1 و یا {{PLURAL:$1| ویکی | ویکی‌های}} دیگر مسدود باشد، نمی‌توانید در این رأی‌گیری شرکت کنید.',
 	'securepoll-bot' => 'متاسفیم، حساب‌های با پرچم روبات اجازهٔ رای دادن در این رای‌گیری را ندارند.',
 	'securepoll-not-in-group' => 'فقط اعضای گروه «$1» می‌توانند در این رای‌گیری رای دهند.',
 	'securepoll-not-in-list' => 'متاسفیم، شما در فهرست ازپیش‌تعیین‌شدهٔ کاربران مجاز برای رای دادن در این رای‌گیری نیستید.',
@@ -3417,6 +3422,9 @@ $1',
 	'securepoll-strength-matrix' => 'ماتریس نقاط قوت مسیر',
 	'securepoll-ranks' => 'رتبه‌بندی نهایی',
 	'securepoll-average-score' => 'میانگین نمره',
+	'securepoll-round' => 'دور $1',
+	'securepoll-spoilt' => '(معیوب)',
+	'securepoll-exhausted' => '(خسته)',
 );
 
 /** Finnish (Suomi)
@@ -4302,6 +4310,7 @@ $1',
 
 /** Hindi (हिन्दी)
  * @author Sau6402
+ * @author Shyam
  * @author Vsrawat
  * @author आलोक
  */
@@ -4367,6 +4376,7 @@ $1',
 	'securepoll-api-token-mismatch' => 'सुरक्षा बिल्ले का मिलान नहीं हुआ, लॉग नहीं कर सकते।',
 	'securepoll-not-logged-in' => 'आपको इस निर्वाचन में मतदान करने के लिए लॉग इन अवश्य करना चाहिए।',
 	'securepoll-too-few-edits' => 'क्षमा कीजिए, आप मतदान नहीं कर सकते। इस निर्वाचन में मतदान करने के लिए आपको न्यूनतम $1 संपादन {{PLURAL:$1|किया होना चाहिए|संपादन किए होने चाहिएँ}}, परंतु आपने $2 {{PLURAL:$2|किया है|किए हैं}}।',
+	'securepoll-too-new' => 'क्षमा करें, आप मतदान नहीं कर सकते हैं। आपके खाते को $1 के पहले पंजीकृत होने कि आवश्यकता थी, आप $2 को पंजीकृत किये गए थे।',
 	'securepoll-blocked' => 'क्षमा कीजिए, आप इस निर्वाचन में मतदान नहीं कर सकते यदि आप वर्तमान में संपादन करने से बाधित हैं।',
 	'securepoll-blocked-centrally' => 'यदि आप पर अवरुद्ध कर रहे हैं खेद है, आप इस चुनाव में वोट नहीं कर सकते $1 या एक से अधिक {{PLURAL:$1| विकि | विकि}}',
 	'securepoll-bot' => 'क्षमा कीजिए, बोट झंडे वाले खातों को इस निर्वाचन में मतदान करने की अनुमति नहीं है।',
@@ -6287,7 +6297,9 @@ Visoms parinktims turite skirti įvertinimą tarp 1 ir 999.',
 	'securepoll-api-token-mismatch' => 'Saugos žymės nesutampa, negalite prisijungti',
 	'securepoll-not-logged-in' => 'Jūs turite prisijungti, norėdami balsuoti šiuose rinkimuose',
 	'securepoll-too-few-edits' => 'Atsiprašome, Jūs negalite balsuoti. Jūs privalote atlikti bent $1 {{PLURAL:$1|redagavimą|redagavimų}}, norėdami balsuoti šiuose rinkimuose. Jūs atlikote $2.',
+	'securepoll-too-new' => 'Atsiprašome, Jūs negalite balsuoti. Jei norite balsuoti šiuose rinkimuose, Jūsų sąskaita turi būti sukurta iki $1, tačiau Jūsų sąskaita yra sukurta $2.',
 	'securepoll-blocked' => 'Atsiprašome, Jūs negalite balsuoti šiuose rinkimuose jei dabar esate užblokuotas.',
+	'securepoll-blocked-centrally' => 'Atsiprašome, Jūs negalite balsuoti šiuose rinkimuose, jei esate blokuotas $1 {{PLURAL:$1|wiki-projekte|wiki-projektuose}} ar daugiau.',
 	'securepoll-bot' => 'Atsiprašome, sąskaitos su boto statusu negali balsuoti šiuose rinkimuose.',
 	'securepoll-not-in-group' => 'Tik nariai iš grupės "$1" gali balsuoti šiuose rinkimuose.',
 	'securepoll-not-in-list' => 'Atsiprašome, Jūs nesate vartotojų sąraše, kuriems leidžiama balsuoti šiuose rinkimuose.',
@@ -6349,8 +6361,13 @@ Galite pasirinkti, ar sutampa rezultatai, esantys duomenų bazėje bei rezultatu
 	'securepoll-no-upload' => 'Failas nebuvo įkeltas, negalima skaičiuoti rezultatų.',
 	'securepoll-dump-corrupt' => 'Iškelties failas nekorektiškas, todėl negali būti apdorotas.',
 	'securepoll-tally-upload-error' => 'Klaida kuriant iškelties failą: $1',
+	'securepoll-pairwise-victories' => 'Porinės pergalės matrica',
+	'securepoll-strength-matrix' => 'Kelio stiprumo matrica',
 	'securepoll-ranks' => 'Galutinis įvertinimas',
 	'securepoll-average-score' => 'Vidutinis rezultatas',
+	'securepoll-round' => 'Turas $1',
+	'securepoll-spoilt' => '(Sugadinta)',
+	'securepoll-exhausted' => '(Išnaudota)',
 );
 
 /** Latgalian (Latgaļu)
@@ -7153,6 +7170,7 @@ LocalSettings.phpमा $wgSecurePollShowErrorDetail=true; को प्रय�
 	'securepoll-too-few-edits' => 'माफ गर्नुहोस्, तपाईंले मत दिन सक्नुहुन्न। तपाईंले मत दिन निम्नतम $1 {{PLURAL:$1|सम्पादन|सम्पादनहरु}} गरेको हुनुपर्छ, तपाईंले $2 मात्र  गर्नु भएकोछ।',
 	'securepoll-too-new' => 'माफ गर्नुहोला । तपाईले भोट दिन सक्नुहुन्न।  यस मतदान मा भोट दिनलाई  तपाईको खाता $1 भन्दा पहिले दर्ता गरिएको हुनुपर्छ भने तपाईले $2 मा दर्ता गर्नुभएको थियो।',
 	'securepoll-blocked' => 'माफ गर्नुहोस्, तपाईंले यस चुनावमा मत दिन सक्नुहुन्न। तपाईंलाई सम्पादन गर्न बन्देज गरिएकोछ।',
+	'securepoll-blocked-centrally' => 'माफ गर्नुहोला, जब तपाइलाई $1 वा बढि{{PLURAL:$1|विकीi|विकीहरु}}.मा निषेध गरिएको हुन्छ, तपाइले यस चुनावमा तपाईले भोट दिन पाउुनुहुन्न  ।',
 	'securepoll-bot' => 'माफ गर्नुहोस्, बोटको ध्वजा भएको खातालाई यस चुनावमा मत दिने अनुमति छैन।',
 	'securepoll-not-in-group' => '"$1" समूहका सदस्यहरुले मात्र यस चुनावमा मत दिन सक्नेछन्।',
 	'securepoll-not-in-list' => 'माफ गर्नुहोला, तपाईं यस चुनावको लागि मतदानको अधिकार प्राप्त सदस्यहरुको पूर्वनिर्धारित सूचीमा पर्नुहुन्न।',
@@ -7161,6 +7179,7 @@ LocalSettings.phpमा $wgSecurePollShowErrorDetail=true; को प्रय�
 	'securepoll-header-voter-name' => 'नाम',
 	'securepoll-header-voter-domain' => 'डोमेन',
 	'securepoll-header-ua' => 'प्रयोगकर्ता एजेन्ट(ब्राउजर)',
+	'securepoll-header-cookie-dup' => 'दोहोरिएको',
 	'securepoll-header-strike' => 'काट्ने',
 	'securepoll-header-details' => 'विवरणहरु',
 	'securepoll-strike-button' => 'काट्ने',
