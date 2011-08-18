@@ -2211,6 +2211,7 @@ Du kan enten optælle de nuværende stemmer i databasen, eller optælle kryptere
 /** German (Deutsch)
  * @author ChrisiPK
  * @author Kghbln
+ * @author MF-Warburg
  * @author Metalhead64
  * @author Pill
  * @author Umherirrender
@@ -2270,7 +2271,7 @@ Du musst allen Optionen eine Rangnummer zwischen 1 und 999 geben.',
 	'securepoll-api-invalid-params' => 'Ungültige Parameter.',
 	'securepoll-api-no-user' => 'Es wurde kein Benutzer mit der angegebenen Kennung gefunden.',
 	'securepoll-api-token-mismatch' => 'Falsche Sicherheitstoken, Anmeldung fehlgeschlagen.',
-	'securepoll-not-logged-in' => 'Du musst angemeldet sein, um bei dieser Wahl abstimmen zu können',
+	'securepoll-not-logged-in' => 'Du musst [[Special:Userlogin|angemeldet]] sein, um bei dieser Wahl abstimmen zu können. Wenn du noch über kein Benutzerkonto verfügst, kannst du eines [[Special:Userlogin/signup|anlegen]].',
 	'securepoll-too-few-edits' => 'Du darfst leider nicht abstimmen. Du musst mindestens $1 {{PLURAL:$1|Bearbeitung|Bearbeitungen}} gemacht haben, um bei dieser Wahl abstimmen zu dürfen. Du hast $2 Bearbeitungen gemacht.',
 	'securepoll-too-new' => 'Du darfst leider nicht abstimmen. Dein Benutzerkonto hätte vor dem $1 registriert werden müssen, um bei dieser Wahl abstimmen zu dürfen. Du hast dich am $2 registriert.',
 	'securepoll-blocked' => 'Du darfst leider nicht abstimmen, da dein Benutzerkonto derzeit gesperrt bist.',
@@ -3430,6 +3431,7 @@ $1',
 /** Finnish (Suomi)
  * @author Cimon Avaro
  * @author Crt
+ * @author Olli
  * @author Silvonen
  * @author Str4nd
  * @author ZeiP
@@ -3490,7 +3492,9 @@ Salausta ei voi purkaa.',
 	'securepoll-api-token-mismatch' => 'Turvallisuusmerkintä ei täsmää, joten sisäänkirjautuminen ei onnistu.',
 	'securepoll-not-logged-in' => 'Sinun pitää kirjautua sisään voidaksesi äänestää.',
 	'securepoll-too-few-edits' => 'Valitettavasti et voi äänestää. Sinulla täytyy olla vähintään $1 {{PLURAL:$1|muokkaus|muokkausta}} voidaksesi äänestää näissä vaaleissa. Olet tehnyt $2.',
+	'securepoll-too-new' => 'Pahoittelemme, et voi äänestää. Tilisi täytyy olla rekisteröity ennen $1 äänestääksesi. Olet rekisteröitynyt $2.',
 	'securepoll-blocked' => 'Et voi äänestää näissä vaaleissa, jos sinulla on muokkausesto tällä hetkellä.',
+	'securepoll-blocked-centrally' => 'Pahoittelemme, et voi äänestää sillä sinut on estetty $1:ssä tai useammassa {{PLURAL:$1|wiki|wikissä}}.',
 	'securepoll-bot' => 'Käyttäjätilit, joilla on bottimerkintä eivät saa äänestää näissä vaaleissa.',
 	'securepoll-not-in-group' => 'Vain jäsenet jotka kuuluvat ryhmään $1, voivat äänestää näissä vaaleissa.',
 	'securepoll-not-in-list' => 'Et ole etukäteen valitussa listassa käyttäjiä, jotka ovat oikeutettuja äänestämään tässä vaalissa.',
@@ -3555,6 +3559,9 @@ Voit valita tuloslaskennan tietokantatiedoista, tai salakirjoitetuista tuloksist
 	'securepoll-strength-matrix' => 'Polun vahvuuden matriisi',
 	'securepoll-ranks' => 'Lopullinen sijoitus',
 	'securepoll-average-score' => 'Keskiarvopisteet',
+	'securepoll-round' => 'Kierros $1',
+	'securepoll-spoilt' => '(Väärin)',
+	'securepoll-exhausted' => '(Ei käytetty)',
 );
 
 /** French (Français)
@@ -4231,7 +4238,7 @@ $1',
 	'securepoll-api-invalid-params' => 'פרמטרים בלתי תקינים.',
 	'securepoll-api-no-user' => 'לא נמצא משתמש עם מספר זה.',
 	'securepoll-api-token-mismatch' => 'אסימון האבטחה לא מתאים, לא ניתן להיכנס לחשבון.',
-	'securepoll-not-logged-in' => 'עליכם להיכנס לחשבון כדי להצביע בהצבעה זו',
+	'securepoll-not-logged-in' => 'יש [[Special:Userlogin|להיכנס לחשבון]] כדי להצביע בהצבעה זו. אם אין לך עדיין חשבון, אפשר [[Special:Userlogin/signup|ליצור אותו]].',
 	'securepoll-too-few-edits' => 'מצטערים, אינכם יכולים להצביע. היה עליכם לעשות לפחות {{PLURAL:עריכה אחת|$1 עריכות}} כדי להצביע בהצבעה זו, ועשיתם רק {{PLURAL:$2|אחת|$2}}.',
 	'securepoll-too-new' => 'סליחה, אין באפשרותך להצביע. חשבונך היה צריך להיווצר לפי $1 כדי להצביע בבחירות האלו והוא נוצר ב־$2.',
 	'securepoll-blocked' => 'מצטערים, אינכם יכולים להצביע בהצבעה זו אם אתם חסומים כרגע מעריכה.',
@@ -7541,7 +7548,7 @@ Du må gi alle alternativene en rangering mellom 1 og 999.',
 	'securepoll-blocked-centrally' => 'Du kan dessverre ikke stemme i dette valget om du er blokkert på $1 eller flere {{PLURAL:$1|wiki|wikier}}.',
 	'securepoll-bot' => 'Beklager, kontoer med botflagg kan ikke stemme i dette valget.',
 	'securepoll-not-in-group' => 'Kun brukere i gruppen «$1» kan delta i denne avstemningen.',
-	'securepoll-not-in-list' => 'Du er desverre ikke i lista over brukere som kan stemme i dette valget.',
+	'securepoll-not-in-list' => 'Du er dessverre ikke i lista over brukere som kan stemme i dette valget.',
 	'securepoll-list-title' => 'Vis stemmer: $1',
 	'securepoll-header-timestamp' => 'Tid',
 	'securepoll-header-voter-name' => 'Navn',
@@ -8095,7 +8102,9 @@ It deuve deje a minca vos un vot tra 1 e 999.',
 	'securepoll-api-token-mismatch' => 'Ij token ëd sicurëssa a corispondo pa, it peule pa intré.',
 	'securepoll-not-logged-in' => "It deuve intré për voté an st'elession-sì",
 	'securepoll-too-few-edits' => "Spiasent, it peule pa voté. It deuve avèj fàit almanch $1 {{PLURAL:$1|modìfica|modìfiche}} për voté an st'elession-sì, ti it l'has fane $2.",
+	'securepoll-too-new' => 'Spiasent, ma it peule pa voté. To cont a dovrìa esse stàit registrà prima dij $1 për voté an sta elession-sì, ti it ses registrate ai $2.',
 	'securepoll-blocked' => "Spiasent, it peule pa voté an st'elession-sì se it ses blocà.",
+	'securepoll-blocked-centrally' => "Spiasent, it peule pa voté an sta elession-sì s'it ses blocà fin ai $1 o an pi {{PLURAL:$1|wiki|wiki}}.",
 	'securepoll-bot' => "Spiasent, ij cont lë stat ëd bot a peulo pa voté an st'elession-sì.",
 	'securepoll-not-in-group' => 'Mach ij mèmber dël grup "$1" a peulo voté an st\'elession-sì.',
 	'securepoll-not-in-list' => "Spiasent, it ses pa ant la lista predeterminà d'utent autorisà a voté an st'elession-sì.",
@@ -8161,6 +8170,9 @@ It peule serne sia ëd conté j'arzultà present ant ël database, sia ëd cont�
 	'securepoll-strength-matrix' => 'Matris ëd fòrsa dël path',
 	'securepoll-ranks' => 'Votassion final',
 	'securepoll-average-score' => 'Pontegi medi',
+	'securepoll-round' => 'Vira nùmer $1',
+	'securepoll-spoilt' => '(Darmagi)',
+	'securepoll-exhausted' => '(Esaurì)',
 );
 
 /** Pashto (پښتو)
@@ -9649,7 +9661,7 @@ Vsem možnostim morate določiti uvrstitev med 1 in 999.',
 	'securepoll-api-invalid-params' => 'Neveljavni parametri.',
 	'securepoll-api-no-user' => 'Najden ni bil noben uporabnik z danim ID.',
 	'securepoll-api-token-mismatch' => 'Neujemanje varnostnega žetona; ne morem vas prijaviti.',
-	'securepoll-not-logged-in' => 'Za glasovanje na teh volitvah se morate prijaviti.',
+	'securepoll-not-logged-in' => 'Za glasovanje na teh volitvah se morate [[Special:Userlogin|prijaviti]]. Če še nimate računa, si ga lahko [[Special:Userlogin/signup|ustvarite]].',
 	'securepoll-too-few-edits' => 'Oprostite, ne morete voliti. Morali bi storiti najmanj $1 {{PLURAL:$1|urejanje|urejanji|urejanja|urejanj}} za voljenje na teh volitvah; naredili ste jih $2.',
 	'securepoll-too-new' => 'Oprostite, ne morete glasovati. Za glasovanje mora biti vaš račun registriran pred dnem $1; registrirali ste se dne $2.',
 	'securepoll-blocked' => 'Oprostite, ne morete voliti na teh volitvah, če vam je urejanje trenutno preprečeno.',
@@ -10626,6 +10638,7 @@ $messages['tpi'] = array(
 );
 
 /** Turkish (Türkçe)
+ * @author Emperyan
  * @author Joseph
  * @author Koc61
  * @author Noumenon
@@ -10686,7 +10699,7 @@ Tüm seçeneklere 1 ile 999 arasında bir derece vermelisiniz.',
 	'securepoll-api-invalid-params' => 'Geçersiz değişkenler.',
 	'securepoll-api-no-user' => 'Verilen ID ile hiçbir kullanıcı bulunamadı.',
 	'securepoll-api-token-mismatch' => 'Güvenlik simgesi uyuşmuyor, giriş yapılamıyor.',
-	'securepoll-not-logged-in' => 'Bu seçimde oy kullanmak için giriş yapmanız gerekiyor',
+	'securepoll-not-logged-in' => 'Bu seçimde oy kullanmak için [[Special:Userlogin|giriş]] yapmanız gerekiyor. Henüz bir hesabınız yoksa, hesap [[Special:Userlogin/signup|edinebilirsiniz]].',
 	'securepoll-too-few-edits' => 'Üzgünüz, oy veremezsiniz. Bu seçimlerde oy kullanmak için en az $1 {{PLURAL:$1|değişiklik|değişiklik}} yapmanız gerekir, sizin $2 değişikliğiniz var.',
 	'securepoll-too-new' => 'Üzgünüz, oyunuz kabul edilmedi. Bu oylamada oy kullanabilmek için hesabınızın $1 tarihinden önce açılmış olması gerekiyor. Siz $2 tarihinde kayıt olmuşsunuz.',
 	'securepoll-blocked' => 'Üzgünüz, eğer şu anda değişiklik yapmaya engellenmiş iseniz bu seçimlerde oy kullanamazsınız.',
