@@ -458,7 +458,7 @@ $1',
 	'securepoll-api-invalid-params' => 'محددات غير صحيحة.',
 	'securepoll-api-no-user' => 'لم يوجد أي مستخدم بالهوية المعطاة.',
 	'securepoll-api-token-mismatch' => 'نص الأمان لا يطابق، لا يمكن تسجيل الدخول.',
-	'securepoll-not-logged-in' => 'يجب أن تدخل لتصوت في هذه الانتخابات',
+	'securepoll-not-logged-in' => 'يجب أن [[Special:Userlogin|تدخل]] لتصوت في هذه الانتخابات. إذ لم يكن لديك حساب، يمكن أن [[Special:Userlogin/signup|تنشئ حسابا]].',
 	'securepoll-too-few-edits' => 'عذرا لا يمكنك التصويت. يجب أن تقوم ب{{PLURAL:$1||تعديل واحد|تعديلين|$1 تعديلات|$1 تعديلًا|$1 تعديل}} على الأقل لتصوت في هذه الانتخابات، بينما قمت ب$2.',
 	'securepoll-too-new' => 'عذراً، لا يمكنك التصويت.  يسمح فقط بالتصويت للحسابات المسجلة قبل $1 في هذه الانتخابات، يمكنك تسجيل على $2.',
 	'securepoll-blocked' => 'عذرا، لا تستطيع التصويت في هذه الانتخابات إذا كنت ممنوعا حاليا من التعديل.',
@@ -1866,7 +1866,7 @@ Musíte všem možnostem přidělit pořadí mezi 1 a 999.',
 	'securepoll-api-invalid-params' => 'Chybné parametry.',
 	'securepoll-api-no-user' => 'Nebyl nalezen uživatel s uvedeným ID.',
 	'securepoll-api-token-mismatch' => 'Nesouhlasí bezpečnostní kód, nelze se přihlásit.',
-	'securepoll-not-logged-in' => 'Abyste mohl(a) hlasovat, musíte se přihlásit.',
+	'securepoll-not-logged-in' => 'Abyste mohl(a) hlasovat, musíte [[Special:Userlogin|se přihlásit]]. Pokud zatím nemáte účet, můžete si ho [[Special:Userlogin/signup|založit]].',
 	'securepoll-too-few-edits' => 'Promiňte, ale nemůžete hlasovat. V těchto volbách mohou hlasovat jen uživatelé s nejméně $1 {{PLURAL:$1|editací|editacemi}}, vy máte $2.',
 	'securepoll-too-new' => 'Je nám líto, ale nemůžete hlasovat. Pro účast v tomto hlasování by váš účet musel být založen před $1, {{gender:|zaregistroval|zaregistrovala|zaregistrovali}} jste se však $2.',
 	'securepoll-blocked' => 'Promiňte, ale nemůžete se zúčastnit tohoto hlasování, pokud je vám momentálně zablokována editace.',
@@ -3116,7 +3116,7 @@ Ei saa dekrüptida.',
 	'securepoll-api-invalid-params' => 'Vigased parameetrid.',
 	'securepoll-api-no-user' => 'Etteantud ID-ga kasutajat ei leidu.',
 	'securepoll-api-token-mismatch' => 'Turvatunnus ei klapi, ei saa sisse logida.',
-	'securepoll-not-logged-in' => 'Hääletamiseks pead olema sisse logitud.',
+	'securepoll-not-logged-in' => 'Sellel hääletusel osalemiseks pead [[Special:Userlogin|sisse logima]]. Kui sul pole veel kontot, saad [[Special:Userlogin/signup|selle luua]].',
 	'securepoll-too-few-edits' => 'Sa ei saa hääletada. Hääletamiseks pead olema teinud vähemalt $1 {{PLURAL:$1|muudatuse|muudatust}}. Oled teinud $2.',
 	'securepoll-blocked' => 'Vabandust, sa ei saa hääletada, kui oled hetkel blokeeritud.',
 	'securepoll-bot' => 'Vabandust, boti staatusega kontod ei saa hääletada neil valimistel.',
@@ -3432,6 +3432,7 @@ $1',
  * @author Cimon Avaro
  * @author Crt
  * @author Olli
+ * @author Ronja Addams-Moring
  * @author Silvonen
  * @author Str4nd
  * @author ZeiP
@@ -3490,7 +3491,7 @@ Salausta ei voi purkaa.',
 	'securepoll-api-invalid-params' => 'Virheellisiä parametreja.',
 	'securepoll-api-no-user' => 'Annetulla tunnisteella ei löytynyt käyttäjää.',
 	'securepoll-api-token-mismatch' => 'Turvallisuusmerkintä ei täsmää, joten sisäänkirjautuminen ei onnistu.',
-	'securepoll-not-logged-in' => 'Sinun pitää kirjautua sisään voidaksesi äänestää.',
+	'securepoll-not-logged-in' => 'Sinun pitää [[Special:Userlogin|kirjautua sisään]] voidaksesi äänestää. Jos sinulla ei vielä ole käyttäjätunnusta voit  [[Special:Userlogin/signup|luoda sellaisen]].',
 	'securepoll-too-few-edits' => 'Valitettavasti et voi äänestää. Sinulla täytyy olla vähintään $1 {{PLURAL:$1|muokkaus|muokkausta}} voidaksesi äänestää näissä vaaleissa. Olet tehnyt $2.',
 	'securepoll-too-new' => 'Pahoittelemme, et voi äänestää. Tilisi täytyy olla rekisteröity ennen $1 äänestääksesi. Olet rekisteröitynyt $2.',
 	'securepoll-blocked' => 'Et voi äänestää näissä vaaleissa, jos sinulla on muokkausesto tällä hetkellä.',
@@ -3576,6 +3577,7 @@ Voit valita tuloslaskennan tietokantatiedoista, tai salakirjoitetuista tuloksist
  * @author TouzaxA
  * @author Urhixidur
  * @author Verdy p
+ * @author Wyz
  * @author Yann
  */
 $messages['fr'] = array(
@@ -3633,7 +3635,7 @@ Vous devez donner un rang entre 1 et 999 (inclus) à toutes les options.',
 	'securepoll-api-invalid-params' => 'Paramètres invalides.',
 	'securepoll-api-no-user' => 'Aucun utilisateur avec l’identifiant donné n’a été trouvé.',
 	'securepoll-api-token-mismatch' => 'Jeton de sécurité différent, connexion impossible.',
-	'securepoll-not-logged-in' => 'Vous devez vous connecter pour voter dans cette élection.',
+	'securepoll-not-logged-in' => "Vous devez vous [[Special:Userlogin|connecter]] pour participer à cette élection. Si vous n'avez pas encore de compte utilisateur, vous pouvez en [[Special:Userlogin/signup|créer un]] .",
 	'securepoll-too-few-edits' => 'Désolé, vous ne pouvez pas voter. Vous devez avoir effectué au moins {{PLURAL:$1|une modification|$1 modifications}} pour voter pour cette élection, vous en totalisez $2.',
 	'securepoll-too-new' => 'Désolé, vous ne pouvez pas voter. Votre compte devait être enregistré avant le $1 pour voter pour cette élection, vous vous êtes enregistré ​​le $2.',
 	'securepoll-blocked' => 'Désolé, vous ne pouvez pas voter pour cette élection car vous êtes bloqué en écriture.',
@@ -5255,7 +5257,7 @@ Devi assegnare a ciascuna voce un voto compreso tra 1 e 999.',
 	'securepoll-api-invalid-params' => 'Parametri non validi.',
 	'securepoll-api-no-user' => "Non è stato trovato alcun utente con l'ID fornito.",
 	'securepoll-api-token-mismatch' => 'I token di sicurezza non coincidono, non puoi entrare.',
-	'securepoll-not-logged-in' => "È necessario eseguire l'accesso per votare in queste elezioni",
+	'securepoll-not-logged-in' => "È necessario [[Special:UserLogin|eseguire l'accesso]] per prendere parte a questa votazione. Se non sei ancora registrato, puoi [[Special:UserLogin/signup|registrarti ora]].",
 	'securepoll-too-few-edits' => 'Spiacente, non puoi votare. Devi aver effettuato almeno $1 {{PLURAL:$1|modifica|modifiche}} per votare in questa elezione, tu ne hai fatte $2.',
 	'securepoll-too-new' => 'Spiacente ma non puoi votare in queste elezioni. Per farlo devi essere esserti registrato prima del $1 mentre invece ti sei registrato il $2.',
 	'securepoll-blocked' => 'Spiacente, non puoi votare in questa elezione se sei stato bloccato dalla modifica.',
@@ -5384,7 +5386,7 @@ $1',
 	'securepoll-api-invalid-params' => 'パラメータが不正です。',
 	'securepoll-api-no-user' => '指定されたIDをもつ利用者が見つかりません。',
 	'securepoll-api-token-mismatch' => 'セキュリティ・トークンが一致しないのでログインできません。',
-	'securepoll-not-logged-in' => 'この投票に参加するためにはログインしていなければいけません',
+	'securepoll-not-logged-in' => 'この投票に参加するには、[[Special:Userlogin|ログイン]]する必要があります。アカウントをお持ちでない場合は、[[Special:Userlogin/signup|開設]]することができます。',
 	'securepoll-too-few-edits' => '申し訳ありませんが、あなたは投票できません。この投票に参加するためには少なくとも$1{{PLURAL:$1|回}}の編集を行なっていなければなりません。現在の編集回数は$2です。',
 	'securepoll-too-new' => '申し訳ありませんが、投票できません。この選挙で投票するには、$1より前にアカウント登録されている必要があります。あなたは、$2にアカウント登録しています。',
 	'securepoll-blocked' => '申し訳ありませんが、あなたは投稿ブロックを受けているためこの投票に参加できません。',
@@ -5463,7 +5465,7 @@ $messages['jv'] = array(
 	'securepoll' => 'SecurePoll',
 	'securepoll-desc' => 'Èkstènsi tumrap pamilihan lan survé',
 	'securepoll-invalid-page' => 'Anak kaca ora sah "<nowiki>$1</nowiki>"',
-	'securepoll-need-admin' => 'Pratingkah iki mung bisa diayahi déning pangurus.',
+	'securepoll-need-admin' => 'Tumindak punika namung saged dipunayahi déning pangurus.',
 	'securepoll-too-few-params' => 'Parameter anak kaca ora pepak (pranala ora sah).',
 	'securepoll-invalid-election' => 'ID pamilihan ora sah: "$1"',
 	'securepoll-welcome' => '<strong>Sugeng rawuh $1!</strong>',
@@ -5484,6 +5486,19 @@ Yèn perlu panjenengan bisa nyimpen resi pangiriman ing ngisor iki minangka bukt
 <pre>$1</pre>',
 	'securepoll-thanks' => 'Matur nuwun, swara panjenengan wis dicathet.',
 	'securepoll-return' => 'Bali menyang $1',
+	'securepoll-encrypt-error' => 'Gagal nyandi cathetan swanten (vote) panjenengan.
+Swanten panjenengan dèrèng kacathet!
+
+$1',
+	'securepoll-no-gpg-home' => "Boten saged damel GPG ''home directory''",
+	'securepoll-secret-gpg-error' => 'Gagal nglampahaken GPG.
+Ginakaken $wgSecurePollShowErrorDetail=true; ing LocalSettings.php kanggé nampilaken princén langkung pepak.',
+	'securepoll-full-gpg-error' => 'Gagal nglampahaken GPG.
+
+Printah:$1
+
+Kasalahan:
+<pre>$2</pre>',
 );
 
 /** Georgian (ქართული)
@@ -6036,7 +6051,7 @@ Dir musst allen optiounen e Classement tëschent 1 an 999 ginn.',
 	'securepoll-api-invalid-params' => 'Parameter déi net valabel sinn.',
 	'securepoll-api-no-user' => 'Et gouf kee Benotzer mat der ID fonnt déi ugi war.',
 	'securepoll-api-token-mismatch' => 'Falsche Sécerheeets-Token, Aloggen ass net méiglech.',
-	'securepoll-not-logged-in' => 'Dir musst Iech alogge fir bäi dëse Walen ofstëmmen ze kënnen',
+	'securepoll-not-logged-in' => 'Dir musst [[Special:Userlogin|Iech alogge]] fir bäi dëse Walen ofstëmmen ze kënnen',
 	'securepoll-too-few-edits' => 'Pardon, Dir däerft net ofstëmmen. Dir musst mindestens $1 {{PLURAL:$1|Ännerung|Ännerunge}} gemaacht hunn, fir bäi dëse Walen ofstëmmen ze kënnen, Dir hutt der $2 gemaach.',
 	'securepoll-too-new' => 'Pardon, Dir däerft net ofstëmmen. Äre Benotzerkont hätt misse virum $1 registréiert si fir bäi dëse Walen ofstëmmen ze däerfen. Dir sidd zënter dem $2 registréiert.',
 	'securepoll-blocked' => 'Pardon, Dir kënnt net bäi dëse Walen ofstëmmen wann dir elo fir Ännerunge gespaart sidd.',
@@ -6462,7 +6477,7 @@ $1',
 	'securepoll-api-invalid-params' => 'Неважечки параметри.',
 	'securepoll-api-no-user' => 'Не бепе пронајден корисник со зададената назнака.',
 	'securepoll-api-token-mismatch' => 'Не се совпаѓаат безбедносните кодови, не можам да ве најавам.',
-	'securepoll-not-logged-in' => 'Морате да сте најавени за да гласате',
+	'securepoll-not-logged-in' => 'Мора да сте [[Special:Userlogin|најавени]] за да гласате на изборите. Ако немате сметка, можете да [[Special:Userlogin/signup|направите]].',
 	'securepoll-too-few-edits' => 'Жалиме, но не можете да гласате. Треба да имате барем $1 {{PLURAL:$1|уредување|уредувања}} за да можете да гласате, а вие имате $2.',
 	'securepoll-too-new' => 'Нажалост, не можете да гласате. За да гласате на овие избори, сметката треба да ви е регистрирана пред $1, а вие сте ја регистрирале на $2.',
 	'securepoll-blocked' => 'Жалиме, но немате право да гласате ако сте моментално блокирани од уредување.',
@@ -7231,6 +7246,7 @@ LocalSettings.phpमा $wgSecurePollShowErrorDetail=true; को प्रय�
 /** Dutch (Nederlands)
  * @author Lolsimon
  * @author Mwpnl
+ * @author Ronja Addams-Moring
  * @author SPQRobin
  * @author Siebrand
  */
@@ -7291,7 +7307,7 @@ U moet alle mogelijkheden een rang geven tussen 1 en 999.',
 	'securepoll-api-no-user' => 'Er is geen gebruiker gevonden met de opgegeven ID.',
 	'securepoll-api-token-mismatch' => 'Het beveiligingstoken kwam niet overeen met wat verwacht werd.
 Aanmelden is niet mogelijk.',
-	'securepoll-not-logged-in' => 'U moet aanmelden om aan deze stemming deel te nemen',
+	'securepoll-not-logged-in' => 'U moet [[Special:Userlogin|inloggen]] om aan deze stemming deel te nemen. Als u nog geen account hebt, kunt u [[Special:Userlogin/signup|maak een]].',
 	'securepoll-too-few-edits' => 'Sorry, u kunt niet deelnemen aan de stemming.
 U moet ten minste $1 {{PLURAL:$1|bewerking|bewerkingen}} hebben gemaakt om te kunnen stemmen in deze stemming, en u hebt er $2.',
 	'securepoll-too-new' => 'U kunt niet deelnemen aan deze stemming. U moet voor $1 geregistreerd zijn om te mogen stemmen, terwijl u geregistreerd bent op $2.',
@@ -7484,6 +7500,7 @@ Du kan velja å anten telja opp resultata tilgjengelege i databasen, eller å te
  * @author Jon Harald Søby
  * @author Laaknor
  * @author Nghtwlkr
+ * @author Ronja Addams-Moring
  * @author Stigmj
  */
 $messages['no'] = array(
@@ -7541,7 +7558,7 @@ Du må gi alle alternativene en rangering mellom 1 og 999.',
 	'securepoll-api-invalid-params' => 'Ugyldige parametere.',
 	'securepoll-api-no-user' => 'Det ble ikke funnet noen bruker med den oppgitte IDen.',
 	'securepoll-api-token-mismatch' => 'Sikkerhetsnøkkel manglet, kan ikke logge inn.',
-	'securepoll-not-logged-in' => 'Du må logge inn for å kunne stemme i dette valget.',
+	'securepoll-not-logged-in' => 'Du må [[Special:Userlogin|logge inn]] for å kunne stemme i dette valget. Hvis du ennå ikke har en konto, kan du  [[Special:Userlogin/signup|opprette en]].',
 	'securepoll-too-few-edits' => 'Beklager, du kan ikke stemme. Du må ha gjort minst $1 {{PLURAL:$1|redigering|redigeringer}} for å delta i denne avstemningen. Du har gjort $2.',
 	'securepoll-too-new' => 'Du kan desssverre ikke stemme. Kontoen din må ha vært registrert før $1 for å kunne stemme i dette valget; du registrerte deg $2.',
 	'securepoll-blocked' => 'Beklager, du kan ikke stemme i dette valget hvis du er blokkert fra å redigere.',
@@ -8100,7 +8117,7 @@ It deuve deje a minca vos un vot tra 1 e 999.',
 	'securepoll-api-invalid-params' => 'Paràmetr pa vàlid.',
 	'securepoll-api-no-user' => "Pa gnun utent trovà con l'ID fornì.",
 	'securepoll-api-token-mismatch' => 'Ij token ëd sicurëssa a corispondo pa, it peule pa intré.',
-	'securepoll-not-logged-in' => "It deuve intré për voté an st'elession-sì",
+	'securepoll-not-logged-in' => "It deuve [[Special:Userlogin|intré]] për voté an st'elession-sì. S'it l'has pa anco' un cont, it peule [[Special:Userlogin/signup|creene un]].",
 	'securepoll-too-few-edits' => "Spiasent, it peule pa voté. It deuve avèj fàit almanch $1 {{PLURAL:$1|modìfica|modìfiche}} për voté an st'elession-sì, ti it l'has fane $2.",
 	'securepoll-too-new' => 'Spiasent, ma it peule pa voté. To cont a dovrìa esse stàit registrà prima dij $1 për voté an sta elession-sì, ti it ses registrate ai $2.',
 	'securepoll-blocked' => "Spiasent, it peule pa voté an st'elession-sì se it ses blocà.",
@@ -8173,6 +8190,29 @@ It peule serne sia ëd conté j'arzultà present ant ël database, sia ëd cont�
 	'securepoll-round' => 'Vira nùmer $1',
 	'securepoll-spoilt' => '(Darmagi)',
 	'securepoll-exhausted' => '(Esaurì)',
+);
+
+/** Western Punjabi (پنجابی)
+ * @author Khalid Mahmood
+ */
+$messages['pnb'] = array(
+	'securepoll-submit-translate' => 'نواں کرو',
+	'securepoll-language-label' => 'بولی چنو',
+	'securepoll-submit-select-lang' => 'بولی التھاؤ',
+	'securepoll-header-title' => 'ناں',
+	'securepoll-header-start-date' => 'ٹرن تریخ',
+	'securepoll-header-end-date' => 'انت تریخ',
+	'securepoll-subpage-vote' => 'ووٹ دیو',
+	'securepoll-subpage-translate' => 'بولی التھاؤ',
+	'securepoll-subpage-list' => 'لسٹ',
+	'securepoll-subpage-dump' => 'سٹو',
+	'securepoll-subpage-tally' => 'گنو',
+	'securepoll-tally-local-legend' => 'کٹھے کیتے گۓ نتارے',
+	'securepoll-tally-local-submit' => 'گنتی بناؤ',
+	'securepoll-tally-upload-submit' => 'گنتی بناؤ',
+	'securepoll-no-upload' => 'کوئی فائل نئیں چرھائی کئی، نتارے نئیں کنے جاسکدے',
+	'securepoll-ranks' => 'فائینل رینکنگ',
+	'securepoll-exhausted' => '(مک چکیا)',
 );
 
 /** Pashto (پښتو)
@@ -8580,7 +8620,7 @@ Trebuie să oferiți tuturor opțiunilor un grad cuprins între 1 și 999.',
 	'securepoll-api-invalid-params' => 'Parametri incorecți.',
 	'securepoll-api-no-user' => 'Niciun utilizator cu acest ID nu a fost găsit.',
 	'securepoll-api-token-mismatch' => 'Jetonul de securitate nu se potrivește. Nu se poate efectua autentificarea.',
-	'securepoll-not-logged-in' => 'Trebuie să vă autentificați pentru a vota în cadrul acestor alegeri.',
+	'securepoll-not-logged-in' => 'Trebuie să vă [[Special:Userlogin|autentificați]] pentru a vota în cadrul acestor alegeri. Dacă nu aveți încă un cont, vă puteți [[Special:Userlogin/signup|crea unul]].',
 	'securepoll-too-few-edits' => 'Ne pare rău, dar nu puteți vota. Trebuie să fi contribuit cu cel puțin $1 {{PLURAL:$1|modificare|modificări}} pentru a vota în cadrul acestor alegeri. Dumneavoastră ați efectuat doar $2.',
 	'securepoll-too-new' => 'Ne pare rău, dar nu puteți vota. Pentru a vă exprima votul în cadrul acestor alegeri este necesar ca contul dumneavoastră să fi fost înregistrat înainte de $1. Dumneavoastră v-ați înregistrat pe $2.',
 	'securepoll-blocked' => 'Ne pare rău, dar nu puteți vota în cadrul acestor alegeri deoarece sunteți blocat (nu puteți face modificări).',
@@ -10013,6 +10053,7 @@ $messages['su'] = array(
  * @author Najami
  * @author Per
  * @author Poxnar
+ * @author Ronja Addams-Moring
  * @author StefanB
  */
 $messages['sv'] = array(
@@ -10070,7 +10111,7 @@ Du måste rangordna alla valmöjligheter mellan 1 och 999.',
 	'securepoll-api-invalid-params' => 'Felaktig parameter.',
 	'securepoll-api-no-user' => 'Ingen användare hittades med det angivna ID:t.',
 	'securepoll-api-token-mismatch' => 'Säkerhetsnyckel saknas, kan inte logga in.',
-	'securepoll-not-logged-in' => 'Du måste logga in för att kunna rösta i det här valet.',
+	'securepoll-not-logged-in' => 'Du måste [[Special:Userlogin|logga in]] för att kunna rösta i den här omröstningen. Om du inte ännu har ett användarkonto, kan du [[Special:Userlogin/signup|skapa ett]].',
 	'securepoll-too-few-edits' => 'Ledsen, men du kan inte rösta. Du måste ha minst $1 {{PLURAL:$1|redigering|redigeringar}} för att rösta i det här valet. Du har gjort $2 {{PLURAL:$2|redigering|redigeringar}}.',
 	'securepoll-too-new' => 'Du kan tyvärr inte rösta. Ditt konto måste ha varit registrerade före $1 för att rösta i detta val; du registrerade dig $2.',
 	'securepoll-blocked' => 'Ledsen, men du kan inte rösta om du är blockerad från redigering.',
@@ -10503,6 +10544,7 @@ Saýlawçynyň gizlinligini üpjün etmek üçin, şifrli saýlaw ýazgylary di�
 
 /** Tagalog (Tagalog)
  * @author AnakngAraw
+ * @author Sky Harbor
  */
 $messages['tl'] = array(
 	'securepoll' => 'Ligtas na Halalan',
@@ -10559,9 +10601,11 @@ Ikaw ay dapat magbigay ng lahat ng mga mapagpipilian ng isang ranggo sa pagitan 
 	'securepoll-api-invalid-params' => 'Hindi tanggap na mga parametro.',
 	'securepoll-api-no-user' => 'Walang tagagamit na natagpuang may ibinigay na ID.',
 	'securepoll-api-token-mismatch' => 'Maling pagtutugma ng tandang pangkaligtasan, hindi makalalagdang papasok.',
-	'securepoll-not-logged-in' => 'Kailangan mong lumagdang papasok upang makaboto sa halalang ito',
+	'securepoll-not-logged-in' => 'Kailangan mong [[Special:Userlogin|lumagda]] upang makaboto sa halalang ito.  Kung wala ka pang kuwenta, maaari kang [[Special:Userlogin/signup|lumikha ng kuwenta]].',
 	'securepoll-too-few-edits' => 'Paumanhin, hindi ka makakaboto. Kailangan mong maging nakagawa ng kahit na mga $1 {{PLURAL:$1|pamamatnugot|mga pamamatnugot}} upang makaboto sa halalang ito, nakagawa ka na ng $2.',
+	'securepoll-too-new' => 'Paumanhin, ngunit hindi ka maaaring bumoto.  Dapat itinala ang kuwenta mo bago ng $1 upang makaboto sa halalang ito; nagpatala ko noong $2.',
 	'securepoll-blocked' => 'Paumanhin, hindi ka makakaboto sa halalang ito kung pangkasalukuyan kang hinahadlangan mula sa pamamatnugot.',
+	'securepoll-blocked-centrally' => 'Paumanhin, ngunit hindi ka maaaring bumoto sa halalang ito kung hinarangan ka sa $1 o {{PLURAL:$1|wiki|mga wiki}}.',
 	'securepoll-bot' => 'Paumanhin, ang mga akawnt na may watawat ng robot ay hindi pinapayagang bumoto sa halalang ito.',
 	'securepoll-not-in-group' => 'Mga kasapi lamang ng pangkat na "$1" ang makakaboto sa halalang ito.',
 	'securepoll-not-in-list' => 'Paumanhin, wala ka sa loob ng mga natiyak na talaan ng mga tagagamit na pinapayagang bumoto sa halalang ito.',
@@ -10627,6 +10671,7 @@ Maaari mong piliin ang itala ang bilang ng mga kinalabasang naroroon sa loob ng 
 	'securepoll-strength-matrix' => 'Matris ng lakas ng landas',
 	'securepoll-ranks' => 'Pinakahuling pag-aantas',
 	'securepoll-average-score' => 'Pangkaraniwang kutab',
+	'securepoll-round' => 'Yugto $1',
 );
 
 /** Tok Pisin (Tok Pisin)
