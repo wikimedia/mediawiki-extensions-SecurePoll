@@ -693,6 +693,15 @@ $1',
 	'securepoll-average-score' => 'نتيجه متوسطة',
 );
 
+/** Assamese (অসমীয়া)
+ * @author Chaipau
+ */
+$messages['as'] = array(
+	'securepoll-header-timestamp' => 'সময়',
+	'securepoll-header-voter-name' => 'নাম',
+	'securepoll-header-title' => 'নাম',
+);
+
 /** Asturian (Asturianu)
  * @author Xuacu
  */
@@ -751,7 +760,7 @@ Has de dar a toles opciones un rangu ente 1 y 999.',
 	'securepoll-api-invalid-params' => 'Parámetros inválidos.',
 	'securepoll-api-no-user' => "Nun s'alcontró un usuariu cola ID dada.",
 	'securepoll-api-token-mismatch' => 'El token de seguridá nun concuaya, nun pues entrar.',
-	'securepoll-not-logged-in' => "Tienes d'aniciar sesión pa votar nesta eleición",
+	'securepoll-not-logged-in' => "Tienes d'[[Special:Userlogin|aniciar sesión]] pa votar nesta eleición. Si entá nun tienes una cuenta, puedes [[Special:Userlogin/signup|crear una]].",
 	'securepoll-too-few-edits' => 'Perdona, pero nun pues votar. Necesites tener feches polo menos $1 {{PLURAL:$1|edición|ediciones}} pa votar nesta eleición, pero tienes feches $2.',
 	'securepoll-too-new' => "Sentímoslo, pero nun pues votar nestes eleiciones. Hai que tener una cuenta rexistrada enantes del $1 pa poder votar; la to data de rexistru ye'l $2.",
 	'securepoll-blocked' => 'Perdona, nun pues votar nesta eleición mientres tengas bloquiaes les ediciones.',
@@ -786,6 +795,10 @@ Has de dar a toles opciones un rangu ente 1 y 999.',
 	'securepoll-dump-title' => 'Volcáu: $1',
 	'securepoll-dump-no-crypt' => 'Nun ta disponible dengún rexistru cifráu pa esta eleición, porque la eleición nun ta configurada pa usar cifráu.',
 	'securepoll-dump-not-finished' => 'Los rexistros cifraos de la eleición namái tan disponibles dempués de la data de finalización el $1 a les $2',
+	'securepoll-dump-no-urandom' => "Nun se pudo abrir /dev/urandom.
+Pa caltener la intimidá de los votantes, sólo s'asoleyen los resultaos cifraos de la eleición cuando se pueden amestar con un fluxu seguru de númberos al debalu.",
+	'securepoll-urandom-not-supported' => "Esti sirvidor nun tien capacidá de xeneración criptográfica de númberos al debalu.
+Para protexer la intimidá de los votantes, sólo s'asoleyen los resultaos cifraos de la eleición cuando se pueden amestar con un fluxu seguru de númberos al debalu.",
 	'securepoll-translate-title' => 'Traducir: $1',
 	'securepoll-invalid-language' => 'Códigu de llingua inválidu "$1"',
 	'securepoll-submit-translate' => 'Anovar',
@@ -802,6 +815,9 @@ Has de dar a toles opciones un rangu ente 1 y 999.',
 	'securepoll-subpage-tally' => 'Recuentu',
 	'securepoll-tally-title' => 'Recuentu: $1',
 	'securepoll-tally-not-finished' => 'Perdona, nun pues facer un recuentu de la eleición fasta que termine la votación.',
+	'securepoll-can-decrypt' => 'El rexistru de la eleición ta cifráu, pero ta disponible la clave de descifralu.
+Puedes escoyer ente escrutar los resultaos de la base de datos, o escrutar los resultaos cifraos dende un ficheru xubíu.',
+	'securepoll-tally-no-key' => 'Nun puedes escrutar esta eleición, porque los votos tan cifraos y la clave pa descifrar nun ta disponible.',
 	'securepoll-tally-local-legend' => 'Facer recuentu de los resultaos guardaos',
 	'securepoll-tally-local-submit' => 'Crear recuentu',
 	'securepoll-tally-upload-legend' => 'Xubir volcáu cifráu',
@@ -814,6 +830,9 @@ Has de dar a toles opciones un rangu ente 1 y 999.',
 	'securepoll-strength-matrix' => 'Cuadru de fuerza del camín',
 	'securepoll-ranks' => 'Clasificación final',
 	'securepoll-average-score' => 'Puntuación media',
+	'securepoll-round' => 'Ronda $1',
+	'securepoll-spoilt' => '(Nulos)',
+	'securepoll-exhausted' => '(Agotaos)',
 );
 
 /** Azerbaijani (Azərbaycanca)
@@ -3491,7 +3510,7 @@ Salausta ei voi purkaa.',
 	'securepoll-api-invalid-params' => 'Virheellisiä parametreja.',
 	'securepoll-api-no-user' => 'Annetulla tunnisteella ei löytynyt käyttäjää.',
 	'securepoll-api-token-mismatch' => 'Turvallisuusmerkintä ei täsmää, joten sisäänkirjautuminen ei onnistu.',
-	'securepoll-not-logged-in' => 'Sinun pitää [[Special:Userlogin|kirjautua sisään]] voidaksesi äänestää. Jos sinulla ei vielä ole käyttäjätunnusta voit  [[Special:Userlogin/signup|luoda sellaisen]].',
+	'securepoll-not-logged-in' => 'Sinun pitää [[Special:Userlogin|kirjautua sisään]] voidaksesi äänestää. Jos sinulla ei vielä ole käyttäjätunnusta voit [[Special:Userlogin/signup|luoda sellaisen]].',
 	'securepoll-too-few-edits' => 'Valitettavasti et voi äänestää. Sinulla täytyy olla vähintään $1 {{PLURAL:$1|muokkaus|muokkausta}} voidaksesi äänestää näissä vaaleissa. Olet tehnyt $2.',
 	'securepoll-too-new' => 'Pahoittelemme, et voi äänestää. Tilisi täytyy olla rekisteröity ennen $1 äänestääksesi. Olet rekisteröitynyt $2.',
 	'securepoll-blocked' => 'Et voi äänestää näissä vaaleissa, jos sinulla on muokkausesto tällä hetkellä.',
