@@ -176,8 +176,10 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		if ( $maxDate && $date > $maxDate ) {
 			$status->fatal( 
 				'securepoll-too-new', 
-				$wgLang->timeanddate( $maxDate ), 
-				$wgLang->timeanddate( $date )
+				$wgLang->date( $maxDate ), 
+				$wgLang->date( $date ),
+				$wgLang->time( $maxDate ), 
+				$wgLang->time( $date ),
 			);
 		}
 
