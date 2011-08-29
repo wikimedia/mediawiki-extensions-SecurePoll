@@ -205,7 +205,7 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 			'name' => $user->getName(),
 			'type' => 'local',
 			'domain' => preg_replace( '!.*/(.*)$!', '$1', $wgServer ),
-			'url' => $user->getUserPage()->getFullURL(),
+			'url' => $user->getUserPage()->getCanonicalURL(),
 			'properties' => array(
 				'wiki' => wfWikiID(),
 				'blocked' => $user->isBlocked(),

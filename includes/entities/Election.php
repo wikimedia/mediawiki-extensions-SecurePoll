@@ -379,7 +379,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 				Xml::element( 'auth', array(), 'local' ) . "\n" .
 				Xml::element( 'property', 
 					array( 'name' => 'jump-url' ), 
-					$this->context->getSpecialTitle()->getFullURL()
+					$this->context->getSpecialTitle()->getCanonicalUrl()
 				) . "\n" .
 				Xml::element( 'property',
 					array( 'name' => 'jump-id' ),
