@@ -7843,6 +7843,7 @@ Podètz causir de comptar los resultats dempuèi la banca de donadas o dempuèi 
  */
 $messages['or'] = array(
 	'securepoll-header-voter-name' => 'ନାମ',
+	'securepoll-header-voter-domain' => 'ପରିସର',
 	'securepoll-strike-reason' => 'କାରଣ:',
 	'securepoll-strike-cancel' => 'ବାତିଲ',
 	'securepoll-details-link' => 'ଆହୁରି ଅଧିକ',
@@ -7851,6 +7852,7 @@ $messages['or'] = array(
 	'securepoll-submit-translate' => 'ଅପଡେଟ',
 	'securepoll-header-title' => 'ନାମ',
 	'securepoll-header-start-date' => 'ଆରମ୍ଭ ତାରିଖ',
+	'securepoll-subpage-list' => 'ତାଲିକା',
 );
 
 /** Papiamento (Papiamentu)
