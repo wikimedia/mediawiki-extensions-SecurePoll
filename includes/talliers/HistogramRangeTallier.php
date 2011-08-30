@@ -80,7 +80,7 @@ class SecurePoll_HistogramRangeTallier extends SecurePoll_Tallier {
 	}
 
 	function getTextResult() {
-		throw new MWException( __METHOD__.': not yet implemented' );
+		return $this->getHtmlResult();
 	}
 }
 
