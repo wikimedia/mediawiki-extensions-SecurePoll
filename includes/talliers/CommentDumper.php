@@ -34,6 +34,12 @@ class SecurePoll_CommentDumper extends SecurePoll_ElectionTallier {
 		
 		$comments = $scores['comment'];
 		unset($scores['comment']);
+		
+		// Short circuit if the comments are empty
+		if ( $comments['native'] == '' && $comments['en'] == '' ) {
+			return Status::newGood();
+		}
+		
 		$output = array( $comments['native'], $comments['en'] );
 		
 		ksort( $output );
