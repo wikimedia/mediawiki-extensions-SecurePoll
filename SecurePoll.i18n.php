@@ -1081,6 +1081,7 @@ $messages['be'] = array(
 /** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
+ * @author Renessaince
  * @author Wizardist
  */
 $messages['be-tarask'] = array(
@@ -1138,11 +1139,11 @@ $1',
 	'securepoll-api-invalid-params' => 'Няслушныя парамэтры.',
 	'securepoll-api-no-user' => 'Ня знойдзены ўдзельнік з пададзеным ідэнтыфікатарам.',
 	'securepoll-api-token-mismatch' => 'Неадпаведнасьць меткі бясьпекі, немагчыма ўвайсьці ў сыстэму.',
-	'securepoll-not-logged-in' => 'Вам неабходна ўвайсьці ў сыстэму, каб галасаваць на гэтых выбарах',
+	'securepoll-not-logged-in' => 'Вам неабходна [[Special:Userlogin|ўвайсьці ў сыстэму]], каб галасаваць на гэтых выбарах. Калі вы яшчэ ня маеце ўліковага запісу, можаце [[Special:Userlogin/signup|зарэгістравацца]].',
 	'securepoll-too-few-edits' => 'Прабачце, Вы ня можаце галасаваць. Вам неабходна зрабіць хаця б {{PLURAL:$1|рэдагаваньне|рэдагаваньні|рэдагаваньняў}}, каб галасаваць на гэтых выбарах, Вы зрабілі толькі $2.',
-	'securepoll-too-new' => 'На жаль, Вы ня можаце галасаваць. Ваш рахунак мусіў быць створаны да $1, Вы зарэгістраваныя $2.',
+	'securepoll-too-new' => 'На жаль, Вы ня можаце галасаваць. Ваш рахунак мусіў быць створаны да $1 а $3, а Вы зарэгістраваныя $2 а $4.',
 	'securepoll-blocked' => 'Прабачце, Вы ня можаце галасаваць на гэтых выбарах, калі Вы заблякаваны.',
-	'securepoll-blocked-centrally' => 'На жаль, Вы ня можаце галасаваць у гэтых выбарах пры наяўнасьці блякаваньня ў $1 і больш {{PLURAL:$1|вікі|вікі}}.',
+	'securepoll-blocked-centrally' => 'На жаль, Вы ня можаце галасаваць у гэтых выбарах , бо заблякаваныя прынамсі ў $1 {{PLURAL:$1|вікі|вікі}}.',
 	'securepoll-bot' => 'Прабачце, рахункі са статусам робата ня могуць галасаваць ў гэтых выбараў.',
 	'securepoll-not-in-group' => 'Толькі ўдзельнікі групы $1 могуць галасаваць на гэтых выбарах.',
 	'securepoll-not-in-list' => 'Прабачце, Вы не ўключаны ў сьпіс удзельнікаў, якія могуць галасаваць на гэтых выбарах.',
@@ -2214,9 +2215,11 @@ Du skal give alle muligheder en rangordning mellem 1 og 999.',
 	'securepoll-api-invalid-params' => 'Ugyldige parametere.',
 	'securepoll-api-no-user' => 'Ingen brugere med den angivne ID blev fundet.',
 	'securepoll-api-token-mismatch' => 'Sikkerhedskoden er forkert, du kan ikke logge ind.',
-	'securepoll-not-logged-in' => 'Du skal logge ind for at stemme i dette valg',
+	'securepoll-not-logged-in' => 'Du skal [[Special:Userlogin|logge ind]] for at deltage i denne afstemning. Hvis du endnu ikke har en konto, kan du [[Special:Userlogin/signup|oprette en]].',
 	'securepoll-too-few-edits' => 'Beklager, men du kan ikke stemme. Du skal have gennemført mindst $1 {{PLURAL:$1|redigering|redigeringer}}. Du har kun gennemført $2.',
+	'securepoll-too-new' => 'Beklager, men du kan ikke stemme. Din konto skal være oprettet før den $1 $3 for at deltage i denne afstemning. Du oprettede din konto den $2 $4.',
 	'securepoll-blocked' => 'Du kan ikke stemme, fordi du i øjeblikket er blokeret fra at redigere.',
+	'securepoll-blocked-centrally' => 'Beklager, men du kan ikke deltage i denne afstemning, fordi du er blokeret på mindst $1 {{PLURAL:$1|wiki|wikier}}.',
 	'securepoll-bot' => 'Beklager, men konti med botflag kan ikke stemme i dette valg.',
 	'securepoll-not-in-group' => 'Kun brugere af gruppen "$1" kan stemme.',
 	'securepoll-not-in-list' => 'Du er desværre ikke på listen over brugere, som kan stemme i dette valg.',
@@ -2283,6 +2286,8 @@ Du kan enten optælle de nuværende stemmer i databasen, eller optælle kryptere
 	'securepoll-ranks' => 'Endeligt resultat',
 	'securepoll-average-score' => 'Gennemsnitlig karakter',
 	'securepoll-round' => 'Runde $1',
+	'securepoll-spoilt' => '(Ugyldig)',
+	'securepoll-exhausted' => '(Udtømt)',
 );
 
 /** German (Deutsch)
@@ -2926,11 +2931,11 @@ Vi devas doni al ĉiuj opcioj lokon inter 1 kaj 999.',
 	'securepoll-api-invalid-params' => 'Malvalidaj parametroj.',
 	'securepoll-api-no-user' => 'Neniu uzanto estis trovita kun tiu identigo.',
 	'securepoll-api-token-mismatch' => 'Nekongrua sekurecmarkilo. Neeblas ensaluti.',
-	'securepoll-not-logged-in' => 'Vi devas ensaluti por voĉdoni en ĉi tiu voĉdonado',
+	'securepoll-not-logged-in' => 'Vi devas [[Special:Userlogin|ensaluti]] por voĉdoni en ĉi tiu voĉdonado. Se vi ne havas konton, vi povas [[Special:Userlogin/signup|krei ĝin]].',
 	'securepoll-too-few-edits' => 'Bedaŭrinde, vi ne povas voĉdoni. Vi nepre havas almenaŭ $1 {{PLURAL:$1|redakto|redaktoj}} por voĉdoni en ĉi tiu voĉdonado; vi faris $2 redaktojn.',
-	'securepoll-too-new' => 'Pardonu, vi ne rajtas voĉdoni. Por rajti je voĉdono en tiu ĉi baloto, via uzantokonto devas esti registrita antaŭ $1, sed vi registriĝis nur je $2.',
+	'securepoll-too-new' => 'Pardonu, vi ne rajtas voĉdoni. Por rajti je voĉdono en tiu ĉi baloto, via uzantokonto devas esti registrita antaŭ $1 $3, sed vi registriĝis nur je $2, $4.',
 	'securepoll-blocked' => 'Bedaŭrinde, vi ne povas voĉdoni en ĉi tiu voĉdonado se vi nune estas forbarita de redaktado.',
-	'securepoll-blocked-centrally' => 'Pardonu, vi ne rajtas voĉdoni se vi estas blokata en $1 aŭ pli da {{PLURAL:$1|vikio|vikioj}}.',
+	'securepoll-blocked-centrally' => 'Pardonu, vi ne rajtas voĉdoni pro vi estas blokata en almenaŭ $1 {{PLURAL:$1|vikio|vikioj}}.',
 	'securepoll-bot' => 'Bedaŭrinde, kontoj kun la robotflago nen estas permesata voĉdoni en ĉi tiu voĉdonado.',
 	'securepoll-not-in-group' => 'Nur membroj de la grupo "$1" povas voĉdoni en ĉi tiu elekto.',
 	'securepoll-not-in-list' => 'Bedaŭrinde, vi ne estas unu el la antaŭdetermitaj uzantoj kiuj estas permesitaj voĉdoni dum ĉi tiu voĉdono.',
@@ -6136,7 +6141,7 @@ Dir musst allen optiounen e Classement tëschent 1 an 999 ginn.',
 	'securepoll-too-few-edits' => 'Pardon, Dir däerft net ofstëmmen. Dir musst mindestens $1 {{PLURAL:$1|Ännerung|Ännerunge}} gemaacht hunn, fir bäi dëse Walen ofstëmmen ze kënnen, Dir hutt der $2 gemaach.',
 	'securepoll-too-new' => 'Pardon, Dir däerft net ofstëmmen. Äre Benotzerkont hätt misse virum $1 ëm $3 registréiert si fir bäi dëse Walen ofstëmmen ze däerfen. Dir sidd zënter dem $2 ëm $4 registréiert.',
 	'securepoll-blocked' => 'Pardon, Dir kënnt net bäi dëse Walen ofstëmmen wann dir elo fir Ännerunge gespaart sidd.',
-	'securepoll-blocked-centrally' => 'Pardon, Dir däerft bäi dëse Walen net ofstëmme wann Dir op $1 {{PLURAL:$1|Wiki|Wikië}} gespaart sidd.',
+	'securepoll-blocked-centrally' => "Pardon, Dir däerft bäi dëse Walen net ofstëmme well Dir an op d'mannst $1 {{PLURAL:$1|Wiki|Wikië}} gespaart sidd.",
 	'securepoll-bot' => 'Pardon, Benotzerkonte matt engem Bottefändel (bot flag) däerfe bäi dëse Walen net ofstëmmen.',
 	'securepoll-not-in-group' => 'Nëmme Membere vum Grupp $1 kënne bäi dëse Walen ofstëmmen.',
 	'securepoll-not-in-list' => 'Pardon, awer Dir stitt op der Lëscht vun de Benotzer déi autoriséiert si fir bäi dëse Walen ofzestëmmen.',
@@ -6888,7 +6893,7 @@ Semua pilihan perlu diberikan pangkat di antara 1 dan 999.',
 	'securepoll-too-few-edits' => 'Maaf, anda tak boleh undi. Anda perlu mempunyai sekurang-kurangnya $1 suntingan untuk undi dalam pemilihan ini, anda kini ada $2 sahaja.',
 	'securepoll-too-new' => 'Maaf, anda tidak boleh mengundi. Akaun mesti didaftarkan sebelum $1, $3 untuk mengundi di pemilihan ini; anda berdaftar pada $2, $4.',
 	'securepoll-blocked' => 'Maaf, anda tak boleh mengundi jika anda kini telah disekat daripada menyunting.',
-	'securepoll-blocked-centrally' => 'Maaf, anda tidak boleh mengundi dalam pemilihan ini jika anda disekat di $1 wiki atau lebih.',
+	'securepoll-blocked-centrally' => 'Maaf, anda tidak boleh mengundi dalam pemilihan ini kerana anda disekat di sekurang-kurangnya $1 {{PLURAL:$1|wiki|wiki}}.',
 	'securepoll-bot' => 'Maaf, akaun dengan bendera bot tak dibenarkan untuk mengundi dalam pemilihan ini.',
 	'securepoll-not-in-group' => 'Hanya ahli kumpulan "$1" sahaja boleh undi dalam pemilihan ini.',
 	'securepoll-not-in-list' => 'Maaf, anda tidak berada dalam senarai pengguna yang dibenarkan untuk undi dalam pemilihan ini.',
@@ -8008,6 +8013,7 @@ $messages['pdc'] = array(
 
 /** Polish (Polski)
  * @author Leinad
+ * @author Renessaince
  * @author Saper
  * @author Sp5uhe
  */
@@ -8066,7 +8072,7 @@ Każde pole musi mieć przypisaną rangę z przedziału od 1 do 999.',
 	'securepoll-api-invalid-params' => 'Nieprawidłowe parametry.',
 	'securepoll-api-no-user' => 'Nie znaleziono użytkownika o podanym ID.',
 	'securepoll-api-token-mismatch' => 'Nieprawidłowy żeton bezpieczeństwa, nie można się zalogować.',
-	'securepoll-not-logged-in' => 'Musisz się zalogować, aby głosować w tych wyborach. Jeśli nie masz jeszcze konta [[Special:Userlogin/signup|możesz się zarejestrować]].',
+	'securepoll-not-logged-in' => 'Musisz [[Special:Userlogin|się zalogować]], aby głosować w tych wyborach. Jeśli nie masz jeszcze konta [[Special:Userlogin/signup|możesz się zarejestrować]].',
 	'securepoll-too-few-edits' => 'Niestety, nie możesz głosować. Musisz mieć przynajmniej $1 {{PLURAL:$1|edycję|edycje|edycji}} aby głosować w tych wyborach, wykonane $2.',
 	'securepoll-too-new' => 'Niestety nie możesz głosować. Aby wziąć udział w głosowaniu musisz mieć konto zarejestrowane przed $1 o $3, a zarejestrowałeś się $2 o $4.',
 	'securepoll-blocked' => 'Niestety, nie możesz głosować w tych wyborach, ponieważ masz zablokowaną możliwość edytowania.',
@@ -8923,6 +8929,7 @@ Tu puè scacchià o de fà 'u condegge de le vote da 'u database oppure ausanne 
  * @author Kaganer
  * @author Kv75
  * @author Rave
+ * @author Renessaince
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
@@ -8980,7 +8987,7 @@ $1',
 	'securepoll-api-invalid-params' => 'Ошибочные параметры.',
 	'securepoll-api-no-user' => 'Не найдено участника с заданным идентификатором.',
 	'securepoll-api-token-mismatch' => 'Несоответствие признака безопасности, невозможно войти в систему.',
-	'securepoll-not-logged-in' => 'Вы должны [[Special:Userlogin|представиться системе]], чтобы принять участие в голосовании. Если у вас ещё нет учётной записи, вы можете [[Special:Userlogin/signup| создать её]].',
+	'securepoll-not-logged-in' => 'Вы должны [[Special:Userlogin|представиться системе]], чтобы принять участие в голосовании. Если у вас ещё нет учётной записи, вы можете [[Special:Userlogin/signup|создать её]].',
 	'securepoll-too-few-edits' => 'Извините, вы не можете проголосовать. Вам необходимо иметь не менее $1 {{PLURAL:$1|правки|правок|правок}} для участия в этом голосовании, за вами числится $2.',
 	'securepoll-too-new' => 'К сожалению, вы не можете голосовать. Для участия в выборах ваша учётная запись должна была быть зарегистрирована до $1 $3, вы зарегистрированы $2 $4.',
 	'securepoll-blocked' => 'Извините, вы не можете голосовать на выборах, если учётная запись была заблокирована.',
@@ -9803,7 +9810,7 @@ Vsem možnostim morate določiti uvrstitev med 1 in 999.',
 	'securepoll-too-few-edits' => 'Oprostite, ne morete voliti. Morali bi storiti najmanj $1 {{PLURAL:$1|urejanje|urejanji|urejanja|urejanj}} za voljenje na teh volitvah; naredili ste jih $2.',
 	'securepoll-too-new' => 'Oprostite, ne morete glasovati. Za glasovanje mora biti vaš račun registriran pred dnem $1 ob $3; registrirali ste se dne $2 ob $4.',
 	'securepoll-blocked' => 'Oprostite, ne morete voliti na teh volitvah, če vam je urejanje trenutno preprečeno.',
-	'securepoll-blocked-centrally' => 'Oprostite, na teh volitvah ne morete glasovati, če ste blokirani na $1 ali več {{PLURAL:$1|wikijih}}.',
+	'securepoll-blocked-centrally' => 'Oprostite, na teh volitvah ne morete glasovati, ker ste blokirani na vsaj $1 {{PLURAL:$1|wikiju|wikijih}}.',
 	'securepoll-bot' => 'Oprostite, računom z oznako robota ni dovoljeno voliti na teh volitvah.',
 	'securepoll-not-in-group' => 'Samo člani skupine »$1« lahko volijo na teh volitvah.',
 	'securepoll-not-in-list' => 'Oprostite, vendar niste na predpripravljenem seznamu uporabnikov, ki so pooblaščeni za voljenje na teh volitvah.',
@@ -10954,6 +10961,7 @@ $messages['tyv'] = array(
 /** Ukrainian (Українська)
  * @author AS
  * @author Ahonc
+ * @author Dim Grits
  * @author Ilyaroz
  * @author NickK
  * @author Prima klasy4na
@@ -11013,7 +11021,7 @@ $1',
 	'securepoll-api-invalid-params' => 'Помилкові параметри.',
 	'securepoll-api-no-user' => 'Не знайдений користувач із заданим ідентифікатором.',
 	'securepoll-api-token-mismatch' => 'Невідповідність коду безпеки, не в змозі ввійти до системи.',
-	'securepoll-not-logged-in' => 'Ви маєте ввійти до системи, щоб взяти участь в голосуванні',
+	'securepoll-not-logged-in' => 'Ви маєте [[Special:Userlogin|ввійти до системи]], щоб взяти участь в голосуванні. Якщо у вас ще не має облікового запису, ви можете [[Special:Userlogin/signup|створити його]].',
 	'securepoll-too-few-edits' => 'Вибачте, ви не можете проголосувати. Вам треба мати не менше $1 {{PLURAL:$1|редагування|редагувань|редагувань}} для участі в цьому голосуванні, у вас є $2.',
 	'securepoll-too-new' => 'На жаль, ви не можете голосувати.  Ваш обліковий запис повинен були зареєстрований до $1 для голосування в цих виборах, ви зареєстровані $2.',
 	'securepoll-blocked' => 'Вибачте, ви не можете голосувати на виборах, оскільки вас заблоковано.',
@@ -11347,7 +11355,7 @@ Bạn phải xếp hạng từ 1 đến 999 cho tất cả các ứng viên.',
 	'securepoll-too-few-edits' => 'Xin lỗi, bạn không thể bỏ phiếu. Bạn cần thực hiện tối thiểu $1 {{PLURAL:$1|sửa đổi|sửa đổi}} để bỏ phiếu trong cuộc bầu cử này, bạn chỉ mới thực hiện $2 sửa đổi.',
 	'securepoll-too-new' => 'Rất tiếc, bạn không được phép bỏ phiếu. Để được phép tham gia cuộc bầu cử này, bạn cần phải mở tài khoản trước $3 $1, nhưng bạn đăng ký vào lúc $4 $2.',
 	'securepoll-blocked' => 'Xin lỗi, bạn không thể bỏ phiếu trong cuộc bầu cử này nếu bạn đang bị cấm không được sửa đổi.',
-	'securepoll-blocked-centrally' => 'Rất tiếc, bạn không được phép tham gia cuộc bầu cử này nếu bị cấm tại $1 wiki trở lên.',
+	'securepoll-blocked-centrally' => 'Rất tiếc, bạn không được phép tham gia cuộc bầu cử này vì bị cấm tại $1 wiki trở lên.',
 	'securepoll-bot' => 'Xin lỗi, tài khoản có cờ bot không được phép bỏ phiếu trong cuộc bầu cử này.',
 	'securepoll-not-in-group' => 'Chỉ có những thành viên của nhóm “$1” mới có thể bỏ phiếu trong cuộc bầu cử này.',
 	'securepoll-not-in-list' => 'Xin lỗi, bạn không nằm trong danh sách các thành viên được phép bỏ phiếu trong cuộc bầu cử này.',
