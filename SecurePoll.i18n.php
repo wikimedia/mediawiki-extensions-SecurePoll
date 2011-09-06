@@ -3880,6 +3880,7 @@ Vos dête balyér un rang entre-mié 1 et 999 a tôs los chouèx.',
 	'securepoll-details-link' => 'Dètalys',
 	'securepoll-details-title' => 'Dètalys du voto : #$1',
 	'securepoll-invalid-vote' => '« $1 » est pas un numerô de voto valido',
+	'securepoll-header-id' => 'Numerô',
 	'securepoll-header-voter-type' => 'Tipo u votent',
 	'securepoll-voter-properties' => 'Propriètâts u votent',
 	'securepoll-strike-log' => 'Jornal des traçâjos',
@@ -3896,6 +3897,7 @@ Por mantegnir la confidencialitât ux votents, les balyês criptâs sont disponi
 Por mantegnir la confidencialitât ux votents, les balyês criptâs sont disponibles u publico ren que quand pôvont étre braciês avouéc una suita de nombros a l’hasârd.',
 	'securepoll-translate-title' => 'Traduire : $1',
 	'securepoll-invalid-language' => 'Code lengoua « $1 » envalido.',
+	'securepoll-header-trans-id' => 'Numerô',
 	'securepoll-submit-translate' => 'Betar a jorn',
 	'securepoll-language-label' => 'Chouèsir la lengoua :',
 	'securepoll-submit-select-lang' => 'Traduire',
@@ -6158,7 +6160,7 @@ Dir musst allen optiounen e Classement tëschent 1 an 999 ginn.',
 	'securepoll-header-timestamp' => 'Zäit',
 	'securepoll-header-voter-name' => 'Numm',
 	'securepoll-header-voter-domain' => 'Domaine',
-	'securepoll-header-ua' => 'Benotzeragent',
+	'securepoll-header-ua' => 'Browser',
 	'securepoll-header-cookie-dup' => 'Duplikat',
 	'securepoll-header-strike' => 'Duerchsträichen',
 	'securepoll-header-details' => 'Detailer',
@@ -6711,7 +6713,7 @@ $1',
 	'securepoll-too-few-edits' => 'ക്ഷമിക്കുക, താങ്കൾക്ക് വോട്ട് ചെയ്യാനാവില്ല. ഈ തിരഞ്ഞെടുപ്പിൽ വോട്ട് ചെയ്യാൻ താങ്കൾക്ക് $1 {{PLURAL:$1|തിരുത്തൽ|തിരുത്തലുകൾ}} ആവശ്യമാണ്, താങ്കൾക്ക് $2 എണ്ണമേയുള്ളു.',
 	'securepoll-too-new' => 'ക്ഷമിക്കണം, താങ്കൾക്ക് വോട്ട് ചെയ്യാനാവില്ല. ഈ തിരഞ്ഞെടുപ്പിൽ വോട്ട് ചെയ്യാൻ $1 $3-യ്ക്കു മുമ്പ് അംഗത്വമെടുത്തിരിക്കണം, താങ്കൾ അംഗത്വമെടുത്തത് $2 $4-നു് ആണ്.',
 	'securepoll-blocked' => 'ക്ഷമിക്കുക, താങ്കളെ ഇപ്പോൾ തിരുത്തുന്നതിൽ നിന്നും തടഞ്ഞിരിക്കുന്നതിനാൽ താങ്കൾക്ക് വോട്ട് ചെയ്യാൻ കഴിയില്ല.',
-	'securepoll-blocked-centrally' => 'ക്ഷമിക്കണം, {{PLURAL:$1|ഒന്നോ|$1}} അല്ലെങ്കിൽ അതിൽക്കൂടുതലോ {{PLURAL:$1|വിക്കിയിൽ|വിക്കികളിൽ}} തടയപ്പെട്ടിരിക്കുകയാണെങ്കിൽ താങ്കൾക്ക് വോട്ട് ചെയ്യാനാവില്ല.',
+	'securepoll-blocked-centrally' => 'ക്ഷമിക്കണം, കുറഞ്ഞത് {{PLURAL:$1|ഒരു|$1}} {{PLURAL:$1|വിക്കിയിൽ|വിക്കികളിൽ}} തടയപ്പെട്ടിരിക്കുകയാണെങ്കിൽ താങ്കൾക്ക് വോട്ട് ചെയ്യാനാവില്ല.',
 	'securepoll-bot' => 'ക്ഷമിക്കുക, ബോട്ട് പദവി ലഭിച്ച അംഗത്വങ്ങളെ ഈ തിരഞ്ഞെടുപ്പിൽ വോട്ട് ചെയ്യാൻ അനുവദിക്കുന്നില്ല.',
 	'securepoll-not-in-group' => 'ഈ തിരഞ്ഞെടുപ്പിൽ "$1" ഗണത്തിൽ പെടുന്ന അംഗങ്ങൾക്കു മാത്രമേ വോട്ട് ചെയ്യാൻ കഴിയൂ.',
 	'securepoll-not-in-list' => 'ക്ഷമിക്കുക, ഈ തിരഞ്ഞെടുപ്പിൽ വോട്ടു ചെയ്യാനായി മുൻകൂട്ടി നിശ്ചയിക്കപ്പെട്ട പട്ടികയിൽ താങ്കൾ ഇല്ല.',
@@ -11740,6 +11742,7 @@ $messages['za'] = array(
 );
 
 /** Simplified Chinese (‪中文(简体)‬)
+ * @author Anakmalaysia
  * @author Bencmq
  * @author Biŋhai
  * @author Deryck Chan
@@ -11799,11 +11802,11 @@ $1',
 	'securepoll-api-invalid-params' => '参数无效。',
 	'securepoll-api-no-user' => '无法找到指定ID的用户。',
 	'securepoll-api-token-mismatch' => '安全标记不符，无法登录。',
-	'securepoll-not-logged-in' => '您必须登录后方可投票。',
+	'securepoll-not-logged-in' => '您必须[[Special:Userlogin|登录]]后方可投票。如果您还没有帐户，则可以，则可以[[Special:Userlogin/signup|建一个新的帐号]]。',
 	'securepoll-too-few-edits' => '对不起，您不能投票。您必须至少进行$1{{PLURAL:$1|次|次}}编辑才能参与本次投票。您目前的编辑次数为$2。',
-	'securepoll-too-new' => '对不起，您不能投票。$1 之前登记的帐户才能在这次选举中投票，而你登记的日期是 $2 。',
+	'securepoll-too-new' => '对不起，您不能投票。$1，$3之前登记的帐户才能在这次选举中投票，而您登记的日期是$2，$4。',
 	'securepoll-blocked' => '对不起，您目前被封禁因此无法参与本次投票。',
-	'securepoll-blocked-centrally' => '对不起，由于你的帐户在 $1 或 其他 {{PLURAL:$1|wiki|wiki}} 被封禁，所以你并不能在这次选举中投票。',
+	'securepoll-blocked-centrally' => '对不起，由于你的帐户在至少一个{{PLURAL:$1|维基项目|维基项目}}被封禁，所以你并不能在这次选举中投票。',
 	'securepoll-bot' => '对不起，拥有机器人权限的账户不能参与本次投票。',
 	'securepoll-not-in-group' => '只有属于“$1”用户组的用户可以投票。',
 	'securepoll-not-in-list' => '对不起，您不在投票人名单中，无法参与本次投票。',
@@ -11874,6 +11877,7 @@ $1',
 
 /** Traditional Chinese (‪中文(繁體)‬)
  * @author Alexsh
+ * @author Anakmalaysia
  * @author Bencmq
  * @author Deryck Chan
  * @author FireJackey
@@ -11939,11 +11943,11 @@ $1',
 	'securepoll-api-invalid-params' => '參數無效',
 	'securepoll-api-no-user' => '無法找到此指定 ID 的用戶。',
 	'securepoll-api-token-mismatch' => '安全標記不符，無法登入。',
-	'securepoll-not-logged-in' => '您必須在投票前登入。',
+	'securepoll-not-logged-in' => '您必須[[Special:Userlogin|登錄]]後方可投票。如果您還沒有帳戶，則可以，則可以[[Special:Userlogin/signup|建一個新的帳號]]。',
 	'securepoll-too-few-edits' => '對不起，您未能參與投票。您必須最少進行 $1 次編輯才能參與本次投票，而您目前的編輯次數為 $2。',
-	'securepoll-too-new' => '對不起，你的帳戶需要在$1註冊，你才合乎資格在這次選舉中投票，而你註冊的日期是$2 。',
+	'securepoll-too-new' => '對不起，您不能投票。 $1，$3之前登記的帳戶才能在這次選舉中投票，而您登記的日期是$2，$4。',
 	'securepoll-blocked' => '對不起，因為您目前已被封禁所以您無法參與本次投票。',
-	'securepoll-blocked-centrally' => '對不起，由於你的帳戶在$1 或 其他 {{PLURAL:$1|wiki|wiki}} 被封禁，所以你並不能在這次選舉中投票。',
+	'securepoll-blocked-centrally' => '對不起，由於你的帳戶在至少一個{{PLURAL:$1|維基項目|維基項目}}被封禁，所以你並不能在這次選舉中投票。',
 	'securepoll-bot' => '抱歉，擁有機器人權限的用戶不能參與本投票。',
 	'securepoll-not-in-group' => '只有屬於用戶組「$1」的用戶才可以投票。',
 	'securepoll-not-in-list' => '對不起，由於您不在投票人名單，所以您無權參與是次投票。',
