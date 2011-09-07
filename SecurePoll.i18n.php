@@ -4895,7 +4895,7 @@ Minden javaslathoz egy 1 és 999 közötti helyezést kell adnod.',
 	'securepoll-too-few-edits' => 'Sajnos nem szavazhatsz. A részvételhez legalább $1 szerkesztés kell, neked csak $2 van.',
 	'securepoll-too-new' => 'Sajnos nem szavazhatsz. A szavazáshoz $1 előtt kellett volna regisztrálnod, a te regisztrációd dátuma: $2',
 	'securepoll-blocked' => 'Nem szavazhatsz ezen a választáson, amíg blokkolva vagy.',
-	'securepoll-blocked-centrally' => 'Sajnos nem szavazhatsz a választáson, ha blokkolva vagy $1 vagy több wikin.',
+	'securepoll-blocked-centrally' => 'Sajnos nem szavazhatsz a választáson, mivel blokkolva vagy $1 vagy több wikin.',
 	'securepoll-bot' => 'Botnak jelölt felhasználók nem szavazhatnak ezen a választáson.',
 	'securepoll-not-in-group' => 'Csak a „$1” csoport tagjai szavazhatnak ezen a választáson.',
 	'securepoll-not-in-list' => 'Nem szerepelsz azoknak a felhasználóknak a listáján, akik szavazhatnak ezen a választáson.',
@@ -5353,11 +5353,11 @@ Devi assegnare a ciascuna voce un voto compreso tra 1 e 999.',
 	'securepoll-api-invalid-params' => 'Parametri non validi.',
 	'securepoll-api-no-user' => "Non è stato trovato alcun utente con l'ID fornito.",
 	'securepoll-api-token-mismatch' => 'I token di sicurezza non coincidono, non puoi entrare.',
-	'securepoll-not-logged-in' => "È necessario [[Special:UserLogin|eseguire l'accesso]] per prendere parte a questa votazione. Se non sei ancora registrato, puoi [[Special:UserLogin/signup|registrarti ora]].",
+	'securepoll-not-logged-in' => "È necessario [[Special:Userlogin|eseguire l'accesso]] per prendere parte a questa votazione. Se non sei ancora registrato, puoi [[Special:Userlogin/signup|registrarti ora]].",
 	'securepoll-too-few-edits' => 'Spiacente, non puoi votare. Devi aver effettuato almeno $1 {{PLURAL:$1|modifica|modifiche}} per votare in questa elezione, tu ne hai fatte $2.',
-	'securepoll-too-new' => 'Spiacente ma non puoi votare in queste elezioni. Per farlo devi essere esserti registrato prima del $1 mentre invece ti sei registrato il $2.',
+	'securepoll-too-new' => 'Spiacente ma non puoi votare. Per farlo devi essere esserti registrato prima del $1, $3 mentre invece ti sei registrato il $2 alle $4.',
 	'securepoll-blocked' => 'Spiacente, non puoi votare in questa elezione se sei stato bloccato dalla modifica.',
-	'securepoll-blocked-centrally' => "Spiacente ma non puoi votare in quest'elezione poiché sei bloccato su $1 o più {{PLURAL:$1|wiki|wiki}}.",
+	'securepoll-blocked-centrally' => "Spiacente ma non puoi votare in quest'elezione poiché sei bloccato su almeno $1 {{PLURAL:$1|wiki|wiki}}.",
 	'securepoll-bot' => 'Spiacente, gli account con lo status di bot non sono ammessi a votare in questa elezione.',
 	'securepoll-not-in-group' => 'Solo i membri del gruppo "$1" possono votare in questa elezione.',
 	'securepoll-not-in-list' => 'Spiacente, non sei nella lista predeterminata degli utenti autorizzati a votare in questa elezione.',
@@ -8360,6 +8360,7 @@ $messages['ps'] = array(
  * @author Capmo
  * @author Crazymadlover
  * @author Everton137
+ * @author Giro720
  * @author Hamilton Abreu
  * @author Lijealso
  * @author Malafaya
@@ -8420,7 +8421,7 @@ Deve atribuir a todas as opções uma classificação entre 1 e 999.',
 	'securepoll-api-invalid-params' => 'Parâmetros inválidos.',
 	'securepoll-api-no-user' => 'Nenhum utilizador foi encontrado com a identificação fornecida.',
 	'securepoll-api-token-mismatch' => 'Token de segurança não corresponde, não foi possível autenticar.',
-	'securepoll-not-logged-in' => 'Precisa de se autenticar para votar nesta eleição',
+	'securepoll-not-logged-in' => 'Precisa de se [[Special:Userlogin|autenticar]] para votar nesta eleição. Se não possui uma conta, pode [[Special:Userlogin/signup|criar uma]].',
 	'securepoll-too-few-edits' => 'Desculpe, mas não pode votar. É necessário ter-se feito pelo menos {{PLURAL:$1|uma edição|$1 edições}} para votar nesta eleição e fez apenas $2.',
 	'securepoll-too-new' => 'Desculpe, mas não pode votar. A sua conta teria de ter sido registada antes de $1 para votar nesta eleição, mas registou-se em $2.',
 	'securepoll-blocked' => 'Desculpe, mas não pode votar nesta eleição se foi bloqueado de efectuar edições.',
@@ -8560,7 +8561,7 @@ Você deve classificar todas as opções com uma nota entre 1 e 999.',
 	'securepoll-api-invalid-params' => 'Parâmetros inválidos.',
 	'securepoll-api-no-user' => 'Nenhum usuário foi encontrado com a ID fornecida.',
 	'securepoll-api-token-mismatch' => 'Token de segurança não confere, não foi possível autenticar.',
-	'securepoll-not-logged-in' => 'Você deve [[Special:Userlogin|log in]] para votar nesta eleição. Se você não tem uma conta, você pode [[Special:Userlogin/signup|create one]].',
+	'securepoll-not-logged-in' => 'Você deve se [[Special:Userlogin|autenticar]] para votar nesta eleição. Se você não possui uma conta, você pode [[Special:Userlogin/signup|criar uma]].',
 	'securepoll-too-few-edits' => 'Desculpe, você não pode votar. É preciso ter feito no mínimo $1 {{PLURAL:$1|edição|edições}} para votar nesta eleição, você fez $2.',
 	'securepoll-too-new' => 'Desculpe-nos, mas você não pode votar. A sua conta precisaria ser registrada antes de $1 no $3 para votar nesta eleição, mas registrou-se em $2 no $4',
 	'securepoll-blocked' => 'Desculpe, você não pode votar nesta eleição se no momento você está bloqueado de editar.',
@@ -8935,6 +8936,7 @@ Tu puè scacchià o de fà 'u condegge de le vote da 'u database oppure ausanne 
 	'securepoll-ranks' => 'Posizione finale',
 	'securepoll-average-score' => 'Pundegge medie',
 	'securepoll-round' => 'Turne $1',
+	'securepoll-spoilt' => '(Spoilt)',
 	'securepoll-exhausted' => '(Esaurite)',
 );
 
