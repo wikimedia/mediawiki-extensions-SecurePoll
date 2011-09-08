@@ -5,9 +5,17 @@
  */
 class SecurePoll_CommentDumper extends SecurePoll_ElectionTallier {
 	var $csvHandle;
+	var $skipEmptyComments;
+	private $countSoFar;
+	
+	public function __construct( $context, $election, $skipEmptyComments = true ) {
+		parent::__construct( $context, $election );
+		$this->skipEmptyComments = $skipEmptyComments;
+	}
 
 	function execute() {
 		$this->csvHandle = fopen( 'php://temp', 'r+' );
+		$this->countSoFar = 0;
 		return parent::execute();
 	}
 
@@ -21,6 +29,8 @@ class SecurePoll_CommentDumper extends SecurePoll_ElectionTallier {
 	 * @return Status
 	 */
 	function addRecord( $store, $record ) {
+		$this->countSoFar++;
+		wfDebug( "Processing vote {$this->countSoFar}\n" );
 		# Decrypt and unpack
 		if ( $this->crypt ) {
 			$status = $this->crypt->decrypt( $record );
@@ -36,7 +46,9 @@ class SecurePoll_CommentDumper extends SecurePoll_ElectionTallier {
 		unset($scores['comment']);
 		
 		// Short circuit if the comments are empty
-		if ( $comments['native'] == '' && $comments['en'] == '' ) {
+		if ( $this->skipEmptyComments &&
+		 	$comments['native'] == '' && $comments['en'] == '' )
+		 {
 			return Status::newGood();
 		}
 		
