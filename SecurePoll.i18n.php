@@ -7229,6 +7229,7 @@ $messages['nds-nl'] = array(
 /** Nepali (नेपाली)
  * @author Bhawani Gautam
  * @author RajeshPandey
+ * @author सरोज कुमार ढकाल
  */
 $messages['ne'] = array(
 	'securepoll' => 'सुरक्षित चुनाव',
@@ -7310,6 +7311,7 @@ LocalSettings.phpमा $wgSecurePollShowErrorDetail=true; को प्रय�
 	'securepoll-details-link' => 'विवरणहरु',
 	'securepoll-details-title' => 'मत विवरणहरु: #$1',
 	'securepoll-invalid-vote' => '"$1"  मान्य चुनाव परिचय भएन।',
+	'securepoll-header-id' => 'आईडी(ID)',
 	'securepoll-header-voter-type' => 'मतदाता प्रकार',
 	'securepoll-voter-properties' => 'मतदाताको विवरणहरु',
 	'securepoll-strike-log' => 'काटेको लग',
@@ -7320,6 +7322,7 @@ LocalSettings.phpमा $wgSecurePollShowErrorDetail=true; को प्रय�
 	'securepoll-dump-title' => 'थाक: $1',
 	'securepoll-translate-title' => 'अनुवाद गर्ने: $1',
 	'securepoll-invalid-language' => 'अमान्य भाषा कोड "$1"',
+	'securepoll-header-trans-id' => 'आईडी(ID)',
 	'securepoll-submit-translate' => 'अद्यतन गर्ने(अपडेट)',
 	'securepoll-language-label' => 'भाषा छान्ने:',
 	'securepoll-submit-select-lang' => 'अनुवाद गर्ने',
@@ -7338,6 +7341,7 @@ LocalSettings.phpमा $wgSecurePollShowErrorDetail=true; को प्रय�
 	'securepoll-tally-upload-submit' => 'ट्याली बनाउने',
 	'securepoll-ranks' => 'अन्तिम र्‌याङ्किङ्ग',
 	'securepoll-average-score' => 'औसत स्कोर',
+	'securepoll-round' => 'चरण $1',
 );
 
 /** Dutch (Nederlands)
