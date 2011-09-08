@@ -179,7 +179,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 				$wgLang->date( $maxDate ), 
 				$wgLang->date( $date ),
 				$wgLang->time( $maxDate ), 
-				$wgLang->time( $date ),
+				$wgLang->time( $date )
 			);
 		}
 
