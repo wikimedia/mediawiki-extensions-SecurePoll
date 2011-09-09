@@ -928,6 +928,7 @@ $messages['az'] = array(
 	'securepoll-header-reason' => 'Səbəb',
 	'securepoll-header-admin' => 'İdarəçi',
 	'securepoll-dump-title' => 'Tullantı: $1',
+	'securepoll-translate-title' => 'Tərcümə et: $1',
 	'securepoll-invalid-language' => '"$1" yanlış dil kodu',
 	'securepoll-header-trans-id' => 'ID',
 	'securepoll-submit-translate' => 'Yenilə',
@@ -1278,7 +1279,7 @@ $1',
 	'securepoll-too-few-edits' => 'За съжаление, не можете да гласувате. Трябва да сте направили най-малко $1 {{PLURAL:$1|редакция|редакции}}, за да имате право да участвате в гласуването, а вие сте направили $2.',
 	'securepoll-too-new' => 'За съжаление, не можете да гласувате.  Вашата потребителска сметка е регистрирана на $2, а е трябвало да бъде регистрирана преди $1, за да имате право на глас.',
 	'securepoll-blocked' => 'За съжаление, не можете да участвате в това гласуване, защото в момента сте блокирани.',
-	'securepoll-blocked-centrally' => 'За съжаление, не можe да гласувате в тези избори, тъй като сте блокирани в $1 или повече {{PLURAL:$1|уики|уикита}}.',
+	'securepoll-blocked-centrally' => 'За съжаление, не можe да гласувате в тези избори, тъй като сте блокирани в поне $1 {{PLURAL:$1|уики|уикита}}.',
 	'securepoll-bot' => 'За съжаление, потребителски сметки, отбелязани като ботове, не могат да вземат участие в това гласуване.',
 	'securepoll-not-in-group' => 'Само членове на потребителска група "$1" могат да вземат участие в това гласуване.',
 	'securepoll-not-in-list' => 'За съжаление, вашето потребителско име не фигурира в предварително определения списък на потребителите с право на участие в това гласуване.',
@@ -7865,13 +7866,14 @@ Podètz causir de comptar los resultats dempuèi la banca de donadas o dempuèi 
 
 /** Oriya (ଓଡ଼ିଆ)
  * @author Odisha1
+ * @author Psubhashish
  */
 $messages['or'] = array(
 	'securepoll-header-voter-name' => 'ନାମ',
-	'securepoll-header-voter-domain' => 'ପରିସର',
+	'securepoll-header-voter-domain' => 'ଡୋମେନ',
 	'securepoll-header-details' => 'ବିସ୍ତୃତ ବିବରଣୀ',
 	'securepoll-strike-reason' => 'କାରଣ:',
-	'securepoll-strike-cancel' => 'ବାତିଲ',
+	'securepoll-strike-cancel' => 'ନାକଚ',
 	'securepoll-details-link' => 'ଆହୁରି ଅଧିକ',
 	'securepoll-header-action' => 'କାମ',
 	'securepoll-header-reason' => 'କାରଣ',
@@ -9143,6 +9145,7 @@ $1',
 	'securepoll-not-logged-in' => 'Жебы сьте міг(могла) голосовати, мусите ся приголосити.',
 	'securepoll-too-few-edits' => 'Перебачте, але не можете голосовати. У тых вольбах можуть голосовати лем хоснователї з найменєй $1 {{PLURAL:$1|едітованя|едітованями}}, у вас є $2.',
 	'securepoll-blocked' => 'Перебачте, але не можете голосовати, покы є вам заблоковане едітованя.',
+	'securepoll-blocked-centrally' => 'На жаль не можете голосовати, бо сьте {{gender:|блокованый|блокована|блокованы}} принайменшім на $1 {{PLURAL:$1|вікі|вікі}}..',
 	'securepoll-bot' => 'Перебачте, але конта із статусом бота ся не можуть брати участь у тім голосованю.',
 	'securepoll-not-in-group' => 'Лем члены ґрупы "$1" можуть брати участь у тім голосованює',
 	'securepoll-not-in-list' => 'Перебачте, але не сьте в пририхтованім списку хоснователїв припущеных до участи на тім голосованю.',
@@ -9208,6 +9211,9 @@ $1',
 	'securepoll-strength-matrix' => 'Матріця силы стежок',
 	'securepoll-ranks' => 'Конечный рейтінґ',
 	'securepoll-average-score' => 'Середнє оцінїня',
+	'securepoll-round' => '$1. коло',
+	'securepoll-spoilt' => '(Неплатне)',
+	'securepoll-exhausted' => '(Вычерпаны)',
 );
 
 /** Sanskrit (संस्कृत)
