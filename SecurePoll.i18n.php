@@ -5981,7 +5981,7 @@ Do moß alle Müjjeleschkeite ene Rang zwesche 1 un 999 jevve.',
 	'securepoll-too-few-edits' => 'Schadt: Do kanns diß Mol nit affshtemme. En dämm Fall mööts De ald {{PLURAL:$1|einmol|$1 Mol|övverhoup noch nie}} en Sigg em Wiki jeändert han, Do häß ävver {{PLURAL:$2|blooß eimol|blooß $2 Mol|övverhoup noch nie}} en Sigg em Wiki jeändert.',
 	'securepoll-too-new' => 'Schadt: Do kanns diß Mol nit affshtemme. Do mööts Desch ald vör dem $1 heh aanjemöldt han, et es ävver der $2 jewääse.',
 	'securepoll-blocked' => 'Schahdt: Do kanns diß Mol nit affshtemme, weil De jraadt för et Ändere aam Wiki jeshperrt beß.',
-	'securepoll-blocked-centrally' => 'Schahdt: Do kanns diß Mol nit affshtemme, weil De jraadt för et Ändere en {{PLURAL:$1|einem udder mih Wiki|$1 udder mih Wikis|keinem Wiki}} jeshperrt beß.',
+	'securepoll-blocked-centrally' => 'Schahdt: Do kanns diß Mol nit affshtemme, weil De jraadt för et Ändere en {{PLURAL:$1|einem Wiki udder mih|$1 udder mih Wikis|keinem Wiki}} jeshperrt beß.',
 	'securepoll-bot' => 'Hee en dä Afshtemmung kann bloß met metmaache, wä keine Bots es.',
 	'securepoll-not-in-group' => 'Schadt: Do kanns diß Mol nit affshtemme. Bloß de Metmaacher en dä {{NS:Category}} $1 künne hee en Shtemm afjevve!',
 	'securepoll-not-in-list' => 'Schadt: Do kanns diß Mol nit affshtemme. De beß nit en de su jenannte Wähler_Leß met de Metmaacher, die hee afshtemme dörve.',
@@ -7869,6 +7869,7 @@ Podètz causir de comptar los resultats dempuèi la banca de donadas o dempuèi 
  * @author Psubhashish
  */
 $messages['or'] = array(
+	'securepoll-header-timestamp' => 'ସମୟ',
 	'securepoll-header-voter-name' => 'ନାମ',
 	'securepoll-header-voter-domain' => 'ଡୋମେନ',
 	'securepoll-header-details' => 'ବିସ୍ତୃତ ବିବରଣୀ',
@@ -7877,7 +7878,10 @@ $messages['or'] = array(
 	'securepoll-details-link' => 'ଆହୁରି ଅଧିକ',
 	'securepoll-header-action' => 'କାମ',
 	'securepoll-header-reason' => 'କାରଣ',
+	'securepoll-header-admin' => 'ପ୍ରଶାସକ',
+	'securepoll-translate-title' => 'ଅନୁବାଦ: $1',
 	'securepoll-submit-translate' => 'ଅପଡେଟ',
+	'securepoll-submit-select-lang' => 'ଅନୁବାଦ',
 	'securepoll-header-title' => 'ନାମ',
 	'securepoll-header-start-date' => 'ଆରମ୍ଭ ତାରିଖ',
 	'securepoll-subpage-translate' => 'ଅନୁବାଦ',
