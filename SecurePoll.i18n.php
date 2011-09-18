@@ -1140,11 +1140,11 @@ $1',
 	'securepoll-api-invalid-params' => 'Няслушныя парамэтры.',
 	'securepoll-api-no-user' => 'Ня знойдзены ўдзельнік з пададзеным ідэнтыфікатарам.',
 	'securepoll-api-token-mismatch' => 'Неадпаведнасьць меткі бясьпекі, немагчыма ўвайсьці ў сыстэму.',
-	'securepoll-not-logged-in' => 'Вам неабходна [[Special:Userlogin|ўвайсьці ў сыстэму]], каб галасаваць на гэтых выбарах. Калі вы яшчэ ня маеце ўліковага запісу, можаце [[Special:Userlogin/signup|зарэгістравацца]].',
+	'securepoll-not-logged-in' => 'Вам неабходна [[Special:Userlogin|ўвайсьці ў сыстэму]], каб галасаваць на гэтых выбарах. Калі Вы яшчэ ня маеце рахунку, Вы можаце [[Special:Userlogin/signup|стварыць яго]].',
 	'securepoll-too-few-edits' => 'Прабачце, Вы ня можаце галасаваць. Вам неабходна зрабіць хаця б {{PLURAL:$1|рэдагаваньне|рэдагаваньні|рэдагаваньняў}}, каб галасаваць на гэтых выбарах, Вы зрабілі толькі $2.',
-	'securepoll-too-new' => 'На жаль, Вы ня можаце галасаваць. Ваш рахунак мусіў быць створаны да $1 а $3, а Вы зарэгістраваныя $2 а $4.',
+	'securepoll-too-new' => 'На жаль, Вы ня можаце галасаваць. Ваш рахунак мусіў быць створаны да $1 $3, а Вы стварылі рахунак $2 $4.',
 	'securepoll-blocked' => 'Прабачце, Вы ня можаце галасаваць на гэтых выбарах, калі Вы заблякаваны.',
-	'securepoll-blocked-centrally' => 'На жаль, Вы ня можаце галасаваць у гэтых выбарах , бо заблякаваныя прынамсі ў $1 {{PLURAL:$1|вікі|вікі}}.',
+	'securepoll-blocked-centrally' => 'На жаль, Вы ня можаце галасаваць у гэтых выбарах, бо заблякаваныя прынамсі ў $1 {{PLURAL:$1|вікі|вікі|вікі}}.',
 	'securepoll-bot' => 'Прабачце, рахункі са статусам робата ня могуць галасаваць ў гэтых выбараў.',
 	'securepoll-not-in-group' => 'Толькі ўдзельнікі групы $1 могуць галасаваць на гэтых выбарах.',
 	'securepoll-not-in-list' => 'Прабачце, Вы не ўключаны ў сьпіс удзельнікаў, якія могуць галасаваць на гэтых выбарах.',
@@ -1521,7 +1521,7 @@ Ret deoc'h renkañ pep dibarzh etre 1 ha 999.",
 	'securepoll-api-invalid-params' => 'Arventennoù direizh.',
 	'securepoll-api-no-user' => "N'eus bet kavet implijer ebet dezhañ an ID merket.",
 	'securepoll-api-token-mismatch' => 'Ne glot ket ar jedouer surentez, dibosupl emlugañ',
-	'securepoll-not-logged-in' => 'Rankout a rit kevreañ a-benn votiñ en dilennadeg-mañ.',
+	'securepoll-not-logged-in' => "Rankout a rit [[Special:Userlogin|kevreañ]] evit votiñ en dilenandeg-mañ. Ma n'hoc'h eus kont ebet e c'hallit [[Special:Userlogin/signup|krouiñ unan]].",
 	'securepoll-too-few-edits' => "Ho tigarez, n'hallit ket votiñ. Ret eo bezañ graet da nebeutañ $1 {{PLURAL:$1|degasadenn|degasadenn}} a-benn gallout mouezhiañ en dilennadeg-mañ, ha graet hoc'h eus $2.",
 	'securepoll-too-new' => "Ho tigarez, votiñ, n'hallit ket. Ret eo d'ho kont bezañ bet enrollet kent an $1 da c'hallout votiñ en dilennadeg-mañ. En em enrollet oc'h d'an $2.",
 	'securepoll-blocked' => "Ho tigarez, n'oc'h ket evit votiñ en dilennadeg-mañ pa'z eo stanket ho tegasadennoù evit ar mare.",
@@ -7869,6 +7869,7 @@ Podètz causir de comptar los resultats dempuèi la banca de donadas o dempuèi 
  * @author Psubhashish
  */
 $messages['or'] = array(
+	'securepoll-return' => '$1କୁ ଫେରିଯାନ୍ତୁ',
 	'securepoll-header-timestamp' => 'ସମୟ',
 	'securepoll-header-voter-name' => 'ନାମ',
 	'securepoll-header-voter-domain' => 'ଡୋମେନ',
@@ -7884,6 +7885,8 @@ $messages['or'] = array(
 	'securepoll-submit-select-lang' => 'ଅନୁବାଦ',
 	'securepoll-header-title' => 'ନାମ',
 	'securepoll-header-start-date' => 'ଆରମ୍ଭ ତାରିଖ',
+	'securepoll-header-end-date' => 'ଶେଷ ତାରିଖ',
+	'securepoll-subpage-vote' => 'ମତଦାନ',
 	'securepoll-subpage-translate' => 'ଅନୁବାଦ',
 	'securepoll-subpage-list' => 'ତାଲିକା',
 );
@@ -8374,6 +8377,7 @@ $messages['ps'] = array(
  * @author Hamilton Abreu
  * @author Lijealso
  * @author Malafaya
+ * @author SandroHc
  * @author Waldir
  */
 $messages['pt'] = array(
@@ -8433,9 +8437,9 @@ Deve atribuir a todas as opções uma classificação entre 1 e 999.',
 	'securepoll-api-token-mismatch' => 'Token de segurança não corresponde, não foi possível autenticar.',
 	'securepoll-not-logged-in' => 'Precisa de se [[Special:Userlogin|autenticar]] para votar nesta eleição. Se não possui uma conta, pode [[Special:Userlogin/signup|criar uma]].',
 	'securepoll-too-few-edits' => 'Desculpe, mas não pode votar. É necessário ter-se feito pelo menos {{PLURAL:$1|uma edição|$1 edições}} para votar nesta eleição e fez apenas $2.',
-	'securepoll-too-new' => 'Desculpe, mas não pode votar. A sua conta teria de ter sido registada antes de $1 para votar nesta eleição, mas registou-se em $2.',
+	'securepoll-too-new' => 'Desculpe, mas não pode votar. A sua conta teria de ter sido registada antes de $1 de $3 para votar nesta eleição, mas registou-se em $2 de $4.',
 	'securepoll-blocked' => 'Desculpe, mas não pode votar nesta eleição se foi bloqueado de efectuar edições.',
-	'securepoll-blocked-centrally' => 'Desculpe, mas não pode votar nesta eleição quando está bloqueado {{PLURAL:$1|numa wiki| em $1 wikis}}',
+	'securepoll-blocked-centrally' => 'Desculpe, mas não pode votar nesta eleição quando estiver bloqueado em pelo menos $1 {{PLURAL:$1|wiki|wikis}}.',
 	'securepoll-bot' => 'Desculpe, mas contas com de robôs não estão autorizadas a votar nesta eleição.',
 	'securepoll-not-in-group' => 'Só os membros do grupo "$1" podem votar nesta eleição.',
 	'securepoll-not-in-list' => 'Desculpe, mas não consta da lista de utilizadores previamente autorizados a votar nesta eleição.',
