@@ -7874,7 +7874,30 @@ Podètz causir de comptar los resultats dempuèi la banca de donadas o dempuèi 
  * @author Psubhashish
  */
 $messages['or'] = array(
+	'securepoll' => 'ନିରାପଦ ମତଦାନ',
+	'securepoll-desc' => 'ନିର୍ବାଚନ ଓ ସର୍ବେକ୍ଷଣମାନଙ୍କ ନିମନ୍ତେ ଏକ୍ସଟେନସନ',
+	'securepoll-invalid-page' => 'ଅଚଳ ଉପପୃଷ୍ଠା "<nowiki>$1</nowiki>"',
+	'securepoll-need-admin' => 'ଏହି କମତିକୁଇ କରିବା ନିମନ୍ତେ ଆପଣଙ୍କୁ ଜଣେ ନିର୍ବାଚନ ପରିଛା ହେବାକୁ ପଡ଼ିବ ।',
+	'securepoll-too-few-params' => 'ସେତେ ଅଧିକ ଉପପୃଷ୍ଠା ପାରାମିଟର ନାହିଁ (ଅଚଳ ଲିଙ୍କ)',
+	'securepoll-invalid-election' => '"$1" ଏକ ବୈଧ ମତଦାନ ପରିଚୟ ନୁହେଁ ।',
+	'securepoll-welcome' => '<strong>$1, ପାଛୋଟା!</strong>',
+	'securepoll-not-started' => 'ଏହି ନିର୍ବାଚନ ଏବେ ଯାଏଁ ଆରମ୍ଭ ହୋଇନାହିଁ ।
+ଏହା $2 ଦିନ $3 ବେଳେ ଆରମ୍ଭ ହେବ ବୋଲି ସ୍ଥିର କରାଯାଇଅଛି ।',
+	'securepoll-finished' => 'ଏହି ନିର୍ବାଚନ ଶେଷ ହେଲା, ଆପଣ ଆଉ ମତ ଦେଇ ପାରିବେ ନାହିଁ ।',
+	'securepoll-not-qualified' => 'ଆପଣ ଏଠାରେ ମତ ଦେବା ନିମନ୍ତେ ଯୋଗ୍ୟ ନୁହନ୍ତି: $1',
+	'securepoll-submit' => 'ମତ ଦିଅନ୍ତୁ',
+	'securepoll-thanks' => 'ଧନ୍ୟବାଦ, ଆପଣଙ୍କ ମତଦାନ ନଥିଭୁକ୍ତ କରାଗଲା ।',
 	'securepoll-return' => '$1କୁ ଫେରିଯାନ୍ତୁ',
+	'securepoll-gpg-config-error' => 'GPG କି ସବୁ ଆପେଆପେ ସଜାଇଦିଆଗଲା ।',
+	'securepoll-gpg-parse-error' => 'GPG ଆଉଟପୁଟ ପଢ଼ିବାରେ ବିଫଳ ।',
+	'securepoll-no-decryption-key' => 'ବିବରଣୀ ପୃଷ୍ଠା ସଜାଯାଇନାହିଁ ।
+ଗୋପନ ତଥ୍ୟ ଖୋଲି ପାରିଲୁଁ ନାହିଁ ।',
+	'securepoll-jump' => 'ମତାମତ ସର୍ଭରକୁ ଯିବେ',
+	'securepoll-bad-ballot-submission' => 'ଆପଣଙ୍କ ମତଦାନ ଅବୈଧ ଅଟେ: $1',
+	'securepoll-unanswered-questions' => 'ଆପଣଙ୍କୁ ସବୁଯାକ ପ୍ରଶ୍ନର ଉତ୍ତର ଦେବାକୁ ପଡ଼ିବ ।',
+	'securepoll-invalid-rank' => 'ଅସଙ୍ଗତ କ୍ରମାଙ୍କ । ଆପଣ ୧ ରୁ ୯୯୯ ଭିତରେ ଏକ କ୍ରମାଙ୍କ ଦେଇପାରିବେ ।',
+	'securepoll-unranked-options' => 'କେତେଗୁଡ଼ିଏ ବିକଳ୍ପ କ୍ରମଅନୁସାରେ ସଜାଯାଇ ନାହିଁ ।
+ଆପଣ ସବୁଯାକ ବିକଳ୍ପକୁ ୧ ରୁ ୯୯୯ ଭିତରେ ଏକ କ୍ରମାଙ୍କ ଦେଇପାରିବେ ।',
 	'securepoll-blocked' => 'କ୍ଷମା କରିବେ, ଆପଣଙ୍କୁ ସମ୍ପାଦନାରୁ ଅଟକ କରାଯାଇଥିବାରୁ ଆପଣ ମତ ଦେଇପାରିବେ ନାହିଁ ।',
 	'securepoll-blocked-centrally' => 'କ୍ଷମା କରିବେ, ଆପଣଙ୍କୁ ଅତିକମରେ $1 {{PLURAL:$1|ଗୋଟି ଉଇକି|ଗୋଟି ଉଇକି}}ରେ ଅଟକ କରାଯାଇଥିବାରୁ ଆପଣ ଏହି ନିର୍ବାଚନରେ ମତ ଦେଇ ପାରିବେ ନାହିଁ ।',
 	'securepoll-bot' => 'କ୍ଷମା କରିବେ, ସ୍ଵୟଂଚାଳିତ ଚିହ୍ନିତ ଖାତା ଥିବା ଲୋକେ ଏହି ନିର୍ବାଚନରେ ମତ ଦେଇପାରିବେ ନାହିଁ ।',
@@ -7922,12 +7945,19 @@ $messages['or'] = array(
 	'securepoll-tally-title' => 'ଗଣନା: $1',
 	'securepoll-tally-local-legend' => 'ଗଣନା ଫଳାଫଳ',
 	'securepoll-tally-local-submit' => 'ଗଣିବେ',
+	'securepoll-tally-upload-legend' => 'ଗୋପନ କୋଡ଼ ଦିଆ ଅଳିଆ ଅପଲୋଡ଼ କରିବେ',
+	'securepoll-tally-upload-submit' => 'ଗଣିବେ',
+	'securepoll-tally-error' => 'ମତଦାନ ଅନୁମାନ କରିବାରେ ଭୁଲ ହେଲା, ଏକ ଗଣନା ତିଆରି କରାଯାଇ ପାରିବ ନାହିଁ ।',
+	'securepoll-no-upload' => 'ଗୋଟିଏ ବି ଫାଇଲ ଅପଲୋଡ଼ ହେଲାନାହିଁ, ଫଳାଫଳ ଗଣି ପାରିବୁଁ‍‍ ନାହିଁ ।',
+	'securepoll-dump-corrupt' => 'ଡମ୍ପ ଫାଇଲଟି ଖରାପ ଓ ତାହାକୁ ଆଗକୁ ବଢ଼ାଯାଇପାରିବ ନାହିଁ ।',
 	'securepoll-tally-upload-error' => 'ଫୋପଡ଼ାଯିବା ଫାଇଲର ନକଲ କରିବାରେ ବିଫଳ: $1',
 	'securepoll-pairwise-victories' => 'ଯୋଡ଼ା ଜିତିବା ମ୍ୟାଟ୍ରିକ୍ସ',
 	'securepoll-strength-matrix' => 'ପଥ ଶକ୍ତି ମ୍ୟାଟ୍ରିକ୍ସ',
 	'securepoll-ranks' => 'ଅନ୍ତିମ କ୍ରମାଙ୍କ',
 	'securepoll-average-score' => 'ହାରାହାରି ଫଳ',
 	'securepoll-round' => '$1 ରାଉଣ୍ଡ',
+	'securepoll-spoilt' => '(ବିଗିଡ଼ିଯାଇଥିବା)',
+	'securepoll-exhausted' => '(ଅବସନ୍ନ)',
 );
 
 /** Papiamento (Papiamentu)
