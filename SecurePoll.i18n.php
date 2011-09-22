@@ -7885,9 +7885,32 @@ $messages['or'] = array(
 ଏହା $2 ଦିନ $3 ବେଳେ ଆରମ୍ଭ ହେବ ବୋଲି ସ୍ଥିର କରାଯାଇଅଛି ।',
 	'securepoll-finished' => 'ଏହି ନିର୍ବାଚନ ଶେଷ ହେଲା, ଆପଣ ଆଉ ମତ ଦେଇ ପାରିବେ ନାହିଁ ।',
 	'securepoll-not-qualified' => 'ଆପଣ ଏଠାରେ ମତ ଦେବା ନିମନ୍ତେ ଯୋଗ୍ୟ ନୁହନ୍ତି: $1',
+	'securepoll-change-disallowed' => 'ଆପଣ ଏହି ଏକା ନିର୍ବାଚନରେ ଆଗରୁ ମତ ଦେଇ ସାରିଛନ୍ତି ।
+କ୍ଷମା କରିବେ, ଆପଣ ଆଉଥରେ ମତ ଦେଇପାରିବେ ନାହିଁ ।',
+	'securepoll-change-allowed' => '<strong>ଜାଣିରଖନ୍ତୁ: ଆପଣ ଆଗରୁ ଏହି ନିର୍ବାଚନରେ ମତଦାନ କରିଛନ୍ତି ।</strong>
+ତଳେ ଥିବା ଆବେଦନ ପତ୍ରରେ ଆପଣ ନିଜର ମତ ବଦଳାଇପାରିବେ ।
+ଜାଣିରଖନ୍ତୁ ଏହା କରିସାରିଲା ପରେ ଆପଣଙ୍କ ମୂଳ ମତଟି ଖାରଜ ହୋଇଯିବ ।',
 	'securepoll-submit' => 'ମତ ଦିଅନ୍ତୁ',
+	'securepoll-gpg-receipt' => 'ମତଦାନ ନିମନ୍ତେ ଧନ୍ୟବାଦ।
+
+ଆପଣ ଚାହିଁଲେ ଆପଣ ଏହି ତଳ ରସିଦଟି ଆପଣଙ୍କ ମତଦାନର ପ୍ରମାଣ ରୂପେ ରଖିପାରିବେ:
+
+<pre>$1</pre>',
 	'securepoll-thanks' => 'ଧନ୍ୟବାଦ, ଆପଣଙ୍କ ମତଦାନ ନଥିଭୁକ୍ତ କରାଗଲା ।',
 	'securepoll-return' => '$1କୁ ଫେରିଯାନ୍ତୁ',
+	'securepoll-encrypt-error' => 'ଆପଣଙ୍କ ମତଦାନର ଇତିହାସକୁ ଗୋପନ ରଖିବାରେ ବିଫଳ ହେଲୁ ।
+ଆପଣଙ୍କର ମତ ସାଇତାଯାଇନାହିଁ!
+
+$1',
+	'securepoll-no-gpg-home' => 'GPG ମୂଳ ସୂଚି ତିଆରିବାରେ ବିଫଳ ହେଲୁ ।',
+	'securepoll-secret-gpg-error' => 'GPG ସଞ୍ଚାଳନରେ ବିଫଳ ହେଲୁ ।
+ଅଧିକ ଦେଖାଇବା ନିମନ୍ତେ LocalSettings.php ରେ $wgSecurePollShowErrorDetail=true;  ବ୍ୟବହାର କରନ୍ତୁ ।',
+	'securepoll-full-gpg-error' => 'GPG ସଞ୍ଚାଲନରେ ଅସୁବିଧା:
+
+ଆଦେଶ: $1
+
+ଭୁଲ:
+<pre>$2</pre>',
 	'securepoll-gpg-config-error' => 'GPG କି ସବୁ ଆପେଆପେ ସଜାଇଦିଆଗଲା ।',
 	'securepoll-gpg-parse-error' => 'GPG ଆଉଟପୁଟ ପଢ଼ିବାରେ ବିଫଳ ।',
 	'securepoll-no-decryption-key' => 'ବିବରଣୀ ପୃଷ୍ଠା ସଜାଯାଇନାହିଁ ।
