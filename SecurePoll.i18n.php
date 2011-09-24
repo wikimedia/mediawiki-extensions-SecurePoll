@@ -6290,9 +6290,11 @@ Doe mos alle meugelikhede 'n rang gaeve tösse 1 en 999.",
 	'securepoll-api-invalid-params' => 'Óngeldige paramaeters.',
 	'securepoll-api-no-user' => "d'r Is geine gebroeker gevónje mit 't opgegaeve ID.",
 	'securepoll-api-token-mismatch' => 'Beveiligingstoke kömp neet euverein, inlogge is neet meugelik.',
-	'securepoll-not-logged-in' => 'Doe mós aanmelde óm aan dees sjtömming deil te nömme',
+	'securepoll-not-logged-in' => 'Doe mós tich [[Special:Userlogin|aanmèljen]] óm aan dees stömming deil te nömme. Es se nag geine gebroeker bös, kóns se [[Special:Userlogin/signup|hie]] dich registrere.',
 	'securepoll-too-few-edits' => "Sorry, doe kins neet deilnömme aan de sjtömming. Doe mós temisnte $1 {{PLURAL:$1|bewèrking|bewèrkinger}} höbbe gemaak óm te kinne sjtömme in dees verkeziging en doe höbs d'r $2.",
+	'securepoll-too-new' => 'Doe kins neet deilnömme aan dees stömming. Doe mós veur $1 óm $3 geregistreerd zeen óm det te kinne, meh doe woors det óp $2 óm $4.',
 	'securepoll-blocked' => 'Sorry, doe kins neet deilnömme aan de sjtömming ómdet se geblokkeerd bös.',
+	'securepoll-blocked-centrally' => "Doe kins neet deilnömme aan dees stömming ómdes se geblok bös óp minstes $1 {{PLURAL:$1|wiki|wiki's}}.",
 	'securepoll-bot' => "Sorry, gebroekers mit 'ne botvlag moge neet sjtömme in dees sjtömming.",
 	'securepoll-not-in-group' => 'Allein lede van de groep "$1" kinne aan dees sjtömming deilnömme.',
 	'securepoll-not-in-list' => 'Sorry, doe sjteis neet op de veuraafvasgesjtelde lies van sjtömgerechtigde veur dees sjtömming.',
@@ -6358,6 +6360,9 @@ Doe kins de in de database besjikbare resultate telle, of de resultate oet 'n be
 	'securepoll-strength-matrix' => 'Padgestèrk matrix',
 	'securepoll-ranks' => 'Definitief ranksjikking',
 	'securepoll-average-score' => 'Gemiddeldje skore',
+	'securepoll-round' => 'Rönj $1',
+	'securepoll-spoilt' => '(Óngeljig)',
+	'securepoll-exhausted' => '(Verloupe)',
 );
 
 /** Lithuanian (Lietuvių)
@@ -7741,6 +7746,7 @@ Du kan velge å enten telle opp resultatene tilgjengelig i databasen, eller å t
 );
 
 /** Occitan (Occitan)
+ * @author Boulaur
  * @author Cedric31
  * @author Jfblanc
  */
@@ -7802,6 +7808,7 @@ Vos cal balhar un reng entre 1 e 999 a totas las opcions.",
 	'securepoll-not-logged-in' => 'Vos cal connectar per votar dins aquesta eleccion.',
 	'securepoll-too-few-edits' => 'O planhèm, podètz pas votar. Vos cal aver efectuat al mens {{PLURAL:$1|una modificacion|$1 modificacions}} per votar dins aquesta eleccion, ne totalizatz $2.',
 	'securepoll-blocked' => 'O planhèm, podètz pas votar dins aquesta eleccion perque sètz blocat(ada) en escritura.',
+	'securepoll-blocked-centrally' => 'O planhèm, podètz pas votar dins aquesta eleccion perque sètz blocat(ada) sus  almens $1 {{PLURAL:$1|wiki|wikis}}.',
 	'securepoll-bot' => "O planhèm, los comptes amb l'estatut de robòt son pas autorizats a votar a aquesta eleccion.",
 	'securepoll-not-in-group' => 'Sonque los membres del grop « $1 » pòdon votar dins aquesta eleccion.',
 	'securepoll-not-in-list' => 'O planhèm, sètz pas sus la lista predeterminada dels utilizaires autorizats a votar dins aquesta eleccion.',
