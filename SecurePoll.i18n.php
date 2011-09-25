@@ -1523,7 +1523,7 @@ Ret deoc'h renkañ pep dibarzh etre 1 ha 999.",
 	'securepoll-api-token-mismatch' => 'Ne glot ket ar jedouer surentez, dibosupl emlugañ',
 	'securepoll-not-logged-in' => "Rankout a rit [[Special:Userlogin|kevreañ]] evit votiñ en dilenandeg-mañ. Ma n'hoc'h eus kont ebet e c'hallit [[Special:Userlogin/signup|krouiñ unan]].",
 	'securepoll-too-few-edits' => "Ho tigarez, n'hallit ket votiñ. Ret eo bezañ graet da nebeutañ $1 {{PLURAL:$1|degasadenn|degasadenn}} a-benn gallout mouezhiañ en dilennadeg-mañ, ha graet hoc'h eus $2.",
-	'securepoll-too-new' => "Ho tigarez, votiñ, n'hallit ket. Ret eo d'ho kont bezañ bet enrollet kent an $1 da c'hallout votiñ en dilennadeg-mañ. En em enrollet oc'h d'an $2.",
+	'securepoll-too-new' => "Ho tigarez, votiñ, n'hallit ket. Ret eo d'ho kont bezañ bet enrollet kent an $1 da $3 da c'hallout votiñ en dilennadeg-mañ. Enrollet oc'h bet d'an $2 da $4.",
 	'securepoll-blocked' => "Ho tigarez, n'oc'h ket evit votiñ en dilennadeg-mañ pa'z eo stanket ho tegasadennoù evit ar mare.",
 	'securepoll-blocked-centrally' => "Ho tigarez, n'hallit ket votiñ en dilennadeg-mañ m'emaoc'h oc'h stanket war $1 pe {{PLURAL:$1|ur wiki|wikioù}} all.",
 	'securepoll-bot' => "Ho tigarez, n'hall ket ar c'hontoù dezho ar statud robod votiñ en dilennadeg-mañ",
@@ -8430,6 +8430,61 @@ It peule serne sia ëd conté j'arzultà present ant ël database, sia ëd cont�
  * @author Khalid Mahmood
  */
 $messages['pnb'] = array(
+	'securepoll' => 'سیکیورپول',
+	'securepoll-desc' => 'چنوتی تے سروے لئی ایکسٹنشن',
+	'securepoll-invalid-page' => 'ناںمنیا جان والا نکا صفہ "<نوکی>$1</nowiki>"',
+	'securepoll-need-admin' => 'اے کم کرن لئی تواڈا الیکشن ایدمنسٹریٹر ہونا چائیدا اے۔',
+	'securepoll-too-few-params' => 'کافی نکے صفیاں دے پیرامیٹر نئیں (جوڑ کم نئیں کردا)',
+	'securepoll-invalid-election' => '"$1" کوئی پکی چنوتی آئی ڈی نئیں اے۔',
+	'securepoll-welcome' => '<strong>جی آیاں نوں $1!</strong>',
+	'securepoll-not-started' => 'اے چنوتی ہلے شروع نئیں ہوئی۔
+اے $2 نوں $3 بجے شروغ ہووے گی۔',
+	'securepoll-finished' => 'ایہ چنوتی ہن مک گئی اے تسیں ہن ووٹ نئیں پاسکدے۔',
+	'securepoll-not-qualified' => 'تسیں ایس چنوتی چ ووٹ نئیں پاسکدے۔',
+	'securepoll-change-disallowed' => 'تسیں ایس چنوتی چ پہلے ووٹ پاچکے او۔
+تسیں ہن ووٹ نئیں پاسکدے۔',
+	'securepoll-submit' => 'ووٹ پاؤ',
+	'securepoll-gpg-receipt' => 'ووٹ پان دا شکریہ۔
+اگر تواڈا دل کرے تے تسیں تھلے دتیاں گیاں رسیداں اپنے دے ثبوت لئی رکھ سکدے او۔
+<pre>$1</pre>',
+	'securepoll-thanks' => 'شکریہ تواڈا ووٹ گنتی چ آگیا اے۔',
+	'securepoll-return' => 'واپس $1 چلو',
+	'securepoll-encrypt-error' => 'تواڈے ووٹ رکارڈ نوں پڑھن چ ہار۔
+تواڈا ووٹ گنتی چ نئیں آیا۔
+$1',
+	'securepoll-no-gpg-home' => 'جی پی جی کعر ڈائرکٹری بنان چ ہار۔',
+	'securepoll-secret-gpg-error' => 'جی پی جی چلاندیاں غلطی۔
+ورتو $wgSecurePollShowErrorDetail=true ؛ LocalSettings.php ہور گلاں دسن لئی۔',
+	'securepoll-full-gpg-error' => 'جی پی جی کردیاں غلطی:
+کمانڈ: $1
+
+غلطی:
+<pre>$2</pre>',
+	'securepoll-gpg-config-error' => 'جی پی جی چابیاں ٹھیک ںغیں ّرھیاں گیاں',
+	'securepoll-gpg-parse-error' => 'جی پی جی آوٹ پٹ نوں پڑھن چ غلطی۔',
+	'securepoll-no-decryption-key' => 'کوئی ڈیکرٹشن چابی کنفگرڈ نئیں ہوئی۔ ڈیکرپٹ نئیں کرسکدا۔',
+	'securepoll-jump' => 'چنوتی سرور کول جاؤ',
+	'securepoll-bad-ballot-submission' => 'تواڈا ووٹ نئیں نئیں منیا گیا: $1',
+	'securepoll-unanswered-questions' => 'تسیں لازمی سارے سوالاں دے جواب دیو۔',
+	'securepoll-invalid-rank' => 'ناں منیا جان والا رینک۔  توانوں لازمی 1 تے 999 دے وشکار دینا پویگا۔',
+	'securepoll-unranked-options' => 'کج چنوتیاں نئیں گنیاں گیاں۔
+تساں نوں 1 توں 999 دے وشکار ساریاں چنوتیاں دینیاں پین گیاں۔',
+	'securepoll-invalid-score' => 'گنتی $1 تے $2 دے نمبر دے وشکار ہونی چاسیدی اے۔',
+	'securepoll-unanswered-options' => 'توانوں ہرسوال تے جواب دینا پویگا۔',
+	'securepoll-remote-auth-error' => 'تواڈے کھاتہ دی جانکاری سرور توں لین چ غلطی۔',
+	'securepoll-remote-parse-error' => 'سرور توں آتھورائیزیشن رسپونس سمجنے چ غلطی۔',
+	'securepoll-api-invalid-params' => 'ناں منے جان والے پیرامیٹر',
+	'securepoll-api-no-user' => 'ایس دتی ہوئی آئی ڈی نال کوئی ورتن والا نئیں لبیا۔',
+	'securepoll-api-token-mismatch' => 'راکھی نشانی نئیں رلدی، لاگ ان نئیں ہوسکدے۔',
+	'securepoll-not-logged-in' => 'تسیں لازمی [[خاص:ورتنلاگان|لاگ ان]] چنوتی چ ووٹ پان لئی۔
+اگر تواڈا کوئی کھاتہ نئیں تسیں [[خاص:ورتنلاگان|بناؤ]]',
+	'securepoll-too-few-edits' => 'اوہو، تسیں ووٹ نئیں پاسکدے۔ تسیں $1 {{انیک:$1|تبدیلی|تبدیلیاں}} ایس چنوتی چ ووٹ پان لئی تے تسیں $2 بنائی نئیں۔',
+	'securepoll-too-new' => 'تسیں ووٹ نئیں پاےکدے۔ تواڈا کھاتہ پہلے سعاب کتاب چ آوے گا $1 توں پہلے تے $3 بجے چنوتی چ ووٹ پان لئی۔ تسیں $2 نوں $4 بجے رجسٹر ہووۓ سی۔',
+	'securepoll-blocked' => 'معاف کرنا تسیں ایس چنوتی چ ووٹ نئیں پاسکدے اگر تسیں تبدیلی توں روک دتے گۓ او۔',
+	'securepoll-blocked-centrally' => 'معاف کرنا تسیں ایس چوتی چ ووٹ ںغیں پاسکدے  کیوں جے توانوں $1 {{انیک:$1|وکی|وکیاں}} تے روکیا گیا جے۔',
+	'securepoll-bot' => 'معاف کرنا کھاتے جناں نال بوٹ دا نشان ہووے اوناں نوں چنوتی چ ووٹ دی اجازت نئیں۔',
+	'securepoll-not-in-group' => '"$1" ٹولی دے سنگی ایس چنوتی چ ووٹ پاسکدے نيں۔',
+	'securepoll-not-in-list' => 'معاف کرنا تسیں اوناں ورتن والیاں دی لسٹ چ نئیں او جناں نوں ایس چنوتی ج ووٹ پان دی اجازت اے۔',
 	'securepoll-list-title' => 'ووٹ لسٹ: $1',
 	'securepoll-header-timestamp' => 'ویلہ',
 	'securepoll-header-voter-name' => 'ناں',
@@ -8455,6 +8510,12 @@ $messages['pnb'] = array(
 	'securepoll-header-admin' => 'ایڈمن',
 	'securepoll-cookie-dup-list' => 'کوکی ڈپلیکیٹ ورتن والے',
 	'securepoll-dump-title' => 'سٹو: $1',
+	'securepoll-dump-no-crypt' => 'کوئی انکرپثڈ چنوتی رکارڈ ہیگا اے ایس چنوتی لئی کیوں چ چنوتی نوں ایس دے رکارڈ رکھن لئی تیار نئیں کیتا گیا۔',
+	'securepoll-dump-not-finished' => 'اینکرپٹڈ چنوتی رکارڈ چنوتیاں ہون مگروں $1 تریخ تے $2 بجے ملیگا۔',
+	'securepoll-dump-no-urandom' => 'کھول نئیں سکدا/ڈیو/یورینڈم۔
+ووٹ پان دی لکائی رکھن لئی ، انکریپٹڈ چنوتی رکارڈ عام لوکاں نوں اودوں دسے جان گے جدوں اوناں نوں سانبے گۓ نمبر نال شفل کیتا جاۓ۔',
+	'securepoll-urandom-not-supported' => 'ایہ سرور کرپٹوگرافک رینڈم نمبر جنریشن۔
+ووٹ پان والیاں دی لکائی لئی، انکرپثڈ چنوتی رکارڈ عام لوکاں نوں اوروں دسے جان گے جدون اوناں نوں پکے نمبراں وچ رلایا جاۓ گا۔',
 	'securepoll-translate-title' => 'التھاؤ : $1',
 	'securepoll-invalid-language' => "ناں منیا جان والا بولی کوڈ '$1'",
 	'securepoll-submit-translate' => 'نواں کرو',
