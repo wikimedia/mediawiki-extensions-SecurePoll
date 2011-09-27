@@ -899,6 +899,7 @@ Puedes escoyer ente escrutar los resultaos de la base de datos, o escrutar los r
  * @author Vugar 1981
  */
 $messages['az'] = array(
+	'securepoll' => 'SecurePoll',
 	'securepoll-welcome' => '<strong>Xoş gəlmisiniz $1!</strong>',
 	'securepoll-change-disallowed' => 'Siz bu seçkidə artıq səs vermisiniz. 
 Üzr istəyirik, yenidən səs verə bilməzsiniz.',
@@ -5778,6 +5779,7 @@ $messages['kn'] = array(
 
 /** Korean (한국어)
  * @author Albamhandae
+ * @author Freebiekr
  * @author Gjue
  * @author Klutzy
  * @author Kwj2772
@@ -5841,7 +5843,7 @@ $1',
 	'securepoll-api-token-mismatch' => '암호화 통신상의 오류가 발생하여 로그인하지 못했습니다.',
 	'securepoll-not-logged-in' => '이 선거에 투표를 하시려면 먼저 로그인하셔야 합니다.',
 	'securepoll-too-few-edits' => '죄송하지만, 투표에 참여하실 수 없습니다. 투표에 참여하시려면 최소 $1{{PLURAL:$1|회}}의 편집기여를 하셔야 하지만 귀하의 편집 수는 $2회 입니다.',
-	'securepoll-too-new' => '죄송합니다. 귀하는 투표를 할 수 없습니다. 귀하의 계정을 이용하여 투표를 하기 위해서는 $1 이전에 계정을 등록해야 하지만 당신은 $2에 계정을 등록하였습니다.',
+	'securepoll-too-new' => '미안하지만, 당신은 투표할 수 없습니다. 이 선거에서 투표하려면 $1  $3 이전에 당신의 계정이 등록되어 있어야 합니다. 당신은 $2 $4에 계정을 등록하였습니다.',
 	'securepoll-blocked' => '죄송하지만, 귀하의 계정은 차단당한 상태이므로 이 선거에 투표하실 수 없습니다.',
 	'securepoll-blocked-centrally' => '죄송합니다. 귀하는 이 투표에서 1$이상을 납입하여 투표권을 획득 하지 못하였으므로 투표를 진행할 수 없습니다.{{PLURAL:$1|wiki|wikis}}.',
 	'securepoll-bot' => '죄송합니다. 봇 권한을 가진 계정으로는 투표할 수 없습니다.',
@@ -7608,6 +7610,7 @@ Du kan velja å anten telja opp resultata tilgjengelege i databasen, eller å te
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Event
  * @author Finnrind
  * @author Guaca
  * @author Jon Harald Søby
@@ -7673,9 +7676,9 @@ Du må gi alle alternativene en rangering mellom 1 og 999.',
 	'securepoll-api-token-mismatch' => 'Sikkerhetsnøkkel manglet, kan ikke logge inn.',
 	'securepoll-not-logged-in' => 'Du må logge inn for å kunne stemme i dette valget.',
 	'securepoll-too-few-edits' => 'Beklager, du kan ikke stemme. Du må ha gjort minst $1 {{PLURAL:$1|redigering|redigeringer}} for å delta i denne avstemningen. Du har gjort $2.',
-	'securepoll-too-new' => 'Du kan desssverre ikke stemme. Kontoen din må ha vært registrert før $1 for å kunne stemme i dette valget; du registrerte deg $2.',
+	'securepoll-too-new' => 'Du kan desssverre ikke stemme. Kontoen din må ha vært registrert før $1 på $3 for å kunne stemme i dette valget, og du registrerte deg $2 på $4.',
 	'securepoll-blocked' => 'Beklager, du kan ikke stemme i dette valget hvis du er blokkert fra å redigere.',
-	'securepoll-blocked-centrally' => 'Du kan dessverre ikke stemme i dette valget om du er blokkert på $1 eller flere {{PLURAL:$1|wiki|wikier}}.',
+	'securepoll-blocked-centrally' => 'Du kan dessverre ikke stemme i dette valget dersom du er blokkert på $1 eller flere wikier.',
 	'securepoll-bot' => 'Beklager, kontoer med botflagg kan ikke stemme i dette valget.',
 	'securepoll-not-in-group' => 'Kun brukere i gruppen «$1» kan delta i denne avstemningen.',
 	'securepoll-not-in-list' => 'Du er dessverre ikke i lista over brukere som kan stemme i dette valget.',
@@ -7936,7 +7939,7 @@ $1',
 	'securepoll-api-invalid-params' => 'ଭୁଲ ପାରାମିଟର ।',
 	'securepoll-api-no-user' => 'ଏହି ପରିଚୟ ଦିଆଯାଇଥିବା ଜଣେ ବି ସଭ୍ୟ ମିଳିଲେ ନାହିଁ ।',
 	'securepoll-api-token-mismatch' => 'ପ୍ରତିରକ୍ଷା ଚିହ୍ନ ଅମେଳ, ଲଗ ଇନ୍ନ କରିପାରିବେ ନାହିଁ ।',
-	'securepoll-not-logged-in' => '!!ଏହି ନିର୍ବାଚନରେ ମତ ଦେବା ନିମନ୍ତେ ଆପଣଙ୍କୁ [[Special:Userlogin|ଲଗ ଇନ]] କରିବାକୁ ପଡ଼ିବ । ଯଦି ଆପଣଙ୍କର ଆଗରୁ ଖାତାଟିଏ ନଥାଏ ତେବେ ଆପଣ [[Special:Userlogin/signup|ନୂଆଟିଏ]] ତିଆରି କରିପାରିବେ ।',
+	'securepoll-not-logged-in' => 'ଏହି ନିର୍ବାଚନନରେ ମତ ଦେବା ନିମନ୍ତେ ଆପଣଙ୍କୁ ଲଗ ଇନ କରିବାକୁ ପଡ଼ିବ',
 	'securepoll-too-few-edits' => 'କ୍ଷମା କରିବେ, ଆପଣ ମତ ଦେଇପାରିବେ ନାହିଁ । ଏହି ନିର୍ବାଚନରେ ମତଦାନ ନିମନ୍ତେ ଆପଣଙ୍କୁ ଅତି କମରେ $1 {{PLURAL:$1|ଗୋଟି ବଦଳ|ଗୋଟି ବଦଳ} } କରିବାକୁ ପଡ଼ିବ, ଆପଣ ଏବେ ଯାଏଁ $2 ଗୋଟି ବଦଳ କରିଛନ୍ତି ।',
 	'securepoll-too-new' => 'କ୍ଷମା କରିବେ, ଆପଣ ମତ ଦେଇପାରିବେ ନାହିଁ । ଆପଣଙ୍କ ଖାତାଟି $1 ଆଗରୁ $3 ବେଳେ ତିଆରି ହୋଇଥିବା ଲୋଡ଼ା, ଆପଣ $2 ଦିନ $4 ବେଳେ ଖାତାଟି ଖୋଲିଛନ୍ତି ।',
 	'securepoll-blocked' => 'କ୍ଷମା କରିବେ, ଆପଣଙ୍କୁ ସମ୍ପାଦନାରୁ ଅଟକ କରାଯାଇଥିବାରୁ ଆପଣ ମତ ଦେଇପାରିବେ ନାହିଁ ।',
