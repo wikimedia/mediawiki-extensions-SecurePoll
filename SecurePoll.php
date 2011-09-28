@@ -36,6 +36,11 @@ $wgSecurePollTempDir = '/tmp';
  */
 $wgSecurePollShowErrorDetail = false;
 
+/**
+ * Relative URL path to auth-api.php
+ */
+$wgSecurePollScript = 'extensions/SecurePoll/auth-api.php';
+
 ### END CONFIGURATON ###
 
 

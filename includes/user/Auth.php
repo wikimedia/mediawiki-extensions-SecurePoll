@@ -297,7 +297,7 @@ class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
 		if ( substr( $url, -1 ) != '/' ) {
 			$url .= '/';
 		}
-		$url .= 'extensions/SecurePoll/auth-api.php?' . 
+		$url .= $wgSecurePollScript . '?' . 
 			wfArrayToCGI( array(
 				'token' => $params['token'],
 				'id' => $params['id']
