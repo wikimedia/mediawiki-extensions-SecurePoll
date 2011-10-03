@@ -2477,12 +2477,13 @@ Sie können zwischen der Zählung der aktuellen Ergebnisse in der Datenbank und 
 
 /** Zazaki (Zazaki)
  * @author Aspar
+ * @author Mirzali
  * @author Xoser
  */
 $messages['diq'] = array(
-	'securepoll' => 'anketo bawerbiyayeyi',
-	'securepoll-desc' => 'Qe weçinayîşan u anketan extensiyon',
-	'securepoll-invalid-page' => 'pelo bıni yo nemeqbul: $1',
+	'securepoll' => 'Anketo bawerbiyaye',
+	'securepoll-desc' => 'Seba weçinıtışan u anketan dergkerdış',
+	'securepoll-invalid-page' => 'Pela nêvêrdiya bınêne "<nowiki>$1</nowiki>"',
 	'securepoll-need-admin' => 'qey no kari şıma gani serkaribi',
 	'securepoll-too-few-params' => 'Yeterli altsayfa parametresi yok (geçersiz bağlantı).',
 	'securepoll-invalid-election' => '"$1" terciheko nemeqbul o ID.',
@@ -2534,7 +2535,7 @@ heme tercihan re gani şıma benateyê 1 u 999  de yew derece bıdi.',
 	'securepoll-api-invalid-params' => 'parametreyê nemeqbuli.',
 	'securepoll-api-no-user' => 'ID nişan biyo wina yew karber çino.',
 	'securepoll-api-token-mismatch' => 'simgeya pawıtışi zepê niyo, cıkewtış nêbeno',
-	'securepoll-not-logged-in' => 'na vıcinayiş de qey reydayişi gani şıma cıkewe.',
+	'securepoll-not-logged-in' => 'Nê weçinışi de seba rey gani cıkewê',
 	'securepoll-too-few-edits' => 'ma meluli, şıma nêşkeni rey bıdi. çunke qey reydayişi gani şıma tewr tay  $1 {{PLURAL:$1|vuriyayiş|vuriyayiş}} bıkeri. vuriyayişê şıma ındeko  $2.',
 	'securepoll-blocked' => 'Üma meluli, eke şıma bloke biyi şıma nêşkeni rey bıdi.',
 	'securepoll-bot' => 'ma meluli, hesabê ke pê boti işaret biyê nêşkeni rey bıdi.',
@@ -5716,6 +5717,8 @@ $wgSecurePollShowErrorDetail=true; LocalSettings.php-ში დამატე�
 	'securepoll-strength-matrix' => 'გზის სიმძლავრის მატრიცა',
 	'securepoll-ranks' => 'საბოლოო ადგილები',
 	'securepoll-average-score' => 'საშუალო შედეგი',
+	'securepoll-spoilt' => '(არასწორი)',
+	'securepoll-exhausted' => '(დასრულდა)',
 );
 
 /** کھوار (کھوار)
@@ -8355,7 +8358,7 @@ It deuve deje a minca vos un vot tra 1 e 999.',
 	'securepoll-api-invalid-params' => 'Paràmetr pa vàlid.',
 	'securepoll-api-no-user' => "Pa gnun utent trovà con l'ID fornì.",
 	'securepoll-api-token-mismatch' => 'Ij token ëd sicurëssa a corispondo pa, it peule pa intré.',
-	'securepoll-not-logged-in' => "It deuve intré për voté an st'elession-sì",
+	'securepoll-not-logged-in' => 'A dev intré ant ël sistema për voté an costa elession',
 	'securepoll-too-few-edits' => "Spiasent, it peule pa voté. It deuve avèj fàit almanch $1 {{PLURAL:$1|modìfica|modìfiche}} për voté an st'elession-sì, ti it l'has fane $2.",
 	'securepoll-too-new' => "An dëspias, ma a peul pa voté. Sò cont a l'ha da manca esse stàit duvertà prima dij $1 a $3 për voté an coste elession, chiel a l'é argistrasse ai $2 a $4.",
 	'securepoll-blocked' => "Spiasent, it peule pa voté an st'elession-sì se it ses blocà.",
@@ -8444,9 +8447,12 @@ $messages['pnb'] = array(
 	'securepoll-not-started' => 'اے چنوتی ہلے شروع نئیں ہوئی۔
 اے $2 نوں $3 بجے شروغ ہووے گی۔',
 	'securepoll-finished' => 'ایہ چنوتی ہن مک گئی اے تسیں ہن ووٹ نئیں پاسکدے۔',
-	'securepoll-not-qualified' => 'تسیں ایس چنوتی چ ووٹ نئیں پاسکدے۔',
+	'securepoll-not-qualified' => 'تسیں ایس چنوتی چ ووٹ نئیں پاسکدے : $1',
 	'securepoll-change-disallowed' => 'تسیں ایس چنوتی چ پہلے ووٹ پاچکے او۔
 تسیں ہن ووٹ نئیں پاسکدے۔',
+	'securepoll-change-allowed' => '<strong>نوٹ: تساں پہلے وی ایس چنوتی چ ووٹ پایا اے</strong>
+تھلے دتا گیا فارم پعر کے تسیں اپنا ووٹ بدل سکدے او.
+نوٹ: پر ایہ گل یاد رکھنا جے تواڈا پہلا ووٹ مک جائیگا۔.',
 	'securepoll-submit' => 'ووٹ پاؤ',
 	'securepoll-gpg-receipt' => 'ووٹ پان دا شکریہ۔
 اگر تواڈا دل کرے تے تسیں تھلے دتیاں گیاں رسیداں اپنے دے ثبوت لئی رکھ سکدے او۔
@@ -11275,7 +11281,7 @@ $1',
 	'securepoll-api-invalid-params' => 'Помилкові параметри.',
 	'securepoll-api-no-user' => 'Не знайдений користувач із заданим ідентифікатором.',
 	'securepoll-api-token-mismatch' => 'Невідповідність коду безпеки, не в змозі ввійти до системи.',
-	'securepoll-not-logged-in' => 'Ви маєте ввійти до системи, щоб взяти участь в голосуванні',
+	'securepoll-not-logged-in' => 'Ви маєте ввійти до системи, щоб взяти участь у голосуванні',
 	'securepoll-too-few-edits' => 'Вибачте, ви не можете проголосувати. Вам треба мати не менше $1 {{PLURAL:$1|редагування|редагувань|редагувань}} для участі в цьому голосуванні, у вас є $2.',
 	'securepoll-too-new' => 'На жаль, ви не можете голосувати.  Ваш обліковий запис повинен були зареєстрований до $1 $3 для голосування на цих виборах, ви зареєстровані $2 $4.',
 	'securepoll-blocked' => 'Вибачте, ви не можете голосувати на виборах, оскільки вас заблоковано.',
