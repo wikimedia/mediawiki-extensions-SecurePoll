@@ -5108,6 +5108,7 @@ Tu pote optar pro contar le resultatos presente in le base de datos, o pro conta
 );
 
 /** Indonesian (Bahasa Indonesia)
+ * @author Aldnonymous
  * @author Bennylin
  * @author Irwangatot
  * @author IvanLanin
@@ -5171,7 +5172,7 @@ Anda harus memberi peringkat antara 1 dan 99 untuk semua pilihan.',
 	'securepoll-api-token-mismatch' => 'Kode keamanan tidak sesuai, tidak dapat masuk log.',
 	'securepoll-not-logged-in' => 'Anda harus masuk log untuk dapat memberikan suara dalam pemilihan ini',
 	'securepoll-too-few-edits' => 'Maaf, Anda tidak dapat memberikan suara. Anda harus memiliki minimal $1 {{PLURAL:$1|suntingan|suntingan}} untuk dapat memberikan suara dalam pemilihan ini, Anda hanya memiliki $2.',
-	'securepoll-too-new' => 'Maaf, Anda tidak dapat memilih. Akun Anda perlu telah terdaftar sebelum $1 untuk memilih dalam pemilu ini, Anda terdaftar di $2 .',
+	'securepoll-too-new' => 'Maaf, Anda tidak dapat memilih. Akun Anda harus terdaftar sebelum $1 pada $3 untuk memilih dalam pemilu ini, Anda mendaftar di $2 pada $4',
 	'securepoll-blocked' => 'Maaf, Anda tidak dapat memberikan suara karena akun Anda sedang diblokir.',
 	'securepoll-blocked-centrally' => 'Maaf, Anda tidak dapat memberikan suara dalam pemilihan ini jika Anda diblokir pada $1 atau lebih {{PLURAL:$1| wiki | wiki}}.',
 	'securepoll-bot' => 'Maaf, akun dengan status bot tidak diperbolehkan untuk memberikan suara dalam pemilihan ini.',
