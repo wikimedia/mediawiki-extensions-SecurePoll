@@ -6070,8 +6070,9 @@ Donn Desch entscheide doh zwesche, de neuste Zahle en de Datebangk uß_ze_zälle
 	'securepoll-exhausted' => '(aam Engk)',
 );
 
-/** Kurdish (Latin) (Kurdî (Latin))
+/** Kurdish (Latin script) (‪Kurdî (latînî)‬)
  * @author George Animal
+ * @author Gomada
  */
 $messages['ku-latn'] = array(
 	'securepoll-header-timestamp' => 'Dem',
@@ -6080,8 +6081,10 @@ $messages['ku-latn'] = array(
 	'securepoll-strike-cancel' => 'Betal bike',
 	'securepoll-header-reason' => 'Sedem',
 	'securepoll-language-label' => 'Ziman bijêre:',
+	'securepoll-submit-select-lang' => 'Wergerîne',
 	'securepoll-header-title' => 'Nav',
-	'securepoll-subpage-translate' => 'Wergerrîne',
+	'securepoll-subpage-vote' => 'Dengdan',
+	'securepoll-subpage-translate' => 'Wergerîne',
 	'securepoll-subpage-list' => 'Lîste',
 );
 
