@@ -10348,7 +10348,7 @@ $messages['sr-ec'] = array(
 	'securepoll-subpage-vote' => 'Глас',
 	'securepoll-subpage-translate' => 'Преведи',
 	'securepoll-subpage-list' => 'Списак',
-	'securepoll-subpage-dump' => 'Дамп',
+	'securepoll-subpage-dump' => 'Испис',
 );
 
 /** Serbian (Latin script) (‪Srpski (latinica)‬)
