@@ -4840,6 +4840,7 @@ Móžeš pak wuslědki w datowej bance ličić pak zaklučowane wuslědki z nahr
  * @author Cassandro
  * @author Cbrown1023
  * @author Dani
+ * @author Dj
  * @author Glanthor Reviol
  * @author Hunyadym
  * @author Tgr
@@ -4901,7 +4902,7 @@ Minden javaslathoz egy 1 és 999 közötti helyezést kell adnod.',
 	'securepoll-api-token-mismatch' => 'Sikertelen bejelentkezés, nem egyezik a biztonsági token.',
 	'securepoll-not-logged-in' => 'Be kell jelentkezned, hogy szavazhass.',
 	'securepoll-too-few-edits' => 'Sajnos nem szavazhatsz. A részvételhez legalább $1 szerkesztés kell, neked csak $2 van.',
-	'securepoll-too-new' => 'Sajnos nem szavazhatsz. A szavazáshoz $1 előtt kellett volna regisztrálnod, a te regisztrációd dátuma: $2',
+	'securepoll-too-new' => 'Sajnos nem szavazhatsz. A szavazáshoz $1, $3 előtt kellett volna regisztrálnod, a te regisztrációd időpontod: $2, $4.',
 	'securepoll-blocked' => 'Nem szavazhatsz ezen a választáson, amíg blokkolva vagy.',
 	'securepoll-blocked-centrally' => 'Sajnos nem szavazhatsz a választáson, mivel blokkolva vagy $1 vagy több wikin.',
 	'securepoll-bot' => 'Botnak jelölt felhasználók nem szavazhatnak ezen a választáson.',
