@@ -2703,7 +2703,7 @@ Aby se priwatnosć wólarja šćitała, skoděrowane wólbne datowe zapise stoje
 	'securepoll-invalid-language' => 'Njepłaśiwy rěcny kod "$1"',
 	'securepoll-submit-translate' => 'Aktualizěrowaś',
 	'securepoll-language-label' => 'Rěc wubraś:',
-	'securepoll-submit-select-lang' => 'Přełožyś',
+	'securepoll-submit-select-lang' => 'Pśełožyś',
 	'securepoll-entry-text' => 'Dołojce jo lisćina wótgłosowanjow.',
 	'securepoll-header-title' => 'Mě',
 	'securepoll-header-start-date' => 'Zachopny datum',
