@@ -5723,7 +5723,7 @@ $wgSecurePollShowErrorDetail=true; LocalSettings.php-ში დამატე�
 	'securepoll-exhausted' => '(დასრულდა)',
 );
 
-/** کھوار (کھوار)
+/** Khowar (کھوار)
  * @author Rachitrali
  */
 $messages['khw'] = array(
@@ -9457,7 +9457,7 @@ $1',
 	'securepoll-exhausted' => '(Вычерпаны)',
 );
 
-/** Sanskrit (संस्कृत)
+/** Sanskrit (संस्कृतम्)
  * @author Vibhijain
  */
 $messages['sa'] = array(
@@ -11200,7 +11200,7 @@ Veritabanında mevcut sonuçları saymayı, ya da yüklenen bir dosyadan şifrel
 	'securepoll-exhausted' => '(Bitkin)',
 );
 
-/** Tatar (Cyrillic) (Татарча/Tatarça (Cyrillic))
+/** Tatar (Cyrillic script) (Татарча)
  * @author Bulatbulat
  * @author KhayR
  * @author Ильнар
