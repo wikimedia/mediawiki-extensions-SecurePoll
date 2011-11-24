@@ -434,7 +434,7 @@ $messages['ar'] = array(
 
 <pre>$1</pre>',
 	'securepoll-thanks' => 'شكرا لك، تم تسجيل تصويتك.',
-	'securepoll-return' => 'ارجع الي $1',
+	'securepoll-return' => 'ارجع إلى $1',
 	'securepoll-encrypt-error' => 'قد فشل تشفير سجل تصويتك.
 تصويتك لم يتم تسجيله!
 
