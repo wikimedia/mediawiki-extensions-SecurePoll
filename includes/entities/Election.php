@@ -194,7 +194,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		$notCentrallyBlocked = $this->getProperty( 'not-centrally-blocked' );
 		$centralBlockCount = isset( $props['central-block-count'] ) ? $props['central-block-count'] : 0;
 		$centralBlockThreshold = $this->getProperty( 'central-block-threshold', 1 );
-		if ( $centralBlockCount >= $centralBlockThreshold ) {
+		if ( $notCentrallyBlocked && $centralBlockCount >= $centralBlockThreshold ) {
 			$status->fatal( 'securepoll-blocked-centrally', $wgLang->formatNum( $centralBlockThreshold ) );
 		}
 
