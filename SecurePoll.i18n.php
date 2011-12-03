@@ -3856,7 +3856,7 @@ Vos dête balyér un rang entre-mié 1 et 999 a tôs los chouèx.',
 	'securepoll-remote-auth-error' => 'Èrror pendent la rècupèracion de les enformacions de voutron compto dês lo sèrvor.',
 	'securepoll-remote-parse-error' => 'Èrror pendent l’entèrprètacion de la rèponsa d’ôtorisacion du sèrvor.',
 	'securepoll-api-invalid-params' => 'Paramètres envalidos.',
-	'securepoll-api-no-user' => 'Nion utilisator avouéc lo numerô balyê at étâ trovâ.',
+	'securepoll-api-no-user' => 'Nion usanciér avouéc lo numerô balyê at étâ trovâ.',
 	'securepoll-api-token-mismatch' => 'Jeton de sècuritât difèrent, branchement empossiblo.',
 	'securepoll-not-logged-in' => 'Vos vos dête branchiér por votar dens ceta èlèccion.',
 	'securepoll-too-few-edits' => 'Dèsolâ, vos pouede pas votar. Vos dête avêr fêt u muens {{PLURAL:$1|yon changement|$1 changements}} por votar dens ceta èlèccion, vos en totalisâd $2.',
@@ -3870,7 +3870,7 @@ Vos dête balyér un rang entre-mié 1 et 999 a tôs los chouèx.',
 	'securepoll-header-timestamp' => 'Hora',
 	'securepoll-header-voter-name' => 'Nom',
 	'securepoll-header-voter-domain' => 'Domêno',
-	'securepoll-header-ua' => 'Agent utilisator',
+	'securepoll-header-ua' => 'Agent usanciér',
 	'securepoll-header-cookie-dup' => 'Doblo',
 	'securepoll-header-strike' => 'Traciér',
 	'securepoll-header-details' => 'Dètalys',
@@ -6815,6 +6815,8 @@ $messages['mn'] = array(
 );
 
 /** Marathi (मराठी)
+ * @author Kaajawa
+ * @author Rahuldeshmukh101
  * @author Sau6402
  */
 $messages['mr'] = array(
@@ -6823,6 +6825,9 @@ $messages['mr'] = array(
 	'securepoll-not-started' => 'अजुन निवडणुक सुरु झालेली नाही. ती $2 ला $3 वाजता आयोजित केली गेली आहे.',
 	'securepoll-finished' => 'निवडणुका संपल्या आहेत.आपण मतदान करू चाकात नाही.',
 	'securepoll-not-qualified' => 'आपण या निवडणुकीत मत देण्यास पात्र नाही आहात :$1',
+	'securepoll-change-allowed' => '<strong>सूचना : तुम्ही या निवडणुकीत आधी मतदान केलेले आहे. </strong>
+खालील फॉर्म भरून, तुम्ही आपले आधीचे मत बदलू शकतात.
+असे केल्यास तुमचे आधीचे मत बाद करण्यात येईल.',
 	'securepoll-submit' => 'मत नोंदवा',
 	'securepoll-thanks' => 'धन्यावाद ,आपले मत नोंदवले गेले आहेत.',
 	'securepoll-return' => '$1 कडे परत चला.',
@@ -6843,6 +6848,7 @@ $messages['mr'] = array(
 	'securepoll-voter-properties' => 'उमेद्वाराचे गुणधर्म',
 	'securepoll-header-action' => 'क्रिया',
 	'securepoll-header-reason' => 'कारण',
+	'securepoll-header-admin' => 'प्रच्यालक',
 	'securepoll-translate-title' => '$1 या भाषेत भाषांतर करा',
 	'securepoll-invalid-language' => 'अयोग्य भाषा क्रमांक "$1"',
 	'securepoll-submit-translate' => 'अद्ययावत',
