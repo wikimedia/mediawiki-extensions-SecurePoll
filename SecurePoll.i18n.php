@@ -6820,6 +6820,7 @@ $messages['mn'] = array(
  * @author Sau6402
  */
 $messages['mr'] = array(
+	'securepoll' => 'सुरक्षित मतदान',
 	'securepoll-invalid-election' => '"$1" हे योग्य  निवडनुक ओळखपत्र नाही.',
 	'securepoll-welcome' => '<strong>$1 चे स्वागत ! </strong>',
 	'securepoll-not-started' => 'अजुन निवडणुक सुरु झालेली नाही. ती $2 ला $3 वाजता आयोजित केली गेली आहे.',
@@ -6829,6 +6830,9 @@ $messages['mr'] = array(
 खालील फॉर्म भरून, तुम्ही आपले आधीचे मत बदलू शकतात.
 असे केल्यास तुमचे आधीचे मत बाद करण्यात येईल.',
 	'securepoll-submit' => 'मत नोंदवा',
+	'securepoll-gpg-receipt' => 'मतदान केल्या बद्दल धन्यवाद.
+आपली इच्छा असल्यास, आपण आपल्या मताचा पुरावा म्हणून  खालील पावती आपल्या जवळ ठेऊ शकता :
+<pre>$1</pre>',
 	'securepoll-thanks' => 'धन्यावाद ,आपले मत नोंदवले गेले आहेत.',
 	'securepoll-return' => '$1 कडे परत चला.',
 	'securepoll-jump' => 'मतदान सर्वरला जा',
@@ -6837,6 +6841,7 @@ $messages['mr'] = array(
 	'securepoll-invalid-score' => 'आपले गुण $1 ते $2 या आकड्यान मधेच पाहिजे.',
 	'securepoll-unanswered-options' => 'आपल्याला प्रत्येक प्रश्नाला काहीतरी प्रतिक्रिया द्यायचीच आहे.',
 	'securepoll-api-invalid-params' => 'अमान्य मापदंड',
+	'securepoll-too-few-edits' => 'क्षमस्व, तुम्ही मतदान करू शकत नाहीत. या मतदानात भाग घेण्यास कमीत कमी $1 {{PLURAL:$1|संपादन|संपादने}} केलेली असणे आवश्यक आहे. तुम्ही आजवर $2 {{PLURAL:$2|संपादन केले आहे|संपादने केली आहेत}}.',
 	'securepoll-list-title' => 'मत यादी: $1',
 	'securepoll-header-timestamp' => 'वेळ',
 	'securepoll-header-voter-name' => 'नाव',
