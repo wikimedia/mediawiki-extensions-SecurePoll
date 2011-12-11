@@ -6815,6 +6815,7 @@ $messages['mn'] = array(
 );
 
 /** Marathi (मराठी)
+ * @author Harishmr
  * @author Kaajawa
  * @author Rahuldeshmukh101
  * @author Sau6402
@@ -6845,10 +6846,12 @@ $messages['mr'] = array(
 	'securepoll-list-title' => 'मत यादी: $1',
 	'securepoll-header-timestamp' => 'वेळ',
 	'securepoll-header-voter-name' => 'नाव',
+	'securepoll-header-ua' => 'सदस्य प्रतिनीधी',
 	'securepoll-header-cookie-dup' => 'उघडणे',
 	'securepoll-header-details' => 'तपशील',
 	'securepoll-strike-reason' => 'कारण:',
 	'securepoll-strike-cancel' => 'रद्द करा',
+	'securepoll-strike-token-mismatch' => 'कार्यकाळाची माहिती गाहाळ झाली आहे.',
 	'securepoll-details-link' => 'तपशील',
 	'securepoll-header-voter-type' => 'उमेद्वाराचे प्रकार',
 	'securepoll-voter-properties' => 'उमेद्वाराचे गुणधर्म',
@@ -10360,7 +10363,7 @@ $messages['sr-ec'] = array(
 	'securepoll-language-label' => 'Изабери језик:',
 	'securepoll-submit-select-lang' => 'Преведи',
 	'securepoll-header-title' => 'Име',
-	'securepoll-header-start-date' => 'Датум почетка',
+	'securepoll-header-start-date' => 'Почетни датум',
 	'securepoll-header-end-date' => 'Завршни датум',
 	'securepoll-subpage-vote' => 'Глас',
 	'securepoll-subpage-translate' => 'Преведи',
