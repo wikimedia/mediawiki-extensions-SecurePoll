@@ -16,7 +16,7 @@ $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'SecurePoll',
 	'author' => array( 'Tim Starling', '...' ),
-	'url' => 'http://www.mediawiki.org/wiki/Extension:SecurePoll',
+	'url' => 'https://www.mediawiki.org/wiki/Extension:SecurePoll',
 	'descriptionmsg' => 'securepoll-desc',
 );
 
