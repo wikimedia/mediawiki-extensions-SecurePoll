@@ -2664,7 +2664,9 @@ Dejš wšyknym opcijam pódaśe pozicije mjazy 1 a 999 daś.',
 	'securepoll-api-token-mismatch' => 'Wěstotnej tokena se njemakajotej, pśizjawjenje njemóžno.',
 	'securepoll-not-logged-in' => 'Musyš se pśizjawiś, aby w toś tej wólbje wótgłosował.',
 	'securepoll-too-few-edits' => 'Wódaj, njamóžoš wótgłosowaś. Musyš nanejmjenjej $1 {{PLURAL:$1|změnu|změnje|změny|změnow}} cyniś, aby wótgłosował w toś tej wólbje, sy $2 cynił.',
+	'securepoll-too-new' => 'Bóžko njesmějoš wótgłosowaś. Twójo konto musy se do $1 $3 registrěrowaś, aby ty mógał w tos tej wólbje wótgłosował, sy se pakk $2 $4 zregistrěrował.',
 	'securepoll-blocked' => 'Wódaj, njamóžoš w toś tej wólbje wótgłosowaś, jolic wobźěłowanje jo śi tuchylu zakazane.',
+	'securepoll-blocked-centrally' => 'Bóžko njesmějoš w toś tej wólbje wótgłosowaś, dokulaž sy w nanejmjenjej $1 {{PLURAL:$1|wikiju|wikijoma|wikijach|wikijach}} zablokěrowany.',
 	'securepoll-bot' => 'Wódaj, konta z botoweju chórgojcku njesměju w toś tej wólbje wótgłosowaś.',
 	'securepoll-not-in-group' => 'Jano cłonki kupki $1 mógu w toś tej wólbje wótgłosowaś.',
 	'securepoll-not-in-list' => 'Wódaj, njejsy w lisćinje wužywarjow, kótarež su za wótgłosowanje w toś tej wólbje awtorizěrowane.',
@@ -2730,6 +2732,9 @@ Móžoš pak wuslědki licyś, kótarež su w datowej bance pak skoděrowane wus
 	'securepoll-strength-matrix' => 'Matriks mócy drogi',
 	'securepoll-ranks' => 'Kóńcny slědowy pórěd',
 	'securepoll-average-score' => 'Pśerězne pógódnośenje',
+	'securepoll-round' => 'Runda $1',
+	'securepoll-spoilt' => '(Njepłaśiwy)',
+	'securepoll-exhausted' => '(Pśetrjebany)',
 );
 
 /** Greek (Ελληνικά)
@@ -4767,7 +4772,9 @@ Dyrbiš wšěm opcijam rjad mjez 1 a 999 dać.',
 	'securepoll-api-token-mismatch' => 'Wěstotne tokeny so njerunaja, přizjewjenje njemóžno.',
 	'securepoll-not-logged-in' => 'Dyrbiš so přizjewić, zo by w tutej wólbje wothłosował.',
 	'securepoll-too-few-edits' => 'Wodaj, njemóžeš wothłosować. Dyrbiš znajmjeńša $1 {{PLURAL:$1|změnu|změnje|změny|změnow}} činić, zo by w tutej wólbje wothłosował, sy $2 činił.',
+	'securepoll-too-new' => 'Bojužel njesměš wothłosować. Twoje konto dyrbi so do $1 $3 registrować, zo by móhł w tutej wólbje wothłosował, sy so wšak $2 $4 zregistrował.',
 	'securepoll-blocked' => 'Wodaj, njemóžeš w tutej wólbhje wothłosować, dokelž sy za wobdźěłowanje zablokowany.',
+	'securepoll-blocked-centrally' => 'Bohužel njesměš w tutej wólbje wothłosować, dokelž sy w znajmjeńša $1 {{PLURAL:$1|wikiju|wikijomaj|wikijach|wikijach}} zablokowany.',
 	'securepoll-bot' => 'Wodaj, ale konta z botowej chorhojčku  njesmědźa w tutej wólbje wothłosować.',
 	'securepoll-not-in-group' => 'Jenož čłony skupiny $1 móžeja w tutej wólbje wothłosować.',
 	'securepoll-not-in-list' => 'Wodaj, njejsy w lisćinje woprawnjenych wužiwarjow, kotřiž smědźa w tutej wólbje wothłosować.',
@@ -4833,6 +4840,9 @@ Móžeš pak wuslědki w datowej bance ličić pak zaklučowane wuslědki z nahr
 	'securepoll-strength-matrix' => 'Šćežka matriksa sylnosće',
 	'securepoll-ranks' => 'Kónčny porjad',
 	'securepoll-average-score' => 'Přerězne pohódnoćenje',
+	'securepoll-round' => 'Koło $1',
+	'securepoll-spoilt' => '(Njepłaćiwy)',
+	'securepoll-exhausted' => '(Wučerpany)',
 );
 
 /** Hungarian (Magyar)
@@ -6822,6 +6832,7 @@ $messages['mn'] = array(
  */
 $messages['mr'] = array(
 	'securepoll' => 'सुरक्षित मतदान',
+	'securepoll-need-admin' => 'हे कार्य करण्यासाठी आपण निवडणूक अधिकारी असणे आवशक आहे',
 	'securepoll-invalid-election' => '"$1" हे योग्य  निवडनुक ओळखपत्र नाही.',
 	'securepoll-welcome' => '<strong>$1 चे स्वागत ! </strong>',
 	'securepoll-not-started' => 'अजुन निवडणुक सुरु झालेली नाही. ती $2 ला $3 वाजता आयोजित केली गेली आहे.',
@@ -6885,6 +6896,7 @@ $messages['mr'] = array(
 	'securepoll-subpage-dump' => 'राशिपात',
 	'securepoll-subpage-tally' => 'जुळणे',
 	'securepoll-tally-title' => 'जुळले: $1',
+	'securepoll-tally-local-legend' => 'पूर्वी केलेले निकाल जुळवा',
 	'securepoll-tally-local-submit' => ' गिनती तयार करा',
 	'securepoll-tally-upload-submit' => ' गिनती तयार करा',
 	'securepoll-dump-corrupt' => 'राशिपात माहितीची संचिका दुषित झाल्यामुळे पुढील कार्य करता येत नाही',
