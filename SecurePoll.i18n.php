@@ -6829,6 +6829,7 @@ $messages['mn'] = array(
  * @author Kaajawa
  * @author Rahuldeshmukh101
  * @author Sau6402
+ * @author V.narsikar
  */
 $messages['mr'] = array(
 	'securepoll' => 'सुरक्षित मतदान',
@@ -6853,12 +6854,18 @@ $messages['mr'] = array(
 	'securepoll-bad-ballot-submission' => 'आपले मत अयोग्य होते : $1',
 	'securepoll-unanswered-questions' => 'आपणास सर्व प्रश्नांची उत्तरे द्यायची आहेत.',
 	'securepoll-invalid-rank' => 'चुकीचा क्रमांक. उमेदवारांना १ ते ९९९ मधील क्रमांक देणे अपेक्षीत आहे.',
+	'securepoll-unranked-options' => 'काही विकल्प गुणानुक्रमित नाहीत.
+आपण सर्व विकल्पांना १ ते ९९९ मधील गुणानुक्रम द्यावयास हवा.',
 	'securepoll-invalid-score' => 'आपले गुण $1 ते $2 या आकड्यान मधेच पाहिजे.',
 	'securepoll-unanswered-options' => 'आपल्याला प्रत्येक प्रश्नाला काहीतरी प्रतिक्रिया द्यायचीच आहे.',
 	'securepoll-api-invalid-params' => 'अमान्य मापदंड',
 	'securepoll-api-no-user' => 'या नावाचा कोणीही सदस्य अस्तित्वात नाही.',
 	'securepoll-not-logged-in' => 'या मतदानात भाग घेण्यापूर्वी तुम्ही सदस्य खात्याद्वारे प्रवेश करणे अनिवार्य आहे.',
 	'securepoll-too-few-edits' => 'क्षमस्व, तुम्ही मतदान करू शकत नाहीत. या मतदानात भाग घेण्यास कमीत कमी $1 {{PLURAL:$1|संपादन|संपादने}} केलेली असणे आवश्यक आहे. तुम्ही आजवर $2 {{PLURAL:$2|संपादन केले आहे|संपादने केली आहेत}}.',
+	'securepoll-blocked' => 'माफ करा, आपण या मतदानात भाग घेऊ शकत नाही जर आपण संपादण्यास प्रतिरोधित असाल.',
+	'securepoll-blocked-centrally' => 'माफ करा, आपण या निवडणुकीत मतदान करू शकत नाही कारण आपण कमीतकमी $1 {{PLURAL:$1|विकिवर|विकिंवर}} प्रतिरोधित आहात.',
+	'securepoll-bot' => 'माफ करा, सांगकाम्या नामशीर्ष असणाऱ्या खात्यांना या निवडणुकीत मतदानाची परवानगी नाही.',
+	'securepoll-not-in-group' => 'फक्त "$1" गटातील सदस्यच या निवडणुकीत मतदान करू शकतात.',
 	'securepoll-list-title' => 'मत यादी: $1',
 	'securepoll-header-timestamp' => 'वेळ',
 	'securepoll-header-voter-name' => 'नाव',
