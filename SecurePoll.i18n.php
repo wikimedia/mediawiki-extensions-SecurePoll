@@ -6549,6 +6549,7 @@ $messages['lv'] = array(
 /** Macedonian (Македонски)
  * @author Bjankuloski06
  * @author Brest
+ * @author Rancher
  */
 $messages['mk'] = array(
 	'securepoll' => 'БезбедноГласање',
@@ -6590,7 +6591,7 @@ $1',
 <pre>$2</pre>',
 	'securepoll-gpg-config-error' => 'GPG-клучевите се погрешно наместени.',
 	'securepoll-gpg-parse-error' => 'Грешка при толкувањето на излезните информации за GPG.',
-	'securepoll-no-decryption-key' => 'Не е поставен описниот клуч.
+	'securepoll-no-decryption-key' => 'Не е поставен клуч за дешифрирање.
 Не можам да дешифрирам.',
 	'securepoll-jump' => 'Оди на опслужувачот за гласање',
 	'securepoll-bad-ballot-submission' => 'Вашиот глас е неважечки: $1',
@@ -6620,9 +6621,9 @@ $1',
 	'securepoll-header-ip' => 'IP-адреса',
 	'securepoll-header-ua' => 'Кориснички агент',
 	'securepoll-header-cookie-dup' => 'Дуп',
-	'securepoll-header-strike' => 'Црта',
+	'securepoll-header-strike' => 'Прецртување',
 	'securepoll-header-details' => 'Подробно',
-	'securepoll-strike-button' => 'Црта',
+	'securepoll-strike-button' => 'Прецртувај',
 	'securepoll-unstrike-button' => 'Врати црта',
 	'securepoll-strike-reason' => 'Причина:',
 	'securepoll-strike-cancel' => 'Откажи',
@@ -10342,31 +10343,68 @@ Ju mund të zgjidhni ose të shënoni rezultatin e tanishëm në bazën e të dh
  * @author Михајло Анђелковић
  */
 $messages['sr-ec'] = array(
+	'securepoll' => 'Безбедно гласање',
 	'securepoll-desc' => 'Проширење за изборе и анкете',
 	'securepoll-invalid-page' => 'Неисправна подстраница „<nowiki>$1</nowiki>“',
-	'securepoll-need-admin' => 'Морате бити изборни администратор да бисте извели ову радњу.',
-	'securepoll-too-few-params' => 'Недовољно параметара подстране (неисправна веза).',
-	'securepoll-invalid-election' => '„$1“ није валидан ID за изборе.',
+	'securepoll-need-admin' => 'Треба да будете изборни администратор да бисте извршили ову радњу.',
+	'securepoll-too-few-params' => 'Нема довољно параметара подстранице (неисправна веза).',
+	'securepoll-invalid-election' => '„$1“ не представља исправну назнаку.',
 	'securepoll-welcome' => '<strong>Добро дошли, $1!</strong>',
-	'securepoll-not-started' => 'Ово су избори, који још увек нису почели.
-Почетак је планиран за $2 у $3.',
-	'securepoll-finished' => 'Ови избори су завршени. Не можете више да гласате.',
-	'securepoll-not-qualified' => 'Не квалификујете се за гласача у овим изборима: $1',
+	'securepoll-not-started' => 'Избори још нису започети.
+Предвиђено је да почну $2 у $3.',
+	'securepoll-finished' => 'Избори су завршени. Више не можете да гласате.',
+	'securepoll-not-qualified' => 'Нисте квалификовани да гласате на овим изборима: $1',
 	'securepoll-change-disallowed' => 'Већ сте гласали на овим изборима.
-Жао нам је, не можете да гласате опет.',
+Нажалост, не можете да гласате опет.',
+	'securepoll-change-allowed' => '<strong>Напомена: већ сте гласали на овим изборима.</strong>
+Можете да промените глас тако што ћете попунити образац испод.
+Ако то урадите, ваш првобитни глас ће бити поништен.',
 	'securepoll-submit' => 'Пошаљи глас',
-	'securepoll-thanks' => 'Хвала Вам. Ваш глас је снимљен.',
-	'securepoll-return' => 'Повратак на $1',
-	'securepoll-gpg-config-error' => 'GPG кључеви су погрешно подешени.',
-	'securepoll-gpg-parse-error' => 'Грешка приликом интерпретације GPG излаза.',
+	'securepoll-gpg-receipt' => 'Хвала вам што сте гласали.
+
+Ако желите, можете да задржите ову потврду као доказ да сте гласали:
+
+<pre>$1</pre>',
+	'securepoll-thanks' => 'Хвала, ваш глас је заведен.',
+	'securepoll-return' => 'Назад на $1',
+	'securepoll-encrypt-error' => 'Не могу да шифрујем гласачки запис.
+Ваш глас није заведен!
+
+$1',
+	'securepoll-no-gpg-home' => 'Не могу да направим основну фасциклу за GPG.',
+	'securepoll-secret-gpg-error' => 'Грешка при извршавању GPG-а.
+Поставите $wgSecurePollShowErrorDetail=true; у LocalSettings.php да добијете више детаља.',
+	'securepoll-full-gpg-error' => 'Грешка при извршавању GPG-а:
+
+Наредба: $1
+
+Грешка:
+<pre>$2</pre>',
+	'securepoll-gpg-config-error' => 'Кључеви GPG су погрешно подешени.',
+	'securepoll-gpg-parse-error' => 'Грешка при тумачењу излазних података за GPG.',
+	'securepoll-no-decryption-key' => 'Није постављен кључ за дешифровање.
+Не могу да дешифрујем.',
 	'securepoll-jump' => 'Иди на сервер за гласање',
 	'securepoll-bad-ballot-submission' => 'Ваш глас је неисправан: $1',
-	'securepoll-unanswered-questions' => 'Морате одговорити на сва питања.',
-	'securepoll-invalid-rank' => 'Погрешно рангирање. Кнадидате можете рангирати бројевима између 1 и 999.',
-	'securepoll-remote-auth-error' => 'Грешка приликом преузимања информација о Вашем налогу са сервера.',
-	'securepoll-api-invalid-params' => 'Погрешни параметри.',
-	'securepoll-api-no-user' => 'Није нађен корисник са датим ID.',
-	'securepoll-not-logged-in' => 'Морате се пријавити да бисте гласали',
+	'securepoll-unanswered-questions' => 'Морате да одговорите на сва питања.',
+	'securepoll-invalid-rank' => 'Неисправан ранг. Кандидате морате да рангирате с бројем између 1 и 999.',
+	'securepoll-unranked-options' => 'Неки избори нису рангирани.
+Свим изборима морате доделити ранг између 1 и 999.',
+	'securepoll-invalid-score' => 'Оцена мора бити број између $1 и $2.',
+	'securepoll-unanswered-options' => 'Морате одговорити на свако питање.',
+	'securepoll-remote-auth-error' => 'Грешка при преузимању података о вашем налогу са сервера.',
+	'securepoll-remote-parse-error' => 'Грешка при тумачењу одговора за проверу идентитета са сервера.',
+	'securepoll-api-invalid-params' => 'Неисправни параметри.',
+	'securepoll-api-no-user' => 'Нема корисника с том назнаком.',
+	'securepoll-api-token-mismatch' => 'Безбедносни кодови се не поклапају. Не могу да вас пријавим.',
+	'securepoll-not-logged-in' => 'Морате да будете пријављени да бисте гласали',
+	'securepoll-too-few-edits' => 'Нажалост, не можете да гласате. Треба да имате барем $1 {{PLURAL:$1|измену|измене|измена}} да бисте гласали на овим изборима, а ви имате $2.',
+	'securepoll-too-new' => 'Нажалост, не можете да гласате. Да бисте гласали, налог треба да вам је отворен пре $1 у $3, а ви сте га отворили $2 у $4.',
+	'securepoll-blocked' => 'Нажалост, не можете да гласате ако вам је тренутно забрањено уређивање.',
+	'securepoll-blocked-centrally' => 'Нажалост, не можете да гласате на овим изборима ако сте блокирани на барем $1 {{PLURAL:$1|викију|викија|викија}}.',
+	'securepoll-bot' => 'Нажалост, налози с ботовском ознаком нису дозвољени на овим изборима.',
+	'securepoll-not-in-group' => 'На овим изборима могу да гласају само припадници групе „$1“.',
+	'securepoll-not-in-list' => 'Нажалост, нисте на предодређеном списку корисника којима је одобрено гласање на овим изборима.',
 	'securepoll-list-title' => 'Прикажи гласове: $1',
 	'securepoll-header-timestamp' => 'Време',
 	'securepoll-header-voter-name' => 'Име',
@@ -10375,27 +10413,41 @@ $messages['sr-ec'] = array(
 	'securepoll-header-xff' => 'XFF',
 	'securepoll-header-ua' => 'Кориснички агент',
 	'securepoll-header-token-match' => 'CSRF',
-	'securepoll-header-details' => 'Појединости',
+	'securepoll-header-cookie-dup' => 'Дуп',
+	'securepoll-header-strike' => 'Прецртавање',
+	'securepoll-header-details' => 'Детаљи',
+	'securepoll-strike-button' => 'Прецртај',
+	'securepoll-unstrike-button' => 'Поништи прецртавање',
 	'securepoll-strike-reason' => 'Разлог:',
 	'securepoll-strike-cancel' => 'Откажи',
-	'securepoll-strike-token-mismatch' => 'Изгубљени подаци о сесији',
-	'securepoll-details-link' => 'Појединости',
-	'securepoll-details-title' => 'Појединости о гласу: #$1',
-	'securepoll-invalid-vote' => '„$1“ није валидан ID за гласање',
+	'securepoll-strike-error' => 'Грешка при прецртавању/уклањању црте: $1',
+	'securepoll-strike-token-mismatch' => 'Подаци о сесији су изгубљени',
+	'securepoll-details-link' => 'Детаљи',
+	'securepoll-details-title' => 'Детаљи о гласу: #$1',
+	'securepoll-invalid-vote' => '„$1“ не представља исправну назнаку за гласање',
 	'securepoll-header-id' => 'Назнака',
-	'securepoll-header-voter-type' => 'Тип гласача',
+	'securepoll-header-voter-type' => 'Врста гласача',
 	'securepoll-header-url' => 'Адреса',
+	'securepoll-voter-properties' => 'Својства гласача',
+	'securepoll-strike-log' => 'Историја прецртавања',
 	'securepoll-header-action' => 'Радња',
 	'securepoll-header-reason' => 'Разлог',
 	'securepoll-header-admin' => 'Администратор',
-	'securepoll-cookie-dup-list' => 'Корисници са дупликатима колачића',
-	'securepoll-dump-title' => 'Дамп: $1',
+	'securepoll-cookie-dup-list' => 'Колачић за дуплиране гласаче',
+	'securepoll-dump-title' => 'Испис: $1',
+	'securepoll-dump-no-crypt' => 'Шифрована гласачка евиденција није доступна за ове изборе, јер избори нису подешени да користе шифровање.',
+	'securepoll-dump-not-finished' => 'Шифрована гласачка евиденција је доступна након што се заврше избори ($1 у $2)',
+	'securepoll-dump-no-urandom' => 'Не могу да отворим /dev/urandom.
+Да бисте одржали приватност гласача, шифрована гласачка евиденција постаје доступна за јавност након што се подаци евиденције промешају уз помоћ безбедног низа случајних бројева.',
+	'securepoll-urandom-not-supported' => 'Овај сервер не подржава криптографско стварање случајних бројева.
+Да бисте одржали приватност гласача, шифровани подаци избора постају доступни за јавност након што се промешају уз помоћ безбедног низа случајних бројева.',
 	'securepoll-translate-title' => 'Преведи: $1',
-	'securepoll-invalid-language' => 'Непрепознатљив код језика: „$1“',
+	'securepoll-invalid-language' => 'Неисправан језички код: „$1“',
 	'securepoll-header-trans-id' => 'Назнака',
 	'securepoll-submit-translate' => 'Ажурирај',
 	'securepoll-language-label' => 'Изабери језик:',
 	'securepoll-submit-select-lang' => 'Преведи',
+	'securepoll-entry-text' => 'Испод је наведен списак гласања.',
 	'securepoll-header-title' => 'Име',
 	'securepoll-header-start-date' => 'Почетни датум',
 	'securepoll-header-end-date' => 'Завршни датум',
@@ -10403,6 +10455,27 @@ $messages['sr-ec'] = array(
 	'securepoll-subpage-translate' => 'Преведи',
 	'securepoll-subpage-list' => 'Списак',
 	'securepoll-subpage-dump' => 'Испис',
+	'securepoll-subpage-tally' => 'Преброј',
+	'securepoll-tally-title' => 'Пребројавање: $1',
+	'securepoll-tally-not-finished' => 'Нажалост, не можете да пребројите изборе док се прво не заврши гласање.',
+	'securepoll-can-decrypt' => 'Евиденција избора је шифрована, али кључ за дешифровање није доступан. 
+Можете да изаберете да пребројите резултате који су у бази, или пак да пребројите шифроване резултате из отпремљене датотеке.',
+	'securepoll-tally-no-key' => 'Не можете да пребројите гласове јер су шифровани, а кључ за дешифровање није доступан.',
+	'securepoll-tally-local-legend' => 'Преброј смештене резултате',
+	'securepoll-tally-local-submit' => 'Преброј',
+	'securepoll-tally-upload-legend' => 'Отпреми шифровани испис',
+	'securepoll-tally-upload-submit' => 'Преброј',
+	'securepoll-tally-error' => 'Грешка при тумачењу гласова. Не могу да пребројим.',
+	'securepoll-no-upload' => 'Датотека није отпремљена. Не могу да пребројим резултате.',
+	'securepoll-dump-corrupt' => 'Исписана датотека је оштећена и не може да се обради.',
+	'securepoll-tally-upload-error' => 'Грешка при пребројавању гласова из исписане датотеке: $1',
+	'securepoll-pairwise-victories' => 'Упарена матрица за израчунавање победника',
+	'securepoll-strength-matrix' => 'Матрица за јачину путање',
+	'securepoll-ranks' => 'Коначно рангирање',
+	'securepoll-average-score' => 'Просечна оцена',
+	'securepoll-round' => 'Коло $1',
+	'securepoll-spoilt' => '(оштећени)',
+	'securepoll-exhausted' => '(исцрпени)',
 );
 
 /** Serbian (Latin script) (‪Srpski (latinica)‬)
@@ -10410,6 +10483,7 @@ $messages['sr-ec'] = array(
  * @author Rancher
  */
 $messages['sr-el'] = array(
+	'securepoll' => 'Bezbedno glasanje',
 	'securepoll-desc' => 'Ekstenzija za izbore i ankete',
 	'securepoll-invalid-page' => 'Nemoguća podstrana „<nowiki>$1</nowiki>“',
 	'securepoll-need-admin' => 'Morate biti izborni administrator da biste izveli ovu akciju.',
@@ -10422,42 +10496,98 @@ Početak je planiran za $2 u $3.',
 	'securepoll-not-qualified' => 'Ne kvalifikujete se za glasača u ovim izborima: $1',
 	'securepoll-change-disallowed' => 'Već ste glasali na ovim izborima.
 Žao nam je, ne možete da glasate opet.',
+	'securepoll-change-allowed' => '<strong>Napomena: već ste glasali na ovim izborima.</strong>
+Možete da promenite glas tako što ćete popuniti obrazac ispod.
+Ako to uradite, vaš prvobitni glas će biti poništen.',
 	'securepoll-submit' => 'Pošalji glas',
+	'securepoll-gpg-receipt' => 'Hvala vam što ste glasali.
+
+Ako želite, možete da zadržite ovu potvrdu kao dokaz da ste glasali:
+
+<pre>$1</pre>',
 	'securepoll-thanks' => 'Hvala Vam. Vaš glas je snimljen.',
 	'securepoll-return' => 'Vrati se na $1',
+	'securepoll-encrypt-error' => 'Ne mogu da šifrujem glasački zapis.
+Vaš glas nije zaveden!
+
+$1',
+	'securepoll-no-gpg-home' => 'Ne mogu da napravim osnovnu fasciklu za GPG.',
+	'securepoll-secret-gpg-error' => 'Greška pri izvršavanju GPG-a.
+Postavite $wgSecurePollShowErrorDetail=true; u LocalSettings.php da dobijete više detalja.',
+	'securepoll-full-gpg-error' => 'Greška pri izvršavanju GPG-a:
+
+Naredba: $1
+
+Greška:
+<pre>$2</pre>',
 	'securepoll-gpg-config-error' => 'GPG ključevi su pogrešno podešeni.',
 	'securepoll-gpg-parse-error' => 'Greška prilikom interpretacije GPG izlaza.',
+	'securepoll-no-decryption-key' => 'Nije postavljen ključ za dešifrovanje.
+Ne mogu da dešifrujem.',
 	'securepoll-jump' => 'Idi na server za glasanje',
 	'securepoll-bad-ballot-submission' => 'Vaš glas je neispravan: $1',
 	'securepoll-unanswered-questions' => 'Morate odgovoriti na sva pitanja.',
 	'securepoll-invalid-rank' => 'Pogrešno rangiranje. Knadidate možete rangirati brojevima između 1 i 999.',
+	'securepoll-unranked-options' => 'Neki izbori nisu rangirani.
+Svim izborima morate dodeliti rang između 1 i 999.',
+	'securepoll-invalid-score' => 'Ocena mora biti broj između $1 i $2.',
+	'securepoll-unanswered-options' => 'Morate odgovoriti na svako pitanje.',
 	'securepoll-remote-auth-error' => 'Greška prilikom preuzimanja informacija o Vašem nalogu sa servera.',
+	'securepoll-remote-parse-error' => 'Greška pri tumačenju odgovora za proveru identiteta sa servera.',
 	'securepoll-api-invalid-params' => 'Pogrešni parametri.',
 	'securepoll-api-no-user' => 'Nije nađen korisnik sa datim ID.',
+	'securepoll-api-token-mismatch' => 'Bezbednosni kodovi se ne poklapaju. Ne mogu da vas prijavim.',
 	'securepoll-not-logged-in' => 'Morate se ulogovati da biste glasali na ovim izborima',
+	'securepoll-too-few-edits' => 'Nažalost, ne možete da glasate. Treba da imate barem $1 {{PLURAL:$1|izmenu|izmene|izmena}} da biste glasali na ovim izborima, a vi imate $2.',
+	'securepoll-too-new' => 'Nažalost, ne možete da glasate. Da biste glasali, nalog treba da vam je otvoren pre $1 u $3, a vi ste ga otvorili $2 u $4.',
+	'securepoll-blocked' => 'Nažalost, ne možete da glasate ako vam je trenutno zabranjeno uređivanje.',
+	'securepoll-blocked-centrally' => 'Nažalost, ne možete da glasate na ovim izborima ako ste blokirani na barem $1 {{PLURAL:$1|vikiju|vikija|vikija}}.',
+	'securepoll-bot' => 'Nažalost, nalozi s botovskom oznakom nisu dozvoljeni na ovim izborima.',
+	'securepoll-not-in-group' => 'Na ovim izborima mogu da glasaju samo pripadnici grupe „$1“.',
+	'securepoll-not-in-list' => 'Nažalost, niste na predodređenom spisku korisnika kojima je odobreno glasanje na ovim izborima.',
 	'securepoll-list-title' => 'Prikaži glasove: $1',
 	'securepoll-header-timestamp' => 'Vreme',
 	'securepoll-header-voter-name' => 'Ime',
 	'securepoll-header-voter-domain' => 'Domen',
+	'securepoll-header-ip' => 'IP adresa',
+	'securepoll-header-xff' => 'XFF',
 	'securepoll-header-ua' => 'Korisnički klijent',
+	'securepoll-header-token-match' => 'CSRF',
+	'securepoll-header-cookie-dup' => 'Dup',
+	'securepoll-header-strike' => 'Precrtavanje',
 	'securepoll-header-details' => 'Pojedinosti',
+	'securepoll-strike-button' => 'Precrtaj',
+	'securepoll-unstrike-button' => 'Poništi precrtavanje',
 	'securepoll-strike-reason' => 'Razlog:',
 	'securepoll-strike-cancel' => 'Otkaži',
+	'securepoll-strike-error' => 'Greška pri precrtavanju/uklanjanju crte: $1',
 	'securepoll-strike-token-mismatch' => 'Izgubljeni podaci o sesiji',
 	'securepoll-details-link' => 'Pojedinosti',
 	'securepoll-details-title' => 'Pojedinosti o glasu: #$1',
 	'securepoll-invalid-vote' => '„$1“ nije validan ID za glasanje',
+	'securepoll-header-id' => 'Naznaka',
 	'securepoll-header-voter-type' => 'Tip glasača',
+	'securepoll-header-url' => 'Adresa',
+	'securepoll-voter-properties' => 'Svojstva glasača',
+	'securepoll-strike-log' => 'Istorija precrtavanja',
 	'securepoll-header-action' => 'Radnja',
 	'securepoll-header-reason' => 'Razlog',
 	'securepoll-header-admin' => 'Admin',
 	'securepoll-cookie-dup-list' => 'Korisnici sa duplikatima kolačića',
 	'securepoll-dump-title' => 'Damp: $1',
+	'securepoll-dump-no-crypt' => 'Šifrovana glasačka evidencija nije dostupna za ove izbore, jer izbori nisu podešeni da koriste šifrovanje.',
+	'securepoll-dump-not-finished' => 'Šifrovana glasačka evidencija je dostupna nakon što se završe izbori ($1 u $2)',
+	'securepoll-dump-no-urandom' => 'Ne mogu da otvorim /dev/urandom.
+Da biste održali privatnost glasača, šifrovana glasačka evidencija postaje dostupna za javnost nakon što se podaci evidencije promešaju uz pomoć bezbednog niza slučajnih brojeva.',
+	'securepoll-urandom-not-supported' => 'Ovaj server ne podržava kriptografsko stvaranje slučajnih brojeva.
+Da biste održali privatnost glasača, šifrovani podaci izbora postaju dostupni za javnost nakon što se promešaju uz pomoć bezbednog niza slučajnih brojeva.',
 	'securepoll-translate-title' => 'Prevedi: $1',
 	'securepoll-invalid-language' => 'Neprepoznatljiv kod jezika: „$1“',
+	'securepoll-header-trans-id' => 'Naznaka',
 	'securepoll-submit-translate' => 'Ažuriraj',
 	'securepoll-language-label' => 'Izaberi jezik:',
 	'securepoll-submit-select-lang' => 'Prevedi',
+	'securepoll-entry-text' => 'Ispod je naveden spisak glasanja.',
 	'securepoll-header-title' => 'Ime',
 	'securepoll-header-start-date' => 'Datum početka',
 	'securepoll-header-end-date' => 'Datum kraja',
@@ -10465,6 +10595,27 @@ Početak je planiran za $2 u $3.',
 	'securepoll-subpage-translate' => 'Prevedi',
 	'securepoll-subpage-list' => 'Spisak',
 	'securepoll-subpage-dump' => 'Damp',
+	'securepoll-subpage-tally' => 'Prebroj',
+	'securepoll-tally-title' => 'Prebrojavanje: $1',
+	'securepoll-tally-not-finished' => 'Nažalost, ne možete da prebrojite izbore dok se prvo ne završi glasanje.',
+	'securepoll-can-decrypt' => 'Evidencija izbora je šifrovana, ali ključ za dešifrovanje nije dostupan. 
+Možete da izaberete da prebrojite rezultate koji su u bazi, ili pak da prebrojite šifrovane rezultate iz otpremljene datoteke.',
+	'securepoll-tally-no-key' => 'Ne možete da prebrojite glasove jer su šifrovani, a ključ za dešifrovanje nije dostupan.',
+	'securepoll-tally-local-legend' => 'Prebroj smeštene rezultate',
+	'securepoll-tally-local-submit' => 'Prebroj',
+	'securepoll-tally-upload-legend' => 'Otpremi šifrovani ispis',
+	'securepoll-tally-upload-submit' => 'Prebroj',
+	'securepoll-tally-error' => 'Greška pri tumačenju glasova. Ne mogu da prebrojim.',
+	'securepoll-no-upload' => 'Datoteka nije otpremljena. Ne mogu da prebrojim rezultate.',
+	'securepoll-dump-corrupt' => 'Ispisana datoteka je oštećena i ne može da se obradi.',
+	'securepoll-tally-upload-error' => 'Greška pri prebrojavanju glasova iz ispisane datoteke: $1',
+	'securepoll-pairwise-victories' => 'Uparena matrica za izračunavanje pobednika',
+	'securepoll-strength-matrix' => 'Matrica za jačinu putanje',
+	'securepoll-ranks' => 'Konačno rangiranje',
+	'securepoll-average-score' => 'Prosečna ocena',
+	'securepoll-round' => 'Kolo $1',
+	'securepoll-spoilt' => '(oštećeni)',
+	'securepoll-exhausted' => '(iscrpeni)',
 );
 
 /** Sundanese (Basa Sunda)
