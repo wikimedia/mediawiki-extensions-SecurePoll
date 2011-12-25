@@ -47,7 +47,7 @@ $wgSecurePollScript = 'extensions/SecurePoll/auth-api.php';
 // Set up the new special page
 $dir = dirname( __FILE__ );
 $wgExtensionMessagesFiles['SecurePoll'] = "$dir/SecurePoll.i18n.php";
-$wgExtensionAliasesFiles['SecurePoll'] = "$dir/SecurePoll.alias.php";
+$wgExtensionMessagesFiles['SecurePollAlias'] = "$dir/SecurePoll.alias.php";
 
 $wgSpecialPages['SecurePoll'] = 'SecurePoll_BasePage';
 
