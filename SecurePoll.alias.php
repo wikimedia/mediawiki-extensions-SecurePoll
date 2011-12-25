@@ -118,6 +118,11 @@ $specialPageAliases['mr'] = array(
 	'SecurePoll' => array( 'सुरक्षीतकौल' ),
 );
 
+/** Norwegian Bokmål (‪Norsk (bokmål)‬) */
+$specialPageAliases['nb'] = array(
+	'SecurePoll' => array( 'Sikker_avstemning' ),
+);
+
 /** Nedersaksisch (Nedersaksisch) */
 $specialPageAliases['nds-nl'] = array(
 	'SecurePoll' => array( 'Beveilig_stemmen' ),
@@ -126,11 +131,6 @@ $specialPageAliases['nds-nl'] = array(
 /** Dutch (Nederlands) */
 $specialPageAliases['nl'] = array(
 	'SecurePoll' => array( 'BeveiligdStemmen' ),
-);
-
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬) */
-$specialPageAliases['nb'] = array(
-	'SecurePoll' => array( 'Sikker_avstemning' ),
 );
 
 /** Occitan (Occitan) */
@@ -172,8 +172,3 @@ $specialPageAliases['zh-hans'] = array(
 $specialPageAliases['zh-hant'] = array(
 	'SecurePoll' => array( '安全投票' ),
 );
-
-/**
- * For backwards compatibility with MediaWiki 1.15 and earlier.
- */
-$aliases =& $specialPageAliases;
