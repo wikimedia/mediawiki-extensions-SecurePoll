@@ -6528,9 +6528,11 @@ $messages['ltg'] = array(
 );
 
 /** Latvian (Latviešu)
+ * @author GreenZeb
  * @author Papuass
  */
 $messages['lv'] = array(
+	'securepoll-finished' => 'Šīs vēlēšanas ir beigušās, Jūs vars nedrīkstat balsot.',
 	'securepoll-submit' => 'Iesniegt balsojumu',
 	'securepoll-return' => 'Atgriezties uz $1',
 	'securepoll-unanswered-questions' => 'Tev ir jāatbild uz visiem jautājumiem.',
@@ -6542,7 +6544,16 @@ $messages['lv'] = array(
 	'securepoll-strike-cancel' => 'Atcelt',
 	'securepoll-strike-token-mismatch' => 'Sesijas dati zaudēti',
 	'securepoll-header-reason' => 'Iemesls',
+	'securepoll-submit-translate' => 'Atjaunināt',
+	'securepoll-language-label' => 'Izvēlēties valodu:',
 	'securepoll-submit-select-lang' => 'Tulkot',
+	'securepoll-entry-text' => 'Saraksts ar balsojumiem ir apakšā.',
+	'securepoll-header-title' => 'Nosaukums',
+	'securepoll-header-start-date' => 'Sākuma datums',
+	'securepoll-header-end-date' => 'Beigu datums',
+	'securepoll-subpage-vote' => 'Balsot',
+	'securepoll-subpage-translate' => 'Tulkot',
+	'securepoll-subpage-list' => 'Saraksts',
 	'securepoll-average-score' => 'Vidējais rezultāts',
 );
 
@@ -7180,6 +7191,146 @@ $messages['myv'] = array(
 	'securepoll-submit-select-lang' => 'Ютавтомс',
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Event
+ * @author Finnrind
+ * @author Guaca
+ * @author Jon Harald Søby
+ * @author Laaknor
+ * @author Nghtwlkr
+ * @author Ronja Addams-Moring
+ * @author Stigmj
+ */
+$messages['nb'] = array(
+	'securepoll' => 'Sikkert valg',
+	'securepoll-desc' => 'En utvidelse for valg og undersøkelser',
+	'securepoll-invalid-page' => 'Ugyldig underside «<nowiki>$1</nowiki>»',
+	'securepoll-need-admin' => 'Du må være valgadministrator for å kunne utføre dette.',
+	'securepoll-too-few-params' => 'Ikke mange nok undersideparametre (ugyldig lenke).',
+	'securepoll-invalid-election' => '"$1" er ikke en gyldig valg-id.',
+	'securepoll-welcome' => '<strong>Velkommen $1!</strong>',
+	'securepoll-not-started' => 'Dette valget har enda ikke startet.
+Det starter etter planen $2 kl. $3.',
+	'securepoll-finished' => 'Dette valget er avsluttet, du kan ikke lenger stemme.',
+	'securepoll-not-qualified' => 'Du er ikke kvalifisert til å stemme i dette valget: $1',
+	'securepoll-change-disallowed' => 'Du har allerede stemt i dette valget.
+Du kan desverre ikke stemme på nytt.',
+	'securepoll-change-allowed' => '<strong>Bemerk: Du har allerede stemt i dette valget.</strong>
+Du kan endre stemmen din ved å sende inn skjemaet nedenfor.
+Bemerk at dersom du gjør dette vil den opprinnelige stemmen din bli forkastet.',
+	'securepoll-submit' => 'Avgi stemme',
+	'securepoll-gpg-receipt' => 'Takk for at du avga stemme.
+
+Dersom du ønsker det kan du ta vare på følgende kvittering som bevis på din stemme:
+
+<pre>$1</pre>',
+	'securepoll-thanks' => 'Takk, stemmen din har blitt registrert.',
+	'securepoll-return' => 'Tilbake til $1',
+	'securepoll-encrypt-error' => 'Klarte ikke å kryptere din stemme.
+Stemmen har ikke blitt registrert!
+
+$1',
+	'securepoll-no-gpg-home' => 'Kunne ikke opprette hjemmekatalog for GPG',
+	'securepoll-secret-gpg-error' => 'Feil ved kjøring av GPG.
+bruk $wgSecurePollShowErrorDetail=true; i LocalSettings.php for å se flere detaljer.',
+	'securepoll-full-gpg-error' => 'Feil under kjøring av GPG:
+
+Kommando: $1
+
+Feil:
+<pre>$2</pre>',
+	'securepoll-gpg-config-error' => 'GPG-nøklene er ikke satt opp riktig.',
+	'securepoll-gpg-parse-error' => 'Feil under tolking av utdata fra GPG.',
+	'securepoll-no-decryption-key' => 'Ingen dekrypteringsnøkkel er konfigurert.
+Kan ikke dekryptere.',
+	'securepoll-jump' => 'Gå til stemmetjeneren',
+	'securepoll-bad-ballot-submission' => 'Din stemme var ugyldig: $1',
+	'securepoll-unanswered-questions' => 'Du må besvare alle spørsmålene.',
+	'securepoll-invalid-rank' => 'Ugyldig rangering. Du må gi kandidatene en rangering mellom 1 og 999.',
+	'securepoll-unranked-options' => 'Noen valg var urangerte.
+Du må gi alle alternativene en rangering mellom 1 og 999.',
+	'securepoll-invalid-score' => 'Karakteren må være et tall mellom $1 og $2.',
+	'securepoll-unanswered-options' => 'Du må gi et svar på hver spørsmål.',
+	'securepoll-remote-auth-error' => 'Feil oppsto ved henting av din kontoinformasjon fra tjeneren.',
+	'securepoll-remote-parse-error' => 'Feil oppsto ved tolkning av autorisasjonssvar fra tjeneren.',
+	'securepoll-api-invalid-params' => 'Ugyldige parametere.',
+	'securepoll-api-no-user' => 'Det ble ikke funnet noen bruker med den oppgitte IDen.',
+	'securepoll-api-token-mismatch' => 'Sikkerhetsnøkkel manglet, kan ikke logge inn.',
+	'securepoll-not-logged-in' => 'Du må logge inn for å kunne stemme i dette valget.',
+	'securepoll-too-few-edits' => 'Beklager, du kan ikke stemme. Du må ha gjort minst $1 {{PLURAL:$1|redigering|redigeringer}} for å delta i denne avstemningen. Du har gjort $2.',
+	'securepoll-too-new' => 'Du kan desssverre ikke stemme. Kontoen din må ha vært registrert før $1 på $3 for å kunne stemme i dette valget, og du registrerte deg $2 på $4.',
+	'securepoll-blocked' => 'Beklager, du kan ikke stemme i dette valget hvis du er blokkert fra å redigere.',
+	'securepoll-blocked-centrally' => 'Du kan dessverre ikke stemme i dette valget fordi du er blokkert på minst $1 {{PLURAL:$1|wiki|wikier}}.',
+	'securepoll-bot' => 'Beklager, kontoer med botflagg kan ikke stemme i dette valget.',
+	'securepoll-not-in-group' => 'Kun brukere i gruppen «$1» kan delta i denne avstemningen.',
+	'securepoll-not-in-list' => 'Du er dessverre ikke i lista over brukere som kan stemme i dette valget.',
+	'securepoll-list-title' => 'Vis stemmer: $1',
+	'securepoll-header-timestamp' => 'Tid',
+	'securepoll-header-voter-name' => 'Navn',
+	'securepoll-header-voter-domain' => 'Domene',
+	'securepoll-header-ua' => 'Brukeragent',
+	'securepoll-header-cookie-dup' => 'Dupl',
+	'securepoll-header-strike' => 'Stryk',
+	'securepoll-header-details' => 'Detaljer',
+	'securepoll-strike-button' => 'Stryk',
+	'securepoll-unstrike-button' => 'Opphev strykning',
+	'securepoll-strike-reason' => 'Årsak:',
+	'securepoll-strike-cancel' => 'Avbryt',
+	'securepoll-strike-error' => 'Feil ved fjerning eller ved opphevelse av fjerning: $1',
+	'securepoll-strike-token-mismatch' => 'Sesjonsdata tapt',
+	'securepoll-details-link' => 'Detaljer',
+	'securepoll-details-title' => 'Stemmedetaljer: #$1',
+	'securepoll-invalid-vote' => '«$1» er ikke en gyldig stemme-ID',
+	'securepoll-header-voter-type' => 'Stemmegivertype',
+	'securepoll-voter-properties' => 'Stemmegiveregenskaper',
+	'securepoll-strike-log' => 'Strykningslogg',
+	'securepoll-header-action' => 'Handling',
+	'securepoll-header-reason' => 'Årsak',
+	'securepoll-header-admin' => 'Admin',
+	'securepoll-cookie-dup-list' => 'Cookie duplikatbruker',
+	'securepoll-dump-title' => 'Dump: $1',
+	'securepoll-dump-no-crypt' => 'Ingen kryptert valgregistrering er tilgjengelig for dette valget, på grunn av at valget ikke er satt opp til å benytte kryptering.',
+	'securepoll-dump-not-finished' => 'Krypterte valgregistre er kun tilgjengelige etter avsluttningen den $1 klokken $2',
+	'securepoll-dump-no-urandom' => 'Kan ikke åpne /dev/urandom.
+For å sikre en hemmelig avstemning er de krypterte valgregistrene kun offentlig tilgjengelig når de kan blandes med en sikker strøm av tilfeldige tall.',
+	'securepoll-urandom-not-supported' => 'Denne tjeneren støtter ikke kryptografisk generering av tilfeldige tall.
+For å opprettholde velgernes anonymitet vil de enkelte stemmene kun offentliggjøres når de kan anonymiseres med en generator for tilfeldige tall.',
+	'securepoll-translate-title' => 'Oversett: $1',
+	'securepoll-invalid-language' => 'Ugyldig språkkode «$1»',
+	'securepoll-submit-translate' => 'Oppdater',
+	'securepoll-language-label' => 'Velg språk:',
+	'securepoll-submit-select-lang' => 'Oversett',
+	'securepoll-entry-text' => 'Under er listen over avstemninger',
+	'securepoll-header-title' => 'Navn',
+	'securepoll-header-start-date' => 'Startdato',
+	'securepoll-header-end-date' => 'Sluttdato',
+	'securepoll-subpage-vote' => 'Stem',
+	'securepoll-subpage-translate' => 'Oversett',
+	'securepoll-subpage-list' => 'List opp',
+	'securepoll-subpage-dump' => 'Dump',
+	'securepoll-subpage-tally' => 'Opptelling',
+	'securepoll-tally-title' => 'Opptelling: $1',
+	'securepoll-tally-not-finished' => 'Beklager, du kan ikke telle opp valgresultatet før valget er fullført.',
+	'securepoll-can-decrypt' => 'Valgregisteret har blitt kryptert, men dekrypteringsnøkkelen er tilgjengelig.
+Du kan velge å enten telle opp resultatene tilgjengelig i databasen, eller å telle opp de krypterte resultatene fra en opplastet fil.',
+	'securepoll-tally-no-key' => 'Du kan ikke telle opp dette valget fordi stemmene er kryptert og dekrypteringsnøkkelen er utilgjengelig.',
+	'securepoll-tally-local-legend' => 'Opptelling lagret resultatene',
+	'securepoll-tally-local-submit' => 'Opprett en opptelling',
+	'securepoll-tally-upload-legend' => 'Last opp en kryptert dump',
+	'securepoll-tally-upload-submit' => 'Opprett en opptelling',
+	'securepoll-tally-error' => 'Feil ved tolking av stemmeregisteret, kan ikke opprette en opptelling.',
+	'securepoll-no-upload' => 'Ingen fil ble lastet opp, kan ikke summere opp resultatene.',
+	'securepoll-dump-corrupt' => 'Dumpfila er ødelagt og kan ikke behandles.',
+	'securepoll-tally-upload-error' => 'Feil ved opptelling av dumpfila: $1',
+	'securepoll-pairwise-victories' => 'Matrise over parvis seier',
+	'securepoll-strength-matrix' => 'Matrise over stistyrke',
+	'securepoll-ranks' => 'Endelig resultat',
+	'securepoll-average-score' => 'Gjennomsnittlig karakter',
+	'securepoll-round' => 'Runde $1',
+	'securepoll-spoilt' => '(Ugyldig)',
+	'securepoll-exhausted' => '(Oppbrukt)',
+);
+
 /** Low German (Plattdüütsch)
  * @author Slomox
  */
@@ -7669,146 +7820,6 @@ Du kan velja å anten telja opp resultata tilgjengelege i databasen, eller å te
 	'securepoll-tally-local-submit' => 'Opprett ei oppteljing',
 	'securepoll-tally-upload-submit' => 'Opprett ei oppteljing',
 	'securepoll-no-upload' => 'Ingen fil vart lasta opp, kan ikkje summera resultata.',
-);
-
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Event
- * @author Finnrind
- * @author Guaca
- * @author Jon Harald Søby
- * @author Laaknor
- * @author Nghtwlkr
- * @author Ronja Addams-Moring
- * @author Stigmj
- */
-$messages['nb'] = array(
-	'securepoll' => 'Sikkert valg',
-	'securepoll-desc' => 'En utvidelse for valg og undersøkelser',
-	'securepoll-invalid-page' => 'Ugyldig underside «<nowiki>$1</nowiki>»',
-	'securepoll-need-admin' => 'Du må være valgadministrator for å kunne utføre dette.',
-	'securepoll-too-few-params' => 'Ikke mange nok undersideparametre (ugyldig lenke).',
-	'securepoll-invalid-election' => '"$1" er ikke en gyldig valg-id.',
-	'securepoll-welcome' => '<strong>Velkommen $1!</strong>',
-	'securepoll-not-started' => 'Dette valget har enda ikke startet.
-Det starter etter planen $2 kl. $3.',
-	'securepoll-finished' => 'Dette valget er avsluttet, du kan ikke lenger stemme.',
-	'securepoll-not-qualified' => 'Du er ikke kvalifisert til å stemme i dette valget: $1',
-	'securepoll-change-disallowed' => 'Du har allerede stemt i dette valget.
-Du kan desverre ikke stemme på nytt.',
-	'securepoll-change-allowed' => '<strong>Bemerk: Du har allerede stemt i dette valget.</strong>
-Du kan endre stemmen din ved å sende inn skjemaet nedenfor.
-Bemerk at dersom du gjør dette vil den opprinnelige stemmen din bli forkastet.',
-	'securepoll-submit' => 'Avgi stemme',
-	'securepoll-gpg-receipt' => 'Takk for at du avga stemme.
-
-Dersom du ønsker det kan du ta vare på følgende kvittering som bevis på din stemme:
-
-<pre>$1</pre>',
-	'securepoll-thanks' => 'Takk, stemmen din har blitt registrert.',
-	'securepoll-return' => 'Tilbake til $1',
-	'securepoll-encrypt-error' => 'Klarte ikke å kryptere din stemme.
-Stemmen har ikke blitt registrert!
-
-$1',
-	'securepoll-no-gpg-home' => 'Kunne ikke opprette hjemmekatalog for GPG',
-	'securepoll-secret-gpg-error' => 'Feil ved kjøring av GPG.
-bruk $wgSecurePollShowErrorDetail=true; i LocalSettings.php for å se flere detaljer.',
-	'securepoll-full-gpg-error' => 'Feil under kjøring av GPG:
-
-Kommando: $1
-
-Feil:
-<pre>$2</pre>',
-	'securepoll-gpg-config-error' => 'GPG-nøklene er ikke satt opp riktig.',
-	'securepoll-gpg-parse-error' => 'Feil under tolking av utdata fra GPG.',
-	'securepoll-no-decryption-key' => 'Ingen dekrypteringsnøkkel er konfigurert.
-Kan ikke dekryptere.',
-	'securepoll-jump' => 'Gå til stemmetjeneren',
-	'securepoll-bad-ballot-submission' => 'Din stemme var ugyldig: $1',
-	'securepoll-unanswered-questions' => 'Du må besvare alle spørsmålene.',
-	'securepoll-invalid-rank' => 'Ugyldig rangering. Du må gi kandidatene en rangering mellom 1 og 999.',
-	'securepoll-unranked-options' => 'Noen valg var urangerte.
-Du må gi alle alternativene en rangering mellom 1 og 999.',
-	'securepoll-invalid-score' => 'Karakteren må være et tall mellom $1 og $2.',
-	'securepoll-unanswered-options' => 'Du må gi et svar på hver spørsmål.',
-	'securepoll-remote-auth-error' => 'Feil oppsto ved henting av din kontoinformasjon fra tjeneren.',
-	'securepoll-remote-parse-error' => 'Feil oppsto ved tolkning av autorisasjonssvar fra tjeneren.',
-	'securepoll-api-invalid-params' => 'Ugyldige parametere.',
-	'securepoll-api-no-user' => 'Det ble ikke funnet noen bruker med den oppgitte IDen.',
-	'securepoll-api-token-mismatch' => 'Sikkerhetsnøkkel manglet, kan ikke logge inn.',
-	'securepoll-not-logged-in' => 'Du må logge inn for å kunne stemme i dette valget.',
-	'securepoll-too-few-edits' => 'Beklager, du kan ikke stemme. Du må ha gjort minst $1 {{PLURAL:$1|redigering|redigeringer}} for å delta i denne avstemningen. Du har gjort $2.',
-	'securepoll-too-new' => 'Du kan desssverre ikke stemme. Kontoen din må ha vært registrert før $1 på $3 for å kunne stemme i dette valget, og du registrerte deg $2 på $4.',
-	'securepoll-blocked' => 'Beklager, du kan ikke stemme i dette valget hvis du er blokkert fra å redigere.',
-	'securepoll-blocked-centrally' => 'Du kan dessverre ikke stemme i dette valget fordi du er blokkert på minst $1 {{PLURAL:$1|wiki|wikier}}.',
-	'securepoll-bot' => 'Beklager, kontoer med botflagg kan ikke stemme i dette valget.',
-	'securepoll-not-in-group' => 'Kun brukere i gruppen «$1» kan delta i denne avstemningen.',
-	'securepoll-not-in-list' => 'Du er dessverre ikke i lista over brukere som kan stemme i dette valget.',
-	'securepoll-list-title' => 'Vis stemmer: $1',
-	'securepoll-header-timestamp' => 'Tid',
-	'securepoll-header-voter-name' => 'Navn',
-	'securepoll-header-voter-domain' => 'Domene',
-	'securepoll-header-ua' => 'Brukeragent',
-	'securepoll-header-cookie-dup' => 'Dupl',
-	'securepoll-header-strike' => 'Stryk',
-	'securepoll-header-details' => 'Detaljer',
-	'securepoll-strike-button' => 'Stryk',
-	'securepoll-unstrike-button' => 'Opphev strykning',
-	'securepoll-strike-reason' => 'Årsak:',
-	'securepoll-strike-cancel' => 'Avbryt',
-	'securepoll-strike-error' => 'Feil ved fjerning eller ved opphevelse av fjerning: $1',
-	'securepoll-strike-token-mismatch' => 'Sesjonsdata tapt',
-	'securepoll-details-link' => 'Detaljer',
-	'securepoll-details-title' => 'Stemmedetaljer: #$1',
-	'securepoll-invalid-vote' => '«$1» er ikke en gyldig stemme-ID',
-	'securepoll-header-voter-type' => 'Stemmegivertype',
-	'securepoll-voter-properties' => 'Stemmegiveregenskaper',
-	'securepoll-strike-log' => 'Strykningslogg',
-	'securepoll-header-action' => 'Handling',
-	'securepoll-header-reason' => 'Årsak',
-	'securepoll-header-admin' => 'Admin',
-	'securepoll-cookie-dup-list' => 'Cookie duplikatbruker',
-	'securepoll-dump-title' => 'Dump: $1',
-	'securepoll-dump-no-crypt' => 'Ingen kryptert valgregistrering er tilgjengelig for dette valget, på grunn av at valget ikke er satt opp til å benytte kryptering.',
-	'securepoll-dump-not-finished' => 'Krypterte valgregistre er kun tilgjengelige etter avsluttningen den $1 klokken $2',
-	'securepoll-dump-no-urandom' => 'Kan ikke åpne /dev/urandom.
-For å sikre en hemmelig avstemning er de krypterte valgregistrene kun offentlig tilgjengelig når de kan blandes med en sikker strøm av tilfeldige tall.',
-	'securepoll-urandom-not-supported' => 'Denne tjeneren støtter ikke kryptografisk generering av tilfeldige tall.
-For å opprettholde velgernes anonymitet vil de enkelte stemmene kun offentliggjøres når de kan anonymiseres med en generator for tilfeldige tall.',
-	'securepoll-translate-title' => 'Oversett: $1',
-	'securepoll-invalid-language' => 'Ugyldig språkkode «$1»',
-	'securepoll-submit-translate' => 'Oppdater',
-	'securepoll-language-label' => 'Velg språk:',
-	'securepoll-submit-select-lang' => 'Oversett',
-	'securepoll-entry-text' => 'Under er listen over avstemninger',
-	'securepoll-header-title' => 'Navn',
-	'securepoll-header-start-date' => 'Startdato',
-	'securepoll-header-end-date' => 'Sluttdato',
-	'securepoll-subpage-vote' => 'Stem',
-	'securepoll-subpage-translate' => 'Oversett',
-	'securepoll-subpage-list' => 'List opp',
-	'securepoll-subpage-dump' => 'Dump',
-	'securepoll-subpage-tally' => 'Opptelling',
-	'securepoll-tally-title' => 'Opptelling: $1',
-	'securepoll-tally-not-finished' => 'Beklager, du kan ikke telle opp valgresultatet før valget er fullført.',
-	'securepoll-can-decrypt' => 'Valgregisteret har blitt kryptert, men dekrypteringsnøkkelen er tilgjengelig.
-Du kan velge å enten telle opp resultatene tilgjengelig i databasen, eller å telle opp de krypterte resultatene fra en opplastet fil.',
-	'securepoll-tally-no-key' => 'Du kan ikke telle opp dette valget fordi stemmene er kryptert og dekrypteringsnøkkelen er utilgjengelig.',
-	'securepoll-tally-local-legend' => 'Opptelling lagret resultatene',
-	'securepoll-tally-local-submit' => 'Opprett en opptelling',
-	'securepoll-tally-upload-legend' => 'Last opp en kryptert dump',
-	'securepoll-tally-upload-submit' => 'Opprett en opptelling',
-	'securepoll-tally-error' => 'Feil ved tolking av stemmeregisteret, kan ikke opprette en opptelling.',
-	'securepoll-no-upload' => 'Ingen fil ble lastet opp, kan ikke summere opp resultatene.',
-	'securepoll-dump-corrupt' => 'Dumpfila er ødelagt og kan ikke behandles.',
-	'securepoll-tally-upload-error' => 'Feil ved opptelling av dumpfila: $1',
-	'securepoll-pairwise-victories' => 'Matrise over parvis seier',
-	'securepoll-strength-matrix' => 'Matrise over stistyrke',
-	'securepoll-ranks' => 'Endelig resultat',
-	'securepoll-average-score' => 'Gjennomsnittlig karakter',
-	'securepoll-round' => 'Runde $1',
-	'securepoll-spoilt' => '(Ugyldig)',
-	'securepoll-exhausted' => '(Oppbrukt)',
 );
 
 /** Occitan (Occitan)
@@ -10264,9 +10275,9 @@ Ju  duhet tu jepni të gjitha opsioneve një renditej ndërmjet 1 dhe 999.',
 	'securepoll-api-token-mismatch' => 'Shenja e sigurisë mungon, nuk mund të hyjë brenda.',
 	'securepoll-not-logged-in' => 'Ju duhet të hyni brenda për të votuar në këtë zgjedhje',
 	'securepoll-too-few-edits' => 'Na vjen keq, ju nuk mund të votoni. Ju duhe të keni bërë të paktën $1 {{PLURAL:$1|redaktim|redaktime}} për të votuar në këtë zgjedhje, ju keni bërë $2.',
-	'securepoll-too-new' => 'Na vjen keq, ju nuk mund të votojnë. Llogaria juaj duhet të ketë qenë regjistruar para se të $1 për të votuar në këto zgjedhje, jeni regjistruar në $2 .',
+	'securepoll-too-new' => 'Na vjen keq, ju nuk mund të votoni. Llogaria juaj duhet të jetë e regjistruar përpara datës $1 ora $3 për të votuar në këto zgjedhje, ju u regjistruat më datë $2 në orën $4.',
 	'securepoll-blocked' => 'Na vjen keq, ju nuk mund të votoni në këtë zgjedhje nëse jeni aktualisht bllokuar nga redaktimi.',
-	'securepoll-blocked-centrally' => 'Na vjen keq, ju nuk mund të votojnë në këto zgjedhje, nëse ju jeni bllokuar nga $1 ose më shumë {{PLURAL:$1| wiki|wikis}}.',
+	'securepoll-blocked-centrally' => 'Na vjen keq, ju nuk mund të votoni në këto zgjedhje përderisa ju jeni bllokuar në të paktën $1 {{PLURAL:$1|wiki|wiki}}.',
 	'securepoll-bot' => 'Na vjen keq, llogaritë me flamur robori nuk lejohen që të votojnë në këtë zgjedhje.',
 	'securepoll-not-in-group' => 'Vetëm anëtarët e grupit "$1" mund të votojnë në këtë zgjedhje.',
 	'securepoll-not-in-list' => 'Na vjen keq, ju nuk listën e paracaktuar të përdoruesve të autorizuar për të votuar në këtë zgjedhje.',
