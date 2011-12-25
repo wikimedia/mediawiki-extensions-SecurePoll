@@ -7681,7 +7681,7 @@ Du kan velja å anten telja opp resultata tilgjengelege i databasen, eller å te
  * @author Ronja Addams-Moring
  * @author Stigmj
  */
-$messages['no'] = array(
+$messages['nb'] = array(
 	'securepoll' => 'Sikkert valg',
 	'securepoll-desc' => 'En utvidelse for valg og undersøkelser',
 	'securepoll-invalid-page' => 'Ugyldig underside «<nowiki>$1</nowiki>»',
