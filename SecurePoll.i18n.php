@@ -3150,6 +3150,7 @@ Puede escoger entre escrutar los resultados de la base de datos, o escrutar los 
 	'securepoll-strength-matrix' => 'Organizar por cantidad de encuestas',
 	'securepoll-ranks' => 'Rango final',
 	'securepoll-average-score' => 'Puntuación media',
+	'securepoll-round' => 'Ronda $1',
 );
 
 /** Estonian (Eesti)
@@ -6540,10 +6541,13 @@ $messages['lv'] = array(
 	'securepoll-header-timestamp' => 'Laiks',
 	'securepoll-header-voter-name' => 'Vārds',
 	'securepoll-header-voter-domain' => 'Domēns',
+	'securepoll-header-ua' => 'Lietotāja aģents',
 	'securepoll-strike-reason' => 'Iemesls:',
 	'securepoll-strike-cancel' => 'Atcelt',
 	'securepoll-strike-token-mismatch' => 'Sesijas dati zaudēti',
 	'securepoll-header-reason' => 'Iemesls',
+	'securepoll-translate-title' => 'Tulkot: $1',
+	'securepoll-invalid-language' => 'Nederīgs valodas kods "$1"',
 	'securepoll-submit-translate' => 'Atjaunināt',
 	'securepoll-language-label' => 'Izvēlēties valodu:',
 	'securepoll-submit-select-lang' => 'Tulkot',
