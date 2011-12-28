@@ -3391,6 +3391,7 @@ Aukera guztiei 1etik 999ra arteko balio bat eman behar diezu.',
  * @author Mjbmr
  * @author Sahim
  * @author Wayiran
+ * @author ZxxZxxZ
  */
 $messages['fa'] = array(
 	'securepoll' => 'رای‌گیری امن',
@@ -3456,7 +3457,7 @@ $1',
 	'securepoll-list-title' => 'فهرست رای‌ها: $1',
 	'securepoll-header-timestamp' => 'زمان',
 	'securepoll-header-voter-name' => 'نام',
-	'securepoll-header-voter-domain' => 'دامین',
+	'securepoll-header-voter-domain' => 'دامنه',
 	'securepoll-header-ua' => 'مرورگر کاربر',
 	'securepoll-header-cookie-dup' => 'تکراری',
 	'securepoll-header-strike' => 'خط‌زدن',
@@ -5277,6 +5278,136 @@ $messages['ig'] = array(
 	'securepoll-subpage-dump' => 'Nkwáfù',
 );
 
+/** Iloko (Ilokano)
+ * @author Lam-ang
+ */
+$messages['ilo'] = array(
+	'securepoll' => 'Natalged a panagbotos',
+	'securepoll-desc' => 'Pagpaatiddog para dagiti panagbubutos ken panagala',
+	'securepoll-invalid-page' => 'Imbalido nga apo ti panid "<nowiki>$1</nowiki>"',
+	'securepoll-need-admin' => 'Masapul nga administrador ka ti panagbubutos ti agtungpal daytoy nga aramid.',
+	'securepoll-too-few-params' => 'Awan ti umanay nga apo ti panid kadagiti parametro (imbalido a panilpo) .',
+	'securepoll-invalid-election' => '"$1" ket saan nga umisu a panagbubutos nga ID.',
+	'securepoll-welcome' => '<strong>Kablaaw $1!</strong>',
+	'securepoll-not-started' => 'Daytoy a panagbubutos ket saan pay nairugi.
+Agrugin to no $2 iti $3.',
+	'securepoll-finished' => 'Nalpasen daytoy a panagbubutos, saan kan a makabutos.',
+	'securepoll-not-qualified' => 'Saan mo a mabalin ti agbutos iti daytoy a panagbubutusan: $1',
+	'securepoll-change-disallowed' => 'Nagbutos kan iti daytoy nga panagbubutosan idin.
+Pasensia, saan ka a makabutos manen.',
+	'securepoll-change-allowed' => '<strong>Paammo: Nagbutos ka iti daytoy a panagbubutos idin.</strong>
+Mabalin mo a sukatan ti butos mo babaen ti panagited ti kinabuklan dita baba.
+Paammo a no aramidem daytoy, ti sigud  a butos mo ket maibelleng ton.',
+	'securepoll-submit' => 'Ited ti butos',
+	'securepoll-gpg-receipt' => 'Agyamanak ti panagbutos mo.
+
+No kayatmo, mabalin mo a taginayonen ti resibo a kas pamaneknek ti butos mo:
+
+<pre>$1</pre>',
+	'securepoll-thanks' => 'Agyamanak, ti butos mo ket nairehistron.',
+	'securepoll-return' => 'Agsubli idiay $1.',
+	'securepoll-encrypt-error' => 'Napaay ti panag-encrypt ti rehistro ti butos mo.
+Ti butos mo ket saan pay a nairehistro!
+
+$1',
+	'securepoll-no-gpg-home' => 'Napaay ti panagaramid ti GPG a balay ti direktorio.',
+	'securepoll-secret-gpg-error' => 'Biddut ti panagtungpal ti GPG.
+Usaren ti $wgSecurePollShowErrorDetail=true; idiay LocalSettings.php ti agiparang ti adu pay a detalye.',
+	'securepoll-full-gpg-error' => 'Biddut ti panagtungpal ti GPG:
+
+Bilinen: $1
+
+Biddut:
+<pre>$2</pre>',
+	'securepoll-gpg-config-error' => 'Dagiti tulbek ti GPG ket saan nga husto a naaramid.',
+	'securepoll-gpg-parse-error' => 'Biddut ti panagibuksilan ti GPG a rimmuar.',
+	'securepoll-no-decryption-key' => 'Awan ti naaramid decryption a tulbek.
+Saan a madecrypt.',
+	'securepoll-jump' => 'Mapan ka dita  pagbutosan a server',
+	'securepoll-bad-ballot-submission' => 'Imbalido  ti butos mo: $1',
+	'securepoll-unanswered-questions' => 'Masapul a sungbatam amin dagiti saludsod.',
+	'securepoll-invalid-rank' => 'Imbalido a ranggo. Masapul nga ikkam dagiti kandidato iti ranggo a nagbaetan ti 1 ken 999.',
+	'securepoll-unranked-options' => 'Adda dagiti pagpilian a saan a nairanggo.
+Masapul nga ikkam amin dagiti pagpilian ti ranggo a nagbaetan ti 1 ken 999.',
+	'securepoll-invalid-score' => 'Ti iskor ket masapul a numero a nagbaetan ti $1 ken $2.',
+	'securepoll-unanswered-options' => 'Masapul nga agited ka ti sungbat para iti tunggal maysa a saludsod.',
+	'securepoll-remote-auth-error' => 'Bidddut ti pinagala ti pakabilangam a pakaammo manipud idiay server.',
+	'securepoll-remote-parse-error' => 'Biddut ti panagibuksilan ti pammalubos a sungbat manipud idiay server.',
+	'securepoll-api-invalid-params' => 'Imbalido dagiti parametro.',
+	'securepoll-api-no-user' => 'Awan ti agar-aramat a nabirukan nga addaan ti naited nga ID.',
+	'securepoll-api-token-mismatch' => 'Ti seguridad a tandaan ket saan nga agpadpada, saan a makastrek.',
+	'securepoll-not-logged-in' => 'Masapul a nakastrek ka tapno makabutos ka ditoy a panagbubutosan.',
+	'securepoll-too-few-edits' => 'Pasensia, saan ka a makabutos. Masapul nga addaan ka ti $1 {{PLURAL:$1|urnos|ur-urnos}} ti agbutos iti daytoy a panagbubutosan, nakaaramid ka ti $2.',
+	'securepoll-too-new' => 'Pasensia, saan ka a makabutos. Ti pakabilangam ket masapul a nakarehistro sakbayan idi $1 iti $3 ti agbutos iti daytoy a panagbubutosan, nakarehistro ka idi $2 iti $4.',
+	'securepoll-blocked' => 'Pasensia, saan ka a makabutos iti daytoy a panagbubutosan no agdama ka a naserraan manipud ti pinagurnos.',
+	'securepoll-blocked-centrally' => 'Pasensia, saan ka a makabutos iti daytoy a panagbubutosan ngamin ket naserraan ka iti $1 {{PLURAL:$1|a wiki|a dagiti wiki}}.',
+	'securepoll-bot' => 'Pasensia, dagiti pakabilangan nga addan ti bandera a bot ket saan a mabalin nga agbutos iti daytoy a panagbubutosan.',
+	'securepoll-not-in-group' => 'Dagiti kameng laeng iti "$1" a bunggoy ti makabutos iti daytoy a panagbubutosan.',
+	'securepoll-not-in-list' => 'Pasensia, awan ka ditat naipilian a listaan kadagiti agar-aramat a malubosan nga agbutos iti daytoy a panagbubutosan.',
+	'securepoll-list-title' => 'Ilista dagiti butos: $1',
+	'securepoll-header-timestamp' => 'Oras',
+	'securepoll-header-voter-name' => 'Nagan',
+	'securepoll-header-voter-domain' => 'Pagturayan',
+	'securepoll-header-ua' => 'Ahente ti agar-aramat',
+	'securepoll-header-cookie-dup' => 'Duplikado',
+	'securepoll-header-strike' => 'Ikkaten',
+	'securepoll-header-details' => 'Dagiti detalye',
+	'securepoll-strike-button' => 'Ikkaten',
+	'securepoll-unstrike-button' => 'Isubli',
+	'securepoll-strike-reason' => 'Rason:',
+	'securepoll-strike-cancel' => 'Ukasen',
+	'securepoll-strike-error' => 'Biddut ti panagaramid ti panag-ikkat/panagisubli: $1',
+	'securepoll-strike-token-mismatch' => 'Napukaw ti gimong ti linaon',
+	'securepoll-details-link' => 'Dagiti detalye',
+	'securepoll-details-title' => 'Dagiti detalye ti butos: #$1',
+	'securepoll-invalid-vote' => '"$1" ket saan nga umisu a butos nga  ID',
+	'securepoll-header-voter-type' => 'Kita ti nagbutos',
+	'securepoll-voter-properties' => 'Dagiti sanikua ti nagbutos',
+	'securepoll-strike-log' => 'Listaan ti panag-ikkat',
+	'securepoll-header-action' => 'Aramid',
+	'securepoll-header-reason' => 'Rason',
+	'securepoll-header-admin' => 'Admin',
+	'securepoll-cookie-dup-list' => 'Galietas duplikado dagiti agar-aramat',
+	'securepoll-dump-title' => 'Ipakbo: $1',
+	'securepoll-dump-no-crypt' => 'Awan ti naencrypt a nairehistro a panagbubutosan  a magun-od iti daytoy a panagbubutosan, ngamin ket ti panagbubutosan ket saan a naaramid nga agusar ti encrypsion.',
+	'securepoll-dump-not-finished' => 'Dagiti naencrypt a rehistro ti panagbubutosan ket magun-od laeng kalpasan ti gibus a petsa ti $1 iti $2',
+	'securepoll-dump-no-urandom' => 'Saan a maluktan /dev/urandom.
+Tapno mataripatuen ti kinapribado ti nagbutos, dagiti naencrypt a rehistro ti panagbubutosan ket publiko a magun-od laeng no mayakar-yakar nga addaan ti nasalakniban a pugto a numero a waig.',
+	'securepoll-urandom-not-supported' => 'Daytoy a server ket saan na a tapayaen ti panagaramid ti cryptographic a pugto a numero.
+Tapno mataripatuen ti kinapribado ti nagbutos, ti naencrypt a rehistro ti panagbubutosan ket publiko a magun-od laeng no mayakar-yakar nga addaan ti nasalakniban  a pugto a numero a waig.',
+	'securepoll-translate-title' => 'Ipatarus: $1',
+	'securepoll-invalid-language' => 'Imbalido a kodigo ti pagsasao "$1"',
+	'securepoll-submit-translate' => 'Pabaro',
+	'securepoll-language-label' => 'Agpili ti pagsasao:',
+	'securepoll-submit-select-lang' => 'Ipatarus',
+	'securepoll-entry-text' => 'Dita baba ket listaan kadagiti pinagala.',
+	'securepoll-header-title' => 'Nagan',
+	'securepoll-header-start-date' => 'Petsa a mangrugi',
+	'securepoll-header-end-date' => 'Lippasan a petsa',
+	'securepoll-subpage-vote' => 'Agbutos',
+	'securepoll-subpage-translate' => 'Ipatarus',
+	'securepoll-subpage-list' => 'Listaan',
+	'securepoll-subpage-dump' => 'Ipakbo',
+	'securepoll-subpage-tally' => 'Tarkasan',
+	'securepoll-tally-title' => 'Tarkasan: $1',
+	'securepoll-tally-not-finished' => 'Pasensia, saan mo a mabalin a tarkasan ti panagbubutosan agingga ti kalpasan ti panagbutos.',
+	'securepoll-can-decrypt' => 'Ti rehistro ti panagbubutosan ket naencrypt, ngem ti decryption a tulbek ket saan a magun-od.
+Mabalin mo ti agpili a tarkasan dagiti nagbanagan nga addaan idiay database, wenno tarkasan dagiti naencrypted a nagbanagan manipud iti naipan a papeles.',
+	'securepoll-tally-no-key' => 'Saan mo a mabalina tarkasan daytoy a panagbubutosan, ngamin ket dagiti butos ket naencrypted, ken ti decryption a tulbet ket saan a magun-od.',
+	'securepoll-tally-local-legend' => 'Taarkasan dagiti naidulin a nagbanagan',
+	'securepoll-tally-local-submit' => 'Agaramid ti tarkasan',
+	'securepoll-tally-upload-legend' => 'Agipan ti naencrypted a naipakbo',
+	'securepoll-tally-upload-submit' => 'Agaramid ti tarkasan',
+	'securepoll-tally-error' => 'Biddut ti panagipatarus ti rehistro ti butos, saan a napaadda ti tarkasan.',
+	'securepoll-no-upload' => 'Awan ti naipan a papeles, saan a matarkasan dagiti nagbanagan.',
+	'securepoll-dump-corrupt' => 'Ti naipakbo a papeles ket naibalitungeg ken saan a maipatuloy.',
+	'securepoll-tally-upload-error' => 'Biddut ti panagtarkasan ti pinakbo a papeles: $1',
+	'securepoll-ranks' => 'Pangileppas a ranngo',
+	'securepoll-average-score' => 'Pagtengngaan nga iskor',
+	'securepoll-round' => 'Nagbukel $1',
+	'securepoll-exhausted' => '(Naibusen)',
+);
+
 /** Ido (Ido)
  * @author Malafaya
  * @author Wyvernoid
@@ -6533,8 +6664,11 @@ $messages['ltg'] = array(
  * @author Papuass
  */
 $messages['lv'] = array(
+	'securepoll-desc' => 'Paplašinājums vēlēšanām un aptaujām',
+	'securepoll-invalid-page' => 'Nederīga apakšlapa "<nowiki>$1</nowiki>"',
 	'securepoll-finished' => 'Šīs vēlēšanas ir beigušās, Jūs vars nedrīkstat balsot.',
 	'securepoll-submit' => 'Iesniegt balsojumu',
+	'securepoll-thanks' => 'Paldies, jūsu balsojums tika reģistrēts.',
 	'securepoll-return' => 'Atgriezties uz $1',
 	'securepoll-unanswered-questions' => 'Tev ir jāatbild uz visiem jautājumiem.',
 	'securepoll-api-invalid-params' => 'Nederīgi parametri.',
@@ -6545,6 +6679,7 @@ $messages['lv'] = array(
 	'securepoll-strike-reason' => 'Iemesls:',
 	'securepoll-strike-cancel' => 'Atcelt',
 	'securepoll-strike-token-mismatch' => 'Sesijas dati zaudēti',
+	'securepoll-header-action' => 'Darbība',
 	'securepoll-header-reason' => 'Iemesls',
 	'securepoll-translate-title' => 'Tulkot: $1',
 	'securepoll-invalid-language' => 'Nederīgs valodas kods "$1"',
@@ -9890,9 +10025,9 @@ Cannot decrypt.',
 	'securepoll-api-token-mismatch' => 'ආරක්‍ෂණ සංකේතය නොගැලපෙන බැවින් ඇතුළුවිය නොහැක.',
 	'securepoll-not-logged-in' => 'මෙම ඡන්ද විමසීමේදී ඡන්දය දීම සඳහා ඔබ ප්‍රවිෂ්ට විය යුතුය.',
 	'securepoll-too-few-edits' => 'සමාවෙන්න, ඔබට ඡන්දය පළ කළ නොහැක. මෙම ඡන්දයේදී ඡන්දය පළ කෙරුමට අවම වශයෙන් සංස්කරණ $1 {{PLURAL:$1|ක්|ක්}} හෝ කර තිබිය යුතුය, ඔබ කර ඇත්තේ $2 කි.',
-	'securepoll-too-new' => 'කණගාටුයි, ඔබට මනාප දිය නොහැක. මෙම ඡන්දය සඳහා මනාප ලබා දීමට නම් ඔබේ ගිණුම $1 ට පෙර ලියාපදිංචි කර තිබිය යුතුය, ඔබ ලියාපදිංචි වුයේ $2.',
+	'securepoll-too-new' => 'කණගාටුයි, ඔබට මනාප දිය නොහැක. මෙම ඡන්දය සඳහා මනාප ලබා දීමට නම් ඔබේ ගිණුම $1 ට පෙර $3 හී ලියාපදිංචි කර තිබිය යුතුය, ඔබ ලියාපදිංචි වුයේ $2 දින $4 දීය.',
 	'securepoll-blocked' => 'කනගාටුයි, ඔබ සංස්කරණ වාරණයකට ලක්ව ඇති බැවින් මෙහි ඡන්‍දය පළ කළ නොහැක.',
-	'securepoll-blocked-centrally' => 'කණගාටුයි, ඔබ විසින් $1 හෝ තවත් {{PLURAL:$1|විකි|විකිවල}} වාරණය වී නම් මෙම ඡන්දය සඳහා මනාප ලබා දිය නොහැක.',
+	'securepoll-blocked-centrally' => 'කණගාටුයි, ඔබ විසින් $1 {{PLURAL:$1|විකියක|විකිවල}} වාරණය වී නම් මෙම ඡන්දය සඳහා මනාප ලබා දිය නොහැක.',
 	'securepoll-bot' => 'කනගාටුයි, රොබෝවරුන් සහිත පරිශීලක ගිණුම් හිමියනට මෙහි ඡන්‍දය පළ කළ නොහැක.',
 	'securepoll-not-in-group' => '“$1“ කණ්ඩායමේ අයට මෙහි මනාපය පළ කළ හැක.',
 	'securepoll-not-in-list' => 'සමාවෙන්න, ඡන්දය පළ කිරීමට අවසර ලබා ඇති පරිශීලක ලයිස්තුවේ ඔබ නැත.',
