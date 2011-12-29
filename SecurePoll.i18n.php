@@ -10943,11 +10943,28 @@ $messages['sw'] = array(
 );
 
 /** Tamil (தமிழ்)
+ * @author Shanmugamp7
  * @author TRYPPN
  * @author පසිඳු කාවින්ද
  */
 $messages['ta'] = array(
 	'securepoll' => 'செகிறேபோல்',
+	'securepoll-submit' => 'வாக்கை சமர்ப்பிக்கவும்',
+	'securepoll-thanks' => 'நன்றி,உங்கள் வாக்கு பதிவு செய்யப்பட்டது.',
+	'securepoll-return' => '$1 க்கு திரும்பு.',
+	'securepoll-encrypt-error' => 'உங்கள் வாக்கு பதிவை மறையாக்குவதில் தோல்வியடைந்தது.
+உங்கள் வாக்கு பதிவு செய்யப்படவில்லை.
+
+$1',
+	'securepoll-no-gpg-home' => 'GPG உள் கோப்புறை உருவாக்க இயலவில்லை.',
+	'securepoll-full-gpg-error' => 'GPG செயலாக்குவதில் பிழை:
+
+கட்டளை: $1
+
+பிழை:
+<pre>$2</pre>',
+	'securepoll-gpg-config-error' => 'GPG விசைகள் தவறாக உள்ளமைக்கப்பட்டுள்ளன',
+	'securepoll-api-invalid-params' => 'செல்லாத அளவுருக்கள்.',
 	'securepoll-header-timestamp' => 'நேரம்',
 	'securepoll-header-voter-name' => 'பெயர்',
 	'securepoll-header-voter-domain' => 'டொமைன்',
@@ -10957,6 +10974,7 @@ $messages['ta'] = array(
 	'securepoll-details-link' => 'விளக்கம்',
 	'securepoll-header-action' => 'செயல்',
 	'securepoll-header-reason' => 'காரணம்',
+	'securepoll-header-admin' => 'நிர்வாகி',
 	'securepoll-translate-title' => 'மொழிபெயர்ப்பு செய்யவும்: $1',
 	'securepoll-submit-translate' => 'புதுப்பி',
 	'securepoll-language-label' => 'மொழியை தேர்வு செய்:',
@@ -10967,6 +10985,9 @@ $messages['ta'] = array(
 	'securepoll-subpage-vote' => 'வோடே',
 	'securepoll-subpage-translate' => 'மொழி பெயர்ப்பு',
 	'securepoll-subpage-list' => 'பட்டியல்',
+	'securepoll-ranks' => 'இறுதி மதிப்பீடுகள்',
+	'securepoll-average-score' => 'சராசரி மதிப்பு',
+	'securepoll-round' => 'சுற்று $1',
 );
 
 /** Telugu (తెలుగు)
