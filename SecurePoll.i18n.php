@@ -3660,6 +3660,34 @@ Voit valita tuloslaskennan tietokantatiedoista, tai salakirjoitetuista tuloksist
 	'securepoll-exhausted' => '(Ei käytetty)',
 );
 
+/** Faroese (Føroyskt)
+ * @author EileenSanda
+ */
+$messages['fo'] = array(
+	'securepoll-finished' => 'Hetta valið er liðugt, tú kanst ikki atkvøða longur.',
+	'securepoll-submit' => 'Send atkvøðu',
+	'securepoll-return' => 'Far aftur til $1',
+	'securepoll-unanswered-questions' => 'Tú mást svara øllum spurningunum.',
+	'securepoll-header-voter-name' => 'Navn',
+	'securepoll-header-voter-domain' => 'Umdømi (domæne)',
+	'securepoll-header-details' => 'Meira kunning',
+	'securepoll-strike-reason' => 'Orsøk:',
+	'securepoll-strike-cancel' => 'Ógilda',
+	'securepoll-header-reason' => 'Orsøk',
+	'securepoll-header-admin' => 'Admin',
+	'securepoll-translate-title' => 'Umset: $1',
+	'securepoll-submit-translate' => 'Dagfør',
+	'securepoll-language-label' => 'Vel mál:',
+	'securepoll-submit-select-lang' => 'Umset',
+	'securepoll-entry-text' => 'Niðanfyri sæst listin við atkvøðum.',
+	'securepoll-header-title' => 'Navn',
+	'securepoll-header-start-date' => 'Byrjunardagur',
+	'securepoll-header-end-date' => 'Endar dag',
+	'securepoll-subpage-vote' => 'Atkvøð',
+	'securepoll-subpage-translate' => 'Umset',
+	'securepoll-subpage-list' => 'Listi',
+);
+
 /** French (Français)
  * @author Crochet.david
  * @author Gomoko
@@ -3872,7 +3900,7 @@ Vos dête balyér un rang entre-mié 1 et 999 a tôs los chouèx.',
 	'securepoll-blocked-centrally' => 'Dèsolâ, vos pouede pas votar por ceta èlèccion perce que vos éte blocâ sur u muens $1 {{PLURAL:$1|vouiqui|vouiquis}}.',
 	'securepoll-bot' => 'Dèsolâ, los comptos avouéc lo statut de bot sont pas ôtorisâs a votar a ceta èlèccion.',
 	'securepoll-not-in-group' => 'Solament los membros a la tropa « $1 » pôvont votar dens ceta èlèccion.',
-	'securepoll-not-in-list' => 'Dèsolâ, vos éte pas sur la lista prèdètèrmenâ ux utilisators ôtorisâs a votar dens ceta èlèccion.',
+	'securepoll-not-in-list' => 'Dèsolâ, vos éte pas sur la lista prèdètèrmenâ ux usanciérs ôtorisâs a votar dens ceta èlèccion.',
 	'securepoll-list-title' => 'Lista des votos : $1',
 	'securepoll-header-timestamp' => 'Hora',
 	'securepoll-header-voter-name' => 'Nom',
@@ -3897,14 +3925,14 @@ Vos dête balyér un rang entre-mié 1 et 999 a tôs los chouèx.',
 	'securepoll-header-action' => 'Accion',
 	'securepoll-header-reason' => 'Rêson',
 	'securepoll-header-admin' => 'Administrator',
-	'securepoll-cookie-dup-list' => "Utilisators qu’ont un tèmouen (''cookie'') ja rencontrâ",
+	'securepoll-cookie-dup-list' => "Usanciérs qu’ont un tèmouen (''cookie'') ja rencontrâ",
 	'securepoll-dump-title' => 'Èxtrèt : $1',
 	'securepoll-dump-no-crypt' => 'Les balyês criptâs sont pas disponibles por ceta èlèccion, perce que l’èlèccion est pas configurâ por utilisar un criptâjo.',
 	'securepoll-dump-not-finished' => 'Les balyês criptâs sont disponibles ren qu’aprés la cllotura de l’èlèccion lo $1 a $2',
 	'securepoll-dump-no-urandom' => 'Empossiblo d’uvrir /dev/urandom. 
-Por mantegnir la confidencialitât ux votents, les balyês criptâs sont disponibles u publico ren que quand pôvont étre braciês avouéc una suita de nombros a l’hasârd.',
+Por mantegnir la confidencialitât ux votents, les balyês criptâs sont disponibles u publico ren que se pôvont étre braciês avouéc una suita de nombros a l’hasârd.',
 	'securepoll-urandom-not-supported' => 'Ceti sèrvor recognêt pas la g·ènèracion criptografica de nombros a l’hasârd.
-Por mantegnir la confidencialitât ux votents, les balyês criptâs sont disponibles u publico ren que quand pôvont étre braciês avouéc una suita de nombros a l’hasârd.',
+Por mantegnir la confidencialitât ux votents, les balyês criptâs sont disponibles u publico ren que se pôvont étre braciês avouéc una suita de nombros a l’hasârd.',
 	'securepoll-translate-title' => 'Traduire : $1',
 	'securepoll-invalid-language' => 'Code lengoua « $1 » envalido.',
 	'securepoll-header-trans-id' => 'Numerô',
@@ -6984,6 +7012,7 @@ $messages['mn'] = array(
  */
 $messages['mr'] = array(
 	'securepoll' => 'सुरक्षित मतदान',
+	'securepoll-invalid-page' => 'अवैध उपपान "<nowiki>$1</nowiki>"',
 	'securepoll-need-admin' => 'हे कार्य करण्यासाठी आपण निवडणूक अधिकारी असणे आवशक आहे',
 	'securepoll-invalid-election' => '"$1" हे योग्य  निवडनुक ओळखपत्र नाही.',
 	'securepoll-welcome' => '<strong>$1 चे स्वागत ! </strong>',
