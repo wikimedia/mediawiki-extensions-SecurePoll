@@ -255,6 +255,7 @@ Link text to a sub page in the SecurePoll extension where users can translate po
 
 /** Afrikaans (Afrikaans)
  * @author Naudefj
+ * @author පසිඳු කාවින්ද
  */
 $messages['af'] = array(
 	'securepoll' => 'VeiligStem',
@@ -285,6 +286,8 @@ Fout: <pre>$2</pre>',
 	'securepoll-remote-auth-error' => "'n Fout het voorgekom met die opkyk van u rekening se inligting vanaf die bediener.",
 	'securepoll-api-invalid-params' => 'Ongeldige parameters.',
 	'securepoll-api-no-user' => 'Geen gebruiker met die gegewe ID gevind nie.',
+	'securepoll-api-token-mismatch' => 'Sekuriteit gebrand mismatch, kan nie inteken.',
+	'securepoll-blocked' => 'Jammer, kan jy nie stem in hierdie verkiesing As jy tans geblokkeer.',
 	'securepoll-bot' => "Jammer, gebruikers met 'n botvlag word nie toegelaat om aan die stemming deel te neem nie.",
 	'securepoll-not-in-group' => 'Slegs lede van die groep "$1" kan aan hierdie stemming deelneem.',
 	'securepoll-list-title' => 'Wys stemme: $1',
@@ -311,6 +314,7 @@ Fout: <pre>$2</pre>',
 	'securepoll-header-admin' => 'Beheer',
 	'securepoll-cookie-dup-list' => 'Gebruikers met duplikaat koekies',
 	'securepoll-dump-title' => 'Dump: $1',
+	'securepoll-dump-no-crypt' => 'Geen geïnkripteer verkiesing rekord is beskikbaar vir hierdie verkiesing, want die verkiesing is nie ingestel om die enkripsie te gebruik.',
 	'securepoll-translate-title' => 'Vertaal: $1',
 	'securepoll-invalid-language' => 'Ongeldige taalkode "$1"',
 	'securepoll-submit-translate' => 'Opdateer',
@@ -9695,10 +9699,26 @@ $1',
 );
 
 /** Sanskrit (संस्कृतम्)
+ * @author Ansumang
  * @author Vibhijain
  */
 $messages['sa'] = array(
 	'securepoll-api-invalid-params' => 'अपुष्ट प्राचलक।',
+	'securepoll-header-timestamp' => 'समय',
+	'securepoll-header-voter-name' => 'नाम',
+	'securepoll-header-voter-domain' => 'डोमेन',
+	'securepoll-strike-reason' => 'कारणम् :',
+	'securepoll-strike-cancel' => 'निवर्तयते',
+	'securepoll-header-reason' => 'कारण',
+	'securepoll-header-admin' => 'प्रबंधकाः',
+	'securepoll-translate-title' => 'अनुवदति: $1',
+	'securepoll-language-label' => 'वर भाषा:',
+	'securepoll-submit-select-lang' => 'अनुवदति',
+	'securepoll-header-title' => 'नाम',
+	'securepoll-header-start-date' => 'प्रारंभ दिनाङ्क',
+	'securepoll-header-end-date' => 'समाप्ति दिनाङ्क',
+	'securepoll-subpage-vote' => 'मत',
+	'securepoll-subpage-list' => 'सूची',
 );
 
 /** Sakha (Саха тыла)
