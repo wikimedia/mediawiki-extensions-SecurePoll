@@ -261,9 +261,13 @@ $messages['af'] = array(
 	'securepoll' => 'VeiligStem',
 	'securepoll-desc' => 'Uitbreiding vir stemmings en opnames',
 	'securepoll-invalid-page' => 'Ongeldige subbladsy "<nowiki>$1</nowiki>"',
+	'securepoll-need-admin' => "Jy moet 'n verkiesing administrateur om hierdie aksie uit te voer.",
+	'securepoll-too-few-params' => 'Nie genoeg subpagina parameters (ongeldige skakel).',
 	'securepoll-invalid-election' => '"$1" is nie \'n geldig ID vir \'n stemmig nie.',
 	'securepoll-welcome' => '<strong>Welkom, $1!</strong>',
 	'securepoll-finished' => 'Hierdie stemming is afgehandel, u kan nie meer stem nie.',
+	'securepoll-change-disallowed' => 'Jy het stemme in hierdie verkiesing voor.
+Jammer, kan jy nie weer stem nie.',
 	'securepoll-submit' => 'Dien stem in',
 	'securepoll-gpg-receipt' => 'Baie dankie vir u stem.
 
@@ -278,18 +282,26 @@ As u wil, kan u kan die volgende kwitansie as bewys hou:
 Bevel: $1
 
 Fout: <pre>$2</pre>',
+	'securepoll-gpg-config-error' => 'GPG-sleutels word verkeerd ingestel.',
+	'securepoll-gpg-parse-error' => 'Fout met die interpretasie van GPG uitset.',
+	'securepoll-no-decryption-key' => 'Geen dekripsiesleutel is ingestel.
+Kan nie decrypt.',
 	'securepoll-jump' => 'Gaan na die stemming-bediener',
 	'securepoll-bad-ballot-submission' => 'U stem is ongeldig: $1',
 	'securepoll-unanswered-questions' => 'U moet alle vrae beantwoord.',
+	'securepoll-unranked-options' => "Sommige opsies is nie ingedeel.
+Jy moet alle opsies om 'n rang tussen 1 en 999.",
 	'securepoll-invalid-score' => "Die telling moet 'n getal tussen $1 en $2 wees.",
 	'securepoll-unanswered-options' => 'U moet al die vrae beantwoord.',
 	'securepoll-remote-auth-error' => "'n Fout het voorgekom met die opkyk van u rekening se inligting vanaf die bediener.",
 	'securepoll-api-invalid-params' => 'Ongeldige parameters.',
 	'securepoll-api-no-user' => 'Geen gebruiker met die gegewe ID gevind nie.',
 	'securepoll-api-token-mismatch' => 'Sekuriteit gebrand mismatch, kan nie inteken.',
+	'securepoll-not-logged-in' => 'Jy moet in teken om te stem in hierdie verkiesing',
 	'securepoll-blocked' => 'Jammer, kan jy nie stem in hierdie verkiesing As jy tans geblokkeer.',
 	'securepoll-bot' => "Jammer, gebruikers met 'n botvlag word nie toegelaat om aan die stemming deel te neem nie.",
 	'securepoll-not-in-group' => 'Slegs lede van die groep "$1" kan aan hierdie stemming deelneem.',
+	'securepoll-not-in-list' => 'Jammer, jy is nie in die voorafbepaalde lys van gebruikers wat gemagtig is om te stem in hierdie verkiesing.',
 	'securepoll-list-title' => 'Wys stemme: $1',
 	'securepoll-header-timestamp' => 'Tyd',
 	'securepoll-header-voter-name' => 'Naam',
@@ -315,6 +327,8 @@ Fout: <pre>$2</pre>',
 	'securepoll-cookie-dup-list' => 'Gebruikers met duplikaat koekies',
 	'securepoll-dump-title' => 'Dump: $1',
 	'securepoll-dump-no-crypt' => 'Geen geïnkripteer verkiesing rekord is beskikbaar vir hierdie verkiesing, want die verkiesing is nie ingestel om die enkripsie te gebruik.',
+	'securepoll-urandom-not-supported' => "Hierdie bediener ondersteun nie kriptografiese lukraakgetalgenerasie.
+Kieser privaatheid te handhaaf, is geïnkripteer verkiesing rekords is slegs publiek beskikbaar is wanneer hulle skuifel kan word met 'n veilige ewekansige getal stroom.",
 	'securepoll-translate-title' => 'Vertaal: $1',
 	'securepoll-invalid-language' => 'Ongeldige taalkode "$1"',
 	'securepoll-submit-translate' => 'Opdateer',
@@ -330,10 +344,18 @@ Fout: <pre>$2</pre>',
 	'securepoll-subpage-dump' => 'Dump',
 	'securepoll-subpage-tally' => 'Telling',
 	'securepoll-tally-title' => 'Telling: $1',
+	'securepoll-tally-not-finished' => 'Jammer, kan jy nie kerfstok die verkiesing tot na die stem is voltooi.',
+	'securepoll-can-decrypt' => "Die verkiesing rekord is geïnkripteer, maar die dekripsie sleutel is beskikbaar.
+Jy kan kies om óf kerfstok die resultate wat in die databasis teenwoordig is, of aan kerfstok geïnkripteer resultate van 'n opgelaai lêer.",
+	'securepoll-tally-no-key' => 'Jy kan nie kerfstok hierdie verkiesing, omdat die stemme word geïnkripteer, en die dekripsiesleutel nie beskikbaar is nie nie.',
+	'securepoll-tally-local-legend' => 'Telling gestoor resultate',
 	'securepoll-tally-local-submit' => 'Skep telling',
+	'securepoll-tally-upload-legend' => 'Foto geïnkripteer dump',
 	'securepoll-tally-upload-submit' => 'Skep telling',
 	'securepoll-no-upload' => 'Geen lêer is opgelaai nie.
 Die resultate kan nie getel word nie.',
+	'securepoll-pairwise-victories' => 'Twee-oorwinning matriks',
+	'securepoll-strength-matrix' => 'Pad krag Matrix',
 	'securepoll-ranks' => 'Eindstand',
 	'securepoll-average-score' => 'Gemiddelde punt',
 	'securepoll-round' => 'Ronde $1',
@@ -5437,6 +5459,7 @@ Mabalin mo ti agpili a tarkasan dagiti nagbanagan nga addaan idiay database, wen
 	'securepoll-ranks' => 'Pangileppas a ranngo',
 	'securepoll-average-score' => 'Pagtengngaan nga iskor',
 	'securepoll-round' => 'Nagbukel $1',
+	'securepoll-spoilt' => '(Nadadael)',
 	'securepoll-exhausted' => '(Naibusen)',
 );
 
