@@ -423,10 +423,133 @@ $messages['aln'] = array(
  * @author Juanpabl
  */
 $messages['an'] = array(
+	'securepoll' => 'SecurePoll',
+	'securepoll-desc' => 'Extensions ta esleccions y encuentas',
+	'securepoll-invalid-page' => 'Subpachina invalida «<nowiki>$1</nowiki>»',
+	'securepoll-need-admin' => "Cal que sía un administrador d'eslecions ta fer ista acción.",
+	'securepoll-too-few-params' => 'Parametros de subpágina insuficients (vinclo invalido).',
+	'securepoll-invalid-election' => "«$1» no ye un identificador d'esleción valido.",
+	'securepoll-welcome' => '<strong>Bienplegau $1!</strong>',
+	'securepoll-not-started' => 'Ista esleción encara no ha prencipiau.
+Ye programada ta prencipiar en $2 de $3.',
+	'securepoll-finished' => 'Ista esleción ha concluiu, no puet votar mas.',
+	'securepoll-not-qualified' => 'No cumple as condicions ta poder votar en ista eslección: $1',
+	'securepoll-change-disallowed' => 'Ya ha votau denantes en ista eslección.
+Lo siento, no puede tornar a votar.',
+	'securepoll-change-allowed' => "<strong>Nota: Ya ha votau en ista eslección.</strong>
+Puet cambiar o suyo voto ninviando o formulario d'abaixo.
+Note que si fa isto, o suyo voto orichinal será descartau.",
+	'securepoll-submit' => 'Ninviar voto',
+	'securepoll-gpg-receipt' => "Gracias por votar.
+
+Si lo deseya, puet alzar o siguient recibo como evidencia d'o suyo voto:
+
+<pre>$1</pre>",
+	'securepoll-thanks' => "Gracias, o suyo voto s'ha rechistrau.",
+	'securepoll-return' => 'Tornar ta $1.',
+	'securepoll-encrypt-error' => "No s'ha puesto zifrar o suyo rechistro de voto.
+O tuyo voto no s'ha rechistrau!
+
+$1",
+	'securepoll-no-gpg-home' => 'Ye imposible de creyar un directorio-casa GPG.',
+	'securepoll-secret-gpg-error' => 'Error entre que s\'executando GPG.
+Usar $wgSecurePollShowErrorDetail=true; en LocalSettings.php ta amostrar mas detalles.',
+	'securepoll-full-gpg-error' => 'Error en executar GPG:
+
+Comando: $1
+
+Error:
+<pre>$2</pre>',
+	'securepoll-gpg-config-error' => 'As teclas GPG no son bien configuradas.',
+	'securepoll-gpg-parse-error' => 'Error en interpretar a salida GPG.',
+	'securepoll-no-decryption-key' => "No s'ha especificau garra clau de deszifrau.
+No se puede deszifrar.",
+	'securepoll-jump' => 'Ir ta o servidor de votación',
+	'securepoll-bad-ballot-submission' => 'O suyo voto yera invalido: $1',
+	'securepoll-unanswered-questions' => 'Ha de responder todas as preguntas.',
+	'securepoll-invalid-rank' => 'Rango invalido. Ha de clasificar a os candidatos con un rango entre 1 y 999.',
+	'securepoll-unranked-options' => 'No ha clasificau qualques opcions.
+Ha de clasificar a todas as opcions con un rango entre 1 y 999.',
+	'securepoll-invalid-score' => "A puntuación ha d'estar una valura entre $1 y $2.",
+	'securepoll-unanswered-options' => 'Ha de dar una respuesta ta cada pregunta.',
+	'securepoll-remote-auth-error' => "S'ha produciu una error en obtener a suya información de cuenta d'o servidor.",
+	'securepoll-remote-parse-error' => "S'ha produciu una error en interpretar a respuesta d'autorización d'o servidor.",
+	'securepoll-api-invalid-params' => 'Parametros invalidos.',
+	'securepoll-api-no-user' => "No s'ha trobau garra usuario con ixe ID.",
+	'securepoll-api-token-mismatch' => 'No coincide a clau de seguranza, no se puede encetar a sesión.',
+	'securepoll-not-logged-in' => "Ha d'encetar sesión ta votar en ista esleción",
+	'securepoll-too-few-edits' => 'Perdón, no puet votar. Amenista haber feito a lo menos $1 {{PLURAL:$1|edición|edicions}} ta votar en ista eslección, ha feito $2.',
+	'securepoll-too-new' => "Desincuse, pero no puede votar.  A suya cuenta ha d'estar rechistrada antes de $1 a las $3 ta poder votar en ista eslección, y vusté se rechistró o $2 a las $4.",
+	'securepoll-blocked' => 'Perdón, no puet votar en ista eslección si yes actualment bloqueyau ta editar.',
+	'securepoll-blocked-centrally' => 'Desincuse, pero no puede votar en ista eslección en estar bloqueyau en a lo menos $1 {{PLURAL:$1|wiki|wikis}}.',
+	'securepoll-bot' => 'Lo sentimos, as cuentas con flag de bot no son autorizadas a votar en ista eslección.',
+	'securepoll-not-in-group' => "Solament os miembros d'o grupo «$1» pueden votar en ista eslección.",
+	'securepoll-not-in-list' => "Lo sentimos, no ye en a lista predeterminada d'usuarios autorizaus a votar en ista eslección.",
+	'securepoll-list-title' => 'Lista de votos: $1',
+	'securepoll-header-timestamp' => 'Tiempo',
+	'securepoll-header-voter-name' => 'Nombre',
+	'securepoll-header-voter-domain' => 'Dominio',
+	'securepoll-header-ua' => "Achent d'usuario",
+	'securepoll-header-cookie-dup' => 'Dup',
+	'securepoll-header-strike' => 'Invalidar',
+	'securepoll-header-details' => 'Detalles',
+	'securepoll-strike-button' => 'Inalidar',
+	'securepoll-unstrike-button' => 'Revalidar',
+	'securepoll-strike-reason' => 'Razón:',
 	'securepoll-strike-cancel' => 'Cancelar',
+	'securepoll-strike-error' => "S'ha produciu una error en invalidar/revalidar: $1",
+	'securepoll-strike-token-mismatch' => "S'ha perdiu a información d'a sesión",
+	'securepoll-details-link' => 'Detalles',
+	'securepoll-details-title' => "Detalles d'o voto: #$1",
+	'securepoll-invalid-vote' => '«$1» no ye un identificador de voto valido',
+	'securepoll-header-voter-type' => 'Tipo de votant',
+	'securepoll-voter-properties' => 'Propiedatz de votant',
+	'securepoll-strike-log' => 'Rechistro de votos invalidaus',
 	'securepoll-header-action' => 'Acción',
+	'securepoll-header-reason' => 'Razón',
+	'securepoll-header-admin' => 'Administrador',
+	'securepoll-cookie-dup-list' => 'Usuarios con cookies duplicadas',
+	'securepoll-dump-title' => 'Vulcau: $1',
+	'securepoll-dump-no-crypt' => "No se disposa d'un rechistro zifrau ta ista votación dau que ista votación no s'ha configurada ta fer servir zifrau.",
+	'securepoll-dump-not-finished' => "Se disposa d'os rechistros zifraus d'a votación nomás dimpués d'a calendata de finalización en $1 de $2",
+	'securepoll-dump-no-urandom' => "No se podió ubrir /dev/urandom.
+Ta preservar a privacidat d'os votantes, nomás se publican os resultaus zifraus d'a eslección quan pueden estar mezclaus con un fluxo de numeros aleatorio.",
+	'securepoll-urandom-not-supported' => "Iste servidor no poseye capacidat de cheneración criptografica de numeros aleatorios.
+Ta preservar a privacidat d'os votantes, solament son publicaus os resultaus encriptados d'a eslección quan pueden estar mezclaus con un fluxo de numeros aleatorio.",
+	'securepoll-translate-title' => 'Traducir: $1',
+	'securepoll-invalid-language' => "Codigo d'idioma no valido «$1»",
+	'securepoll-submit-translate' => 'Esviellar',
+	'securepoll-language-label' => 'Trigar idioma:',
+	'securepoll-submit-select-lang' => 'Traducir',
+	'securepoll-entry-text' => "Contino ye a lista d'enqüestas.",
+	'securepoll-header-title' => 'Nombre',
 	'securepoll-header-start-date' => 'Calendata de prencipio',
 	'securepoll-header-end-date' => 'Calendata de fin',
+	'securepoll-subpage-vote' => 'Votar',
+	'securepoll-subpage-translate' => 'Traducir',
+	'securepoll-subpage-list' => 'Lista',
+	'securepoll-subpage-dump' => 'Vulcar',
+	'securepoll-subpage-tally' => 'Contador',
+	'securepoll-tally-title' => 'Contador: $1',
+	'securepoll-tally-not-finished' => "Lo sentimos, no puede actualizar os contadors d'a eslección dica que a votación no haiga finalizau.",
+	'securepoll-can-decrypt' => "O rechistro d'eslección s'han zifrau pero la clave de desencriptación ye disponible.
+Puede trigar entre escrutar os resultaus de la base de datos, u escrutar os resultaus zifraus dende un fichero cargau.",
+	'securepoll-tally-no-key' => "No puede actualizar o contador d'a eslección, ya que os votos son zifraus y a clau de desenzifrau no ye disponible.",
+	'securepoll-tally-local-legend' => 'Recuento de resultaus esviellau',
+	'securepoll-tally-local-submit' => 'Creyar recuento',
+	'securepoll-tally-upload-legend' => "Puyar vulcau d'o zifrau",
+	'securepoll-tally-upload-submit' => 'Creyar recuento',
+	'securepoll-tally-error' => "S'ha produciu una error interpretando o rechistro de votos, no se puede creyar un recuento.",
+	'securepoll-no-upload' => "No s'ha puyau garra fichero, no se pueden recontar os resultaus.",
+	'securepoll-dump-corrupt' => 'O fichero de vulcau ye danyau y no se puede procesar.',
+	'securepoll-tally-upload-error' => 'Error en recontar o fichero de vulcau: $1',
+	'securepoll-pairwise-victories' => "Resultaus d'as enqüestas en iste puesto",
+	'securepoll-strength-matrix' => "Organizar por cantidat d'enqüestas",
+	'securepoll-ranks' => 'Rango final',
+	'securepoll-average-score' => 'Puntuación meya',
+	'securepoll-round' => 'Tongada $1',
+	'securepoll-spoilt' => '(Nulos)',
+	'securepoll-exhausted' => '(Emplegau)',
 );
 
 /** Arabic (العربية)
@@ -7033,6 +7156,7 @@ $messages['mn'] = array(
 /** Marathi (मराठी)
  * @author Harishmr
  * @author Kaajawa
+ * @author Mahitgar
  * @author Rahuldeshmukh101
  * @author Sau6402
  * @author V.narsikar
@@ -7084,6 +7208,7 @@ $messages['mr'] = array(
 	'securepoll-strike-button' => 'बहिशाल',
 	'securepoll-strike-reason' => 'कारण:',
 	'securepoll-strike-cancel' => 'रद्द करा',
+	'securepoll-strike-error' => 'खोडणे अथवा खोडणे-रद्द करताना  आलेली त्रुटी',
 	'securepoll-strike-token-mismatch' => 'कार्यकाळाची माहिती गाहाळ झाली आहे.',
 	'securepoll-details-link' => 'तपशील',
 	'securepoll-details-title' => 'मताचा तपशील: #$1',
@@ -7094,6 +7219,7 @@ $messages['mr'] = array(
 	'securepoll-header-action' => 'क्रिया',
 	'securepoll-header-reason' => 'कारण',
 	'securepoll-header-admin' => 'प्रच्यालक',
+	'securepoll-cookie-dup-list' => 'स्मृतिशेषनुसार (Cookieनुसार) दुहेरी अथवा दुबार सदस्य',
 	'securepoll-dump-title' => 'राशिपात : $1',
 	'securepoll-translate-title' => '$1 या भाषेत भाषांतर करा',
 	'securepoll-invalid-language' => 'अयोग्य भाषा क्रमांक "$1"',
