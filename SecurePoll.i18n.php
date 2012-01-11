@@ -7163,8 +7163,10 @@ $messages['mn'] = array(
  */
 $messages['mr'] = array(
 	'securepoll' => 'सुरक्षित मतदान',
+	'securepoll-desc' => 'सर्वेक्षणे आणि निवडणूकांकरीता विस्तार',
 	'securepoll-invalid-page' => 'अवैध उपपान "<nowiki>$1</nowiki>"',
 	'securepoll-need-admin' => 'हे कार्य करण्यासाठी आपण निवडणूक अधिकारी असणे आवशक आहे',
+	'securepoll-too-few-params' => 'उपपान पॅरामीटर्स पुरेशा  नाहीत (अग्राह्य दुवा).',
 	'securepoll-invalid-election' => '"$1" हे योग्य  निवडनुक ओळखपत्र नाही.',
 	'securepoll-welcome' => '<strong>$1 चे स्वागत ! </strong>',
 	'securepoll-not-started' => 'अजुन निवडणुक सुरु झालेली नाही. ती $2 ला $3 वाजता आयोजित केली गेली आहे.',
@@ -7181,6 +7183,23 @@ $messages['mr'] = array(
 <pre>$1</pre>',
 	'securepoll-thanks' => 'धन्यावाद ,आपले मत नोंदवले गेले आहेत.',
 	'securepoll-return' => '$1 कडे परत चला.',
+	'securepoll-encrypt-error' => 'आपले मत रेकॉर्ड एनक्रीप्ट करण्यात अयश्स्वी.
+तुमचे मत रेकॉर्ड केले गेले नाही
+
+$1',
+	'securepoll-no-gpg-home' => 'GPG home directory तयार करण्यात अयशस्वी.',
+	'securepoll-secret-gpg-error' => 'GPG एक्झीक्यूटींग त्रूटी.
+अधिक माहिती दर्शविण्याकरीता LocalSettings.php मध्ये $wgSecurePollShowErrorDetail=true वापरा;',
+	'securepoll-full-gpg-error' => 'GPG चलवण्यात त्रुटी:
+
+कमांड: $1
+
+त्रुटी:
+<pre>$2</pre>',
+	'securepoll-gpg-config-error' => 'GPG keys चुकीच्या पद्धतीने कॉन्फीगर झालेल्या आहेत',
+	'securepoll-gpg-parse-error' => 'जी पी जी आउटपुट interpret करण्यात त्रुटी',
+	'securepoll-no-decryption-key' => 'कोणतीही  कूटमुक्तिकरण कुँजी विन्यासित नाहीं .(No decryption key is configured)
+कूटमुक्त  करू शकत नाही',
 	'securepoll-jump' => 'मतदान सर्वरला जा',
 	'securepoll-bad-ballot-submission' => 'आपले मत अयोग्य होते : $1',
 	'securepoll-unanswered-questions' => 'आपणास सर्व प्रश्नांची उत्तरे द्यायची आहेत.',
@@ -7189,6 +7208,7 @@ $messages['mr'] = array(
 आपण सर्व विकल्पांना १ ते ९९९ मधील गुणानुक्रम द्यावयास हवा.',
 	'securepoll-invalid-score' => 'आपले गुण $1 ते $2 या आकड्यान मधेच पाहिजे.',
 	'securepoll-unanswered-options' => 'आपल्याला प्रत्येक प्रश्नाला काहीतरी प्रतिक्रिया द्यायचीच आहे.',
+	'securepoll-remote-auth-error' => 'विदागारातून आपल्या खात्याची माहिती शेंदण्यात त्रुटी.(Error fetching your account information from the server)',
 	'securepoll-api-invalid-params' => 'अमान्य मापदंड',
 	'securepoll-api-no-user' => 'या नावाचा कोणीही सदस्य अस्तित्वात नाही.',
 	'securepoll-not-logged-in' => 'या मतदानात भाग घेण्यापूर्वी तुम्ही सदस्य खात्याद्वारे प्रवेश करणे अनिवार्य आहे.',
