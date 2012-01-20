@@ -10,7 +10,7 @@ require( dirname(__FILE__).'/cli.inc' );
 $dbr = wfGetDB( DB_SLAVE );
 $dbw = wfGetDB( DB_MASTER );
 $fname = 'voterList.php';
-$before = isset( $options['before'] ) ? wfTimestamp( TS_MW, strtotime( $options['before'] ) ) : false;
+$before = isset( $options['before'] ) ? $dbr->timestamp( strtotime( $options['before'] ) ) : false;
 $minEdits = isset( $options['edits'] ) ? intval( $options['edits'] ) : false;
 
 if ( !isset( $args[0] ) ) {
