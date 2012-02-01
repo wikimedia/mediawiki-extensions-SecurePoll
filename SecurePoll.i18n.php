@@ -3164,6 +3164,7 @@ Vi povas elekti nombri ĉu la rezultojn el la datumbazo, ĉu ĉifritajn rezultoj
 );
 
 /** Spanish (Español)
+ * @author Armando-Martin
  * @author Crazymadlover
  * @author Dferg
  * @author DoveBirkoff
@@ -3231,9 +3232,9 @@ Debes clasificar a todas las opciones con un rango entre 1 y 999.',
 	'securepoll-api-token-mismatch' => 'Clave de seguridad no coincidente, no se puede iniciar sesión.',
 	'securepoll-not-logged-in' => 'Debes iniciar sesión para votar en esta elección',
 	'securepoll-too-few-edits' => 'Perdón, no puedes votar. Necesitas haber hecho al menos $1 {{PLURAL:$1|edición|ediciones}} para votar en esta elección, has hecho $2.',
-	'securepoll-too-new' => 'Lo sentimos, no puedes votar. Tu cuenta debió registrarse antes del $1 para poder votar en esta elección, estás registrado desde el $2.',
+	'securepoll-too-new' => 'Lo sentimos, pero no puede votar. Su cuenta debió registrarse antes del $1 a las $3 para poder votar en esta elección. Usted se registró el $2 a las $4.',
 	'securepoll-blocked' => 'Perdón, no puedes votar en esta elección si estás actualmente bloqueado para ediciones.',
-	'securepoll-blocked-centrally' => 'Lo sentimos, no puedes votar si estás bloqueado en $1 o más {{PLURAL:$1|wiki|wikis}}.',
+	'securepoll-blocked-centrally' => 'Lo sentimos, no puede votar en esta elección pues usted está bloqueado al menos hasta el $1 {{PLURAL:$1|wiki|wikis}}.',
 	'securepoll-bot' => 'Lo sentimos, las cuentas con flag de bot no están autorizadas a votar en esta elección.',
 	'securepoll-not-in-group' => 'Solo los miembros del grupo «$1» pueden votar en esta elección.',
 	'securepoll-not-in-list' => 'Lo sentimos, no estás en la lista predeterminada de usuarios autorizados a votar en esta elección.',
@@ -3300,6 +3301,8 @@ Puede escoger entre escrutar los resultados de la base de datos, o escrutar los 
 	'securepoll-ranks' => 'Rango final',
 	'securepoll-average-score' => 'Puntuación media',
 	'securepoll-round' => 'Ronda $1',
+	'securepoll-spoilt' => '(Blancos o Nulos)',
+	'securepoll-exhausted' => '(Agotado)',
 );
 
 /** Estonian (Eesti)
