@@ -4455,6 +4455,25 @@ Du chasch wehle zwische dr Uuszellig vu dr aktuällen Ergebnis in dr Datebank un
 	'securepoll-exhausted' => '(Fertig)',
 );
 
+/** Gujarati (ગુજરાતી)
+ * @author KartikMistry
+ */
+$messages['gu'] = array(
+	'securepoll-header-timestamp' => 'સમય',
+	'securepoll-header-voter-name' => 'નામ',
+	'securepoll-strike-reason' => 'કારણ:',
+	'securepoll-strike-cancel' => 'રદ કરો',
+	'securepoll-details-link' => 'વિગતો',
+	'securepoll-header-action' => 'ક્રિયા',
+	'securepoll-header-reason' => 'કારણ',
+	'securepoll-header-admin' => 'સંચાલક',
+	'securepoll-header-title' => 'નામ',
+	'securepoll-header-start-date' => 'આરંભ તારીખ',
+	'securepoll-header-end-date' => 'અંતિમ તારીખ',
+	'securepoll-subpage-vote' => 'મત',
+	'securepoll-subpage-list' => 'યાદી',
+);
+
 /** Manx (Gaelg)
  * @author Shimmin Beg
  */
