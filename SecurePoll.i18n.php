@@ -4457,21 +4457,53 @@ Du chasch wehle zwische dr Uuszellig vu dr aktuällen Ergebnis in dr Datebank un
 
 /** Gujarati (ગુજરાતી)
  * @author KartikMistry
+ * @author Sushant savla
  */
 $messages['gu'] = array(
+	'securepoll-not-qualified' => 'તમે આ ચૂંટણીમાં સહભાગી થવા લાયક નથી',
+	'securepoll-submit' => 'મત જમા કરો',
+	'securepoll-thanks' => 'તમારો આભાર, તમારો મત અંકિત કરી દેવામાં આવ્યો છે.',
+	'securepoll-return' => '$1 પર પાછા જાઓ',
+	'securepoll-no-gpg-home' => 'GPG ગૃહ ડીરેક્ટરી નિર્માણ કરી ન શકાઇ',
+	'securepoll-gpg-config-error' => 'GPG ચાવીઓ ખોટી રીતે ગોઠવાયા હતાં.',
+	'securepoll-jump' => 'ચૂંટણી સર્વર પર જાવ',
+	'securepoll-bad-ballot-submission' => 'તમારો મત અવૈધ છે : $1',
+	'securepoll-unanswered-questions' => 'તમારે બધા સવાલના જવાબ આપેલા હોવા જોઇએ.',
+	'securepoll-api-invalid-params' => 'અયોગ્ય પરિમાણો.',
+	'securepoll-not-logged-in' => 'આ ચૂટણીમાં મત આપવા લોગીન કરેલુઁ હોવું જોઇએ',
+	'securepoll-list-title' => 'મતોની યાદી: $1',
 	'securepoll-header-timestamp' => 'સમય',
 	'securepoll-header-voter-name' => 'નામ',
+	'securepoll-header-voter-domain' => 'ડોમેઈન',
+	'securepoll-header-strike' => 'છેકો',
+	'securepoll-header-details' => 'વિગતો',
+	'securepoll-unstrike-button' => 'છેકો હટાવો',
 	'securepoll-strike-reason' => 'કારણ:',
 	'securepoll-strike-cancel' => 'રદ કરો',
+	'securepoll-strike-token-mismatch' => 'સત્ર માહિતી ખોઇ દીધી',
 	'securepoll-details-link' => 'વિગતો',
+	'securepoll-details-title' => 'મત વિગતો: #$1',
+	'securepoll-header-voter-type' => 'મતદાતા પ્રકાર',
+	'securepoll-voter-properties' => 'મતદાતા ના ગુણધર્મો',
+	'securepoll-strike-log' => 'લોગ છેકો',
 	'securepoll-header-action' => 'ક્રિયા',
 	'securepoll-header-reason' => 'કારણ',
 	'securepoll-header-admin' => 'સંચાલક',
+	'securepoll-translate-title' => 'ભાષાંતર કરો: $1',
+	'securepoll-invalid-language' => 'અયોગ્ય ભાષા કોડ "$1"',
+	'securepoll-language-label' => 'ભાષા પસંદ કરો:',
 	'securepoll-header-title' => 'નામ',
 	'securepoll-header-start-date' => 'આરંભ તારીખ',
 	'securepoll-header-end-date' => 'અંતિમ તારીખ',
 	'securepoll-subpage-vote' => 'મત',
+	'securepoll-subpage-translate' => 'ભાષાંતર કરો',
 	'securepoll-subpage-list' => 'યાદી',
+	'securepoll-subpage-tally' => 'તાળો',
+	'securepoll-tally-title' => 'તાળો : $1',
+	'securepoll-tally-local-legend' => 'સંઘરેલા પરિણમો તાળો મેળવો',
+	'securepoll-tally-upload-submit' => 'તાળો નિર્માણ કરો',
+	'securepoll-ranks' => 'અંતિમ ક્રમ યાદી',
+	'securepoll-average-score' => 'સરેરાશ ગુણ',
 );
 
 /** Manx (Gaelg)
