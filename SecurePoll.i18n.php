@@ -4461,8 +4461,9 @@ Du chasch wehle zwische dr Uuszellig vu dr aktuällen Ergebnis in dr Datebank un
  */
 $messages['gu'] = array(
 	'securepoll' => 'સુરક્ષિત ચૂંટણી',
+	'securepoll-desc' => 'ચૂંટણી અને સર્વેક્ષણ ના વિસ્તારકો (Extension)',
 	'securepoll-need-admin' => 'આ કાર્ય કરવા માટે તમે વ્યવસ્થાપક હોવા જોઈએ',
-	'securepoll-invalid-election' => '"$1" એ વૈદ્ય ચૂંટણી ID નથી',
+	'securepoll-invalid-election' => '"$1" એ યોગ્ય ચૂંટણી ID નથી.',
 	'securepoll-welcome' => '<strong>સ્વાગતમ્ $1!</strong>',
 	'securepoll-finished' => 'આ ચૂંટણી સમાપ્ત થઈ ગઈ છે તમે તેમાં ભાગ નહીં લઈ શકો',
 	'securepoll-not-qualified' => 'તમે આ ચૂંટણીમાં મત આપવા માટે લાયક નથી: $1',
@@ -4475,8 +4476,16 @@ $messages['gu'] = array(
 	'securepoll-no-gpg-home' => 'GPG ગૃહ ડીરેક્ટરી નિર્માણ કરી ન શકાઇ',
 	'securepoll-secret-gpg-error' => 'GPG ચલાવતા ક્ષતિ આવી.
 વધુ વિગતો માટે LocalSettings.php માં $wgSecurePollShowErrorDetail=true; વાપરો.',
+	'securepoll-full-gpg-error' => 'GPG ચલાવતી વખતે ક્ષતિ આવી:
+
+આદેશ: $1
+
+ક્ષતિ:
+<pre>$2</pre>',
 	'securepoll-gpg-config-error' => 'GPG ચાવીઓ ખોટી રીતે ગોઠવાયા હતાં.',
 	'securepoll-gpg-parse-error' => 'GPG પ્રત્યુત્ત્ર માહિતીને ઉકેલવામાં તૃટી',
+	'securepoll-no-decryption-key' => 'કોઈ ડિક્રિપ્શન કળ રુપરેખાંકિત કરેલ નથી.
+ડિક્રિપ્ટ કરી શકશે નહી.',
 	'securepoll-jump' => 'ચૂંટણી સર્વર પર જાવ',
 	'securepoll-bad-ballot-submission' => 'તમારો મત અવૈધ છે : $1',
 	'securepoll-unanswered-questions' => 'તમારે બધા સવાલના જવાબ આપેલા હોવા જોઇએ.',
@@ -4489,6 +4498,7 @@ $messages['gu'] = array(
 	'securepoll-header-voter-name' => 'નામ',
 	'securepoll-header-voter-domain' => 'ડોમેઈન',
 	'securepoll-header-ua' => 'સભ્ય ઍજન્ટ',
+	'securepoll-header-cookie-dup' => 'નકલી',
 	'securepoll-header-strike' => 'છેકો',
 	'securepoll-header-details' => 'વિગતો',
 	'securepoll-strike-button' => 'છેકો',
@@ -4498,17 +4508,20 @@ $messages['gu'] = array(
 	'securepoll-strike-token-mismatch' => 'સત્ર માહિતી ખોઇ દીધી',
 	'securepoll-details-link' => 'વિગતો',
 	'securepoll-details-title' => 'મત વિગતો: #$1',
+	'securepoll-invalid-vote' => '"$1" એ યોગ્ય ચૂંટણી ID નથી',
 	'securepoll-header-voter-type' => 'મતદાતા પ્રકાર',
 	'securepoll-voter-properties' => 'મતદાતા ના ગુણધર્મો',
 	'securepoll-strike-log' => 'લોગ છેકો',
 	'securepoll-header-action' => 'ક્રિયા',
 	'securepoll-header-reason' => 'કારણ',
 	'securepoll-header-admin' => 'સંચાલક',
+	'securepoll-dump-title' => 'કાટમાળ: $1',
 	'securepoll-translate-title' => 'ભાષાંતર કરો: $1',
 	'securepoll-invalid-language' => 'અયોગ્ય ભાષા કોડ "$1"',
 	'securepoll-submit-translate' => 'અદ્યતન કરો',
 	'securepoll-language-label' => 'ભાષા પસંદ કરો:',
 	'securepoll-submit-select-lang' => 'ભાષાંતર કરો',
+	'securepoll-entry-text' => 'નીચે ચૂંટણીઓની યાદી છે.',
 	'securepoll-header-title' => 'નામ',
 	'securepoll-header-start-date' => 'આરંભ તારીખ',
 	'securepoll-header-end-date' => 'અંતિમ તારીખ',
@@ -4520,8 +4533,10 @@ $messages['gu'] = array(
 	'securepoll-tally-local-legend' => 'સંઘરેલા પરિણમો તાળો મેળવો',
 	'securepoll-tally-local-submit' => 'તાળો નિર્માણ કરો',
 	'securepoll-tally-upload-submit' => 'તાળો નિર્માણ કરો',
+	'securepoll-pairwise-victories' => 'જોડી અનુસાર વિજય જૂથ',
 	'securepoll-ranks' => 'અંતિમ ક્રમ યાદી',
 	'securepoll-average-score' => 'સરેરાશ ગુણ',
+	'securepoll-round' => 'ચરણ $1',
 );
 
 /** Manx (Gaelg)
