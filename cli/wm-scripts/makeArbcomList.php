@@ -5,7 +5,7 @@
  */
 
 $optionsWithArgs = array( 'before', 'edits' );
-require( dirname(__FILE__).'/cli.inc' );
+require( dirname(__FILE__).'/../cli.inc' );
 
 $dbr = wfGetDB( DB_SLAVE );
 $dbw = wfGetDB( DB_MASTER );
