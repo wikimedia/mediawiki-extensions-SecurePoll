@@ -4456,6 +4456,7 @@ Du chasch wehle zwische dr Uuszellig vu dr aktuällen Ergebnis in dr Datebank un
 );
 
 /** Gujarati (ગુજરાતી)
+ * @author Dsvyas
  * @author KartikMistry
  * @author Sushant savla
  */
@@ -4464,16 +4465,25 @@ $messages['gu'] = array(
 	'securepoll-desc' => 'ચૂંટણી અને સર્વેક્ષણ ના વિસ્તારકો (Extension)',
 	'securepoll-invalid-page' => 'અયોગ્ય ઉપપાનું "<nowiki>$1</nowiki>"',
 	'securepoll-need-admin' => 'આ કાર્ય કરવા માટે તમે વ્યવસ્થાપક હોવા જોઈએ',
+	'securepoll-too-few-params' => 'અપુરતા ઉપપાનાં પરિમાણો (અક્ષમ કડી)',
 	'securepoll-invalid-election' => '"$1" એ યોગ્ય ચૂંટણી ID નથી.',
 	'securepoll-welcome' => '<strong>સ્વાગતમ્ $1!</strong>',
+	'securepoll-not-started' => 'મતદાન હજી શરૂ થયું નથી
+તે $2 ના દિવસે $3 વાગ્યે શરૂ થશે.',
 	'securepoll-finished' => 'આ ચૂંટણી સમાપ્ત થઈ ગઈ છે તમે તેમાં ભાગ નહીં લઈ શકો',
 	'securepoll-not-qualified' => 'તમે આ ચૂંટણીમાં મત આપવા માટે લાયક નથી: $1',
+	'securepoll-change-disallowed' => 'તમે આ ચૂંટણીમાં પહેલાં ભાગ લીધો છે.
+ખેદ છે, તમે આ ચૂંટણીમાં ફરી મતદાન નહીં કરી શકો.',
 	'securepoll-submit' => 'મત જમા કરો',
 	'securepoll-gpg-receipt' => 'મતદાન માટે ધન્યવાદ
 તમે ધારો તો તમારા સંદર્ભ માટે નીચેની રસીસ રાખી શકો છો.
 <pre>$1</pre>',
 	'securepoll-thanks' => 'તમારો આભાર, તમારો મત અંકિત કરી દેવામાં આવ્યો છે.',
 	'securepoll-return' => '$1 પર પાછા જાઓ',
+	'securepoll-encrypt-error' => 'તમારા મતદાનને એનક્રીપ્ટ કરવા નિષ્ફળતા.
+તમારો મત નોંધાયો નથી.
+
+$1',
 	'securepoll-no-gpg-home' => 'GPG ગૃહ ડીરેક્ટરી નિર્માણ કરી ન શકાઇ',
 	'securepoll-secret-gpg-error' => 'GPG ચલાવતા ક્ષતિ આવી.
 વધુ વિગતો માટે LocalSettings.php માં $wgSecurePollShowErrorDetail=true; વાપરો.',
@@ -4490,13 +4500,21 @@ $messages['gu'] = array(
 	'securepoll-jump' => 'ચૂંટણી સર્વર પર જાવ',
 	'securepoll-bad-ballot-submission' => 'તમારો મત અવૈધ છે : $1',
 	'securepoll-unanswered-questions' => 'તમારે બધા સવાલના જવાબ આપેલા હોવા જોઇએ.',
+	'securepoll-invalid-rank' => 'અ વૈધ ક્રમાંક. તમારે ઉમેદવારને ૧ અને ૯૯૯ વચ્ચે ક્રમાંક આપવોજોઈએ.',
+	'securepoll-unranked-options' => 'અમુક વિકલ્પોને ક્રમ અપાયો નથી.
+તમારે દરેક વિકલ્પને ૧ થી ૯૯૯ સુધીનો ક્રમ આપવો જોઈએ',
+	'securepoll-invalid-score' => 'ગુણાંક $1 અને $2 ચચ્ચેની સંખ્યા હોવી જોઈએ',
 	'securepoll-unanswered-options' => 'તમારે દરેક પ્રશ્ન પર ઉત્તર આપવો જ પડશે.',
 	'securepoll-api-invalid-params' => 'અયોગ્ય પરિમાણો.',
 	'securepoll-api-no-user' => 'આપેલ ઓળખ પર કોઈ સભ્ય મળ્યો નહી.',
+	'securepoll-api-token-mismatch' => 'સુરક્ષા ટોકન અસંગતી, પ્રવેશ નહીં કરી શકાય',
 	'securepoll-not-logged-in' => 'આ ચૂટણીમાં મત આપવા લોગીન કરેલુઁ હોવું જોઇએ',
 	'securepoll-too-few-edits' => 'ખેદ છે, તમે મતદાન કરી શકશો નહીં.  તમે આ ચૂંટની માં ભાગ લેવા માટે કમસેકમ $1 {{PLURAL:$1|ફેરફાર|ફેરફારો}} કરેલા હોવાં જોઈએ તમે $2 ફેરફાર કર્યાં છે. .',
-	'securepoll-too-new' => 'ખેદ છે, તમે મતદાન કરી શકશો નહીં, આ ચૂંટણીમાં ભાગ લેવા માટે $1 પહેલાં $3 પર તમારું નામાંકન થયેલું મ્હોવું જોઈએ.',
+	'securepoll-too-new' => 'અફસોસ, તમે મતદાન કરી શકશો નહી. આ ચૂંટણીમાં ભાગ લેવા માટે $1 તારીખે $3 વાગ્યા પહેલા તમારા ખાતાની નોંધણી થઈ હોવી જોઈએ. તમે  $2 તારીખે $4 વાગ્યે તમારૂં ખાતું ખોલ્યું હતું.',
 	'securepoll-blocked' => 'ખેદ છે જો તમારા પર ફેરફાર કરવાનો પ્રતિબણ્ધ હશે તો તમે આ ચૂંટણીમાં મતદાન નહીં કરી શકો .',
+	'securepoll-blocked-centrally' => 'ખેદ છે, તમે મતદાનમાં ભગ નહીં લઈ શકો કેમકે તમારા પર કમસે કમ $1 {{PLURAL:$1|વિકી|વિકીઓ}} પર પ્રતિબંધ મૂકાયો છે.',
+	'securepoll-bot' => 'ખેદ છે, બૉટ વિસ્તારક ધરાવતાં સભ્યનામ આ ચૂંટણીમાં ભાગ લઈ શકશે નહીં',
+	'securepoll-not-in-group' => 'માત્ર "$1" જૂથના સભ્યો જ આ ચૂંટણીમાં મત આપી શકે છે.',
 	'securepoll-list-title' => 'મતોની યાદી: $1',
 	'securepoll-header-timestamp' => 'સમય',
 	'securepoll-header-voter-name' => 'નામ',
@@ -4519,6 +4537,7 @@ $messages['gu'] = array(
 	'securepoll-header-action' => 'ક્રિયા',
 	'securepoll-header-reason' => 'કારણ',
 	'securepoll-header-admin' => 'સંચાલક',
+	'securepoll-cookie-dup-list' => 'કૂકી ડ્યુપ્લીકેટ સભ્ય',
 	'securepoll-dump-title' => 'કાટમાળ: $1',
 	'securepoll-translate-title' => 'ભાષાંતર કરો: $1',
 	'securepoll-invalid-language' => 'અયોગ્ય ભાષા કોડ "$1"',
@@ -4535,17 +4554,21 @@ $messages['gu'] = array(
 	'securepoll-subpage-dump' => 'કાટમાળ',
 	'securepoll-subpage-tally' => 'તાળો',
 	'securepoll-tally-title' => 'તાળો : $1',
+	'securepoll-tally-not-finished' => 'ખેદ છે, તમે મતદાન પૂર્ણ થયાં પહેલાં તાળો ન મેળવી શકો',
 	'securepoll-tally-local-legend' => 'સંઘરેલા પરિણમો તાળો મેળવો',
 	'securepoll-tally-local-submit' => 'તાળો નિર્માણ કરો',
 	'securepoll-tally-upload-legend' => 'ઍન્ક્રીપ્ટેડ કટમાળ ચઢાવો',
 	'securepoll-tally-upload-submit' => 'તાળો નિર્માણ કરો',
 	'securepoll-no-upload' => 'કોઈ પણ ફાઈલ ચઢાવી નથી, પરિણામ નો તાળો ન મેળવી શકાયો',
+	'securepoll-dump-corrupt' => 'કાટમાળ ફાઈલ ખરાબ થઈ ગઈ છે તેન પર પ્રક્રિયા નહીં કરી શકાય',
 	'securepoll-tally-upload-error' => 'કાટમાળ ફાઈલ નો તાળો મેળવવામાં ત્રુટી: $1',
 	'securepoll-pairwise-victories' => 'જોડી અનુસાર વિજય જૂથ',
 	'securepoll-strength-matrix' => 'પાથ સ્ટ્રેંથ મેટ્રીક્સ',
 	'securepoll-ranks' => 'અંતિમ ક્રમ યાદી',
 	'securepoll-average-score' => 'સરેરાશ ગુણ',
 	'securepoll-round' => 'ચરણ $1',
+	'securepoll-spoilt' => '(બગડી ગયેલ)',
+	'securepoll-exhausted' => '(સમાપ્ત)',
 );
 
 /** Manx (Gaelg)
