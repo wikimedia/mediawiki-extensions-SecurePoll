@@ -4560,6 +4560,8 @@ $1',
 	'securepoll-subpage-tally' => 'તાળો',
 	'securepoll-tally-title' => 'તાળો : $1',
 	'securepoll-tally-not-finished' => 'ખેદ છે, તમે મતદાન પૂર્ણ થયાં પહેલાં તાળો ન મેળવી શકો',
+	'securepoll-can-decrypt' => 'મત એનક્રીપ્ટ થયેલ છે, પણ તેને ઉકેલવાની ચાવી ઉપલબ્ધ છે.
+તમે માહિતીસંચની માહિતી અપ્રથી પરિણામ તાળો મેળવી શકો અથવા ચધાવેલી ફાઈલ પરથી ઍનક્રીપ્ટેડ પરિણામો મેળવે શકો છો.',
 	'securepoll-tally-no-key' => 'તમે આ ચૂંટણીનો તાળો ન મેળવી શકો, કેમકે તેમના મત ઍન્ક્રીપ્ટેડ છે, અને ડીક્રીપ્શન ચાવી મોજૂદ નથી.',
 	'securepoll-tally-local-legend' => 'સંઘરેલા પરિણમો તાળો મેળવો',
 	'securepoll-tally-local-submit' => 'તાળો નિર્માણ કરો',
@@ -9041,7 +9043,7 @@ $1',
 	'securepoll-too-few-edits' => 'اوہو، تسیں ووٹ نئیں پاسکدے۔ تسیں $1 {{PLURAL:$1|تبدیلی|تبدیلیاں}} ایس چنوتی چ ووٹ پان لئی تے تسیں $2 بنائی نئیں۔',
 	'securepoll-too-new' => 'تسیں ووٹ نئیں پاےکدے۔ تواڈا کھاتہ پہلے سعاب کتاب چ آوے گا $1 توں پہلے تے $3 بجے چنوتی چ ووٹ پان لئی۔ تسیں $2 نوں $4 بجے رجسٹر ہووۓ سی۔',
 	'securepoll-blocked' => 'معاف کرنا تسیں ایس چنوتی چ ووٹ نئیں پاسکدے اگر تسیں تبدیلی توں روک دتے گۓ او۔',
-	'securepoll-blocked-centrally' => 'معاف کرنا تسیں ایس چوتی چ ووٹ ںغیں پاسکدے  کیوں جے توانوں $1 {{انیک:$1|وکی|وکیاں}} تے روکیا گیا جے۔',
+	'securepoll-blocked-centrally' => 'معاف کرنا تسیں ایس چوتی چ ووٹ ںغیں پاسکدے  کیوں جے توانوں $1 {{PLURAL:$1|وکی|وکیاں}} تے روکیا گیا جے۔',
 	'securepoll-bot' => 'معاف کرنا کھاتے جناں نال بوٹ دا نشان ہووے اوناں نوں چنوتی چ ووٹ دی اجازت نئیں۔',
 	'securepoll-not-in-group' => '"$1" ٹولی دے سنگی ایس چنوتی چ ووٹ پاسکدے نيں۔',
 	'securepoll-not-in-list' => 'معاف کرنا تسیں اوناں ورتن والیاں دی لسٹ چ نئیں او جناں نوں ایس چنوتی ج ووٹ پان دی اجازت اے۔',
@@ -12891,6 +12893,7 @@ $1',
  * @author Gaoxuewei
  * @author Liangent
  * @author Mark85296341
+ * @author Oapbtommy
  * @author PhiLiP
  * @author Skjackey tse
  * @author Wong128hk
@@ -12965,14 +12968,14 @@ $1',
 	'securepoll-header-ua' => '用戶代理',
 	'securepoll-header-cookie-dup' => 'Dup',
 	'securepoll-header-strike' => '刪除投票',
-	'securepoll-header-details' => '詳情',
+	'securepoll-header-details' => '詳細資訊',
 	'securepoll-strike-button' => '刪除',
 	'securepoll-unstrike-button' => '恢復選票',
 	'securepoll-strike-reason' => '理由：',
 	'securepoll-strike-cancel' => '取消',
 	'securepoll-strike-error' => '進行刪除選票/恢復被刪除選票時出錯：$1',
 	'securepoll-strike-token-mismatch' => '會話資料遺失',
-	'securepoll-details-link' => '細節',
+	'securepoll-details-link' => '詳細資訊',
 	'securepoll-details-title' => '投票詳情︰#$1',
 	'securepoll-invalid-vote' => '「$1」不是有效的投票 ID',
 	'securepoll-header-voter-type' => '投票用戶類型',
