@@ -12290,7 +12290,7 @@ Te poli far la conta dei risultati presenti nel database o far la conta dei risu
 	'securepoll-average-score' => 'Puntejo medio',
 );
 
-/** Veps (Vepsan kel')
+/** Veps (Vepsän kel')
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
@@ -12300,6 +12300,7 @@ $messages['vep'] = array(
 	'securepoll-header-voter-name' => 'Nimi',
 	'securepoll-header-voter-domain' => 'Domen',
 	'securepoll-header-ua' => 'Kävutajan agent',
+	'securepoll-header-cookie-dup' => 'Dublid',
 	'securepoll-header-details' => 'Detalid',
 	'securepoll-strike-reason' => 'Sü:',
 	'securepoll-strike-cancel' => 'Heitta pätand',
@@ -12317,6 +12318,7 @@ $messages['vep'] = array(
 	'securepoll-subpage-vote' => 'Änesta',
 	'securepoll-subpage-translate' => 'Käta',
 	'securepoll-subpage-list' => 'Nimikirjutez',
+	'securepoll-subpage-dump' => 'Damp',
 	'securepoll-subpage-tally' => 'Lugemine',
 	'securepoll-tally-title' => 'Lugemine: $1',
 	'securepoll-tally-local-submit' => 'Säta lugemine',
