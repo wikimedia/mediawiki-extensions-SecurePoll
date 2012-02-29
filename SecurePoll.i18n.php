@@ -3349,11 +3349,16 @@ Käsk: $1
 Tõrge:
 <pre>$2</pre>',
 	'securepoll-gpg-config-error' => 'GPG-võtmed on valesti üles seatud.',
+	'securepoll-gpg-parse-error' => 'Tõrge GPG-väljundandmete tõlgendamisel.',
 	'securepoll-no-decryption-key' => 'Dekrüptimise võtit ei ole valmis seatud.
 Ei saa dekrüptida.',
 	'securepoll-jump' => 'Mine hääletamise serverisse',
 	'securepoll-bad-ballot-submission' => 'Sinu hääl oli vigane: $1',
 	'securepoll-unanswered-questions' => 'Vastata tuleb kõigile küsimustele.',
+	'securepoll-invalid-rank' => 'Vigane järjestus. Kandidaatidele antud järjekorranumbrid peavad jääma 1 ja 999 vahele.',
+	'securepoll-unranked-options' => 'Mõned valitavad jäid järjestamata.
+Pead kõigile valitavatele andma 1 ja 999 vahele jääva järjekorranumbri.',
+	'securepoll-invalid-score' => 'Punktisumma peab olema number $1 ja $2 vahel.',
 	'securepoll-unanswered-options' => 'Pead kõigile küsimustele vastama.',
 	'securepoll-remote-auth-error' => 'Tõrge serverist sinu andmete saamisel.',
 	'securepoll-remote-parse-error' => 'Tõrge serverist saadud volitusvastuse tõlgendamisel.',
@@ -3427,6 +3432,7 @@ Sa võid üle lugeda kas andmebaasis olevad tulemused või üleslaaditavas faili
 	'securepoll-dump-corrupt' => 'Tõmmisfail on rikutud ja seda ei saa kasutada.',
 	'securepoll-tally-upload-error' => 'Tõrge tõmmisfaili arvestamisel: $1',
 	'securepoll-ranks' => 'Lõplik pingerida',
+	'securepoll-average-score' => 'Keskmine punktisumma',
 	'securepoll-round' => '$1 voor',
 	'securepoll-spoilt' => '(Rikutud)',
 );
