@@ -7106,7 +7106,7 @@ $1',
 	'securepoll-strike-error' => 'Грешка при извршување на црта/врати црта: $1',
 	'securepoll-strike-token-mismatch' => 'Сесиските податоци се изгубени',
 	'securepoll-details-link' => 'Подробно',
-	'securepoll-details-title' => 'Детали за гласот: #$1',
+	'securepoll-details-title' => 'Подробности за гласањето: #$1',
 	'securepoll-invalid-vote' => '„$1“ е претставува важечка гласачка назнака',
 	'securepoll-header-id' => 'Назнака',
 	'securepoll-header-voter-type' => 'Тип на гласач',
@@ -11833,6 +11833,7 @@ $messages['tpi'] = array(
  * @author Joseph
  * @author Koc61
  * @author Noumenon
+ * @author Suelnur
  * @author Vito Genovese
  */
 $messages['tr'] = array(
@@ -11892,9 +11893,9 @@ Tüm seçeneklere 1 ile 999 arasında bir derece vermelisiniz.',
 	'securepoll-api-token-mismatch' => 'Güvenlik simgesi uyuşmuyor, giriş yapılamıyor.',
 	'securepoll-not-logged-in' => 'Bu seçimde oy kullanmak için giriş yapmanız gerekiyor',
 	'securepoll-too-few-edits' => 'Üzgünüz, oy veremezsiniz. Bu seçimlerde oy kullanmak için en az $1 {{PLURAL:$1|değişiklik|değişiklik}} yapmanız gerekir, sizin $2 değişikliğiniz var.',
-	'securepoll-too-new' => 'Üzgünüz, oyunuz kabul edilmedi. Bu oylamada oy kullanabilmek için hesabınızın $1 tarihinden önce açılmış olması gerekiyor. Siz $2 tarihinde kayıt olmuşsunuz.',
+	'securepoll-too-new' => 'Üzgünüz, oy kullanamazsınız. Bu seçimde oy kullanabilmek için hesabınızın $1 $3 tarihinden önce kaydedilmiş olması gerekiyor. Siz $2 $4 tarihinde kayıt olmuşsunuz.',
 	'securepoll-blocked' => 'Üzgünüz, eğer şu anda değişiklik yapmaya engellenmiş iseniz bu seçimlerde oy kullanamazsınız.',
-	'securepoll-blocked-centrally' => 'Üzgünüz, eğer $1 ya da daha fazla vikide engelliyseniz, bu oylamada oy kullanamazsınız.',
+	'securepoll-blocked-centrally' => 'Üzgünüz, en az $1 {{PLURAL:$1|viki|viki}} de engellendiyseniz, bu seçimde oy kullanamazsınız.',
 	'securepoll-bot' => 'Üzgünüz, bot olarak işaretli hesaplar bu seçimde oy kullanamaz.',
 	'securepoll-not-in-group' => 'Bu seçimlerde sadece $1 grubu üyeleri oy verebilir.',
 	'securepoll-not-in-list' => 'Üzgünüz, bu seçimde oy kullanmaya yetkili öntanımlı kullanıcılar listesinde değilsiniz.',
