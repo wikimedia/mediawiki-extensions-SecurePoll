@@ -6187,6 +6187,7 @@ $wgSecurePollShowErrorDetail=true; LocalSettings.php-ში დამატე�
 	'securepoll-strength-matrix' => 'გზის სიმძლავრის მატრიცა',
 	'securepoll-ranks' => 'საბოლოო ადგილები',
 	'securepoll-average-score' => 'საშუალო შედეგი',
+	'securepoll-round' => '$1 რაუნდი',
 	'securepoll-spoilt' => '(არასწორი)',
 	'securepoll-exhausted' => '(დასრულდა)',
 );
