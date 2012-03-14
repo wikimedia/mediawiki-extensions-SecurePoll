@@ -6590,8 +6590,8 @@ $messages['lb'] = array(
 Si fänke viraussiichtlech den $2 ëm $3 un.',
 	'securepoll-finished' => 'Dës Wale sinn eriwwer, Dir kënnt net méi ofstëmmen.',
 	'securepoll-not-qualified' => 'Dir sidd net qualifizéiert fir bäi dëse Walen ofzestëmmen: $1',
-	'securepoll-change-disallowed' => 'Dir hutt bäi dëse Walen virdru schonn ofgestëmmt.
-Pardon, mee dir däerft net nach eng Kéier ofstëmmen.',
+	'securepoll-change-disallowed' => 'Dir hutt bäi dëse Wale virdru schonn ofgestëmmt.
+Pardon, mä dir däerft net nach eng Kéier ofstëmmen.',
 	'securepoll-change-allowed' => '<strong>Hiweis: Dir hutt bei dëse Wale schonn ofgestëmmt</strong>
 Dir kënnt Är Stëmm änneren, andeems Dir de Formulaire heiënnendrënner fortschéckt.
 Wann Dir dat maacht, gëtt Är vireg Stëmm iwwerschriwwen.',
@@ -9139,6 +9139,8 @@ $1',
  * @author Ahmed-Najib-Biabani-Ibrahimkhel
  */
 $messages['ps'] = array(
+	'securepoll-invalid-page' => 'ناسم څېرمه مخ "<nowiki>$1</nowiki>"',
+	'securepoll-welcome' => '<strong> $1 ښه راغلۍ!</strong>',
 	'securepoll-submit' => 'رايه سپارل',
 	'securepoll-thanks' => 'له تاسې نه مننه، ستاسې رايه ثبته شوه.',
 	'securepoll-return' => '$1 ته ورګرځېدل',
@@ -9155,6 +9157,8 @@ $messages['ps'] = array(
 	'securepoll-details-link' => 'ځانګړنې',
 	'securepoll-header-reason' => 'سبب',
 	'securepoll-header-admin' => 'پازوال',
+	'securepoll-translate-title' => 'ژباړل: $1',
+	'securepoll-invalid-language' => 'د ژبې ناسم کوډ "$1"',
 	'securepoll-submit-translate' => 'اوسمهالول',
 	'securepoll-language-label' => 'ژبه ټاکل:',
 	'securepoll-submit-select-lang' => 'ژباړل',
