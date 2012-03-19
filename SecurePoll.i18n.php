@@ -10485,6 +10485,7 @@ Cannot decrypt.',
 /** Slovak (Slovenčina)
  * @author Helix84
  * @author Rudko
+ * @author Teslaton
  */
 $messages['sk'] = array(
 	'securepoll' => 'Zabezpečené hlasovanie',
@@ -10499,7 +10500,7 @@ Začiatok je naplánovaný na $2 $3.',
 	'securepoll-finished' => 'Toto hlasovanie skončilo. Už nemôžete hlasovať.',
 	'securepoll-not-qualified' => 'Nekvalifikujete sa do tohto hlasovania: $1',
 	'securepoll-change-disallowed' => 'V tomto hlasovaní ste už hlasovali.
-Je mi ľúto, nemôžete znova voliť.',
+Ľutujeme, znova hlasovať nemôžete.',
 	'securepoll-change-allowed' => '<strong>Pozn.: V tomto hlasovaní ste už hlasovali.</strong>
 Svoj hlas môžete zmeniť zaslaním dolu uvedeného formulára.
 Ak tak spravíte, váš pôvodný hlas sa zahodí.',
@@ -10542,11 +10543,13 @@ Musíte dať každej možnosti hodnotenie medzi 1 a 999.',
 	'securepoll-api-no-user' => 'Nebol nájdený žiadny používateľ so zadaným ID.',
 	'securepoll-api-token-mismatch' => 'Bezpečnostné identifikátory sa nezhodujú, nie je možné prihlásiť.',
 	'securepoll-not-logged-in' => 'Aby ste mohli hlasovať, musíte sa prihlásiť',
-	'securepoll-too-few-edits' => 'Prepáčte, nemôžete hlasovať. Aby ste sa mohli zúčastniť tohto hlasovania, museli by ste mať aspoň $1 {{PLURAL:$1|úpravu|úpravy|úprav}}. Máte $2 {{PLURAL:$2|úpravu|úpravy|úprav}}.',
-	'securepoll-blocked' => 'Prepáčte, tohto hlasovania sa nemôžete zúčastniť, pretože ste momentálne zablokovaný.',
-	'securepoll-bot' => 'Ľutujem, účty s príznakom bot nemôžu v tomto hlasovaní hlasovať.',
+	'securepoll-too-few-edits' => 'Ľutujeme, nemôžete hlasovať. Aby ste sa mohli zúčastniť tohto hlasovania, museli by ste mať aspoň $1 {{PLURAL:$1|úpravu|úpravy|úprav}}, vy máte $2.',
+	'securepoll-too-new' => 'Ľutujeme, nemôžete hlasovať. Pre účasť v tomto hlasovaní by váš účet musel byť založený pred $1 $3, {{gender:|zaregistroval|zaregistrovala|zaregistrovali}} ste se však $2 o $4.',
+	'securepoll-blocked' => 'Ľutujeme, tohto hlasovania sa nemôžete zúčastniť, pretože ste momentálne zablokovaný.',
+	'securepoll-blocked-centrally' => 'Ľutujeme, tohoto hlasovania sa nemôžete zúčastnit, pretože ste {{gender:|zablokovaný|zablokovaná|zablokovaní}} na minimálne $1 wiki.',
+	'securepoll-bot' => 'Ľutujeme, účty s príznakom bot nemôžu v tomto hlasovaní hlasovať.',
 	'securepoll-not-in-group' => 'Tohto hlasovania sa môžu zúčastniť iba členovia skuupiny $1.',
-	'securepoll-not-in-list' => 'Prepáčte, nenáchádzate sa na vopred určenom zozname používateľov oprávnených zúčastniť sa tohto hlasovania.',
+	'securepoll-not-in-list' => 'Ľutujeme, nenáchádzate sa na vopred určenom zozname používateľov oprávnených zúčastniť sa tohto hlasovania.',
 	'securepoll-list-title' => 'Zoznam hlasov: $1',
 	'securepoll-header-timestamp' => 'Čas',
 	'securepoll-header-voter-name' => 'Meno',
@@ -10593,7 +10596,7 @@ Aby sa zachovalo súkromie hlasujúcich, šifrovaný záznam o voľbách je vere
 	'securepoll-subpage-dump' => 'Výpis',
 	'securepoll-subpage-tally' => 'Zistiť výsledok',
 	'securepoll-tally-title' => 'Zistiť výsledok: $1',
-	'securepoll-tally-not-finished' => 'Ľutujem, nemôžete zistiť výsledok hlasovania, kým nebude dokončené.',
+	'securepoll-tally-not-finished' => 'Ľutujeme, nemôžete zistiť výsledok hlasovania, kým nebude dokončené.',
 	'securepoll-can-decrypt' => 'Záznam o hlasovaní bol zašifrovaný, ale dešifrovací kľúč je k dispozícii.
 Môžete buď zistiť výsledok hlasovania z výsledkov dostupných v databáze alebo zo zašifrovaných výsledkov v nahranom súbore.',
 	'securepoll-tally-no-key' => 'Nemôžete zistiť výsledok hlasovania, pretože hlasy sú zašifrované a dešifrovací kľúč nie je k dispozícii.',
@@ -10609,6 +10612,9 @@ Môžete buď zistiť výsledok hlasovania z výsledkov dostupných v databáze 
 	'securepoll-strength-matrix' => 'Párová matica sily',
 	'securepoll-ranks' => 'Finálne hodnotenie',
 	'securepoll-average-score' => 'Priemerné skóre',
+	'securepoll-round' => '$1. kolo',
+	'securepoll-spoilt' => '(neplatné)',
+	'securepoll-exhausted' => '(vyčerpané)',
 );
 
 /** Slovenian (Slovenščina)
@@ -10679,7 +10685,7 @@ Vsem možnostim morate določiti uvrstitev med 1 in 999.',
 	'securepoll-not-in-list' => 'Oprostite, vendar niste na predpripravljenem seznamu uporabnikov, ki so pooblaščeni za voljenje na teh volitvah.',
 	'securepoll-list-title' => 'Seznam glasov: $1',
 	'securepoll-header-timestamp' => 'Čas',
-	'securepoll-header-voter-name' => 'Uporabnik',
+	'securepoll-header-voter-name' => 'Ime',
 	'securepoll-header-voter-domain' => 'Domena',
 	'securepoll-header-ua' => 'Uporabniški agent',
 	'securepoll-header-cookie-dup' => 'Dvoj',
