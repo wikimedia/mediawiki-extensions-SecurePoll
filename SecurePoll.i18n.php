@@ -2626,6 +2626,7 @@ Sie können zwischen der Zählung der aktuellen Ergebnisse in der Datenbank und 
 
 /** Zazaki (Zazaki)
  * @author Aspar
+ * @author Erdemaslancan
  * @author Mirzali
  * @author Xoser
  */
@@ -2751,6 +2752,8 @@ qey idame kerdışi pinaniyê reydayoxi, eke pawıte bo a beno.',
 	'securepoll-strength-matrix' => 'matrisê quwwetê rayi',
 	'securepoll-ranks' => 'rêzkerdışa peyin',
 	'securepoll-average-score' => 'Puanê miyanin',
+	'securepoll-round' => 'Round $1',
+	'securepoll-spoilt' => '(Xırabo)',
 );
 
 /** Lower Sorbian (Dolnoserbski)
@@ -6099,6 +6102,11 @@ $messages['ka'] = array(
 ვწუხვართ, მაგრამ თქვენ ვეღარ მისცემთ ხმას მეორედ.',
 	'securepoll-change-allowed' => '<strong>შენიშვნა: თქვენ უკვე გაქვთ მიცემული ხმა ამ არჩევნებში.</strong> თქვენ შეგიძლიათ შეცვალოთ თქვენი არჩევანი ქვემოთ მოცემული ფორმის შევსებით. გაითვალისწინეთ, რომ თუ თქვენ ასე მოიქცევით, თქვენი პირვანდელი არჩევანი გაუქმდება.',
 	'securepoll-submit' => 'ხმის მიცემა',
+	'securepoll-gpg-receipt' => 'მადლობას გიხდით არჩევნებში მონაწილეობისათვის.
+
+სურვილის შემთხვევაში, თქვენ შეგიძლიათ შეინახოთ შემდეგი ველები თქვენი ხმის დასადასტურებლად:
+
+<pre>$1</pre>',
 	'securepoll-thanks' => 'გმადლობთ, თქვენი ხმა მიღებულია.',
 	'securepoll-return' => 'დაბრუნება $1–ზე',
 	'securepoll-encrypt-error' => 'თქვენი ხმის დაშიფრვისას მოხდა შეცდომა.
@@ -6115,21 +6123,27 @@ $wgSecurePollShowErrorDetail=true; LocalSettings.php-ში დამატე�
 შეცდომა:
 <pre>$2</pre>',
 	'securepoll-gpg-config-error' => 'GPG-კოდი არასწორადაა კონფიგურირებული.',
+	'securepoll-gpg-parse-error' => 'შეცდომა GPG-ის გამოტანის ინტერპრეტირებისას.',
 	'securepoll-no-decryption-key' => 'დეშიფრაციის კოდი კონფიგურირებული არაა.
 დეშიფრაცია შეუძლებელია.',
 	'securepoll-jump' => 'ხმის მიცემის სერვერზე გადასვლა',
 	'securepoll-bad-ballot-submission' => 'თქვენი ხმა ძალადაკარგულია: $1',
 	'securepoll-unanswered-questions' => 'თქვენ უნდა უპასუხოთ ყველა შეკითხვას.',
 	'securepoll-invalid-rank' => 'არასწორი ადგილი. თქვენ უნდა მიუთითოთ კანდიდატის ადგილი 1-დან 999-მდე.',
+	'securepoll-unranked-options' => 'ზოგიერთი ჩანაწერი არ არის რანჟირებული.
+თქვენ უნდა მიუთითოთ რანგი 1-დან 999-მდე ყველა ჩანაწერისათვის.',
 	'securepoll-invalid-score' => 'ანგარიში უნდა იყოს რიცხვ $1-სა და $2-ს შორის.',
 	'securepoll-unanswered-options' => 'თქვენ უნდა გასცეთ პასუხი ყოველ კითხვაზე.',
 	'securepoll-remote-auth-error' => 'შეცდომა ანგარიშზე ინფორმაციის მიღებისას სერვერიდან.',
 	'securepoll-remote-parse-error' => 'შეცდომა სერვერის ავტორიზაციის პასუხის ინტერპრეტირებისას.',
 	'securepoll-api-invalid-params' => 'არასწორი პარამეტრები.',
 	'securepoll-api-no-user' => 'მომხმარებელი მითითებული იდენტიფიკატორით ვერ მოიძებნა.',
+	'securepoll-api-token-mismatch' => 'უსაფრთხოების ნიშნის შეუსაბამობა, სისტემაში შესვლა შეუძლებელია.',
 	'securepoll-not-logged-in' => 'ხმის მისაცემად თქვენ უნდა შეხვიდეთ სისტემაში',
 	'securepoll-too-few-edits' => 'უკაცრავად, თქვენ არ შეგიძლიათ ხმის მიცემა. თქვენ განხორციელებული უნდა გქონდეთ მინიმუმ $1 {{PLURAL:$1|რედაქტირება|რედაქტირება}} ამ არჩევნებში ხმის მისაცემად, თქვენ გაქვთ $2.',
+	'securepoll-too-new' => 'სამწუხაროდ, თქვენ არ შეგიძლიათ ხმის მიცემა. არცევნებში მონაწილეობის მისაღებად თქცენი ანგარიში დარეგისტრირებული უნდა იყოს $1 $3-მდე, თქვენ დარეგისტრირდით $2 $4-ში.',
 	'securepoll-blocked' => 'უკაცრავად, თქვენ არ შეგიძლიათ ხმის მიცემა ამ არჩევნებში, თუკი თქვენ ამჟამად დაბლოკილი ხართ.',
+	'securepoll-blocked-centrally' => 'სამწუხაროდ, თქვენ არ შეგიძლიათ ამ არჩევნებში ხმის მიცემა, რადგანაც თქვენ დაბლოკილი ხართ სულ მცირე $1 {{PLURAL:$1|ვიკიში|ვიკიში}}.',
 	'securepoll-bot' => 'უკაცრავად, ანგარიშებს, ბოტის სტატუსით, არ შეუძლიათ ამ არჩევნებში ხმის მიცემა.',
 	'securepoll-not-in-group' => 'მხოლოდ ჯგუფ "$1"-ის წევრებს შეუძლიათ ამ არჩევნებში ხმის მიცემა.',
 	'securepoll-not-in-list' => 'სამწუხაროდ თქვენ არ ხართ იმ მომხმარებელთა სიაში, რომლებსაც ამ არჩევნებში მონაწილეობა შეუძლიათ.',
@@ -6142,8 +6156,10 @@ $wgSecurePollShowErrorDetail=true; LocalSettings.php-ში დამატე�
 	'securepoll-header-strike' => 'გადახაზვა',
 	'securepoll-header-details' => 'დეტალები',
 	'securepoll-strike-button' => 'გადახაზვა',
+	'securepoll-unstrike-button' => 'ამოშლის მოხსნა',
 	'securepoll-strike-reason' => 'მიზეზი:',
 	'securepoll-strike-cancel' => 'გაუქმება',
+	'securepoll-strike-error' => 'შეცდომა ამოშლიასას, ან ამოშლის მოხსნისას: $1',
 	'securepoll-strike-token-mismatch' => 'სესიის მონაცემების დაკარგვა',
 	'securepoll-details-link' => 'დეტალები',
 	'securepoll-details-title' => 'ხმის მიცემის დეტალები: #$1',
@@ -6151,11 +6167,18 @@ $wgSecurePollShowErrorDetail=true; LocalSettings.php-ში დამატე�
 	'securepoll-header-voter-type' => 'ხმის მიმცემის ტიპი',
 	'securepoll-header-url' => 'URL',
 	'securepoll-voter-properties' => 'ამომრჩეველთა თვისებები',
+	'securepoll-strike-log' => 'ამოშლების ჟურნალი',
 	'securepoll-header-action' => 'მოქმედება',
 	'securepoll-header-reason' => 'მიზეზი',
 	'securepoll-header-admin' => 'ადმინი',
 	'securepoll-cookie-dup-list' => 'მომხმარებლები, რომლებმაც ორჯერ მისცეს ხმა',
 	'securepoll-dump-title' => 'დამპი: $1',
+	'securepoll-dump-no-crypt' => 'ხმის მიცემის დაუშიფრავი ჩანაწერები ამ არჩევნებზე ხელმისაწვდომია, რადგან არჩევნები არ არის აწყობილი შიფრის გამოყენებაზე.',
+	'securepoll-dump-not-finished' => 'ხმის მიცემის დაშიფრული ჩანაწერები ხელმისაწვდომი იქნება მხოლოდ კენჭისყრის დასრულების შემდეგ $1 $2',
+	'securepoll-dump-no-urandom' => 'ვერ იხსნება /dev/urandom.
+ამომრჩეველთა კონფიდენციალურობის მიზნით, ხმის მიცემის დაშიფრული ჩანაწერები ყველასათვის ხელმიწავდომი გახდება მხოლოდ მას შემდეგ, რაც მათი თანმიმდევრობა შეიცვლება შემთხვევითი რიცხვების უსაფრთხო წყაროს გამოყენებით.',
+	'securepoll-urandom-not-supported' => 'ამ სერვერს არ აქვს შემთხვევითი რიცხვების კრიპტოგრაფიული გენერირების მხარდაჭერა.
+ხმის მიმცემთა კონფიდენციალურობის დასაცავად, არცევნების კოდირებული ჩანაწერები ყველასათვის ხემისაწვდომი გახდება მხოლოდ მას შემდეგ, რაც ისინი შემთხვევითი რიცხვების უსაფრთხო ნაკადით აირევიან.',
 	'securepoll-translate-title' => 'თარგმნა: $1',
 	'securepoll-invalid-language' => 'არასწორი ენობრივი კოდი «$1»',
 	'securepoll-submit-translate' => 'განახლება',
@@ -8736,6 +8759,18 @@ $messages['pdc'] = array(
 	'securepoll-subpage-list' => 'Lischt',
 );
 
+/** Pälzisch (Pälzisch)
+ * @author Manuae
+ */
+$messages['pfl'] = array(
+	'securepoll-header-timestamp' => 'Zaid',
+	'securepoll-translate-title' => 'Iwasedze: $1',
+	'securepoll-language-label' => 'Schbrooch wähle:',
+	'securepoll-submit-select-lang' => 'Iwasedze',
+	'securepoll-subpage-vote' => 'Wähle',
+	'securepoll-subpage-translate' => 'Iwasedze',
+);
+
 /** Polish (Polski)
  * @author Leinad
  * @author Renessaince
@@ -10544,7 +10579,7 @@ Musíte dať každej možnosti hodnotenie medzi 1 a 999.',
 	'securepoll-api-token-mismatch' => 'Bezpečnostné identifikátory sa nezhodujú, nie je možné prihlásiť.',
 	'securepoll-not-logged-in' => 'Aby ste mohli hlasovať, musíte sa prihlásiť',
 	'securepoll-too-few-edits' => 'Ľutujeme, nemôžete hlasovať. Aby ste sa mohli zúčastniť tohto hlasovania, museli by ste mať aspoň $1 {{PLURAL:$1|úpravu|úpravy|úprav}}, vy máte $2.',
-	'securepoll-too-new' => 'Ľutujeme, nemôžete hlasovať. Pre účasť v tomto hlasovaní by váš účet musel byť založený pred $1 $3, {{gender:|zaregistroval|zaregistrovala|zaregistrovali}} ste se však $2 o $4.',
+	'securepoll-too-new' => 'Ľutujeme, nemôžete hlasovať. Aby ste sa mohli zúčastniť v tomto hlasovaní, musel by váš účet byť založený pred $1 $3, {{gender:|zaregistroval|zaregistrovala|zaregistrovali}} ste se však $2 o $4.',
 	'securepoll-blocked' => 'Ľutujeme, tohto hlasovania sa nemôžete zúčastniť, pretože ste momentálne zablokovaný.',
 	'securepoll-blocked-centrally' => 'Ľutujeme, tohoto hlasovania sa nemôžete zúčastnit, pretože ste {{gender:|zablokovaný|zablokovaná|zablokovaní}} na minimálne $1 wiki.',
 	'securepoll-bot' => 'Ľutujeme, účty s príznakom bot nemôžu v tomto hlasovaní hlasovať.',
