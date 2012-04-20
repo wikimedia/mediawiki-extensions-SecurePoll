@@ -5915,6 +5915,7 @@ Puoi scegliere di effettuare il conteggio dei risultati presenti nel database o 
  * @author Fryed-peach
  * @author Miya
  * @author Schu
+ * @author Shirayuki
  * @author 青子守歌
  */
 $messages['ja'] = array(
@@ -5963,7 +5964,7 @@ $1',
 	'securepoll-remote-parse-error' => 'サーバーからの認証応答の解釈に失敗しました。',
 	'securepoll-api-invalid-params' => 'パラメータが不正です。',
 	'securepoll-api-no-user' => '指定されたIDをもつ利用者が見つかりません。',
-	'securepoll-api-token-mismatch' => 'セキュリティ・トークンが一致しないのでログインできません。',
+	'securepoll-api-token-mismatch' => 'セキュリティ トークンが一致しないためログインできません。',
 	'securepoll-not-logged-in' => 'この投票に参加するためにはログインしていなければいけません',
 	'securepoll-too-few-edits' => '申し訳ありませんが、あなたは投票できません。この投票に参加するためには少なくとも$1{{PLURAL:$1|回}}の編集を行なっていなければなりません。現在の編集回数は$2です。',
 	'securepoll-too-new' => '申し訳ありませんが、あなたは投票できません。この選挙で投票するには、$1 $3 より前にアカウント登録されている必要がありますが、あなたは、$2 $4 にアカウント登録しています。',
@@ -5971,7 +5972,7 @@ $1',
 	'securepoll-blocked-centrally' => '申し訳ありませんが、少なくとも$1 {{PLURAL:$1|ウィキ|ウィキ}}でブロックされているとして、あなたはこの選挙で投票することはできません。',
 	'securepoll-bot' => '申し訳ありませんが、ボットフラグのあるアカウントはこの選挙で投票することが許可されていません。',
 	'securepoll-not-in-group' => '$1グループに属する利用者のみがこの投票に参加できます。',
-	'securepoll-not-in-list' => '申し訳ありませんが、あなたはあらかじめ決められた投票メンバーではないのでこの投票に参加できません。',
+	'securepoll-not-in-list' => 'すみません、あなたはあらかじめ決められた投票メンバーではないためこの投票に参加できません。',
 	'securepoll-list-title' => '票を一覧する: $1',
 	'securepoll-header-timestamp' => '時刻',
 	'securepoll-header-voter-name' => '名前',
