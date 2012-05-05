@@ -6615,7 +6615,7 @@ Si fänke viraussiichtlech den $2 ëm $3 un.',
 	'securepoll-finished' => 'Dës Wale sinn eriwwer, Dir kënnt net méi ofstëmmen.',
 	'securepoll-not-qualified' => 'Dir sidd net qualifizéiert fir bäi dëse Walen ofzestëmmen: $1',
 	'securepoll-change-disallowed' => 'Dir hutt bäi dëse Wale virdru schonn ofgestëmmt.
-Pardon, mä dir däerft net nach eng Kéier ofstëmmen.',
+Pardon, mä Dir däerft net nach eng Kéier ofstëmmen.',
 	'securepoll-change-allowed' => '<strong>Hiweis: Dir hutt bei dëse Wale schonn ofgestëmmt</strong>
 Dir kënnt Är Stëmm änneren, andeems Dir de Formulaire heiënnendrënner fortschéckt.
 Wann Dir dat maacht, gëtt Är vireg Stëmm iwwerschriwwen.',
