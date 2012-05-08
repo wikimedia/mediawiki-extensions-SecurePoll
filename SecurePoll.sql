@@ -148,7 +148,7 @@ CREATE TABLE /*_*/securepoll_votes (
 	vote_record blob not null,
 
 	-- The IP address, in hexadecimal form (IP::toHex())
-	vote_ip varbinary(32) not null,
+	vote_ip varbinary(35) not null,
 
 	-- The X-Forwarded-For header
 	vote_xff varbinary(255) not null,

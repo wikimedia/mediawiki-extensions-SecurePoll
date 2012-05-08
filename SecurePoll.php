@@ -118,3 +118,24 @@ function wfSecurePollLogout( $user ) {
 	$_SESSION['securepoll_voter'] = null;
 	return true;
 }
+
+$wgHooks['LoadExtensionSchemaUpdates'][] = 'efSecurePollSchemaUpdates';
+
+/**
+ * @param $updater DatabaseUpdater
+ * @return bool
+ */
+function efSecurePollSchemaUpdates( $updater ) {
+	$base = dirname( __FILE__ );
+	switch ( $updater->getDB()->getType() ) {
+		case 'mysql':
+			$updater->addExtensionTable( 'securepoll_entity', "$base/SecurePoll.sql" );
+			$updater->modifyField( 'securepoll_votes', 'vote_ip',
+				"$base/patches/patch-vote_ip-extend.sql", true );
+			break;
+		case 'postgres':
+			$updater->addExtensionTable( 'securepoll_entity', "$base/SecurePoll.pg.sql" );
+			break;
+	}
+	return true;
+}
