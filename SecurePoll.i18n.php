@@ -4338,6 +4338,7 @@ $messages['grc'] = array(
 );
 
 /** Swiss German (Alemannisch)
+ * @author Als-Chlämens
  * @author Als-Holder
  */
 $messages['gsw'] = array(
@@ -4345,7 +4346,7 @@ $messages['gsw'] = array(
 	'securepoll-desc' => 'Erwyterig fir Wahlen un Umfroge',
 	'securepoll-invalid-page' => 'Nit giltigi Untersyte „<nowiki>$1</nowiki>“',
 	'securepoll-need-admin' => 'Du muesch e Wahl-Ammann syy go die Aktion durzfiere.',
-	'securepoll-too-few-params' => 'Nit gnue Untersyteparameter (nit giltig Gleich).',
+	'securepoll-too-few-params' => 'Nit gnue Untersyteparameter (nit giltige Link).',
 	'securepoll-invalid-election' => '„$1“ isch kei giltigi Abstimmigs-ID.',
 	'securepoll-welcome' => '<strong>Willchuu $1!</strong>',
 	'securepoll-not-started' => 'Die Wahl het nonig aagfange.
@@ -8244,6 +8245,7 @@ De resultaten kunnen niet geteld worden.',
  * @author Eirik
  * @author Gunnernett
  * @author Harald Khan
+ * @author Njardarlogar
  * @author Ranveig
  */
 $messages['nn'] = array(
@@ -12350,7 +12352,7 @@ Te poli far la conta dei risultati presenti nel database o far la conta dei risu
 	'securepoll-average-score' => 'Puntejo medio',
 );
 
-/** Veps (Vepsän kel')
+/** Veps (Vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
@@ -12392,7 +12394,7 @@ $messages['vep'] = array(
  */
 $messages['vi'] = array(
 	'securepoll' => 'Bỏ phiếu an toàn',
-	'securepoll-desc' => 'Bộ mở rộng dành cho bầu cử và thăm dò ý kiến',
+	'securepoll-desc' => 'Phần mở rộng dành cho bầu cử và thăm dò ý kiến',
 	'securepoll-invalid-page' => 'Trang con không hợp lệ “<nowiki>$1</nowiki>”',
 	'securepoll-need-admin' => 'Chỉ các quản trị viên được bầu mới có quyền thực hiện tác vụ này.',
 	'securepoll-too-few-params' => 'Không đủ thông số trang con (liên kết không hợp lệ).',
