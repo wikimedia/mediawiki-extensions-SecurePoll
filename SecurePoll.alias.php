@@ -58,9 +58,19 @@ $specialPageAliases['frp'] = array(
 	'SecurePoll' => array( 'Voto_sècurisâ', 'VotoSècurisâ' ),
 );
 
+/** Swiss German (Alemannisch) */
+$specialPageAliases['gsw'] = array(
+	'SecurePoll' => array( 'Sicheri_Abstimmig' ),
+);
+
 /** Hebrew (עברית) */
 $specialPageAliases['he'] = array(
 	'SecurePoll' => array( 'הצבעה_מאובטחת' ),
+);
+
+/** Hindi (हिन्दी) */
+$specialPageAliases['hi'] = array(
+	'SecurePoll' => array( 'सुरक्षित_निर्वाचन' ),
 );
 
 /** Croatian (Hrvatski) */
