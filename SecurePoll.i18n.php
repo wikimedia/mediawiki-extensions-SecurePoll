@@ -6284,6 +6284,7 @@ $messages['kn'] = array(
  * @author Kwj2772
  * @author Mhha
  * @author Yknok29
+ * @author 아라
  */
 $messages['ko'] = array(
 	'securepoll' => '비밀 투표',
@@ -6355,14 +6356,14 @@ $1',
 	'securepoll-header-ua' => '유저 에이전트',
 	'securepoll-header-cookie-dup' => '중복',
 	'securepoll-header-strike' => '무효화',
-	'securepoll-header-details' => '세부 사항',
+	'securepoll-header-details' => '자세한 사항',
 	'securepoll-strike-button' => '무효화',
 	'securepoll-unstrike-button' => '무효화 해제',
 	'securepoll-strike-reason' => '이유:',
 	'securepoll-strike-cancel' => '취소',
 	'securepoll-strike-error' => '무효화/해제 과정에서 오류가 발생하였습니다: $1',
 	'securepoll-strike-token-mismatch' => '세션 데이터가 손실되었습니다.',
-	'securepoll-details-link' => '세부 사항',
+	'securepoll-details-link' => '자세한 사항',
 	'securepoll-details-title' => '표 세부 사항: #$1',
 	'securepoll-invalid-vote' => '‘$1’은 정상적인 ID가 아닙니다',
 	'securepoll-header-voter-type' => '투표자 유형',
