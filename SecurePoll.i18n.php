@@ -851,6 +851,7 @@ $1',
 );
 
 /** Assamese (অসমীয়া)
+ * @author Bishnu Saikia
  * @author Chaipau
  * @author Gitartha.bordoloi
  */
@@ -900,10 +901,15 @@ $1',
 	'securepoll-unanswered-questions' => 'আপুনি সকলো প্ৰশ্নৰ উত্তৰ দিবই লাগিব ।',
 	'securepoll-invalid-rank' => 'অপ্ৰযোজ্য স্থান । আপুনি প্ৰাৰ্থীক ১-ৰ পৰা ৯৯৯-ৰ ভিতৰত স্থান দিব লাগিব ।',
 	'securepoll-api-invalid-params' => 'অপ্ৰযোজ্য পাৰামিটাৰ ।',
+	'securepoll-list-title' => 'ভোটৰ তালিকা: $1',
 	'securepoll-header-timestamp' => 'সময়',
 	'securepoll-header-voter-name' => 'নাম',
 	'securepoll-strike-reason' => 'কাৰণ:',
 	'securepoll-strike-cancel' => 'বাতিল কৰক',
+	'securepoll-header-admin' => 'প্ৰশাসক',
+	'securepoll-submit-translate' => 'আপডেট',
+	'securepoll-language-label' => 'ভাষা নির্বাচন:',
+	'securepoll-submit-select-lang' => 'অনুবাদ কৰক',
 	'securepoll-header-title' => 'নাম',
 	'securepoll-subpage-translate' => 'ভাঙনি কৰক',
 	'securepoll-subpage-list' => 'তালিকা',
