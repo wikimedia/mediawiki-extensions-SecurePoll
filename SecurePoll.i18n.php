@@ -909,6 +909,7 @@ $1',
 	'securepoll-remote-parse-error' => 'চাৰ্ভাৰৰ পৰা নিশ্চিতকৰণ সঁহাৰি পোৱাত ত্ৰুটী হৈছে।',
 	'securepoll-api-invalid-params' => 'অপ্ৰযোজ্য পাৰামিটাৰ ।',
 	'securepoll-api-no-user' => "প্ৰদান কৰা আইডি ৰে কোনো সদস্য পোৱা নগ'ল।",
+	'securepoll-api-token-mismatch' => 'নিৰাপত্তা টোকন মিলা নাই। প্ৰৱেশ কৰা সম্ভৱ নহয়।',
 	'securepoll-not-logged-in' => 'এই নিৰ্বাচনত ভোটদান কৰিবৰ বাবে আপুনি প্ৰৱেশ কৰাটো আৱশ্যক',
 	'securepoll-bot' => 'দুঃখিত, বট ফ্লেগযুক্ত একাউন্ট এই নিৰ্বাচনত ভোট প্ৰদানৰ বাবে উপযুক্ত নহয়।',
 	'securepoll-not-in-group' => 'কেৱলমাত্ৰ "$1" অধিকাৰপ্ৰাপ্ত সদস্যসকলেহে এই নিৰ্বাচনত ভোট দিব পাৰে।',
@@ -958,6 +959,8 @@ $1',
 	'securepoll-tally-error' => 'ভোটৰ অথ্য বিশ্লেষণৰ সময় ক্ৰুটি দেখা দিছে, হিচাপ তৈয়াৰ কৰা অসম্ভৱ।',
 	'securepoll-no-upload' => 'কোনো ফাইল আপলোড কৰা হোৱা নাই, ফলাফল গণনা কৰা অসম্ভৱ।',
 	'securepoll-ranks' => 'চূড়ান্ত স্থানাংক',
+	'securepoll-average-score' => 'গড় নম্বৰ',
+	'securepoll-round' => 'ৰাউণ্ড $1',
 );
 
 /** Asturian (Asturianu)
