@@ -889,7 +889,7 @@ $1',
 সবিশেষ জানিবলৈ আপোনাৰ LocalSettings.phpত $wgSecurePollShowErrorDetail=true; ব্যৱহাৰ কৰক ।',
 	'securepoll-full-gpg-error' => 'জি.পি.জি. সম্পন্ন কৰাত ত্ৰুটি দেখা দিছে :
 
-কমাণ্ড: $1
+আদেশ: $1
 
 ত্ৰুটি:
 <pre>$2</pre>',
@@ -903,7 +903,7 @@ $1',
 	'securepoll-invalid-rank' => 'অপ্ৰযোজ্য স্থান । আপুনি প্ৰাৰ্থীক ১-ৰ পৰা ৯৯৯-ৰ ভিতৰত স্থান দিব লাগিব ।',
 	'securepoll-unranked-options' => 'কিছুমান বিকল্পৰ ৰেংক দিয়া হোৱা নাই।
 আপুনি সকলো বিকল্পকে ১ আৰু ৯৯৯ৰ মাজত এটা ৰেংক দিব লাগিব।',
-	'securepoll-invalid-score' => "স্ক'ৰ $1 আৰু $2ৰ ভিতৰত এটা সংখ্যা হ'ব লাগিব।",
+	'securepoll-invalid-score' => "নম্বৰ $1 আৰু $2ৰ ভিতৰত এটা সংখ্যা হ'ব লাগিব।",
 	'securepoll-unanswered-options' => 'আপুনি প্ৰতিটো প্ৰশ্নৰে এটা উত্তৰ দিব লাগিব।',
 	'securepoll-remote-auth-error' => 'চাৰ্ভাৰৰ পৰা আপোনাৰ একাউণ্টৰ তথ্য গ্ৰহণ কৰোঁতে কিছু ত্ৰুটী হৈছে।',
 	'securepoll-remote-parse-error' => 'চাৰ্ভাৰৰ পৰা নিশ্চিতকৰণ সঁহাৰি পোৱাত ত্ৰুটী হৈছে।',
