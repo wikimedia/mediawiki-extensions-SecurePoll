@@ -2810,6 +2810,7 @@ qey idame kerdışi pinaniyê reydayoxi, eke pawıte bo a beno.',
 	'securepoll-average-score' => 'Puanê miyanin',
 	'securepoll-round' => 'Round $1',
 	'securepoll-spoilt' => '(Xırabo)',
+	'securepoll-exhausted' => '(Bêkeyf)',
 );
 
 /** Lower Sorbian (Dolnoserbski)
