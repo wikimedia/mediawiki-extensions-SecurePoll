@@ -23,12 +23,12 @@ $specialPageAliases['arz'] = array(
 	'SecurePoll' => array( 'استطلاع_رأى_امان' ),
 );
 
-/** Czech (Česky) */
+/** Czech (česky) */
 $specialPageAliases['cs'] = array(
 	'SecurePoll' => array( 'Bezpečné_hlasování' ),
 );
 
-/** Danish (Dansk) */
+/** Danish (dansk) */
 $specialPageAliases['da'] = array(
 	'SecurePoll' => array( 'Sikker_afstemning' ),
 );
@@ -36,6 +36,11 @@ $specialPageAliases['da'] = array(
 /** German (Deutsch) */
 $specialPageAliases['de'] = array(
 	'SecurePoll' => array( 'Sichere_Abstimmung' ),
+);
+
+/** Zazaki (Zazaki) */
+$specialPageAliases['diq'] = array(
+	'SecurePoll' => array( 'DolaEmeley' ),
 );
 
 /** Lower Sorbian (Dolnoserbski) */
@@ -48,12 +53,12 @@ $specialPageAliases['fa'] = array(
 	'SecurePoll' => array( 'رای‌گیری_ایمن' ),
 );
 
-/** French (Français) */
+/** French (français) */
 $specialPageAliases['fr'] = array(
 	'SecurePoll' => array( 'Vote_sécurisé' ),
 );
 
-/** Franco-Provençal (Arpetan) */
+/** Franco-Provençal (arpetan) */
 $specialPageAliases['frp'] = array(
 	'SecurePoll' => array( 'Voto_sècurisâ', 'VotoSècurisâ' ),
 );
@@ -73,7 +78,7 @@ $specialPageAliases['hi'] = array(
 	'SecurePoll' => array( 'सुरक्षित_निर्वाचन' ),
 );
 
-/** Croatian (Hrvatski) */
+/** Croatian (hrvatski) */
 $specialPageAliases['hr'] = array(
 	'SecurePoll' => array( 'Sigurno_glasovanje' ),
 );
@@ -88,7 +93,7 @@ $specialPageAliases['ht'] = array(
 	'SecurePoll' => array( 'SondajSekirize' ),
 );
 
-/** Interlingua (Interlingua) */
+/** Interlingua (interlingua) */
 $specialPageAliases['ia'] = array(
 	'SecurePoll' => array( 'Voto_secur' ),
 );
@@ -113,7 +118,7 @@ $specialPageAliases['lb'] = array(
 	'SecurePoll' => array( 'Sécher_Ofstëmmung' ),
 );
 
-/** Macedonian (Македонски) */
+/** Macedonian (македонски) */
 $specialPageAliases['mk'] = array(
 	'SecurePoll' => array( 'БезбедноГласање' ),
 );
@@ -128,7 +133,7 @@ $specialPageAliases['mr'] = array(
 	'SecurePoll' => array( 'सुरक्षीतकौल' ),
 );
 
-/** Norwegian Bokmål (‪Norsk (bokmål)‬) */
+/** Norwegian Bokmål (‪norsk (bokmål)‬) */
 $specialPageAliases['nb'] = array(
 	'SecurePoll' => array( 'Sikker_avstemning' ),
 );
@@ -143,17 +148,22 @@ $specialPageAliases['nl'] = array(
 	'SecurePoll' => array( 'BeveiligdStemmen' ),
 );
 
-/** Occitan (Occitan) */
+/** Occitan (occitan) */
 $specialPageAliases['oc'] = array(
 	'SecurePoll' => array( 'Vòte securizat' ),
 );
 
-/** Polish (Polski) */
+/** Polish (polski) */
 $specialPageAliases['pl'] = array(
 	'SecurePoll' => array( 'Bezpieczne_głosowanie' ),
 );
 
-/** Slovak (Slovenčina) */
+/** Russian (русский) */
+$specialPageAliases['ru'] = array(
+	'SecurePoll' => array( 'Защищённое_голосование' ),
+);
+
+/** Slovak (slovenčina) */
 $specialPageAliases['sk'] = array(
 	'SecurePoll' => array( 'BezpečnéHlasovanie' ),
 );
@@ -173,12 +183,12 @@ $specialPageAliases['yi'] = array(
 	'SecurePoll' => array( 'זיכערע_שטימונג' ),
 );
 
-/** Simplified Chinese (‪中文(简体)‬) */
+/** Simplified Chinese (‪中文（简体）‬) */
 $specialPageAliases['zh-hans'] = array(
 	'SecurePoll' => array( '安全投票' ),
 );
 
-/** Traditional Chinese (‪中文(繁體)‬) */
+/** Traditional Chinese (‪中文（繁體）‬) */
 $specialPageAliases['zh-hant'] = array(
 	'SecurePoll' => array( '安全投票' ),
 );
