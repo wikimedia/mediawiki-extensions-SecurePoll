@@ -968,7 +968,7 @@ $1',
 	'securepoll-round' => 'ৰাউণ্ড $1',
 );
 
-/** Asturian (Asturianu)
+/** Asturian (asturianu)
  * @author Xuacu
  */
 $messages['ast'] = array(
@@ -1101,7 +1101,7 @@ Puedes escoyer ente escrutar los resultaos de la base de datos, o escrutar los r
 	'securepoll-exhausted' => '(Agotaos)',
 );
 
-/** Azerbaijani (Azərbaycanca)
+/** Azerbaijani (azərbaycanca)
  * @author Cekli829
  * @author Vago
  * @author Vugar 1981
@@ -1280,7 +1280,7 @@ $1',
 	'securepoll-average-score' => 'Уртаса баһа',
 );
 
-/** Belarusian (Беларуская)
+/** Belarusian (беларуская)
  * @author Тест
  */
 $messages['be'] = array(
@@ -1424,7 +1424,7 @@ $1',
 	'securepoll-exhausted' => '(вычарпаныя)',
 );
 
-/** Bulgarian (Български)
+/** Bulgarian (български)
  * @author DCLXVI
  * @author Spiritia
  * @author Turin
@@ -1671,7 +1671,7 @@ $1',
 	'securepoll-average-score' => 'গড় স্কোর',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fulup
  * @author Y-M D
  */
@@ -1805,7 +1805,7 @@ Gallout a rit kontañ an disoc'hoù adal an diaz roadennoù pe adal ur restr enp
 	'securepoll-exhausted' => '(Diviet)',
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author CERminator
  * @author Seha
  */
@@ -1938,7 +1938,7 @@ Možete da izvršite prebrojavanje glasova koji su prisutni u bazi podataka ili 
 	'securepoll-exhausted' => '(Iskorišteno)',
 );
 
-/** Catalan (Català)
+/** Catalan (català)
  * @author Aleator
  * @author Cbrown1023
  * @author Góngora
@@ -2090,13 +2090,13 @@ $messages['ce'] = array(
 	'securepoll-header-admin' => 'Адманкуьйгалхо',
 );
 
-/** Sorani (کوردی) */
+/** Sorani Kurdish (کوردی) */
 $messages['ckb'] = array(
 	'securepoll-strike-reason' => 'هۆکار:',
 	'securepoll-header-reason' => 'هۆکار',
 );
 
-/** Czech (Česky)
+/** Czech (česky)
  * @author Mormegil
  */
 $messages['cs'] = array(
@@ -2362,7 +2362,7 @@ Gallwch naill ai gyfrif y canlyniadau sydd yn y bas data, neu gallwch gyfrif y c
 	'securepoll-exhausted' => '(Wedi dihysbyddu)',
 );
 
-/** Danish (Dansk)
+/** Danish (dansk)
  * @author Byrial
  * @author Christian List
  * @author Kaare
@@ -3226,7 +3226,7 @@ Vi povas elekti nombri ĉu la rezultojn el la datumbazo, ĉu ĉifritajn rezultoj
 	'securepoll-exhausted' => '(Finita)',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Armando-Martin
  * @author Crazymadlover
  * @author Dferg
@@ -3368,7 +3368,7 @@ Puede escoger entre escrutar los resultados de la base de datos, o escrutar los 
 	'securepoll-exhausted' => '(Agotado)',
 );
 
-/** Estonian (Eesti)
+/** Estonian (eesti)
  * @author Avjoska
  * @author Pikne
  * @author WikedKentaur
@@ -3500,7 +3500,7 @@ Sa võid üle lugeda kas andmebaasis olevad tulemused või üleslaaditavas faili
 	'securepoll-spoilt' => '(Rikutud)',
 );
 
-/** Basque (Euskara)
+/** Basque (euskara)
  * @author An13sa
  * @author Joxemai
  * @author Kobazulo
@@ -3749,7 +3749,7 @@ $1',
 	'securepoll-exhausted' => '(خسته)',
 );
 
-/** Finnish (Suomi)
+/** Finnish (suomi)
  * @author Cimon Avaro
  * @author Crt
  * @author Nike
@@ -3887,7 +3887,7 @@ Voit valita tuloslaskennan tietokantatiedoista, tai salakirjoitetuista tuloksist
 	'securepoll-exhausted' => '(Ei käytetty)',
 );
 
-/** Faroese (Føroyskt)
+/** Faroese (føroyskt)
  * @author EileenSanda
  */
 $messages['fo'] = array(
@@ -3915,7 +3915,7 @@ $messages['fo'] = array(
 	'securepoll-subpage-list' => 'Listi',
 );
 
-/** French (Français)
+/** French (français)
  * @author Crochet.david
  * @author Gomoko
  * @author IAlex
@@ -4061,7 +4061,7 @@ Vous pouvez choisir de compter les résultats depuis la base de données ou depu
 	'securepoll-exhausted' => '(Épuisé)',
 );
 
-/** Franco-Provençal (Arpetan)
+/** Franco-Provençal (arpetan)
  * @author Cedric31
  * @author ChrisPtDe
  */
@@ -4197,7 +4197,7 @@ Vos pouede chouèsir de comptar los rèsultats dês la bâsa de balyês ou ben d
 	'securepoll-exhausted' => '(Èpouesiê)',
 );
 
-/** Friulian (Furlan)
+/** Friulian (furlan)
  * @author Akaahdudeson
  * @author Klenje
  */
@@ -4966,7 +4966,7 @@ $1',
 	'securepoll-exhausted' => '(समाप्त)',
 );
 
-/** Croatian (Hrvatski)
+/** Croatian (hrvatski)
  * @author Anton008
  * @author Bugoslav
  * @author Ex13
@@ -5236,7 +5236,7 @@ Móžeš pak wuslědki w datowej bance ličić pak zaklučowane wuslědki z nahr
 	'securepoll-exhausted' => '(Wučerpany)',
 );
 
-/** Hungarian (Magyar)
+/** Hungarian (magyar)
  * @author Bdamokos
  * @author Cassandro
  * @author Cbrown1023
@@ -5376,7 +5376,7 @@ Választhatod az adatbázisban szereplő eredmények összesítését vagy a tit
 	'securepoll-exhausted' => '(Kiesett)',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -5813,7 +5813,7 @@ $messages['io'] = array(
 	'securepoll-subpage-list' => 'Listo',
 );
 
-/** Icelandic (Íslenska)
+/** Icelandic (íslenska)
  * @author Spacebirdy
  */
 $messages['is'] = array(
@@ -5827,7 +5827,7 @@ $messages['is'] = array(
 	'securepoll-subpage-translate' => 'Þýða',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Aushulz
  * @author Beta16
  * @author BrokenArrow
@@ -6930,7 +6930,7 @@ Doe kins de in de database besjikbare resultate telle, of de resultate oet 'n be
 	'securepoll-exhausted' => '(Verloupe)',
 );
 
-/** Lithuanian (Lietuvių)
+/** Lithuanian (lietuvių)
  * @author Homo
  * @author Matasg
  * @author Perkunas
@@ -7065,14 +7065,14 @@ Galite pasirinkti, ar sutampa rezultatai, esantys duomenų bazėje bei rezultatu
 	'securepoll-exhausted' => '(Išnaudota)',
 );
 
-/** Latgalian (Latgaļu)
+/** Latgalian (latgaļu)
  * @author Dark Eagle
  */
 $messages['ltg'] = array(
 	'securepoll-submit-translate' => 'Atjaunynuot',
 );
 
-/** Latvian (Latviešu)
+/** Latvian (latviešu)
  * @author GreenZeb
  * @author Papuass
  */
@@ -7109,7 +7109,7 @@ $messages['lv'] = array(
 	'securepoll-average-score' => 'Vidējais rezultāts',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  * @author Brest
  * @author Rancher
@@ -7379,7 +7379,7 @@ $1',
 	'securepoll-exhausted' => '(തീർന്നവ)',
 );
 
-/** Mongolian (Монгол)
+/** Mongolian (монгол)
  * @author Chinneeb
  */
 $messages['mn'] = array(
@@ -8302,7 +8302,7 @@ De resultaten kunnen niet geteld worden.',
 	'securepoll-exhausted' => '(Verlopen)',
 );
 
-/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
  * @author Eirik
  * @author Gunnernett
  * @author Harald Khan
@@ -8412,7 +8412,7 @@ Du kan velja å anten telja opp resultata tilgjengelege i databasen, eller å te
 	'securepoll-no-upload' => 'Ingen fil vart lasta opp, kan ikkje summera resultata.',
 );
 
-/** Occitan (Occitan)
+/** Occitan (occitan)
  * @author Boulaur
  * @author Cedric31
  * @author Jfblanc
@@ -8835,7 +8835,7 @@ $messages['pfl'] = array(
 	'securepoll-subpage-translate' => 'Iwasedze',
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author Leinad
  * @author Renessaince
  * @author Saper
@@ -9269,7 +9269,7 @@ $messages['ps'] = array(
 	'securepoll-subpage-list' => 'لړليک',
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author Capmo
  * @author Crazymadlover
  * @author Everton137
@@ -9410,7 +9410,7 @@ Pode escolher entre apurar os resultados presentes na base de dados, ou apurar r
 	'securepoll-exhausted' => '(Esgotadas)',
 );
 
-/** Brazilian Portuguese (Português do Brasil)
+/** Brazilian Portuguese (português do Brasil)
  * @author Capmo
  * @author Eduardo.mps
  * @author Everton137
@@ -9586,7 +9586,7 @@ $messages['qu'] = array(
 	'securepoll-average-score' => 'Kuskanchaku taripasqakuna',
 );
 
-/** Romanian (Română)
+/** Romanian (română)
  * @author AdiJapan
  * @author Cin
  * @author Firilacroco
@@ -9723,7 +9723,7 @@ Puteți alege fie să efectuați numărătoarea rezultatelor din baza de date, f
 	'securepoll-exhausted' => '(Epuizate)',
 );
 
-/** Tarandíne (Tarandíne)
+/** tarandíne (tarandíne)
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
@@ -9854,7 +9854,7 @@ Tu puè scacchià o de fà 'u condegge de le vote da 'u database oppure ausanne 
 	'securepoll-exhausted' => '(Esaurite)',
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author Dim Grits
  * @author HalanTul
  * @author Kaganer
@@ -10155,7 +10155,7 @@ $messages['sa'] = array(
 	'securepoll-subpage-list' => 'सूची',
 );
 
-/** Sakha (Саха тыла)
+/** Sakha (саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(
@@ -10283,7 +10283,7 @@ $wgSecurePollShowErrorDetail=true; туруоруутун LocalSettings.php би
 	'securepoll-average-score' => 'Ортоку сыана',
 );
 
-/** Sardinian (Sardu)
+/** Sardinian (sardu)
  * @author Andria
  * @author Marzedu
  */
@@ -10292,7 +10292,7 @@ $messages['sc'] = array(
 	'securepoll-header-title' => 'Nùmene',
 );
 
-/** Sicilian (Sicilianu)
+/** Sicilian (sicilianu)
  * @author Aushulz
  * @author Melos
  */
@@ -10311,7 +10311,7 @@ $messages['scn'] = array(
 	'securepoll-header-title' => 'Nomu',
 );
 
-/** Serbo-Croatian (Srpskohrvatski)
+/** Serbo-Croatian (srpskohrvatski / српскохрватски)
  * @author OC Ripper
  */
 $messages['sh'] = array(
@@ -10581,7 +10581,7 @@ Cannot decrypt.',
 	'securepoll-exhausted' => '(හිස් වූ)',
 );
 
-/** Slovak (Slovenčina)
+/** Slovak (slovenčina)
  * @author Helix84
  * @author Rudko
  * @author Teslaton
@@ -10716,7 +10716,7 @@ Môžete buď zistiť výsledok hlasovania z výsledkov dostupných v databáze 
 	'securepoll-exhausted' => '(vyčerpané)',
 );
 
-/** Slovenian (Slovenščina)
+/** Slovenian (slovenščina)
  * @author Dbc334
  */
 $messages['sl'] = array(
@@ -10849,7 +10849,7 @@ Za zagotavljanje zasebnosti volivcev so šifrirani volilni zapisi javno vidni š
 	'securepoll-exhausted' => '(Izkoriščeno)',
 );
 
-/** Albanian (Shqip)
+/** Albanian (shqip)
  * @author Mikullovci11
  * @author Olsi
  * @author Vinie007
@@ -10984,7 +10984,7 @@ Ju mund të zgjidhni ose të shënoni rezultatin e tanishëm në bazën e të dh
 	'securepoll-exhausted' => '(Lodhur)',
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
  * @author Rancher
  * @author Милан Јелисавчић
  * @author Михајло Анђелковић
@@ -11125,7 +11125,7 @@ $1',
 	'securepoll-exhausted' => '(исцрпени)',
 );
 
-/** Serbian (Latin script) (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪srpski (latinica)‬)
  * @author Michaello
  * @author Rancher
  */
@@ -11273,7 +11273,7 @@ $messages['su'] = array(
 	'securepoll-header-reason' => 'Alesan',
 );
 
-/** Swedish (Svenska)
+/** Swedish (svenska)
  * @author Boivie
  * @author Fluff
  * @author Gabbe.g
@@ -11567,7 +11567,7 @@ $2 న, $3 లకు మోదలు అవుతుంది',
 	'securepoll-average-score' => 'సగటు స్కోరు',
 );
 
-/** Tetum (Tetun)
+/** Tetum (tetun)
  * @author MF-Warburg
  */
 $messages['tet'] = array(
@@ -12076,7 +12076,7 @@ Veritabanında mevcut sonuçları saymayı, ya da yüklenen bir dosyadan şifrel
 	'securepoll-exhausted' => '(Bitkin)',
 );
 
-/** Tatar (Cyrillic script) (Татарча)
+/** Tatar (Cyrillic script) (татарча)
  * @author Bulatbulat
  * @author KhayR
  * @author Ильнар
@@ -12107,7 +12107,7 @@ $messages['tyv'] = array(
 	'securepoll-header-title' => 'Ат',
 );
 
-/** Ukrainian (Українська)
+/** Ukrainian (українська)
  * @author AS
  * @author Ahonc
  * @author Dim Grits
@@ -12284,7 +12284,7 @@ $messages['ur'] = array(
 	'securepoll-header-reason' => 'وجہ',
 );
 
-/** Vèneto (Vèneto)
+/** vèneto (vèneto)
  * @author Candalua
  * @author Nick1915
  */
@@ -12913,7 +12913,7 @@ $messages['za'] = array(
 	'securepoll-subpage-list' => 'Biuj',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Anakmalaysia
  * @author Bencmq
  * @author Biŋhai
@@ -13047,7 +13047,7 @@ $1',
 	'securepoll-exhausted' => '(用尽)',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬)
+/** Traditional Chinese (‪中文（繁體）‬)
  * @author Alexsh
  * @author Anakmalaysia
  * @author Bencmq
