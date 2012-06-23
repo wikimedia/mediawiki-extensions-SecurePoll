@@ -12620,6 +12620,7 @@ $messages['vo'] = array(
  * @author Srtxg
  */
 $messages['wa'] = array(
+	'securepoll-return' => 'Rivni a $1',
 	'securepoll-header-timestamp' => 'Eure',
 	'securepoll-header-voter-name' => 'No',
 	'securepoll-header-voter-domain' => 'Dominne',
