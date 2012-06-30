@@ -43,7 +43,7 @@ $specialPageAliases['diq'] = array(
 	'SecurePoll' => array( 'DolaEmeley' ),
 );
 
-/** Lower Sorbian (Dolnoserbski) */
+/** Lower Sorbian (dolnoserbski) */
 $specialPageAliases['dsb'] = array(
 	'SecurePoll' => array( 'Wěste wótgłosowanje' ),
 );
@@ -83,7 +83,7 @@ $specialPageAliases['hr'] = array(
 	'SecurePoll' => array( 'Sigurno_glasovanje' ),
 );
 
-/** Upper Sorbian (Hornjoserbsce) */
+/** Upper Sorbian (hornjoserbsce) */
 $specialPageAliases['hsb'] = array(
 	'SecurePoll' => array( 'Wěste wothłosowanje' ),
 );
