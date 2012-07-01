@@ -419,7 +419,7 @@ $messages['aln'] = array(
 	'securepoll-subpage-translate' => 'Përkthej',
 );
 
-/** Aragonese (Aragonés)
+/** Aragonese (aragonés)
  * @author Juanpabl
  */
 $messages['an'] = array(
@@ -1307,7 +1307,7 @@ $messages['be'] = array(
 	'securepoll-header-reason' => 'Прычына',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Renessaince
@@ -2835,7 +2835,7 @@ qey idame kerdışi pinaniyê reydayoxi, eke pawıte bo a beno.',
 	'securepoll-exhausted' => '(Bêkeyf)',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -4257,7 +4257,7 @@ De réir an sceidil, tosnóidh sé ag $2 ar $3.',
 Níl cead agat vótáil arís.',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Toliño
  */
 $messages['gl'] = array(
@@ -5122,7 +5122,7 @@ Možete odabrati bilo prikaz rezultata iz baze podataka, ili prikaz enkriptirani
 	'securepoll-exhausted' => '(Iscrpljen)',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
@@ -10018,7 +10018,7 @@ $1',
 	'securepoll-exhausted' => '(Исчерпаны)',
 );
 
-/** Rusyn (Русиньскый)
+/** Rusyn (русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(
