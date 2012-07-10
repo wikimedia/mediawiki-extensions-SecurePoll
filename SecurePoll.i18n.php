@@ -854,6 +854,7 @@ $1',
  * @author Bishnu Saikia
  * @author Chaipau
  * @author Gitartha.bordoloi
+ * @author Nilamdyuti
  */
 $messages['as'] = array(
 	'securepoll' => 'সুৰক্ষিত ভোটদান',
@@ -980,6 +981,8 @@ $1',
 	'securepoll-no-upload' => 'কোনো ফাইল আপলোড কৰা হোৱা নাই, ফলাফল গণনা কৰা অসম্ভৱ।',
 	'securepoll-dump-corrupt' => 'ডাম্প ফাইলাটোত ত্ৰুটী আছে আৰু তাৰ প্ৰক্ৰিয়াকৰণ সম্ভৱ নহয়।',
 	'securepoll-tally-upload-error' => 'ডাম্প ফাইল গণনা কৰাত ত্ৰুটী হৈছে: $1',
+	'securepoll-pairwise-victories' => 'যোৰ অনুসৰি বিজয় মেট্ৰিক্স',
+	'securepoll-strength-matrix' => 'পথ শক্তি মেট্ৰিক্স',
 	'securepoll-ranks' => 'চূড়ান্ত স্থানাংক',
 	'securepoll-average-score' => 'গড় নম্বৰ',
 	'securepoll-round' => 'ৰাউণ্ড $1',
@@ -6461,7 +6464,7 @@ $1',
 투표자의 개인 정보를 유지하기 위해, 선거 기록이 안전한 무작위 수열로 변환될 수 있을 경우에만 암호화된 선거 기록이 공개될 것입니다.',
 	'securepoll-translate-title' => '번역: $1',
 	'securepoll-invalid-language' => '‘$1’ 언어 코드가 잘못되었습니다.',
-	'securepoll-submit-translate' => '갱신',
+	'securepoll-submit-translate' => '새로 고침',
 	'securepoll-language-label' => '언어 선택:',
 	'securepoll-submit-select-lang' => '번역',
 	'securepoll-entry-text' => '다음은 투표의 목록입니다.',
