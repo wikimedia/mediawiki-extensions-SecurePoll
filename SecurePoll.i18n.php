@@ -1174,7 +1174,7 @@ $messages['az'] = array(
 	'securepoll-subpage-dump' => 'Xam',
 );
 
-/** Bashkir (Башҡортса)
+/** Bashkir (башҡортса)
  * @author Assele
  * @author Haqmar
  */
@@ -2103,7 +2103,7 @@ Podeu triar entre comptar els resultats presents a la base de dades, o de compta
 	'securepoll-exhausted' => '(Esgotat)',
 );
 
-/** Chechen (Нохчийн)
+/** Chechen (нохчийн)
  * @author Sasan700
  */
 $messages['ce'] = array(
@@ -6497,7 +6497,7 @@ $1',
 	'securepoll-exhausted' => '(투표권 만료)',
 );
 
-/** Karachay-Balkar (Къарачай-Малкъар)
+/** Karachay-Balkar (къарачай-малкъар)
  * @author Iltever
  */
 $messages['krc'] = array(
@@ -7787,7 +7787,7 @@ Inti tista' tagħżel jew li tgħodd ir-riżultati preżenti fid-databażi, jew 
 	'securepoll-no-upload' => "L-ebda fajl ma ġie mtella', ir-riżultati ma jistgħux jingħaddu.",
 );
 
-/** Erzya (Эрзянь)
+/** Erzya (эрзянь)
  * @author Botuzhaleny-sodamo
  */
 $messages['myv'] = array(
@@ -7802,11 +7802,10 @@ $messages['myv'] = array(
 	'securepoll-submit-select-lang' => 'Ютавтомс',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+/** Norwegian Bokmål (‪norsk (bokmål)‬)
  * @author Event
  * @author Finnrind
  * @author Guaca
- * @author Jon Harald Søby
  * @author Laaknor
  * @author Nghtwlkr
  * @author Ronja Addams-Moring
@@ -12120,7 +12119,7 @@ $messages['tt-cyrl'] = array(
 	'securepoll-strike-cancel' => 'Баш тарту',
 );
 
-/** Tuvinian (Тыва дыл)
+/** Tuvinian (тыва дыл)
  * @author Sborsody
  */
 $messages['tyv'] = array(
@@ -12435,7 +12434,7 @@ Te poli far la conta dei risultati presenti nel database o far la conta dei risu
 	'securepoll-average-score' => 'Puntejo medio',
 );
 
-/** Veps (Vepsän kel’)
+/** Veps (vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
