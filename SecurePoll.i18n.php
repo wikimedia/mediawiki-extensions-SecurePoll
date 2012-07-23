@@ -2792,7 +2792,7 @@ heme tercihan re gani şıma benateyê 1 u 999  de yew derece bıdi.',
 	'securepoll-header-voter-type' => 'tipa reydayoxi',
 	'securepoll-voter-properties' => 'xususiyetê reydayoxi',
 	'securepoll-strike-log' => 'rocaneyê xet antışi',
-	'securepoll-header-action' => 'kar/gure',
+	'securepoll-header-action' => 'Kerden',
 	'securepoll-header-reason' => 'Sebep',
 	'securepoll-header-admin' => 'serkar',
 	'securepoll-cookie-dup-list' => 'karberê çerezi',
@@ -2806,7 +2806,7 @@ qey idame kerdışi pinaniyê reydayoxi, eke pawıte bo a beno.',
 	'securepoll-translate-title' => 'açarn: $1',
 	'securepoll-invalid-language' => 'kodê zıwani yo nemeqbul "$1"',
 	'securepoll-submit-translate' => 'Anewen ke',
-	'securepoll-language-label' => 'zıwan bıvıcin:',
+	'securepoll-language-label' => 'Zıwan weçine:',
 	'securepoll-submit-select-lang' => 'açarn',
 	'securepoll-entry-text' => 'Binê de listeyê anketan estê.',
 	'securepoll-header-title' => 'name',
@@ -6383,7 +6383,7 @@ $messages['ko'] = array(
 	'securepoll-change-disallowed' => '당신은 이미 투표하였습니다.
 죄송하지만 다시 투표할 수 없습니다.',
 	'securepoll-change-allowed' => '<strong>참고: 당신은 이전에 투표한 적이 있습니다.</strong>
-당신은 아래 양식을 이용해 투표를 변경할 수 있습니다.
+당신은 아래 양식을 이용해 투표를 바꿀 수 있습니다.
 그렇게 할 경우 이전의 투표는 무효 처리될 것입니다.',
 	'securepoll-submit' => '투표하기',
 	'securepoll-gpg-receipt' => '투표해 주셔서 감사합니다.
@@ -6397,7 +6397,7 @@ $messages['ko'] = array(
 당신의 투표가 기록되지 않았습니다.
 
 $1',
-	'securepoll-no-gpg-home' => 'GPG 홈 디렉토리를 생성할 수 없습니다.',
+	'securepoll-no-gpg-home' => 'GPG 홈 디렉토리를 만들 수 없습니다.',
 	'securepoll-secret-gpg-error' => 'GPG를 실행하는 데 오류가 발생하였습니다.
 자세한 정보를 보려면 LocalSettings.php에 $wgSecurePollShowErrorDetail=true; 를 사용하십시오.',
 	'securepoll-full-gpg-error' => 'GPG를 실행하는 데 오류가 발생하였습니다.
@@ -6447,7 +6447,7 @@ $1',
 	'securepoll-strike-token-mismatch' => '세션 데이터가 손실되었습니다.',
 	'securepoll-details-link' => '자세한 사항',
 	'securepoll-details-title' => '표 세부 사항: #$1',
-	'securepoll-invalid-vote' => '‘$1’은 정상적인 ID가 아닙니다',
+	'securepoll-invalid-vote' => '"$1"은 정상적인 ID가 아닙니다',
 	'securepoll-header-voter-type' => '투표자 유형',
 	'securepoll-voter-properties' => '투표자 정보',
 	'securepoll-strike-log' => '무효화 기록',
@@ -6463,7 +6463,7 @@ $1',
 	'securepoll-urandom-not-supported' => '이 서버는 암호화 난수 생성을 지원하지 않습니다.
 투표자의 개인 정보를 유지하기 위해, 선거 기록이 안전한 무작위 수열로 변환될 수 있을 경우에만 암호화된 선거 기록이 공개될 것입니다.',
 	'securepoll-translate-title' => '번역: $1',
-	'securepoll-invalid-language' => '‘$1’ 언어 코드가 잘못되었습니다.',
+	'securepoll-invalid-language' => '"$1" 언어 코드가 잘못되었습니다.',
 	'securepoll-submit-translate' => '새로 고침',
 	'securepoll-language-label' => '언어 선택:',
 	'securepoll-submit-select-lang' => '번역',
