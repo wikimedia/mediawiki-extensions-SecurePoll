@@ -10159,6 +10159,19 @@ $1',
  * @author Vibhijain
  */
 $messages['sa'] = array(
+	'securepoll' => 'सुरक्षितनिर्वाचनम्',
+	'securepoll-desc' => 'निर्वाचन-सर्वेक्षणानां कृते विस्तृतिः',
+	'securepoll-invalid-page' => 'अमान्योपपृष्ठम् "<nowiki>$1</nowiki>"',
+	'securepoll-need-admin' => 'इदं कार्यं कर्तुं भवान् निर्वाचनप्रबन्धकः स्यात् ।',
+	'securepoll-too-few-params' => 'उपपृष्ठानां कृते समुचितपरिमितिः न विद्यते (अमान्यानुबन्धः) ।',
+	'securepoll-invalid-election' => '"$1" योग्यं निर्वाचनाभिज्ञापकं नास्ति ।',
+	'securepoll-welcome' => '<strong>स्वागतम् $1!</strong>',
+	'securepoll-not-started' => 'इदं निर्वाचनम् इतोपि आरब्धं नास्ति ।
+$3 दिनाङ्के $2 समये आरम्भः निश्चितः अस्ति ।',
+	'securepoll-finished' => 'इदं निर्वाचनं समाप्तं विद्यते, मतदानं न शक्यते ।',
+	'securepoll-not-qualified' => 'अस्मिन् निर्वाचने मतदानाय भवान् न पात्रभूतः : $1',
+	'securepoll-change-disallowed' => 'अस्मिन् निर्वाचने एतावता भवता मतदानं कृतमस्ति ।
+क्षम्यताम्, पुनः मतदानं कर्तुम् अवसरः न विद्यते ।',
 	'securepoll-api-invalid-params' => 'अपुष्ट प्राचलक।',
 	'securepoll-list-title' => 'मतानां सूची : $1',
 	'securepoll-header-timestamp' => 'समय',
