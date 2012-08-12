@@ -3040,7 +3040,7 @@ $1',
 	'securepoll-api-token-mismatch' => 'Μη ταυτοποίηση κουπονιού ασφαλείας, δεν μπορείτε να συνδεθείτε.',
 	'securepoll-not-logged-in' => 'Πρέπει να συνδεθείτε για να ψηφίσετε σε αυτές τις εκλογές',
 	'securepoll-too-few-edits' => 'Λυπούμαστε, δεν μπορείτε να ψηφίσετε. Χρειάζεται να έχετε κάνει τουλάχιστον $1 {{PLURAL:$1|επεξεργασία|επεξεργασίες}} για να ψηφίσετε σε αυτή την ψηφοφορία, έχετε κάνει $2.',
-	'securepoll-too-new' => 'Συγνώμη, δεν μπορείτε να ψηφίσετε.  Ο λογαριασμός σας πρέπει να έχει δημιουργηθεί πριν από την $1 για να ψηφίσει σε αυτή την εκλογή, εσείς έχετε εγγραφεί την $2.',
+	'securepoll-too-new' => 'Συγνώμη, δεν μπορείτε να ψηφίσετε.  Ο λογαριασμός σας πρέπει να έχει δημιουργηθεί πριν από τις  $1 στο $3  για να ψηφίσει σε αυτές τις εκλογές, εσείς έχετε εγγραφεί στις  $2 στα $4',
 	'securepoll-blocked' => 'Λυπούμαστε, δεν μπορείτε να ψηφίσετε σε αυτή την ψηφοφορία αν είστε επί του παρόντος υπό φραγή από την επεξεργασία.',
 	'securepoll-blocked-centrally' => 'Συγγνώμη, δεν έχετε δικαίωμα ψήφου στην παρούσα εκλογή, καθώς  είστε αποκλεισμένοι τουλάχιστον στο $1 ή περισσότερα {{PLURAL:$1|wiki|wikis}}.',
 	'securepoll-bot' => 'Λυπούμαστε, οι λογαριασμοί με ιδιότητα bot δεν επιτρέπεται να ψηφίσουν σε αυτήν την ψηφοφορία.',
@@ -4988,6 +4988,16 @@ $1',
 	'securepoll-exhausted' => '(समाप्त)',
 );
 
+/** Fiji Hindi (Latin script) (Fiji Hindi)
+ * @author Karthi.dr
+ */
+$messages['hif-latn'] = array(
+	'securepoll-header-voter-name' => 'Naam',
+	'securepoll-strike-reason' => 'Kaaran:',
+	'securepoll-strike-cancel' => 'Nai karo',
+	'securepoll-header-reason' => 'Kaaran',
+);
+
 /** Croatian (hrvatski)
  * @author Anton008
  * @author Bugoslav
@@ -6121,6 +6131,7 @@ $1',
 );
 
 /** Javanese (Basa Jawa)
+ * @author NoiX180
  * @author Pras
  */
 $messages['jv'] = array(
@@ -6161,6 +6172,18 @@ Printah:$1
 
 Kasalahan:
 <pre>$2</pre>',
+	'securepoll-list-title' => 'Daptar swara: $1',
+	'securepoll-header-timestamp' => 'Wektu',
+	'securepoll-header-voter-name' => 'Jeneng',
+	'securepoll-header-voter-domain' => 'Domain',
+	'securepoll-header-ua' => 'Agèn panganggo',
+	'securepoll-header-cookie-dup' => 'Padha',
+	'securepoll-header-strike' => 'Orèk',
+	'securepoll-header-details' => 'Rincian',
+	'securepoll-strike-button' => 'Orèk',
+	'securepoll-unstrike-button' => 'Busak orèkan',
+	'securepoll-strike-reason' => 'Alesan:',
+	'securepoll-strike-cancel' => 'Batal',
 );
 
 /** Georgian (ქართული)
@@ -11555,17 +11578,26 @@ $messages['sw'] = array(
  * @author Karthi.dr
  * @author Shanmugamp7
  * @author TRYPPN
+ * @author மதனாஹரன்
  * @author පසිඳු කාවින්ද
  */
 $messages['ta'] = array(
 	'securepoll' => 'செகிறேபோல்',
+	'securepoll-desc' => 'தேர்தல்களுக்கும் கருத்தாய்வுகளுக்குமான நீட்சி',
+	'securepoll-invalid-page' => 'தவறான உபபக்கம் "<nowiki>$1</nowiki>"',
 	'securepoll-need-admin' => 'இதைச் செய்ய நீங்கள் தேர்தல் நிருவாகியாக இருக்க வேண்டும்.',
+	'securepoll-invalid-election' => '"$1" என்பது செல்லுபடியாகும் தேர்தல் இலக்கமொன்றல்ல.',
 	'securepoll-welcome' => '<strong>வரவேற்பு  $1 !</strong>',
 	'securepoll-finished' => 'இத் தேர்தல் முடிவடைந்து விட்டது. உங்களால் வாக்களிக்க இயலாது.',
 	'securepoll-not-qualified' => ' $1 தேர்தலில் வாக்களிக்கும் தகுதி உங்களுக்கு இல்லை.',
 	'securepoll-change-disallowed' => 'இத் தேர்தலில் நீங்கள் ஏற்கனவே வாக்களித்துள்ளீர்கள்.
 மன்னிக்கவும், மறுமுறை நீங்கள் வாக்களிக்க இயலாது.',
 	'securepoll-submit' => 'வாக்கை சமர்ப்பிக்கவும்',
+	'securepoll-gpg-receipt' => 'வாக்களித்தமைக்காக உங்களுக்கு நன்றி.
+
+நீங்கள் விரும்பினால், உங்கள் வாக்குக்கு ஆதாரமாகப் பின்வரும் பற்றுச்சீட்டைக் கொண்டிருக்கலாம்.
+
+<pre>$1</pre>',
 	'securepoll-thanks' => 'நன்றி,உங்கள் வாக்கு பதிவு செய்யப்பட்டது.',
 	'securepoll-return' => '$1 க்கு திரும்பு.',
 	'securepoll-encrypt-error' => 'உங்கள் வாக்கு பதிவை மறையாக்குவதில் தோல்வியடைந்தது.
@@ -11589,16 +11621,24 @@ $1',
 	'securepoll-api-invalid-params' => 'செல்லாத அளவுருக்கள்.',
 	'securepoll-api-no-user' => 'இப் பெயரில் எந்தப் பயனரும் இல்லை.',
 	'securepoll-not-logged-in' => 'இத் தேர்தலில் வாக்களிக்க நீங்கள் அவசியம் புகுபதிகை செய்ய வேண்டும்',
+	'securepoll-too-few-edits' => 'மன்னிக்கவும், நீங்கள் வாக்களிக்க முடியாது. இத்தேர்தலில் வாக்களிப்பதற்குக் குறைந்த $1 {{PLURAL:$1|தொகுப்பையாவது|தொகுப்புகளையாவது}} நீங்கள் செய்திருக்க வேண்டும், நீங்கள் $2 தொகுப்பைகளையே செய்துள்ளீர்கள்.',
 	'securepoll-blocked' => 'மன்னிக்கவும், தற்சமயம் நீங்கள் தொகுப்பதில் இருந்து தடைசெய்யப்பட்டு இருந்தால் இத் தேர்தலில் வாக்களிக்க இயலாது.',
+	'securepoll-blocked-centrally' => 'மன்னிக்கவும், நீங்கள் $1 {{PLURAL:$1|விக்கியிலாவது|விக்கிகளிலாவது}} தடை செய்யப்பட்டிருப்பதால் நீங்கள் இத்தேர்தலில் வாக்களிக்க முடியாது.',
 	'securepoll-bot' => 'மன்னிக்கவும், தானியங்கியாக அடையாளம் காணப்படும் கணக்குகள் இத் தேர்தலில் வாக்களிக்க முடியாது.',
 	'securepoll-not-in-group' => '"$1" குழு உறுப்பினர்கள் மட்டுமே இத் தேர்தலில் வாக்களிக்கலாம்.',
 	'securepoll-header-timestamp' => 'நேரம்',
 	'securepoll-header-voter-name' => 'பெயர்',
 	'securepoll-header-voter-domain' => 'டொமைன்',
+	'securepoll-header-strike' => 'அடி',
 	'securepoll-header-details' => 'விளக்கம்',
+	'securepoll-strike-button' => 'அடி',
+	'securepoll-unstrike-button' => 'அடித்ததை நீக்கு',
 	'securepoll-strike-reason' => 'காரணம்:',
 	'securepoll-strike-cancel' => 'விட்டுவிடு',
+	'securepoll-strike-token-mismatch' => 'அமர்வுத் தகவல்கள் தொலைந்து விட்டன',
 	'securepoll-details-link' => 'விளக்கம்',
+	'securepoll-details-title' => 'வாக்கு விபரங்கள்: #$1',
+	'securepoll-invalid-vote' => '"$1" என்பது செல்லுபடியாகும் வாக்கிலக்கமொன்றல்ல',
 	'securepoll-header-voter-type' => 'வாக்காளர் வகை',
 	'securepoll-voter-properties' => 'வாக்காளர் இயல்புகள்',
 	'securepoll-header-action' => 'செயல்',
@@ -12877,6 +12917,8 @@ $1',
 	'securepoll-tally-title' => 'רעכענען: $1',
 	'securepoll-tally-not-finished' => 'אנטשולדיגט, איר קענען נישט רעכענען די וואַלן ביז נאָך די אָפּשטימונג האט געקאנטשעט.',
 	'securepoll-average-score' => 'דורכשניטלעכע פונקטן',
+	'securepoll-round' => 'רונדע $1',
+	'securepoll-spoilt' => '(אומגילטיק)',
 );
 
 /** Yoruba (Yorùbá)
