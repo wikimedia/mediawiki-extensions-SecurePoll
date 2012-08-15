@@ -4260,6 +4260,7 @@ $messages['fy'] = array(
 /** Irish (Gaeilge)
  * @author Alison
  * @author Stifle
+ * @author පසිඳු කාවින්ද
  */
 $messages['ga'] = array(
 	'securepoll-not-started' => 'Níl an toghchán seo tosaithe fós.
@@ -4267,6 +4268,11 @@ De réir an sceidil, tosnóidh sé ag $2 ar $3.',
 	'securepoll-not-qualified' => 'Níl tú cáilithe vótáil sa thoghchán seo: $1',
 	'securepoll-change-disallowed' => 'Vótail tú sa thoghchán seo roimhe seo.
 Níl cead agat vótáil arís.',
+	'securepoll-header-voter-name' => 'Ainm',
+	'securepoll-strike-reason' => 'Fáth:',
+	'securepoll-strike-cancel' => 'Cealaigh',
+	'securepoll-header-reason' => 'Fáth',
+	'securepoll-header-title' => 'Ainm',
 );
 
 /** Galician (galego)
@@ -8294,7 +8300,7 @@ De stemming begint op $2 om $3.',
 	'securepoll-not-qualified' => 'U bent niet bevoegd om te stemmen in deze stemming: $1',
 	'securepoll-change-disallowed' => 'U hebt al gestemd in deze stemming.
 U mag niet opnieuw stemmen.',
-	'securepoll-change-allowed' => '<strong>Opmerking: U hebt al gestemd in deze stemming.</strong>
+	'securepoll-change-allowed' => '<strong>Opmerking: u hebt al gestemd in deze stemming.</strong>
 U kunt uw stem wijzigigen door het onderstaande formulier op te slaan.
 Als u daarvoor kiest, wordt uw eerdere stem verwijderd.',
 	'securepoll-submit' => 'Stem opslaan',
@@ -8338,14 +8344,14 @@ U moet alle mogelijkheden een rang geven tussen 1 en 999.',
 	'securepoll-api-token-mismatch' => 'Het beveiligingstoken kwam niet overeen met wat verwacht werd.
 Aanmelden is niet mogelijk.',
 	'securepoll-not-logged-in' => 'U moet aanmelden om aan deze stemming deel te nemen',
-	'securepoll-too-few-edits' => 'Sorry, u kunt niet deelnemen aan de stemming.
+	'securepoll-too-few-edits' => 'U kunt helaas niet deelnemen aan de stemming.
 U moet ten minste $1 {{PLURAL:$1|bewerking|bewerkingen}} hebben gemaakt om te kunnen stemmen in deze stemming, en u hebt er $2.',
 	'securepoll-too-new' => 'U kunt niet deelnemen aan deze stemming. U moet voor $1 om $3 geregistreerd zijn om te mogen stemmen, terwijl u geregistreerd bent op $2 om $4.',
-	'securepoll-blocked' => 'Sorry, u kunt niet deelnemen aan de stemming omdat u geblokkeerd bent.',
+	'securepoll-blocked' => 'U kunt helaas niet deelnemen aan de stemming omdat u geblokkeerd bent.',
 	'securepoll-blocked-centrally' => "U kunt niet deelnemen aan deze stemming omdat u geblokkeerd bent op minstens $1 {{PLURAL:$1|wiki|wiki's}}.",
 	'securepoll-bot' => 'Sorry, gebruikers met een botvlag mogen niet stemmen in deze stemming.',
 	'securepoll-not-in-group' => 'Alleen leden van de groep "$1" kunnen aan deze stemming deelnemen.',
-	'securepoll-not-in-list' => 'Sorry, u staat niet op de vooraf vastgestelde lijst van stemgerechtigden voor deze stemming.',
+	'securepoll-not-in-list' => 'U staat helaas niet op de vooraf vastgestelde lijst van stemgerechtigden voor deze stemming.',
 	'securepoll-list-title' => 'Stemmen weergeven: $1',
 	'securepoll-header-timestamp' => 'Tijd',
 	'securepoll-header-voter-name' => 'Naam',
@@ -8413,6 +8419,49 @@ De resultaten kunnen niet geteld worden.',
 	'securepoll-round' => 'Ronde $1',
 	'securepoll-spoilt' => '(Ongeldig)',
 	'securepoll-exhausted' => '(Verlopen)',
+);
+
+/** ‪Nederlands (informeel)‬ (‪Nederlands (informeel)‬)
+ * @author Siebrand
+ */
+$messages['nl-informal'] = array(
+	'securepoll-need-admin' => 'Je moet een stemmingenbeheerder zijn om deze handeling te mogen uitvoeren.',
+	'securepoll-finished' => 'Deze stemming is afgelopen, je kunt niet meer stemmen.',
+	'securepoll-not-qualified' => 'Je bent niet bevoegd om te stemmen in deze stemming: $1',
+	'securepoll-change-disallowed' => 'Je hebt al gestemd in deze stemming.
+Je mag niet opnieuw stemmen.',
+	'securepoll-change-allowed' => '<strong>Opmerking: je hebt al gestemd in deze stemming.</strong>
+Je kunt je stem wijzigigen door het onderstaande formulier op te slaan.
+Als je daarvoor kiest, wordt je eerdere stem verwijderd.',
+	'securepoll-gpg-receipt' => 'Dank je voor je stem.
+
+Je kunt de onderstaande gegevens bewaren als bewijs van je deelname aan deze stemming:
+
+<pre>$1</pre>',
+	'securepoll-thanks' => 'Dank je wel. Je stem is ontvangen en opgeslagen.',
+	'securepoll-encrypt-error' => 'Het coderen van je stem is mislukt.
+Je stem is niet opgeslagen!
+
+$1',
+	'securepoll-bad-ballot-submission' => 'Je stem is ongeldig: $1',
+	'securepoll-unanswered-questions' => 'Je moet alle vragen beantwoorden.',
+	'securepoll-invalid-rank' => 'Ongeldige rang.
+Je moet de kandidaten een rang geven tussen 1 en 999.',
+	'securepoll-unranked-options' => 'Sommige stemmogelijkheden hebben geen rang.
+Je moet alle mogelijkheden een rang geven tussen 1 en 999.',
+	'securepoll-unanswered-options' => 'Je moet iedere vraag beantwoorden.',
+	'securepoll-remote-auth-error' => 'Er is een fout opgetreden bij het ophalen van je gebruikersinformatie van de server.',
+	'securepoll-not-logged-in' => 'Je moet aanmelden om aan deze stemming deel te nemen',
+	'securepoll-too-few-edits' => 'Je kunt helaas niet deelnemen aan de stemming.
+Je moet ten minste $1 {{PLURAL:$1|bewerking|bewerkingen}} hebben gemaakt om te kunnen stemmen in deze stemming, en jij hebt er $2.',
+	'securepoll-too-new' => 'Je kunt niet deelnemen aan deze stemming. Je moet voor $1 om $3 geregistreerd zijn om te mogen stemmen, terwijl jij geregistreerd bent op $2 om $4.',
+	'securepoll-blocked' => 'Je kunt helaas niet deelnemen aan de stemming omdat je geblokkeerd bent.',
+	'securepoll-blocked-centrally' => "Je kunt niet deelnemen aan deze stemming omdat je geblokkeerd bent op minstens $1 {{PLURAL:$1|wiki|wiki's}}.",
+	'securepoll-not-in-list' => 'Je staat helaas niet op de vooraf vastgestelde lijst van stemgerechtigden voor deze stemming.',
+	'securepoll-tally-not-finished' => 'Je kunt geen telling uitvoeren totdat de stemming is afgelopen.',
+	'securepoll-can-decrypt' => 'De resultaten van de stemming zijn versleuteld, maar de coderingssleutel is beschikbaar.
+Je kunt de in de database beschikbare resultaten tellen, of de resultaten uit een bestandsupload tellen.',
+	'securepoll-tally-no-key' => 'Je kunt geen telling uitvoeren voor deze stemming, omdat de stemmen versleuteld zijn en de sleutel niet beschikbaar is.',
 );
 
 /** Norwegian Nynorsk (‪norsk (nynorsk)‬)
