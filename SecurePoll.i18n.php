@@ -3416,8 +3416,8 @@ $messages['et'] = array(
 See algab $2 kell $3.',
 	'securepoll-finished' => 'Hääletus on lõppenud, enam ei saa hääletada.',
 	'securepoll-not-qualified' => 'Sa ei ole kvalifitseerunud siin valimistel hääletama: $1',
-	'securepoll-change-disallowed' => 'Sa oled oma hääle juba andnud.
-Teistkorda hääletada ei saa.',
+	'securepoll-change-disallowed' => 'Oled oma hääle juba andnud.
+Teist korda hääletada ei saa.',
 	'securepoll-change-allowed' => '<strong>Teade: Sa oled oma hääle juba andnud.</strong>
 Sa võid allpool oma antud häält muuta.
 Kui sa seda teed, siis sinu eelmine hääl tühistub.',
@@ -3464,7 +3464,7 @@ Pead kõigile valitavatele andma 1 ja 999 vahele jääva järjekorranumbri.',
 	'securepoll-too-new' => 'Kahjuks ei saa sa hääletada. Sellel hääletusel osalemiseks oleks sinu konto pidanud olema registreeritud enne järgmist tähtaega: $1, kell $3. Sinu registreerumisaeg oli $2, kell $4.',
 	'securepoll-blocked' => 'Vabandust, sa ei saa hääletada, kui oled hetkel blokeeritud.',
 	'securepoll-blocked-centrally' => 'Kahjuks ei saa sa sellel hääletusel osaleda, sest oled vähemalt {{PLURAL:$1|ühes vikis|$1 vikis}} blokeeritud.',
-	'securepoll-bot' => 'Vabandust, boti staatusega kontod ei saa hääletada neil valimistel.',
+	'securepoll-bot' => 'Vabandust, roboti staatusega kontod ei saa hääletada neil valimistel.',
 	'securepoll-not-in-group' => 'Ainult rühma $1 liikmed saavad hääletada neil valimistel.',
 	'securepoll-not-in-list' => 'Sa ei ole sellel hääletusel osalema volitatud kasutajate nimekirjas.',
 	'securepoll-list-title' => 'Häälte loend: $1',
