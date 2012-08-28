@@ -2118,9 +2118,12 @@ $messages['ce'] = array(
 	'securepoll-header-admin' => 'Адманкуьйгалхо',
 );
 
-/** Sorani Kurdish (کوردی) */
+/** Sorani Kurdish (کوردی)
+ * @author Calak
+ */
 $messages['ckb'] = array(
 	'securepoll-strike-reason' => 'هۆکار:',
+	'securepoll-header-id' => 'پێناسە',
 	'securepoll-header-reason' => 'هۆکار',
 );
 
