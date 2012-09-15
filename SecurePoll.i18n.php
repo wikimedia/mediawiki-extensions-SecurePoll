@@ -5053,8 +5053,8 @@ Vaš glas nije zabilježen!
 
 $1',
 	'securepoll-no-gpg-home' => "Nije moguće napraviti GPG ''home'' direktorij.",
-	'securepoll-secret-gpg-error' => 'Greška pri izvršavanju GPG-a.
-Postavite $wgSecurePollShowErrorDetail=true; u LocalSettings.php datoteci da bi vidjeli više detalja.',
+	'securepoll-secret-gpg-error' => 'Pogrješka pri izvršavanju GPG-a.
+Postavite $wgSecurePollShowErrorDetail=true; u LocalSettings.php datoteci da biste vidjeli više detalja.',
 	'securepoll-full-gpg-error' => 'Pogreška pri izvršavanju GPG-a:
 
 Naredba: $1
@@ -6714,7 +6714,7 @@ wann mer se met enem seschere, zohfällije Dateshtrom verwörfelle künne.',
 	'securepoll-invalid-language' => '„<code>$1</code>“ es enne onjöltijje Shprooche_Kood',
 	'securepoll-header-trans-id' => 'Kennong',
 	'securepoll-submit-translate' => 'Neu maache!',
-	'securepoll-language-label' => 'Schprooch ußwähle:',
+	'securepoll-language-label' => 'En Schprooch ußwähle:',
 	'securepoll-submit-select-lang' => 'Övversätze!',
 	'securepoll-entry-text' => 'Heh dronger kütt en Leß met de Afschtemmunge.',
 	'securepoll-header-title' => 'Name',
