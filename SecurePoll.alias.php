@@ -133,7 +133,7 @@ $specialPageAliases['mr'] = array(
 	'SecurePoll' => array( 'सुरक्षीतकौल' ),
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬) */
+/** Norwegian Bokmål (norsk (bokmål)‎) */
 $specialPageAliases['nb'] = array(
 	'SecurePoll' => array( 'Sikker_avstemning' ),
 );
@@ -183,12 +183,12 @@ $specialPageAliases['yi'] = array(
 	'SecurePoll' => array( 'זיכערע_שטימונג' ),
 );
 
-/** Simplified Chinese (‪中文（简体）‬) */
+/** Simplified Chinese (中文（简体）‎) */
 $specialPageAliases['zh-hans'] = array(
 	'SecurePoll' => array( '安全投票' ),
 );
 
-/** Traditional Chinese (‪中文（繁體）‬) */
+/** Traditional Chinese (中文（繁體）‎) */
 $specialPageAliases['zh-hant'] = array(
 	'SecurePoll' => array( '安全投票' ),
 );
