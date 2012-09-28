@@ -23,6 +23,11 @@ $specialPageAliases['arz'] = array(
 	'SecurePoll' => array( 'استطلاع_رأى_امان' ),
 );
 
+/** Bashkir (башҡортса) */
+$specialPageAliases['ba'] = array(
+	'SecurePoll' => array( 'SecurePoll' ),
+);
+
 /** Czech (česky) */
 $specialPageAliases['cs'] = array(
 	'SecurePoll' => array( 'Bezpečné_hlasování' ),
