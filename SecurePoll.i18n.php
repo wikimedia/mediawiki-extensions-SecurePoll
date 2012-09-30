@@ -9416,6 +9416,7 @@ $1',
  */
 $messages['ps'] = array(
 	'securepoll-invalid-page' => 'ناسم څېرمه مخ "<nowiki>$1</nowiki>"',
+	'securepoll-need-admin' => 'د دې کړنې د ترسره کولو لپاره تاسې ته پکار ده چې د ټاکنې يو پازوال اوسۍ.',
 	'securepoll-welcome' => '<strong> $1 ښه راغلۍ!</strong>',
 	'securepoll-submit' => 'رايه سپارل',
 	'securepoll-thanks' => 'له تاسې نه مننه، ستاسې رايه ثبته شوه.',
@@ -9423,6 +9424,7 @@ $messages['ps'] = array(
 	'securepoll-jump' => 'د رايو پالنګر ته ورشۍ',
 	'securepoll-bad-ballot-submission' => 'ستاسې رايه سمه نه وه: $1',
 	'securepoll-unanswered-questions' => 'تاسې بايد ټولې پوښتنې ځواب کړۍ.',
+	'securepoll-api-no-user' => 'په دې پېژند کوم کارن و نه موندل شو.',
 	'securepoll-header-timestamp' => 'وخت',
 	'securepoll-header-voter-name' => 'نوم',
 	'securepoll-header-voter-domain' => 'شپول',
