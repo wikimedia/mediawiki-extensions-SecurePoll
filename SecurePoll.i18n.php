@@ -1310,7 +1310,7 @@ $messages['be'] = array(
 	'securepoll-header-reason' => 'Прычына',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Renessaince
@@ -2669,7 +2669,7 @@ Du kannst wählen zwischen der Zählung der aktuellen Ergebnisse in der Datenban
 	'securepoll-exhausted' => '(Beendet)',
 );
 
-/** German (formal address) (‪Deutsch (Sie-Form)‬)
+/** German (formal address) (Deutsch (Sie-Form)‎)
  * @author ChrisiPK
  * @author Imre
  * @author Kghbln
@@ -4712,7 +4712,7 @@ $messages['gv'] = array(
 	'securepoll-header-reason' => 'Fa:',
 );
 
-/** Hausa (هَوُسَ) */
+/** Hausa (Hausa) */
 $messages['ha'] = array(
 	'securepoll-strike-cancel' => 'Soke',
 	'securepoll-header-reason' => 'Dalili',
@@ -6747,7 +6747,7 @@ Donn Desch entscheide doh zwesche, de neuste Zahle en de Datebangk uß_ze_zälle
 	'securepoll-exhausted' => '(aam Engk)',
 );
 
-/** Kurdish (Latin script) (‪Kurdî (latînî)‬)
+/** Kurdish (Latin script) (Kurdî (latînî)‎)
  * @author George Animal
  * @author Gomada
  */
@@ -7915,7 +7915,7 @@ $messages['myv'] = array(
 	'securepoll-submit-select-lang' => 'Ютавтомс',
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬)
+/** Norwegian Bokmål (norsk (bokmål)‎)
  * @author Event
  * @author Finnrind
  * @author Guaca
@@ -8436,7 +8436,7 @@ De resultaten kunnen niet geteld worden.',
 	'securepoll-exhausted' => '(Verlopen)',
 );
 
-/** ‪Nederlands (informeel)‬ (‪Nederlands (informeel)‬)
+/** Nederlands (informeel)‎ (Nederlands (informeel)‎)
  * @author Siebrand
  */
 $messages['nl-informal'] = array(
@@ -8479,7 +8479,7 @@ Je kunt de in de database beschikbare resultaten tellen, of de resultaten uit ee
 	'securepoll-tally-no-key' => 'Je kunt geen telling uitvoeren voor deze stemming, omdat de stemmen versleuteld zijn en de sleutel niet beschikbaar is.',
 );
 
-/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
+/** Norwegian Nynorsk (norsk (nynorsk)‎)
  * @author Eirik
  * @author Gunnernett
  * @author Harald Khan
@@ -11272,7 +11272,7 @@ Ju mund të zgjidhni ose të shënoni rezultatin e tanishëm në bazën e të dh
 	'securepoll-exhausted' => '(Lodhur)',
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Rancher
  * @author Милан Јелисавчић
  * @author Михајло Анђелковић
@@ -11413,7 +11413,7 @@ $1',
 	'securepoll-exhausted' => '(исцрпени)',
 );
 
-/** Serbian (Latin script) (‪srpski (latinica)‬)
+/** Serbian (Latin script) (srpski (latinica)‎)
  * @author Michaello
  * @author Rancher
  */
@@ -13312,7 +13312,7 @@ $messages['za'] = array(
 	'securepoll-subpage-list' => 'Biuj',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Anakmalaysia
  * @author Bencmq
  * @author Biŋhai
@@ -13446,7 +13446,7 @@ $1',
 	'securepoll-exhausted' => '(用尽)',
 );
 
-/** Traditional Chinese (‪中文（繁體）‬)
+/** Traditional Chinese (中文（繁體）‎)
  * @author Alexsh
  * @author Anakmalaysia
  * @author Bencmq
