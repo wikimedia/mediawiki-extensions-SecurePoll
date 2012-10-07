@@ -9288,7 +9288,7 @@ It peule serne sia ëd conté j'arzultà present ant ël database, sia ëd cont�
 $messages['pnb'] = array(
 	'securepoll' => 'سیکیورپول',
 	'securepoll-desc' => 'چنوتی تے سروے لئی ایکسٹنشن',
-	'securepoll-invalid-page' => 'ناںمنیا جان والا نکا صفہ "<نوکی>$1</nowiki>"',
+	'securepoll-invalid-page' => 'ناںمنیا جان والا نکا صفہ "<nowiki>$1</nowiki>"',
 	'securepoll-need-admin' => 'اے کم کرن لئی تواڈا الیکشن ایدمنسٹریٹر ہونا چائیدا اے۔',
 	'securepoll-too-few-params' => 'کافی نکے صفیاں دے پیرامیٹر نئیں (جوڑ کم نئیں کردا)',
 	'securepoll-invalid-election' => '"$1" کوئی پکی چنوتی آئی ڈی نئیں اے۔',
