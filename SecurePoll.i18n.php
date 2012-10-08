@@ -11006,6 +11006,7 @@ Môžete buď zistiť výsledok hlasovania z výsledkov dostupných v databáze 
 
 /** Slovenian (slovenščina)
  * @author Dbc334
+ * @author Eleassar
  */
 $messages['sl'] = array(
 	'securepoll' => 'VarnoGlasovanje',
@@ -11095,8 +11096,8 @@ Vsem možnostim morate določiti uvrstitev med 1 in 999.',
 	'securepoll-header-admin' => 'Admin',
 	'securepoll-cookie-dup-list' => 'Piškotki podvojenih uporabnikov',
 	'securepoll-dump-title' => 'Odloži: $1',
-	'securepoll-dump-no-crypt' => 'Za te volitve ni na voljo šifriranega volilnega zapisa, ker volitve niso konfigurirane tako, da bi uporabljale šifriranje.',
-	'securepoll-dump-not-finished' => 'Šifrirani volilni zapisi so na voljo šele po datumu zaključka dne $1 ob $2',
+	'securepoll-dump-no-crypt' => 'Za te volitve šifriran volilni zapis ni na razpolago, saj volitve niso konfigurirane tako, da bi se uporabljalo šifriranje.',
+	'securepoll-dump-not-finished' => 'Šifrirani volilni zapisi so na razpolago šele po datumu zaključka dne $1 ob $2',
 	'securepoll-dump-no-urandom' => 'Ne morem odpreti /dev/urandom. 
 Za zagotavljanje zasebnosti volivcev so šifrirani volilni zapisi javno vidni šele po tem, ko so lahko premešani z varnim tokom naključnih števil.',
 	'securepoll-urandom-not-supported' => 'Ta strežnik ne podpira kriptografskega ustvarjanja naključnih števil.
@@ -11117,9 +11118,9 @@ Za zagotavljanje zasebnosti volivcev so šifrirani volilni zapisi javno vidni š
 	'securepoll-subpage-tally' => 'Evidentiraj',
 	'securepoll-tally-title' => 'Evidenca: $1',
 	'securepoll-tally-not-finished' => 'Žal ne morete evidentirati volitev preden se glasovanje zaključi.',
-	'securepoll-can-decrypt' => 'Volitveni zapis je šifriran, vendar je na voljo ključ za dešifriranje.
-	Izberete lahko da ali združite trenutne rezultate v zbirki podatkov ali da združite šifrirane rezultate iz naložene datoteke.',
-	'securepoll-tally-no-key' => 'Ne morete evidentirati teh volitev, saj so glasovi šifrirani in dešifrirni ključ ni na voljo.',
+	'securepoll-can-decrypt' => 'Volilni zapis je šifriran, vendar je na razpolago ključ za dešifriranje.
+	Izberete lahko, da bodisi združite trenutne rezultate v zbirki podatkov, bodisi da združite šifrirane rezultate iz naložene datoteke.',
+	'securepoll-tally-no-key' => 'Teh volitev ne morete evidentirati, saj so glasovi šifrirani, dešifrirni ključ pa ni na razpolago.',
 	'securepoll-tally-local-legend' => 'Evidentiraj shranjene rezultate',
 	'securepoll-tally-local-submit' => 'Ustvari evidenco',
 	'securepoll-tally-upload-legend' => 'Naloži šifriran odložek',
