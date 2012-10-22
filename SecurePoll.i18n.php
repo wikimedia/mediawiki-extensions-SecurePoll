@@ -184,6 +184,7 @@ To maintain voter privacy, encrypted election records are only publically availa
  * @author Raymond
  * @author Saper
  * @author Siebrand
+ * @author Umherirrender
  */
 $messages['qqq'] = array(
 	'securepoll-desc' => '{{desc}}',
@@ -203,6 +204,7 @@ GPG stands for [http://en.wikipedia.org/wiki/GNU_Privacy_Guard GNU Privacy Guard
 * $2 is the actual registration date
 * $3 is the required registration time
 * $4 is the actual registration time',
+	'securepoll-custom-unqualified' => '{{notranslate}}',
 	'securepoll-header-timestamp' => '{{Identical|Time}}',
 	'securepoll-header-voter-name' => '{{Identical|Name}}',
 	'securepoll-header-voter-domain' => '{{Identical|Domain}}',
@@ -219,6 +221,8 @@ GPG stands for [http://en.wikipedia.org/wiki/GNU_Privacy_Guard GNU Privacy Guard
 	'securepoll-strike-reason' => '{{Identical|Reason}}',
 	'securepoll-strike-cancel' => '{{Identical|Cancel}}',
 	'securepoll-details-link' => '{{Identical|Details}}',
+	'securepoll-voter-name-local' => '{{notranslate}}',
+	'securepoll-voter-name-remote' => '{{notranslate}}',
 	'securepoll-details-title' => '$1 identifies a single vote of a single voter.',
 	'securepoll-invalid-vote' => 'The vote ID identifies a specific voting process.',
 	'securepoll-header-id' => '{{optional}}',
@@ -1238,6 +1242,7 @@ $1',
 	'securepoll-bot' => 'Ғәфү итегеҙ, бот флагы булған иҫәп яҙмалары был һайлауҙарҙа тауыш бирә алмай.',
 	'securepoll-not-in-group' => '"$1" төркөмө ағзалары ғына был һайлауҙарҙа тауыш бирә ала.',
 	'securepoll-not-in-list' => 'Ғәфү итегеҙ, һеҙ был һайлауҙарҙа тауыш бирә алған ҡатнашыусылар исемлегенә кермәйһегеҙ.',
+	'securepoll-custom-unqualified' => '$1',
 	'securepoll-list-title' => 'Тауыштар исемлеге: $1',
 	'securepoll-header-timestamp' => 'Ваҡыт',
 	'securepoll-header-voter-name' => 'Исем',
@@ -1508,7 +1513,7 @@ $1',
 	'securepoll-api-token-mismatch' => 'Невалидна идентификация, неуспешен опит за влизане в системата.',
 	'securepoll-not-logged-in' => 'Трябва да сте влезли в системата с потребителското си име, за да участвате в това гласуване.',
 	'securepoll-too-few-edits' => 'За съжаление, не можете да гласувате. Трябва да сте направили най-малко $1 {{PLURAL:$1|редакция|редакции}}, за да имате право да участвате в гласуването, а вие сте направили $2.',
-	'securepoll-too-new' => 'За съжаление, не можете да гласувате.  Вашата потребителска сметка е регистрирана на $2, а е трябвало да бъде регистрирана преди $1, за да имате право на глас.',
+	'securepoll-too-new' => 'За съжаление, не можете да гласувате.  Вашата потребителска сметка е регистрирана на $2, а е трябвало да бъде регистрирана преди $1, за да имате право на глас.', # Fuzzy
 	'securepoll-blocked' => 'За съжаление, не можете да участвате в това гласуване, защото в момента сте блокирани.',
 	'securepoll-blocked-centrally' => 'За съжаление, не можe да гласувате в тези избори, тъй като сте блокирани в поне $1 {{PLURAL:$1|уики|уикита}}.',
 	'securepoll-bot' => 'За съжаление, потребителски сметки, отбелязани като ботове, не могат да вземат участие в това гласуване.',
@@ -1894,9 +1899,9 @@ Morate dati svim opcijama rang između 1 i 999.',
 	'securepoll-api-token-mismatch' => 'Nepodudata se sigurnosni token, ne može se prijaviti.',
 	'securepoll-not-logged-in' => 'Morate se prijaviti za glasanje na ovim izborima',
 	'securepoll-too-few-edits' => 'Žao nam je, ne možete glasati. Morate imati najmanje $1 {{PLURAL:$1|izmjenu|izmjene|izmjena}} da glasate na ovim izborima, Vi ste dosad napravili $2 izmjena.',
-	'securepoll-too-new' => 'Žao nam je, ne možete glasati.  Vaš račun treba biti registrovan prije $1 da biste glasali na ovim izborima, vi ste registrovani dana $2.',
+	'securepoll-too-new' => 'Žao nam je, ne možete glasati.  Vaš račun treba biti registrovan prije $1 da biste glasali na ovim izborima, vi ste registrovani dana $2.', # Fuzzy
 	'securepoll-blocked' => 'Žao nam je, ne možete trenutno glasati na ovim izborima ako ste trenutno blokirani za uređivanje.',
-	'securepoll-blocked-centrally' => 'Žao nam je, vi ne možete glasati na ovim izborima ako ste blokirani na $1 ili više {{PLURAL:$1|wikija|wikija}}.',
+	'securepoll-blocked-centrally' => 'Žao nam je, vi ne možete glasati na ovim izborima ako ste blokirani na $1 ili više {{PLURAL:$1|wikija|wikija}}.', # Fuzzy
 	'securepoll-bot' => 'Žao nam je, računima sa oznakom bota nije dopušteno da glasaju na ovim izborima.',
 	'securepoll-not-in-group' => 'Samo članovi iz grupe $1 mogu učestovavati na ovim izborima.',
 	'securepoll-not-in-list' => 'Žao nam je, niste na spisku korisnika kojima je odobreno glasanje na ovim izborima.',
@@ -4714,7 +4719,8 @@ $messages['gv'] = array(
 	'securepoll-header-reason' => 'Fa:',
 );
 
-/** Hausa (Hausa) */
+/** Hausa (Hausa)
+ */
 $messages['ha'] = array(
 	'securepoll-strike-cancel' => 'Soke',
 	'securepoll-header-reason' => 'Dalili',
@@ -4927,9 +4933,9 @@ $1',
 	'securepoll-api-token-mismatch' => 'सुरक्षा बिल्ले का मिलान नहीं हुआ, लॉग नहीं कर सकते।',
 	'securepoll-not-logged-in' => 'आपको इस निर्वाचन में मतदान करने के लिए लॉग इन अवश्य करना चाहिए।',
 	'securepoll-too-few-edits' => 'क्षमा कीजिए, आप मतदान नहीं कर सकते। इस निर्वाचन में मतदान करने के लिए आपको न्यूनतम $1 संपादन {{PLURAL:$1|किया होना चाहिए|संपादन किए होने चाहिएँ}}, परंतु आपने $2 {{PLURAL:$2|किया है|किए हैं}}।',
-	'securepoll-too-new' => 'क्षमा करें, आप मतदान नहीं कर सकते हैं। आपके खाते को $1 के पहले पंजीकृत होने कि आवश्यकता थी, आप $2 को पंजीकृत किये गए थे।',
+	'securepoll-too-new' => 'क्षमा करें, आप मतदान नहीं कर सकते हैं। आपके खाते को $1 के पहले पंजीकृत होने कि आवश्यकता थी, आप $2 को पंजीकृत किये गए थे।', # Fuzzy
 	'securepoll-blocked' => 'क्षमा कीजिए, आप इस निर्वाचन में मतदान नहीं कर सकते यदि आप वर्तमान में संपादन करने से बाधित हैं।',
-	'securepoll-blocked-centrally' => 'यदि आप पर अवरुद्ध कर रहे हैं खेद है, आप इस चुनाव में वोट नहीं कर सकते $1 या एक से अधिक {{PLURAL:$1| विकि | विकि}}',
+	'securepoll-blocked-centrally' => 'यदि आप पर अवरुद्ध कर रहे हैं खेद है, आप इस चुनाव में वोट नहीं कर सकते $1 या एक से अधिक {{PLURAL:$1| विकि | विकि}}', # Fuzzy
 	'securepoll-bot' => 'क्षमा कीजिए, बोट झंडे वाले खातों को इस निर्वाचन में मतदान करने की अनुमति नहीं है।',
 	'securepoll-not-in-group' => 'केवल समूह "$1" के सदस्य ही इस निर्वाचन में मतदान कर सकते हैं।',
 	'securepoll-not-in-list' => 'क्षमा कीजिए, आपका नाम इस निर्वाचन में मतदान करने के लिए अधिकृत प्रयोक्ताओं की पूर्वनिर्धारित सूची में नहीं है।',
@@ -5082,9 +5088,9 @@ Morate dati svim opcijama rang između 1 i 999.',
 	'securepoll-api-token-mismatch' => 'Neslaganje sigurnosnog tokena, neuspjela prijava.',
 	'securepoll-not-logged-in' => 'Morate se prijaviti da bi mogli glasovati na ovim izborima',
 	'securepoll-too-few-edits' => 'Nažalost, ne možete glasovati. Morate imati najmanje $1 {{PLURAL:$1|uređivanje|uređivanja|uređivanja}} da bi mogli glasovati na ovim izborima, vi ih imate $2.',
-	'securepoll-too-new' => 'Nažalost, ne možete glasovati. Vaš suradnički račun je morao biti registriran prije $1 za glasovanje na ovim izborima, Vi ste se registrirali $2.',
+	'securepoll-too-new' => 'Nažalost, ne možete glasovati. Vaš suradnički račun je morao biti registriran prije $1 za glasovanje na ovim izborima, Vi ste se registrirali $2.', # Fuzzy
 	'securepoll-blocked' => 'Nažalost, ne možete glasovati na ovim izborima ako ste trenutačno blokirani',
-	'securepoll-blocked-centrally' => 'Nažalost, ne možete glasovati na ovim izborima ako ste blokirani na $1 ili više {{PLURAL:$1| wiki|wikija}}.',
+	'securepoll-blocked-centrally' => 'Nažalost, ne možete glasovati na ovim izborima ako ste blokirani na $1 ili više {{PLURAL:$1| wiki|wikija}}.', # Fuzzy
 	'securepoll-bot' => 'Nažalost, računi s bot statusom ne mogu glasovati na ovim izborima.',
 	'securepoll-not-in-group' => 'Samo članovi "$1" grupe mogu glasovati na ovim izborima.',
 	'securepoll-not-in-list' => 'Nažalost, niste na popisu ovlaštenih suradnika koji mogu glasovati na ovim izborima.',
@@ -7115,9 +7121,9 @@ Visoms parinktims turite skirti įvertinimą tarp 1 ir 999.',
 	'securepoll-api-token-mismatch' => 'Saugos žymės nesutampa, negalite prisijungti',
 	'securepoll-not-logged-in' => 'Jūs turite prisijungti, norėdami balsuoti šiuose rinkimuose',
 	'securepoll-too-few-edits' => 'Atsiprašome, Jūs negalite balsuoti. Jūs privalote atlikti bent $1 {{PLURAL:$1|redagavimą|redagavimų}}, norėdami balsuoti šiuose rinkimuose. Jūs atlikote $2.',
-	'securepoll-too-new' => 'Atsiprašome, Jūs negalite balsuoti. Jei norite balsuoti šiuose rinkimuose, Jūsų sąskaita turi būti sukurta iki $1, tačiau Jūsų sąskaita yra sukurta $2.',
+	'securepoll-too-new' => 'Atsiprašome, Jūs negalite balsuoti. Jei norite balsuoti šiuose rinkimuose, Jūsų sąskaita turi būti sukurta iki $1, tačiau Jūsų sąskaita yra sukurta $2.', # Fuzzy
 	'securepoll-blocked' => 'Atsiprašome, Jūs negalite balsuoti šiuose rinkimuose jei dabar esate užblokuotas.',
-	'securepoll-blocked-centrally' => 'Atsiprašome, Jūs negalite balsuoti šiuose rinkimuose, jei esate blokuotas $1 {{PLURAL:$1|wiki-projekte|wiki-projektuose}} ar daugiau.',
+	'securepoll-blocked-centrally' => 'Atsiprašome, Jūs negalite balsuoti šiuose rinkimuose, jei esate blokuotas $1 {{PLURAL:$1|wiki-projekte|wiki-projektuose}} ar daugiau.', # Fuzzy
 	'securepoll-bot' => 'Atsiprašome, sąskaitos su boto statusu negali balsuoti šiuose rinkimuose.',
 	'securepoll-not-in-group' => 'Tik nariai iš grupės "$1" gali balsuoti šiuose rinkimuose.',
 	'securepoll-not-in-list' => 'Atsiprašome, Jūs nesate vartotojų sąraše, kuriems leidžiama balsuoti šiuose rinkimuose.',
@@ -8063,7 +8069,7 @@ $messages['nds'] = array(
 	'securepoll' => 'SekerAfstimmen',
 	'securepoll-desc' => 'Extension för Wahlen un Ümfragen',
 	'securepoll-invalid-page' => 'Ungüllige Ünnersied „<nowiki>$1</nowiki>“',
-	'securepoll-need-admin' => 'Du musst Administrater wesen, dat du dat doon kannst.',
+	'securepoll-need-admin' => 'Du musst Administrater wesen, dat du dat doon kannst.', # Fuzzy
 	'securepoll-too-few-params' => 'Nich noog Ünnersiedenparameters (Lenk verkehrt).',
 	'securepoll-invalid-election' => '„$1“ is keen güllige Wahl-ID.',
 	'securepoll-welcome' => '<strong>Willkamen $1!</strong>',
@@ -8240,9 +8246,9 @@ LocalSettings.phpमा $wgSecurePollShowErrorDetail=true; को प्रय�
 	'securepoll-api-token-mismatch' => 'सुरक्षा टोकन मिलेन, प्रवेश गर्न सकिंदैन।',
 	'securepoll-not-logged-in' => 'तपाईंले यस चुनावमा मत दिन प्रवेश गरेको हुनुपर्छ',
 	'securepoll-too-few-edits' => 'माफ गर्नुहोस्, तपाईंले मत दिन सक्नुहुन्न। तपाईंले मत दिन निम्नतम $1 {{PLURAL:$1|सम्पादन|सम्पादनहरु}} गरेको हुनुपर्छ, तपाईंले $2 मात्र  गर्नु भएकोछ।',
-	'securepoll-too-new' => 'माफ गर्नुहोला । तपाईले भोट दिन सक्नुहुन्न।  यस मतदान मा भोट दिनलाई  तपाईको खाता $1 भन्दा पहिले दर्ता गरिएको हुनुपर्छ भने तपाईले $2 मा दर्ता गर्नुभएको थियो।',
+	'securepoll-too-new' => 'माफ गर्नुहोला । तपाईले भोट दिन सक्नुहुन्न।  यस मतदान मा भोट दिनलाई  तपाईको खाता $1 भन्दा पहिले दर्ता गरिएको हुनुपर्छ भने तपाईले $2 मा दर्ता गर्नुभएको थियो।', # Fuzzy
 	'securepoll-blocked' => 'माफ गर्नुहोस्, तपाईंले यस चुनावमा मत दिन सक्नुहुन्न। तपाईंलाई सम्पादन गर्न बन्देज गरिएकोछ।',
-	'securepoll-blocked-centrally' => 'माफ गर्नुहोला, जब तपाइलाई $1 वा बढि{{PLURAL:$1|विकीi|विकीहरु}}.मा निषेध गरिएको हुन्छ, तपाइले यस चुनावमा तपाईले भोट दिन पाउुनुहुन्न  ।',
+	'securepoll-blocked-centrally' => 'माफ गर्नुहोला, जब तपाइलाई $1 वा बढि{{PLURAL:$1|विकीi|विकीहरु}}.मा निषेध गरिएको हुन्छ, तपाइले यस चुनावमा तपाईले भोट दिन पाउुनुहुन्न  ।', # Fuzzy
 	'securepoll-bot' => 'माफ गर्नुहोस्, बोटको ध्वजा भएको खातालाई यस चुनावमा मत दिने अनुमति छैन।',
 	'securepoll-not-in-group' => '"$1" समूहका सदस्यहरुले मात्र यस चुनावमा मत दिन सक्नेछन्।',
 	'securepoll-not-in-list' => 'माफ गर्नुहोला, तपाईं यस चुनावको लागि मतदानको अधिकार प्राप्त सदस्यहरुको पूर्वनिर्धारित सूचीमा पर्नुहुन्न।',
@@ -10037,6 +10043,7 @@ Tu puè scacchià o de fà 'u condegge de le vote da 'u database oppure ausanne 
 
 /** Russian (русский)
  * @author Dim Grits
+ * @author Ferrer
  * @author HalanTul
  * @author Kaganer
  * @author Kv75
@@ -10107,6 +10114,7 @@ $1',
 	'securepoll-bot' => 'Извините, учётные записи с флагом бота не допускаются для участия в голосовании.',
 	'securepoll-not-in-group' => 'Только члены группы $1 могут голосовать на этих выборах.',
 	'securepoll-not-in-list' => 'Извините, вы не входите в список участников, допущенных для голосования на этих выборах.',
+	'securepoll-custom-unqualified' => '$1',
 	'securepoll-list-title' => 'Список голосов: $1',
 	'securepoll-header-timestamp' => 'Время',
 	'securepoll-header-voter-name' => 'Имя',
@@ -10661,9 +10669,9 @@ Morate dati svim opcijama rang između 1 i 999.',
 	'securepoll-api-token-mismatch' => 'Ne podudara se sigurnosni token, ne može se prijaviti.',
 	'securepoll-not-logged-in' => 'Morate se prijaviti za glasanje na ovim izborima',
 	'securepoll-too-few-edits' => 'Žao nam je, ne možete glasati. Morate imati najmanje $1 {{PLURAL:$1|izmjenu|izmjene|izmjena}} da glasate na ovim izborima, Vi ste dosad napravili $2 izmjena.',
-	'securepoll-too-new' => 'Žao nam je, ne možete glasati.  Vaš račun treba biti registrovan prije $1 da biste glasali na ovim izborima, vi ste registrovani dana $2.',
+	'securepoll-too-new' => 'Žao nam je, ne možete glasati.  Vaš račun treba biti registrovan prije $1 da biste glasali na ovim izborima, vi ste registrovani dana $2.', # Fuzzy
 	'securepoll-blocked' => 'Žao nam je, ne možete trenutno glasati na ovim izborima ako ste trenutno blokirani za uređivanje.',
-	'securepoll-blocked-centrally' => 'Žao nam je, vi ne možete glasati na ovim izborima ako ste blokirani na $1 ili više {{PLURAL:$1|wikija|wikija}}.',
+	'securepoll-blocked-centrally' => 'Žao nam je, vi ne možete glasati na ovim izborima ako ste blokirani na $1 ili više {{PLURAL:$1|wikija|wikija}}.', # Fuzzy
 	'securepoll-bot' => 'Žao nam je, računima sa oznakom bota nije dopušteno da glasaju na ovim izborima.',
 	'securepoll-not-in-group' => 'Samo članovi iz grupe $1 mogu učestovavati na ovim izborima.',
 	'securepoll-not-in-list' => 'Žao nam je, niste na spisku korisnika kojima je odobreno glasanje na ovim izborima.',
@@ -10935,7 +10943,7 @@ Musíte dať každej možnosti hodnotenie medzi 1 a 999.',
 	'securepoll-too-few-edits' => 'Ľutujeme, nemôžete hlasovať. Aby ste sa mohli zúčastniť tohto hlasovania, museli by ste mať aspoň $1 {{PLURAL:$1|úpravu|úpravy|úprav}}, vy máte $2.',
 	'securepoll-too-new' => 'Ľutujeme, nemôžete hlasovať. Aby ste sa mohli zúčastniť v tomto hlasovaní, musel by váš účet byť založený pred $1 $3, {{gender:|zaregistroval|zaregistrovala|zaregistrovali}} ste se však $2 o $4.',
 	'securepoll-blocked' => 'Ľutujeme, tohto hlasovania sa nemôžete zúčastniť, pretože ste momentálne zablokovaný.',
-	'securepoll-blocked-centrally' => 'Ľutujeme, tohoto hlasovania sa nemôžete zúčastniť, pretože ste {{GENDER:|zablokovaný|zablokovaná|zablokovaní}} na minimálne $1 wiki.',
+	'securepoll-blocked-centrally' => 'Ľutujeme, tohoto hlasovania sa nemôžete zúčastniť, pretože ste {{GENDER:|zablokovaný|zablokovaná|zablokovaní}} na minimálne $1 wiki.', # Fuzzy
 	'securepoll-bot' => 'Ľutujeme, účty s príznakom bot nemôžu v tomto hlasovaní hlasovať.',
 	'securepoll-not-in-group' => 'Tohto hlasovania sa môžu zúčastniť iba členovia skuupiny $1.',
 	'securepoll-not-in-list' => 'Ľutujeme, nenáchádzate sa na vopred určenom zozname používateľov oprávnených zúčastniť sa tohto hlasovania.',
@@ -12633,7 +12641,7 @@ $messages['ur'] = array(
 	'securepoll-welcome' => '<strong>خوش آمدید $1!</strong>',
 	'securepoll-not-started' => 'چناؤ ابھی شروع نہیں ہوا.
 
-اِس کا آغاز $1 کو ہوگا.',
+اِس کا آغاز $1 کو ہوگا.', # Fuzzy
 	'securepoll-not-qualified' => 'آپ اِس چناؤ میں رائےدہندگی کے اہل نہیں: $1',
 	'securepoll-change-disallowed' => 'آپ اِس چناؤ میں پہلے رائے دے چکے ہیں.
 
@@ -12909,7 +12917,7 @@ Bạn phải xếp hạng từ 1 đến 999 cho tất cả các ứng viên.',
 	'securepoll-api-token-mismatch' => 'Dấu hiệu bảo mật không trùng, không thể đăng nhập.',
 	'securepoll-not-logged-in' => 'Bạn phải đăng nhập để bỏ phiếu trong cuộc bầu cử này',
 	'securepoll-too-few-edits' => 'Xin lỗi, bạn không thể bỏ phiếu. Bạn cần thực hiện tối thiểu $1 {{PLURAL:$1|sửa đổi|sửa đổi}} để bỏ phiếu trong cuộc bầu cử này, bạn chỉ mới thực hiện $2 sửa đổi.',
-	'securepoll-too-new' => 'Rất tiếc, bạn không được phép bỏ phiếu. Để được phép tham gia cuộc bầu cử này, bạn cần phải mở tài khoản trước $3 $1, nhưng bạn đăng ký vào lúc $4 $2.',
+	'securepoll-too-new' => 'Rất tiếc, bạn không được phép bỏ phiếu. Để được phép tham gia cuộc bầu cử này, bạn cần phải mở tài khoản trước $3 $1, nhưng bạn mới mở tài khoản lúc $4 $2.',
 	'securepoll-blocked' => 'Xin lỗi, bạn không thể bỏ phiếu trong cuộc bầu cử này nếu bạn đang bị cấm không được sửa đổi.',
 	'securepoll-blocked-centrally' => 'Rất tiếc, bạn không được phép tham gia cuộc bầu cử này vì bị cấm tại $1 wiki trở lên.',
 	'securepoll-bot' => 'Xin lỗi, tài khoản có cờ bot không được phép bỏ phiếu trong cuộc bầu cử này.',
@@ -13025,7 +13033,8 @@ $messages['wa'] = array(
 	'securepoll-subpage-list' => 'Djivêye',
 );
 
-/** Wu (吴语) */
+/** Wu (吴语)
+ */
 $messages['wuu'] = array(
 	'securepoll-strike-reason' => '理由：',
 	'securepoll-strike-cancel' => '取消',
@@ -13226,9 +13235,9 @@ $1',
 	'securepoll-api-token-mismatch' => '安全幣唔對，唔可以登入。',
 	'securepoll-not-logged-in' => '你一定要登入咗先可以響呢次選舉度投票',
 	'securepoll-too-few-edits' => '對唔住，你唔可以投票。你需要有最少$1次編輯先可以投票，你而家有$2次。',
-	'securepoll-too-new' => '對唔住，你唔投得票。$1之前註冊嘅用戶先有資格喺今次選舉投票，而你註冊嘅時間係$2。',
+	'securepoll-too-new' => '對唔住，你唔投得票。$1之前註冊嘅用戶先有資格喺今次選舉投票，而你註冊嘅時間係$2。', # Fuzzy
 	'securepoll-blocked' => '對唔住，當你而家被封鎖嗰陣唔可以響呢次選舉度投票。',
-	'securepoll-blocked-centrally' => '對唔住啦，你係$1個{{PLURAL:$1|wiki|wikis}}度俾人封咗，所以冇得投票啦。',
+	'securepoll-blocked-centrally' => '對唔住啦，你係$1個{{PLURAL:$1|wiki|wikis}}度俾人封咗，所以冇得投票啦。', # Fuzzy
 	'securepoll-bot' => '對唔住，有機械人旗嘅戶口係唔容許響呢次選舉度投票。',
 	'securepoll-not-in-group' => '只有『$1』組嘅成員先可以響呢次選舉度投票。',
 	'securepoll-not-in-list' => '對唔住，你唔係響呢個認可用戶表響呢次選舉度投票。',
@@ -13600,4 +13609,3 @@ $messages['zh-hk'] = array(
 	'securepoll-dump-no-urandom' => '無法打開/dev/urandom。
 為了保證投票者的私隱，經過加密的投票記錄只有在經隨機數據串干擾後方可公開。',
 );
-
