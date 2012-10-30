@@ -2748,7 +2748,7 @@ qey delaletê reydayişi meqbuzo cêrın muhefeze bıkerê, eke şıma wazeni:
 
 <pre>$1</pre>',
 	'securepoll-thanks' => 'ma teşekkur keni reyê şıma qeyd bı',
-	'securepoll-return' => 'agêr no pel $1',
+	'securepoll-return' => 'Peyser şo $1.',
 	'securepoll-encrypt-error' => 'şifre biyayişê qeydê reyê şıma serkewte nêbı.
 reyê şıma qeyd nêbı!
 
