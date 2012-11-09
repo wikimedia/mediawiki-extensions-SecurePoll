@@ -178,6 +178,11 @@ $specialPageAliases['tr'] = array(
 	'SecurePoll' => array( 'GüvenliHavuz' ),
 );
 
+/** Ukrainian (українська) */
+$specialPageAliases['uk'] = array(
+	'SecurePoll' => array( 'Захищене_голосування' ),
+);
+
 /** Vietnamese (Tiếng Việt) */
 $specialPageAliases['vi'] = array(
 	'SecurePoll' => array( 'Bỏ_phiếu_an_toàn' ),
