@@ -12485,6 +12485,16 @@ $messages['tyv'] = array(
 	'securepoll-header-title' => 'Ат',
 );
 
+/** Central Atlas Tamazight (ⵜⴰⵎⴰⵣⵉⵖⵜ)
+ * @author Tifinaghes
+ */
+$messages['tzm'] = array(
+	'securepoll-header-timestamp' => 'ⴰⴽⵓⴷ',
+	'securepoll-header-voter-name' => 'ⴰⵙⵙⴰⵖ',
+	'securepoll-header-id' => 'ⵓⵟⵟⵓⵏ',
+	'securepoll-subpage-list' => 'ⵓⵎⵓⵖ',
+);
+
 /** Ukrainian (українська)
  * @author AS
  * @author Ahonc
