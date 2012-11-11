@@ -12492,6 +12492,7 @@ $messages['tzm'] = array(
 	'securepoll-header-timestamp' => 'ⴰⴽⵓⴷ',
 	'securepoll-header-voter-name' => 'ⴰⵙⵙⴰⵖ',
 	'securepoll-header-id' => 'ⵓⵟⵟⵓⵏ',
+	'securepoll-subpage-translate' => 'ⵙⵙⵓⵖⵍ',
 	'securepoll-subpage-list' => 'ⵓⵎⵓⵖ',
 );
 
