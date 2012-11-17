@@ -103,6 +103,11 @@ $specialPageAliases['ia'] = array(
 	'SecurePoll' => array( 'Voto_secur' ),
 );
 
+/** Italian (italiano) */
+$specialPageAliases['it'] = array(
+	'SecurePoll' => array( 'SondaggioSicuro' ),
+);
+
 /** Japanese (日本語) */
 $specialPageAliases['ja'] = array(
 	'SecurePoll' => array( '暗号投票' ),
