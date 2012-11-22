@@ -173,6 +173,11 @@ $specialPageAliases['ru'] = array(
 	'SecurePoll' => array( 'Защищённое_голосование' ),
 );
 
+/** Sicilian (sicilianu) */
+$specialPageAliases['scn'] = array(
+	'SecurePoll' => array( 'SondaggioSicuro' ),
+);
+
 /** Slovak (slovenčina) */
 $specialPageAliases['sk'] = array(
 	'SecurePoll' => array( 'BezpečnéHlasovanie' ),
