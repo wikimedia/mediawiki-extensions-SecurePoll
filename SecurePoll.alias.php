@@ -58,6 +58,11 @@ $specialPageAliases['fa'] = array(
 	'SecurePoll' => array( 'رای‌گیری_ایمن' ),
 );
 
+/** Finnish (suomi) */
+$specialPageAliases['fi'] = array(
+	'SecurePoll' => array( 'Suojattu_kysely' ),
+);
+
 /** French (français) */
 $specialPageAliases['fr'] = array(
 	'SecurePoll' => array( 'Vote_sécurisé' ),
@@ -148,7 +153,7 @@ $specialPageAliases['nb'] = array(
 	'SecurePoll' => array( 'Sikker_avstemning' ),
 );
 
-/** Nedersaksisch (Nedersaksisch) */
+/** Nedersaksies (Nedersaksies) */
 $specialPageAliases['nds-nl'] = array(
 	'SecurePoll' => array( 'Beveilig_stemmen' ),
 );
