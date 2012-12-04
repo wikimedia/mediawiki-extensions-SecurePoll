@@ -45,7 +45,7 @@ $specialPageAliases['de'] = array(
 
 /** Zazaki (Zazaki) */
 $specialPageAliases['diq'] = array(
-	'SecurePoll' => array( 'DolaEmeley' ),
+	'SecurePoll' => array( 'Dolaİtimadi' ),
 );
 
 /** Lower Sorbian (dolnoserbski) */
