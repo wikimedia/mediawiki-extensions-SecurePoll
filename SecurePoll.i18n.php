@@ -1178,6 +1178,51 @@ $messages['az'] = array(
 	'securepoll-subpage-dump' => 'Xam',
 );
 
+/** South Azerbaijani (تورکجه)
+ * @author Amir a57
+ */
+$messages['azb'] = array(
+	'securepoll' => 'امن رای‌گیری لیک',
+	'securepoll-welcome' => '<strong>$1  گلمیسینیز </strong>',
+	'securepoll-change-disallowed' => 'سیز بو سئچکیده آرتیق سس وئرمیسینیز. 
+اوزر ایستییریک، یئنی‌دن سس وئره بیلمزسینیز.',
+	'securepoll-submit' => 'سس وئر',
+	'securepoll-return' => '$1 صحیفه‌سینه قاییت.',
+	'securepoll-bad-ballot-submission' => '$1: سسینیز کئچرسیزدیر',
+	'securepoll-api-invalid-params' => 'یانلیش نیزاملاما‌لار.',
+	'securepoll-list-title' => '$1: سس‌لرین سیاهی‌سی',
+	'securepoll-header-timestamp' => 'زامان',
+	'securepoll-header-voter-name' => 'آد',
+	'securepoll-header-voter-domain' => 'دامنه:',
+	'securepoll-header-ua' => 'کاربرین اختاریش برنامه سی',
+	'securepoll-header-cookie-dup' => 'تکراری',
+	'securepoll-header-strike' => 'ایشاره‌له',
+	'securepoll-header-details' => 'دئتال‌لار',
+	'securepoll-strike-button' => 'ایشاره‌له',
+	'securepoll-unstrike-button' => 'ایشاره‌لمه',
+	'securepoll-strike-reason' => 'ندن:',
+	'securepoll-strike-cancel' => 'لغو ائت',
+	'securepoll-details-link' => 'دئتال‌لار',
+	'securepoll-voter-properties' => 'زای وئرن لرین خصوصیت‌لری',
+	'securepoll-strike-log' => 'ایشاره‌لمه گونده‌لیگی',
+	'securepoll-header-action' => 'فعالیت',
+	'securepoll-header-reason' => 'ندن:',
+	'securepoll-header-admin' => 'ایداره‌چی',
+	'securepoll-dump-title' => 'توللانتی: $1',
+	'securepoll-translate-title' => 'ترجومه ائت:$1',
+	'securepoll-invalid-language' => '"$1" یانلیش دیل کودو',
+	'securepoll-submit-translate' => 'یئنیله',
+	'securepoll-language-label' => 'دیلی سئچین:',
+	'securepoll-submit-select-lang' => 'ترجومه ائت',
+	'securepoll-header-title' => 'آد',
+	'securepoll-header-start-date' => 'باشلنماق تاریخی',
+	'securepoll-header-end-date' => 'سون تاریخ',
+	'securepoll-subpage-vote' => 'رای',
+	'securepoll-subpage-translate' => 'ترجومه ائت',
+	'securepoll-subpage-list' => 'سییاهه',
+	'securepoll-subpage-dump' => 'خام',
+);
+
 /** Bashkir (башҡортса)
  * @author Assele
  * @author Haqmar
