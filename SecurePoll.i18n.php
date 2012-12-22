@@ -708,6 +708,7 @@ $messages['arc'] = array(
 	'securepoll-submit' => 'ܫܕܪ ܩܠܐ',
 	'securepoll-header-timestamp' => 'ܙܒܢܐ',
 	'securepoll-header-voter-name' => 'ܫܡܐ',
+	'securepoll-header-voter-domain' => 'ܪܘܚܬܐ',
 	'securepoll-header-ua' => 'ܩܝܝܘܡܐ ܕܡܦܠܚܢܐ',
 	'securepoll-header-details' => 'ܐܪ̈ܝܟܬܐ',
 	'securepoll-strike-reason' => 'ܥܠܬܐ:',
