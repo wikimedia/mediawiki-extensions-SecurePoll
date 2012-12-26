@@ -1181,6 +1181,7 @@ $messages['az'] = array(
 
 /** South Azerbaijani (تورکجه)
  * @author Amir a57
+ * @author Mousa
  */
 $messages['azb'] = array(
 	'securepoll' => 'امن رای‌گیری لیک',
@@ -1212,7 +1213,7 @@ $messages['azb'] = array(
 	'securepoll-dump-title' => 'توللانتی: $1',
 	'securepoll-translate-title' => 'ترجومه ائت:$1',
 	'securepoll-invalid-language' => '"$1" یانلیش دیل کودو',
-	'securepoll-submit-translate' => 'یئنیله',
+	'securepoll-submit-translate' => 'گونجل‌له',
 	'securepoll-language-label' => 'دیلی سئچین:',
 	'securepoll-submit-select-lang' => 'ترجومه ائت',
 	'securepoll-header-title' => 'آد',
@@ -5759,11 +5760,11 @@ $messages['ig'] = array(
 	'securepoll-strike-reason' => 'Mgbághapụtà:',
 	'securepoll-strike-cancel' => 'Kàchá',
 	'securepoll-details-link' => 'Nkȯwa',
-	'securepoll-header-action' => 'Ọmé',
+	'securepoll-header-action' => 'Umẹ́',
 	'securepoll-header-reason' => 'Mgbaghaputa',
 	'securepoll-submit-translate' => 'Dịnwanye mmā',
 	'securepoll-language-label' => 'Nwèré asụsụ:',
-	'securepoll-submit-select-lang' => 'Kuwaria na asụsụ ozor',
+	'securepoll-submit-select-lang' => 'Tụ̀wári ásụ̀sụ̀',
 	'securepoll-header-title' => 'Áhà',
 	'securepoll-subpage-vote' => 'Votu',
 	'securepoll-subpage-list' => 'Ndetu',
