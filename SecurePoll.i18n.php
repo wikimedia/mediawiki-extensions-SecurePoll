@@ -8360,7 +8360,7 @@ $messages['nl'] = array(
 	'securepoll-desc' => 'Uitbreiding voor stemmingen en enquêtes',
 	'securepoll-invalid-page' => 'Ongeldige subpagina "<nowiki>$1</nowiki>"',
 	'securepoll-need-admin' => 'U moet een stemmingenbeheerder zijn om deze handeling te mogen uitvoeren.',
-	'securepoll-too-few-params' => 'Onvoldoende subpaginaparameters (ongeldige verwijzing).',
+	'securepoll-too-few-params' => 'Onvoldoende subpaginaparameters (ongeldige koppeling).',
 	'securepoll-invalid-election' => '"$1" is geen geldig stemmingsnummer.',
 	'securepoll-welcome' => '<strong>Welkom $1!</strong>',
 	'securepoll-not-started' => 'Deze stemming is nog niet gestart.
@@ -12541,6 +12541,35 @@ $messages['tzm'] = array(
 	'securepoll-header-id' => 'ⵓⵟⵟⵓⵏ',
 	'securepoll-subpage-translate' => 'ⵙⵙⵓⵖⵍ',
 	'securepoll-subpage-list' => 'ⵓⵎⵓⵖ',
+);
+
+/** Uyghur (Arabic script) (ئۇيغۇرچە)
+ * @author Sahran
+ */
+$messages['ug-arab'] = array(
+	'securepoll-header-timestamp' => 'سائەت',
+	'securepoll-header-voter-name' => 'ئاتى',
+	'securepoll-header-voter-domain' => 'دائىرە',
+	'securepoll-header-ip' => 'IP',
+	'securepoll-header-details' => 'تەپسىلاتى',
+	'securepoll-strike-reason' => 'سەۋەب:',
+	'securepoll-strike-cancel' => 'ۋاز كەچ',
+	'securepoll-details-link' => 'تەپسىلاتى',
+	'securepoll-header-id' => 'كىملىكى',
+	'securepoll-header-url' => 'URL',
+	'securepoll-header-action' => 'مەشغۇلات',
+	'securepoll-header-reason' => 'سەۋەب',
+	'securepoll-header-admin' => 'باشقۇرغۇچى',
+	'securepoll-header-trans-id' => 'كىملىكى',
+	'securepoll-submit-translate' => 'يېڭىلا',
+	'securepoll-submit-select-lang' => 'تەرجىمە',
+	'securepoll-header-title' => 'ئاتى',
+	'securepoll-header-start-date' => 'باشلاش چېسلاسى',
+	'securepoll-header-end-date' => 'ئاخىرلىشىش ۋاقتى',
+	'securepoll-subpage-vote' => 'بىلەت',
+	'securepoll-subpage-translate' => 'تەرجىمە',
+	'securepoll-subpage-list' => 'تىزىم',
+	'securepoll-subpage-dump' => 'ئالماشتۇرۇپ ساقلاش',
 );
 
 /** Ukrainian (українська)
