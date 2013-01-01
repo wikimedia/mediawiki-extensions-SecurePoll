@@ -2173,9 +2173,19 @@ $messages['ce'] = array(
  * @author Calak
  */
 $messages['ckb'] = array(
+	'securepoll-header-timestamp' => 'کات',
+	'securepoll-header-voter-name' => 'ناو',
+	'securepoll-header-voter-domain' => 'پاوان',
+	'securepoll-header-cookie-dup' => 'دووپات کراو',
+	'securepoll-header-details' => 'وردەکارییەکان',
 	'securepoll-strike-reason' => 'هۆکار:',
+	'securepoll-strike-cancel' => 'ھەڵیوەشێنەوە',
+	'securepoll-details-link' => 'وردەکارییەکان',
 	'securepoll-header-id' => 'پێناسە',
 	'securepoll-header-reason' => 'هۆکار',
+	'securepoll-header-title' => 'نام',
+	'securepoll-subpage-vote' => 'دەنگ',
+	'securepoll-subpage-list' => 'پێرست',
 );
 
 /** Czech (česky)
