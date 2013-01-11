@@ -6541,23 +6541,23 @@ $messages['ko'] = array(
 	'securepoll-welcome' => '<strong>$1님, 환영합니다!</strong>',
 	'securepoll-not-started' => '투표가 아직 시작되지 않았습니다.
 투표는 $2 $3부터 시작될 예정입니다.',
-	'securepoll-finished' => '이 선거가 이미 종료되었기 때문에, 당신은 더 이상 투표할 수 없습니다.',
+	'securepoll-finished' => '이 선거가 이미 종료되었기 때문에 더 이상 투표할 수 없습니다.',
 	'securepoll-not-qualified' => '당신에게는 이번 선거에서 투표권이 부여되지 않았습니다: $1',
-	'securepoll-change-disallowed' => '당신은 이미 투표하였습니다.
+	'securepoll-change-disallowed' => '이미 투표하였습니다.
 죄송하지만 다시 투표할 수 없습니다.',
-	'securepoll-change-allowed' => '<strong>참고: 당신은 이전에 투표한 적이 있습니다.</strong>
-당신은 아래 양식을 이용해 투표를 바꿀 수 있습니다.
+	'securepoll-change-allowed' => '<strong>참고: 이전에 투표한 적이 있습니다.</strong>
+아래 양식을 이용해 투표를 바꿀 수 있습니다.
 그렇게 할 경우 이전의 투표는 무효 처리될 것입니다.',
 	'securepoll-submit' => '투표하기',
 	'securepoll-gpg-receipt' => '투표해 주셔서 감사합니다.
 
-당신이 원하신다면 당신의 투표에 대한 증거로 다음 투표증을 보관할 수 있습니다:
+원한다면 투표에 대한 증거로 다음 투표증을 보관할 수 있습니다:
 
 <pre>$1</pre>',
-	'securepoll-thanks' => '감사합니다. 당신의 투표가 기록되었습니다.',
+	'securepoll-thanks' => '감사합니다. 투표가 기록되었습니다.',
 	'securepoll-return' => '$1(으)로 돌아가기',
-	'securepoll-encrypt-error' => '당신의 투표를 암호화하는 데 실패했습니다.
-당신의 투표가 기록되지 않았습니다.
+	'securepoll-encrypt-error' => '투표를 암호화하는 데 실패했습니다.
+투표가 기록되지 않았습니다!
 
 $1',
 	'securepoll-no-gpg-home' => 'GPG 홈 디렉토리를 만들 수 없습니다.',
@@ -6576,24 +6576,24 @@ $1',
 	'securepoll-jump' => '선거 서버로 이동하기',
 	'securepoll-bad-ballot-submission' => '투표가 무효 처리 되었습니다: $1',
 	'securepoll-unanswered-questions' => '모든 질문에 답을 입력해 주셔야 합니다.',
-	'securepoll-invalid-rank' => '순위를 잘못 입력하였습니다. 당신은 후보자의 순위를 1부터 999까지 매겨야 합니다.',
+	'securepoll-invalid-rank' => '순위를 잘못 입력하였습니다. 후보자의 순위를 1부터 999까지 매겨야 합니다.',
 	'securepoll-unranked-options' => '어떤 선택 사항에 대한 순위가 매겨지지 않았습니다.
-당신은 모든 선택 사항에 대해 1부터 999까지 순위를 매겨야 합니다.',
+모든 선택 사항에 대해 1부터 999까지 순위를 매겨야 합니다.',
 	'securepoll-invalid-score' => '점수는 $1과 $2 사이의 숫자이어야 합니다.',
-	'securepoll-unanswered-options' => '당신은 모든 질문에 응답해야 합니다.',
+	'securepoll-unanswered-options' => '모든 질문에 응답해야 합니다.',
 	'securepoll-remote-auth-error' => '귀하의 계정 정보를 불러오는 중에 오류가 발생하였습니다.',
 	'securepoll-remote-parse-error' => '서버로부터 권한 응답에 따른 해석 오류가 발생',
 	'securepoll-api-invalid-params' => '명령 변수가 잘못되었습니다.',
 	'securepoll-api-no-user' => '등록되어 있지 않은 ID 입니다.',
 	'securepoll-api-token-mismatch' => '암호화 통신상의 오류가 발생하여 로그인하지 못했습니다.',
 	'securepoll-not-logged-in' => '이 선거에 투표를 하시려면 먼저 로그인하셔야 합니다.',
-	'securepoll-too-few-edits' => '죄송하지만, 투표에 참여하실 수 없습니다. 투표에 참여하시려면 최소 $1{{PLURAL:$1|회}}의 편집기여를 하셔야 하지만 귀하의 편집 수는 $2회 입니다.',
-	'securepoll-too-new' => '미안하지만, 당신은 투표할 수 없습니다. 이 선거에서 투표하려면 $1  $3 이전에 당신의 계정이 등록되어 있어야 합니다. 당신은 $2 $4에 계정을 등록하였습니다.',
-	'securepoll-blocked' => '죄송하지만, 귀하의 계정은 차단당한 상태이므로 이 선거에 투표하실 수 없습니다.',
-	'securepoll-blocked-centrally' => '죄송합니다. 귀하는 $1개 이상의 위키에서 차단되었기 때문에 이 선거에 투표할 수 없습니다.',
-	'securepoll-bot' => '죄송합니다. 봇 권한을 가진 계정으로는 투표할 수 없습니다.',
+	'securepoll-too-few-edits' => '죄송합니다, 투표에 참여하실 수 없습니다. 투표에 참여하시려면 최소 {{PLURAL:$1|편집}} $1회을 하셔야 하지만 편집 수는 $2회 입니다.',
+	'securepoll-too-new' => '죄송합니다, 당신은 투표할 수 없습니다. 이 선거에서 투표하려면 $1 $3 이전에 계정이 등록되어 있어야 합니다. $2 $4에 계정을 등록하였습니다.',
+	'securepoll-blocked' => '죄송합니다, 당신의 계정은 차단당한 상태이므로 이 선거에 투표할 수 없습니다.',
+	'securepoll-blocked-centrally' => '죄송합니다, 귀하는 $1개 이상의 {{PLURAL:$1|위키}}에서 차단되었기 때문에 이 선거에 투표할 수 없습니다.',
+	'securepoll-bot' => '죄송합니다, 봇 권한을 가진 계정으로는 투표할 수 없습니다.',
 	'securepoll-not-in-group' => '이 선거에는 "$1" 모임에 속하는 회원만 투표하실 수 있습니다.',
-	'securepoll-not-in-list' => '죄송하지만, 귀하는 이 선거에 투표하실 수 있는 선거인단명부에 등록되어 있지 않습니다.',
+	'securepoll-not-in-list' => '죄송합니다, 귀하는 이 선거에 투표하실 수 있는 선거인단명부에 등록되어 있지 않습니다.',
 	'securepoll-list-title' => '표 목록: $1',
 	'securepoll-header-timestamp' => '시간',
 	'securepoll-header-voter-name' => '이름',
