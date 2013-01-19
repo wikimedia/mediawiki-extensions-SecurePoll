@@ -12791,6 +12791,7 @@ $messages['ur'] = array(
 
 /** vèneto (vèneto)
  * @author Candalua
+ * @author GatoSelvadego
  * @author Nick1915
  */
 $messages['vec'] = array(
@@ -12861,14 +12862,14 @@ Te devi dare a tute le voci un voto da 1 a 999.',
 	'securepoll-header-ua' => 'Agente utente',
 	'securepoll-header-cookie-dup' => 'Dopio',
 	'securepoll-header-strike' => 'Anùla',
-	'securepoll-header-details' => 'Detagli',
+	'securepoll-header-details' => 'Detaji',
 	'securepoll-strike-button' => 'Anùla sta voto',
 	'securepoll-unstrike-button' => 'Recupera sto voto',
 	'securepoll-strike-reason' => 'Motivo:',
 	'securepoll-strike-cancel' => 'Anùla',
 	'securepoll-strike-error' => "Eròr durante l'anulamento o el ripristino del voto: $1",
 	'securepoll-strike-token-mismatch' => 'I dati de la session i xe ndà persi',
-	'securepoll-details-link' => 'Detagli',
+	'securepoll-details-link' => 'Detaji',
 	'securepoll-details-title' => 'Detagli del voto: #$1',
 	'securepoll-invalid-vote' => '"$1" no xe l\'ID de un voto vàlido',
 	'securepoll-header-voter-type' => 'Tipo de utente',
