@@ -6555,7 +6555,7 @@ $messages['ko'] = array(
 
 <pre>$1</pre>',
 	'securepoll-thanks' => '감사합니다. 투표가 기록되었습니다.',
-	'securepoll-return' => '$1(으)로 돌아가기',
+	'securepoll-return' => '$1 문서로 돌아갑니다',
 	'securepoll-encrypt-error' => '투표를 암호화하는 데 실패했습니다.
 투표가 기록되지 않았습니다!
 
@@ -12851,7 +12851,9 @@ Te devi dare a tute le voci un voto da 1 a 999.',
 	'securepoll-api-token-mismatch' => 'I token de sicuressa no i coincide, no te podi entrar.',
 	'securepoll-not-logged-in' => 'Ti gà da far el login par votar in sta elession',
 	'securepoll-too-few-edits' => "Me dispiase, no te pol mia votar. Te ghè da ver fato almanco $1 {{PLURAL:$1|modifica|modifiche}} par votar in sta elession, ti te ghe n'è fate $2.",
+	'securepoll-too-new' => 'Ne despiaxe ma no te poi votar. Par farlo te ghe da esarte notà prima del $1, $3 mentre invese te te si notà el $2 a łe $4.',
 	'securepoll-blocked' => 'Me dispiase, no te pol mia votar in sta elession se te sì stà blocà dal far le modifiche.',
+	'securepoll-blocked-centrally' => 'Ne despiaxe ma no te poi votar in sta elesion parché te si blocà in almanco $1 {{PLURAL:$1|wiki}}.',
 	'securepoll-bot' => 'Me dispiase, le utense col stato de bot no le xe amesse a votar in sta elession.',
 	'securepoll-not-in-group' => 'Solo i menbri del grupo "$1" i pol votar in sta elession.',
 	'securepoll-not-in-list' => 'Me dispiase, no te sì mia in te la lista predeterminada dei utenti autorixà a votar in sta elession.',
@@ -12917,6 +12919,9 @@ Te poli far la conta dei risultati presenti nel database o far la conta dei risu
 	'securepoll-strength-matrix' => 'Matrice de fortezza del percorso',
 	'securepoll-ranks' => 'Classifica final',
 	'securepoll-average-score' => 'Puntejo medio',
+	'securepoll-round' => 'Turno nùmaro $1.',
+	'securepoll-spoilt' => '(visià)',
+	'securepoll-exhausted' => '(exaurìo)',
 );
 
 /** Veps (vepsän kel’)
