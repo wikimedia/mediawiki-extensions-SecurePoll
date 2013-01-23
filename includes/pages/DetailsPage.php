@@ -9,7 +9,7 @@ class SecurePoll_DetailsPage extends SecurePoll_Page {
 	 * @param $params array Array of subpage parameters.
 	 */
 	function execute( $params ) {
-		global $wgOut, $wgUser, $wgLang;
+		global $wgOut, $wgUser, $wgLang, $wgSecurePollKeepPrivateInfoDays;
 
 		if ( !count( $params ) ) {
 			$wgOut->addWikiMsg( 'securepoll-too-few-params' );
@@ -37,6 +37,15 @@ class SecurePoll_DetailsPage extends SecurePoll_Page {
 		$this->election = $this->context->newElectionFromRow( $row );
 		$this->initLanguage( $wgUser, $this->election );
 
+		$vote_ip = '';
+		$vote_xff = '';
+		$vote_ua = '';
+		if ( $row->el_end_date >= wfTimestamp( TS_MW, time() - ($wgSecurePollKeepPrivateInfoDays * 24 * 60 * 60 ) ) ) {
+			$vote_ip = IP::formatHex( $row->vote_ip );
+			$vote_xff = $row->vote_xff;
+			$vote_ua = $row->vote_ua;
+		}
+
 		$this->parent->setSubtitle( array( 
 			$this->parent->getTitle( 'list/' . $this->election->getId() ), 
 			wfMsg( 'securepoll-list-title', $this->election->getMessage( 'title' ) ) ) );
@@ -57,9 +66,9 @@ class SecurePoll_DetailsPage extends SecurePoll_Page {
 			$this->detailEntry( 'securepoll-header-voter-type', $row->voter_type ) .
 			$this->detailEntry( 'securepoll-header-voter-domain', $row->voter_domain ) .
 			$this->detailEntry( 'securepoll-header-url', $row->voter_url ) .
-			$this->detailEntry( 'securepoll-header-ip', IP::formatHex( $row->vote_ip ) ) .
-			$this->detailEntry( 'securepoll-header-xff', $row->vote_xff ) .
-			$this->detailEntry( 'securepoll-header-ua', $row->vote_ua ) .
+			$this->detailEntry( 'securepoll-header-ip', $vote_ip ) .
+			$this->detailEntry( 'securepoll-header-xff', $vote_xff ) .
+			$this->detailEntry( 'securepoll-header-ua', $vote_ua ) .
 			$this->detailEntry( 'securepoll-header-token-match', $row->vote_token_match ) .
 			'</table>'
 		);

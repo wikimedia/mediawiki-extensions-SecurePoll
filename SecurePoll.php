@@ -41,6 +41,11 @@ $wgSecurePollShowErrorDetail = false;
  */
 $wgSecurePollScript = 'extensions/SecurePoll/auth-api.php';
 
+/**
+ * Time (in days) to keep IP addresses, XFF, UA of voters
+ */
+$wgSecurePollKeepPrivateInfoDays = 90;
+
 ### END CONFIGURATON ###
 
 

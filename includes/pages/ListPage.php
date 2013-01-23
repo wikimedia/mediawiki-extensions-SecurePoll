@@ -219,7 +219,7 @@ class SecurePoll_ListPager extends TablePager {
 	}
 
 	function formatValue( $name, $value ) {
-		global $wgLang, $wgScriptPath;
+		global $wgLang, $wgScriptPath, $wgSecurePollKeepPrivateInfoDays;
 		$critical = Xml::element( 'img', array( 
 			'src' => "$wgScriptPath/extensions/SecurePoll/resources/critical-32.png" ) 
 		);
@@ -232,7 +232,23 @@ class SecurePoll_ListPager extends TablePager {
 		case 'vote_timestamp':
 			return $wgLang->timeanddate( $value );
 		case 'vote_ip':
-			return IP::formatHex( $value );
+			if ( $this->election->endDate < wfTimestamp( TS_MW, time() - ($wgSecurePollKeepPrivateInfoDays * 24 * 60 * 60 ) ) ) {
+				return '';
+			} else {
+				return IP::formatHex( $value );
+			}
+		case 'vote_ua':
+			if ( $this->election->endDate < wfTimestamp( TS_MW, time() - ($wgSecurePollKeepPrivateInfoDays * 24 * 60 * 60 ) ) ) {
+				return '';
+			} else {
+				return $value;
+			}
+		case 'vote_xff':
+			if ( $this->election->endDate < wfTimestamp( TS_MW, time() - ($wgSecurePollKeepPrivateInfoDays * 24 * 60 * 60 ) ) ) {
+				return '';
+			} else {
+				return $value;
+			}
 		case 'vote_cookie_dup':
 			$value = !$value;
 			// fall through
