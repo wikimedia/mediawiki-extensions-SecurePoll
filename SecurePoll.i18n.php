@@ -183,6 +183,7 @@ To maintain voter privacy, encrypted election records are only publically availa
  * @author Purodha
  * @author Raymond
  * @author Saper
+ * @author Shirayuki
  * @author Siebrand
  * @author Umherirrender
  */
@@ -241,6 +242,7 @@ The /dev/urandom cryptographic random number generation device is not supported 
 	'securepoll-translate-title' => '{{Identical|Translate}}',
 	'securepoll-header-trans-id' => '{{optional}}',
 	'securepoll-submit-translate' => '{{Identical|Update}}',
+	'securepoll-language-label' => '{{Identical|Select language}}',
 	'securepoll-submit-select-lang' => '{{Identical|Translate}}',
 	'securepoll-header-title' => '{{Identical|Name}}',
 	'securepoll-header-start-date' => '{{Identical|Start date}}',
@@ -8782,6 +8784,9 @@ Podètz causir de comptar los resultats dempuèi la banca de donadas o dempuèi 
 	'securepoll-strength-matrix' => 'Matritz de fòrça dels camins',
 	'securepoll-ranks' => 'Classament final',
 	'securepoll-average-score' => 'Marca mejana',
+	'securepoll-round' => 'Torn $1',
+	'securepoll-spoilt' => '(Blancs o nuls)',
+	'securepoll-exhausted' => '(Agotat)',
 );
 
 /** Oriya (ଓଡ଼ିଆ)
