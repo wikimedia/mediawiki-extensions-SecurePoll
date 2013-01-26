@@ -11211,6 +11211,13 @@ Za zagotavljanje zasebnosti volivcev so šifrirani volilni zapisi javno vidni š
 	'securepoll-exhausted' => '(Izkoriščeno)',
 );
 
+/** Somali (Soomaaliga)
+ * @author Abshirdheere
+ */
+$messages['so'] = array(
+	'securepoll-subpage-translate' => 'Turjum',
+);
+
 /** Albanian (shqip)
  * @author Mikullovci11
  * @author Olsi
