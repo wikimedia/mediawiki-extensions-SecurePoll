@@ -8233,7 +8233,7 @@ Du kannst de Resultaten in de Datenbank tohooptellen laten, oder de verslötelt 
 	'securepoll-no-upload' => 'Keen Datei hoochlaadt, kann keen Tell opstellen.',
 );
 
-/** Nedersaksisch (Nedersaksisch)
+/** Nedersaksies (Nedersaksies)
  * @author Servien
  */
 $messages['nds-nl'] = array(
