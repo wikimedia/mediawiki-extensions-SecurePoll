@@ -153,7 +153,7 @@ $specialPageAliases['nb'] = array(
 	'SecurePoll' => array( 'Sikker_avstemning' ),
 );
 
-/** Nedersaksies (Nedersaksies) */
+/** Low Saxon (Netherlands) (Nedersaksies) */
 $specialPageAliases['nds-nl'] = array(
 	'SecurePoll' => array( 'Beveilig_stemmen' ),
 );
