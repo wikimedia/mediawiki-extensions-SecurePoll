@@ -298,7 +298,7 @@ class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
 			$url .= '/';
 		}
 		$url .= $wgSecurePollScript . '?' . 
-			wfArrayToCGI( array(
+			wfArrayToCgi( array(
 				'token' => $params['token'],
 				'id' => $params['id']
 			) );
