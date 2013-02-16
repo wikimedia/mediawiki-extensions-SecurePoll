@@ -251,7 +251,8 @@ The /dev/urandom cryptographic random number generation device is not supported 
 Link text to a sub page in the SecurePoll extension where users can vote.',
 	'securepoll-subpage-translate' => '{{Identical|Translate}}
 Link text to a sub page in the SecurePoll extension where users can translate poll related texts.',
-	'securepoll-subpage-list' => 'Link text to a sub page in the SecurePoll extension where users can list poll information.',
+	'securepoll-subpage-list' => 'Link text to a sub page in the SecurePoll extension where users can list poll information.
+{{Identical|List}}',
 	'securepoll-subpage-dump' => 'Link text to a sub page in the SecurePoll extension where users can dump results.',
 	'securepoll-subpage-tally' => 'Link text to a sub page in the SecurePoll extension where users can tally.',
 	'securepoll-round' => 'Column header for tables on tallies which take place over multiple rounds; parameter is a roman numeral.',
