@@ -193,13 +193,12 @@ $messages['qqq'] = array(
 * $3 is its time.',
 	'securepoll-submit' => '{{Identical|Submit}}',
 	'securepoll-return' => '{{Identical|Return to $1}}',
-	'securepoll-no-gpg-home' => 'GPG stands for [http://en.wikipedia.org/wiki/GNU_Privacy_Guard GNU Privacy Guard].',
-	'securepoll-secret-gpg-error' => "<span style=\"color:red\">'''DO <u>NOT</u> translate LocalSettings.php and \$wgSecurePollShowErrorDetail=true;'''</span>
-
-GPG stands for [http://en.wikipedia.org/wiki/GNU_Privacy_Guard GNU Privacy Guard].",
-	'securepoll-full-gpg-error' => 'GPG stands for [http://en.wikipedia.org/wiki/GNU_Privacy_Guard GNU Privacy Guard].',
-	'securepoll-gpg-config-error' => 'GPG stands for [http://en.wikipedia.org/wiki/GNU_Privacy_Guard GNU Privacy Guard].',
-	'securepoll-gpg-parse-error' => 'GPG stands for [http://en.wikipedia.org/wiki/GNU_Privacy_Guard GNU Privacy Guard].',
+	'securepoll-no-gpg-home' => 'GPG stands for [[w:GNU_Privacy_Guard|GNU Privacy Guard]].',
+	'securepoll-secret-gpg-error' => '{{doc-important|Do not translate LocalSettings.php and <code><nowiki>$wgSecurePollShowErrorDetail=true;</nowiki></code>}}
+GPG stands for [[w:GNU_Privacy_Guard|GNU Privacy Guard]].',
+	'securepoll-full-gpg-error' => 'GPG stands for [[w:GNU_Privacy_Guard|GNU Privacy Guard]].',
+	'securepoll-gpg-config-error' => 'GPG stands for [[w:GNU_Privacy_Guard|GNU Privacy Guard]].',
+	'securepoll-gpg-parse-error' => 'GPG stands for [[w:GNU_Privacy_Guard|GNU Privacy Guard]].',
 	'securepoll-too-new' => 'Parameters:
 * $1 is the required registration date
 * $2 is the actual registration date
