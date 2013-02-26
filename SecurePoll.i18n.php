@@ -212,9 +212,8 @@ GPG stands for [[w:GNU_Privacy_Guard|GNU Privacy Guard]].',
 	'securepoll-header-xff' => '{{optional}}',
 	'securepoll-header-token-match' => '{{optional}}',
 	'securepoll-header-cookie-dup' => 'Column caption above the table of voters shown at [[Special:SecurePoll/list/1]]. The column displays whether the vote is a duplicate (detected by a cookie). See also {{msg-mw|securepoll-cookie-dup-list}}. This translation should be as short as possible (an abbreviation for "duplicate").',
-	'securepoll-header-strike' => '{{Identical|Strike}}
-
-"Strike" here means to strikout a vote (slash it) so as to mark is as not being counted. E.g. a user voted a second time; a user was not elegible for voting because of an insufficient edit count; a known sockpuppet was used, and the puppetmaster also voted; a bot user vote, etc.',
+	'securepoll-header-strike' => '"Strike" here means to strikeout a vote (slash it) so as to mark is as not being counted. E.g. a user voted a second time; a user was not eligible for voting because of an insufficient edit count; a known sockpuppet was used, and the puppetmaster also voted; a bot user vote, etc.
+{{Identical|Strike}}',
 	'securepoll-header-details' => '{{Identical|Details}}',
 	'securepoll-strike-button' => '{{Identical|Strike}}',
 	'securepoll-unstrike-button' => '{{Identical|Unstrike}}',
@@ -246,10 +245,10 @@ The /dev/urandom cryptographic random number generation device is not supported 
 	'securepoll-header-title' => '{{Identical|Name}}',
 	'securepoll-header-start-date' => '{{Identical|Start date}}',
 	'securepoll-header-end-date' => '{{Identical|End date}}',
-	'securepoll-subpage-vote' => '{{Identical|Vote}}
-Link text to a sub page in the SecurePoll extension where users can vote.',
-	'securepoll-subpage-translate' => '{{Identical|Translate}}
-Link text to a sub page in the SecurePoll extension where users can translate poll related texts.',
+	'securepoll-subpage-vote' => 'Link text to a sub page in the SecurePoll extension where users can vote.
+{{Identical|Vote}}',
+	'securepoll-subpage-translate' => 'Link text to a sub page in the SecurePoll extension where users can translate poll related texts.
+{{Identical|Translate}}',
 	'securepoll-subpage-list' => 'Link text to a sub page in the SecurePoll extension where users can list poll information.
 {{Identical|List}}',
 	'securepoll-subpage-dump' => 'Link text to a sub page in the SecurePoll extension where users can dump results.',
