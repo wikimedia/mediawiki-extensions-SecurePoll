@@ -188,7 +188,7 @@ To maintain voter privacy, encrypted election records are only publically availa
  * @author Umherirrender
  */
 $messages['qqq'] = array(
-	'securepoll-desc' => '{{desc}}',
+	'securepoll-desc' => '{{desc|name=Secure Poll|url=http://www.mediawiki.org/wiki/Extension:SecurePoll}}',
 	'securepoll-not-started' => '* $2 is the date of it
 * $3 is its time.',
 	'securepoll-submit' => '{{Identical|Submit}}',
