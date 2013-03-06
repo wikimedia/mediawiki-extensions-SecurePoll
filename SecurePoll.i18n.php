@@ -3188,6 +3188,14 @@ $1',
 	'securepoll-exhausted' => '(Εξαντλημένα)',
 );
 
+/** British English (British English)
+ * @author Shirayuki
+ */
+$messages['en-gb'] = array(
+	'securepoll-remote-parse-error' => 'Error interpreting the authorisation response from the server.',
+	'securepoll-not-in-list' => 'Sorry, you are not in the predetermined list of users authorised to vote in this election.',
+);
+
 /** Esperanto (Esperanto)
  * @author ArnoLagrange
  * @author Marcos
