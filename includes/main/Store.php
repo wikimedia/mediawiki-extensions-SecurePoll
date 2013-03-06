@@ -269,8 +269,8 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 }
 
 /**
- * Storage class that stores all data in local memory. The memory must be 
- * initialised somehow, methods for this are not provided except in the 
+ * Storage class that stores all data in local memory. The memory must be
+ * initialized somehow, methods for this are not provided except in the
  * subclass.
  */
 class SecurePoll_MemoryStore implements SecurePoll_Store {
@@ -496,7 +496,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 				continue;
 			}
 			
-			wfDebug( __METHOD__.": ignoring unrecognised element <{$xr->name}>\n" );
+			wfDebug( __METHOD__.": ignoring unrecognized element <{$xr->name}>\n" );
 			$xr->next();
 		}
 		wfDebug( __METHOD__.": unexpected end of stream\n" );
@@ -574,7 +574,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 				continue;
 			}
 
-			wfDebug( __METHOD__.": ignoring unrecognised element <{$xr->name}>\n" );
+			wfDebug( __METHOD__.": ignoring unrecognized element <{$xr->name}>\n" );
 			$xr->next();
 		}
 

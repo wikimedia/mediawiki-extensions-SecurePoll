@@ -7,7 +7,7 @@ class SecurePoll_Auth {
 	var $context;
 
 	/**
-	 * List of available authorisation modules (subclasses)
+	 * List of available authorization modules (subclasses)
 	 */
 	static $authTypes = array(
 		'local' => 'SecurePoll_LocalAuth',
@@ -32,7 +32,7 @@ class SecurePoll_Auth {
 
 	/**
 	 * Create a voter transparently, without user interaction.
-	 * Sessions authorised against local accounts are created this way.
+	 * Sessions authorized against local accounts are created this way.
 	 * @param $election SecurePoll_Election
 	 * @return Status
 	 */
@@ -168,14 +168,14 @@ class SecurePoll_Auth {
 }
 
 /**
- * Authorisation class for locally created accounts.
+ * Authorization class for locally created accounts.
  * Certain functions in this class are also used for sending local voter 
  * parameters to a remote SecurePoll installation.
  */
 class SecurePoll_LocalAuth extends SecurePoll_Auth {
 	/**
 	 * Create a voter transparently, without user interaction.
-	 * Sessions authorised against local accounts are created this way.
+	 * Sessions authorized against local accounts are created this way.
 	 * @param $election SecurePoll_Election
 	 * @return Status
 	 */

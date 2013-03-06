@@ -31,7 +31,7 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 		$this->voter = $this->auth->getVoterFromSession( $this->election );
 
 		# If there's no session, try creating one.
-		# This will fail if the user is not authorised to vote in the election
+		# This will fail if the user is not authorized to vote in the election
 		if ( !$this->voter ) {
 			$status = $this->auth->newAutoSession( $this->election );
 			if ( $status->isOK() ) {

@@ -195,7 +195,7 @@ abstract class SecurePoll_Ballot {
 		# Get voter from session
 		$voter = $auth->getVoterFromSession( $this->election );
 		# If there's no session, try creating one.
-		# This will fail if the user is not authorised to vote in the election
+		# This will fail if the user is not authorized to vote in the election
 		if ( !$voter ) {
 			$status = $auth->newAutoSession( $this->election );
 			if ( $status->isOK() ) {

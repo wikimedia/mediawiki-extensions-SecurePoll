@@ -50,7 +50,7 @@ function spRunTest( $fileName, $debResult ) {
 		}
 		$line = trim( $line );
 		if ( !preg_match( '/^V: ([0-9-]*)$/', $line, $m ) ) {
-			echo "Skipping unrecognised line $line\n";
+			echo "Skipping unrecognized line $line\n";
 			continue;
 		}
 

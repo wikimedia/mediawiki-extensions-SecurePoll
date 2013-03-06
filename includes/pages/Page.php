@@ -23,7 +23,7 @@ abstract class SecurePoll_Page {
 	abstract function execute( $params );
 
 	/**
-	 * Internal utility function for initialising the global entity language 
+	 * Internal utility function for initializing the global entity language
 	 * fallback sequence.
 	 */
 	function initLanguage( $user, $election ) {

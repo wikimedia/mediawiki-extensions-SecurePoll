@@ -173,7 +173,7 @@ function spGetMetaTranslations( $lang ) {
 			continue;
 		}
 
-		fwrite( STDERR, "Unrecognised section \"$sectionName\" in $lang\n" );
+		fwrite( STDERR, "Unrecognized section \"$sectionName\" in $lang\n" );
 	}
 
 	fwrite( STDERR, "[[$titleText]]: found " . $numMessages . " messages\n" );

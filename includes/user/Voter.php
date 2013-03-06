@@ -84,7 +84,7 @@ class SecurePoll_Voter {
 	function getName() { return $this->name; }
 
 	/**
-	 * Get the authorisation type.
+	 * Get the authorization type.
 	 */
 	function getType() { return $this->type; }
 
@@ -178,7 +178,7 @@ class SecurePoll_Voter {
 			), 
 			__METHOD__ );
 
-		# Update the denormalised fields
+		# Update the denormalized fields
 		$dbw->update( 'securepoll_votes', 
 			array( 'vote_cookie_dup' => 1 ),
 			array(

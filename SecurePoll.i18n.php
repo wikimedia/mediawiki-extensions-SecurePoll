@@ -65,9 +65,9 @@ You must give all options a rank between 1 and 999.',
 	'securepoll-invalid-score' => 'The score must be a number between $1 and $2.',
 	'securepoll-unanswered-options' => 'You must give a response for every question.',
 
-	# Authorisation related
+	# Authorization related
 	'securepoll-remote-auth-error' => 'Error fetching your account information from the server.',
-	'securepoll-remote-parse-error' => 'Error interpreting the authorisation response from the server.',
+	'securepoll-remote-parse-error' => 'Error interpreting the authorization response from the server.',
 	
 	'securepoll-api-invalid-params' => 'Invalid parameters.',
 	'securepoll-api-no-user' => 'No user was found with the given ID.',
@@ -79,7 +79,7 @@ You must give all options a rank between 1 and 999.',
 	'securepoll-blocked-centrally' => 'Sorry, you cannot vote in this election as you are blocked on at least $1 {{PLURAL:$1|wiki|wikis}}.',
 	'securepoll-bot' => 'Sorry, accounts with the bot flag are not allowed to vote in this election.',
 	'securepoll-not-in-group' => 'Only members of the "$1" group can vote in this election.',
-	'securepoll-not-in-list' => 'Sorry, you are not in the predetermined list of users authorised to vote in this election.',
+	'securepoll-not-in-list' => 'Sorry, you are not in the predetermined list of users authorized to vote in this election.',
 	'securepoll-custom-unqualified' => '$1',
 
 	# List page

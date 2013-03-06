@@ -281,7 +281,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	}
 
 	/**
-	 * Get the authorisation object.
+	 * Get the authorization object.
 	 * @return SecurePoll_Auth
 	 */
 	function getAuth() {

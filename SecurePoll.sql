@@ -68,7 +68,7 @@ CREATE TABLE /*_*/securepoll_elections (
 	-- End date, in 14-char MW format
 	el_end_date varbinary(14),
 
-	-- User authorisation type, see Auth.php
+	-- User authorization type, see Auth.php
 	el_auth_type varbinary(32) not null
 ) /*$wgDBTableOptions*/;
 CREATE UNIQUE INDEX /*i*/spel_title ON /*_*/securepoll_elections (el_title);
@@ -132,14 +132,14 @@ CREATE TABLE /*_*/securepoll_votes (
 	-- securepoll_voters.voter_id
 	vote_voter int not null,
 
-	-- Denormalised fields from the user table for efficient sorting
+	-- Denormalized fields from the user table for efficient sorting
 
 	-- securepoll_voters.voter_name
 	vote_voter_name varchar(255) binary not null,
 	-- securepoll_voters.voter_domain
 	vote_voter_domain varbinary(32) not null,
 
-	-- Denormalised field from the strike table
+	-- Denormalized field from the strike table
 	-- 1 if struck, 0 if not struck
 	vote_struck tinyint not null,
 	
