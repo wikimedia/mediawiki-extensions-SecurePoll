@@ -308,6 +308,11 @@ class SecurePoll_ListPager extends TablePager {
 		} else {
 			$fields = self::$publicFields;
 		}
+		// Give grep a chance to find the usages:
+		// securepoll-header-details, securepoll-header-strike, securepoll-header-timestamp,
+		// securepoll-header-voter-name, securepoll-header-voter-domain, securepoll-header-ip,
+		// securepoll-header-xff, securepoll-header-ua, securepoll-header-token-match,
+		// securepoll-header-cookie-dup
 		foreach ( $fields as $field ) {
 			$names[$field] = wfMsg( 'securepoll-header-' . strtr( $field, 
 				array( 'vote_' => '', '_' => '-' ) ) );
