@@ -189,22 +189,52 @@ To maintain voter privacy, encrypted election records are only publically availa
  */
 $messages['qqq'] = array(
 	'securepoll-desc' => '{{desc|name=Secure Poll|url=http://www.mediawiki.org/wiki/Extension:SecurePoll}}',
+	'securepoll-invalid-page' => 'Used as error message. Parameters:
+* $1 - subpage name',
+	'securepoll-invalid-election' => 'Used as error message. Parameters:
+* $1 - invalid election ID',
+	'securepoll-welcome' => 'Used as welcome message for remote voters. Parameters:
+* $1 - username of remote voter',
 	'securepoll-not-started' => '* $2 is the date of it
 * $3 is its time.',
+	'securepoll-not-qualified' => 'Unused at this time. Paramters:
+* $1 - ...',
 	'securepoll-submit' => '{{Identical|Submit}}',
+	'securepoll-gpg-receipt' => 'Parameters:
+* $1 - the receipt. Format: "SPID: (10-digit vote ID)\\n(encrypted vote record)"
+If the election doesn\'t use encryption, the following message is used:
+* {{msg-mw|securepoll-thanks}}',
+	'securepoll-thanks' => 'If the election use encryption, the following message is used:
+* {{msg-mw|Securepoll-gpg-receipt}}',
 	'securepoll-return' => '{{Identical|Return to $1}}',
+	'securepoll-encrypt-error' => 'Used as error message. Parameters:
+* $1 - error message',
 	'securepoll-no-gpg-home' => 'GPG stands for [[w:GNU_Privacy_Guard|GNU Privacy Guard]].',
 	'securepoll-secret-gpg-error' => '{{doc-important|Do not translate LocalSettings.php and <code><nowiki>$wgSecurePollShowErrorDetail=true;</nowiki></code>}}
 GPG stands for [[w:GNU_Privacy_Guard|GNU Privacy Guard]].',
 	'securepoll-full-gpg-error' => 'GPG stands for [[w:GNU_Privacy_Guard|GNU Privacy Guard]].',
 	'securepoll-gpg-config-error' => 'GPG stands for [[w:GNU_Privacy_Guard|GNU Privacy Guard]].',
 	'securepoll-gpg-parse-error' => 'GPG stands for [[w:GNU_Privacy_Guard|GNU Privacy Guard]].',
+	'securepoll-bad-ballot-submission' => 'Unused at this time. Parameters:
+* $1 - ...',
+	'securepoll-invalid-score' => 'Used as error message. Parameters:
+* $1 - minimum score
+* $2 - maximum score',
+	'securepoll-too-few-edits' => 'Used as error message. Parameters:
+* $1 - minimum number of edits
+* $2 - number of edits',
 	'securepoll-too-new' => 'Parameters:
 * $1 is the required registration date
 * $2 is the actual registration date
 * $3 is the required registration time
 * $4 is the actual registration time',
+	'securepoll-blocked-centrally' => 'Used as error message. Parameters
+* $1 - number of wikis',
+	'securepoll-not-in-group' => 'Used as error message. Parameters:
+* $1 - name of MediaWiki group which voters need to be in',
 	'securepoll-custom-unqualified' => '{{notranslate}}',
+	'securepoll-list-title' => 'Used as page title and as page subtitle. Parameters:
+* $1 - title of the election, or the string "[title]"',
 	'securepoll-header-timestamp' => '{{Identical|Time}}',
 	'securepoll-header-voter-name' => '{{Identical|Name}}',
 	'securepoll-header-voter-domain' => '{{Identical|Domain}}',
@@ -219,6 +249,8 @@ GPG stands for [[w:GNU_Privacy_Guard|GNU Privacy Guard]].',
 	'securepoll-unstrike-button' => '{{Identical|Unstrike}}',
 	'securepoll-strike-reason' => '{{Identical|Reason}}',
 	'securepoll-strike-cancel' => '{{Identical|Cancel}}',
+	'securepoll-strike-error' => 'Used as error message. Parameters:
+* $1 - error message',
 	'securepoll-details-link' => '{{Identical|Details}}',
 	'securepoll-voter-name-local' => '{{notranslate}}',
 	'securepoll-voter-name-remote' => '{{notranslate}}',
@@ -229,6 +261,8 @@ GPG stands for [[w:GNU_Privacy_Guard|GNU Privacy Guard]].',
 	'securepoll-header-action' => '{{Identical|Action}}',
 	'securepoll-header-reason' => '{{Identical|Reason}}',
 	'securepoll-cookie-dup-list' => 'Header of a list on [[Special:SecurePoll/details/1]]. The list shows duplicate voters detected by having a cookie from the first voting.',
+	'securepoll-dump-title' => 'Used as page title. Parameters:
+* $1 - title of the election, or the string "[title]"',
 	'securepoll-dump-not-finished' => '* $1 is the date
 * $2 is the time',
 	'securepoll-dump-no-urandom' => 'Do not translate "/dev/urandom".
@@ -238,6 +272,8 @@ Servers running Microsoft Windows will present [[MediaWiki:Securepoll-urandom-no
 
 The /dev/urandom cryptographic random number generation device is not supported on servers running Microsoft Windows. On other platforms the [[MediaWiki:Securepoll-dump-no-urandom/en|Securepoll-dump-no-urandom]] message is generated if opening of the /dev/urandom device fails.",
 	'securepoll-translate-title' => '{{Identical|Translate}}',
+	'securepoll-invalid-language' => 'Parameters:
+* $1 - language code',
 	'securepoll-header-trans-id' => '{{optional}}',
 	'securepoll-submit-translate' => '{{Identical|Update}}',
 	'securepoll-language-label' => '{{Identical|Select language}}',
@@ -253,6 +289,10 @@ The /dev/urandom cryptographic random number generation device is not supported 
 {{Identical|List}}',
 	'securepoll-subpage-dump' => 'Link text to a sub page in the SecurePoll extension where users can dump results.',
 	'securepoll-subpage-tally' => 'Link text to a sub page in the SecurePoll extension where users can tally.',
+	'securepoll-tally-title' => 'Used as page title. Parameters:
+* $1 - title of the election, or the string "[title]"',
+	'securepoll-tally-upload-error' => 'Used as error message. Parameters:
+* $1 - error message',
 	'securepoll-round' => 'Column header for tables on tallies which take place over multiple rounds; parameter is a roman numeral.',
 	'securepoll-spoilt' => 'Row label for counting ballots which were spoilt, that is not correctly filled in or indecipherable.',
 	'securepoll-exhausted' => 'Row label for counting ballots which have been exhausted in a multi-round counting system',
