@@ -3544,7 +3544,7 @@ Soovi korral võid talletada järgneva kinnituse antud hääle kohta:
 <pre>$1</pre>',
 	'securepoll-thanks' => 'Täname, sinu hääl on talletatud.',
 	'securepoll-return' => 'Pöördu tagasi $1',
-	'securepoll-encrypt-error' => 'Sinu antud hääle andmeid ei õnnestunud krüpteerida.
+	'securepoll-encrypt-error' => 'Sinu antud hääle andmeid ei õnnestunud krüptida.
 Sinu häält pole talletatud!
 
 $1',
