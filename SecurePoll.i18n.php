@@ -2934,7 +2934,7 @@ qey idame kerdışi pinaniyê reydayoxi, eke pawıte bo a beno.',
 	'securepoll-subpage-dump' => 'belge',
 	'securepoll-subpage-tally' => 'amartış',
 	'securepoll-tally-title' => 'amartış: $1',
-	'securepoll-tally-not-finished' => 'ma meluli, heya reydayiş temam nêbo şıma nêeşkeni bıamari.',
+	'securepoll-tally-not-finished' => 'Ma melulê, heta ke reydayış temam nêbo şıma nêşenê weçinê.',
 	'securepoll-can-decrypt' => 'qeydê vıcinayişi şifre biyo labele kılitê ey mewcudo.',
 	'securepoll-tally-no-key' => 'Bu seçimişıma nêşkeni nê reyan bıamari, çunke reyi şifre biyê u mefteyê deşifreyi mewcud niyo.',
 	'securepoll-tally-local-legend' => 'neticeyê ke qeydbiyê bıamar.',
@@ -3381,8 +3381,10 @@ Vi povas elekti nombri ĉu la rezultojn el la datumbazo, ĉu ĉifritajn rezultoj
  * @author Galio
  * @author Góngora
  * @author Imre
+ * @author MarcoAurelio
  * @author Remember the dot
  * @author Translationista
+ * @author Vivaelcelta
  */
 $messages['es'] = array(
 	'securepoll' => 'SecurePoll',
@@ -3448,7 +3450,7 @@ Debes clasificar a todas las opciones con un rango entre 1 y 999.',
 	'securepoll-not-in-group' => 'Solo los miembros del grupo «$1» pueden votar en esta elección.',
 	'securepoll-not-in-list' => 'Lo sentimos, no estás en la lista predeterminada de usuarios autorizados a votar en esta elección.',
 	'securepoll-list-title' => 'Lista votos: $1',
-	'securepoll-header-timestamp' => 'Tiempo',
+	'securepoll-header-timestamp' => 'Hora',
 	'securepoll-header-voter-name' => 'Nombre',
 	'securepoll-header-voter-domain' => 'Dominio',
 	'securepoll-header-ua' => 'Agente de usuario',
@@ -3526,7 +3528,7 @@ $messages['et'] = array(
 	'securepoll-need-admin' => 'Selle tegevuse sooritamiseks pead sa olema valimise ülem.',
 	'securepoll-too-few-params' => 'Alamlehekülg on puudulikult kirjeldatud (vigane link).',
 	'securepoll-invalid-election' => '"$1" pole õige hääletus-ID.',
-	'securepoll-welcome' => '<strong>Tere tulemast $1!</strong>',
+	'securepoll-welcome' => '<strong>Tere tulemast, $1!</strong>',
 	'securepoll-not-started' => 'Hääletus pole veel alanud.
 See algab $2 kell $3.',
 	'securepoll-finished' => 'Hääletus on lõppenud, enam ei saa hääletada.',
