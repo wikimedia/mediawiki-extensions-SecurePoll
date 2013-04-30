@@ -12792,6 +12792,7 @@ $1',
 );
 
 /** Urdu (اردو)
+ * @author Reza1615
  * @author محبوب عالم
  * @author පසිඳු කාවින්ද
  */
@@ -12799,7 +12800,7 @@ $messages['ur'] = array(
 	'securepoll-desc' => 'توسیعہ برائے انتخابات و مساحات',
 	'securepoll-invalid-page' => 'غیرصحیح ذیلی‌صفحہ "<nowiki>$1</nowiki>"',
 	'securepoll-invalid-election' => '"$1" کوئی معتبر انتخابی شناخت نہیں ہے.',
-	'securepoll-welcome' => '<strong>خوش آمدید $1!</strong>',
+	'securepoll-welcome' => '<strong>$1 خوش‌آمدید!</strong>',
 	'securepoll-not-started' => 'چناؤ ابھی شروع نہیں ہوا.
 
 اِس کا آغاز $1 کو ہوگا.', # Fuzzy
