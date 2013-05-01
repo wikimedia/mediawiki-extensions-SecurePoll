@@ -9575,6 +9575,7 @@ $messages['ps'] = array(
  * @author Giro720
  * @author Hamilton Abreu
  * @author Lijealso
+ * @author Luckas
  * @author Malafaya
  * @author SandroHc
  * @author Waldir
@@ -9675,7 +9676,7 @@ Para manter a privacidade dos votantes, os registos de eleição encriptados só
 Para manter a privacidade dos votantes, os registos de eleição encriptados só são tornados públicos quando podem ser reordenados usando uma fonte segura de números aleatórios.',
 	'securepoll-translate-title' => 'Traduzir: $1',
 	'securepoll-invalid-language' => 'Código de língua "$1" inválido',
-	'securepoll-submit-translate' => 'Actualizar',
+	'securepoll-submit-translate' => 'Atualizar',
 	'securepoll-language-label' => 'Escolha a língua:',
 	'securepoll-submit-select-lang' => 'Traduzir',
 	'securepoll-entry-text' => 'Encontra abaixo a lista de eleições.',
