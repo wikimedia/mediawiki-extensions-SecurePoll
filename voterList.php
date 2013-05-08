@@ -23,10 +23,13 @@ if ( !isset( $args[0] ) ) {
 }
 $name = $args[0];
 
+$count = 0;
+
 for ( $user = 1; $user <= $maxUser; $user++ ) {
 	$insertRow = array( 'li_name' => $name, 'li_member' => $user );
 	if ( $minEdits === false ) {
 		$dbw->insert( 'securepoll_lists', $insertRow, $fname );
+		$count++;
 		continue;
 	}
 
@@ -38,5 +41,8 @@ for ( $user = 1; $user <= $maxUser; $user++ ) {
 	$edits = $dbr->selectField( 'revision', 'COUNT(*)', $conds, $fname );
 	if ( $edits >= $minEdits ) {
 		$dbw->insert( 'securepoll_lists', $insertRow, $fname );
+		$count++;
 	}
 }
+
+echo "$count users eligble to vote";
