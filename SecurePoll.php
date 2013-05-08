@@ -137,6 +137,9 @@ function efSecurePollSchemaUpdates( $updater ) {
 			$updater->addExtensionTable( 'securepoll_entity', "$base/SecurePoll.sql" );
 			$updater->modifyField( 'securepoll_votes', 'vote_ip',
 				"$base/patches/patch-vote_ip-extend.sql", true );
+			$updater->addExtensionIndex( 'securepoll_options', 'spop_election',
+				"$base/patches/patch-op_election-index.sql"
+			);
 			break;
 		case 'postgres':
 			$updater->addExtensionTable( 'securepoll_entity', "$base/SecurePoll.pg.sql" );

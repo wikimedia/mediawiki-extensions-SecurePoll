@@ -70,6 +70,7 @@ CREATE TABLE securepoll_options (
     REFERENCES securepoll_questions(qu_entity) ON UPDATE CASCADE ON DELETE CASCADE
 );
 CREATE INDEX spop_question ON securepoll_options (op_question, op_entity);
+CREATE INDEX spop_election ON securepoll_options (op_election);
 
 
 -- Voter list, independent for each election
