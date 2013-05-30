@@ -18,7 +18,7 @@ class SecurePoll_BasePage extends UnlistedSpecialPage {
 		'vote' => 'SecurePoll_VotePage',
 	);
 
-	var $sp_context;
+	var $sp_context, $request;
 
 	/**
 	 * Constructor

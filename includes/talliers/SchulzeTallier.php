@@ -7,6 +7,11 @@
  * debian-vote (but not devotee).
  */
 class SecurePoll_SchulzeTallier extends SecurePoll_PairwiseTallier {
+
+	/**
+	 * @param $victories
+	 * @return array
+	 */
 	function getPathStrengths( $victories ) {
 		# This algorithm follows Markus Schulze, "A New Monotonic, Clone-Independent, Reversal
 		# Symmetric, and Condorcet-Consistent Single-Winner Election Method" and also 

@@ -37,6 +37,11 @@ class SecurePoll_ChooseBallot extends SecurePoll_Ballot {
 		return $s;
 	}
 
+	/**
+	 * @param $question SecurePoll_Question
+	 * @param $status Status
+	 * @return string
+	 */
 	function submitQuestion( $question, $status ) {
 		global $wgRequest;
 		$result = $wgRequest->getInt( 'securepoll_q' . $question->getId() );

@@ -17,11 +17,10 @@ abstract class SecurePoll_Ballot {
 	 * Get the HTML form segment for a single question
 	 * @param $question SecurePoll_Question
 	 * @param $options Array of options, in the order they should be displayed
-	 * @param $prevStatus Status of previous form submission
 	 * @return string
 	 */
 	abstract function getQuestionForm( $question, $options );
-	
+
 	/**
 	 * Get any extra messages that this ballot type uses to render questions.
 	 * Used to get the list of translatable messages for TranslatePage.
@@ -55,10 +54,11 @@ abstract class SecurePoll_Ballot {
 	/**
 	 * Construct a string record for a given question, during form submission.
 	 *
-	 * If there is a problem with the form data, the function should set a 
+	 * If there is a problem with the form data, the function should set a
 	 * fatal error in the $status object and return null.
 	 *
-	 * @param Status
+	 * @param $question
+	 * @param $status
 	 * @return string
 	 */
 	abstract function submitQuestion( $question, $status );
@@ -86,6 +86,8 @@ abstract class SecurePoll_Ballot {
 	 * @param $context SecurePoll_Context
 	 * @param $type string
 	 * @param $election SecurePoll_Election
+	 * @throws MWException
+	 * @return SecurePoll_Ballot
 	 */
 	static function factory( $context, $type, $election ) {
 		switch ( $type ) {
@@ -177,7 +179,7 @@ abstract class SecurePoll_Ballot {
 	function formatStatus( $status ) {
 		return $status->sp_getHTML( $this->usedErrorIds );
 	}
-	
+
 	/**
 	 * Get the way the voter cast their vote previously, if we're allowed
 	 * to show that information.
@@ -185,11 +187,11 @@ abstract class SecurePoll_Ballot {
 	 *     of unpackRecord().
 	 */
 	function getCurrentVote(){
-		
+
 		if( !$this->election->getOption( 'show-change' ) ){
 			return false;
 		}
-			
+
 		$auth = $this->election->getAuth();
 
 		# Get voter from session

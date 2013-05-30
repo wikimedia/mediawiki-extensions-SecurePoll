@@ -63,12 +63,12 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	var $startDate, $endDate, $authType;
 
 	/**
-	 * Constructor. 
+	 * Constructor.
 	 *
-	 * Do not use this constructor directly, instead use 
-	 * SecurePoll_Context::getElection(). 
-	 *
-	 * @param $id integer
+	 * Do not use this constructor directly, instead use
+	 * SecurePoll_Context::getElection().
+	 * @param $context SecurePoll_Context
+	 * @param string $info
 	 */
 	function __construct( $context, $info ) {
 		parent::__construct( $context, 'election', $info );
@@ -121,7 +121,8 @@ class SecurePoll_Election extends SecurePoll_Entity {
 
 	/**
 	 * Returns true if the election has started.
-	 * @param $ts The reference timestamp, or false for now.
+	 * @param $ts string|bool The reference timestamp, or false for now.
+	 * @return bool
 	 */
 	function isStarted( $ts = false ) {
 		if ( $ts === false ) {
@@ -132,7 +133,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 
 	/**
 	 * Returns true if the election has finished.
-	 * @param $ts The reference timestamp, or false for now.
+	 * @param $ts string|bool The reference timestamp, or false for now.
 	 */
 	function isFinished( $ts = false ) {
 		if ( $ts === false ) {
@@ -155,7 +156,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	/**
 	 * Determine whether a voter would be qualified to vote in this election, 
 	 * based on the given associative array of parameters.
-	 * @param $params Associative array
+	 * @param $params array Associative array
 	 * @return Status
 	 */
 	function getQualifiedStatus( $params ) {
@@ -233,6 +234,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	/**
 	 * Returns true if the user is an admin of the current election.
 	 * @param $user User
+	 * @return bool
 	 */
 	function isAdmin( $user ) {
 		$admins = array_map( 'trim', explode( '|', $this->getProperty( 'admins' ) ) );
@@ -303,7 +305,8 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	/**
 	 * Get the cryptography module for this election, or false if none is
 	 * defined.
-	 * @return SecurePoll_Crypt or false
+	 * @throws MWException
+	 * @return SecurePoll_Crypt|bool
 	 */
 	function getCrypt() {
 		$type = $this->getProperty( 'encrypt-type' );
@@ -415,6 +418,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * Tally the valid votes for this election.
 	 * Returns a Status object. On success, the value property will contain a
 	 * SecurePoll_ElectionTallier object.
+	 * @return Status
 	 */
 	function tally() {
 		$tallier = $this->context->newElectionTallier( $this );

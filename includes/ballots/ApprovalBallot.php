@@ -7,7 +7,12 @@ class SecurePoll_ApprovalBallot extends SecurePoll_Ballot {
 	function getTallyTypes() {
 		return array( 'plurality' );
 	}
-	
+
+	/**
+	 * @param $question SecurePoll_Question
+	 * @param $options array
+	 * @return string
+	 */
 	function getQuestionForm( $question, $options ) {
 		global $wgRequest;
 		$name = 'securepoll_q' . $question->getId();
@@ -28,6 +33,11 @@ class SecurePoll_ApprovalBallot extends SecurePoll_Ballot {
 		return $s;
 	}
 
+	/**
+	 * @param $question SecurePoll_Question
+	 * @param $status Status
+	 * @return string
+	 */
 	function submitQuestion( $question, $status ) {
 		global $wgRequest;
 

@@ -22,7 +22,7 @@ class SecurePoll_Entity {
 	 * child constructor.
 	 * @param $context SecurePoll_Context
 	 * @param $type string
-	 * @param $info Associative array of entity info
+	 * @param $info array Associative array of entity info
 	 */
 	function __construct( $context, $type, $info ) {
 		$this->context = $context;
@@ -132,6 +132,7 @@ class SecurePoll_Entity {
 	 *
 	 * @param $name string
 	 * @param $language string
+	 * @return bool
 	 */
 	function getRawMessage( $name, $language ) {
 		if ( empty( $this->messagesLoaded[$language] ) ) {
@@ -146,6 +147,7 @@ class SecurePoll_Entity {
 	 * a placeholder string is returned.
 	 *
 	 * @param $name string
+	 * @return bool|string
 	 */
 	function getMessage( $name ) {
 		foreach ( $this->context->languages as $language ) {
@@ -200,6 +202,7 @@ class SecurePoll_Entity {
 	 * is passed back.
 	 * @param $name string
 	 * @param $default mixed
+	 * @return bool|mixed
 	 */
 	function getProperty( $name, $default = false ) {
 		if ( $this->properties === null ) {

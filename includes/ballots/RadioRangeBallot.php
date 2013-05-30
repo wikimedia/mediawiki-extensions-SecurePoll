@@ -23,6 +23,11 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 		return array( 'plurality', 'histogram-range' );
 	}
 
+	/**
+	 * @param $question SecurePoll_Question
+	 * @return array
+	 * @throws MWException
+	 */
 	function getMinMax( $question ) {
 		$min = intval( $question->getProperty( 'min-score' ) );
 		$max = intval( $question->getProperty( 'max-score' ) );
@@ -32,6 +37,11 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 		return array( $min, $max );
 	}
 
+	/**
+	 * @param $question SecurePoll_Question
+	 * @return int
+	 * @throws MWException
+	 */
 	function getColumnDirection( $question ) {
 		$order = $question->getProperty( 'column-order' );
 		if ( !$order ) {
@@ -45,7 +55,10 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 		}
 	}
 
-
+	/**
+	 * @param $question SecurePoll_Question
+	 * @return array
+	 */
 	function getScoresLeftToRight( $question ) {
 		$incr = $this->getColumnDirection( $question );
 		list( $min, $max ) = $this->getMinMax( $question );
@@ -59,8 +72,12 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 		return range( $left, $right );
 	}
 
+	/**
+	 * @param $question SecurePoll_Question
+	 * @return array
+	 */
 	function getColumnLabels( $question ) {
-		list( $min, $max ) = $this->getMinMax( $question );
+		//list( $min, $max ) = $this->getMinMax( $question );
 		$labels = array();
 		$useMessageLabels = $question->getProperty( 'column-label-msgs' );
 		$scores = $this->getScoresLeftToRight( $question );
@@ -103,6 +120,11 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 		}
 	}
 
+	/**
+	 * @param $question SecurePoll_Question
+	 * @param $options array
+	 * @return array
+	 */
 	function getQuestionForm( $question, $options ) {
 		global $wgRequest;
 		$name = 'securepoll_q' . $question->getId();
@@ -142,6 +164,11 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 		return $s;
 	}
 
+	/**
+	 * @param $question SecurePoll_Question
+	 * @param $status Status
+	 * @return array
+	 */
 	function submitQuestion( $question, $status ) {
 		global $wgRequest, $wgLang;
 

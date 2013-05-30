@@ -258,7 +258,7 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 		$attached = $centralUser->queryAttached();
 		$blockCount = 0;
 		
-		foreach( $attached as $wiki => $data ) {
+		foreach( $attached as $data ) {
 			if ( $data['blocked'] ) {
 				$blockCount++;
 			}
@@ -278,7 +278,7 @@ class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
 	 * @return Status
 	 */
 	function requestLogin( $election ) {
-		global $wgRequest;
+		global $wgRequest, $wgSecurePollScript;
 
 		$urlParamNames = array( 'id', 'token', 'wiki', 'site', 'lang', 'domain' );
 		$vars = array();

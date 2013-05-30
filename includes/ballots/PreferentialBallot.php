@@ -12,6 +12,11 @@ class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 		return array( 'schulze' );
 	}
 
+	/**
+	 * @param $question SecurePoll_Question
+	 * @param Array $options
+	 * @return string
+	 */
 	function getQuestionForm( $question, $options ) {
 		global $wgRequest;
 		$name = 'securepoll_q' . $question->getId();
@@ -36,6 +41,11 @@ class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 		return $s;
 	}
 
+	/**
+	 * @param $question SecurePoll_Question
+	 * @param $status Status
+	 * @return string
+	 */
 	function submitQuestion( $question, $status ) {
 		global $wgRequest;
 

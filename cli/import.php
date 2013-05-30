@@ -38,6 +38,7 @@ if ( !file_exists( $args[0] ) ) {
 	exit( 1 );
 }
 
+$options = array();
 foreach ( array( 'update-msgs', 'replace' ) as $optName ) {
 	if ( !isset( $options[$optName] ) ) {
 		$options[$optName] = false;
@@ -47,6 +48,11 @@ foreach ( array( 'update-msgs', 'replace' ) as $optName ) {
 $success = spImportDump( $args[0], $options );
 exit( $success ? 0 : 1 );
 
+/**
+ * @param $fileName string
+ * @param $options
+ * @return bool
+ */
 function spImportDump( $fileName, $options ) {
 	$store = new SecurePoll_XMLStore( $fileName );
 	$success = $store->readFile();
@@ -96,13 +102,18 @@ function spImportDump( $fileName, $options ) {
 		}
 		if ( !$success ) {
 			$dbw->rollback();
+			echo "Faied!\n";
 			return false;
 		}
 	}
 	$dbw->commit();
+	echo "Finished!\n";
 	return true;
 }
 
+/**
+ * @param $electionId int|string
+ */
 function spDeleteElection( $electionId ) {
 	$dbw = wfGetDB( DB_MASTER );
 
@@ -136,6 +147,10 @@ function spDeleteElection( $electionId ) {
 	$dbw->delete( 'securepoll_entity', array( 'en_id' => $entityIds ), __METHOD__ );
 }
 
+/**
+ * @param $type string
+ * @param $id string
+ */
 function spInsertEntity( $type, $id ) {
 	$dbw = wfGetDB( DB_MASTER );
 	$dbw->insert( 'securepoll_entity', 
@@ -147,6 +162,11 @@ function spInsertEntity( $type, $id ) {
 	);
 }
 
+/**
+ * @param $store SecurePoll_Store
+ * @param $electionInfo
+ * @return bool
+ */
 function spImportConfiguration( $store, $electionInfo ) {
 	$dbw = wfGetDB( DB_MASTER );
 	$sourceIds = array();
@@ -166,7 +186,6 @@ function spImportConfiguration( $store, $electionInfo ) {
 		),
 		__METHOD__ );
 	$sourceIds[] = $electionInfo['id'];
-
 
 	# Questions
 	$index = 1;
@@ -216,6 +235,10 @@ function spImportConfiguration( $store, $electionInfo ) {
 	return true;
 }
 
+/**
+ * @param $store SecurePoll_Store
+ * @param $entityIds
+ */
 function spInsertMessages( $store, $entityIds ) {
 	$langs = $store->getLangList( $entityIds );
 	$insertBatch = array();
@@ -238,6 +261,11 @@ function spInsertMessages( $store, $entityIds ) {
 	}
 }
 
+/**
+ * @param $store SecurePoll_Store
+ * @param $electionInfo
+ * @return bool
+ */
 function spUpdateMessages( $store, $electionInfo ) {
 	$entityIds = array( $electionInfo['id'] );
 	foreach ( $electionInfo['questions'] as $questionInfo ) {
@@ -253,5 +281,6 @@ function spUpdateMessages( $store, $electionInfo ) {
 
 	# Insert new messages
 	spInsertMessages( $store, $entityIds );
+	return true;
 }
 

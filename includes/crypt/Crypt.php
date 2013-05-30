@@ -55,6 +55,7 @@ class SecurePoll_GpgCrypt {
 
 	/**
 	 * Constructor.
+	 * @param $context
 	 * @param $election SecurePoll_Election
 	 */
 	function __construct( $context, $election ) {
@@ -110,6 +111,7 @@ class SecurePoll_GpgCrypt {
 	/**
 	 * Import a given exported key.
 	 * @param $key string The full key data.
+	 * @return Status
 	 */
 	function importKey( $key ) {
 		# Import the key
@@ -212,7 +214,7 @@ class SecurePoll_GpgCrypt {
 	/**
 	 * Decrypt some data. When successful, the value member of the Status object 
 	 * will contain the encrypted record.
-	 * @param string $record
+	 * @param $encrypted string
 	 * @return Status
 	 */
 	function decrypt( $encrypted ) {
@@ -249,6 +251,9 @@ class SecurePoll_GpgCrypt {
 		return $status;
 	}
 
+	/**
+	 * @return bool
+	 */
 	function canDecrypt() {
 		$decryptKey = strval( $this->election->getProperty( 'gpg-decrypt-key' ) );
 		return $decryptKey !== '';
