@@ -1,6 +1,6 @@
 <?php
 
-require( dirname( __FILE__ ) . '/../cli.inc' );
+require( dirname( __FILE__ ) . '/../../cli.inc' );
 
 $spConf = array(
 	'numCandidates' => 18,
@@ -52,7 +52,7 @@ $header = <<<EOT
 <SecurePoll>
 <election>
 <configuration>
-<title>Wikimedia Board of Trustees Election, 2009</title>
+<title>Wikimedia Board of Trustees Election, 2013</title>
 <ballot>preferential</ballot>
 <tally>schulze</tally>
 <primaryLang>en</primaryLang>
@@ -106,6 +106,10 @@ echo $s;
 exit( 0 );
 //------------------------------------------------------------------
 
+/**
+ * @param $lang string
+ * @return array|bool
+ */
 function spGetMetaTranslations( $lang ) {
 	global $spConf, $wgParser;
 	$messages = array();
@@ -180,20 +184,25 @@ function spGetMetaTranslations( $lang ) {
 	return $messages;
 }
 
+/**
+ * @param $messages array
+ * @param $entity
+ * @return string
+ */
 function spFormatEntityMessages( $messages, $entity ) {
 	$s = '';
 	$targetEntity = $entity;
 	foreach ( $messages as $lang => $langMsgs ) {
 		foreach ( $langMsgs as $entity => $entityMsgs ) {
 			if ( $entity === $targetEntity ) {
-				foreach ( $entityMsgs as $key => $value ) {
-					$s .= Xml::element(
-							'message',
-							array( 'name' => $key, 'lang' => $lang ),
-							$value
-						) .
-						"\n";
-				}
+				continue;
+			}
+			foreach ( $entityMsgs as $key => $value ) {
+				$s .= Xml::element(
+						'message',
+						array( 'name' => $key, 'lang' => $lang ),
+						$value
+				) . "\n";
 			}
 		}
 	}

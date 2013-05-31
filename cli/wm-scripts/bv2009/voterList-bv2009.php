@@ -1,6 +1,6 @@
 <?php
 
-require( dirname( __FILE__ ) . '/../cli.inc' );
+require( dirname( __FILE__ ) . '/../../cli.inc' );
 $dbr = wfGetDB( DB_SLAVE );
 $dbw = wfGetDB( DB_MASTER );
 $fname = 'voterList-bv2009.php';

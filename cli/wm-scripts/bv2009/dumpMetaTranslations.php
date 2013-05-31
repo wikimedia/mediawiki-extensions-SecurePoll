@@ -1,6 +1,6 @@
 <?php
 
-require( dirname( __FILE__ ) . '/../cli.inc' );
+require( dirname( __FILE__ ) . '/../../cli.inc' );
 
 $spConf = array(
 	'numCandidates' => 18,

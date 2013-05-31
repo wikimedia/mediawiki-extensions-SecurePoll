@@ -1,6 +1,6 @@
 <?php
 
-require( dirname( __FILE__ ) . '/../cli.inc' );
+require( dirname( __FILE__ ) . '/../../cli.inc' );
 $dbr = wfGetDB( DB_SLAVE );
 $dbw = wfGetDB( DB_MASTER );
 $fname = 'voterList.php';
@@ -44,6 +44,10 @@ while ( true ) {
 }
 echo wfWikiID() . " qualified \t$numQualified\n";
 
+/**
+ * @param $users array
+ * @return array
+ */
 function spGetQualifiedUsers( $users ) {
 	global $wgCentralAuthDatabase, $wgLocalDatabases;
 	$dbc = wfGetDB( DB_SLAVE, array(), $wgCentralAuthDatabase );

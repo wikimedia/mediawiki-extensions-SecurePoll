@@ -5,7 +5,7 @@
  * have made at least 50 edits between 01 January and 01 July 2009.
  */
 
-require( dirname(__FILE__) . '/../cli.inc' );
+require( dirname(__FILE__) . '/../../cli.inc' );
 $dbr = wfGetDB( DB_SLAVE );
 $dbw = wfGetDB( DB_MASTER );
 
