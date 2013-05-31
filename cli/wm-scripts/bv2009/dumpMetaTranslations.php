@@ -154,7 +154,7 @@ function spGetMetaTranslations( $lang ) {
 			$numMessages++;
 			continue;
 		}
-		
+
 		if ( $sectionName == 'candidate text' ) {
 			$i = 1;
 			$lines = explode( "\n", $remainder );
@@ -187,11 +187,11 @@ function spFormatEntityMessages( $messages, $entity ) {
 		foreach ( $langMsgs as $entity => $entityMsgs ) {
 			if ( $entity === $targetEntity ) {
 				foreach ( $entityMsgs as $key => $value ) {
-					$s .= Xml::element( 
-							'message', 
+					$s .= Xml::element(
+							'message',
 							array( 'name' => $key, 'lang' => $lang ),
-							$value 
-						) . 
+							$value
+						) .
 						"\n";
 				}
 			}

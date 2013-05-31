@@ -21,7 +21,7 @@ foreach ( $wikis as $wikiId ) {
 		$res = $db->select(
 			array( 'securepoll_lists', 'user' ),
 			array( 'user_id', 'user_name', 'user_email', 'user_email_authenticated' ),
-			array( 
+			array(
 				'user_id=li_member',
 				'li_member > ' . $db->addQuotes( $userId )
 			),
