@@ -3,8 +3,8 @@
 require( dirname( __FILE__ ) . '/../cli.inc' );
 $dbr = wfGetDB( DB_SLAVE );
 $dbw = wfGetDB( DB_MASTER );
-$fname = 'voterList-bv2009.php';
-$listName = 'board-vote-2009-amended';
+$fname = 'voterList.php';
+$listName = 'board-vote-2013-amended';
 
 if ( !$wgCentralAuthDatabase ) {
 	echo wfWikiID() . ": CentralAuth not active, skipping\n";
@@ -115,12 +115,18 @@ function spGetQualifiedUsers( $users ) {
 	return $qualifiedUsers;
 }
 
+/**
+ * @param $db DatabaseBase
+ * @param $userNames
+ * @return array
+ */
 function spGetEditCounts( $db, $userNames ) {
 	$res = $db->select(
-		array( 'user', 'bv2009_edits' ), 
+		array( 'user', 'bv2013_edits' ),
 		array( 'user_name', 'bv_long_edits', 'bv_short_edits' ),
 		array( 'bv_user=user_id', 'user_name' => $userNames ),
-		__METHOD__ );
+		__METHOD__
+	);
 	$editCounts = array();
 	foreach ( $res as $row ) {
 		$editCounts[$row->user_name] = array( $row->bv_short_edits, $row->bv_long_edits );
@@ -133,6 +139,11 @@ function spGetEditCounts( $db, $userNames ) {
 	return $editCounts;
 }
 
+/**
+ * @param $short
+ * @param $long
+ * @return bool
+ */
 function spIsQualified( $short, $long ) {
 	return $short >= 50 && $long >= 600;
 }

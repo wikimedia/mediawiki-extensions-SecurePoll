@@ -1,19 +1,22 @@
 <?php
 
 /**
- * have made at least 600 edits before 01 June 2009 across Wikimedia wikis (edits on several wikis can be combined if your accounts are unified into a global account); and
- * have made at least 50 edits between 01 January and 01 July 2009.
+ * have made at least 300 edits before 15 April 2013 across Wikimedia wikis
+ * (edits on several wikis can be combined if your accounts are unified into a global account); and
+ * have made at least 20 edits between 15 December 2012 and 30 April 2013.
  */
 
 require( dirname(__FILE__) . '/../cli.inc' );
+
 $dbr = wfGetDB( DB_SLAVE );
 $dbw = wfGetDB( DB_MASTER );
 
-
 $maxUser = $dbr->selectField( 'user', 'MAX(user_id)', false );
-$beforeTime = '20090601000000';
-$betweenTime = array( '20090101000000', '20090701000000' );
-$fname = 'populatebv2009EditCount';
+$beforeTime = '20130401500000';
+$betweenTime = array( '20121215000000', '20130430000000' );
+$fname = 'populateEditCount';
+
+$numUsers = 0;
 
 for ( $userId = 1; $userId <= $maxUser; $userId++ ) {
 	$exists = $dbr->selectField( 'user', '1', array( 'user_id' => $userId ) );
@@ -25,7 +28,8 @@ for ( $userId = 1; $userId <= $maxUser; $userId++ ) {
 		array( 
 			'rev_user' => $userId,
 			'rev_timestamp < ' . $dbr->addQuotes( $beforeTime )
-		), $fname );
+		), $fname
+	);
 
 	$shortEdits = $dbr->selectField( 'revision', 'COUNT(*)',
 		array(
@@ -37,7 +41,7 @@ for ( $userId = 1; $userId <= $maxUser; $userId++ ) {
 	);
 
 	if ( $longEdits !== 0 || $shortEdits !== 0 ) {
-		$dbw->insert( 'bv2009_edits', 
+		$dbw->insert( 'bv2013_edits',
 			array(
 				'bv_user' => $userId,
 				'bv_long_edits' => $longEdits,

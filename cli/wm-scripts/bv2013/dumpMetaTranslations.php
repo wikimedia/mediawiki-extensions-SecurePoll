@@ -5,7 +5,7 @@ require( dirname( __FILE__ ) . '/../cli.inc' );
 $spConf = array(
 	'numCandidates' => 18,
 	'baseId' => 17,
-	'basePage' => 'Board elections/2009/Vote interface',
+	'basePage' => 'Board elections/2013/Vote interface',
 	'langs' => array(
 		'ar',
 		'bn',
@@ -63,7 +63,7 @@ $header = <<<EOT
 <property name="admins">Tim Starling|Philippe|Werdna|Daniel|Yann|Mardetanha</property>
 <property name="not-blocked">1</property>
 <property name="not-bot">1</property>
-<property name="need-list">board-vote-2009</property>
+<property name="need-list">board-vote-2013</property>
 <property name="encrypt-type">gpg</property>
 <property name="remote-mw-script-path">https://secure.wikimedia.org/\$site/\$lang/w</property>
 <property name="shuffle-options">1</property>
