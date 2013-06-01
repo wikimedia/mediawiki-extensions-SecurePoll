@@ -4,7 +4,7 @@ if ( strval( $IP ) === '' ) {
 	$IP = dirname( __FILE__ ).'/../..';
 }
 if ( !file_exists( "$IP/includes/WebStart.php" ) ) {
-	$IP .= '/phase3';
+	$IP .= '/core';
 }
 
 $optionsWithArgs = array( 'before', 'edits' );
