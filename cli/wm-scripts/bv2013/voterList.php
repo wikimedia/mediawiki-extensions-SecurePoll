@@ -77,11 +77,11 @@ function spGetQualifiedUsers( $users ) {
 		$editCounts[$user] = $counts;
 	}
 	$attached = array_diff( $attached, $nonLocalUsers );
-	
+
 	# Check all global accounts
 	$localWiki = wfWikiID();
 	if ( $attached ) {
-		$res = $dbc->select( 'localuser', 
+		$res = $dbc->select( 'localuser',
 			array( 'lu_name', 'lu_wiki' ),
 			array( 'lu_name' => $attached ),
 			__METHOD__ );
@@ -144,10 +144,14 @@ function spGetEditCounts( $db, $userNames ) {
 }
 
 /**
+ * Returns whether a user "is qualified" to vote based on edit count
+ * Short is 20 edits in a period between 15 December 2012 and 30 April 2013
+ * Long is 300 edits before 15 April 2013
+ *
  * @param $short
  * @param $long
  * @return bool
  */
 function spIsQualified( $short, $long ) {
-	return $short >= 50 && $long >= 600;
+	return $short >= 20 && $long >= 300;
 }
