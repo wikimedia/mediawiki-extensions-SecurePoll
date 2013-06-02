@@ -4,7 +4,7 @@ require( dirname( __FILE__ ) . '/../../cli.inc' );
 $dbr = wfGetDB( DB_SLAVE );
 $dbw = wfGetDB( DB_MASTER );
 $fname = 'voterList.php';
-$listName = 'board-vote-2013-amended';
+$listName = 'board-vote-2013';
 
 if ( !$wgCentralAuthDatabase ) {
 	echo wfWikiID() . ": CentralAuth not active, skipping\n";
