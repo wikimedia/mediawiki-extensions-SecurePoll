@@ -897,7 +897,7 @@ $1',
 	'securepoll-average-score' => 'نتيجه متوسطة',
 );
 
-/** Assamese (অসমীয়া)
+/** Assamese (অসমীয়া)
  * @author Bishnu Saikia
  * @author Chaipau
  * @author Gitartha.bordoloi
@@ -8115,7 +8115,7 @@ $messages['myv'] = array(
 	'securepoll-submit-select-lang' => 'Ютавтомс',
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎)
+/** Norwegian Bokmål (norsk bokmål)
  * @author Event
  * @author Finnrind
  * @author Guaca
@@ -8367,7 +8367,7 @@ Du kannst de Resultaten in de Datenbank tohooptellen laten, oder de verslötelt 
 	'securepoll-no-upload' => 'Keen Datei hoochlaadt, kann keen Tell opstellen.',
 );
 
-/** Nedersaksies (Nedersaksies)
+/** Low Saxon (Netherlands) (Nedersaksies)
  * @author Servien
  */
 $messages['nds-nl'] = array(
@@ -8679,7 +8679,7 @@ Je kunt de in de database beschikbare resultaten tellen, of de resultaten uit ee
 	'securepoll-tally-no-key' => 'Je kunt geen telling uitvoeren voor deze stemming, omdat de stemmen versleuteld zijn en de sleutel niet beschikbaar is.',
 );
 
-/** Norwegian Nynorsk (norsk (nynorsk)‎)
+/** Norwegian Nynorsk (norsk nynorsk)
  * @author Eirik
  * @author Gunnernett
  * @author Harald Khan
@@ -8923,7 +8923,7 @@ Podètz causir de comptar los resultats dempuèi la banca de donadas o dempuèi 
 	'securepoll-exhausted' => '(Agotat)',
 );
 
-/** Oriya (ଓଡ଼ିଆ)
+/** Oriya (ଓଡ଼ିଆ)
  * @author Odisha1
  * @author Psubhashish
  */
