@@ -6526,29 +6526,62 @@ $messages['khw'] = array(
 );
 
 /** Khmer (ភាសាខ្មែរ)
+ * @author Sovichet
  * @author គីមស៊្រុន
  * @author វ័ណថារិទ្ធ
  */
 $messages['km'] = array(
 	'securepoll' => 'បោះ​ឆ្នោត​សុវត្ថិភាព​ (SecurePoll)',
+	'securepoll-desc' => 'Extension សម្រាប់ការបោះឆ្នោតនិងការអង្កេត',
+	'securepoll-invalid-page' => 'ទំព័ររងមិនត្រឹមត្រូវ "<nowiki>$1</nowiki>"',
 	'securepoll-need-admin' => 'អ្នក​ចាំបាច់ត្រូវមានមុខងារ​ជា​អ្នកអភិបាល​ការបោះឆ្នោតដើម្បី​អនុវត្ត​សកម្មភាពនេះ​។',
+	'securepoll-too-few-params' => 'ប៉ារ៉ាមែត្រទំព័ររងមិនគ្រប់គ្រាន់ (តំណភ្ជាប់មិនត្រឹមត្រូវ)។',
 	'securepoll-invalid-election' => '"$1" មិនមែន​ជា​លេខ ID បោះឆ្នោត​​មានសុពលភាពទេ​។',
 	'securepoll-welcome' => '<strong>សូមស្វាគមន៍ $1!</strong>',
 	'securepoll-not-started' => 'ការ​បោះ​ឆ្នោត​នេះ​មិនទាន់​បាន​ចាប់​ផ្ដើម​ទេ​។
 វា​នឹង​ចាប់​ផ្ដើម​នៅ $2 វេលា​ម៉ោង​ $3 ។',
+	'securepoll-finished' => 'ការបោះឆ្នោតនេះត្រូវបានបញ្ចប់, អ្នកមិនអាចធ្វើការបោះឆ្នោតបានទេ។',
+	'securepoll-not-qualified' => 'អ្នកពុំមានសិទ្ធក្នុងការចូលរួមបោះឆ្នោតនេះបានទេ៖ $1',
+	'securepoll-change-disallowed' => 'អ្នកបានចូលរួមការបោះឆ្នោតនេះរួចហើយ។
+សូមអភ័យទោស អ្នកមិនអាចបោះឆ្នោតបានម្តងទៀតទេ។',
+	'securepoll-change-allowed' => '<strong>កំណត់ចំណាំ៖ អ្នកបានចូលរួមបោះឆ្នោតនេះរួចម្តងហើយ។</strong>
+អ្នកអាចធ្វើការផ្លាស់ប្តូរសន្លឹកឆ្នោតរបស់អ្នកដោយបំពេញបែបបទខាងក្រោម។
+សូមចំណាំថា ប្រសិនបើអ្នកធ្វើការផ្លាស់ប្តូរនេះ សន្លឹកឆ្នោតដំបូងទីមួយរបស់អ្នកនឹងមិនយកជាបានការ។',
+	'securepoll-submit' => 'បញ្ជូនសន្លឹកឆ្នោត',
 	'securepoll-gpg-receipt' => 'សូម​អរគុណ​ចំពោះ​ការ​ចូលរួម​បោះ​ឆ្នោត​។
 ប្រសិន​បើ​អ្នក​ចង់ទទួល​បាន​បង្កាន់​ដៃ​ខាង​ក្រោម​នេះ​ជា​ផស្តុតាង​នៃ​ឆ្នោត​របស់​អ្នក​៖
 <pre>$1</pre>',
 	'securepoll-thanks' => 'សូម​អរគុណ​ ឆ្នោត​របស់​អ្នក​ត្រូវ​បាន​កត់​ត្រា​ចូល​ហើយ​។',
 	'securepoll-return' => 'ត្រឡប់ទៅ $1 វិញ',
+	'securepoll-encrypt-error' => 'បរាជ័យ​ក្នុង​ការ encrypt កំណត់​ហេតុ​សន្លឹក​ឆ្នោត​របស់​អ្នក។
+សន្លឹក​ឆ្នោត​របស់​អ្នក​មិន​ត្រូវ​បាន​កត់​ទុក​ទេ។
+$1',
+	'securepoll-jump' => 'ទៅកាន់ ម៉ាស៊ីនបម្រើការបោះឆ្នោត',
+	'securepoll-bad-ballot-submission' => 'សន្លឹកឆ្នោតរបស់អ្នកមិនត្រឹមត្រូវ៖ $1',
+	'securepoll-unanswered-questions' => 'អ្នកត្រូវតែឆ្លើយគ្រប់សំនួរទាំងអស់។',
+	'securepoll-invalid-rank' => 'ចំណាត់​ថ្នាក់​មិន​ត្រូវ​ត្រូវ។ អ្នក​ត្រូវ​តែ​ចាត់​ថ្នាក់​បេក្ខជន​រវាង​ពី​លេខ ១ ដល់ ៩៩៩។',
+	'securepoll-unranked-options' => 'អ្នក​ត្រូវ​តែ​ចាត់​ថ្នាក់​ជម្រើស​ទាំង​អស់​រវាង​ពី​លេខ ១ ដល់ ៩៩៩។',
+	'securepoll-invalid-score' => 'ពិន្ទុ​ត្រូវ​តែ​ជា​លេខ​រវាង $1 និង $2 ។',
+	'securepoll-unanswered-options' => 'អ្នក​ត្រូវ​តែ​ឆ្លើយ​តប​រាល់​សំណួរ​និមួយៗ។',
+	'securepoll-remote-auth-error' => 'មាន​បញ្ហា​ក្នុង​ការ​ប្រមូល​យក​ព័ត៌មាន​របស់​អ្នក​ពី​ម៉ាស៊ីន​មេ។',
+	'securepoll-api-invalid-params' => 'ប៉ារ៉ាម៉ែត្រ​មិន​ត្រឹម​ត្រូវ។',
+	'securepoll-not-logged-in' => 'អ្នក​ត្រូវ​តែ​កត់​ឈ្មោះ​ចូល​សិន ទើប​អាច​ចូលរួម​បោះឆ្នោត​បាន',
+	'securepoll-too-new' => 'សូមទោស, អ្នក​មិន​អាច​បោះ​ឆ្នោត​បានទេ។ គណនី​របស់​អ្នក​ត្រូវ​តែ​បាន​ចុះ​ឈ្មោះ​ក្នុង​ចន្លោះ​ពី $1 នៅ $3 ដើម្បី​បោះ​ឆ្នោត​បាន ប៉ុន្តែ​អ្នក​បាន​ចុះ​ឈ្មោះ​រួច​កាល​ពី $2 នៅ %4 ។', # Fuzzy
+	'securepoll-not-in-group' => 'មាន​តែ​សមាជិក​នៃ​ក្រុម "%1" ទេ ដែល​អាច​ចូលរួម​ក្នុង​ការ​បោះ​ឆ្នោត​នេះ​បាន។', # Fuzzy
+	'securepoll-list-title' => 'បញ្ជី​បោះ​ឆ្នោត: $1',
 	'securepoll-header-timestamp' => 'ពេលវេលា',
 	'securepoll-header-voter-name' => 'ឈ្មោះ',
 	'securepoll-header-details' => 'ព័ត៌មាន​លម្អិត​',
 	'securepoll-strike-reason' => 'មូលហេតុ៖',
 	'securepoll-strike-cancel' => 'បោះបង់',
 	'securepoll-details-link' => 'ព័ត៌មាន​លម្អិត​',
+	'securepoll-details-title' => 'លម្ពិត​ពី​ការ​បោះឆ្នោត: #$1',
+	'securepoll-invalid-vote' => '"$1" គឺ​ជា ID បោះឆ្នោត​មិន​ត្រឹម​ត្រូវ។',
+	'securepoll-header-voter-type' => 'ប្រភេទអ្នកបោះឆ្នោត',
+	'securepoll-voter-properties' => ' លក្ខណសម្បត្តិអ្នកបោះឆ្នោត',
 	'securepoll-header-action' => 'សកម្មភាព',
 	'securepoll-header-reason' => 'មូលហេតុ',
+	'securepoll-header-admin' => 'អភិបាល',
 	'securepoll-translate-title' => 'បកប្រែ៖ $1',
 	'securepoll-invalid-language' => 'កូដភាសា "$1" មិនត្រឹមត្រូវ',
 	'securepoll-submit-translate' => 'បន្ទាន់សម័យ',
@@ -6560,6 +6593,9 @@ $messages['km'] = array(
 	'securepoll-subpage-vote' => 'បោះឆ្នោត',
 	'securepoll-subpage-translate' => 'បកប្រែ',
 	'securepoll-subpage-list' => 'បញ្ជី',
+	'securepoll-ranks' => 'ចំណាត់​ថ្នាក់​បញ្ចប់',
+	'securepoll-average-score' => 'ពិន្ទុ​មធ្យមភាគ',
+	'securepoll-round' => 'វគ្គទី $1',
 );
 
 /** Kannada (ಕನ್ನಡ)
@@ -7347,6 +7383,52 @@ $messages['lv'] = array(
 	'securepoll-subpage-translate' => 'Tulkot',
 	'securepoll-subpage-list' => 'Saraksts',
 	'securepoll-average-score' => 'Vidējais rezultāts',
+);
+
+/** Minangkabau (Baso Minangkabau)
+ * @author SpartacksCompatriot
+ */
+$messages['min'] = array(
+	'securepoll' => 'SecurePoll',
+	'securepoll-invalid-page' => 'Sublaman nan indak valid "<nowiki>$1</nowiki>"',
+	'securepoll-need-admin' => 'Sanak haruihlah manjadi panitia pamiliahan untuak bisa manjalanan parintah ko',
+	'securepoll-too-few-params' => 'Parameter sublaman indak cukuik (pautan nan indak valid)',
+	'securepoll-invalid-election' => '"$1" bukan ID pamiliahan nan valid',
+	'securepoll-welcome' => '<strong>Salamaik datang $1!</strong>',
+	'securepoll-not-started' => 'Pamiliahan ko alun dimulai. Baru akan dimulai pado $2 pado $3',
+	'securepoll-finished' => 'Pamiliahan ko alah salasai, Sanak lah indak bisa mamiliah',
+	'securepoll-not-qualified' => 'Sanak indak layak untuak mamiliah: $1',
+	'securepoll-change-disallowed' => 'Sanak alah mamiliah sabalunnyo. Maaf, Sanak indak dipabuliahan mamiliah untuak nan kaduo kalinyo.',
+	'securepoll-change-allowed' => '<strong>Catatan: Sanak alah mamiliah di pamiliahan ko sabalunnyo.
+</strong>
+Sanak dapek mangubah suaro dengan caro mangisi formulir di bawah ko. Parhatian, kok Sanak mangisi formulir di bawah ko, suaro asli Sanak akan taapuih',
+	'securepoll-submit' => 'Kirim suaro',
+	'securepoll-gpg-receipt' => 'Tarimo kasih alah mamiliah!
+
+Kok Sanak nio, Sanak bisa manyimpan resit ko sabagai bukti suaro Sanak:
+
+<pre>$1</pre>',
+	'securepoll-thanks' => 'Tarimo kasih, suaro sanak alah disimpan.',
+	'securepoll-return' => 'Baliak ka $1',
+	'securepoll-encrypt-error' => 'Gagal mangekskripsi catatan suaro Sanak.
+Suaro Sanak alun tasimpan!
+
+$!', # Fuzzy
+	'securepoll-no-gpg-home' => 'Indak bisa mambuek direktori GPG.',
+	'securepoll-secret-gpg-error' => 'Gagal mangeksekusi GPG.
+Pakai $wgSecurePollShowErrorDetail=true; di LocalSettings.php untuk rincian nan labiah lanjuik.',
+	'securepoll-full-gpg-error' => 'Gagal mangeksekusi GPG:
+
+Parintah: $1
+
+Gagal:
+<pre>$2</pre>',
+	'securepoll-gpg-config-error' => 'Kunci-kunci GPG indak batua dikonfigurasi.',
+	'securepoll-gpg-parse-error' => 'Gagal manafsirkan kaluaran GPG.',
+	'securepoll-no-decryption-key' => 'Indak ado kunci dekripsi nan dikonfigurasi.
+Indak bisa dekripsi.',
+	'securepoll-jump' => 'Pai ka server pamiliahan',
+	'securepoll-bad-ballot-submission' => 'Suaro Sanak indak sah: $1',
 );
 
 /** Macedonian (македонски)
@@ -10424,7 +10506,7 @@ $1',
 	'securepoll-tally-local-submit' => 'Зробити зрахованя',
 	'securepoll-tally-upload-legend' => 'Начітати шіфрованый запис (дамп)',
 	'securepoll-tally-upload-submit' => 'Зробити зрахованя',
-	'securepoll-tally-error' => 'Хыба почас спрацованя запису голосованя, голосованя ся не дасть зраховати.',
+	'securepoll-tally-error' => 'Хыба під час спрацованя запису голосованя, голосованя ся не дасть зраховати.',
 	'securepoll-no-upload' => 'Не быв начітаный жаден файл, голосованя ся не дасть зраховати.',
 	'securepoll-dump-corrupt' => 'Файл із записом (дамп) є пошкодженый і не дасть за спрацовати.',
 	'securepoll-tally-upload-error' => 'Хыба рахованя запису: $1',
@@ -12297,7 +12379,7 @@ Saýlawçynyň gizlinligini üpjün etmek üçin, şifrli saýlaw ýazgylary di�
  * @author Sky Harbor
  */
 $messages['tl'] = array(
-	'securepoll' => 'Ligtas na Halalan',
+	'securepoll' => 'SecurePoll',
 	'securepoll-desc' => 'Karugtong para sa mga halalan at mga pagtatanung-tanong',
 	'securepoll-invalid-page' => 'Hindi tanggap na kabahaging pahinang "<nowiki>$1</nowiki>"',
 	'securepoll-need-admin' => 'Kailangan mong maging isang tagapangasiwa ng halalan upang maisagawa ang galaw na ito.',
@@ -12338,7 +12420,7 @@ Kamalian:
 	'securepoll-gpg-parse-error' => 'Kamalian sa pagpapaliwanag ng kinalabasan ng GPG.',
 	'securepoll-no-decryption-key' => 'Walang nakaayos na susing pangtanggal ng kodigo.
 Hindi matanggal ang kodigo.',
-	'securepoll-jump' => 'Pumunta sa tagapaghain ng pagboto',
+	'securepoll-jump' => 'Pumunta sa serbidor ng pagboto',
 	'securepoll-bad-ballot-submission' => 'Hindi tinanggap ang boto mo: $1',
 	'securepoll-unanswered-questions' => 'Dapat mong sagutin ang lahat ng mga katanungan.',
 	'securepoll-invalid-rank' => 'Hindi wastong ranggo. Kailangan mong magbigay sa mga kandidato ng isang ranggo sa pagitan ng 1 at 999.',
@@ -12347,13 +12429,13 @@ Ikaw ay dapat magbigay ng lahat ng mga mapagpipilian ng isang ranggo sa pagitan 
 	'securepoll-invalid-score' => 'Ang mga iskor ay kailangang isang bilang sa pagitan ng $1 at $2.',
 	'securepoll-unanswered-options' => 'Kailangan mong magbigay ng sagot para sa bawat tanong.',
 	'securepoll-remote-auth-error' => 'Kamalian sa pagpulot ng kabatiran ng iyong kuwenta mula sa serbidor.',
-	'securepoll-remote-parse-error' => 'Kamalian sa pagpapaliwanag ng tugon ng pagpapahintulot mula sa tagapaghain.',
+	'securepoll-remote-parse-error' => 'Kamalian sa pagpapaliwanag ng tugon ng pagpapahintulot mula sa serbidor.',
 	'securepoll-api-invalid-params' => 'Hindi tanggap na mga parametro.',
 	'securepoll-api-no-user' => 'Walang tagagamit na natagpuang may ibinigay na ID.',
 	'securepoll-api-token-mismatch' => 'Maling pagtutugma ng tandang pangkaligtasan, hindi makalalagdang papasok.',
 	'securepoll-not-logged-in' => 'Kailangan mong lumagdang papasok upang makaboto sa halalang ito',
-	'securepoll-too-few-edits' => 'Paumanhin, hindi ka makakaboto. Kailangan mong maging nakagawa ng kahit na mga $1 {{PLURAL:$1|pamamatnugot|mga pamamatnugot}} upang makaboto sa halalang ito, nakagawa ka na ng $2.',
-	'securepoll-too-new' => 'Paumanhin, hindi ka makakaboto.  Kinakailangang naiparehistro ang akawnt mo bago ang $1 sa ganap na $3 upang makaboto sa halalang ito, nakapagpatala ko noong $2 sa ganap na $4.',
+	'securepoll-too-few-edits' => 'Paumanhin, hindi ka makakaboto. Kailangan mong maging nakagawa ng kahit na mga $1 {{PLURAL:$1|pagbabago|mga pagbabago}} upang makaboto sa halalang ito, nakagawa ka na ng $2.',
+	'securepoll-too-new' => 'Paumanhin, hindi ka makakaboto.  Kinakailangang naiparehistro ang kuwenta mo bago ang $1 sa ganap na $3 upang makaboto sa halalang ito, nakapagpatala ko noong $2 sa ganap na $4.',
 	'securepoll-blocked' => 'Paumanhin, hindi ka makakaboto sa halalang ito kung kasalukuyan kang hinaharangan mula sa pamamatnugot.',
 	'securepoll-blocked-centrally' => 'Paumanhin, ngunit hindi ka makakaboto sa halalang ito dahil hinahadlangan ka sa hindi bababa sa $1 na {{PLURAL:$1|wiki|mga wiki}}.',
 	'securepoll-bot' => 'Paumanhin, ang mga kuwentang may watawat ng bot ay hindi pinapayagang bumoto sa halalang ito.',
@@ -12374,13 +12456,13 @@ Ikaw ay dapat magbigay ng lahat ng mga mapagpipilian ng isang ranggo sa pagitan 
 	'securepoll-unstrike-button' => 'Huwag kalusin',
 	'securepoll-strike-reason' => 'Dahilan:',
 	'securepoll-strike-cancel' => 'Huwag ipagpatuloy',
-	'securepoll-strike-error' => 'Kamalian sa pagsasagawa ng kalusin/huwag kalusin: $1',
-	'securepoll-strike-token-mismatch' => 'Nawalang dato ng pulong',
+	'securepoll-strike-error' => "Kamalian sa pagsasagawa ng pagkalos/'di-pagkalos: $1",
+	'securepoll-strike-token-mismatch' => 'Nawala ang datos ng sesyon',
 	'securepoll-details-link' => 'Mga detalye',
 	'securepoll-details-title' => 'Mga detalye ng boto: #$1',
 	'securepoll-invalid-vote' => 'Ang "$1" ay hindi isang tanggap na ID ng boto',
 	'securepoll-header-id' => 'ID',
-	'securepoll-header-voter-type' => 'Uri ng tagapaghalal',
+	'securepoll-header-voter-type' => 'Uri ng botante',
 	'securepoll-header-url' => 'URL',
 	'securepoll-voter-properties' => 'Mga pag-aari ng botante',
 	'securepoll-strike-log' => 'Talaan ng pagkalos',
@@ -12391,10 +12473,10 @@ Ikaw ay dapat magbigay ng lahat ng mga mapagpipilian ng isang ranggo sa pagitan 
 	'securepoll-dump-title' => 'Itapon: $1',
 	'securepoll-dump-no-crypt' => 'Walang makuhang nakakodigong tala ng halalan para sa halalang ito, dahil ang halalan ay hindi nakaayos na gumamit ng kodigo.',
 	'securepoll-dump-not-finished' => 'Makakakuha lamang ng nakakodigong mga tala ng halalan pagkalipas ng petsa ng katapusang $1 sa $2',
-	'securepoll-dump-no-urandom' => 'Hindi mabuksan /dev/urandom.
-Upang mapanitili ang paglilihim ng manghahalal, makukuha lamang ng madla ang nakakodigong mga talaan ng halalan kapag mababalasa na sila sa isang ligtas na daloy ng alin mang bilang.',
-	'securepoll-urandom-not-supported' => 'Hindi nagsusuporta ang tagapaghaing ito ng paglikha ng kriptograpikong bilang na bigay ng pagkakataon.
-Upang mapanatili ang pagkapribado ng botante, makukuha lamang ng madla ang nakakodigong mga tala ng halalan kapag mababalasa sila ng isang ligtas na sibol ng bilang na bigay ng pagkakataon.',
+	'securepoll-dump-no-urandom' => 'Hindi mabuksan ang /dev/urandom.
+Upang mapanitili ang paglilihim ng mga botante, makukuha lamang ng publiko ang nakakodigong mga talaan ng halalan kapag mababalasa na sila sa isang ligtas na daloy ng walang-piling bilang.',
+	'securepoll-urandom-not-supported' => 'Hindi sinusuportahan ng serbidor na ito ang kriptograpikong paglilikha ng mga walang-piling bilang.
+Upang mapanitili ang paglilihim ng mga botante, makukuha lamang ng publiko ang nakakodigong mga talaan ng halalan kapag mababalasa na sila sa isang ligtas na daloy ng walang-piling bilang.',
 	'securepoll-translate-title' => 'Isalinwika: $1',
 	'securepoll-invalid-language' => 'Hindi tanggap na kodigo ng wikang "$1"',
 	'securepoll-header-trans-id' => 'ID',
@@ -12410,7 +12492,7 @@ Upang mapanatili ang pagkapribado ng botante, makukuha lamang ng madla ang nakak
 	'securepoll-subpage-list' => 'Itala',
 	'securepoll-subpage-dump' => 'Itapon',
 	'securepoll-subpage-tally' => 'Itala ang bilang',
-	'securepoll-tally-title' => 'Talaan ng bilang: $1',
+	'securepoll-tally-title' => 'Tala ng bilang: $1',
 	'securepoll-tally-not-finished' => "Paumanhin, hindi mo maitatala ang bilang ng halalan hangga't hindi pa natatapos ang halalan.",
 	'securepoll-can-decrypt' => 'Nakakodigo ang talaan ng halalan, subalit makukuha ang susing pantanggal ng kodigo.
 Maaari mong piliin ang itala ang bilang ng mga kinalabasang naroroon sa loob ng kalipunan ng dato, o kaya itala ang bilang ng nakakodigong mga kinalabasan mula sa talaksang ikinargang papasok.',
