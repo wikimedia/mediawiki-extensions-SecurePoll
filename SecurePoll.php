@@ -144,11 +144,3 @@ function efSecurePollSchemaUpdates( $updater ) {
 	}
 	return true;
 }
-
-$wgResourceModules['ext.securePoll'] = array(
-	'localBasePath' => __DIR__ . '/resources',
-	'remoteExtPath' => 'SecurePoll/resources',
-	'scripts' => 'ext.securePoll.js',
-	'styles' => 'ext.securePoll.css',
-	'position' => 'top',
-);
