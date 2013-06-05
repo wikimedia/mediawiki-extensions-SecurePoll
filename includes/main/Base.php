@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The page that's initially called by MediaWiki when navigating to 
+ * The page that's initially called by MediaWiki when navigating to
  * Special:SecurePoll.  The actual pages are not actually subclasses of
  * this or of SpecialPage, they're subclassed from SecurePoll_Page.
  */
@@ -34,15 +34,15 @@ class SecurePoll_BasePage extends UnlistedSpecialPage {
 	 * @param $paramString Mixed: parameter passed to the page or null
 	 */
 	public function execute( $paramString ) {
-		global $wgOut, $wgRequest, $wgScriptPath;
+		global $wgOut, $wgRequest, $wgExtensionAssetsPath;
 
 		$this->setHeaders();
 		$wgOut->addLink( array(
 			'rel' => 'stylesheet',
-			'href' => "$wgScriptPath/extensions/SecurePoll/resources/SecurePoll.css",
+			'href' => "$wgExtensionAssetsPath/SecurePoll/resources/SecurePoll.css",
 			'type' => 'text/css'
 		) );
-		$wgOut->addScriptFile( "$wgScriptPath/extensions/SecurePoll/resources/SecurePoll.js" );
+		$wgOut->addScriptFile( "$wgExtensionAssetsPath/SecurePoll/resources/SecurePoll.js" );
 
 		$this->request = $wgRequest;
 
@@ -89,7 +89,7 @@ class SecurePoll_BasePage extends UnlistedSpecialPage {
 
 	/**
 	 * Set a navigation subtitle.
-	 * Each argument is a two-element array giving a Title object to be used as 
+	 * Each argument is a two-element array giving a Title object to be used as
 	 * a link target, and the link text.
 	 */
 	function setSubtitle( /*...*/ ) {
