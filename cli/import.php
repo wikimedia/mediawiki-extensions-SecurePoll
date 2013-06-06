@@ -3,29 +3,29 @@
 require( dirname( __FILE__ ) . '/cli.inc' );
 
 $usage = <<<EOT
-Import configuration files into the local SecurePoll database. Files can be 
+Import configuration files into the local SecurePoll database. Files can be
 generated with dump.php.
 
 Usage: import.php [options] <file>
 
 Options are:
-	--update-msgs       Update the internationalised text for the elections, do 
+	--update-msgs       Update the internationalised text for the elections, do
                         not update configuration.
 
-	--replace           If an election with a conflicting title exists already, 
-                        replace it, updating its configuration. The default is 
+	--replace           If an election with a conflicting title exists already,
+                        replace it, updating its configuration. The default is
 						to exit with an error.
 
 Note that any vote records will NOT be imported.
 
-For the moment, the entity IDs are preserved, to allow easier implementation of 
-the message update feature. This means conflicting entity IDs in the local 
-database will generate an error. This restriction will be removed in the 
+For the moment, the entity IDs are preserved, to allow easier implementation of
+the message update feature. This means conflicting entity IDs in the local
+database will generate an error. This restriction will be removed in the
 future.
 
 EOT;
 
-# Most of the code here will eventually be refactored into the update interfaces 
+# Most of the code here will eventually be refactored into the update interfaces
 # of the entity and context classes, but that project can wait until we have a
 # setup UI.
 
@@ -75,12 +75,13 @@ function spImportDump( $fileName, $options ) {
 	foreach ( $electionIds as $id ) {
 		$elections = $store->getElectionInfo( array( $id ) );
 		$electionInfo = reset( $elections );
-		$existingId = $dbw->selectField( 
-			'securepoll_elections', 
-			'el_entity', 
-			array( 'el_title' => $electionInfo['title'] ), 
-			__METHOD__, 
-			array( 'FOR UPDATE' ) );
+		$existingId = $dbw->selectField(
+			'securepoll_elections',
+			'el_entity',
+			array( 'el_title' => $electionInfo['title'] ),
+			__METHOD__,
+			array( 'FOR UPDATE' )
+		);
 		if ( $existingId !== false ) {
 			if ( $options['replace'] ) {
 				spDeleteElection( $existingId );
@@ -153,8 +154,8 @@ function spDeleteElection( $electionId ) {
  */
 function spInsertEntity( $type, $id ) {
 	$dbw = wfGetDB( DB_MASTER );
-	$dbw->insert( 'securepoll_entity', 
-		array( 
+	$dbw->insert( 'securepoll_entity',
+		array(
 			'en_id' => $id,
 			'en_type' => $type,
 		),
@@ -187,31 +188,33 @@ function spImportConfiguration( $store, $electionInfo ) {
 		__METHOD__ );
 	$sourceIds[] = $electionInfo['id'];
 
-	# Questions
-	$index = 1;
-	foreach ( $electionInfo['questions'] as $questionInfo ) {
-		spInsertEntity( 'question', $questionInfo['id'] );
-		$dbw->insert( 'securepoll_questions',
-			array(
-				'qu_entity' => $questionInfo['id'],
-				'qu_election' => $electionInfo['id'],
-				'qu_index' => $index++,
-			),
-			__METHOD__ );
-		$sourceIds[] = $questionInfo['id'];
+	if ( isset( $electionInfo['questions'] ) ) {
+		# Questions
+		$index = 1;
+		foreach ( $electionInfo['questions'] as $questionInfo ) {
+			spInsertEntity( 'question', $questionInfo['id'] );
+			$dbw->insert( 'securepoll_questions',
+				array(
+					'qu_entity' => $questionInfo['id'],
+					'qu_election' => $electionInfo['id'],
+					'qu_index' => $index++,
+				),
+				__METHOD__ );
+			$sourceIds[] = $questionInfo['id'];
 
-		# Options
-		$insertBatch = array();
-		foreach ( $questionInfo['options'] as $optionInfo ) {
-			spInsertEntity( 'option', $optionInfo['id'] );
-			$insertBatch[] = array(
-				'op_entity' => $optionInfo['id'],
-				'op_election' => $electionInfo['id'],
-				'op_question' => $questionInfo['id']
-			);
-			$sourceIds[] = $optionInfo['id'];
+			# Options
+			$insertBatch = array();
+			foreach ( $questionInfo['options'] as $optionInfo ) {
+				spInsertEntity( 'option', $optionInfo['id'] );
+				$insertBatch[] = array(
+					'op_entity' => $optionInfo['id'],
+					'op_election' => $electionInfo['id'],
+					'op_question' => $questionInfo['id']
+				);
+				$sourceIds[] = $optionInfo['id'];
+			}
+			$dbw->insert( 'securepoll_options', $insertBatch, __METHOD__ );
 		}
-		$dbw->insert( 'securepoll_options', $insertBatch, __METHOD__ );
 	}
 
 	# Messages
@@ -268,13 +271,15 @@ function spInsertMessages( $store, $entityIds ) {
  */
 function spUpdateMessages( $store, $electionInfo ) {
 	$entityIds = array( $electionInfo['id'] );
-	foreach ( $electionInfo['questions'] as $questionInfo ) {
-		$entityIds[] = $questionInfo['id'];
-		foreach ( $questionInfo['options'] as $optionInfo ) {
-			$entityIds[] = $optionInfo['id'];
+	if ( isset( $electionInfo['questions'] ) ) {
+		foreach ( $electionInfo['questions'] as $questionInfo ) {
+			$entityIds[] = $questionInfo['id'];
+			foreach ( $questionInfo['options'] as $optionInfo ) {
+				$entityIds[] = $optionInfo['id'];
+			}
 		}
 	}
-	
+
 	# Delete existing messages
 	$dbw = wfGetDB( DB_MASTER );
 	$dbw->delete( 'securepoll_msgs', array( 'msg_entity' => $entityIds ), __METHOD__ );
