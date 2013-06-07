@@ -38,7 +38,7 @@ if ( !file_exists( $args[0] ) ) {
 	exit( 1 );
 }
 
-$options = array();
+// $options already defined in global scope!
 foreach ( array( 'update-msgs', 'replace' ) as $optName ) {
 	if ( !isset( $options[$optName] ) ) {
 		$options[$optName] = false;
