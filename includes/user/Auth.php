@@ -282,6 +282,7 @@ class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
 
 		$urlParamNames = array( 'id', 'token', 'wiki', 'site', 'lang', 'domain' );
 		$vars = array();
+		$params = array();
 		foreach ( $urlParamNames as $name ) {
 			$value = $wgRequest->getVal( $name );
 			if ( !preg_match( '/^[\w.-]*$/', $value ) ) {
@@ -290,6 +291,15 @@ class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
 			}
 			$params[$name] = $value;
 			$vars["\$$name"] = $value;
+		}
+
+		if ( class_exists( 'SiteMatrix' ) ) {
+			// Get wgServer from $lang (minor) and $site (major) combo
+			// Correct domain isn't guaranteed from $minor.$major.org
+			$matrix = new SiteMatrix();
+			$server = $matrix->getUrl( $params['lang'], $params['site'] );
+			$params['wgServer'] = $server;
+			$vars["\$wgServer"] = $server;
 		}
 
 		$url = $election->getProperty( 'remote-mw-script-path' );
