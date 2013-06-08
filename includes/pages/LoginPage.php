@@ -1,7 +1,7 @@
 <?php
 
 /**
- * A simple SecurePoll subpage which handles guest logins from a remote website, 
+ * A simple SecurePoll subpage which handles guest logins from a remote website,
  * starts a session, and then redirects to the voting page.
  */
 class SecurePoll_LoginPage extends SecurePoll_Page {
@@ -12,7 +12,7 @@ class SecurePoll_LoginPage extends SecurePoll_Page {
 			$wgOut->addWikiMsg( 'securepoll-too-few-params' );
 			return;
 		}
-		
+
 		$electionId = intval( $params[0] );
 		$this->election = $this->context->getElection( $electionId );
 		if ( !$this->election ) {

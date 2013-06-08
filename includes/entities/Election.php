@@ -1,16 +1,16 @@
 <?php
 
 /**
- * Class representing an *election*. The term is intended to include straw polls, 
- * surveys, etc. An election has one or more *questions* which voters answer. 
+ * Class representing an *election*. The term is intended to include straw polls,
+ * surveys, etc. An election has one or more *questions* which voters answer.
  * The *voters* submit their *votes*, which are later tallied to provide a result.
  * An election runs only once and produces a single result.
  *
- * Each election has its own independent set of voters. Voters are created 
+ * Each election has its own independent set of voters. Voters are created
  * when the underlying user attempts to vote. A voter may vote more than once,
  * unless the election disallows this, but only one of their votes is counted.
  *
- * Elections have a list of key/value pairs called properties, which are defined 
+ * Elections have a list of key/value pairs called properties, which are defined
  * and used by various modules in order to configure the election. The properties,
  * in order of the module that defines them, are as follows:
  *
@@ -37,7 +37,7 @@
  *          	True if voters need to not be blocked on more than X projects
  *          central-block-threshold
  *          	Number of blocks across projects that disqualify a user from voting.
- *      
+ *
  *      See the other module for documentation of the following.
  *
  *      RemoteMWAuth
@@ -94,7 +94,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 			'unqualified-error',
 		);
 	}
-	
+
 	/**
 	 * Get the election's parent election... hmm...
 	 */
@@ -154,7 +154,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	}
 
 	/**
-	 * Determine whether a voter would be qualified to vote in this election, 
+	 * Determine whether a voter would be qualified to vote in this election,
 	 * based on the given associative array of parameters.
 	 * @param $params array Associative array
 	 * @return Status
@@ -175,11 +175,11 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		$maxDate = $this->getProperty( 'max-registration' );
 		$date = isset( $props['registration'] ) ? $props['registration'] : 0;
 		if ( $maxDate && $date > $maxDate ) {
-			$status->fatal( 
-				'securepoll-too-new', 
-				$wgLang->date( $maxDate ), 
+			$status->fatal(
+				'securepoll-too-new',
+				$wgLang->date( $maxDate ),
 				$wgLang->date( $date ),
-				$wgLang->time( $maxDate ), 
+				$wgLang->time( $maxDate ),
 				$wgLang->time( $date )
 			);
 		}
@@ -190,7 +190,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		if ( $notBlocked && $isBlocked ) {
 			$status->fatal( 'securepoll-blocked' );
 		}
-		
+
 		# Centrally blocked on more than X projects
 		$notCentrallyBlocked = $this->getProperty( 'not-centrally-blocked' );
 		$centralBlockCount = isset( $props['central-block-count'] ) ? $props['central-block-count'] : 0;
@@ -375,18 +375,18 @@ class SecurePoll_Election extends SecurePoll_Entity {
 			Xml::element( 'endDate', array(), wfTimestamp( TS_ISO_8601, $this->endDate ) ) . "\n" .
 			$this->getConfXmlEntityStuff( $params );
 
-		# If we're making a jump dump, we need to add some extra properties, and 
+		# If we're making a jump dump, we need to add some extra properties, and
 		# override the auth type
 		if ( !empty( $params['jump'] ) ) {
-			$s .= 
+			$s .=
 				Xml::element( 'auth', array(), 'local' ) . "\n" .
-				Xml::element( 'property', 
-					array( 'name' => 'jump-url' ), 
+				Xml::element( 'property',
+					array( 'name' => 'jump-url' ),
 					$this->context->getSpecialTitle()->getCanonicalUrl()
 				) . "\n" .
 				Xml::element( 'property',
 					array( 'name' => 'jump-id' ),
-					$this->getId() 
+					$this->getId()
 				) . "\n";
 		} else {
 			$s .= Xml::element( 'auth', array(), $this->authType ) . "\n";

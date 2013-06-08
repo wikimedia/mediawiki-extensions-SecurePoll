@@ -73,7 +73,7 @@ class SecurePoll_PluralityTallier extends SecurePoll_Tallier {
 			} else {
 				$otext = str_pad( $otext, $width );
 			}
-			$s .= $otext . ' | ' . 
+			$s .= $otext . ' | ' .
 				$this->tally[$option->getId()] . "\n";
 		}
 		return $s;

@@ -2,7 +2,7 @@
 
 /**
  * Base class for objects which tally individual questions.
- * See SecurePoll_ElectionTallier for an object which can tally multiple 
+ * See SecurePoll_ElectionTallier for an object which can tally multiple
  * questions.
  */
 abstract class SecurePoll_Tallier {
@@ -98,7 +98,7 @@ abstract class SecurePoll_Tallier {
 			}
 
 			$option = $this->optionsById[$oid];
-			$s .= str_pad( $rank, 6 ) . ' | ' . 
+			$s .= str_pad( $rank, 6 ) . ' | ' .
 				$option->getMessage( 'text' ) . "\n";
 		}
 		return $s;

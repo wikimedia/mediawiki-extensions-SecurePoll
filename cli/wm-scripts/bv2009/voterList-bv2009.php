@@ -73,11 +73,11 @@ function spGetQualifiedUsers( $users ) {
 		$editCounts[$user] = $counts;
 	}
 	$attached = array_diff( $attached, $nonLocalUsers );
-	
+
 	# Check all global accounts
 	$localWiki = wfWikiID();
 	if ( $attached ) {
-		$res = $dbc->select( 'localuser', 
+		$res = $dbc->select( 'localuser',
 			array( 'lu_name', 'lu_wiki' ),
 			array( 'lu_name' => $attached ),
 			__METHOD__ );
@@ -117,7 +117,7 @@ function spGetQualifiedUsers( $users ) {
 
 function spGetEditCounts( $db, $userNames ) {
 	$res = $db->select(
-		array( 'user', 'bv2009_edits' ), 
+		array( 'user', 'bv2009_edits' ),
 		array( 'user_name', 'bv_long_edits', 'bv_short_edits' ),
 		array( 'bv_user=user_id', 'user_name' => $userNames ),
 		__METHOD__ );

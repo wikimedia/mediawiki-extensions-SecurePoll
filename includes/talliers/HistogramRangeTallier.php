@@ -16,7 +16,7 @@ class SecurePoll_HistogramRangeTallier extends SecurePoll_Tallier {
 		}
 
 		foreach ( $question->getOptions() as $option ) {
-			$this->histogram[$option->getId()] = 
+			$this->histogram[$option->getId()] =
 				array_fill( $this->minScore, $this->maxScore - $this->minScore + 1, 0 );
 			$this->sums[$option->getId()] = 0;
 			$this->counts[$option->getId()] = 0;
@@ -63,9 +63,9 @@ class SecurePoll_HistogramRangeTallier extends SecurePoll_Tallier {
 		}
 		$s .= Xml::element( 'th', array(), wfMsg( 'securepoll-average-score' ) );
 		$s .= "</tr>\n";
-		
+
 		foreach ( $this->averages as $oid => $average ) {
-			$s .= "<tr>\n" . 
+			$s .= "<tr>\n" .
 				Xml::tags( 'td', array( 'class' => 'securepoll-results-row-heading' ),
 					$optionLabels[$oid] ) .
 				"\n";

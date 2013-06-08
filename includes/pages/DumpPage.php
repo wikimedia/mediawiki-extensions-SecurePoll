@@ -17,7 +17,7 @@ class SecurePoll_DumpPage extends SecurePoll_Page {
 			$wgOut->addWikiMsg( 'securepoll-too-few-params' );
 			return;
 		}
-		
+
 		$electionId = intval( $params[0] );
 		$this->election = $this->context->getElection( $electionId );
 		if ( !$this->election ) {
@@ -26,17 +26,17 @@ class SecurePoll_DumpPage extends SecurePoll_Page {
 		}
 		$this->initLanguage( $wgUser, $this->election );
 
-		$wgOut->setPageTitle( wfMsg( 'securepoll-dump-title', 
+		$wgOut->setPageTitle( wfMsg( 'securepoll-dump-title',
 			$this->election->getMessage( 'title' ) ) );
 
 		if ( !$this->election->getCrypt() ) {
 			$wgOut->addWikiMsg( 'securepoll-dump-no-crypt' );
 			return;
 		}
-		
+
 		if ( !$this->election->isFinished() ) {
 			global $wgLang;
-			$wgOut->addWikiMsg( 'securepoll-dump-not-finished', 
+			$wgOut->addWikiMsg( 'securepoll-dump-not-finished',
 				$wgLang->date( $this->election->getEndDate() ),
 				$wgLang->time( $this->election->getEndDate() ) );
 			return;

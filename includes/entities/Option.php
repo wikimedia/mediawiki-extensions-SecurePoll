@@ -15,7 +15,7 @@ class SecurePoll_Option extends SecurePoll_Entity {
 	}
 
 	/**
-	 * Get a list of localisable message names. This is used to provide the 
+	 * Get a list of localisable message names. This is used to provide the
 	 * translate subpage with a list of messages to localise.
 	 */
 	function getMessageNames() {

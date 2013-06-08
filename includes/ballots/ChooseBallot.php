@@ -1,12 +1,12 @@
 <?php
 
 /**
- * A ballot class which asks the user to choose one answer only from the 
+ * A ballot class which asks the user to choose one answer only from the
  * given options, for each question.
  */
 class SecurePoll_ChooseBallot extends SecurePoll_Ballot {
 	/**
-	 * Get a list of names of tallying methods, which may be used to produce a 
+	 * Get a list of names of tallying methods, which may be used to produce a
 	 * result from this ballot type.
 	 * @return array
 	 */
@@ -27,7 +27,7 @@ class SecurePoll_ChooseBallot extends SecurePoll_Ballot {
 			$optionHTML = $option->parseMessageInline( 'text' );
 			$optionId = $option->getId();
 			$radioId = "{$name}_opt{$optionId}";
-			$s .= 
+			$s .=
 				'<div class="securepoll-option-choose">' .
 				Xml::radio( $name, $optionId, false, array( 'id' => $radioId ) ) .
 				'&#160;' .

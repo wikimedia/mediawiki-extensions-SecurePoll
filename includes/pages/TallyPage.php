@@ -15,7 +15,7 @@ class SecurePoll_TallyPage extends SecurePoll_Page {
 			$wgOut->addWikiMsg( 'securepoll-too-few-params' );
 			return;
 		}
-		
+
 		$electionId = intval( $params[0] );
 		$this->election = $this->context->getElection( $electionId );
 		if ( !$this->election ) {
@@ -40,7 +40,7 @@ class SecurePoll_TallyPage extends SecurePoll_Page {
 				$wgOut->addWikiMsg( 'securepoll-tally-no-key' );
 				return;
 			}
-			
+
 			if ( $wgRequest->wasPosted() ) {
 				if ( $wgRequest->getVal( 'submit_upload' ) ) {
 					$this->submitUpload();
@@ -67,7 +67,7 @@ class SecurePoll_TallyPage extends SecurePoll_Page {
 	function showLocalForm() {
 		global $wgOut;
 		$wgOut->addHTML(
-			Xml::openElement( 
+			Xml::openElement(
 				'form',
 				array( 'method' => 'post', 'action' => $this->getTitle()->getLocalUrl() )
 			) .
@@ -75,9 +75,9 @@ class SecurePoll_TallyPage extends SecurePoll_Page {
 			Xml::fieldset(
 				wfMsg( 'securepoll-tally-local-legend' ),
 				'<div>' .
-				Xml::submitButton( 
+				Xml::submitButton(
 					wfMsg( 'securepoll-tally-local-submit' ),
-					array( 'name' => 'submit_local' ) 
+					array( 'name' => 'submit_local' )
 				) .
 				'</div>'
 			) .
@@ -91,10 +91,10 @@ class SecurePoll_TallyPage extends SecurePoll_Page {
 	function showUploadForm() {
 		global $wgOut;
 		$wgOut->addHTML(
-			Xml::openElement( 
+			Xml::openElement(
 				'form',
-				array( 
-					'method' => 'post', 
+				array(
+					'method' => 'post',
 					'action' => $this->getTitle()->getLocalUrl(),
 					'enctype' => 'multipart/form-data'
 				)
@@ -108,13 +108,13 @@ class SecurePoll_TallyPage extends SecurePoll_Page {
 					'name' => 'tally_file',
 					'size' => 40,
 				) ) .
-				"</div>\n<div>" . 
-				Xml::submitButton( 
+				"</div>\n<div>" .
+				Xml::submitButton(
 					wfMsg( 'securepoll-tally-upload-submit' ),
 					array( 'name' => 'submit_upload' )
-				) . 
+				) .
 				"</div>\n"
-			) . 
+			) .
 			"</form>\n"
 		);
 	}
@@ -139,7 +139,7 @@ class SecurePoll_TallyPage extends SecurePoll_Page {
 	function submitUpload() {
 		global $wgOut;
 		if ( !isset( $_FILES['tally_file'] )
-			|| !is_uploaded_file( $_FILES['tally_file']['tmp_name'] ) 
+			|| !is_uploaded_file( $_FILES['tally_file']['tmp_name'] )
 			|| !$_FILES['tally_file']['size'] )
 		{
 			$wgOut->addWikiMsg( 'securepoll-no-upload' );

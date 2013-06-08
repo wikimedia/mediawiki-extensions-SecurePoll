@@ -112,7 +112,7 @@ function spRunDebianVote( $fileName ) {
 	$result = wfShellExec(
 		wfEscapeShellArg(
 			"$spDebianVoteDir/debian-vote",
-			$fileName 
+			$fileName
 		)
 	);
 	if ( !$result ) {
@@ -132,7 +132,7 @@ function spGetRandom( $min, $max ) {
 function spGenerateTest( $fileName ) {
 	global $spDebianVoteDir;
 	wfShellExec(
-		wfEscapeShellArg( "$spDebianVoteDir/votegen" ) . ' > ' . 
+		wfEscapeShellArg( "$spDebianVoteDir/votegen" ) . ' > ' .
 		wfEscapeShellArg( $fileName )
 	);
 }

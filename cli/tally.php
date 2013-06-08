@@ -3,7 +3,7 @@
 /**
  * Tally an election from a dump file or local database.
  *
- * Can be used to tally very large numbers of votes, when the web interface is 
+ * Can be used to tally very large numbers of votes, when the web interface is
  * not feasible.
  */
 
@@ -13,7 +13,7 @@ require( dirname(__FILE__).'/cli.inc' );
 $wgTitle = Title::newFromText( 'Special:SecurePoll' );
 
 $usage = <<<EOT
-Usage: 
+Usage:
   php tally.php [--html] --name <election name>
   php tally.php [--html] <dump file>
 EOT;

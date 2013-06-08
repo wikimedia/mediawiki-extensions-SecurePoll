@@ -1,13 +1,13 @@
 <?php
 
 /**
- * There are three types of entity: elections, questions and options. The 
+ * There are three types of entity: elections, questions and options. The
  * entity abstraction provides generic i18n support, allowing localised message
- * text to be attached to the entity, without introducing a dependency on the 
+ * text to be attached to the entity, without introducing a dependency on the
  * editability of the MediaWiki namespace. Users are only allowed to edit messages
  * for the elections that they administer.
  *
- * Entities also provide a persistent key/value pair interface for non-localised 
+ * Entities also provide a persistent key/value pair interface for non-localised
  * properties, and a descendant tree which is used to accelerate message loading.
  */
 class SecurePoll_Entity {
@@ -18,7 +18,7 @@ class SecurePoll_Entity {
 	var $properties;
 
 	/**
-	 * Create an entity of the given type. This is typically called from the 
+	 * Create an entity of the given type. This is typically called from the
 	 * child constructor.
 	 * @param $context SecurePoll_Context
 	 * @param $type string
@@ -27,11 +27,11 @@ class SecurePoll_Entity {
 	function __construct( $context, $type, $info ) {
 		$this->context = $context;
 		$this->type = $type;
-		$this->id = isset( $info['id'] ) 
-			? $info['id'] 
+		$this->id = isset( $info['id'] )
+			? $info['id']
 			: false;
-		$this->electionId = isset( $info['election'] ) 
-			? $info['election'] 
+		$this->electionId = isset( $info['election'] )
+			? $info['election']
 			: null;
 	}
 
@@ -44,7 +44,7 @@ class SecurePoll_Entity {
 	}
 
 	/**
-	 * Get a list of localisable message names. This is used to provide the 
+	 * Get a list of localisable message names. This is used to provide the
 	 * translate subpage with a list of messages to localise.
 	 * @return Array
 	 */
@@ -59,7 +59,7 @@ class SecurePoll_Entity {
 	function getId() {
 		return $this->id;
 	}
-	
+
 	/**
 	 * Get the parent election
 	 * @return SecurePoll_Election
@@ -72,7 +72,7 @@ class SecurePoll_Entity {
 
 	/**
 	 * Get the child entity objects. When the messages of an object are loaded,
-	 * the messages of the children are loaded automatically, to reduce the 
+	 * the messages of the children are loaded automatically, to reduce the
 	 * query count.
 	 *
 	 * @return array
@@ -82,7 +82,7 @@ class SecurePoll_Entity {
 	}
 
 	/**
-	 * Get all children, grandchildren, etc. in a single flat array of entity 
+	 * Get all children, grandchildren, etc. in a single flat array of entity
 	 * objects.
 	 * @return array
 	 */
@@ -97,7 +97,7 @@ class SecurePoll_Entity {
 	}
 
 	/**
-	 * Load messages for a given language. It's not generally necessary to call 
+	 * Load messages for a given language. It's not generally necessary to call
 	 * this since getMessage() does it automatically.
 	 */
 	function loadMessages( $lang = false ) {
@@ -113,8 +113,8 @@ class SecurePoll_Entity {
 	}
 
 	/**
-	 * Load the properties for the entity. It is not generally necessary to 
-	 * call this function from another class since getProperty() does it 
+	 * Load the properties for the entity. It is not generally necessary to
+	 * call this function from another class since getProperty() does it
 	 * automatically.
 	 */
 	function loadProperties() {
@@ -186,7 +186,7 @@ class SecurePoll_Entity {
 	}
 
 	/**
-	 * Get a list of languages for which we have translations, for this entity 
+	 * Get a list of languages for which we have translations, for this entity
 	 * and its descendants.
 	 */
 	function getLangList() {
@@ -254,10 +254,10 @@ class SecurePoll_Entity {
 			foreach ( $langs as $lang ) {
 				$value = $this->getRawMessage( $name, $lang );
 				if ( $value !== false ) {
-					$s .= Xml::element( 
-							'message', 
+					$s .= Xml::element(
+							'message',
 							array( 'name' => $name, 'lang' => $lang ),
-							$value 
+							$value
 						) . "\n";
 				}
 			}

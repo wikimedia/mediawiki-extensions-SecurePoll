@@ -15,11 +15,11 @@ class SecurePoll_DetailsPage extends SecurePoll_Page {
 			$wgOut->addWikiMsg( 'securepoll-too-few-params' );
 			return;
 		}
-		
+
 		$this->voteId = intval( $params[0] );
 
 		$db = $this->context->getDB();
-		$row = $db->selectRow( 
+		$row = $db->selectRow(
 			array( 'securepoll_votes', 'securepoll_elections', 'securepoll_voters' ),
 			'*',
 			array(
@@ -46,8 +46,8 @@ class SecurePoll_DetailsPage extends SecurePoll_Page {
 			$vote_ua = $row->vote_ua;
 		}
 
-		$this->parent->setSubtitle( array( 
-			$this->parent->getTitle( 'list/' . $this->election->getId() ), 
+		$this->parent->setSubtitle( array(
+			$this->parent->getTitle( 'list/' . $this->election->getId() ),
 			wfMsg( 'securepoll-list-title', $this->election->getMessage( 'title' ) ) ) );
 
 		if ( !$this->election->isAdmin( $wgUser ) ) {
@@ -55,7 +55,7 @@ class SecurePoll_DetailsPage extends SecurePoll_Page {
 			return;
 		}
 		# Show vote properties
-		$wgOut->setPageTitle( wfMsg( 
+		$wgOut->setPageTitle( wfMsg(
 			'securepoll-details-title', $this->voteId ) );
 
 		$wgOut->addHTML(
@@ -81,7 +81,7 @@ class SecurePoll_DetailsPage extends SecurePoll_Page {
 			if ( is_array( $value ) ) {
 				$value = implode( ', ', $value );
 			}
-			$wgOut->addHTML( 
+			$wgOut->addHTML(
 				'<td class="securepoll-detail-header">' .
 				htmlspecialchars( $name ) . "</td>\n" .
 				'<td>' . htmlspecialchars( $value ) . "</td></tr>\n"
@@ -93,7 +93,7 @@ class SecurePoll_DetailsPage extends SecurePoll_Page {
 		$cmTable = $db->tableName( 'securepoll_cookie_match' );
 		$voterId = intval( $row->voter_id );
 		$sql = "(SELECT cm_voter_2 as voter, cm_timestamp FROM $cmTable WHERE cm_voter_1=$voterId)" .
-			" UNION " . 
+			" UNION " .
 			"(SELECT cm_voter_1 as voter, cm_timestamp FROM $cmTable WHERE cm_voter_2=$voterId)";
 		$res = $db->query( $sql, __METHOD__ );
 		if ( $res->numRows() ) {
@@ -103,18 +103,18 @@ class SecurePoll_DetailsPage extends SecurePoll_Page {
 				$voter = $this->context->getVoter( $row->voter );
 				$wgOut->addHTML(
 					'<tr>' .
-					'<td>' . htmlspecialchars( $wgLang->timeanddate( $row->cm_timestamp ) ) . '</td>' . 
-					'<td>' . 
-					Xml::element( 
-						'a', 
-						array( 'href' => $voter->getUrl() ), 
+					'<td>' . htmlspecialchars( $wgLang->timeanddate( $row->cm_timestamp ) ) . '</td>' .
+					'<td>' .
+					Xml::element(
+						'a',
+						array( 'href' => $voter->getUrl() ),
 						$voter->getName() . '@' . $voter->getDomain()
 					) .
 					'</td></tr>'
 				);
 			}
 			$wgOut->addHTML( '</table>' );
-		}		
+		}
 
 		# Show strike log
 		$wgOut->addHTML( '<h2>' . wfMsgHTML( 'securepoll-strike-log' ) . "</h2>\n" );

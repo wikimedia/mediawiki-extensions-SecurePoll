@@ -6,7 +6,7 @@
  * For the purposes of the Personal Image Filter referendum, this script
  * dumps the answers to all questions in key order.
  *
- * Can be used to tally very large numbers of votes, when the web interface is 
+ * Can be used to tally very large numbers of votes, when the web interface is
  * not feasible.
  */
 
@@ -16,7 +16,7 @@ require( dirname(__FILE__).'/cli.inc' );
 $wgTitle = Title::newFromText( 'Special:SecurePoll' );
 
 $usage = <<<EOT
-Usage: 
+Usage:
   php dumpVoteCsv.php [--html] --name <election name>
   php dumpVoteCsv.php [--html] <dump file>
 EOT;

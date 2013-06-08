@@ -56,7 +56,7 @@ function securepoll_strike_popup(e, action, id) {
 function securepoll_strike(action) {
 	var popup = document.getElementById('securepoll-popup');
 	if(action == 'cancel') {
-		popup.style.display = '';  
+		popup.style.display = '';
 		return;
 	}
 	if ( action == 'submit' ) {
@@ -75,7 +75,7 @@ function securepoll_strike(action) {
 		spinner.style.display = 'none';
 		strikeButton.disabled = false;
 		unstrikeButton.disabled = false;
-		
+
 		if ( xhr.status >= 300 || xhr.status < 200 ) {
 			document.getElementById( 'securepoll-strike-result' ).innerHTML = xhr.responseText;
 			return;
@@ -121,10 +121,10 @@ function securepoll_ballot_setup() {
 			continue;
 		}
 		if ( elt.addEventListener ) {
-			elt.addEventListener( 'click', 
+			elt.addEventListener( 'click',
 					function() {
 						securepoll_error_jump( this, anchors );
-					}, 
+					},
 					false );
 		} else {
 			elt.attachEvent( 'onclick', securepoll_error_jump );

@@ -5,7 +5,7 @@
  */
 abstract class SecurePoll_Crypt {
 	/**
-	 * Encrypt some data. When successful, the value member of the Status object 
+	 * Encrypt some data. When successful, the value member of the Status object
 	 * will contain the encrypted record.
 	 * @param string $record
 	 * @return Status
@@ -13,7 +13,7 @@ abstract class SecurePoll_Crypt {
 	abstract function encrypt( $record );
 
 	/**
-	 * Decrypt some data. When successful, the value member of the Status object 
+	 * Decrypt some data. When successful, the value member of the Status object
 	 * will contain the encrypted record.
 	 * @param string $record
 	 * @return Status
@@ -26,7 +26,7 @@ abstract class SecurePoll_Crypt {
 	abstract function canDecrypt();
 
 	/**
-	 * Create an encryption object of the given type. Currently only "gpg" is 
+	 * Create an encryption object of the given type. Currently only "gpg" is
 	 * implemented.
 	 */
 	static function factory( $context, $type, $election ) {
@@ -174,7 +174,7 @@ class SecurePoll_GpgCrypt {
 	}
 
 	/**
-	 * Encrypt some data. When successful, the value member of the Status object 
+	 * Encrypt some data. When successful, the value member of the Status object
 	 * will contain the encrypted record.
 	 * @param string $record
 	 * @return Status
@@ -212,7 +212,7 @@ class SecurePoll_GpgCrypt {
 	}
 
 	/**
-	 * Decrypt some data. When successful, the value member of the Status object 
+	 * Decrypt some data. When successful, the value member of the Status object
 	 * will contain the encrypted record.
 	 * @param $encrypted string
 	 * @return Status

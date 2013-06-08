@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the basic Schulze method with no tie-breaking. The algorithm in this 
- * class is believed to be equivalent to the method in the Debian constitution, 
- * assuming no quorum and no default option. It has been cross-tested against 
+ * This is the basic Schulze method with no tie-breaking. The algorithm in this
+ * class is believed to be equivalent to the method in the Debian constitution,
+ * assuming no quorum and no default option. It has been cross-tested against
  * debian-vote (but not devotee).
  */
 class SecurePoll_SchulzeTallier extends SecurePoll_PairwiseTallier {
@@ -14,11 +14,11 @@ class SecurePoll_SchulzeTallier extends SecurePoll_PairwiseTallier {
 	 */
 	function getPathStrengths( $victories ) {
 		# This algorithm follows Markus Schulze, "A New Monotonic, Clone-Independent, Reversal
-		# Symmetric, and Condorcet-Consistent Single-Winner Election Method" and also 
+		# Symmetric, and Condorcet-Consistent Single-Winner Election Method" and also
 		# http://en.wikipedia.org/w/index.php?title=User:MarkusSchulze/Statutory_Rules&oldid=303036893
 		#
 		# Path strengths in the Schulze method are given by pairs of integers notated (a, b)
-		# where a is the strength in one direction and b is the strength in the other. We make 
+		# where a is the strength in one direction and b is the strength in the other. We make
 		# a matrix of path strength pairs "p", giving the path strength of the row index beating
 		# the column index.
 
@@ -108,13 +108,13 @@ class SecurePoll_SchulzeTallier extends SecurePoll_PairwiseTallier {
 	}
 
 	/**
-	 * Determine whether Schulze's win relation "s1 >win s2" for path strength 
-	 * pairs s1 and s2 is satisfied. 
+	 * Determine whether Schulze's win relation "s1 >win s2" for path strength
+	 * pairs s1 and s2 is satisfied.
 	 *
-	 * When applied to final path strengths instead of intermediate results, 
+	 * When applied to final path strengths instead of intermediate results,
 	 * the paper notates this relation >D (greater than subscript D).
 	 *
-	 * The inequality in the second part is reversed because the first part 
+	 * The inequality in the second part is reversed because the first part
 	 * refers to wins, and the second part refers to losses.
 	 */
 	function isSchulzeWin( $s1, $s2 ) {

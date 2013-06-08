@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Generic functionality for Condorcet-style pairwise methods. 
+ * Generic functionality for Condorcet-style pairwise methods.
  * Tested via SecurePoll_SchulzeTallier.
  */
 abstract class SecurePoll_PairwiseTallier extends SecurePoll_Tallier {

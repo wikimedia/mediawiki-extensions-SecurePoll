@@ -54,7 +54,7 @@ class SecurePoll_Voter {
 	 * Create a voter with the given parameters. Assumes the voter does not exist,
 	 * and inserts it into the database.
 	 *
-	 * The row needs to be locked before this function is called, to avoid 
+	 * The row needs to be locked before this function is called, to avoid
 	 * duplicate key errors.
 	 */
 	static function createVoter( $context, $params ) {
@@ -77,9 +77,9 @@ class SecurePoll_Voter {
 	/** Get the voter ID */
 	function getId() { return $this->id; }
 
-	/** 
-	 * Get the voter name. This is a short, ambiguous name appropriate for 
-	 * display. 
+	/**
+	 * Get the voter name. This is a short, ambiguous name appropriate for
+	 * display.
 	 */
 	function getName() { return $this->name; }
 
@@ -89,7 +89,7 @@ class SecurePoll_Voter {
 	function getType() { return $this->type; }
 
 	/**
-	 * Get the voter domain. The name and domain, taken together, should usually be 
+	 * Get the voter domain. The name and domain, taken together, should usually be
 	 * unique, although this is not strictly necessary.
 	 */
 	function getDomain() { return $this->domain; }
@@ -175,11 +175,11 @@ class SecurePoll_Voter {
 				'cm_voter_1' => $this->getId(),
 				'cm_voter_2' => $voterId,
 				'cm_timestamp' => wfTimestampNow( TS_DB )
-			), 
+			),
 			__METHOD__ );
 
 		# Update the denormalized fields
-		$dbw->update( 'securepoll_votes', 
+		$dbw->update( 'securepoll_votes',
 			array( 'vote_cookie_dup' => 1 ),
 			array(
 				'vote_election' => $this->getElectionId(),

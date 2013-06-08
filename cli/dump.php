@@ -48,7 +48,7 @@ if ( isset( $options['all-langs'] ) ) {
 }
 $confXml = $election->getConfXml( array(
 	'jump' => isset( $options['jump'] ),
-	'langs' => $langs 
+	'langs' => $langs
 ) );
 
 $cbdata = array(
