@@ -296,8 +296,12 @@ class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
 		if ( class_exists( 'SiteMatrix' ) ) {
 			// Get wgServer from $lang (minor) and $site (major) combo
 			// Correct domain isn't guaranteed from $minor.$major.org
+			// And 'wiki' and 'wikipedia' aren't the same blasted thing
 			$matrix = new SiteMatrix();
-			$server = $matrix->getUrl( $params['lang'], $params['site'] );
+			$server = $matrix->getUrl(
+				$params['lang'],
+				str_replace( 'wikipedia', 'wiki', $params['site'] )
+			);
 			$params['wgServer'] = $server;
 			$vars["\$wgServer"] = $server;
 		}
