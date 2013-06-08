@@ -1,48 +1,48 @@
 <?php
 
 /**
- * This is an abstraction of the persistence layer, to allow XML dumps to be 
+ * This is an abstraction of the persistence layer, to allow XML dumps to be
  * operated on and tallied, like elections in the local DB.
  *
- * Most of the UI layer has no need for this abstraction, and so we provide 
+ * Most of the UI layer has no need for this abstraction, and so we provide
  * direct database access via getDB() to ease development of those components.
  * The XML store will throw an exception if getDB() is called on it.
  *
- * Most of the functions here are internal interfaces for the use of 
- * the entity classes (election, question and option). The entity classes 
- * and SecurePoll_Context provide methods that are more appropriate for general 
+ * Most of the functions here are internal interfaces for the use of
+ * the entity classes (election, question and option). The entity classes
+ * and SecurePoll_Context provide methods that are more appropriate for general
  * users.
  */
 interface SecurePoll_Store {
 	/**
-	 * Get an array of messages with a given language, and entity IDs 
+	 * Get an array of messages with a given language, and entity IDs
 	 * in a given array of IDs. The return format is a 2-d array mapping ID
 	 * and message key to value.
 	 */
 	function getMessages( $lang, $ids );
 
 	/**
-	 * Get a list of languages that the given entity IDs have messages for. 
+	 * Get a list of languages that the given entity IDs have messages for.
 	 * Returns an array of language codes.
 	 */
 	function getLangList( $ids );
 
 	/**
-	 * Get an array of properties for a given set of IDs. Returns a 2-d array 
+	 * Get an array of properties for a given set of IDs. Returns a 2-d array
 	 * mapping IDs and property keys to values.
 	 */
 	function getProperties( $ids );
-	
+
 	/**
 	 * Get the type of one or more SecurePoll entities.
 	 * @param $ids Int
 	 * @return String
 	 */
 	function getEntityType( $id );
-	
+
 
 	/**
-	 * Get information about a set of elections, specifically the data that 
+	 * Get information about a set of elections, specifically the data that
 	 * is stored in the securepoll_elections row in the DB. Returns a 2-d
 	 * array mapping ID to associative array of properties.
 	 */
@@ -54,7 +54,7 @@ interface SecurePoll_Store {
 	function getElectionInfoByTitle( $names );
 
 	/**
-	 * Convert a row from the securepoll_elections table into an associative 
+	 * Convert a row from the securepoll_elections table into an associative
 	 * array suitable for return by getElectionInfo().
 	 */
 	function decodeElectionRow( $row );
@@ -142,7 +142,7 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 		}
 		return $infos;
 	}
-		
+
 	function getElectionInfoByTitle( $names ) {
 		$names = (array)$names;
 		$db = $this->getDB();
@@ -205,14 +205,14 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 		foreach ( $res as $row ) {
 			if ( $questionId === false ) {
 			} elseif ( $questionId !== $row->qu_entity ) {
-				$questions[] = array( 
-					'id' => $questionId, 
-					'election' => $electionId, 
+				$questions[] = array(
+					'id' => $questionId,
+					'election' => $electionId,
 					'options' => $options
 				);
 				$options = array();
 			}
-			$options[] = array( 
+			$options[] = array(
 				'id' => $row->op_entity,
 				'election' => $row->op_election,
 			);
@@ -220,8 +220,8 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 			$electionId = $row->qu_election;
 		}
 		if ( $questionId !== false ) {
-			$questions[] = array( 
-				'id' => $questionId, 
+			$questions[] = array(
+				'id' => $questionId,
 				'election' => $electionId,
 				'options' => $options
 			);
@@ -231,7 +231,7 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 
 	function callbackValidVotes( $electionId, $callback, $voterId = null ) {
 		$dbr = $this->getDB();
-		$where = array( 
+		$where = array(
 			'vote_election' => $electionId,
 			'vote_current' => 1,
 			'vote_struck' => 0
@@ -239,13 +239,13 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 		if( $voterId !== null ){
 			$where['vote_voter'] = $voterId;
 		}
-		$res = $dbr->select( 
+		$res = $dbr->select(
 			'securepoll_votes',
 			'*',
 			$where,
 			__METHOD__
 		);
-		
+
 		foreach ( $res as $row ) {
 			$status = call_user_func( $callback, $this, $row->vote_record );
 			if( $status instanceof Status && !$status->isOK() ){
@@ -254,7 +254,7 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 		}
 		return Status::newGood();
 	}
-	
+
 	function getEntityType( $id ){
 		$db = $this->getDB();
 		$res = $db->selectRow(
@@ -354,7 +354,7 @@ class SecurePoll_MemoryStore implements SecurePoll_Store {
 		}
 		return Status::newGood();
 	}
-	
+
 	function getEntityType( $id ){
 		return isset( $this->entityInfo[$id] )
 			? $this->entityInfo[$id]['type']
@@ -398,7 +398,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 
 	/**
 	 * Constructor. Note that readFile() must be called before any information
-	 * can be accessed. SecurePoll_Context::newFromXmlFile() is a shortcut 
+	 * can be accessed. SecurePoll_Context::newFromXmlFile() is a shortcut
 	 * method for this.
 	 */
 	function __construct( $fileName ) {
@@ -481,8 +481,8 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 
 			if ( $xr->name === 'vote' ) {
 				# Notify tallier of vote record if requested
-				if ( $this->voteCallback && $electionInfo 
-					&& $electionInfo['id'] == $this->voteElectionId ) 
+				if ( $this->voteCallback && $electionInfo
+					&& $electionInfo['id'] == $this->voteElectionId )
 				{
 					$record = $this->readStringElement();
 					$status = call_user_func( $this->voteCallback, $this, $record );
@@ -495,7 +495,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 				}
 				continue;
 			}
-			
+
 			wfDebug( __METHOD__.": ignoring unrecognized element <{$xr->name}>\n" );
 			$xr->next();
 		}
@@ -504,10 +504,10 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 	}
 
 	/**
-	 * Read an entity configuration element: <configuration>, <question> or 
+	 * Read an entity configuration element: <configuration>, <question> or
 	 * <option>, and position the cursor past the end of it.
 	 *
-	 * This function operates recursively to read child elements. It returns 
+	 * This function operates recursively to read child elements. It returns
 	 * the info array for the entity.
 	 */
 	function readEntity( $entityType ) {
@@ -582,11 +582,11 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 			wfDebug( __METHOD__.": missing id element in <$entityType>\n" );
 			return false;
 		}
-		
-		# This has to be done after the element is fully parsed, or you 
+
+		# This has to be done after the element is fully parsed, or you
 		# have to require 'id' to be above any children in the XML doc.
 		$this->addParentIds( $info, $info['type'], $info['id'] );
-		
+
 		$id = $info['id'];
 		if ( isset( $info['title'] ) ) {
 			$this->idsByName[$info['title']] = $id;
@@ -598,7 +598,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 		$this->properties[$id] = $properties;
 		return $info;
 	}
-	
+
 	/**
 	 * Propagate parent ids to child elements
 	 */
@@ -616,7 +616,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 
 	/**
 	 * When the cursor is positioned on an element node, this reads the entire
-	 * element and returns the contents as a string. On return, the cursor is 
+	 * element and returns the contents as a string. On return, the cursor is
 	 * positioned past the end of the element.
 	 */
 	function readStringElement() {

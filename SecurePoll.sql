@@ -16,10 +16,10 @@ CREATE TABLE /*_*/securepoll_msgs (
 
 	-- Language code
 	msg_lang varbinary(32) not null,
-	
+
 	-- Message key
 	msg_key varbinary(32) not null,
-	
+
 	-- Message text, UTF-8 encoded
 	msg_text mediumtext not null
 ) /*$wgDBTableOptions*/;
@@ -30,10 +30,10 @@ CREATE UNIQUE INDEX /*i*/spmsg_entity ON /*_*/securepoll_msgs (msg_entity, msg_l
 CREATE TABLE /*_*/securepoll_properties (
 	-- securepoll_entity.en_id
 	pr_entity int not null,
-	
+
 	-- Property key
 	pr_key varbinary(32) not null,
-	
+
 	-- Property value
 	pr_value mediumblob not null
 ) /*$wgDBTableOptions*/;
@@ -78,10 +78,10 @@ CREATE UNIQUE INDEX /*i*/spel_title ON /*_*/securepoll_elections (el_title);
 CREATE TABLE /*_*/securepoll_questions (
 	-- securepoll_entity.en_id
 	qu_entity int not null primary key,
-	
+
 	-- securepoll_elections.el_entity
 	qu_election int not null,
-	
+
 	-- Index determining the order the questions are shown, if shuffle is off
 	qu_index int not null
 ) /*$wgDBTableOptions*/;
@@ -120,7 +120,7 @@ CREATE TABLE /*_*/securepoll_voters (
 	-- serialized properties blob
 	voter_properties blob
 ) /*$wgDBTableOptions*/;
-CREATE INDEX /*i*/spvoter_elec_name_domain ON /*_*/securepoll_voters 
+CREATE INDEX /*i*/spvoter_elec_name_domain ON /*_*/securepoll_voters
 	(voter_election, voter_name, voter_domain);
 
 -- Votes that have been cast
@@ -142,7 +142,7 @@ CREATE TABLE /*_*/securepoll_votes (
 	-- Denormalized field from the strike table
 	-- 1 if struck, 0 if not struck
 	vote_struck tinyint not null,
-	
+
 	-- The voting record, produced and interpreted by the ballot type
 	-- May be encrypted
 	vote_record blob not null,
@@ -158,7 +158,7 @@ CREATE TABLE /*_*/securepoll_votes (
 
 	-- MW-format timestamp when the vote was cast
 	vote_timestamp varbinary(14) not null,
-	
+
 	-- 1 if the vote is current, 0 if old
 	-- Only one vote with a given voter will have vote_current=1
 	vote_current tinyint not null,

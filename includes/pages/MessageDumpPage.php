@@ -8,7 +8,7 @@ class SecurePoll_MessageDumpPage extends SecurePoll_Page {
 			$wgOut->addWikiMsg( 'securepoll-too-few-params' );
 			return;
 		}
-		
+
 		$electionId = intval( $params[0] );
 		$this->election = $this->context->getElection( $electionId );
 		if ( !$this->election ) {
@@ -39,7 +39,7 @@ class SecurePoll_MessageDumpPage extends SecurePoll_Page {
 		$first = true;
 		foreach ( $res as $row ) {
 			$values = array(
-				$row->msg_entity, 
+				$row->msg_entity,
 				$row->msg_lang,
 				$row->msg_key,
 				$row->msg_text

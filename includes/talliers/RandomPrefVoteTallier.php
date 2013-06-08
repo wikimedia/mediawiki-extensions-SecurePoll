@@ -1,7 +1,7 @@
 <?php
 
 /**
- * A tallier which gives a tie-breaking ranking of candidates (TBRC) by 
+ * A tallier which gives a tie-breaking ranking of candidates (TBRC) by
  * selecting random preferential votes. Untested.
  */
 abstract class SecurePoll_RandomPrefVoteTallier {
@@ -26,7 +26,7 @@ abstract class SecurePoll_RandomPrefVoteTallier {
 		$numPairsRanked = 0;
 		$numRecordsUsed = 0;
 		while ( $numRecordsUsed < count( $this->records )
-			&& $numPairsRanked < $numCands * $numCands ) 
+			&& $numPairsRanked < $numCands * $numCands )
 		{
 			# Pick the record
 			$recordIndex = $random->getInt( $numCands - $numRecordsUsed );

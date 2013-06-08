@@ -130,8 +130,8 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 		$name = 'securepoll_q' . $question->getId();
 		list( $min, $max ) = $this->getMinMax( $question );
 		$labels = $this->getColumnLabels( $question );
-		
-		$s = "<table class=\"securepoll-ballot-table\">\n" . 
+
+		$s = "<table class=\"securepoll-ballot-table\">\n" .
 			"<tr>\n" .
 			"<th>&#160;</th>\n";
 		foreach ( $labels as $label ) {
@@ -146,15 +146,15 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 			$inputId = "{$name}_opt{$optionId}";
 			$oldValue = $wgRequest->getVal( $inputId, $defaultScore );
 			$s .= "<tr class=\"securepoll-ballot-row\">\n" .
-				Xml::tags( 'td', 
-					array( 'class' => 'securepoll-ballot-optlabel' ), 
-					$this->errorLocationIndicator( $inputId ) . $optionHTML 
+				Xml::tags( 'td',
+					array( 'class' => 'securepoll-ballot-optlabel' ),
+					$this->errorLocationIndicator( $inputId ) . $optionHTML
 				);
 
 			foreach ( $labels as $score => $label ) {
-				$s .= 
+				$s .=
 					Xml::tags( 'td', array(),
-						Xml::radio( $inputId, $score, !strcmp( $oldValue, $score ), 
+						Xml::radio( $inputId, $score, !strcmp( $oldValue, $score ),
 							array( 'title' => $label ) )
 					) . "\n";
 			}
@@ -183,7 +183,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 
 			if ( is_numeric( $score ) ) {
 				if ( $score < $min || $score > $max ) {
-					$status->sp_fatal( 'securepoll-invalid-score', $id, 
+					$status->sp_fatal( 'securepoll-invalid-score', $id,
 						$wgLang->formatNum( $min ), $wgLang->formatNum( $max ) );
 					$ok = false;
 					continue;
@@ -204,7 +204,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 				$ok = false;
 				continue;
 			}
-			$record .= sprintf( 'Q%08X-A%08X-S%+011d--', 
+			$record .= sprintf( 'Q%08X-A%08X-S%+011d--',
 				$question->getId(), $option->getId(), $score );
 		}
 		if ( $ok ) {
@@ -220,8 +220,8 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 			$questions[$question->getId()] = $question;
 		}
 		for ( $offset = 0; $offset < strlen( $record ); $offset += $itemLength ) {
-			if ( !preg_match( '/Q([0-9A-F]{8})-A([0-9A-F]{8})-S([+-][0-9]{10})--/A', 
-				$record, $m, 0, $offset ) ) 
+			if ( !preg_match( '/Q([0-9A-F]{8})-A([0-9A-F]{8})-S([+-][0-9]{10})--/A',
+				$record, $m, 0, $offset ) )
 			{
 				wfDebug( __METHOD__.": regex doesn't match\n" );
 				return false;

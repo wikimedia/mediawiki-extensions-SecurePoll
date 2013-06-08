@@ -90,7 +90,7 @@ $s = $header .
 	"<message name=\"text\" lang=\"en\"></message>\n";
 
 for ( $i = 1; $i <= $spConf['numCandidates']; $i++ ) {
-	$s .= 
+	$s .=
 		"<option>\n" .
 		"<id>" . ( $i + $spConf['baseId'] + 1 ) . "</id>\n" .
 		spFormatEntityMessages( $allMessages, "option_$i" ) .

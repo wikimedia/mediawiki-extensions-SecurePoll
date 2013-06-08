@@ -5,7 +5,7 @@
  * Most of the functionality is contained in the SecurePoll_Tallier subclasses
  * which operate on a single question at a time.
  *
- * A convenience function for accessing this class is 
+ * A convenience function for accessing this class is
  * SecurePoll_Election::tally().
  */
 class SecurePoll_ElectionTallier {
@@ -20,7 +20,7 @@ class SecurePoll_ElectionTallier {
 	}
 
 	/**
-	 * Do the tally. Returns a Status object. On success, the value property 
+	 * Do the tally. Returns a Status object. On success, the value property
 	 * of the status will be an array of SecurePoll_Tallier objects, which can
 	 * be queried for results information.
 	 */
@@ -51,8 +51,8 @@ class SecurePoll_ElectionTallier {
 	}
 
 	/**
-	 * Add a record. This is the callback function for SecurePoll_Store::callbackValidVotes(). 
-	 * On error, the Status object returned here will be passed through back to 
+	 * Add a record. This is the callback function for SecurePoll_Store::callbackValidVotes().
+	 * On error, the Status object returned here will be passed through back to
 	 * the caller of callbackValidVotes().
 	 *
 	 * @param $store SecurePoll_Store
@@ -85,7 +85,7 @@ class SecurePoll_ElectionTallier {
 	}
 
 	/**
-	 * Get HTML formatted results for this tally. Should only be called after 
+	 * Get HTML formatted results for this tally. Should only be called after
 	 * execute().
 	 */
 	function getHtmlResult() {
@@ -101,7 +101,7 @@ class SecurePoll_ElectionTallier {
 	}
 
 	/**
-	 * Get text formatted results for this tally. Should only be called after 
+	 * Get text formatted results for this tally. Should only be called after
 	 * execute().
 	 */
 	function getTextResult() {

@@ -50,7 +50,7 @@ class SecurePoll_Auth {
 	}
 
 	/**
-	 * Get the voter associated with the current session. Returns false if 
+	 * Get the voter associated with the current session. Returns false if
 	 * there is no session.
 	 * @param $election SecurePoll_Election
 	 * @return SecurePoll_Election
@@ -61,7 +61,7 @@ class SecurePoll_Auth {
 		}
 		if ( isset( $_SESSION['securepoll_voter'][$election->getId()] ) ) {
 			$voterId = $_SESSION['securepoll_voter'][$election->getId()];
-			
+
 			# Perform cookie fraud check
 			$status = $this->autoLogin( $election );
 			if ( $status->isOK() ) {
@@ -96,12 +96,12 @@ class SecurePoll_Auth {
 		$dbw = $this->context->getDB();
 
 		# This needs to be protected by FOR UPDATE
-		# Otherwise a race condition could lead to duplicate users for a single remote user, 
+		# Otherwise a race condition could lead to duplicate users for a single remote user,
 		# and thus to duplicate votes.
 		$dbw->begin();
-		$row = $dbw->selectRow( 
-			'securepoll_voters', '*', 
-			array( 
+		$row = $dbw->selectRow(
+			'securepoll_voters', '*',
+			array(
 				'voter_name' => $params['name'],
 				'voter_election' => $params['electionId'],
 				'voter_domain' => $params['domain'],
@@ -169,7 +169,7 @@ class SecurePoll_Auth {
 
 /**
  * Authorization class for locally created accounts.
- * Certain functions in this class are also used for sending local voter 
+ * Certain functions in this class are also used for sending local voter
  * parameters to a remote SecurePoll installation.
  */
 class SecurePoll_LocalAuth extends SecurePoll_Auth {
@@ -218,7 +218,7 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 				'registration' => $user->getRegistration(),
 			)
 		);
-		
+
 		wfRunHooks( 'SecurePoll_GetUserParams', array( $this, $user, &$params ) );
 		return $params;
 	}
@@ -230,7 +230,7 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 	 */
 	function getLists( $user ) {
 		$dbr = $this->context->getDB();
-		$res = $dbr->select( 
+		$res = $dbr->select(
 			'securepoll_lists',
 			array( 'li_name' ),
 			array( 'li_member' => $user->getId() ),
@@ -242,7 +242,7 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 		}
 		return $lists;
 	}
-	
+
 	/**
 	 * Checks how many central wikis the user is blocked on
 	 * @param $user User
@@ -252,18 +252,18 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 		if ( ! class_exists( 'CentralAuthUser' ) ) {
 			return 0;
 		}
-		
+
 		$centralUser = new CentralAuthUser( $user->getName() );
-		
+
 		$attached = $centralUser->queryAttached();
 		$blockCount = 0;
-		
+
 		foreach( $attached as $data ) {
 			if ( $data['blocked'] ) {
 				$blockCount++;
 			}
 		}
-		
+
 		return $blockCount;
 	}
 }
@@ -311,7 +311,7 @@ class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
 		if ( substr( $url, -1 ) != '/' ) {
 			$url .= '/';
 		}
-		$url .= $wgSecurePollScript . '?' . 
+		$url .= $wgSecurePollScript . '?' .
 			wfArrayToCgi( array(
 				'token' => $params['token'],
 				'id' => $params['id']
@@ -352,10 +352,10 @@ class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
 	 * Apply a one-way hash function to a string.
 	 *
 	 * The aim is to encode a user's login token so that it can be transmitted to the
-	 * voting server without giving the voting server any special rights on the wiki 
-	 * (apart from the ability to verify the user). We truncate the hash at 26 
-	 * hexadecimal digits, to provide 24 bits less information than original token. 
-	 * This makes discovery of the token difficult even if the hash function is 
+	 * voting server without giving the voting server any special rights on the wiki
+	 * (apart from the ability to verify the user). We truncate the hash at 26
+	 * hexadecimal digits, to provide 24 bits less information than original token.
+	 * This makes discovery of the token difficult even if the hash function is
 	 * completely broken.
 	 */
 	static function encodeToken( $token ) {

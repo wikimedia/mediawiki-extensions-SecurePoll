@@ -24,8 +24,8 @@ for ( $userId = 1; $userId <= $maxUser; $userId++ ) {
 		continue;
 	}
 
-	$longEdits = $dbr->selectField( 'revision', 'COUNT(*)', 
-		array( 
+	$longEdits = $dbr->selectField( 'revision', 'COUNT(*)',
+		array(
 			'rev_user' => $userId,
 			'rev_timestamp < ' . $dbr->addQuotes( $beforeTime )
 		), $fname
@@ -34,10 +34,10 @@ for ( $userId = 1; $userId <= $maxUser; $userId++ ) {
 	$shortEdits = $dbr->selectField( 'revision', 'COUNT(*)',
 		array(
 			'rev_user' => $userId,
-			'rev_timestamp BETWEEN ' . $dbr->addQuotes( $betweenTime[0] ) . 
-				' AND ' . $dbr->addQuotes( $betweenTime[1] ) 
+			'rev_timestamp BETWEEN ' . $dbr->addQuotes( $betweenTime[0] ) .
+				' AND ' . $dbr->addQuotes( $betweenTime[1] )
 		),
-		$fname 
+		$fname
 	);
 
 	if ( $longEdits !== 0 || $shortEdits !== 0 ) {

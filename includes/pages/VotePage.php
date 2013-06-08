@@ -67,7 +67,7 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 			$this->showJumpForm();
 			return;
 		}
-		
+
 		// This is when it starts getting all serious; disable JS
 		// that might be used to sniff cookies or log voting data.
 		$wgOut->disallowUserJs();
@@ -119,7 +119,7 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 		$wgOut->addHTML(
 			"<form name=\"securepoll\" id=\"securepoll\" method=\"post\" action=\"$encAction\">\n" .
 			$this->election->getBallot()->getForm( $status ) .
-			"<br />\n" . 
+			"<br />\n" .
 			"<input name=\"submit\" type=\"submit\" value=\"$encOK\">\n" .
 			"<input type='hidden' name='edit_token' value=\"{$encToken}\" /></td>\n" .
 			"</form>"
@@ -127,7 +127,7 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 	}
 
 	/**
-	 * Submit the voting form. If successful, adds a record to the database. 
+	 * Submit the voting form. If successful, adds a record to the database.
 	 * Shows an error message on failure.
 	 */
 	function doSubmit() {

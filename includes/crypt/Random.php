@@ -31,7 +31,7 @@ class SecurePoll_Random {
 			$this->urandom = null;
 		}
 	}
-		
+
 	/**
 	 * Get a random integer between 0 and ($maxp1 - 1).
 	 * Should only be called after open() succeeds.
@@ -54,7 +54,7 @@ class SecurePoll_Random {
 	}
 
 	/**
-	 * Works like shuffle() except more secure. Returns the new array instead 
+	 * Works like shuffle() except more secure. Returns the new array instead
 	 * of modifying it. The algorithm is the Knuth/Durstenfeld kind.
 	 */
 	function shuffle( $a ) {

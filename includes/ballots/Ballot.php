@@ -7,7 +7,7 @@ abstract class SecurePoll_Ballot {
 	var $election, $context;
 
 	/**
-	 * Get a list of names of tallying methods, which may be used to produce a 
+	 * Get a list of names of tallying methods, which may be used to produce a
 	 * result from this ballot type.
 	 * @return array
 	 */
@@ -32,9 +32,9 @@ abstract class SecurePoll_Ballot {
 	}
 
 	/**
-	 * Called when the form is submitted. This returns a Status object which, 
-	 * when successful, contains a voting record in the value member. To 
-	 * preserve voter privacy, voting records should be the same length 
+	 * Called when the form is submitted. This returns a Status object which,
+	 * when successful, contains a voting record in the value member. To
+	 * preserve voter privacy, voting records should be the same length
 	 * regardless of voter choices.
 	 */
 	function submitForm() {
@@ -161,7 +161,7 @@ abstract class SecurePoll_Ballot {
 			return '';
 		}
 		$this->usedErrorIds[$id] = true;
-		return 
+		return
 			Xml::element( 'img', array(
 				'src' => $this->context->getResourceUrl( 'warning-22.png' ),
 				'width' => 22,
@@ -206,7 +206,7 @@ abstract class SecurePoll_Ballot {
 				return false;
 			}
 		}
-		
+
 		$store = $this->context->getStore();
 		$status = $store->callbackValidVotes(
 			$this->election->info['id'],
@@ -216,12 +216,12 @@ abstract class SecurePoll_Ballot {
 		if( !$status->isOK() ){
 			return false;
 		}
-		
+
 		return isset( $this->currentVote )
 			? $this->unpackRecord( $this->currentVote )
 			: false;
 	}
-	
+
 	function getCurrentVoteCallback( $store, $record ){
 		$this->currentVote = $record;
 		return Status::newGood();
@@ -261,7 +261,7 @@ class SecurePoll_BallotStatus extends Status {
 			if ( isset( $error['securepoll-id'] ) ) {
 				$id = $error['securepoll-id'];
 				if ( isset( $usedIds[$id] ) ) {
-					$s .= '<li>' . 
+					$s .= '<li>' .
 						Xml::openElement( 'a', array(
 							'href' => '#' . urlencode( "$id-location" ),
 							'class' => 'securepoll-error-jump'
@@ -270,7 +270,7 @@ class SecurePoll_BallotStatus extends Status {
 							'alt' => '',
 							'src' => $this->sp_context->getResourceUrl( 'down-16.png' ),
 						) ) .
-						'</a>' . 
+						'</a>' .
 						htmlspecialchars( $text ) .
 						"</li>\n";
 					continue;

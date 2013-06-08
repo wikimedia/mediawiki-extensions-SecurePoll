@@ -21,7 +21,7 @@ $listName = $args[0];
 $startBatch = 0;
 $batchSize = 100;
 
-$listExists = $dbr->selectField( 'securepoll_lists', '1', 
+$listExists = $dbr->selectField( 'securepoll_lists', '1',
 	array( 'li_name' => $listName ), $fname );
 if ( $listExists ) {
 	if ( isset( $options['replace'] ) ) {

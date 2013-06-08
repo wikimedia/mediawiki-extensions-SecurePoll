@@ -3,7 +3,7 @@
 /**
  * A SecurePoll subpage for translating election messages.
  */
-class SecurePoll_TranslatePage extends SecurePoll_Page {	
+class SecurePoll_TranslatePage extends SecurePoll_Page {
 	/**
 	 * Execute the subpage.
 	 * @param $params array Array of subpage parameters.
@@ -15,7 +15,7 @@ class SecurePoll_TranslatePage extends SecurePoll_Page {
 			$wgOut->addWikiMsg( 'securepoll-too-few-params' );
 			return;
 		}
-		
+
 		$electionId = intval( $params[0] );
 		$this->election = $this->context->getElection( $electionId );
 		if ( !$this->election ) {
@@ -23,7 +23,7 @@ class SecurePoll_TranslatePage extends SecurePoll_Page {
 			return;
 		}
 		$this->initLanguage( $wgUser, $this->election );
-		$wgOut->setPageTitle( wfMsg( 'securepoll-translate-title', 
+		$wgOut->setPageTitle( wfMsg( 'securepoll-translate-title',
 			$this->election->getMessage( 'title' ) ) );
 
 		$this->isAdmin = $this->election->isAdmin( $wgUser );
@@ -54,7 +54,7 @@ class SecurePoll_TranslatePage extends SecurePoll_Page {
 		}
 
 		# Set a subtitle to return to the language selector
-		$this->parent->setSubtitle( array( 
+		$this->parent->setSubtitle( array(
 			$this->getTitle(),
 			wfMsg( 'securepoll-translate-title', $this->election->getMessage( 'title' ) ) ) );
 
@@ -66,13 +66,13 @@ class SecurePoll_TranslatePage extends SecurePoll_Page {
 
 		# Show the form
 		$action = $this->getTitle( $secondary )->getLocalUrl( 'action=submit' );
-		$s = 
+		$s =
 			Xml::openElement( 'form', array( 'method' => 'post', 'action' => $action ) ) .
 			'<table class="mw-datatable TablePager securepoll-trans-table">' .
 			'<col class="securepoll-col-trans-id" width="1*"/>' .
 			'<col class="securepoll-col-primary" width="30%"/>' .
 			'<col class="securepoll-col-secondary"/>' .
-			'<tr><th>' . wfMsgHtml( 'securepoll-header-trans-id' ) . '</th>' . 
+			'<tr><th>' . wfMsgHtml( 'securepoll-header-trans-id' ) . '</th>' .
 			'<th>' . htmlspecialchars( $primaryName ) . '</th>' .
 			'<th>' . htmlspecialchars( $secondaryName ) . '</th></tr>';
 		$entities = array_merge( array( $this->election ), $this->election->getDescendants() );
@@ -88,15 +88,15 @@ class SecurePoll_TranslatePage extends SecurePoll_Page {
 				}
 				$s .= '<tr><td>' . htmlspecialchars( "$entityName/$messageName" ) . "</td>\n" .
 					'<td>' . nl2br( htmlspecialchars( $primaryText ) ) . '</td>' .
-					'<td>' . 
+					'<td>' .
 					Xml::textarea( $controlName, $secondaryText, 40, 3, $attribs ) .
 					"</td></tr>\n";
 			}
 		}
 		$s .= '</table>';
 		if ( $this->isAdmin ) {
-			$s .= 
-			'<p style="text-align: center;">' . 
+			$s .=
+			'<p style="text-align: center;">' .
 			Xml::submitButton( wfMsg( 'securepoll-submit-translate' ) ) .
 			"</p>";
 		}
@@ -120,23 +120,23 @@ class SecurePoll_TranslatePage extends SecurePoll_Page {
 	 * translate.
 	 */
 	function showLanguageSelector( $selectedCode ) {
-		$s = 
-			Xml::openElement( 'form', 
-				array( 
+		$s =
+			Xml::openElement( 'form',
+				array(
 					'action' => $this->getTitle( false )->getLocalUrl()
-				) 
+				)
 			) .
-			Xml::openElement( 
-				'select', 
-				array( 'id' => 'secondary_lang', 'name' => 'secondary_lang' ) 
+			Xml::openElement(
+				'select',
+				array( 'id' => 'secondary_lang', 'name' => 'secondary_lang' )
 			) . "\n";
-		
+
 		$languages = Language::getLanguageNames();
 		ksort( $languages );
 		foreach ( $languages as $code => $name ) {
 			$s .= "\n" . Xml::option( "$code - $name", $code, $code == $selectedCode );
 		}
-		$s .= "\n</select>\n" . 
+		$s .= "\n</select>\n" .
 			'<p>' . Xml::submitButton( wfMsg( 'securepoll-submit-select-lang' ) ) . '</p>' .
 			"</form>\n";
 		global $wgOut;
@@ -171,9 +171,9 @@ class SecurePoll_TranslatePage extends SecurePoll_Page {
 			}
 		}
 		if ( $replaceBatch ) {
-			$dbw = $this->context->getDB();	
-			$dbw->replace( 
-				'securepoll_msgs', 
+			$dbw = $this->context->getDB();
+			$dbw->replace(
+				'securepoll_msgs',
 				array( array( 'msg_entity', 'msg_lang', 'msg_key' ) ),
 				$replaceBatch,
 				__METHOD__
