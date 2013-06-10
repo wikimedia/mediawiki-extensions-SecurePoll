@@ -1270,6 +1270,7 @@ $messages['azb'] = array(
 /** Bashkir (башҡортса)
  * @author Assele
  * @author Haqmar
+ * @author Рустам Нурыев
  */
 $messages['ba'] = array(
 	'securepoll' => 'ХәүефһеҙТауышБиреү',
@@ -1353,7 +1354,7 @@ $1',
 	'securepoll-strike-log' => 'Һыҙыу яҙмалары журналы',
 	'securepoll-header-action' => 'Ғәмәл',
 	'securepoll-header-reason' => 'Сәбәп',
-	'securepoll-header-admin' => 'Хәким',
+	'securepoll-header-admin' => 'Хаким',
 	'securepoll-cookie-dup-list' => 'Ҡатнашыусыларҙың ҡабатланыуы Cookie буйынса',
 	'securepoll-dump-title' => 'Дамп: $1',
 	'securepoll-dump-no-crypt' => 'Шифрланмаған тауыш биреү яҙмаһы был һайлауҙарҙа ғәмәлгә эйә, сөнки һайлауҙар шифр ҡулланыуға көйләнмәгән.',
@@ -2204,11 +2205,13 @@ Podeu triar entre comptar els resultats presents a la base de dades, o de compta
 
 /** Chechen (нохчийн)
  * @author Sasan700
+ * @author Умар
  */
 $messages['ce'] = array(
 	'securepoll-strike-reason' => 'Бахьан:',
 	'securepoll-header-reason' => 'Бахьан',
 	'securepoll-header-admin' => 'Адманкуьйгалхо',
+	'securepoll-submit-translate' => 'Карлаяккха',
 );
 
 /** Sorani Kurdish (کوردی)
@@ -6565,12 +6568,18 @@ $1',
 	'securepoll-unanswered-options' => 'អ្នក​ត្រូវ​តែ​ឆ្លើយ​តប​រាល់​សំណួរ​និមួយៗ។',
 	'securepoll-remote-auth-error' => 'មាន​បញ្ហា​ក្នុង​ការ​ប្រមូល​យក​ព័ត៌មាន​របស់​អ្នក​ពី​ម៉ាស៊ីន​មេ។',
 	'securepoll-api-invalid-params' => 'ប៉ារ៉ាម៉ែត្រ​មិន​ត្រឹម​ត្រូវ។',
+	'securepoll-api-no-user' => 'រកមិនឃើញអ្នកប្រើប្រាស់ដែលមាន ID នេះទេ។',
+	'securepoll-api-token-mismatch' => 'កូដសុវត្ថិភាពមិនដូចគ្នា មិនអាចឡុកចូលបាន។',
 	'securepoll-not-logged-in' => 'អ្នក​ត្រូវ​តែ​កត់​ឈ្មោះ​ចូល​សិន ទើប​អាច​ចូលរួម​បោះឆ្នោត​បាន',
-	'securepoll-too-new' => 'សូមទោស, អ្នក​មិន​អាច​បោះ​ឆ្នោត​បានទេ។ គណនី​របស់​អ្នក​ត្រូវ​តែ​បាន​ចុះ​ឈ្មោះ​ក្នុង​ចន្លោះ​ពី $1 នៅ $3 ដើម្បី​បោះ​ឆ្នោត​បាន ប៉ុន្តែ​អ្នក​បាន​ចុះ​ឈ្មោះ​រួច​កាល​ពី $2 នៅ %4 ។', # Fuzzy
+	'securepoll-too-new' => 'សូមទោស, អ្នក​មិន​អាច​បោះ​ឆ្នោត​បានទេ។ គណនី​របស់​អ្នក​ត្រូវ​តែ​បាន​ចុះ​ឈ្មោះ​ក្នុង​ចន្លោះ​ពី $1 នៅ $3 ដើម្បី​បោះ​ឆ្នោត​បាន ប៉ុន្តែ​អ្នក​បាន​ចុះ​ឈ្មោះ​រួច​កាល​ពី $2 នៅ $4 ។',
+	'securepoll-blocked' => 'សូមទោស, អ្នកមិនអាចបោះឆ្នោតលើកនេះបានទេ ប្រសិនបើអ្នកត្រូវបានដកហូតសិទ្ធក្នុងការចូលរួមកែប្រែ។',
 	'securepoll-not-in-group' => 'មាន​តែ​សមាជិក​នៃ​ក្រុម "%1" ទេ ដែល​អាច​ចូលរួម​ក្នុង​ការ​បោះ​ឆ្នោត​នេះ​បាន។', # Fuzzy
 	'securepoll-list-title' => 'បញ្ជី​បោះ​ឆ្នោត: $1',
 	'securepoll-header-timestamp' => 'ពេលវេលា',
 	'securepoll-header-voter-name' => 'ឈ្មោះ',
+	'securepoll-header-voter-domain' => 'Domain',
+	'securepoll-header-ua' => 'ទីភ្នាក់ងារអ្នកប្រើប្រាស់',
+	'securepoll-header-cookie-dup' => 'Dup',
 	'securepoll-header-details' => 'ព័ត៌មាន​លម្អិត​',
 	'securepoll-strike-reason' => 'មូលហេតុ៖',
 	'securepoll-strike-cancel' => 'បោះបង់',
@@ -12533,7 +12542,7 @@ $messages['tpi'] = array(
 $messages['tr'] = array(
 	'securepoll' => 'GüvenliAnket',
 	'securepoll-desc' => 'Seçimler ve anketler için eklenti',
-	'securepoll-invalid-page' => 'Geçersiz altsayfa "<nowiki>$1</nowiki>"',
+	'securepoll-invalid-page' => 'Geçersiz alt sayfa "<nowiki>$1</nowiki>"',
 	'securepoll-need-admin' => 'Bu eylemi gerçekleştirebilmek için bir seçim yöneticisi olmanız gerekir.',
 	'securepoll-too-few-params' => 'Yeterli altsayfa parametresi yok (geçersiz bağlantı).',
 	'securepoll-invalid-election' => '"$1" geçerli bir seçim IDsi değil.',
@@ -12655,7 +12664,7 @@ Veritabanında mevcut sonuçları saymayı, ya da yüklenen bir dosyadan şifrel
 	'securepoll-strength-matrix' => 'Yol gücü matrisi',
 	'securepoll-ranks' => 'Son sıralama',
 	'securepoll-average-score' => 'Ortalama skor',
-	'securepoll-round' => 'Raunt $1',
+	'securepoll-round' => '$1. tur',
 	'securepoll-spoilt' => '(Bozuk)',
 	'securepoll-exhausted' => '(Bitkin)',
 );
