@@ -1190,6 +1190,7 @@ $messages['az'] = array(
 	'securepoll-header-voter-domain' => 'Domen',
 	'securepoll-header-ip' => 'IP',
 	'securepoll-header-xff' => 'XFF',
+	'securepoll-header-ua' => 'İstifadəçi agent',
 	'securepoll-header-token-match' => 'CSRF',
 	'securepoll-header-cookie-dup' => 'Surət',
 	'securepoll-header-strike' => 'İşarələ',
@@ -1199,6 +1200,7 @@ $messages['az'] = array(
 	'securepoll-strike-reason' => 'Səbəb:',
 	'securepoll-strike-cancel' => 'Ləğv et',
 	'securepoll-details-link' => 'Detallar',
+	'securepoll-details-title' => 'Səsvermə detalları: #$1',
 	'securepoll-header-id' => 'ID',
 	'securepoll-header-url' => 'URL',
 	'securepoll-strike-log' => 'İşarələmə gündəliyi',
@@ -1219,6 +1221,11 @@ $messages['az'] = array(
 	'securepoll-subpage-translate' => 'Tərcümə et',
 	'securepoll-subpage-list' => 'Siyahı',
 	'securepoll-subpage-dump' => 'Xam',
+	'securepoll-subpage-tally' => 'Etiket',
+	'securepoll-tally-title' => 'Etiket: $1',
+	'securepoll-tally-local-submit' => 'Etiket yarat',
+	'securepoll-tally-upload-submit' => 'Etiket yarat',
+	'securepoll-round' => 'Mərhələ $1',
 );
 
 /** South Azerbaijani (تورکجه)
