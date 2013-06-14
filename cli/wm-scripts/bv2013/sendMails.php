@@ -20,7 +20,11 @@ $langs = explode( ' ', 'bar be-tarask bg bn bs ca cy da de diq el en eo es fa fi
 $transTemplates = array();
 
 foreach ( $langs as $lang ) {
-	$transTemplates[$lang] = file_get_contents( 'email-translations/' . $lang );
+	$file = "/a/common/elections-2013-spam/email-translations/$lang";
+	if ( !file_exists( $file ) ) {
+		continue;
+	}
+	$transTemplates[$lang] = file_get_contents( $file );
 }
 
 while ( !is_null( $line = fgets( $in ) ) ) {
@@ -34,9 +38,9 @@ while ( !is_null( $line = fgets( $in ) ) ) {
 		continue;
 	}
 
-	$content = $transTemplates[$lang];
-
-	if ( !$content ) {
+	if ( isset( $transTemplates[$lang] ) ) {
+		$content = $transTemplates[$lang];
+	} else {
 		$content = $transTemplates['en'];
 		$lang = 'en';
 	}
