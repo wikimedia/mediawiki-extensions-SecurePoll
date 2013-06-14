@@ -41,6 +41,6 @@ foreach( $res as $row ) {
 	$content = trim( $content ) . "\n";
 
 	$lang = substr( $page->getTitle()->getText(), strlen( $prefix ) );
-	$file = dirname( __FILE__ ) . "/email-translations/" . $lang;
+	$file = "/a/common/elections-2013-spam/email-translations/$lang";
 	file_put_contents( $file, $content );
 }
