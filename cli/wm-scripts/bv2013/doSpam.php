@@ -1,13 +1,46 @@
 <?php
 
-require( '/a/common/php/maintenance/commandLine.inc' );
+$IP = getenv( 'MW_INSTALL_PATH' );
+if ( $IP === false ) {
+	$IP = dirname( __FILE__ ) . '/../../../../..';
+}
+require_once( "$IP/maintenance/commandLine.inc" );
 
 ini_set( 'display_errors', 1 );
 
 $err = fopen( 'php://stderr', 'a' );
 
-$nomail = file( '/home/andrew/elections-2011-spam/nomail-list-stripped' );
+/**
+ * A list of usernames that don't want email about elections
+ * e.g. copied from https://meta.wikimedia.org/wiki/Wikimedia_nomail_list
+ * @var array
+ */
+$nomail = file( '/a/common/elections-2013-spam/nomail-list-stripped' );
 $nomail = array_map( 'trim', $nomail );
+
+/**
+ * Name of the list of allowed voters
+ * @var string
+ */
+$list_name = 'board-vote-2013';
+
+/**
+ * ID number of the election
+ * @var int
+ */
+$election_id = 290;
+
+$voted = array();
+$vdb = wfGetDB( DB_SLAVE, array(), 'votewiki' );
+$res = $vdb->select(
+	array( 'securepoll_votes', 'securepoll_voters' ),
+	array( 'voter_name', 'voter_properties' ),
+	array( 'voter_id=vote_voter', 'vote_election' => $election_id )
+);
+foreach ( $res as $row ) {
+	$row->voter_properties = unserialize( $row->voter_properties );
+	$voted[$row->voter_properties['wiki']][$row->voter_name] = 1;
+}
 
 $wikis = CentralAuthUser::getWikiList();
 #$wikis = array( 'frwiki', 'dewiki', 'commonswiki', 'usabilitywiki' );
@@ -23,6 +56,7 @@ foreach ( $wikis as $w ) {
 	list( $site, $siteLang ) = $wgConf->siteFromDB( $w );
 	$tags = array();
 	$pendingChecks = array();
+	$doneChecks = array();
 
 	if ( in_array( $w, $specialWikis ) ) {
 		$tags[] = 'special';
@@ -36,7 +70,7 @@ foreach ( $wikis as $w ) {
 		$res = $db->select(
 			array( 'securepoll_lists', 'user', 'user_properties' ),
 			'*',
-			array( 'li_name' => 'board-vote-2011' ),
+			array( 'li_name' => $list_name ),
 			__METHOD__,
 			array(),
 			array(
@@ -58,15 +92,22 @@ foreach ( $wikis as $w ) {
 			}
 			$users[$name][$w] = array( 'name' => $name, 'mail' => $mail, 'lang' => $lang,
 						'editcount' => $row->user_editcount, 'project' => $site,
-						'db' => $w, 'id' => $row->user_id
+						'db' => $w, 'id' => $row->user_id, 'ineligible' => false,
+						'voted' => isset( $voted[$w][$name] )
 			);
-			$pendingChecks[$row->user_id] = $row->user_name;
+
+			if ( !isset( $doneChecks[$row->user_id] ) ) {
+				$pendingChecks[$row->user_id] = $row->user_name;
+				if ( count( $pendingChecks ) > 100 ) {
+					runChecks( $w, $pendingChecks );
+					$doneChecks += $pendingChecks;
+					$pendingChecks = array();
+				}
+			}
 		}
 
-		if ( count( $pendingChecks ) > 100 ) {
+		if ( count( $pendingChecks ) > 0 ) {
 			runChecks( $w, $pendingChecks );
-
-			$pendingChecks = array();
 		}
 	} catch ( MWException $excep ) {
 		fwrite( $err, "Error in query: ".$excep->getMessage()."\n" );
@@ -74,46 +115,70 @@ foreach ( $wikis as $w ) {
 }
 
 fwrite( $err, "Pass 2: Checking for users listed twice.\n" );
+$notifyUsers = array();
 foreach ( $users as $name => $info ) {
 	if ( in_array( $name, $nomail ) ) {
 		fwrite( $err, "Name $name is on the nomail list, ignoring\n" );
 		continue;
-	} elseif ( count( $info ) == 0 ) {
-		fwrite( $err, "User $name has been eliminated due to block or bot status\n" );
-		continue;
-	} elseif ( count( $info ) == 1 ) {
-		extract( reset ( $info ) );
-		if ( !$mail ) {
-			continue;
+	}
+
+	// Grab the best language by looking at the wiki with the most edits.
+	$bestEditCount = -1;
+	$bestSite = null;
+	$mail = null;
+	foreach ( $info as $site => $wiki ) {
+		if ( $wiki['voted'] ) {
+			fwrite( $err, "Name $name already voted from $site, ignoring\n" );
+			continue 2;
 		}
-		print "$mail\t$lang\t$project\t$name\n";
-	} else {
-		// Eek, multiple wikis. Grab the best language by looking at the wiki with the most edits.
-		$bestEditCount = -1;
-		$bestSite = null;
-		$mail = null;
-		foreach ( $info as $site => $wiki ) {
-			if ( $bestEditCount < $wiki['editcount'] ) {
-				$bestEditCount = $wiki['editcount'];
-				$bestSite = $site;
 
-				if ( $wiki['mail'] ) {
-					$mail = $wiki['mail'];
-				}
-			}
+		if ( $wiki['ineligible'] ) {
+			fwrite( $err, "Name $name is not eligible ($wiki[ineligible] on $site), ignoring\n" );
+			continue 2;
+		}
 
-			if ( !$mail && $wiki['mail'] ) {
+		if ( $bestEditCount < $wiki['editcount'] ) {
+			$bestEditCount = $wiki['editcount'];
+			$bestSite = $site;
+
+			if ( $wiki['mail'] ) {
 				$mail = $wiki['mail'];
 			}
 		}
 
-		if ( !$mail ) {
-			continue;
+		if ( !$mail && $wiki['mail'] ) {
+			$mail = $wiki['mail'];
 		}
-
-		$bestWiki = $info[$bestSite];
-		print "$mail\t{$bestWiki[lang]}\t{$bestWiki[project]}\t$name\n";
 	}
+
+	if ( !$mail ) {
+		continue;
+	}
+
+	$bestWiki = $info[$bestSite];
+	$lang = $bestWiki['lang'];
+	$project = $bestWiki['project'];
+
+	if ( isset( $notifyUsers[$mail] ) ) {
+		$name2 = $notifyUsers[$mail]['name'];
+		if ( $notifyUsers[$mail]['editcount'] >= $bestEditCount ) {
+			fwrite( $err, "Ignoring user $name in favor of user $name2 with the same address\n" );
+			continue;
+		} else {
+			fwrite( $err, "Ignoring user $name2 in favor of user $name with the same address\n" );
+		}
+	}
+
+	$notifyUsers[$mail] = array(
+		'name' => $name,
+		'editcount' => $bestEditCount,
+		'row' => "$mail\t$lang\t$project\t$name\n",
+	);
+}
+
+fwrite( $err, "Pass 3: Outputting user data.\n" );
+foreach ( $notifyUsers as $info ) {
+	print $info['row'];
 }
 
 fwrite( $err, "Done.\n" );
@@ -136,7 +201,7 @@ function runChecks( $wiki, $usersToCheck /* user ID */ ) {
 	foreach ( $res as $row ) {
 		$userName = $usersToCheck[$row->ipb_user];
 		if ( isset( $users[$userName][$wiki] ) ) {
-			unset( $users[$userName][$wiki] );
+			$users[$userName][$wiki]['ineligible'] = 'blocked';
 		}
 	}
 
@@ -148,7 +213,7 @@ function runChecks( $wiki, $usersToCheck /* user ID */ ) {
 	foreach ( $res as $row ) {
 		$userName = $usersToCheck[$row->ug_user];
 		if ( isset( $users[$userName][$wiki] ) ) {
-			unset( $users[$userName][$wiki] );
+			$users[$userName][$wiki]['ineligible'] = 'bot';
 		}
 	}
 }
