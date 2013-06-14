@@ -1,6 +1,10 @@
 <?php
 
-require( '/a/common/php/maintenance/commandLine.inc' );
+$IP = getenv( 'MW_INSTALL_PATH' );
+if ( $IP === false ) {
+	$IP = dirname( __FILE__ ) . '/../../../../..';
+}
+require_once( "$IP/maintenance/commandLine.inc" );
 
 ini_set( 'display_errors', 1 );
 
