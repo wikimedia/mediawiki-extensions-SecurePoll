@@ -10,10 +10,10 @@ $wgDebugLogFile = '/dev/stderr';
 
 $dbr = wfGetDB( DB_SLAVE );
 $dbr->debug( true );
-$prefix = "Board_elections/2013/Email/";
 
-$textPrefix = '<div style="{{quote style}}">';
-$textSuffix = "</div>\n[[Category:Board elections 2013]]";
+$prefix = "Wikimedia_Foundation_elections_2013/Voter_e-mail/";
+$textPrefix = '<languages />';
+$textSuffix = "\n[[Category:Board elections 2013]]";
 
 $res = $dbr->select(
 	'page',
