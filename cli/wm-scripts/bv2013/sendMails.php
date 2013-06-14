@@ -47,8 +47,8 @@ while ( !is_null( $line = fgets( $in ) ) ) {
 
 	$content = strtr( $content,
 		array(
-			'$username' => $name,
-			'$activeproject' => $wgLang->ucfirst( $site ),
+			'$USERNAME' => $name,
+			'$ACTIVEPROJECT' => $wgLang->ucfirst( $site ),
 		)
 	);
 
