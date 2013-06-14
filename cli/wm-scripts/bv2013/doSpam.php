@@ -18,7 +18,7 @@ $users = array();
 $specialWikis = array_map( 'trim', file( '/home/wikipedia/common/special.dblist' ) );
 
 fwrite( $err, "Loading data from database (pass 1)\n" );
-foreach( $wikis as $w ) {
+foreach ( $wikis as $w ) {
 	fwrite( $err, "$w...\n" );
 	list( $site, $siteLang ) = $wgConf->siteFromDB( $w );
 	$tags = array();
@@ -41,19 +41,19 @@ foreach( $wikis as $w ) {
 			array(),
 			array(
 				'user' => array( 'left join', 'user_id=li_member' ),
-				'user_properties' => array( 'left join', array('up_user=li_member', 'up_property' => 'language' ) )
+				'user_properties' => array( 'left join', array( 'up_user=li_member', 'up_property' => 'language' ) )
 			)
 		);
 
-		foreach( $res as $row ) {
+		foreach ( $res as $row ) {
 			$lang = $row->up_value;
-			if (!$lang) {
+			if ( !$lang ) {
 				$lang = $defaultLang;
 			}
 			$mail = $row->user_email;
 			$name = $row->user_name;
 
-			if ( !isset($users[$name]) ) {
+			if ( !isset( $users[$name] ) ) {
 				$users[$name] = array();
 			}
 			$users[$name][$w] = array( 'name' => $name, 'mail' => $mail, 'lang' => $lang,
@@ -63,25 +63,25 @@ foreach( $wikis as $w ) {
 			$pendingChecks[$row->user_id] = $row->user_name;
 		}
 
-		if ( count($pendingChecks) > 100 ) {
+		if ( count( $pendingChecks ) > 100 ) {
 			runChecks( $w, $pendingChecks );
 
 			$pendingChecks = array();
 		}
-	} catch (MWException $excep) {
-		fwrite($err, "Error in query: ".$excep->getMessage()."\n" );
+	} catch ( MWException $excep ) {
+		fwrite( $err, "Error in query: ".$excep->getMessage()."\n" );
 	}
 }
 
-fwrite($err, "Pass 2: Checking for users listed twice.\n" );
-foreach( $users as $name => $info ) {
+fwrite( $err, "Pass 2: Checking for users listed twice.\n" );
+foreach ( $users as $name => $info ) {
 	if ( in_array( $name, $nomail ) ) {
 		fwrite( $err, "Name $name is on the nomail list, ignoring\n" );
 		continue;
 	} elseif ( count( $info ) == 0 ) {
 		fwrite( $err, "User $name has been eliminated due to block or bot status\n" );
 		continue;
-	} elseif ( count( $info ) == 1) {
+	} elseif ( count( $info ) == 1 ) {
 		extract( reset ( $info ) );
 		if ( !$mail ) {
 			continue;
@@ -92,12 +92,12 @@ foreach( $users as $name => $info ) {
 		$bestEditCount = -1;
 		$bestSite = null;
 		$mail = null;
-		foreach( $info as $site => $wiki ) {
-			if ($bestEditCount < $wiki['editcount']) {
+		foreach ( $info as $site => $wiki ) {
+			if ( $bestEditCount < $wiki['editcount'] ) {
 				$bestEditCount = $wiki['editcount'];
 				$bestSite = $site;
-				
-				if ($wiki['mail']) {
+
+				if ( $wiki['mail'] ) {
 					$mail = $wiki['mail'];
 				}
 			}
@@ -116,7 +116,7 @@ foreach( $users as $name => $info ) {
 	}
 }
 
-fwrite($err, "Done.\n" );
+fwrite( $err, "Done.\n" );
 
 /**
  * Checks for ineligibility due to blocks or groups
@@ -129,11 +129,11 @@ function runChecks( $wiki, $usersToCheck /* user ID */ ) {
 	$dbr = wfGetDB( DB_SLAVE, null, $wiki );
 
 	$res = $dbr->select( 'ipblocks', 'ipb_user',
-		array( 'ipb_user' => array_keys($usersToCheck), 'ipb_expiry > ' . $dbr->addQuotes( $dbr->timestamp( wfTimestampNow() ) ) ),
+		array( 'ipb_user' => array_keys( $usersToCheck ), 'ipb_expiry > ' . $dbr->addQuotes( $dbr->timestamp( wfTimestampNow() ) ) ),
 		__METHOD__
 	);
 
-	foreach( $res as $row ) {
+	foreach ( $res as $row ) {
 		$userName = $usersToCheck[$row->ipb_user];
 		if ( isset( $users[$userName][$wiki] ) ) {
 			unset( $users[$userName][$wiki] );
@@ -141,11 +141,11 @@ function runChecks( $wiki, $usersToCheck /* user ID */ ) {
 	}
 
 	$res = $dbr->select( 'user_groups', 'ug_user',
-		array( 'ug_user' => array_keys($usersToCheck), 'ug_group' => 'bot' ),
+		array( 'ug_user' => array_keys( $usersToCheck ), 'ug_group' => 'bot' ),
 		__METHOD__
 	);
 
-	foreach( $res as $row ) {
+	foreach ( $res as $row ) {
 		$userName = $usersToCheck[$row->ug_user];
 		if ( isset( $users[$userName][$wiki] ) ) {
 			unset( $users[$userName][$wiki] );

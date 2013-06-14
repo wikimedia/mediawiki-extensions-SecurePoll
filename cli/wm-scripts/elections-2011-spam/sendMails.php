@@ -13,7 +13,7 @@ $langs = explode( ' ', 'bar be-tarask bg bn bs ca cy da de diq el en eo es fa fi
 
 $transTemplates = array();
 
-foreach( $langs as $lang ) {
+foreach ( $langs as $lang ) {
 	$transTemplates[$lang] = file_get_contents( 'email-translations/' . $lang );
 }
 
