@@ -48,7 +48,7 @@ $wgConf->loadFullData();
 
 $users = array();
 
-$specialWikis = array_map( 'trim', file( '/home/wikipedia/common/special.dblist' ) );
+$specialWikis = array_map( 'trim', file( '/a/common/special.dblist' ) );
 
 fwrite( $err, "Loading data from database (pass 1)\n" );
 foreach ( $wikis as $w ) {
