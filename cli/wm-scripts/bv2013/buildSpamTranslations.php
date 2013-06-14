@@ -13,7 +13,7 @@ $dbr->debug( true );
 $prefix = "Board_elections/2013/Email/";
 
 $textPrefix = '<div style="{{quote style}}">';
-$textSuffix = "</div>\n[[Category:Board elections 2011]]";
+$textSuffix = "</div>\n[[Category:Board elections 2013]]";
 
 $res = $dbr->select(
 	'page',
