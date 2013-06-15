@@ -30,7 +30,7 @@ while ( !is_null( $line = fgets( $in ) ) ) {
 	if ( !$line ) {
 		continue;
 	}
-	list( $site, $name, $address, $lang ) = explode( "\t", trim( $line ) );
+	list( $address, $lang, $site, $name ) = explode( "\t", trim( $line ) );
 
 	if ( !( $name && $lang && $address && $site ) ) {
 		print "invalid line $line $name $lang $address $site\n";
