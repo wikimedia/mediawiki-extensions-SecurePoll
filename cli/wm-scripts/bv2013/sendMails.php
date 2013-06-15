@@ -10,7 +10,7 @@ ini_set( 'display_errors', 1 );
 $err = fopen( 'php://stderr', 'w' );
 $in = fopen( 'php://stdin', 'r' );
 
-$sender = new MailAddress( 'board-elections@lists.wikimedia.org', 'Wikimedia Board Elections Committee' );
+$sender = new MailAddress( 'board-elections@lists.wikimedia.org', 'Wikimedia Foundation Election Committee' );
 
 // Pull templates
 $langs = explode( ' ', 'bar be-tarask bg bn bs ca cy da de diq el en eo es fa fi fr gl he hi hy id ' .
