@@ -13,9 +13,8 @@ $in = fopen( 'php://stdin', 'r' );
 $sender = new MailAddress( 'board-elections@lists.wikimedia.org', 'Wikimedia Foundation Election Committee' );
 
 // Pull templates
-$langs = explode( ' ', 'bar be-tarask bg bn bs ca cy da de diq el en eo es fa fi fr gl he hi hy id ' .
-	'is it ja lb mr ms nb nl pl pt ro ru si sk sq sv tr uk vi yi yue zh-hans zh-hant'
-);
+// TODO: Get a list of all language codes from MediaWiki
+$langs = explode( ' ', 'ast bn ca da de eml en es fa fi fr gl he hr hu id it ja ka ms mt nb nl pl ps pt-br ru sa sv ta th tr uk yi zh' );
 
 $transTemplates = array();
 
