@@ -8131,6 +8131,17 @@ $messages['myv'] = array(
 	'securepoll-submit-select-lang' => 'Ютавтомс',
 );
 
+/** Neapolitan (Nnapulitano)
+ * @author Chelin
+ */
+$messages['nap'] = array(
+	'securepoll-return' => 'Torna a $1.',
+	'securepoll-header-voter-name' => 'Nomme',
+	'securepoll-header-voter-domain' => 'Dominio',
+	'securepoll-header-admin' => 'Ammenistratore',
+	'securepoll-header-title' => 'Nomme',
+);
+
 /** Norwegian Bokmål (norsk bokmål)
  * @author Event
  * @author Finnrind
