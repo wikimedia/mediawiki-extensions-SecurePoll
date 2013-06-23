@@ -2646,6 +2646,7 @@ Du kan enten optælle de nuværende stemmer i databasen, eller optælle kryptere
 
 /** German (Deutsch)
  * @author ChrisiPK
+ * @author Geitost
  * @author Kghbln
  * @author MF-Warburg
  * @author Metalhead64
@@ -2707,7 +2708,7 @@ Du musst allen Optionen eine Rangnummer zwischen 1 und 999 geben.',
 	'securepoll-api-invalid-params' => 'Ungültige Parameter.',
 	'securepoll-api-no-user' => 'Es wurde kein Benutzer mit der angegebenen Kennung gefunden.',
 	'securepoll-api-token-mismatch' => 'Falsche Sicherheitstoken, Anmeldung fehlgeschlagen.',
-	'securepoll-not-logged-in' => 'Du musst angemeldet sein, um bei dieser Wahl abstimmen zu können',
+	'securepoll-not-logged-in' => 'Du musst angemeldet sein, um bei dieser Wahl abstimmen zu können.',
 	'securepoll-too-few-edits' => 'Du darfst leider nicht abstimmen. Du musst mindestens $1 {{PLURAL:$1|Bearbeitung|Bearbeitungen}} gemacht haben, um bei dieser Wahl abstimmen zu dürfen. Du hast $2 Bearbeitungen gemacht.',
 	'securepoll-too-new' => 'Du darfst leider nicht abstimmen. Dein Benutzerkonto hätte vor dem $1 auf $3 registriert werden müssen, um bei dieser Wahl abstimmen zu dürfen. Du hast dich hingegen am $2 auf $4 registriert.',
 	'securepoll-blocked' => 'Du darfst leider nicht abstimmen, da dein Benutzerkonto derzeit gesperrt bist.',
