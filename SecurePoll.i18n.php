@@ -2216,6 +2216,7 @@ Podeu triar entre comptar els resultats presents a la base de dades, o de compta
  */
 $messages['ce'] = array(
 	'securepoll-strike-reason' => 'Бахьан:',
+	'securepoll-strike-cancel' => 'Цаоьшу',
 	'securepoll-header-reason' => 'Бахьан',
 	'securepoll-header-admin' => 'Адманкуьйгалхо',
 	'securepoll-submit-translate' => 'Карлаяккха',
