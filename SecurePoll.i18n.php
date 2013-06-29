@@ -260,6 +260,7 @@ GPG stands for [[w:GNU_Privacy_Guard|GNU Privacy Guard]].',
 	'securepoll-header-url' => '{{optional}}',
 	'securepoll-header-action' => '{{Identical|Action}}',
 	'securepoll-header-reason' => '{{Identical|Reason}}',
+	'securepoll-header-admin' => '{{Identical|Admin}}',
 	'securepoll-cookie-dup-list' => 'Header of a list on [[Special:SecurePoll/details/1]]. The list shows duplicate voters detected by having a cookie from the first voting.',
 	'securepoll-dump-title' => 'Used as page title. Parameters:
 * $1 - title of the election, or the string "[title]"',
