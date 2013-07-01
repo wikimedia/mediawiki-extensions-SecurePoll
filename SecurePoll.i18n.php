@@ -195,8 +195,10 @@ $messages['qqq'] = array(
 * $1 - invalid election ID',
 	'securepoll-welcome' => 'Used as welcome message for remote voters. Parameters:
 * $1 - username of remote voter',
-	'securepoll-not-started' => '* $2 is the date of it
-* $3 is its time.',
+	'securepoll-not-started' => 'Parameters:
+* $1 - (Unused)
+* $2 - the date of it
+* $3 - its time',
 	'securepoll-not-qualified' => 'Unused at this time. Paramters:
 * $1 - ...',
 	'securepoll-submit' => '{{Identical|Submit}}',
@@ -4362,23 +4364,24 @@ Vos pouede chouèsir de comptar los rèsultats dês la bâsa de balyês ou ben d
 /** Friulian (furlan)
  * @author Akaahdudeson
  * @author Klenje
+ * @author Shirayuki
  */
 $messages['fur'] = array(
-	'securepoll' => '↓SecurePoll',
-	'securepoll-welcome' => '↓<strong>Benvignût! $1!</strong>',
-	'securepoll-not-started' => '↓Cheste elezion no je ancjemò començade.
+	'securepoll' => 'SecurePoll',
+	'securepoll-welcome' => '<strong>Benvignût! $1!</strong>',
+	'securepoll-not-started' => 'Cheste elezion no je ancjemò començade.
 La elezion e començarà il $2 a lis $3.',
 	'securepoll-finished' => 'Chiste elezion a jè finide, i no ti pòs plui votâ.',
-	'securepoll-not-qualified' => '↓I no ti âs la cualifiche par votâ in cheste elezion: $1',
-	'securepoll-change-disallowed' => '↓ I tu as bielzà votât par cheste elezion.
+	'securepoll-not-qualified' => 'I no ti âs la cualifiche par votâ in cheste elezion: $1',
+	'securepoll-change-disallowed' => 'I tu as bielzà votât par cheste elezion.
 Scuse, i no ti puedis plui votâ.',
-	'securepoll-thanks' => '↓Graciis, il to vôt al è stât regjistrât',
-	'securepoll-return' => '↓Torne a $1',
-	'securepoll-encrypt-error' => '↓Impussibil codificâ lis informazions dal vôt.
+	'securepoll-thanks' => 'Graciis, il to vôt al è stât regjistrât',
+	'securepoll-return' => 'Torne a $1',
+	'securepoll-encrypt-error' => 'Impussibil codificâ lis informazions dal vôt.
 Il to vôt nol è stât regjistrât!
 
 $1',
-	'securepoll-header-timestamp' => '↓Ore',
+	'securepoll-header-timestamp' => 'Ore',
 );
 
 /** Western Frisian (Frysk)
