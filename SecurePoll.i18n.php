@@ -1406,6 +1406,96 @@ $1',
 	'securepoll-average-score' => 'Уртаса баһа',
 );
 
+/** Bikol Central (Bikol Central)
+ * @author Geopoet
+ */
+$messages['bcl'] = array(
+	'securepoll' => 'Paseguruhon-an-borotohan',
+	'securepoll-desc' => 'Ekstensyon para sa mga eleksyon asin mga surbey',
+	'securepoll-invalid-page' => 'Imbalidong sub-pahina "<nowiki>$1</nowiki>"',
+	'securepoll-need-admin' => 'Ika kaipo na magin sarong administrador sa eleksyon tanganing magibo ining aksyon.',
+	'securepoll-too-few-params' => 'Bakong igo an sub-pahinang mga parametro (imbalido an kasugpunan).',
+	'securepoll-invalid-election' => '"$1" bako tabi sarong balidong ID kan eleksyon.',
+	'securepoll-welcome' => '<strong>Maogmang Pag-abot $1!</strong>',
+	'securepoll-not-started' => 'Ining eleksyon dae pa tabi pinagpoonan.
+Inin naka-eskedyul na mapoon sa petsa $2 mga alas $3.',
+	'securepoll-finished' => 'Ining eleksyon pinagtapos na, ika tabi dae na makakaboto.',
+	'securepoll-not-qualified' => 'Ika tabi dae kwalipikado na magboto kaining eleksyon: $1',
+	'securepoll-change-disallowed' => 'Ika nakapagboto na dati kaining eleksyon.
+Sori po, ika dae na makakaboto giraray.',
+	'securepoll-change-allowed' => '<strong>Tandai: Ika nakapagboto na kaining eleksyon dati.</strong>
+Ika mapuwedeng makapagliwat kan saimong boto sa paagi nin pagsumite kan porma na yaon sa ibaba.
+Tandai tabi na kun gibohon mo ini, an saimong orihinal na boto ipagbalewala na.',
+	'securepoll-submit' => 'Isumite an boto',
+	'securepoll-gpg-receipt' => 'Salamat sa saimong pagboto.
+
+Kun muya mo, ika mapuwedeng pagsarayon an minasunod na resibo bilang ebidensiya kan saimong boto:
+
+<pre>$1</pre>',
+	'securepoll-thanks' => 'Salamat tabi, an saimong boto pinagrekord na.',
+	'securepoll-return' => 'Bumalik sa $1',
+	'securepoll-encrypt-error' => 'Nagpalya sa pag-enkripto kan rekord mo sa boto.
+An saimong boto dae tabi pinagrekord!
+
+$1',
+	'securepoll-no-gpg-home' => 'Dae tabi nakapagmukna kan GPG panharong na direktoryo.',
+	'securepoll-secret-gpg-error' => 'Kasalaan sa pagpapadalagan kan GPG.
+Gumamit kan $wgSecurePollShowErrorDetail=true; in LocalSettings.php tanganing mahiling an kadagdagan na detalye.',
+	'securepoll-full-gpg-error' => 'Kasalaan sa pagpapadalagan kan GPG:
+
+Pasugo: $1
+
+Kasalaan:
+<pre>$2</pre>',
+	'securepoll-gpg-config-error' => 'An mga susi kan GPG bakong tama an pagkasunsay.',
+	'securepoll-gpg-parse-error' => 'Kasalaan sa pag-iinterpretar sa kinaluwasan kan GPG.',
+	'securepoll-no-decryption-key' => 'Mayong susi nin dekripsyon an pinagsunsay.',
+	'securepoll-jump' => 'Magduman sa serbidor nin pagboboto',
+	'securepoll-bad-ballot-submission' => 'An saimong boto imbalido: $1',
+	'securepoll-unanswered-questions' => 'Ika kaipuhang magsimbag kan gabos na mga kahaputan.',
+	'securepoll-invalid-rank' => 'Imbalidong ranggo. Ika kaipuhang magtao sa mga kandidato nin sarong ranggo sa katahawan kan 1 asin 999.',
+	'securepoll-unranked-options' => 'An ibang mga pagpipilian dae pinagranggo.
+Ika kaipuhang magtao sa gabos na mga pagpipilian nin sarong ranggo sa katahawan kan 1 asin 999.',
+	'securepoll-invalid-score' => 'An eskor kaipuhan na sarong numero sa katahawan kan $1 asin $2.',
+	'securepoll-unanswered-options' => 'Ika kaipuhang magtao nin sarong simbag para sa lambang kahaputan.',
+	'securepoll-remote-auth-error' => 'Kasalaan sa paghigkos kan saimong impormasyon sa panindog gikan sa serbidor.',
+	'securepoll-remote-parse-error' => 'Kasalaan sa pag-iinterpretar kan awtorisasyong simbag gikan sa serbidor.',
+	'securepoll-api-invalid-params' => 'Imbalidong mga parametro.',
+	'securepoll-api-no-user' => 'Mayong paragamit an nanagboan na igwa kaining ipinagtaong ID.',
+	'securepoll-api-token-mismatch' => 'Pangilip panseguridad sala an panampad, dae tabi makakalaog.',
+	'securepoll-not-logged-in' => 'Ika kaipuhang maglaog tanganing makaboto kaining eleksyon',
+	'securepoll-too-few-edits' => 'Sori tabi, ika dae makakaboto. Ika kaipuhan na makapaghimo nin dawa $1 {{PLURAL:$1|na pagliwat|na mga pagliwat}} tanganing makaboto kaining eleksyon, ika napaghimo sana nin $2.',
+	'securepoll-too-new' => 'Sori tabi, ika dae makakaboto. An saimong panindog kaipuhan na nagin rehistrado bago pa man an $1 sa oras na $3 tanganing makaboto kaining eleksyon, ika nakapagrehistro kan petsa $2 mga alas $4.',
+	'securepoll-blocked' => 'Sori tabi, ika dae makakaboto kaining eleksyon kun ika sa ngunyan pinagkubkob gikan sa pagliliwat.',
+	'securepoll-blocked-centrally' => 'Sori tabi, ika dae makakaboto kaining eleksyon siring na ika pinagkubkob dawa $1 {{PLURAL:$1|na wiki|na mga wikis}}.',
+	'securepoll-bot' => 'Sori tabi, an mga panindog na igwang panalngang bandera dae pinagtutugutan na makaboto kaining eleksyon.',
+	'securepoll-not-in-group' => 'Mga miyembro sana kan "$1" na grupo an makakaboto kaining eleksyon.',
+	'securepoll-not-in-list' => 'Sori tabi, ika mayo sa pangenot na pinagdeterminar na listahan kan mga paragamit na awtorisado na makaboto kaining eleksyon.',
+	'securepoll-list-title' => 'Listahan nin mga boto: $1',
+	'securepoll-header-timestamp' => 'Oras',
+	'securepoll-header-voter-name' => 'Pangaran',
+	'securepoll-header-voter-domain' => 'Kinasakupan',
+	'securepoll-header-ua' => 'Ahente nin paragamit',
+	'securepoll-header-cookie-dup' => 'Dup',
+	'securepoll-header-strike' => 'Ruskaton',
+	'securepoll-header-details' => 'Mga Detalye',
+	'securepoll-strike-button' => 'Ruskaton',
+	'securepoll-unstrike-button' => 'Dae pagruskaton',
+	'securepoll-strike-reason' => 'Rason:',
+	'securepoll-strike-cancel' => 'Kanselaron',
+	'securepoll-strike-error' => 'Kasalaan sa paghihimo kan pagruskat/dae pagruskat: $1',
+	'securepoll-strike-token-mismatch' => 'Datos kan sesyon nawara',
+	'securepoll-details-link' => 'Mga detalye',
+	'securepoll-details-title' => 'Mga detalye kan boto: #$1',
+	'securepoll-invalid-vote' => '"$1" bako tabi sarong balidong ID kan boto.',
+	'securepoll-header-voter-type' => 'Tipo nin paraboto',
+	'securepoll-voter-properties' => 'Parabotong mga propriyedad',
+	'securepoll-strike-log' => 'Talaan nin pagruskat',
+	'securepoll-header-action' => 'Aksyon',
+	'securepoll-header-reason' => 'Rason',
+	'securepoll-header-admin' => 'Tagapagpalakaw',
+);
+
 /** Belarusian (беларуская)
  * @author Тест
  */
