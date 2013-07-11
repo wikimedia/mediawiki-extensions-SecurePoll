@@ -1529,6 +1529,13 @@ Tanganing mantineron an pribasidad kan botante, an mga enkriptadong rekord kan e
 	'securepoll-no-upload' => 'Mayong sagunson na ipinagkarga, dae makakapagkurit nin mga resulta.',
 	'securepoll-dump-corrupt' => 'An basurang sagunson nakorap asin dae makakapagproseso.',
 	'securepoll-tally-upload-error' => 'Kasalaan sa pagkukurit kan basurang sagunson: $1',
+	'securepoll-pairwise-victories' => 'Madunong na pagpapadis sa matris nin kapangganahan',
+	'securepoll-strength-matrix' => 'Dalan kan matris nin kakusgan',
+	'securepoll-ranks' => 'Pinal na ranggo',
+	'securepoll-average-score' => 'Katahawang iskor',
+	'securepoll-round' => 'Banhay $1',
+	'securepoll-spoilt' => '(Naulá)',
+	'securepoll-exhausted' => '(Naubusan)',
 );
 
 /** Belarusian (беларуская)
