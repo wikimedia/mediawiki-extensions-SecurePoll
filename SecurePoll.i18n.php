@@ -259,7 +259,8 @@ GPG stands for [[w:GNU_Privacy_Guard|GNU Privacy Guard]].',
 	'securepoll-details-title' => '$1 identifies a single vote of a single voter.',
 	'securepoll-invalid-vote' => 'The vote ID identifies a specific voting process.',
 	'securepoll-header-id' => '{{optional}}',
-	'securepoll-header-url' => '{{optional}}',
+	'securepoll-header-url' => '{{optional}}
+{{Identical|URL}}',
 	'securepoll-header-action' => '{{Identical|Action}}',
 	'securepoll-header-reason' => '{{Identical|Reason}}',
 	'securepoll-header-admin' => '{{Identical|Admin}}',
@@ -9859,7 +9860,7 @@ Se desejar, guarde o seguinte recibo como prova do seu voto:
 O voto não foi registado!
 
 $1',
-	'securepoll-no-gpg-home' => 'Não foi possível criar o directório de raiz do GNU Privacy Guard.',
+	'securepoll-no-gpg-home' => 'Não foi possível criar o diretório de raiz do GNU Privacy Guard.',
 	'securepoll-secret-gpg-error' => 'Erro de execução do GNU Privacy Guard.
 Adicione $wgSecurePollShowErrorDetail=true; ao ficheiro LocalSettings.php para mostrar mais detalhes.',
 	'securepoll-full-gpg-error' => 'Erro de execução do GNU Privacy Guard:
