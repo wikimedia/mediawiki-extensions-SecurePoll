@@ -28,6 +28,11 @@ $specialPageAliases['ba'] = array(
 	'SecurePoll' => array( 'SecurePoll' ),
 );
 
+/** Chechen (нохчийн) */
+$specialPageAliases['ce'] = array(
+	'SecurePoll' => array( 'Лардина_кхаж_тасар' ),
+);
+
 /** Czech (česky) */
 $specialPageAliases['cs'] = array(
 	'SecurePoll' => array( 'Bezpečné_hlasování' ),
