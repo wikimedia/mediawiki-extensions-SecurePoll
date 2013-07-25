@@ -2359,6 +2359,7 @@ $messages['ce'] = array(
 	'securepoll-translate-title' => 'Гоч: $1',
 	'securepoll-submit-translate' => 'Карлаяккха',
 	'securepoll-subpage-translate' => 'Гоч',
+	'securepoll-subpage-list' => 'МогӀам',
 );
 
 /** Sorani Kurdish (کوردی)
