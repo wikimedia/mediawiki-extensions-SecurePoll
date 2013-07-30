@@ -8694,7 +8694,7 @@ De stemming begint op $2 om $3.',
 	'securepoll-change-disallowed' => 'U hebt al gestemd in deze stemming.
 U mag niet opnieuw stemmen.',
 	'securepoll-change-allowed' => '<strong>Opmerking: u hebt al gestemd in deze stemming.</strong>
-U kunt uw stem wijzigigen door het onderstaande formulier op te slaan.
+U kunt uw stem wijzigen door het onderstaande formulier op te slaan.
 Als u daarvoor kiest, wordt uw eerdere stem verwijderd.',
 	'securepoll-submit' => 'Stem opslaan',
 	'securepoll-gpg-receipt' => 'Dank u voor uw stem.
@@ -8823,8 +8823,8 @@ $messages['nl-informal'] = array(
 	'securepoll-not-qualified' => 'Je bent niet bevoegd om te stemmen in deze stemming: $1',
 	'securepoll-change-disallowed' => 'Je hebt al gestemd in deze stemming.
 Je mag niet opnieuw stemmen.',
-	'securepoll-change-allowed' => '<strong>Opmerking: je hebt al gestemd in deze stemming.</strong>
-Je kunt je stem wijzigigen door het onderstaande formulier op te slaan.
+	'securepoll-change-allowed' => '<strong>Let op: je hebt al gestemd in deze stemming.</strong>
+Je kunt je stem wijzigen door het onderstaande formulier op te slaan.
 Als je daarvoor kiest, wordt je eerdere stem verwijderd.',
 	'securepoll-gpg-receipt' => 'Dank je voor je stem.
 
