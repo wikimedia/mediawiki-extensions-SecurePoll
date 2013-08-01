@@ -2358,6 +2358,7 @@ $messages['ce'] = array(
 	'securepoll-header-admin' => 'Адманкуьйгалхо',
 	'securepoll-translate-title' => 'Гоч: $1',
 	'securepoll-submit-translate' => 'Карлаяккха',
+	'securepoll-language-label' => 'Мотт харжар:',
 	'securepoll-subpage-translate' => 'Гоч',
 	'securepoll-subpage-list' => 'МогӀам',
 );
