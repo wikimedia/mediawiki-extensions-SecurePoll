@@ -8674,6 +8674,7 @@ LocalSettings.phpमा $wgSecurePollShowErrorDetail=true; को प्रय�
 );
 
 /** Dutch (Nederlands)
+ * @author Hansmuller
  * @author Lolsimon
  * @author Mwpnl
  * @author Ronja Addams-Moring
@@ -8695,8 +8696,7 @@ De stemming begint op $2 om $3.',
 	'securepoll-change-disallowed' => 'U hebt al gestemd in deze stemming.
 U mag niet opnieuw stemmen.',
 	'securepoll-change-allowed' => '<strong>Opmerking: u hebt al gestemd in deze stemming.</strong>
-U kunt uw stem wijzigen door het onderstaande formulier op te slaan.
-Als u daarvoor kiest, wordt uw eerdere stem verwijderd.',
+U kunt uw stem wijzigen met het onderstaande formulier. Dan wordt uw eerdere stem verwijderd.',
 	'securepoll-submit' => 'Stem opslaan',
 	'securepoll-gpg-receipt' => 'Dank u voor uw stem.
 
