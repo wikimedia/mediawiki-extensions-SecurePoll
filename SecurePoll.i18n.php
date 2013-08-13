@@ -242,6 +242,7 @@ GPG stands for [[w:GNU_Privacy_Guard|GNU Privacy Guard]].',
 	'securepoll-header-voter-domain' => '{{Identical|Domain}}',
 	'securepoll-header-ip' => '{{optional}}',
 	'securepoll-header-xff' => '{{optional}}',
+	'securepoll-header-ua' => '{{Identical|User agent}}',
 	'securepoll-header-token-match' => '{{optional}}',
 	'securepoll-header-cookie-dup' => 'Column caption above the table of voters shown at [[Special:SecurePoll/list/1]]. The column displays whether the vote is a duplicate (detected by a cookie). See also {{msg-mw|securepoll-cookie-dup-list}}. This translation should be as short as possible (an abbreviation for "duplicate").',
 	'securepoll-header-strike' => '"Strike" here means to strikeout a vote (slash it) so as to mark is as not being counted. E.g. a user voted a second time; a user was not eligible for voting because of an insufficient edit count; a known sockpuppet was used, and the puppetmaster also voted; a bot user vote, etc.
