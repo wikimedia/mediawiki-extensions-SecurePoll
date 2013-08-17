@@ -6795,7 +6795,7 @@ $messages['ko'] = array(
 	'securepoll-invalid-page' => '"<nowiki>$1</nowiki>" 하위 문서가 잘못되었습니다.',
 	'securepoll-need-admin' => '해당 동작을 수행하려면 선거 관리자 권한이 필요합니다.',
 	'securepoll-too-few-params' => '하위 문서 변수가 충분하지 않습니다 (잘못된 링크).',
-	'securepoll-invalid-election' => '"$1"은 유효한 선거 ID가 아닙니다.',
+	'securepoll-invalid-election' => '"$1"은 올바른 선거 ID가 아닙니다.',
 	'securepoll-welcome' => '<strong>$1님, 환영합니다!</strong>',
 	'securepoll-not-started' => '투표가 아직 시작되지 않았습니다.
 투표는 $2 $3부터 시작될 예정입니다.',
