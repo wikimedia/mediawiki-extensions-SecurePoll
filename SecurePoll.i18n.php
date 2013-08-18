@@ -6839,7 +6839,7 @@ $1',
 모든 선택 사항에 대해 1부터 999까지 순위를 매겨야 합니다.',
 	'securepoll-invalid-score' => '점수는 $1과 $2 사이의 숫자이어야 합니다.',
 	'securepoll-unanswered-options' => '모든 질문에 응답해야 합니다.',
-	'securepoll-remote-auth-error' => '귀하의 계정 정보를 불러오는 중에 오류가 발생하였습니다.',
+	'securepoll-remote-auth-error' => '서버에서 계정 정보를 가져오는 중에 오류가 발생하였습니다.',
 	'securepoll-remote-parse-error' => '서버로부터 권한 응답에 따른 해석 오류가 발생',
 	'securepoll-api-invalid-params' => '명령 변수가 잘못되었습니다.',
 	'securepoll-api-no-user' => '등록되어 있지 않은 ID 입니다.',
@@ -6848,10 +6848,10 @@ $1',
 	'securepoll-too-few-edits' => '죄송합니다, 투표에 참여하실 수 없습니다. 투표에 참여하시려면 최소 {{PLURAL:$1|편집}} $1회을 하셔야 하지만 편집 수는 $2회 입니다.',
 	'securepoll-too-new' => '죄송합니다, 당신은 투표할 수 없습니다. 이 선거에서 투표하려면 $1 $3 이전에 계정이 등록되어 있어야 합니다. $2 $4에 계정을 등록하였습니다.',
 	'securepoll-blocked' => '죄송합니다, 당신의 계정은 차단당한 상태이므로 이 선거에 투표할 수 없습니다.',
-	'securepoll-blocked-centrally' => '죄송합니다, 귀하는 $1개 이상의 {{PLURAL:$1|위키}}에서 차단되었기 때문에 이 선거에 투표할 수 없습니다.',
+	'securepoll-blocked-centrally' => '죄송합니다, 당신은 $1개 이상의 {{PLURAL:$1|위키}}에서 차단되었기 때문에 이 선거에 투표할 수 없습니다.',
 	'securepoll-bot' => '죄송합니다, 봇 권한을 가진 계정으로는 투표할 수 없습니다.',
 	'securepoll-not-in-group' => '이 선거에는 "$1" 모임에 속하는 회원만 투표하실 수 있습니다.',
-	'securepoll-not-in-list' => '죄송합니다, 귀하는 이 선거에 투표하실 수 있는 선거인단명부에 등록되어 있지 않습니다.',
+	'securepoll-not-in-list' => '죄송합니다, 당신은 이 선거에 투표하실 수 있는 선거인단명부에 등록되어 있지 않습니다.',
 	'securepoll-list-title' => '표 목록: $1',
 	'securepoll-header-timestamp' => '시간',
 	'securepoll-header-voter-name' => '이름',
@@ -9982,6 +9982,7 @@ Pode escolher entre apurar os resultados presentes na base de dados, ou apurar r
  * @author Giro720
  * @author Helder.wiki
  * @author Heldergeovane
+ * @author Luckas
  * @author MetalBrasil
  */
 $messages['pt-br'] = array(
@@ -10084,7 +10085,7 @@ Para manter a privacidade dos votantes, os resultados criptografados da eleiçã
 	'securepoll-language-label' => 'Selecionar língua:',
 	'securepoll-submit-select-lang' => 'Traduzir',
 	'securepoll-entry-text' => 'Encontra-se abaixo a lista de eleições.',
-	'securepoll-header-title' => 'Título',
+	'securepoll-header-title' => 'Nome',
 	'securepoll-header-start-date' => 'Data do Início',
 	'securepoll-header-end-date' => 'Data de fim',
 	'securepoll-subpage-vote' => 'Votar',
