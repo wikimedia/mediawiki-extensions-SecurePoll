@@ -214,7 +214,11 @@ If the election doesn\'t use encryption, the following message is used:
 	'securepoll-no-gpg-home' => 'GPG stands for [[w:GNU_Privacy_Guard|GNU Privacy Guard]].',
 	'securepoll-secret-gpg-error' => '{{doc-important|Do not translate LocalSettings.php and <code><nowiki>$wgSecurePollShowErrorDetail=true;</nowiki></code>}}
 GPG stands for [[w:GNU_Privacy_Guard|GNU Privacy Guard]].',
-	'securepoll-full-gpg-error' => 'GPG stands for [[w:GNU_Privacy_Guard|GNU Privacy Guard]].',
+	'securepoll-full-gpg-error' => 'GPG stands for [[w:GNU_Privacy_Guard|GNU Privacy Guard]].
+
+Parameters:
+* $1 - command line
+* $2 - error message',
 	'securepoll-gpg-config-error' => 'GPG stands for [[w:GNU_Privacy_Guard|GNU Privacy Guard]].',
 	'securepoll-gpg-parse-error' => 'GPG stands for [[w:GNU_Privacy_Guard|GNU Privacy Guard]].',
 	'securepoll-bad-ballot-submission' => 'Unused at this time. Parameters:
@@ -234,7 +238,9 @@ GPG stands for [[w:GNU_Privacy_Guard|GNU Privacy Guard]].',
 * $1 - number of wikis',
 	'securepoll-not-in-group' => 'Used as error message. Parameters:
 * $1 - name of MediaWiki group which voters need to be in',
-	'securepoll-custom-unqualified' => '{{notranslate}}',
+	'securepoll-custom-unqualified' => '{{notranslate}}
+Used as fatal error message. Parameters:
+* $1 - error message',
 	'securepoll-list-title' => 'Used as page title and as page subtitle. Parameters:
 * $1 - title of the election, or the string "[title]"',
 	'securepoll-header-timestamp' => '{{Identical|Time}}',
@@ -255,10 +261,19 @@ GPG stands for [[w:GNU_Privacy_Guard|GNU Privacy Guard]].',
 	'securepoll-strike-error' => 'Used as error message. Parameters:
 * $1 - error message',
 	'securepoll-details-link' => '{{Identical|Details}}',
-	'securepoll-voter-name-local' => '{{notranslate}}',
-	'securepoll-voter-name-remote' => '{{notranslate}}',
+	'securepoll-voter-name-local' => '{{notranslate}}
+Parameters:
+* $1 - username
+See also:
+* {{msg-mw|Securepoll-voter-name-remote}} - for remote user',
+	'securepoll-voter-name-remote' => '{{notranslate}}
+Parameters:
+* $1 - username
+See also:
+* {{msg-mw|Securepoll-voter-name-local}} - for local user',
 	'securepoll-details-title' => '$1 identifies a single vote of a single voter.',
-	'securepoll-invalid-vote' => 'The vote ID identifies a specific voting process.',
+	'securepoll-invalid-vote' => 'The vote ID identifies a specific voting process. Parameters:
+* $1 - vote ID',
 	'securepoll-header-id' => '{{optional}}',
 	'securepoll-header-url' => '{{optional}}
 {{Identical|URL}}',
@@ -276,7 +291,9 @@ Servers running Microsoft Windows will present [[MediaWiki:Securepoll-urandom-no
 	'securepoll-urandom-not-supported' => "As to the meaning of ''cryptographic random number'', see [[:wikipedia:Cryptographically secure pseudorandom number generator]] for reference.
 
 The /dev/urandom cryptographic random number generation device is not supported on servers running Microsoft Windows. On other platforms the [[MediaWiki:Securepoll-dump-no-urandom/en|Securepoll-dump-no-urandom]] message is generated if opening of the /dev/urandom device fails.",
-	'securepoll-translate-title' => '{{Identical|Translate}}',
+	'securepoll-translate-title' => 'Used as page title. Parameters:
+* $1 - title of election
+{{Identical|Translate}}',
 	'securepoll-invalid-language' => 'Parameters:
 * $1 - language code',
 	'securepoll-header-trans-id' => '{{optional}}',
@@ -298,7 +315,10 @@ The /dev/urandom cryptographic random number generation device is not supported 
 * $1 - title of the election, or the string "[title]"',
 	'securepoll-tally-upload-error' => 'Used as error message. Parameters:
 * $1 - error message',
-	'securepoll-round' => 'Column header for tables on tallies which take place over multiple rounds; parameter is a roman numeral.',
+	'securepoll-round' => 'Column header for tables on tallies which take place over multiple rounds.
+
+Parameters:
+* $1 - roman numeral (I, II, III, IV, ...)',
 	'securepoll-spoilt' => 'Row label for counting ballots which were spoilt, that is not correctly filled in or indecipherable.',
 	'securepoll-exhausted' => 'Row label for counting ballots which have been exhausted in a multi-round counting system',
 );
