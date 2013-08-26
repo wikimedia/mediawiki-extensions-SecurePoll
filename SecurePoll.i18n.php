@@ -3942,6 +3942,7 @@ Aukera guztiei 1etik 999ra arteko balio bat eman behar diezu.',
 /** Persian (فارسی)
  * @author Americophile
  * @author Bersam
+ * @author Dalba
  * @author Ebraminio
  * @author Huji
  * @author Ladsgroup
@@ -3953,7 +3954,7 @@ Aukera guztiei 1etik 999ra arteko balio bat eman behar diezu.',
  * @author ZxxZxxZ
  */
 $messages['fa'] = array(
-	'securepoll' => 'رای‌گیری امن',
+	'securepoll' => 'رأی‌گیری امن',
 	'securepoll-desc' => 'افزونه برای رای‌گیری‌ها و جمع‌آوری اطلاعات',
 	'securepoll-invalid-page' => 'زیرسفحه نامعتبر «<nowiki>$1</nowiki>»',
 	'securepoll-need-admin' => 'نیاز است که شما یک مدیر انتخابات باشید که چنین کاری را بتوانید انجام دهید.',
@@ -4042,7 +4043,7 @@ $1',
 	'securepoll-dump-no-crypt' => 'هیچ رکورد رای‌گیری رمزگذاری‌شده‌ای برای این رای‌گیری در دسترس نیست، چراکه رای‌گیری برای استفاده از رمزگذاری، پیکربندی نشده است.',
 	'securepoll-dump-not-finished' => 'رکوردهای رمزگذاری‌شدهٔ رای‌گیری تنها پس از پایان تاریخ $1 در $2 قابل دسترس خواهد بود.',
 	'securepoll-dump-no-urandom' => 'نمی‌توان /dev/urandom را باز کرد.
-برای حفظ حریم شخصی رای‌دهنده، رکوردهای رمزگذاری‌شدهٔ رای‌گیری تنها هنگامی به صورت عمومی در دسترس خواهند بود که با یک جریان عددی تصادفی امن به‌هم‌زده شده باشند.',
+برای حفظ حریم شخصی رأی‌دهنده، رکوردهای رمزگذاری‌شدهٔ رأی‌گیری تنها هنگامی به صورت عمومی در دسترس خواهند بود که با یک جریان عددی تصادفی امن به‌هم‌زده شده باشند.',
 	'securepoll-urandom-not-supported' => 'این میزبان تولید اعداد تصادفی رمزنگاری شده را پشتیبانی نمی‌کند. 
 برای حفظ حریم خصوصی رای‌دهندگان، مدارک رمزنگاری‌شدهٔ رای‌گیری فقط زمانی عمومی خواهند شد که بتوان آن‌ها را با یک سری اعداد تصادفی جاری در هم ریخته کرد.',
 	'securepoll-translate-title' => 'ترجمه: $1',
