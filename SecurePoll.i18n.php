@@ -271,7 +271,8 @@ Parameters:
 * $1 - username
 See also:
 * {{msg-mw|Securepoll-voter-name-local}} - for local user',
-	'securepoll-details-title' => '$1 identifies a single vote of a single voter.',
+	'securepoll-details-title' => 'Used as page title. Parameters:
+* $1 - vote ID; identifies a single vote of a single voter',
 	'securepoll-invalid-vote' => 'The vote ID identifies a specific voting process. Parameters:
 * $1 - vote ID',
 	'securepoll-header-id' => '{{optional}}',
