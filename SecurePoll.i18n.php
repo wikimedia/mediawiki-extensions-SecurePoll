@@ -284,8 +284,9 @@ See also:
 	'securepoll-cookie-dup-list' => 'Header of a list on [[Special:SecurePoll/details/1]]. The list shows duplicate voters detected by having a cookie from the first voting.',
 	'securepoll-dump-title' => 'Used as page title. Parameters:
 * $1 - title of the election, or the string "[title]"',
-	'securepoll-dump-not-finished' => '* $1 is the date
-* $2 is the time',
+	'securepoll-dump-not-finished' => 'Used if the election is not finished. Parameters:
+* $1 - the date
+* $2 - the time',
 	'securepoll-dump-no-urandom' => 'Do not translate "/dev/urandom".
 
 Servers running Microsoft Windows will present [[MediaWiki:Securepoll-urandom-not-supported/en|Securepoll-urandom-not-supported]] instead.',
