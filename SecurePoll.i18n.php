@@ -253,14 +253,14 @@ Used as fatal error message. Parameters:
 	'securepoll-header-cookie-dup' => 'Column caption above the table of voters shown at [[Special:SecurePoll/list/1]]. The column displays whether the vote is a duplicate (detected by a cookie). See also {{msg-mw|securepoll-cookie-dup-list}}. This translation should be as short as possible (an abbreviation for "duplicate").',
 	'securepoll-header-strike' => '"Strike" here means to strikeout a vote (slash it) so as to mark is as not being counted. E.g. a user voted a second time; a user was not eligible for voting because of an insufficient edit count; a known sockpuppet was used, and the puppetmaster also voted; a bot user vote, etc.
 {{Identical|Strike}}',
-	'securepoll-header-details' => '{{Identical|Details}}',
+	'securepoll-header-details' => '{{Identical|Detail}}',
 	'securepoll-strike-button' => '{{Identical|Strike}}',
 	'securepoll-unstrike-button' => '{{Identical|Unstrike}}',
 	'securepoll-strike-reason' => '{{Identical|Reason}}',
 	'securepoll-strike-cancel' => '{{Identical|Cancel}}',
 	'securepoll-strike-error' => 'Used as error message. Parameters:
 * $1 - error message',
-	'securepoll-details-link' => '{{Identical|Details}}',
+	'securepoll-details-link' => '{{Identical|Detail}}',
 	'securepoll-voter-name-local' => '{{notranslate}}
 Parameters:
 * $1 - username
