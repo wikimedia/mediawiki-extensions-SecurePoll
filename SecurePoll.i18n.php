@@ -11441,7 +11441,7 @@ Začetek je načrtovan dne $2 ob $3.',
 Žal ne morete ponovno glasovati.',
 	'securepoll-change-allowed' => '<strong>Opomba: V teh volitvah ste že volili.</strong>
 Svoj glas lahko spremenite s potrditvijo spodnjega obrazca.
-Pomnite, da če to storite, bo vaš prvotni glas zavržen.',
+Če boste to storili, bo vaš prvotni glas zavržen.',
 	'securepoll-submit' => 'Pošlji glas',
 	'securepoll-gpg-receipt' => 'Hvala za glasovanje.
 
