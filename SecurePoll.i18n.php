@@ -8311,7 +8311,7 @@ $messages['myv'] = array(
 	'securepoll-submit-select-lang' => 'Ютавтомс',
 );
 
-/** Neapolitan (Nnapulitano)
+/** Neapolitan (Napulitano)
  * @author Chelin
  */
 $messages['nap'] = array(
