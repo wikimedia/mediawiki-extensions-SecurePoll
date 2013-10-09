@@ -79,6 +79,11 @@ $specialPageAliases['frp'] = array(
 	'SecurePoll' => array( 'Voto_sècurisâ', 'VotoSècurisâ' ),
 );
 
+/** Galician (galego) */
+$specialPageAliases['gl'] = array(
+	'SecurePoll' => array( 'Enquisa_segura' ),
+);
+
 /** Swiss German (Alemannisch) */
 $specialPageAliases['gsw'] = array(
 	'SecurePoll' => array( 'Sicheri_Abstimmig' ),
