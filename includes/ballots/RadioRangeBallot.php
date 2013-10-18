@@ -234,7 +234,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 				$s .=
 					Xml::tags( 'td', array(),
 						Xml::radio( $inputId, $score, !strcmp( $oldValue, $score ),
-							array( 'title' => $label ) )
+							array( 'title' => Sanitizer::stripAllTags( $label ) ) )
 					) . "\n";
 			}
 			$s .= "</tr>\n";
