@@ -4202,7 +4202,7 @@ Salausta ei voi purkaa.',
 	'securepoll-subpage-dump' => 'Vedos',
 	'securepoll-subpage-tally' => 'Laskenta',
 	'securepoll-tally-title' => 'Laskenta: $1',
-	'securepoll-tally-not-finished' => 'Valitettavasti et voi suorittaa laskentaa vaalille ennen kuin äänestys on päättynyt.',
+	'securepoll-tally-not-finished' => 'Et voi suorittaa laskentaa vaalille ennen kuin äänestys on päättynyt.',
 	'securepoll-can-decrypt' => 'Äänestystiedot on salakirjoitettu, mutta salauksenpurkuavain on saatavilla.
 Voit valita tuloslaskennan tietokantatiedoista, tai salakirjoitetuista tuloksista, jotka ovat peräisin lähetettävästä tiedostosta.',
 	'securepoll-tally-no-key' => 'Et voi suorittaa laskentaa näille vaaleille, koska äänet on suojattu salauksella, eikä salauksen avainkoodia ole tarjottu.',
