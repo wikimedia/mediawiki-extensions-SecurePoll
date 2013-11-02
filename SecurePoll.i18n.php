@@ -7132,6 +7132,7 @@ $messages['la'] = array(
 /** Luxembourgish (Lëtzebuergesch)
  * @author Les Meloures
  * @author Robby
+ * @author Soued031
  */
 $messages['lb'] = array(
 	'securepoll' => 'Securiséiert Ëmfro',
@@ -7178,10 +7179,10 @@ Feeler:
 	'securepoll-jump' => 'Op den Ofstëmmungs-Server goen',
 	'securepoll-bad-ballot-submission' => 'Är Stëmm ass net valabel: $1',
 	'securepoll-unanswered-questions' => 'Dir musst all Froe beäntwerten',
-	'securepoll-invalid-rank' => 'Ongëltegt Classement. Dir musst de Kandidaten e Classement tëschent 1 an 999 ginn.',
-	'securepoll-unranked-options' => 'E puer Optioune krute kee Classement.
-Dir musst allen optiounen e Classement tëschent 1 an 999 ginn.',
-	'securepoll-invalid-score' => 'De Score muss eng Zuel tëschent $1 a(n) $2 sinn.',
+	'securepoll-invalid-rank' => 'Ongëltegt Classement. Dir musst de Kandidaten e Classement tëscht 1 an 999 ginn.',
+	'securepoll-unranked-options' => 'E puer Optioune krute kee Klassement.
+Dir musst allen optiounen e Classement tëscht 1 an 999 ginn.',
+	'securepoll-invalid-score' => 'De Score muss eng Zuel tëscht $1 a(n) $2 sinn.',
 	'securepoll-unanswered-options' => 'Dir musst op all Fro eng Äntwert ginn.',
 	'securepoll-remote-auth-error' => 'Feeler beim Ofruf vun Äre Benotzerkontinformatioune vum Server.',
 	'securepoll-remote-parse-error' => 'Feeler beim Interpretéiere vun der Autorisatioun déi de Server geschéckt huet.',
@@ -7221,7 +7222,7 @@ Dir musst allen optiounen e Classement tëschent 1 an 999 ginn.',
 	'securepoll-header-admin' => 'Administrateur',
 	'securepoll-cookie-dup-list' => 'Benotzer matt engem Cookie deen duebel ass',
 	'securepoll-dump-title' => 'Dump: $1',
-	'securepoll-dump-no-crypt' => "Fir dës Wale gëtt et keng verschlësselt Donnéeë vun der Ofstëmmung, well d'Walen net esou agestallt sinn fir d'Verschlësselung ze benotzen.",
+	'securepoll-dump-no-crypt' => "Fir dës Wale gëtt et keng verschlësselt Donnéeë vun der Ofstëmmung, well d'Walen net sou agestallt si fir d'Verschlësselung ze benotzen.",
 	'securepoll-dump-not-finished' => 'Verschlësselt Donnéeë vun de Wale sinn eréischt nom Enn vun de Walen den $1 ëm $2 disponibel',
 	'securepoll-dump-no-urandom' => "/dev/urandom kann net opgemaach ginn.
 Fir d'Konfidentialitéit vun de Wieler z'assuréieren, si verschlësselt Opzeechnunge vun de Walen nëmmen disponibel wa se mat engem sécheren Zoufallszuelestroum kënne gemescht ginn.",
@@ -7244,7 +7245,7 @@ Fir Är privat Donnéeën ze schützen si verschlësselt Opzeechnunge vun de Wal
 	'securepoll-tally-title' => 'Auszielung: $1',
 	'securepoll-tally-not-finished' => "Pardon, Dir kënnt d'Walen net auszielen bis d'Ofstëmmung fäerdeg ass.",
 	'securepoll-can-decrypt' => "D'Opzeechnung vun de Walen gouf verschlësselt, awer den Ëntschlësselungscode ass disponibel.
-Dir kënnt wielen tëschent der Auswäertung vun den aktuelle Resultater an der Datebank oder der Auswäertung an engem erofgeluedene Fichier.",
+Dir kënnt wielen tëscht der Auswäertung vun den aktuelle Resultater an der Datebank oder der Auswäertung an engem erofgeluedene Fichier.",
 	'securepoll-tally-no-key' => "Dir kënnt dës Walen net auszielen, well d'Stëmme verschlësselt sinn, a den Entschlësselungs-Schlëssel net disponibel ass.",
 	'securepoll-tally-local-legend' => 'Déi gespäichert Resultater auszielen',
 	'securepoll-tally-local-submit' => 'Auszielung uleeën',

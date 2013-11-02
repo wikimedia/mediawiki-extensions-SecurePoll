@@ -34,7 +34,7 @@ $specialPageAliases['ce'] = array(
 	'SecurePoll' => array( 'Лардина_кхаж_тасар' ),
 );
 
-/** Czech (česky) */
+/** Czech (čeština) */
 $specialPageAliases['cs'] = array(
 	'SecurePoll' => array( 'Bezpečné_hlasování' ),
 );
