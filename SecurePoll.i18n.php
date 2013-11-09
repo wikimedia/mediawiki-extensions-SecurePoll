@@ -275,7 +275,8 @@ See also:
 * $1 - vote ID; identifies a single vote of a single voter',
 	'securepoll-invalid-vote' => 'The vote ID identifies a specific voting process. Parameters:
 * $1 - vote ID',
-	'securepoll-header-id' => '{{optional}}',
+	'securepoll-header-id' => '{{optional}}
+{{Identical|ID}}',
 	'securepoll-header-url' => '{{optional}}
 {{Identical|URL}}',
 	'securepoll-header-action' => '{{Identical|Action}}',
@@ -298,7 +299,8 @@ The /dev/urandom cryptographic random number generation device is not supported 
 {{Identical|Translate}}',
 	'securepoll-invalid-language' => 'Parameters:
 * $1 - language code',
-	'securepoll-header-trans-id' => '{{optional}}',
+	'securepoll-header-trans-id' => '{{optional}}
+{{Identical|ID}}',
 	'securepoll-submit-translate' => '{{Identical|Update}}',
 	'securepoll-language-label' => '{{Identical|Select language}}',
 	'securepoll-submit-select-lang' => '{{Identical|Translate}}',
