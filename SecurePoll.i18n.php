@@ -2377,6 +2377,7 @@ Podeu triar entre comptar els resultats presents a la base de dades, o de compta
  */
 $messages['ce'] = array(
 	'securepoll-too-few-params' => 'Бухара агӀона параметраш тоьуш яц (гӀалате хьажораг).',
+	'securepoll-submit' => 'ДӀабахьийта кхаж',
 	'securepoll-api-invalid-params' => 'ГӀалате параметраш.',
 	'securepoll-strike-reason' => 'Бахьан:',
 	'securepoll-strike-cancel' => 'Цаоьшу',
