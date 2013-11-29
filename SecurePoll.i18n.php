@@ -2233,6 +2233,7 @@ Možete da izvršite prebrojavanje glasova koji su prisutni u bazi podataka ili 
  * @author Cbrown1023
  * @author Góngora
  * @author Jordi Roqué
+ * @author Papapep
  * @author Paucabot
  * @author SMP
  * @author Solde
@@ -2262,10 +2263,10 @@ Si ho feu, el vostre vot anterior serà descartat.',
 Si ho desitgeu, podeu conservar el següent comprovant del vostre vot:
 
 <pre>$1</pre>',
-	'securepoll-thanks' => 'Gràcies, el vostre vot ha estat enregistrat.',
+	'securepoll-thanks' => "Gràcies, s'ha enregistrat el vostre vot.",
 	'securepoll-return' => 'Torna a $1',
 	'securepoll-encrypt-error' => "No s'ha aconseguit encriptar el registre del vostre vot.
-El vostre vot no ha estat enregistrat!
+El vostre vot no s'ha enregistrat!
 
 $1",
 	'securepoll-no-gpg-home' => 'No es pot crear el directori de GPG.',
