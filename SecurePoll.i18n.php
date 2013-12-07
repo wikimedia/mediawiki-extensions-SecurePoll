@@ -2411,7 +2411,7 @@ $messages['ckb'] = array(
 	'securepoll-subpage-list' => 'پێرست',
 );
 
-/** Czech (česky)
+/** Czech (čeština)
  * @author Mormegil
  */
 $messages['cs'] = array(
@@ -2544,7 +2544,7 @@ Můžete si vybrat, zda chcete sečíst výsledky v databázi, nebo sečíst ši
 	'securepoll-exhausted' => '(vyčerpané)',
 );
 
-/** Church Slavic (словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
+/** Church Slavic (словѣньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
  * @author ОйЛ
  */
 $messages['cu'] = array(
