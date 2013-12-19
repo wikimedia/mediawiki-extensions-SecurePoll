@@ -5030,6 +5030,7 @@ $messages['ha'] = array(
 
 /** Hebrew (עברית)
  * @author Amire80
+ * @author Guycn2
  * @author Rotem Liss
  * @author Rotemliss
  * @author YaronSh
@@ -5045,7 +5046,7 @@ $messages['he'] = array(
 	'securepoll-welcome' => '<strong>ברוך בואך, $1!</strong>',
 	'securepoll-not-started' => 'הצבעה זו טרם התחילה.
 תחילתה נקבעה ל־$3, $2.',
-	'securepoll-finished' => 'הצבעה זו הסתיימה, אינכם יכולים עוד להצביע.',
+	'securepoll-finished' => 'הצבעה זו הסתיימה, אין באפשרותך עוד להצביע.',
 	'securepoll-not-qualified' => 'אינכם רשאים להצביע בהצבעה זו: $1',
 	'securepoll-change-disallowed' => 'הצבעתם כבר בהצבעה זו.
 מצטערים, אינכם רשאים להצביע שוב.',
@@ -5060,8 +5061,8 @@ $messages['he'] = array(
 <pre>$1</pre>',
 	'securepoll-thanks' => 'תודה לכם, הצבעתכם נרשמה.',
 	'securepoll-return' => 'בחזרה ל{{GRAMMAR:תחילית|$1}}',
-	'securepoll-encrypt-error' => 'הצפנת רשומת ההצבעה שלכם לא הצליחה.
-הצבעתכם לא נרשמה!
+	'securepoll-encrypt-error' => 'הצפנת רשומת ההצבעה שלך לא הצליחה.
+הצבעתך לא נרשמה!
 
 $1',
 	'securepoll-no-gpg-home' => 'לא ניתן ליצור את תיקיית הבית של GPG.',
@@ -5078,7 +5079,7 @@ $1',
 	'securepoll-no-decryption-key' => 'לא הוגדר מפתח פיענוח.
 לא ניתן לפענח.',
 	'securepoll-jump' => 'מעבר לשרת ההצבעה',
-	'securepoll-bad-ballot-submission' => 'הצבעתכם הייתה בלתי תקינה: $1',
+	'securepoll-bad-ballot-submission' => 'הצבעתך הייתה בלתי תקינה: $1',
 	'securepoll-unanswered-questions' => 'עליכם לענות על כל השאלות.',
 	'securepoll-invalid-rank' => 'הדירוג אינו תקין. יש לתת למועמדים דירוג בין 1 ל־999.',
 	'securepoll-unranked-options' => 'כמה מהאפשרויות לא דורגו.
@@ -5094,10 +5095,10 @@ $1',
 	'securepoll-too-few-edits' => 'מצטערים, אינכם יכולים להצביע. היה עליכם לעשות לפחות {{PLURAL:עריכה אחת|$1 עריכות}} כדי להצביע בהצבעה זו, ועשיתם רק {{PLURAL:$2|אחת|$2}}.',
 	'securepoll-too-new' => 'סליחה, אין באפשרותך להצביע. חשבונך היה צריך להיווצר לפני $1 בשעה $3 כדי להצביע בבחירות האלו והוא נוצר ב־$2 בשעה $4.',
 	'securepoll-blocked' => 'מצטערים, אינכם יכולים להצביע בהצבעה זו אם אתם חסומים כרגע מעריכה.',
-	'securepoll-blocked-centrally' => 'סליחה, אין באפשרותך להצביע בבחירות האלו אם חשבונך חסום ב{{PLURAL:$1|אתר ויקי אחד או יותר|$1 אתרי ויקי או יותר}}.',
+	'securepoll-blocked-centrally' => 'מצטערים, אין באפשרותך להצביע בבחירות האלו אם חשבונך חסום ב{{PLURAL:$1|אתר ויקי אחד או יותר|$1 אתרי ויקי או יותר}}.',
 	'securepoll-bot' => 'מצטערים, חשבונות עם דגל בוט אינם רשאים להצביע בהצבעה זו.',
 	'securepoll-not-in-group' => 'רק חברים בקבוצה "$1" יכולים להצביע בהצבעה זו.',
-	'securepoll-not-in-list' => 'מצטערים, אינכם ברשימת המשתמשים שהוגדרו מראש כרשאים להצביע בהצבעה זו.',
+	'securepoll-not-in-list' => 'מצטערים, אינך ברשימת המשתמשים שהוגדרו מראש כרשאים להצביע בהצבעה זו.',
 	'securepoll-list-title' => 'רשימת הצבעות: $1',
 	'securepoll-header-timestamp' => 'זמן',
 	'securepoll-header-voter-name' => 'שם',
@@ -5122,7 +5123,7 @@ $1',
 	'securepoll-header-action' => 'פעולה',
 	'securepoll-header-reason' => 'סיבה',
 	'securepoll-header-admin' => 'מנהל',
-	'securepoll-cookie-dup-list' => 'משתמשים שנוצר עותק של העוגיה שלהם',
+	'securepoll-cookie-dup-list' => 'משתמשים שנוצר עותק של העוגייה שלהם',
 	'securepoll-dump-title' => 'העתק מוצפן: $1',
 	'securepoll-dump-no-crypt' => 'לא נמצאה רשומת הצבעה מוצפנת עבור הצבעה זו, כיוון שההצבעה אינה מוגדרת לשימוש בהצפנה.',
 	'securepoll-dump-not-finished' => 'רשומות ההצבעה המוצפנות זמינות רק לאחר תאריך הסיום ב־$2, $1',
@@ -5148,7 +5149,7 @@ $1',
 	'securepoll-tally-title' => 'חישוב תוצאות: $1',
 	'securepoll-tally-not-finished' => 'מצטערים, אינכם יכולים לחשב את תוצאות ההצבעה עד שיושלם תהליך ההצבעה.',
 	'securepoll-can-decrypt' => 'רישום ההצבעה הוצפן, אך מפתח הפענוח זמין.
-	באפשרותכם לחשב את התוצאות המאוחסנות בבסיס הנתונים, או לחשב את התוצאות המוצפנות מקובץ מועלה.',
+באפשרותך לחשב את התוצאות המאוחסנות בבסיס הנתונים, או לחשב את התוצאות המוצפנות מקובץ מועלה.',
 	'securepoll-tally-no-key' => 'אין באפשרותכם לחשב את התוצאות של הצבעה זו, כיוון שההצבעות מוצפנות, ומפתח הפענוח אינו זמין.',
 	'securepoll-tally-local-legend' => 'חישוב התוצאות המוצפנות',
 	'securepoll-tally-local-submit' => 'חישוב התוצאות',
