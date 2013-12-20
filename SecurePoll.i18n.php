@@ -5047,7 +5047,7 @@ $messages['he'] = array(
 	'securepoll-not-started' => 'הצבעה זו טרם התחילה.
 תחילתה נקבעה ל־$3, $2.',
 	'securepoll-finished' => 'הצבעה זו הסתיימה, אין באפשרותך עוד להצביע.',
-	'securepoll-not-qualified' => 'אינכם רשאים להצביע בהצבעה זו: $1',
+	'securepoll-not-qualified' => 'אין באפשרותך להצביע בהצבעה זו: $1',
 	'securepoll-change-disallowed' => 'הצבעתם כבר בהצבעה זו.
 מצטערים, אינכם רשאים להצביע שוב.',
 	'securepoll-change-allowed' => '<strong>הערה: כבר הצבעתם בהצבעה זו בעבר.</strong>
@@ -5059,7 +5059,7 @@ $messages['he'] = array(
 אם תרצו, תוכלו לשמור את הקבלה הבאה כהוכחה להצבעתכם:
 
 <pre>$1</pre>',
-	'securepoll-thanks' => 'תודה לכם, הצבעתכם נרשמה.',
+	'securepoll-thanks' => 'תודה, הצבעתך נרשמה.',
 	'securepoll-return' => 'בחזרה ל{{GRAMMAR:תחילית|$1}}',
 	'securepoll-encrypt-error' => 'הצפנת רשומת ההצבעה שלך לא הצליחה.
 הצבעתך לא נרשמה!
@@ -5080,19 +5080,19 @@ $1',
 לא ניתן לפענח.',
 	'securepoll-jump' => 'מעבר לשרת ההצבעה',
 	'securepoll-bad-ballot-submission' => 'הצבעתך הייתה בלתי תקינה: $1',
-	'securepoll-unanswered-questions' => 'עליכם לענות על כל השאלות.',
+	'securepoll-unanswered-questions' => 'יש לענות על כל השאלות.',
 	'securepoll-invalid-rank' => 'הדירוג אינו תקין. יש לתת למועמדים דירוג בין 1 ל־999.',
 	'securepoll-unranked-options' => 'כמה מהאפשרויות לא דורגו.
 יש לקבוע לכל האפשרויות דירוג בין 1 ל־999.',
 	'securepoll-invalid-score' => 'הדירוג חייב להיות מספר בין $1 ל־$2.',
-	'securepoll-unanswered-options' => 'עליכם להשיב לכל שאלה.',
-	'securepoll-remote-auth-error' => 'שגיאה בקבלת פרטי החשבון שלכם מהשרת.',
+	'securepoll-unanswered-options' => 'יש להשיב לכל שאלה.',
+	'securepoll-remote-auth-error' => 'שגיאה בקבלת פרטי החשבון שלך מהשרת.',
 	'securepoll-remote-parse-error' => 'שגיאה בפענוח התגובה על מידע הכניסה מהשרת.',
 	'securepoll-api-invalid-params' => 'פרמטרים בלתי תקינים.',
 	'securepoll-api-no-user' => 'לא נמצא משתמש עם מספר זה.',
 	'securepoll-api-token-mismatch' => 'אסימון האבטחה לא מתאים, לא ניתן להיכנס לחשבון.',
-	'securepoll-not-logged-in' => 'עליכם להיכנס לחשבון כדי להצביע בהצבעה זו',
-	'securepoll-too-few-edits' => 'מצטערים, אינכם יכולים להצביע. היה עליכם לעשות לפחות {{PLURAL:עריכה אחת|$1 עריכות}} כדי להצביע בהצבעה זו, ועשיתם רק {{PLURAL:$2|אחת|$2}}.',
+	'securepoll-not-logged-in' => 'יש להיכנס לחשבון כדי להצביע בהצבעה זו',
+	'securepoll-too-few-edits' => 'מצטערים, אין באפשרותך להצביע. דרושות לפחות {{PLURAL:$1|עריכה אחת|$1 עריכות}} כדי להצביע בהצבעה זו, וביצעת {{PLURAL:$2|עריכה אחת|$2 עריכות}} בלבד.',
 	'securepoll-too-new' => 'סליחה, אין באפשרותך להצביע. חשבונך היה צריך להיווצר לפני $1 בשעה $3 כדי להצביע בבחירות האלו והוא נוצר ב־$2 בשעה $4.',
 	'securepoll-blocked' => 'מצטערים, אינכם יכולים להצביע בהצבעה זו אם אתם חסומים כרגע מעריכה.',
 	'securepoll-blocked-centrally' => 'מצטערים, אין באפשרותך להצביע בבחירות האלו אם חשבונך חסום ב{{PLURAL:$1|אתר ויקי אחד או יותר|$1 אתרי ויקי או יותר}}.',
@@ -5147,10 +5147,10 @@ $1',
 	'securepoll-subpage-dump' => 'העתק מוצפן',
 	'securepoll-subpage-tally' => 'חישוב תוצאות',
 	'securepoll-tally-title' => 'חישוב תוצאות: $1',
-	'securepoll-tally-not-finished' => 'מצטערים, אינכם יכולים לחשב את תוצאות ההצבעה עד שיושלם תהליך ההצבעה.',
+	'securepoll-tally-not-finished' => 'מצטערים, אין באפשרותך לחשב את תוצאות ההצבעה עד שיושלם תהליך ההצבעה.',
 	'securepoll-can-decrypt' => 'רישום ההצבעה הוצפן, אך מפתח הפענוח זמין.
 באפשרותך לחשב את התוצאות המאוחסנות בבסיס הנתונים, או לחשב את התוצאות המוצפנות מקובץ מועלה.',
-	'securepoll-tally-no-key' => 'אין באפשרותכם לחשב את התוצאות של הצבעה זו, כיוון שההצבעות מוצפנות, ומפתח הפענוח אינו זמין.',
+	'securepoll-tally-no-key' => 'אין באפשרותך לחשב את התוצאות של הצבעה זו, כיוון שההצבעות מוצפנות, ומפתח הפענוח אינו זמין.',
 	'securepoll-tally-local-legend' => 'חישוב התוצאות המוצפנות',
 	'securepoll-tally-local-submit' => 'חישוב התוצאות',
 	'securepoll-tally-upload-legend' => 'העלאת עותק מוצפן',
