@@ -2380,6 +2380,7 @@ $messages['ce'] = array(
 	'securepoll-too-few-params' => 'Бухара агӀона параметраш тоьуш яц (гӀалате хьажораг).',
 	'securepoll-submit' => 'ДӀабахьийта кхаж',
 	'securepoll-api-invalid-params' => 'ГӀалате параметраш.',
+	'securepoll-api-no-user' => 'Иштта ID долу декъашхо цакарий.',
 	'securepoll-header-details' => 'Мадарра',
 	'securepoll-strike-reason' => 'Бахьан:',
 	'securepoll-strike-cancel' => 'Цаоьшу',
