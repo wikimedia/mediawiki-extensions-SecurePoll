@@ -112,7 +112,7 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 
 		// Show form
 		$thisTitle = $this->getTitle();
-		$encAction = $thisTitle->escapeLocalURL( "action=vote" );
+		$encAction = htmlspecialchars( $thisTitle->getLocalURL( "action=vote" ) );
 		$encOK = wfMsgHtml( 'securepoll-submit' );
 		$encToken = htmlspecialchars( $this->parent->getEditToken() );
 
