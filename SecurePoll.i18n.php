@@ -2352,7 +2352,7 @@ Per mantenir la privadesa del votant, els registres d'elecció encriptats només
 	'securepoll-subpage-tally' => 'Compte',
 	'securepoll-tally-title' => 'Compte: $1',
 	'securepoll-tally-not-finished' => 'Les dades de la votació no estaran disponibles fins que hagi finalitzat.',
-	'securepoll-can-decrypt' => "El registre de l'elecció ha estat encriptat, però la clau de desxifratge està disponible.
+	'securepoll-can-decrypt' => "S'ha encriptat el registre de l'elecció, però la clau de desencriptat està disponible.
 Podeu triar entre comptar els resultats presents a la base de dades, o de comptar-ne els encriptats a partir d'un fitxer carregat.",
 	'securepoll-tally-no-key' => "No podeu comptar els vots d'aquesta elecció, perquè estan encriptats i la clau de desxifratge no està disponible.",
 	'securepoll-tally-local-legend' => 'Comptar els resultats arxivats.',
