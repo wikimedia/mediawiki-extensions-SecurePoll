@@ -95,7 +95,7 @@ class SecurePoll_BasePage extends UnlistedSpecialPage {
 	function setSubtitle( /*...*/ ) {
 		global $wgUser, $wgOut;
 		$skin = $wgUser->getSkin();
-		$title = $this->getTitle();
+		$title = $this->getPageTitle();
 		$subtitle = '&lt; ' . $skin->linkKnown( $title, htmlspecialchars( $title->getText() ) );
 		$pipe = wfMsg( 'pipe-separator' );
 		$links = func_get_args();
