@@ -3959,6 +3959,7 @@ Aukera guztiei 1etik 999ra arteko balio bat eman behar diezu.',
  * @author Mardetanha
  * @author Meisam
  * @author Mjbmr
+ * @author Reza1615
  * @author Sahim
  * @author Wayiran
  * @author ZxxZxxZ
@@ -4043,6 +4044,7 @@ $1',
 	'securepoll-invalid-vote' => '«$1» شناسهٔ رایِ معتبری نیست.',
 	'securepoll-header-id' => 'شناسه',
 	'securepoll-header-voter-type' => 'نوع کاربر',
+	'securepoll-header-url' => 'نشانی اینترنتی',
 	'securepoll-voter-properties' => 'خصوصیت‌های رای دهندگان',
 	'securepoll-strike-log' => 'لاگ خط‌زدن',
 	'securepoll-header-action' => 'اقدام',
@@ -4058,6 +4060,7 @@ $1',
 برای حفظ حریم خصوصی رای‌دهندگان، مدارک رمزنگاری‌شدهٔ رای‌گیری فقط زمانی عمومی خواهند شد که بتوان آن‌ها را با یک سری اعداد تصادفی جاری در هم ریخته کرد.',
 	'securepoll-translate-title' => 'ترجمه: $1',
 	'securepoll-invalid-language' => 'کد زبانی نامعتبر «$1»',
+	'securepoll-header-trans-id' => 'شناسه',
 	'securepoll-submit-translate' => 'به روز رسانی',
 	'securepoll-language-label' => 'انتخاب زبان:',
 	'securepoll-submit-select-lang' => 'ترجمه',
