@@ -2387,7 +2387,7 @@ $messages['ce'] = array(
 	'securepoll-details-link' => 'Мадарра',
 	'securepoll-header-action' => 'Дийраш',
 	'securepoll-header-reason' => 'Бахьан',
-	'securepoll-header-admin' => 'Адманкуьйгалхо',
+	'securepoll-header-admin' => 'Куьйгалхой',
 	'securepoll-translate-title' => 'Гоч: $1',
 	'securepoll-submit-translate' => 'Карлаяккха',
 	'securepoll-language-label' => 'Мотт харжар:',
@@ -7138,6 +7138,18 @@ $messages['la'] = array(
 	'securepoll-subpage-tally' => 'Numera',
 	'securepoll-tally-title' => 'Numerat: $1',
 	'securepoll-tally-not-finished' => 'Paenitet, tu ne posse numerare electio quamdiu suffragium non est finis.',
+);
+
+/** Ladino (Ladino)
+ * @author Menachem.Moreira
+ */
+$messages['lad'] = array(
+	'securepoll-header-voter-name' => 'Nombre',
+	'securepoll-strike-reason' => 'Razon:',
+	'securepoll-header-reason' => 'Razon',
+	'securepoll-translate-title' => 'Tradusir: $1',
+	'securepoll-submit-select-lang' => 'Tradusir',
+	'securepoll-header-title' => 'Nombre',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
