@@ -6964,6 +6964,7 @@ $messages['krc'] = array(
 	'securepoll-header-voter-domain' => 'Домен',
 	'securepoll-header-reason' => 'Чурум',
 	'securepoll-header-admin' => 'Админ',
+	'securepoll-submit-translate' => 'Джангырт',
 );
 
 /** Colognian (Ripoarisch)
