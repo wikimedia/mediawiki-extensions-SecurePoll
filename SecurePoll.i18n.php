@@ -7146,6 +7146,7 @@ $messages['la'] = array(
  */
 $messages['lad'] = array(
 	'securepoll-header-voter-name' => 'Nombre',
+	'securepoll-header-voter-domain' => 'Dominio:',
 	'securepoll-strike-reason' => 'Razon:',
 	'securepoll-header-reason' => 'Razon',
 	'securepoll-translate-title' => 'Tradusir: $1',
