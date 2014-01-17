@@ -93,15 +93,14 @@ class SecurePoll_BasePage extends UnlistedSpecialPage {
 	 * a link target, and the link text.
 	 */
 	function setSubtitle( /*...*/ ) {
-		global $wgUser, $wgOut;
-		$skin = $wgUser->getSkin();
+		global $wgOut;
 		$title = $this->getPageTitle();
-		$subtitle = '&lt; ' . $skin->linkKnown( $title, htmlspecialchars( $title->getText() ) );
+		$subtitle = '&lt; ' . Linker::linkKnown( $title, htmlspecialchars( $title->getText() ) );
 		$pipe = wfMsg( 'pipe-separator' );
 		$links = func_get_args();
 		foreach ( $links as $link ) {
 			list( $title, $text ) = $link;
-			$subtitle .= $pipe . $skin->linkKnown( $title, htmlspecialchars( $text ) );
+			$subtitle .= $pipe . Linker::linkKnown( $title, htmlspecialchars( $text ) );
 		}
 		$wgOut->setSubtitle( $subtitle );
 	}

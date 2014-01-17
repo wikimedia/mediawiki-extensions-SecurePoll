@@ -118,12 +118,10 @@ class SecurePoll_ElectionPager extends TablePager {
 	}
 
 	function getLinks() {
-		global $wgUser;
 		$id = $this->mCurrentRow->el_entity;
 
 		$s = '';
 		$sep = wfMsg( 'pipe-separator' );
-		$skin = $wgUser->getSkin();
 		foreach ( $this->subpages as $subpage => $props ) {
 			// Message keys used here:
 			// securepoll-subpage-vote, securepoll-subpage-translate,
@@ -137,7 +135,7 @@ class SecurePoll_ElectionPager extends TablePager {
 			    && ( !$this->election->isFinished() || $props['visible-after-close'] ) )
 			{
 				$title = $this->entryPage->parent->getTitle( "$subpage/$id" );
-				$s .= $skin->makeKnownLinkObj( $title, $linkText );
+				$s .= Linker::makeKnownLinkObj( $title, $linkText );
 			} else {
 				$s .= "<span class=\"securepoll-link-disabled\">" .
 					$linkText . "</span>";

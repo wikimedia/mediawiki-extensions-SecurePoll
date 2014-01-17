@@ -171,11 +171,10 @@ class SecurePoll_StrikePager extends TablePager {
 	}
 
 	function formatValue( $name, $value ) {
-		global $wgUser, $wgLang;
-		$skin = $wgUser->getSkin();
+		global $wgLang;
 		switch ( $name ) {
 		case 'st_user':
-			return $skin->userLink( $value, $this->mCurrentRow->user_name );
+			return Linker::userLink( $value, $this->mCurrentRow->user_name );
 		case 'st_timestamp':
 			return $wgLang->timeanddate( $value );
 		default:
