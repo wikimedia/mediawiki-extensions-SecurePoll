@@ -7425,6 +7425,14 @@ Doe kins de in de database besjikbare resultate telle, of de resultate oet 'n be
 	'securepoll-exhausted' => '(Verloupe)',
 );
 
+/** لوری (لوری)
+ * @author Bonevarluri
+ */
+$messages['lrc'] = array(
+	'securepoll-strike-token-mismatch' => 'دونسمنیا نشینگه گم بیه',
+	'securepoll-strike-log' => 'پهرستنومه ضربه حردن',
+);
+
 /** Lithuanian (lietuvių)
  * @author Homo
  * @author Matasg
