@@ -3735,7 +3735,7 @@ Kui sa seda teed, siis sinu eelmine hääl tühistub.',
 	'securepoll-submit' => 'Hääleta',
 	'securepoll-gpg-receipt' => 'Täname hääletamast.
 
-Soovi korral võid talletada järgneva kinnituse antud hääle kohta:
+Soovi korral võid talletada järgmise kinnituse antud hääle kohta:
 
 <pre>$1</pre>',
 	'securepoll-thanks' => 'Täname, sinu hääl on talletatud.',
@@ -3848,6 +3848,7 @@ Sa võid üle lugeda kas andmebaasis olevad tulemused või üleslaaditavas faili
  * @author Kobazulo
  * @author Theklan
  * @author Unai Fdz. de Betoño
+ * @author Xabier Armendaritz
  */
 $messages['eu'] = array(
 	'securepoll' => 'BozketaSegurua',
@@ -3896,7 +3897,7 @@ Ezin da dekriptatu.',
 	'securepoll-invalid-rank' => 'Tarte ez baliagarria. Hautagaiei 1etik 999rako balorea eman behar diezu.',
 	'securepoll-unranked-options' => 'Aukera batzuk ez daude sailkaturik.
 Aukera guztiei 1etik 999ra arteko balio bat eman behar diezu.',
-	'securepoll-invalid-score' => 'Emaitza $1(e)tik $2(e)ra arteko zenbakia izan behar du.',
+	'securepoll-invalid-score' => 'Emaitzak gutxienez $1 eta gehienez $2 izan behar du.',
 	'securepoll-unanswered-options' => 'Konfiantzazko lankideak.',
 	'securepoll-remote-auth-error' => 'Zure kontuari buruzko informazioa ezin izan da zerbitzaritik lortu.',
 	'securepoll-remote-parse-error' => 'Zerbitzariaren autorizazio emaitza interpretatzen akatsa egon da.',
@@ -7431,6 +7432,8 @@ Doe kins de in de database besjikbare resultate telle, of de resultate oet 'n be
 $messages['lrc'] = array(
 	'securepoll-strike-token-mismatch' => 'دونسمنیا نشینگه گم بیه',
 	'securepoll-strike-log' => 'پهرستنومه ضربه حردن',
+	'securepoll-invalid-language' => 'کد نامعتور زون"$1"',
+	'securepoll-language-label' => 'انتخاو زون:',
 );
 
 /** Lithuanian (lietuvių)
