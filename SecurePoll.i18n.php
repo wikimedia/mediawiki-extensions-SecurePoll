@@ -7430,10 +7430,13 @@ Doe kins de in de database besjikbare resultate telle, of de resultate oet 'n be
  * @author Bonevarluri
  */
 $messages['lrc'] = array(
+	'securepoll-header-voter-name' => 'نوم',
+	'securepoll-header-voter-domain' => 'پوشگیر',
 	'securepoll-strike-token-mismatch' => 'دونسمنیا نشینگه گم بیه',
 	'securepoll-strike-log' => 'پهرستنومه ضربه حردن',
 	'securepoll-invalid-language' => 'کد نامعتور زون"$1"',
 	'securepoll-language-label' => 'انتخاو زون:',
+	'securepoll-header-title' => 'نوم',
 );
 
 /** Lithuanian (lietuvių)
