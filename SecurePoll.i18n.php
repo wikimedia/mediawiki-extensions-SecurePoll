@@ -7430,6 +7430,8 @@ Doe kins de in de database besjikbare resultate telle, of de resultate oet 'n be
  * @author Bonevarluri
  */
 $messages['lrc'] = array(
+	'securepoll-unanswered-options' => 'شما باید سی هر پرسایشتی یه گل جواو بیئت',
+	'securepoll-api-no-user' => 'چنو کاروری وا شناسه دئه بیه جسته نبی',
 	'securepoll-header-timestamp' => 'وخت',
 	'securepoll-header-voter-name' => 'نوم',
 	'securepoll-header-voter-domain' => 'پوشگیر',
