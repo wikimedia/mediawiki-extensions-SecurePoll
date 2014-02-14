@@ -6825,6 +6825,7 @@ $messages['kn'] = array(
  * @author Klutzy
  * @author Kwj2772
  * @author Mhha
+ * @author Priviet
  * @author Yknok29
  * @author 아라
  */
@@ -6881,7 +6882,7 @@ $1',
 	'securepoll-remote-auth-error' => '서버에서 계정 정보를 가져오는 중에 오류가 발생하였습니다.',
 	'securepoll-remote-parse-error' => '서버로부터 권한 응답에 따른 해석 오류가 발생',
 	'securepoll-api-invalid-params' => '명령 변수가 잘못되었습니다.',
-	'securepoll-api-no-user' => '등록되어 있지 않은 ID 입니다.',
+	'securepoll-api-no-user' => '등록되어 있지 않은 ID입니다.',
 	'securepoll-api-token-mismatch' => '암호화 통신상의 오류가 발생하여 로그인하지 못했습니다.',
 	'securepoll-not-logged-in' => '이 선거에 투표를 하시려면 먼저 로그인하셔야 합니다.',
 	'securepoll-too-few-edits' => '죄송합니다, 투표에 참여하실 수 없습니다. 투표에 참여하시려면 최소 {{PLURAL:$1|편집}} $1회을 하셔야 하지만 편집 수는 $2회 입니다.',
