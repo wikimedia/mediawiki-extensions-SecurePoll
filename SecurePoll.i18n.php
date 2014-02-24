@@ -2339,7 +2339,7 @@ Per mantenir la privadesa del votant, els registres d'elecció encriptats només
 	'securepoll-translate-title' => 'Traducció: $1',
 	'securepoll-invalid-language' => "Codi d'idioma «$1» no vàlid",
 	'securepoll-submit-translate' => 'Actualitza',
-	'securepoll-language-label' => 'Escolliu idioma:',
+	'securepoll-language-label' => 'Seleccioneu la llengua:',
 	'securepoll-submit-select-lang' => 'Tradueix',
 	'securepoll-entry-text' => 'A sota hi ha la llista de votacions.',
 	'securepoll-header-title' => 'Nom',
