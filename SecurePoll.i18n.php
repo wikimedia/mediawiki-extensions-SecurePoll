@@ -11887,6 +11887,7 @@ $1',
 
 /** Serbian (Latin script) (srpski (latinica)‎)
  * @author Michaello
+ * @author Milicevic01
  * @author Rancher
  */
 $messages['sr-el'] = array(
@@ -11913,7 +11914,7 @@ Ako želite, možete da zadržite ovu potvrdu kao dokaz da ste glasali:
 
 <pre>$1</pre>',
 	'securepoll-thanks' => 'Hvala Vam. Vaš glas je snimljen.',
-	'securepoll-return' => 'Vrati se na $1',
+	'securepoll-return' => 'Nazad na $1',
 	'securepoll-encrypt-error' => 'Ne mogu da šifrujem glasački zapis.
 Vaš glas nije zaveden!
 
