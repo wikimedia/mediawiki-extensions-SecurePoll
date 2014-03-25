@@ -629,6 +629,7 @@ Puede trigar entre escrutar os resultaus de la base de datos, u escrutar os resu
 
 /** Arabic (العربية)
  * @author Aiman titi
+ * @author Kuwaity26
  * @author Meno25
  * @author Orango
  * @author OsamaK
@@ -725,7 +726,7 @@ $1',
 	'securepoll-strike-log' => 'سجل الشطب',
 	'securepoll-header-action' => 'الاجراء',
 	'securepoll-header-reason' => 'السبب',
-	'securepoll-header-admin' => 'الادارة',
+	'securepoll-header-admin' => 'إدارة',
 	'securepoll-cookie-dup-list' => 'المستخدمون مزدوجو الكوكي',
 	'securepoll-dump-title' => 'النتيجة: $1',
 	'securepoll-dump-no-crypt' => 'لا يوجد سجل انتخابات مشفر متاح لهذه الانتخابات، بسبب ان الانتخابات غير مهيئة لاستخدام التشفير.',
@@ -798,6 +799,7 @@ $messages['arc'] = array(
 );
 
 /** Egyptian Spoken Arabic (مصرى)
+ * @author Kuwaity26
  * @author Meno25
  */
 $messages['arz'] = array(
@@ -884,7 +886,7 @@ $1',
 	'securepoll-strike-log' => 'سجل الشطب',
 	'securepoll-header-action' => 'الاجراء',
 	'securepoll-header-reason' => 'السبب',
-	'securepoll-header-admin' => 'الادارة',
+	'securepoll-header-admin' => 'إدارة',
 	'securepoll-cookie-dup-list' => 'المستخدمون مزدوجو الكوكي',
 	'securepoll-dump-title' => 'النتيجة: $1',
 	'securepoll-dump-no-crypt' => 'لا يوجد سجل انتخابات مشفر متاح لهذه الانتخابات، بسبب ان الانتخابات غير مهيئه لاستخدام التشفير.',
