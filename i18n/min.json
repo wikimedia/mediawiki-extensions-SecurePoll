@@ -1,0 +1,31 @@
+{
+    "@metadata": {
+        "authors": [
+            "SpartacksCompatriot"
+        ]
+    },
+    "securepoll": "SecurePoll",
+    "securepoll-invalid-page": "Sublaman nan indak valid \"<nowiki>$1</nowiki>\"",
+    "securepoll-need-admin": "Sanak haruihlah manjadi panitia pamiliahan untuak bisa manjalanan parintah ko",
+    "securepoll-too-few-params": "Parameter sublaman indak cukuik (pautan nan indak valid)",
+    "securepoll-invalid-election": "\"$1\" bukan ID pamiliahan nan valid",
+    "securepoll-welcome": "<strong>Salamaik datang $1!</strong>",
+    "securepoll-not-started": "Pamiliahan ko alun dimulai. Baru akan dimulai pado $2 pado $3",
+    "securepoll-finished": "Pamiliahan ko alah salasai, Sanak lah indak bisa mamiliah",
+    "securepoll-not-qualified": "Sanak indak layak untuak mamiliah: $1",
+    "securepoll-change-disallowed": "Sanak alah mamiliah sabalunnyo. Maaf, Sanak indak dipabuliahan mamiliah untuak nan kaduo kalinyo.",
+    "securepoll-change-allowed": "<strong>Catatan: Sanak alah mamiliah di pamiliahan ko sabalunnyo.\n</strong>\nSanak dapek mangubah suaro dengan caro mangisi formulir di bawah ko. Parhatian, kok Sanak mangisi formulir di bawah ko, suaro asli Sanak akan taapuih",
+    "securepoll-submit": "Kirim suaro",
+    "securepoll-gpg-receipt": "Tarimo kasih alah mamiliah!\n\nKok Sanak nio, Sanak bisa manyimpan resit ko sabagai bukti suaro Sanak:\n\n<pre>$1</pre>",
+    "securepoll-thanks": "Tarimo kasih, suaro sanak alah disimpan.",
+    "securepoll-return": "Baliak ka $1",
+    "securepoll-encrypt-error": "Gagal mangekskripsi catatan suaro Sanak.\nSuaro Sanak alun tasimpan!\n\n$!",
+    "securepoll-no-gpg-home": "Indak bisa mambuek direktori GPG.",
+    "securepoll-secret-gpg-error": "Gagal mangeksekusi GPG.\nPakai $wgSecurePollShowErrorDetail=true; di LocalSettings.php untuk rincian nan labiah lanjuik.",
+    "securepoll-full-gpg-error": "Gagal mangeksekusi GPG:\n\nParintah: $1\n\nGagal:\n<pre>$2</pre>",
+    "securepoll-gpg-config-error": "Kunci-kunci GPG indak batua dikonfigurasi.",
+    "securepoll-gpg-parse-error": "Gagal manafsirkan kaluaran GPG.",
+    "securepoll-no-decryption-key": "Indak ado kunci dekripsi nan dikonfigurasi.\nIndak bisa dekripsi.",
+    "securepoll-jump": "Pai ka server pamiliahan",
+    "securepoll-bad-ballot-submission": "Suaro Sanak indak sah: $1"
+}

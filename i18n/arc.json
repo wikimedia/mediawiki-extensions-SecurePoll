@@ -1,0 +1,27 @@
+{
+    "@metadata": {
+        "authors": [
+            "Basharh",
+            "Michaelovic"
+        ]
+    },
+    "securepoll-submit": "ܫܕܪ ܩܠܐ",
+    "securepoll-header-timestamp": "ܙܒܢܐ",
+    "securepoll-header-voter-name": "ܫܡܐ",
+    "securepoll-header-voter-domain": "ܪܘܚܬܐ",
+    "securepoll-header-ua": "ܩܝܝܘܡܐ ܕܡܦܠܚܢܐ",
+    "securepoll-header-details": "ܐܪ̈ܝܟܬܐ",
+    "securepoll-strike-reason": "ܥܠܬܐ:",
+    "securepoll-strike-cancel": "ܒܛܘܠ",
+    "securepoll-details-link": "ܐܪ̈ܝܟܬܐ",
+    "securepoll-header-action": "ܥܒܕܐ",
+    "securepoll-header-reason": "ܥܠܬܐ",
+    "securepoll-translate-title": "ܬܪܓܡ: $1",
+    "securepoll-submit-translate": "ܚܘܕܬܐ",
+    "securepoll-language-label": "ܓܒܝ ܠܫܢܐ:",
+    "securepoll-submit-select-lang": "ܬܪܓܡ",
+    "securepoll-header-title": "ܫܡܐ",
+    "securepoll-subpage-vote": "ܝܗܒ ܩܠܐ",
+    "securepoll-subpage-translate": "ܬܪܓܡ",
+    "securepoll-subpage-list": "ܡܟܬܒܘܬܐ"
+}

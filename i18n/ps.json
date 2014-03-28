@@ -1,0 +1,38 @@
+{
+    "@metadata": {
+        "authors": [
+            "Ahmed-Najib-Biabani-Ibrahimkhel"
+        ]
+    },
+    "securepoll-invalid-page": "ناسم څېرمه مخ \"<nowiki>$1</nowiki>\"",
+    "securepoll-need-admin": "د دې کړنې د ترسره کولو لپاره تاسې ته پکار ده چې د ټاکنې يو پازوال اوسۍ.",
+    "securepoll-welcome": "<strong> $1 ښه راغلۍ!</strong>",
+    "securepoll-submit": "رايه سپارل",
+    "securepoll-thanks": "له تاسې نه مننه، ستاسې رايه ثبته شوه.",
+    "securepoll-return": "$1 ته ورګرځېدل",
+    "securepoll-jump": "د رايو پالنگر ته ورشۍ",
+    "securepoll-bad-ballot-submission": "ستاسې رايه سمه نه وه: $1",
+    "securepoll-unanswered-questions": "تاسې بايد ټولې پوښتنې ځواب کړۍ.",
+    "securepoll-api-no-user": "په دې پېژند کوم کارن و نه موندل شو.",
+    "securepoll-header-timestamp": "وخت",
+    "securepoll-header-voter-name": "نوم",
+    "securepoll-header-voter-domain": "شپول",
+    "securepoll-header-ua": "د کارن پلاوی",
+    "securepoll-header-details": "تفصيلات",
+    "securepoll-strike-reason": "سبب:",
+    "securepoll-strike-cancel": "ناگارل",
+    "securepoll-details-link": "تفصيلات",
+    "securepoll-header-reason": "سبب",
+    "securepoll-header-admin": "پازوال",
+    "securepoll-translate-title": "ژباړل: $1",
+    "securepoll-invalid-language": "د ژبې ناسم کوډ \"$1\"",
+    "securepoll-submit-translate": "اوسمهالول",
+    "securepoll-language-label": "ژبه ټاکل:",
+    "securepoll-submit-select-lang": "ژباړل",
+    "securepoll-header-title": "نوم",
+    "securepoll-header-start-date": "د پيل نېټه",
+    "securepoll-header-end-date": "د پای نېټه",
+    "securepoll-subpage-vote": "رايه ورکول",
+    "securepoll-subpage-translate": "ژباړل",
+    "securepoll-subpage-list": "لړليک"
+}

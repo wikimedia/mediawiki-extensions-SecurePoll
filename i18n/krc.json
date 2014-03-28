@@ -1,0 +1,13 @@
+{
+    "@metadata": {
+        "authors": [
+            "Iltever"
+        ]
+    },
+    "securepoll-header-timestamp": "Заман",
+    "securepoll-header-voter-name": "Ат",
+    "securepoll-header-voter-domain": "Домен",
+    "securepoll-header-reason": "Чурум",
+    "securepoll-header-admin": "Админ",
+    "securepoll-submit-translate": "Джангырт"
+}

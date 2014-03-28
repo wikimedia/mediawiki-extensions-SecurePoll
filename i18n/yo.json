@@ -1,0 +1,28 @@
+{
+    "@metadata": {
+        "authors": [
+            "Demmy"
+        ]
+    },
+    "securepoll": "SecurePoll",
+    "securepoll-invalid-page": "Ojúewéabẹ́ àìtọ́ \"<nowiki>$1</nowiki>\"",
+    "securepoll-welcome": "<strong>$1 Ẹkúàbọ̀!</strong>",
+    "securepoll-return": "Padà sí $1",
+    "securepoll-header-timestamp": "Àsìkò",
+    "securepoll-header-voter-name": "Orúkọ",
+    "securepoll-strike-reason": "Ìdíẹ̀:",
+    "securepoll-strike-cancel": "Fagilé",
+    "securepoll-details-link": "Ẹ̀kúnrẹ́rẹ́",
+    "securepoll-header-action": "Ìgbéṣe",
+    "securepoll-header-reason": "Ìdíẹ̀",
+    "securepoll-header-admin": "Olùmójútó",
+    "securepoll-translate-title": "Yédèpadà: $1",
+    "securepoll-language-label": "Àṣàyàn èdè:",
+    "securepoll-submit-select-lang": "Yédèpadà",
+    "securepoll-header-title": "Orúkọ",
+    "securepoll-header-start-date": "Ọjọ́ọdún ìbẹ̀rẹ̀",
+    "securepoll-header-end-date": "Ọjọ́ọdún ìparí",
+    "securepoll-subpage-vote": "Dìbò",
+    "securepoll-subpage-translate": "Yédèpadà",
+    "securepoll-subpage-list": "Àkójọ"
+}

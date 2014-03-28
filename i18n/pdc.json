@@ -1,0 +1,24 @@
+{
+    "@metadata": {
+        "authors": [
+            "Xqt"
+        ]
+    },
+    "securepoll-welcome": "<strong>Willkum $1!</strong>",
+    "securepoll-return": "Zerick zu $1",
+    "securepoll-jump": "Geh zum Waddefresser fer die Leckschen",
+    "securepoll-unanswered-questions": "Du settsch fer alle Froge e Antwatt gewwe",
+    "securepoll-unanswered-options": "Du settsch zu jedere Frog een Antwatt gewwe.",
+    "securepoll-header-timestamp": "Zeit",
+    "securepoll-header-voter-name": "Naame",
+    "securepoll-strike-reason": "Grund:",
+    "securepoll-header-reason": "Grund",
+    "securepoll-header-admin": "Verwalter",
+    "securepoll-translate-title": "Iwwersetze: $1",
+    "securepoll-submit-select-lang": "Iwwersetze",
+    "securepoll-header-title": "Naame",
+    "securepoll-header-start-date": "Beginn",
+    "securepoll-header-end-date": "End",
+    "securepoll-subpage-translate": "Iwwersetze",
+    "securepoll-subpage-list": "Lischt"
+}

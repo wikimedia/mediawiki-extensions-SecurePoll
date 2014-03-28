@@ -50,7 +50,8 @@ $wgSecurePollKeepPrivateInfoDays = 90;
 
 
 // Set up the new special page
-$dir = dirname( __FILE__ );
+$dir = __DIR__;
+$wgMessagesDirs['SecurePoll'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['SecurePoll'] = "$dir/SecurePoll.i18n.php";
 $wgExtensionMessagesFiles['SecurePollAlias'] = "$dir/SecurePoll.alias.php";
 

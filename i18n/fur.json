@@ -1,0 +1,19 @@
+{
+    "@metadata": {
+        "authors": [
+            "Akaahdudeson",
+            "Klenje",
+            "Shirayuki"
+        ]
+    },
+    "securepoll": "SecurePoll",
+    "securepoll-welcome": "<strong>Benvignût! $1!</strong>",
+    "securepoll-not-started": "Cheste elezion no je ancjemò començade.\nLa elezion e començarà il $2 a lis $3.",
+    "securepoll-finished": "Chiste elezion a jè finide, i no ti pòs plui votâ.",
+    "securepoll-not-qualified": "I no ti âs la cualifiche par votâ in cheste elezion: $1",
+    "securepoll-change-disallowed": "I tu as bielzà votât par cheste elezion.\nScuse, i no ti puedis plui votâ.",
+    "securepoll-thanks": "Graciis, il to vôt al è stât regjistrât",
+    "securepoll-return": "Torne a $1",
+    "securepoll-encrypt-error": "Impussibil codificâ lis informazions dal vôt.\nIl to vôt nol è stât regjistrât!\n\n$1",
+    "securepoll-header-timestamp": "Ore"
+}

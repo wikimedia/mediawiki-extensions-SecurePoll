@@ -1,0 +1,12 @@
+{
+    "@metadata": {
+        "authors": [
+            "Nayvik"
+        ]
+    },
+    "securepoll-header-voter-name": "ಹೆಸರು",
+    "securepoll-strike-reason": "ಕಾರಣ:",
+    "securepoll-strike-cancel": "ರದ್ದು ಮಾಡು",
+    "securepoll-header-reason": "ಕಾರಣ",
+    "securepoll-header-title": "ಹೆಸರು"
+}
