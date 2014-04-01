@@ -27,6 +27,10 @@
  *              The name of an MW group voters need to be in
  *          need-list
  *              The name of a SecurePoll list voters need to be in
+ *          include-list
+ *              The name of a SecurePoll list of voters who can vote regardless of the above
+ *          exclude-list
+ *              The name of a SecurePoll list of voters who may not vote regardless of the above
  *          admins
  *              A list of admin names, pipe separated
  *          disallow-change
@@ -164,60 +168,69 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		$props = $params['properties'];
 		$status = Status::newGood();
 
-		# Edits
-		$minEdits = $this->getProperty( 'min-edits' );
-		$edits = isset( $props['edit-count'] ) ? $props['edit-count'] : 0;
-		if ( $minEdits && $edits < $minEdits ) {
-			$status->fatal( 'securepoll-too-few-edits', $wgLang->formatNum( $minEdits), $wgLang->formatNum( $edits ) );
-		}
-
-		# Registration date
-		$maxDate = $this->getProperty( 'max-registration' );
-		$date = isset( $props['registration'] ) ? $props['registration'] : 0;
-		if ( $maxDate && $date > $maxDate ) {
-			$status->fatal(
-				'securepoll-too-new',
-				$wgLang->date( $maxDate ),
-				$wgLang->date( $date ),
-				$wgLang->time( $maxDate ),
-				$wgLang->time( $date )
-			);
-		}
-
-		# Blocked
-		$notBlocked = $this->getProperty( 'not-blocked' );
-		$isBlocked = !empty( $props['blocked'] );
-		if ( $notBlocked && $isBlocked ) {
-			$status->fatal( 'securepoll-blocked' );
-		}
-
-		# Centrally blocked on more than X projects
-		$notCentrallyBlocked = $this->getProperty( 'not-centrally-blocked' );
-		$centralBlockCount = isset( $props['central-block-count'] ) ? $props['central-block-count'] : 0;
-		$centralBlockThreshold = $this->getProperty( 'central-block-threshold', 1 );
-		if ( $notCentrallyBlocked && $centralBlockCount >= $centralBlockThreshold ) {
-			$status->fatal( 'securepoll-blocked-centrally', $wgLang->formatNum( $centralBlockThreshold ) );
-		}
-
-		# Bot
-		$notBot = $this->getProperty( 'not-bot' );
-		$isBot = !empty( $props['bot'] );
-		if ( $notBot && $isBot ) {
-			$status->fatal( 'securepoll-bot' );
-		}
-
-		# Groups
-		$needGroup = $this->getProperty( 'need-group' );
-		$groups = isset( $props['groups'] ) ? $props['groups'] : array();
-		if ( $needGroup && !in_array( $needGroup, $groups ) ) {
-			$status->fatal( 'securepoll-not-in-group', $needGroup );
-		}
-
-		# Lists
-		$needList = $this->getProperty( 'need-list' );
 		$lists = isset( $props['lists'] ) ? $props['lists'] : array();
-		if ( $needList && !in_array( $needList, $lists ) ) {
-			$status->fatal( 'securepoll-not-in-list' );
+		$includeList = $this->getProperty( 'include-list' );
+		$excludeList = $this->getProperty( 'exclude-list' );
+
+		if ( $excludeList && in_array( $excludeList, $lists ) ) {
+			$status->fatal( 'securepoll-in-exclude-list' );
+		} elseif ( $includeList && in_array( $includeList, $lists ) ) {
+			# Good
+		} else {
+			# Edits
+			$minEdits = $this->getProperty( 'min-edits' );
+			$edits = isset( $props['edit-count'] ) ? $props['edit-count'] : 0;
+			if ( $minEdits && $edits < $minEdits ) {
+				$status->fatal( 'securepoll-too-few-edits', $wgLang->formatNum( $minEdits), $wgLang->formatNum( $edits ) );
+			}
+
+			# Registration date
+			$maxDate = $this->getProperty( 'max-registration' );
+			$date = isset( $props['registration'] ) ? $props['registration'] : 0;
+			if ( $maxDate && $date > $maxDate ) {
+				$status->fatal(
+					'securepoll-too-new',
+					$wgLang->date( $maxDate ),
+					$wgLang->date( $date ),
+					$wgLang->time( $maxDate ),
+					$wgLang->time( $date )
+				);
+			}
+
+			# Blocked
+			$notBlocked = $this->getProperty( 'not-blocked' );
+			$isBlocked = !empty( $props['blocked'] );
+			if ( $notBlocked && $isBlocked ) {
+				$status->fatal( 'securepoll-blocked' );
+			}
+
+			# Centrally blocked on more than X projects
+			$notCentrallyBlocked = $this->getProperty( 'not-centrally-blocked' );
+			$centralBlockCount = isset( $props['central-block-count'] ) ? $props['central-block-count'] : 0;
+			$centralBlockThreshold = $this->getProperty( 'central-block-threshold', 1 );
+			if ( $notCentrallyBlocked && $centralBlockCount >= $centralBlockThreshold ) {
+				$status->fatal( 'securepoll-blocked-centrally', $wgLang->formatNum( $centralBlockThreshold ) );
+			}
+
+			# Bot
+			$notBot = $this->getProperty( 'not-bot' );
+			$isBot = !empty( $props['bot'] );
+			if ( $notBot && $isBot ) {
+				$status->fatal( 'securepoll-bot' );
+			}
+
+			# Groups
+			$needGroup = $this->getProperty( 'need-group' );
+			$groups = isset( $props['groups'] ) ? $props['groups'] : array();
+			if ( $needGroup && !in_array( $needGroup, $groups ) ) {
+				$status->fatal( 'securepoll-not-in-group', $needGroup );
+			}
+
+			# Lists
+			$needList = $this->getProperty( 'need-list' );
+			if ( $needList && !in_array( $needList, $lists ) ) {
+				$status->fatal( 'securepoll-not-in-list' );
+			}
 		}
 
 		# Get custom error message

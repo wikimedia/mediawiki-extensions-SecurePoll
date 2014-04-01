@@ -25,16 +25,41 @@ abstract class SecurePoll_Crypt {
 	 */
 	abstract function canDecrypt();
 
+	static $cryptTypes = array(
+		//'none' => false,
+		'gpg' => 'SecurePoll_GpgCrypt',
+	);
+
 	/**
 	 * Create an encryption object of the given type. Currently only "gpg" is
 	 * implemented.
 	 */
 	static function factory( $context, $type, $election ) {
-		if ( $type === 'gpg' ) {
-			return new SecurePoll_GpgCrypt( $context, $election );
-		} else {
-			return false;
+		if ( !isset( self::$cryptTypes[$type] ) ) {
+			throw new MWException( "Invalid crypt type: $type" );
 		}
+		$class = self::$cryptTypes[$type];
+		return $class ? new $class( $context, $election ) : false;
+	}
+
+	/**
+	 * Return descriptors for any properties this type requires for poll
+	 * creation, for the election, questions, and options.
+	 *
+	 * The returned array should have three keys, "election", "question", and
+	 * "option", each mapping to an array of HTMLForm descriptors.
+	 *
+	 * The descriptors should have an additional key, "SecurePoll_type", with
+	 * the value being "property" or "message".
+	 *
+	 * @return array
+	 */
+	static function getCreateDescriptors() {
+		return array(
+			'election' => array(),
+			'question' => array(),
+			'option' => array(),
+		);
 	}
 }
 
@@ -52,6 +77,26 @@ abstract class SecurePoll_Crypt {
 class SecurePoll_GpgCrypt {
 	var $context, $election;
 	var $recipient, $signer, $homeDir;
+
+	static function getCreateDescriptors() {
+		$ret = SecurePoll_Crypt::getCreateDescriptors();
+		$ret['election'] += array(
+			'gpg-encrypt-key' => array(
+				'label-message' => 'securepoll-create-label-gpg_encrypt_key',
+				'type' => 'textarea',
+				'required' => true,
+				'SecurePoll_type' => 'property',
+				'rows' => 5,
+			),
+			'gpg-sign-key' => array(
+				'label-message' => 'securepoll-create-label-gpg_sign_key',
+				'type' => 'textarea',
+				'SecurePoll_type' => 'property',
+				'rows' => 5,
+			),
+		);
+		return $ret;
+	}
 
 	/**
 	 * Constructor.

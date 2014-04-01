@@ -8,8 +8,21 @@
  *     must-rank-all
  */
 class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
-	function getTallyTypes() {
+	static function getTallyTypes() {
 		return array( 'schulze' );
+	}
+
+	static function getCreateDescriptors() {
+		$ret = parent::getCreateDescriptors();
+		$ret['election'] += array(
+			'must-rank-all' => array(
+				'label-message' => 'securepoll-create-label-must_rank_all',
+				'type' => 'check',
+				'hidelabel' => true,
+				'SecurePoll_type' => 'property',
+			),
+		);
+		return $ret;
 	}
 
 	/**

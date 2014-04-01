@@ -19,8 +19,87 @@
 class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 	var $columnLabels, $minMax;
 
-	function getTallyTypes() {
+	static function getTallyTypes() {
 		return array( 'plurality', 'histogram-range' );
+	}
+
+	static function getCreateDescriptors() {
+		$ret = parent::getCreateDescriptors();
+		$ret['election'] += array(
+			'must-answer-all' => array(
+				'label-message' => 'securepoll-create-label-must_answer_all',
+				'type' => 'check',
+				'hidelabel' => true,
+				'SecurePoll_type' => 'property',
+			),
+		);
+		$ret['question'] += array(
+			array(
+				'type' => 'info',
+				'rawrow' => true,
+				'default' => '<table class="securepoll-layout-table"><tr><td>',
+			),
+
+			'min-score' => array(
+				'label-message' => 'securepoll-create-label-min_score',
+				'type' => 'int',
+				'required' => true,
+				'SecurePoll_type' => 'property',
+			),
+
+			array(
+				'type' => 'info',
+				'rawrow' => true,
+				'default' => '</td><td>',
+			),
+
+			'max-score' => array(
+				'label-message' => 'securepoll-create-label-max_score',
+				'type' => 'int',
+				'required' => true,
+				'SecurePoll_type' => 'property',
+			),
+
+			array(
+				'type' => 'info',
+				'rawrow' => true,
+				'default' => '</td><td>',
+			),
+
+			'default-score' => array(
+				'label-message' => 'securepoll-create-label-default_score',
+				'type' => 'int',
+				'SecurePoll_type' => 'property',
+			),
+
+			array(
+				'type' => 'info',
+				'rawrow' => true,
+				'default' => '</td></tr></table>',
+			),
+
+			'column-order' => array(
+				'label-message' => 'securepoll-create-label-column_order',
+				'type' => 'select',
+				'options-messages' => array(
+					'securepoll-create-option-column_order-asc' => 'asc',
+					'securepoll-create-option-column_order-desc' => 'desc',
+				),
+				'SecurePoll_type' => 'property',
+			),
+			'column-label-msgs' => array(
+				'label-message' => 'securepoll-create-label-column_label_msgs',
+				'type' => 'check',
+				'hidelabel' => true,
+				'SecurePoll_type' => 'property',
+			),
+			'column-messages' => array(
+				'hide-if' => array( '!==', 'column-label-msgs', '1' ),
+				'class' => 'SecurePoll_HTMLFormRadioRangeColumnLabels',
+				'SecurePoll_type' => 'messages',
+			),
+		);
+		return $ret;
 	}
 
 	/**

@@ -4,7 +4,7 @@
  * Checkbox approval voting.
  */
 class SecurePoll_ApprovalBallot extends SecurePoll_Ballot {
-	function getTallyTypes() {
+	static function getTallyTypes() {
 		return array( 'plurality' );
 	}
 

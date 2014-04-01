@@ -26,6 +26,19 @@ class SecurePoll_Auth {
 		return new $class( $context );
 	}
 
+	/**
+	 * Return descriptors for any additional properties or messages this type
+	 * requires for poll creation.
+	 *
+	 * The descriptors should have an additional key, "SecurePoll_type", with
+	 * the value being "property" or "message".
+	 *
+	 * @return array
+	 */
+	static function getCreateDescriptors() {
+		return array();
+	}
+
 	function __construct( $context ) {
 		$this->context = $context;
 	}
@@ -272,6 +285,17 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
  * Class for guest login from one MW instance running SecurePoll to another.
  */
 class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
+	static function getCreateDescriptors() {
+		return array(
+			'script-path' => array(
+				'label-message' => 'securepoll-create-label-remote_mw_script_path',
+				'type' => 'url',
+				'required' => true,
+				'SecurePoll_type' => 'property',
+			),
+		);
+	}
+
 	/**
 	 * Create a voter on a direct request from a remote site.
 	 * @param $election SecurePoll_Election

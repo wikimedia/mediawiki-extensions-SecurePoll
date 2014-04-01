@@ -6,12 +6,55 @@
 abstract class SecurePoll_Ballot {
 	var $election, $context;
 
+	static $ballotTypes = array(
+		'approval' => 'SecurePoll_ApprovalBallot',
+		'preferential' => 'SecurePoll_PreferentialBallot',
+		'choose' => 'SecurePoll_ChooseBallot',
+		'radio-range' => 'SecurePoll_RadioRangeBallot',
+		'radio-range-comment' => 'SecurePoll_RadioRangeCommentBallot',
+	);
+
 	/**
 	 * Get a list of names of tallying methods, which may be used to produce a
 	 * result from this ballot type.
 	 * @return array
 	 */
-	abstract function getTallyTypes();
+	static function getTallyTypes() {
+		throw new MWException( "Subclass must override ::getTallyTypes()" );
+	}
+
+	/**
+	 * Return descriptors for any properties this type requires for poll
+	 * creation, for the election, questions, and options.
+	 *
+	 * The returned array should have three keys, "election", "question", and
+	 * "option", each mapping to an array of HTMLForm descriptors.
+	 *
+	 * The descriptors should have an additional key, "SecurePoll_type", with
+	 * the value being "property" or "message".
+	 *
+	 * @return array
+	 */
+	static function getCreateDescriptors() {
+		return array(
+			'election' => array(
+				'shuffle-questions' => array(
+					'label-message' => 'securepoll-create-label-shuffle_questions',
+					'type' => 'check',
+					'hidelabel' => true,
+					'SecurePoll_type' => 'property',
+				),
+				'shuffle-options' => array(
+					'label-message' => 'securepoll-create-label-shuffle_options',
+					'type' => 'check',
+					'hidelabel' => true,
+					'SecurePoll_type' => 'property',
+				),
+			),
+			'question' => array(),
+			'option' => array(),
+		);
+	}
 
 	/**
 	 * Get the HTML form segment for a single question
@@ -90,20 +133,11 @@ abstract class SecurePoll_Ballot {
 	 * @return SecurePoll_Ballot
 	 */
 	static function factory( $context, $type, $election ) {
-		switch ( $type ) {
-		case 'approval':
-			return new SecurePoll_ApprovalBallot( $context, $election );
-		case 'preferential':
-			return new SecurePoll_PreferentialBallot( $context, $election );
-		case 'choose':
-			return new SecurePoll_ChooseBallot( $context, $election );
-		case 'radio-range':
-			return new SecurePoll_RadioRangeBallot( $context, $election );
-		case 'radio-range-comment':
-			return new SecurePoll_RadioRangeCommentBallot( $context, $election );
-		default:
+		if ( !isset( self::$ballotTypes[$type] ) ) {
 			throw new MWException( "Invalid ballot type: $type" );
 		}
+		$class = self::$ballotTypes[$type];
+		return new $class( $context, $election );
 	}
 
 	/**

@@ -46,6 +46,24 @@ $wgSecurePollScript = 'extensions/SecurePoll/auth-api.php';
  */
 $wgSecurePollKeepPrivateInfoDays = 90;
 
+/**
+ * Directory holding dblist files for $wgSecurePollCreateWikiGroups.
+ * The file format is one dbname per line.
+ */
+$wgSecurePollCreateWikiGroupDir = $IP . '/../';
+
+/**
+ * List of dblist files to read from $wgSecurePollCreateWikiGroupDir.
+ * Keys are file names without the ".dblist" extension. Values are message
+ * names.
+ */
+$wgSecurePollCreateWikiGroups = array();
+
+/**
+ * Value for remote-mw-script-path when creating a multi-wiki poll.
+ */
+$wgSecurePollCreateRemoteScriptPath = 'https:$wgServer/w';
+
 ### END CONFIGURATON ###
 
 
@@ -86,6 +104,7 @@ $wgAutoloadClasses = $wgAutoloadClasses + array(
 	'SecurePoll_XMLStore' => "$dir/includes/main/Store.php",
 
 	# pages
+	'SecurePoll_CreatePage' => "$dir/includes/pages/CreatePage.php",
 	'SecurePoll_DetailsPage' => "$dir/includes/pages/DetailsPage.php",
 	'SecurePoll_DumpPage' => "$dir/includes/pages/DumpPage.php",
 	'SecurePoll_EntryPage' => "$dir/includes/pages/EntryPage.php",
@@ -97,6 +116,7 @@ $wgAutoloadClasses = $wgAutoloadClasses + array(
 	'SecurePoll_TranslatePage' => "$dir/includes/pages/TranslatePage.php",
 	'SecurePoll_VotePage' => "$dir/includes/pages/VotePage.php",
 	'SecurePoll_Voter' => "$dir/includes/user/Voter.php",
+	'SecurePoll_VoterEligibilityPage' => "$dir/includes/pages/VoterEligibilityPage.php",
 
 	# talliers
 	'SecurePoll_ElectionTallier' => "$dir/includes/talliers/ElectionTallier.php",
@@ -112,10 +132,33 @@ $wgAutoloadClasses = $wgAutoloadClasses + array(
 	'SecurePoll_Auth' => "$dir/includes/user/Auth.php",
 	'SecurePoll_LocalAuth' => "$dir/includes/user/Auth.php",
 	'SecurePoll_RemoteMWAuth' => "$dir/includes/user/Auth.php",
+
+	# Jobs
+	'SecurePoll_PopulateVoterListJob' => "$dir/includes/jobs/PopulateVoterListJob.php",
+
+	# HTMLForm additions
+	'SecurePoll_HTMLDateField' => "$dir/includes/htmlform/HTMLDateField.php",
+	'SecurePoll_HTMLDateRangeField' => "$dir/includes/htmlform/HTMLDateRangeField.php",
+	'SecurePoll_HTMLFormRadioRangeColumnLabels' => "$dir/includes/htmlform/HTMLFormRadioRangeColumnLabels.php",
+);
+
+$wgResourceModules['ext.securepoll.htmlform'] = array(
+	'localBasePath' => dirname( __FILE__ ) . '/modules',
+	'remoteExtPath' => 'SecurePoll/modules',
+	'scripts' => 'ext.securepoll.htmlform.js',
+);
+$wgResourceModules['ext.securepoll'] = array(
+	'localBasePath' => dirname( __FILE__ ) . '/modules',
+	'remoteExtPath' => 'SecurePoll/modules',
+	'styles' => 'ext.securepoll.css',
 );
 
 $wgAjaxExportList[] = 'wfSecurePollStrike';
 $wgHooks['UserLogout'][] = 'wfSecurePollLogout';
+
+$wgJobClasses['securePollPopulateVoterList'] = 'SecurePoll_PopulateVoterListJob';
+
+$wgAvailableRights[] = 'securepoll-create-poll';
 
 function wfSecurePollStrike( $action, $id, $reason ) {
 	return SecurePoll_ListPage::ajaxStrike( $action, $id, $reason );
