@@ -1,9 +1,0 @@
-{
-    "@metadata": {
-        "authors": [
-            "FireJackey",
-            "Skjackey tse"
-        ]
-    },
-    "securepoll-dump-no-urandom": "無法打開/dev/urandom。\n為了保證投票者的私隱，經過加密的投票記錄只有在經隨機數據串干擾後方可公開。"
-}
