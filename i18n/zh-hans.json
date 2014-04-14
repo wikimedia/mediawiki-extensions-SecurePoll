@@ -9,11 +9,12 @@
             "Liangent",
             "Liuxinyu970226",
             "PhiLiP",
-            "Skjackey tse"
+            "Skjackey tse",
+            "Hudafu"
         ]
     },
     "securepoll": "安全投票",
-    "securepoll-desc": "选举和投票扩展",
+    "securepoll-desc": "用于选举与调查的扩展程序",
     "securepoll-invalid-page": "无效的子页面“<nowiki>$1</nowiki>”",
     "securepoll-need-admin": "您必须是选举管理员才能进行此操作。",
     "securepoll-too-few-params": "缺少子页面参数（无效链接）。",
