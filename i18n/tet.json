@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "MF-Warburg"
-        ]
-    },
-    "securepoll-header-voter-name": "Naran",
-    "securepoll-header-title": "Naran"
+	"@metadata": {
+		"authors": [
+			"MF-Warburg"
+		]
+	},
+	"securepoll-header-voter-name": "Naran",
+	"securepoll-header-title": "Naran"
 }

@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Chelin"
-        ]
-    },
-    "securepoll-return": "Torna a $1.",
-    "securepoll-header-voter-name": "Nomme",
-    "securepoll-header-voter-domain": "Dominio",
-    "securepoll-header-admin": "Ammenistratore",
-    "securepoll-header-title": "Nomme"
+	"@metadata": {
+		"authors": [
+			"Chelin"
+		]
+	},
+	"securepoll-return": "Torna a $1.",
+	"securepoll-header-voter-name": "Nomme",
+	"securepoll-header-voter-domain": "Dominio",
+	"securepoll-header-admin": "Ammenistratore",
+	"securepoll-header-title": "Nomme"
 }

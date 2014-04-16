@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Karthi.dr"
-        ]
-    },
-    "securepoll-header-voter-name": "Naam",
-    "securepoll-strike-reason": "Kaaran:",
-    "securepoll-strike-cancel": "Nai karo",
-    "securepoll-header-reason": "Kaaran"
+	"@metadata": {
+		"authors": [
+			"Karthi.dr"
+		]
+	},
+	"securepoll-header-voter-name": "Naam",
+	"securepoll-strike-reason": "Kaaran:",
+	"securepoll-strike-cancel": "Nai karo",
+	"securepoll-header-reason": "Kaaran"
 }

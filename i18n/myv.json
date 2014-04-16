@@ -1,16 +1,16 @@
 {
-    "@metadata": {
-        "authors": [
-            "Botuzhaleny-sodamo"
-        ]
-    },
-    "securepoll-submit": "Каямс вайгель",
-    "securepoll-header-strike": "Черькстамс",
-    "securepoll-strike-button": "Черькстамс",
-    "securepoll-unstrike-button": "Саемс черькстамонть",
-    "securepoll-strike-reason": "Тувталось:",
-    "securepoll-details-link": "Мезде моли кортамось",
-    "securepoll-header-reason": "Тувтал",
-    "securepoll-language-label": "Кочкамс келенть:",
-    "securepoll-submit-select-lang": "Ютавтомс"
+	"@metadata": {
+		"authors": [
+			"Botuzhaleny-sodamo"
+		]
+	},
+	"securepoll-submit": "Каямс вайгель",
+	"securepoll-header-strike": "Черькстамс",
+	"securepoll-strike-button": "Черькстамс",
+	"securepoll-unstrike-button": "Саемс черькстамонть",
+	"securepoll-strike-reason": "Тувталось:",
+	"securepoll-details-link": "Мезде моли кортамось",
+	"securepoll-header-reason": "Тувтал",
+	"securepoll-language-label": "Кочкамс келенть:",
+	"securepoll-submit-select-lang": "Ютавтомс"
 }

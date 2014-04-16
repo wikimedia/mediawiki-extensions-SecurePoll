@@ -1,25 +1,25 @@
 {
-    "@metadata": {
-        "authors": [
-            "Sasan700",
-            "Умар"
-        ]
-    },
-    "securepoll-desc": "Харжамаш а хаттарш а шордеш хӀума",
-    "securepoll-too-few-params": "Бухара агӀона параметраш тоьуш яц (гӀалате хьажораг).",
-    "securepoll-submit": "ДӀабахьийта кхаж",
-    "securepoll-api-invalid-params": "ГӀалате параметраш.",
-    "securepoll-api-no-user": "Иштта ID долу декъашхо цакарий.",
-    "securepoll-header-details": "Мадарра",
-    "securepoll-strike-reason": "Бахьна:",
-    "securepoll-strike-cancel": "Цаоьшу",
-    "securepoll-details-link": "Мадарра",
-    "securepoll-header-action": "Дийраш",
-    "securepoll-header-reason": "Бахьна",
-    "securepoll-header-admin": "Куьйгалхой",
-    "securepoll-translate-title": "Гоч: $1",
-    "securepoll-submit-translate": "Карлаяккха",
-    "securepoll-language-label": "Мотт харжар:",
-    "securepoll-subpage-translate": "Гоч",
-    "securepoll-subpage-list": "МогӀам"
+	"@metadata": {
+		"authors": [
+			"Sasan700",
+			"Умар"
+		]
+	},
+	"securepoll-desc": "Харжамаш а хаттарш а шордеш хӀума",
+	"securepoll-too-few-params": "Бухара агӀона параметраш тоьуш яц (гӀалате хьажораг).",
+	"securepoll-submit": "ДӀабахьийта кхаж",
+	"securepoll-api-invalid-params": "ГӀалате параметраш.",
+	"securepoll-api-no-user": "Иштта ID долу декъашхо цакарий.",
+	"securepoll-header-details": "Мадарра",
+	"securepoll-strike-reason": "Бахьна:",
+	"securepoll-strike-cancel": "Цаоьшу",
+	"securepoll-details-link": "Мадарра",
+	"securepoll-header-action": "Дийраш",
+	"securepoll-header-reason": "Бахьна",
+	"securepoll-header-admin": "Куьйгалхой",
+	"securepoll-translate-title": "Гоч: $1",
+	"securepoll-submit-translate": "Карлаяккха",
+	"securepoll-language-label": "Мотт харжар:",
+	"securepoll-subpage-translate": "Гоч",
+	"securepoll-subpage-list": "МогӀам"
 }

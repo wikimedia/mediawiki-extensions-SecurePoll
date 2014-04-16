@@ -1,30 +1,30 @@
 {
-    "@metadata": {
-        "authors": [
-            "Siebrand"
-        ]
-    },
-    "securepoll-need-admin": "Je moet een stemmingenbeheerder zijn om deze handeling te mogen uitvoeren.",
-    "securepoll-finished": "Deze stemming is afgelopen, je kunt niet meer stemmen.",
-    "securepoll-not-qualified": "Je bent niet bevoegd om te stemmen in deze stemming: $1",
-    "securepoll-change-disallowed": "Je hebt al gestemd in deze stemming.\nJe mag niet opnieuw stemmen.",
-    "securepoll-change-allowed": "<strong>Let op: je hebt al gestemd in deze stemming.</strong>\nJe kunt je stem wijzigen door het onderstaande formulier op te slaan.\nAls je daarvoor kiest, wordt je eerdere stem verwijderd.",
-    "securepoll-gpg-receipt": "Dank je voor je stem.\n\nJe kunt de onderstaande gegevens bewaren als bewijs van je deelname aan deze stemming:\n\n<pre>$1</pre>",
-    "securepoll-thanks": "Dank je wel. Je stem is ontvangen en opgeslagen.",
-    "securepoll-encrypt-error": "Het coderen van je stem is mislukt.\nJe stem is niet opgeslagen!\n\n$1",
-    "securepoll-bad-ballot-submission": "Je stem is ongeldig: $1",
-    "securepoll-unanswered-questions": "Je moet alle vragen beantwoorden.",
-    "securepoll-invalid-rank": "Ongeldige rang.\nJe moet de kandidaten een rang geven tussen 1 en 999.",
-    "securepoll-unranked-options": "Sommige stemmogelijkheden hebben geen rang.\nJe moet alle mogelijkheden een rang geven tussen 1 en 999.",
-    "securepoll-unanswered-options": "Je moet iedere vraag beantwoorden.",
-    "securepoll-remote-auth-error": "Er is een fout opgetreden bij het ophalen van je gebruikersinformatie van de server.",
-    "securepoll-not-logged-in": "Je moet aanmelden om aan deze stemming deel te nemen",
-    "securepoll-too-few-edits": "Je kunt helaas niet deelnemen aan de stemming.\nJe moet ten minste $1 {{PLURAL:$1|bewerking|bewerkingen}} hebben gemaakt om te kunnen stemmen in deze stemming, en jij hebt er $2.",
-    "securepoll-too-new": "Je kunt niet deelnemen aan deze stemming. Je moet voor $1 om $3 geregistreerd zijn om te mogen stemmen, terwijl jij geregistreerd bent op $2 om $4.",
-    "securepoll-blocked": "Je kunt helaas niet deelnemen aan de stemming omdat je geblokkeerd bent.",
-    "securepoll-blocked-centrally": "Je kunt niet deelnemen aan deze stemming omdat je geblokkeerd bent op minstens $1 {{PLURAL:$1|wiki|wiki's}}.",
-    "securepoll-not-in-list": "Je staat helaas niet op de vooraf vastgestelde lijst van stemgerechtigden voor deze stemming.",
-    "securepoll-tally-not-finished": "Je kunt geen telling uitvoeren totdat de stemming is afgelopen.",
-    "securepoll-can-decrypt": "De resultaten van de stemming zijn versleuteld, maar de coderingssleutel is beschikbaar.\nJe kunt de in de database beschikbare resultaten tellen, of de resultaten uit een bestandsupload tellen.",
-    "securepoll-tally-no-key": "Je kunt geen telling uitvoeren voor deze stemming, omdat de stemmen versleuteld zijn en de sleutel niet beschikbaar is."
+	"@metadata": {
+		"authors": [
+			"Siebrand"
+		]
+	},
+	"securepoll-need-admin": "Je moet een stemmingenbeheerder zijn om deze handeling te mogen uitvoeren.",
+	"securepoll-finished": "Deze stemming is afgelopen, je kunt niet meer stemmen.",
+	"securepoll-not-qualified": "Je bent niet bevoegd om te stemmen in deze stemming: $1",
+	"securepoll-change-disallowed": "Je hebt al gestemd in deze stemming.\nJe mag niet opnieuw stemmen.",
+	"securepoll-change-allowed": "<strong>Let op: je hebt al gestemd in deze stemming.</strong>\nJe kunt je stem wijzigen door het onderstaande formulier op te slaan.\nAls je daarvoor kiest, wordt je eerdere stem verwijderd.",
+	"securepoll-gpg-receipt": "Dank je voor je stem.\n\nJe kunt de onderstaande gegevens bewaren als bewijs van je deelname aan deze stemming:\n\n<pre>$1</pre>",
+	"securepoll-thanks": "Dank je wel. Je stem is ontvangen en opgeslagen.",
+	"securepoll-encrypt-error": "Het coderen van je stem is mislukt.\nJe stem is niet opgeslagen!\n\n$1",
+	"securepoll-bad-ballot-submission": "Je stem is ongeldig: $1",
+	"securepoll-unanswered-questions": "Je moet alle vragen beantwoorden.",
+	"securepoll-invalid-rank": "Ongeldige rang.\nJe moet de kandidaten een rang geven tussen 1 en 999.",
+	"securepoll-unranked-options": "Sommige stemmogelijkheden hebben geen rang.\nJe moet alle mogelijkheden een rang geven tussen 1 en 999.",
+	"securepoll-unanswered-options": "Je moet iedere vraag beantwoorden.",
+	"securepoll-remote-auth-error": "Er is een fout opgetreden bij het ophalen van je gebruikersinformatie van de server.",
+	"securepoll-not-logged-in": "Je moet aanmelden om aan deze stemming deel te nemen",
+	"securepoll-too-few-edits": "Je kunt helaas niet deelnemen aan de stemming.\nJe moet ten minste $1 {{PLURAL:$1|bewerking|bewerkingen}} hebben gemaakt om te kunnen stemmen in deze stemming, en jij hebt er $2.",
+	"securepoll-too-new": "Je kunt niet deelnemen aan deze stemming. Je moet voor $1 om $3 geregistreerd zijn om te mogen stemmen, terwijl jij geregistreerd bent op $2 om $4.",
+	"securepoll-blocked": "Je kunt helaas niet deelnemen aan de stemming omdat je geblokkeerd bent.",
+	"securepoll-blocked-centrally": "Je kunt niet deelnemen aan deze stemming omdat je geblokkeerd bent op minstens $1 {{PLURAL:$1|wiki|wiki's}}.",
+	"securepoll-not-in-list": "Je staat helaas niet op de vooraf vastgestelde lijst van stemgerechtigden voor deze stemming.",
+	"securepoll-tally-not-finished": "Je kunt geen telling uitvoeren totdat de stemming is afgelopen.",
+	"securepoll-can-decrypt": "De resultaten van de stemming zijn versleuteld, maar de coderingssleutel is beschikbaar.\nJe kunt de in de database beschikbare resultaten tellen, of de resultaten uit een bestandsupload tellen.",
+	"securepoll-tally-no-key": "Je kunt geen telling uitvoeren voor deze stemming, omdat de stemmen versleuteld zijn en de sleutel niet beschikbaar is."
 }

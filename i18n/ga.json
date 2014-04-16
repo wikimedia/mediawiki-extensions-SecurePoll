@@ -1,17 +1,17 @@
 {
-    "@metadata": {
-        "authors": [
-            "Alison",
-            "Stifle",
-            "පසිඳු කාවින්ද"
-        ]
-    },
-    "securepoll-not-started": "Níl an toghchán seo tosaithe fós.\nDe réir an sceidil, tosnóidh sé ag $2 ar $3.",
-    "securepoll-not-qualified": "Níl tú cáilithe vótáil sa thoghchán seo: $1",
-    "securepoll-change-disallowed": "Vótail tú sa thoghchán seo roimhe seo.\nNíl cead agat vótáil arís.",
-    "securepoll-header-voter-name": "Ainm",
-    "securepoll-strike-reason": "Fáth:",
-    "securepoll-strike-cancel": "Cealaigh",
-    "securepoll-header-reason": "Fáth",
-    "securepoll-header-title": "Ainm"
+	"@metadata": {
+		"authors": [
+			"Alison",
+			"Stifle",
+			"පසිඳු කාවින්ද"
+		]
+	},
+	"securepoll-not-started": "Níl an toghchán seo tosaithe fós.\nDe réir an sceidil, tosnóidh sé ag $2 ar $3.",
+	"securepoll-not-qualified": "Níl tú cáilithe vótáil sa thoghchán seo: $1",
+	"securepoll-change-disallowed": "Vótail tú sa thoghchán seo roimhe seo.\nNíl cead agat vótáil arís.",
+	"securepoll-header-voter-name": "Ainm",
+	"securepoll-strike-reason": "Fáth:",
+	"securepoll-strike-cancel": "Cealaigh",
+	"securepoll-header-reason": "Fáth",
+	"securepoll-header-title": "Ainm"
 }

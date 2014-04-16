@@ -1,15 +1,15 @@
 {
-    "@metadata": {
-        "authors": [
-            "Spacebirdy"
-        ]
-    },
-    "securepoll-header-voter-name": "Nafn",
-    "securepoll-header-voter-domain": "Lén",
-    "securepoll-header-ua": "Aðgangsbúnaður",
-    "securepoll-header-url": "Veffang",
-    "securepoll-language-label": "Velja tungumál:",
-    "securepoll-submit-select-lang": "Þýða",
-    "securepoll-header-title": "Nafn",
-    "securepoll-subpage-translate": "Þýða"
+	"@metadata": {
+		"authors": [
+			"Spacebirdy"
+		]
+	},
+	"securepoll-header-voter-name": "Nafn",
+	"securepoll-header-voter-domain": "Lén",
+	"securepoll-header-ua": "Aðgangsbúnaður",
+	"securepoll-header-url": "Veffang",
+	"securepoll-language-label": "Velja tungumál:",
+	"securepoll-submit-select-lang": "Þýða",
+	"securepoll-header-title": "Nafn",
+	"securepoll-subpage-translate": "Þýða"
 }

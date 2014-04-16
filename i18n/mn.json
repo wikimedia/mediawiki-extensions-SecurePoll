@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Chinneeb"
-        ]
-    },
-    "securepoll-strike-reason": "Шалтгаан:",
-    "securepoll-strike-cancel": "Цуцлах",
-    "securepoll-header-reason": "Шалтгаан"
+	"@metadata": {
+		"authors": [
+			"Chinneeb"
+		]
+	},
+	"securepoll-strike-reason": "Шалтгаан:",
+	"securepoll-strike-cancel": "Цуцлах",
+	"securepoll-header-reason": "Шалтгаан"
 }

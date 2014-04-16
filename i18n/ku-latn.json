@@ -1,19 +1,19 @@
 {
-    "@metadata": {
-        "authors": [
-            "George Animal",
-            "Gomada"
-        ]
-    },
-    "securepoll-header-timestamp": "Dem",
-    "securepoll-header-voter-name": "Nav",
-    "securepoll-strike-reason": "Sedem:",
-    "securepoll-strike-cancel": "Betal bike",
-    "securepoll-header-reason": "Sedem",
-    "securepoll-language-label": "Ziman bijêre:",
-    "securepoll-submit-select-lang": "Wergerîne",
-    "securepoll-header-title": "Nav",
-    "securepoll-subpage-vote": "Dengdan",
-    "securepoll-subpage-translate": "Wergerîne",
-    "securepoll-subpage-list": "Lîste"
+	"@metadata": {
+		"authors": [
+			"George Animal",
+			"Gomada"
+		]
+	},
+	"securepoll-header-timestamp": "Dem",
+	"securepoll-header-voter-name": "Nav",
+	"securepoll-strike-reason": "Sedem:",
+	"securepoll-strike-cancel": "Betal bike",
+	"securepoll-header-reason": "Sedem",
+	"securepoll-language-label": "Ziman bijêre:",
+	"securepoll-submit-select-lang": "Wergerîne",
+	"securepoll-header-title": "Nav",
+	"securepoll-subpage-vote": "Dengdan",
+	"securepoll-subpage-translate": "Wergerîne",
+	"securepoll-subpage-list": "Lîste"
 }

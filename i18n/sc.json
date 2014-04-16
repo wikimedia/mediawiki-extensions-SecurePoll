@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Andria",
-            "Marzedu"
-        ]
-    },
-    "securepoll-header-voter-name": "Nùmene",
-    "securepoll-header-title": "Nùmene"
+	"@metadata": {
+		"authors": [
+			"Andria",
+			"Marzedu"
+		]
+	},
+	"securepoll-header-voter-name": "Nùmene",
+	"securepoll-header-title": "Nùmene"
 }

@@ -1,17 +1,17 @@
 {
-    "@metadata": {
-        "authors": [
-            "Biŋhai"
-        ]
-    },
-    "securepoll": "Douzbiuq Ancienz",
-    "securepoll-desc": "senjgij caez gyahung douzbiuq",
-    "securepoll-invalid-page": "bienj fouzyauq \"<nowiki>$1</nowiki>\"",
-    "securepoll-welcome": "<strong>Vanhyingz $1!</strong>",
-    "securepoll-return": "baema $1",
-    "securepoll-header-admin": "guenjleixguenj",
-    "securepoll-submit-translate": "swnggaep",
-    "securepoll-header-title": "Mingz",
-    "securepoll-subpage-vote": "Douzbiuq",
-    "securepoll-subpage-list": "Biuj"
+	"@metadata": {
+		"authors": [
+			"Biŋhai"
+		]
+	},
+	"securepoll": "Douzbiuq Ancienz",
+	"securepoll-desc": "senjgij caez gyahung douzbiuq",
+	"securepoll-invalid-page": "bienj fouzyauq \"<nowiki>$1</nowiki>\"",
+	"securepoll-welcome": "<strong>Vanhyingz $1!</strong>",
+	"securepoll-return": "baema $1",
+	"securepoll-header-admin": "guenjleixguenj",
+	"securepoll-submit-translate": "swnggaep",
+	"securepoll-header-title": "Mingz",
+	"securepoll-subpage-vote": "Douzbiuq",
+	"securepoll-subpage-list": "Biuj"
 }

@@ -1,14 +1,14 @@
 {
-    "@metadata": {
-        "authors": [
-            "Menachem.Moreira"
-        ]
-    },
-    "securepoll-header-voter-name": "Nombre",
-    "securepoll-header-voter-domain": "Dominio:",
-    "securepoll-strike-reason": "Razon:",
-    "securepoll-header-reason": "Razon",
-    "securepoll-translate-title": "Tradusir: $1",
-    "securepoll-submit-select-lang": "Tradusir",
-    "securepoll-header-title": "Nombre"
+	"@metadata": {
+		"authors": [
+			"Menachem.Moreira"
+		]
+	},
+	"securepoll-header-voter-name": "Nombre",
+	"securepoll-header-voter-domain": "Dominio:",
+	"securepoll-strike-reason": "Razon:",
+	"securepoll-header-reason": "Razon",
+	"securepoll-translate-title": "Tradusir: $1",
+	"securepoll-submit-select-lang": "Tradusir",
+	"securepoll-header-title": "Nombre"
 }

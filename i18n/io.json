@@ -1,16 +1,16 @@
 {
-    "@metadata": {
-        "authors": [
-            "Malafaya",
-            "Wyvernoid"
-        ]
-    },
-    "securepoll": "SekuraVoto",
-    "securepoll-desc": "Extensilo por elekti e voti",
-    "securepoll-header-voter-name": "Nomo",
-    "securepoll-strike-reason": "Motivo:",
-    "securepoll-header-reason": "Motivo",
-    "securepoll-language-label": "Selektez linguo:",
-    "securepoll-header-title": "Nomo",
-    "securepoll-subpage-list": "Listo"
+	"@metadata": {
+		"authors": [
+			"Malafaya",
+			"Wyvernoid"
+		]
+	},
+	"securepoll": "SekuraVoto",
+	"securepoll-desc": "Extensilo por elekti e voti",
+	"securepoll-header-voter-name": "Nomo",
+	"securepoll-strike-reason": "Motivo:",
+	"securepoll-header-reason": "Motivo",
+	"securepoll-language-label": "Selektez linguo:",
+	"securepoll-header-title": "Nomo",
+	"securepoll-subpage-list": "Listo"
 }

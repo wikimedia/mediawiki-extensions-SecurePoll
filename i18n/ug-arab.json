@@ -1,30 +1,30 @@
 {
-    "@metadata": {
-        "authors": [
-            "Sahran"
-        ]
-    },
-    "securepoll-header-timestamp": "سائەت",
-    "securepoll-header-voter-name": "ئاتى",
-    "securepoll-header-voter-domain": "دائىرە",
-    "securepoll-header-ip": "IP",
-    "securepoll-header-details": "تەپسىلاتى",
-    "securepoll-strike-reason": "سەۋەب:",
-    "securepoll-strike-cancel": "ۋاز كەچ",
-    "securepoll-details-link": "تەپسىلاتى",
-    "securepoll-header-id": "كىملىكى",
-    "securepoll-header-url": "URL",
-    "securepoll-header-action": "مەشغۇلات",
-    "securepoll-header-reason": "سەۋەب",
-    "securepoll-header-admin": "باشقۇرغۇچى",
-    "securepoll-header-trans-id": "كىملىكى",
-    "securepoll-submit-translate": "يېڭىلا",
-    "securepoll-submit-select-lang": "تەرجىمە",
-    "securepoll-header-title": "ئاتى",
-    "securepoll-header-start-date": "باشلاش چېسلاسى",
-    "securepoll-header-end-date": "ئاخىرلىشىش ۋاقتى",
-    "securepoll-subpage-vote": "بىلەت",
-    "securepoll-subpage-translate": "تەرجىمە",
-    "securepoll-subpage-list": "تىزىم",
-    "securepoll-subpage-dump": "ئالماشتۇرۇپ ساقلاش"
+	"@metadata": {
+		"authors": [
+			"Sahran"
+		]
+	},
+	"securepoll-header-timestamp": "سائەت",
+	"securepoll-header-voter-name": "ئاتى",
+	"securepoll-header-voter-domain": "دائىرە",
+	"securepoll-header-ip": "IP",
+	"securepoll-header-details": "تەپسىلاتى",
+	"securepoll-strike-reason": "سەۋەب:",
+	"securepoll-strike-cancel": "ۋاز كەچ",
+	"securepoll-details-link": "تەپسىلاتى",
+	"securepoll-header-id": "كىملىكى",
+	"securepoll-header-url": "URL",
+	"securepoll-header-action": "مەشغۇلات",
+	"securepoll-header-reason": "سەۋەب",
+	"securepoll-header-admin": "باشقۇرغۇچى",
+	"securepoll-header-trans-id": "كىملىكى",
+	"securepoll-submit-translate": "يېڭىلا",
+	"securepoll-submit-select-lang": "تەرجىمە",
+	"securepoll-header-title": "ئاتى",
+	"securepoll-header-start-date": "باشلاش چېسلاسى",
+	"securepoll-header-end-date": "ئاخىرلىشىش ۋاقتى",
+	"securepoll-subpage-vote": "بىلەت",
+	"securepoll-subpage-translate": "تەرجىمە",
+	"securepoll-subpage-list": "تىزىم",
+	"securepoll-subpage-dump": "ئالماشتۇرۇپ ساقلاش"
 }

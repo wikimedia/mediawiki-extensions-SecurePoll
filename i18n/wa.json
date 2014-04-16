@@ -1,30 +1,30 @@
 {
-    "@metadata": {
-        "authors": [
-            "Srtxg"
-        ]
-    },
-    "securepoll-return": "Rivni a $1",
-    "securepoll-header-timestamp": "Eure",
-    "securepoll-header-voter-name": "No",
-    "securepoll-header-voter-domain": "Dominne",
-    "securepoll-header-ua": "Adjint d' l' uzeu (''useragent'')",
-    "securepoll-header-details": "Detays",
-    "securepoll-strike-reason": "Råjhon:",
-    "securepoll-strike-cancel": "Rinoncî",
-    "securepoll-details-link": "Detays",
-    "securepoll-details-title": "Detays do vôtaedje: #$1",
-    "securepoll-header-action": "Accion",
-    "securepoll-header-reason": "Råjhon",
-    "securepoll-header-admin": "Manaedjeu",
-    "securepoll-cookie-dup-list": "Uzeus avou des coûkes dedja veyowes",
-    "securepoll-language-label": "Tchoezixhoz l' lingaedje:",
-    "securepoll-submit-select-lang": "Ratourner",
-    "securepoll-entry-text": "Chal pa dzo l' djivêye des ploncaedjes.",
-    "securepoll-header-title": "No",
-    "securepoll-header-start-date": "Date di cmince",
-    "securepoll-header-end-date": "Date di fén",
-    "securepoll-subpage-vote": "Vôter",
-    "securepoll-subpage-translate": "Ratourner",
-    "securepoll-subpage-list": "Djivêye"
+	"@metadata": {
+		"authors": [
+			"Srtxg"
+		]
+	},
+	"securepoll-return": "Rivni a $1",
+	"securepoll-header-timestamp": "Eure",
+	"securepoll-header-voter-name": "No",
+	"securepoll-header-voter-domain": "Dominne",
+	"securepoll-header-ua": "Adjint d' l' uzeu (''useragent'')",
+	"securepoll-header-details": "Detays",
+	"securepoll-strike-reason": "Råjhon:",
+	"securepoll-strike-cancel": "Rinoncî",
+	"securepoll-details-link": "Detays",
+	"securepoll-details-title": "Detays do vôtaedje: #$1",
+	"securepoll-header-action": "Accion",
+	"securepoll-header-reason": "Råjhon",
+	"securepoll-header-admin": "Manaedjeu",
+	"securepoll-cookie-dup-list": "Uzeus avou des coûkes dedja veyowes",
+	"securepoll-language-label": "Tchoezixhoz l' lingaedje:",
+	"securepoll-submit-select-lang": "Ratourner",
+	"securepoll-entry-text": "Chal pa dzo l' djivêye des ploncaedjes.",
+	"securepoll-header-title": "No",
+	"securepoll-header-start-date": "Date di cmince",
+	"securepoll-header-end-date": "Date di fén",
+	"securepoll-subpage-vote": "Vôter",
+	"securepoll-subpage-translate": "Ratourner",
+	"securepoll-subpage-list": "Djivêye"
 }

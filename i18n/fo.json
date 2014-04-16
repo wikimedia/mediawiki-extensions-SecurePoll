@@ -1,29 +1,29 @@
 {
-    "@metadata": {
-        "authors": [
-            "EileenSanda"
-        ]
-    },
-    "securepoll-finished": "Hetta valið er liðugt, tú kanst ikki atkvøða longur.",
-    "securepoll-submit": "Send atkvøðu",
-    "securepoll-return": "Far aftur til $1",
-    "securepoll-unanswered-questions": "Tú mást svara øllum spurningunum.",
-    "securepoll-header-voter-name": "Navn",
-    "securepoll-header-voter-domain": "Umdømi (domæne)",
-    "securepoll-header-details": "Meira kunning",
-    "securepoll-strike-reason": "Orsøk:",
-    "securepoll-strike-cancel": "Ógilda",
-    "securepoll-header-reason": "Orsøk",
-    "securepoll-header-admin": "Admin",
-    "securepoll-translate-title": "Umset: $1",
-    "securepoll-submit-translate": "Dagfør",
-    "securepoll-language-label": "Vel mál:",
-    "securepoll-submit-select-lang": "Umset",
-    "securepoll-entry-text": "Niðanfyri sæst listin við atkvøðum.",
-    "securepoll-header-title": "Navn",
-    "securepoll-header-start-date": "Byrjunardagur",
-    "securepoll-header-end-date": "Endar dag",
-    "securepoll-subpage-vote": "Atkvøð",
-    "securepoll-subpage-translate": "Umset",
-    "securepoll-subpage-list": "Listi"
+	"@metadata": {
+		"authors": [
+			"EileenSanda"
+		]
+	},
+	"securepoll-finished": "Hetta valið er liðugt, tú kanst ikki atkvøða longur.",
+	"securepoll-submit": "Send atkvøðu",
+	"securepoll-return": "Far aftur til $1",
+	"securepoll-unanswered-questions": "Tú mást svara øllum spurningunum.",
+	"securepoll-header-voter-name": "Navn",
+	"securepoll-header-voter-domain": "Umdømi (domæne)",
+	"securepoll-header-details": "Meira kunning",
+	"securepoll-strike-reason": "Orsøk:",
+	"securepoll-strike-cancel": "Ógilda",
+	"securepoll-header-reason": "Orsøk",
+	"securepoll-header-admin": "Admin",
+	"securepoll-translate-title": "Umset: $1",
+	"securepoll-submit-translate": "Dagfør",
+	"securepoll-language-label": "Vel mál:",
+	"securepoll-submit-select-lang": "Umset",
+	"securepoll-entry-text": "Niðanfyri sæst listin við atkvøðum.",
+	"securepoll-header-title": "Navn",
+	"securepoll-header-start-date": "Byrjunardagur",
+	"securepoll-header-end-date": "Endar dag",
+	"securepoll-subpage-vote": "Atkvøð",
+	"securepoll-subpage-translate": "Umset",
+	"securepoll-subpage-list": "Listi"
 }

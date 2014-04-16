@@ -1,27 +1,27 @@
 {
-    "@metadata": {
-        "authors": [
-            "Crazymadlover",
-            "Omnipaedista"
-        ]
-    },
-    "securepoll": "Ἠσφαλισμένη Κάλπη",
-    "securepoll-header-timestamp": "Χρόνος",
-    "securepoll-header-voter-name": "Ὄνομα",
-    "securepoll-header-voter-domain": "Περιοχή",
-    "securepoll-header-details": "Λεπτομέρειαι",
-    "securepoll-strike-reason": "Αἰτία:",
-    "securepoll-strike-cancel": "Ἀκυροῦν",
-    "securepoll-details-link": "Λεπτομέρειαι",
-    "securepoll-header-action": "Δρᾶσις",
-    "securepoll-header-reason": "Αἰτία",
-    "securepoll-submit-translate": "Ἐνημέρωσις",
-    "securepoll-language-label": "Ἐπιλέγειν γλῶτταν:",
-    "securepoll-submit-select-lang": "Μεταγλωττίζειν",
-    "securepoll-header-title": "Ὄνομα",
-    "securepoll-subpage-vote": "Ψηφίζειν",
-    "securepoll-subpage-list": "Κατάλογος",
-    "securepoll-subpage-tally": "Ψηφομέτρησις",
-    "securepoll-tally-title": "Ψηφομέτρησις: $1",
-    "securepoll-ranks": "Τελικὴ κατάταξις"
+	"@metadata": {
+		"authors": [
+			"Crazymadlover",
+			"Omnipaedista"
+		]
+	},
+	"securepoll": "Ἠσφαλισμένη Κάλπη",
+	"securepoll-header-timestamp": "Χρόνος",
+	"securepoll-header-voter-name": "Ὄνομα",
+	"securepoll-header-voter-domain": "Περιοχή",
+	"securepoll-header-details": "Λεπτομέρειαι",
+	"securepoll-strike-reason": "Αἰτία:",
+	"securepoll-strike-cancel": "Ἀκυροῦν",
+	"securepoll-details-link": "Λεπτομέρειαι",
+	"securepoll-header-action": "Δρᾶσις",
+	"securepoll-header-reason": "Αἰτία",
+	"securepoll-submit-translate": "Ἐνημέρωσις",
+	"securepoll-language-label": "Ἐπιλέγειν γλῶτταν:",
+	"securepoll-submit-select-lang": "Μεταγλωττίζειν",
+	"securepoll-header-title": "Ὄνομα",
+	"securepoll-subpage-vote": "Ψηφίζειν",
+	"securepoll-subpage-list": "Κατάλογος",
+	"securepoll-subpage-tally": "Ψηφομέτρησις",
+	"securepoll-tally-title": "Ψηφομέτρησις: $1",
+	"securepoll-ranks": "Τελικὴ κατάταξις"
 }

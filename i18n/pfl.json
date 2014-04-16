@@ -1,13 +1,13 @@
 {
-    "@metadata": {
-        "authors": [
-            "Manuae"
-        ]
-    },
-    "securepoll-header-timestamp": "Zaid",
-    "securepoll-translate-title": "Iwasedze: $1",
-    "securepoll-language-label": "Schbrooch wähle:",
-    "securepoll-submit-select-lang": "Iwasedze",
-    "securepoll-subpage-vote": "Wähle",
-    "securepoll-subpage-translate": "Iwasedze"
+	"@metadata": {
+		"authors": [
+			"Manuae"
+		]
+	},
+	"securepoll-header-timestamp": "Zaid",
+	"securepoll-translate-title": "Iwasedze: $1",
+	"securepoll-language-label": "Schbrooch wähle:",
+	"securepoll-submit-select-lang": "Iwasedze",
+	"securepoll-subpage-vote": "Wähle",
+	"securepoll-subpage-translate": "Iwasedze"
 }

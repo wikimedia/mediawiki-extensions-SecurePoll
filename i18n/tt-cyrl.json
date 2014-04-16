@@ -1,22 +1,22 @@
 {
-    "@metadata": {
-        "authors": [
-            "Bulatbulat",
-            "KhayR",
-            "Ильнар"
-        ]
-    },
-    "securepoll-not-started": "Бу тавыш бирүләр әле башланмаганнар.\nБашлану вакыты:$2 $3",
-    "securepoll-finished": "Бу тавыш бирү тәмамланган, хәзер сез тавыш бирә алмыйсыз.",
-    "securepoll-header-timestamp": "Вакыт",
-    "securepoll-header-voter-name": "Исем",
-    "securepoll-header-voter-domain": "Домен",
-    "securepoll-header-ua": "Кулланучы агенты",
-    "securepoll-header-cookie-dup": "Дублләр",
-    "securepoll-header-strike": "Сызу",
-    "securepoll-header-details": "Тулырак",
-    "securepoll-strike-button": "Сызу",
-    "securepoll-unstrike-button": "Сызуны алу",
-    "securepoll-strike-reason": "Сәбәп:",
-    "securepoll-strike-cancel": "Баш тарту"
+	"@metadata": {
+		"authors": [
+			"Bulatbulat",
+			"KhayR",
+			"Ильнар"
+		]
+	},
+	"securepoll-not-started": "Бу тавыш бирүләр әле башланмаганнар.\nБашлану вакыты:$2 $3",
+	"securepoll-finished": "Бу тавыш бирү тәмамланган, хәзер сез тавыш бирә алмыйсыз.",
+	"securepoll-header-timestamp": "Вакыт",
+	"securepoll-header-voter-name": "Исем",
+	"securepoll-header-voter-domain": "Домен",
+	"securepoll-header-ua": "Кулланучы агенты",
+	"securepoll-header-cookie-dup": "Дублләр",
+	"securepoll-header-strike": "Сызу",
+	"securepoll-header-details": "Тулырак",
+	"securepoll-strike-button": "Сызу",
+	"securepoll-unstrike-button": "Сызуны алу",
+	"securepoll-strike-reason": "Сәбәп:",
+	"securepoll-strike-cancel": "Баш тарту"
 }
