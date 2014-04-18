@@ -34,7 +34,7 @@
 	"securepoll-encrypt-error": "No se pudo cifrar tu registro de voto.\n¡Tu voto no ha sido registrado!\n\n$1",
 	"securepoll-no-gpg-home": "Imposible crear un directorio hogar GPG.",
 	"securepoll-secret-gpg-error": "Error ejecutando GPG.\nUsar $wgSecurePollShowErrorDetail=true; en LocalSettings.php para mostrar más detalle.",
-	"securepoll-full-gpg-error": "Error ejecutando GPG:\n\nComando: $1\n\nError:\n<pre>$2</pre>",
+	"securepoll-full-gpg-error": "Se produjo un error al ejecutar GPG:\n\nOrden:  $1 \n\nError:\n<pre>$2</pre>",
 	"securepoll-gpg-config-error": "Teclas GPG están configuradas incorrectamente.",
 	"securepoll-gpg-parse-error": "Error interpretando salida GPG.",
 	"securepoll-no-decryption-key": "No se ha especificado ninguna clave de desencriptación.\nNo se puede desencriptar.",
