@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"AnakngAraw",
-			"Sky Harbor"
+			"Sky Harbor",
+			"Jojit fb"
 		]
 	},
 	"securepoll": "SecurePoll",
@@ -35,14 +36,14 @@
 	"securepoll-unranked-options": "Ang ilang mga opsyon ay hindi niraranggo. \nIkaw ay dapat magbigay ng lahat ng mga mapagpipilian ng isang ranggo sa pagitan ng 1 at 999.",
 	"securepoll-invalid-score": "Ang mga iskor ay kailangang isang bilang sa pagitan ng $1 at $2.",
 	"securepoll-unanswered-options": "Kailangan mong magbigay ng sagot para sa bawat tanong.",
-	"securepoll-remote-auth-error": "Kamalian sa pagpulot ng kabatiran ng iyong kuwenta mula sa serbidor.",
+	"securepoll-remote-auth-error": "Kamalian sa pagkuha ng kabatiran ng iyong account mula sa server.",
 	"securepoll-remote-parse-error": "Kamalian sa pagpapaliwanag ng tugon ng pagpapahintulot mula sa serbidor.",
 	"securepoll-api-invalid-params": "Hindi tanggap na mga parametro.",
 	"securepoll-api-no-user": "Walang tagagamit na natagpuang may ibinigay na ID.",
 	"securepoll-api-token-mismatch": "Maling pagtutugma ng tandang pangkaligtasan, hindi makalalagdang papasok.",
 	"securepoll-not-logged-in": "Kailangan mong lumagdang papasok upang makaboto sa halalang ito",
 	"securepoll-too-few-edits": "Paumanhin, hindi ka makakaboto. Kailangan mong maging nakagawa ng kahit na mga $1 {{PLURAL:$1|pagbabago|mga pagbabago}} upang makaboto sa halalang ito, nakagawa ka na ng $2.",
-	"securepoll-too-new": "Paumanhin, hindi ka makakaboto.  Kinakailangang naiparehistro ang kuwenta mo bago ang $1 sa ganap na $3 upang makaboto sa halalang ito, nakapagpatala ko noong $2 sa ganap na $4.",
+	"securepoll-too-new": "Paumanhin, hindi ka makakaboto.  Kinakailangang naiparehistro ang account mo bago ang $1 sa ganap na $3 upang makaboto sa halalang ito, nakapagpatala ko noong $2 sa ganap na $4.",
 	"securepoll-blocked": "Paumanhin, hindi ka makakaboto sa halalang ito kung kasalukuyan kang hinaharangan mula sa pamamatnugot.",
 	"securepoll-blocked-centrally": "Paumanhin, ngunit hindi ka makakaboto sa halalang ito dahil hinahadlangan ka sa hindi bababa sa $1 na {{PLURAL:$1|wiki|mga wiki}}.",
 	"securepoll-bot": "Paumanhin, ang mga kuwentang may watawat ng bot ay hindi pinapayagang bumoto sa halalang ito.",

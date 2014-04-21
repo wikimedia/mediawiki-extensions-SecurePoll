@@ -19,7 +19,7 @@
 	"securepoll-not-qualified": "no vıcinayiş de şıma muqtedirê reydayişi niyi: $1",
 	"securepoll-change-disallowed": "şıma tiya de cıwa ver rey da, \nma meluli şıma hıni nêşkeni rey bıdi",
 	"securepoll-change-allowed": "<strong>Not: şıma no vıcinayiş de reyê xo da.</strong>\nşıma eşkeni pê dekerdışê formê cêrıni reyê xo bıvurni.\nEke şıma ın kerd bızane ke reyo şıma verin ibtal beno.",
-	"securepoll-submit": "rey bışaw",
+	"securepoll-submit": "Rey bırışe",
 	"securepoll-gpg-receipt": "qey reydayişi ma tekkur keni.\n\nqey delaletê reydayişi meqbuzo cêrın muhefeze bıkerê, eke şıma wazeni:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "ma teşekkur keni reyê şıma qeyd bı",
 	"securepoll-return": "Peyser şo $1.",
