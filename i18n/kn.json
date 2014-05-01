@@ -1,12 +1,25 @@
 {
 	"@metadata": {
 		"authors": [
-			"Nayvik"
+			"Nayvik",
+			"VASANTH S.N."
 		]
 	},
+	"securepoll-header-timestamp": "ಸಮಯ",
 	"securepoll-header-voter-name": "ಹೆಸರು",
+	"securepoll-header-voter-domain": "ಕ್ಷೇತ್ರ:",
+	"securepoll-header-details": "ವಿವರಗಳು",
 	"securepoll-strike-reason": "ಕಾರಣ:",
 	"securepoll-strike-cancel": "ರದ್ದು ಮಾಡು",
+	"securepoll-details-link": "ವಿವರಗಳು",
+	"securepoll-header-action": "ಕ್ರಿಯೆ",
 	"securepoll-header-reason": "ಕಾರಣ",
-	"securepoll-header-title": "ಹೆಸರು"
+	"securepoll-header-admin": "ನಿರ್ವಾಹಕ",
+	"securepoll-language-label": "ಭಾಷೆಯ ಆಯ್ಕೆ:",
+	"securepoll-submit-select-lang": "ಭಾಷಾಂತರಿಸಿ",
+	"securepoll-header-title": "ಹೆಸರು",
+	"securepoll-header-start-date": "ಆರಂಭದ ದಿನಾಂಕ",
+	"securepoll-subpage-vote": "ಮತ ಕೊಡಿ",
+	"securepoll-subpage-translate": "ಭಾಷಾಂತರಿಸಿ",
+	"securepoll-subpage-list": "ಪಟ್ಟಿ"
 }
