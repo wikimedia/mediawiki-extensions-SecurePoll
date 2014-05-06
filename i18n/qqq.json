@@ -37,7 +37,7 @@
 	"securepoll-bad-ballot-submission": "Unused at this time. Parameters:\n* $1 - ...",
 	"securepoll-invalid-score": "Used as error message. Parameters:\n* $1 - minimum score\n* $2 - maximum score",
 	"securepoll-too-few-edits": "Used as error message. Parameters:\n* $1 - minimum number of edits\n* $2 - number of edits",
-	"securepoll-too-new": "Parameters:\n* $1 is the required registration date\n* $2 is the actual registration date\n* $3 is the required registration time\n* $4 is the actual registration time",
+	"securepoll-too-new": "Parameters:\n* $1 - the required registration date\n* $2 - the actual registration date\n* $3 - the required registration time\n* $4 - the actual registration time",
 	"securepoll-blocked-centrally": "Used as error message. Parameters\n* $1 - number of wikis",
 	"securepoll-not-in-group": "Used as error message. Parameters:\n* $1 - name of MediaWiki group which voters need to be in",
 	"securepoll-custom-unqualified": "{{notranslate}}\nUsed as fatal error message. Parameters:\n* $1 - error message",

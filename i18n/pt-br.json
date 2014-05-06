@@ -59,7 +59,7 @@
 	"securepoll-header-timestamp": "Data",
 	"securepoll-header-voter-name": "Nome",
 	"securepoll-header-voter-domain": "Domínio",
-	"securepoll-header-ua": "Agente utilizador",
+	"securepoll-header-ua": "Agente de usuário",
 	"securepoll-header-cookie-dup": "Dupl.",
 	"securepoll-header-strike": "Riscados",
 	"securepoll-header-details": "Detalhes",
