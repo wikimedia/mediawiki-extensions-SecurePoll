@@ -63,7 +63,7 @@
 	"securepoll-strike-reason": "Причина:",
 	"securepoll-strike-cancel": "Откажи",
 	"securepoll-strike-error": "Грешка при извршување на црта/врати црта: $1",
-	"securepoll-strike-token-mismatch": "Сесиските податоци се изгубени",
+	"securepoll-strike-token-mismatch": "Податоците од седницата се изгубени",
 	"securepoll-details-link": "Подробно",
 	"securepoll-details-title": "Подробности за гласањето: #$1",
 	"securepoll-invalid-vote": "„$1“ е претставува важечка гласачка назнака",
