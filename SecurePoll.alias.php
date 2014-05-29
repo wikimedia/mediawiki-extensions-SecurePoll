@@ -61,7 +61,7 @@ $specialPageAliases['dsb'] = array(
 
 /** Persian (فارسی) */
 $specialPageAliases['fa'] = array(
-	'SecurePoll' => array( 'رای‌گیری_ایمن' ),
+	'SecurePoll' => array( 'رأی‌گیری_ایمن' ),
 );
 
 /** Finnish (suomi) */
