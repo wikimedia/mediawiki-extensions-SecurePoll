@@ -10,7 +10,8 @@
 			"Liuxinyu970226",
 			"PhiLiP",
 			"Skjackey tse",
-			"Hudafu"
+			"Hudafu",
+			"Mywood"
 		]
 	},
 	"securepoll": "安全投票",
@@ -28,7 +29,7 @@
 	"securepoll-submit": "提交投票",
 	"securepoll-gpg-receipt": "感谢您的投票。\n\n您可以保留下面的回执作为您参与投票的证据：\n\n<pre>$1</pre>",
 	"securepoll-thanks": "谢谢您，您的投票已被记录。",
-	"securepoll-return": "回到$1",
+	"securepoll-return": "返回$1",
 	"securepoll-encrypt-error": "投票记录加密失败。\n您的投票未被记录。\n\n$1",
 	"securepoll-no-gpg-home": "无法创建GPG主目录。",
 	"securepoll-secret-gpg-error": "执行GPG出错。\n在LocalSettings.php中使用$wgSecurePollShowErrorDetail=true;以查看更多细节。",
