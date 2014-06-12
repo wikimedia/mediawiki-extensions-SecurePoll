@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sborsody"
+			"Sborsody",
+			"Agilight"
 		]
 	},
+	"securepoll-welcome": "<strong>Кирип моорлаңар, $1!</strong>",
 	"securepoll-strike-reason": "Чылдагаан:",
 	"securepoll-header-reason": "Чылдагаан",
 	"securepoll-header-title": "Ат"
