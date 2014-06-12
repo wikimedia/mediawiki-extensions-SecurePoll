@@ -191,7 +191,7 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 				'vote_voter_name' => $this->voter->getName(),
 				'vote_voter_domain' => $this->voter->getDomain(),
 				'vote_record' => $encrypted,
-				'vote_ip' => IP::toHex( wfGetIP() ),
+				'vote_ip' => IP::toHex( $wgRequest->getIP() ),
 				'vote_xff' => $xff,
 				'vote_ua' => $_SERVER['HTTP_USER_AGENT'],
 				'vote_timestamp' => $now,
