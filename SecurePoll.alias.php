@@ -106,7 +106,7 @@ $specialPageAliases['hr'] = array(
 
 /** Upper Sorbian (hornjoserbsce) */
 $specialPageAliases['hsb'] = array(
-	'SecurePoll' => array( 'Wěste wothłosowanje' ),
+	'SecurePoll' => array( 'Wěste_wothłosowanje' ),
 );
 
 /** Haitian (Kreyòl ayisyen) */
