@@ -5,7 +5,8 @@
 			"Bugoslav",
 			"Ex13",
 			"Roberta F.",
-			"SpeedyGonsales"
+			"SpeedyGonsales",
+			"MaGa"
 		]
 	},
 	"securepoll": "SigurnoGlasovanje",
@@ -21,7 +22,7 @@
 	"securepoll-change-disallowed": "Već ste glasovali na ovim izborima.\nŽalimo, ne možete glasovati opet.",
 	"securepoll-change-allowed": "<strong>Napomena: Vi ste već glasovali na ovim izborima.</strong>\nMožete promijeniti svoj glas/svoje glasove ispunjavanjem donjeg obrasca.\nNo ako to učinite, vaše će prvo glasovanje biti poništeno.",
 	"securepoll-submit": "Glasuj",
-	"securepoll-gpg-receipt": "Hvala vam na glasovanju.\n\nAko želite, možete zadržati (snimiti) slijedeći izraz kao dokaz vašeg glasovanja:\n\n<pre>$1</pre>",
+	"securepoll-gpg-receipt": "Hvala vam na glasovanju.\n\nAko želite, možete zadržati (snimiti) sljedeći izraz kao dokaz vašeg glasovanja:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "Hvala, Vaš glas je zaprimljen.",
 	"securepoll-return": "Vrati se na $1",
 	"securepoll-encrypt-error": "Neuspjela enkripcija vašeg glasa.\nVaš glas nije zabilježen!\n\n$1",
