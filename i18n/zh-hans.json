@@ -11,7 +11,8 @@
 			"PhiLiP",
 			"Skjackey tse",
 			"Hudafu",
-			"Mywood"
+			"Mywood",
+			"Impersonator 1"
 		]
 	},
 	"securepoll": "安全投票",
@@ -50,7 +51,7 @@
 	"securepoll-api-no-user": "无法找到指定ID的用户。",
 	"securepoll-api-token-mismatch": "安全标记不符，无法登录。",
 	"securepoll-not-logged-in": "您必须登录后方可投票。",
-	"securepoll-too-few-edits": "对不起，您不能投票。您必须至少进行$1{{PLURAL:$1|次|次}}编辑才能参与本次投票，您目前的编辑数为$2。",
+	"securepoll-too-few-edits": "对不起，您不能投票。您必须至少进行$1次编辑才能参与本次投票，您目前的编辑数为$2。",
 	"securepoll-too-new": "对不起，您不能投票。$1，$3之前登记的帐户才能在这次选举中投票，而您登记的日期是$2，$4。",
 	"securepoll-blocked": "对不起，您目前被封禁因此无法参与本次投票。",
 	"securepoll-blocked-centrally": "对不起，由于你的帐户在至少一个{{PLURAL:$1|维基项目|维基项目}}被封禁，所以你并不能在这次选举中投票。",
