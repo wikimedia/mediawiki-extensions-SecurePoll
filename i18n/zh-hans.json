@@ -82,7 +82,7 @@
 	"securepoll-header-reason": "原因",
 	"securepoll-header-admin": "管理员",
 	"securepoll-cookie-dup-list": "Cookie重复的用户",
-	"securepoll-dump-title": "Dump：$1",
+	"securepoll-dump-title": "转储：$1",
 	"securepoll-dump-no-crypt": "本次投票没有被加密的投票记录，因为它被配置为不须加密。",
 	"securepoll-dump-not-finished": "加密的投票记录只有在截止日期$1 $2后方可获得",
 	"securepoll-dump-no-urandom": "无法打开/dev/urandom。为了保证投票者的隐私，经过加密的投票记录只有在经随机数据串干涉后方可公开。",
