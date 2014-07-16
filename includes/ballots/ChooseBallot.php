@@ -10,8 +10,20 @@ class SecurePoll_ChooseBallot extends SecurePoll_Ballot {
 	 * result from this ballot type.
 	 * @return array
 	 */
-	function getTallyTypes() {
+	static function getTallyTypes() {
 		return array( 'plurality' );
+	}
+
+	static function getCreateDescriptors() {
+		$ret = parent::getCreateDescriptors();
+		$ret['option'] += array(
+			'name' => array(
+				'label-message' => 'securepoll-create-label-option-name',
+				'type' => 'text',
+				'SecurePoll_type' => 'message',
+			),
+		);
+		return $ret;
 	}
 
 	/**

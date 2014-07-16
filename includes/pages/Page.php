@@ -50,4 +50,11 @@ abstract class SecurePoll_Page {
 		}
 		$this->context->setLanguages( $languages );
 	}
+
+	/**
+	 * Relay for SpecialPage::msg
+	 */
+	protected function msg( /* args */ ) {
+		return call_user_func_array( array( $this->parent, 'msg' ), func_get_args() );
+	}
 }

@@ -14,6 +14,13 @@ abstract class SecurePoll_Tallier {
 
 	abstract function finishTally();
 
+	public static $tallierTypes = array(
+		'plurality' => 'SecurePoll_PluralityTallier',
+		'schulze' => 'SecurePoll_SchulzeTallier',
+		'histogram-range' => 'SecurePoll_HistogramRangeTallier',
+		'alternative-vote' => 'SecurePoll_AlternativeVoteTallier',
+	);
+
 	/**
 	 * @param $context
 	 * @param $type
@@ -23,18 +30,31 @@ abstract class SecurePoll_Tallier {
 	 * @throws MWException
 	 */
 	static function factory( $context, $type, $electionTallier, $question ) {
-		switch ( $type ) {
-		case 'plurality':
-			return new SecurePoll_PluralityTallier( $context, $electionTallier, $question );
-		case 'schulze':
-			return new SecurePoll_SchulzeTallier( $context, $electionTallier, $question );
-		case 'histogram-range':
-			return new SecurePoll_HistogramRangeTallier( $context, $electionTallier, $question );
-		case 'alternative-vote':
-			return new SecurePoll_AlternativeVoteTallier( $context, $electionTallier, $question );
-		default:
+		if ( !isset( self::$tallierTypes[$type] ) ) {
 			throw new MWException( "Invalid tallier type: $type" );
 		}
+		$class = self::$tallierTypes[$type];
+		return new $class( $context, $electionTallier, $question );
+	}
+
+	/**
+	 * Return descriptors for any properties this type requires for poll
+	 * creation, for the election, questions, and options.
+	 *
+	 * The returned array should have three keys, "election", "question", and
+	 * "option", each mapping to an array of HTMLForm descriptors.
+	 *
+	 * The descriptors should have an additional key, "SecurePoll_type", with
+	 * the value being "property" or "message".
+	 *
+	 * @return array
+	 */
+	static function getCreateDescriptors() {
+		return array(
+			'election' => array(),
+			'question' => array(),
+			'option' => array(),
+		);
 	}
 
 	/**
