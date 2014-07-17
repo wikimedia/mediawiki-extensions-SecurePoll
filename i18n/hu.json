@@ -8,7 +8,8 @@
 			"Dj",
 			"Glanthor Reviol",
 			"Hunyadym",
-			"Tgr"
+			"Tgr",
+			"Csega"
 		]
 	},
 	"securepoll": "BiztonságosSzavazás",
@@ -115,5 +116,14 @@
 	"securepoll-average-score": "Átlagpontszám",
 	"securepoll-round": "$1. forduló",
 	"securepoll-spoilt": "(Rontott)",
-	"securepoll-exhausted": "(Kiesett)"
+	"securepoll-exhausted": "(Kiesett)",
+	"securepoll-create-option-wiki-this_wiki": "Ez a wiki",
+	"securepoll-create-label-property_admins": "Adminok:",
+	"securepoll-create-label-gpg_sign_key": "GPG aláíró kulcs",
+	"securepoll-create-questions-row-legend": "Kérdés",
+	"securepoll-create-option-column_order-desc": "Csökkenő",
+	"securepoll-votereligibility-redirect-otherwiki": "a fő wiki",
+	"securepoll-votereligibility-label-edit": "Lista szerkesztése",
+	"securepoll-votereligibility-label-populate": "Lista automatikus feltöltése",
+	"securepoll-votereligibility-label-names": "Felhasználónevek:"
 }

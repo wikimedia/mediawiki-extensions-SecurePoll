@@ -10,7 +10,8 @@
 			"Rave",
 			"Renessaince",
 			"Volkov",
-			"Александр Сигачёв"
+			"Александр Сигачёв",
+			"Okras"
 		]
 	},
 	"securepoll": "БезопасноеГолосование",
@@ -97,6 +98,7 @@
 	"securepoll-language-label": "Выбор языка:",
 	"securepoll-submit-select-lang": "Перевести",
 	"securepoll-entry-text": "Ниже приведён список голосований.",
+	"securepoll-entry-createpoll": "Создать новый опрос",
 	"securepoll-header-title": "Имя",
 	"securepoll-header-start-date": "Дата начала",
 	"securepoll-header-end-date": "Дата окончания",
@@ -123,5 +125,9 @@
 	"securepoll-average-score": "Средняя оценка",
 	"securepoll-round": "$1 тур",
 	"securepoll-spoilt": "(Испорченные)",
-	"securepoll-exhausted": "(Исчерпаны)"
+	"securepoll-exhausted": "(Исчерпаны)",
+	"securepoll-htmlform-date-placeholder": "ГГГГ-ММ-ДД",
+	"securepoll-create-label-election_type": "Тип опроса:",
+	"securepoll-create-label-questions": "== Вопросы ==",
+	"securepoll-create-questions-row-legend": "Вопрос"
 }

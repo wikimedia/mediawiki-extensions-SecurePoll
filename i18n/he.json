@@ -6,7 +6,8 @@
 			"Rotem Liss",
 			"Rotemliss",
 			"YaronSh",
-			"דניאל ב."
+			"דניאל ב.",
+			"Eladk"
 		]
 	},
 	"securepoll": "הצבעה מאובטחת",
@@ -115,5 +116,30 @@
 	"securepoll-average-score": "ניקוד ממוצע",
 	"securepoll-round": "סיבוב $1",
 	"securepoll-spoilt": "(פסולות)",
-	"securepoll-exhausted": "(מוצו)"
+	"securepoll-exhausted": "(מוצו)",
+	"securepoll-votereligibility-label-edit": "עריכת רשימה",
+	"securepoll-votereligibility-label-clear": "הסרת רשימה",
+	"securepoll-votereligibility-label-populate": "למלא את הרשימה אוטומטית",
+	"securepoll-votereligibility-label-edits_before": "לדרוש מספר מינימלי של עריכות לפני תאריך",
+	"securepoll-votereligibility-label-edits_before_count": "מספר עריכות מינימלי",
+	"securepoll-votereligibility-label-edits_before_date": "לפני תאריך",
+	"securepoll-votereligibility-label-edits_between": "לדרוש מספר מינימלי של עריכות בין שני תאריכים",
+	"securepoll-votereligibility-label-edits_between_count": "מספר עריכות מינימלי",
+	"securepoll-votereligibility-label-edits_between_dates": "בין תאריכים",
+	"securepoll-votereligibility-layout-edits_between_dates": "בין $1 ו־$2",
+	"securepoll-votereligibility-label-exclude_groups": "לא לכלול משתמשים בקבוצות האלו",
+	"securepoll-votereligibility-label-include_groups": "לכלול משתמשים בקבוצות האלו, בלי קשר למספר העריכות שלהם או לעריכות אחרות",
+	"securepoll-votereligibility-label-names": "שמות משתמש",
+	"securepoll-votereligibility-action": "שמירת הגדרות",
+	"securepoll-votereligibility-fail-nothing-to-process": "התבקש מילוי אוטומטי של {{int:securepoll-votereligibility-list-voter}}, אבל כל המסננים נשארו ריקים.",
+	"securepoll-votereligibility-edit-title": "עריכת רשימת מצביעים: $1",
+	"securepoll-votereligibility-edit-header": "נא להזין שמות משתמשים לרשימה בשדה הכתיבה להלן, אחד בכל שורה. משתמש באתר ויקי מסוים יכול להיום מזוהה בתו @ שאחריו שם המיזם; למשל, משתמש User:Example בוויקיפדיה האנגלית יצוין בתור Example@enwiki.\n\nמבתצע חיפוש שמות משתמש בעת שליחת הטופס הזה והמערכת תתעלם בשקט ממשתמשים שאינם קיימים. היא גם תתעלם משמות משתמש בלתי־תקינים.",
+	"securepoll-votereligibility-edit-action": "שמירת רשימה",
+	"securepoll-votereligibility-saved": "{{int:securepoll}}:נשמר",
+	"securepoll-votereligibility-saved-text": "השינויים שלך נשמרו.",
+	"securepoll-votereligibility-clear-title": "הסרה מרשימת מצביעים: $1",
+	"securepoll-votereligibility-cleared": "{{int:securepoll}}: נוקה",
+	"securepoll-votereligibility-cleared-text": "$1 נוקתה ולא תשמש בהצבעה הזאת.",
+	"right-securepoll-create-poll": "יצירת הצבעות",
+	"action-securepoll-create-poll": "ליצור הצבעות"
 }
