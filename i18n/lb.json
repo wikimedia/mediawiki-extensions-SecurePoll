@@ -110,5 +110,16 @@
 	"securepoll-average-score": "Duerchschnëttleche Score",
 	"securepoll-round": "$1. Tour",
 	"securepoll-spoilt": "(Net valabel)",
-	"securepoll-exhausted": "(Eriwwer)"
+	"securepoll-exhausted": "(Eriwwer)",
+	"securepoll-create-option-wiki-this_wiki": "Dës Wiki",
+	"securepoll-create-label-property_admins": "Administrateuren:",
+	"securepoll-create-label-questions": "== Froen ==",
+	"securepoll-create-questions-row-legend": "Fro",
+	"securepoll-create-label-questions-delete": "Fro läschen",
+	"securepoll-create-label-questions-option": "=== Optiounen ===",
+	"securepoll-create-option-election_crypt-none": "Keng Verschlësselung",
+	"securepoll-votereligibility-label-notinuse": "Dës Lëscht gëtt net benotzt",
+	"securepoll-votereligibility-label-names": "Benotzernimm",
+	"securepoll-votereligibility-edit-action": "Lëscht späicheren",
+	"securepoll-votereligibility-saved": "{{int:securepoll}}: Gespäichert"
 }

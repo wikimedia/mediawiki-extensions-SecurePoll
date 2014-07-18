@@ -17,7 +17,8 @@
 			"Siebrand",
 			"Umherirrender",
 			"Amire80",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"Lokal Profil"
 		]
 	},
 	"securepoll-desc": "{{desc|name=Secure Poll|url=http://www.mediawiki.org/wiki/Extension:SecurePoll}}",
@@ -150,10 +151,10 @@
 	"securepoll-create-label-options-add": "Label for button on Special:SecurePoll/create.",
 	"securepoll-create-label-options-delete": "Label for button on Special:SecurePoll/create.",
 	"securepoll-create-label-option-name": "Label for form field on Special:SecurePoll/create.",
-	"securepoll-create-option-election_type-approval+plurality": "Label for form option on Special:SecurePoll/create.",
-	"securepoll-create-option-election_type-preferential+schulze": "Label for form option on Special:SecurePoll/create.",
+	"securepoll-create-option-election_type-approval+plurality": "Label for form option on Special:SecurePoll/create.\n\nSee [[:w:en:Approval_vote|Approval vote]].",
+	"securepoll-create-option-election_type-preferential+schulze": "Label for form option on Special:SecurePoll/create.\n\nThe [[:w:en:Schulze_method|Schulze method]].",
 	"securepoll-create-option-election_type-choose+plurality": "Label for form option on Special:SecurePoll/create.",
-	"securepoll-create-option-election_type-radio-range+plurality": "Label for form option on Special:SecurePoll/create.",
+	"securepoll-create-option-election_type-radio-range+plurality": "Label for form option on Special:SecurePoll/create.\n\nSee [[:w:en:Range_voting|Range voting]].",
 	"securepoll-create-option-election_type-radio-range+histogram-range": "Label for form option on Special:SecurePoll/create.",
 	"securepoll-create-option-election_type-radio-range-comment+plurality": "Label for form option on Special:SecurePoll/create.",
 	"securepoll-create-option-election_type-radio-range-comment+histogram-range": "Label for form option on Special:SecurePoll/create.",

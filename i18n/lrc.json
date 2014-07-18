@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bonevarluri"
+			"Bonevarluri",
+			"Mogoeilor"
 		]
 	},
 	"securepoll-unanswered-options": "شما باید سی هر پرسایشتی یه گل جواو بیئت",
@@ -14,5 +15,17 @@
 	"securepoll-invalid-language": "کد نامعتور زون\"$1\"",
 	"securepoll-language-label": "انتخاو زون:",
 	"securepoll-header-title": "نوم",
-	"securepoll-subpage-list": "نوم گه"
+	"securepoll-subpage-list": "نوم گه",
+	"securepoll-htmlform-date-placeholder": "سال-ما-روز",
+	"securepoll-create-label-wiki": "سی ویکی:",
+	"securepoll-create-option-wiki-this_wiki": "ای ویکی",
+	"securepoll-create-option-wiki-all_wikis": "همه ویکی یا",
+	"securepoll-create-label-property_admins": "دیوونداریا:",
+	"securepoll-create-label-questions": "== پرسایشتا==",
+	"securepoll-create-questions-row-legend": "پرسایشت",
+	"securepoll-create-label-questions-question": "نیسسه پرسایشت:",
+	"securepoll-votereligibility-redirect-otherwiki": "ویکی اصلی",
+	"securepoll-votereligibility-label-edit": "ویرایشت نوم گه",
+	"securepoll-votereligibility-label-names": "نومیا کاریاری",
+	"securepoll-votereligibility-edit-action": "اماییه کردن نوم گه"
 }

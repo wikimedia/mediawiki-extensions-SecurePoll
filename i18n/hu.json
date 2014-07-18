@@ -122,8 +122,10 @@
 	"securepoll-create-label-gpg_sign_key": "GPG aláíró kulcs",
 	"securepoll-create-questions-row-legend": "Kérdés",
 	"securepoll-create-option-column_order-desc": "Csökkenő",
+	"securepoll-create-label-questions-option": "=== Beállítások ===",
 	"securepoll-votereligibility-redirect-otherwiki": "a fő wiki",
 	"securepoll-votereligibility-label-edit": "Lista szerkesztése",
+	"securepoll-votereligibility-label-clear": "Lista eltávolítása",
 	"securepoll-votereligibility-label-populate": "Lista automatikus feltöltése",
 	"securepoll-votereligibility-label-names": "Felhasználónevek:"
 }
