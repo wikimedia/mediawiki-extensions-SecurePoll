@@ -11,7 +11,8 @@
 			"Poxnar",
 			"Ronja Addams-Moring",
 			"StefanB",
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Jopparn"
 		]
 	},
 	"securepoll": "SäkerOmröstning",
@@ -154,8 +155,8 @@
 	"securepoll-create-label-property_admins": "Administratörer:",
 	"securepoll-create-label-shuffle_questions": "Kasta om ordningen på frågorna på omröstningssidan.",
 	"securepoll-create-label-shuffle_options": "Kasta om ordningen på alternativen på omröstningssidan.",
-	"securepoll-create-label-must_rank_all": "Kräva att alla alternativ rangordnas.",
-	"securepoll-create-label-must_answer_all": "Kräva att alla alternativ besvaras.",
+	"securepoll-create-label-must_rank_all": "Kräv att alla alternativ rangordnas.",
+	"securepoll-create-label-must_answer_all": "Kräv att alla alternativ besvaras.",
 	"securepoll-create-label-gpg_encrypt_key": "GPG-krypteringsnyckeln",
 	"securepoll-create-label-gpg_sign_key": "GPG-signeringsnyckeln",
 	"securepoll-create-label-questions": "== Frågor ==",
