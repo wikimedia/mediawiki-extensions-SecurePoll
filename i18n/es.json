@@ -12,7 +12,8 @@
 			"MarcoAurelio",
 			"Remember the dot",
 			"Translationista",
-			"Vivaelcelta"
+			"Vivaelcelta",
+			"Macofe"
 		]
 	},
 	"securepoll": "SecurePoll",
@@ -119,5 +120,12 @@
 	"securepoll-average-score": "Puntuación media",
 	"securepoll-round": "Ronda $1",
 	"securepoll-spoilt": "(Blancos o Nulos)",
-	"securepoll-exhausted": "(Agotado)"
+	"securepoll-exhausted": "(Agotado)",
+	"securepoll-create-option-wiki-this_wiki": "Este wiki",
+	"securepoll-create-label-questions": "== Preguntas ==",
+	"securepoll-create-questions-row-legend": "Pregunta",
+	"securepoll-create-label-questions-option": "=== Opciones ===",
+	"securepoll-votereligibility-label-clear": "Eliminar lista",
+	"securepoll-votereligibility-label-edits_between_dates": "Entre las fechas",
+	"securepoll-votereligibility-label-names": "Nombres de usuarios"
 }
