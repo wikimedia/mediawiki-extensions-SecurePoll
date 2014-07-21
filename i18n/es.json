@@ -125,6 +125,7 @@
 	"securepoll-create-label-questions": "== Preguntas ==",
 	"securepoll-create-questions-row-legend": "Pregunta",
 	"securepoll-create-label-questions-option": "=== Opciones ===",
+	"securepoll-votereligibility-label-edit": "Editar lista",
 	"securepoll-votereligibility-label-clear": "Eliminar lista",
 	"securepoll-votereligibility-label-edits_between_dates": "Entre las fechas",
 	"securepoll-votereligibility-label-names": "Nombres de usuarios"
