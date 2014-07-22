@@ -3,7 +3,8 @@
 		"authors": [
 			"Rancher",
 			"Милан Јелисавчић",
-			"Михајло Анђелковић"
+			"Михајло Анђелковић",
+			"Milicevic01"
 		]
 	},
 	"securepoll": "Безбедно гласање",
@@ -49,6 +50,7 @@
 	"securepoll-bot": "Нажалост, налози с ботовском ознаком нису дозвољени на овим изборима.",
 	"securepoll-not-in-group": "На овим изборима могу да гласају само припадници групе „$1“.",
 	"securepoll-not-in-list": "Нажалост, нисте на предодређеном списку корисника којима је одобрено гласање на овим изборима.",
+	"securepoll-in-exclude-list": "Жао нам је, нема те право гласа на овим изборима.",
 	"securepoll-list-title": "Прикажи гласове: $1",
 	"securepoll-header-timestamp": "Време",
 	"securepoll-header-voter-name": "Име",
@@ -116,5 +118,10 @@
 	"securepoll-average-score": "Просечна оцена",
 	"securepoll-round": "Коло $1",
 	"securepoll-spoilt": "(оштећени)",
-	"securepoll-exhausted": "(исцрпени)"
+	"securepoll-exhausted": "(исцрпени)",
+	"securepoll-create-label-questions": "== Питања ==",
+	"securepoll-create-questions-row-legend": "Питање",
+	"securepoll-create-label-questions-question": "Текст питања:",
+	"securepoll-votereligibility-label-min_edits": "Минимум измена:",
+	"securepoll-votereligibility-saved-text": "Ваше измене су сачуване."
 }

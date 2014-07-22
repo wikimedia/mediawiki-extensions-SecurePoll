@@ -13,7 +13,8 @@
 			"PhiLiP",
 			"Skjackey tse",
 			"Wong128hk",
-			"Yuyu"
+			"Yuyu",
+			"Liuxinyu970226"
 		]
 	},
 	"securepoll": "安全投票",
@@ -120,5 +121,8 @@
 	"securepoll-average-score": "平均分",
 	"securepoll-round": "第$1輪",
 	"securepoll-spoilt": "(廢票)",
-	"securepoll-exhausted": "(用盡)"
+	"securepoll-exhausted": "(用盡)",
+	"securepoll-create-option-election_type-preferential+schulze": "Schulze 投票",
+	"securepoll-create-option-election_type-radio-range+plurality": "計分投票（多數）",
+	"securepoll-votereligibility-lists": "'''投票者清單'''"
 }

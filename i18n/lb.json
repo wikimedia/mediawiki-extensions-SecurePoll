@@ -120,6 +120,7 @@
 	"securepoll-create-layout-election_dates": "Ufank den $1 (ëm 00:00 UTC) an dauert $2 Deeg",
 	"securepoll-create-label-election_crypt": "Verschlësselung:",
 	"securepoll-create-label-property_admins": "Administrateuren:",
+	"securepoll-create-label-gpg_encrypt_key": "GPG-Verschlësselungsschlëssel",
 	"securepoll-create-label-questions": "== Froen ==",
 	"securepoll-create-questions-row-legend": "Fro",
 	"securepoll-create-label-questions-question": "Text vun der Fro:",
@@ -133,6 +134,7 @@
 	"securepoll-create-option-election_crypt-none": "Keng Verschlësselung",
 	"securepoll-create-invalid-username": "De spezifizéierte Benotzernumm ass net valabel.",
 	"securepoll-create-user-does-not-exist": "De spezifizéierte Benotzer gëtt et net.",
+	"securepoll-votereligibility-redirect-otherwiki": "der Haaptwiki",
 	"securepoll-votereligibility-label-min_edits": "Mindest Zuel vun Ännerungen:",
 	"securepoll-votereligibility-label-not_blocked": "Däerf net gespaart sinn",
 	"securepoll-votereligibility-label-not_bot": "Däerf net las Bot markéiert ginn",
@@ -148,5 +150,6 @@
 	"securepoll-votereligibility-action": "Astellung späicheren",
 	"securepoll-votereligibility-edit-action": "Lëscht späicheren",
 	"securepoll-votereligibility-saved": "{{int:securepoll}}: Gespäichert",
-	"securepoll-votereligibility-saved-text": "Är Ännerunge goufe gespäichert."
+	"securepoll-votereligibility-saved-text": "Är Ännerunge goufe gespäichert.",
+	"securepoll-votereligibility-cleared": "{{int:securepoll}}: Eidel gemaach"
 }
