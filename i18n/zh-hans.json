@@ -125,6 +125,8 @@
 	"securepoll-exhausted": "(用尽)",
 	"securepoll-htmlform-date-placeholder": "YYYY-MM-DD",
 	"securepoll-htmlform-date-invalid": "您指定的值不是可识别的日期。尝试使用YYYY-MM-DD格式。",
+	"securepoll-htmlform-date-toolow": "您指定的值在$1的最早允许日期之前。",
+	"securepoll-htmlform-date-toohigh": "您指定的值在$1的最晚允许日期之后。",
 	"securepoll-htmlform-daterange-relative-layout": "开始于$1并进行$2天",
 	"securepoll-htmlform-daterange-absolute-layout": "开始于$1并结束于$2",
 	"securepoll-htmlform-daterange-end-before-start": "提供的结束日期在开始日期之前。",

@@ -124,6 +124,7 @@
 	"securepoll-create-option-wiki-this_wiki": "Este wiki",
 	"securepoll-create-label-questions": "== Preguntas ==",
 	"securepoll-create-questions-row-legend": "Pregunta",
+	"securepoll-create-option-column_order-desc": "Descendente",
 	"securepoll-create-label-questions-option": "=== Opciones ===",
 	"securepoll-votereligibility-label-edit": "Editar lista",
 	"securepoll-votereligibility-label-clear": "Eliminar lista",
