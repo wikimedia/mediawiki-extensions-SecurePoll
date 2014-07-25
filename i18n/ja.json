@@ -114,5 +114,7 @@
 	"securepoll-average-score": "平均点",
 	"securepoll-round": "第$1回",
 	"securepoll-spoilt": "(無効票)",
-	"securepoll-exhausted": "(白票)"
+	"securepoll-exhausted": "(白票)",
+	"securepoll-create-option-column_order-asc": "昇順",
+	"securepoll-create-option-column_order-desc": "降順"
 }

@@ -10,7 +10,8 @@
 			"SMP",
 			"Solde",
 			"Ssola",
-			"Vriullop"
+			"Vriullop",
+			"Edustus"
 		]
 	},
 	"securepoll": "Vot segur",
@@ -117,5 +118,15 @@
 	"securepoll-average-score": "Puntuació mitjana",
 	"securepoll-round": "Ronda $1",
 	"securepoll-spoilt": "(Nul)",
-	"securepoll-exhausted": "(Esgotat)"
+	"securepoll-exhausted": "(Esgotat)",
+	"securepoll-create-action": "Crear una enquesta",
+	"securepoll-create-label-property_admins": "Administradors:",
+	"securepoll-create-questions-row-legend": "Pregunta",
+	"securepoll-create-label-questions-option": "=== Opcions ===",
+	"securepoll-create-label-options-delete": "Opció d'esborrar",
+	"securepoll-votereligibility-label-max_registration": "Registrat abans de:",
+	"securepoll-votereligibility-label-edit": "Editar la llista",
+	"securepoll-votereligibility-label-names": "Noms d'usuari",
+	"right-securepoll-create-poll": "Crear enquestes",
+	"action-securepoll-create-poll": "Crear enquestes"
 }

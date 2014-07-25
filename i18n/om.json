@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Tumsaa"
+		]
+	},
+	"securepoll-create-label-election_title": "Gosa filannoo:",
+	"securepoll-create-label-election_dates": "Guyyoota Filannoo:",
+	"securepoll-create-label-election_type": "Gosa filannoo",
+	"securepoll-create-label-election_crypt": "Icciteessuu(encryption):",
+	"securepoll-create-questions-row-legend": "Gaaffii",
+	"securepoll-create-label-questions-add": "Gaaffii kan biraa galchi",
+	"securepoll-create-label-questions-delete": "Gaaffii balleessi",
+	"securepoll-create-option-column_order-asc": "Irraa olee",
+	"securepoll-votereligibility-label-clear": "Tarree balleessi",
+	"securepoll-votereligibility-edit-action": "Tarree olkaayi",
+	"securepoll-votereligibility-saved-text": "Jijjiiramni kee olkaawwameera"
+}
