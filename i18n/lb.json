@@ -124,6 +124,7 @@
 	"securepoll-create-label-election_primaryLang": "Haaptsprooch:",
 	"securepoll-create-label-election_dates": "Datume vun der Ofstëmmung:",
 	"securepoll-create-layout-election_dates": "Ufank den $1 (ëm 00:00 UTC) an dauert $2 Deeg",
+	"securepoll-create-label-election_disallow-change": "Wieler dovun ofhale fir hier Stëmmen z'änneren",
 	"securepoll-create-label-election_type": "Typ vun Ëmfro:",
 	"securepoll-create-label-election_crypt": "Verschlësselung:",
 	"securepoll-create-label-property_admins": "Administrateuren:",
