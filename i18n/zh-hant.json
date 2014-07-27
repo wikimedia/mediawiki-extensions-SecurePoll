@@ -14,7 +14,8 @@
 			"Skjackey tse",
 			"Wong128hk",
 			"Yuyu",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"LNDDYL"
 		]
 	},
 	"securepoll": "安全投票",
@@ -58,7 +59,7 @@
 	"securepoll-blocked": "對不起，因為您目前已被封禁所以您無法參與本次投票。",
 	"securepoll-blocked-centrally": "對不起，由於你的帳戶在至少一個{{PLURAL:$1|維基項目|維基項目}}被封禁，所以你並不能在這次選舉中投票。",
 	"securepoll-bot": "抱歉，擁有機器人權限的用戶不能參與本投票。",
-	"securepoll-not-in-group": "只有屬於用戶組「$1」的用戶才可以投票。",
+	"securepoll-not-in-group": "只有屬於使用者組「$1」的使用者才可以投票。",
 	"securepoll-not-in-list": "對不起，由於您不在投票人名單，所以您無權參與是次投票。",
 	"securepoll-list-title": "投票列表︰$1",
 	"securepoll-header-timestamp": "時間",
@@ -83,7 +84,7 @@
 	"securepoll-header-action": "動作",
 	"securepoll-header-reason": "原因",
 	"securepoll-header-admin": "管理員",
-	"securepoll-cookie-dup-list": "Cookie 重複的用戶",
+	"securepoll-cookie-dup-list": "Cookie 重複的使用者",
 	"securepoll-dump-title": "Dump：$1",
 	"securepoll-dump-no-crypt": "本次投票沒有被加密的投票記錄，因為它被設定為不須加密。",
 	"securepoll-dump-not-finished": "被加密的投票記錄只有在截止日期$1 $2後方可取得",

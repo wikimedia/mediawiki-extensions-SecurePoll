@@ -114,10 +114,13 @@
 	"securepoll-spoilt": "(nieważny)",
 	"securepoll-exhausted": "(wyczerpany)",
 	"securepoll-htmlform-date-placeholder": "RRRR-MM-DD",
+	"securepoll-create-label-property_admins": "Administratorzy:",
 	"securepoll-create-label-questions": "== Pytania ==",
 	"securepoll-create-questions-row-legend": "Pytanie",
 	"securepoll-create-label-questions-question": "Treść pytania:",
 	"securepoll-create-label-questions-option": "=== Opcje ===",
+	"securepoll-create-label-option-name": "Nazwa opcji:",
 	"securepoll-create-option-election_crypt-none": "Bez szyfrowania",
+	"securepoll-votereligibility-label-names": "Nazwy użytkowników",
 	"securepoll-votereligibility-action": "Zapisz konfigurację"
 }
