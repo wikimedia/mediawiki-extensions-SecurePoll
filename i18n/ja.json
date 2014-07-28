@@ -115,6 +115,11 @@
 	"securepoll-round": "第$1回",
 	"securepoll-spoilt": "(無効票)",
 	"securepoll-exhausted": "(白票)",
+	"securepoll-create-title": "{{int:securepoll}}: 投票所の作成",
+	"securepoll-create-action": "投票所を作成",
+	"securepoll-create-created": "{{int:securepoll}}: 投票所を作成しました",
+	"securepoll-create-created-text": "投票所を作成しました。",
+	"securepoll-create-label-property_admins": "管理者:",
 	"securepoll-create-option-column_order-asc": "昇順",
 	"securepoll-create-option-column_order-desc": "降順"
 }

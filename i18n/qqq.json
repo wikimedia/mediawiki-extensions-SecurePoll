@@ -127,7 +127,7 @@
 	"securepoll-create-label-election_return-url": "Label for form field on Special:SecurePoll/create.",
 	"securepoll-create-label-election_type": "Label for form field on Special:SecurePoll/create.",
 	"securepoll-create-label-election_crypt": "Label for form field on Special:SecurePoll/create.",
-	"securepoll-create-label-property_admins": "Label for form field on Special:SecurePoll/create.",
+	"securepoll-create-label-property_admins": "Label for form field on Special:SecurePoll/create.\n{{Identical|Admin}}",
 	"securepoll-create-label-shuffle_questions": "Label for form field on Special:SecurePoll/create.",
 	"securepoll-create-label-shuffle_options": "Label for form field on Special:SecurePoll/create.",
 	"securepoll-create-label-must_rank_all": "Label for form field on Special:SecurePoll/create.",

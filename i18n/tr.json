@@ -6,7 +6,8 @@
 			"Koc61",
 			"Noumenon",
 			"Suelnur",
-			"Vito Genovese"
+			"Vito Genovese",
+			"Sayginer"
 		]
 	},
 	"securepoll": "GüvenliAnket",
@@ -87,6 +88,7 @@
 	"securepoll-language-label": "Dili seç:",
 	"securepoll-submit-select-lang": "Çevir",
 	"securepoll-entry-text": "Aşağıdaki, anketlerin listesidir.",
+	"securepoll-entry-createpoll": "Yeni bir anket oluştur",
 	"securepoll-header-title": "Ad",
 	"securepoll-header-start-date": "Başlangıç tarihi",
 	"securepoll-header-end-date": "Bitiş tarihi",
@@ -113,5 +115,15 @@
 	"securepoll-average-score": "Ortalama skor",
 	"securepoll-round": "$1. tur",
 	"securepoll-spoilt": "(Bozuk)",
-	"securepoll-exhausted": "(Bitkin)"
+	"securepoll-exhausted": "(Bitkin)",
+	"securepoll-create-action": "Anket oluştur",
+	"securepoll-create-label-election_title": "Anket Başlığı:",
+	"securepoll-create-option-wiki-this_wiki": "Bu viki",
+	"securepoll-create-option-wiki-all_wikis": "Tüm vikiler",
+	"securepoll-create-label-election_type": "Anket türü:",
+	"securepoll-create-label-questions": "== Sorular ==",
+	"securepoll-create-questions-row-legend": "Soru",
+	"securepoll-create-label-questions-option": "=== Seçenekler ===",
+	"securepoll-votereligibility-label-edit": "Listeyi düzenle",
+	"right-securepoll-create-poll": "Anketler oluştur"
 }
