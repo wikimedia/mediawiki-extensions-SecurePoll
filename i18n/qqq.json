@@ -122,7 +122,7 @@
 	"securepoll-create-option-wiki-other_wiki": "Label for form option on Special:SecurePoll/create.",
 	"securepoll-create-label-election_primaryLang": "Label for form field on Special:SecurePoll/create.\n{{Identical|Primary language}}",
 	"securepoll-create-label-election_dates": "Label for form field on Special:SecurePoll/create.",
-	"securepoll-create-layout-election_dates": "Layout message for the date range input on Special:SecurePoll/create. See {{msg-mw|securepoll-htmlform-daterange-layout}}. Parameters:\n* $1 - HTML for the starting date control\n* $2 - HTML for the number-of-days control",
+	"securepoll-create-layout-election_dates": "Layout message for the date range input on Special:SecurePoll/create. See {{msg-mw|securepoll-htmlform-daterange-layout}}. Parameters:\n* $1 - HTML for the starting date control\n* $2 - HTML for the number-of-days control, cannot be used for PLURAL",
 	"securepoll-create-label-election_disallow-change": "Label for form field on Special:SecurePoll/create.",
 	"securepoll-create-label-election_return-url": "Label for form field on Special:SecurePoll/create.",
 	"securepoll-create-label-election_type": "Label for form field on Special:SecurePoll/create.",
