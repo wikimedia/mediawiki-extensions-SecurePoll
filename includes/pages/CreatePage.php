@@ -3,7 +3,7 @@
 /**
  * Special:SecurePoll subpage for creating or editing a poll
  */
-class SecurePoll_CreatePage extends SecurePoll_Page {
+class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 	/**
 	 * Execute the subpage.
 	 * @param $params array Array of subpage parameters.
@@ -12,7 +12,7 @@ class SecurePoll_CreatePage extends SecurePoll_Page {
 		global $wgSecurePollCreateWikiGroupDir, $wgSecurePollCreateWikiGroups;
 		global $wgSecurePollUseNamespace;
 
-		$out = $this->parent->getOutput();
+		$out = $this->specialPage->getOutput();
 
 		if ( $params ) {
 			$out->setPageTitle( $this->msg( 'securepoll-edit-title' ) );
@@ -22,7 +22,7 @@ class SecurePoll_CreatePage extends SecurePoll_Page {
 				$out->addWikiMsg( 'securepoll-invalid-election', $electionId );
 				return;
 			}
-			if ( !$this->election->isAdmin( $this->parent->getUser() ) ) {
+			if ( !$this->election->isAdmin( $this->specialPage->getUser() ) ) {
 				$out->addWikiMsg( 'securepoll-need-admin' );
 				return;
 			}
@@ -53,7 +53,7 @@ class SecurePoll_CreatePage extends SecurePoll_Page {
 			}
 		} else {
 			$out->setPageTitle( $this->msg( 'securepoll-create-title' ) );
-			if ( !$this->parent->getUser()->isAllowed( 'securepoll-create-poll' ) ) {
+			if ( !$this->specialPage->getUser()->isAllowed( 'securepoll-create-poll' ) ) {
 				throw new PermissionsError( 'securepoll-create-poll' );
 			}
 		}
@@ -331,7 +331,7 @@ class SecurePoll_CreatePage extends SecurePoll_Page {
 			);
 		}
 
-		$form = new HTMLForm( $formItems, $this->parent->getContext(),
+		$form = new HTMLForm( $formItems, $this->specialPage->getContext(),
 			$this->election ? 'securepoll-edit' : 'securepoll-create'
 		);
 		$form->setDisplayFormat( 'div' );
@@ -340,7 +340,7 @@ class SecurePoll_CreatePage extends SecurePoll_Page {
 		$form->prepareForm();
 
 		// If this isn't the result of a POST, load the data from the election
-		$request = $this->parent->getRequest();
+		$request = $this->specialPage->getRequest();
 		if ( $this->election && !( $request->wasPosted() && $request->getCheck( 'wpEditToken' ) ) ) {
 			$form->mFieldData = $this->getFormDataFromElection( $this->election );
 		}
@@ -870,10 +870,10 @@ class SecurePoll_CreatePage extends SecurePoll_Page {
 	 *
 	 * @param string $value Username
 	 * @param array $alldata All form data
-	 * @param HTMLForm $parent Containing HTMLForm
+	 * @param HTMLForm $containingForm Containing HTMLForm
 	 * @return bool|string true on success, string on error
 	 */
-	public function checkUsername( $value, $alldata, HTMLForm $parent ) {
+	public function checkUsername( $value, $alldata, HTMLForm $containingForm ) {
 		$user = User::newFromName( $value );
 		if ( !$user ) {
 			return $this->msg( 'securepoll-create-invalid-username' )->parse();

@@ -3,7 +3,7 @@
 /**
  * Special:SecurePoll subpage for showing the details of a given vote to an administrator.
  */
-class SecurePoll_DetailsPage extends SecurePoll_Page {
+class SecurePoll_DetailsPage extends SecurePoll_ActionPage {
 	/**
 	 * Execute the subpage.
 	 * @param $params array Array of subpage parameters.
@@ -11,7 +11,8 @@ class SecurePoll_DetailsPage extends SecurePoll_Page {
 	public function execute( $params ) {
 		global $wgSecurePollKeepPrivateInfoDays;
 
-		$out = $this->parent->getOutput();
+		$out = $this->specialPage->getOutput();
+
 		if ( !count( $params ) ) {
 			$out->addWikiMsg( 'securepoll-too-few-params' );
 			return;
@@ -36,7 +37,7 @@ class SecurePoll_DetailsPage extends SecurePoll_Page {
 		}
 
 		$this->election = $this->context->newElectionFromRow( $row );
-		$this->initLanguage( $this->parent->getUser(), $this->election );
+		$this->initLanguage( $this->specialPage->getUser(), $this->election );
 
 		$vote_ip = '';
 		$vote_xff = '';
@@ -47,12 +48,12 @@ class SecurePoll_DetailsPage extends SecurePoll_Page {
 			$vote_ua = $row->vote_ua;
 		}
 
-		$this->parent->setSubtitle( array(
-			$this->parent->getTitle( 'list/' . $this->election->getId() ),
+		$this->specialPage->setSubtitle( array(
+			$this->specialPage->getTitle( 'list/' . $this->election->getId() ),
 			$this->msg( 'securepoll-list-title', $this->election->getMessage( 'title' ) )->text()
 		) );
 
-		if ( !$this->election->isAdmin( $this->parent->getUser() ) ) {
+		if ( !$this->election->isAdmin( $this->specialPage->getUser() ) ) {
 			$out->addWikiMsg( 'securepoll-need-admin' );
 			return;
 		}
@@ -99,7 +100,7 @@ class SecurePoll_DetailsPage extends SecurePoll_Page {
 			"(SELECT cm_voter_1 as voter, cm_timestamp FROM $cmTable WHERE cm_voter_2=$voterId)";
 		$res = $db->query( $sql, __METHOD__ );
 		if ( $res->numRows() ) {
-			$lang = $this->parent->getLanguage();
+			$lang = $this->specialPage->getLanguage();
 			$out->addHTML( '<h2>' . $this->msg( 'securepoll-cookie-dup-list' )->escaped . '</h2>' );
 			$out->addHTML( '<table class="mw-datatable TablePager">' );
 			foreach ( $res as $row ) {
@@ -145,7 +146,7 @@ class SecurePoll_DetailsPage extends SecurePoll_Page {
 	 * @return Title
 	 */
 	public function getTitle() {
-		return $this->parent->getTitle( 'details/' . $this->voteId );
+		return $this->specialPage->getTitle( 'details/' . $this->voteId );
 	}
 }
 

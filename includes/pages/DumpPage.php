@@ -3,7 +3,7 @@
 /**
  * Special:SecurePoll subpage for exporting encrypted election records.
  */
-class SecurePoll_DumpPage extends SecurePoll_Page {
+class SecurePoll_DumpPage extends SecurePoll_ActionPage {
 	public $headersSent;
 
 	/**
@@ -11,8 +11,7 @@ class SecurePoll_DumpPage extends SecurePoll_Page {
 	 * @param $params array Array of subpage parameters.
 	 */
 	public function execute( $params ) {
-
-		$out = $this->parent->getOutput();
+		$out = $this->specialPage->getOutput();
 
 		if ( !count( $params ) ) {
 			$out->addWikiMsg( 'securepoll-too-few-params' );
@@ -25,7 +24,7 @@ class SecurePoll_DumpPage extends SecurePoll_Page {
 			$out->addWikiMsg( 'securepoll-invalid-election', $electionId );
 			return;
 		}
-		$this->initLanguage( $this->parent->getUser(), $this->election );
+		$this->initLanguage( $this->specialPage->getUser(), $this->election );
 
 		$out->setPageTitle( $this->msg( 'securepoll-dump-title',
 			$this->election->getMessage( 'title' ) )->text() );
@@ -37,8 +36,8 @@ class SecurePoll_DumpPage extends SecurePoll_Page {
 
 		if ( !$this->election->isFinished() ) {
 			$out->addWikiMsg( 'securepoll-dump-not-finished',
-				$this->parent->getLanguage()->date( $this->election->getEndDate() ),
-				$this->parent->getLanguage()->time( $this->election->getEndDate() ) );
+				$this->specialPage->getLanguage()->date( $this->election->getEndDate() ),
+				$this->specialPage->getLanguage()->time( $this->election->getEndDate() ) );
 			return;
 		}
 
@@ -63,7 +62,7 @@ class SecurePoll_DumpPage extends SecurePoll_Page {
 
 	public function sendHeaders() {
 		$this->headersSent = true;
-		$this->parent->getOutput()->disable();
+		$this->specialPage->getOutput()->disable();
 		header( 'Content-Type: application/vnd.mediawiki.securepoll' );
 		$electionId = $this->election->getId();
 		$filename = urlencode( "$electionId-" . wfTimestampNow() . '.securepoll' );

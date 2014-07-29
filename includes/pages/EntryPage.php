@@ -3,21 +3,21 @@
 /**
  * The entry page for SecurePoll. Shows a list of elections.
  */
-class SecurePoll_EntryPage extends SecurePoll_Page {
+class SecurePoll_EntryPage extends SecurePoll_ActionPage {
 	/**
 	 * Execute the subpage.
 	 * @param $params array Array of subpage parameters.
 	 */
 	function execute( $params ) {
 		$pager = new SecurePoll_ElectionPager( $this );
-		$out = $this->parent->getOutput();
+		$out = $this->specialPage->getOutput();
 		$out->addWikiMsg( 'securepoll-entry-text' );
 		$out->addHTML(
 			$pager->getBody() .
 			$pager->getNavigationBar()
 		);
 
-		if ( $this->parent->getUser()->isAllowed( 'securepoll-create-poll' ) ) {
+		if ( $this->specialPage->getUser()->isAllowed( 'securepoll-create-poll' ) ) {
 			$title = SpecialPage::getTitleFor( 'SecurePoll', 'create' );
 			$out->addHTML(
 				Html::rawElement( 'p', array(),
@@ -33,7 +33,7 @@ class SecurePoll_EntryPage extends SecurePoll_Page {
 	 * @return Title
 	 */
 	function getTitle() {
-		return $this->parent->getTitle( 'entry' );
+		return $this->specialPage->getTitle( 'entry' );
 	}
 }
 
@@ -86,8 +86,8 @@ class SecurePoll_ElectionPager extends TablePager {
 	);
 	public $entryPage;
 
-	public function __construct( $parent ) {
-		$this->entryPage = $parent;
+	public function __construct( $specialPage ) {
+		$this->entryPage = $specialPage;
 		parent::__construct();
 	}
 
@@ -159,7 +159,7 @@ class SecurePoll_ElectionPager extends TablePager {
 				&& ( !$this->election->isStarted() || $props['visible-after-start'] )
 				&& ( !$this->election->isFinished() || $props['visible-after-close'] )
 			) {
-				$title = $this->entryPage->parent->getTitle( "$subpage/$id" );
+				$title = $this->entryPage->specialPage->getTitle( "$subpage/$id" );
 				$s .= Linker::linkKnown( $title, $linkText );
 			} else {
 				$s .= "<span class=\"securepoll-link-disabled\">" .

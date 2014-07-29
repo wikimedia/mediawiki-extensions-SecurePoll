@@ -4,10 +4,9 @@
  * A simple SecurePoll subpage which handles guest logins from a remote website,
  * starts a session, and then redirects to the voting page.
  */
-class SecurePoll_LoginPage extends SecurePoll_Page {
+class SecurePoll_LoginPage extends SecurePoll_ActionPage {
 	public function execute( $params ) {
-
-		$out = $this->parent->getOutput();
+		$out = $this->specialPage->getOutput();
 
 		if ( !count( $params ) ) {
 			$out->addWikiMsg( 'securepoll-too-few-params' );

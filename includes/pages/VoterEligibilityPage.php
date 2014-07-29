@@ -3,7 +3,7 @@
 /**
  * Special:SecurePoll subpage for managing the voter list for a poll
  */
-class SecurePoll_VoterEligibilityPage extends SecurePoll_Page {
+class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 	private static $lists = array(
 		'voter' => 'need-list',
 		'include' => 'include-list',
@@ -15,7 +15,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_Page {
 	 * @param $params array Array of subpage parameters.
 	 */
 	public function execute( $params ) {
-		$out = $this->parent->getOutput();
+		$out = $this->specialPage->getOutput();
 
 		if ( !count( $params ) ) {
 			$out->addWikiMsg( 'securepoll-too-few-params' );
@@ -28,7 +28,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_Page {
 			$out->addWikiMsg( 'securepoll-invalid-election', $electionId );
 			return;
 		}
-		if ( !$this->election->isAdmin( $this->parent->getUser() ) ) {
+		if ( !$this->election->isAdmin( $this->specialPage->getUser() ) ) {
 			$out->addWikiMsg( 'securepoll-need-admin' );
 			return;
 		}
@@ -337,10 +337,10 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_Page {
 			HTMLForm::$typeMappings['daterange'] = 'SecurePoll_HTMLDateRangeField';
 		}
 
-		$this->parent->getOutput()->addModules( 'ext.securepoll.htmlform' );
-		$this->parent->getOutput()->addModules( 'ext.securepoll' );
+		$this->specialPage->getOutput()->addModules( 'ext.securepoll.htmlform' );
+		$this->specialPage->getOutput()->addModules( 'ext.securepoll' );
 
-		$out = $this->parent->getOutput();
+		$out = $this->specialPage->getOutput();
 		$out->setPageTitle( $this->msg( 'securepoll-votereligibility-title' ) );
 
 		$formItems = array();
@@ -628,7 +628,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_Page {
 			);
 		}
 
-		$form = new HTMLForm( $formItems, $this->parent->getContext(), 'securepoll-votereligibility' );
+		$form = new HTMLForm( $formItems, $this->specialPage->getContext(), 'securepoll-votereligibility' );
 		$form->addHeaderText(
 			$this->msg( 'securepoll-votereligibility-basic-info' )->parseAsBlock(), 'basic'
 		);
@@ -722,7 +722,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_Page {
 	private function executeEdit( $which ) {
 		global $wgSecurePollUseNamespace;
 
-		$out = $this->parent->getOutput();
+		$out = $this->specialPage->getOutput();
 
 		if ( !isset( self::$lists[$which] ) ) {
 			$out->addWikiMsg( 'securepoll-votereligibility-invalid-list' );
@@ -741,9 +741,9 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_Page {
 		}
 
 
-		$this->parent->getOutput()->addModules( 'ext.securepoll' );
+		$this->specialPage->getOutput()->addModules( 'ext.securepoll' );
 
-		$out = $this->parent->getOutput();
+		$out = $this->specialPage->getOutput();
 		$out->setPageTitle( $this->msg( 'securepoll-votereligibility-edit-title', $name ) );
 
 		$formItems = array();
@@ -763,7 +763,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_Page {
 			);
 		}
 
-		$form = new HTMLForm( $formItems, $this->parent->getContext(), 'securepoll-votereligibility' );
+		$form = new HTMLForm( $formItems, $this->specialPage->getContext(), 'securepoll-votereligibility' );
 		$form->addHeaderText(
 			$this->msg( 'securepoll-votereligibility-edit-header' )->parseAsBlock()
 		);
@@ -788,7 +788,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_Page {
 	private function executeClear( $which ) {
 		global $wgSecurePollUseNamespace;
 
-		$out = $this->parent->getOutput();
+		$out = $this->specialPage->getOutput();
 
 		if ( !isset( self::$lists[$which] ) ) {
 			$out->addWikiMsg( 'securepoll-votereligibility-invalid-list' );
@@ -797,7 +797,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_Page {
 		$property = self::$lists[$which];
 		$name = $this->msg( "securepoll-votereligibility-list-$which" )->text();
 
-		$out = $this->parent->getOutput();
+		$out = $this->specialPage->getOutput();
 		$out->setPageTitle( $this->msg( 'securepoll-votereligibility-clear-title', $name ) );
 
 		$wikis = $this->election->getProperty( 'wikis' );

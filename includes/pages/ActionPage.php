@@ -3,17 +3,17 @@
 /**
  * Parent class for Special:SecurePoll subpages.
  */
-abstract class SecurePoll_Page {
-	public $parent, $election, $auth, $user;
+abstract class SecurePoll_ActionPage {
+	public $specialPage, $election, $auth, $user;
 	public $context;
 
 	/**
 	 * Constructor.
-	 * @param $parent SecurePollPage
+	 * @param $specialPage SecurePoll_SpecialSecurePoll
 	 */
-	public function __construct( $parent ) {
-		$this->parent = $parent;
-		$this->context = $parent->sp_context;
+	public function __construct( $specialPage ) {
+		$this->specialPage = $specialPage;
+		$this->context = $specialPage->sp_context;
 	}
 
 	/**
@@ -27,7 +27,7 @@ abstract class SecurePoll_Page {
 	 * fallback sequence.
 	 */
 	public function initLanguage( $user, $election ) {
-		$uselang = $this->parent->getRequest()->getVal( 'uselang' );
+		$uselang = $this->specialPage->getRequest()->getVal( 'uselang' );
 		if ( $uselang !== null ) {
 			$userLang = $uselang;
 		} elseif ( $user instanceof SecurePoll_Voter ) {
@@ -53,6 +53,6 @@ abstract class SecurePoll_Page {
 	 * Relay for SpecialPage::msg
 	 */
 	protected function msg( /* args */ ) {
-		return call_user_func_array( array( $this->parent, 'msg' ), func_get_args() );
+		return call_user_func_array( array( $this->specialPage, 'msg' ), func_get_args() );
 	}
 }

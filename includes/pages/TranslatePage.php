@@ -3,16 +3,15 @@
 /**
  * A SecurePoll subpage for translating election messages.
  */
-class SecurePoll_TranslatePage extends SecurePoll_Page {
+class SecurePoll_TranslatePage extends SecurePoll_ActionPage {
 	/**
 	 * Execute the subpage.
 	 * @param $params array Array of subpage parameters.
 	 */
 	public function execute( $params ) {
 		global $wgSecurePollUseNamespace;
-
-		$out = $this->parent->getOutput();
-		$request = $this->parent->getRequest();
+		$out = $this->specialPage->getOutput();
+		$request = $this->specialPage->getRequest();
 
 		if ( !count( $params ) ) {
 			$out->addWikiMsg( 'securepoll-too-few-params' );
@@ -25,7 +24,7 @@ class SecurePoll_TranslatePage extends SecurePoll_Page {
 			$out->addWikiMsg( 'securepoll-invalid-election', $electionId );
 			return;
 		}
-		$this->initLanguage( $this->parent->getUser(), $this->election );
+		$this->initLanguage( $this->specialPage->getUser(), $this->election );
 		$out->setPageTitle( $this->msg( 'securepoll-translate-title',
 			$this->election->getMessage( 'title' ) )->text() );
 
@@ -54,7 +53,7 @@ class SecurePoll_TranslatePage extends SecurePoll_Page {
 			return;
 		}
 
-		$this->isAdmin = $this->election->isAdmin( $this->parent->getUser() );
+		$this->isAdmin = $this->election->isAdmin( $this->specialPage->getUser() );
 
 		$primary = $this->election->getLanguage();
 		$secondary = $request->getVal( 'secondary_lang' );
@@ -73,8 +72,8 @@ class SecurePoll_TranslatePage extends SecurePoll_Page {
 		}
 
 		$secondary = $params[1];
-		$primaryName = $this->parent->getLanguage()->getLanguageName( $primary );
-		$secondaryName = $this->parent->getLanguage()->getLanguageName( $secondary );
+		$primaryName = $this->specialPage->getLanguage()->getLanguageName( $primary );
+		$secondaryName = $this->specialPage->getLanguage()->getLanguageName( $secondary );
 		if ( strval( $secondaryName ) === '' ) {
 			$out->addWikiMsg( 'securepoll-invalid-language', $secondary );
 			$this->showLanguageSelector( $primary );
@@ -82,7 +81,7 @@ class SecurePoll_TranslatePage extends SecurePoll_Page {
 		}
 
 		# Set a subtitle to return to the language selector
-		$this->parent->setSubtitle( array(
+		$this->specialPage->setSubtitle( array(
 			$this->getTitle(),
 			$this->msg( 'securepoll-translate-title', $this->election->getMessage( 'title' ) )->text()
 		) );
@@ -149,7 +148,7 @@ class SecurePoll_TranslatePage extends SecurePoll_Page {
 		if ( $lang !== false ) {
 			$subpage .= '/' . $lang;
 		}
-		return $this->parent->getTitle( $subpage );
+		return $this->specialPage->getTitle( $subpage );
 	}
 
 	/**
@@ -176,7 +175,7 @@ class SecurePoll_TranslatePage extends SecurePoll_Page {
 		$s .= "\n</select>\n" .
 			'<p>' . Xml::submitButton( $this->msg( 'securepoll-submit-select-lang' )->text() ) . '</p>' .
 			"</form>\n";
-		$this->parent->getOutput()->addHTML( $s );
+		$this->specialPage->getOutput()->addHTML( $s );
 	}
 
 	/**
@@ -185,8 +184,8 @@ class SecurePoll_TranslatePage extends SecurePoll_Page {
 	public function doSubmit( $secondary ) {
 		global $wgSecurePollUseNamespace;
 
-		$out = $this->parent->getOutput();
-		$request = $this->parent->getRequest();
+		$out = $this->specialPage->getOutput();
+		$request = $this->specialPage->getRequest();
 
 		if ( !$this->isAdmin ) {
 			$out->addWikiMsg( 'securepoll-need-admin' );

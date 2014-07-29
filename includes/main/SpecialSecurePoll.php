@@ -3,9 +3,9 @@
 /**
  * The page that's initially called by MediaWiki when navigating to
  * Special:SecurePoll.  The actual pages are not actually subclasses of
- * this or of SpecialPage, they're subclassed from SecurePoll_Page.
+ * this or of SpecialPage, they're subclassed from SecurePoll_ActionPage.
  */
-class SecurePoll_BasePage extends UnlistedSpecialPage {
+class SecurePoll_SpecialSecurePoll extends UnlistedSpecialPage {
 	public static $pages = array(
 		'create' => 'SecurePoll_CreatePage',
 		'edit' => 'SecurePoll_CreatePage',
@@ -69,7 +69,7 @@ class SecurePoll_BasePage extends UnlistedSpecialPage {
 	}
 
 	/**
-	 * Get a SecurePoll_Page subclass object for the given subpage name
+	 * Get a SecurePoll_ActionPage subclass object for the given subpage name
 	 */
 	public function getSubpage( $name ) {
 		if ( !isset( self::$pages[$name] ) ) {

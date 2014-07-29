@@ -48,7 +48,7 @@ class ApiStrikeVote extends ApiBase {
 		}
 
 		// see if vote exists
-		$page = new SecurePoll_BasePage;
+		$page = new SecurePoll_SpecialSecurePoll;
 		$context = $page->sp_context;
 		$db = $context->getDB();
 		$table = $db->tableName( 'securepoll_elections' );

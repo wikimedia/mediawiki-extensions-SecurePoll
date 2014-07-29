@@ -3,15 +3,15 @@
 /**
  * A subpage for tallying votes and producing results
  */
-class SecurePoll_TallyPage extends SecurePoll_Page {
+class SecurePoll_TallyPage extends SecurePoll_ActionPage {
 	/**
 	 * Execute the subpage.
 	 * @param $params array Array of subpage parameters.
 	 */
 	public function execute( $params ) {
-		$out = $this->parent->getOutput();
-		$user = $this->parent->getUser();
-		$request = $this->parent->getRequest();
+		$out = $this->specialPage->getOutput();
+		$user = $this->specialPage->getUser();
+		$request = $this->specialPage->getRequest();
 
 		if ( !count( $params ) ) {
 			$out->addWikiMsg( 'securepoll-too-few-params' );
@@ -67,7 +67,7 @@ class SecurePoll_TallyPage extends SecurePoll_Page {
 	 * Show a form which, when submitted, shows a tally for the results in the DB
 	 */
 	public function showLocalForm() {
-		$out = $this->parent->getOutput();
+		$out = $this->specialPage->getOutput();
 
 		$out->addHTML(
 			Xml::openElement(
@@ -92,7 +92,7 @@ class SecurePoll_TallyPage extends SecurePoll_Page {
 	 * Shows a form for upload of a record produced by the dump subpage.
 	 */
 	public function showUploadForm() {
-		$this->parent->getOutput()->addHTML(
+		$this->specialPage->getOutput()->addHTML(
 			Xml::openElement(
 				'form',
 				array(
@@ -127,18 +127,18 @@ class SecurePoll_TallyPage extends SecurePoll_Page {
 	public function submitLocal() {
 		$status = $this->election->tally();
 		if ( !$status->isOK() ) {
-			$this->parent->getOutput()->addWikiText( $status->getWikiText() );
+			$this->specialPage->getOutput()->addWikiText( $status->getWikiText() );
 			return;
 		}
 		$tallier = $status->value;
-		$this->parent->getOutput()->addHTML( $tallier->getHtmlResult() );
+		$this->specialPage->getOutput()->addHTML( $tallier->getHtmlResult() );
 	}
 
 	/**
 	 * Show a tally of the results in the uploaded file
 	 */
 	public function submitUpload() {
-		$out = $this->parent->getOutput();
+		$out = $this->specialPage->getOutput();
 
 		if ( !isset( $_FILES['tally_file'] )
 			|| !is_uploaded_file( $_FILES['tally_file']['tmp_name'] )
@@ -165,6 +165,6 @@ class SecurePoll_TallyPage extends SecurePoll_Page {
 	}
 
 	public function getTitle() {
-		return $this->parent->getTitle( 'tally/' . $this->election->getId() );
+		return $this->specialPage->getTitle( 'tally/' . $this->election->getId() );
 	}
 }

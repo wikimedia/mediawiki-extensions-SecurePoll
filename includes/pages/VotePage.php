@@ -3,7 +3,7 @@
 /**
  * The subpage for casting votes.
  */
-class SecurePoll_VotePage extends SecurePoll_Page {
+class SecurePoll_VotePage extends SecurePoll_ActionPage {
 	public $languages;
 	public $election, $auth, $user;
 
@@ -12,9 +12,8 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 	 * @param $params array Array of subpage parameters.
 	 */
 	public function execute( $params ) {
-
-		$out = $this->parent->getOutput();
-		$language = $this->parent->getLanguage();
+		$out = $this->specialPage->getOutput();
+		$language = $this->specialPage->getLanguage();
 
 		if ( !count( $params ) ) {
 			$out->addWikiMsg( 'securepoll-too-few-params' );
@@ -87,7 +86,7 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 		}
 
 		// Show/submit the form
-		if ( $this->parent->getRequest()->wasPosted() ) {
+		if ( $this->specialPage->getRequest()->wasPosted() ) {
 			$this->doSubmit();
 		} else {
 			$this->showForm();
@@ -98,14 +97,14 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 	 * @return Title
 	 */
 	public function getTitle() {
-		return $this->parent->getTitle( 'vote/' . $this->election->getId() );
+		return $this->specialPage->getTitle( 'vote/' . $this->election->getId() );
 	}
 
 	/**
 	 * Show the voting form.
 	 */
 	public function showForm( $status = false ) {
-		$out = $this->parent->getOutput();
+		$out = $this->specialPage->getOutput();
 
 		// Show introduction
 		if ( $this->election->hasVoted( $this->voter ) && $this->election->allowChange() ) {
@@ -117,7 +116,7 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 		$thisTitle = $this->getTitle();
 		$encAction = htmlspecialchars( $thisTitle->getLocalURL( "action=vote" ) );
 		$encOK = $this->msg( 'securepoll-submit' )->escaped();
-		$encToken = htmlspecialchars( $this->parent->getEditToken() );
+		$encToken = htmlspecialchars( $this->specialPage->getEditToken() );
 
 		$out->addHTML(
 			"<form name=\"securepoll\" id=\"securepoll\" method=\"post\" action=\"$encAction\">\n" .
@@ -148,9 +147,8 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 	 * @param $record string
 	 */
 	public function logVote( $record ) {
-
-		$out = $this->parent->getOutput();
-		$request = $this->parent->getRequest();
+		$out = $this->specialPage->getOutput();
+		$request = $this->specialPage->getRequest();
 
 		$now = wfTimestampNow();
 
@@ -185,7 +183,7 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 			$xff = '';
 		}
 
-		$tokenMatch = $this->parent->getEditToken() == $request->getVal( 'edit_token' );
+		$tokenMatch = $this->specialPage->getEditToken() == $request->getVal( 'edit_token' );
 
 		$voteId = $dbw->nextSequenceValue( 'securepoll_votes_vote_id' );
 		$dbw->insert( 'securepoll_votes',
@@ -232,8 +230,8 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 	 * remote server can authenticate them.
 	 */
 	public function showJumpForm() {
-		$user = $this->parent->getUser();
-		$out = $this->parent->getOutput();
+		$user = $this->specialPage->getUser();
+		$out = $this->specialPage->getOutput();
 
 		$url = $this->election->getProperty( 'jump-url' );
 		if ( !$url ) {

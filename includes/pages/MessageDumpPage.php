@@ -1,9 +1,8 @@
 <?php
 
-class SecurePoll_MessageDumpPage extends SecurePoll_Page {
+class SecurePoll_MessageDumpPage extends SecurePoll_ActionPage {
 	public function execute( $params ) {
-
-		$out = $this->parent->getOutput();
+		$out = $this->specialPage->getOutput();
 
 		if ( !count( $params ) ) {
 			$out->addWikiMsg( 'securepoll-too-few-params' );

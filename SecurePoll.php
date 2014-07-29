@@ -85,7 +85,7 @@ $wgExtensionMessagesFiles['SecurePoll'] = "$dir/SecurePoll.i18n.php";
 $wgExtensionMessagesFiles['SecurePollAlias'] = "$dir/SecurePoll.alias.php";
 $wgExtensionMessagesFiles['SecurePollNamespaces'] = $dir . '/SecurePoll.namespaces.php';
 
-$wgSpecialPages['SecurePoll'] = 'SecurePoll_BasePage';
+$wgSpecialPages['SecurePoll'] = 'SecurePoll_SpecialSecurePoll';
 
 $wgAutoloadClasses = $wgAutoloadClasses + array(
 	# api
@@ -111,7 +111,7 @@ $wgAutoloadClasses = $wgAutoloadClasses + array(
 	'SecurePoll_Question' => "$dir/includes/entities/Question.php",
 
 	# main
-	'SecurePoll_BasePage' => "$dir/includes/main/Base.php",
+	'SecurePoll_SpecialSecurePoll' => "$dir/includes/main/SpecialSecurePoll.php",
 	'SecurePoll_Context' => "$dir/includes/main/Context.php",
 	'SecurePoll_DBStore' => "$dir/includes/main/Store.php",
 	'SecurePoll_MemoryStore' => "$dir/includes/main/Store.php",
@@ -131,7 +131,7 @@ $wgAutoloadClasses = $wgAutoloadClasses + array(
 	'SecurePoll_ListPager' => "$dir/includes/pages/ListPage.php",
 	'SecurePoll_LoginPage' => "$dir/includes/pages/LoginPage.php",
 	'SecurePoll_MessageDumpPage' => "$dir/includes/pages/MessageDumpPage.php",
-	'SecurePoll_Page' => "$dir/includes/pages/Page.php",
+	'SecurePoll_ActionPage' => "$dir/includes/pages/ActionPage.php",
 	'SecurePoll_TallyPage' => "$dir/includes/pages/TallyPage.php",
 	'SecurePoll_TranslatePage' => "$dir/includes/pages/TranslatePage.php",
 	'SecurePoll_VotePage' => "$dir/includes/pages/VotePage.php",

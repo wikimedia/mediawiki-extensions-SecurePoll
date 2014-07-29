@@ -4,7 +4,7 @@
  * SecurePoll subpage to show a list of votes for a given election.
  * Provides an administrator interface for striking fraudulent votes.
  */
-class SecurePoll_ListPage extends SecurePoll_Page {
+class SecurePoll_ListPage extends SecurePoll_ActionPage {
 	public $election;
 
 	/**
@@ -12,8 +12,7 @@ class SecurePoll_ListPage extends SecurePoll_Page {
 	 * @param $params array Array of subpage parameters.
 	 */
 	public function execute( $params ) {
-
-		$out = $this->parent->getOutput();
+		$out = $this->specialPage->getOutput();
 
 		if ( !count( $params ) ) {
 			$out->addWikiMsg( 'securepoll-too-few-params' );
@@ -26,7 +25,7 @@ class SecurePoll_ListPage extends SecurePoll_Page {
 			$out->addWikiMsg( 'securepoll-invalid-election', $electionId );
 			return;
 		}
-		$this->initLanguage( $this->parent->getUser(), $this->election );
+		$this->initLanguage( $this->specialPage->getUser(), $this->election );
 
 		$out->setPageTitle( $this->msg(
 			'securepoll-list-title', $this->election->getMessage( 'title' ) )->text() );
@@ -38,7 +37,7 @@ class SecurePoll_ListPage extends SecurePoll_Page {
 			$pager->getBody() .
 			$pager->getNavigationBar()
 		);
-		if ( $this->election->isAdmin( $this->parent->getUser() ) ) {
+		if ( $this->election->isAdmin( $this->specialPage->getUser() ) ) {
 			$msgStrike = $this->msg( 'securepoll-strike-button' )->escaped();
 			$msgUnstrike = $this->msg( 'securepoll-unstrike-button' )->escaped();
 			$msgCancel = $this->msg( 'securepoll-strike-cancel' )->escaped();
@@ -84,7 +83,7 @@ EOT
 	public function strike( $action, $voteId, $reason ) {
 		$dbw = $this->context->getDB();
 		// this still gives the securepoll-need-admin error when an admin tries to delete a nonexistent vote.
-		if ( !$this->election->isAdmin( $this->parent->getUser() ) ) {
+		if ( !$this->election->isAdmin( $this->specialPage->getUser() ) ) {
 			return Status::newFatal( 'securepoll-need-admin' );
 		}
 		if ( $action != 'strike' ) {
@@ -101,7 +100,7 @@ EOT
 				'st_timestamp' => wfTimestampNow( TS_DB ),
 				'st_action' => $action,
 				'st_reason' => $reason,
-				'st_user' => $this->parent->getUser()->getId()
+				'st_user' => $this->specialPage->getUser()->getId()
 			),
 			__METHOD__
 		);
@@ -121,7 +120,7 @@ EOT
 	 * @return Title object
 	 */
 	function getTitle() {
-		return $this->parent->getTitle( 'list/' . $this->election->getId() );
+		return $this->specialPage->getTitle( 'list/' . $this->election->getId() );
 	}
 }
 
@@ -218,7 +217,7 @@ class SecurePoll_ListPager extends TablePager {
 			}
 		case 'details':
 			$voteId = intval( $this->mCurrentRow->vote_id );
-			$title = $this->listPage->parent->getTitle( "details/$voteId" );
+			$title = $this->listPage->specialPage->getTitle( "details/$voteId" );
 			return Xml::element( 'a',
 				array( 'href' => $title->getLocalUrl() ),
 				$this->msg( 'securepoll-details-link' )->text()
