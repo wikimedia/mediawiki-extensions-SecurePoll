@@ -9,17 +9,17 @@ class SecurePoll_EntryPage extends SecurePoll_Page {
 	 * @param $params array Array of subpage parameters.
 	 */
 	function execute( $params ) {
-		global $wgOut, $wgUser;
 		$pager = new SecurePoll_ElectionPager( $this );
-		$wgOut->addWikiMsg( 'securepoll-entry-text' );
-		$wgOut->addHTML(
+		$out = $this->parent->getOutput();
+		$out->addWikiMsg( 'securepoll-entry-text' );
+		$out->addHTML(
 			$pager->getBody() .
 			$pager->getNavigationBar()
 		);
 
-		if ( $wgUser->isAllowed( 'securepoll-create-poll' ) ) {
+		if ( $this->parent->getUser()->isAllowed( 'securepoll-create-poll' ) ) {
 			$title = SpecialPage::getTitleFor( 'SecurePoll', 'create' );
-			$wgOut->addHTML(
+			$out->addHTML(
 				Html::rawElement( 'p', array(),
 					Linker::makeKnownLinkObj( $title,
 						$this->msg( 'securepoll-entry-createpoll' )->text()
@@ -86,12 +86,12 @@ class SecurePoll_ElectionPager extends TablePager {
 	);
 	public $entryPage;
 
-	function __construct( $parent ) {
+	public function __construct( $parent ) {
 		$this->entryPage = $parent;
 		parent::__construct();
 	}
 
-	function getQueryInfo() {
+	public function getQueryInfo() {
 		return array(
 			'tables' => 'securepoll_elections',
 			'fields' => '*',
@@ -100,7 +100,7 @@ class SecurePoll_ElectionPager extends TablePager {
 		);
 	}
 
-	function isFieldSortable( $field ) {
+	public function isFieldSortable( $field ) {
 		return in_array( $field, array(
 			'el_title', 'el_start_date', 'el_end_date'
 		) );
@@ -112,18 +112,17 @@ class SecurePoll_ElectionPager extends TablePager {
 	 * @return String
 	 * @see TablePager::getRowClass()
 	 */
-	function getRowClass( $row ) {
+	public function getRowClass( $row ) {
 		return $row->el_end_date > wfTimestampNow( TS_DB )
 			? 'securepoll-election-open'
 			: 'securepoll-election-closed';
 	}
 
-	function formatValue( $name, $value ) {
-		global $wgLang;
+	public function formatValue( $name, $value ) {
 		switch ( $name ) {
 		case 'el_start_date':
 		case 'el_end_date':
-			return $wgLang->timeanddate( $value );
+			return $this->getLanguage()->timeanddate( $value );
 		case 'links':
 			return $this->getLinks();
 		default:
@@ -131,29 +130,28 @@ class SecurePoll_ElectionPager extends TablePager {
 		}
 	}
 
-	function formatRow( $row ) {
-		global $wgUser;
+	public function formatRow( $row ) {
 		$id = $row->el_entity;
 		$this->election = $this->entryPage->context->getElection( $id );
 		if( !$this->election ) {
 			$this->isAdmin = false;
 		} else {
-			$this->isAdmin = $this->election->isAdmin( $wgUser );
+			$this->isAdmin = $this->election->isAdmin( $this->getUser() );
 		}
 		return parent::formatRow( $row );
 	}
 
-	function getLinks() {
+	public function getLinks() {
 		$id = $this->mCurrentRow->el_entity;
 
 		$s = '';
-		$sep = wfMsg( 'pipe-separator' );
+		$sep = $this->msg( 'pipe-separator' )->text();
 		foreach ( $this->subpages as $subpage => $props ) {
 			// Message keys used here:
 			// securepoll-subpage-vote, securepoll-subpage-translate,
 			// securepoll-subpage-list, securepoll-subpage-dump,
 			// securepoll-subpage-tally, securepoll-subpage-votereligibility
-			$linkText = wfMsgExt( "securepoll-subpage-$subpage", 'parseinline' );
+			$linkText = $this->msg( "securepoll-subpage-$subpage" )->parse();
 			if ( $s !== '' ) {
 				$s .= $sep;
 			}
@@ -171,11 +169,11 @@ class SecurePoll_ElectionPager extends TablePager {
 		return $s;
 	}
 
-	function getDefaultSort() {
+	public function getDefaultSort() {
 		return 'el_start_date';
 	}
 
-	function getFieldNames() {
+	public function getFieldNames() {
 		$names = array();
 		foreach ( $this->fields as $field ) {
 			if ( $field == 'links' ) {
@@ -186,13 +184,13 @@ class SecurePoll_ElectionPager extends TablePager {
 				// securepoll-header-end-date
 				$msgName = 'securepoll-header-' .
 					strtr( $field, array( 'el_' => '', '_' => '-' ) );
-				$names[$field] = wfMsg( $msgName );
+				$names[$field] = $this->msg( $msgName )->text();
 			}
 		}
 		return $names;
 	}
 
-	function getTitle() {
+	public function getTitle() {
 		return $this->entryPage->getTitle();
 	}
 }

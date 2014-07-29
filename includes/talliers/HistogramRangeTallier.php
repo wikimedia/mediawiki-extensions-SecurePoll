@@ -61,7 +61,7 @@ class SecurePoll_HistogramRangeTallier extends SecurePoll_Tallier {
 		foreach ( $labels as $label ) {
 			$s .= Xml::element( 'th', array(), $label ) . "\n";
 		}
-		$s .= Xml::element( 'th', array(), wfMsg( 'securepoll-average-score' ) );
+		$s .= Xml::element( 'th', array(), wfMessage( 'securepoll-average-score' )->text() );
 		$s .= "</tr>\n";
 
 		foreach ( $this->averages as $oid => $average ) {

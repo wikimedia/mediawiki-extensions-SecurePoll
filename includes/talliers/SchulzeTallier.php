@@ -132,14 +132,14 @@ class SecurePoll_SchulzeTallier extends SecurePoll_PairwiseTallier {
 
 	function getHtmlResult() {
 		global $wgOut;
-		$s = $wgOut->parse( '<h2>' . wfMsgNoTrans( 'securepoll-ranks' ) . "</h2>\n" );
+		$s = $wgOut->parse( '<h2>' . wfMessage( 'securepoll-ranks' )->text() . "</h2>\n" );
 		$s .= $this->convertRanksToHtml( $this->ranks );
 
-		$s .= $wgOut->parse( '<h2>' . wfMsgNoTrans( 'securepoll-pairwise-victories' ) . "</h2>\n" );
+		$s .= $wgOut->parse( '<h2>' . wfMessage( 'securepoll-pairwise-victories' )->text() . "</h2>\n" );
 		$rankedIds = array_keys( $this->ranks );
 		$s .= $this->convertMatrixToHtml( $this->victories, $rankedIds );
 
-		$s .= $wgOut->parse( '<h2>' . wfMsgNoTrans( 'securepoll-strength-matrix' ) . "</h2>\n" );
+		$s .= $wgOut->parse( '<h2>' . wfMessage( 'securepoll-strength-matrix' )->text() . "</h2>\n" );
 		$s .= $this->convertMatrixToHtml( $this->strengths, $rankedIds );
 		return $s;
 	}
@@ -148,11 +148,11 @@ class SecurePoll_SchulzeTallier extends SecurePoll_PairwiseTallier {
 		$rankedIds = array_keys( $this->ranks );
 
 		return
-			wfMsg( 'securepoll-ranks' ) . "\n" .
+			$this->parent->msg( 'securepoll-ranks' )->text() . "\n" .
 			$this->convertRanksToText( $this->ranks ) . "\n\n" .
-			wfMsg( 'securepoll-pairwise-victories' ). "\n" .
+			wfMessage( 'securepoll-pairwise-victories' )->text(). "\n" .
 			$this->convertMatrixToText( $this->victories, $rankedIds ) . "\n\n" .
-			wfMsg( 'securepoll-strength-matrix' ) . "\n" .
+			wfMessage( 'securepoll-strength-matrix' )->text() . "\n" .
 			$this->convertMatrixToText( $this->strengths, $rankedIds );
 	}
 }

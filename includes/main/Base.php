@@ -6,7 +6,7 @@
  * this or of SpecialPage, they're subclassed from SecurePoll_Page.
  */
 class SecurePoll_BasePage extends UnlistedSpecialPage {
-	static $pages = array(
+	public static $pages = array(
 		'create' => 'SecurePoll_CreatePage',
 		'edit' => 'SecurePoll_CreatePage',
 		'details' => 'SecurePoll_DetailsPage',
@@ -21,7 +21,7 @@ class SecurePoll_BasePage extends UnlistedSpecialPage {
 		'votereligibility' => 'SecurePoll_VoterEligibilityPage',
 	);
 
-	public $sp_context, $request;
+	public $sp_context;
 
 	/**
 	 * Constructor
@@ -37,17 +37,17 @@ class SecurePoll_BasePage extends UnlistedSpecialPage {
 	 * @param $paramString Mixed: parameter passed to the page or null
 	 */
 	public function execute( $paramString ) {
-		global $wgOut, $wgRequest, $wgExtensionAssetsPath;
+		global $wgExtensionAssetsPath;
+
+		$out = $this->getOutput();
 
 		$this->setHeaders();
-		$wgOut->addLink( array(
+		$out->addLink( array(
 			'rel' => 'stylesheet',
 			'href' => "$wgExtensionAssetsPath/SecurePoll/resources/SecurePoll.css",
 			'type' => 'text/css'
 		) );
-		$wgOut->addScriptFile( "$wgExtensionAssetsPath/SecurePoll/resources/SecurePoll.js" );
-
-		$this->request = $wgRequest;
+		$out->addScriptFile( "$wgExtensionAssetsPath/SecurePoll/resources/SecurePoll.js" );
 
 		$paramString = strval( $paramString );
 		if ( $paramString === '' ) {
@@ -57,7 +57,7 @@ class SecurePoll_BasePage extends UnlistedSpecialPage {
 		$pageName = array_shift( $params );
 		$page = $this->getSubpage( $pageName );
 		if ( !$page ) {
-			$wgOut->addWikiMsg( 'securepoll-invalid-page', $pageName );
+			$out->addWikiMsg( 'securepoll-invalid-page', $pageName );
 			return;
 		}
 
@@ -71,7 +71,7 @@ class SecurePoll_BasePage extends UnlistedSpecialPage {
 	/**
 	 * Get a SecurePoll_Page subclass object for the given subpage name
 	 */
-	function getSubpage( $name ) {
+	public function getSubpage( $name ) {
 		if ( !isset( self::$pages[$name] ) ) {
 			return false;
 		}
@@ -83,7 +83,7 @@ class SecurePoll_BasePage extends UnlistedSpecialPage {
 	/**
 	 * Get a random token for CSRF protection
 	 */
-	function getEditToken() {
+	public function getEditToken() {
 		if ( !isset( $_SESSION['spToken'] ) ) {
 			$_SESSION['spToken'] = sha1( mt_rand() . mt_rand() . mt_rand() );
 		}
@@ -95,16 +95,15 @@ class SecurePoll_BasePage extends UnlistedSpecialPage {
 	 * Each argument is a two-element array giving a Title object to be used as
 	 * a link target, and the link text.
 	 */
-	function setSubtitle( /*...*/ ) {
-		global $wgOut;
+	public function setSubtitle( /*...*/ ) {
 		$title = $this->getPageTitle();
 		$subtitle = '&lt; ' . Linker::linkKnown( $title, htmlspecialchars( $title->getText() ) );
-		$pipe = wfMsg( 'pipe-separator' );
+		$pipe = $this->msg( 'pipe-separator' )->text();
 		$links = func_get_args();
 		foreach ( $links as $link ) {
 			list( $title, $text ) = $link;
 			$subtitle .= $pipe . Linker::linkKnown( $title, htmlspecialchars( $text ) );
 		}
-		$wgOut->setSubtitle( $subtitle );
+		$this->getOutput()->setSubtitle( $subtitle );
 	}
 }

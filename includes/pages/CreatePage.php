@@ -9,7 +9,7 @@ class SecurePoll_CreatePage extends SecurePoll_Page {
 	 * @param $params array Array of subpage parameters.
 	 */
 	function execute( $params ) {
-		global $wgUser, $wgSecurePollCreateWikiGroupDir, $wgSecurePollCreateWikiGroups;
+		global $wgSecurePollCreateWikiGroupDir, $wgSecurePollCreateWikiGroups;
 		global $wgSecurePollUseNamespace;
 
 		$out = $this->parent->getOutput();
@@ -53,7 +53,7 @@ class SecurePoll_CreatePage extends SecurePoll_Page {
 			}
 		} else {
 			$out->setPageTitle( $this->msg( 'securepoll-create-title' ) );
-			if ( !$wgUser->isAllowed( 'securepoll-create-poll' ) ) {
+			if ( !$this->parent->getUser()->isAllowed( 'securepoll-create-poll' ) ) {
 				throw new PermissionsError( 'securepoll-create-poll' );
 			}
 		}
@@ -65,8 +65,9 @@ class SecurePoll_CreatePage extends SecurePoll_Page {
 			HTMLForm::$typeMappings['daterange'] = 'SecurePoll_HTMLDateRangeField';
 		}
 
-		$this->parent->getOutput()->addModules( 'ext.securepoll.htmlform' );
-		$this->parent->getOutput()->addModules( 'ext.securepoll' );
+		$out->addModules( 'ext.securepoll.htmlform' );
+		$out->addModules( 'ext.securepoll' );
+		$out->setPageTitle( $this->msg( 'securepoll-create-title' ) );
 
 		# These are for injecting raw HTML into the HTMLForm for the
 		# multi-column aspects of the designed layout.

@@ -10,42 +10,42 @@ class SecurePoll_DumpPage extends SecurePoll_Page {
 	 * Execute the subpage.
 	 * @param $params array Array of subpage parameters.
 	 */
-	function execute( $params ) {
-		global $wgOut, $wgUser;
+	public function execute( $params ) {
+
+		$out = $this->parent->getOutput();
 
 		if ( !count( $params ) ) {
-			$wgOut->addWikiMsg( 'securepoll-too-few-params' );
+			$out->addWikiMsg( 'securepoll-too-few-params' );
 			return;
 		}
 
 		$electionId = intval( $params[0] );
 		$this->election = $this->context->getElection( $electionId );
 		if ( !$this->election ) {
-			$wgOut->addWikiMsg( 'securepoll-invalid-election', $electionId );
+			$out->addWikiMsg( 'securepoll-invalid-election', $electionId );
 			return;
 		}
-		$this->initLanguage( $wgUser, $this->election );
+		$this->initLanguage( $this->parent->getUser(), $this->election );
 
-		$wgOut->setPageTitle( wfMsg( 'securepoll-dump-title',
-			$this->election->getMessage( 'title' ) ) );
+		$out->setPageTitle( $this->msg( 'securepoll-dump-title',
+			$this->election->getMessage( 'title' ) )->text() );
 
 		if ( !$this->election->getCrypt() ) {
-			$wgOut->addWikiMsg( 'securepoll-dump-no-crypt' );
+			$out->addWikiMsg( 'securepoll-dump-no-crypt' );
 			return;
 		}
 
 		if ( !$this->election->isFinished() ) {
-			global $wgLang;
-			$wgOut->addWikiMsg( 'securepoll-dump-not-finished',
-				$wgLang->date( $this->election->getEndDate() ),
-				$wgLang->time( $this->election->getEndDate() ) );
+			$out->addWikiMsg( 'securepoll-dump-not-finished',
+				$this->parent->getLanguage()->date( $this->election->getEndDate() ),
+				$this->parent->getLanguage()->time( $this->election->getEndDate() ) );
 			return;
 		}
 
 		$this->headersSent = false;
 		$status = $this->election->dumpVotesToCallback( array( $this, 'dumpVote' ) );
 		if ( !$status->isOK() && !$this->headersSent ) {
-			$wgOut->addWikiText( $status->getWikiText() );
+			$out->addWikiText( $status->getWikiText() );
 			return;
 		}
 		if ( !$this->headersSent ) {
@@ -61,11 +61,9 @@ class SecurePoll_DumpPage extends SecurePoll_Page {
 		echo "<vote>" . $row->vote_record . "</vote>\n";
 	}
 
-	function sendHeaders() {
-		global $wgOut;
-
+	public function sendHeaders() {
 		$this->headersSent = true;
-		$wgOut->disable();
+		$this->parent->getOutput()->disable();
 		header( 'Content-Type: application/vnd.mediawiki.securepoll' );
 		$electionId = $this->election->getId();
 		$filename = urlencode( "$electionId-" . wfTimestampNow() . '.securepoll' );
