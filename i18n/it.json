@@ -146,7 +146,7 @@
 	"securepoll-create-option-wiki-other_wiki": "Altri wiki specifici",
 	"securepoll-create-label-election_primaryLang": "Lingua principale:",
 	"securepoll-create-label-election_dates": "Date di elezione:",
-	"securepoll-create-layout-election_dates": "Inizia il $1 (alle 00:00 UTC) ed esegui per $2 giorni",
+	"securepoll-create-layout-election_dates": "Inizia il $1 (alle 00:00 UTC) ed esegui per $2 giorno/i",
 	"securepoll-create-label-election_disallow-change": "Impedisci agli elettori di cambiare i loro voti",
 	"securepoll-create-label-election_type": "Tipo di sondaggio:",
 	"securepoll-create-label-election_crypt": "Cifratura:",
