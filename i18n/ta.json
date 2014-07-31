@@ -5,7 +5,8 @@
 			"Shanmugamp7",
 			"TRYPPN",
 			"மதனாஹரன்",
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"ElangoRamanujam"
 		]
 	},
 	"securepoll": "செகிறேபோல்",
@@ -42,6 +43,7 @@
 	"securepoll-blocked-centrally": "மன்னிக்கவும், நீங்கள் $1 {{PLURAL:$1|விக்கியிலாவது|விக்கிகளிலாவது}} தடை செய்யப்பட்டிருப்பதால் நீங்கள் இத்தேர்தலில் வாக்களிக்க முடியாது.",
 	"securepoll-bot": "மன்னிக்கவும், தானியங்கியாக அடையாளம் காணப்படும் கணக்குகள் இத் தேர்தலில் வாக்களிக்க முடியாது.",
 	"securepoll-not-in-group": "\"$1\" குழு உறுப்பினர்கள் மட்டுமே இத் தேர்தலில் வாக்களிக்கலாம்.",
+	"securepoll-in-exclude-list": "மன்னிக்கவும், இத்தேர்தலில் தாங்கள் வாக்களிக்க அங்கீகரிக்கப்படவில்லை.",
 	"securepoll-list-title": "வாக்குகளைப் பட்டியலிடு: $1",
 	"securepoll-header-timestamp": "நேரம்",
 	"securepoll-header-voter-name": "பெயர்",
@@ -69,6 +71,7 @@
 	"securepoll-language-label": "மொழியை தேர்வு செய்:",
 	"securepoll-submit-select-lang": "மொழிபெயர்ப்பு செய்யவும்",
 	"securepoll-entry-text": "வாக்கெடுப்புகளின் பட்டியல் கீழே உள்ளது.",
+	"securepoll-entry-createpoll": "ஒரு புது தேர்தலை உருவாக்குக",
 	"securepoll-header-title": "பெயர்",
 	"securepoll-header-start-date": "ஆரம்பத்தேதி",
 	"securepoll-header-end-date": "முடிவுத்தேதி",
@@ -78,5 +81,14 @@
 	"securepoll-subpage-tally": "கணக்கீடு செய்",
 	"securepoll-ranks": "இறுதி மதிப்பீடுகள்",
 	"securepoll-average-score": "சராசரி மதிப்பு",
-	"securepoll-round": "சுற்று $1"
+	"securepoll-round": "சுற்று $1",
+	"securepoll-create-option-wiki-all_wikis": "அனைத்து விக்கிகள்",
+	"securepoll-create-label-questions": "== வினாக்கள் ==",
+	"securepoll-create-questions-row-legend": "கேள்வி",
+	"securepoll-create-label-questions-delete": "வினாவை நீக்குக",
+	"securepoll-create-option-column_order-asc": "ஏறுவரிசை",
+	"securepoll-create-option-column_order-desc": "இறங்குவரிசை",
+	"securepoll-votereligibility-lists": "'''வாக்காளர் பட்டியல்கள்'''",
+	"securepoll-votereligibility-layout-edits_between_dates": "$1 மற்றும் $2க்கு இடையி்ல்",
+	"securepoll-votereligibility-label-names": "பயனர் பெயர்கள்"
 }
