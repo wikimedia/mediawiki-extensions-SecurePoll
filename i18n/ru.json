@@ -132,6 +132,8 @@
 	"securepoll-htmlform-daterange-absolute-layout": "Начинается $1 и заканчивается $2",
 	"securepoll-htmlform-daterange-end-before-start": "Заданная дата окончания — раньше даты начала.",
 	"securepoll-htmlform-daterange-error-partial": "Оба поля дат должны быть заполненными или пустыми.",
+	"securepoll-htmlform-radiorange-missing-message": "Пожалуйста, укажите значение для столбца $1",
+	"securepoll-create-title": "{{int:securepoll}}: Создать опрос",
 	"securepoll-create-action": "Создать опрос",
 	"securepoll-create-created": "{{int:securepoll}}: Опрос создан",
 	"securepoll-create-created-text": "Ваш опрос создан.",
@@ -181,6 +183,8 @@
 	"securepoll-votereligibility-edit-title": "Редактирование списка голосующих: $1",
 	"securepoll-votereligibility-edit-action": "Сохранить список",
 	"securepoll-votereligibility-saved": "{{int:securepoll}}: Сохранено",
+	"securepoll-votereligibility-saved-text": "Ваши изменения были сохранены.",
+	"securepoll-votereligibility-cleared": "{{int:securepoll}}: Очищено",
 	"right-securepoll-create-poll": "Создание опросов",
 	"action-securepoll-create-poll": "создание опросов"
 }
