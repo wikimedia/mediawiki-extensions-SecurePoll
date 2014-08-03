@@ -188,6 +188,7 @@
 	"securepoll-votereligibility-redirect-otherwiki": "主wiki",
 	"securepoll-votereligibility-basic": "'''基本选项'''",
 	"securepoll-votereligibility-invalid-list": "提供的投票者资格列表未知。",
+	"securepoll-votereligibility-list-is-processing": "提供的投票者资格列表正在自动更新，当前不能编辑。",
 	"securepoll-votereligibility-label-min_edits": "最少编辑：",
 	"securepoll-votereligibility-label-max_registration": "此日期前注册：",
 	"securepoll-votereligibility-label-not_blocked": "必须未被封禁",
