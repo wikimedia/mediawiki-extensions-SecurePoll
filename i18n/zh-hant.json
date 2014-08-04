@@ -125,5 +125,6 @@
 	"securepoll-exhausted": "(用盡)",
 	"securepoll-create-option-election_type-preferential+schulze": "Schulze 投票",
 	"securepoll-create-option-election_type-radio-range+plurality": "計分投票（多數）",
-	"securepoll-votereligibility-lists": "'''投票者清單'''"
+	"securepoll-votereligibility-lists": "'''投票者清單'''",
+	"securepoll-votereligibility-label-names": "使用者名稱"
 }

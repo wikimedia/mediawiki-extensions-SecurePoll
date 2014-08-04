@@ -147,7 +147,7 @@
 	"securepoll-create-option-wiki-other_wiki": "Annan specifik wiki",
 	"securepoll-create-label-election_primaryLang": "Primärt språk:",
 	"securepoll-create-label-election_dates": "Omröstningsdatum:",
-	"securepoll-create-layout-election_dates": "Börja $1 (vid 00:00 UTC) och kör i $2 dagar",
+	"securepoll-create-layout-election_dates": "Börja $1 (vid 00:00 UTC) och kör i $2 dag(ar)",
 	"securepoll-create-label-election_disallow-change": "Förhindra att väljarna ändrar sina röster",
 	"securepoll-create-label-election_return-url": "Tillbaka-till-URL:",
 	"securepoll-create-label-election_type": "Enkättyp:",
