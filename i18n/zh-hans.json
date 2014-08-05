@@ -144,6 +144,7 @@
 	"securepoll-create-label-election_primaryLang": "主要语言：",
 	"securepoll-create-label-election_dates": "选举日期：",
 	"securepoll-create-layout-election_dates": "开始于$1 00:00（UTC）并进行$2天",
+	"securepoll-create-label-election_disallow-change": "防止来自更改他们投票的投票者",
 	"securepoll-create-label-election_return-url": "返回URL：",
 	"securepoll-create-label-election_type": "投票类型：",
 	"securepoll-create-label-election_crypt": "加密：",

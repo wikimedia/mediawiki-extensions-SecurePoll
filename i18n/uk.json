@@ -8,7 +8,8 @@
 			"Ilyaroz",
 			"NickK",
 			"Prima klasy4na",
-			"Ата"
+			"Ата",
+			"Mykola Swarnyk"
 		]
 	},
 	"securepoll": "Безпечне голосування",
@@ -148,7 +149,7 @@
 	"securepoll-create-option-wiki-other_wiki": "Інша конкретна вікі",
 	"securepoll-create-label-election_primaryLang": "Основна мова:",
 	"securepoll-create-label-election_dates": "Дати виборів:",
-	"securepoll-create-layout-election_dates": "Початок $1 (00:00 UTC), триває $2 днів",
+	"securepoll-create-layout-election_dates": "Початок $1 (00:00 UTC), триває $2 дні(в)",
 	"securepoll-create-label-election_disallow-change": "Заборонити виборцям змінювати свої голоси",
 	"securepoll-create-label-election_return-url": "URL-адреса повернення:",
 	"securepoll-create-label-election_type": "Тип опитування:",
