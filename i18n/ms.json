@@ -3,7 +3,8 @@
 		"authors": [
 			"Anakmalaysia",
 			"Aurora",
-			"Izzudin"
+			"Izzudin",
+			"Pizza1016"
 		]
 	},
 	"securepoll": "SecurePoll",
@@ -71,7 +72,7 @@
 	"securepoll-strike-log": "Log pemotongan",
 	"securepoll-header-action": "Tindakan",
 	"securepoll-header-reason": "Sebab",
-	"securepoll-header-admin": "Pentadbir",
+	"securepoll-header-admin": "Penyelia",
 	"securepoll-cookie-dup-list": "Pengguna salinan cookie",
 	"securepoll-dump-title": "Longgokan: $1",
 	"securepoll-dump-no-crypt": "Tiada rekod sulit pemilihan yang ada untuk pemilihan ini, kerana pemilihan tidak disusun untuk menggunakan penyulitan.",
