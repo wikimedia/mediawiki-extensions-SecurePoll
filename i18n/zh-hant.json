@@ -146,6 +146,6 @@
 	"securepoll-create-option-election_type-radio-range+plurality": "計分投票（多數）",
 	"securepoll-create-option-election_crypt-none": "未加密",
 	"securepoll-votereligibility-lists": "'''投票者清單'''",
-	"securepoll-votereligibility-label-names": "使用者名稱",
+	"securepoll-votereligibility-label-names": "用戶名",
 	"securepoll-votereligibility-edit-action": "儲存清單"
 }
