@@ -4,7 +4,7 @@
  * Class for handling guest logins and sessions. Creates SecurePoll_Voter objects.
  */
 class SecurePoll_Auth {
-	var $context;
+	public $context;
 
 	/**
 	 * List of available authorization modules (subclasses)

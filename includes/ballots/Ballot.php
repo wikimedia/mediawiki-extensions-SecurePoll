@@ -4,7 +4,7 @@
  * Parent class for ballot forms. This is the UI component of a voting method.
  */
 abstract class SecurePoll_Ballot {
-	var $election, $context;
+	public $election, $context;
 
 	static $ballotTypes = array(
 		'approval' => 'SecurePoll_ApprovalBallot',
@@ -263,8 +263,8 @@ abstract class SecurePoll_Ballot {
 }
 
 class SecurePoll_BallotStatus extends Status {
-	var $sp_context;
-	var $sp_ids = array();
+	public $sp_context;
+	public $sp_ids = array();
 
 	function __construct( $context ) {
 		$this->sp_context = $context;

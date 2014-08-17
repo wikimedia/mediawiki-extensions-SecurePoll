@@ -62,9 +62,9 @@
  *          return-url
  */
 class SecurePoll_Election extends SecurePoll_Entity {
-	var $questions, $auth, $ballot;
-	var $id, $title, $ballotType, $tallyType, $primaryLang;
-	var $startDate, $endDate, $authType;
+	public $questions, $auth, $ballot;
+	public $id, $title, $ballotType, $tallyType, $primaryLang;
+	public $startDate, $endDate, $authType;
 
 	/**
 	 * Constructor.

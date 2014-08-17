@@ -138,7 +138,7 @@ function spGenerateTest( $fileName ) {
 }
 
 class SecurePoll_FakeQuestion {
-	var $options;
+	public $options;
 
 	function __construct( $options ) {
 		$this->options = array();
@@ -153,7 +153,7 @@ class SecurePoll_FakeQuestion {
 }
 
 class SecurePoll_FakeOption {
-	var $id, $name;
+	public $id, $name;
 
 	function __construct( $id, $name ) {
 		$this->id = $id;

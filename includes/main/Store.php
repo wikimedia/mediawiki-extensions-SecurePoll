@@ -274,8 +274,8 @@ class SecurePoll_DBStore implements SecurePoll_Store {
  * subclass.
  */
 class SecurePoll_MemoryStore implements SecurePoll_Store {
-	var $messages, $properties, $idsByName, $votes;
-	var $entityInfo;
+	public $messages, $properties, $idsByName, $votes;
+	public $entityInfo;
 
 	/**
 	 * Get an array containing all election IDs stored in this object
@@ -367,8 +367,8 @@ class SecurePoll_MemoryStore implements SecurePoll_Store {
  * and vote data can be loaded into a tallier on demand.
  */
 class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
-	var $xmlReader, $fileName;
-	var $voteCallback, $voteElectionId, $voteCallbackStatus;
+	public $xmlReader, $fileName;
+	public $voteCallback, $voteElectionId, $voteCallbackStatus;
 
 	/** Valid entity info keys by entity type. */
 	static $entityInfoKeys = array(

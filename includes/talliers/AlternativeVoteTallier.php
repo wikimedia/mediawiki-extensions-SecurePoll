@@ -9,27 +9,27 @@ class SecurePoll_AlternativeVoteTallier extends SecurePoll_Tallier {
 	 * Array of ballot bins for each candidate
 	 * @var array
 	 */
-	var $ballots = array();
+	public $ballots = array();
 
 	/**
 	 * Votes which give the same preference to more than one candidate are considered
 	 * spoilt; keep a count of these so scrutineers can check that the numbers add up
 	 * array( <round number> => <number>
 	 */
-	var $spoilt = array( 1 => 0);
-	var $exhausted = array( 1 => 0 );
+	public $spoilt = array( 1 => 0);
+	public $exhausted = array( 1 => 0 );
 
 	// Total number of counting rounds
-	var $rounds = 0;
+	public $rounds = 0;
 
 	// Total number of candidates who received any votes at all
-	var $numCandidates = 0;
+	public $numCandidates = 0;
 
 	/**
 	 * The results of the counting process
 	 * array( <option id> => array( <round number> => <votes> ) )
 	 */
-	var $results = array();
+	public $results = array();
 
 
 	/**

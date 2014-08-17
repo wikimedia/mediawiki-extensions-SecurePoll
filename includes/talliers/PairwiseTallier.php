@@ -5,10 +5,10 @@
  * Tested via SecurePoll_SchulzeTallier.
  */
 abstract class SecurePoll_PairwiseTallier extends SecurePoll_Tallier {
-	var $optionIds = array();
-	var $victories = array();
-	var $abbrevs;
-	var $rowLabels = array();
+	public $optionIds = array();
+	public $victories = array();
+	public $abbrevs;
+	public $rowLabels = array();
 
 	function __construct( $context, $electionTallier, $question ) {
 		parent::__construct( $context, $electionTallier, $question );

@@ -17,7 +17,7 @@
  *     column-1, column0, column+1, etc.
  */
 class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
-	var $columnLabels, $minMax;
+	public $columnLabels, $minMax;
 
 	static function getTallyTypes() {
 		return array( 'plurality', 'histogram-range' );

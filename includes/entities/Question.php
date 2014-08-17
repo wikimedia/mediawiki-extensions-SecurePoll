@@ -5,7 +5,7 @@
  * more than one question in an election.
  */
 class SecurePoll_Question extends SecurePoll_Entity {
-	var $options, $electionId;
+	public $options, $electionId;
 
 	/**
 	 * Constructor

@@ -6,7 +6,7 @@
  * questions.
  */
 abstract class SecurePoll_Tallier {
-	var $context, $question, $electionTallier, $election, $optionsById;
+	public $context, $question, $electionTallier, $election, $optionsById;
 
 	abstract function addVote( $scores );
 	abstract function getHtmlResult();
