@@ -11,11 +11,11 @@
  * properties, and a descendant tree which is used to accelerate message loading.
  */
 class SecurePoll_Entity {
-	var $id;
-	var $electionId;
-	var $context;
-	var $messagesLoaded = array();
-	var $properties;
+	public $id;
+	public $electionId;
+	public $context;
+	public $messagesLoaded = array();
+	public $properties;
 
 	/**
 	 * Create an entity of the given type. This is typically called from the

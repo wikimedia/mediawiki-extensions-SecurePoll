@@ -20,30 +20,30 @@ class SecurePoll_Context {
 	public $languages = array( 'en' );
 
 	/** Message text cache */
-	var $messageCache = array();
+	public $messageCache = array();
 
 	/** election cache */
-	var $electionCache = array();
+	public $electionCache = array();
 
 	/**
 	 * Which messages are loaded. 2-d array: language and entity ID, value arbitrary.
 	 */
-	var $messagesLoaded = array();
+	public $messagesLoaded = array();
 
 	/** ParserOptions instance used for message parsing */
-	var $parserOptions;
+	public $parserOptions;
 
 	/** The store class, for lazy loading */
-	var $storeClass = 'SecurePoll_DBStore';
+	public $storeClass = 'SecurePoll_DBStore';
 
 	/** The store object */
-	var $store;
+	public $store;
 
 	/** The SecurePoll_Random instance */
-	var $random;
+	public $random;
 
 	/** The Database instance */
-	var $db;
+	public $db;
 
 	/**
 	 * Create a new SecurePoll_Context with an XML file as the storage backend.

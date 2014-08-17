@@ -5,8 +5,8 @@
  * properties include a snapshot of heuristic qualifications such as edit count.
  */
 class SecurePoll_Voter {
-	var $id, $electionId, $name, $domain, $wiki, $type, $url;
-	var $properties = array();
+	public $id, $electionId, $name, $domain, $wiki, $type, $url;
+	public $properties = array();
 
 	static $paramNames = array( 'id', 'electionId', 'name', 'domain', 'wiki', 'type', 'url', 'properties' );
 

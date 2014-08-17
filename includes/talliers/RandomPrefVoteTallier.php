@@ -5,7 +5,7 @@
  * selecting random preferential votes. Untested.
  */
 abstract class SecurePoll_RandomPrefVoteTallier {
-	var $records, $random;
+	public $records, $random;
 
 	function addVote( $vote ) {
 		$this->records[] = $vote;

@@ -4,7 +4,7 @@
  * Tallier that supports choose-one, approval and range voting
  */
 class SecurePoll_PluralityTallier extends SecurePoll_Tallier {
-	var $tally = array();
+	public $tally = array();
 
 	/**
 	 * @param  $context SecurePoll_Context

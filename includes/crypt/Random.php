@@ -1,7 +1,7 @@
 <?php
 
 class SecurePoll_Random {
-	var $urandom;
+	public $urandom;
 
 	/**
 	 * Open a /dev/urandom file handle

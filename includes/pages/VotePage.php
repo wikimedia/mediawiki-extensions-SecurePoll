@@ -4,8 +4,8 @@
  * The subpage for casting votes.
  */
 class SecurePoll_VotePage extends SecurePoll_Page {
-	var $languages;
-	var $election, $auth, $user;
+	public $languages;
+	public $election, $auth, $user;
 
 	/**
 	 * Execute the subpage.

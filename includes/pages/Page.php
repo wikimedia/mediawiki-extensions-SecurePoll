@@ -4,8 +4,8 @@
  * Parent class for Special:SecurePoll subpages.
  */
 abstract class SecurePoll_Page {
-	var $parent, $election, $auth, $user;
-	var $context;
+	public $parent, $election, $auth, $user;
+	public $context;
 
 	/**
 	 * Constructor.

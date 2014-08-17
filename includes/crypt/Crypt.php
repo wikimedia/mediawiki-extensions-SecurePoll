@@ -75,8 +75,8 @@ abstract class SecurePoll_Crypt {
  * gpg-decrypt-key is for tallying.
  */
 class SecurePoll_GpgCrypt {
-	var $context, $election;
-	var $recipient, $signer, $homeDir;
+	public $context, $election;
+	public $recipient, $signer, $homeDir;
 
 	static function getCreateDescriptors() {
 		$ret = SecurePoll_Crypt::getCreateDescriptors();

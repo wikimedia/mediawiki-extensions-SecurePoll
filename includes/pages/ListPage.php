@@ -5,7 +5,7 @@
  * Provides an administrator interface for striking fraudulent votes.
  */
 class SecurePoll_ListPage extends SecurePoll_Page {
-	var $election;
+	public $election;
 
 	/**
 	 * Execute the subpage.
@@ -172,7 +172,7 @@ EOT
  * is an admin.
  */
 class SecurePoll_ListPager extends TablePager {
-	var $listPage, $isAdmin, $election;
+	public $listPage, $isAdmin, $election;
 
 	static $publicFields = array(
 		'vote_timestamp',

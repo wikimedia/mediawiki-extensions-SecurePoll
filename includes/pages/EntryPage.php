@@ -41,7 +41,7 @@ class SecurePoll_EntryPage extends SecurePoll_Page {
  * Pager for an election list. See TablePager documentation.
  */
 class SecurePoll_ElectionPager extends TablePager {
-	var $subpages = array(
+	public $subpages = array(
 		'vote' => array(
 			'public' => true,
 			'visible-after-close' => false,
@@ -67,13 +67,13 @@ class SecurePoll_ElectionPager extends TablePager {
 			'visible-after-close' => true,
 		),
 	);
-	var $fields = array(
+	public $fields = array(
 		'el_title',
 		'el_start_date',
 		'el_end_date',
 		'links'
 	);
-	var $entryPage;
+	public $entryPage;
 
 	function __construct( $parent ) {
 		$this->entryPage = $parent;

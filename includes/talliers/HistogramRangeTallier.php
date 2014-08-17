@@ -1,11 +1,11 @@
 <?php
 
 class SecurePoll_HistogramRangeTallier extends SecurePoll_Tallier {
-	var $histogram = array();
-	var $sums = array();
-	var $counts = array();
-	var $averages;
-	var $minScore, $maxScore;
+	public $histogram = array();
+	public $sums = array();
+	public $counts = array();
+	public $averages;
+	public $minScore, $maxScore;
 
 	function __construct( $context, $electionTallier, $question ) {
 		parent::__construct( $context, $electionTallier, $question );

@@ -33,7 +33,7 @@ if ( !isset( $options['name'] ) ) {
 
 
 class SecurePoll_ConvertVotes {
-	var $context, $election;
+	public $context, $election;
 
 	function convertFile( $fileName ) {
 		$this->context = SecurePoll_Context::newFromXmlFile( $fileName );

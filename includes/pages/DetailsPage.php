@@ -150,7 +150,7 @@ class SecurePoll_DetailsPage extends SecurePoll_Page {
  * Pager for the strike log. See TablePager documentation.
  */
 class SecurePoll_StrikePager extends TablePager {
-	var $detailsPage, $voteId;
+	public $detailsPage, $voteId;
 
 	function __construct( $detailsPage, $voteId ) {
 		$this->detailsPage = $detailsPage;

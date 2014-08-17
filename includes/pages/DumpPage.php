@@ -4,7 +4,7 @@
  * Special:SecurePoll subpage for exporting encrypted election records.
  */
 class SecurePoll_DumpPage extends SecurePoll_Page {
-	var $headersSent;
+	public $headersSent;
 
 	/**
 	 * Execute the subpage.
