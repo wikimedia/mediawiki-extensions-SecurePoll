@@ -168,6 +168,7 @@
 	"securepoll-create-label-questions-delete": "Удалить вопрос",
 	"securepoll-create-option-column_order-asc": "По возрастанию",
 	"securepoll-create-option-column_order-desc": "По убыванию",
+	"securepoll-create-label-column_label_msgs": "Использовать пользовательские сообщения для подписей столбцов",
 	"securepoll-create-label-questions-option": "=== Варианты ===",
 	"securepoll-create-label-options-option": "Текст ответа:",
 	"securepoll-create-label-options-add": "Добавить другой ответ",
