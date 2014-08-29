@@ -13,7 +13,8 @@
 			"Reza1615",
 			"Sahim",
 			"Wayiran",
-			"ZxxZxxZ"
+			"ZxxZxxZ",
+			"Alirezaaa"
 		]
 	},
 	"securepoll": "رأی‌گیری امن",
@@ -123,5 +124,8 @@
 	"securepoll-average-score": "میانگین نمره",
 	"securepoll-round": "دور $1",
 	"securepoll-spoilt": "(معیوب)",
-	"securepoll-exhausted": "(خسته)"
+	"securepoll-exhausted": "(خسته)",
+	"securepoll-create-label-questions-add": "افزودن پرسش دیگر",
+	"securepoll-create-option-column_order-asc": "صعودی",
+	"securepoll-create-option-column_order-desc": "نزولی"
 }
