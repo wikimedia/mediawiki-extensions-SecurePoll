@@ -125,7 +125,12 @@
 	"securepoll-round": "دور $1",
 	"securepoll-spoilt": "(معیوب)",
 	"securepoll-exhausted": "(خسته)",
+	"securepoll-create-action": "ایجاد نظرسنجی",
+	"securepoll-create-option-wiki-all_wikis": "تمام ویکی‌ها",
+	"securepoll-create-label-property_admins": "مدیران:",
+	"securepoll-create-label-questions-question": "متن سوال:",
 	"securepoll-create-label-questions-add": "افزودن پرسش دیگر",
 	"securepoll-create-option-column_order-asc": "صعودی",
-	"securepoll-create-option-column_order-desc": "نزولی"
+	"securepoll-create-option-column_order-desc": "نزولی",
+	"securepoll-votereligibility-saved-text": "تغییرات شما ذخیره شده‌است."
 }
