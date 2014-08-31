@@ -6,7 +6,8 @@
 			"Mwpnl",
 			"Ronja Addams-Moring",
 			"SPQRobin",
-			"Siebrand"
+			"Siebrand",
+			"Sjoerddebruin"
 		]
 	},
 	"securepoll": "VeiligStemmen",
@@ -113,5 +114,31 @@
 	"securepoll-average-score": "Gemiddelde score",
 	"securepoll-round": "Ronde $1",
 	"securepoll-spoilt": "(Ongeldig)",
-	"securepoll-exhausted": "(Verlopen)"
+	"securepoll-exhausted": "(Verlopen)",
+	"securepoll-create-option-wiki-this_wiki": "Deze wiki",
+	"securepoll-create-option-wiki-all_wikis": "Alle wiki's",
+	"securepoll-create-option-wiki-other_wiki": "Andere specifieke wiki:",
+	"securepoll-create-label-election_primaryLang": "Primaire taal:",
+	"securepoll-create-label-questions": "== Vragen ==",
+	"securepoll-create-questions-row-legend": "Vraag",
+	"securepoll-create-label-questions-add": "Een andere vraag toevoegen",
+	"securepoll-create-label-questions-delete": "Vraag verwijderen",
+	"securepoll-create-option-column_order-asc": "Oplopend",
+	"securepoll-create-option-column_order-desc": "Aflopend",
+	"securepoll-votereligibility-label-min_edits": "Minimaal aantal bewerkingen:",
+	"securepoll-votereligibility-label-max_registration": "Geregistreerd voor:",
+	"securepoll-votereligibility-label-not_blocked": "Moet geen blokkade hebben",
+	"securepoll-votereligibility-label-not_centrally_blocked": "Moet geen blokkade hebben op te veel gekoppelde wiki's",
+	"securepoll-votereligibility-label-inuse": "Deze lijst is in gebruik",
+	"securepoll-votereligibility-label-notinuse": "Deze lijst is niet in gebruik",
+	"securepoll-votereligibility-label-processing": "Deze lijst wordt opgebouwd ($1% compleet)",
+	"securepoll-votereligibility-label-edit": "Lijst bewerken",
+	"securepoll-votereligibility-label-clear": "Lijst verwijderen",
+	"securepoll-votereligibility-label-populate": "Lijst automatisch invullen",
+	"securepoll-votereligibility-label-edits_before": "Een minimaal aantal bewerkingen vereisen die voor een datum zijn uitgevoerd",
+	"securepoll-votereligibility-label-edits_before_count": "Minimale aantal bewerkingen",
+	"securepoll-votereligibility-label-edits_between_count": "Minimale aantal bewerkingen",
+	"securepoll-votereligibility-layout-edits_between_dates": "Tussen $1 en $2",
+	"securepoll-votereligibility-label-names": "Gebruikersnamen",
+	"securepoll-votereligibility-edit-action": "Lijst opslaan"
 }
