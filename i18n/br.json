@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Fulup",
-			"Y-M D"
+			"Y-M D",
+			"Fohanno"
 		]
 	},
 	"securepoll": "Mouezhiadeg suraet",
@@ -109,5 +110,38 @@
 	"securepoll-average-score": "Skor keitat",
 	"securepoll-round": "Tro $1",
 	"securepoll-spoilt": "(Gwenn pe null)",
-	"securepoll-exhausted": "(Diviet)"
+	"securepoll-exhausted": "(Diviet)",
+	"securepoll-create-option-wiki-this_wiki": "Ar wiki-mañ",
+	"securepoll-create-option-wiki-all_wikis": "An holl wikioù",
+	"securepoll-create-label-property_admins": "Merourien :",
+	"securepoll-create-label-gpg_encrypt_key": "Alc'hwez sifrañ GPG",
+	"securepoll-create-label-questions": "== Goulennoù ==",
+	"securepoll-create-questions-row-legend": "Goulenn",
+	"securepoll-create-label-questions-question": "Testenn ar goulenn :",
+	"securepoll-create-label-questions-add": "Ouzhpennañ ur goulenn all",
+	"securepoll-create-label-questions-delete": "Dilemel ar goulenn",
+	"securepoll-create-label-min_score": "Kont izelañ :",
+	"securepoll-create-label-max_score": "Kont uhelañ :",
+	"securepoll-create-label-default_score": "Kont dre ziouer :",
+	"securepoll-create-option-column_order-asc": "War gresk",
+	"securepoll-create-option-column_order-desc": "War zigresk",
+	"securepoll-create-label-questions-option": "=== Dibarzhioù ===",
+	"securepoll-create-label-options-option": "Testenn an dibarzh :",
+	"securepoll-create-label-options-add": "Ouzhpennañ un dibarzh all",
+	"securepoll-create-label-options-delete": "Dilemel an dibarzh",
+	"securepoll-create-label-option-name": "Anv an dibarzh :",
+	"securepoll-create-invalid-username": "An anv implijer diferet n'eo ket reizh",
+	"securepoll-create-user-does-not-exist": "N'eus ket eus an implijer diferet",
+	"securepoll-votereligibility-redirect-otherwiki": "ar wiki pennañ",
+	"securepoll-votereligibility-basic": "'''Dibarzhioù diazez'''",
+	"securepoll-votereligibility-label-inuse": "En implij emañ ar roll-mañ",
+	"securepoll-votereligibility-label-notinuse": "N'emañ ket ar roll-mañ en implij",
+	"securepoll-votereligibility-layout-edits_between_dates": "Etre $1 ha $2",
+	"securepoll-votereligibility-label-names": "Anvioù implijerien",
+	"securepoll-votereligibility-action": "Enrollañ ar c'hefluniadur",
+	"securepoll-votereligibility-edit-action": "Enrollañ ar roll",
+	"securepoll-votereligibility-saved": "{{int:securepoll}} : Enrollet",
+	"securepoll-votereligibility-saved-text": "Enrollet eo bet ho kemmoù.",
+	"right-securepoll-create-poll": "Krouiñ sontadegoù",
+	"action-securepoll-create-poll": "krouiñ sontadegoù"
 }
