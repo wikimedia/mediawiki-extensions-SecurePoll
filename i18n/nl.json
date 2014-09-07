@@ -7,7 +7,8 @@
 			"Ronja Addams-Moring",
 			"SPQRobin",
 			"Siebrand",
-			"Sjoerddebruin"
+			"Sjoerddebruin",
+			"Romaine"
 		]
 	},
 	"securepoll": "VeiligStemmen",
@@ -117,7 +118,7 @@
 	"securepoll-exhausted": "(Verlopen)",
 	"securepoll-create-option-wiki-this_wiki": "Deze wiki",
 	"securepoll-create-option-wiki-all_wikis": "Alle wiki's",
-	"securepoll-create-option-wiki-other_wiki": "Andere specifieke wiki:",
+	"securepoll-create-option-wiki-other_wiki": "Andere specifieke wiki",
 	"securepoll-create-label-election_primaryLang": "Primaire taal:",
 	"securepoll-create-label-questions": "== Vragen ==",
 	"securepoll-create-questions-row-legend": "Vraag",
