@@ -12,7 +12,7 @@ class SecurePoll_ListPage extends SecurePoll_Page {
 	 * @param $params array Array of subpage parameters.
 	 */
 	function execute( $params ) {
-		global $wgOut, $wgUser, $wgStylePath;
+		global $wgOut, $wgUser;
 
 		if ( !count( $params ) ) {
 			$wgOut->addWikiMsg( 'securepoll-too-few-params' );
@@ -43,7 +43,6 @@ class SecurePoll_ListPage extends SecurePoll_Page {
 			$msgCancel = wfMsgHtml( 'securepoll-strike-cancel' );
 			$msgReason = wfMsgHtml( 'securepoll-strike-reason' );
 			$encAction = htmlspecialchars( $this->getTitle()->getLocalUrl() );
-			$encSpinner = htmlspecialchars( "$wgStylePath/common/images/spinner.gif" );
 			$script = Skin::makeVariablesScript( array(
 				'securepoll_strike_button' => wfMsg( 'securepoll-strike-button' ),
 				'securepoll_unstrike_button' => wfMsg( 'securepoll-unstrike-button' )
@@ -67,7 +66,7 @@ $script
 </p>
 </form>
 <div id="securepoll-strike-result"></div>
-<div id="securepoll-strike-spinner"><img src="$encSpinner"/></div>
+<div id="securepoll-strike-spinner" class="mw-small-spinner"></div>
 </div>
 EOT
 			);
