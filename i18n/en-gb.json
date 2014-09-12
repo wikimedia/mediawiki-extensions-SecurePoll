@@ -5,5 +5,7 @@
 		]
 	},
 	"securepoll-remote-parse-error": "Error interpreting the authorisation response from the server.",
-	"securepoll-not-in-list": "Sorry, you are not in the predetermined list of users authorised to vote in this election."
+	"securepoll-not-in-list": "Sorry, you are not in the predetermined list of users authorised to vote in this election.",
+	"securepoll-in-exclude-list": "Sorry, you are not authorised to vote in this election.",
+	"securepoll-htmlform-date-invalid": "The value you specified is not a recognised date. Try using YYYY-MM-DD format."
 }
