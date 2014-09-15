@@ -73,7 +73,7 @@
 	"securepoll-header-reason": "{{Identical|Reason}}",
 	"securepoll-header-admin": "{{Identical|Admin}}",
 	"securepoll-cookie-dup-list": "Header of a list on [[Special:SecurePoll/details/1]]. The list shows duplicate voters detected by having a cookie from the first voting.",
-	"securepoll-dump-title": "Used as page title. Parameters:\n* $1 - title of the election, or the string \"[title]\"",
+	"securepoll-dump-title": "Used as page title. Parameters:\n* $1 - title of the election, or the string \"[title]\"\n{{Identical|Dump}}",
 	"securepoll-dump-not-finished": "Used if the election is not finished. Parameters:\n* $1 - the date\n* $2 - the time",
 	"securepoll-dump-no-urandom": "Do not translate \"/dev/urandom\".\n\nServers running Microsoft Windows will present [[MediaWiki:Securepoll-urandom-not-supported/en|Securepoll-urandom-not-supported]] instead.",
 	"securepoll-urandom-not-supported": "As to the meaning of ''cryptographic random number'', see [[:wikipedia:Cryptographically secure pseudorandom number generator]] for reference.\n\nThe /dev/urandom cryptographic random number generation device is not supported on servers running Microsoft Windows. On other platforms the [[MediaWiki:Securepoll-dump-no-urandom/en|Securepoll-dump-no-urandom]] message is generated if opening of the /dev/urandom device fails.",
