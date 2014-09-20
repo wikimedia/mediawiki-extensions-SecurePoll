@@ -9,14 +9,15 @@
 			"Helder.wiki",
 			"Heldergeovane",
 			"Luckas",
-			"MetalBrasil"
+			"MetalBrasil",
+			"Dianakc"
 		]
 	},
 	"securepoll": "VotaçãoSegura",
 	"securepoll-desc": "Extensão para eleições e pesquisas",
 	"securepoll-invalid-page": "Subpágina inválida \"<nowiki>$1</nowiki>\"",
 	"securepoll-need-admin": "Você precisa ser um administrador de eleição para realizar esta ação",
-	"securepoll-too-few-params": "Sem parâmetros de subpágina suficientes (ligação inválida).",
+	"securepoll-too-few-params": "Parâmetros de subpágina insuficientes (link inválido).",
 	"securepoll-invalid-election": "\"$1\" não é um ID de eleição válido.",
 	"securepoll-welcome": "<strong>Bem vindo(a) $1!</strong>",
 	"securepoll-not-started": "Esta eleição ainda não começou.\nEla está programada para se iniciar em $2, às $3.",
