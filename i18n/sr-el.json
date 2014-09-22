@@ -49,6 +49,7 @@
 	"securepoll-bot": "Nažalost, nalozi s botovskom oznakom nisu dozvoljeni na ovim izborima.",
 	"securepoll-not-in-group": "Na ovim izborima mogu da glasaju samo pripadnici grupe „$1“.",
 	"securepoll-not-in-list": "Nažalost, niste na predodređenom spisku korisnika kojima je odobreno glasanje na ovim izborima.",
+	"securepoll-in-exclude-list": "Žao nam je, nema te pravo glasa na ovim izborima.",
 	"securepoll-list-title": "Prikaži glasove: $1",
 	"securepoll-header-timestamp": "Vreme",
 	"securepoll-header-voter-name": "Ime",
@@ -116,5 +117,10 @@
 	"securepoll-average-score": "Prosečna ocena",
 	"securepoll-round": "Kolo $1",
 	"securepoll-spoilt": "(oštećeni)",
-	"securepoll-exhausted": "(iscrpeni)"
+	"securepoll-exhausted": "(iscrpeni)",
+	"securepoll-create-label-questions": "== Pitanja ==",
+	"securepoll-create-questions-row-legend": "Pitanje",
+	"securepoll-create-label-questions-question": "Tekst pitanja:",
+	"securepoll-votereligibility-label-min_edits": "Minimum izmena:",
+	"securepoll-votereligibility-saved-text": "Vaše izmene su sačuvane."
 }
