@@ -9,7 +9,7 @@ class SecurePoll_TranslatePage extends SecurePoll_Page {
 	 * @param $params array Array of subpage parameters.
 	 */
 	function execute( $params ) {
-		global $wgOut, $wgUser, $wgLang, $wgRequest;
+		global $wgOut, $wgUser, $wgLang, $wgRequest, $wgSecurePollUseNamespace;
 
 		if ( !count( $params ) ) {
 			$wgOut->addWikiMsg( 'securepoll-too-few-params' );
@@ -95,6 +95,14 @@ class SecurePoll_TranslatePage extends SecurePoll_Page {
 		}
 		$s .= '</table>';
 		if ( $this->isAdmin ) {
+			if ( $wgSecurePollUseNamespace ) {
+				$s .=
+					'<p style="text-align: center;">' .
+					wfMsgHtml( 'securepoll-translate-label-comment' ) .
+					Xml::input( 'comment' ) .
+					"</p>";
+			}
+
 			$s .=
 			'<p style="text-align: center;">' .
 			Xml::submitButton( wfMsg( 'securepoll-submit-translate' ) ) .
@@ -147,7 +155,7 @@ class SecurePoll_TranslatePage extends SecurePoll_Page {
 	 * Submit message text changes.
 	 */
 	function doSubmit( $secondary ) {
-		global $wgRequest, $wgOut;
+		global $wgRequest, $wgOut, $wgSecurePollUseNamespace;
 
 		if ( !$this->isAdmin ) {
 			$wgOut->addWikiMsg( 'securepoll-need-admin' );
@@ -178,6 +186,13 @@ class SecurePoll_TranslatePage extends SecurePoll_Page {
 				$replaceBatch,
 				__METHOD__
 			);
+
+			if ( $wgSecurePollUseNamespace ) {
+				list( $title, $content ) = SecurePollContentHandler::makeContentFromElection(
+					$this->election, "msg/$secondary" );
+				$wp = WikiPage::factory( $title );
+				$wp->doEditContent( $content, $wgRequest->getText( 'comment' ) );
+			}
 		}
 		$wgOut->redirect( $this->getTitle( $secondary )->getFullUrl() );
 	}

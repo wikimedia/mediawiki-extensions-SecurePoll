@@ -64,6 +64,17 @@ $wgSecurePollCreateWikiGroups = array();
  */
 $wgSecurePollCreateRemoteScriptPath = 'https:$wgServer/w';
 
+/**
+ * Whether to register and log to the SecurePoll namespace
+ */
+$wgSecurePollUseNamespace = false;
+
+/**
+ * If set, SecurePoll_GpgCrypt will use this instead of prompting the user for
+ * a signing key.
+ */
+$wgSecurePollGpgSignKey = null;
+
 ### END CONFIGURATON ###
 
 
@@ -72,6 +83,7 @@ $dir = __DIR__;
 $wgMessagesDirs['SecurePoll'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['SecurePoll'] = "$dir/SecurePoll.i18n.php";
 $wgExtensionMessagesFiles['SecurePollAlias'] = "$dir/SecurePoll.alias.php";
+$wgExtensionMessagesFiles['SecurePollNamespaces'] = $dir . '/SecurePoll.namespaces.php';
 
 $wgSpecialPages['SecurePoll'] = 'SecurePoll_BasePage';
 
@@ -136,6 +148,10 @@ $wgAutoloadClasses = $wgAutoloadClasses + array(
 	# Jobs
 	'SecurePoll_PopulateVoterListJob' => "$dir/includes/jobs/PopulateVoterListJob.php",
 
+	# ContentHandler
+	'SecurePollContentHandler' => $dir.'/includes/main/SecurePollContentHandler.php',
+	'SecurePollContent' => $dir.'/includes/main/SecurePollContent.php',
+
 	# HTMLForm additions
 	'SecurePoll_HTMLDateField' => "$dir/includes/htmlform/HTMLDateField.php",
 	'SecurePoll_HTMLDateRangeField' => "$dir/includes/htmlform/HTMLDateRangeField.php",
@@ -157,6 +173,8 @@ $wgAjaxExportList[] = 'wfSecurePollStrike';
 $wgHooks['UserLogout'][] = 'wfSecurePollLogout';
 
 $wgJobClasses['securePollPopulateVoterList'] = 'SecurePoll_PopulateVoterListJob';
+
+$wgContentHandlers['SecurePoll'] = 'SecurePollContentHandler';
 
 $wgAvailableRights[] = 'securepoll-create-poll';
 
@@ -191,3 +209,37 @@ function efSecurePollSchemaUpdates( $updater ) {
 	}
 	return true;
 }
+
+define( 'NS_SECUREPOLL', 830 );
+define( 'NS_SECUREPOLL_TALK', 831 );
+$wgNamespacesWithSubpages[NS_SECUREPOLL] = true;
+$wgNamespacesWithSubpages[NS_SECUREPOLL_TALK] = true;
+
+$wgHooks['CanonicalNamespaces'][] = function ( &$namespaces ) {
+	global $wgSecurePollUseNamespace;
+	if ( $wgSecurePollUseNamespace ) {
+		$namespaces[NS_SECUREPOLL] = 'SecurePoll';
+		$namespaces[NS_SECUREPOLL_TALK] = 'SecurePoll_talk';
+	}
+};
+
+$wgHooks['TitleQuickPermissions'][] = function ( $title, $user, $action, &$errors, $doExpensiveQueries, $short ) {
+	global $wgSecurePollUseNamespace;
+	if ( $wgSecurePollUseNamespace && $title->getNamespace() === NS_SECUREPOLL &&
+		$action !== 'read'
+	) {
+		$errors[] = array( 'securepoll-ns-readonly' );
+		return false;
+	}
+
+	return true;
+};
+
+$wgHooks['ContentHandlerDefaultModelFor'][] = function ( $title, &$model ) {
+	global $wgSecurePollUseNamespace;
+	if( $wgSecurePollUseNamespace && $title->getNamespace() == NS_SECUREPOLL ) {
+		$model = 'SecurePoll';
+		return false;
+	}
+	return true;
+};

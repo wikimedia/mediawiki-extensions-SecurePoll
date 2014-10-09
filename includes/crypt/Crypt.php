@@ -26,7 +26,7 @@ abstract class SecurePoll_Crypt {
 	abstract function canDecrypt();
 
 	static $cryptTypes = array(
-		//'none' => false,
+		'none' => false,
 		'gpg' => 'SecurePoll_GpgCrypt',
 	);
 
@@ -79,6 +79,8 @@ class SecurePoll_GpgCrypt {
 	public $recipient, $signer, $homeDir;
 
 	static function getCreateDescriptors() {
+		global $wgSecurePollGpgSignKey;
+
 		$ret = SecurePoll_Crypt::getCreateDescriptors();
 		$ret['election'] += array(
 			'gpg-encrypt-key' => array(
@@ -87,15 +89,55 @@ class SecurePoll_GpgCrypt {
 				'required' => true,
 				'SecurePoll_type' => 'property',
 				'rows' => 5,
-			),
-			'gpg-sign-key' => array(
-				'label-message' => 'securepoll-create-label-gpg_sign_key',
-				'type' => 'textarea',
-				'SecurePoll_type' => 'property',
-				'rows' => 5,
+				'validation-callback' => 'SecurePoll_GpgCrypt::checkEncryptKey',
 			),
 		);
+
+		if ( $wgSecurePollGpgSignKey ) {
+			$ret['election'] += array(
+				'gpg-sign-key' => array(
+					'type' => 'api',
+					'default' => $wgSecurePollGpgSignKey,
+					'SecurePoll_type' => 'property',
+				),
+			);
+		} else {
+			$ret['election'] += array(
+				'gpg-sign-key' => array(
+					'label-message' => 'securepoll-create-label-gpg_sign_key',
+					'type' => 'textarea',
+					'SecurePoll_type' => 'property',
+					'rows' => 5,
+					'validation-callback' => 'SecurePoll_GpgCrypt::checkSignKey',
+				),
+			);
+		}
+
 		return $ret;
+	}
+
+	public static function checkEncryptKey( $key ) {
+		$that = new SecurePoll_GpgCrypt( null, null );
+		$status = $that->setupHome();
+		if ( $status->isOK() ) {
+			$status = $that->importKey( $key );
+		}
+		$that->deleteHome();
+		return $status->isOK() ? true : $status->getMessage();
+	}
+
+	public static function checkSignKey( $key ) {
+		if ( !strval( $key ) ) {
+			return true;
+		}
+
+		$that = new SecurePoll_GpgCrypt( null, null );
+		$status = $that->setupHome();
+		if ( $status->isOK() ) {
+			$status = $that->importKey( $key );
+		}
+		$that->deleteHome();
+		return $status->isOK() ? true : $status->getMessage();
 	}
 
 	/**
@@ -109,7 +151,8 @@ class SecurePoll_GpgCrypt {
 	}
 
 	/**
-	 * Create a new GPG home directory and import the encryption keys into it.
+	 * Create a new GPG home directory
+	 * @return Status
 	 */
 	function setupHome() {
 		global $wgSecurePollTempDir;
@@ -125,6 +168,24 @@ class SecurePoll_GpgCrypt {
 			return Status::newFatal( 'securepoll-no-gpg-home' );
 		}
 		chmod( $this->homeDir, 0700 );
+
+		return Status::newGood();
+	}
+
+	/**
+	 * Create a new GPG home directory and import keys
+	 * @return Status
+	 */
+	function setupHomeAndKeys() {
+		$status = $this->setupHome();
+		if ( !$status->isOK() ) {
+			return $status;
+		}
+
+		if ( $this->recipient ) {
+			# Already done
+			return Status::newGood();
+		}
 
 		# Fetch the keys
 		$encryptKey = strval( $this->election->getProperty( 'gpg-encrypt-key' ) );
@@ -225,7 +286,7 @@ class SecurePoll_GpgCrypt {
 	 * @return Status
 	 */
 	function encrypt( $record ) {
-		$status = $this->setupHome();
+		$status = $this->setupHomeAndKeys();
 		if ( !$status->isOK() ) {
 			$this->deleteHome();
 			return $status;
@@ -263,7 +324,7 @@ class SecurePoll_GpgCrypt {
 	 * @return Status
 	 */
 	function decrypt( $encrypted ) {
-		$status = $this->setupHome();
+		$status = $this->setupHomeAndKeys();
 		if ( !$status->isOK() ) {
 			$this->deleteHome();
 			return $status;

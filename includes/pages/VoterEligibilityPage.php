@@ -77,7 +77,9 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_Page {
 		}
 	}
 
-	private function saveProperties( $properties, $delete ) {
+	private function saveProperties( $properties, $delete, $comment ) {
+		global $wgSecurePollUseNamespace;
+
 		$wikis = $this->election->getProperty( 'wikis' );
 		if ( $wikis ) {
 			$wikis = explode( "\n", $wikis );
@@ -134,9 +136,20 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_Page {
 			}
 			throw $ex;
 		}
+
+		// Record this election to the SecurePoll namespace, if so configured.
+		if ( $wgSecurePollUseNamespace ) {
+			// Create a new context to bypass caching
+			$context = new SecurePoll_Context;
+			$election = $context->getElection( $this->election->getID() );
+
+			list( $title, $content ) = SecurePollContentHandler::makeContentFromElection( $election );
+			$wp = WikiPage::factory( $title );
+			$wp->doEditContent( $content, $comment );
+		}
 	}
 
-	private function fetchList( $property ) {
+	private function fetchList( $property, $db = DB_SLAVE ) {
 		$wikis = $this->election->getProperty( 'wikis' );
 		if ( $wikis ) {
 			$wikis = explode( "\n", $wikis );
@@ -149,7 +162,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_Page {
 
 		$names = array();
 		foreach ( $wikis as $dbname ) {
-			$dbr = wfGetDB( DB_SLAVE, array(), $dbname );
+			$dbr = wfGetDB( $db, array(), $dbname );
 
 			$id = $dbr->selectField( 'securepoll_elections', 'el_entity', array(
 				'el_title' => $this->election->title
@@ -180,10 +193,12 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_Page {
 		}
 		sort( $names );
 
-		return join( "\n", $names );
+		return $names;
 	}
 
-	private function saveList( $property, $names ) {
+	private function saveList( $property, $names, $comment ) {
+		global $wgSecurePollUseNamespace;
+
 		$wikis = $this->election->getProperty( 'wikis' );
 		if ( $wikis ) {
 			$wikis = explode( "\n", $wikis );
@@ -209,6 +224,8 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_Page {
 			}
 		}
 
+		$list = "{$this->election->getId()}/list/$property";
+
 		$dbws = array();
 		try {
 			foreach ( $wikis as $dbname ) {
@@ -224,7 +241,6 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_Page {
 					continue;
 				}
 
-				$list = "$property-" . substr( $this->election->title, 0, 200 );
 				$dbw->replace( 'securepoll_properties',
 					array( 'pr_entity', 'pr_key' ),
 					array(
@@ -266,9 +282,30 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_Page {
 			}
 			throw $ex;
 		}
+
+		// Record this election to the SecurePoll namespace, if so configured.
+		if ( $wgSecurePollUseNamespace ) {
+			// Create a new context to bypass caching
+			$context = new SecurePoll_Context;
+			$election = $context->getElection( $this->election->getID() );
+
+			list( $title, $content ) = SecurePollContentHandler::makeContentFromElection( $election );
+			$wp = WikiPage::factory( $title );
+			$wp->doEditContent( $content, $comment );
+
+			$json = FormatJson::encode( $this->fetchList( $property, DB_MASTER ),
+				false, FormatJson::ALL_OK );
+			$title = Title::makeTitle( NS_SECUREPOLL, $list );
+			$wp = WikiPage::factory( $title );
+			$wp->doEditContent(
+				$x=ContentHandler::makeContent( $json, $title, 'SecurePoll' ), $comment
+			);
+		}
 	}
 
 	private function executeConfig() {
+		global $wgSecurePollUseNamespace;
+
 		/** @todo These should be migrated to core, once the jquery.ui
 		 * objectors write their own date picker. */
 		if ( !isset( HTMLForm::$typeMappings['date'] ) || !isset( HTMLForm::$typeMappings['daterange'] ) ) {
@@ -559,6 +596,13 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_Page {
 			'default' => Html::closeElement( 'dl' ),
 		);
 
+		if ( $wgSecurePollUseNamespace ) {
+			$formItems['comment'] = array(
+				'type' => 'text',
+				'label-message' => 'securepoll-votereligibility-label-comment',
+			);
+		}
+
 		$form = new HTMLForm( $formItems, $this->parent->getContext(), 'securepoll-votereligibility' );
 		$form->addHeaderText(
 			$this->msg( 'securepoll-votereligibility-basic-info' )->parseAsBlock(), 'basic'
@@ -638,10 +682,10 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_Page {
 
 		$populate = !empty( $properties['list_populate'] );
 		if ( $populate ) {
-			$properties['need-list'] = 'need-list-' . substr( $this->election->title, 0, 200 );
+			$properties['need-list'] = 'need-list-' . $this->election->getId();
 		}
 
-		$this->saveProperties( $properties, $deleteProperties );
+		$this->saveProperties( $properties, $deleteProperties, $formData['comment'] );
 
 		if ( $populate ) {
 			SecurePoll_PopulateVoterListJob::pushJobsForElection( $this->election );
@@ -651,6 +695,8 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_Page {
 	}
 
 	private function executeEdit( $which ) {
+		global $wgSecurePollUseNamespace;
+
 		$out = $this->parent->getOutput();
 
 		if ( !isset( self::$lists[$which] ) ) {
@@ -681,8 +727,15 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_Page {
 			'label-message' => 'securepoll-votereligibility-label-names',
 			'type' => 'textarea',
 			'rows' => 20,
-			'default' => $this->fetchList( $property ),
+			'default' => join( "\n", $this->fetchList( $property ) ),
 		);
+
+		if ( $wgSecurePollUseNamespace ) {
+			$formItems['comment'] = array(
+				'type' => 'text',
+				'label-message' => 'securepoll-votereligibility-label-comment',
+			);
+		}
 
 		$form = new HTMLForm( $formItems, $this->parent->getContext(), 'securepoll-votereligibility' );
 		$form->addHeaderText(
@@ -691,7 +744,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_Page {
 		$form->setDisplayFormat( 'div' );
 		$form->setSubmitTextMsg( 'securepoll-votereligibility-edit-action' );
 		$form->setSubmitCallback( function ( $formData, $form ) use ( $property ) {
-			$this->saveList( $property, $formData['names'] );
+			$this->saveList( $property, $formData['names'], $formData['comment'] );
 			return Status::newGood();
 		} );
 		$result = $form->show();
@@ -706,6 +759,8 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_Page {
 	}
 
 	private function executeClear( $which ) {
+		global $wgSecurePollUseNamespace;
+
 		$out = $this->parent->getOutput();
 
 		if ( !isset( self::$lists[$which] ) ) {
@@ -774,6 +829,25 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_Page {
 				$dbw->rollback();
 			}
 			throw $ex;
+		}
+
+		// Record this election to the SecurePoll namespace, if so configured.
+		if ( $wgSecurePollUseNamespace ) {
+			// Create a new context to bypass caching
+			$context = new SecurePoll_Context;
+			$election = $context->getElection( $this->election->getID() );
+
+			list( $title, $content ) = SecurePollContentHandler::makeContentFromElection( $election );
+			$wp = WikiPage::factory( $title );
+			$wp->doEditContent( $content,
+				$this->msg( 'securepoll-votereligibility-cleared-comment', $name ) );
+
+			$title = Title::makeTitle( NS_SECUREPOLL, "{$election->getId()}/list/$property" );
+			$wp = WikiPage::factory( $title );
+			$wp->doEditContent(
+				ContentHandler::makeContent( '[]', $title, 'SecurePoll' ),
+				$this->msg( 'securepoll-votereligibility-cleared-comment', $name )
+			);
 		}
 
 		$out->setPageTitle( $this->msg( 'securepoll-votereligibility-cleared' ) );

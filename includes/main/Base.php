@@ -8,6 +8,7 @@
 class SecurePoll_BasePage extends UnlistedSpecialPage {
 	static $pages = array(
 		'create' => 'SecurePoll_CreatePage',
+		'edit' => 'SecurePoll_CreatePage',
 		'details' => 'SecurePoll_DetailsPage',
 		'dump' => 'SecurePoll_DumpPage',
 		'entry' => 'SecurePoll_EntryPage',

@@ -44,26 +44,37 @@ class SecurePoll_ElectionPager extends TablePager {
 	public $subpages = array(
 		'vote' => array(
 			'public' => true,
+			'visible-after-start' => true,
 			'visible-after-close' => false,
 		),
 		'translate' => array(
 			'public' => true,
+			'visible-after-start' => true,
 			'visible-after-close' => true,
 		),
 		'list' => array(
 			'public' => true,
+			'visible-after-start' => true,
 			'visible-after-close' => true,
+		),
+		'edit' => array(
+			'public' => false,
+			'visible-after-start' => false,
+			'visible-after-close' => false,
 		),
 		'votereligibility' => array(
 			'public' => false,
+			'visible-after-start' => true,
 			'visible-after-close' => true,
 		),
 		'dump' => array(
 			'public' => false,
+			'visible-after-start' => true,
 			'visible-after-close' => true,
 		),
 		'tally' => array(
 			'public' => false,
+			'visible-after-start' => true,
 			'visible-after-close' => true,
 		),
 	);
@@ -147,8 +158,9 @@ class SecurePoll_ElectionPager extends TablePager {
 				$s .= $sep;
 			}
 			if( ( $this->isAdmin || $props['public'] )
-				&& ( !$this->election->isFinished() || $props['visible-after-close'] ) )
-			{
+				&& ( !$this->election->isStarted() || $props['visible-after-start'] )
+				&& ( !$this->election->isFinished() || $props['visible-after-close'] )
+			) {
 				$title = $this->entryPage->parent->getTitle( "$subpage/$id" );
 				$s .= Linker::makeKnownLinkObj( $title, $linkText );
 			} else {
