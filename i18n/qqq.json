@@ -24,7 +24,7 @@
 	"securepoll-desc": "{{desc|name=Secure Poll|url=http://www.mediawiki.org/wiki/Extension:SecurePoll}}",
 	"securepoll-invalid-page": "Used as error message. Parameters:\n* $1 - subpage name",
 	"securepoll-invalid-election": "Used as error message. Parameters:\n* $1 - invalid election ID",
-	"securepoll-welcome": "Used as welcome message for remote voters. Parameters:\n* $1 - username of remote voter",
+	"securepoll-welcome": "Used as welcome message for remote voters. Parameters:\n* $1 - username of remote voter\n{{Identical|Welcome}}",
 	"securepoll-not-started": "Parameters:\n* $1 - (Unused)\n* $2 - the date of it\n* $3 - its time",
 	"securepoll-not-qualified": "Unused at this time. Paramters:\n* $1 - ...",
 	"securepoll-submit": "{{Identical|Submit}}",
