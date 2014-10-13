@@ -111,5 +111,11 @@
 	"securepoll-average-score": "Averaĝa poentaro",
 	"securepoll-round": "Balota parto $1",
 	"securepoll-spoilt": "voĉdono ne valida",
-	"securepoll-exhausted": "(Finita)"
+	"securepoll-exhausted": "(Finita)",
+	"securepoll-create-label-questions": "== Demandoj ==",
+	"securepoll-create-questions-row-legend": "Demando",
+	"securepoll-create-label-questions-question": "Teksto de demando:",
+	"securepoll-create-label-questions-add": "Aldoni plian demandon",
+	"securepoll-create-label-questions-delete": "Forigi demandon",
+	"securepoll-votereligibility-label-names": "Salutnomoj"
 }
