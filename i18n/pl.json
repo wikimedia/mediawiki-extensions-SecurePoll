@@ -5,7 +5,8 @@
 			"Renessaince",
 			"Saper",
 			"Sp5uhe",
-			"Chrumps"
+			"Chrumps",
+			"Michał Sobkowski"
 		]
 	},
 	"securepoll": "Bezpieczne głosowanie",
@@ -42,7 +43,7 @@
 	"securepoll-remote-parse-error": "Wystąpił błąd interpretacji odpowiedzi autoryzującej z serwera.",
 	"securepoll-api-invalid-params": "Nieprawidłowe parametry.",
 	"securepoll-api-no-user": "Nie znaleziono użytkownika o podanym ID.",
-	"securepoll-api-token-mismatch": "Nieprawidłowy żeton bezpieczeństwa, nie można się zalogować.",
+	"securepoll-api-token-mismatch": "Nieprawidłowy identyfikator bezpieczeństwa, nie można się zalogować.",
 	"securepoll-not-logged-in": "Musisz się zalogować, aby głosować w tych wyborach",
 	"securepoll-too-few-edits": "Niestety, nie możesz głosować. Musisz mieć przynajmniej $1 {{PLURAL:$1|edycję|edycje|edycji}} aby głosować w tych wyborach, wykonane $2.",
 	"securepoll-too-new": "Niestety nie możesz głosować. Aby wziąć udział w głosowaniu musisz mieć konto zarejestrowane przed $1 o $3, a zarejestrowałeś się $2 o $4.",
