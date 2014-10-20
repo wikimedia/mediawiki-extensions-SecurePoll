@@ -84,6 +84,7 @@
 	"securepoll-dump-no-urandom": "Het was niet mogelijk om /dev/urandom te openen.\nOm de privacy van de stemmers te beschermen, zijn de stemmingsgegevens pas beschikbaar als ze willekeurig gesorteerd kunnen worden met behulp van een willekeurige nummerreeks.",
 	"securepoll-urandom-not-supported": "Deze server biedt geen ondersteuning voor het versleuteld aanmaken van willekeurige getallen.\nOm de anonimiteit van stemmers te handhaven, zijn de versleutelde stemresultaten pas beschikbaar als ze zijn herordend via een veilige reeks van willekeurige getallen.",
 	"securepoll-translate-title": "Vertalen: $1",
+	"securepoll-translate-label-comment": "Reden:",
 	"securepoll-invalid-language": "Ongeldige taalcode \"$1\"",
 	"securepoll-submit-translate": "Bijwerken",
 	"securepoll-language-label": "Taal selecteren:",
@@ -95,6 +96,7 @@
 	"securepoll-subpage-vote": "Stemmen",
 	"securepoll-subpage-translate": "Vertalen",
 	"securepoll-subpage-list": "Lijst",
+	"securepoll-subpage-edit": "Bewerken",
 	"securepoll-subpage-dump": "Dumpen",
 	"securepoll-subpage-tally": "Telling",
 	"securepoll-tally-title": "Telling: $1",
@@ -126,6 +128,7 @@
 	"securepoll-create-label-questions-delete": "Vraag verwijderen",
 	"securepoll-create-option-column_order-asc": "Oplopend",
 	"securepoll-create-option-column_order-desc": "Aflopend",
+	"securepoll-create-label-comment": "Reden",
 	"securepoll-votereligibility-label-min_edits": "Minimaal aantal bewerkingen:",
 	"securepoll-votereligibility-label-max_registration": "Geregistreerd voor:",
 	"securepoll-votereligibility-label-not_blocked": "Moet geen blokkade hebben",
@@ -141,5 +144,6 @@
 	"securepoll-votereligibility-label-edits_between_count": "Minimale aantal bewerkingen",
 	"securepoll-votereligibility-layout-edits_between_dates": "Tussen $1 en $2",
 	"securepoll-votereligibility-label-names": "Gebruikersnamen",
+	"securepoll-votereligibility-label-comment": "Reden",
 	"securepoll-votereligibility-edit-action": "Lijst opslaan"
 }
