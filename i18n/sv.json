@@ -23,6 +23,7 @@
 	"securepoll-invalid-election": "\"$1\" är inte ett giltigt omröstnings-ID.",
 	"securepoll-welcome": "<strong>Välkommen $1!</strong>",
 	"securepoll-not-started": "Den här omröstningen är inte startat ännu.\nDen planeras starta den $2 kl $3.",
+	"securepoll-already-started": "Detta val har redan börjat.\nDet började på $2 kl. $3",
 	"securepoll-finished": "Valet är avslutat, så du kan inte längre rösta.",
 	"securepoll-not-qualified": "Du är inte kvalificerad att rösta i den här omröstningen: $1",
 	"securepoll-change-disallowed": "Du har redan deltagit i den här omröstningen.\nDu kan tyvärr inte rösta igen.",
