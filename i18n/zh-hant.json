@@ -58,7 +58,7 @@
 	"securepoll-too-few-edits": "抱歉，您無法投票。您至少需有 $1 次編輯才能參與此次選舉，您目前的編輯次數為 $2。",
 	"securepoll-too-new": "抱歉，您無法投票。 您的帳號需要在 $1 $3 之前註冊才能參與此次選舉，您註冊於 $2 $4。",
 	"securepoll-blocked": "抱歉，您因為您目前已被封鎖所以您無法參與此次選舉。",
-	"securepoll-blocked-centrally": "抱歉，您因為您目前已被至少 $1 個 {{PLURAL:$1|Wiki|Wiki}} 封鎖所以您無法參與此次選舉。",
+	"securepoll-blocked-centrally": "抱歉，您因為您目前已被至少 $1 個 {{PLURAL:$1|Wiki}} 封鎖所以您無法參與此次選舉。",
 	"securepoll-bot": "抱歉，擁有機器人標記的帳號不允許參與此次選舉。",
 	"securepoll-not-in-group": "只有屬於群組 \"$1\" 的使用者才可參與此次選舉。",
 	"securepoll-not-in-list": "抱歉，您並不在此次選舉預先選擇的授權使用者清單中。",
@@ -189,6 +189,7 @@
 	"securepoll-create-option-election_type-radio-range-comment+plurality": "計分投票制 (多數) 含評論",
 	"securepoll-create-option-election_type-radio-range-comment+histogram-range": "計分投票制 (直方圖計分) 含評論",
 	"securepoll-create-option-election_crypt-none": "未加密",
+	"securepoll-create-label-comment": "原因",
 	"securepoll-create-invalid-username": "指定的使用者名稱無效",
 	"securepoll-create-user-does-not-exist": "指定的使用者不存在",
 	"securepoll-create-fail-bad-dblist": "指定的 Wiki 或 Wiki 清單無效",
@@ -238,6 +239,7 @@
 	"securepoll-votereligibility-clear-title": "選民清單已移除：$1",
 	"securepoll-votereligibility-cleared": "{{int:securepoll}}: 已清空",
 	"securepoll-votereligibility-cleared-text": "已清空 $1 且投票所將不會使用此清單。",
+	"securepoll-votereligibility-cleared-comment": "$1 清除。",
 	"right-securepoll-create-poll": "建立投票所",
 	"action-securepoll-create-poll": "建立投票所"
 }
