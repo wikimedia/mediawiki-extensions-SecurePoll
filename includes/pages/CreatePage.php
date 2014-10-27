@@ -82,7 +82,7 @@ class SecurePoll_CreatePage extends SecurePoll_Page {
 			$options['securepoll-create-option-wiki-all_wikis'] = '*';
 		}
 		foreach ( $wgSecurePollCreateWikiGroups as $file => $msg ) {
-			if ( is_readable( "$wgSecurePollCreateWikiGroups$file.dblist" ) ) {
+			if ( is_readable( "$wgSecurePollCreateWikiGroupDir$file.dblist" ) ) {
 				$options[$msg] = "@$file";
 			}
 		}
