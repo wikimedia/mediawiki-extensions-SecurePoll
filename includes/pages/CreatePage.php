@@ -921,7 +921,7 @@ class SecurePoll_FormStore extends SecurePoll_MemoryStore {
 				'questions' => array(),
 			);
 			$this->properties[$rId]['main-wiki'] = wfWikiID();
-			$this->properties[$rId]['jump-url'] = SpecialPage::getTitleFor( 'SecurePoll' );
+			$this->properties[$rId]['jump-url'] = SpecialPage::getTitleFor( 'SecurePoll' )->getFullUrl();
 			$this->properties[$rId]['jump-id'] = $eId;
 			$this->properties[$rId]['admins'] = $admins;
 		}
