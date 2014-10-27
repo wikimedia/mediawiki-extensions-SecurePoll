@@ -151,6 +151,7 @@
 	"securepoll-create-layout-election_dates": "Start on $1 (at 00:00 UTC) and run for $2 day(s)",
 	"securepoll-create-label-election_disallow-change": "Prevent voters from changing their votes",
 	"securepoll-create-label-election_return-url": "Return-to URL:",
+	"securepoll-create-label-election_jump-text": "Jump text:",
 	"securepoll-create-label-election_type": "Poll type:",
 	"securepoll-create-label-election_crypt": "Encryption:",
 	"securepoll-create-label-property_admins": "Admins:",

@@ -154,6 +154,18 @@ class SecurePoll_CreatePage extends SecurePoll_Page {
 			'type' => 'url',
 		);
 
+		if ( isset( $formItems['property_wiki'] ) ) {
+			$formItems['jump-text'] = array(
+				'label-message' => 'securepoll-create-label-election_jump-text',
+				'type' => 'text',
+			);
+			if ( $formItems['property_wiki']['type'] === 'select' ) {
+				$formItems['jump-text']['hide-if'] = array( '===', 'property_wiki', wfWikiId() );
+			} else {
+				$formItems['jump-text']['hide-if'] = array( '===', 'property_wiki-select', wfWikiId() );
+			}
+		}
+
 		$formItems[] = $layoutTableStart;
 
 		$formItems['election_type'] = array(
@@ -550,6 +562,7 @@ class SecurePoll_CreatePage extends SecurePoll_Page {
 			SecurePollContentHandler::getDataFromElection( $this->election )
 		);
 		$p = &$data['properties'];
+		$m = &$data['messages'];
 
 		$startDate = new MWTimestamp( $data['startDate'] );
 		$endDate = new MWTimestamp( $data['endDate'] );
@@ -568,6 +581,7 @@ class SecurePoll_CreatePage extends SecurePoll_Page {
 				$endDate->diff( $startDate )->format( '%a' ),
 			),
 			'return-url' => isset( $p['return-url'] ) ? $p['return-url'] : null,
+			'jump-text' => isset( $m['jump-text'] ) ? $m['jump-text'] : null,
 			'election_type' => "{$ballot}+{$tally}",
 			'election_crypt' => $crypt,
 			'disallow-change' => (bool)isset( $p['disallow-change'] ) ? $p['disallow-change'] : null,
@@ -899,6 +913,7 @@ class SecurePoll_FormStore extends SecurePoll_MemoryStore {
 		);
 		$this->messages[$this->lang][$eId] = array(
 			'title' => $formData['election_title'],
+			'jump-text' => $formData['jump-text'],
 		);
 
 		$admins = $this->getAdminsList( $formData['property_admins'] );
@@ -924,6 +939,10 @@ class SecurePoll_FormStore extends SecurePoll_MemoryStore {
 			$this->properties[$rId]['jump-url'] = SpecialPage::getTitleFor( 'SecurePoll' )->getFullUrl();
 			$this->properties[$rId]['jump-id'] = $eId;
 			$this->properties[$rId]['admins'] = $admins;
+			$this->messages[$this->lang][$rId] = array(
+				'title' => $formData['election_title'],
+				'jump-text' => $formData['jump-text'],
+			);
 		}
 
 		$this->processFormData( $eId, $formData, SecurePoll_Ballot::$ballotTypes[$ballot], 'election' );

@@ -129,6 +129,7 @@
 	"securepoll-create-layout-election_dates": "Layout message for the date range input on [[Special:SecurePoll/create]].\n\nParameters:\n* $1 - HTML for the starting date control\n* $2 - HTML for the number-of-days control, cannot be used for PLURAL\nSee also:\n* {{msg-mw|Securepoll-htmlform-daterange-absolute-layout}}\n* {{msg-mw|Securepoll-htmlform-daterange-relative-layout}}",
 	"securepoll-create-label-election_disallow-change": "Label for form field on Special:SecurePoll/create.",
 	"securepoll-create-label-election_return-url": "Label for form field on Special:SecurePoll/create.",
+	"securepoll-create-label-election_jump-text": "Label for form field on Special:SecurePoll/create. Value is used to inform the user why they are being sent to a different wiki to cast their vote when going to the voting page on their home wiki.",
 	"securepoll-create-label-election_type": "Label for form field on Special:SecurePoll/create.",
 	"securepoll-create-label-election_crypt": "Label for form field on Special:SecurePoll/create.",
 	"securepoll-create-label-property_admins": "Label for form field on Special:SecurePoll/create.\n{{Identical|Admin}}",
