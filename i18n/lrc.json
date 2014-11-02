@@ -18,6 +18,7 @@
 	"securepoll-header-action": "انجوم گر",
 	"securepoll-header-reason": "دليل",
 	"securepoll-header-admin": "دیوونداری",
+	"securepoll-translate-label-comment": "دليل:",
 	"securepoll-invalid-language": "کد نامعتور زون\"$1\"",
 	"securepoll-submit-translate": "وه هنگوم سازی",
 	"securepoll-language-label": "انتخاو زون:",
@@ -28,6 +29,7 @@
 	"securepoll-subpage-vote": "رای بئيتو",
 	"securepoll-subpage-translate": "لرسن",
 	"securepoll-subpage-list": "نوم گه",
+	"securepoll-subpage-edit": "ويرايشت",
 	"securepoll-subpage-tally": "دراز",
 	"securepoll-htmlform-date-placeholder": "سال-ما-روز",
 	"securepoll-create-label-wiki": "سی ویکی:",
@@ -40,5 +42,6 @@
 	"securepoll-votereligibility-redirect-otherwiki": "ویکی اصلی",
 	"securepoll-votereligibility-label-edit": "ویرایشت نوم گه",
 	"securepoll-votereligibility-label-names": "نومیا کاریاری",
+	"securepoll-votereligibility-label-comment": "دليل",
 	"securepoll-votereligibility-edit-action": "اماییه کردن نوم گه"
 }
