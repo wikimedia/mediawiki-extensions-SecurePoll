@@ -3,7 +3,8 @@
 		"authors": [
 			"Minh Nguyen",
 			"Trần Nguyễn Minh Huy",
-			"Vinhtantran"
+			"Vinhtantran",
+			"Max20091"
 		]
 	},
 	"securepoll": "Bỏ phiếu an toàn",
@@ -188,7 +189,7 @@
 	"securepoll-edit-title": "{{int:securepoll}}: Sửa đổi biểu quyết",
 	"securepoll-edit-action": "Sửa đổi biểu quyết",
 	"securepoll-edit-edited": "{{int:securepoll}}: Đã sửa đổi biểu quyết",
-	"securepoll-edit-edited-text": "Đã sửa đổi biểu quyết của bạn.",
+	"securepoll-edit-edited-text": "biểu quyết của bạn đã được sửa.",
 	"securepoll-votereligibility-title": "Cấu hình cử tri hội đủ điều kiện",
 	"securepoll-votereligibility-redirect": "Cử tri hội đủ điều kiện cho cuộc bầu cử này phải được cấu hình vào $1",
 	"securepoll-votereligibility-redirect-otherwiki": "wiki chính",

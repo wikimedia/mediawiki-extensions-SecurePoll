@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"SK-luuut"
+			"SK-luuut",
+			"Robin0van0der0vliet"
 		]
 	},
-	"securepoll-strike-cancel": "Ofbrekke"
+	"securepoll-header-voter-name": "Namme",
+	"securepoll-strike-cancel": "Ofbrekke",
+	"securepoll-header-title": "Namme"
 }
