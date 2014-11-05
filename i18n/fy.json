@@ -6,6 +6,7 @@
 		]
 	},
 	"securepoll-header-voter-name": "Namme",
-	"securepoll-strike-cancel": "Ofbrekke",
-	"securepoll-header-title": "Namme"
+	"securepoll-strike-cancel": "Annulearje",
+	"securepoll-header-title": "Namme",
+	"securepoll-votereligibility-label-names": "Brûkersnammen"
 }
