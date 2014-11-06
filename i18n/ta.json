@@ -66,6 +66,7 @@
 	"securepoll-header-reason": "காரணம்",
 	"securepoll-header-admin": "நிர்வாகி",
 	"securepoll-translate-title": "மொழிபெயர்ப்பு செய்யவும்: $1",
+	"securepoll-translate-label-comment": "காரணம்:",
 	"securepoll-invalid-language": "செல்லாத மொழிக்குறியீடு \" $1 \"",
 	"securepoll-submit-translate": "புதுப்பி",
 	"securepoll-language-label": "மொழியை தேர்வு செய்:",
@@ -90,5 +91,6 @@
 	"securepoll-create-option-column_order-desc": "இறங்குவரிசை",
 	"securepoll-votereligibility-lists": "'''வாக்காளர் பட்டியல்கள்'''",
 	"securepoll-votereligibility-layout-edits_between_dates": "$1 மற்றும் $2க்கு இடையி்ல்",
-	"securepoll-votereligibility-label-names": "பயனர் பெயர்கள்"
+	"securepoll-votereligibility-label-names": "பயனர் பெயர்கள்",
+	"securepoll-votereligibility-label-comment": "காரணம்"
 }
