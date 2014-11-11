@@ -5,11 +5,13 @@
 			"Mogoeilor"
 		]
 	},
+	"securepoll-unanswered-questions": "شما واس وه همه پرسایشتا جؤاو بئیت.",
 	"securepoll-unanswered-options": "شما باید سی هر پرسایشتی یه گل جواو بیئت",
 	"securepoll-api-no-user": "چنو کاروری وا شناسه دئه بیه جسته نبی",
 	"securepoll-header-timestamp": "وخت",
 	"securepoll-header-voter-name": "نوم",
 	"securepoll-header-voter-domain": "پوشگیر",
+	"securepoll-header-details": "جزئیات",
 	"securepoll-strike-reason": "دليل:",
 	"securepoll-strike-cancel": "انجوم شیو کردن",
 	"securepoll-strike-token-mismatch": "دونسمنیا نشینگه گم بیه",
