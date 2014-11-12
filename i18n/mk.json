@@ -148,6 +148,7 @@
 	"securepoll-create-layout-election_dates": "Започнува на $1 (во 00:00 ч. UTC) и трае $2 ден(а)",
 	"securepoll-create-label-election_disallow-change": "Спречи ја можноста за промена на дадениот глас",
 	"securepoll-create-label-election_return-url": "Повратна URL:",
+	"securepoll-create-label-election_jump-text": "Образложение за преодот:",
 	"securepoll-create-label-election_type": "Тип на анкета:",
 	"securepoll-create-label-election_crypt": "Шифрирање:",
 	"securepoll-create-label-property_admins": "Администратори:",

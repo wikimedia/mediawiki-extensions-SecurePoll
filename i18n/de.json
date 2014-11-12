@@ -148,6 +148,7 @@
 	"securepoll-create-layout-election_dates": "Starten am $1 (um 00:00 UTC) und für $2 Tag(e) laufen lassen",
 	"securepoll-create-label-election_disallow-change": "Wähler davon abhalten, ihre Stimmen abzuändern",
 	"securepoll-create-label-election_return-url": "Zurück-zu-URL:",
+	"securepoll-create-label-election_jump-text": "Sprungtext:",
 	"securepoll-create-label-election_type": "Abstimmungstyp:",
 	"securepoll-create-label-election_crypt": "Verschlüsselung:",
 	"securepoll-create-label-property_admins": "Administratoren:",

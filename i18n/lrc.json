@@ -5,6 +5,9 @@
 			"Mogoeilor"
 		]
 	},
+	"securepoll-submit": "رای دئن",
+	"securepoll-jump": "رئتن وه رسینه جا رای دئن",
+	"securepoll-bad-ballot-submission": "رای شما نامعتور بی:$1",
 	"securepoll-unanswered-questions": "شما واس وه همه پرسایشتا جؤاو بئیت.",
 	"securepoll-unanswered-options": "شما باید سی هر پرسایشتی یه گل جواو بیئت",
 	"securepoll-api-no-user": "چنو کاروری وا شناسه دئه بیه جسته نبی",
