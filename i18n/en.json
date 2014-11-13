@@ -87,6 +87,8 @@
 	"securepoll-dump-no-urandom": "Cannot open /dev/urandom. \nTo maintain voter privacy, encrypted election records are only publically available when they can be shuffled with a secure random number stream.",
 	"securepoll-urandom-not-supported": "This server does not support cryptographic random number generation.\nTo maintain voter privacy, encrypted election records are only publically available when they can be shuffled with a secure random number stream.",
 	"securepoll-translate-title": "Translate: $1",
+	"securepoll-translate-redirect": "Messages for this election must be configured on $1",
+	"securepoll-translate-redirect-otherwiki": "the main wiki",
 	"securepoll-translate-label-comment": "Reason: ",
 	"securepoll-invalid-language": "Invalid language code \"$1\"",
 	"securepoll-header-trans-id": "ID",
