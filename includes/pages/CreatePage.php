@@ -26,6 +26,31 @@ class SecurePoll_CreatePage extends SecurePoll_Page {
 				$out->addWikiMsg( 'securepoll-need-admin' );
 				return;
 			}
+
+			$jumpUrl = $this->election->getProperty( 'jump-url' );
+			if ( $jumpUrl ) {
+				$jumpId = $this->election->getProperty( 'jump-id' );
+				if ( !$jumpId ) {
+					throw new MWException( 'Configuration error: no jump-id' );
+				}
+				$jumpUrl .= "/edit/$jumpId";
+				if ( count( $params ) > 1 ) {
+					$jumpUrl .= '/' . join( '/', array_slice( $params, 1 ) );
+				}
+
+				$wiki = $this->election->getProperty( 'main-wiki' );
+				if ( $wiki ) {
+					$wiki = WikiMap::getWikiName( $wiki );
+				} else {
+					$wiki = $this->msg( 'securepoll-edit-redirect-otherwiki' )->text();
+				}
+
+				$out->addWikiMsg( 'securepoll-edit-redirect',
+					Message::rawParam( Linker::makeExternalLink( $jumpUrl, $wiki ) )
+				);
+
+				return;
+			}
 		} else {
 			$out->setPageTitle( $this->msg( 'securepoll-create-title' ) );
 			if ( !$wgUser->isAllowed( 'securepoll-create-poll' ) ) {

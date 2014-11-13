@@ -195,6 +195,8 @@
 	"securepoll-create-fail-bad-dblist": "The specified wiki or wiki list is not valid",
 	"securepoll-create-duplicate-title": "The given poll title has already been used on $1",
 	"securepoll-edit-title": "{{int:securepoll}}: Edit poll",
+	"securepoll-edit-redirect": "This election must be configured on $1",
+	"securepoll-edit-redirect-otherwiki": "the main wiki",
 	"securepoll-edit-action": "Edit poll",
 	"securepoll-edit-edited": "{{int:securepoll}}: Poll edited",
 	"securepoll-edit-edited-text": "Your poll has been edited.",

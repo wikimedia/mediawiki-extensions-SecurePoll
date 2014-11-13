@@ -173,6 +173,8 @@
 	"securepoll-create-fail-bad-dblist": "Used as error message in Special:SecurePoll/create.",
 	"securepoll-create-duplicate-title": "Used as error message in Special:SecurePoll/create.",
 	"securepoll-edit-title": "Title for [[Special:SecurePoll/edit]].\n\nRefers to {{msg-mw|Securepoll}}.",
+	"securepoll-edit-redirect": "Text displayed when trying to edit a multi-wiki poll on the wrong wiki.\n\nParameters:\n* $1 - HTML of a link to the correct wiki. Displayed text is either the wiki name or {{msg-mw|securepoll-edit-redirect-otherwiki}}",
+	"securepoll-edit-redirect-otherwiki": "Used with {{msg-mw|securepoll-votereligibility-redirect}} when no name is available for the target wiki.",
 	"securepoll-edit-action": "Text for submit button on Special:SecurePoll/edit.\n{{Identical|Edit poll}}",
 	"securepoll-edit-edited": "Title for the page displayed after poll edit.\n\nRefers to {{msg-mw|Securepoll}}.\n\nSee also:\n* {{msg-mw|Securepoll-edit-edited-text}}",
 	"securepoll-edit-edited-text": "Text for the page displayed after poll edit.\n\nSee also:\n* {{msg-mw|Securepoll-edit-edited}}",
