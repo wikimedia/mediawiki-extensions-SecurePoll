@@ -11,7 +11,8 @@
 			"Renessaince",
 			"Volkov",
 			"Александр Сигачёв",
-			"Okras"
+			"Okras",
+			"NBS"
 		]
 	},
 	"securepoll": "БезопасноеГолосование",
@@ -201,6 +202,6 @@
 	"securepoll-votereligibility-saved": "{{int:securepoll}}: Сохранено",
 	"securepoll-votereligibility-saved-text": "Ваши изменения были сохранены.",
 	"securepoll-votereligibility-cleared": "{{int:securepoll}}: Очищено",
-	"right-securepoll-create-poll": "Создание опросов",
+	"right-securepoll-create-poll": "создание опросов",
 	"action-securepoll-create-poll": "создание опросов"
 }

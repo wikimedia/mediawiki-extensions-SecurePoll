@@ -149,6 +149,7 @@
 	"securepoll-create-layout-election_dates": "להתחיל ב־$1 (ב־00:00 UTC) ולהמשיך ל־$2 ימים",
 	"securepoll-create-label-election_disallow-change": "לא לאפשר למצביעים לשנות את ההצבעות",
 	"securepoll-create-label-election_return-url": "כתובת לחזרה:",
+	"securepoll-create-label-election_jump-text": "טקסט לתיאור הקפיצה:",
 	"securepoll-create-label-election_type": "סוג להצבעה:",
 	"securepoll-create-label-election_crypt": "הצפנה:",
 	"securepoll-create-label-property_admins": "מנהלים:",
