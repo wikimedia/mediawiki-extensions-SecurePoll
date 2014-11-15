@@ -51,7 +51,7 @@
 	"securepoll-too-new": "U kunt niet deelnemen aan deze stemming. U moet voor $1 om $3 geregistreerd zijn om te mogen stemmen, terwijl u geregistreerd bent op $2 om $4.",
 	"securepoll-blocked": "U kunt helaas niet deelnemen aan de stemming omdat u geblokkeerd bent.",
 	"securepoll-blocked-centrally": "U kunt niet deelnemen aan deze stemming omdat u geblokkeerd bent op minstens $1 {{PLURAL:$1|wiki|wiki's}}.",
-	"securepoll-bot": "Sorry, gebruikers met een botvlag mogen niet stemmen in deze stemming.",
+	"securepoll-bot": "Gebruikers met een botvlag mogen niet stemmen in deze stemming.",
 	"securepoll-not-in-group": "Alleen leden van de groep \"$1\" kunnen aan deze stemming deelnemen.",
 	"securepoll-not-in-list": "U staat helaas niet op de vooraf vastgestelde lijst van stemgerechtigden voor deze stemming.",
 	"securepoll-list-title": "Stemmen weergeven: $1",
