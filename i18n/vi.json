@@ -145,6 +145,7 @@
 	"securepoll-create-layout-election_dates": "Bắt đầu ngày $1 (lúc 00:00 UTC) và kéo dài $2 ngày",
 	"securepoll-create-label-election_disallow-change": "Không cho phép người ta đổi ý",
 	"securepoll-create-label-election_return-url": "URL để quay lại:",
+	"securepoll-create-label-election_jump-text": "Văn bản nhảy:",
 	"securepoll-create-label-election_type": "Kiểu biểu quyết:",
 	"securepoll-create-label-election_crypt": "Mã hóa:",
 	"securepoll-create-label-property_admins": "Bảo quản viên:",

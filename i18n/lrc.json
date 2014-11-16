@@ -6,6 +6,7 @@
 		]
 	},
 	"securepoll-invalid-page": "زیربلگه نامعتور \"<nowiki>$1</nowiki>\"",
+	"securepoll-welcome": "<strong>خوش اومایت$1!</strong>",
 	"securepoll-submit": "رای دئن",
 	"securepoll-return": "ورگشت وه $1.",
 	"securepoll-jump": "رئتن وه رسینه جا رای دئن",
