@@ -10,4 +10,7 @@
  */
 
 class SecurePollContent extends JsonContent {
+	public function __construct( $text, $modelId = 'SecurePoll' ) {
+		parent::__construct( $text, $modelId );
+	}
 }

@@ -176,4 +176,8 @@ class SecurePollContentHandler extends JsonContentHandler {
 			'unprotect' => false,
 		);
 	}
+
+	protected function getContentClass() {
+		return 'SecurePollContent';
+	}
 }
