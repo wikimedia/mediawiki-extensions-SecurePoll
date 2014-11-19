@@ -318,7 +318,29 @@ class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
 		}
 
 		$wgConf->loadFullData();
-		$server = $wgConf->get( 'wgServer', $params['wiki'] );
+
+		// Get the site and language from $wgConf, if necessary.
+		if ( !isset( $params['site'] ) || !isset( $params['lang'] ) ) {
+			list( $site, $lang ) = $wgConf->siteFromDB( $params['wiki'] );
+			if ( !isset( $params['site'] ) ) {
+				$params['site'] = $site;
+				$vars['$site'] = $site;
+			}
+			if ( !isset( $params['lang'] ) ) {
+				$params['lang'] = $lang;
+				$vars['$lang'] = $lang;
+			}
+		}
+
+		// In some cases it doesn't matter what we pass for $suffix. When it
+		// does, the correct value is $params['site'] unless there is a string
+		// back-mapping for it in $wgConf->suffixes.
+		$suffixes = array_flip( $wgConf->suffixes );
+		$suffix = isset( $suffixes[$params['site']] ) && is_string( $suffixes[$params['site']] )
+			? $suffixes[$params['site']]
+			: $params['site'];
+
+		$server = $wgConf->get( 'wgServer', $params['wiki'], $suffix, $params );
 		$params['wgServer'] = $server;
 		$vars["\$wgServer"] = $server;
 
