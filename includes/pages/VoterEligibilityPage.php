@@ -196,7 +196,11 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_Page {
 		return $names;
 	}
 
-	private function saveList( $property, $names, $comment ) {
+	/**
+	 * @todo Make this really private when we don't support PHP 5.3 anymore
+	 * @private
+	 */
+	public function saveList( $property, $names, $comment ) {
 		global $wgSecurePollUseNamespace;
 
 		$wikis = $this->election->getProperty( 'wikis' );
