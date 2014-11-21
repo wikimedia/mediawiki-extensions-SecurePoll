@@ -14,10 +14,18 @@ class SecurePoll_HTMLFormRadioRangeColumnLabels extends HTMLFormField {
 			return $this->getDefault();
 		}
 
+		$neg = false;
+		foreach ( $values as $k => $v ) {
+			if ( preg_match( '/^-\d+$/', $k ) ) {
+				$neg = true;
+			}
+		}
+
 		$ret = array();
 		foreach ( $values as $k => $v ) {
 			if ( preg_match( '/^-?\d+$/', $k ) ) {
-				$ret["column$k"] = $v;
+				$key = ( $neg && $k > 0 ) ? "+$k" : $k;
+				$ret["column$key"] = $v;
 			}
 		}
 		return $ret;
@@ -37,8 +45,9 @@ class SecurePoll_HTMLFormRadioRangeColumnLabels extends HTMLFormField {
 		}
 
 		for ( $i = $min; $i <= $max; $i++ ) {
-			if ( !isset( $value["column$i"] ) ) {
-				return $this->msg( 'securepoll-htmlform-radiorange-missing-message', $i )
+			$key = ( $min < 0 && $i > 0 ) ? "+$i" : $i;
+			if ( !isset( $value["column$key"] ) ) {
+				return $this->msg( 'securepoll-htmlform-radiorange-missing-message', $key )
 					->parseAsBlock();
 			}
 		}
