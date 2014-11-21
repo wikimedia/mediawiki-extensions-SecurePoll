@@ -188,8 +188,12 @@ class SecurePoll_TranslatePage extends SecurePoll_Page {
 			);
 
 			if ( $wgSecurePollUseNamespace ) {
+				// Create a new context to bypass caching
+				$context = new SecurePoll_Context;
+				$election = $context->getElection( $this->election->getId() );
+
 				list( $title, $content ) = SecurePollContentHandler::makeContentFromElection(
-					$this->election, "msg/$secondary" );
+					$election, "msg/$secondary" );
 				$wp = WikiPage::factory( $title );
 				$wp->doEditContent( $content, $wgRequest->getText( 'comment' ) );
 			}
