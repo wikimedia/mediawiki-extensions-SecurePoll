@@ -61,7 +61,7 @@
 	"securepoll-header-strike": "Прецртување",
 	"securepoll-header-details": "Подробно",
 	"securepoll-strike-button": "Прецртувај",
-	"securepoll-unstrike-button": "Врати црта",
+	"securepoll-unstrike-button": "Тргни ја прецртаноста",
 	"securepoll-strike-reason": "Причина:",
 	"securepoll-strike-cancel": "Откажи",
 	"securepoll-strike-error": "Грешка при извршување на црта/врати црта: $1",
