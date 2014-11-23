@@ -301,6 +301,7 @@ class SecurePoll_CreatePage extends SecurePoll_Page {
 			$formItems['comment'] = array(
 				'type' => 'text',
 				'label-message' => 'securepoll-create-label-comment',
+				'maxlength' => 250,
 			);
 		}
 
