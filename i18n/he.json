@@ -192,6 +192,8 @@
 	"securepoll-create-fail-bad-dblist": "אתר הוויקי שצוין או רשימת אתרי אינם תקינים",
 	"securepoll-create-duplicate-title": "כותרת ההצבעה שניתנה עבר שימשה ב{{GRAMMAR:תחילית|$1}}",
 	"securepoll-edit-title": "{{int:securepoll}}: עשיית שינויים בהצבעה",
+	"securepoll-edit-redirect": "הבחירות האלה צריכות להיות מוגדרות באתר $1",
+	"securepoll-edit-redirect-otherwiki": "הראשי",
 	"securepoll-edit-action": "עשיית שינוי בהצבעה",
 	"securepoll-edit-edited": "{{int:securepoll}}: ההצבעה שונתה",
 	"securepoll-edit-edited-text": "ההצבעה שלך שונתה.",

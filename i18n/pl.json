@@ -129,6 +129,7 @@
 	"securepoll-create-label-questions-option": "=== Opcje ===",
 	"securepoll-create-label-option-name": "Nazwa opcji:",
 	"securepoll-create-option-election_crypt-none": "Bez szyfrowania",
+	"securepoll-edit-redirect-otherwiki": "główna wiki",
 	"securepoll-votereligibility-redirect-otherwiki": "główna wiki",
 	"securepoll-votereligibility-label-min_edits": "Minimalna liczba edycji:",
 	"securepoll-votereligibility-label-inuse": "Ta lista jest w użyciu",

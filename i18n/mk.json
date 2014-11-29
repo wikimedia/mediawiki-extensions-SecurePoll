@@ -191,6 +191,8 @@
 	"securepoll-create-fail-bad-dblist": "Укажаното вики или викисписок не е важечко",
 	"securepoll-create-duplicate-title": "Дадениот наслов на анкетата е зафатен (се користи на $1)",
 	"securepoll-edit-title": "{{int:securepoll}}: Уреди анкета",
+	"securepoll-edit-redirect": "На овие избори мора да им се уредат поставките на $1",
+	"securepoll-edit-redirect-otherwiki": "главното вики",
 	"securepoll-edit-action": "Уреди анкета",
 	"securepoll-edit-edited": "{{int:securepoll}}: Анкетата е уредена",
 	"securepoll-edit-edited-text": "Вашата анкета е уредена.",

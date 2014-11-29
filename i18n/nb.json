@@ -114,5 +114,7 @@
 	"securepoll-average-score": "Gjennomsnittlig karakter",
 	"securepoll-round": "Runde $1",
 	"securepoll-spoilt": "(Ugyldig)",
-	"securepoll-exhausted": "(Oppbrukt)"
+	"securepoll-exhausted": "(Oppbrukt)",
+	"securepoll-edit-redirect": "Dette valget må konfigureres på $1",
+	"securepoll-edit-redirect-otherwiki": "hovedwikien"
 }

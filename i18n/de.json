@@ -191,6 +191,8 @@
 	"securepoll-create-fail-bad-dblist": "Das angegebene Wiki oder die Wikiliste ist ungültig",
 	"securepoll-create-duplicate-title": "Der angegebene Abstimmungstitel wurde bereits auf $1 verwendet",
 	"securepoll-edit-title": "{{int:securepoll}}: Umfrage bearbeiten",
+	"securepoll-edit-redirect": "Diese Abstimmung muss auf $1 konfiguriert werden",
+	"securepoll-edit-redirect-otherwiki": "dem Hauptwiki",
 	"securepoll-edit-action": "Umfrage bearbeiten",
 	"securepoll-edit-edited": "{{int:securepoll}}: Umfrage bearbeitet",
 	"securepoll-edit-edited-text": "Deine Umfrage wurde bearbeitet.",

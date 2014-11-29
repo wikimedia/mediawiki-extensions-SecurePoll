@@ -196,6 +196,8 @@
 	"securepoll-create-fail-bad-dblist": "指定的wiki或其列表无效",
 	"securepoll-create-duplicate-title": "提供的投票标题已用于$1",
 	"securepoll-edit-title": "{{int:securepoll}}:编辑投票",
+	"securepoll-edit-redirect": "此次选举必须在$1配置",
+	"securepoll-edit-redirect-otherwiki": "主wiki",
 	"securepoll-edit-action": "编辑投票",
 	"securepoll-edit-edited": "{{int:securepoll}}:投票已编辑",
 	"securepoll-edit-edited-text": "您的投票已编辑。",
