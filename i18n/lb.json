@@ -148,6 +148,7 @@
 	"securepoll-create-invalid-username": "De spezifizéierte Benotzernumm ass net valabel.",
 	"securepoll-create-user-does-not-exist": "De spezifizéierte Benotzer gëtt et net.",
 	"securepoll-edit-title": "{{int:securepoll}}: Ëmfro änneren",
+	"securepoll-edit-redirect-otherwiki": "der Haaptwiki",
 	"securepoll-edit-edited": "{{int:securepoll}}: Ëmfro geännert",
 	"securepoll-votereligibility-redirect-otherwiki": "der Haaptwiki",
 	"securepoll-votereligibility-label-min_edits": "Mindest Zuel vun Ännerungen:",
