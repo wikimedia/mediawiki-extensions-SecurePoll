@@ -11,7 +11,8 @@
 			"Luckas",
 			"MetalBrasil",
 			"Dianakc",
-			"He7d3r"
+			"He7d3r",
+			"Mordecool"
 		]
 	},
 	"securepoll": "VotaçãoSegura",
@@ -118,5 +119,6 @@
 	"securepoll-average-score": "Pontuação média",
 	"securepoll-round": "Ronda $1",
 	"securepoll-spoilt": "(Danificadas)",
-	"securepoll-exhausted": "(Esgotadas)"
+	"securepoll-exhausted": "(Esgotadas)",
+	"securepoll-edit-redirect-otherwiki": "a wiki principal"
 }
