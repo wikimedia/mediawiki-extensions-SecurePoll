@@ -34,17 +34,20 @@ require_once( "$IP/maintenance/Maintenance.php" );
 
 class PurgePrivateVoteData extends Maintenance {
 
-	private $mPurgeDays;
+	private $mPurgeDays = null;
 
 	function __construct() {
-		global $wgSecurePollKeepPrivateInfoDays;
 		parent::__construct();
 		$this->mDescription = 'Script purge private data (IP, XFF, UA) from SecurePoll Votes';
 		$this->setBatchSize( 200 );
-		$this->mPurgeDays = $wgSecurePollKeepPrivateInfoDays;
 	}
 
 	public function execute() {
+		global $wgSecurePollKeepPrivateInfoDays;
+
+		if ( $this->mPurgeDays === null ) {
+			$this->mPurgeDays = $wgSecurePollKeepPrivateInfoDays;
+		}
 
 		$electionsToPurge = array();
 		$deleteSets = array();
