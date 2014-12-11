@@ -6,7 +6,7 @@
 		]
 	},
 	"securepoll-desc": "Харжамаш а хаттарш а шордеш хӀума",
-	"securepoll-too-few-params": "Бухара агӀона параметраш тоьуш яц (гӀалате хьажораг).",
+	"securepoll-too-few-params": "Бухара агӀона параметраш тоьуш яц (гӀалате хьажорг).",
 	"securepoll-submit": "ДӀабахьийта кхаж",
 	"securepoll-api-invalid-params": "ГӀалате параметраш.",
 	"securepoll-api-no-user": "Иштта ID долу декъашхо цакарий.",

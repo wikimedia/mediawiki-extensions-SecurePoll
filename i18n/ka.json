@@ -5,7 +5,8 @@
 			"David1010",
 			"Dawid Deutschland",
 			"ITshnik",
-			"გიორგიმელა"
+			"გიორგიმელა",
+			"MIKHEIL"
 		]
 	},
 	"securepoll": "უსაფრთხო კეჭისყრა",
@@ -113,5 +114,6 @@
 	"securepoll-average-score": "საშუალო შედეგი",
 	"securepoll-round": "$1 რაუნდი",
 	"securepoll-spoilt": "(არასწორი)",
-	"securepoll-exhausted": "(დასრულდა)"
+	"securepoll-exhausted": "(დასრულდა)",
+	"securepoll-edit-redirect-otherwiki": "მთავარი ვიკი"
 }
