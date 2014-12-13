@@ -85,6 +85,8 @@
 	"securepoll-dump-no-urandom": "/dev/urandom kann nicht geöffnet werden.\nUm den Wählerdatenschutz zu wahren, sind verschlüsselte Abstimmungsaufzeichnungen nur öffentlich verfügbar, wenn sie mit einem sicheren Zufallszahlenstrom gemischt werden können.",
 	"securepoll-urandom-not-supported": "Dieser Server unterstützt keine kryptographische Zufallszahlenerzeugung.\nZur Sicherstellung des Wahlgeheimnisses sind verschlüsselte Wahlaufzeichnungen nur öffentlich verfügbar, sofern sie mit einer sicheren Zufallszahlenreihenfolge vermischt werden konnten.",
 	"securepoll-translate-title": "Übersetzen: $1",
+	"securepoll-translate-redirect": "Nachrichten für diese Abstimmung müssen auf $1 konfiguriert werden",
+	"securepoll-translate-redirect-otherwiki": "dem Hauptwiki",
 	"securepoll-translate-label-comment": "Grund:",
 	"securepoll-invalid-language": "Ungültiger Sprachcode „$1“",
 	"securepoll-submit-translate": "Aktualisieren",

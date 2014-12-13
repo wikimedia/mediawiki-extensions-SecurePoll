@@ -86,6 +86,8 @@
 	"securepoll-dump-no-urandom": "לא ניתן לפתוח את ‎/dev/urandom. \nכדי לשמור על פרטיות המצביעים, רשומות ההצבעה המוצפנות זמינות לציבור רק כאשר ניתן לערבלן באמצעות זרם מספרים אקראיים מאובטח.",
 	"securepoll-urandom-not-supported": "שרת זה אינו תומך ביצירת מספרים אקראיים לצורך הצפנה.\nכדי לשמור על פרטיות המצביעים, רשומות ההצבעה המוצפנות זמינות לציבור רק כאשר ניתן לערבלן באמצעות זרם מספרים אקראיים מאובטח.",
 	"securepoll-translate-title": "תרגום: $1",
+	"securepoll-translate-redirect": "הודעות עבור הבחירות האלו מצריכות להיות מוגדרות ב־$1",
+	"securepoll-translate-redirect-otherwiki": "הוויקי הראשי",
 	"securepoll-translate-label-comment": "סיבה:",
 	"securepoll-invalid-language": "קוד שפה בלתי תקין \"$1\"",
 	"securepoll-header-trans-id": "מספר",

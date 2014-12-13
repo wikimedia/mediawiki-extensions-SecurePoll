@@ -3,7 +3,8 @@
 		"authors": [
 			"Bellayet",
 			"Nasir8891",
-			"Wikitanvir"
+			"Wikitanvir",
+			"Aftabuzzaman"
 		]
 	},
 	"securepoll": "সিকিউরপোল",
@@ -77,6 +78,8 @@
 	"securepoll-dump-no-crypt": "এই নির্বাচনের জন্য কোনো এনক্রিপটেড নির্বাচন পদ্ধতি পাওয়া যায়নি, কারণ এই নির্বাচনের জন্য কোনো এনক্রিপশন পদ্ধতি নির্বাচন করা হয়নি।",
 	"securepoll-dump-not-finished": "এনক্রিপটেড নির্বাচনের ফলাফল জানতে পারা যাবে কেবলমাত্র $1 তারিখের $2 এর পর",
 	"securepoll-translate-title": "অনুবাদ: $1",
+	"securepoll-translate-redirect": "এই নির্বাচনের জন্য বার্তা $1-এ কনফিগার করা আবশ্যক",
+	"securepoll-translate-redirect-otherwiki": "প্রধান উইকি",
 	"securepoll-invalid-language": "অপ্রযোজ্য ভাষা কোড \"$1\"",
 	"securepoll-submit-translate": "হালনাগাদ",
 	"securepoll-language-label": "ভাষা নির্বাচন:",

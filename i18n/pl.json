@@ -83,6 +83,7 @@
 	"securepoll-dump-no-urandom": "Nie można otworzyć /dev/urandom. \nDla zapewnienia wyborcom poufności, zaszyfrowane rekordy głosów są publicznie dostępne wyłącznie wymieszane z danymi losowymi.",
 	"securepoll-urandom-not-supported": "Serwer nie umożliwia generowania liczb pseudolosowych spełniających wymagania kryptografii. \nDla zapewnienia wyborcom poufności, zaszyfrowane rekordy głosów są publicznie dostępne wyłącznie wymieszane z danymi losowymi.",
 	"securepoll-translate-title": "Tłumaczenie $1",
+	"securepoll-translate-redirect-otherwiki": "główna wiki",
 	"securepoll-invalid-language": "Nieprawidłowy kod języka „$1”",
 	"securepoll-submit-translate": "Uaktualnij",
 	"securepoll-language-label": "Wybierz język",
