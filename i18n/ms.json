@@ -80,6 +80,8 @@
 	"securepoll-dump-no-urandom": "Gagal membuka /dev/urandom.  \nUntuk mengekalkan privasi pengundi, rekod sulit pemilihan hanya tersedia untuk awam apabila ia dirombak dengan aliran nombor rawak yang selamat.",
 	"securepoll-urandom-not-supported": "Pelayan ini tidak menyokong penjanaan nombor rawak kriptografi.\nUntuk mengekalkan keadaan berahsia pengundi, rekod pemilihan tersulit cuma boleh didapati umum apabila ia boleh diubah dengan aliran nombor rawak selamat.",
 	"securepoll-translate-title": "Terjemah: $1",
+	"securepoll-translate-redirect": "Mesej-mesej untuk pilihan ini mesti dikonfigurasikan pada $1",
+	"securepoll-translate-redirect-otherwiki": "wiki utama",
 	"securepoll-translate-label-comment": "Sebab:",
 	"securepoll-invalid-language": "Kod bahasa tidak sah \"$1\"",
 	"securepoll-submit-translate": "Kemas kini",

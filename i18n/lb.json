@@ -80,6 +80,8 @@
 	"securepoll-dump-no-urandom": "/dev/urandom kann net opgemaach ginn.\nFir d'Konfidentialitéit vun de Wieler z'assuréieren, si verschlësselt Opzeechnunge vun de Walen nëmmen disponibel wa se mat engem sécheren Zoufallszuelestroum kënne gemescht ginn.",
 	"securepoll-urandom-not-supported": "Dëse Server ënnerstëtzt keng krypotgrfesch Zoufallszuelen.\nFir Är privat Donnéeën ze schützen si verschlësselt Opzeechnunge vun de Walen nëmmen ëfentlech disponibel wa si mat enger Rei vu  sécheren Zoufallszuele geméccht kënne ginn.",
 	"securepoll-translate-title": "Iwwersetzen: $1",
+	"securepoll-translate-redirect": "Message fir dës Wale mussen op $1 konfiguréiert ginnm",
+	"securepoll-translate-redirect-otherwiki": "d'Haaptwiki",
 	"securepoll-translate-label-comment": "Grond:",
 	"securepoll-invalid-language": "Net valabele Sproochecode \"$1\"",
 	"securepoll-submit-translate": "Aktualiséieren",
