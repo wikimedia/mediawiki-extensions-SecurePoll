@@ -90,6 +90,7 @@
 	"securepoll-dump-no-urandom": "No se pudo abrir /dev/urandom.\nPara preservar la privacidad de los votantes, sólo son publicados los resultados cifrados de la elección cuando pueden ser mezclados con un flujo de números aleatorio.",
 	"securepoll-urandom-not-supported": "Este servidor no posee capacidad de generación criptográfica de números aleatorios.\nPara preservar la privacidad de los votantes, sólo son publicados los resultados encriptados de la elección cuando pueden ser mezclados con un flujo de números aleatorio.",
 	"securepoll-translate-title": "Traducir: $1",
+	"securepoll-translate-redirect-otherwiki": "El wiki principal",
 	"securepoll-translate-label-comment": "Motivo:",
 	"securepoll-invalid-language": "Código de idioma no válido «$1»",
 	"securepoll-submit-translate": "Actualizar",
