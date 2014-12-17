@@ -253,6 +253,7 @@ class SecurePoll_GpgCrypt {
 		closedir( $dir );
 		rmdir( $this->homeDir );
 		$this->homeDir = false;
+		$this->recipient = false;
 	}
 
 	/**
