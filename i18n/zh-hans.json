@@ -12,7 +12,8 @@
 			"Skjackey tse",
 			"Hudafu",
 			"Mywood",
-			"Impersonator 1"
+			"Impersonator 1",
+			"JLeow00"
 		]
 	},
 	"securepoll": "安全投票",
@@ -90,6 +91,7 @@
 	"securepoll-dump-no-urandom": "无法打开/dev/urandom。为了保证投票者的隐私，经过加密的投票记录只有在经随机数据串干涉后方可公开。",
 	"securepoll-urandom-not-supported": "本服务器并不支持密文随机数生成。\n为了保证投票者的隐私，经过加密的投票记录只有在经随机数据串干涉后方可公开。",
 	"securepoll-translate-title": "翻译：$1",
+	"securepoll-translate-redirect": "此选举的讯息必须在$1配置",
 	"securepoll-translate-redirect-otherwiki": "主wiki",
 	"securepoll-translate-label-comment": "原因：",
 	"securepoll-invalid-language": "无效的语言代码“$1”",
