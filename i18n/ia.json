@@ -77,6 +77,8 @@
 	"securepoll-dump-no-urandom": "Impossibile aperir /dev/urandom.\nPro assecurar le confidentialitate del votantes, le datos cryptate del election es solmente disponibile al publico si illos pote esser miscite con un fluxo de numeros aleatori secur.",
 	"securepoll-urandom-not-supported": "Iste servitor non supporta le generation de numeros aleatori cryptographic.\nPro assecurar le confidentialitate del votantes, le datos cryptate del election es solmente disponibile al publico si illos pote esser miscite con un fluxo de numeros aleatori secur.",
 	"securepoll-translate-title": "Traducer: $1",
+	"securepoll-translate-redirect": "Le messages pro iste election debe esser configurate in $1",
+	"securepoll-translate-redirect-otherwiki": "le wiki principal",
 	"securepoll-invalid-language": "Le codice de lingua \"$1\" es invalide",
 	"securepoll-submit-translate": "Actualisar",
 	"securepoll-language-label": "Selige lingua:",
