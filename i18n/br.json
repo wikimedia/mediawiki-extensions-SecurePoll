@@ -132,6 +132,7 @@
 	"securepoll-create-label-option-name": "Anv an dibarzh :",
 	"securepoll-create-invalid-username": "An anv implijer diferet n'eo ket reizh",
 	"securepoll-create-user-does-not-exist": "N'eus ket eus an implijer diferet",
+	"securepoll-edit-redirect-otherwiki": "ar wiki pennañ",
 	"securepoll-votereligibility-redirect-otherwiki": "ar wiki pennañ",
 	"securepoll-votereligibility-basic": "'''Dibarzhioù diazez'''",
 	"securepoll-votereligibility-label-inuse": "En implij emañ ar roll-mañ",
