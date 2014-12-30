@@ -90,6 +90,8 @@
 	"securepoll-subpage-vote": "Hääleta",
 	"securepoll-subpage-translate": "Tõlgi",
 	"securepoll-subpage-list": "Loend",
+	"securepoll-subpage-edit": "Muuda",
+	"securepoll-subpage-votereligibility": "Hääleõigus",
 	"securepoll-subpage-dump": "Tõmmis",
 	"securepoll-subpage-tally": "Arvestus",
 	"securepoll-tally-title": "Arvestus: $1",
