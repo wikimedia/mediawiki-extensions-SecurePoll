@@ -193,7 +193,7 @@
 	"securepoll-votereligibility-label-not_centrally_blocked": "Label for form field on Special:SecurePoll/votereligibility.",
 	"securepoll-votereligibility-label-central_block_threshold": "Label for form field on Special:SecurePoll/votereligibility.",
 	"securepoll-votereligibility-label-not_bot": "Label for form field on Special:SecurePoll/votereligibility.",
-	"securepoll-votereligibility-lists": "Fieldset legend for the section of Special:SecurePoll/votereligibility dealing with voter lists.",
+	"securepoll-votereligibility-lists": "Fieldset legend for the section of Special:SecurePoll/votereligibility dealing with voter lists. I.e. a list of users which are eligiable/ineligiable to vote, rather than a list of users who have voted.",
 	"securepoll-votereligibility-lists-info": "Information displayed at the top of the section of [[Special:SecurePoll/votereligibility]] dealing with voter lists.\n\nRefers to the following messages:\n* {{msg-mw|Securepoll-votereligibility-list-voter}}\n* {{msg-mw|Securepoll-votereligibility-list-include}}\n* {{msg-mw|Securepoll-votereligibility-list-exclude}}",
 	"securepoll-votereligibility-list-voter": "Display name for the need-list list on [[Special:SecurePoll/votereligibility]].\n\nUsed in:\n* {{msg-mw|Securepoll-votereligibility-lists-info}}",
 	"securepoll-votereligibility-list-include": "Display name for the include-list list on [[Special:SecurePoll/votereligibility]].\n\nUsed in:\n* {{msg-mw|Securepoll-votereligibility-lists-info}}",
