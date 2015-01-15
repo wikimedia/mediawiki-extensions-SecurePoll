@@ -67,7 +67,7 @@
 	"securepoll-header-timestamp": "時間",
 	"securepoll-header-voter-name": "名稱",
 	"securepoll-header-voter-domain": "網域",
-	"securepoll-header-ua": "瀏覽器",
+	"securepoll-header-ua": "使用者代理",
 	"securepoll-header-cookie-dup": "重複",
 	"securepoll-header-strike": "作廢",
 	"securepoll-header-details": "詳細資訊",

@@ -49,6 +49,8 @@
 	"securepoll-create-label-wiki": "سی ویکی:",
 	"securepoll-create-option-wiki-this_wiki": "ای ویکی",
 	"securepoll-create-option-wiki-all_wikis": "همه ویکی یا",
+	"securepoll-create-option-wiki-other_wiki": "ویکی تیار کرده هنی",
+	"securepoll-create-label-election_primaryLang": "زون اصلی:",
 	"securepoll-create-label-election_dates": "گاتیا انتخاو:",
 	"securepoll-create-label-property_admins": "دیوونداریا:",
 	"securepoll-create-label-shuffle_questions": "وه یک شیوسن پرسایشتیا د بلگه رای دئن.",
