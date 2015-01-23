@@ -24,6 +24,11 @@ $specialPageAliases['arz'] = array(
 	'SecurePoll' => array( 'استطلاع_رأى_امان' ),
 );
 
+/** Avaric (авар) */
+$specialPageAliases['av'] = array(
+	'SecurePoll' => array( 'Защищённое_голосование' ),
+);
+
 /** Bashkir (башҡортса) */
 $specialPageAliases['ba'] = array(
 	'SecurePoll' => array( 'SecurePoll' ),
