@@ -111,6 +111,7 @@
 	"securepoll-average-score": "Keskmine punktisumma",
 	"securepoll-round": "$1 voor",
 	"securepoll-spoilt": "(Rikutud)",
+	"securepoll-create-label-election_dates": "Valimiskuupäevad:",
 	"securepoll-create-label-election_crypt": "Krüpteering:",
 	"securepoll-create-label-questions": "== Küsimused ==",
 	"securepoll-create-questions-row-legend": "Küsimus",
