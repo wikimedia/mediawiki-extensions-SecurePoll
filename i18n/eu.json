@@ -6,7 +6,8 @@
 			"Kobazulo",
 			"Theklan",
 			"Unai Fdz. de Betoño",
-			"Xabier Armendaritz"
+			"Xabier Armendaritz",
+			"Subi"
 		]
 	},
 	"securepoll": "BozketaSegurua",
@@ -76,6 +77,7 @@
 	"securepoll-cookie-dup-list": "Erabiltzaile bikoiztuen cookia",
 	"securepoll-dump-title": "Bota: $1",
 	"securepoll-translate-title": "Itzuli: $1",
+	"securepoll-translate-label-comment": "Arrazoia:",
 	"securepoll-invalid-language": "\"$1\" hizkuntza kodea okerra",
 	"securepoll-submit-translate": "Eguneratu",
 	"securepoll-language-label": "Hizkuntza aukeratu:",
@@ -87,5 +89,14 @@
 	"securepoll-subpage-translate": "Itzuli",
 	"securepoll-subpage-list": "Zerrenda",
 	"securepoll-ranks": "Azken rankinga",
-	"securepoll-average-score": "Batez besteko puntuazioa"
+	"securepoll-average-score": "Batez besteko puntuazioa",
+	"securepoll-create-option-wiki-this_wiki": "Wiki hau",
+	"securepoll-create-option-wiki-all_wikis": "Wiki guztiak",
+	"securepoll-create-label-questions": "== Galderak ==",
+	"securepoll-create-questions-row-legend": "Galdera",
+	"securepoll-create-label-questions-question": "Galderaren testua:",
+	"securepoll-create-label-questions-add": "Gehitu beste galdera bat",
+	"securepoll-create-label-questions-delete": "Ezabatu galdera",
+	"securepoll-votereligibility-label-comment": "Arrazoia",
+	"securepoll-votereligibility-action": "Konfigurazioa gorde"
 }
