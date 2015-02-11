@@ -64,6 +64,11 @@ $specialPageAliases['dsb'] = array(
 	'SecurePoll' => array( 'Wěste wótgłosowanje' ),
 );
 
+/** Estonian (eesti) */
+$specialPageAliases['et'] = array(
+	'SecurePoll' => array( 'Turvaline_hääletus' ),
+);
+
 /** Persian (فارسی) */
 $specialPageAliases['fa'] = array(
 	'SecurePoll' => array( 'رأی‌گیری_ایمن' ),
