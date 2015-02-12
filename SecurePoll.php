@@ -91,6 +91,7 @@ $wgAutoloadClasses = $wgAutoloadClasses + array(
 	# ballots
 	'SecurePoll_ApprovalBallot' => "$dir/includes/ballots/ApprovalBallot.php",
 	'SecurePoll_Ballot' => "$dir/includes/ballots/Ballot.php",
+	'SecurePoll_BallotStatus' => "$dir/includes/ballots/Ballot.php",
 	'SecurePoll_ChooseBallot' => "$dir/includes/ballots/ChooseBallot.php",
 	'SecurePoll_PreferentialBallot' => "$dir/includes/ballots/PreferentialBallot.php",
 	'SecurePoll_RadioRangeBallot' => "$dir/includes/ballots/RadioRangeBallot.php",
@@ -117,10 +118,15 @@ $wgAutoloadClasses = $wgAutoloadClasses + array(
 
 	# pages
 	'SecurePoll_CreatePage' => "$dir/includes/pages/CreatePage.php",
+	'SecurePoll_FormStore' => "$dir/includes/pages/CreatePage.php",
+	'SecurePoll_StatusException' => "$dir/includes/pages/CreatePage.php",
 	'SecurePoll_DetailsPage' => "$dir/includes/pages/DetailsPage.php",
+	'SecurePoll_StrikePager' => "$dir/includes/pages/DetailsPage.php",
 	'SecurePoll_DumpPage' => "$dir/includes/pages/DumpPage.php",
 	'SecurePoll_EntryPage' => "$dir/includes/pages/EntryPage.php",
+	'SecurePoll_ElectionPager' => "$dir/includes/pages/EntryPage.php",
 	'SecurePoll_ListPage' => "$dir/includes/pages/ListPage.php",
+	'SecurePoll_ListPager' => "$dir/includes/pages/ListPage.php",
 	'SecurePoll_LoginPage' => "$dir/includes/pages/LoginPage.php",
 	'SecurePoll_MessageDumpPage' => "$dir/includes/pages/MessageDumpPage.php",
 	'SecurePoll_Page' => "$dir/includes/pages/Page.php",
