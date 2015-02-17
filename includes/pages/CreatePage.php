@@ -361,17 +361,17 @@ class SecurePoll_CreatePage extends SecurePoll_Page {
 	public function processInput( $formData, $form ) {
 		global $wgSecurePollUseNamespace;
 
-		$context = new SecurePoll_Context;
-		$store = new SecurePoll_FormStore( $formData );
-		$context->setStore( $store );
-		$election = $context->getElection( $store->eId );
-
-		if ( $this->election && $store->eId !== (int)$this->election->getId() ) {
-			return Status::newFatal( 'securepoll-create-fail-bad-id' );
-		}
-
-		$dbw = $this->context->getDB();
 		try {
+			$context = new SecurePoll_Context;
+			$store = new SecurePoll_FormStore( $formData );
+			$context->setStore( $store );
+			$election = $context->getElection( $store->eId );
+
+			if ( $this->election && $store->eId !== (int)$this->election->getId() ) {
+				return Status::newFatal( 'securepoll-create-fail-bad-id' );
+			}
+
+			$dbw = $this->context->getDB();
 			$properties = array();
 			$messages = array();
 
@@ -904,17 +904,18 @@ class SecurePoll_FormStore extends SecurePoll_MemoryStore {
 		if ( $wikis === '*' ) {
 			$wikis = array_values( self::getWikiList() );
 		} elseif ( substr( $wikis, 0, 1 ) === '@' ) {
+			$file = substr( $wikis, 1 );
 			$wikis = false;
 
 			// HTMLForm already checked this, but let's do it again anyway.
-			if ( isset( $wgSecurePollCreateWikiGroups[$wikis] ) ) {
+			if ( isset( $wgSecurePollCreateWikiGroups[$file] ) ) {
 				$wikis = file_get_contents(
-					$wgSecurePollCreateWikiGroupDir . substr( $wikis, 1 ) . '.dblist'
+					$wgSecurePollCreateWikiGroupDir . $file . '.dblist'
 				);
 			}
 
 			if ( !$wikis ) {
-				return Status::newFatal( 'securepoll-create-fail-bad-dblist' );
+				throw new SecurePoll_StatusException( 'securepoll-create-fail-bad-dblist' );
 			}
 			$wikis = array_map( 'trim', explode( "\n", trim( $wikis ) ) );
 		} else {
