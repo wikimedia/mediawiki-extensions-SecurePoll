@@ -114,5 +114,7 @@
 	"securepoll-average-score": "Dorschschnettlesche Treffer",
 	"securepoll-round": "Der $1-te Rötsch",
 	"securepoll-spoilt": "(onjöltesch)",
-	"securepoll-exhausted": "(aam Engk)"
+	"securepoll-exhausted": "(aam Engk)",
+	"securepoll-create-layout-election_dates": "Fängk aan aam $1 öm 00:00 Uhr <i lang=\"en\" lang=\"en\" title=\"Universal Time Controlled\">UTC</i> un jeiht för $2 Daach udder Dähsch.",
+	"securepoll-create-option-election_type-preferential+schulze": "Däm Schulze sing Manier zem ußzalle"
 }
