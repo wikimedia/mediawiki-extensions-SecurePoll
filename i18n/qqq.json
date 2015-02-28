@@ -18,7 +18,8 @@
 			"Umherirrender",
 			"Amire80",
 			"Liuxinyu970226",
-			"Lokal Profil"
+			"Lokal Profil",
+			"아라"
 		]
 	},
 	"securepoll": "Used in the following messages:\n* {{msg-mw|Securepoll-create-title}}\n* {{msg-mw|Securepoll-create-created}}\n* {{msg-mw|Securepoll-edit-title}}\n* {{msg-mw|Securepoll-edit-edited}}\n* {{msg-mw|Securepoll-votereligibility-saved}}\n* {{msg-mw|Securepoll-votereligibility-cleared}}",
@@ -104,7 +105,7 @@
 	"securepoll-round": "Column header for tables on tallies which take place over multiple rounds.\n\nParameters:\n* $1 - roman numeral (I, II, III, IV, ...)",
 	"securepoll-spoilt": "Row label for counting ballots which were spoilt, that is not correctly filled in or indecipherable.",
 	"securepoll-exhausted": "Row label for counting ballots which have been exhausted in a multi-round counting system",
-	"securepoll-htmlform-date-placeholder": "Used as initial placeholder text in \"date\" input boxes. This date MUST be formatted in the https://en.wikipedia.org/wiki/ISO_8601 format. You can localise the letters to your language or script, but you should not change the format.",
+	"securepoll-htmlform-date-placeholder": "Used as initial placeholder text in \"date\" input boxes.\n{{DataFormatSpecifiers/en}}",
 	"securepoll-htmlform-date-invalid": "Used as error message in HTML forms. This date MUST be formatted in the https://en.wikipedia.org/wiki/ISO_8601 format. You can localise the letters to your language or script, but you should not change the format.\n\n* {{msg-mw|Htmlform-invalid-input}}\n* {{msg-mw|Securepoll-htmlform-date-placeholder}}\n* {{msg-mw|Securepoll-htmlform-date-toolow}}\n* {{msg-mw|Securepoll-htmlform-date-toohigh}}\n* {{msg-mw|Htmlform-required}}",
 	"securepoll-htmlform-date-toolow": "Used as error message in HTML forms. Parameters:\n* $1 - minimum date\nSee also:\n* {{msg-mw|Htmlform-invalid-input}}\n* {{msg-mw|Htmlform-required}}\n* {{msg-mw|Securepoll-htmlform-date-invalid}}\n* {{msg-mw|Securepoll-htmlform-date-toohigh}}",
 	"securepoll-htmlform-date-toohigh": "Used as error message in HTML forms. Parameters:\n* $1 - maximum date\nSee also:\n* {{msg-mw|Htmlform-invalid-input}}\n* {{msg-mw|Htmlform-required}}\n* {{msg-mw|Securepoll-htmlform-date-invalid}}\n* {{msg-mw|Securepoll-htmlform-date-toolow}}",
