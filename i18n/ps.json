@@ -6,7 +6,7 @@
 	},
 	"securepoll-invalid-page": "ناسم څېرمه مخ \"<nowiki>$1</nowiki>\"",
 	"securepoll-need-admin": "د دې کړنې د ترسره کولو لپاره تاسې ته پکار ده چې د ټاکنې يو پازوال اوسۍ.",
-	"securepoll-welcome": "<strong> $1 ښه راغلۍ!</strong>",
+	"securepoll-welcome": "<strong> $1 ښه راغلئ!</strong>",
 	"securepoll-submit": "رايه سپارل",
 	"securepoll-thanks": "له تاسې نه مننه، ستاسې رايه ثبته شوه.",
 	"securepoll-return": "$1 ته ورګرځېدل",
