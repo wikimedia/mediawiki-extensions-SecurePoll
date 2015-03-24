@@ -23,7 +23,7 @@
 		]
 	},
 	"securepoll": "Used in the following messages:\n* {{msg-mw|Securepoll-create-title}}\n* {{msg-mw|Securepoll-create-created}}\n* {{msg-mw|Securepoll-edit-title}}\n* {{msg-mw|Securepoll-edit-edited}}\n* {{msg-mw|Securepoll-votereligibility-saved}}\n* {{msg-mw|Securepoll-votereligibility-cleared}}",
-	"securepoll-desc": "{{desc|name=Secure Poll|url=http://www.mediawiki.org/wiki/Extension:SecurePoll}}",
+	"securepoll-desc": "{{desc|name=Secure Poll|url=https://www.mediawiki.org/wiki/Extension:SecurePoll}}",
 	"securepoll-invalid-page": "Used as error message. Parameters:\n* $1 - subpage name",
 	"securepoll-invalid-election": "Used as error message. Parameters:\n* $1 - invalid election ID",
 	"securepoll-welcome": "Used as welcome message for remote voters. Parameters:\n* $1 - username of remote voter\n{{Identical|Welcome}}",
