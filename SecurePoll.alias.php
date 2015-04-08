@@ -34,6 +34,11 @@ $specialPageAliases['ba'] = array(
 	'SecurePoll' => array( 'SecurePoll' ),
 );
 
+/** Western Balochi (بلوچی رخشانی) */
+$specialPageAliases['bgn'] = array(
+	'SecurePoll' => array( 'ایمنین_رای_گیره_گ' ),
+);
+
 /** Chechen (нохчийн) */
 $specialPageAliases['ce'] = array(
 	'SecurePoll' => array( 'Лардина_кхаж_тасар' ),
