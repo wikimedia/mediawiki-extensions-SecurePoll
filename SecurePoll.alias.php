@@ -181,7 +181,7 @@ $specialPageAliases['nb'] = array(
 
 /** Low Saxon (Netherlands) (Nedersaksies) */
 $specialPageAliases['nds-nl'] = array(
-	'SecurePoll' => array( 'Beveilig_stemmen' ),
+	'SecurePoll' => array( 'Beveiligd_stemmen' ),
 );
 
 /** Dutch (Nederlands) */
