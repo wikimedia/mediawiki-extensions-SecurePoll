@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Toliño"
+			"Toliño",
+			"Banjo"
 		]
 	},
 	"securepoll": "Sondaxe segura",
@@ -77,6 +78,7 @@
 	"securepoll-dump-no-urandom": "Non se pode abrir /dev/urandom.  \nPara manter a protección dos datos, os rexistros das eleccións encriptados só están dispoñibles publicamente cando poden ser baraxados cunha secuencia de números aleatorios.",
 	"securepoll-urandom-not-supported": "Este servidor non soporta a xeración criptográfica de números aleatorios.\nPara manter a confidencialidade dos votantes, os rexistros cifrados das eleccións só están dispoñibles publicamente cando se poden barallar cun fluxo de números aleatorios.",
 	"securepoll-translate-title": "Traducir: $1",
+	"securepoll-translate-label-comment": "Motivo:",
 	"securepoll-invalid-language": "Código de lingua inválido \"$1\"",
 	"securepoll-submit-translate": "Actualizar",
 	"securepoll-language-label": "Seleccione a lingua:",
@@ -88,6 +90,7 @@
 	"securepoll-subpage-vote": "Votar",
 	"securepoll-subpage-translate": "Traducir",
 	"securepoll-subpage-list": "Lista",
+	"securepoll-subpage-edit": "Editar",
 	"securepoll-subpage-dump": "Desbotar",
 	"securepoll-subpage-tally": "Escrutinio",
 	"securepoll-tally-title": "Escrutinio: $1",
@@ -108,5 +111,11 @@
 	"securepoll-average-score": "Puntuación media",
 	"securepoll-round": "Ronda $1",
 	"securepoll-spoilt": "(Nulos)",
-	"securepoll-exhausted": "(Esgotados)"
+	"securepoll-exhausted": "(Esgotados)",
+	"securepoll-create-option-wiki-this_wiki": "Este wiki",
+	"securepoll-create-option-wiki-all_wikis": "Todos os wikis",
+	"securepoll-create-label-property_admins": "Administradores:",
+	"securepoll-create-label-questions-option": "=== Opcións ===",
+	"securepoll-create-label-comment": "Motivo",
+	"securepoll-votereligibility-label-comment": "Motivo"
 }
