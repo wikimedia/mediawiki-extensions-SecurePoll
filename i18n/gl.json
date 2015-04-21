@@ -114,8 +114,17 @@
 	"securepoll-exhausted": "(Esgotados)",
 	"securepoll-create-option-wiki-this_wiki": "Este wiki",
 	"securepoll-create-option-wiki-all_wikis": "Todos os wikis",
+	"securepoll-create-label-election_crypt": "Encriptación:",
 	"securepoll-create-label-property_admins": "Administradores:",
+	"securepoll-create-questions-row-legend": "Pregunta",
+	"securepoll-create-label-questions-question": "Texto da pregunta:",
+	"securepoll-create-label-questions-add": "Engadir outra pregunta",
+	"securepoll-create-label-questions-delete": "Eliminar pergunta",
+	"securepoll-create-option-column_order-asc": "Ascendente",
+	"securepoll-create-option-column_order-desc": "Descendente",
 	"securepoll-create-label-questions-option": "=== Opcións ===",
+	"securepoll-create-option-election_crypt-none": "Sen encriptación",
 	"securepoll-create-label-comment": "Motivo",
-	"securepoll-votereligibility-label-comment": "Motivo"
+	"securepoll-votereligibility-label-comment": "Motivo",
+	"securepoll-votereligibility-action": "Gardar configuración"
 }
