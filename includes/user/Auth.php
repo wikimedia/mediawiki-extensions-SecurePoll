@@ -228,6 +228,7 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 				'language' => $user->getOption( 'language' ),
 				'groups' => $user->getGroups(),
 				'lists' => $this->getLists( $user ),
+				'central-lists' => $this->getCentralLists( $user ),
 				'registration' => $user->getRegistration(),
 			)
 		);
@@ -247,6 +248,33 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 			'securepoll_lists',
 			array( 'li_name' ),
 			array( 'li_member' => $user->getId() ),
+			__METHOD__
+		);
+		$lists = array();
+		foreach ( $res as $row ) {
+			$lists[] = $row->li_name;
+		}
+		return $lists;
+	}
+
+	/**
+	 * Get the CentralAuth lists the user belongs to
+	 * @param $user User
+	 * @return array
+	 */
+	function getCentralLists( $user ) {
+		if ( !class_exists( 'CentralAuthUser' ) ) {
+			return array();
+		}
+		$centralUser = CentralAuthUser::getInstance( $user );
+		if ( !$centralUser->isAttached() ) {
+			return array();
+		}
+		$dbc = CentralAuthUser::getSlaveDB();
+		$res = $dbc->select(
+			'securepoll_lists',
+			array( 'li_name' ),
+			array( 'li_member' => $centralUser->getId() ),
 			__METHOD__
 		);
 		$lists = array();

@@ -27,6 +27,9 @@
  *              The name of an MW group voters need to be in
  *          need-list
  *              The name of a SecurePoll list voters need to be in
+ *          need-central-list
+ *              The name of a list in the CentralAuth database which is linked
+ *              to globaluser.gu_id
  *          include-list
  *              The name of a SecurePoll list of voters who can vote regardless of the above
  *          exclude-list
@@ -169,6 +172,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		$status = Status::newGood();
 
 		$lists = isset( $props['lists'] ) ? $props['lists'] : array();
+		$centralLists = isset( $props['central-lists'] ) ? $props['central-lists'] : array();
 		$includeList = $this->getProperty( 'include-list' );
 		$excludeList = $this->getProperty( 'exclude-list' );
 
@@ -229,6 +233,11 @@ class SecurePoll_Election extends SecurePoll_Entity {
 			# Lists
 			$needList = $this->getProperty( 'need-list' );
 			if ( $needList && !in_array( $needList, $lists ) ) {
+				$status->fatal( 'securepoll-not-in-list' );
+			}
+
+			$needCentralList = $this->getProperty( 'need-central-list' );
+			if ( $needCentralList && !in_array( $needCentralList, $centralLists ) ) {
 				$status->fatal( 'securepoll-not-in-list' );
 			}
 		}
