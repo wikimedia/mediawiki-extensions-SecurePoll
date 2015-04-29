@@ -270,7 +270,7 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 		if ( !$centralUser->isAttached() ) {
 			return array();
 		}
-		$dbc = CentralAuthUser::getSlaveDB();
+		$dbc = CentralAuthUser::getCentralSlaveDB();
 		$res = $dbc->select(
 			'securepoll_lists',
 			array( 'li_name' ),
