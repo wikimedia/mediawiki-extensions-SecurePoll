@@ -40,7 +40,7 @@ for ( $userId = 1; $userId <= $maxUser; $userId++ ) {
 		$fname
 	);
 
-	if ( $longEdits !== 0 || $shortEdits !== 0 ) {
+	if ( $longEdits != 0 || $shortEdits != 0 ) {
 		$dbw->insert( 'bv2015_edits',
 			array(
 				'bv_user' => $userId,
