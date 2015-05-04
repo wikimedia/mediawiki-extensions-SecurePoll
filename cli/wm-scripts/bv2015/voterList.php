@@ -5,7 +5,7 @@ $dbcr = CentralAuthUser::getCentralSlaveDB();
 $dbcw = CentralAuthUser::getCentralDB();
 
 $fname = 'voterList.php';
-$listName = 'board-vote-2015';
+$listName = 'board-vote-2015a';
 
 $dbcw->delete( 'securepoll_lists', array( 'li_name' => $listName ), $fname );
 
