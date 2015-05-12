@@ -19,7 +19,7 @@ $specialPageAliases['ar'] = array(
 	'SecurePoll' => array( 'اقتراع_آمن' ),
 );
 
-/** Egyptian Spoken Arabic (مصرى) */
+/** Egyptian Arabic (مصرى) */
 $specialPageAliases['arz'] = array(
 	'SecurePoll' => array( 'استطلاع_رأى_امان' ),
 );
@@ -89,7 +89,7 @@ $specialPageAliases['fr'] = array(
 	'SecurePoll' => array( 'Vote_sécurisé' ),
 );
 
-/** Franco-Provençal (arpetan) */
+/** Arpitan (arpetan) */
 $specialPageAliases['frp'] = array(
 	'SecurePoll' => array( 'Voto_sècurisâ', 'VotoSècurisâ' ),
 );
