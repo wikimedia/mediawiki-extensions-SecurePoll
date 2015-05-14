@@ -19,7 +19,8 @@
 			"Amire80",
 			"Liuxinyu970226",
 			"Lokal Profil",
-			"아라"
+			"아라",
+			"Nemo bis"
 		]
 	},
 	"securepoll": "Used in the following messages:\n* {{msg-mw|Securepoll-create-title}}\n* {{msg-mw|Securepoll-create-created}}\n* {{msg-mw|Securepoll-edit-title}}\n* {{msg-mw|Securepoll-edit-edited}}\n* {{msg-mw|Securepoll-votereligibility-saved}}\n* {{msg-mw|Securepoll-votereligibility-cleared}}",
@@ -218,12 +219,12 @@
 	"securepoll-votereligibility-label-comment": "Label for the \"edit summary\" field on Special:SecurePoll/votereligibility.\n{{Identical|Reason}}",
 	"securepoll-votereligibility-action": "Label for form submit button on Special:SecurePoll/votereligibility.",
 	"securepoll-votereligibility-fail-nothing-to-process": "Used as an error message on Special:SecurePoll/votereligibility. Uses {{msg-mw|securepoll-votereligibility-list-voter}}.",
-	"securepoll-votereligibility-edit-title": "Title for Special:SecurePoll/votereligibility/#/edit/X",
+	"securepoll-votereligibility-edit-title": "Title for Special:SecurePoll/votereligibility/#/edit/X\n\n* $1 – text of one of the following messages:\n** {{msg-mw|securepoll-votereligibility-list-include}}\n** {{msg-mw|securepoll-votereligibility-list-exclude}}\n** {{msg-mw|securepoll-votereligibility-list-voter}}",
 	"securepoll-votereligibility-edit-header": "Explanation displayed at the top of Special:SecurePoll/votereligibility/#/edit/X",
 	"securepoll-votereligibility-edit-action": "Label for form submit button on Special:SecurePoll/votereligibility/#/edit/X.",
 	"securepoll-votereligibility-saved": "Title for save confirmation page for [[Special:SecurePoll/votereligibility]].\n\nRefers to {{msg-mw|Securepoll}}.\n\nSee also:\n* {{msg-mw|Securepoll-votereligibility-saved-text}}\n{{Identical|Saved}}",
 	"securepoll-votereligibility-saved-text": "Text for save confirmation page for [[Special:SecurePoll/votereligibility]].\n\nSee also:\n* {{msg-mw|Securepoll-votereligibility-saved}}",
-	"securepoll-votereligibility-clear-title": "Title for Special:SecurePoll/votereligibility/#/clear/X",
+	"securepoll-votereligibility-clear-title": "Title for Special:SecurePoll/votereligibility/#/clear/X\n* $1 – text of one of the following messages:\n** {{msg-mw|securepoll-votereligibility-list-include}}\n** {{msg-mw|securepoll-votereligibility-list-exclude}}\n** {{msg-mw|securepoll-votereligibility-list-voter}}",
 	"securepoll-votereligibility-cleared": "Title for clear confirmation page for [[Special:SecurePoll/votereligibility]].\n\nRefers to {{msg-mw|Securepoll}}.",
 	"securepoll-votereligibility-cleared-text": "Text for clear confirmation page for Special:SecurePoll/votereligibility. $1 is a list name.",
 	"securepoll-votereligibility-cleared-comment": "Text used as the edit summary when clearing a list on Special:SecurePoll/votereligibility. $1 is a list name.\n{{Identical|Cleared}}",
