@@ -227,7 +227,7 @@
 	"securepoll-votereligibility-label-comment": "Jrond",
 	"securepoll-votereligibility-action": "Ennschtällonge faßhallde",
 	"securepoll-votereligibility-fail-nothing-to-process": "{{int:securepoll-votereligibility-list-voter}} automattesch ze fölle es nit müllelesch. Ed es nix ußjesöhk, wi se jeföllt wähde sull.",
-	"securepoll-votereligibility-edit-title": "De Leß „$1“ met de Afschtemmer ändere\n<!-- \nhttps://translatewiki.net/wiki/Thread:Support/About_MediaWiki:Securepoll-votereligibility-edit-title/ksh\n-->",
+	"securepoll-votereligibility-edit-title": "$1 ändere",
 	"securepoll-votereligibility-edit-header": "Draach de Nahme vun Metmaacher för di Leß onge en dat Fäld en. Ene Metmaacher en enem beschtemmpte Wikki kritt henger singem Nahme e „<kbd>@</kbd>“ un et Projäkköözel för sing Wikki aanjehange. För e Beijschpell, dä Metmaacher:Beijschpeller en de kölsche Wikkipehdija wööd mer als „<kbd>Beijschpeller@kshwiki</kbd>“ opschrihve.\n\nDe Nahme wähde nohjelohrt en dämm Momang, woh heh dat Fommolaa afjeschegg es. Nahme, die et nit jitt und Nahme, di verkehrt jeschrevve sin, falle derbei onder der Desch. En Mälldong doh drövver jidd et nit.",
 	"securepoll-votereligibility-edit-action": "Lohß Jonn!",
 	"securepoll-votereligibility-saved": "{{int:securepoll}}: Faßjehallde",
