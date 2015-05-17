@@ -5,9 +5,15 @@
 			"Robin0van0der0vliet"
 		]
 	},
+	"securepoll-header-timestamp": "Tiid",
 	"securepoll-header-voter-name": "Namme",
+	"securepoll-strike-reason": "Reden:",
 	"securepoll-strike-cancel": "Annulearje",
+	"securepoll-header-reason": "Reden",
+	"securepoll-translate-label-comment": "Reden:",
 	"securepoll-header-title": "Namme",
 	"securepoll-subpage-edit": "Bewurkje",
-	"securepoll-votereligibility-label-names": "Brûkersnammen"
+	"securepoll-create-label-comment": "Reden",
+	"securepoll-votereligibility-label-names": "Brûkersnammen",
+	"securepoll-votereligibility-label-comment": "Reden"
 }
