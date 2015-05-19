@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mormegil"
+			"Mormegil",
+			"Vks"
 		]
 	},
 	"securepoll": "Bezpečné hlasování",
@@ -88,6 +89,7 @@
 	"securepoll-subpage-vote": "Hlasovat",
 	"securepoll-subpage-translate": "Překlad",
 	"securepoll-subpage-list": "Seznam",
+	"securepoll-subpage-edit": "Upravit",
 	"securepoll-subpage-dump": "Záznam",
 	"securepoll-subpage-tally": "Sečíst",
 	"securepoll-tally-title": "Součet hlasů – $1",
@@ -108,5 +110,9 @@
 	"securepoll-average-score": "Průměrné hodnocení",
 	"securepoll-round": "$1. kolo",
 	"securepoll-spoilt": "(neplatné)",
-	"securepoll-exhausted": "(vyčerpané)"
+	"securepoll-exhausted": "(vyčerpané)",
+	"securepoll-create-label-election_crypt": "Šifrování:",
+	"securepoll-create-label-property_admins": "Administrátoři:",
+	"securepoll-create-option-election_crypt-none": "Bez šifrování",
+	"securepoll-create-label-comment": "Důvod"
 }

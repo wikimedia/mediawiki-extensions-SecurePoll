@@ -5,10 +5,12 @@
 			"Robin0van0der0vliet"
 		]
 	},
+	"securepoll-welcome": "<strong>Wolkom $1!</strong>",
 	"securepoll-header-timestamp": "Tiid",
 	"securepoll-header-voter-name": "Namme",
 	"securepoll-strike-reason": "Reden:",
 	"securepoll-strike-cancel": "Annulearje",
+	"securepoll-header-url": "URL",
 	"securepoll-header-reason": "Reden",
 	"securepoll-translate-label-comment": "Reden:",
 	"securepoll-header-title": "Namme",
