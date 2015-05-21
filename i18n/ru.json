@@ -180,6 +180,7 @@
 	"securepoll-create-label-options-delete": "Удалить ответ",
 	"securepoll-create-label-option-name": "Название ответа:",
 	"securepoll-create-option-election_crypt-none": "Без шифрования",
+	"securepoll-create-label-comment": "Причина",
 	"securepoll-create-invalid-username": "Указанное имя участника некорректно",
 	"securepoll-create-user-does-not-exist": "Указанного участника не существует",
 	"securepoll-edit-title": "{{int:securepoll}}: Редактировать опрос",

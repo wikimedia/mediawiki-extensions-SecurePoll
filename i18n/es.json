@@ -173,8 +173,10 @@
 	"securepoll-create-label-min_score": "Puntuación mínima:",
 	"securepoll-create-label-max_score": "Puntuación máxima:",
 	"securepoll-create-label-default_score": "Puntuación predeterminada:",
+	"securepoll-create-label-column_order": "Orden de la columna de puntuación",
 	"securepoll-create-option-column_order-asc": "Ascendente",
 	"securepoll-create-option-column_order-desc": "Descendente",
+	"securepoll-create-label-column_label_msgs": "Usar mensajes personalizados para las etiquetas de columnas",
 	"securepoll-create-label-questions-option": "=== Opciones ===",
 	"securepoll-create-label-options-option": "Texto de la opción:",
 	"securepoll-create-label-options-add": "Añadir otra opción",
@@ -217,7 +219,11 @@
 	"securepoll-votereligibility-label-edit": "Editar lista",
 	"securepoll-votereligibility-label-clear": "Eliminar lista",
 	"securepoll-votereligibility-label-populate": "Rellenar la lista automáticamente",
+	"securepoll-votereligibility-label-edits_before": "Requerir un número mínimo de ediciones antes de una fecha",
+	"securepoll-votereligibility-label-edits_before_count": "Número mínimo de ediciones",
 	"securepoll-votereligibility-label-edits_before_date": "Antes de la fecha",
+	"securepoll-votereligibility-label-edits_between": "Requerir un número mínimo de ediciones entre dos fechas",
+	"securepoll-votereligibility-label-edits_between_count": "Número mínimo de ediciones",
 	"securepoll-votereligibility-label-edits_between_dates": "Entre las fechas",
 	"securepoll-votereligibility-layout-edits_between_dates": "Entre el $1 y el $2",
 	"securepoll-votereligibility-label-exclude_groups": "Excluir a los usuarios en estos grupos",
@@ -229,5 +235,6 @@
 	"securepoll-votereligibility-saved": "{{int:securepoll}}: guardada",
 	"securepoll-votereligibility-saved-text": "Se han guardado tus cambios.",
 	"right-securepoll-create-poll": "Crear encuestas",
-	"action-securepoll-create-poll": "crear encuestas"
+	"action-securepoll-create-poll": "crear encuestas",
+	"securepoll-ns-readonly": "El espacio de nombres SecurePoll es de solo lectura."
 }
