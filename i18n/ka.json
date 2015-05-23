@@ -133,5 +133,18 @@
 	"securepoll-create-label-election_dates": "არჩევნების თარიღი:",
 	"securepoll-create-layout-election_dates": "დაიწყება $1-ში (00:00-ზე UTC) და გაგრძელდება $2 დღე",
 	"securepoll-create-label-property_admins": "ადმინები:",
-	"securepoll-edit-redirect-otherwiki": "მთავარი ვიკი"
+	"securepoll-create-label-questions-question": "შეკითხვის ტექსტი:",
+	"securepoll-create-label-questions-add": "სხვა შეკითხვის დამატება",
+	"securepoll-create-option-column_order-asc": "ზრდის მიხედვით",
+	"securepoll-create-option-column_order-desc": "კლების მიხედვით",
+	"securepoll-create-label-comment": "მიზეზი",
+	"securepoll-edit-redirect-otherwiki": "მთავარი ვიკი",
+	"securepoll-votereligibility-label-edit": "სიის რედაქტირება",
+	"securepoll-votereligibility-label-clear": "სიის წაშლა",
+	"securepoll-votereligibility-label-names": "მომხმარებლის სახელები",
+	"securepoll-votereligibility-label-comment": "მიზეზი",
+	"securepoll-votereligibility-action": "კონფიგურაციის შენახვა",
+	"securepoll-votereligibility-edit-action": "სიის შენახვა",
+	"securepoll-votereligibility-saved": "{{int:securepoll}}: შენახულია",
+	"securepoll-votereligibility-saved-text": "თქვენი ცვლილებები შენახულია."
 }

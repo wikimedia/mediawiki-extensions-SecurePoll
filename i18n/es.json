@@ -231,9 +231,12 @@
 	"securepoll-votereligibility-label-names": "Nombres de usuarios",
 	"securepoll-votereligibility-label-comment": "Motivo",
 	"securepoll-votereligibility-action": "Guardar configuración",
+	"securepoll-votereligibility-fail-nothing-to-process": "Se solicitó el relleno automático de {{int:securepoll-votereligibility-list-voter}}, pero todos los filtros están vacíos.",
+	"securepoll-votereligibility-edit-title": "Edición de la lista de votantes: $1",
 	"securepoll-votereligibility-edit-action": "Guardar la lista",
 	"securepoll-votereligibility-saved": "{{int:securepoll}}: guardada",
 	"securepoll-votereligibility-saved-text": "Se han guardado tus cambios.",
+	"securepoll-votereligibility-clear-title": "Eliminación de la lista de votantes: $1",
 	"right-securepoll-create-poll": "Crear encuestas",
 	"action-securepoll-create-poll": "crear encuestas",
 	"securepoll-ns-readonly": "El espacio de nombres SecurePoll es de solo lectura."

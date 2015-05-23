@@ -3,7 +3,8 @@
 		"authors": [
 			"Ansumang",
 			"Shubha",
-			"Vibhijain"
+			"Vibhijain",
+			"NehalDaveND"
 		]
 	},
 	"securepoll": "सुरक्षितनिर्वाचनम्",
@@ -50,7 +51,7 @@
 	"securepoll-not-in-group": "\"$1\" समूहस्य सदस्याः केवलम् अस्मिन् निर्वाचने मतदानं कर्तुम् अर्हन्ति ।",
 	"securepoll-not-in-list": "क्षम्यताम्, अस्मिन् निर्वाचने मतदानाय अधिकृतयोजकानां पूर्वनिर्दिष्टायां सूच्यां भवतः नाम न विद्यते ।",
 	"securepoll-list-title": "मतानां सूची : $1",
-	"securepoll-header-timestamp": "समय",
+	"securepoll-header-timestamp": "समयः",
 	"securepoll-header-voter-name": "नाम",
 	"securepoll-header-voter-domain": "डोमेन",
 	"securepoll-header-ua": "योजकानुयोज्यः",
@@ -60,7 +61,7 @@
 	"securepoll-strike-button": "तिरस्करोतु",
 	"securepoll-unstrike-button": "अङ्गीकरोतु",
 	"securepoll-strike-reason": "कारणम् :",
-	"securepoll-strike-cancel": "निवर्तयते",
+	"securepoll-strike-cancel": "निरस्यताम्",
 	"securepoll-strike-error": "तिरस्करणे/अङ्गीकरणे कृतः दोषः : $1",
 	"securepoll-strike-token-mismatch": "सत्रस्य विवरणं नष्टम्",
 	"securepoll-details-link": "विवरणम्",
@@ -79,9 +80,10 @@
 	"securepoll-dump-no-urandom": "/dev/urandom उद्घाटयितुम् अशक्यम् ।\nमतदानिनः वैयक्तिकतायाः रक्षणाय, कूटबद्धं निर्वाचनवृत्तं सार्वजनिकेभ्यः उपलभ्येत । यदा तत् रक्षितसङ्ख्याप्रवाहेण मथितं स्यात् ।",
 	"securepoll-urandom-not-supported": "अयं वितारकः गूढलेखस्य यादृच्छिकसङ्ख्यायाः उत्पन्ने साहाय्यं न करोति ।\nमतदानिनः वैयक्तिकतायाः रक्षणाय, कूटबद्धनिर्वाचनफलितांशः तदा एव सार्वजनिकरूपेण उपलभ्येत् यदा सः यादृच्छिकसङ्ख्याधारया संयोक्तुं शक्येत ।",
 	"securepoll-translate-title": "अनुवदति: $1",
+	"securepoll-translate-label-comment": "कारणम् :",
 	"securepoll-invalid-language": "अमान्यः भाषाकूटशब्दः \"$1\"",
 	"securepoll-submit-translate": "अद्यतनीक्रियताम्",
-	"securepoll-language-label": "वर भाषा:",
+	"securepoll-language-label": "चिता भाषा",
 	"securepoll-submit-select-lang": "अनुवदति",
 	"securepoll-entry-text": "अधः मतानां सूची विद्यते ।",
 	"securepoll-header-title": "नाम",
@@ -90,6 +92,7 @@
 	"securepoll-subpage-vote": "मत",
 	"securepoll-subpage-translate": "अनूद्यताम्",
 	"securepoll-subpage-list": "सूची",
+	"securepoll-subpage-edit": "सम्पाद्यताम्",
 	"securepoll-subpage-dump": "राशीक्रियताम्",
 	"securepoll-subpage-tally": "तोलनम्",
 	"securepoll-tally-title": "तोलनम्: $1",
@@ -110,5 +113,19 @@
 	"securepoll-average-score": "माकिं गुणः",
 	"securepoll-round": "चक्रम् $1",
 	"securepoll-spoilt": "(दुष्टम्)",
-	"securepoll-exhausted": "(समाप्तम्)"
+	"securepoll-exhausted": "(समाप्तम्)",
+	"securepoll-create-label-questions": "== प्रश्नाः ==",
+	"securepoll-create-questions-row-legend": "प्रश्नः",
+	"securepoll-create-label-questions-question": "प्रश्नपाठः :",
+	"securepoll-create-label-questions-delete": "प्रश्नः अपाक्रियताम्",
+	"securepoll-create-label-questions-option": "=== विकल्पाः ===",
+	"securepoll-create-label-options-option": "विकल्पपाठः :",
+	"securepoll-create-label-options-add": "अन्यं विकल्पं योजयतु",
+	"securepoll-create-label-options-delete": "विकल्पः अपाक्रियताम्",
+	"securepoll-create-label-option-name": "विकल्पस्य नाम :",
+	"securepoll-create-label-comment": "कारणम्",
+	"securepoll-votereligibility-label-edit": "सूचिः सम्पाद्यताम्",
+	"securepoll-votereligibility-label-clear": "सूचिः निष्कास्यताम्",
+	"securepoll-votereligibility-label-names": "प्रयोक्तृनामानि",
+	"securepoll-votereligibility-label-comment": "कारणम्"
 }
