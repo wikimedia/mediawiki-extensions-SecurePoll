@@ -18,7 +18,7 @@
 	"securepoll-not-qualified": "Ne kvalifikujete se za glasača u ovim izborima: $1",
 	"securepoll-change-disallowed": "Već ste glasali na ovim izborima.\nŽao nam je, ne možete da glasate opet.",
 	"securepoll-change-allowed": "<strong>Napomena: već ste glasali na ovim izborima.</strong>\nMožete da promenite glas tako što ćete popuniti obrazac ispod.\nAko to uradite, vaš prvobitni glas će biti poništen.",
-	"securepoll-submit": "Pošalji glas",
+	"securepoll-submit": "Pošalji",
 	"securepoll-gpg-receipt": "Hvala vam što ste glasali.\n\nAko želite, možete da zadržite ovu potvrdu kao dokaz da ste glasali:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "Hvala Vam. Vaš glas je snimljen.",
 	"securepoll-return": "Nazad na $1",
