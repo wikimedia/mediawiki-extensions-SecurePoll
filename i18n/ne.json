@@ -3,7 +3,8 @@
 		"authors": [
 			"Bhawani Gautam",
 			"RajeshPandey",
-			"सरोज कुमार ढकाल"
+			"सरोज कुमार ढकाल",
+			"NehalDaveND"
 		]
 	},
 	"securepoll": "सुरक्षित चुनाव",
@@ -76,6 +77,7 @@
 	"securepoll-cookie-dup-list": "प्रतिलिपि कुकी प्रयोगकर्ताहरु",
 	"securepoll-dump-title": "थाक: $1",
 	"securepoll-translate-title": "अनुवाद गर्ने: $1",
+	"securepoll-translate-label-comment": "कारण:",
 	"securepoll-invalid-language": "अमान्य भाषा कोड \"$1\"",
 	"securepoll-header-trans-id": "आईडी(ID)",
 	"securepoll-submit-translate": "अद्यतन गर्ने(अपडेट)",
@@ -88,6 +90,7 @@
 	"securepoll-subpage-vote": "मत",
 	"securepoll-subpage-translate": "अनुवाद गर्ने",
 	"securepoll-subpage-list": "सूची",
+	"securepoll-subpage-edit": "सम्पादन",
 	"securepoll-subpage-dump": "थाक",
 	"securepoll-subpage-tally": "ट्याली",
 	"securepoll-tally-title": "ट्याली: $1",
@@ -96,5 +99,7 @@
 	"securepoll-tally-upload-submit": "ट्याली बनाउने",
 	"securepoll-ranks": "अन्तिम र्‌याङ्किङ्ग",
 	"securepoll-average-score": "औसत स्कोर",
-	"securepoll-round": "चरण $1"
+	"securepoll-round": "चरण $1",
+	"securepoll-votereligibility-label-names": "प्रयोगकर्ता नाम",
+	"securepoll-votereligibility-label-comment": "कारण"
 }
