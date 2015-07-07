@@ -88,6 +88,8 @@ $wgExtensionMessagesFiles['SecurePollNamespaces'] = $dir . '/SecurePoll.namespac
 $wgSpecialPages['SecurePoll'] = 'SecurePoll_BasePage';
 
 $wgAutoloadClasses = $wgAutoloadClasses + array(
+	# api
+	'ApiStrikeVote' => "$dir/api/ApiStrikeVote.php",
 	# ballots
 	'SecurePoll_ApprovalBallot' => "$dir/includes/ballots/ApprovalBallot.php",
 	'SecurePoll_Ballot' => "$dir/includes/ballots/Ballot.php",
@@ -164,6 +166,8 @@ $wgAutoloadClasses = $wgAutoloadClasses + array(
 	'SecurePoll_HTMLFormRadioRangeColumnLabels' => "$dir/includes/htmlform/HTMLFormRadioRangeColumnLabels.php",
 );
 
+$wgAPIModules['strikevote'] = 'ApiStrikeVote';
+
 $wgResourceModules['ext.securepoll.htmlform'] = array(
 	'localBasePath' => dirname( __FILE__ ) . '/modules',
 	'remoteExtPath' => 'SecurePoll/modules',
@@ -175,7 +179,6 @@ $wgResourceModules['ext.securepoll'] = array(
 	'styles' => 'ext.securepoll.css',
 );
 
-$wgAjaxExportList[] = 'wfSecurePollStrike';
 $wgHooks['UserLogout'][] = 'wfSecurePollLogout';
 
 $wgJobClasses['securePollPopulateVoterList'] = 'SecurePoll_PopulateVoterListJob';
@@ -184,9 +187,6 @@ $wgContentHandlers['SecurePoll'] = 'SecurePollContentHandler';
 
 $wgAvailableRights[] = 'securepoll-create-poll';
 
-function wfSecurePollStrike( $action, $id, $reason ) {
-	return SecurePoll_ListPage::ajaxStrike( $action, $id, $reason );
-}
 function wfSecurePollLogout( $user ) {
 	$_SESSION['securepoll_voter'] = null;
 	return true;
