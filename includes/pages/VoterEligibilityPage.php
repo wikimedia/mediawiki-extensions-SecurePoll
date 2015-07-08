@@ -624,6 +624,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_Page {
 			$formItems['comment'] = array(
 				'type' => 'text',
 				'label-message' => 'securepoll-votereligibility-label-comment',
+				'maxlength' => 250,
 			);
 		}
 
@@ -758,6 +759,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_Page {
 			$formItems['comment'] = array(
 				'type' => 'text',
 				'label-message' => 'securepoll-votereligibility-label-comment',
+				'maxlength' => 250,
 			);
 		}
 

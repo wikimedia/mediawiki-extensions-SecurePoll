@@ -124,7 +124,7 @@ class SecurePoll_TranslatePage extends SecurePoll_Page {
 				$s .=
 					'<p style="text-align: center;">' .
 					wfMsgHtml( 'securepoll-translate-label-comment' ) .
-					Xml::input( 'comment' ) .
+					Xml::input( 'comment', 45, false, array( 'maxlength' => 250 ) )  .
 					"</p>";
 			}
 
