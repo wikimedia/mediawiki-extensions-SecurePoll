@@ -5,7 +5,7 @@
 			"Умар"
 		]
 	},
-	"securepoll-desc": "Харжамаш а хаттарш а шордеш хӀума",
+	"securepoll-desc": "Харжамаш а, хаттарш а шордеш хӀума",
 	"securepoll-too-few-params": "Бухара агӀона параметраш тоьуш яц (гӀалате хьажорг).",
 	"securepoll-submit": "ДӀабахьийта кхаж",
 	"securepoll-api-invalid-params": "ГӀалате параметраш.",
@@ -71,7 +71,7 @@
 	"securepoll-votereligibility-label-edits_between": "Шин терахь юкъахь минимум нисдарш оьшу",
 	"securepoll-votereligibility-label-edits_between_count": "Нисдарийн минимум дукхалла",
 	"securepoll-votereligibility-label-edits_between_dates": "Терахьийн юкъахь",
-	"securepoll-votereligibility-layout-edits_between_dates": "Юкъахь $1 а $2 а",
+	"securepoll-votereligibility-layout-edits_between_dates": "Юкъахь $1 а, $2 а",
 	"securepoll-votereligibility-label-exclude_groups": "ХӀокху тобан чура декъашхой дӀабаха",
 	"securepoll-votereligibility-label-names": "Декъашхойн цӀерш",
 	"securepoll-votereligibility-action": "Нисяр Ӏалаше",
