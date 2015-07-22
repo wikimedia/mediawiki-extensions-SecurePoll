@@ -113,7 +113,7 @@
 	"securepoll-subpage-tally": "Contador",
 	"securepoll-tally-title": "Contador: $1",
 	"securepoll-tally-not-finished": "Lo sentimos, no puede actualizar los contadores de la elección hasta que la votación no haya finalizado.",
-	"securepoll-can-decrypt": "El registro de elección ha sido encriptado pero la clave de desencriptación está disponible.\nPuede escoger entre escrutar los resultados de la base de datos, o escrutar los resultados encriptados desde un fichero subido.",
+	"securepoll-can-decrypt": "El registro de elección ha sido encriptado pero la clave de desencriptación está disponible.\nPuede escoger entre escrutar los resultados de la base de datos, o escrutar los resultados encriptados desde un archivo subido.",
 	"securepoll-tally-no-key": "No puede actualizar el contador de la elección, debido a que los votos están encriptados y la clave de desencriptación no está disponible.",
 	"securepoll-tally-local-legend": "Cuenta de resultados actualizada",
 	"securepoll-tally-local-submit": "Crear cuenta",
