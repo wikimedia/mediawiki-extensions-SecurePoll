@@ -20,7 +20,8 @@
 			"Liuxinyu970226",
 			"Lokal Profil",
 			"아라",
-			"Nemo bis"
+			"Nemo bis",
+			"Fhocutt (WMF)"
 		]
 	},
 	"securepoll": "Used in the following messages:\n* {{msg-mw|Securepoll-create-title}}\n* {{msg-mw|Securepoll-create-created}}\n* {{msg-mw|Securepoll-edit-title}}\n* {{msg-mw|Securepoll-edit-edited}}\n* {{msg-mw|Securepoll-votereligibility-saved}}\n* {{msg-mw|Securepoll-votereligibility-cleared}}",
@@ -230,5 +231,13 @@
 	"securepoll-votereligibility-cleared-comment": "Text used as the edit summary when clearing a list on Special:SecurePoll/votereligibility. $1 is a list name.\n{{Identical|Cleared}}",
 	"right-securepoll-create-poll": "{{doc-right|securepoll-create-poll}}",
 	"action-securepoll-create-poll": "{{Doc-action|securepoll-create-poll}}",
-	"securepoll-ns-readonly": "Error message to inform the user that the SecurePoll namespace cannot be edited."
+	"securepoll-ns-readonly": "Error message to inform the user that the SecurePoll namespace cannot be edited.",
+	"apihelp-strikevote-description": "{{doc-apihelp-description|strikevote}}",
+	"apihelp-strikevote-param-option": "{{doc-apihelp-param|strikevote|option}}",
+	"apihelp-strikevote-paramvalue-option-strike": "{{doc-apihelp-paramvalue|strikevote|option|strike}}",
+	"apihelp-strikevote-paramvalue-option-unstrike": "{{doc-apihelp-paramvalue|strikevote|option|unstrike}}",
+	"apihelp-strikevote-param-voteid": "{{doc-apihelp-param|strikevote|voteid}}",
+	"apihelp-strikevote-param-reason": "{{doc-apihelp-param|strikevote|reason}}",
+	"apihelp-strikevote-example-strike": "{{doc-apihelp-example|strikevote}}",
+	"apihelp-strikevote-example-unstrike": "{{doc-apihelp-example|strikevote}}"
 }

@@ -74,56 +74,16 @@ EOT
 	}
 
 	/**
-	 * The entry point for XHR invocation of strike/unstrike.
-	 * @param $action string The action, either "strike" or "unstrike"
-	 * @param $id integer The vote ID
-	 * @param $reason string The reason for the action, specified by the admin
-	 * @return JSON object describing the result. Fields are:
-	 *    status:  "good" for success, "bad" for failure
-	 *    message: The HTML error message
-	 */
-	static function ajaxStrike( $action, $id, $reason ) {
-		$page = new SecurePoll_BasePage;
-		$context = $page->sp_context;
-		$db = $context->getDB();
-		$table = $db->tableName( 'securepoll_elections' );
-		$row = $db->selectRow(
-			array( 'securepoll_votes', 'securepoll_elections' ),
-			"$table.*",
-			array( 'vote_id' => $id, 'vote_election=el_entity' ),
-			__METHOD__
-		);
-		if ( !$row ) {
-			return Xml::encodeJsVar( (object)array(
-				'status' => 'bad',
-				'message' => wfMsgHtml( 'securepoll-strike-nonexistent' )
-			) );
-		}
-		$page = new SecurePoll_BasePage;
-		$subpage = new self( $page );
-		$subpage->election = $context->newElectionFromRow( $row );
-		$status = $subpage->strike( $action, $id, $reason );
-		if ( $status->isGood() ) {
-			return Xml::encodeJsVar( (object)array( 'status' => 'good' ) );
-		} else {
-			global $wgOut;
-			return Xml::encodeJsVar( (object)array(
-				'status' => 'bad',
-				'message' => $wgOut->parse( $status->getWikiText( 'securepoll-strike-error' ) )
-			) );
-		}
-	}
-
-	/**
 	 * The strike/unstrike backend.
 	 * @todo provide a non-AJAX frontend for this.
 	 * @param $action string strike or unstrike
 	 * @param $voteId integer The vote ID
 	 * @param $reason string The reason
 	 */
-	function strike( $action, $voteId, $reason ) {
+	public function strike( $action, $voteId, $reason ) {
 		global $wgUser;
 		$dbw = $this->context->getDB();
+		// this still gives the securepoll-need-admin error when an admin tries to delete a nonexistent vote.
 		if ( !$this->election->isAdmin( $wgUser ) ) {
 			return Status::newFatal( 'securepoll-need-admin' );
 		}

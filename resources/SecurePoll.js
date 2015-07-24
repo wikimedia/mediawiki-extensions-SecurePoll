@@ -71,41 +71,46 @@ function securepoll_strike(action) {
 	spinner.style.display = 'block';
 	var reason = document.getElementById( 'securepoll-strike-reason' ).value;
 
-	var processResult = function (xhr) {
+	new mw.Api().postWithToken( 'edit', {
+		action: 'strikevote',  // API action module
+		option: action,  // 'strike' or 'unstrike'
+		voteid: id,
+		reason: reason
+		} )
+	.then(
+		function( response ) {
+			if ( response.strikevote.status == 'good' ) {
+				popup.style.display = 'none';
+			} else {
+				$( '#securepoll-strike-result' ).text( response.error.info );
+			}
+
+			securepoll_modify_document( action, id );
+		},
+		function( code, response ) {  // fail callback
+			$( '#securepoll-strike-result' ).text( response.error.info );
+		}
+	)
+	.always( function() {
 		spinner.style.display = 'none';
 		strikeButton.disabled = false;
 		unstrikeButton.disabled = false;
-
-		if ( xhr.status >= 300 || xhr.status < 200 ) {
-			document.getElementById( 'securepoll-strike-result' ).innerHTML = xhr.responseText;
-			return;
-		}
-
-		// Evaluate JSON result, with brackets to avoid interpretation as a code block
-		result = eval( '(' + xhr.responseText + ')' );
-		if ( result.status == 'good' ) {
-			popup.style.display = 'none';
-		} else {
-			document.getElementById( 'securepoll-strike-result' ).innerHTML = result.message;
-		}
-
-		securepoll_modify_document( action, id );
-	};
-
-	sajax_do_call( 'wfSecurePollStrike', [ action, id, reason ], processResult );
+	} );
 }
 
 function securepoll_modify_document( action, voteId ) {
 	var popupButton = document.getElementById( 'securepoll-popup-' + voteId );
+	// TODO: if possible this should be replaced with getElementById
 	var row = popupButton.parentNode.parentNode;
 	if ( action == 'strike' ) {
 		row.className += ' securepoll-struck-vote';
+		// FIXME: This yields "ReferenceError: securepoll_unstrike_button is not defined"
 		popupButton.value = securepoll_unstrike_button;
 	} else {
 		row.className = row.className.replace( 'securepoll-struck-vote', '' );
 		popupButton.value = securepoll_strike_button;
 	}
-	popupButton.onclick = function (event) {
+	popupButton.onclick = function ( event ) {
 		securepoll_strike_popup( event, action == 'strike' ? 'unstrike' : 'strike', voteId );
 	}
 }
