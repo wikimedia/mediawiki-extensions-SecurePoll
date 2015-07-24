@@ -162,7 +162,7 @@ class SecurePoll_ElectionPager extends TablePager {
 				&& ( !$this->election->isFinished() || $props['visible-after-close'] )
 			) {
 				$title = $this->entryPage->parent->getTitle( "$subpage/$id" );
-				$s .= Linker::makeKnownLinkObj( $title, $linkText );
+				$s .= Linker::linkKnown( $title, $linkText );
 			} else {
 				$s .= "<span class=\"securepoll-link-disabled\">" .
 					$linkText . "</span>";
