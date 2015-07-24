@@ -252,5 +252,7 @@
 	"securepoll-votereligibility-cleared-comment": "$1已清除。",
 	"right-securepoll-create-poll": "创建投票",
 	"action-securepoll-create-poll": "创建投票",
-	"securepoll-ns-readonly": "SecurePoll名字空间是只读的"
+	"securepoll-ns-readonly": "SecurePoll名字空间是只读的",
+	"apihelp-strikevote-example-strike": "划掉投票<kbd>1</kbd>，原因<kbd>duplication</kbd>。",
+	"apihelp-strikevote-example-unstrike": "取消划掉投票<kbd>1</kbd>，原因<kbd>mistake</kbd>。"
 }
