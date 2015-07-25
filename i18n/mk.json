@@ -68,7 +68,7 @@
 	"securepoll-strike-token-mismatch": "Податоците од седницата се изгубени",
 	"securepoll-details-link": "Подробно",
 	"securepoll-details-title": "Подробности за гласањето: #$1",
-	"securepoll-invalid-vote": "„$1“ е претставува важечка гласачка назнака",
+	"securepoll-invalid-vote": "„$1“ е претставува важечка назнака на глас",
 	"securepoll-header-id": "Назнака",
 	"securepoll-header-voter-type": "Тип на гласач",
 	"securepoll-header-url": "URL-адреса",
@@ -246,5 +246,13 @@
 	"securepoll-votereligibility-cleared-comment": "$1 е исчистен.",
 	"right-securepoll-create-poll": "Создавање на анкети",
 	"action-securepoll-create-poll": "создавање на анкети",
-	"securepoll-ns-readonly": "Именскиот простор SecurePoll може само да се чита"
+	"securepoll-ns-readonly": "Именскиот простор SecurePoll може само да се чита",
+	"apihelp-strikevote-description": "Им овозможува на администраторите да поништат или повратат глас",
+	"apihelp-strikevote-param-option": "Кое дејство да се изврши: поништување или повраток",
+	"apihelp-strikevote-paramvalue-option-strike": "Поништи глас (отстрани го од бројот на гласови).",
+	"apihelp-strikevote-paramvalue-option-unstrike": "Поврати глас (врати го меѓу бројот на гласови)",
+	"apihelp-strikevote-param-voteid": "Назнака на гласот за поништување/повраток",
+	"apihelp-strikevote-param-reason": "Причина за поништување/повраток на гласот.",
+	"apihelp-strikevote-example-strike": "Поништи го гласот <kbd>1</kbd>, давајќи ја причината <kbd>дуплирање</kbd>.",
+	"apihelp-strikevote-example-unstrike": "Поврати го гласот <kbd>1</kbd>, давајќи ја причината <kbd>грешка</kbd>."
 }

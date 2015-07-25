@@ -247,5 +247,13 @@
 	"securepoll-votereligibility-cleared-comment": "$1 נוקתה.",
 	"right-securepoll-create-poll": "יצירת הצבעות",
 	"action-securepoll-create-poll": "ליצור הצבעות",
-	"securepoll-ns-readonly": "מרחב השם SecurePoll מיועד לקריאה בלבד"
+	"securepoll-ns-readonly": "מרחב השם SecurePoll מיועד לקריאה בלבד",
+	"apihelp-strikevote-description": "לאפשר למנהלים למחוק הצבעה או לבטל את מחיקתה.",
+	"apihelp-strikevote-param-option": "איזו פעולה לעשות: למחוק הצבעה או לבטל את מחיקתה.",
+	"apihelp-strikevote-paramvalue-option-strike": "למחוק הצבעה (להסיר אותה מהספירה).",
+	"apihelp-strikevote-paramvalue-option-unstrike": "לבטל מחיקה של הצבעה (להחזיר אותה לספירה).",
+	"apihelp-strikevote-param-voteid": "המזהה של ההצבעה שתימחק או שמחיקתה תתבטל.",
+	"apihelp-strikevote-param-reason": "הסיבה למחיקת הצבעה או לביטול מחיקתה.",
+	"apihelp-strikevote-example-strike": "למחוק את ההצבעה <kbd>1</kbd>, עם הסיבה <kbd>duplication</kbd>.",
+	"apihelp-strikevote-example-unstrike": "לבטל את המחיקה של ההצבעה <kbd>1</kbd>, עם הסיבה <kbd>mistake</kbd>."
 }

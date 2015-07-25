@@ -182,5 +182,6 @@
 	"securepoll-votereligibility-saved-text": "Är Ännerunge goufe gespäichert.",
 	"securepoll-votereligibility-cleared": "{{int:securepoll}}: Eidel gemaach",
 	"right-securepoll-create-poll": "Ëmfroen uleeën",
-	"action-securepoll-create-poll": "Ëmfroen uleeën"
+	"action-securepoll-create-poll": "Ëmfroen uleeën",
+	"apihelp-strikevote-description": "Erméiglecht et Administrateure fir eng Stëmm z'annuléieren oder d'Annulatioun réckgängeg ze maachen."
 }
