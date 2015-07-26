@@ -253,6 +253,12 @@
 	"right-securepoll-create-poll": "创建投票",
 	"action-securepoll-create-poll": "创建投票",
 	"securepoll-ns-readonly": "SecurePoll名字空间是只读的",
+	"apihelp-strikevote-description": "允许管理员划去或取消划去一张投票。",
+	"apihelp-strikevote-param-option": "要执行的操作：划掉或取消划掉一张投票。",
+	"apihelp-strikevote-paramvalue-option-strike": "划掉一张投票（从计数中移除）。",
+	"apihelp-strikevote-paramvalue-option-unstrike": "取消划掉一张投票（将其恢复至计数）。",
+	"apihelp-strikevote-param-voteid": "要划票或取消划票的投票ID。",
+	"apihelp-strikevote-param-reason": "划票或取消划票的原因。",
 	"apihelp-strikevote-example-strike": "划掉投票<kbd>1</kbd>，原因<kbd>duplication</kbd>。",
 	"apihelp-strikevote-example-unstrike": "取消划掉投票<kbd>1</kbd>，原因<kbd>mistake</kbd>。"
 }

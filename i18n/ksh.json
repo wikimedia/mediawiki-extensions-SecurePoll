@@ -239,5 +239,13 @@
 	"securepoll-votereligibility-cleared-comment": "$1 es läddesch jemaat",
 	"right-securepoll-create-poll": "Affschtemmonge aanlähje",
 	"action-securepoll-create-poll": "Affschtemmonge aanlähje",
-	"securepoll-ns-readonly": "Em Appachtemaang <code lang=\"en\" xml:lang=\"en\" dir=\"ltr\">SecurePoll</code> kam_mer blohß lässe."
+	"securepoll-ns-readonly": "Em Appachtemaang <code lang=\"en\" xml:lang=\"en\" dir=\"ltr\">SecurePoll</code> kam_mer blohß lässe.",
+	"apihelp-strikevote-description": "Löht de Wikki_Köhbeße en Schtemm ußschtriische udder en jeschtresche Schtemm wider ob nommahl ömsäze.",
+	"apihelp-strikevote-param-option": "Wat sull jedonn wähde: ußschtriische udder en jeschtresche Schtemm wider ob nomahl ömsäze?",
+	"apihelp-strikevote-paramvalue-option-strike": "Donn en Schtemm ußschtriische, su dat nit mih jezallt weed.",
+	"apihelp-strikevote-paramvalue-option-unstrike": "Donn en jeschtresche Schtemm wider ob nomahl säze, su dat se wider jezallt weed.",
+	"apihelp-strikevote-param-voteid": "De Kännong vun dä Schtemm zom Ußschtriische udder wider ob nommahl ze säze.",
+	"apihelp-strikevote-param-reason": "Der Jrond för di Schtemm ußzeschtriische udder wider ob nomahl ze säze.",
+	"apihelp-strikevote-example-strike": "Donn di Schtemm <kbd>1</kbd> ußschtriische wähje däm Jrond „<kbd lang=\"en\" xml:lang=\"en\" dir=\"ltr\">duplication</kbd>“.",
+	"apihelp-strikevote-example-unstrike": "Donn di Schtemm <kbd>1</kbd> wider op nomahl ömsäze wähje däm Jrond „<kbd lang=\"en\" xml:lang=\"en\" dir=\"ltr\">mistake</kbd>“."
 }
