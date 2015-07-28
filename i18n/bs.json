@@ -3,7 +3,8 @@
 		"authors": [
 			"CERminator",
 			"Seha",
-			"KWiki"
+			"KWiki",
+			"Srdjan m"
 		]
 	},
 	"securepoll": "Sigurno glasanje",
@@ -40,7 +41,7 @@
 	"securepoll-remote-parse-error": "Greška pri interpretaciji autentifikacijskog odgovora sa servera.",
 	"securepoll-api-invalid-params": "Nevaljani parametri.",
 	"securepoll-api-no-user": "Nije pronađen korisnik sa navedenim ID.",
-	"securepoll-api-token-mismatch": "Nepodudata se sigurnosni token, ne može se prijaviti.",
+	"securepoll-api-token-mismatch": "Sigurnosni žeton se ne poklapa. Ne mogu se prijaviti.",
 	"securepoll-not-logged-in": "Morate se prijaviti za glasanje na ovim izborima",
 	"securepoll-too-few-edits": "Žao nam je, ne možete glasati. Morate imati najmanje $1 {{PLURAL:$1|izmjenu|izmjene|izmjena}} da glasate na ovim izborima. Dosad ste napravili $2 izmjena.",
 	"securepoll-too-new": "Žao nam je, ne možete glasati.  Vaš račun treba biti registrovan prije $1 da biste glasali na ovim izborima, vi ste registrovani dana $2.",

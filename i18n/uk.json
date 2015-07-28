@@ -9,7 +9,8 @@
 			"NickK",
 			"Prima klasy4na",
 			"Ата",
-			"Mykola Swarnyk"
+			"Mykola Swarnyk",
+			"Base"
 		]
 	},
 	"securepoll": "Безпечне голосування",
@@ -253,5 +254,13 @@
 	"securepoll-votereligibility-cleared-comment": "$1 очищено.",
 	"right-securepoll-create-poll": "Створити опитування",
 	"action-securepoll-create-poll": "створення опитувань",
-	"securepoll-ns-readonly": "Простір назв SecurePoll — лише для читання"
+	"securepoll-ns-readonly": "Простір назв SecurePoll — лише для читання",
+	"apihelp-strikevote-description": "Дозволяє адміністраторам викреслити або відновити голоси.",
+	"apihelp-strikevote-param-option": "Яку дію здійснити: викреслити чи відновити голос.",
+	"apihelp-strikevote-paramvalue-option-strike": "Викреслити голос (вилучити його із підрахунку).",
+	"apihelp-strikevote-paramvalue-option-unstrike": "Відновити голос (повернути його до підрахунку).",
+	"apihelp-strikevote-param-voteid": "Ідентифікатор голосу, який слід викреслити або відновити.",
+	"apihelp-strikevote-param-reason": "Причина для викреслення або відновлення голосу.",
+	"apihelp-strikevote-example-strike": "Викреслити голос <kbd>1</kbd>, з причиною <kbd>дублікат</kbd>.",
+	"apihelp-strikevote-example-unstrike": "Відновити голос <kbd>1</kbd>, з причиною <kbd>помилка</kbd>."
 }
