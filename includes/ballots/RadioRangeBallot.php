@@ -163,7 +163,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 		if ( $useMessageLabels ) {
 			foreach ( $scores as $score ) {
 				$signedScore = $this->addSign( $question, $score );
-				$labels[$score] = $question->parseMessage( "column$signedScore" );
+				$labels[$score] = $question->parseMessageInline( "column$signedScore" );
 			}
 		} else {
 			global $wgLang;
@@ -234,7 +234,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 				$s .=
 					Xml::tags( 'td', array(),
 						Xml::radio( $inputId, $score, !strcmp( $oldValue, $score ),
-							array( 'title' => Sanitizer::stripAllTags( $label ) ) )
+							array( 'title' => $label ) )
 					) . "\n";
 			}
 			$s .= "</tr>\n";
