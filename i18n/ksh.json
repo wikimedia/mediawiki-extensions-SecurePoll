@@ -23,7 +23,7 @@
 	"securepoll-return": "Jangk retuur noh $1",
 	"securepoll-encrypt-error": "Kunnt Ding Shtemm nit verschlößele.\nDing Shtemm es nit jezallt, un weed nit faßjehallde!\n\n$1",
 	"securepoll-no-gpg-home": "Kann dat Verzeichnis för GPG nit aanlääje.",
-	"securepoll-secret-gpg-error": "Ene Fähler es opjetrodde bem Ußföhre vun GPG.\nDonn <code>$wgSecurePollShowErrorDetail=true;</code>\nen <code>LocalSettings.php</code>\nendraare, öm mieh Einzelheite ze sinn ze krijje.",
+	"securepoll-secret-gpg-error": "Ene Fähler es opjetrodde bem Ußföhre vun GPG.\nDonn <code>$wgSecurePollShowErrorDetail=true;</code>\nen <code>LocalSettings.php</code>\nendraare, öm mih Einzelheite ze sinn ze krijje.",
 	"securepoll-full-gpg-error": "Ene Fähler es opjetrodde bem Ußföhre vun GPG:\n\nKommando: $1\n\nFähler:\n<pre>$2</pre>",
 	"securepoll-gpg-config-error": "De Schlössel för GPG sen verkeeht enjeshtallt.",
 	"securepoll-gpg-parse-error": "Ene Fähler es opjetrodde bemm Beärbeide vun dämm, wat GPG ußjejovve hät.",
