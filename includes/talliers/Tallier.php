@@ -18,7 +18,6 @@ abstract class SecurePoll_Tallier {
 		'plurality' => 'SecurePoll_PluralityTallier',
 		'schulze' => 'SecurePoll_SchulzeTallier',
 		'histogram-range' => 'SecurePoll_HistogramRangeTallier',
-		'alternative-vote' => 'SecurePoll_AlternativeVoteTallier',
 	);
 
 	/**

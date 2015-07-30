@@ -144,7 +144,6 @@ $wgAutoloadClasses = $wgAutoloadClasses + array(
 	'SecurePoll_PairwiseTallier' => "$dir/includes/talliers/PairwiseTallier.php",
 	'SecurePoll_PluralityTallier' => "$dir/includes/talliers/PluralityTallier.php",
 	'SecurePoll_SchulzeTallier' => "$dir/includes/talliers/SchulzeTallier.php",
-	'SecurePoll_AlternativeVoteTallier' => "$dir/includes/talliers/AlternativeVoteTallier.php",
 	'SecurePoll_Tallier' => "$dir/includes/talliers/Tallier.php",
 	'SecurePoll_CommentDumper' => "$dir/includes/talliers/CommentDumper.php",
 
