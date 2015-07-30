@@ -1,22 +1,23 @@
 <?php
 
 class SecurePoll_MessageDumpPage extends SecurePoll_Page {
-	function execute( $params ) {
-		global $wgOut;
+	public function execute( $params ) {
+
+		$out = $this->parent->getOutput();
 
 		if ( !count( $params ) ) {
-			$wgOut->addWikiMsg( 'securepoll-too-few-params' );
+			$out->addWikiMsg( 'securepoll-too-few-params' );
 			return;
 		}
 
 		$electionId = intval( $params[0] );
 		$this->election = $this->context->getElection( $electionId );
 		if ( !$this->election ) {
-			$wgOut->addWikiMsg( 'securepoll-invalid-election', $electionId );
+			$out->addWikiMsg( 'securepoll-invalid-election', $electionId );
 			return;
 		}
 
-		$wgOut->disable();
+		$out->disable();
 		header( 'Content-Type: application/x-sql; charset=utf-8' );
 		$filename = urlencode( "sp-msgs-$electionId-" . wfTimestampNow() . '.sql' );
 		header( "Content-Disposition: attachment; filename=$filename" );

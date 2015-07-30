@@ -11,17 +11,20 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 	 * Execute the subpage.
 	 * @param $params array Array of subpage parameters.
 	 */
-	function execute( $params ) {
-		global $wgOut, $wgRequest, $wgLang;
+	public function execute( $params ) {
+
+		$out = $this->parent->getOutput();
+		$language = $this->parent->getLanguage();
+
 		if ( !count( $params ) ) {
-			$wgOut->addWikiMsg( 'securepoll-too-few-params' );
+			$out->addWikiMsg( 'securepoll-too-few-params' );
 			return;
 		}
 
 		$electionId = intval( $params[0] );
 		$this->election = $this->context->getElection( $electionId );
 		if ( !$this->election ) {
-			$wgOut->addWikiMsg( 'securepoll-invalid-election', $electionId );
+			$out->addWikiMsg( 'securepoll-invalid-election', $electionId );
 			return;
 		}
 
@@ -37,28 +40,28 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 			if ( $status->isOK() ) {
 				$this->voter = $status->value;
 			} else {
-				$wgOut->addWikiText( $status->getWikiText() );
+				$out->addWikiText( $status->getWikiText() );
 				return;
 			}
 		}
 
 		$this->initLanguage( $this->voter, $this->election );
 
-		$wgOut->setPageTitle( $this->election->getMessage( 'title' ) );
+		$out->setPageTitle( $this->election->getMessage( 'title' ) );
 
 		if ( !$this->election->isStarted() ) {
-			$wgOut->addWikiMsg( 'securepoll-not-started',
-				$wgLang->timeanddate( $this->election->getStartDate() ) ,
-				$wgLang->date( $this->election->getStartDate() ) ,
-				$wgLang->time( $this->election->getStartDate() ) );
+			$out->addWikiMsg( 'securepoll-not-started',
+				$language->timeanddate( $this->election->getStartDate() ) ,
+				$language->date( $this->election->getStartDate() ) ,
+				$language->time( $this->election->getStartDate() ) );
 			return;
 		}
 
 		if ( $this->election->isFinished() ) {
-			$wgOut->addWikiMsg( 'securepoll-finished',
-				$wgLang->timeanddate( $this->election->getEndDate() ) ,
-				$wgLang->date( $this->election->getEndDate() ) ,
-				$wgLang->time( $this->election->getEndDate() ) );
+			$out->addWikiMsg( 'securepoll-finished',
+				$language->timeanddate( $this->election->getEndDate() ) ,
+				$language->date( $this->election->getEndDate() ) ,
+				$language->time( $this->election->getEndDate() ) );
 			return;
 		}
 
@@ -70,21 +73,21 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 
 		// This is when it starts getting all serious; disable JS
 		// that might be used to sniff cookies or log voting data.
-		$wgOut->disallowUserJs();
+		$out->disallowUserJs();
 
 		// Show welcome
 		if ( $this->voter->isRemote() ) {
-			$wgOut->addWikiMsg( 'securepoll-welcome', $this->voter->getName() );
+			$out->addWikiMsg( 'securepoll-welcome', $this->voter->getName() );
 		}
 
 		// Show change notice
 		if ( $this->election->hasVoted( $this->voter ) && !$this->election->allowChange() ) {
-			$wgOut->addWikiMsg( 'securepoll-change-disallowed' );
+			$out->addWikiMsg( 'securepoll-change-disallowed' );
 			return;
 		}
 
 		// Show/submit the form
-		if ( $wgRequest->wasPosted() ) {
+		if ( $this->parent->getRequest()->wasPosted() ) {
 			$this->doSubmit();
 		} else {
 			$this->showForm();
@@ -94,29 +97,29 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 	/**
 	 * @return Title
 	 */
-	function getTitle() {
+	public function getTitle() {
 		return $this->parent->getTitle( 'vote/' . $this->election->getId() );
 	}
 
 	/**
 	 * Show the voting form.
 	 */
-	function showForm( $status = false ) {
-		global $wgOut;
+	public function showForm( $status = false ) {
+		$out = $this->parent->getOutput();
 
 		// Show introduction
 		if ( $this->election->hasVoted( $this->voter ) && $this->election->allowChange() ) {
-			$wgOut->addWikiMsg( 'securepoll-change-allowed' );
+			$out->addWikiMsg( 'securepoll-change-allowed' );
 		}
-		$wgOut->addWikiText( $this->election->getMessage( 'intro' ) );
+		$out->addWikiText( $this->election->getMessage( 'intro' ) );
 
 		// Show form
 		$thisTitle = $this->getTitle();
 		$encAction = htmlspecialchars( $thisTitle->getLocalURL( "action=vote" ) );
-		$encOK = wfMsgHtml( 'securepoll-submit' );
+		$encOK = $this->msg( 'securepoll-submit' )->escaped();
 		$encToken = htmlspecialchars( $this->parent->getEditToken() );
 
-		$wgOut->addHTML(
+		$out->addHTML(
 			"<form name=\"securepoll\" id=\"securepoll\" method=\"post\" action=\"$encAction\">\n" .
 			$this->election->getBallot()->getForm( $status ) .
 			"<br />\n" .
@@ -130,7 +133,7 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 	 * Submit the voting form. If successful, adds a record to the database.
 	 * Shows an error message on failure.
 	 */
-	function doSubmit() {
+	public function doSubmit() {
 		$ballot = $this->election->getBallot();
 		$status = $ballot->submitForm();
 		if ( !$status->isOK() ) {
@@ -144,8 +147,10 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 	 * Add a vote to the database with the given unencrypted answer record.
 	 * @param $record string
 	 */
-	function logVote( $record ) {
-		global $wgOut, $wgRequest;
+	public function logVote( $record ) {
+
+		$out = $this->parent->getOutput();
+		$request = $this->parent->getRequest();
 
 		$now = wfTimestampNow();
 
@@ -155,7 +160,7 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 		} else {
 			$status = $crypt->encrypt( $record );
 			if ( !$status->isOK() ) {
-				$wgOut->addWikiText( $status->getWikiText( 'securepoll-encrypt-error' ) );
+				$out->addWikiText( $status->getWikiText( 'securepoll-encrypt-error' ) );
 				return;
 			}
 			$encrypted = $status->value;
@@ -180,7 +185,7 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 			$xff = '';
 		}
 
-		$tokenMatch = $this->parent->getEditToken() == $wgRequest->getVal( 'edit_token' );
+		$tokenMatch = $this->parent->getEditToken() == $request->getVal( 'edit_token' );
 
 		$voteId = $dbw->nextSequenceValue( 'securepoll_votes_vote_id' );
 		$dbw->insert( 'securepoll_votes',
@@ -191,7 +196,7 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 				'vote_voter_name' => $this->voter->getName(),
 				'vote_voter_domain' => $this->voter->getDomain(),
 				'vote_record' => $encrypted,
-				'vote_ip' => IP::toHex( $wgRequest->getIP() ),
+				'vote_ip' => IP::toHex( $request->getIP() ),
 				'vote_xff' => $xff,
 				'vote_ua' => $_SERVER['HTTP_USER_AGENT'],
 				'vote_timestamp' => $now,
@@ -204,9 +209,9 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 
 		if ( $crypt ) {
 			$receipt = sprintf( "SPID: %10d\n%s", $voteId, $encrypted );
-			$wgOut->addWikiMsg( 'securepoll-gpg-receipt', $receipt );
+			$out->addWikiMsg( 'securepoll-gpg-receipt', $receipt );
 		} else {
-			$wgOut->addWikiMsg( 'securepoll-thanks' );
+			$out->addWikiMsg( 'securepoll-thanks' );
 		}
 		$returnUrl = $this->election->getProperty( 'return-url' );
 		$returnText = $this->election->getMessage( 'return-text' );
@@ -215,7 +220,7 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 				$returnText = $returnUrl;
 			}
 			$link = "[$returnUrl $returnText]";
-			$wgOut->addWikiMsg( 'securepoll-return', $link );
+			$out->addWikiMsg( 'securepoll-return', $link );
 		}
 	}
 
@@ -226,8 +231,10 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 	 * Clicking the button transmits a hash of their auth token, so that the
 	 * remote server can authenticate them.
 	 */
-	function showJumpForm() {
-		global $wgOut, $wgUser;
+	public function showJumpForm() {
+		$user = $this->parent->getUser();
+		$out = $this->parent->getOutput();
+
 		$url = $this->election->getProperty( 'jump-url' );
 		if ( !$url ) {
 			throw new MWException( 'Configuration error: no jump-url' );
@@ -238,13 +245,13 @@ class SecurePoll_VotePage extends SecurePoll_Page {
 		}
 		$url .= "/login/$id";
 		wfRunHooks( 'SecurePoll_JumpUrl', array( $this, &$url ) );
-		$wgOut->addWikiText( $this->election->getMessage( 'jump-text' ) );
-		$wgOut->addHTML(
+		$out->addWikiText( $this->election->getMessage( 'jump-text' ) );
+		$out->addHTML(
 			Xml::openElement( 'form', array( 'action' => $url, 'method' => 'post' ) ) .
-			Html::hidden( 'token', SecurePoll_RemoteMWAuth::encodeToken( $wgUser->getToken() ) ) .
-			Html::hidden( 'id', $wgUser->getId() ) .
+			Html::hidden( 'token', SecurePoll_RemoteMWAuth::encodeToken( $user->getToken() ) ) .
+			Html::hidden( 'id', $user->getId() ) .
 			Html::hidden( 'wiki', wfWikiID() ) .
-			Xml::submitButton( wfMsg( 'securepoll-jump' ) ) .
+			Xml::submitButton( $this->msg( 'securepoll-jump' )->text() ) .
 			'</form>'
 		);
 	}

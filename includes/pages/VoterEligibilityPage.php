@@ -14,7 +14,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_Page {
 	 * Execute the subpage.
 	 * @param $params array Array of subpage parameters.
 	 */
-	function execute( $params ) {
+	public function execute( $params ) {
 		$out = $this->parent->getOutput();
 
 		if ( !count( $params ) ) {

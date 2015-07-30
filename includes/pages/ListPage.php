@@ -11,44 +11,45 @@ class SecurePoll_ListPage extends SecurePoll_Page {
 	 * Execute the subpage.
 	 * @param $params array Array of subpage parameters.
 	 */
-	function execute( $params ) {
-		global $wgOut, $wgUser;
+	public function execute( $params ) {
+
+		$out = $this->parent->getOutput();
 
 		if ( !count( $params ) ) {
-			$wgOut->addWikiMsg( 'securepoll-too-few-params' );
+			$out->addWikiMsg( 'securepoll-too-few-params' );
 			return;
 		}
 
 		$electionId = intval( $params[0] );
 		$this->election = $this->context->getElection( $electionId );
 		if ( !$this->election ) {
-			$wgOut->addWikiMsg( 'securepoll-invalid-election', $electionId );
+			$out->addWikiMsg( 'securepoll-invalid-election', $electionId );
 			return;
 		}
-		$this->initLanguage( $wgUser, $this->election );
+		$this->initLanguage( $this->parent->getUser(), $this->election );
 
-		$wgOut->setPageTitle( wfMsg(
-			'securepoll-list-title', $this->election->getMessage( 'title' ) ) );
+		$out->setPageTitle( $this->msg(
+			'securepoll-list-title', $this->election->getMessage( 'title' ) )->text() );
 
 		$pager = new SecurePoll_ListPager( $this );
-		$wgOut->addHTML(
+		$out->addHTML(
 			$pager->getLimitForm() .
 			$pager->getNavigationBar() .
 			$pager->getBody() .
 			$pager->getNavigationBar()
 		);
-		if ( $this->election->isAdmin( $wgUser ) ) {
-			$msgStrike = wfMsgHtml( 'securepoll-strike-button' );
-			$msgUnstrike = wfMsgHtml( 'securepoll-unstrike-button' );
-			$msgCancel = wfMsgHtml( 'securepoll-strike-cancel' );
-			$msgReason = wfMsgHtml( 'securepoll-strike-reason' );
+		if ( $this->election->isAdmin( $this->parent->getUser() ) ) {
+			$msgStrike = $this->msg( 'securepoll-strike-button' )->escaped();
+			$msgUnstrike = $this->msg( 'securepoll-unstrike-button' )->escaped();
+			$msgCancel = $this->msg( 'securepoll-strike-cancel' )->escaped();
+			$msgReason = $this->msg( 'securepoll-strike-reason' )->escaped();
 			$encAction = htmlspecialchars( $this->getTitle()->getLocalUrl() );
 			$script = Skin::makeVariablesScript( array(
-				'securepoll_strike_button' => wfMsg( 'securepoll-strike-button' ),
-				'securepoll_unstrike_button' => wfMsg( 'securepoll-unstrike-button' )
+				'securepoll_strike_button' => $this->msg( 'securepoll-strike-button' )->text(),
+				'securepoll_unstrike_button' => $this->msg( 'securepoll-unstrike-button' )->text()
 			) );
 
-			$wgOut->addHTML( <<<EOT
+			$out->addHTML( <<<EOT
 $script
 <div class="securepoll-popup" id="securepoll-popup">
 <form id="securepoll-strike-form" action="$encAction" method="post" onsubmit="securepoll_strike('submit');return false;">
@@ -73,18 +74,17 @@ EOT
 		}
 	}
 
+
 	/**
 	 * The strike/unstrike backend.
-	 * @todo provide a non-AJAX frontend for this.
 	 * @param $action string strike or unstrike
 	 * @param $voteId integer The vote ID
 	 * @param $reason string The reason
 	 */
 	public function strike( $action, $voteId, $reason ) {
-		global $wgUser;
 		$dbw = $this->context->getDB();
 		// this still gives the securepoll-need-admin error when an admin tries to delete a nonexistent vote.
-		if ( !$this->election->isAdmin( $wgUser ) ) {
+		if ( !$this->election->isAdmin( $this->parent->getUser() ) ) {
 			return Status::newFatal( 'securepoll-need-admin' );
 		}
 		if ( $action != 'strike' ) {
@@ -101,7 +101,7 @@ EOT
 				'st_timestamp' => wfTimestampNow( TS_DB ),
 				'st_action' => $action,
 				'st_reason' => $reason,
-				'st_user' => $wgUser->getId()
+				'st_user' => $this->parent->getUser()->getId()
 			),
 			__METHOD__
 		);
@@ -133,13 +133,13 @@ EOT
 class SecurePoll_ListPager extends TablePager {
 	public $listPage, $isAdmin, $election;
 
-	static $publicFields = array(
+	public static $publicFields = array(
 		'vote_timestamp',
 		'vote_voter_name',
 		'vote_voter_domain',
 	);
 
-	static $adminFields = array(
+	public static $adminFields = array(
 		'details',
 		'strike',
 		'vote_timestamp',
@@ -152,15 +152,14 @@ class SecurePoll_ListPager extends TablePager {
 		'vote_cookie_dup',
 	);
 
-	function __construct( $listPage ) {
-		global $wgUser;
+	public function __construct( $listPage ) {
 		$this->listPage = $listPage;
 		$this->election = $listPage->election;
-		$this->isAdmin = $this->election->isAdmin( $wgUser );
+		$this->isAdmin = $this->election->isAdmin( $this->getUser() );
 		parent::__construct();
 	}
 
-	function getQueryInfo() {
+	public function getQueryInfo() {
 		return array(
 			'tables' => 'securepoll_votes',
 			'fields' => '*',
@@ -171,14 +170,14 @@ class SecurePoll_ListPager extends TablePager {
 		);
 	}
 
-	function isFieldSortable( $field ) {
+	public function isFieldSortable( $field ) {
 		return in_array( $field, array(
 			'vote_voter_name', 'vote_voter_domain', 'vote_timestamp', 'vote_ip'
 		) );
 	}
 
-	function formatValue( $name, $value ) {
-		global $wgLang, $wgScriptPath, $wgSecurePollKeepPrivateInfoDays;
+	public function formatValue( $name, $value ) {
+		global $wgScriptPath, $wgSecurePollKeepPrivateInfoDays;
 		$critical = Xml::element( 'img', array(
 			'src' => "$wgScriptPath/extensions/SecurePoll/resources/critical-32.png" )
 		);
@@ -189,7 +188,7 @@ class SecurePoll_ListPager extends TablePager {
 
 		switch ( $name ) {
 		case 'vote_timestamp':
-			return $wgLang->timeanddate( $value );
+			return $this->getLanguage()->timeanddate( $value );
 		case 'vote_ip':
 			if ( $this->election->endDate < wfTimestamp( TS_MW, time() - ($wgSecurePollKeepPrivateInfoDays * 24 * 60 * 60 ) ) ) {
 				return '';
@@ -222,16 +221,16 @@ class SecurePoll_ListPager extends TablePager {
 			$title = $this->listPage->parent->getTitle( "details/$voteId" );
 			return Xml::element( 'a',
 				array( 'href' => $title->getLocalUrl() ),
-				wfMsg( 'securepoll-details-link' )
+				$this->msg( 'securepoll-details-link' )->text()
 			);
 			break;
 		case 'strike':
 			$voteId = intval( $this->mCurrentRow->vote_id );
 			if ( $this->mCurrentRow->vote_struck ) {
-				$label = wfMsg( 'securepoll-unstrike-button' );
+				$label = $this->msg( 'securepoll-unstrike-button' )->text();
 				$action = "'unstrike'";
 			} else {
-				$label = wfMsg( 'securepoll-strike-button' );
+				$label = $this->msg( 'securepoll-strike-button' )->text();
 				$action = "'strike'";
 			}
 			$id = 'securepoll-popup-' . $voteId;
@@ -246,21 +245,20 @@ class SecurePoll_ListPager extends TablePager {
 			$msg = $voter->isRemote()
 				? 'securepoll-voter-name-remote'
 				: 'securepoll-voter-name-local';
-			return wfMsgExt(
+			return $this->msg(
 				$msg,
-				'parseinline',
 				array( $value )
-			);
+			)->parse();
 		default:
 			return htmlspecialchars( $value );
 		}
 	}
 
-	function getDefaultSort() {
+	public function getDefaultSort() {
 		return 'vote_timestamp';
 	}
 
-	function getFieldNames() {
+	public function getFieldNames() {
 		$names = array();
 		if ( $this->isAdmin ) {
 			$fields = self::$adminFields;
@@ -273,13 +271,13 @@ class SecurePoll_ListPager extends TablePager {
 		// securepoll-header-xff, securepoll-header-ua, securepoll-header-token-match,
 		// securepoll-header-cookie-dup
 		foreach ( $fields as $field ) {
-			$names[$field] = wfMsg( 'securepoll-header-' . strtr( $field,
-				array( 'vote_' => '', '_' => '-' ) ) );
+			$names[$field] = $this->msg( 'securepoll-header-' . strtr( $field,
+				array( 'vote_' => '', '_' => '-' ) ) )->text();
 		}
 		return $names;
 	}
 
-	function getRowClass( $row ) {
+	public function getRowClass( $row ) {
 		$classes = array();
 		if ( !$row->vote_current ) {
 			$classes[] = 'securepoll-old-vote';
@@ -290,7 +288,7 @@ class SecurePoll_ListPager extends TablePager {
 		return implode( ' ', $classes );
 	}
 
-	function getTitle() {
+	public function getTitle() {
 		return $this->listPage->getTitle();
 	}
 }

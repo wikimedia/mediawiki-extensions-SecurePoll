@@ -8,52 +8,54 @@ class SecurePoll_TallyPage extends SecurePoll_Page {
 	 * Execute the subpage.
 	 * @param $params array Array of subpage parameters.
 	 */
-	function execute( $params ) {
-		global $wgOut, $wgUser, $wgRequest;
+	public function execute( $params ) {
+		$out = $this->parent->getOutput();
+		$user = $this->parent->getUser();
+		$request = $this->parent->getRequest();
 
 		if ( !count( $params ) ) {
-			$wgOut->addWikiMsg( 'securepoll-too-few-params' );
+			$out->addWikiMsg( 'securepoll-too-few-params' );
 			return;
 		}
 
 		$electionId = intval( $params[0] );
 		$this->election = $this->context->getElection( $electionId );
 		if ( !$this->election ) {
-			$wgOut->addWikiMsg( 'securepoll-invalid-election', $electionId );
+			$out->addWikiMsg( 'securepoll-invalid-election', $electionId );
 			return;
 		}
-		$this->initLanguage( $wgUser, $this->election );
-		$wgOut->setPageTitle( wfMsg( 'securepoll-tally-title', $this->election->getMessage( 'title' ) ) );
-		if ( !$this->election->isAdmin( $wgUser ) ) {
-			$wgOut->addWikiMsg( 'securepoll-need-admin' );
+		$this->initLanguage( $user, $this->election );
+		$out->setPageTitle( $this->msg( 'securepoll-tally-title', $this->election->getMessage( 'title' ) )->text() );
+		if ( !$this->election->isAdmin( $user ) ) {
+			$out->addWikiMsg( 'securepoll-need-admin' );
 			return;
 		}
 
 		if ( !$this->election->isFinished() ) {
-			$wgOut->addWikiMsg( 'securepoll-tally-not-finished' );
+			$out->addWikiMsg( 'securepoll-tally-not-finished' );
 			return;
 		}
 
 		$crypt = $this->election->getCrypt();
 		if ( $crypt ) {
 			if ( !$crypt->canDecrypt() ) {
-				$wgOut->addWikiMsg( 'securepoll-tally-no-key' );
+				$out->addWikiMsg( 'securepoll-tally-no-key' );
 				return;
 			}
 
-			if ( $wgRequest->wasPosted() ) {
-				if ( $wgRequest->getVal( 'submit_upload' ) ) {
+			if ( $request->wasPosted() ) {
+				if ( $request->getVal( 'submit_upload' ) ) {
 					$this->submitUpload();
 				} else {
 					$this->submitLocal();
 				}
 			} else {
-				$wgOut->addWikiMsg( 'securepoll-can-decrypt' );
+				$out->addWikiMsg( 'securepoll-can-decrypt' );
 				$this->showLocalForm();
 				$this->showUploadForm();
 			}
 		} else {
-			if ( $wgRequest->wasPosted() ) {
+			if ( $request->wasPosted() ) {
 				$this->submitLocal();
 			} else {
 				$this->showLocalForm();
@@ -64,19 +66,20 @@ class SecurePoll_TallyPage extends SecurePoll_Page {
 	/**
 	 * Show a form which, when submitted, shows a tally for the results in the DB
 	 */
-	function showLocalForm() {
-		global $wgOut;
-		$wgOut->addHTML(
+	public function showLocalForm() {
+		$out = $this->parent->getOutput();
+
+		$out->addHTML(
 			Xml::openElement(
 				'form',
 				array( 'method' => 'post', 'action' => $this->getTitle()->getLocalUrl() )
 			) .
 			"\n" .
 			Xml::fieldset(
-				wfMsg( 'securepoll-tally-local-legend' ),
+				$this->msg( 'securepoll-tally-local-legend' )->text(),
 				'<div>' .
 				Xml::submitButton(
-					wfMsg( 'securepoll-tally-local-submit' ),
+					$this->msg( 'securepoll-tally-local-submit' )->text(),
 					array( 'name' => 'submit_local' )
 				) .
 				'</div>'
@@ -88,9 +91,8 @@ class SecurePoll_TallyPage extends SecurePoll_Page {
 	/**
 	 * Shows a form for upload of a record produced by the dump subpage.
 	 */
-	function showUploadForm() {
-		global $wgOut;
-		$wgOut->addHTML(
+	public function showUploadForm() {
+		$this->parent->getOutput()->addHTML(
 			Xml::openElement(
 				'form',
 				array(
@@ -101,7 +103,7 @@ class SecurePoll_TallyPage extends SecurePoll_Page {
 			) .
 			"\n" .
 			Xml::fieldset(
-				wfMsg( 'securepoll-tally-upload-legend' ),
+				$this->msg( 'securepoll-tally-upload-legend' )->text(),
 				'<div>' .
 				Xml::element( 'input', array(
 					'type' => 'file',
@@ -110,7 +112,7 @@ class SecurePoll_TallyPage extends SecurePoll_Page {
 				) ) .
 				"</div>\n<div>" .
 				Xml::submitButton(
-					wfMsg( 'securepoll-tally-upload-submit' ),
+					$this->msg( 'securepoll-tally-upload-submit' )->text(),
 					array( 'name' => 'submit_upload' )
 				) .
 				"</div>\n"
@@ -122,32 +124,32 @@ class SecurePoll_TallyPage extends SecurePoll_Page {
 	/**
 	 * Show a tally of the local DB
 	 */
-	function submitLocal() {
-		global $wgOut;
+	public function submitLocal() {
 		$status = $this->election->tally();
 		if ( !$status->isOK() ) {
-			$wgOut->addWikiText( $status->getWikiText() );
+			$this->parent->getOutput()->addWikiText( $status->getWikiText() );
 			return;
 		}
 		$tallier = $status->value;
-		$wgOut->addHTML( $tallier->getHtmlResult() );
+		$this->parent->getOutput()->addHTML( $tallier->getHtmlResult() );
 	}
 
 	/**
 	 * Show a tally of the results in the uploaded file
 	 */
-	function submitUpload() {
-		global $wgOut;
+	public function submitUpload() {
+		$out = $this->parent->getOutput();
+
 		if ( !isset( $_FILES['tally_file'] )
 			|| !is_uploaded_file( $_FILES['tally_file']['tmp_name'] )
 			|| !$_FILES['tally_file']['size'] )
 		{
-			$wgOut->addWikiMsg( 'securepoll-no-upload' );
+			$out->addWikiMsg( 'securepoll-no-upload' );
 			return;
 		}
 		$context = SecurePoll_Context::newFromXmlFile( $_FILES['tally_file']['tmp_name'] );
 		if ( !$context ) {
-			$wgOut->addWikiMsg( 'securepoll-dump-corrupt' );
+			$out->addWikiMsg( 'securepoll-dump-corrupt' );
 			return;
 		}
 		$electionIds = $context->getStore()->getAllElectionIds();
@@ -155,14 +157,14 @@ class SecurePoll_TallyPage extends SecurePoll_Page {
 
 		$status = $election->tally();
 		if ( !$status->isOK() ) {
-			$wgOut->addWikiText( $status->getWikiText( 'securepoll-tally-upload-error' ) );
+			$out->addWikiText( $status->getWikiText( 'securepoll-tally-upload-error' ) );
 			return;
 		}
 		$tallier = $status->value;
-		$wgOut->addHTML( $tallier->getHtmlResult() );
+		$out->addHTML( $tallier->getHtmlResult() );
 	}
 
-	function getTitle() {
+	public function getTitle() {
 		return $this->parent->getTitle( 'tally/' . $this->election->getId() );
 	}
 }

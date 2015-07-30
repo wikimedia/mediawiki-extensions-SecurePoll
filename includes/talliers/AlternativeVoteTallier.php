@@ -141,8 +141,6 @@ class SecurePoll_AlternativeVoteTallier extends SecurePoll_Tallier {
 	}
 
 	function getHtmlResult() {
-		global $wgLang;
-
 		$s = "<table class=\"securepoll-results\">\n";
 
 		$lines = array();
@@ -155,17 +153,17 @@ class SecurePoll_AlternativeVoteTallier extends SecurePoll_Tallier {
 
 		$t = '<th></th>';
 		for( $i = 1; $i < $this->rounds; $i++ ){
-			$ordinal = wfMsg( 'securepoll-round', $wgLang->romanNumeral( $i ) );
+			$ordinal = wfMessage( 'securepoll-round', Language::romanNumeral( $i ) )->text();
 			$t .= "<th>$ordinal</th>";
 		}
 
 		$s .= "<tr>$t</tr>\n<tr>" . implode( $lines, "\n" ) . "</tr>\n";
 
-		$exhausted = wfMsg( 'securepoll-exhausted' );
+		$exhausted = wfMessage( 'securepoll-exhausted' )->text();
 		$s .= "<tr class='securepoll-exhausted'><th>$exhausted</th>";
 		$s .= "<td>" . implode( array_values( $this->exhausted ), "</td><td>" ) . "</td></tr>\n";
 
-		$spoilt = wfMsg( 'securepoll-spoilt' );
+		$spoilt = wfMessage( 'securepoll-spoilt' )->text();
 		$s .= "<tr class='securepoll-spoilt'><th>$spoilt</th>";
 		$s .= "<td>" . implode( array_values( $this->spoilt ), "</td><td>" ) . "</td></tr>\n";
 

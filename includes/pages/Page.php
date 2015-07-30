@@ -11,7 +11,7 @@ abstract class SecurePoll_Page {
 	 * Constructor.
 	 * @param $parent SecurePollPage
 	 */
-	function __construct( $parent ) {
+	public function __construct( $parent ) {
 		$this->parent = $parent;
 		$this->context = $parent->sp_context;
 	}
@@ -20,15 +20,14 @@ abstract class SecurePoll_Page {
 	 * Execute the subpage.
 	 * @param $params array Array of subpage parameters.
 	 */
-	abstract function execute( $params );
+	abstract public function execute( $params );
 
 	/**
 	 * Internal utility function for initializing the global entity language
 	 * fallback sequence.
 	 */
-	function initLanguage( $user, $election ) {
-		global $wgRequest, $wgLang;
-		$uselang = $wgRequest->getVal( 'uselang' );
+	public function initLanguage( $user, $election ) {
+		$uselang = $this->parent->getRequest()->getVal( 'uselang' );
 		if ( $uselang !== null ) {
 			$userLang = $uselang;
 		} elseif ( $user instanceof SecurePoll_Voter ) {
@@ -36,7 +35,6 @@ abstract class SecurePoll_Page {
 		} else {
 			$userLang = $user->getOption( 'language' );
 		}
-		$wgLang = Language::factory( $userLang );
 
 		$languages = array_merge(
 			array( $userLang ),

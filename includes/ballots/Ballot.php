@@ -292,7 +292,7 @@ class SecurePoll_BallotStatus extends Status {
 		}
 		$s = '<ul class="securepoll-error-box">';
 		foreach ( $this->errors as $error ) {
-			$text = wfMsgReal( $error['message'], $error['params'] );
+			$text = wfMessage( $error['message'], $error['params'] )->text();
 			if ( isset( $error['securepoll-id'] ) ) {
 				$id = $error['securepoll-id'];
 				if ( isset( $usedIds[$id] ) ) {
@@ -323,7 +323,7 @@ class SecurePoll_BallotStatus extends Status {
 			if ( $error['securepoll-id'] !== $id ) {
 				continue;
 			}
-			return wfMsgReal( $error['message'], $error['params'] );
+			return wfMessage( $error['message'], $error['params'] )->text();
 		}
 	}
 }
