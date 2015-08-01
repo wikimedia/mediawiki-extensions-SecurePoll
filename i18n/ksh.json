@@ -20,7 +20,7 @@
 	"securepoll-submit": "De Shtemm afjävve",
 	"securepoll-gpg-receipt": "Häs Dangk för et Afshtemme.\n\nWann De wells donn Der dat hee als en Quittung för Ding Shtemm faßhaale:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "Mer donn uns bedangke. Ding Shtemm es faßjehallde.",
-	"securepoll-return": "Jangk retuur noh $1",
+	"securepoll-return": "Jangk retuhr noh $1",
 	"securepoll-encrypt-error": "Kunnt Ding Shtemm nit verschlößele.\nDing Shtemm es nit jezallt, un weed nit faßjehallde!\n\n$1",
 	"securepoll-no-gpg-home": "Kann dat Verzeichnis för GPG nit aanlääje.",
 	"securepoll-secret-gpg-error": "Ene Fähler es opjetrodde bem Ußföhre vun GPG.\nDonn <code>$wgSecurePollShowErrorDetail=true;</code>\nen <code>LocalSettings.php</code>\nendraare, öm mih Einzelheite ze sinn ze krijje.",
