@@ -242,7 +242,7 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 			throw new MWException( 'Configuration error: no jump-id' );
 		}
 		$url .= "/login/$id";
-		wfRunHooks( 'SecurePoll_JumpUrl', array( $this, &$url ) );
+		Hooks::run( 'SecurePoll_JumpUrl', array( $this, &$url ) );
 		$out->addWikiText( $this->election->getMessage( 'jump-text' ) );
 		$out->addHTML(
 			Xml::openElement( 'form', array( 'action' => $url, 'method' => 'post' ) ) .

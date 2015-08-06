@@ -233,7 +233,7 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 			)
 		);
 
-		wfRunHooks( 'SecurePoll_GetUserParams', array( $this, $user, &$params ) );
+		Hooks::run( 'SecurePoll_GetUserParams', array( $this, $user, &$params ) );
 		return $params;
 	}
 
