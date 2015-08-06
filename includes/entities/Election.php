@@ -179,16 +179,16 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		if ( $excludeList && in_array( $excludeList, $lists ) ) {
 			$status->fatal( 'securepoll-in-exclude-list' );
 		} elseif ( $includeList && in_array( $includeList, $lists ) ) {
-			# Good
+			// Good
 		} else {
-			# Edits
+			// Edits
 			$minEdits = $this->getProperty( 'min-edits' );
 			$edits = isset( $props['edit-count'] ) ? $props['edit-count'] : 0;
 			if ( $minEdits && $edits < $minEdits ) {
 				$status->fatal( 'securepoll-too-few-edits', $wgLang->formatNum( $minEdits), $wgLang->formatNum( $edits ) );
 			}
 
-			# Registration date
+			// Registration date
 			$maxDate = $this->getProperty( 'max-registration' );
 			$date = isset( $props['registration'] ) ? $props['registration'] : 0;
 			if ( $maxDate && $date > $maxDate ) {
@@ -201,14 +201,14 @@ class SecurePoll_Election extends SecurePoll_Entity {
 				);
 			}
 
-			# Blocked
+			// Blocked
 			$notBlocked = $this->getProperty( 'not-blocked' );
 			$isBlocked = !empty( $props['blocked'] );
 			if ( $notBlocked && $isBlocked ) {
 				$status->fatal( 'securepoll-blocked' );
 			}
 
-			# Centrally blocked on more than X projects
+			// Centrally blocked on more than X projects
 			$notCentrallyBlocked = $this->getProperty( 'not-centrally-blocked' );
 			$centralBlockCount = isset( $props['central-block-count'] ) ? $props['central-block-count'] : 0;
 			$centralBlockThreshold = $this->getProperty( 'central-block-threshold', 1 );
@@ -216,21 +216,21 @@ class SecurePoll_Election extends SecurePoll_Entity {
 				$status->fatal( 'securepoll-blocked-centrally', $wgLang->formatNum( $centralBlockThreshold ) );
 			}
 
-			# Bot
+			// Bot
 			$notBot = $this->getProperty( 'not-bot' );
 			$isBot = !empty( $props['bot'] );
 			if ( $notBot && $isBot ) {
 				$status->fatal( 'securepoll-bot' );
 			}
 
-			# Groups
+			// Groups
 			$needGroup = $this->getProperty( 'need-group' );
 			$groups = isset( $props['groups'] ) ? $props['groups'] : array();
 			if ( $needGroup && !in_array( $needGroup, $groups ) ) {
 				$status->fatal( 'securepoll-not-in-group', $needGroup );
 			}
 
-			# Lists
+			// Lists
 			$needList = $this->getProperty( 'need-list' );
 			if ( $needList && !in_array( $needList, $lists ) ) {
 				$status->fatal( 'securepoll-not-in-list' );
@@ -242,11 +242,14 @@ class SecurePoll_Election extends SecurePoll_Entity {
 			}
 		}
 
-		# Get custom error message
+		// Get custom error message and add it to the status's error messages
 		if ( !$status->isOK() ) {
-			$errorMsg = $this->getMessage( 'unqualified-error' );
-			if ( $errorMsg !== '[unqualified-error]' && $errorMsg !== '' ) {
-				$status = Status::newFatal( 'securepoll-custom-unqualified', $errorMsg );
+			$errorMsgText = $this->getMessage( 'unqualified-error' );
+			if ( $errorMsgText !== '[unqualified-error]' && $errorMsgText !== '' ) {
+				// We create the message as a separate step so that possible wikitext in
+				// $errorMsgText gets parsed.
+				$errorMsg = wfMessage( 'securepoll-custom-unqualified', $errorMsgText );
+				$status->error( $errorMsg );
 			}
 		}
 
@@ -397,8 +400,8 @@ class SecurePoll_Election extends SecurePoll_Entity {
 			Xml::element( 'endDate', array(), wfTimestamp( TS_ISO_8601, $this->endDate ) ) . "\n" .
 			$this->getConfXmlEntityStuff( $params );
 
-		# If we're making a jump dump, we need to add some extra properties, and
-		# override the auth type
+		// If we're making a jump dump, we need to add some extra properties, and
+		// override the auth type
 		if ( !empty( $params['jump'] ) ) {
 			$s .=
 				Xml::element( 'auth', array(), 'local' ) . "\n" .
