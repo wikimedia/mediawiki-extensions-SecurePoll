@@ -8,7 +8,8 @@
 			"Ronja Addams-Moring",
 			"Silvonen",
 			"Str4nd",
-			"ZeiP"
+			"ZeiP",
+			"Pitke"
 		]
 	},
 	"securepoll": "Turvattu äänestys",
@@ -115,5 +116,13 @@
 	"securepoll-average-score": "Keskiarvopisteet",
 	"securepoll-round": "Kierros $1",
 	"securepoll-spoilt": "(Väärin)",
-	"securepoll-exhausted": "(Ei käytetty)"
+	"securepoll-exhausted": "(Ei käytetty)",
+	"apihelp-strikevote-description": "Antaa ylläpitäjän viivata äänen yli tai poistaa yliviivauksen.",
+	"apihelp-strikevote-param-option": "Mitä tehdään: lisää tai poista yliviivaus äänestä.",
+	"apihelp-strikevote-paramvalue-option-strike": "Yliviivaa ääni (ääntä ei lasketa).",
+	"apihelp-strikevote-paramvalue-option-unstrike": "Poista yliviivaus (ääni lasketaan taas).",
+	"apihelp-strikevote-param-voteid": "Tunnus äänelle, joka yliviivataan tai josta poistetaan yliviivaus.",
+	"apihelp-strikevote-param-reason": "Perustely äänen yliviivaukselle tai viivauksen poistamiselle.",
+	"apihelp-strikevote-example-strike": "Yliviivaa ääni <kbd>1</kbd> perustelulla <kbd>duplication</kbd>.",
+	"apihelp-strikevote-example-unstrike": "Poista viivaus äänestä <kbd>1</kbd> perustelulla <kbd>mistake</kbd>."
 }
