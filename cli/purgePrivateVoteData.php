@@ -53,6 +53,11 @@ class PurgePrivateVoteData extends Maintenance {
 		$deleteSets = array();
 		$dbr = wfGetDB( DB_SLAVE );
 
+		if ( !$dbr->tableExists( 'securepoll_elections' ) ) {
+			$this->output( "`securepoll_elections` table does not exist. Nothing to do.\n" );
+			return;
+		}
+
 		$elResult = $dbr->select( 'securepoll_elections',
 			array( 'el_entity', 'el_title', 'el_end_date' ),
 			"el_end_date < " . $dbr->addQuotes( $dbr->timestamp( time() - ( $this->mPurgeDays * 24 * 60 * 60 ) ) ),
