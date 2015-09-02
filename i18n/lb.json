@@ -183,6 +183,7 @@
 	"securepoll-votereligibility-cleared": "{{int:securepoll}}: Eidel gemaach",
 	"right-securepoll-create-poll": "Ëmfroen uleeën",
 	"action-securepoll-create-poll": "Ëmfroen uleeën",
+	"securepoll-ns-readonly": "Den Nummraum {{ns:SecurePoll}} ka just geliest ginn",
 	"apihelp-strikevote-description": "Erméiglecht et Administrateure fir eng Stëmm z'annuléieren oder d'Annulatioun réckgängeg ze maachen.",
 	"apihelp-strikevote-paramvalue-option-strike": "Eng Stëmm duerchsträichen (se vun deene gezielten ewechhuelen)."
 }

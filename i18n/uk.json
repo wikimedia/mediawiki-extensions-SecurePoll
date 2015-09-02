@@ -10,7 +10,8 @@
 			"Prima klasy4na",
 			"Ата",
 			"Mykola Swarnyk",
-			"Base"
+			"Base",
+			"Dars"
 		]
 	},
 	"securepoll": "Безпечне голосування",
@@ -254,7 +255,7 @@
 	"securepoll-votereligibility-cleared-comment": "$1 очищено.",
 	"right-securepoll-create-poll": "Створити опитування",
 	"action-securepoll-create-poll": "створення опитувань",
-	"securepoll-ns-readonly": "Простір назв SecurePoll — лише для читання",
+	"securepoll-ns-readonly": "Простір назв {{ns:SecurePoll}} — лише для читання",
 	"apihelp-strikevote-description": "Дозволяє адміністраторам викреслити або відновити голоси.",
 	"apihelp-strikevote-param-option": "Яку дію здійснити: викреслити чи відновити голос.",
 	"apihelp-strikevote-paramvalue-option-strike": "Викреслити голос (вилучити його із підрахунку).",

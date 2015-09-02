@@ -258,7 +258,7 @@
 	"securepoll-votereligibility-cleared-comment": "$1 effacé.",
 	"right-securepoll-create-poll": "Créer des sondages",
 	"action-securepoll-create-poll": "créer des sondages",
-	"securepoll-ns-readonly": "L'espace de noms SecurePoll est en lecture seule",
+	"securepoll-ns-readonly": "L'espace de noms {{ns:SecurePoll}} est en lecture seule",
 	"apihelp-strikevote-description": "Permet aux administrateurs d'annuler ou de réintégrer un vote.",
 	"apihelp-strikevote-param-option": "Quelle action prendre: annuler ou reintégrer un vote.",
 	"apihelp-strikevote-paramvalue-option-strike": "Annuler un vote (supprimer du comptage).",

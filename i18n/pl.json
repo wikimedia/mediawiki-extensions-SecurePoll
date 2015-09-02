@@ -143,6 +143,7 @@
 	"securepoll-votereligibility-label-names": "Nazwy użytkowników",
 	"securepoll-votereligibility-action": "Zapisz konfigurację",
 	"securepoll-votereligibility-edit-action": "Zapisz listę",
+	"securepoll-ns-readonly": "Przestrzeń nazw {{ns:SecurePoll}} jest tylko do odczytu",
 	"apihelp-strikevote-description": "Pozwala administratorom wykreślić lub przywrócić głos.",
 	"apihelp-strikevote-paramvalue-option-strike": "Wykreśl głos (usuń go z liczenia).",
 	"apihelp-strikevote-paramvalue-option-unstrike": "Przywróć głos (przywróć go do liczenia).",

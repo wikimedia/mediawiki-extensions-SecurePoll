@@ -241,5 +241,5 @@
 	"securepoll-votereligibility-cleared-comment": "$1 eliminado.",
 	"right-securepoll-create-poll": "Crear enquisas",
 	"action-securepoll-create-poll": "crear enquisas",
-	"securepoll-ns-readonly": "O espazo de nomes SecurePoll só é de lectura"
+	"securepoll-ns-readonly": "O espazo de nomes {{ns:SecurePoll}} só é de lectura"
 }

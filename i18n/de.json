@@ -246,5 +246,5 @@
 	"securepoll-votereligibility-cleared-comment": "$1 gelöscht.",
 	"right-securepoll-create-poll": "Abstimmungen erstellen",
 	"action-securepoll-create-poll": "Abstimmungen zu erstellen",
-	"securepoll-ns-readonly": "Der SecurePoll-Namensraum ist schreibgeschützt"
+	"securepoll-ns-readonly": "Der Namensraum „{{ns:SecurePoll}}“ ist schreibgeschützt"
 }

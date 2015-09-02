@@ -252,7 +252,7 @@
 	"securepoll-votereligibility-cleared-comment": "$1已清除。",
 	"right-securepoll-create-poll": "创建投票",
 	"action-securepoll-create-poll": "创建投票",
-	"securepoll-ns-readonly": "SecurePoll名字空间是只读的",
+	"securepoll-ns-readonly": "{{ns:SecurePoll}}名字空间是只读的",
 	"apihelp-strikevote-description": "允许管理员划去或取消划去一张投票。",
 	"apihelp-strikevote-param-option": "要执行的操作：划掉或取消划掉一张投票。",
 	"apihelp-strikevote-paramvalue-option-strike": "划掉一张投票（从计数中移除）。",
