@@ -46,7 +46,7 @@ class SecurePoll_TranslatePage extends SecurePoll_ActionPage {
 				$wiki = $this->msg( 'securepoll-edit-redirect-otherwiki' )->text();
 			}
 
-			$wgOut->addWikiMsg( 'securepoll-edit-redirect',
+			$out->addWikiMsg( 'securepoll-edit-redirect',
 				Message::rawParam( Linker::makeExternalLink( $jumpUrl, $wiki ) )
 			);
 
