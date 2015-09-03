@@ -247,7 +247,7 @@
 	"securepoll-votereligibility-cleared-comment": "$1 נוקתה.",
 	"right-securepoll-create-poll": "יצירת הצבעות",
 	"action-securepoll-create-poll": "ליצור הצבעות",
-	"securepoll-ns-readonly": "מרחב השם SecurePoll מיועד לקריאה בלבד",
+	"securepoll-ns-readonly": "מרחב השם {{ns:SecurePoll}} מיועד לקריאה בלבד",
 	"apihelp-strikevote-description": "לאפשר למנהלים למחוק הצבעה או לבטל את מחיקתה.",
 	"apihelp-strikevote-param-option": "איזו פעולה לעשות: למחוק הצבעה או לבטל את מחיקתה.",
 	"apihelp-strikevote-paramvalue-option-strike": "למחוק הצבעה (להסיר אותה מהספירה).",
