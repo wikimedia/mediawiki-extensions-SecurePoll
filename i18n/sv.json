@@ -251,5 +251,5 @@
 	"securepoll-votereligibility-cleared-comment": "$1 tömd.",
 	"right-securepoll-create-poll": "Skapa enkäter",
 	"action-securepoll-create-poll": "skapa enkäter",
-	"securepoll-ns-readonly": "SecurePoll-namnrymden är i skrivskyddat läge."
+	"securepoll-ns-readonly": "Namnrymden {{ns:SecurePoll}} är i skrivskyddat läge"
 }
