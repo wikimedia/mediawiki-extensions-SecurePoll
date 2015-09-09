@@ -245,5 +245,9 @@
 	"apihelp-strikevote-description": "Permite ós administradores anular ou restaurar un voto.",
 	"apihelp-strikevote-param-option": "Qué acción tomar: anular ou restaurar un voto.",
 	"apihelp-strikevote-paramvalue-option-strike": "Anular un voto (eliminalo do reconto).",
-	"apihelp-strikevote-paramvalue-option-unstrike": "Restaurar un voto (restauralo no reconto)."
+	"apihelp-strikevote-paramvalue-option-unstrike": "Restaurar un voto (restauralo no reconto).",
+	"apihelp-strikevote-param-voteid": "O identificador do voto para suprimir ou restaurar.",
+	"apihelp-strikevote-param-reason": "A razón pola que anular ou restaurar o voto.",
+	"apihelp-strikevote-example-strike": "Anular o voto <kbd>1</kbd>, co motivo <kbd>duplicado</kbd>.",
+	"apihelp-strikevote-example-unstrike": "Restaurar o voto <kbd>1</kbd>, co motivo <kbd>erro</kbd>."
 }
