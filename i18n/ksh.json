@@ -233,7 +233,7 @@
 	"securepoll-votereligibility-edit-action": "Lohß Jonn!",
 	"securepoll-votereligibility-saved": "{{int:securepoll}}: Faßjehallde",
 	"securepoll-votereligibility-saved-text": "Ding Änderonge sin faßjehallde",
-	"securepoll-votereligibility-clear-title": "De Leß „$1“ met de Afschtemmer fott schmiiße\n<!-- \nhttps://translatewiki.net/wiki/Thread:Support/About_MediaWiki:Securepoll-votereligibility-edit-title/ksh\n\nhttps://translatewiki.net/wiki/Thread:Support/About_MediaWiki:Securepoll-votereligibility-clear-title/ksh\n-->",
+	"securepoll-votereligibility-clear-title": "Donn en Leß met de Afschtemmer fott schmiiße: $1",
 	"securepoll-votereligibility-cleared": "{{int:securepoll}}: Läddesch jemaat",
 	"securepoll-votereligibility-cleared-text": "De Leß „$1“ es jäddesch jemaad un weed en dä Affschtemmong nit jebruch.",
 	"securepoll-votereligibility-cleared-comment": "$1 es läddesch jemaat",
