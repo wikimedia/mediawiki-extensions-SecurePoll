@@ -66,6 +66,7 @@
 	"securepoll-header-timestamp": "زمان",
 	"securepoll-header-voter-name": "نام",
 	"securepoll-header-voter-domain": "دامنه",
+	"securepoll-header-ip": "IP",
 	"securepoll-header-ua": "مرورگر کاربر",
 	"securepoll-header-cookie-dup": "تکراری",
 	"securepoll-header-strike": "خط‌زدن",
