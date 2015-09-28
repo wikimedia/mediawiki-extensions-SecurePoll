@@ -4,7 +4,8 @@
 			"Mikullovci11",
 			"Olsi",
 			"Vinie007",
-			"Ammartivari"
+			"Ammartivari",
+			"Kosovastar"
 		]
 	},
 	"securepoll": "SondazhiSigurt",
@@ -37,7 +38,7 @@
 	"securepoll-unranked-options": "Disa opsione nuk u renditën.\nJu  duhet tu jepni të gjitha opsioneve një renditej ndërmjet 1 dhe 999.",
 	"securepoll-invalid-score": "Rezultati duhet të jetë një numër ndërmjet $1 dhe $2.",
 	"securepoll-unanswered-options": "Ju duhet të jepni një përgjigje për çdo pyetje.",
-	"securepoll-remote-auth-error": "Gabim gjatë ngarkimit të të dhlnave tuaja të llogarisë nga serveri.",
+	"securepoll-remote-auth-error": "Gabim gjatë ngarkimit të të dhënave tua të llogarisë nga serveri.",
 	"securepoll-remote-parse-error": "Gabim gjatë interpretimit të përgjigjes së autorizuar nga serveri.",
 	"securepoll-api-invalid-params": "Parametra të pavlefshëm.",
 	"securepoll-api-no-user": "Asnjë përdorues nuk u gjet me ID-në e dhënë.",
