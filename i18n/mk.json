@@ -71,7 +71,7 @@
 	"securepoll-invalid-vote": "„$1“ е претставува важечка назнака на глас",
 	"securepoll-header-id": "Назнака",
 	"securepoll-header-voter-type": "Тип на гласач",
-	"securepoll-header-url": "URL-адреса",
+	"securepoll-header-url": "URL",
 	"securepoll-voter-properties": "Својства на гласачот",
 	"securepoll-strike-log": "Дневник на ставање црти",
 	"securepoll-header-action": "Дејство",
