@@ -246,7 +246,7 @@
 	"securepoll-votereligibility-cleared-comment": "$1 е исчистен.",
 	"right-securepoll-create-poll": "Создавање на анкети",
 	"action-securepoll-create-poll": "создавање на анкети",
-	"securepoll-ns-readonly": "Именскиот простор SecurePoll може само да се чита",
+	"securepoll-ns-readonly": "Именскиот простор {{ns:SecurePoll}} може само да се чита",
 	"apihelp-strikevote-description": "Им овозможува на администраторите да поништат или повратат глас",
 	"apihelp-strikevote-param-option": "Кое дејство да се изврши: поништување или повраток",
 	"apihelp-strikevote-paramvalue-option-strike": "Поништи глас (отстрани го од бројот на гласови).",
