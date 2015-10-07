@@ -248,5 +248,5 @@
 	"securepoll-votereligibility-cleared-comment": "$1 pulita.",
 	"right-securepoll-create-poll": "Crea sondaggi",
 	"action-securepoll-create-poll": "creare sondaggi",
-	"securepoll-ns-readonly": "Il namespace SecurePoll è di sola lettura"
+	"securepoll-ns-readonly": "Il namespace {{ns:SecurePoll}} è di sola lettura"
 }
