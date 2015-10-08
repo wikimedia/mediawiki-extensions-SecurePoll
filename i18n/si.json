@@ -6,7 +6,8 @@
 			"Singhalawap",
 			"තඹරු විජේසේකර",
 			"පසිඳු කාවින්ද",
-			"බිඟුවා"
+			"බිඟුවා",
+			"Susith Chandira Gts"
 		]
 	},
 	"securepoll": "සුරක්ෂිත ඡන්ද විමසීම",
@@ -113,5 +114,6 @@
 	"securepoll-average-score": "සාමාන්‍ය ලකුණ",
 	"securepoll-round": "$1 වන වටය",
 	"securepoll-spoilt": "(නරක් වූ)",
-	"securepoll-exhausted": "(හිස් වූ)"
+	"securepoll-exhausted": "(හිස් වූ)",
+	"securepoll-votereligibility-label-names": "පරිශීලක නාමයන්"
 }
