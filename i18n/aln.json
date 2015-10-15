@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mdupont"
+			"Mdupont",
+			"Kosovastar"
 		]
 	},
 	"securepoll-remote-parse-error": "Gabim gjatë interpretimit përgjigje autorizim nga serveri.",
@@ -10,7 +11,7 @@
 	"securepoll-api-token-mismatch": "dhëna të dëmtuara në shenjë të Sigurimit, nuk mund të hyni in",
 	"securepoll-not-logged-in": "Ju duhet të identifikoheni për të votuar në këto zgjedhje",
 	"securepoll-too-few-edits": "Na vjen keq, ju nuk mund të votojnë. Ju duhet të keni bërë së paku $1 {{PLURAL:$1||redaktim|redaktimet}} për të votuar në këto zgjedhje, ju keni bërë $2.",
-	"securepoll-blocked": "Na vjen keq, ju nuk mund të votojnë në këto zgjedhje, nëse ju jeni bllokuar për momentin nga redaktimi.",
+	"securepoll-blocked": "Na vjen keq, ju nuk mund të votoni në këto zgjedhje, nëse ju jeni bllokuar për momentin nga redaktimi.",
 	"securepoll-bot": "Na vjen keq, llogaritë me flamurin bot nuk lejohen të votojnë në këto zgjedhje.",
 	"securepoll-not-in-group": "Vetëm anëtarët e \"$1 grup\" mund të votojnë në këto zgjedhje.",
 	"securepoll-not-in-list": "Na vjen keq, ju nuk jeni në listën e të paracaktuar të përdoruesve të autorizuar për të votuar në këto zgjedhje.",
