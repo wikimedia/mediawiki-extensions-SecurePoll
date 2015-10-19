@@ -126,7 +126,7 @@ class SecurePoll_TranslatePage extends SecurePoll_ActionPage {
 			if ( $wgSecurePollUseNamespace ) {
 				$s .=
 					'<p style="text-align: center;">' .
-					wfMsgHtml( 'securepoll-translate-label-comment' ) .
+					wfMessage( 'securepoll-translate-label-comment' )->escaped() .
 					Xml::input( 'comment', 45, false, array( 'maxlength' => 250 ) )  .
 					"</p>";
 			}
