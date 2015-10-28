@@ -104,7 +104,7 @@
 	"securepoll-dump-corrupt": "राशिपात माहितीची संचिका दुषित झाल्यामुळे पुढील कार्य करता येत नाही",
 	"securepoll-tally-upload-error": "राशीपाताच्या संचीकेस जुळवणी करतांना त्रूटी आलेल्या आहेत : $1",
 	"securepoll-ranks": "अंतिम क्रमवारी",
-	"securepoll-average-score": "सारासरी गुण",
+	"securepoll-average-score": "सरासरी गुण",
 	"securepoll-round": "फेरी $1",
 	"securepoll-spoilt": "(खराब होणे)",
 	"securepoll-exhausted": "(थकून जाणे)"
