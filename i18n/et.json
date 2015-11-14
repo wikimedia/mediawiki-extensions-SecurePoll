@@ -7,7 +7,7 @@
 		]
 	},
 	"securepoll": "Turvaline hääletus",
-	"securepoll-desc": "Hääletuste ja küsitluste laiendus",
+	"securepoll-desc": "Hääletuste ja küsitluste lisa",
 	"securepoll-invalid-page": "Vigane alamlehekülg \"<nowiki>$1</nowiki>\"",
 	"securepoll-need-admin": "Selle tegevuse sooritamiseks pead sa olema valimise ülem.",
 	"securepoll-too-few-params": "Alamlehekülg on puudulikult kirjeldatud (vigane link).",
