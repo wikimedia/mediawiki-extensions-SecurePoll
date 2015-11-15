@@ -9,7 +9,8 @@
 			"Mhha",
 			"Priviet",
 			"Yknok29",
-			"아라"
+			"아라",
+			"Revi"
 		]
 	},
 	"securepoll": "비밀 투표",
@@ -34,7 +35,7 @@
 	"securepoll-full-gpg-error": "GPG를 실행하는 데 오류가 발생하였습니다.\n\n명령: $1\n\n오류:\n<pre>$2</pre>",
 	"securepoll-gpg-config-error": "GPG 키가 잘못 설정되었습니다.",
 	"securepoll-gpg-parse-error": "GPG 출력을 해석하는 데 오류가 발생했습니다.",
-	"securepoll-no-decryption-key": "암호 해독 키가 설정되지 않았습니다.\n암호를 해독할 수 없습니다.",
+	"securepoll-no-decryption-key": "복호화 키가 설정되지 않았습니다.\n암호를 복호화할 수 없습니다.",
 	"securepoll-jump": "선거 서버로 가기",
 	"securepoll-bad-ballot-submission": "투표가 무효 처리 되었습니다: $1",
 	"securepoll-unanswered-questions": "모든 질문에 답을 입력해 주셔야 합니다.",

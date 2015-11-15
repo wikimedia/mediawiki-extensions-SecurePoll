@@ -44,7 +44,7 @@
 	"securepoll-api-no-user": "Không có thành viên nào khớp với ID cung cấp.",
 	"securepoll-api-token-mismatch": "Dấu hiệu bảo mật không trùng, không thể đăng nhập.",
 	"securepoll-not-logged-in": "Bạn phải đăng nhập để bỏ phiếu trong cuộc bầu cử này",
-	"securepoll-too-few-edits": "Xin lỗi, bạn không thể bỏ phiếu. Bạn cần thực hiện tối thiểu $1 {{PLURAL:$1|sửa đổi|sửa đổi}} để bỏ phiếu trong cuộc bầu cử này, bạn chỉ mới thực hiện $2 sửa đổi.",
+	"securepoll-too-few-edits": "Xin lỗi, bạn không thể bỏ phiếu. Bạn cần thực hiện tối thiểu $1 sửa đổi để bỏ phiếu trong cuộc bầu cử này, bạn chỉ mới thực hiện $2 sửa đổi.",
 	"securepoll-too-new": "Rất tiếc, bạn không được phép bỏ phiếu. Để được phép tham gia cuộc bầu cử này, bạn cần phải mở tài khoản trước $3 $1, nhưng bạn mới mở tài khoản lúc $4 $2.",
 	"securepoll-blocked": "Xin lỗi, bạn không thể bỏ phiếu trong cuộc bầu cử này nếu bạn đang bị cấm không được sửa đổi.",
 	"securepoll-blocked-centrally": "Rất tiếc, bạn không được phép tham gia cuộc bầu cử này vì bị cấm tại $1 wiki trở lên.",
