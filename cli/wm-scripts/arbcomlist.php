@@ -21,7 +21,7 @@ $listName = $args[0];
 $startBatch = 0;
 $batchSize = 100;
 
-$listExists = $dbr->selectField( 'securepoll_lists', '1', 
+$listExists = $dbr->selectField( 'securepoll_lists', '1',
 	array( 'li_name' => $listName ), $fname );
 if ( $listExists ) {
 	if ( isset( $options['replace'] ) ) {
@@ -57,9 +57,16 @@ while ( true ) {
 		if ( $before !== false ) {
 			$conds[] = 'rev_timestamp < ' . $dbr->addQuotes( $before );
 		}
-		$conds[] = 'page_id=rev_page';
 		$conds['page_namespace'] = 0;
-		$edits = $dbr->selectField( array( 'page', 'revision' ), 'COUNT(*)', $conds, $fname );
+		$edits = $dbr->selectRowCount(
+			array( 'revision', 'page' ),
+			'1',
+			$conds,
+			__FILE__,
+			array( 'LIMIT' => $minEdits ),
+			array( 'page' => array( 'INNER JOIN', 'rev_page = page_id' ) )
+		);
+
 		if ( $edits >= $minEdits ) {
 			$insertBatch[] = $insertRow;
 		}
