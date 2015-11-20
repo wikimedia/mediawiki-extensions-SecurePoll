@@ -4,7 +4,7 @@
  * Like makeSimpleList.php except with edits limited to the main namespace
  */
 
-$optionsWithArgs = array( 'before', 'edits' );
+$optionsWithArgs = array( 'before', 'edits', 'start-from' );
 require( dirname(__FILE__).'/../cli.inc' );
 
 $dbr = wfGetDB( DB_SLAVE );
@@ -14,12 +14,16 @@ $before = isset( $options['before'] ) ? $dbr->timestamp( strtotime( $options['be
 $minEdits = isset( $options['edits'] ) ? intval( $options['edits'] ) : false;
 
 if ( !isset( $args[0] ) ) {
-	echo "Usage: php arbcomlist.php [--replace] [--before=<date>] [--edits=num] <name>\n";
+	echo <<<EOD
+Usage: php arbcomlist.php [--ignore-existing|--replace] [--before=<date>]
+                          [--edits=num] [--start-from=<user_id>] <name>
+EOD;
 	exit( 1 );
 }
 $listName = $args[0];
-$startBatch = 0;
+$startBatch = isset( $options['start-from'] ) ? $options['start-from'] : 0;
 $batchSize = 100;
+$insertOptions = array();
 
 $listExists = $dbr->selectField( 'securepoll_lists', '1',
 	array( 'li_name' => $listName ), $fname );
@@ -27,6 +31,8 @@ if ( $listExists ) {
 	if ( isset( $options['replace'] ) ) {
 		echo "Deleting existing list...\n";
 		$dbw->delete( 'securepoll_lists', array( 'li_name' => $listName ), $fname );
+	} elseif ( isset( $options['ignore-existing'] ) ) {
+		$insertOptions[] = 'IGNORE';
 	} else {
 		echo "Error: list exists. Use --replace to replace it.\n";
 		exit( 1 );
@@ -34,6 +40,7 @@ if ( $listExists ) {
 }
 
 while ( true ) {
+	echo "user_id > $startBatch\n";
 	$res = $dbr->select( 'user', 'user_id',
 		array( 'user_id > ' . $dbr->addQuotes( $startBatch ) ),
 		$fname,
@@ -58,11 +65,12 @@ while ( true ) {
 			$conds[] = 'rev_timestamp < ' . $dbr->addQuotes( $before );
 		}
 		$conds['page_namespace'] = 0;
+
 		$edits = $dbr->selectRowCount(
 			array( 'revision', 'page' ),
 			'1',
 			$conds,
-			__FILE__,
+			$fname,
 			array( 'LIMIT' => $minEdits ),
 			array( 'page' => array( 'INNER JOIN', 'rev_page = page_id' ) )
 		);
@@ -72,7 +80,7 @@ while ( true ) {
 		}
 	}
 	if ( $insertBatch ) {
-		$dbw->insert( 'securepoll_lists', $insertBatch, $fname );
+		$dbw->insert( 'securepoll_lists', $insertBatch, $fname, $insertOptions );
 		wfWaitForSlaves();
 	}
 }
