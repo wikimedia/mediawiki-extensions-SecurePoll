@@ -3,25 +3,45 @@
 /**
  * Generate a list of users with some number of edits before some date.
  *
- * Will eventually be replaced by something called makeList.php, with more features.
+ * Usage: php makeSimpleList.php [OPTIONS] LIST_NAME
+ *   --replace          If list exists, delete it and recreate.
+ *   --ignore-existing  Leave existing list items in place.
+ *   --edits=COUNT      Edit count required for eligibility.
+ *   --before=DATE      Consider edits made before DATE (strtotime format).
+ *   --mainspace-only   Consider only NS_MAIN edits.
+ *   --start-from=UID   Start from user ID UID. Allows crashed invocations
+ *                      to be resumed.
  */
 
-$optionsWithArgs = array( 'before', 'edits' );
-require( dirname(__FILE__).'/cli.inc' );
+$optionsWithArgs = array( 'before', 'edits', 'start-from' );
+require( __DIR__ . '/cli.inc' );
 
 $dbr = wfGetDB( DB_SLAVE );
 $dbw = wfGetDB( DB_MASTER );
-$fname = 'voterList.php';
-$before = isset( $options['before'] ) ? wfTimestamp( TS_MW, strtotime( $options['before'] ) ) : false;
+$fname = 'makeSimpleList.php';
+$before = isset( $options['before'] ) ? $dbr->timestamp( strtotime( $options['before'] ) ) : false;
 $minEdits = isset( $options['edits'] ) ? intval( $options['edits'] ) : false;
 
 if ( !isset( $args[0] ) ) {
-	echo "Usage: php voterList.php [--replace] [--before=<date>] [--edits=<date>] <name>\n";
+	echo <<<EOD
+Generate a list of users with some number of edits before some date.
+
+Usage: php makeSimpleList.php [OPTIONS] LIST_NAME
+  --replace          If list exists, delete it and recreate.
+  --ignore-existing  Leave existing list items in place.
+  --edits=COUNT      Edit count required for eligibility.
+  --before=DATE      Consider edits made before DATE (strtotime format).
+  --mainspace-only   Consider only NS_MAIN edits.
+  --start-from=UID   Start from user ID UID. Allows crashed invocations
+                     to be resumed.
+
+EOD;
 	exit( 1 );
 }
 $listName = $args[0];
-$startBatch = 0;
+$startBatch = isset( $options['start-from'] ) ? $options['start-from'] : 0;
 $batchSize = 100;
+$insertOptions = array();
 
 $listExists = $dbr->selectField( 'securepoll_lists', '1',
 	array( 'li_name' => $listName ), $fname );
@@ -29,19 +49,20 @@ if ( $listExists ) {
 	if ( isset( $options['replace'] ) ) {
 		echo "Deleting existing list...\n";
 		$dbw->delete( 'securepoll_lists', array( 'li_name' => $listName ), $fname );
+	} elseif ( isset( $options['ignore-existing'] ) ) {
+		$insertOptions[] = 'IGNORE';
 	} else {
 		echo "Error: list exists. Use --replace to replace it.\n";
 		exit( 1 );
 	}
 }
 
-$total = 0;
 while ( true ) {
+	echo "user_id > $startBatch\n";
 	$res = $dbr->select( 'user', 'user_id',
 		array( 'user_id > ' . $dbr->addQuotes( $startBatch ) ),
 		$fname,
-		array( 'LIMIT' => $batchSize )
-	);
+		array( 'LIMIT' => $batchSize ) );
 
 	if ( !$res->numRows() ) {
 		break;
@@ -61,17 +82,25 @@ while ( true ) {
 		if ( $before !== false ) {
 			$conds[] = 'rev_timestamp < ' . $dbr->addQuotes( $before );
 		}
-		$edits = $dbr->selectField( 'revision', 'COUNT(*)', $conds, $fname );
+		if ( isset( $options['mainspace-only'] ) ) {
+			$conds['page_namespace'] = 0;
+		}
+
+		$edits = $dbr->selectRowCount(
+			array( 'revision', 'page' ),
+			'1',
+			$conds,
+			$fname,
+			array( 'LIMIT' => $minEdits ),
+			array( 'page' => array( 'INNER JOIN', 'rev_page = page_id' ) )
+		);
+
 		if ( $edits >= $minEdits ) {
 			$insertBatch[] = $insertRow;
 		}
 	}
 	if ( $insertBatch ) {
-		$count = count( $insertBatch );
-		$total += $count;
-		echo "$count rows inserted, total $total rows";
-		$dbw->insert( 'securepoll_lists', $insertBatch, $fname );
+		$dbw->insert( 'securepoll_lists', $insertBatch, $fname, $insertOptions );
+		wfWaitForSlaves();
 	}
 }
-
-echo "Done!\n";
