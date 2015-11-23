@@ -16,7 +16,8 @@ $minEdits = isset( $options['edits'] ) ? intval( $options['edits'] ) : false;
 if ( !isset( $args[0] ) ) {
 	echo <<<EOD
 Usage: php arbcomlist.php [--ignore-existing|--replace] [--before=<date>]
-                          [--edits=num] [--start-from=<user_id>] <name>
+                          [--edits=num] [--mainspace-only]
+                          [--start-from=<user_id>] <name>
 EOD;
 	exit( 1 );
 }
@@ -64,7 +65,9 @@ while ( true ) {
 		if ( $before !== false ) {
 			$conds[] = 'rev_timestamp < ' . $dbr->addQuotes( $before );
 		}
-		$conds['page_namespace'] = 0;
+		if ( isset( $options['mainspace-only'] ) ) {
+			$conds['page_namespace'] = 0;
+		}
 
 		$edits = $dbr->selectRowCount(
 			array( 'revision', 'page' ),
