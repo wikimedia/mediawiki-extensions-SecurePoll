@@ -11,7 +11,8 @@
 			"Solde",
 			"Ssola",
 			"Vriullop",
-			"Edustus"
+			"Edustus",
+			"Jaumeortola"
 		]
 	},
 	"securepoll": "Vot segur",
@@ -68,7 +69,7 @@
 	"securepoll-strike-button": "Anuŀla",
 	"securepoll-unstrike-button": "Desfés l'anuŀlació",
 	"securepoll-strike-reason": "Motiu:",
-	"securepoll-strike-cancel": "Canceŀla",
+	"securepoll-strike-cancel": "Cancel·la",
 	"securepoll-strike-error": "Error en anuŀlar o en desfer l'anuŀlació: $1",
 	"securepoll-strike-token-mismatch": "Pèrdua de dades de la sessió",
 	"securepoll-details-link": "Detalls",
