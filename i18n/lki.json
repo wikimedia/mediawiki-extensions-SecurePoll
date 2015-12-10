@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Lakzon"
+		]
+	},
+	"securepoll-tally-not-finished": "متأسفانه نمی‌توانید رأی‌ها را پیش از تکمیل انتخابات چوب‌خط بزنید.",
+	"securepoll-votereligibility-label-processing": "این فهرست در دست ساخت است ( $1 ٪ کامل شده)"
+}
