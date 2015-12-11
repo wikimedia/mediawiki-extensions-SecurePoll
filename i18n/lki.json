@@ -1,9 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Lakzon"
+			"Lakzon",
+			"Hosseinblue"
 		]
 	},
+	"securepoll-translate-title": "چاوواشۀکِردن زوون:$1",
+	"securepoll-submit-select-lang": "چاوواشۀکِردن زوون",
+	"securepoll-subpage-translate": "چاوواشۀکِردن زوون",
 	"securepoll-tally-not-finished": "متأسفانه نمی‌توانید رأی‌ها را پیش از تکمیل انتخابات چوب‌خط بزنید.",
 	"securepoll-votereligibility-label-processing": "این فهرست در دست ساخت است ( $1 ٪ کامل شده)"
 }
