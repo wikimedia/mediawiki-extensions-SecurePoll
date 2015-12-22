@@ -11,10 +11,11 @@
 			"Malafaya",
 			"SandroHc",
 			"Waldir",
-			"Vitorvicentevalente"
+			"Vitorvicentevalente",
+			"Opraco"
 		]
 	},
-	"securepoll": "VotaçãoSegura",
+	"securepoll": "Votação segura",
 	"securepoll-desc": "Extensão para eleições e sondagens",
 	"securepoll-invalid-page": "Subpágina inválida: \"<nowiki>$1</nowiki>\"",
 	"securepoll-need-admin": "Precisa de ser um administrador de eleições para realizar esta operação.",

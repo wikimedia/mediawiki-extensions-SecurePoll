@@ -13,10 +13,11 @@
 			"Dianakc",
 			"He7d3r",
 			"Mordecool",
-			"Araceletorres"
+			"Araceletorres",
+			"Opraco"
 		]
 	},
-	"securepoll": "VotaçãoSegura",
+	"securepoll": "Votação segura",
 	"securepoll-desc": "Extensão para eleições e pesquisas",
 	"securepoll-invalid-page": "Subpágina inválida \"<nowiki>$1</nowiki>\"",
 	"securepoll-need-admin": "Você precisa ser um administrador de eleição para realizar esta ação",
