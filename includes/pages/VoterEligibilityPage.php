@@ -101,7 +101,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 				$dbw = $lb->getConnection( DB_MASTER, array(), $dbname );
 			}
 			try {
-				$dbw->begin();
+				$dbw->begin( __METHOD__ );
 				$id = $dbw->selectField( 'securepoll_elections', 'el_entity', array(
 					'el_title' => $this->election->title
 				) );
@@ -126,9 +126,9 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 						$dbw->insert( 'securepoll_properties', $ins );
 					}
 				}
-				$dbw->commit();
+				$dbw->commit( __METHOD__ );
 			} catch ( Exception $ex ) {
-				$dbw->rollback();
+				$dbw->rollback( __METHOD__ );
 				// If it's for the local wiki, rethrow. Otherwise, just log but
 				// still update the jump wikis.
 				if ( $dbname === $localWiki ) {
@@ -255,7 +255,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 				$dbw = $lb->getConnection( DB_MASTER, array(), $dbname );
 			}
 			try {
-				$dbw->begin();
+				$dbw->begin( __METHOD__ );
 
 				$id = $dbw->selectField( 'securepoll_elections', 'el_entity', array(
 					'el_title' => $this->election->title
@@ -292,9 +292,9 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 					}
 				}
 
-				$dbw->commit();
+				$dbw->commit( __METHOD__ );
 			} catch ( Exception $ex ) {
-				$dbw->rollback();
+				$dbw->rollback( __METHOD__ );
 				// If it's for the local wiki, rethrow. Otherwise, just log but
 				// still update the jump wikis.
 				if ( $dbname === $localWiki ) {
@@ -831,7 +831,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 				$dbw = $lb->getConnection( DB_MASTER, array(), $dbname );
 			}
 			try {
-				$dbw->begin();
+				$dbw->begin( __METHOD__ );
 
 				$id = $dbw->selectField( 'securepoll_elections', 'el_entity', array(
 					'el_title' => $this->election->title
@@ -859,7 +859,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 					}
 				}
 
-				$dbw->commit();
+				$dbw->commit( __METHOD__ );
 			} catch ( Exception $ex ) {
 				$dbw->rollback();
 				// If it's for the local wiki, rethrow. Otherwise, just log but

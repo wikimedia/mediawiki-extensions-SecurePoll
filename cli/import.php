@@ -71,7 +71,7 @@ function spImportDump( $fileName, $options ) {
 	$dbw = wfGetDB( DB_MASTER );
 
 	# Start the configuration transaction
-	$dbw->begin();
+	$dbw->begin( __METHOD__ );
 	foreach ( $electionIds as $id ) {
 		$elections = $store->getElectionInfo( array( $id ) );
 		$electionInfo = reset( $elections );
@@ -102,12 +102,12 @@ function spImportDump( $fileName, $options ) {
 			$success = spImportConfiguration( $store, $electionInfo );
 		}
 		if ( !$success ) {
-			$dbw->rollback();
+			$dbw->rollback( __METHOD__ );
 			echo "Faied!\n";
 			return false;
 		}
 	}
-	$dbw->commit();
+	$dbw->commit( __METHOD__ );
 	echo "Finished!\n";
 	return true;
 }

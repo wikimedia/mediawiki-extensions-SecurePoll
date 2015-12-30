@@ -111,7 +111,7 @@ class SecurePoll_Auth {
 		# This needs to be protected by FOR UPDATE
 		# Otherwise a race condition could lead to duplicate users for a single remote user,
 		# and thus to duplicate votes.
-		$dbw->begin();
+		$dbw->begin( __METHOD__ );
 		$row = $dbw->selectRow(
 			'securepoll_voters', '*',
 			array(
@@ -125,12 +125,12 @@ class SecurePoll_Auth {
 		);
 		if ( $row ) {
 			# No need to hold the lock longer
-			$dbw->commit();
+			$dbw->commit( __METHOD__ );
 			$user = $this->context->newVoterFromRow( $row );
 		} else {
 			# Lock needs to be held until the row is inserted
 			$user = $this->context->createVoter( $params );
-			$dbw->commit();
+			$dbw->commit( __METHOD__ );
 		}
 		return $user;
 	}

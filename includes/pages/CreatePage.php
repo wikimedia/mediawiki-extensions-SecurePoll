@@ -422,7 +422,7 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 			}
 
 			// Ok, begin the actual work
-			$dbw->begin();
+			$dbw->begin( __METHOD__ );
 			try {
 				if ( $election->getId() > 0 ) {
 					$id = $dbw->selectField( 'securepoll_elections', 'el_entity', array(
@@ -514,9 +514,9 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 						self::savePropertiesAndMessages( $dbw, $oId, $option );
 					}
 				}
-				$dbw->commit();
+				$dbw->commit( __METHOD__ );
 			} catch ( Exception $ex ) {
-				$dbw->rollback();
+				$dbw->rollback( __METHOD__ );
 				throw $ex;
 			}
 		} catch ( SecurePoll_StatusException $ex ) {
@@ -529,7 +529,7 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 			foreach ( $store->remoteWikis as $dbname ) {
 				$lb = wfGetLB( $dbname );
 				$dbw = $lb->getConnection( DB_MASTER, array(), $dbname );
-				$dbw->begin();
+				$dbw->begin( __METHOD__ );
 				try {
 					// Find an existing dummy election, if any
 					$rId = $dbw->selectField(
@@ -570,9 +570,9 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 						array( 'pr_entity' => $rId, 'pr_key' => 'jump-id' ),
 						__METHOD__
 					);
-					$dbw->commit();
+					$dbw->commit( __METHOD__ );
 				} catch ( Exception $ex ) {
-					$dbw->rollback();
+					$dbw->rollback( __METHOD__ );
 					MWExceptionHandler::logException( $ex );
 				}
 				$lb->reuseConnection( $dbw );

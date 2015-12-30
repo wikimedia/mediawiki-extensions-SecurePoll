@@ -89,7 +89,7 @@ EOT
 		if ( $action != 'strike' ) {
 			$action = 'unstrike';
 		}
-		$dbw->begin();
+		$dbw->begin( __METHOD__ );
 
 		// Add it to the strike log
 		$strikeId = $dbw->nextSequenceValue( 'securepoll_strike_st_id' );
@@ -112,7 +112,7 @@ EOT
 			array( 'vote_id' => $voteId ),
 			__METHOD__
 		);
-		$dbw->commit();
+		$dbw->commit( __METHOD__ );
 		return Status::newGood();
 	}
 

@@ -95,13 +95,13 @@ class SecurePoll_PopulateVoterListJob extends Job {
 		// Start the jobs!
 		$title = SpecialPage::getTitleFor( 'SecurePoll' );
 		try {
-			$dbw->begin();
+			$dbw->begin( __METHOD__ );
 			$dbw->lock( "SecurePoll_PopulateVoterListJob-{$election->getID()}", __METHOD__ );
 
 			// If the same job is (supposed to be) already running, don't restart it
 			$jobKey = self::fetchJobKey( $dbw, $election->getID() );
 			if ( $params['jobKey'] === $jobKey ) {
-				$dbw->rollback();
+				$dbw->rollback( __METHOD__ );
 				return;
 			}
 
@@ -153,10 +153,10 @@ class SecurePoll_PopulateVoterListJob extends Job {
 			}
 
 			$dbw->unlock( "SecurePoll_PopulateVoterListJob-{$election->getID()}", __METHOD__ );
-			$dbw->commit();
+			$dbw->commit( __METHOD__ );
 		} catch ( Exception $ex ) {
 			$dbw->unlock( "SecurePoll_PopulateVoterListJob-{$election->getID()}", __METHOD__ );
-			$dbw->rollback();
+			$dbw->rollback( __METHOD__ );
 			throw $ex;
 		}
 	}
@@ -317,9 +317,9 @@ class SecurePoll_PopulateVoterListJob extends Job {
 			}
 
 			// Check again that the jobKey didn't change, holding a lock this time.
-			$dbwMaster->begin();
+			$dbwMaster->begin( __METHOD__ );
 			$dbwMaster->lock( "SecurePoll_PopulateVoterListJob-{$this->params['electionId']}", __METHOD__ );
-			$dbw->begin();
+			$dbw->begin( __METHOD__ );
 
 			$jobKey = self::fetchJobKey( $dbwMaster, $this->params['electionId'] );
 			if ( $jobKey === $this->params['jobKey'] ) {
@@ -346,9 +346,9 @@ class SecurePoll_PopulateVoterListJob extends Job {
 				);
 			}
 
-			$dbw->commit();
+			$dbw->commit( __METHOD__ );
 			$dbwMaster->unlock( "SecurePoll_PopulateVoterListJob-{$this->params['electionId']}", __METHOD__ );
-			$dbwMaster->commit();
+			$dbwMaster->commit( __METHOD__ );
 
 			$next = $max;
 		} catch ( Exception $ex ) {
