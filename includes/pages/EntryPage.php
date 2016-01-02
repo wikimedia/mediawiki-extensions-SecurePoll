@@ -21,8 +21,12 @@ class SecurePoll_EntryPage extends SecurePoll_ActionPage {
 			$title = SpecialPage::getTitleFor( 'SecurePoll', 'create' );
 			$out->addHTML(
 				Html::rawElement( 'p', array(),
-					Linker::makeKnownLinkObj( $title,
-						$this->msg( 'securepoll-entry-createpoll' )->text()
+					Linker::link(
+						$title,
+						$this->msg( 'securepoll-entry-createpoll' )->text(),
+						array(),
+						array(),
+						array( 'known' )
 					)
 				)
 			);
