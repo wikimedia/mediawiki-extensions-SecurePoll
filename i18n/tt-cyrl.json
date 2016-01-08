@@ -6,6 +6,7 @@
 			"Ильнар"
 		]
 	},
+	"securepoll-welcome": "<strong>Рәхим итегез, $1!</strong>",
 	"securepoll-not-started": "Бу тавыш бирүләр әле башланмаганнар.\nБашлану вакыты:$2 $3",
 	"securepoll-finished": "Бу тавыш бирү тәмамланган, хәзер сез тавыш бирә алмыйсыз.",
 	"securepoll-header-timestamp": "Вакыт",
