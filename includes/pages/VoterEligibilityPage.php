@@ -861,7 +861,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 
 				$dbw->commit( __METHOD__ );
 			} catch ( Exception $ex ) {
-				$dbw->rollback();
+				$dbw->rollback( __METHOD__ );
 				// If it's for the local wiki, rethrow. Otherwise, just log but
 				// still update the jump wikis.
 				if ( $dbname === $localWiki ) {
