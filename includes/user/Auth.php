@@ -4,6 +4,7 @@
  * Class for handling guest logins and sessions. Creates SecurePoll_Voter objects.
  */
 class SecurePoll_Auth {
+	/** @var SecurePoll_Context */
 	public $context;
 
 	/**
@@ -16,7 +17,9 @@ class SecurePoll_Auth {
 
 	/**
 	 * Create an auth object of the given type
-	 * @param $type string
+	 * @param SecurePoll_Context $context
+	 * @param string $type
+	 * @throws MWException
 	 */
 	static function factory( $context, $type ) {
 		if ( !isset( self::$authTypes[$type] ) ) {
@@ -111,7 +114,7 @@ class SecurePoll_Auth {
 		# This needs to be protected by FOR UPDATE
 		# Otherwise a race condition could lead to duplicate users for a single remote user,
 		# and thus to duplicate votes.
-		$dbw->begin( __METHOD__ );
+		$dbw->startAtomic( __METHOD__ );
 		$row = $dbw->selectRow(
 			'securepoll_voters', '*',
 			array(
@@ -124,14 +127,12 @@ class SecurePoll_Auth {
 			array( 'FOR UPDATE' )
 		);
 		if ( $row ) {
-			# No need to hold the lock longer
-			$dbw->commit( __METHOD__ );
 			$user = $this->context->newVoterFromRow( $row );
 		} else {
-			# Lock needs to be held until the row is inserted
 			$user = $this->context->createVoter( $params );
-			$dbw->commit( __METHOD__ );
 		}
+		$dbw->endAtomic( __METHOD__ );
+
 		return $user;
 	}
 
