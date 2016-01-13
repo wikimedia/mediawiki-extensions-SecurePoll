@@ -165,7 +165,7 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 		}
 
 		$dbw = $this->context->getDB();
-		$dbw->begin( __METHOD__ );
+		$dbw->startAtomic( __METHOD__ );
 
 		# Mark previous votes as old
 		$dbw->update( 'securepoll_votes',
@@ -203,7 +203,7 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 			),
 			__METHOD__ );
 		$voteId = $dbw->insertId();
-		$dbw->commit( __METHOD__ );
+		$dbw->endAtomic( __METHOD__ );
 
 		if ( $crypt ) {
 			$receipt = sprintf( "SPID: %10d\n%s", $voteId, $encrypted );

@@ -96,8 +96,8 @@ EOT
 		if ( $action != 'strike' ) {
 			$action = 'unstrike';
 		}
-		$dbw->begin( __METHOD__ );
 
+		$dbw->startAtomic( __METHOD__ );
 		// Add it to the strike log
 		$strikeId = $dbw->nextSequenceValue( 'securepoll_strike_st_id' );
 		$dbw->insert( 'securepoll_strike',
@@ -111,15 +111,14 @@ EOT
 			),
 			__METHOD__
 		);
-		$strikeId = $dbw->insertId();
-
 		// Update the status cache
 		$dbw->update( 'securepoll_votes',
 			array( 'vote_struck' => intval( $action == 'strike' ) ),
 			array( 'vote_id' => $voteId ),
 			__METHOD__
 		);
-		$dbw->commit( __METHOD__ );
+		$dbw->endAtomic( __METHOD__ );
+
 		return Status::newGood();
 	}
 
