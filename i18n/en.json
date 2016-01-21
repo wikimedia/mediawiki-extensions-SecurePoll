@@ -10,7 +10,7 @@
 	"securepoll-need-admin": "You need to be an election administrator to perform this action.",
 	"securepoll-too-few-params": "Not enough subpage parameters (invalid link).",
 	"securepoll-invalid-election": "\"$1\" is not a valid election ID.",
-	"securepoll-welcome": "<strong>Welcome $1!</strong>",
+	"securepoll-welcome": "<strong>{{GENDER:$1|Welcome}} $1!</strong>",
 	"securepoll-not-started": "This election has not yet started.\nIt is scheduled to start on $2 at $3.",
 	"securepoll-already-started": "This election has already started.\nIt started on $2 at $3",
 	"securepoll-finished": "This election has finished, you can no longer vote.",
