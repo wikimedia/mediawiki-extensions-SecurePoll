@@ -9,7 +9,7 @@
 	"securepoll-welcome": "<strong> $1 ښه راغلئ!</strong>",
 	"securepoll-submit": "رايه سپارل",
 	"securepoll-thanks": "له تاسې نه مننه، ستاسې رايه ثبته شوه.",
-	"securepoll-return": "$1 ته ورګرځېدل",
+	"securepoll-return": "$1 ته ورستنېدل",
 	"securepoll-jump": "د رايو پالنگر ته ورشۍ",
 	"securepoll-bad-ballot-submission": "ستاسې رايه سمه نه وه: $1",
 	"securepoll-unanswered-questions": "تاسې بايد ټولې پوښتنې ځواب کړۍ.",

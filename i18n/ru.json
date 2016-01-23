@@ -21,7 +21,7 @@
 	"securepoll-need-admin": "Чтобы выполнить это действие, вы должны быть администратором выборов.",
 	"securepoll-too-few-params": "Не хватает параметров подстраницы (ошибочная ссылка).",
 	"securepoll-invalid-election": "«$1» — некорректный идентификатор выборов.",
-	"securepoll-welcome": "<strong>Добро пожаловать, $1!</strong>",
+	"securepoll-welcome": "<strong>{{GENDER:$1|Добро пожаловать}}, $1!</strong>",
 	"securepoll-not-started": "Эти выборы ещё не начались.\nНачало запланировано на $2 $3.",
 	"securepoll-already-started": "Эти выборы уже начались.\nОни начались $2 в $3",
 	"securepoll-finished": "Это голосование завершено, вы уже не можете проголосовать.",

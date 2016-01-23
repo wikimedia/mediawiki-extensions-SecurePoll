@@ -22,7 +22,7 @@
 	"securepoll-need-admin": "您必须是选举管理员才能进行此操作。",
 	"securepoll-too-few-params": "缺少子页面参数（无效链接）。",
 	"securepoll-invalid-election": "“$1”不是有效的选举投票编号。",
-	"securepoll-welcome": "<strong>欢迎$1！</strong>",
+	"securepoll-welcome": "<strong>{{GENDER:$1|欢迎}}$1！</strong>",
 	"securepoll-not-started": "这个投票尚未开始。\n已计划将于$2 $3开始。",
 	"securepoll-already-started": "此次选举已开始。开始于$2 $3",
 	"securepoll-finished": "投票已经结束，您无法再投下选票。",
