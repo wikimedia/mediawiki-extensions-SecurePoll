@@ -10,7 +10,7 @@
 	"securepoll-need-admin": "Do moß ene Betreuer för de Wahl sin, öm dat maache ze dörve.",
 	"securepoll-too-few-params": "Dä Lengk es verkeht, et sin nit jenooch Parrameetere för Ongersigge do dren.",
 	"securepoll-invalid-election": "„$1“ es kein jöltije Kennung för en Afshtemmung",
-	"securepoll-welcome": "<strong>Hallo $1,</strong>",
+	"securepoll-welcome": "<strong>Hallo $1,</strong>{{GENDER:$1|}}",
 	"securepoll-not-started": "Hee di Afshtemmung hät noch jaa nit aanjefange.\nEt sull aam $2 aff $3 Uhr loß jonn.",
 	"securepoll-already-started": "Di Affschtemong hädd ald aam $2 öm $3 aanjefange.",
 	"securepoll-finished": "Di Afschtemmong es eröm, heh kanns De nix mih bei donn.",
