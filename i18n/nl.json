@@ -9,7 +9,8 @@
 			"Siebrand",
 			"Sjoerddebruin",
 			"Romaine",
-			"Robin0van0der0vliet"
+			"Robin0van0der0vliet",
+			"Robin van der Vliet"
 		]
 	},
 	"securepoll": "VeiligStemmen",
@@ -18,7 +19,7 @@
 	"securepoll-need-admin": "U moet een stemmingenbeheerder zijn om deze handeling te mogen uitvoeren.",
 	"securepoll-too-few-params": "Onvoldoende subpaginaparameters (ongeldige koppeling).",
 	"securepoll-invalid-election": "\"$1\" is geen geldig stemmingsnummer.",
-	"securepoll-welcome": "<strong>Welkom $1!</strong>",
+	"securepoll-welcome": "<strong>{{GENDER:$1|Welkom}} $1!</strong>",
 	"securepoll-not-started": "Deze stemming is nog niet gestart.\nDe stemming begint op $2 om $3.",
 	"securepoll-finished": "Deze stemming is afgelopen, u kunt niet meer stemmen.",
 	"securepoll-not-qualified": "U bent niet bevoegd om te stemmen in deze stemming: $1",

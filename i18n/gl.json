@@ -12,7 +12,7 @@
 	"securepoll-need-admin": "Ten que ser administrador das eleccións para poder levar a cabo esta acción.",
 	"securepoll-too-few-params": "Non hai parámetros de subpáxina suficientes (ligazón inválida).",
 	"securepoll-invalid-election": "\"$1\" non é un número de identificación das eleccións válido.",
-	"securepoll-welcome": "<strong>Dámoslle a benvida, $1!</strong>",
+	"securepoll-welcome": "<strong>Dámoslle a {{GENDER:$1|benvida}}, $1!</strong>",
 	"securepoll-not-started": "Estas eleccións aínda non comezaron.\nEstán programadas para empezar o $2 ás $3.",
 	"securepoll-already-started": "Esta votación xa comezou.\nComezou o $2 ás $3",
 	"securepoll-finished": "Estas eleccións xa remataron, non se pode votar máis.",
