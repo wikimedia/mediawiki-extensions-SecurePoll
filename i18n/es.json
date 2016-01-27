@@ -24,7 +24,7 @@
 	"securepoll-need-admin": "Necesitas ser un administrador de elecciones para realizar esta acción.",
 	"securepoll-too-few-params": "Parámetros de subpágina insuficientes (vínculo inválido).",
 	"securepoll-invalid-election": "«$1» no es un identificador de elección válido.",
-	"securepoll-welcome": "<strong>¡Bienvenido $1!</strong>",
+	"securepoll-welcome": "<strong>¡{{GENDER:$1|Bienvenido|Bienvenida}}, $1!</strong>",
 	"securepoll-not-started": "Esta elección aún no ha comenzado.\nEstá programada para comenzar el $2 a las $3.",
 	"securepoll-already-started": "Esta elección ya ha comenzado.\nEmpezó el $2 a las $3",
 	"securepoll-finished": "Esta elección ha concluido, no puedes votar más.",
