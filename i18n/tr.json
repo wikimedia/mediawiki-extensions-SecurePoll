@@ -7,10 +7,11 @@
 			"Noumenon",
 			"Suelnur",
 			"Vito Genovese",
-			"Sayginer"
+			"Sayginer",
+			"Mavrikant"
 		]
 	},
-	"securepoll": "GüvenliAnket",
+	"securepoll": "GüvenliOylama",
 	"securepoll-desc": "Seçimler ve anketler için eklenti",
 	"securepoll-invalid-page": "Geçersiz alt sayfa \"<nowiki>$1</nowiki>\"",
 	"securepoll-need-admin": "Bu eylemi gerçekleştirebilmek için bir seçim yöneticisi olmanız gerekir.",
