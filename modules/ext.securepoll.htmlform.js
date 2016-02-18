@@ -85,7 +85,7 @@
 						cells[i] = {};
 					}
 					if ( !cells[i].label ) {
-						cells[i].label = $( '<th>' )
+						cells[i].label = $( '<th>' );
 						cells[i].label.data( 'securepollColNum', i )
 							.text( i );
 					}

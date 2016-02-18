@@ -1,7 +1,9 @@
+/*jshint -W083 */
+
 function securepoll_strike_popup(e, action, id) {
 	var pop = document.getElementById('securepoll-popup');
 
-	var e = window.event || e;
+	e = window.event || e;
 	if(!e) return;
 	var target = e.target || e.srcElement;
 	if(!target) return;
@@ -112,7 +114,7 @@ function securepoll_modify_document( action, voteId ) {
 	}
 	popupButton.onclick = function ( event ) {
 		securepoll_strike_popup( event, action == 'strike' ? 'unstrike' : 'strike', voteId );
-	}
+	};
 }
 
 function securepoll_ballot_setup() {
