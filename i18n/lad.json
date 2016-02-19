@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Menachem.Moreira"
+			"Menachem.Moreira",
+			"Cedric31"
 		]
 	},
 	"securepoll-header-voter-name": "Nombre",
@@ -9,6 +10,6 @@
 	"securepoll-strike-reason": "Razon:",
 	"securepoll-header-reason": "Razon",
 	"securepoll-translate-title": "Tradusir: $1",
-	"securepoll-submit-select-lang": "Tradusir",
+	"securepoll-submit-select-lang": "Traduire",
 	"securepoll-header-title": "Nombre"
 }
