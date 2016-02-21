@@ -12,7 +12,7 @@
 	"securepoll-need-admin": "Vos cal èsser un administrator de l'eleccion per executar aquesta accion.",
 	"securepoll-too-few-params": "Pas pro de paramètres de sospagina (ligam invalid).",
 	"securepoll-invalid-election": "« $1 » es pas un identificant d'eleccion valid.",
-	"securepoll-welcome": "<strong>Benvenguda $1 !</strong>",
+	"securepoll-welcome": "<strong>¡{{GENDER:$1|Benvengut|Benvenguda}}, $1!</strong>",
 	"securepoll-not-started": "L'eleccion a pas encara començat.\nLo començament es programat pel $2 a $3.",
 	"securepoll-finished": "Aquesta eleccion es acabada, Podètz pas pus votar.",
 	"securepoll-not-qualified": "Sètz pas qualificat(ada) per votar dins aquesta eleccion : $1",
