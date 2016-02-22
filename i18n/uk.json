@@ -11,7 +11,8 @@
 			"Ата",
 			"Mykola Swarnyk",
 			"Base",
-			"Dars"
+			"Dars",
+			"Piramidion"
 		]
 	},
 	"securepoll": "Безпечне голосування",
@@ -20,7 +21,7 @@
 	"securepoll-need-admin": "Вам потрібно бути адміністратором виборів, щоб виконати цю дію.",
 	"securepoll-too-few-params": "Не вистачає параметрів підсторінки (помилкове посилання).",
 	"securepoll-invalid-election": "«$1» не є допустимим виборчим ідентифікатором.",
-	"securepoll-welcome": "<strong>Ласкаво просимо, $1!</strong>",
+	"securepoll-welcome": "<strong>{{GENDER:$1|Ласкаво просимо}}, $1!</strong>",
 	"securepoll-not-started": "Ці вибори ще не розпочалися.\nПочаток запланований на $2 $3.",
 	"securepoll-already-started": "Ці вибори уже почалися.\nВони почалися $2 о $3",
 	"securepoll-finished": "Ці вибори зкінчились, ви вже не можете проголосувати.",
