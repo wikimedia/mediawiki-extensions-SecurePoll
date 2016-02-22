@@ -226,6 +226,12 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 			'hidelabel' => true,
 		);
 
+		$formItems['voter-privacy'] = array(
+			'label-message' => 'securepoll-create-label-voter_privacy',
+			'type' => 'check',
+			'hidelabel' => true,
+		);
+
 		$formItems['property_admins'] = array(
 			'label-message' => 'securepoll-create-label-property_admins',
 			'type' => 'cloner',
@@ -633,7 +639,8 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 			'jump-text' => isset( $m['jump-text'] ) ? $m['jump-text'] : null,
 			'election_type' => "{$ballot}+{$tally}",
 			'election_crypt' => $crypt,
-			'disallow-change' => (bool)isset( $p['disallow-change'] ) ? $p['disallow-change'] : null,
+			'disallow-change' => isset( $p['disallow-change'] ) ? (bool)$p['disallow-change'] : null,
+			'voter-privacy' => isset( $p['voter-privacy'] ) ? (bool)$p['voter-privacy'] : null,
 			'property_admins' => array(),
 			'questions' => array(),
 			'comment' => '',
@@ -960,6 +967,7 @@ class SecurePoll_FormStore extends SecurePoll_MemoryStore {
 			'wikis-val' => isset( $formData['property_wiki'] ) ? $formData['property_wiki'] : wfWikiID(),
 			'return-url' => $formData['return-url'],
 			'disallow-change' => $formData['disallow-change'] ? 1 : 0,
+			'voter-privacy' => $formData['voter-privacy'] ? 1 : 0,
 		);
 		$this->messages[$this->lang][$eId] = array(
 			'title' => $formData['election_title'],

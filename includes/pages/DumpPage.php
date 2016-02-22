@@ -34,6 +34,12 @@ class SecurePoll_DumpPage extends SecurePoll_ActionPage {
 			return;
 		}
 
+		$isAdmin = $this->election->isAdmin( $this->specialPage->getUser() );
+		if ( $this->election->getProperty( 'voter-privacy' ) && !$isAdmin ) {
+			$out->addWikiMsg( 'securepoll-dump-private' );
+			return;
+		}
+
 		if ( !$this->election->isFinished() ) {
 			$out->addWikiMsg( 'securepoll-dump-not-finished',
 				$this->specialPage->getLanguage()->date( $this->election->getEndDate() ),

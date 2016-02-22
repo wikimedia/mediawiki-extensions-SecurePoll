@@ -30,6 +30,13 @@ class SecurePoll_ListPage extends SecurePoll_ActionPage {
 		$out->setPageTitle( $this->msg(
 			'securepoll-list-title', $this->election->getMessage( 'title' ) )->text() );
 
+		$isAdmin = $this->election->isAdmin( $this->specialPage->getUser() );
+
+		if ( $this->election->getProperty( 'voter-privacy' ) && !$isAdmin ) {
+			$out->addWikiMsg( 'securepoll-list-private' );
+			return;
+		}
+
 		$pager = new SecurePoll_ListPager( $this );
 		$out->addHTML(
 			$pager->getLimitForm() .
@@ -37,7 +44,7 @@ class SecurePoll_ListPage extends SecurePoll_ActionPage {
 			$pager->getBody() .
 			$pager->getNavigationBar()
 		);
-		if ( $this->election->isAdmin( $this->specialPage->getUser() ) ) {
+		if ( $isAdmin ) {
 			$msgStrike = $this->msg( 'securepoll-strike-button' )->escaped();
 			$msgUnstrike = $this->msg( 'securepoll-unstrike-button' )->escaped();
 			$msgCancel = $this->msg( 'securepoll-strike-cancel' )->escaped();

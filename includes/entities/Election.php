@@ -41,9 +41,13 @@
  *          encrypt-type
  *              The encryption module name
  *          not-centrally-blocked
- *          	True if voters need to not be blocked on more than X projects
+ *              True if voters need to not be blocked on more than X projects
  *          central-block-threshold
- *          	Number of blocks across projects that disqualify a user from voting.
+ *              Number of blocks across projects that disqualify a user from voting.
+ *          voter-privacy
+ *              True to disable transparency features (public voter list and
+ *              public encrypted record dump) in favour of preserving voter
+ *              privacy.
  *
  *      See the other module for documentation of the following.
  *
