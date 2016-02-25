@@ -16,7 +16,8 @@
 			"Yuyu",
 			"Liuxinyu970226",
 			"LNDDYL",
-			"Cwlin0416"
+			"Cwlin0416",
+			"飞舞回堂前"
 		]
 	},
 	"securepoll": "SecurePoll",
@@ -220,10 +221,10 @@
 	"securepoll-votereligibility-label-edit": "編輯清單",
 	"securepoll-votereligibility-label-clear": "移除清單",
 	"securepoll-votereligibility-label-populate": "自動產生清單",
-	"securepoll-votereligibility-label-edits_before": "必需於期間前滿足最低編輯次數",
+	"securepoll-votereligibility-label-edits_before": "必須於既定日期前滿足最低編輯次數",
 	"securepoll-votereligibility-label-edits_before_count": "最低編輯次數",
 	"securepoll-votereligibility-label-edits_before_date": "於日期之前",
-	"securepoll-votereligibility-label-edits_between": "必需於期間內滿足最低編輯次數",
+	"securepoll-votereligibility-label-edits_between": "必須在兩日期之間滿足最低編輯次數",
 	"securepoll-votereligibility-label-edits_between_count": "最低編輯次數",
 	"securepoll-votereligibility-label-edits_between_dates": "介於日期之門",
 	"securepoll-votereligibility-layout-edits_between_dates": "介於 $1 與 $2 之間",

@@ -13,7 +13,8 @@
 			"Hudafu",
 			"Mywood",
 			"Impersonator 1",
-			"JLeow00"
+			"JLeow00",
+			"飞舞回堂前"
 		]
 	},
 	"securepoll": "安全投票",
@@ -228,7 +229,7 @@
 	"securepoll-votereligibility-label-edit": "编辑列表",
 	"securepoll-votereligibility-label-clear": "移除列表",
 	"securepoll-votereligibility-label-populate": "自动填充列表",
-	"securepoll-votereligibility-label-edits_before": "需要最小编辑数在既定日期之前",
+	"securepoll-votereligibility-label-edits_before": "需要既定日期之前的最小编辑数",
 	"securepoll-votereligibility-label-edits_before_count": "最少编辑数",
 	"securepoll-votereligibility-label-edits_before_date": "日期前",
 	"securepoll-votereligibility-label-edits_between": "需要最小编辑数在两日期之间",
