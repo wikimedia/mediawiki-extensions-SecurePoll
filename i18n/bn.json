@@ -13,7 +13,7 @@
 	"securepoll-need-admin": "এই অ্যাকশনটি গ্রহণ করার জন্য আপনার নির্বাচন প্রশাসক হওয়া প্রয়োজন",
 	"securepoll-too-few-params": "যথেষ্ট পরিমাণ উপপাতা প্যারামিটার নেই (অপ্রযোজ্য সংযোগ)",
 	"securepoll-invalid-election": "\"$1\" সঠিক ভোট আইডি নয়।",
-	"securepoll-welcome": "<strong>স্বাগতম $1!</strong>",
+	"securepoll-welcome": "<strong>{{GENDER:$1|স্বাগতম}} $1!</strong>",
 	"securepoll-not-started": "এই নির্বাচন এখনও শুরু হয়নি।\n$2 তারিখ $3টার সময় এটি শুরু হবে।",
 	"securepoll-finished": "এই নির্বাচন কার্যক্রম সমাপ্ত হয়েছে, আপনি আর ভোট প্রদান করতে পারবেন না।",
 	"securepoll-not-qualified": "আপনি এই নির্বাচনে ভোট প্রদানের জন্য উপযুক্ত নন: $1",
