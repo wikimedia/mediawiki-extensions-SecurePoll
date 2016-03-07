@@ -72,8 +72,9 @@ class SecurePoll_TranslatePage extends SecurePoll_ActionPage {
 		}
 
 		$secondary = $params[1];
-		$primaryName = $this->specialPage->getLanguage()->getLanguageName( $primary );
-		$secondaryName = $this->specialPage->getLanguage()->getLanguageName( $secondary );
+		$inLanguage = $this->specialPage->getLanguage()->getCode();
+		$primaryName = Language::fetchLanguageName( $primary, $inLanguage );
+		$secondaryName = Language::fetchLanguageName( $secondary, $inLanguage );
 		if ( strval( $secondaryName ) === '' ) {
 			$out->addWikiMsg( 'securepoll-invalid-language', $secondary );
 			$this->showLanguageSelector( $primary );
@@ -167,7 +168,7 @@ class SecurePoll_TranslatePage extends SecurePoll_ActionPage {
 				array( 'id' => 'secondary_lang', 'name' => 'secondary_lang' )
 			) . "\n";
 
-		$languages = Language::getLanguageNames();
+		$languages = Language::fetchLanguageNames();
 		ksort( $languages );
 		foreach ( $languages as $code => $name ) {
 			$s .= "\n" . Xml::option( "$code - $name", $code, $code == $selectedCode );
