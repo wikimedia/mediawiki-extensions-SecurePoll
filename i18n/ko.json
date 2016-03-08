@@ -10,7 +10,8 @@
 			"Priviet",
 			"Yknok29",
 			"아라",
-			"Revi"
+			"Revi",
+			"HDNua"
 		]
 	},
 	"securepoll": "비밀 투표",
@@ -57,6 +58,7 @@
 	"securepoll-not-in-group": "이 선거에는 \"$1\" 모임에 속하는 회원만 투표하실 수 있습니다.",
 	"securepoll-not-in-list": "죄송합니다, 당신은 이 선거에 투표하실 수 있는 선거인단명부에 등록되어 있지 않습니다.",
 	"securepoll-list-title": "표 목록: $1",
+	"securepoll-list-private": "죄송하지만, 이 선거에 참여하여 투표한 사람들의 목록은 선거 관리자에게는 제한되어있습니다.",
 	"securepoll-header-timestamp": "시간",
 	"securepoll-header-voter-name": "이름",
 	"securepoll-header-voter-domain": "도메인",
