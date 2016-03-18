@@ -46,7 +46,7 @@
 	"securepoll-unanswered-options": "모든 질문에 응답해야 합니다.",
 	"securepoll-remote-auth-error": "서버에서 계정 정보를 가져오는 중에 오류가 발생하였습니다.",
 	"securepoll-remote-parse-error": "서버로부터 권한 응답에 따른 해석 오류가 발생",
-	"securepoll-api-invalid-params": "명령 변수가 잘못되었습니다.",
+	"securepoll-api-invalid-params": "매개변수가 올바르지 않습니다.",
 	"securepoll-api-no-user": "등록되어 있지 않은 ID입니다.",
 	"securepoll-api-token-mismatch": "암호화 통신상의 오류가 발생하여 로그인하지 못했습니다.",
 	"securepoll-not-logged-in": "이 선거에 투표를 하시려면 먼저 로그인하셔야 합니다.",
