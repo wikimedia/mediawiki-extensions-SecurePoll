@@ -78,4 +78,9 @@ class SecurePollHooks {
 		}
 		return true;
 	}
+
+	public static function onRegistration() {
+		define( 'NS_SECUREPOLL', 830 );
+		define( 'NS_SECUREPOLL_TALK', 831 );
+	}
 }

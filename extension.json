@@ -1,0 +1,140 @@
+{
+	"name": "SecurePoll",
+	"author": [
+		"Tim Starling",
+		"..."
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:SecurePoll",
+	"descriptionmsg": "securepoll-desc",
+	"license-name": "GPL-2.0+",
+	"type": "other",
+	"AvailableRights": [
+		"securepoll-create-poll"
+	],
+	"ContentHandlers": {
+		"SecurePoll": "SecurePollContentHandler"
+	},
+	"SpecialPages": {
+		"SecurePoll": "SecurePoll_SpecialSecurePoll"
+	},
+	"JobClasses": {
+		"securePollPopulateVoterList": "SecurePoll_PopulateVoterListJob"
+	},
+	"APIModules": {
+		"strikevote": "ApiStrikeVote"
+	},
+	"MessagesDirs": {
+		"SecurePoll": [
+			"i18n"
+		]
+	},
+	"ExtensionMessagesFiles": {
+		"SecurePollAlias": "SecurePoll.alias.php",
+		"SecurePollNamespaces": "SecurePoll.namespaces.php"
+	},
+	"AutoloadClasses": {
+		"ApiStrikeVote": "api/ApiStrikeVote.php",
+		"SecurePoll_ApprovalBallot": "includes/ballots/ApprovalBallot.php",
+		"SecurePoll_Ballot": "includes/ballots/Ballot.php",
+		"SecurePoll_BallotStatus": "includes/ballots/Ballot.php",
+		"SecurePoll_ChooseBallot": "includes/ballots/ChooseBallot.php",
+		"SecurePoll_PreferentialBallot": "includes/ballots/PreferentialBallot.php",
+		"SecurePoll_RadioRangeBallot": "includes/ballots/RadioRangeBallot.php",
+		"SecurePoll_RadioRangeCommentBallot": "includes/ballots/RadioRangeCommentBallot.php",
+		"SecurePoll_Crypt": "includes/crypt/Crypt.php",
+		"SecurePoll_GpgCrypt": "includes/crypt/Crypt.php",
+		"SecurePoll_Random": "includes/crypt/Random.php",
+		"SecurePoll_Election": "includes/entities/Election.php",
+		"SecurePoll_Entity": "includes/entities/Entity.php",
+		"SecurePoll_Option": "includes/entities/Option.php",
+		"SecurePoll_Question": "includes/entities/Question.php",
+		"SecurePoll_SpecialSecurePoll": "includes/main/SpecialSecurePoll.php",
+		"SecurePoll_Context": "includes/main/Context.php",
+		"SecurePoll_DBStore": "includes/main/Store.php",
+		"SecurePoll_MemoryStore": "includes/main/Store.php",
+		"SecurePoll_Store": "includes/main/Store.php",
+		"SecurePoll_XMLStore": "includes/main/Store.php",
+		"SecurePoll_CreatePage": "includes/pages/CreatePage.php",
+		"SecurePoll_FormStore": "includes/pages/CreatePage.php",
+		"SecurePoll_StatusException": "includes/pages/CreatePage.php",
+		"SecurePoll_DetailsPage": "includes/pages/DetailsPage.php",
+		"SecurePoll_StrikePager": "includes/pages/DetailsPage.php",
+		"SecurePoll_DumpPage": "includes/pages/DumpPage.php",
+		"SecurePoll_EntryPage": "includes/pages/EntryPage.php",
+		"SecurePoll_ElectionPager": "includes/pages/EntryPage.php",
+		"SecurePoll_ListPage": "includes/pages/ListPage.php",
+		"SecurePoll_ListPager": "includes/pages/ListPage.php",
+		"SecurePoll_LoginPage": "includes/pages/LoginPage.php",
+		"SecurePoll_MessageDumpPage": "includes/pages/MessageDumpPage.php",
+		"SecurePoll_ActionPage": "includes/pages/ActionPage.php",
+		"SecurePoll_TallyPage": "includes/pages/TallyPage.php",
+		"SecurePoll_TranslatePage": "includes/pages/TranslatePage.php",
+		"SecurePoll_VotePage": "includes/pages/VotePage.php",
+		"SecurePoll_Voter": "includes/user/Voter.php",
+		"SecurePoll_VoterEligibilityPage": "includes/pages/VoterEligibilityPage.php",
+		"SecurePoll_ElectionTallier": "includes/talliers/ElectionTallier.php",
+		"SecurePoll_HistogramRangeTallier": "includes/talliers/HistogramRangeTallier.php",
+		"SecurePoll_PairwiseTallier": "includes/talliers/PairwiseTallier.php",
+		"SecurePoll_PluralityTallier": "includes/talliers/PluralityTallier.php",
+		"SecurePoll_SchulzeTallier": "includes/talliers/SchulzeTallier.php",
+		"SecurePoll_Tallier": "includes/talliers/Tallier.php",
+		"SecurePoll_CommentDumper": "includes/talliers/CommentDumper.php",
+		"SecurePoll_Auth": "includes/user/Auth.php",
+		"SecurePoll_LocalAuth": "includes/user/Auth.php",
+		"SecurePoll_RemoteMWAuth": "includes/user/Auth.php",
+		"SecurePoll_PopulateVoterListJob": "includes/jobs/PopulateVoterListJob.php",
+		"SecurePollContentHandler": "includes/main/SecurePollContentHandler.php",
+		"SecurePollContent": "includes/main/SecurePollContent.php",
+		"SecurePoll_HTMLDateField": "includes/htmlform/HTMLDateField.php",
+		"SecurePoll_HTMLDateRangeField": "includes/htmlform/HTMLDateRangeField.php",
+		"SecurePoll_HTMLFormRadioRangeColumnLabels": "includes/htmlform/HTMLFormRadioRangeColumnLabels.php",
+		"SecurePollHooks": "includes/SecurePollHooks.php"
+	},
+	"ResourceModules": {
+		"ext.securepoll.htmlform": {
+			"scripts": "ext.securepoll.htmlform.js"
+		},
+		"ext.securepoll": {
+			"styles": "ext.securepoll.css"
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "modules",
+		"remoteExtPath": "SecurePoll/modules"
+	},
+	"Hooks": {
+		"UserLogout": [
+			"SecurePoll::onUserLogout"
+		],
+		"LoadExtensionSchemaUpdates": [
+			"SecurePollHooks::onLoadExtensionSchemaUpdates"
+		],
+		"CanonicalNamespaces": [
+			"SecurePollHooks::onCanonicalNamespaces"
+		],
+		"TitleQuickPermissions": [
+			"SecurePollHooks::onTitleQuickPermissions"
+		],
+		"ContentHandlerDefaultModelFor": [
+			"SecurePollHooks::onContentHandlerDefaultModelFor"
+		]
+	},
+	"config": {
+		"SecurePollGPGCommand": "gpg",
+		"SecurePollTempDir": "/tmp",
+		"SecurePollShowErrorDetail": false,
+		"SecurePollScript": "extensions/SecurePoll/auth-api.php",
+		"SecurePollKeepPrivateInfoDays": 90,
+		"SecurePollCreateWikiGroupDir": "/../",
+		"SecurePollCreateWikiGroups": [],
+		"SecurePollCreateRemoteScriptPath": "https:$wgServer/w",
+		"SecurePollUseNamespace": false,
+		"SecurePollGpgSignKey": null,
+		"NamespacesWithSubpages": {
+			"830": true,
+			"831": true
+		}
+	},
+	"callback": "SecurePollHooks::onRegistration",
+	"manifest_version": 1
+}
