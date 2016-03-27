@@ -260,6 +260,6 @@
 	"apihelp-strikevote-paramvalue-option-unstrike": "Validar un voto (incluirlo al conteo).",
 	"apihelp-strikevote-param-voteid": "El identificador del voto para validar o invalidar.",
 	"apihelp-strikevote-param-reason": "El motivo por el cual validar o invalidar el voto.",
-	"apihelp-strikevote-example-strike": "Invalidar el voto <kbd>1</kbd>, con el motivo <kbd>duplicado</kbd>.",
-	"apihelp-strikevote-example-unstrike": "Validar el voto <kbd>1</kbd>, con el motivo <kbd>equivocación</kbd>."
+	"apihelp-strikevote-example-strike": "Invalidar el voto <kbd>1</kbd>, con el motivo <kbd>duplication</kbd>.",
+	"apihelp-strikevote-example-unstrike": "Validar el voto <kbd>1</kbd>, con el motivo <kbd>mistake</kbd>."
 }
