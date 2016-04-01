@@ -164,6 +164,7 @@ $wgAutoloadClasses = $wgAutoloadClasses + array(
 	'SecurePoll_HTMLDateField' => "$dir/includes/htmlform/HTMLDateField.php",
 	'SecurePoll_HTMLDateRangeField' => "$dir/includes/htmlform/HTMLDateRangeField.php",
 	'SecurePoll_HTMLFormRadioRangeColumnLabels' => "$dir/includes/htmlform/HTMLFormRadioRangeColumnLabels.php",
+	'SecurePollHooks' => "$dir/includes/SecurePollHooks.php",
 );
 
 $wgAPIModules['strikevote'] = 'ApiStrikeVote';
@@ -179,7 +180,11 @@ $wgResourceModules['ext.securepoll'] = array(
 	'styles' => 'ext.securepoll.css',
 );
 
-$wgHooks['UserLogout'][] = 'wfSecurePollLogout';
+$wgHooks['UserLogout'][] = 'SecurePoll::onUserLogout';
+$wgHooks['LoadExtensionSchemaUpdates'][] = 'SecurePollHooks::onLoadExtensionSchemaUpdates';
+$wgHooks['CanonicalNamespaces'][] = 'SecurePollHooks::onCanonicalNamespaces';
+$wgHooks['TitleQuickPermissions'][] = 'SecurePollHooks::onTitleQuickPermissions';
+$wgHooks['ContentHandlerDefaultModelFor'][] = 'SecurePollHooks::onContentHandlerDefaultModelFor';
 
 $wgJobClasses['securePollPopulateVoterList'] = 'SecurePoll_PopulateVoterListJob';
 
@@ -187,65 +192,7 @@ $wgContentHandlers['SecurePoll'] = 'SecurePollContentHandler';
 
 $wgAvailableRights[] = 'securepoll-create-poll';
 
-function wfSecurePollLogout( $user ) {
-	$_SESSION['securepoll_voter'] = null;
-	return true;
-}
-
-$wgHooks['LoadExtensionSchemaUpdates'][] = 'efSecurePollSchemaUpdates';
-
-/**
- * @param $updater DatabaseUpdater
- * @return bool
- */
-function efSecurePollSchemaUpdates( $updater ) {
-	$base = dirname( __FILE__ );
-	switch ( $updater->getDB()->getType() ) {
-		case 'mysql':
-			$updater->addExtensionTable( 'securepoll_entity', "$base/SecurePoll.sql" );
-			$updater->modifyField( 'securepoll_votes', 'vote_ip',
-				"$base/patches/patch-vote_ip-extend.sql", true );
-			$updater->addExtensionIndex( 'securepoll_options', 'spop_election',
-				"$base/patches/patch-op_election-index.sql"
-			);
-			break;
-		case 'postgres':
-			$updater->addExtensionTable( 'securepoll_entity', "$base/SecurePoll.pg.sql" );
-			break;
-	}
-	return true;
-}
-
 define( 'NS_SECUREPOLL', 830 );
 define( 'NS_SECUREPOLL_TALK', 831 );
 $wgNamespacesWithSubpages[NS_SECUREPOLL] = true;
 $wgNamespacesWithSubpages[NS_SECUREPOLL_TALK] = true;
-
-$wgHooks['CanonicalNamespaces'][] = function ( &$namespaces ) {
-	global $wgSecurePollUseNamespace;
-	if ( $wgSecurePollUseNamespace ) {
-		$namespaces[NS_SECUREPOLL] = 'SecurePoll';
-		$namespaces[NS_SECUREPOLL_TALK] = 'SecurePoll_talk';
-	}
-};
-
-$wgHooks['TitleQuickPermissions'][] = function ( $title, $user, $action, &$errors, $doExpensiveQueries, $short ) {
-	global $wgSecurePollUseNamespace;
-	if ( $wgSecurePollUseNamespace && $title->getNamespace() === NS_SECUREPOLL &&
-		$action !== 'read'
-	) {
-		$errors[] = array( 'securepoll-ns-readonly' );
-		return false;
-	}
-
-	return true;
-};
-
-$wgHooks['ContentHandlerDefaultModelFor'][] = function ( $title, &$model ) {
-	global $wgSecurePollUseNamespace;
-	if( $wgSecurePollUseNamespace && $title->getNamespace() == NS_SECUREPOLL ) {
-		$model = 'SecurePoll';
-		return false;
-	}
-	return true;
-};
