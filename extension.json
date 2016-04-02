@@ -104,7 +104,7 @@
 	},
 	"Hooks": {
 		"UserLogout": [
-			"SecurePoll::onUserLogout"
+			"SecurePollHooks::onUserLogout"
 		],
 		"LoadExtensionSchemaUpdates": [
 			"SecurePollHooks::onLoadExtensionSchemaUpdates"
