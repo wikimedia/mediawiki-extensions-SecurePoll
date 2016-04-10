@@ -10,7 +10,7 @@
 	"securepoll-need-admin": "Has de ser un alministrador de la eleición pa facer esto.",
 	"securepoll-too-few-params": "Nun hai parámetros de subpáxina bastantes (enllaz inválidu).",
 	"securepoll-invalid-election": "\"$1\" nun ye una ID d'eleición válida.",
-	"securepoll-welcome": "<strong>¡Bienveníu $1!</strong>",
+	"securepoll-welcome": "<strong>¡{{GENDER:$1|Bienveníu|Bienvenida}} $1!</strong>",
 	"securepoll-not-started": "Esta eleición entá nun principió.\nTa programada p'aniciase'l $2 a les $3.",
 	"securepoll-already-started": "Esta elección yá empezó.\nEmpezó'l $2 a les $3",
 	"securepoll-finished": "Esta eleición finó, yá nun pues votar.",

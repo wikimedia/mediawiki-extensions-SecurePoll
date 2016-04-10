@@ -12,7 +12,7 @@
 	"securepoll-need-admin": "Треба да бидете изборен администратор за да можете да го сторите тоа.",
 	"securepoll-too-few-params": "Нема доволно параметри за потстраници (неважечка врска).",
 	"securepoll-invalid-election": "„$1“ не претставува важечка назнака.",
-	"securepoll-welcome": "<strong>Добре дојдовте $1!</strong>",
+	"securepoll-welcome": "<strong>{{GENDER:$1|Добре дојдовте}} $1!</strong>",
 	"securepoll-not-started": "Изборите сè уште не се започнати.\nПредвидено е да започнат на $2 во $3 ч.",
 	"securepoll-already-started": "Овие избори веќе се во тек.\nЗапочнаа на $2 во $3 ч.",
 	"securepoll-finished": "Изборите завршија - повеќе не можете да гласате.",
