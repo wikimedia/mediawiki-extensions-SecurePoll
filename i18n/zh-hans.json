@@ -57,7 +57,7 @@
 	"securepoll-too-few-edits": "对不起，您不能投票。您必须至少进行$1次编辑才能参与本次投票，您目前的编辑数为$2。",
 	"securepoll-too-new": "对不起，您不能投票。$1，$3之前登记的帐户才能在这次选举中投票，而您登记的日期是$2，$4。",
 	"securepoll-blocked": "对不起，您目前被封禁因此无法参与本次投票。",
-	"securepoll-blocked-centrally": "对不起，由于你的帐户在至少一个{{PLURAL:$1|维基项目}}被封禁，所以你并不能在这次选举中投票。",
+	"securepoll-blocked-centrally": "对不起，由于您的帐户在至少一个{{PLURAL:$1|维基项目}}被封禁，所以您并不能在这次选举中投票。",
 	"securepoll-bot": "对不起，拥有机器人权限的账户不能参与本次投票。",
 	"securepoll-not-in-group": "只有属于“$1”用户组的用户可以投票。",
 	"securepoll-not-in-list": "对不起，您不在投票人名单中，无法参与本次投票。",
