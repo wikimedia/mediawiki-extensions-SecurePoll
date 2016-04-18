@@ -76,7 +76,7 @@ $specialPageAliases['et'] = array(
 
 /** Persian (فارسی) */
 $specialPageAliases['fa'] = array(
-	'SecurePoll' => array( 'رأی‌گیری_ایمن' ),
+	'SecurePoll' => array( 'نظرسنجی_امن', 'رأی‌گیری_ایمن' ),
 );
 
 /** Finnish (suomi) */
