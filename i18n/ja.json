@@ -8,7 +8,8 @@
 			"Schu",
 			"Shirayuki",
 			"青子守歌",
-			"Sujiniku"
+			"Sujiniku",
+			"Otokoume"
 		]
 	},
 	"securepoll": "暗号投票",
@@ -155,6 +156,7 @@
 	"securepoll-edit-edited-text": "投票所を編集しました。",
 	"securepoll-votereligibility-label-names": "利用者名",
 	"securepoll-votereligibility-label-comment": "理由",
+	"securepoll-votereligibility-action": "設定を保存",
 	"securepoll-votereligibility-saved": "{{int:securepoll}}: 保存しました",
 	"securepoll-votereligibility-saved-text": "変更内容を保存しました。",
 	"right-securepoll-create-poll": "投票所を作成",
