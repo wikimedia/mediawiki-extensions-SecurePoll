@@ -73,7 +73,7 @@
 	"securepoll-header-reason": "Rason",
 	"securepoll-header-admin": "Administrator",
 	"securepoll-cookie-dup-list": "Utilizaires qu'an un cookie ja rencontrat",
-	"securepoll-dump-title": "Extrach : $1",
+	"securepoll-dump-title": "Extrait : $1",
 	"securepoll-dump-no-crypt": "Las donadas chifradas son pas disponiblas per aquesta eleccion, perque l’eleccion es pas configurada per utilizar un chiframent.",
 	"securepoll-dump-not-finished": "Las donadas criptadas son disponiblas solament aprèp la clausura de l'eleccion lo $1 a $2",
 	"securepoll-dump-no-urandom": "Impossible de dobrir /dev/urandom.\nPer manténer la confidencialitat dels votants, las donadas criptadas son disponiblas sonque se pòdon èsser reboladas amb un nombre de caractèrs aleatòris.",
