@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Amir a57",
-			"Mousa"
+			"Mousa",
+			"Alp Er Tunqa"
 		]
 	},
 	"securepoll": "امن رای‌گیری لیک",
@@ -23,7 +24,7 @@
 	"securepoll-strike-button": "ایشاره‌له",
 	"securepoll-unstrike-button": "ایشاره‌لمه",
 	"securepoll-strike-reason": "ندن:",
-	"securepoll-strike-cancel": "لغو ائت",
+	"securepoll-strike-cancel": "وازگئچ",
 	"securepoll-details-link": "دئتال‌لار",
 	"securepoll-voter-properties": "زای وئرن لرین خصوصیت‌لری",
 	"securepoll-strike-log": "ایشاره‌لمه گونده‌لیگی",

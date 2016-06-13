@@ -62,7 +62,7 @@
 	"securepoll-strike-reason": "Rason :",
 	"securepoll-strike-cancel": "Anullar",
 	"securepoll-strike-error": "Error al moment del (des)raiatge : $1",
-	"securepoll-strike-token-mismatch": "Pèrta de donadas de sesilha",
+	"securepoll-strike-token-mismatch": "Pèrda de donadas de session",
 	"securepoll-details-link": "Detalhs",
 	"securepoll-details-title": "Detalhs del vòte : #$1",
 	"securepoll-invalid-vote": "« $1 » es pas un ID de vòte valid",
