@@ -90,6 +90,7 @@
 	"securepoll-subpage-vote": "Vòte",
 	"securepoll-subpage-translate": "Traduire",
 	"securepoll-subpage-list": "Lista",
+	"securepoll-subpage-edit": "Modificar",
 	"securepoll-subpage-dump": "Dump",
 	"securepoll-subpage-tally": "Comptatge",
 	"securepoll-tally-title": "Comptatge : $1",
