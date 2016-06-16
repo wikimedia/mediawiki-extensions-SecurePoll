@@ -10,7 +10,7 @@
 	"securepoll-need-admin": "איר דארפט זיין א וואלן אדמיניסטראטאר אדורכצופירן די פעולה.",
 	"securepoll-too-few-params": "נישט גענוג אונטערבלאט פאראמעטערס (אומגילטיקער לינק).",
 	"securepoll-invalid-election": "\"$1\" איז נישט קיין גילטיקער אפשטימונג  ID.",
-	"securepoll-welcome": "<strong>ברוך הבא, $1!</strong>",
+	"securepoll-welcome": "<strong>{{GENDER:$1|ברוך הבא}}, $1!</strong>",
 	"securepoll-not-started": "די אפשטימונג האט נאך נישט אנגעהויבן.\nזי איז באשטימט אנצוהייבן אום $2 אזייגער $3.",
 	"securepoll-finished": "די אפשטימונג האט שוין געקאנטשעט, איר קענט מער נישט אפשטימען.",
 	"securepoll-not-qualified": "איר זענט נישט קוואליפֿיצירט צו שטימען אין די וואלן: $1",
