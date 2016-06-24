@@ -4,7 +4,8 @@
 			"Aspar",
 			"Erdemaslancan",
 			"Mirzali",
-			"Xoser"
+			"Xoser",
+			"Kumkumuk"
 		]
 	},
 	"securepoll": "Anketo bawerbiyaye",
@@ -64,7 +65,7 @@
 	"securepoll-strike-button": "serê ey de xetek bıanc.",
 	"securepoll-unstrike-button": "serê ey de xetek meanc.",
 	"securepoll-strike-reason": "Sebeb:",
-	"securepoll-strike-cancel": "Bıtexelne",
+	"securepoll-strike-cancel": "Peyd ke",
 	"securepoll-strike-error": "serê ey de xeta bıanc/meanc ardene ca  xeta da: $1",
 	"securepoll-strike-token-mismatch": "Melumatê hesabi biyo vindi",
 	"securepoll-details-link": "teferruati",
