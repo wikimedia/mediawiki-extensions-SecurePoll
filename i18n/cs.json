@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Mormegil",
-			"Vks"
+			"Vks",
+			"Dvorapa"
 		]
 	},
 	"securepoll": "Bezpečné hlasování",
@@ -45,7 +46,7 @@
 	"securepoll-too-new": "Je nám líto, ale nemůžete hlasovat. Pro účast v tomto hlasování by váš účet musel být založen před $3, $1, {{gender:|zaregistroval|zaregistrovala|zaregistrovali}} jste se však v $4, $2.",
 	"securepoll-blocked": "Promiňte, ale nemůžete se zúčastnit tohoto hlasování, pokud je vám momentálně zablokována editace.",
 	"securepoll-blocked-centrally": "Je nám líto, ale tohoto hlasování se nemůžete zúčastnit, neboť jste {{gender:|blokován|blokována|blokováni}} na nejméně $1 wiki.",
-	"securepoll-bot": "Promiňte, ale účty s příznakem bot se nemohou tohoto hlasování účastnit.",
+	"securepoll-bot": "Promiňte, ale účty s příznakem robota se nemohou účastnit tohoto hlasování.",
 	"securepoll-not-in-group": "Tohoto hlasování se mohou účastnit pouze uživatelé ve skupině „$1“.",
 	"securepoll-not-in-list": "Promiňte, ale nejste v předpřipraveném seznamu uživatelů oprávněných zúčasnit se tohoto hlasování.",
 	"securepoll-list-title": "Seznam hlasů – $1",
