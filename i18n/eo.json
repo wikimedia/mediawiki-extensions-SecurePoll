@@ -4,7 +4,8 @@
 			"ArnoLagrange",
 			"Marcos",
 			"ThomasPusch",
-			"Yekrats"
+			"Yekrats",
+			"Robin van der Vliet"
 		]
 	},
 	"securepoll": "Sekura Enketo",
@@ -117,5 +118,5 @@
 	"securepoll-create-label-questions-question": "Teksto de demando:",
 	"securepoll-create-label-questions-add": "Aldoni plian demandon",
 	"securepoll-create-label-questions-delete": "Forigi demandon",
-	"securepoll-votereligibility-label-names": "Salutnomoj"
+	"securepoll-votereligibility-label-names": "Uzantnomoj"
 }
