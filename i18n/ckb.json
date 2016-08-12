@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Calak"
+			"Calak",
+			"Sarchia"
 		]
 	},
 	"securepoll-header-timestamp": "کات",
@@ -10,7 +11,7 @@
 	"securepoll-header-cookie-dup": "دووپات کراو",
 	"securepoll-header-details": "وردەکارییەکان",
 	"securepoll-strike-reason": "هۆکار:",
-	"securepoll-strike-cancel": "ھەڵیوەشێنەوە",
+	"securepoll-strike-cancel": "ھەڵوەشاندنەوە",
 	"securepoll-details-link": "وردەکارییەکان",
 	"securepoll-header-id": "پێناسە",
 	"securepoll-header-reason": "هۆکار",
