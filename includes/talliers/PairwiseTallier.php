@@ -49,10 +49,11 @@ abstract class SecurePoll_PairwiseTallier extends SecurePoll_Tallier {
 				$parts = explode( ' ', $text );
 				$initials = '';
 				foreach ( $parts as $part ) {
-					if ( $part === '' || ctype_punct( $part[0] ) ) {
+					$firstLetter = mb_substr( $part, 0, 1 );
+					if ( $part === '' || ctype_punct( $firstLetter ) ) {
 						continue;
 					}
-					$initials .= $part[0];
+					$initials .= $firstLetter;
 				}
 				if ( isset( $abbrevs[$initials] ) ) {
 					$index = 2;
