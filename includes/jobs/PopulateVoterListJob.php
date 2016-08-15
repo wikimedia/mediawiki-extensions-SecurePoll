@@ -1,5 +1,7 @@
 <?php
 
+use \MediaWiki\MediaWikiServices;
+
 /**
  * Job for populating the voter list for an election.
  */
@@ -170,13 +172,17 @@ class SecurePoll_PopulateVoterListJob extends Job {
 		$max = min( $min + 500, $this->params['maxUserId'] + 1 );
 		$next = $min;
 
-		$dbw = null;
-		$dbwMaster = null;
+		/** @var Exception $exception */
+		$exception = null;
+
+		$dbwLocal = null;
+		$dbwElection = null;
+		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		try {
 			// Check if the job key changed, and abort if so.
-			$dbwMaster = wfGetDB( DB_MASTER, array(), $this->params['electionWiki'] );
-			$dbw = wfGetDB( DB_MASTER );
-			$jobKey = self::fetchJobKey( $dbwMaster, $this->params['electionId'] );
+			$dbwElection = wfGetDB( DB_MASTER, array(), $this->params['electionWiki'] );
+			$dbwLocal = wfGetDB( DB_MASTER );
+			$jobKey = self::fetchJobKey( $dbwElection, $this->params['electionId'] );
 			if ( $jobKey !== $this->params['jobKey'] ) {
 				return true;
 			}
@@ -316,25 +322,37 @@ class SecurePoll_PopulateVoterListJob extends Job {
 				);
 			}
 
-			// Check again that the jobKey didn't change, holding a lock this time.
-			$dbwMaster->begin( __METHOD__ );
-			$dbwMaster->lock( "SecurePoll_PopulateVoterListJob-{$this->params['electionId']}", __METHOD__ );
-			$dbw->begin( __METHOD__ );
+			// Flush any prior REPEATABLE-READ snapshots so the locking below works
+			$lbFactory->commitMasterChanges( __METHOD__ );
 
-			$jobKey = self::fetchJobKey( $dbwMaster, $this->params['electionId'] );
+			// Check again that the jobKey didn't change, holding a lock this time...
+			$lockKey = "SecurePoll_PopulateVoterListJob-{$this->params['electionId']}";
+			$lockMethod = __METHOD__;
+			if ( !$dbwElection->lock( $lockKey, $lockMethod, 30 ) ) {
+				throw new RuntimeException( "Could not acquire '$lockKey'." );
+			}
+			$dbwElection->startAtomic( __METHOD__ );
+			$dbwElection->onTransactionResolution(
+				function () use ( $dbwElection, $lockKey, $lockMethod ) {
+					$dbwElection->unlock( $lockKey, $lockMethod );
+				}
+			);
+			$dbwLocal->startAtomic( __METHOD__ );
+
+			$jobKey = self::fetchJobKey( $dbwElection, $this->params['electionId'] );
 			if ( $jobKey === $this->params['jobKey'] ) {
-				$dbw->delete( 'securepoll_lists', array(
+				$dbwLocal->delete( 'securepoll_lists', array(
 					'li_name' => $this->params['need-list'],
 					"li_member >= $min",
 					"li_member < $max",
 				) );
-				$dbw->insert( 'securepoll_lists', $ins );
+				$dbwLocal->insert( 'securepoll_lists', $ins );
 
-				$count = $dbwMaster->selectField( 'securepoll_properties', 'pr_value', array(
+				$count = $dbwElection->selectField( 'securepoll_properties', 'pr_value', array(
 					'pr_entity' => $this->params['electionId'],
 					'pr_key' => 'list_complete-count',
 				) );
-				$dbwMaster->update(
+				$dbwElection->update(
 					'securepoll_properties',
 					array(
 						'pr_value' => $count + $max - $min,
@@ -346,26 +364,14 @@ class SecurePoll_PopulateVoterListJob extends Job {
 				);
 			}
 
-			$dbw->commit( __METHOD__ );
-			$dbwMaster->unlock( "SecurePoll_PopulateVoterListJob-{$this->params['electionId']}", __METHOD__ );
-			$dbwMaster->commit( __METHOD__ );
+			$dbwLocal->endAtomic( __METHOD__ );
+			$dbwElection->endAtomic( __METHOD__ );
+			// Commit now so the jobs pushed below see any changes from above
+			$lbFactory->commitMasterChanges( __METHOD__ );
 
 			$next = $max;
-		} catch ( Exception $ex ) {
-			if ( $ex instanceof MWException ) {
-				MWExceptionHandler::logException( $ex );
-			}
-			if ( $dbwMaster ) {
-				try {
-					$dbwMaster->unlock( "SecurePoll_PopulateVoterListJob-{$this->params['electionId']}", __METHOD__ );
-					$dbwMaster->rollback( __METHOD__, 'flush' );
-				} catch ( Exception $ex2 ) {}
-			}
-			if ( $dbw ) {
-				try {
-					$dbw->rollback( __METHOD__, 'flush' );
-				} catch ( Exception $ex2 ) {}
-			}
+		} catch ( Exception $exception ) {
+			MWExceptionHandler::rollbackMasterChangesAndLog( $exception );
 		}
 
 		// Schedule the next run of this job, if necessary
