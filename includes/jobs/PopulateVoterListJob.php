@@ -19,6 +19,7 @@ class SecurePoll_PopulateVoterListJob extends Job {
 		);
 
 		$dbw = $election->context->getDB();
+		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 
 		// First, fetch the current config and calculate a hash of it for
 		// detecting changes
@@ -85,82 +86,85 @@ class SecurePoll_PopulateVoterListJob extends Job {
 		$maxIds = array();
 		$total = 0;
 		foreach ( $wikis as $wiki ) {
-			$dbr = wfGetDB( DB_SLAVE, array(), $wiki );
+			$dbr = wfGetLB( $wiki )->getConnectionRef( DB_SLAVE, [], $wiki );
 			$max = $dbr->selectField( 'user', 'MAX(user_id)' );
 			if ( !$max ) {
 				$max = 0;
 			}
 			$maxIds[$wiki] = $max;
 			$total += $max;
+			unset( $dbr ); // reuse connection
 		}
 
 		// Start the jobs!
 		$title = SpecialPage::getTitleFor( 'SecurePoll' );
-		try {
-			$dbw->begin( __METHOD__ );
-			$dbw->lock( "SecurePoll_PopulateVoterListJob-{$election->getID()}", __METHOD__ );
+		$lockKey = "SecurePoll_PopulateVoterListJob-{$election->getID()}";
+		$lockMethod = __METHOD__;
 
-			// If the same job is (supposed to be) already running, don't restart it
-			$jobKey = self::fetchJobKey( $dbw, $election->getID() );
-			if ( $params['jobKey'] === $jobKey ) {
-				$dbw->rollback( __METHOD__ );
-				return;
-			}
+		// Clear any transaction snapshots, acquire a mutex, and start a new transaction
+		$lbFactory->commitMasterChanges( __METHOD__ );
+		$dbw->lock( $lockKey, $lockMethod );
+		$dbw->startAtomic( __METHOD__ );
+		$dbw->onTransactionResolution( function () use ( $dbw, $lockKey, $lockMethod ) {
+			$dbw->unlock( $lockKey, $lockMethod );
+		} );
 
-			// Record the new job key (which will cause any outdated jobs to
-			// abort) and the progress figures.
-			$dbw->replace(
-				'securepoll_properties',
-				array( 'pr_entity', 'pr_key' ),
-				array(
-					array(
-						'pr_entity' => $election->getID(),
-						'pr_key' => 'list_job-key',
-						'pr_value' => $params['jobKey'],
-					),
-					array(
-						'pr_entity' => $election->getID(),
-						'pr_key' => 'list_total-count',
-						'pr_value' => $total,
-					),
-					array(
-						'pr_entity' => $election->getID(),
-						'pr_key' => 'list_complete-count',
-						'pr_value' => 0,
-					),
-				)
-			);
-
-			foreach ( $wikis as $wiki ) {
-				$params['maxUserId'] = $maxIds[$wiki];
-				$params['thisWiki'] = $wiki;
-
-				$jobQueueGroup = JobQueueGroup::singleton( $wiki );
-
-				// If possible, delay the job execution in case the user
-				// immediately re-edits.
-				$jobQueue = $jobQueueGroup->get( 'securePollPopulateVoterList' );
-				if ( $jobQueue->delayedJobsEnabled() ) {
-					$params['jobReleaseTimestamp'] = time() + 3600;
-				} else {
-					unset( $params['jobReleaseTimestamp'] );
-				}
-
-				$jobQueueGroup->push( new JobSpecification(
-					'securePollPopulateVoterList',
-					$params,
-					array(),
-					$title
-				) );
-			}
-
-			$dbw->unlock( "SecurePoll_PopulateVoterListJob-{$election->getID()}", __METHOD__ );
-			$dbw->commit( __METHOD__ );
-		} catch ( Exception $ex ) {
-			$dbw->unlock( "SecurePoll_PopulateVoterListJob-{$election->getID()}", __METHOD__ );
-			$dbw->rollback( __METHOD__ );
-			throw $ex;
+		// If the same job is (supposed to be) already running, don't restart it
+		$jobKey = self::fetchJobKey( $dbw, $election->getID() );
+		if ( $params['jobKey'] === $jobKey ) {
+			$dbw->endAtomic( __METHOD__ );
+			return;
 		}
+
+		// Record the new job key (which will cause any outdated jobs to
+		// abort) and the progress figures.
+		$dbw->replace(
+			'securepoll_properties',
+			array( 'pr_entity', 'pr_key' ),
+			array(
+				array(
+					'pr_entity' => $election->getID(),
+					'pr_key' => 'list_job-key',
+					'pr_value' => $params['jobKey'],
+				),
+				array(
+					'pr_entity' => $election->getID(),
+					'pr_key' => 'list_total-count',
+					'pr_value' => $total,
+				),
+				array(
+					'pr_entity' => $election->getID(),
+					'pr_key' => 'list_complete-count',
+					'pr_value' => 0,
+				),
+			)
+		);
+
+		foreach ( $wikis as $wiki ) {
+			$params['maxUserId'] = $maxIds[$wiki];
+			$params['thisWiki'] = $wiki;
+
+			$jobQueueGroup = JobQueueGroup::singleton( $wiki );
+
+			// If possible, delay the job execution in case the user
+			// immediately re-edits.
+			$jobQueue = $jobQueueGroup->get( 'securePollPopulateVoterList' );
+			if ( $jobQueue->delayedJobsEnabled() ) {
+				$params['jobReleaseTimestamp'] = time() + 3600;
+			} else {
+				unset( $params['jobReleaseTimestamp'] );
+			}
+
+			$jobQueueGroup->push( new JobSpecification(
+				'securePollPopulateVoterList',
+				$params,
+				array(),
+				$title
+			) );
+		}
+
+		$dbw->endAtomic( __METHOD__ );
+		$lbFactory->commitMasterChanges( __METHOD__ );
 	}
 
 	public function __construct( $title, $params ) {

@@ -98,47 +98,52 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 				$dbw = $this->context->getDB();
 			} else {
 				$lb = wfGetLB( $dbname );
-				$dbw = $lb->getConnection( DB_MASTER, array(), $dbname );
-			}
-			try {
-				$dbw->begin( __METHOD__ );
-				$id = $dbw->selectField( 'securepoll_elections', 'el_entity', array(
-					'el_title' => $this->election->title
-				) );
-				if ( $id ) {
-					$ins = array();
-					foreach ( $properties as $key => $value ) {
-						$ins[] = array(
-							'pr_entity' => $id,
-							'pr_key' => $key,
-							'pr_value' => $value,
-						);
+				unset( $dbw ); // trigger DBConnRef destruction and connection reuse
+				$dbw = $lb->getConnectionRef( DB_MASTER, array(), $dbname );
+				try {
+					// Connect to the DB and check if the LB is in read-only mode
+					if ( $dbw->isReadOnly() ) {
+						continue;
 					}
+				} catch ( DBConnectionError $e ) {
+					MWExceptionHandler::logException( $e );
+					continue;
+				}
+			}
 
-					$dbw->delete( 'securepoll_properties',
-						array(
-							'pr_entity' => $id,
-							'pr_key' => array_merge( $delete, array_keys( $properties ) ),
-						)
+			$dbw->startAtomic( __METHOD__ );
+
+			$id = $dbw->selectField(
+				'securepoll_elections',
+				'el_entity',
+				[ 'el_title' => $this->election->title ],
+				__METHOD__
+			);
+			if ( $id ) {
+				$ins = array();
+				foreach ( $properties as $key => $value ) {
+					$ins[] = array(
+						'pr_entity' => $id,
+						'pr_key' => $key,
+						'pr_value' => $value,
 					);
+				}
 
-					if ( $ins ) {
-						$dbw->insert( 'securepoll_properties', $ins );
-					}
+				$dbw->delete(
+					'securepoll_properties',
+					[
+						'pr_entity' => $id,
+						'pr_key' => array_merge( $delete, array_keys( $properties ) ),
+					],
+					__METHOD__
+				);
+
+				if ( $ins ) {
+					$dbw->insert( 'securepoll_properties', $ins );
 				}
-				$dbw->commit( __METHOD__ );
-			} catch ( Exception $ex ) {
-				$dbw->rollback( __METHOD__ );
-				// If it's for the local wiki, rethrow. Otherwise, just log but
-				// still update the jump wikis.
-				if ( $dbname === $localWiki ) {
-					throw $ex;
-				}
-				MWExceptionHandler::logException( $ex );
 			}
-			if ( $dbname !== $localWiki ) {
-				$lb->reuseConnection( $dbw );
-			}
+
+			$dbw->endAtomic( __METHOD__ );
 		}
 
 		// Record this election to the SecurePoll namespace, if so configured.
@@ -251,60 +256,61 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 			if ( $dbname === $localWiki ) {
 				$dbw = $this->context->getDB();
 			} else {
-				$lb = wfGetLB( $dbname );
-				$dbw = $lb->getConnection( DB_MASTER, array(), $dbname );
+				unset( $dbw ); // trigger DBConnRef destruction and connection reuse
+				$dbw = wfGetLB( $dbname )->getConnectionRef( DB_MASTER, array(), $dbname );
+				try {
+					// Connect to the DB and check if the LB is in read-only mode
+					if ( $dbw->isReadOnly() ) {
+						continue;
+					}
+				} catch ( DBConnectionError $e ) {
+					MWExceptionHandler::logException( $e );
+					continue;
+				}
 			}
-			try {
-				$dbw->begin( __METHOD__ );
 
-				$id = $dbw->selectField( 'securepoll_elections', 'el_entity', array(
-					'el_title' => $this->election->title
-				) );
-				if ( $id ) {
-					$dbw->replace( 'securepoll_properties',
-						array( 'pr_entity', 'pr_key' ),
-						array(
-							'pr_entity' => $id,
-							'pr_key' => $property,
-							'pr_value' => $list,
-						)
+			$dbw->startAtomic( __METHOD__ );
+
+			$id = $dbw->selectField(
+				'securepoll_elections',
+				'el_entity',
+				[ 'el_title' => $this->election->title ],
+				__METHOD__
+			);
+			if ( $id ) {
+				$dbw->replace(
+					'securepoll_properties',
+					[ 'pr_entity', 'pr_key' ],
+					[
+						'pr_entity' => $id,
+						'pr_key' => $property,
+						'pr_value' => $list,
+					],
+					__METHOD__
+				);
+
+				if ( isset( $wikiNames[$dbname] ) ) {
+					$queryNames = array_merge( $wikiNames['*'], $wikiNames[$dbname] );
+				} else {
+					$queryNames = $wikiNames['*'];
+				}
+
+				$dbw->delete( 'securepoll_lists', [ 'li_name' => $list ], __METHOD__ );
+				if ( $queryNames ) {
+					$dbw->insertSelect(
+						'securepoll_lists',
+						'user',
+						[
+							'li_name' => $dbw->addQuotes( $list ),
+							'li_member' => 'user_id'
+						],
+						[ 'user_name' => $queryNames ],
+						__METHOD__
 					);
-
-					if ( isset( $wikiNames[$dbname] ) ) {
-						$queryNames = array_merge( $wikiNames['*'], $wikiNames[$dbname] );
-					} else {
-						$queryNames = $wikiNames['*'];
-					}
-
-					$dbw->delete( 'securepoll_lists', array( 'li_name' => $list ) );
-					if ( $queryNames ) {
-						$dbw->insertSelect(
-							'securepoll_lists',
-							'user',
-							array(
-								'li_name' => $dbw->addQuotes( $list ),
-								'li_member' => 'user_id'
-							),
-							array(
-								'user_name' => $queryNames,
-							)
-						);
-					}
 				}
+			}
 
-				$dbw->commit( __METHOD__ );
-			} catch ( Exception $ex ) {
-				$dbw->rollback( __METHOD__ );
-				// If it's for the local wiki, rethrow. Otherwise, just log but
-				// still update the jump wikis.
-				if ( $dbname === $localWiki ) {
-					throw $ex;
-				}
-				MWExceptionHandler::logException( $ex );
-			}
-			if ( $dbname !== $localWiki ) {
-				$lb->reuseConnection( $dbw );
-			}
+			$dbw->endAtomic( __METHOD__ );
 		}
 
 		// Record this election to the SecurePoll namespace, if so configured.
@@ -713,7 +719,14 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 		$this->saveProperties( $properties, $deleteProperties, $formData['comment'] );
 
 		if ( $populate ) {
-			SecurePoll_PopulateVoterListJob::pushJobsForElection( $this->election );
+			// Run pushJobsForElection() in a deferred update to give it outer transaction
+			// scope, but keep it presend, so that any errors bubble up to the user.
+			DeferredUpdates::addCallableUpdate(
+				function () {
+					SecurePoll_PopulateVoterListJob::pushJobsForElection( $this->election );
+				},
+				DeferredUpdates::PRESEND
+			);
 		}
 
 		return Status::newGood();
@@ -828,50 +841,39 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 				$dbw = $this->context->getDB();
 			} else {
 				$lb = wfGetLB( $dbname );
-				$dbw = $lb->getConnection( DB_MASTER, array(), $dbname );
+				unset( $dbw ); // trigger DBConnRef destruction and connection reuse
+				$dbw = $lb->getConnectionRef( DB_MASTER, array(), $dbname );
 			}
-			try {
-				$dbw->begin( __METHOD__ );
 
-				$id = $dbw->selectField( 'securepoll_elections', 'el_entity', array(
-					'el_title' => $this->election->title
+			$dbw->startAtomic( __METHOD__ );
+
+			$id = $dbw->selectField( 'securepoll_elections', 'el_entity', array(
+				'el_title' => $this->election->title
+			) );
+			if ( $id ) {
+				$list = $dbw->selectField( 'securepoll_properties', 'pr_value', array(
+					'pr_entity' => $id,
+					'pr_key' => $property,
 				) );
-				if ( $id ) {
-					$list = $dbw->selectField( 'securepoll_properties', 'pr_value', array(
+				if ( $list ) {
+					$dbw->delete( 'securepoll_lists', array( 'li_name' => $list ) );
+					$dbw->delete( 'securepoll_properties',
+						array( 'pr_entity' => $id, 'pr_key' => $property ) );
+				}
+
+				if ( $which === 'voter' ) {
+					$dbw->delete( 'securepoll_properties', array(
 						'pr_entity' => $id,
-						'pr_key' => $property,
+						'pr_key' => array(
+							'list_populate', 'list_job-key',
+							'list_total-count', 'list_complete-count',
+							'list_job-key',
+						),
 					) );
-					if ( $list ) {
-						$dbw->delete( 'securepoll_lists', array( 'li_name' => $list ) );
-						$dbw->delete( 'securepoll_properties',
-							array( 'pr_entity' => $id, 'pr_key' => $property ) );
-					}
-
-					if ( $which === 'voter' ) {
-						$dbw->delete( 'securepoll_properties', array(
-							'pr_entity' => $id,
-							'pr_key' => array(
-								'list_populate', 'list_job-key',
-								'list_total-count', 'list_complete-count',
-								'list_job-key',
-							),
-						) );
-					}
 				}
+			}
 
-				$dbw->commit( __METHOD__ );
-			} catch ( Exception $ex ) {
-				$dbw->rollback( __METHOD__ );
-				// If it's for the local wiki, rethrow. Otherwise, just log but
-				// still update the jump wikis.
-				if ( $dbname === $localWiki ) {
-					throw $ex;
-				}
-				MWExceptionHandler::logException( $ex );
-			}
-			if ( $dbname !== $localWiki ) {
-				$lb->reuseConnection( $dbw );
-			}
+			$dbw->endAtomic( __METHOD__ );
 		}
 
 		// Record this election to the SecurePoll namespace, if so configured.
