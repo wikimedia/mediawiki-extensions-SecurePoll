@@ -109,6 +109,7 @@ class SecurePoll_Context {
 	/**
 	 * Get an election object from the store, with a given entity ID. Returns
 	 * false if it does not exist.
+	 * @return SecurePoll_Election
 	 */
 	function getElection( $id ) {
 		if( !isset( $this->electionCache[$id] ) ) {
@@ -125,6 +126,7 @@ class SecurePoll_Context {
 	/**
 	 * Get an election object from the store, with a given name. Returns false
 	 * if there is no such election.
+	 * @return SecurePoll_Election
 	 */
 	function getElectionByTitle( $name ) {
 		$info = $this->getStore()->getElectionInfoByTitle( array( $name ) );
@@ -138,6 +140,7 @@ class SecurePoll_Context {
 	/**
 	 * Get an election object from a securepoll_elections DB row. This will fail
 	 * if the current store class does not support database operations.
+	 * @return SecurePoll_Election
 	 */
 	function newElectionFromRow( $row ) {
 		$info = $this->getStore()->decodeElectionRow( $row );

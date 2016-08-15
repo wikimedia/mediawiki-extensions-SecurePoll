@@ -7,6 +7,8 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 	/**
 	 * Execute the subpage.
 	 * @param $params array Array of subpage parameters.
+	 * @throws MWException
+	 * @throws PermissionsError
 	 */
 	function execute( $params ) {
 		global $wgSecurePollCreateWikiGroupDir, $wgSecurePollCreateWikiGroups;
@@ -380,13 +382,15 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 			}
 
 			$dbw = $this->context->getDB();
-			$properties = array();
-			$messages = array();
 
 			// Check for duplicate titles on the local wiki
-			$id = $dbw->selectField( 'securepoll_elections', 'el_entity', array(
-				'el_title' => $election->title
-			), __METHOD__, array( 'FOR UPDATE' ) );
+			$id = $dbw->selectField(
+				'securepoll_elections',
+				'el_entity',
+				[ 'el_title' => $election->title ],
+				__METHOD__,
+				[ 'FOR UPDATE' ]
+			);
 			if ( $id && (int)$id !== $election->getId() ) {
 				throw new SecurePoll_StatusException( 'securepoll-create-duplicate-title',
 					SecurePoll_FormStore::getWikiName( wfWikiId() ), wfWikiID()
@@ -413,121 +417,118 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 							'p2.pr_value' => wfWikiID(),
 						)
 					);
-
 					// Test for duplicate title
 					$id = $rdbw->selectField( 'securepoll_elections', 'el_entity', array(
 						'el_title' => $formData['election_title']
 					) );
+
+					$lb->reuseConnection( $rdbw );
+
 					if ( $id && $id !== $rId ) {
 						throw new SecurePoll_StatusException( 'securepoll-create-duplicate-title',
 							SecurePoll_FormStore::getWikiName( $dbname ), $dbname
 						);
 					}
-					$lb->reuseConnection( $rdbw );
 				}
-			}
-
-			// Ok, begin the actual work
-			$dbw->begin( __METHOD__ );
-			try {
-				if ( $election->getId() > 0 ) {
-					$id = $dbw->selectField( 'securepoll_elections', 'el_entity', array(
-						'el_entity' => $election->getId()
-					), __METHOD__, array( 'FOR UPDATE' ) );
-					if ( !$id ) {
-						return Status::newFatal( 'securepoll-create-fail-id-missing' );
-					}
-				}
-
-				// Insert or update the election entity
-				$fields = array(
-					'el_title' => $election->title,
-					'el_ballot' => $election->ballotType,
-					'el_tally' => $election->tallyType,
-					'el_primary_lang' => $election->getLanguage(),
-					'el_start_date' => $dbw->timestamp( $election->getStartDate() ),
-					'el_end_date' => $dbw->timestamp( $election->getEndDate() ),
-					'el_auth_type' => $election->authType,
-				);
-				if ( $election->getId() < 0 ) {
-					$eId = self::insertEntity( $dbw, 'election' );
-					$qIds = array();
-					$oIds = array();
-					$fields['el_entity'] = $eId;
-					$dbw->insert( 'securepoll_elections', $fields, __METHOD__ );
-				} else {
-					$eId = $election->getId();
-					$dbw->update( 'securepoll_elections', $fields, array( 'el_entity' => $eId ), __METHOD__ );
-
-					// Delete any questions or options that weren't included in the
-					// form submission.
-					$qIds = array();
-					$res = $dbw->select( 'securepoll_questions', 'qu_entity', array( 'qu_election' => $eId ) );
-					foreach ( $res as $row ) {
-						$qIds[] = $row->qu_entity;
-					}
-					$oIds = array();
-					$res = $dbw->select( 'securepoll_options', 'op_entity', array( 'op_election' => $eId ) );
-					foreach ( $res as $row ) {
-						$oIds[] = $row->op_entity;
-					}
-					$deleteIds = array_merge(
-						array_diff( $qIds, $store->qIds ),
-						array_diff( $oIds, $store->oIds )
-					);
-					if ( $deleteIds ) {
-						$dbw->delete( 'securepoll_msgs', array( 'msg_entity' => $deleteIds ), __METHOD__ );
-						$dbw->delete( 'securepoll_properties', array( 'pr_entity' => $deleteIds ), __METHOD__ );
-						$dbw->delete( 'securepoll_questions', array( 'qu_entity' => $deleteIds ), __METHOD__ );
-						$dbw->delete( 'securepoll_options', array( 'op_entity' => $deleteIds ), __METHOD__ );
-						$dbw->delete( 'securepoll_entity', array( 'en_id' => $deleteIds ), __METHOD__ );
-					}
-				}
-				self::savePropertiesAndMessages( $dbw, $eId, $election );
-
-				// Now do questions and options
-				$qIndex = 0;
-				foreach ( $election->getQuestions() as $question ) {
-					$qId = $question->getId();
-					if ( !in_array( $qId, $qIds ) ) {
-						$qId = self::insertEntity( $dbw, 'question' );
-					}
-					$dbw->replace( 'securepoll_questions',
-						array( 'qu_entity' ),
-						array(
-							'qu_entity' => $qId,
-							'qu_election' => $eId,
-							'qu_index' => ++$qIndex,
-						),
-						__METHOD__
-					);
-					self::savePropertiesAndMessages( $dbw, $qId, $question );
-
-					foreach ( $question->getOptions() as $option ) {
-						$oId = $option->getId();
-						if ( !in_array( $oId, $oIds ) ) {
-							$oId = self::insertEntity( $dbw, 'option' );
-						}
-						$dbw->replace( 'securepoll_options',
-							array( 'op_entity' ),
-							array(
-								'op_entity' => $oId,
-								'op_election' => $eId,
-								'op_question' => $qId,
-							),
-							__METHOD__
-						);
-						self::savePropertiesAndMessages( $dbw, $oId, $option );
-					}
-				}
-				$dbw->commit( __METHOD__ );
-			} catch ( Exception $ex ) {
-				$dbw->rollback( __METHOD__ );
-				throw $ex;
 			}
 		} catch ( SecurePoll_StatusException $ex ) {
 			return $ex->status;
 		}
+
+		// Ok, begin the actual work
+		$dbw->startAtomic( __METHOD__ );
+		if ( $election->getId() > 0 ) {
+			$id = $dbw->selectField( 'securepoll_elections', 'el_entity', array(
+				'el_entity' => $election->getId()
+			), __METHOD__, array( 'FOR UPDATE' ) );
+			if ( !$id ) {
+				$dbw->endAtomic( __METHOD__ );
+				return Status::newFatal( 'securepoll-create-fail-id-missing' );
+			}
+		}
+
+		// Insert or update the election entity
+		$fields = array(
+			'el_title' => $election->title,
+			'el_ballot' => $election->ballotType,
+			'el_tally' => $election->tallyType,
+			'el_primary_lang' => $election->getLanguage(),
+			'el_start_date' => $dbw->timestamp( $election->getStartDate() ),
+			'el_end_date' => $dbw->timestamp( $election->getEndDate() ),
+			'el_auth_type' => $election->authType,
+		);
+		if ( $election->getId() < 0 ) {
+			$eId = self::insertEntity( $dbw, 'election' );
+			$qIds = array();
+			$oIds = array();
+			$fields['el_entity'] = $eId;
+			$dbw->insert( 'securepoll_elections', $fields, __METHOD__ );
+		} else {
+			$eId = $election->getId();
+			$dbw->update( 'securepoll_elections', $fields, array( 'el_entity' => $eId ), __METHOD__ );
+
+			// Delete any questions or options that weren't included in the
+			// form submission.
+			$qIds = array();
+			$res = $dbw->select( 'securepoll_questions', 'qu_entity', array( 'qu_election' => $eId ) );
+			foreach ( $res as $row ) {
+				$qIds[] = $row->qu_entity;
+			}
+			$oIds = array();
+			$res = $dbw->select( 'securepoll_options', 'op_entity', array( 'op_election' => $eId ) );
+			foreach ( $res as $row ) {
+				$oIds[] = $row->op_entity;
+			}
+			$deleteIds = array_merge(
+				array_diff( $qIds, $store->qIds ),
+				array_diff( $oIds, $store->oIds )
+			);
+			if ( $deleteIds ) {
+				$dbw->delete( 'securepoll_msgs', array( 'msg_entity' => $deleteIds ), __METHOD__ );
+				$dbw->delete( 'securepoll_properties', array( 'pr_entity' => $deleteIds ), __METHOD__ );
+				$dbw->delete( 'securepoll_questions', array( 'qu_entity' => $deleteIds ), __METHOD__ );
+				$dbw->delete( 'securepoll_options', array( 'op_entity' => $deleteIds ), __METHOD__ );
+				$dbw->delete( 'securepoll_entity', array( 'en_id' => $deleteIds ), __METHOD__ );
+			}
+		}
+		self::savePropertiesAndMessages( $dbw, $eId, $election );
+
+		// Now do questions and options
+		$qIndex = 0;
+		foreach ( $election->getQuestions() as $question ) {
+			$qId = $question->getId();
+			if ( !in_array( $qId, $qIds ) ) {
+				$qId = self::insertEntity( $dbw, 'question' );
+			}
+			$dbw->replace( 'securepoll_questions',
+				array( 'qu_entity' ),
+				array(
+					'qu_entity' => $qId,
+					'qu_election' => $eId,
+					'qu_index' => ++$qIndex,
+				),
+				__METHOD__
+			);
+			self::savePropertiesAndMessages( $dbw, $qId, $question );
+
+			foreach ( $question->getOptions() as $option ) {
+				$oId = $option->getId();
+				if ( !in_array( $oId, $oIds ) ) {
+					$oId = self::insertEntity( $dbw, 'option' );
+				}
+				$dbw->replace( 'securepoll_options',
+					array( 'op_entity' ),
+					array(
+						'op_entity' => $oId,
+						'op_election' => $eId,
+						'op_question' => $qId,
+					),
+					__METHOD__
+				);
+				self::savePropertiesAndMessages( $dbw, $oId, $option );
+			}
+		}
+		$dbw->endAtomic( __METHOD__ );
 
 		// Create the "redirect" polls on all the local wikis
 		if ( $store->rId ) {
@@ -535,52 +536,47 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 			foreach ( $store->remoteWikis as $dbname ) {
 				$lb = wfGetLB( $dbname );
 				$dbw = $lb->getConnection( DB_MASTER, array(), $dbname );
-				$dbw->begin( __METHOD__ );
-				try {
-					// Find an existing dummy election, if any
-					$rId = $dbw->selectField(
-						array( 'p1' => 'securepoll_properties', 'p2' => 'securepoll_properties' ),
-						'p1.pr_entity',
-						array(
-							'p1.pr_entity = p2.pr_entity',
-							'p1.pr_key' => 'jump-id',
-							'p1.pr_value' => $eId,
-							'p2.pr_key' => 'main-wiki',
-							'p2.pr_value' => wfWikiID(),
-						)
-					);
-					if ( !$rId ) {
-						$rId = self::insertEntity( $dbw, 'election' );
-					}
-
-					// Insert it! We don't have to care about questions or options here.
-					$dbw->replace( 'securepoll_elections',
-						array( 'el_entity' ),
-						array(
-							'el_entity' => $rId,
-							'el_title' => $election->title,
-							'el_ballot' => $election->ballotType,
-							'el_tally' => $election->tallyType,
-							'el_primary_lang' => $election->getLanguage(),
-							'el_start_date' => $dbw->timestamp( $election->getStartDate() ),
-							'el_end_date' => $dbw->timestamp( $election->getEndDate() ),
-							'el_auth_type' => $election->authType,
-						),
-						__METHOD__
-					);
-					self::savePropertiesAndMessages( $dbw, $rId, $election );
-
-					// Fix jump-id
-					$dbw->update( 'securepoll_properties',
-						array( 'pr_value' => $eId ),
-						array( 'pr_entity' => $rId, 'pr_key' => 'jump-id' ),
-						__METHOD__
-					);
-					$dbw->commit( __METHOD__ );
-				} catch ( Exception $ex ) {
-					$dbw->rollback( __METHOD__ );
-					MWExceptionHandler::logException( $ex );
+				$dbw->startAtomic( __METHOD__ );
+				// Find an existing dummy election, if any
+				$rId = $dbw->selectField(
+					array( 'p1' => 'securepoll_properties', 'p2' => 'securepoll_properties' ),
+					'p1.pr_entity',
+					array(
+						'p1.pr_entity = p2.pr_entity',
+						'p1.pr_key' => 'jump-id',
+						'p1.pr_value' => $eId,
+						'p2.pr_key' => 'main-wiki',
+						'p2.pr_value' => wfWikiID(),
+					)
+				);
+				if ( !$rId ) {
+					$rId = self::insertEntity( $dbw, 'election' );
 				}
+
+				// Insert it! We don't have to care about questions or options here.
+				$dbw->replace( 'securepoll_elections',
+					array( 'el_entity' ),
+					array(
+						'el_entity' => $rId,
+						'el_title' => $election->title,
+						'el_ballot' => $election->ballotType,
+						'el_tally' => $election->tallyType,
+						'el_primary_lang' => $election->getLanguage(),
+						'el_start_date' => $dbw->timestamp( $election->getStartDate() ),
+						'el_end_date' => $dbw->timestamp( $election->getEndDate() ),
+						'el_auth_type' => $election->authType,
+					),
+					__METHOD__
+				);
+				self::savePropertiesAndMessages( $dbw, $rId, $election );
+
+				// Fix jump-id
+				$dbw->update( 'securepoll_properties',
+					array( 'pr_value' => $eId ),
+					array( 'pr_entity' => $rId, 'pr_key' => 'jump-id' ),
+					__METHOD__
+				);
+				$dbw->endAtomic( __METHOD__ );
 				$lb->reuseConnection( $dbw );
 			}
 		}
@@ -712,6 +708,7 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 	/**
 	 * Insert an entry into the securepoll_entities table, and return the ID
 	 *
+	 * @param IDatabase $dbw
 	 * @param string $type Entity type
 	 * @return int
 	 */

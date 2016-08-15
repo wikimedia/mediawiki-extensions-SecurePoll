@@ -4,7 +4,15 @@
  * Parent class for Special:SecurePoll subpages.
  */
 abstract class SecurePoll_ActionPage {
-	public $specialPage, $election, $auth, $user;
+	/** @var SecurePoll_SpecialSecurePoll  */
+	public $specialPage;
+	/** @var SecurePoll_Election */
+	public $election;
+	/** @var SecurePoll_Auth */
+	public $auth;
+	/** @var User */
+	public $user;
+	/** @var SecurePoll_Context */
 	public $context;
 
 	/**
