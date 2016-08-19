@@ -298,7 +298,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 
 	/**
 	 * Get the questions in this election
-	 * @return array of SecurePoll_Question objects.
+	 * @return SecurePoll_Question[]
 	 */
 	function getQuestions() {
 		if ( $this->questions === null ) {
