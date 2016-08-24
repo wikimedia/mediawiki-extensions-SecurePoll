@@ -42,7 +42,7 @@
 	"securepoll-api-no-user": "Et gouf kee Benotzer mat der ID fonnt déi ugi war.",
 	"securepoll-api-token-mismatch": "Falsche Sécerheeets-Token, Aloggen ass net méiglech.",
 	"securepoll-not-logged-in": "Dir musst Iech alogge fir bei dëse Walen ofstëmmen ze kënnen",
-	"securepoll-too-few-edits": "Pardon, Dir däerft net ofstëmmen. Dir musst mindestens $1 {{PLURAL:$1|Ännerung|Ännerunge}} gemaacht hunn, fir bei dëse Walen ofstëmmen ze kënnen, Dir hutt der $2 gemaach.",
+	"securepoll-too-few-edits": "Pardon, Dir däerft net ofstëmmen. Dir musst mindestens $1 {{PLURAL:$1|Ännerung|Ännerunge}} gemaach hunn, fir bei dëse Walen ofstëmmen ze kënnen, Dir hutt der $2 gemaach.",
 	"securepoll-too-new": "Pardon, Dir däerft net ofstëmmen. Äre Benotzerkont hätt misse virum $1 ëm $3 registréiert si fir bei dëse Walen ofstëmmen ze däerfen. Dir sidd zënter dem $2 ëm $4 registréiert.",
 	"securepoll-blocked": "Pardon, Dir kënnt net bei dëse Walen ofstëmmen wann Dir elo fir Ännerunge gespaart sidd.",
 	"securepoll-blocked-centrally": "Pardon, Dir däerft bei dëse Walen net ofstëmme well Dir an op d'mannst $1 {{PLURAL:$1|Wiki|Wikië}} gespaart sidd.",
