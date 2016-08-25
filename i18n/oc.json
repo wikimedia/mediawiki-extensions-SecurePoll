@@ -111,5 +111,6 @@
 	"securepoll-average-score": "Marca mejana",
 	"securepoll-round": "Torn $1",
 	"securepoll-spoilt": "(Blancs o nuls)",
-	"securepoll-exhausted": "(Agotat)"
+	"securepoll-exhausted": "(Agotat)",
+	"securepoll-create-label-election_primaryLang": "Lenga principala :"
 }
