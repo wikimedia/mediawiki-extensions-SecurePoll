@@ -89,7 +89,9 @@ abstract class SecurePoll_Tallier {
 			$option = $this->optionsById[$oid];
 			$s .= "<tr>" .
 				Xml::element( 'td', array(), $rank ) .
-				Xml::element( 'td', array(), $option->parseMessage( 'text', false ) ) .
+				Xml::openElement( 'td', array() ) .
+				$option->parseMessage( 'text', false ) .
+				Xml::closeElement( 'td' ) .
 				"</tr>\n";
 		}
 		$s .= "</table>";
