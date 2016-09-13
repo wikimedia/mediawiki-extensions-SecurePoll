@@ -5,6 +5,7 @@
  * Provides an administrator interface for striking fraudulent votes.
  */
 class SecurePoll_ListPage extends SecurePoll_ActionPage {
+	/** @var SecurePoll_Election */
 	public $election;
 
 	/**
@@ -36,6 +37,52 @@ class SecurePoll_ListPage extends SecurePoll_ActionPage {
 			$out->addWikiMsg( 'securepoll-list-private' );
 			return;
 		}
+
+		$dbr = $this->election->context->getDB( DB_REPLICA );
+
+		$res = $dbr->select(
+			'securepoll_votes',
+			array( 'DISTINCT vote_voter' ),
+			array(
+				'vote_election' => $this->election->getID()
+			)
+		);
+		$distinct_voters = $res->result->num_rows;
+
+		$res = $dbr->select(
+			'securepoll_votes',
+			array( 'vote_id' ),
+			array(
+				'vote_election' => $this->election->getID()
+			)
+		);
+		$all_votes = $res->result->num_rows;
+
+		$res = $dbr->select(
+			'securepoll_votes',
+			array( 'vote_id' ),
+			array(
+				'vote_election' => $this->election->getID(),
+				'vote_current' => 0
+			)
+		);
+		$not_current_votes = $res->result->num_rows;
+
+		$res = $dbr->select(
+			'securepoll_votes',
+			array( 'vote_id' ),
+			array(
+				'vote_election' => $this->election->getID(),
+				'vote_struck' => 1
+			)
+		);
+		$struck_votes = $res->result->num_rows;
+
+		$out->addHTML('<div id="mw-poll-stats"><p>' .
+			$this->msg( 'securepoll-voter-stats', $distinct_voters ) .
+			'</p><p>' .
+			$this->msg( 'securepoll-vote-stats', $all_votes, $not_current_votes, $struck_votes ) .
+			'</p></div>');
 
 		$pager = new SecurePoll_ListPager( $this );
 		$out->addHTML(
