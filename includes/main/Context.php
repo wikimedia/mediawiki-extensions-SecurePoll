@@ -42,9 +42,6 @@ class SecurePoll_Context {
 	/** The SecurePoll_Random instance */
 	public $random;
 
-	/** The Database instance */
-	public $db;
-
 	/**
 	 * Create a new SecurePoll_Context with an XML file as the storage backend.
 	 * Returns false if there was a problem with the file, like a parse error.
@@ -251,13 +248,11 @@ class SecurePoll_Context {
 	/**
 	 * Get a database object, or throw an exception if the current store object
 	 * does not support database operations.
+	 * @param integer $index DB_MASTER or DB_REPLICA
 	 * @return DatabaseBase
 	 */
-	function getDB() {
-		if ( !isset( $this->db ) ) {
-			$this->db = $this->getStore()->getDB();
-		}
-		return $this->db;
+	function getDB( $index = DB_MASTER ) {
+		return $this->getStore()->getDB( $index );
 	}
 
 	/**

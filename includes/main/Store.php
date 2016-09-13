@@ -61,8 +61,9 @@ interface SecurePoll_Store {
 
 	/**
 	 * Get a database connection object.
+	 * @param integer $index DB_MASTER or DB_REPLICA
 	 */
-	function getDB();
+	function getDB( $index = DB_MASTER );
 
 	/**
 	 * Get an associative array of information about all questions in a given
@@ -181,8 +182,8 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 		return $info;
 	}
 
-	function getDB() {
-		return wfGetDB( DB_MASTER );
+	function getDB( $index = DB_MASTER ) {
+		return wfGetDB( $index );
 	}
 
 	function getQuestionInfo( $electionId ) {
@@ -337,7 +338,7 @@ class SecurePoll_MemoryStore implements SecurePoll_Store {
 			'a storage class that doesn\'t support it.' );
 	}
 
-	function getDB() {
+	function getDB( $index = DB_MASTER ) {
 		throw new MWException( 'Internal error: attempt to use getDB() when the database ' .
 			'is disabled.' );
 	}
