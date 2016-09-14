@@ -12,7 +12,8 @@
 			"Pietrodn",
 			"Stefano-c",
 			"Vituzzu",
-			"Ricordisamoa"
+			"Ricordisamoa",
+			"Anto"
 		]
 	},
 	"securepoll": "SecurePoll",
@@ -251,5 +252,7 @@
 	"securepoll-votereligibility-cleared-comment": "$1 pulita.",
 	"right-securepoll-create-poll": "Crea sondaggi",
 	"action-securepoll-create-poll": "creare sondaggi",
-	"securepoll-ns-readonly": "Il namespace {{ns:SecurePoll}} è di sola lettura"
+	"securepoll-ns-readonly": "Il namespace {{ns:SecurePoll}} è di sola lettura",
+	"securepoll-voter-stats": "Di tutti gli elettori registrati, $1{{PLURAL:$1|elttore ha|elettori hanno}}votato.",
+	"securepoll-vote-stats": "Un totale di $1 {{PLURAL:$1|voto è|voti sono}} stati espressi. Di cui, $2 {{PLURAL:$2|è|sono}} stati annullati perchè l'elettore ha votato di nuovo,  e$3 {{PLURAL:$3|è|sono}} stati rimossi."
 }
