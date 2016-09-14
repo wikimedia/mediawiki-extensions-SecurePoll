@@ -360,10 +360,6 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * Call a callback function for each valid vote record, in random order.
 	 */
 	function dumpVotesToCallback( $callback ) {
-		if ( !$this->getCrypt() ) {
-			return Status::newFatal( 'securepoll-dump-no-crypt' );
-		}
-
 		$random = $this->context->getRandom();
 		$status = $random->open();
 		if ( !$status->isOK() ) {

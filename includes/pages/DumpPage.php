@@ -29,21 +29,16 @@ class SecurePoll_DumpPage extends SecurePoll_ActionPage {
 		$out->setPageTitle( $this->msg( 'securepoll-dump-title',
 			$this->election->getMessage( 'title' ) )->text() );
 
-		if ( !$this->election->getCrypt() ) {
-			$out->addWikiMsg( 'securepoll-dump-no-crypt' );
+		if ( !$this->election->isFinished() ) {
+			$out->addWikiMsg( 'securepoll-dump-not-finished',
+				$this->specialPage->getLanguage()->date( $this->election->getEndDate() ),
+				$this->specialPage->getLanguage()->time( $this->election->getEndDate() ) );
 			return;
 		}
 
 		$isAdmin = $this->election->isAdmin( $this->specialPage->getUser() );
 		if ( $this->election->getProperty( 'voter-privacy' ) && !$isAdmin ) {
 			$out->addWikiMsg( 'securepoll-dump-private' );
-			return;
-		}
-
-		if ( !$this->election->isFinished() ) {
-			$out->addWikiMsg( 'securepoll-dump-not-finished',
-				$this->specialPage->getLanguage()->date( $this->election->getEndDate() ),
-				$this->specialPage->getLanguage()->time( $this->election->getEndDate() ) );
 			return;
 		}
 
