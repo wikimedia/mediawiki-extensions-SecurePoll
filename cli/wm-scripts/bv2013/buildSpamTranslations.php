@@ -9,7 +9,7 @@ require_once( "$IP/maintenance/commandLine.inc" );
 $wgDebugLogFile = '/dev/stderr';
 
 $dbr = wfGetDB( DB_SLAVE );
-$dbr->debug( true );
+$dbr->setFlag( DBO_DEBUG );
 
 $prefix = "Wikimedia_Foundation_elections_2013/Voter_e-mail/";
 $textPrefix = '<languages />';
