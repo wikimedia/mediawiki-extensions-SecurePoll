@@ -5,7 +5,7 @@
  * Special:SecurePoll.  The actual pages are not actually subclasses of
  * this or of SpecialPage, they're subclassed from SecurePoll_ActionPage.
  */
-class SecurePoll_SpecialSecurePoll extends UnlistedSpecialPage {
+class SecurePoll_SpecialSecurePoll extends SpecialPage {
 	public static $pages = array(
 		'create' => 'SecurePoll_CreatePage',
 		'edit' => 'SecurePoll_CreatePage',
