@@ -251,6 +251,8 @@
 	"right-securepoll-create-poll": "יצירת הצבעות",
 	"action-securepoll-create-poll": "ליצור הצבעות",
 	"securepoll-ns-readonly": "מרחב השם {{ns:SecurePoll}} מיועד לקריאה בלבד",
+	"securepoll-voter-stats": "מכל בעלי זכות ההצבעה, {{PLURAL:$1|הצביע אחד|הצביעו $1}}.",
+	"securepoll-vote-stats": "בסך הכול {{PLURAL:$1|היה קול אחד|היו $1 קולות}}. מתוך אלה, {{PLURAL:$2|אחד נזרק|$2 נזרקו}} כי המצביע הצביע שוב {{PLURAL:$3|ואחד נמחק|ו־$3 נמחקו}}.",
 	"apihelp-strikevote-description": "לאפשר למנהלים למחוק הצבעה או לבטל את מחיקתה.",
 	"apihelp-strikevote-param-option": "איזו פעולה לעשות: למחוק הצבעה או לבטל את מחיקתה.",
 	"apihelp-strikevote-paramvalue-option-strike": "למחוק הצבעה (להסיר אותה מהספירה).",

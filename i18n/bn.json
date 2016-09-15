@@ -106,5 +106,6 @@
 	"securepoll-tally-upload-error": "ডাম্প ফাইল গণনার সময় ত্রুটি দেখা দিয়েছে: $1",
 	"securepoll-ranks": "চূড়ান্ত র‌্যাঙ্কিং",
 	"securepoll-average-score": "গড় স্কোর",
-	"securepoll-round": "ক্রম $1"
+	"securepoll-round": "ক্রম $1",
+	"securepoll-voter-stats": "সব যোগ্য ভোটদানকারীর মধ্যে, $1 জন {{PLURAL:$1|ভোটার}} ভোট দিয়েছেন।"
 }
