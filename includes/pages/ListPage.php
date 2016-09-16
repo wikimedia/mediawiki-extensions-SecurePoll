@@ -79,9 +79,10 @@ class SecurePoll_ListPage extends SecurePoll_ActionPage {
 		$struck_votes = $res->result->num_rows;
 
 		$out->addHTML('<div id="mw-poll-stats"><p>' .
-			$this->msg( 'securepoll-voter-stats', $distinct_voters ) .
+			$this->msg( 'securepoll-voter-stats')->numParams( $distinct_voters ) .
 			'</p><p>' .
-			$this->msg( 'securepoll-vote-stats', $all_votes, $not_current_votes, $struck_votes ) .
+			$this->msg( 'securepoll-vote-stats')
+				->numParams( $all_votes, $not_current_votes, $struck_votes ) .
 			'</p></div>');
 
 		$pager = new SecurePoll_ListPager( $this );
