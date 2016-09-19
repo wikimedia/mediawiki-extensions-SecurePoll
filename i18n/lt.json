@@ -3,7 +3,8 @@
 		"authors": [
 			"Homo",
 			"Matasg",
-			"Perkunas"
+			"Perkunas",
+			"Eitvys200"
 		]
 	},
 	"securepoll": "Saugus balsavimas",
@@ -110,5 +111,6 @@
 	"securepoll-average-score": "Vidutinis rezultatas",
 	"securepoll-round": "Turas $1",
 	"securepoll-spoilt": "(Sugadinta)",
-	"securepoll-exhausted": "(Išnaudota)"
+	"securepoll-exhausted": "(Išnaudota)",
+	"securepoll-voter-stats": "Iš visų galimų balsuotojų, balsavo $1 {{PLURAL:$1|balsuotojas|balsuotojai}}."
 }

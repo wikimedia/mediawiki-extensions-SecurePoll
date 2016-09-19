@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Slomox"
+			"Slomox",
+			"Joachim Mos"
 		]
 	},
 	"securepoll": "SekerAfstimmen",
@@ -10,7 +11,7 @@
 	"securepoll-need-admin": "Du musst Administrater wesen, dat du dat doon kannst.",
 	"securepoll-too-few-params": "Nich noog Ünnersiedenparameters (Lenk verkehrt).",
 	"securepoll-invalid-election": "„$1“ is keen güllige Wahl-ID.",
-	"securepoll-welcome": "<strong>Willkamen $1!</strong>",
+	"securepoll-welcome": "<strong>{{GENDER:$1|Willkamen}} $1!</strong>",
 	"securepoll-not-started": "De Wahl hett noch nich anfungen.\nDe Wahl schall an’n $2 üm $3 anfangen.",
 	"securepoll-finished": "De Wahl is toenn, du kannst nich mehr afstimmen.",
 	"securepoll-not-qualified": "Du dröffst bi disse Wahl nich mit afstimmen: $1",
