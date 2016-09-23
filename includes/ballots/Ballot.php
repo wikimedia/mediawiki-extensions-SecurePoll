@@ -267,7 +267,6 @@ class SecurePoll_BallotStatus extends Status {
 	public $sp_ids = array();
 
 	function __construct( $context ) {
-		parent::__construct();
 		$this->sp_context = $context;
 	}
 
