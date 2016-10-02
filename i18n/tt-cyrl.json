@@ -19,5 +19,7 @@
 	"securepoll-strike-button": "Сызу",
 	"securepoll-unstrike-button": "Сызуны алу",
 	"securepoll-strike-reason": "Сәбәп:",
-	"securepoll-strike-cancel": "Баш тарту"
+	"securepoll-strike-cancel": "Баш тарту",
+	"securepoll-translate-title": "Тәрҗемә: $1",
+	"securepoll-subpage-translate": "Тәрҗемә"
 }
