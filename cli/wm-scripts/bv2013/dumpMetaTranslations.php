@@ -125,7 +125,7 @@ function spGetMetaTranslations( $lang ) {
 		fwrite( STDERR, "Revision not found for page [[$titleText]]\n" );
 		return false;
 	}
-	$text = $revision->getText();
+	$text = ContentHandler::getContentText( $revision->getContent() );
 	if ( $text === false ) {
 		fwrite( STDERR, "Text not found for page [[$titleText]]\n" );
 		return false;
