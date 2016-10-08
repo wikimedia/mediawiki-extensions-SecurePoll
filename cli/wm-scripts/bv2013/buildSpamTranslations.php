@@ -23,24 +23,24 @@ $res = $dbr->select(
 );
 
 foreach( $res as $row ) {
-	$page = Article::newFromID( $row->page_id );
+	$page = WikiPage::newFromID( $row->page_id );
 
 	print "Got article " . $row->page_id . "\n";
 
-	$content = $page->getContent();
+	$text = ContentHandler::getContentText( $page->getContent() );
 
 	$len = strlen( $textPrefix );
-	if ( substr( $content, 0, $len ) == $textPrefix ) {
-		$content = substr( $content, $len );
+	if ( substr( $text, 0, $len ) == $textPrefix ) {
+		$text = substr( $text, $len );
 	}
 
-	if ( substr( $content, - $len ) == $textSuffix ) {
-		$content = substr( $content, 0, - $len );
+	if ( substr( $text, - $len ) == $textSuffix ) {
+		$text = substr( $text, 0, - $len );
 	}
 
-	$content = trim( $content ) . "\n";
+	$text = trim( $text ) . "\n";
 
 	$lang = substr( $page->getTitle()->getText(), strlen( $prefix ) );
 	$file = "/a/common/elections-2013-spam/email-translations/$lang";
-	file_put_contents( $file, $content );
+	file_put_contents( $file, $text );
 }
