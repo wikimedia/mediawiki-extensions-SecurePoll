@@ -371,7 +371,8 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 
 		try {
 			$context = new SecurePoll_Context;
-			$store = new SecurePoll_FormStore( $formData );
+			$userId = $this->specialPage->getUser()->getId();
+			$store = new SecurePoll_FormStore( $formData, $userId );
 			$context->setStore( $store );
 			$election = $context->getElection( $store->eId );
 
@@ -454,6 +455,7 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 			'el_start_date' => $dbw->timestamp( $election->getStartDate() ),
 			'el_end_date' => $dbw->timestamp( $election->getEndDate() ),
 			'el_auth_type' => $election->authType,
+			'el_owner' => $election->owner,
 		);
 		if ( $election->getId() < 0 ) {
 			$eId = self::insertEntity( $dbw, 'election' );
@@ -897,7 +899,7 @@ class SecurePoll_FormStore extends SecurePoll_MemoryStore {
 
 	private $lang;
 
-	public function __construct( $formData ) {
+	public function __construct( $formData, $userId ) {
 		global $wgSecurePollCreateWikiGroupDir, $wgSecurePollCreateWikiGroups,
 			$wgSecurePollCreateRemoteScriptPath;
 
@@ -954,6 +956,7 @@ class SecurePoll_FormStore extends SecurePoll_MemoryStore {
 			'startDate' => wfTimestamp( TS_MW, $startDate ),
 			'endDate' => wfTimestamp( TS_MW, $endDate ),
 			'auth' => $this->remoteWikis ? 'remote-mw' : 'local',
+			'owner' => $userId,
 			'questions' => array(),
 		);
 		$this->properties[$eId] = array(

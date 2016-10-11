@@ -40,7 +40,6 @@ interface SecurePoll_Store {
 	 */
 	function getEntityType( $id );
 
-
 	/**
 	 * Get information about a set of elections, specifically the data that
 	 * is stored in the securepoll_elections row in the DB. Returns a 2-d
@@ -168,7 +167,8 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 			'primaryLang' => 'el_primary_lang',
 			'startDate' => 'el_start_date',
 			'endDate' => 'el_end_date',
-			'auth' => 'el_auth_type'
+			'auth' => 'el_auth_type',
+			'owner' => 'el_owner'
 		);
 
 		$info = array();
