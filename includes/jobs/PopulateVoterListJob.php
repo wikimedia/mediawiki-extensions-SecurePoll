@@ -10,12 +10,13 @@ class SecurePoll_PopulateVoterListJob extends Job {
 		static $props = array(
 			'need-list', 'list_populate',
 			'list_edits-before', 'list_edits-before-count', 'list_edits-before-date',
-			'list_edits-between', 'list_edits-between-count', 'list_edits-between-dates',
-			'list_exclude-groups',
-			'list_include-groups',
+			'list_edits-between', 'list_edits-between-count',
+			'list_edits-startdate', 'list_edits-enddate',
+			'list_exclude-groups', 'list_include-groups',
 		);
 		static $listProps = array(
-			'list_edits-between-dates', 'list_exclude-groups', 'list_include-groups',
+			'list_edits-startdate', 'list_edits-enddate',
+			'list_exclude-groups', 'list_include-groups',
 		);
 
 		$dbw = $election->context->getDB();
@@ -231,8 +232,8 @@ class SecurePoll_PopulateVoterListJob extends Job {
 
 			// Criterion 2: $NUM edits bewteen $DATE1 and $DATE2
 			if ( $this->params['list_edits-between'] ) {
-				$timestamp1 = $dbr->addQuotes( $dbr->timestamp( $this->params['list_edits-between-dates'][0] ) );
-				$timestamp2 = $dbr->addQuotes( $dbr->timestamp( $this->params['list_edits-between-dates'][1] ) );
+				$timestamp1 = $dbr->addQuotes( $dbr->timestamp( $this->params['list_edits-startdate'] ) );
+				$timestamp2 = $dbr->addQuotes( $dbr->timestamp( $this->params['list_edits-enddate'] ) );
 
 				$res = $dbr->select(
 					'revision',
