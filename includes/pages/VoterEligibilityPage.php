@@ -362,6 +362,8 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 		$date = $this->election->getProperty( 'max-registration', '' );
 		if ( $date !== '' ) {
 			$date = gmdate( 'Y-m-d', wfTimestamp( TS_UNIX, $date ) );
+		} else {
+			$date = gmdate( 'Y-m-d', strtotime( 'yesterday' ) );
 		}
 		$formItems['max-registration'] = array(
 			'section' => 'basic',
@@ -501,6 +503,8 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 				$date = $this->election->getProperty( 'list_edits-before-date', '' );
 				if ( $date !== '' ) {
 					$date = gmdate( 'Y-m-d', wfTimestamp( TS_UNIX, $date ) );
+				} else {
+					$date = gmdate( 'Y-m-d', strtotime( 'yesterday' ) );
 				}
 				$formItems['list_edits-before-date'] = array(
 					'section' => 'lists',
@@ -538,7 +542,10 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 
 				$dates = $this->election->getProperty( 'list_edits-between-dates', '' );
 				if ( $dates === '' ) {
-					$dates = array();
+					$dates = array(
+						gmdate( 'Y-m-d', strtotime( '2 days ago' ) ),
+						gmdate( 'Y-m-d', strtotime( 'yesterday' ) )
+					);
 				} else {
 					$dates = explode( '|', $dates );
 					$dates = array(
