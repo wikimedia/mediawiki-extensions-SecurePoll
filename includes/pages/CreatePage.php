@@ -968,7 +968,6 @@ class SecurePoll_FormStore extends SecurePoll_MemoryStore {
 		);
 		$this->messages[$this->lang][$eId] = array(
 			'title' => $formData['election_title'],
-			'jump-text' => $formData['jump-text'],
 		);
 
 		$admins = $this->getAdminsList( $formData['property_admins'] );
