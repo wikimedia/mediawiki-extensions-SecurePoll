@@ -107,5 +107,6 @@
 	"securepoll-ranks": "চূড়ান্ত র‌্যাঙ্কিং",
 	"securepoll-average-score": "গড় স্কোর",
 	"securepoll-round": "ক্রম $1",
+	"securepoll-votereligibility-lists": "ভোটার তালিকা",
 	"securepoll-voter-stats": "সব যোগ্য ভোটদানকারীর মধ্যে, $1 জন {{PLURAL:$1|ভোটার}} ভোট দিয়েছেন।"
 }

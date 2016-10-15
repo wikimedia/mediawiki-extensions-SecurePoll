@@ -15,7 +15,8 @@
 			"Impersonator 1",
 			"JLeow00",
 			"飞舞回堂前",
-			"SolidBlock"
+			"SolidBlock",
+			"Arthur2e5"
 		]
 	},
 	"securepoll": "安全投票",
@@ -212,7 +213,7 @@
 	"securepoll-votereligibility-title": "投票者资格配置",
 	"securepoll-votereligibility-redirect": "此选举的投票者资格必须在$1配置",
 	"securepoll-votereligibility-redirect-otherwiki": "主wiki",
-	"securepoll-votereligibility-basic": "'''基本选项'''",
+	"securepoll-votereligibility-basic": "基本选项",
 	"securepoll-votereligibility-basic-info": "当用户尝试投票时选定的基本选项。",
 	"securepoll-votereligibility-invalid-list": "提供的投票者资格列表未知。",
 	"securepoll-votereligibility-list-is-processing": "提供的投票者资格列表正在自动更新，当前不能编辑。",
@@ -222,7 +223,7 @@
 	"securepoll-votereligibility-label-not_centrally_blocked": "必须未在太多wiki被封禁",
 	"securepoll-votereligibility-label-central_block_threshold": "中央封禁临界值",
 	"securepoll-votereligibility-label-not_bot": "必须不是机器人",
-	"securepoll-votereligibility-lists": "'''投票者列表'''",
+	"securepoll-votereligibility-lists": "投票者列表",
 	"securepoll-votereligibility-lists-info": "合资格的投票者也可被明确列出。有三个列表：\n* “{{int:securepoll-votereligibility-list-voter}}”是允许投票的投票者列表，如果它们也符合上述基本要求。此列表经常自动填充。\n* “{{int:securepoll-votereligibility-list-include}}”是无论基本要求或合格列表的允许投票的投票者列表。\n* “{{int:securepoll-votereligibility-list-exclude}}”是不被允许投票的投票者列表，不论其他列表如何记载。",
 	"securepoll-votereligibility-list-voter": "合格列表",
 	"securepoll-votereligibility-list-include": "重复列表",

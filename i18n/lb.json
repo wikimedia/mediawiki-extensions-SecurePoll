@@ -158,6 +158,7 @@
 	"securepoll-edit-edited": "{{int:securepoll}}: Ëmfro geännert",
 	"securepoll-edit-edited-text": "Är Ëmfro gouf geännert.",
 	"securepoll-votereligibility-redirect-otherwiki": "der Haaptwiki",
+	"securepoll-votereligibility-basic": "Basisoptiounen",
 	"securepoll-votereligibility-label-min_edits": "Mindest Zuel vun Ännerungen:",
 	"securepoll-votereligibility-label-max_registration": "Ugemellt virum:",
 	"securepoll-votereligibility-label-not_blocked": "Däerf net gespaart sinn",

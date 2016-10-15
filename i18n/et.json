@@ -127,7 +127,7 @@
 	"securepoll-votereligibility-label-not_blocked": "Ei tohi olla blokeeritud",
 	"securepoll-votereligibility-label-not_centrally_blocked": "Ei tohi olla blokeeritud liiga paljudes seotud vikides",
 	"securepoll-votereligibility-label-not_bot": "Ei tohi olla märgitud robotiks",
-	"securepoll-votereligibility-lists": "'''Hääletajate nimekiri'''",
+	"securepoll-votereligibility-lists": "Hääletajate nimekirjad",
 	"securepoll-votereligibility-label-names": "Kasutajanimed",
 	"securepoll-votereligibility-label-comment": "Põhjus"
 }
