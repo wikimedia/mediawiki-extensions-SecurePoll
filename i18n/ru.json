@@ -14,7 +14,8 @@
 			"Okras",
 			"NBS",
 			"Cat1987",
-			"Туллук"
+			"Туллук",
+			"Irus"
 		]
 	},
 	"securepoll": "Безопасное голосование",
@@ -193,12 +194,12 @@
 	"securepoll-edit-title": "{{int:securepoll}}: Редактировать опрос",
 	"securepoll-edit-action": "Изменить опрос",
 	"securepoll-votereligibility-redirect-otherwiki": "главная вики",
-	"securepoll-votereligibility-basic": "''' Основные варианты '''",
+	"securepoll-votereligibility-basic": "Основные варианты",
 	"securepoll-votereligibility-label-min_edits": "Минимальное количество правок:",
 	"securepoll-votereligibility-label-max_registration": "Зарегистрированные до:",
 	"securepoll-votereligibility-label-not_blocked": "Не должны быть заблокирован",
 	"securepoll-votereligibility-label-not_bot": "Не должен иметь флаг бота",
-	"securepoll-votereligibility-lists": "'''Списки проголосовавших'''",
+	"securepoll-votereligibility-lists": "Списки проголосовавших",
 	"securepoll-votereligibility-list-exclude": "Список исключений",
 	"securepoll-votereligibility-label-inuse": "Этот список используется",
 	"securepoll-votereligibility-label-notinuse": "Этот список не используется",
