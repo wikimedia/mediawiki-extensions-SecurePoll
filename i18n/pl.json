@@ -136,6 +136,7 @@
 	"securepoll-votereligibility-redirect-otherwiki": "główna wiki",
 	"securepoll-votereligibility-basic": "Opcje podstawowe",
 	"securepoll-votereligibility-label-min_edits": "Minimalna liczba edycji:",
+	"securepoll-votereligibility-lists": "Listy głosujących",
 	"securepoll-votereligibility-label-inuse": "Ta lista jest w użyciu",
 	"securepoll-votereligibility-label-notinuse": "Ta lista nie jest używana",
 	"securepoll-votereligibility-label-edit": "Edytuj listę",
