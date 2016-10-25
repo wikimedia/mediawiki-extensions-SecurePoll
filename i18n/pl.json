@@ -144,6 +144,8 @@
 	"securepoll-votereligibility-label-edits_before_count": "Minimalna liczba edycji",
 	"securepoll-votereligibility-label-edits_between_count": "Minimalna liczba edycji",
 	"securepoll-votereligibility-label-edits_between_dates": "Pomiędzy datami",
+	"securepoll-votereligibility-layout-edits_between_dates": "Od $1 do $2",
+	"securepoll-votereligibility-label-exclude_groups": "Wyklucz użytkowników w tych grupach",
 	"securepoll-votereligibility-label-names": "Nazwy użytkowników",
 	"securepoll-votereligibility-label-comment": "Powód",
 	"securepoll-votereligibility-action": "Zapisz konfigurację",
