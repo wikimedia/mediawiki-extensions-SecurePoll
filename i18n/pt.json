@@ -216,5 +216,5 @@
 	"securepoll-votereligibility-saved-text": "As suas alterações foram gravadas",
 	"right-securepoll-create-poll": "Criar sondagens",
 	"action-securepoll-create-poll": "criar sondagens",
-	"securepoll-ns-readonly": "O domínio SecurePoll é apenas de leitura"
+	"securepoll-ns-readonly": "O domínio {{ns:SecurePoll}} é apenas de leitura"
 }
