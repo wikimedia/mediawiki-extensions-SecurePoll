@@ -229,7 +229,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 				$name = trim( substr( $name, 0, $i ) );
 			}
 			if ( $wiki !== '' && $name !== '' ) {
-				$wikiNames[$wiki][] = str_replace( ' ', '_', $name );
+				$wikiNames[$wiki][] = str_replace( '_', ' ', $name );
 			}
 		}
 
