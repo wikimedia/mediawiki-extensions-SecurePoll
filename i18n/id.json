@@ -7,7 +7,8 @@
 			"IvanLanin",
 			"Iwan Novirion",
 			"Kenrick95",
-			"Rex"
+			"Rex",
+			"Presidenvolksraad"
 		]
 	},
 	"securepoll": "SecurePoll",
@@ -78,8 +79,7 @@
 	"securepoll-header-admin": "Admin",
 	"securepoll-cookie-dup-list": "''Cookie'' pengguna duplikat",
 	"securepoll-dump-title": "Dump: $1",
-	"securepoll-dump-no-crypt": "Tidak ada catatan pemilihan yang ter-enkripsi untuk pemilihan ini, karena pemilihan ini tidak dikonfigurasikan untuk menggunakan enkripsi.",
-	"securepoll-dump-not-finished": "Catatan pemilihan ter-enkripsi hanya tersedia setelah selesainya pemungutan suara pada $2, $1.",
+	"securepoll-dump-not-finished": "Catatan pemilihan hanya tersedia setelah selesainya pemungutan suara pada $2, $1.",
 	"securepoll-dump-no-urandom": "Tidak dapat membuka /dev/urandom.\nUntuk memastikan kerahasiaan pemberi suara, catatan pemilihan ter-enkripsi hanya akan tersedia secara publik jika menggunakan sebuah rangkaian nomor keamanan acak.",
 	"securepoll-urandom-not-supported": "Server ini tidak mendukung kriptografi pembuatan angka acak.\nUntuk menjaga kerahasiaan pemilih, catatan pemilihan terenkripsi hanya tersedia secara publik jika catatan tersebut dapat diacak dengan angka acak yang aman.",
 	"securepoll-translate-title": "Terjemahkan: $1",
