@@ -74,8 +74,7 @@
 	"securepoll-header-admin": "Almin",
 	"securepoll-cookie-dup-list": "Usuarios con cookies duplicaes",
 	"securepoll-dump-title": "Volcáu: $1",
-	"securepoll-dump-no-crypt": "Nun ta disponible dengún rexistru cifráu pa esta eleición, porque la eleición nun ta configurada pa usar cifráu.",
-	"securepoll-dump-not-finished": "Los rexistros cifraos de la eleición namái tan disponibles dempués de la data de finalización el $1 a les $2",
+	"securepoll-dump-not-finished": "Los rexistros de la eleición namái tan disponibles dempués de la data de finalización el $1 a les $2",
 	"securepoll-dump-no-urandom": "Nun se pudo abrir /dev/urandom.\nPa caltener la intimidá de los votantes, sólo s'asoleyen los resultaos cifraos de la eleición cuando se pueden amestar con un fluxu seguru de númberos al debalu.",
 	"securepoll-urandom-not-supported": "Esti sirvidor nun tien capacidá de xeneración criptográfica de númberos al debalu.\nPara protexer la intimidá de los votantes, sólo s'asoleyen los resultaos cifraos de la eleición cuando se pueden amestar con un fluxu seguru de númberos al debalu.",
 	"securepoll-translate-title": "Traducir: $1",
@@ -194,6 +193,7 @@
 	"securepoll-votereligibility-title": "Configuración de elexibilidá de los votantes",
 	"securepoll-votereligibility-redirect": "La elexibilidá de los votantes d'esta eleición tien de configurase'n $1",
 	"securepoll-votereligibility-redirect-otherwiki": "la wiki principal",
-	"securepoll-votereligibility-basic": "'''Opciones básiques'''",
-	"securepoll-votereligibility-basic-info": "Les opciones básiques márquense cuando l'usuariu intenta votar."
+	"securepoll-votereligibility-basic": "Opciones básiques",
+	"securepoll-votereligibility-basic-info": "Les opciones básiques márquense cuando l'usuariu intenta votar.",
+	"securepoll-votereligibility-invalid-list": "La llista d'elixibilidá de votantes dada nun ye conocida."
 }
