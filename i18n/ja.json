@@ -9,7 +9,8 @@
 			"Shirayuki",
 			"青子守歌",
 			"Sujiniku",
-			"Otokoume"
+			"Otokoume",
+			"ネイ"
 		]
 	},
 	"securepoll": "暗号投票",
@@ -80,8 +81,7 @@
 	"securepoll-header-admin": "管理者",
 	"securepoll-cookie-dup-list": "Cookie が重複している利用者",
 	"securepoll-dump-title": "ダンプ: $1",
-	"securepoll-dump-no-crypt": "この選挙は暗号化を利用するように設定されていないため、暗号化された選挙記録は入手できません。",
-	"securepoll-dump-not-finished": "暗号化された選挙記録は終了日の$1 $2以降のみ入手できます",
+	"securepoll-dump-not-finished": "選挙記録は終了日の$1 $2以降のみ提供されます",
 	"securepoll-dump-no-urandom": "/dev/urandom を開けません。投票者のプライバシーを守るため、暗号化された選挙記録は暗号用乱数ストリームでシャッフルできる場合のみ公に入手できます。",
 	"securepoll-urandom-not-supported": "このサーバーは暗号学的乱数生成に対応していません。投票者のプライバシーを守るため、暗号化された選挙記録は暗号用乱数ストリームでシャッフルできる場合のみ公に入手できます。",
 	"securepoll-translate-title": "翻訳: $1",
