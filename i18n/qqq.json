@@ -49,7 +49,6 @@
 	"securepoll-gpg-parse-error": "GPG stands for [[w:GNU_Privacy_Guard|GNU Privacy Guard]].",
 	"securepoll-no-decryption-key": "Used as error message.",
 	"securepoll-jump": "Label of the button than sends the user to the voting wiki.",
-	"securepoll-no-decryption-key": "Used as error message.",
 	"securepoll-bad-ballot-submission": "Unused at this time. Parameters:\n* $1 - ...",
 	"securepoll-unanswered-questions": "Used as error message.",
 	"securepoll-invalid-rank": "Used as error message.",
