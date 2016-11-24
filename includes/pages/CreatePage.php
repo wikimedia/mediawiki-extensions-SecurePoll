@@ -140,7 +140,7 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 			$options['securepoll-create-option-wiki-other_wiki'] = 'other';
 			$formItems['property_wiki'] = array(
 				'type' => 'autocompleteselect',
-				'autocomplete' => $wikiNames,
+				'autocomplete-data' => $wikiNames,
 				'options-messages' => $options,
 				'label-message' => 'securepoll-create-label-wiki',
 				'required' => true,
