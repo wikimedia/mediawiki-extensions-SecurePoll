@@ -332,14 +332,6 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 	private function executeConfig() {
 		global $wgSecurePollUseNamespace;
 
-		/** @todo These should be migrated to core, once the jquery.ui
-		 * objectors write their own date picker. */
-		if ( !isset( HTMLForm::$typeMappings['date'] ) || !isset( HTMLForm::$typeMappings['daterange'] ) ) {
-			HTMLForm::$typeMappings['date'] = 'SecurePoll_HTMLDateField';
-			HTMLForm::$typeMappings['daterange'] = 'SecurePoll_HTMLDateRangeField';
-		}
-
-		$this->specialPage->getOutput()->addModules( 'ext.securepoll.htmlform' );
 		$this->specialPage->getOutput()->addModules( 'ext.securepoll' );
 
 		$out = $this->specialPage->getOutput();
@@ -536,32 +528,42 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 					'default' => $this->election->getProperty( 'list_edits-between-count', '' ),
 				);
 
-				$dates = $this->election->getProperty( 'list_edits-between-dates', '' );
-				if ( $dates === '' ) {
-					$dates = array(
-						gmdate( 'Y-m-d', strtotime( '2 days ago' ) ),
-						gmdate( 'Y-m-d', strtotime( 'yesterday' ) )
-					);
-				} else {
-					$dates = explode( '|', $dates );
-					$dates = array(
-						gmdate( 'Y-m-d', wfTimestamp( TS_UNIX, $dates[0] ) ),
-						gmdate( 'Y-m-d', wfTimestamp( TS_UNIX, $dates[1] ) ),
-					);
+				$editCountStartDate = $this->election->getProperty( 'list_edits-startdate', '' );
+				if ( $editCountStartDate !== '' ) {
+					$editCountStartDate = gmdate( 'Y-m-d', wfTimestamp( TS_UNIX, $editCountStartDate ) );
 				}
-				$formItems['list_edits-between-dates'] = array(
+
+				$formItems['list_edits-startdate'] = array(
 					'section' => 'lists',
-					'label-message' => 'securepoll-votereligibility-label-edits_between_dates',
-					'layout-message' => 'securepoll-votereligibility-layout-edits_between_dates',
-					'type' => 'daterange',
-					'absolute' => true,
+					'label-message' => 'securepoll-votereligibility-label-edits_startdate',
+					'type' => 'date',
 					'max' => gmdate( 'Y-m-d', strtotime( 'yesterday' ) ),
 					'required' => true,
 					'hide-if' => array( 'OR',
 						array( '===', 'list_populate', '' ),
 						array( '===', 'list_edits-between', '' ),
 					),
-					'default' => $dates,
+					'default' => $editCountStartDate,
+				);
+
+				$editCountEndDate = $this->election->getProperty( 'list_edits-enddate', '' );
+				if ( $editCountEndDate === '' ) {
+					$editCountEndDate = gmdate( 'Y-m-d', strtotime( 'yesterday' ) );
+				} else {
+					$editCountEndDate = gmdate( 'Y-m-d', wfTimestamp( TS_UNIX, $editCountEndDate ) );
+				}
+
+				$formItems['list_edits-enddate'] = array(
+					'section' => 'lists',
+					'label-message' => 'securepoll-votereligibility-label-edits_enddate',
+					'type' => 'date',
+					'max' => gmdate( 'Y-m-d', strtotime( 'yesterday' ) ),
+					'required' => true,
+					'hide-if' => array( 'OR',
+						array( '===', 'list_populate', '' ),
+						array( '===', 'list_edits-between', '' ),
+					),
+					'default' => $editCountEndDate,
 				);
 
 				$groups = $this->election->getProperty( 'list_exclude-groups', array() );
@@ -637,14 +639,14 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 			);
 		}
 
-		$form = new HTMLForm( $formItems, $this->specialPage->getContext(), 'securepoll-votereligibility' );
+		$form = HTMLForm::factory('div', $formItems, $this->specialPage->getContext(), 'securepoll-votereligibility' );
 		$form->addHeaderText(
 			$this->msg( 'securepoll-votereligibility-basic-info' )->parseAsBlock(), 'basic'
 		);
 		$form->addHeaderText(
 			$this->msg( 'securepoll-votereligibility-lists-info' )->parseAsBlock(), 'lists'
 		);
-		$form->setDisplayFormat( 'div' );
+
 		$form->setSubmitTextMsg( 'securepoll-votereligibility-action' );
 		$form->setSubmitCallback( array( $this, 'processConfig' ) );
 		$result = $form->show();
@@ -656,6 +658,19 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 		}
 	}
 
+	// Based on HTMLDateRangeField::praseDate()
+	protected function parseDate( $value ) {
+		$value = trim( $value );
+		$value .= ' T00:00:00+0000';
+
+		try {
+			$date = new DateTime( $value, new DateTimeZone( 'GMT' ) );
+			return $date->getTimestamp();
+		} catch ( Exception $ex ) {
+			return 0;
+		}
+	}
+
 	public function processConfig( $formData, $form ) {
 		static $props = array(
 			'min-edits', 'not-blocked', 'not-centrally-blocked',
@@ -664,7 +679,8 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 			'list_edits-between', 'list_edits-between-count',
 		);
 		static $dateProps = array(
-			'max-registration', 'list_edits-before-date', 'list_edits-between-dates',
+			'max-registration', 'list_edits-before-date',
+			'list_edits-startdate', 'list_edits-enddate',
 		);
 		static $listProps = array(
 			'list_exclude-groups', 'list_include-groups',
@@ -719,7 +735,13 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 			$properties['need-list'] = 'need-list-' . $this->election->getId();
 		}
 
-		$this->saveProperties( $properties, $deleteProperties, $formData['comment'] );
+		if ( $this->parseDate($formData['list_edits-startdate']) >= $this->parseDate($formData['list_edits-enddate']) ) {
+			return $this->msg( 'securepoll-htmlform-daterange-end-before-start' )->parseAsBlock();
+		}
+
+		$comment = isset( $formData['comment'] ) ? $formData['comment'] : '';
+
+		$this->saveProperties( $properties, $deleteProperties, $comment );
 
 		if ( $populate ) {
 			// Run pushJobsForElection() in a deferred update to give it outer transaction

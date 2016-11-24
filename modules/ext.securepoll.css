@@ -6,8 +6,7 @@
 /* Add spacing between controls */
 .mw-htmlform-field-HTMLTextField,
 .mw-htmlform-field-HTMLIntField,
-.mw-htmlform-field-SecurePoll_HTMLDateField,
-.mw-htmlform-field-SecurePoll_HTMLDateRangeField,
+.mw-htmlform-field-HTMLDateTimeField,
 .mw-htmlform-field-HTMLFormFieldCloner,
 .mw-htmlform-field-HTMLSelectField,
 .mw-htmlform-field-HTMLAutoCompleteSelectField,

@@ -85,8 +85,6 @@
 		"SecurePoll_PopulateVoterListJob": "includes/jobs/PopulateVoterListJob.php",
 		"SecurePollContentHandler": "includes/main/SecurePollContentHandler.php",
 		"SecurePollContent": "includes/main/SecurePollContent.php",
-		"SecurePoll_HTMLDateField": "includes/htmlform/HTMLDateField.php",
-		"SecurePoll_HTMLDateRangeField": "includes/htmlform/HTMLDateRangeField.php",
 		"SecurePoll_HTMLFormRadioRangeColumnLabels": "includes/htmlform/HTMLFormRadioRangeColumnLabels.php",
 		"SecurePollHooks": "includes/SecurePollHooks.php"
 	},

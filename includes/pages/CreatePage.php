@@ -60,13 +60,6 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 			}
 		}
 
-		/** @todo These should be migrated to core, once the jquery.ui
-		 * objectors write their own date picker. */
-		if ( !isset( HTMLForm::$typeMappings['date'] ) || !isset( HTMLForm::$typeMappings['daterange'] ) ) {
-			HTMLForm::$typeMappings['date'] = 'SecurePoll_HTMLDateField';
-			HTMLForm::$typeMappings['daterange'] = 'SecurePoll_HTMLDateRangeField';
-		}
-
 		$out->addModules( 'ext.securepoll.htmlform' );
 		$out->addModules( 'ext.securepoll' );
 		$out->setPageTitle( $this->msg( 'securepoll-create-title' ) );
@@ -164,16 +157,21 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 			'required' => true,
 		);
 
+		$formItems['election_startdate'] = array(
+			'label-message' => 'securepoll-create-label-election_startdate',
+			'type' => 'date',
+			'required' => true,
+			'min' => gmdate( 'M-d-Y' ),
+		);
+
 		$days = array();
 		for ( $i = 1; $i <= 28; $i++ ) {
 			$days[$i] = $i;
 		}
-		$formItems['election_dates'] = array(
-			'label-message' => 'securepoll-create-label-election_dates',
-			'layout-message' => 'securepoll-create-layout-election_dates',
-			'type' => 'daterange',
+		$formItems['election_duration'] = array(
+			'type' => 'select',
+			'label-message' => 'securepoll-create-label-election_duration',
 			'required' => true,
-			'min' => gmdate( 'M-d-Y' ),
 			'options' => $days,
 		);
 
@@ -339,10 +337,10 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 			);
 		}
 
-		$form = new HTMLForm( $formItems, $this->specialPage->getContext(),
+		$form = HTMLForm::factory('div', $formItems, $this->specialPage->getContext(),
 			$this->election ? 'securepoll-edit' : 'securepoll-create'
 		);
-		$form->setDisplayFormat( 'div' );
+
 		$form->setSubmitTextMsg( $this->election ? 'securepoll-edit-action' : 'securepoll-create-action' );
 		$form->setSubmitCallback( array( $this, 'processInput' ) );
 		$form->prepareForm();
@@ -617,6 +615,7 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 
 		$startDate = new MWTimestamp( $data['startDate'] );
 		$endDate = new MWTimestamp( $data['endDate'] );
+		$duration = $endDate->diff( $startDate )->format( '%a' );
 
 		$ballot = $data['ballot'];
 		$tally = $data['tally'];
@@ -627,10 +626,8 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 			'election_title' => $data['title'],
 			'property_wiki' => isset( $p['wikis-val'] ) ? $p['wikis-val'] : null,
 			'election_primaryLang' => $data['lang'],
-			'election_dates' => array(
-				$startDate->format( 'Y-m-d' ),
-				$endDate->diff( $startDate )->format( '%a' ),
-			),
+			'election_startdate' => $startDate->format( 'Y-m-d' ),
+			'election_duration' => $duration,
 			'return-url' => isset( $p['return-url'] ) ? $p['return-url'] : null,
 			'jump-text' => isset( $m['jump-text'] ) ? $m['jump-text'] : null,
 			'election_type' => "{$ballot}+{$tally}",
@@ -931,15 +928,16 @@ class SecurePoll_FormStore extends SecurePoll_MemoryStore {
 		$this->remoteWikis = array_diff( $wikis, array( wfWikiID() ) );
 
 		// Create the entry for the election
-		list( $ballot,$tally ) = explode( '+', $formData['election_type'] );
+		list( $ballot, $tally ) = explode( '+', $formData['election_type'] );
 		$crypt = $formData['election_crypt'];
 
 		$date = new DateTime(
-			"{$formData['election_dates'][0]}T00:00:00Z",
+			"{$formData['election_startdate']}T00:00:00Z",
 			new DateTimeZone( 'GMT' )
 		);
 		$startDate = $date->format( 'YmdHis' );
-		$date->add( new DateInterval( "P{$formData['election_dates'][1]}D" ) );
+
+		$date->add( new DateInterval( "P{$formData['election_duration']}D" ) );
 		$endDate = $date->format( 'YmdHis' );
 
 		$this->lang = $formData['election_primaryLang'];
