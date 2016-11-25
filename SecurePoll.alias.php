@@ -221,7 +221,7 @@ $specialPageAliases['tr'] = array(
 
 /** Ukrainian (українська) */
 $specialPageAliases['uk'] = array(
-	'SecurePoll' => array( 'Захищене_голосування' ),
+	'SecurePoll' => array( 'Захищене_голосування', 'Защищённое_голосование' ),
 );
 
 /** Vietnamese (Tiếng Việt) */
