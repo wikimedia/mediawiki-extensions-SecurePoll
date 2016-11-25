@@ -220,6 +220,8 @@
 	"securepoll-votereligibility-label-edits_before_date": "לפני תאריך",
 	"securepoll-votereligibility-label-edits_between": "לדרוש מספר מינימלי של עריכות בין שני תאריכים",
 	"securepoll-votereligibility-label-edits_between_count": "מספר עריכות מינימלי",
+	"securepoll-votereligibility-label-edits_startdate": "עריכות ביום הזה או אחריו:",
+	"securepoll-votereligibility-label-edits_enddate": "ולפני:",
 	"securepoll-votereligibility-label-exclude_groups": "לא לכלול משתמשים בקבוצות האלו",
 	"securepoll-votereligibility-label-include_groups": "לכלול משתמשים בקבוצות האלו, בלי קשר למספר העריכות שלהם או לעריכות אחרות",
 	"securepoll-votereligibility-label-names": "שמות משתמש",

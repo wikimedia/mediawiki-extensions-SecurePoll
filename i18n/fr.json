@@ -17,7 +17,8 @@
 			"Yann",
 			"Orikrin1998",
 			"Wladek92",
-			"Əric"
+			"Əric",
+			"Derugon"
 		]
 	},
 	"securepoll": "Sondage sécurisé",
@@ -148,6 +149,8 @@
 	"securepoll-create-option-wiki-all_wikis": "Tous les wikis",
 	"securepoll-create-option-wiki-other_wiki": "Autre wiki spécifique",
 	"securepoll-create-label-election_primaryLang": "Langue principale :",
+	"securepoll-create-label-election_startdate": "Date de début des élections:",
+	"securepoll-create-label-election_duration": "Durée des élections (jours):",
 	"securepoll-create-label-election_disallow-change": "Empêcher les électeurs de modifier leur vote",
 	"securepoll-create-label-election_return-url": "URL de retour :",
 	"securepoll-create-label-election_jump-text": "Sauter le texte:",
@@ -228,6 +231,8 @@
 	"securepoll-votereligibility-label-edits_before_date": "Avant la date",
 	"securepoll-votereligibility-label-edits_between": "Nécessite un nombre minimum de modifications entre deux dates",
 	"securepoll-votereligibility-label-edits_between_count": "Nombre minimal de modifications",
+	"securepoll-votereligibility-label-edits_startdate": "Met à jour sur, ou après :",
+	"securepoll-votereligibility-label-edits_enddate": "Et avant:",
 	"securepoll-votereligibility-label-exclude_groups": "Exclure les utilisateurs dans ces groupes",
 	"securepoll-votereligibility-label-include_groups": "Inclure les utilisateurs dans ces groupes, indépendamment des modifications ou des autres groupes",
 	"securepoll-votereligibility-label-names": "Noms d’utilisateur",
