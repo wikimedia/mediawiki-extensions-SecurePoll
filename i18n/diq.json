@@ -5,10 +5,11 @@
 			"Erdemaslancan",
 			"Mirzali",
 			"Xoser",
-			"Kumkumuk"
+			"Kumkumuk",
+			"1917 Ekim Devrimi"
 		]
 	},
-	"securepoll": "Anketo bawerbiyaye",
+	"securepoll": "Rey dayena bawer biyaye",
 	"securepoll-desc": "Seba weçinıtışan u anketan dergkerdış",
 	"securepoll-invalid-page": "Pela nêvêrdiya bınêne \"<nowiki>$1</nowiki>\"",
 	"securepoll-need-admin": "qey no kari şıma gani serkaribi",
@@ -79,7 +80,6 @@
 	"securepoll-header-admin": "İdarekar",
 	"securepoll-cookie-dup-list": "karberê çerezi",
 	"securepoll-dump-title": "belge: $1",
-	"securepoll-dump-no-crypt": "qey no vıcinayişi, qeydê vıcinayişi yo şifrebiyayeyi çino, çunke eyar nêbo.",
 	"securepoll-dump-not-finished": "qeydê vıcinayişi yo şifrebiyayeyi tena tarixê qediyayişi ey seet $1 ra heta $2 yo .",
 	"securepoll-dump-no-urandom": "/dêw/urandom a nêbeno.\nqey idame kerdışi pinaniyê reydayoxi, eke pawıte bo a beno.",
 	"securepoll-urandom-not-supported": "no pêşkeşwan amarê kriptografiki yo raştameye qebul nêkerdo.\nqey idame kerdışi pinaniyê reydayoxi, eke pawıte bo a beno.",
