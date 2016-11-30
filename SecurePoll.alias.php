@@ -39,6 +39,11 @@ $specialPageAliases['bgn'] = array(
 	'SecurePoll' => array( 'ایمنین_رای_گیره_گ' ),
 );
 
+/** Bengali (বাংলা) */
+$specialPageAliases['bn'] = array(
+	'SecurePoll' => array( 'সিকিউর_পোল' ),
+);
+
 /** Chechen (нохчийн) */
 $specialPageAliases['ce'] = array(
 	'SecurePoll' => array( 'Лардина_кхаж_тасар' ),
