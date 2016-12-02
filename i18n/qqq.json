@@ -272,6 +272,6 @@
 	"apihelp-strikevote-param-reason": "{{doc-apihelp-param|strikevote|reason}}",
 	"apihelp-strikevote-example-strike": "{{doc-apihelp-example|strikevote}}",
 	"apihelp-strikevote-example-unstrike": "{{doc-apihelp-example|strikevote}}",
-	"apierror-securepoll-badvoteid": "{{doc-apierror}}\n\nParameters:\n* $1 - Supplied vote id",
-	"apierror-securepoll-mustbeloggedin-strikevote": "{{doc-apierror}}"
+	"apierror-securepoll-mustbeloggedin-strikevote": "{{doc-apierror}}",
+	"apierror-securepoll-badvoteid": "{{doc-apierror}}\n\nParameters:\n* $1 - Supplied vote id"
 }
