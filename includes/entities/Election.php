@@ -91,6 +91,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		$this->startDate = $info['startDate'];
 		$this->endDate = $info['endDate'];
 		$this->authType = $info['auth'];
+		$this->owner = $info['owner'];
 	}
 
 	/**
