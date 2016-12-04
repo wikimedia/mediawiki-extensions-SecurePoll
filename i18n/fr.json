@@ -260,5 +260,7 @@
 	"apihelp-strikevote-param-voteid": "L'ID du vote devant être supprimé ou reintégré.",
 	"apihelp-strikevote-param-reason": "La raison de l'annulation ou la reintégration du vote.",
 	"apihelp-strikevote-example-strike": "Annuler le vote <kbd>1</kbd>, en donnant la raison <kbd>duplication</kbd>.",
-	"apihelp-strikevote-example-unstrike": "Réintégrer le vote <kbd>1</kbd>, en donnant la raison  <kbd>erreur</kbd>."
+	"apihelp-strikevote-example-unstrike": "Réintégrer le vote <kbd>1</kbd>, en donnant la raison  <kbd>erreur</kbd>.",
+	"apierror-securepoll-mustbeloggedin-strikevote": "Vous devez être connecté pour signer ou annuler un vote.",
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> n'est pas un identifiant de vote valide."
 }
