@@ -249,5 +249,7 @@
 	"apihelp-strikevote-param-voteid": "המזהה של ההצבעה שתימחק או שמחיקתה תתבטל.",
 	"apihelp-strikevote-param-reason": "הסיבה למחיקת הצבעה או לביטול מחיקתה.",
 	"apihelp-strikevote-example-strike": "למחוק את ההצבעה <kbd>1</kbd>, עם הסיבה <kbd>duplication</kbd>.",
-	"apihelp-strikevote-example-unstrike": "לבטל את המחיקה של ההצבעה <kbd>1</kbd>, עם הסיבה <kbd>mistake</kbd>."
+	"apihelp-strikevote-example-unstrike": "לבטל את המחיקה של ההצבעה <kbd>1</kbd>, עם הסיבה <kbd>mistake</kbd>.",
+	"apierror-securepoll-mustbeloggedin-strikevote": "חובה להיכנס לחשבון כדי למחוק הצבעה או לבטל את מחיקתה.",
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> הוא לא מזהה הצבעה תקין."
 }

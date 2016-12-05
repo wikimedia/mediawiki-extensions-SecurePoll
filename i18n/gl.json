@@ -243,5 +243,7 @@
 	"apihelp-strikevote-param-voteid": "O identificador do voto para suprimir ou restaurar.",
 	"apihelp-strikevote-param-reason": "A razón pola que anular ou restaurar o voto.",
 	"apihelp-strikevote-example-strike": "Anular o voto <kbd>1</kbd>, co motivo <kbd>duplicado</kbd>.",
-	"apihelp-strikevote-example-unstrike": "Restaurar o voto <kbd>1</kbd>, co motivo <kbd>erro</kbd>."
+	"apihelp-strikevote-example-unstrike": "Restaurar o voto <kbd>1</kbd>, co motivo <kbd>erro</kbd>.",
+	"apierror-securepoll-mustbeloggedin-strikevote": "Debe estar autenticado para riscar ou quitar o riscado dun voto.",
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> non é un identificador de voto válido."
 }
