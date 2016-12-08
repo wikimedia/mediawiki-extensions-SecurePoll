@@ -25,6 +25,11 @@ class SecurePollHooks {
 				$updater->addExtensionIndex( 'securepoll_options', 'spop_election',
 					"$base/patches/patch-op_election-index.sql"
 				);
+				$updater->addExtensionField(
+					'securepoll_elections',
+					'el_owner',
+					"$base/patches/patch-el_owner.sql"
+				);
 				break;
 			case 'postgres':
 				$updater->addExtensionTable( 'securepoll_entity', "$base/SecurePoll.pg.sql" );
