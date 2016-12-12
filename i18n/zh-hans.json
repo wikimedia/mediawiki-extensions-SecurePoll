@@ -236,7 +236,7 @@
 	"securepoll-votereligibility-action": "保存配置",
 	"securepoll-votereligibility-fail-nothing-to-process": "已请求{{int:securepoll-votereligibility-list-voter}}的自动人口添加，但所有过滤器被留空。",
 	"securepoll-votereligibility-edit-title": "投票者列表编辑：$1",
-	"securepoll-votereligibility-edit-header": "在下方的字段输入用户名列表，每行一个。特定wiki上的用户可能会识别为用户名带“@”再带项目名；例如中文维基百科的User:Example会识别为“Example@zhwik”。此表提交后用户名会锁定，并且不存在的用户会被默认忽略。无效的用户名也会被默认忽略。",
+	"securepoll-votereligibility-edit-header": "在下方的字段输入用户名列表，每行一个。特定wiki上的用户可能会识别为用户名带“@”再带项目名；例如中文维基百科的User:Example会识别为“Example@zhwiki”。\n\n此表提交后用户名会锁定，并且不存在的用户会被默认忽略。无效的用户名也会被默认忽略。",
 	"securepoll-votereligibility-edit-action": "保存列表",
 	"securepoll-votereligibility-saved": "{{int:securepoll}}:已保存",
 	"securepoll-votereligibility-saved-text": "您的更改已保存。",
