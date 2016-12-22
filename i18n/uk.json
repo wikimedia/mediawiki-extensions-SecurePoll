@@ -258,5 +258,7 @@
 	"apihelp-strikevote-param-voteid": "Ідентифікатор голосу, який слід викреслити або відновити.",
 	"apihelp-strikevote-param-reason": "Причина для викреслення або відновлення голосу.",
 	"apihelp-strikevote-example-strike": "Викреслити голос <kbd>1</kbd>, з причиною <kbd>дублікат</kbd>.",
-	"apihelp-strikevote-example-unstrike": "Відновити голос <kbd>1</kbd>, з причиною <kbd>помилка</kbd>."
+	"apihelp-strikevote-example-unstrike": "Відновити голос <kbd>1</kbd>, з причиною <kbd>помилка</kbd>.",
+	"apierror-securepoll-mustbeloggedin-strikevote": "Ви маєте перебувати в системі, щоб голосувати чи скасовувати свої голоси.",
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> не є дійсним ідентифікатором голосування."
 }
