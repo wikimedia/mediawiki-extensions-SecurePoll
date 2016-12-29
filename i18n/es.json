@@ -17,10 +17,11 @@
 			"Ryo567",
 			"White Master King",
 			"Indiralena",
-			"Matiia"
+			"Matiia",
+			"Dgstranz"
 		]
 	},
-	"securepoll": "SecurePoll",
+	"securepoll": "Sondeo seguro",
 	"securepoll-desc": "Extensión para elecciones y encuentas",
 	"securepoll-invalid-page": "Subpágina «<nowiki>$1</nowiki>» no válida",
 	"securepoll-need-admin": "Necesitas ser un administrador de elecciones para realizar esta acción.",
@@ -65,7 +66,7 @@
 	"securepoll-not-in-group": "Solo los miembros del grupo «$1» pueden votar en esta elección.",
 	"securepoll-not-in-list": "Lo sentimos, no estás en la lista predeterminada de usuarios autorizados a votar en esta elección.",
 	"securepoll-in-exclude-list": "No estás autorizado a votar en esta elección.",
-	"securepoll-list-title": "Lista votos: $1",
+	"securepoll-list-title": "Lista de votos: $1",
 	"securepoll-header-timestamp": "Hora",
 	"securepoll-header-voter-name": "Nombre",
 	"securepoll-header-voter-domain": "Dominio",
@@ -241,6 +242,8 @@
 	"right-securepoll-create-poll": "Crear encuestas",
 	"action-securepoll-create-poll": "crear encuestas",
 	"securepoll-ns-readonly": "El espacio de nombres {{ns:SecurePoll}} es de solo lectura",
+	"securepoll-voter-stats": "De todos los usuarios con derecho de voto, $1 {{PLURAL:$1|ha|han}} votado.",
+	"securepoll-vote-stats": "Se {{PLURAL:$1|ha|han}} emitido $1 {{PLURAL:$1|voto|votos}}. De estos, se {{PLURAL:$2|ha|han}} rechazado $2 porque el votante ha votado de nuevo, y se {{PLURAL:$3|ha|han}} suprimido $3.",
 	"apihelp-strikevote-description": "Permite a los administradores validar o invalidar un voto.",
 	"apihelp-strikevote-param-option": "Qué acción tomar: validar o invalidar un voto.",
 	"apihelp-strikevote-paramvalue-option-strike": "Invalidar un voto (quitar del conteo).",
