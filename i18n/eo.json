@@ -76,7 +76,6 @@
 	"securepoll-header-admin": "Administranto",
 	"securepoll-cookie-dup-list": "Uzi seancan kuketon por duplikataj uzantoj",
 	"securepoll-dump-title": "Elŝuto: $1",
-	"securepoll-dump-no-crypt": "Neniu ĉifrita registraĵo havebla por tiu ĉi baloto, ĉar la baloto ne estas aranĝita por uzi ĉifradon.",
 	"securepoll-dump-not-finished": "Ĉifrita registraĵo estos havebla por tiu ĉi baloto nur post la findato $1 je $2",
 	"securepoll-dump-no-urandom": "Ne povas malfermi /dev/urandom.\nPor garantii privatecon de balotinto, ĉifrita balotregistraĵo estas publike havebla nur kiam ĝi povas esti malnetigita per sekura hazarda nombrofluo.",
 	"securepoll-urandom-not-supported": "Ĉi tiu servilo ne eltenas generadon de ĉifrhazardnombroj. \nPor garantii privatecon de balotinto, ĉifrita balotregistraĵo estas publike havebla nur kiam ĝi povas esti malnetigita per sekura hazarda nombrofluo.",
@@ -118,5 +117,6 @@
 	"securepoll-create-label-questions-question": "Teksto de demando:",
 	"securepoll-create-label-questions-add": "Aldoni plian demandon",
 	"securepoll-create-label-questions-delete": "Forigi demandon",
+	"securepoll-create-label-questions-option": "=== Opcioj ===",
 	"securepoll-votereligibility-label-names": "Uzantnomoj"
 }
