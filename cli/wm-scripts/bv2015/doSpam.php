@@ -1,7 +1,7 @@
 <?php
 
-require_once '/srv/mediawiki/multiversion/MWVersion.php';
-require_once getMediaWiki( 'maintenance/commandLine.inc', 'enwiki' );
+require_once '/srv/mediawiki/multiversion/MWMultiVersion.php';
+require_once MWMultiVersion::getMediaWiki( 'maintenance/commandLine.inc', 'enwiki' );
 
 $wgConf->loadFullData();
 
