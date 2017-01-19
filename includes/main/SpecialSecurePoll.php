@@ -31,6 +31,10 @@ class SecurePoll_SpecialSecurePoll extends SpecialPage {
 		$this->sp_context = new SecurePoll_Context;
 	}
 
+	public function doesWrites() {
+		return true;
+	}
+
 	/**
 	 * Show the special page
 	 *
