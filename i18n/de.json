@@ -241,6 +241,8 @@
 	"securepoll-voter-stats": "Von allen berechtigten Benutzern {{PLURAL:$1|hat ein|haben $1}} Benutzer abgestimmt.",
 	"securepoll-vote-stats": "Insgesamt {{PLURAL:$1|wurde eine Stimme|wurden $1 Stimmen}} abgegeben. Von diesen {{PLURAL:$2|wurde eine|wurden $2}} verworfen, da die abstimmenden Benutzer erneut abgestimmt haben und {{PLURAL:$3|eine wurde|$3 wurden}} gestrichen.",
 	"apihelp-strikevote-paramvalue-option-strike": "Streicht eine Stimme (entfernt sie aus dem Zähler).",
+	"apihelp-strikevote-param-voteid": "Die Kennung der Stimme, die gestrichen oder deren Streichung zurückgenommen werden soll.",
+	"apihelp-strikevote-param-reason": "Der Grund für die Streichung oder Streichungsrücknahme der Stimme.",
 	"apierror-securepoll-mustbeloggedin-strikevote": "Du musst angemeldet sein, um eine Stimme auszustreichen oder die Streichung zurückzunehmen.",
 	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> ist keine gültige Abstimmungskennung."
 }
