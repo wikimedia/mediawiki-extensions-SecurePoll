@@ -74,7 +74,6 @@
 	"securepoll-header-admin": "Administrator",
 	"securepoll-cookie-dup-list": "Utilizaires qu'an un cookie ja rencontrat",
 	"securepoll-dump-title": "Extrait : $1",
-	"securepoll-dump-no-crypt": "Las donadas chifradas son pas disponiblas per aquesta eleccion, perque l’eleccion es pas configurada per utilizar un chiframent.",
 	"securepoll-dump-not-finished": "Las donadas criptadas son disponiblas solament aprèp la clausura de l'eleccion lo $1 a $2",
 	"securepoll-dump-no-urandom": "Impossible de dobrir /dev/urandom.\nPer manténer la confidencialitat dels votants, las donadas criptadas son disponiblas sonque se pòdon èsser reboladas amb un nombre de caractèrs aleatòris.",
 	"securepoll-urandom-not-supported": "Aqueste servidor supòrta pas la generacion criptografica aleatòri de nombres.\nPer assegurar la confidencialitat dels votants, las donadas criptadas son publicadas unicament quand pòdon trebolar un flux aleatòri de nombres.",
@@ -112,5 +111,7 @@
 	"securepoll-round": "Torn $1",
 	"securepoll-spoilt": "(Blancs o nuls)",
 	"securepoll-exhausted": "(Agotat)",
-	"securepoll-create-label-election_primaryLang": "Lenga principala :"
+	"securepoll-create-label-election_primaryLang": "Lenga principala :",
+	"securepoll-create-label-questions-add": "Apondre una autra question",
+	"securepoll-create-label-options-add": "Apondre una autra opcion"
 }
