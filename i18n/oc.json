@@ -34,7 +34,7 @@
 	"securepoll-unanswered-questions": "Vos cal respondre a totas las questions.",
 	"securepoll-invalid-rank": "Reng invalid. Vos cal balhar als candidats un reng entre 1 e 999.",
 	"securepoll-unranked-options": "D'unas opcions an pas recebut de reng.\nVos cal balhar un reng entre 1 e 999 a totas las opcions.",
-	"securepoll-invalid-score": "La marca deu èsser un nombre comprés entre $1 e $2.",
+	"securepoll-invalid-score": "La puntatge deu èsser un nombre comprés entre $1 e $2.",
 	"securepoll-unanswered-options": "Vos cal balhar una responsa per totas las questions.",
 	"securepoll-remote-auth-error": "Error al moment de la recuperacion de las informacions de vòstre compte dempuèi lo servidor.",
 	"securepoll-remote-parse-error": "Error al moment de l’interpretacion de la responsa d’autorizacion del servidor.",
