@@ -209,7 +209,7 @@
 	"securepoll-votereligibility-list-exclude": "Ausschlussliste",
 	"securepoll-votereligibility-label-inuse": "Diese Liste ist in Verwendung",
 	"securepoll-votereligibility-label-notinuse": "Diese Liste ist nicht in Verwendung",
-	"securepoll-votereligibility-label-processing": "Diese Liste wird erstellt ($1% vollständig)",
+	"securepoll-votereligibility-label-processing": "Diese Liste wird erstellt ($1 % vollständig)",
 	"securepoll-votereligibility-label-edit": "Liste bearbeiten",
 	"securepoll-votereligibility-label-clear": "Liste entfernen",
 	"securepoll-votereligibility-label-populate": "Liste automatisch befüllen",
