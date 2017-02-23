@@ -71,7 +71,7 @@
 class SecurePoll_Election extends SecurePoll_Entity {
 	public $questions, $auth, $ballot;
 	public $id, $title, $ballotType, $tallyType, $primaryLang;
-	public $startDate, $endDate, $authType;
+	public $startDate, $endDate, $authType, $owner;
 
 	/**
 	 * Constructor.
