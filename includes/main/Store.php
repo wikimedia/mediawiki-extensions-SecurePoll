@@ -175,7 +175,7 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 		foreach ( $map as $key => $field ) {
 			if ( $key == 'startDate' || $key == 'endDate' ) {
 				$info[$key] = wfTimestamp( TS_MW, $row->$field );
-			} else {
+			} elseif ( isset( $row->$field ) ) {
 				$info[$key] = $row->$field;
 			}
 		}
