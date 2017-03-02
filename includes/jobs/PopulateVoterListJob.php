@@ -265,6 +265,7 @@ class SecurePoll_PopulateVoterListJob extends Job {
 			}
 
 			// Criterion 3: Not in a listed group
+			global $wgDisableUserGroupExpiry;
 			if ( $this->params['list_exclude-groups'] ) {
 				$res = $dbr->select(
 					array( 'user', 'user_groups' ),
@@ -280,6 +281,9 @@ class SecurePoll_PopulateVoterListJob extends Job {
 						'user_groups' => array( 'LEFT OUTER JOIN', array(
 								'ug_user = user_id',
 								'ug_group' => $this->params['list_exclude-groups'],
+								( !isset( $wgDisableUserGroupExpiry ) || $wgDisableUserGroupExpiry ) ?
+									'1' :
+									'ug_expiry IS NULL OR ug_expiry >= ' . $dbr->addQuotes( $dbr->timestamp() ),
 							)
 						),
 					)
@@ -304,7 +308,10 @@ class SecurePoll_PopulateVoterListJob extends Job {
 					array(
 						"ug_user >= $min",
 						"ug_user < $max",
-						'ug_group' => $this->params['list_include-groups']
+						'ug_group' => $this->params['list_include-groups'],
+						( !isset( $wgDisableUserGroupExpiry ) || $wgDisableUserGroupExpiry ) ?
+							'1' :
+							'ug_expiry IS NULL OR ug_expiry >= ' . $dbr->addQuotes( $dbr->timestamp() ),
 					)
 				);
 				$list = array();
