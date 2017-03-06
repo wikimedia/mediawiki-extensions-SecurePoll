@@ -85,7 +85,7 @@
 	"securepoll-header-voter-type": "投票用户类型",
 	"securepoll-voter-properties": "投票人属性",
 	"securepoll-strike-log": "删除选票日志",
-	"securepoll-header-action": "动作",
+	"securepoll-header-action": "操作",
 	"securepoll-header-reason": "原因",
 	"securepoll-header-admin": "管理员",
 	"securepoll-cookie-dup-list": "Cookie重复的用户",
