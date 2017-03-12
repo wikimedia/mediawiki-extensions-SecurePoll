@@ -88,6 +88,7 @@
 	"securepoll-dump-no-urandom": "/dev/urandom 파일을 열 수 없습니다.\n투표자를 보호하기 위해, 암호화 선거 항목은 안전한 난수 생성기가 있을 때만 사용이 가능합니다.",
 	"securepoll-urandom-not-supported": "이 서버는 암호화 난수 생성을 지원하지 않습니다.\n투표자의 개인 정보를 유지하기 위해, 선거 기록이 안전한 무작위 수열로 변환될 수 있을 경우에만 암호화된 선거 기록이 공개될 것입니다.",
 	"securepoll-translate-title": "번역: $1",
+	"securepoll-translate-redirect": "이 선거에 대한 메시지는 $1에서 구성되어야 합니다",
 	"securepoll-invalid-language": "\"$1\" 언어 코드가 잘못되었습니다.",
 	"securepoll-submit-translate": "새로 고침",
 	"securepoll-language-label": "언어 선택:",
@@ -120,5 +121,7 @@
 	"securepoll-round": "약 $1",
 	"securepoll-spoilt": "(투표권 무효)",
 	"securepoll-exhausted": "(투표권 만료)",
+	"securepoll-edit-redirect": "이 선거는 $1에서 구성되어야 합니다",
+	"securepoll-votereligibility-redirect": "이 선거에 대한 선거권 자격은 $1에서 구성되어야 합니다",
 	"securepoll-votereligibility-basic": "기본 옵션"
 }
