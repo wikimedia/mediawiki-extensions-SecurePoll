@@ -28,7 +28,7 @@
 	"securepoll-thanks": "Teşekkürler, oyunuz kaydedildi.",
 	"securepoll-return": "$1 sayfasına geri dön",
 	"securepoll-encrypt-error": "Oy kaydınızın şifrelenmesi başarısız oldu.\nOyunuz kaydedilmedi!\n\n$1",
-	"securepoll-no-gpg-home": "GPG ev dizini oluşturulamıyor.",
+	"securepoll-no-gpg-home": "GPG ana dizini oluşturulamıyor.",
 	"securepoll-secret-gpg-error": "GPG çalıştırırken hata.\nDaha fazla ayrıntı göstermek için LocalSettings.php'de $wgSecurePollShowErrorDetail=true kullanın.",
 	"securepoll-full-gpg-error": "GPG çalıştırırken hata:\n\nKomut: $1\n\nHata:\n<pre>$2</pre>",
 	"securepoll-gpg-config-error": "GPG anahtarları yanlış yapılandırılmış.",
