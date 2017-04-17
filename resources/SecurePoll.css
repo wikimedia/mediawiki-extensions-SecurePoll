@@ -11,7 +11,7 @@
 	height: 7em;
 	width: 38em;
 	display: none;
-	background-color: #ffffdd;
+	background-color: #ffd;
 	overflow: auto;
 	z-index: 3;
 }
@@ -36,10 +36,10 @@
 .securepoll-error-box {
 	font-size: larger;
 	border: 2px solid;
-	padding: .5em 1em;
+	padding: 0.5em 1em;
 	margin-bottom: 2em;
 	color: #000;
-	border-color: red;
+	border-color: #f00;
 	background-color: #fff2f2;
 }
 .securepoll-option-preferential {
@@ -52,7 +52,8 @@
 	border: thin #aaa solid;
 	border-collapse: collapse;
 }
-.securepoll-table th, .securepoll-table td {
+.securepoll-table th,
+.securepoll-table td {
 	border: thin #aaa solid;
 	padding: 0.4em;
 }
@@ -84,7 +85,7 @@
 	text-align: left;
 }
 .securepoll-ballot-row:hover {
-	background: #eeeeff;
+	background: #eef;
 }
 .securepoll-error-location {
 	margin: 1px 1em 1px 1px;
@@ -99,11 +100,12 @@
 }
 
 .securepoll-results th {
-	padding-right:5px;
+	padding-right: 5px;
 	text-align: left;
 }
 
-tr.securepoll-exhausted th, tr.securepoll-exhausted td {
+tr.securepoll-exhausted th,
+tr.securepoll-exhausted td {
 	font-style: italic;
 	border-top: 1px solid #aaa;
 }

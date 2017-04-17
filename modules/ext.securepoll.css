@@ -24,7 +24,7 @@
 .securepoll-layout-table {
 	width: 100%;
 	table-layout: fixed;
-	border: none;
+	border: 0;
 	border-collapse: collapse;
 }
 
