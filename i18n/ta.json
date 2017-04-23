@@ -7,10 +7,11 @@
 			"மதனாஹரன்",
 			"පසිඳු කාවින්ද",
 			"ElangoRamanujam",
-			"Rakeshonwiki"
+			"Rakeshonwiki",
+			"AntanO"
 		]
 	},
-	"securepoll": "செகிறேபோல்",
+	"securepoll": "Securepoll",
 	"securepoll-desc": "தேர்தல்களுக்கும் கருத்தாய்வுகளுக்குமான நீட்சி",
 	"securepoll-invalid-page": "தவறான உபபக்கம் \"<nowiki>$1</nowiki>\"",
 	"securepoll-need-admin": "இதைச் செய்ய நீங்கள் தேர்தல் நிருவாகியாக இருக்க வேண்டும்.",
@@ -91,7 +92,6 @@
 	"securepoll-create-option-column_order-asc": "ஏறுவரிசை",
 	"securepoll-create-option-column_order-desc": "இறங்குவரிசை",
 	"securepoll-votereligibility-lists": "'''வாக்காளர் பட்டியல்கள்'''",
-	"securepoll-votereligibility-layout-edits_between_dates": "$1 மற்றும் $2க்கு இடையி்ல்",
 	"securepoll-votereligibility-label-names": "பயனர் பெயர்கள்",
 	"securepoll-votereligibility-label-comment": "காரணம்",
 	"securepoll-voter-stats": "மொத்த வாக்காளர்களில் $1 {{PLURAL:$1|voter has|voters have}} பேர் வாக்களித்துள்ளனர்",
