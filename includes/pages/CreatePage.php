@@ -127,7 +127,6 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 				'type' => 'select',
 				'options' => $opts,
 				'label-message' => 'securepoll-create-label-wiki',
-				'required' => true,
 			);
 		} else {
 			$options['securepoll-create-option-wiki-other_wiki'] = 'other';
@@ -136,7 +135,6 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 				'autocomplete-data' => $wikiNames,
 				'options-messages' => $options,
 				'label-message' => 'securepoll-create-label-wiki',
-				'required' => true,
 				'require-match' => true,
 				'default' => wfWikiID(),
 			);
