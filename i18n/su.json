@@ -1,9 +1,25 @@
 {
 	"@metadata": {
 		"authors": [
-			"Irwangatot"
+			"Irwangatot",
+			"Uchup19"
 		]
 	},
 	"securepoll-strike-reason": "Alesan:",
-	"securepoll-header-reason": "Alesan"
+	"securepoll-strike-cancel": "Bolay",
+	"securepoll-header-reason": "Alesan",
+	"securepoll-translate-title": "Tarjamahkeun: $1",
+	"securepoll-translate-redirect-otherwiki": "wiki utama",
+	"securepoll-translate-label-comment": "Alesan:",
+	"securepoll-invalid-language": "Kodeu basa teu sah \"$1\"",
+	"securepoll-submit-translate": "Anyarkeun",
+	"securepoll-language-label": "Pilih basa:",
+	"securepoll-submit-select-lang": "Tarjamahkeun",
+	"securepoll-header-title": "Ngaran",
+	"securepoll-header-start-date": "Tanggal ngamimitian",
+	"securepoll-header-end-date": "Tanggal lekasan",
+	"securepoll-subpage-vote": "Voting",
+	"securepoll-subpage-translate": "Tarjamahkeun",
+	"securepoll-subpage-list": "Daptar",
+	"securepoll-subpage-edit": "Édit"
 }
