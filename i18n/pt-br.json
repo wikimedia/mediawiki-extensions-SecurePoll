@@ -236,6 +236,7 @@
 	"securepoll-votereligibility-action": "Salvar configuração",
 	"securepoll-votereligibility-fail-nothing-to-process": "Solicitado o preenchimento automático da {{int:securepoll-votereligibility-list-voter}}, mas todos os filtros foram deixados em branco.",
 	"securepoll-votereligibility-edit-title": "Edição da lista de votantes: $1",
+	"securepoll-votereligibility-edit-header": "Digite nomes de usuários para a lista no campo de texto abaixo, um por linha. Um usuário em uma wiki específica pode ser identificado adicionando ao nome '@' seguido do nome do projeto; por exemplo, User:Exemplo na Wikipédia em inglês poderia ser especificado como \"Exemple@enwiki\".\n\nOs nomes de usuário são pesquisados quando este formulário é enviado e os usuários que não existem são silenciosamente ignorados. Nomes de usuário inválidos também são silenciosamente ignorados.",
 	"securepoll-votereligibility-edit-action": "Salvar lista",
 	"securepoll-votereligibility-saved": "{{int:securepoll}}: Salva",
 	"securepoll-votereligibility-saved-text": "Suas alterações foram salvas.",
