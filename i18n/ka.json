@@ -6,10 +6,11 @@
 			"Dawid Deutschland",
 			"ITshnik",
 			"გიორგიმელა",
-			"MIKHEIL"
+			"MIKHEIL",
+			"Otogi"
 		]
 	},
-	"securepoll": "უსაფრთხო კეჭისყრა",
+	"securepoll": "უსაფრთხო კენჭისყრა",
 	"securepoll-desc": "არჩევნებისა და გამოკითხვის გახანგრძლივება",
 	"securepoll-invalid-page": "არასწორი ქვეგვერდი „<nowiki>$1</nowiki>“",
 	"securepoll-need-admin": "თქვენ უნდა იყოთ საარჩევნო ადმინისტრატორი, რომ შეასრულოთ ეს ქმედება.",
@@ -78,7 +79,6 @@
 	"securepoll-header-admin": "ადმინი",
 	"securepoll-cookie-dup-list": "მომხმარებლები, რომლებმაც ორჯერ მისცეს ხმა",
 	"securepoll-dump-title": "დამპი: $1",
-	"securepoll-dump-no-crypt": "ხმის მიცემის დაუშიფრავი ჩანაწერები ამ არჩევნებზე ხელმისაწვდომია, რადგან არჩევნები არ არის აწყობილი შიფრის გამოყენებაზე.",
 	"securepoll-dump-not-finished": "ხმის მიცემის დაშიფრული ჩანაწერები ხელმისაწვდომი იქნება მხოლოდ კენჭისყრის დასრულების შემდეგ $1 $2",
 	"securepoll-dump-no-urandom": "ვერ იხსნება /dev/urandom.\nამომრჩეველთა კონფიდენციალურობის მიზნით, ხმის მიცემის დაშიფრული ჩანაწერები ყველასათვის ხელმიწავდომი გახდება მხოლოდ მას შემდეგ, რაც მათი თანმიმდევრობა შეიცვლება შემთხვევითი რიცხვების უსაფრთხო წყაროს გამოყენებით.",
 	"securepoll-urandom-not-supported": "ამ სერვერს არ აქვს შემთხვევითი რიცხვების კრიპტოგრაფიული გენერირების მხარდაჭერა.\nხმის მიმცემთა კონფიდენციალურობის დასაცავად, არცევნების კოდირებული ჩანაწერები ყველასათვის ხემისაწვდომი გახდება მხოლოდ მას შემდეგ, რაც ისინი შემთხვევითი რიცხვების უსაფრთხო ნაკადით აირევიან.",
@@ -130,8 +130,6 @@
 	"securepoll-create-option-wiki-all_wikis": "ყველა ვიკი",
 	"securepoll-create-option-wiki-other_wiki": "სხვა სპეციფიური ვიკი",
 	"securepoll-create-label-election_primaryLang": "ძირითადი ენა:",
-	"securepoll-create-label-election_dates": "არჩევნების თარიღი:",
-	"securepoll-create-layout-election_dates": "დაიწყება $1-ში (00:00-ზე UTC) და გაგრძელდება $2 დღე",
 	"securepoll-create-label-property_admins": "ადმინები:",
 	"securepoll-create-label-questions-question": "შეკითხვის ტექსტი:",
 	"securepoll-create-label-questions-add": "სხვა შეკითხვის დამატება",
