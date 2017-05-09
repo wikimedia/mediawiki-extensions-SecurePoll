@@ -115,8 +115,18 @@
 	"securepoll-create-option-column_order-asc": "Gorantz",
 	"securepoll-create-option-column_order-desc": "Beherantz",
 	"securepoll-create-label-questions-option": "=== Aukerak ===",
+	"securepoll-create-label-options-option": "Aukeraren testua:",
+	"securepoll-create-label-options-add": "Gehitu beste aukera bat",
+	"securepoll-create-label-options-delete": "Ezabatu aukera",
+	"securepoll-create-label-option-name": "Aukeraren izena:",
+	"securepoll-create-option-election_type-approval+plurality": "Onarpen-botoa",
+	"securepoll-create-option-election_type-preferential+schulze": "Schulze motako botoa",
+	"securepoll-create-option-election_type-choose+plurality": "Aniztasuna",
 	"securepoll-create-label-comment": "Arrazoia",
 	"securepoll-votereligibility-redirect-otherwiki": "wiki nagusia",
 	"securepoll-votereligibility-label-comment": "Arrazoia",
-	"securepoll-votereligibility-action": "Konfigurazioa gorde"
+	"securepoll-votereligibility-action": "Konfigurazioa gorde",
+	"securepoll-votereligibility-edit-action": "Gorde zerrenda",
+	"securepoll-votereligibility-saved": "{{int:securepoll}}: Gordeta",
+	"securepoll-votereligibility-saved-text": "Zure aldaketak gorde egin dira."
 }
