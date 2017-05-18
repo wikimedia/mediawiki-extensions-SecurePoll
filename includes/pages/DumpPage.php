@@ -58,22 +58,7 @@ class SecurePoll_DumpPage extends SecurePoll_ActionPage {
 		if ( !$this->headersSent ) {
 			$this->sendHeaders();
 		}
-		$record = $row->vote_record;
-		if ( $this->election->getCrypt() ) {
-			$status = $this->election->getCrypt()->decrypt( $record );
-			if ( !$status->isOK() ) {
-				// Decrypt failed, e.g. invalid or absent private key
-				// Still, return the encrypted vote
-				echo "<vote>\n<encrypted>" . $record . "</encrypted>\n</vote>\n";
-			} else {
-				$decrypted_record = $status->value;
-				echo "<vote>\n<encrypted>" . $record .
-					"</encrypted>\n<decrypted>" . $decrypted_record .
-					"</decrypted>\n</vote>\n";
-			}
-		} else {
-			echo "<vote>\n<decrypted>" . $record . "</decrypted>\n</vote>\n";
-		}
+		echo "<vote>" . $row->vote_record . "</vote>\n";
 	}
 
 	public function sendHeaders() {
