@@ -372,7 +372,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 	public $voteCallback, $voteElectionId, $voteCallbackStatus;
 
 	/** Valid entity info keys by entity type. */
-	static $entityInfoKeys = array(
+	private static $entityInfoKeys = array(
 		'election' => array(
 			'id',
 			'title',
@@ -388,14 +388,14 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 	);
 
 	/** The type of each entity child and its corresponding (plural) info element */
-	static $childTypes = array(
+	private static $childTypes = array(
 		'election' => array( 'question' => 'questions' ),
 		'question' => array( 'option' => 'options' ),
 		'option' => array()
 	);
 
 	/** All entity types */
-	static $entityTypes = array( 'election', 'question', 'option' );
+	private static $entityTypes = array( 'election', 'question', 'option' );
 
 	/**
 	 * Constructor. Note that readFile() must be called before any information

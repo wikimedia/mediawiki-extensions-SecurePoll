@@ -10,7 +10,7 @@ class SecurePoll_Auth {
 	/**
 	 * List of available authorization modules (subclasses)
 	 */
-	static $authTypes = array(
+	private static $authTypes = array(
 		'local' => 'SecurePoll_LocalAuth',
 		'remote-mw' => 'SecurePoll_RemoteMWAuth',
 	);
