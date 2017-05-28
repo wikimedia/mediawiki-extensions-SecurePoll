@@ -127,7 +127,7 @@
 	"securepoll-tally-upload-legend": "Téléverser une sauvegarde cryptée",
 	"securepoll-tally-upload-submit": "Créer une comptage",
 	"securepoll-tally-error": "Erreur lors de l’interprétation des enregistrements de vote, impossible de produire un résultat.",
-	"securepoll-no-upload": "Aucun fichier n’a été téléchargé, impossible de compter les résultats.",
+	"securepoll-no-upload": "Aucun fichier n’a été téléversé, impossible de compter les résultats.",
 	"securepoll-dump-corrupt": "Le fichier de sauvegarde est corrompu et ne peut pas être utilisé.",
 	"securepoll-tally-upload-error": "Erreur lors du dépouillement du fichier de sauvegarde : $1",
 	"securepoll-pairwise-victories": "Matrice des victoires par pair",
