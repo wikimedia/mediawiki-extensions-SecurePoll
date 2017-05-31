@@ -178,9 +178,9 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 		);
 
 		# Add vote to log
-		$xff = @$_SERVER['HTTP_X_FORWARDED_FOR'];
-		if ( !$xff ) {
-			$xff = '';
+		$xff = '';
+		if ( !empty( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
+			$xff = $_SERVER['HTTP_X_FORWARDED_FOR'];
 		}
 
 		$tokenMatch = $this->specialPage->getEditToken() == $request->getVal( 'edit_token' );
