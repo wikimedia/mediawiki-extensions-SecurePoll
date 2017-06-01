@@ -159,7 +159,7 @@
 	"securepoll-create-label-shuffle_options": "Mezclar las opciones en la página de la votación.",
 	"securepoll-create-label-must_rank_all": "Es necesario clasificar todas las opciones.",
 	"securepoll-create-label-must_answer_all": "Es necesario responder a todas las preguntas.",
-	"securepoll-create-label-voter_privacy": "Deshabilitar las funcionalidades de transparencia (por ejemplo, la lista de votantes) para proteger la privacidad de los votantes.",
+	"securepoll-create-label-voter_privacy": "Desactivar las funcionalidades de transparencia (por ejemplo, la lista de votantes) para proteger la privacidad de los votantes.",
 	"securepoll-create-label-gpg_encrypt_key": "Clave de cifrado GPG",
 	"securepoll-create-label-gpg_sign_key": "Clave de firma GPG",
 	"securepoll-create-label-questions": "== Preguntas ==",
