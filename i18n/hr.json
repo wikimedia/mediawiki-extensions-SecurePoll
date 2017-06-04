@@ -9,7 +9,7 @@
 			"MaGa"
 		]
 	},
-	"securepoll": "SigurnoGlasovanje",
+	"securepoll": "Sigurno glasovanje",
 	"securepoll-desc": "Mediawiki ekstenzija za izbore i ankete",
 	"securepoll-invalid-page": "Nevaljana podstranica \"<nowiki>$1</nowiki>\"",
 	"securepoll-need-admin": "Morate biti administrator izbora za izvršenje ove radnje.",
@@ -77,7 +77,6 @@
 	"securepoll-header-admin": "Admin",
 	"securepoll-cookie-dup-list": "Suradnici s dvostrukim kolačićima",
 	"securepoll-dump-title": "Ispis: $1",
-	"securepoll-dump-no-crypt": "Enkriptirani zapis ovih izbora nije dostupan, jer enkripcija nije postavljena.",
 	"securepoll-dump-not-finished": "Enkriptirani zapisi izbora dostupni su samo poslije datuma okončanja - $1 u $2 sati",
 	"securepoll-dump-no-urandom": "Ne mogu otvoriti /dev/urandom.\nDa biste zadržali privatnost glasača, enkriptirani zapisi izbora su javno dostupni samo kad ih se može izmiješati uporabom niza sigurnih slučajnih brojeva.",
 	"securepoll-urandom-not-supported": "Ovaj poslužitelj ne podržava kriptografsko generiranje slučajnog broja.\nKako bi se očuvala privatnost glasača, enkriptirani zapisi izbora javno su dostupni jedino kad ih se može izmiješati sa sigurnim nizom slučajnih brojeva.",
