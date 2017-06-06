@@ -1,6 +1,6 @@
 <?php
 
-require( dirname( __FILE__ ).'/cli.inc' );
+require( __DIR__.'/cli.inc' );
 
 $usage = <<<EOT
 Usage:
@@ -20,7 +20,7 @@ if ( !class_exists( 'SecurePoll_Context' ) ) {
 	if ( isset( $options['name'] ) ) {
 		spFatal( "Cannot load from database when SecurePoll is not installed" );
 	}
-	require( dirname( __FILE__ ) . '/../SecurePoll.php' );
+	require( __DIR__ . '/../SecurePoll.php' );
 }
 
 $conv = new SecurePoll_ConvertVotes;

@@ -1,6 +1,6 @@
 <?php
 
-require( dirname( __FILE__ ) . '/cli.inc' );
+require( __DIR__ . '/cli.inc' );
 
 $usage = <<<EOT
 Delete a poll from the local SecurePoll database.

@@ -8,7 +8,7 @@
  */
 
 $optionsWithArgs = array( 'name' );
-require( dirname(__FILE__).'/cli.inc' );
+require( __DIR__.'/cli.inc' );
 
 $wgTitle = Title::newFromText( 'Special:SecurePoll' );
 
@@ -26,7 +26,7 @@ if ( !class_exists( 'SecurePoll_Context' ) ) {
 	if ( isset( $options['name'] ) ) {
 		spFatal( "Cannot load from database when SecurePoll is not installed" );
 	}
-	require( dirname( __FILE__ ) . '/../SecurePoll.php' );
+	require( __DIR__ . '/../SecurePoll.php' );
 }
 
 $context = new SecurePoll_Context;

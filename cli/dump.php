@@ -6,7 +6,7 @@
 
 
 $optionsWithArgs = array( 'o' );
-require( dirname(__FILE__).'/cli.inc' );
+require( __DIR__.'/cli.inc' );
 
 $usage = <<<EOT
 Usage: php dump.php [options...] <election name>

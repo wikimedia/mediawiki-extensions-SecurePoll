@@ -1,7 +1,7 @@
 <?php
 
-require( dirname(__FILE__).'/cli.inc' );
-$testDir = dirname(__FILE__).'/debtest';
+require( __DIR__.'/cli.inc' );
+$testDir = __DIR__.'/debtest';
 if ( !is_dir( $testDir ) ) {
 	mkdir( $testDir );
 }

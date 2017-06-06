@@ -1,6 +1,6 @@
 <?php
 
-require( dirname( __FILE__ ) . '/../../cli.inc' );
+require( __DIR__ . '/../../cli.inc' );
 $dbcr = CentralAuthUser::getCentralSlaveDB();
 $dbcw = CentralAuthUser::getCentralDB();
 

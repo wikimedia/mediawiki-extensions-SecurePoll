@@ -1,6 +1,6 @@
 <?php
 
-require( dirname( __FILE__ ) . '/cli.inc' );
+require( __DIR__ . '/cli.inc' );
 
 $usage = <<<EOT
 Import configuration files into the local SecurePoll database. Files can be
