@@ -20,13 +20,13 @@ class SecurePoll_EntryPage extends SecurePoll_ActionPage {
 		if ( $this->specialPage->getUser()->isAllowed( 'securepoll-create-poll' ) ) {
 			$title = SpecialPage::getTitleFor( 'SecurePoll', 'create' );
 			$out->addHTML(
-				Html::rawElement( 'p', array(),
+				Html::rawElement( 'p', [],
 					Linker::link(
 						$title,
 						$this->msg( 'securepoll-entry-createpoll' )->text(),
-						array(),
-						array(),
-						array( 'known' )
+						[],
+						[],
+						[ 'known' ]
 					)
 				)
 			);
@@ -45,49 +45,49 @@ class SecurePoll_EntryPage extends SecurePoll_ActionPage {
  * Pager for an election list. See TablePager documentation.
  */
 class SecurePoll_ElectionPager extends TablePager {
-	public $subpages = array(
-		'vote' => array(
+	public $subpages = [
+		'vote' => [
 			'public' => true,
 			'visible-after-start' => true,
 			'visible-after-close' => false,
-		),
-		'translate' => array(
+		],
+		'translate' => [
 			'public' => true,
 			'visible-after-start' => true,
 			'visible-after-close' => true,
-		),
-		'list' => array(
+		],
+		'list' => [
 			'public' => true,
 			'visible-after-start' => true,
 			'visible-after-close' => true,
-		),
-		'edit' => array(
+		],
+		'edit' => [
 			'public' => false,
 			'visible-after-start' => false,
 			'visible-after-close' => false,
-		),
-		'votereligibility' => array(
+		],
+		'votereligibility' => [
 			'public' => false,
 			'visible-after-start' => true,
 			'visible-after-close' => true,
-		),
-		'dump' => array(
+		],
+		'dump' => [
 			'public' => false,
 			'visible-after-start' => true,
 			'visible-after-close' => true,
-		),
-		'tally' => array(
+		],
+		'tally' => [
 			'public' => false,
 			'visible-after-start' => true,
 			'visible-after-close' => true,
-		),
-	);
-	public $fields = array(
+		],
+	];
+	public $fields = [
 		'el_title',
 		'el_start_date',
 		'el_end_date',
 		'links'
-	);
+	];
 	public $entryPage;
 
 	public function __construct( $specialPage ) {
@@ -96,18 +96,18 @@ class SecurePoll_ElectionPager extends TablePager {
 	}
 
 	public function getQueryInfo() {
-		return array(
+		return [
 			'tables' => 'securepoll_elections',
 			'fields' => '*',
 			'conds' => false,
-			'options' => array()
-		);
+			'options' => []
+		];
 	}
 
 	public function isFieldSortable( $field ) {
-		return in_array( $field, array(
+		return in_array( $field, [
 			'el_title', 'el_start_date', 'el_end_date'
-		) );
+		] );
 	}
 
 	/**
@@ -178,7 +178,7 @@ class SecurePoll_ElectionPager extends TablePager {
 	}
 
 	public function getFieldNames() {
-		$names = array();
+		$names = [];
 		foreach ( $this->fields as $field ) {
 			if ( $field == 'links' ) {
 				$names[$field] = '';
@@ -187,7 +187,7 @@ class SecurePoll_ElectionPager extends TablePager {
 				// securepoll-header-title, securepoll-header-start-date,
 				// securepoll-header-end-date
 				$msgName = 'securepoll-header-' .
-					strtr( $field, array( 'el_' => '', '_' => '-' ) );
+					strtr( $field, [ 'el_' => '', '_' => '-' ] );
 				$names[$field] = $this->msg( $msgName )->text();
 			}
 		}

@@ -22,15 +22,15 @@ class SecurePoll_MessageDumpPage extends SecurePoll_ActionPage {
 		header( "Content-Disposition: attachment; filename=$filename" );
 		$dbr = $this->context->getDB();
 
-		$entities = array_merge( array( $this->election ), $this->election->getDescendants() );
-		$ids = array();
+		$entities = array_merge( [ $this->election ], $this->election->getDescendants() );
+		$ids = [];
 		foreach ( $entities as $entity ) {
 			$ids[] = $entity->getId();
 		}
 		$res = $dbr->select(
 			'securepoll_msgs',
 			'*',
-			array( 'msg_entity' => $ids ),
+			[ 'msg_entity' => $ids ],
 			__METHOD__ );
 		if ( !$res->numRows() ) {
 			return;
@@ -38,18 +38,18 @@ class SecurePoll_MessageDumpPage extends SecurePoll_ActionPage {
 		echo "INSERT INTO securepoll_msgs (msg_entity,msg_lang, msg_key, msg_text) VALUES\n";
 		$first = true;
 		foreach ( $res as $row ) {
-			$values = array(
+			$values = [
 				$row->msg_entity,
 				$row->msg_lang,
 				$row->msg_key,
 				$row->msg_text
-			);
+			];
 			if ( $first ) {
 				$first = false;
 			} else {
 				echo ",\n";
 			}
-			echo '(' . implode( ', ', array_map( array( $dbr, 'addQuotes' ), $values ) ) . ')';
+			echo '(' . implode( ', ', array_map( [ $dbr, 'addQuotes' ], $values ) ) . ')';
 		}
 		echo ";\n";
 	}

@@ -45,7 +45,7 @@ abstract class SecurePoll_ActionPage {
 		}
 
 		$languages = array_merge(
-			array( $userLang ),
+			[ $userLang ],
 			Language::getFallbacksFor( $userLang ) );
 
 		if ( !in_array( $election->getLanguage(), $languages ) ) {
@@ -61,6 +61,6 @@ abstract class SecurePoll_ActionPage {
 	 * Relay for SpecialPage::msg
 	 */
 	protected function msg( /* args */ ) {
-		return call_user_func_array( array( $this->specialPage, 'msg' ), func_get_args() );
+		return call_user_func_array( [ $this->specialPage, 'msg' ], func_get_args() );
 	}
 }

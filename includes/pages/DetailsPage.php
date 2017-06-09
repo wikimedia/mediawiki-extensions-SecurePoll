@@ -22,13 +22,13 @@ class SecurePoll_DetailsPage extends SecurePoll_ActionPage {
 
 		$db = $this->context->getDB();
 		$row = $db->selectRow(
-			array( 'securepoll_votes', 'securepoll_elections', 'securepoll_voters' ),
+			[ 'securepoll_votes', 'securepoll_elections', 'securepoll_voters' ],
 			'*',
-			array(
+			[
 				'vote_id' => $this->voteId,
 				'vote_election=el_entity',
 				'vote_voter=voter_id',
-			),
+			],
 			__METHOD__
 		);
 		if ( !$row ) {
@@ -50,10 +50,10 @@ class SecurePoll_DetailsPage extends SecurePoll_ActionPage {
 			$vote_ua = $row->vote_ua;
 		}
 
-		$this->specialPage->setSubtitle( array(
+		$this->specialPage->setSubtitle( [
 			$this->specialPage->getTitle( 'list/' . $this->election->getId() ),
 			$this->msg( 'securepoll-list-title', $this->election->getMessage( 'title' ) )->text()
-		) );
+		] );
 
 		if ( !$this->election->isAdmin( $this->specialPage->getUser() ) ) {
 			$out->addWikiMsg( 'securepoll-need-admin' );
@@ -115,7 +115,7 @@ class SecurePoll_DetailsPage extends SecurePoll_ActionPage {
 					'<td>' .
 					Xml::element(
 						'a',
-						array( 'href' => $voter->getUrl() ),
+						[ 'href' => $voter->getUrl() ],
 						$voter->getName() . '@' . $voter->getDomain()
 					) .
 					'</td></tr>'
@@ -167,15 +167,15 @@ class SecurePoll_StrikePager extends TablePager {
 	}
 
 	public function getQueryInfo() {
-		return array(
-			'tables' => array( 'user', 'securepoll_strike' ),
+		return [
+			'tables' => [ 'user', 'securepoll_strike' ],
 			'fields' => '*',
-			'conds' => array(
+			'conds' => [
 				'st_vote' => $this->voteId,
 				'st_user=user_id',
-			),
-			'options' => array()
-		);
+			],
+			'options' => []
+		];
 	}
 
 	public function formatValue( $name, $value ) {
@@ -194,12 +194,12 @@ class SecurePoll_StrikePager extends TablePager {
 	}
 
 	function getFieldNames() {
-		return array(
+		return [
 			'st_timestamp' => $this->msg( 'securepoll-header-timestamp' )->escaped(),
 			'st_user' => $this->msg( 'securepoll-header-admin' )->escaped(),
 			'st_action' => $this->msg( 'securepoll-header-action' )->escaped(),
 			'st_reason' => $this->msg( 'securepoll-header-reason' )->escaped(),
-		);
+		];
 	}
 
 	function getTitle() {

@@ -74,7 +74,7 @@ class SecurePoll_TallyPage extends SecurePoll_ActionPage {
 		$out->addHTML(
 			Xml::openElement(
 				'form',
-				array( 'method' => 'post', 'action' => $this->getTitle()->getLocalUrl() )
+				[ 'method' => 'post', 'action' => $this->getTitle()->getLocalUrl() ]
 			) .
 			"\n" .
 			Xml::fieldset(
@@ -82,7 +82,7 @@ class SecurePoll_TallyPage extends SecurePoll_ActionPage {
 				'<div>' .
 				Xml::submitButton(
 					$this->msg( 'securepoll-tally-local-submit' )->text(),
-					array( 'name' => 'submit_local' )
+					[ 'name' => 'submit_local' ]
 				) .
 				'</div>'
 			) .
@@ -97,25 +97,25 @@ class SecurePoll_TallyPage extends SecurePoll_ActionPage {
 		$this->specialPage->getOutput()->addHTML(
 			Xml::openElement(
 				'form',
-				array(
+				[
 					'method' => 'post',
 					'action' => $this->getTitle()->getLocalUrl(),
 					'enctype' => 'multipart/form-data'
-				)
+				]
 			) .
 			"\n" .
 			Xml::fieldset(
 				$this->msg( 'securepoll-tally-upload-legend' )->text(),
 				'<div>' .
-				Xml::element( 'input', array(
+				Xml::element( 'input', [
 					'type' => 'file',
 					'name' => 'tally_file',
 					'size' => 40,
-				) ) .
+				] ) .
 				"</div>\n<div>" .
 				Xml::submitButton(
 					$this->msg( 'securepoll-tally-upload-submit' )->text(),
-					array( 'name' => 'submit_upload' )
+					[ 'name' => 'submit_upload' ]
 				) .
 				"</div>\n"
 			) .

@@ -4,11 +4,11 @@
  * Special:SecurePoll subpage for managing the voter list for a poll
  */
 class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
-	private static $lists = array(
+	private static $lists = [
 		'voter' => 'need-list',
 		'include' => 'include-list',
 		'exclude' => 'exclude-list',
-	);
+	];
 
 	/**
 	 * Execute the subpage.
@@ -90,7 +90,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 			}
 			array_unshift( $wikis, $localWiki );
 		} else {
-			$wikis = array( $localWiki );
+			$wikis = [ $localWiki ];
 		}
 
 		foreach ( $wikis as $dbname ) {
@@ -99,7 +99,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 			} else {
 				$lb = wfGetLB( $dbname );
 				unset( $dbw ); // trigger DBConnRef destruction and connection reuse
-				$dbw = $lb->getConnectionRef( DB_MASTER, array(), $dbname );
+				$dbw = $lb->getConnectionRef( DB_MASTER, [], $dbname );
 				try {
 					// Connect to the DB and check if the LB is in read-only mode
 					if ( $dbw->isReadOnly() ) {
@@ -120,13 +120,13 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 				__METHOD__
 			);
 			if ( $id ) {
-				$ins = array();
+				$ins = [];
 				foreach ( $properties as $key => $value ) {
-					$ins[] = array(
+					$ins[] = [
 						'pr_entity' => $id,
 						'pr_key' => $key,
 						'pr_value' => $value,
-					);
+					];
 				}
 
 				$dbw->delete(
@@ -168,35 +168,35 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 				$wikis[] = wfWikiID();
 			}
 		} else {
-			$wikis = array( wfWikiID() );
+			$wikis = [ wfWikiID() ];
 		}
 
-		$names = array();
+		$names = [];
 		foreach ( $wikis as $dbname ) {
-			$dbr = wfGetDB( $db, array(), $dbname );
+			$dbr = wfGetDB( $db, [], $dbname );
 
-			$id = $dbr->selectField( 'securepoll_elections', 'el_entity', array(
+			$id = $dbr->selectField( 'securepoll_elections', 'el_entity', [
 				'el_title' => $this->election->title
-			) );
+			] );
 			if ( !$id ) {
 				// WTF?
 				continue;
 			}
-			$list = $dbr->selectField( 'securepoll_properties', 'pr_value', array(
+			$list = $dbr->selectField( 'securepoll_properties', 'pr_value', [
 				'pr_entity' => $id,
 				'pr_key' => $property,
-			) );
+			] );
 			if ( !$list ) {
 				continue;
 			}
 
 			$res = $dbr->select(
-				array( 'securepoll_lists', 'user' ),
-				array( 'user_name' ),
-				array(
+				[ 'securepoll_lists', 'user' ],
+				[ 'user_name' ],
+				[
 					'li_name' => $list,
 					'user_id=li_member',
-				)
+				]
 			);
 			foreach ( $res as $row ) {
 				$names[] = str_replace( '_', ' ', $row->user_name ) . "@$dbname";
@@ -217,10 +217,10 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 				$wikis[] = wfWikiID();
 			}
 		} else {
-			$wikis = array( wfWikiID() );
+			$wikis = [ wfWikiID() ];
 		}
 
-		$wikiNames = array( '*' => array() );
+		$wikiNames = [ '*' => [] ];
 		foreach ( explode( "\n", $names ) as $name ) {
 			$name = trim( $name );
 			$i = strrpos( $name, '@' );
@@ -247,7 +247,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 			}
 			array_unshift( $wikis, $localWiki );
 		} else {
-			$wikis = array( $localWiki );
+			$wikis = [ $localWiki ];
 		}
 
 		foreach ( $wikis as $dbname ) {
@@ -255,7 +255,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 				$dbw = $this->context->getDB();
 			} else {
 				unset( $dbw ); // trigger DBConnRef destruction and connection reuse
-				$dbw = wfGetLB( $dbname )->getConnectionRef( DB_MASTER, array(), $dbname );
+				$dbw = wfGetLB( $dbname )->getConnectionRef( DB_MASTER, [], $dbname );
 				try {
 					// Connect to the DB and check if the LB is in read-only mode
 					if ( $dbw->isReadOnly() ) {
@@ -341,15 +341,15 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 		$out = $this->specialPage->getOutput();
 		$out->setPageTitle( $this->msg( 'securepoll-votereligibility-title' ) );
 
-		$formItems = array();
+		$formItems = [];
 
-		$formItems['min-edits'] = array(
+		$formItems['min-edits'] = [
 			'section' => 'basic',
 			'label-message' => 'securepoll-votereligibility-label-min_edits',
 			'type' => 'int',
 			'min' => 0,
 			'default' => $this->election->getProperty( 'min-edits', '' ),
-		);
+		];
 
 		$date = $this->election->getProperty( 'max-registration', '' );
 		if ( $date !== '' ) {
@@ -357,62 +357,62 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 		} else {
 			$date = gmdate( 'Y-m-d', strtotime( 'yesterday' ) );
 		}
-		$formItems['max-registration'] = array(
+		$formItems['max-registration'] = [
 			'section' => 'basic',
 			'label-message' => 'securepoll-votereligibility-label-max_registration',
 			'type' => 'date',
 			'default' => $date,
-		);
+		];
 
-		$formItems['not-blocked'] = array(
+		$formItems['not-blocked'] = [
 			'section' => 'basic',
 			'label-message' => 'securepoll-votereligibility-label-not_blocked',
 			'type' => 'check',
 			'hidelabel' => true,
 			'default' => $this->election->getProperty( 'not-blocked', false ),
-		);
+		];
 
-		$formItems['not-centrally-blocked'] = array(
+		$formItems['not-centrally-blocked'] = [
 			'section' => 'basic',
 			'label-message' => 'securepoll-votereligibility-label-not_centrally_blocked',
 			'type' => 'check',
 			'hidelabel' => true,
 			'default' => $this->election->getProperty( 'not-centrally-blocked', false ),
-		);
+		];
 
-		$formItems['central-block-threshold'] = array(
+		$formItems['central-block-threshold'] = [
 			'section' => 'basic',
 			'label-message' => 'securepoll-votereligibility-label-central_block_threshold',
 			'type' => 'int',
 			'min' => 1,
 			'required' => true,
-			'hide-if' => array( '===', 'not-centrally-blocked', '' ),
+			'hide-if' => [ '===', 'not-centrally-blocked', '' ],
 			'default' => $this->election->getProperty( 'central-block-threshold', '' ),
-		);
+		];
 
-		$formItems['not-bot'] = array(
+		$formItems['not-bot'] = [
 			'section' => 'basic',
 			'label-message' => 'securepoll-votereligibility-label-not_bot',
 			'type' => 'check',
 			'hidelabel' => true,
 			'default' => $this->election->getProperty( 'not-bot', false ),
-		);
+		];
 
-		$formItems[] = array(
+		$formItems[] = [
 			'section' => 'lists',
 			'type' => 'info',
 			'rawrow' => true,
 			'default' => Html::openElement( 'dl' ),
-		);
+		];
 		foreach ( self::$lists as $list => $property ) {
 			$name = $this->msg( "securepoll-votereligibility-list-$list" )->text();
-			$formItems[] = array(
+			$formItems[] = [
 				'section' => 'lists',
 				'type' => 'info',
 				'rawrow' => true,
-				'default' => Html::rawElement( 'dt', array(), $name ) .
+				'default' => Html::rawElement( 'dt', [], $name ) .
 					Html::openElement( 'dd' ) . Html::openElement( 'ul' ),
-			);
+			];
 
 			$use = null;
 			if ( $list === 'voter' ) {
@@ -422,24 +422,24 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 					$use = $this->msg( 'securepoll-votereligibility-label-processing' )
 						->numParams( round( $complete * 100.0 / $total, 1 ) )
 						->numParams( $complete, $total );
-					$links = array( 'clear' );
+					$links = [ 'clear' ];
 				}
 			}
 			if ( $use === null && $this->election->getProperty( $property ) ) {
 				$use = $this->msg( 'securepoll-votereligibility-label-inuse' );
-				$links = array( 'edit', 'clear' );
+				$links = [ 'edit', 'clear' ];
 			}
 			if ( $use === null ) {
 				$use = $this->msg( 'securepoll-votereligibility-label-notinuse' );
-				$links = array( 'edit' );
+				$links = [ 'edit' ];
 			}
 
-			$formItems[] = array(
+			$formItems[] = [
 				'section' => 'lists',
 				'type' => 'info',
 				'rawrow' => true,
-				'default' => Html::rawElement( 'li', array(), $use->parse() ),
-			);
+				'default' => Html::rawElement( 'li', [], $use->parse() ),
+			];
 
 			$prefix = 'votereligibility/' . $this->election->getId();
 			foreach ( $links as $action ) {
@@ -447,50 +447,50 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 				$link = Linker::link(
 					$title, $this->msg( "securepoll-votereligibility-label-$action" )->parse()
 				);
-				$formItems[] = array(
+				$formItems[] = [
 					'section' => 'lists',
 					'type' => 'info',
 					'rawrow' => true,
-					'default' => Html::rawElement( 'li', array(), $link ),
-				);
+					'default' => Html::rawElement( 'li', [], $link ),
+				];
 			}
 
 			if ( $list === 'voter' ) {
-				$formItems[] = array(
+				$formItems[] = [
 					'section' => 'lists',
 					'type' => 'info',
 					'rawrow' => true,
 					'default' => Html::openElement( 'li' ),
-				);
+				];
 
-				$formItems['list_populate'] = array(
+				$formItems['list_populate'] = [
 					'section' => 'lists',
 					'label-message' => 'securepoll-votereligibility-label-populate',
 					'type' => 'check',
 					'hidelabel' => true,
 					'default' => $this->election->getProperty( 'list_populate', false ),
-				);
+				];
 
-				$formItems['list_edits-before'] = array(
+				$formItems['list_edits-before'] = [
 					'section' => 'lists',
 					'label-message' => 'securepoll-votereligibility-label-edits_before',
 					'type' => 'check',
 					'default' => $this->election->getProperty( 'list_edits-before', false ),
-					'hide-if' => array( '===', 'list_populate', '' ),
-				);
+					'hide-if' => [ '===', 'list_populate', '' ],
+				];
 
-				$formItems['list_edits-before-count'] = array(
+				$formItems['list_edits-before-count'] = [
 					'section' => 'lists',
 					'label-message' => 'securepoll-votereligibility-label-edits_before_count',
 					'type' => 'int',
 					'min' => 1,
 					'required' => true,
-					'hide-if' => array( 'OR',
-						array( '===', 'list_populate', '' ),
-						array( '===', 'list_edits-before', '' ),
-					),
+					'hide-if' => [ 'OR',
+						[ '===', 'list_populate', '' ],
+						[ '===', 'list_edits-before', '' ],
+					],
 					'default' => $this->election->getProperty( 'list_edits-before-count', '' ),
-				);
+				];
 
 				$date = $this->election->getProperty( 'list_edits-before-date', '' );
 				if ( $date !== '' ) {
@@ -498,39 +498,39 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 				} else {
 					$date = gmdate( 'Y-m-d', strtotime( 'yesterday' ) );
 				}
-				$formItems['list_edits-before-date'] = array(
+				$formItems['list_edits-before-date'] = [
 					'section' => 'lists',
 					'label-message' => 'securepoll-votereligibility-label-edits_before_date',
 					'type' => 'date',
 					'max' => gmdate( 'Y-m-d', strtotime( 'yesterday' ) ),
 					'required' => true,
-					'hide-if' => array( 'OR',
-						array( '===', 'list_populate', '' ),
-						array( '===', 'list_edits-before', '' ),
-					),
+					'hide-if' => [ 'OR',
+						[ '===', 'list_populate', '' ],
+						[ '===', 'list_edits-before', '' ],
+					],
 					'default' => $date,
-				);
+				];
 
-				$formItems['list_edits-between'] = array(
+				$formItems['list_edits-between'] = [
 					'section' => 'lists',
 					'label-message' => 'securepoll-votereligibility-label-edits_between',
 					'type' => 'check',
-					'hide-if' => array( '===', 'list_populate', '' ),
+					'hide-if' => [ '===', 'list_populate', '' ],
 					'default' => $this->election->getProperty( 'list_edits-between', false ),
-				);
+				];
 
-				$formItems['list_edits-between-count'] = array(
+				$formItems['list_edits-between-count'] = [
 					'section' => 'lists',
 					'label-message' => 'securepoll-votereligibility-label-edits_between_count',
 					'type' => 'int',
 					'min' => 1,
 					'required' => true,
-					'hide-if' => array( 'OR',
-						array( '===', 'list_populate', '' ),
-						array( '===', 'list_edits-between', '' ),
-					),
+					'hide-if' => [ 'OR',
+						[ '===', 'list_populate', '' ],
+						[ '===', 'list_edits-between', '' ],
+					],
 					'default' => $this->election->getProperty( 'list_edits-between-count', '' ),
-				);
+				];
 
 				$editCountStartDate = $this->election->getProperty( 'list_edits-startdate', '' );
 				if ( $editCountStartDate !== '' ) {
@@ -538,18 +538,18 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 						wfTimestamp( TS_UNIX, $editCountStartDate ) );
 				}
 
-				$formItems['list_edits-startdate'] = array(
+				$formItems['list_edits-startdate'] = [
 					'section' => 'lists',
 					'label-message' => 'securepoll-votereligibility-label-edits_startdate',
 					'type' => 'date',
 					'max' => gmdate( 'Y-m-d', strtotime( 'yesterday' ) ),
 					'required' => true,
-					'hide-if' => array( 'OR',
-						array( '===', 'list_populate', '' ),
-						array( '===', 'list_edits-between', '' ),
-					),
+					'hide-if' => [ 'OR',
+						[ '===', 'list_populate', '' ],
+						[ '===', 'list_edits-between', '' ],
+					],
 					'default' => $editCountStartDate,
-				);
+				];
 
 				$editCountEndDate = $this->election->getProperty( 'list_edits-enddate', '' );
 				if ( $editCountEndDate === '' ) {
@@ -559,90 +559,90 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 						wfTimestamp( TS_UNIX, $editCountEndDate ) );
 				}
 
-				$formItems['list_edits-enddate'] = array(
+				$formItems['list_edits-enddate'] = [
 					'section' => 'lists',
 					'label-message' => 'securepoll-votereligibility-label-edits_enddate',
 					'type' => 'date',
 					'max' => gmdate( 'Y-m-d', strtotime( 'yesterday' ) ),
 					'required' => true,
-					'hide-if' => array( 'OR',
-						array( '===', 'list_populate', '' ),
-						array( '===', 'list_edits-between', '' ),
-					),
+					'hide-if' => [ 'OR',
+						[ '===', 'list_populate', '' ],
+						[ '===', 'list_edits-between', '' ],
+					],
 					'default' => $editCountEndDate,
-				);
+				];
 
-				$groups = $this->election->getProperty( 'list_exclude-groups', array() );
+				$groups = $this->election->getProperty( 'list_exclude-groups', [] );
 				if ( $groups ) {
 					$groups = array_map( function ( $group ) {
-						return array( 'group' => $group );
+						return [ 'group' => $group ];
 					}, explode( '|', $groups ) );
 				}
-				$formItems['list_exclude-groups'] = array(
+				$formItems['list_exclude-groups'] = [
 					'section' => 'lists',
 					'label-message' => 'securepoll-votereligibility-label-exclude_groups',
 					'type' => 'cloner',
 					'format' => 'raw',
 					'default' => $groups,
-					'fields' => array(
-						'group' => array(
+					'fields' => [
+						'group' => [
 							'type' => 'text',
 							'required' => true,
-						),
-					),
-					'hide-if' => array( '===', 'list_populate', '' ),
-				);
+						],
+					],
+					'hide-if' => [ '===', 'list_populate', '' ],
+				];
 
-				$groups = $this->election->getProperty( 'list_include-groups', array() );
+				$groups = $this->election->getProperty( 'list_include-groups', [] );
 				if ( $groups ) {
 					$groups = array_map( function ( $group ) {
-						return array( 'group' => $group );
+						return [ 'group' => $group ];
 					}, explode( '|', $groups ) );
 				}
-				$formItems['list_include-groups'] = array(
+				$formItems['list_include-groups'] = [
 					'section' => 'lists',
 					'label-message' => 'securepoll-votereligibility-label-include_groups',
 					'type' => 'cloner',
 					'format' => 'raw',
 					'default' => $groups,
-					'fields' => array(
-						'group' => array(
+					'fields' => [
+						'group' => [
 							'type' => 'text',
 							'required' => true,
-						),
-					),
-					'hide-if' => array( '===', 'list_populate', '' ),
-				);
+						],
+					],
+					'hide-if' => [ '===', 'list_populate', '' ],
+				];
 
-				$formItems[] = array(
+				$formItems[] = [
 					'section' => 'lists',
 					'type' => 'info',
 					'rawrow' => true,
 					'default' => Html::closeElement( 'li' ),
-				);
+				];
 			}
 
-			$formItems[] = array(
+			$formItems[] = [
 				'section' => 'lists',
 				'type' => 'info',
 				'rawrow' => true,
 				'default' => '</ul></dd>',
-			);
+			];
 		}
 
-		$formItems[] = array(
+		$formItems[] = [
 			'section' => 'lists',
 			'type' => 'info',
 			'rawrow' => true,
 			'default' => Html::closeElement( 'dl' ),
-		);
+		];
 
 		if ( $wgSecurePollUseNamespace ) {
-			$formItems['comment'] = array(
+			$formItems['comment'] = [
 				'type' => 'text',
 				'label-message' => 'securepoll-votereligibility-label-comment',
 				'maxlength' => 250,
-			);
+			];
 		}
 
 		$form = HTMLForm::factory(
@@ -656,7 +656,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 		);
 
 		$form->setSubmitTextMsg( 'securepoll-votereligibility-action' );
-		$form->setSubmitCallback( array( $this, 'processConfig' ) );
+		$form->setSubmitCallback( [ $this, 'processConfig' ] );
 		$result = $form->show();
 
 		if ( $result === true || ( $result instanceof Status && $result->isGood() ) ) {
@@ -680,19 +680,19 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 	}
 
 	public function processConfig( $formData, $form ) {
-		static $props = array(
+		static $props = [
 			'min-edits', 'not-blocked', 'not-centrally-blocked',
 			'central-block-threshold', 'not-bot', 'list_populate',
 			'list_edits-before', 'list_edits-before-count',
 			'list_edits-between', 'list_edits-between-count',
-		);
-		static $dateProps = array(
+		];
+		static $dateProps = [
 			'max-registration', 'list_edits-before-date',
 			'list_edits-startdate', 'list_edits-enddate',
-		);
-		static $listProps = array(
+		];
+		static $listProps = [
 			'list_exclude-groups', 'list_include-groups',
-		);
+		];
 
 		if ( $formData['list_populate'] &&
 			!$formData['list_edits-before'] &&
@@ -703,8 +703,8 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 			return Status::newFatal( 'securepoll-votereligibility-fail-nothing-to-process' );
 		}
 
-		$properties = array();
-		$deleteProperties = array();
+		$properties = [];
+		$deleteProperties = [];
 
 		foreach ( $props as $prop ) {
 			if ( $formData[$prop] !== '' && $formData[$prop] !== false ) {
@@ -715,7 +715,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 		}
 
 		foreach ( $dateProps as $prop ) {
-			if ( $formData[$prop] !== '' && $formData[$prop] !== array() ) {
+			if ( $formData[$prop] !== '' && $formData[$prop] !== [] ) {
 				$dates = array_map( function ( $date ) {
 					$date = new DateTime( $date, new DateTimeZone( 'GMT' ) );
 					return wfTimestamp( TS_MW, $date->format( 'YmdHis' ) );
@@ -793,21 +793,21 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 		$out = $this->specialPage->getOutput();
 		$out->setPageTitle( $this->msg( 'securepoll-votereligibility-edit-title', $name ) );
 
-		$formItems = array();
+		$formItems = [];
 
-		$formItems['names'] = array(
+		$formItems['names'] = [
 			'label-message' => 'securepoll-votereligibility-label-names',
 			'type' => 'textarea',
 			'rows' => 20,
 			'default' => join( "\n", $this->fetchList( $property ) ),
-		);
+		];
 
 		if ( $wgSecurePollUseNamespace ) {
-			$formItems['comment'] = array(
+			$formItems['comment'] = [
 				'type' => 'text',
 				'label-message' => 'securepoll-votereligibility-label-comment',
 				'maxlength' => 250,
-			);
+			];
 		}
 
 		$form = new HTMLForm(
@@ -857,7 +857,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 				$wikis[] = wfWikiID();
 			}
 		} else {
-			$wikis = array( wfWikiID() );
+			$wikis = [ wfWikiID() ];
 		}
 
 		$localWiki = wfWikiID();
@@ -870,7 +870,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 			}
 			array_unshift( $wikis, $localWiki );
 		} else {
-			$wikis = array( $localWiki );
+			$wikis = [ $localWiki ];
 		}
 
 		foreach ( $wikis as $dbname ) {
@@ -879,34 +879,34 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 			} else {
 				$lb = wfGetLB( $dbname );
 				unset( $dbw ); // trigger DBConnRef destruction and connection reuse
-				$dbw = $lb->getConnectionRef( DB_MASTER, array(), $dbname );
+				$dbw = $lb->getConnectionRef( DB_MASTER, [], $dbname );
 			}
 
 			$dbw->startAtomic( __METHOD__ );
 
-			$id = $dbw->selectField( 'securepoll_elections', 'el_entity', array(
+			$id = $dbw->selectField( 'securepoll_elections', 'el_entity', [
 				'el_title' => $this->election->title
-			) );
+			] );
 			if ( $id ) {
-				$list = $dbw->selectField( 'securepoll_properties', 'pr_value', array(
+				$list = $dbw->selectField( 'securepoll_properties', 'pr_value', [
 					'pr_entity' => $id,
 					'pr_key' => $property,
-				) );
+				] );
 				if ( $list ) {
-					$dbw->delete( 'securepoll_lists', array( 'li_name' => $list ) );
+					$dbw->delete( 'securepoll_lists', [ 'li_name' => $list ] );
 					$dbw->delete( 'securepoll_properties',
-						array( 'pr_entity' => $id, 'pr_key' => $property ) );
+						[ 'pr_entity' => $id, 'pr_key' => $property ] );
 				}
 
 				if ( $which === 'voter' ) {
-					$dbw->delete( 'securepoll_properties', array(
+					$dbw->delete( 'securepoll_properties', [
 						'pr_entity' => $id,
-						'pr_key' => array(
+						'pr_key' => [
 							'list_populate', 'list_job-key',
 							'list_total-count', 'list_complete-count',
 							'list_job-key',
-						),
-					) );
+						],
+					] );
 				}
 			}
 

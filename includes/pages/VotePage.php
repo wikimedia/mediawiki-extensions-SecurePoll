@@ -169,11 +169,11 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 
 		# Mark previous votes as old
 		$dbw->update( 'securepoll_votes',
-			array( 'vote_current' => 0 ), # SET
-			array( # WHERE
+			[ 'vote_current' => 0 ], # SET
+			[ # WHERE
 				'vote_election' => $this->election->getId(),
 				'vote_voter' => $this->voter->getId(),
-			),
+			],
 			__METHOD__
 		);
 
@@ -187,7 +187,7 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 
 		$voteId = $dbw->nextSequenceValue( 'securepoll_votes_vote_id' );
 		$dbw->insert( 'securepoll_votes',
-			array(
+			[
 				'vote_id' => $voteId,
 				'vote_election' => $this->election->getId(),
 				'vote_voter' => $this->voter->getId(),
@@ -200,7 +200,7 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 				'vote_timestamp' => $now,
 				'vote_current' => 1,
 				'vote_token_match' => $tokenMatch ? 1 : 0,
-			),
+			],
 			__METHOD__ );
 		$voteId = $dbw->insertId();
 		$dbw->endAtomic( __METHOD__ );
@@ -242,10 +242,10 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 			throw new MWException( 'Configuration error: no jump-id' );
 		}
 		$url .= "/login/$id";
-		Hooks::run( 'SecurePoll_JumpUrl', array( $this, &$url ) );
+		Hooks::run( 'SecurePoll_JumpUrl', [ $this, &$url ] );
 		$out->addWikiText( $this->election->getMessage( 'jump-text' ) );
 		$out->addHTML(
-			Xml::openElement( 'form', array( 'action' => $url, 'method' => 'post' ) ) .
+			Xml::openElement( 'form', [ 'action' => $url, 'method' => 'post' ] ) .
 			Html::hidden( 'token', SecurePoll_RemoteMWAuth::encodeToken( $user->getToken() ) ) .
 			Html::hidden( 'id', $user->getId() ) .
 			Html::hidden( 'wiki', wfWikiID() ) .

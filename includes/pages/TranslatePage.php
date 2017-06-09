@@ -82,10 +82,10 @@ class SecurePoll_TranslatePage extends SecurePoll_ActionPage {
 		}
 
 		# Set a subtitle to return to the language selector
-		$this->specialPage->setSubtitle( array(
+		$this->specialPage->setSubtitle( [
 			$this->getTitle(),
 			$this->msg( 'securepoll-translate-title', $this->election->getMessage( 'title' ) )->text()
-		) );
+		] );
 
 		# If the request was posted, do the submit
 		if ( $request->wasPosted() && $request->getVal( 'action' ) == 'submit' ) {
@@ -96,7 +96,7 @@ class SecurePoll_TranslatePage extends SecurePoll_ActionPage {
 		# Show the form
 		$action = $this->getTitle( $secondary )->getLocalUrl( 'action=submit' );
 		$s =
-			Xml::openElement( 'form', array( 'method' => 'post', 'action' => $action ) ) .
+			Xml::openElement( 'form', [ 'method' => 'post', 'action' => $action ] ) .
 			'<table class="mw-datatable TablePager securepoll-trans-table">' .
 			'<col class="securepoll-col-trans-id" width="1*"/>' .
 			'<col class="securepoll-col-primary" width="30%"/>' .
@@ -104,14 +104,14 @@ class SecurePoll_TranslatePage extends SecurePoll_ActionPage {
 			'<tr><th>' . $this->msg( 'securepoll-header-trans-id' )->escaped() . '</th>' .
 			'<th>' . htmlspecialchars( $primaryName ) . '</th>' .
 			'<th>' . htmlspecialchars( $secondaryName ) . '</th></tr>';
-		$entities = array_merge( array( $this->election ), $this->election->getDescendants() );
+		$entities = array_merge( [ $this->election ], $this->election->getDescendants() );
 		foreach ( $entities as $entity ) {
 			$entityName = $entity->getType() . '(' . $entity->getId() . ')';
 			foreach ( $entity->getMessageNames() as $messageName ) {
 				$controlName = 'trans_' . $entity->getId() . '_' . $messageName;
 				$primaryText = $entity->getRawMessage( $messageName, $primary );
 				$secondaryText = $entity->getRawMessage( $messageName, $secondary );
-				$attribs = array( 'class' => 'securepoll-translate-box' );
+				$attribs = [ 'class' => 'securepoll-translate-box' ];
 				if ( !$this->isAdmin ) {
 					$attribs['readonly'] = '1';
 				}
@@ -128,7 +128,7 @@ class SecurePoll_TranslatePage extends SecurePoll_ActionPage {
 				$s .=
 					'<p style="text-align: center;">' .
 					wfMessage( 'securepoll-translate-label-comment' )->escaped() .
-					Xml::input( 'comment', 45, false, array( 'maxlength' => 250 ) )  .
+					Xml::input( 'comment', 45, false, [ 'maxlength' => 250 ] )  .
 					"</p>";
 			}
 
@@ -159,13 +159,13 @@ class SecurePoll_TranslatePage extends SecurePoll_ActionPage {
 	public function showLanguageSelector( $selectedCode ) {
 		$s =
 			Xml::openElement( 'form',
-				array(
+				[
 					'action' => $this->getTitle( false )->getLocalUrl()
-				)
+				]
 			) .
 			Xml::openElement(
 				'select',
-				array( 'id' => 'secondary_lang', 'name' => 'secondary_lang' )
+				[ 'id' => 'secondary_lang', 'name' => 'secondary_lang' ]
 			) . "\n";
 
 		$languages = Language::fetchLanguageNames();
@@ -193,29 +193,29 @@ class SecurePoll_TranslatePage extends SecurePoll_ActionPage {
 			return;
 		}
 
-		$entities = array_merge( array( $this->election ), $this->election->getDescendants() );
-		$replaceBatch = array();
-		$jumpReplaceBatch = array();
+		$entities = array_merge( [ $this->election ], $this->election->getDescendants() );
+		$replaceBatch = [];
+		$jumpReplaceBatch = [];
 		foreach ( $entities as $entity ) {
 			foreach ( $entity->getMessageNames() as $messageName ) {
 				$controlName = 'trans_' . $entity->getId() . '_' . $messageName;
 				$value = $request->getText( $controlName );
 				if ( $value !== '' ) {
-					$replaceBatch[] = array(
+					$replaceBatch[] = [
 						'msg_entity' => $entity->getId(),
 						'msg_lang' => $secondary,
 						'msg_key' => $messageName,
 						'msg_text' => $value
-					);
+					];
 
 					// Jump wikis don't have subentities
 					if ( $entity === $this->election ) {
-						$jumpReplaceBatch[] = array(
+						$jumpReplaceBatch[] = [
 							'msg_entity' => $entity->getId(),
 							'msg_lang' => $secondary,
 							'msg_key' => $messageName,
 							'msg_text' => $value
-						);
+						];
 					}
 				}
 			}
@@ -225,14 +225,14 @@ class SecurePoll_TranslatePage extends SecurePoll_ActionPage {
 			if ( $wikis ) {
 				$wikis = explode( "\n", $wikis );
 			} else {
-				$wikis = array();
+				$wikis = [];
 			}
 
 			// First, the main wiki
 			$dbw = $this->context->getDB();
 			$dbw->replace(
 				'securepoll_msgs',
-				array( array( 'msg_entity', 'msg_lang', 'msg_key' ) ),
+				[ [ 'msg_entity', 'msg_lang', 'msg_key' ] ],
 				$replaceBatch,
 				__METHOD__
 			);
@@ -255,11 +255,11 @@ class SecurePoll_TranslatePage extends SecurePoll_ActionPage {
 				}
 
 				$lb = wfGetLB( $dbname );
-				$dbw = $lb->getConnection( DB_MASTER, array(), $dbname );
+				$dbw = $lb->getConnection( DB_MASTER, [], $dbname );
 				try {
-					$id = $dbw->selectField( 'securepoll_elections', 'el_entity', array(
+					$id = $dbw->selectField( 'securepoll_elections', 'el_entity', [
 						'el_title' => $this->election->title
-					) );
+					] );
 					if ( $id ) {
 						foreach ( $jumpReplaceBatch as &$row ) {
 							$row['msg_entity'] = $id;
@@ -268,7 +268,7 @@ class SecurePoll_TranslatePage extends SecurePoll_ActionPage {
 
 						$dbw->replace(
 							'securepoll_msgs',
-							array( array( 'msg_entity', 'msg_lang', 'msg_key' ) ),
+							[ [ 'msg_entity', 'msg_lang', 'msg_key' ] ],
 							$jumpReplaceBatch,
 							__METHOD__
 						);

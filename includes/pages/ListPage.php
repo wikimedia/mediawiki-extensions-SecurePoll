@@ -42,39 +42,39 @@ class SecurePoll_ListPage extends SecurePoll_ActionPage {
 
 		$res = $dbr->select(
 			'securepoll_votes',
-			array( 'DISTINCT vote_voter' ),
-			array(
+			[ 'DISTINCT vote_voter' ],
+			[
 				'vote_election' => $this->election->getID()
-			)
+			]
 		);
 		$distinct_voters = $res->result->num_rows;
 
 		$res = $dbr->select(
 			'securepoll_votes',
-			array( 'vote_id' ),
-			array(
+			[ 'vote_id' ],
+			[
 				'vote_election' => $this->election->getID()
-			)
+			]
 		);
 		$all_votes = $res->result->num_rows;
 
 		$res = $dbr->select(
 			'securepoll_votes',
-			array( 'vote_id' ),
-			array(
+			[ 'vote_id' ],
+			[
 				'vote_election' => $this->election->getID(),
 				'vote_current' => 0
-			)
+			]
 		);
 		$not_current_votes = $res->result->num_rows;
 
 		$res = $dbr->select(
 			'securepoll_votes',
-			array( 'vote_id' ),
-			array(
+			[ 'vote_id' ],
+			[
 				'vote_election' => $this->election->getID(),
 				'vote_struck' => 1
-			)
+			]
 		);
 		$struck_votes = $res->result->num_rows;
 
@@ -98,10 +98,10 @@ class SecurePoll_ListPage extends SecurePoll_ActionPage {
 			$msgCancel = $this->msg( 'securepoll-strike-cancel' )->escaped();
 			$msgReason = $this->msg( 'securepoll-strike-reason' )->escaped();
 			$encAction = htmlspecialchars( $this->getTitle()->getLocalUrl() );
-			$script = Skin::makeVariablesScript( array(
+			$script = Skin::makeVariablesScript( [
 				'securepoll_strike_button' => $this->msg( 'securepoll-strike-button' )->text(),
 				'securepoll_unstrike_button' => $this->msg( 'securepoll-unstrike-button' )->text()
-			) );
+			] );
 
 			// @codingStandardsIgnoreStart
 			$out->addHTML( <<<EOT
@@ -151,20 +151,20 @@ EOT
 		// Add it to the strike log
 		$strikeId = $dbw->nextSequenceValue( 'securepoll_strike_st_id' );
 		$dbw->insert( 'securepoll_strike',
-			array(
+			[
 				'st_id' => $strikeId,
 				'st_vote' => $voteId,
 				'st_timestamp' => wfTimestampNow( TS_DB ),
 				'st_action' => $action,
 				'st_reason' => $reason,
 				'st_user' => $this->specialPage->getUser()->getId()
-			),
+			],
 			__METHOD__
 		);
 		// Update the status cache
 		$dbw->update( 'securepoll_votes',
-			array( 'vote_struck' => intval( $action == 'strike' ) ),
-			array( 'vote_id' => $voteId ),
+			[ 'vote_struck' => intval( $action == 'strike' ) ],
+			[ 'vote_id' => $voteId ],
 			__METHOD__
 		);
 		$dbw->endAtomic( __METHOD__ );
@@ -188,13 +188,13 @@ EOT
 class SecurePoll_ListPager extends TablePager {
 	public $listPage, $isAdmin, $election;
 
-	public static $publicFields = array(
+	public static $publicFields = [
 		'vote_timestamp',
 		'vote_voter_name',
 		'vote_voter_domain',
-	);
+	];
 
-	public static $adminFields = array(
+	public static $adminFields = [
 		'details',
 		'strike',
 		'vote_timestamp',
@@ -205,7 +205,7 @@ class SecurePoll_ListPager extends TablePager {
 		'vote_ua',
 		'vote_token_match',
 		'vote_cookie_dup',
-	);
+	];
 
 	public function __construct( $listPage ) {
 		$this->listPage = $listPage;
@@ -215,26 +215,26 @@ class SecurePoll_ListPager extends TablePager {
 	}
 
 	public function getQueryInfo() {
-		return array(
+		return [
 			'tables' => 'securepoll_votes',
 			'fields' => '*',
-			'conds' => array(
+			'conds' => [
 				'vote_election' => $this->listPage->election->getId()
-			),
-			'options' => array()
-		);
+			],
+			'options' => []
+		];
 	}
 
 	public function isFieldSortable( $field ) {
-		return in_array( $field, array(
+		return in_array( $field, [
 			'vote_voter_name', 'vote_voter_domain', 'vote_timestamp', 'vote_ip'
-		) );
+		] );
 	}
 
 	public function formatValue( $name, $value ) {
 		global $wgScriptPath, $wgSecurePollKeepPrivateInfoDays;
-		$critical = Xml::element( 'img', array(
-			'src' => "$wgScriptPath/extensions/SecurePoll/resources/critical-32.png" )
+		$critical = Xml::element( 'img', [
+			'src' => "$wgScriptPath/extensions/SecurePoll/resources/critical-32.png" ]
 		);
 		$voter = SecurePoll_Voter::newFromId(
 			$this->listPage->context,
@@ -281,7 +281,7 @@ class SecurePoll_ListPager extends TablePager {
 			$voteId = intval( $this->mCurrentRow->vote_id );
 			$title = $this->listPage->specialPage->getTitle( "details/$voteId" );
 			return Xml::element( 'a',
-				array( 'href' => $title->getLocalUrl() ),
+				[ 'href' => $title->getLocalUrl() ],
 				$this->msg( 'securepoll-details-link' )->text()
 			);
 			break;
@@ -296,19 +296,19 @@ class SecurePoll_ListPager extends TablePager {
 			}
 			$id = 'securepoll-popup-' . $voteId;
 			return Xml::element( 'input',
-				array(
+				[
 					'type' => 'button',
 					'id' => $id,
 					'value' => $label,
 					'onclick' => "securepoll_strike_popup(event, $action, $voteId)"
-				) );
+				] );
 		case 'vote_voter_name':
 			$msg = $voter->isRemote()
 				? 'securepoll-voter-name-remote'
 				: 'securepoll-voter-name-local';
 			return $this->msg(
 				$msg,
-				array( $value )
+				[ $value ]
 			)->parse();
 		default:
 			return htmlspecialchars( $value );
@@ -320,7 +320,7 @@ class SecurePoll_ListPager extends TablePager {
 	}
 
 	public function getFieldNames() {
-		$names = array();
+		$names = [];
 		if ( $this->isAdmin ) {
 			$fields = self::$adminFields;
 		} else {
@@ -333,13 +333,13 @@ class SecurePoll_ListPager extends TablePager {
 		// securepoll-header-cookie-dup
 		foreach ( $fields as $field ) {
 			$names[$field] = $this->msg( 'securepoll-header-' . strtr( $field,
-				array( 'vote_' => '', '_' => '-' ) ) )->text();
+				[ 'vote_' => '', '_' => '-' ] ) )->text();
 		}
 		return $names;
 	}
 
 	public function getRowClass( $row ) {
-		$classes = array();
+		$classes = [];
 		if ( !$row->vote_current ) {
 			$classes[] = 'securepoll-old-vote';
 		}

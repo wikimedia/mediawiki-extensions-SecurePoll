@@ -43,7 +43,7 @@ class SecurePoll_DumpPage extends SecurePoll_ActionPage {
 		}
 
 		$this->headersSent = false;
-		$status = $this->election->dumpVotesToCallback( array( $this, 'dumpVote' ) );
+		$status = $this->election->dumpVotesToCallback( [ $this, 'dumpVote' ] );
 		if ( !$status->isOK() && !$this->headersSent ) {
 			$out->addWikiText( $status->getWikiText() );
 			return;
@@ -85,6 +85,6 @@ class SecurePoll_DumpPage extends SecurePoll_ActionPage {
 		header( "Content-Disposition: attachment; filename=$filename" );
 		echo "<SecurePoll>\n<election>\n" .
 			$this->election->getConfXml();
-		$this->context->setLanguages( array( $this->election->getLanguage() ) );
+		$this->context->setLanguages( [ $this->election->getLanguage() ] );
 	}
 }
