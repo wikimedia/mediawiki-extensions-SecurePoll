@@ -54,11 +54,11 @@ class SecurePoll_ApprovalBallot extends SecurePoll_Ballot {
 
 	function unpackRecord( $record ) {
 		$scores = array();
-		$itemLength = 2*8 + 7;
-		for ( $offset = 0; $offset < strlen( $record ); $offset += $itemLength ) {
+		$itemLength = 2 * 8 + 7;
+		for ( $offset = 0, $len = strlen( $record ); $offset < $len; $offset += $itemLength ) {
 			if ( !preg_match( '/Q([0-9A-F]{8})-A([0-9A-F]{8})-([yn])--/A',
-				$record, $m, 0, $offset ) )
-			{
+				$record, $m, 0, $offset )
+			) {
 				wfDebug( __METHOD__.": regex doesn't match\n" );
 				return false;
 			}

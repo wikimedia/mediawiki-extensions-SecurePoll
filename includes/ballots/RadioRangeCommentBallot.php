@@ -55,10 +55,10 @@ class SecurePoll_RadioRangeCommentBallot extends SecurePoll_RadioRangeBallot {
 		foreach ( $this->election->getQuestions() as $question ) {
 			$questions[$question->getId()] = $question;
 		}
-		for ( $offset = 0; $offset < strlen( $record ); $offset += $itemLength ) {
+		for ( $offset = 0, $len = strlen( $record ); $offset < $len; $offset += $itemLength ) {
 			if ( !preg_match( '/Q([0-9A-F]{8})-A([0-9A-F]{8})-S([+-][0-9]{10})--/A',
-				$record, $m, 0, $offset ) )
-			{
+				$record, $m, 0, $offset )
+			) {
 				// Allow comments
 				if ( $record[$offset] == '/' ) {
 					break;

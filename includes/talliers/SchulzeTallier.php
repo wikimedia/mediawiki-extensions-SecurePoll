@@ -16,7 +16,6 @@ class SecurePoll_SchulzeTallier extends SecurePoll_PairwiseTallier {
 		# This algorithm follows Markus Schulze, "A New Monotonic, Clone-Independent, Reversal
 		# Symmetric, and Condorcet-Consistent Single-Winner Election Method" and also
 		# http://en.wikipedia.org/w/index.php?title=User:MarkusSchulze/Statutory_Rules&oldid=303036893
-		#
 		# Path strengths in the Schulze method are given by pairs of integers notated (a, b)
 		# where a is the strength in one direction and b is the strength in the other. We make
 		# a matrix of path strength pairs "p", giving the path strength of the row index beating

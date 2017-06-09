@@ -328,7 +328,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 			$title = Title::makeTitle( NS_SECUREPOLL, $list );
 			$wp = WikiPage::factory( $title );
 			$wp->doEditContent(
-				$x=ContentHandler::makeContent( $json, $title, 'SecurePoll' ), $comment
+				$x = ContentHandler::makeContent( $json, $title, 'SecurePoll' ), $comment
 			);
 		}
 	}
@@ -787,7 +787,6 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 				return;
 			}
 		}
-
 
 		$this->specialPage->getOutput()->addModules( 'ext.securepoll' );
 

@@ -137,7 +137,7 @@ class SecurePoll_ElectionPager extends TablePager {
 	public function formatRow( $row ) {
 		$id = $row->el_entity;
 		$this->election = $this->entryPage->context->getElection( $id );
-		if( !$this->election ) {
+		if ( !$this->election ) {
 			$this->isAdmin = false;
 		} else {
 			$this->isAdmin = $this->election->isAdmin( $this->getUser() );
@@ -159,7 +159,7 @@ class SecurePoll_ElectionPager extends TablePager {
 			if ( $s !== '' ) {
 				$s .= $sep;
 			}
-			if( ( $this->isAdmin || $props['public'] )
+			if ( ( $this->isAdmin || $props['public'] )
 				&& ( !$this->election->isStarted() || $props['visible-after-start'] )
 				&& ( !$this->election->isFinished() || $props['visible-after-close'] )
 			) {

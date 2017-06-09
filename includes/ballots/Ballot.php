@@ -220,9 +220,8 @@ abstract class SecurePoll_Ballot {
 	 * @return false on failure or if cast ballots are hidden, or the output
 	 *     of unpackRecord().
 	 */
-	function getCurrentVote(){
-
-		if( !$this->election->getOption( 'show-change' ) ){
+	function getCurrentVote() {
+		if ( !$this->election->getOption( 'show-change' ) ) {
 			return false;
 		}
 
@@ -247,7 +246,7 @@ abstract class SecurePoll_Ballot {
 			array( $this, 'getCurrentVoteCallback' ),
 			$voter->getId()
 		);
-		if( !$status->isOK() ){
+		if ( !$status->isOK() ){
 			return false;
 		}
 
@@ -256,7 +255,7 @@ abstract class SecurePoll_Ballot {
 			: false;
 	}
 
-	function getCurrentVoteCallback( $store, $record ){
+	function getCurrentVoteCallback( $store, $record ) {
 		$this->currentVote = $record;
 		return Status::newGood();
 	}

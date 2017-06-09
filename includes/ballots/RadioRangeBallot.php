@@ -156,7 +156,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 	 * @return array
 	 */
 	function getColumnLabels( $question ) {
-		//list( $min, $max ) = $this->getMinMax( $question );
+		// list( $min, $max ) = $this->getMinMax( $question );
 		$labels = array();
 		$useMessageLabels = $question->getProperty( 'column-label-msgs' );
 		$scores = $this->getScoresLeftToRight( $question );
@@ -298,10 +298,10 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 		foreach ( $this->election->getQuestions() as $question ) {
 			$questions[$question->getId()] = $question;
 		}
-		for ( $offset = 0; $offset < strlen( $record ); $offset += $itemLength ) {
+		for ( $offset = 0, $len = strlen( $record ); $offset < $len; $offset += $itemLength ) {
 			if ( !preg_match( '/Q([0-9A-F]{8})-A([0-9A-F]{8})-S([+-][0-9]{10})--/A',
-				$record, $m, 0, $offset ) )
-			{
+				$record, $m, 0, $offset )
+			) {
 				wfDebug( __METHOD__.": regex doesn't match\n" );
 				return false;
 			}
@@ -346,5 +346,3 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 		return $result;
 	}
 }
-
-

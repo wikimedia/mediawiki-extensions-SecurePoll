@@ -43,7 +43,7 @@ class SecurePoll_CommentDumper extends SecurePoll_ElectionTallier {
 		$scores = $this->ballot->unpackRecord( $record );
 
 		$comments = $scores['comment'];
-		unset($scores['comment']);
+		unset( $scores['comment'] );
 
 		// Short circuit if the comments are empty
 		if ( $this->skipEmptyComments &&

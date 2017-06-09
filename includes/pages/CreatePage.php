@@ -358,7 +358,7 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 			);
 		}
 
-		$form = HTMLForm::factory('div', $formItems, $this->specialPage->getContext(),
+		$form = HTMLForm::factory( 'div', $formItems, $this->specialPage->getContext(),
 			$this->election ? 'securepoll-edit' : 'securepoll-create'
 		);
 

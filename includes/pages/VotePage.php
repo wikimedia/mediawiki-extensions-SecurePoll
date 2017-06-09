@@ -50,16 +50,16 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 
 		if ( !$this->election->isStarted() ) {
 			$out->addWikiMsg( 'securepoll-not-started',
-				$language->timeanddate( $this->election->getStartDate() ) ,
-				$language->date( $this->election->getStartDate() ) ,
+				$language->timeanddate( $this->election->getStartDate() ),
+				$language->date( $this->election->getStartDate() ),
 				$language->time( $this->election->getStartDate() ) );
 			return;
 		}
 
 		if ( $this->election->isFinished() ) {
 			$out->addWikiMsg( 'securepoll-finished',
-				$language->timeanddate( $this->election->getEndDate() ) ,
-				$language->date( $this->election->getEndDate() ) ,
+				$language->timeanddate( $this->election->getEndDate() ),
+				$language->date( $this->election->getEndDate() ),
 				$language->time( $this->election->getEndDate() ) );
 			return;
 		}

@@ -101,10 +101,10 @@ class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 	function unpackRecord( $record ) {
 		$ranks = array();
 		$itemLength = 3*8 + 7;
-		for ( $offset = 0; $offset < strlen( $record ); $offset += $itemLength ) {
+		for ( $offset = 0, $len = strlen( $record ); $offset < $len; $offset += $itemLength ) {
 			if ( !preg_match( '/Q([0-9A-F]{8})-A([0-9A-F]{8})-R([0-9A-F]{8})--/A',
-				$record, $m, 0, $offset ) )
-			{
+				$record, $m, 0, $offset )
+			) {
 				wfDebug( __METHOD__.": regex doesn't match\n" );
 				return false;
 			}
@@ -144,4 +144,3 @@ class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 		return $result;
 	}
 }
-

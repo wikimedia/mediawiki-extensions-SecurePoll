@@ -125,6 +125,3 @@ abstract class SecurePoll_Tallier {
 		return $s;
 	}
 }
-
-
-
