@@ -109,7 +109,7 @@ class SecurePoll_Context {
 	 * @return SecurePoll_Election
 	 */
 	function getElection( $id ) {
-		if( !isset( $this->electionCache[$id] ) ) {
+		if ( !isset( $this->electionCache[$id] ) ) {
 			$info = $this->getStore()->getElectionInfo( array( $id ) );
 			if ( $info ) {
 				$this->electionCache[$id] = $this->newElection( reset( $info ) );

@@ -61,7 +61,7 @@ class SecurePoll_SpecialSecurePoll extends SpecialPage {
 			return;
 		}
 
-		if ( !($page instanceof SecurePoll_EntryPage ) ) {
+		if ( !( $page instanceof SecurePoll_EntryPage ) ) {
 			$this->setSubtitle();
 		}
 

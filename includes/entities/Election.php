@@ -127,12 +127,16 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	/**
 	 * Get the start date in MW internal form.
 	 */
-	function getStartDate() { return $this->startDate; }
+	function getStartDate() {
+		return $this->startDate;
+	}
 
 	/**
 	 * Get the end date in MW internal form.
 	 */
-	function getEndDate() { return $this->endDate; }
+	function getEndDate() {
+		return $this->endDate;
+	}
 
 	/**
 	 * Returns true if the election has started.
@@ -194,7 +198,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 			$edits = isset( $props['edit-count'] ) ? $props['edit-count'] : 0;
 			if ( $minEdits && $edits < $minEdits ) {
 				$status->fatal( 'securepoll-too-few-edits',
-					$wgLang->formatNum( $minEdits), $wgLang->formatNum( $edits ) );
+					$wgLang->formatNum( $minEdits ), $wgLang->formatNum( $edits ) );
 			}
 
 			// Registration date

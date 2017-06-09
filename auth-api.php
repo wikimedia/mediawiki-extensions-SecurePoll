@@ -9,7 +9,7 @@ if ( !file_exists( "$IP/includes/WebStart.php" ) ) {
 }
 chdir( $IP );
 
-require( "$IP/includes/WebStart.php" );
+require "$IP/includes/WebStart.php";
 
 if ( !class_exists( 'SecurePoll_RemoteMWAuth' ) ) {
 	header( 'HTTP/1.1 500 Internal Server Error' );
@@ -40,4 +40,3 @@ $context = new SecurePoll_Context;
 $auth = $context->newAuth( 'local' );
 $status = Status::newGood( $auth->getUserParams( $user ) );
 echo serialize( $status );
-

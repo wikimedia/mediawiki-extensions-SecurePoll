@@ -300,7 +300,7 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 		$attached = $centralUser->queryAttached();
 		$blockCount = 0;
 
-		foreach( $attached as $data ) {
+		foreach ( $attached as $data ) {
 			if ( $data['blocked'] ) {
 				$blockCount++;
 			}

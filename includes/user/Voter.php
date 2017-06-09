@@ -77,34 +77,46 @@ class SecurePoll_Voter {
 	}
 
 	/** Get the voter ID */
-	function getId() { return $this->id; }
+	function getId() {
+		return $this->id;
+	}
 
 	/**
 	 * Get the voter name. This is a short, ambiguous name appropriate for
 	 * display.
 	 */
-	function getName() { return $this->name; }
+	function getName() {
+		return $this->name;
+	}
 
 	/**
 	 * Get the authorization type.
 	 */
-	function getType() { return $this->type; }
+	function getType() {
+		return $this->type;
+	}
 
 	/**
 	 * Get the voter domain. The name and domain, taken together, should usually be
 	 * unique, although this is not strictly necessary.
 	 */
-	function getDomain() { return $this->domain; }
+	function getDomain() {
+		return $this->domain;
+	}
 
 	/**
 	 * Get a URL uniquely identifying the underlying user.
 	 */
-	function getUrl() { return $this->url; }
+	function getUrl() {
+		return $this->url;
+	}
 
 	/**
 	 * Get the associated election ID
 	 */
-	function getElectionId() { return $this->electionId; }
+	function getElectionId() {
+		return $this->electionId;
+	}
 
 	/**
 	 * Get the voter's preferred language

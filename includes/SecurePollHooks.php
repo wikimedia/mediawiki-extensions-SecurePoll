@@ -79,7 +79,7 @@ class SecurePollHooks {
 	 */
 	public static function onContentHandlerDefaultModelFor( $title, &$model ) {
 		global $wgSecurePollUseNamespace;
-		if( $wgSecurePollUseNamespace && $title->getNamespace() == NS_SECUREPOLL ) {
+		if ( $wgSecurePollUseNamespace && $title->getNamespace() == NS_SECUREPOLL ) {
 			$model = 'SecurePoll';
 			return false;
 		}

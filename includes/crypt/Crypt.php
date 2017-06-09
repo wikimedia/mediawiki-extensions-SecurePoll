@@ -244,7 +244,9 @@ class SecurePoll_GpgCrypt {
 		if ( !$dir ) {
 			return;
 		}
+		// @codingStandardsIgnoreStart
 		while ( false !== ( $file = readdir( $dir ) ) ) {
+		// @codingStandardsIgnoreEnd
 			if ( $file == '.' || $file == '..' ) {
 				continue;
 			}
