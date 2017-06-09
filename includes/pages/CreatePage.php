@@ -121,7 +121,8 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 				unset( $wikiNames[$key] );
 			}
 			if ( $wikiNames ) {
-				$opts[$this->msg( 'securepoll-create-option-wiki-other_wiki' )->plain()] = $wikiNames;
+				$opts[$this->msg( 'securepoll-create-option-wiki-other_wiki' )->plain()] =
+					$wikiNames;
 			}
 			$formItems['property_wiki'] = array(
 				'type' => 'select',
@@ -281,32 +282,54 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 		$tallyTypes = array();
 		foreach ( SecurePoll_Ballot::$ballotTypes as $ballotType => $ballotClass ) {
 			$types = array();
-			foreach ( call_user_func_array( array( $ballotClass, 'getTallyTypes' ), array() ) as $tallyType ) {
+			foreach ( call_user_func_array( array( $ballotClass, 'getTallyTypes' ), array() )
+				as $tallyType
+			) {
 				$type = "$ballotType+$tallyType";
 				$types[] = $type;
 				$tallyTypes[$tallyType][] = $type;
-				$formItems['election_type']['options-messages']["securepoll-create-option-election_type-$type"] = $type;
+				$formItems['election_type']['options-messages']
+					["securepoll-create-option-election_type-$type"] = $type;
 			}
-			self::processFormItems( $formItems, 'election_type', $types, $ballotClass, 'election' );
-			self::processFormItems( $questionFields, 'election_type', $types, $ballotClass, 'question' );
-			self::processFormItems( $optionFields, 'election_type', $types, $ballotClass, 'option' );
+			self::processFormItems(
+				$formItems, 'election_type', $types, $ballotClass, 'election'
+			);
+			self::processFormItems(
+				$questionFields, 'election_type', $types, $ballotClass, 'question'
+			);
+			self::processFormItems(
+				$optionFields, 'election_type', $types, $ballotClass, 'option'
+			);
 		}
 
 		foreach ( SecurePoll_Tallier::$tallierTypes as $type => $class ) {
 			if ( !isset( $tallyTypes[$type] ) ) {
 				continue;
 			}
-			self::processFormItems( $formItems, 'election_type', $tallyTypes[$type], $class, 'election' );
-			self::processFormItems( $questionFields, 'election_type', $tallyTypes[$type], $class, 'question' );
-			self::processFormItems( $optionFields, 'election_type', $tallyTypes[$type], $class, 'option' );
+			self::processFormItems(
+				$formItems, 'election_type', $tallyTypes[$type], $class, 'election'
+			);
+			self::processFormItems(
+				$questionFields, 'election_type', $tallyTypes[$type], $class, 'question'
+			);
+			self::processFormItems(
+				$optionFields, 'election_type', $tallyTypes[$type], $class, 'option'
+			);
 		}
 
 		foreach ( SecurePoll_Crypt::$cryptTypes as $type => $class ) {
-			$formItems['election_crypt']['options-messages']["securepoll-create-option-election_crypt-$type"] = $type;
+			$formItems['election_crypt']['options-messages']
+				["securepoll-create-option-election_crypt-$type"] = $type;
 			if ( $class !== false ) {
-				self::processFormItems( $formItems, 'election_crypt', $type, $class, 'election' );
-				self::processFormItems( $questionFields, 'election_crypt', $type, $class, 'question' );
-				self::processFormItems( $optionFields, 'election_crypt', $type, $class, 'option' );
+				self::processFormItems(
+					$formItems, 'election_crypt', $type, $class, 'election'
+				);
+				self::processFormItems(
+					$questionFields, 'election_crypt', $type, $class, 'question'
+				);
+				self::processFormItems(
+					$optionFields, 'election_crypt', $type, $class, 'option'
+				);
 			}
 		}
 
@@ -339,13 +362,17 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 			$this->election ? 'securepoll-edit' : 'securepoll-create'
 		);
 
-		$form->setSubmitTextMsg( $this->election ? 'securepoll-edit-action' : 'securepoll-create-action' );
+		$form->setSubmitTextMsg(
+			$this->election ? 'securepoll-edit-action' : 'securepoll-create-action'
+		);
 		$form->setSubmitCallback( array( $this, 'processInput' ) );
 		$form->prepareForm();
 
 		// If this isn't the result of a POST, load the data from the election
 		$request = $this->specialPage->getRequest();
-		if ( $this->election && !( $request->wasPosted() && $request->getCheck( 'wpEditToken' ) ) ) {
+		if ( $this->election &&
+			!( $request->wasPosted() && $request->getCheck( 'wpEditToken' ) )
+		) {
 			$form->mFieldData = $this->getFormDataFromElection( $this->election );
 		}
 
@@ -585,7 +612,9 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 			$context = new SecurePoll_Context;
 			$election = $context->getElection( $eId );
 
-			list( $title, $content ) = SecurePollContentHandler::makeContentFromElection( $election );
+			list( $title, $content ) = SecurePollContentHandler::makeContentFromElection(
+				$election
+			);
 			$wp = WikiPage::factory( $title );
 			$wp->doEditContent( $content, $formData['comment'] );
 
@@ -632,7 +661,9 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 			'jump-text' => isset( $m['jump-text'] ) ? $m['jump-text'] : null,
 			'election_type' => "{$ballot}+{$tally}",
 			'election_crypt' => $crypt,
-			'disallow-change' => isset( $p['disallow-change'] ) ? (bool)$p['disallow-change'] : null,
+			'disallow-change' => isset( $p['disallow-change'] )
+				? (bool)$p['disallow-change']
+				: null,
 			'voter-privacy' => isset( $p['voter-privacy'] ) ? (bool)$p['voter-privacy'] : null,
 			'property_admins' => array(),
 			'questions' => array(),
@@ -739,7 +770,9 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 				'pr_value' => $value,
 			);
 		}
-		$dbw->replace( 'securepoll_properties', array( 'pr_entity', 'pr_key' ), $properties, __METHOD__ );
+		$dbw->replace(
+			'securepoll_properties', array( 'pr_entity', 'pr_key' ), $properties, __METHOD__
+		);
 
 		$messages = array();
 		$langs = $entity->getLangList();
@@ -756,7 +789,9 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 				}
 			}
 		}
-		$dbw->replace( 'securepoll_msgs', array( 'msg_entity', 'msg_lang', 'msg_key' ), $messages, __METHOD__ );
+		$dbw->replace(
+			'securepoll_msgs', array( 'msg_entity', 'msg_lang', 'msg_key' ), $messages, __METHOD__
+		);
 	}
 
 	/**
@@ -770,7 +805,9 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 	 *    expected to return an array with subarrays for different categories
 	 *    of descriptors, and this selects which subarray to process.
 	 */
-	private static function processFormItems( &$outItems, $field, $types, $class, $category = null ) {
+	private static function processFormItems(
+		&$outItems, $field, $types, $class, $category = null
+	) {
 		if ( $class === false ) {
 			return;
 		}
@@ -960,7 +997,9 @@ class SecurePoll_FormStore extends SecurePoll_MemoryStore {
 		$this->properties[$eId] = array(
 			'encrypt-type' => $crypt,
 			'wikis' => join( "\n", $wikis ),
-			'wikis-val' => isset( $formData['property_wiki'] ) ? $formData['property_wiki'] : wfWikiID(),
+			'wikis-val' => isset( $formData['property_wiki'] )
+				? $formData['property_wiki']
+				: wfWikiID(),
 			'return-url' => $formData['return-url'],
 			'disallow-change' => $formData['disallow-change'] ? 1 : 0,
 			'voter-privacy' => $formData['voter-privacy'] ? 1 : 0,
@@ -989,7 +1028,8 @@ class SecurePoll_FormStore extends SecurePoll_MemoryStore {
 				'questions' => array(),
 			);
 			$this->properties[$rId]['main-wiki'] = wfWikiID();
-			$this->properties[$rId]['jump-url'] = SpecialPage::getTitleFor( 'SecurePoll' )->getFullUrl();
+			$this->properties[$rId]['jump-url'] =
+				SpecialPage::getTitleFor( 'SecurePoll' )->getFullUrl();
 			$this->properties[$rId]['jump-id'] = $eId;
 			$this->properties[$rId]['admins'] = $admins;
 			$this->messages[$this->lang][$rId] = array(
@@ -998,9 +1038,15 @@ class SecurePoll_FormStore extends SecurePoll_MemoryStore {
 			);
 		}
 
-		$this->processFormData( $eId, $formData, SecurePoll_Ballot::$ballotTypes[$ballot], 'election' );
-		$this->processFormData( $eId, $formData, SecurePoll_Tallier::$tallierTypes[$tally], 'election' );
-		$this->processFormData( $eId, $formData, SecurePoll_Crypt::$cryptTypes[$crypt], 'election' );
+		$this->processFormData(
+			$eId, $formData, SecurePoll_Ballot::$ballotTypes[$ballot], 'election'
+		);
+		$this->processFormData(
+			$eId, $formData, SecurePoll_Tallier::$tallierTypes[$tally], 'election'
+		);
+		$this->processFormData(
+			$eId, $formData, SecurePoll_Crypt::$cryptTypes[$crypt], 'election'
+		);
 
 		// Process each question
 		foreach ( $formData['questions'] as $question ) {
@@ -1021,9 +1067,15 @@ class SecurePoll_FormStore extends SecurePoll_MemoryStore {
 				'text' => $question['text'],
 			);
 
-			$this->processFormData( $qId, $question, SecurePoll_Ballot::$ballotTypes[$ballot], 'question' );
-			$this->processFormData( $qId, $question, SecurePoll_Tallier::$tallierTypes[$tally], 'question' );
-			$this->processFormData( $qId, $question, SecurePoll_Crypt::$cryptTypes[$crypt], 'question' );
+			$this->processFormData(
+				$qId, $question, SecurePoll_Ballot::$ballotTypes[$ballot], 'question'
+			);
+			$this->processFormData(
+				$qId, $question, SecurePoll_Tallier::$tallierTypes[$tally], 'question'
+			);
+			$this->processFormData(
+				$qId, $question, SecurePoll_Crypt::$cryptTypes[$crypt], 'question'
+			);
 
 			// Process options for this question
 			foreach ( $question['options'] as $option ) {
@@ -1044,9 +1096,15 @@ class SecurePoll_FormStore extends SecurePoll_MemoryStore {
 					'text' => $option['text'],
 				);
 
-				$this->processFormData( $oId, $option, SecurePoll_Ballot::$ballotTypes[$ballot], 'option' );
-				$this->processFormData( $oId, $option, SecurePoll_Tallier::$tallierTypes[$tally], 'option' );
-				$this->processFormData( $oId, $option, SecurePoll_Crypt::$cryptTypes[$crypt], 'option' );
+				$this->processFormData(
+					$oId, $option, SecurePoll_Ballot::$ballotTypes[$ballot], 'option'
+				);
+				$this->processFormData(
+					$oId, $option, SecurePoll_Tallier::$tallierTypes[$tally], 'option'
+				);
+				$this->processFormData(
+					$oId, $option, SecurePoll_Crypt::$cryptTypes[$crypt], 'option'
+				);
 
 				$this->entityInfo[$qId]['options'][] = &$this->entityInfo[$oId];
 			}

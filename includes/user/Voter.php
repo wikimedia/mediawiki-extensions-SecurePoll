@@ -8,7 +8,9 @@ class SecurePoll_Voter {
 	public $id, $electionId, $name, $domain, $wiki, $type, $url;
 	public $properties = array();
 
-	private static $paramNames = array( 'id', 'electionId', 'name', 'domain', 'wiki', 'type', 'url', 'properties' );
+	private static $paramNames = array(
+		'id', 'electionId', 'name', 'domain', 'wiki', 'type', 'url', 'properties'
+	);
 
 	/**
 	 * Create a voter from the given associative array of parameters

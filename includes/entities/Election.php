@@ -193,7 +193,8 @@ class SecurePoll_Election extends SecurePoll_Entity {
 			$minEdits = $this->getProperty( 'min-edits' );
 			$edits = isset( $props['edit-count'] ) ? $props['edit-count'] : 0;
 			if ( $minEdits && $edits < $minEdits ) {
-				$status->fatal( 'securepoll-too-few-edits', $wgLang->formatNum( $minEdits), $wgLang->formatNum( $edits ) );
+				$status->fatal( 'securepoll-too-few-edits',
+					$wgLang->formatNum( $minEdits), $wgLang->formatNum( $edits ) );
 			}
 
 			// Registration date
@@ -218,10 +219,13 @@ class SecurePoll_Election extends SecurePoll_Entity {
 
 			// Centrally blocked on more than X projects
 			$notCentrallyBlocked = $this->getProperty( 'not-centrally-blocked' );
-			$centralBlockCount = isset( $props['central-block-count'] ) ? $props['central-block-count'] : 0;
+			$centralBlockCount = isset( $props['central-block-count'] )
+				? $props['central-block-count']
+				: 0;
 			$centralBlockThreshold = $this->getProperty( 'central-block-threshold', 1 );
 			if ( $notCentrallyBlocked && $centralBlockCount >= $centralBlockThreshold ) {
-				$status->fatal( 'securepoll-blocked-centrally', $wgLang->formatNum( $centralBlockThreshold ) );
+				$status->fatal( 'securepoll-blocked-centrally',
+					$wgLang->formatNum( $centralBlockThreshold ) );
 			}
 
 			// Bot
@@ -459,4 +463,3 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		}
 	}
 }
-

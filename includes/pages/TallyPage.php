@@ -25,7 +25,9 @@ class SecurePoll_TallyPage extends SecurePoll_ActionPage {
 			return;
 		}
 		$this->initLanguage( $user, $this->election );
-		$out->setPageTitle( $this->msg( 'securepoll-tally-title', $this->election->getMessage( 'title' ) )->text() );
+		$out->setPageTitle(
+			$this->msg( 'securepoll-tally-title', $this->election->getMessage( 'title' ) )->text()
+		);
 		if ( !$this->election->isAdmin( $user ) ) {
 			$out->addWikiMsg( 'securepoll-need-admin' );
 			return;

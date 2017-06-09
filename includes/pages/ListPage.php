@@ -103,6 +103,7 @@ class SecurePoll_ListPage extends SecurePoll_ActionPage {
 				'securepoll_unstrike_button' => $this->msg( 'securepoll-unstrike-button' )->text()
 			) );
 
+			// @codingStandardsIgnoreStart
 			$out->addHTML( <<<EOT
 $script
 <div class="securepoll-popup" id="securepoll-popup">
@@ -124,6 +125,7 @@ $script
 <div id="securepoll-strike-spinner" class="mw-small-spinner"></div>
 </div>
 EOT
+			// @codingStandardsIgnoreEnd
 			);
 		}
 	}
@@ -137,7 +139,8 @@ EOT
 	 */
 	public function strike( $action, $voteId, $reason ) {
 		$dbw = $this->context->getDB();
-		// this still gives the securepoll-need-admin error when an admin tries to delete a nonexistent vote.
+		// this still gives the securepoll-need-admin error when an admin tries to
+		// delete a nonexistent vote.
 		if ( !$this->election->isAdmin( $this->specialPage->getUser() ) ) {
 			return Status::newFatal( 'securepoll-need-admin' );
 		}
@@ -243,19 +246,25 @@ class SecurePoll_ListPager extends TablePager {
 		case 'vote_timestamp':
 			return $this->getLanguage()->timeanddate( $value );
 		case 'vote_ip':
-			if ( $this->election->endDate < wfTimestamp( TS_MW, time() - ($wgSecurePollKeepPrivateInfoDays * 24 * 60 * 60 ) ) ) {
+			if ( $this->election->endDate <
+				wfTimestamp( TS_MW, time() - ( $wgSecurePollKeepPrivateInfoDays * 24 * 60 * 60 ) )
+			) {
 				return '';
 			} else {
 				return IP::formatHex( $value );
 			}
 		case 'vote_ua':
-			if ( $this->election->endDate < wfTimestamp( TS_MW, time() - ($wgSecurePollKeepPrivateInfoDays * 24 * 60 * 60 ) ) ) {
+			if ( $this->election->endDate <
+				wfTimestamp( TS_MW, time() - ( $wgSecurePollKeepPrivateInfoDays * 24 * 60 * 60 ) )
+			) {
 				return '';
 			} else {
 				return $value;
 			}
 		case 'vote_xff':
-			if ( $this->election->endDate < wfTimestamp( TS_MW, time() - ($wgSecurePollKeepPrivateInfoDays * 24 * 60 * 60 ) ) ) {
+			if ( $this->election->endDate <
+				wfTimestamp( TS_MW, time() - ( $wgSecurePollKeepPrivateInfoDays * 24 * 60 * 60 ) )
+			) {
 				return '';
 			} else {
 				return $value;

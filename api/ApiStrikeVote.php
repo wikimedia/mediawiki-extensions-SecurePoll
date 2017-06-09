@@ -45,9 +45,13 @@ class ApiStrikeVote extends ApiBase {
 		$user = $this->getUser();
 		if ( !$user->isLoggedIn() ) {
 			if ( is_callable( array( $this, 'dieWithError' ) ) ) {
-				$this->dieWithError( 'apierror-securepoll-mustbeloggedin-strikevote', 'notloggedin' );
+				$this->dieWithError(
+					'apierror-securepoll-mustbeloggedin-strikevote', 'notloggedin'
+				);
 			} else {
-				$this->dieUsage( 'You must be logged in to strike or unstrike a vote.', 'notloggedin' );
+				$this->dieUsage(
+					'You must be logged in to strike or unstrike a vote.', 'notloggedin'
+				);
 			}
 		}
 
@@ -121,8 +125,10 @@ class ApiStrikeVote extends ApiBase {
 
 	protected function getExamplesMessages() {
 		return array(
-			'action=strikevote&option=strike&reason=duplication&voteid=1&token=123ABC' => 'apihelp-strikevote-example-strike',
-			'action=strikevote&option=unstrike&reason=mistake&voteid=1&token=123ABC' => 'apihelp-strikevote-example-unstrike',
+			'action=strikevote&option=strike&reason=duplication&voteid=1&token=123ABC' =>
+				'apihelp-strikevote-example-strike',
+			'action=strikevote&option=unstrike&reason=mistake&voteid=1&token=123ABC' =>
+				'apihelp-strikevote-example-unstrike',
 		);
 	}
 }

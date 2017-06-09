@@ -152,7 +152,9 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 			$context = new SecurePoll_Context;
 			$election = $context->getElection( $this->election->getID() );
 
-			list( $title, $content ) = SecurePollContentHandler::makeContentFromElection( $election );
+			list( $title, $content ) = SecurePollContentHandler::makeContentFromElection(
+				$election
+			);
 			$wp = WikiPage::factory( $title );
 			$wp->doEditContent( $content, $comment );
 		}
@@ -315,7 +317,9 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 			$context = new SecurePoll_Context;
 			$election = $context->getElection( $this->election->getID() );
 
-			list( $title, $content ) = SecurePollContentHandler::makeContentFromElection( $election );
+			list( $title, $content ) = SecurePollContentHandler::makeContentFromElection(
+				$election
+			);
 			$wp = WikiPage::factory( $title );
 			$wp->doEditContent( $content, $comment );
 
@@ -530,7 +534,8 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 
 				$editCountStartDate = $this->election->getProperty( 'list_edits-startdate', '' );
 				if ( $editCountStartDate !== '' ) {
-					$editCountStartDate = gmdate( 'Y-m-d', wfTimestamp( TS_UNIX, $editCountStartDate ) );
+					$editCountStartDate = gmdate( 'Y-m-d',
+						wfTimestamp( TS_UNIX, $editCountStartDate ) );
 				}
 
 				$formItems['list_edits-startdate'] = array(
@@ -550,7 +555,8 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 				if ( $editCountEndDate === '' ) {
 					$editCountEndDate = gmdate( 'Y-m-d', strtotime( 'yesterday' ) );
 				} else {
-					$editCountEndDate = gmdate( 'Y-m-d', wfTimestamp( TS_UNIX, $editCountEndDate ) );
+					$editCountEndDate = gmdate( 'Y-m-d',
+						wfTimestamp( TS_UNIX, $editCountEndDate ) );
 				}
 
 				$formItems['list_edits-enddate'] = array(
@@ -639,7 +645,9 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 			);
 		}
 
-		$form = HTMLForm::factory('div', $formItems, $this->specialPage->getContext(), 'securepoll-votereligibility' );
+		$form = HTMLForm::factory(
+			'div', $formItems, $this->specialPage->getContext(), 'securepoll-votereligibility'
+		);
 		$form->addHeaderText(
 			$this->msg( 'securepoll-votereligibility-basic-info' )->parseAsBlock(), 'basic'
 		);
@@ -735,7 +743,9 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 			$properties['need-list'] = 'need-list-' . $this->election->getId();
 		}
 
-		if ( $this->parseDate($formData['list_edits-startdate']) >= $this->parseDate($formData['list_edits-enddate']) ) {
+		if ( $this->parseDate( $formData['list_edits-startdate'] ) >=
+			$this->parseDate( $formData['list_edits-enddate'] )
+		) {
 			return $this->msg( 'securepoll-htmlform-daterange-end-before-start' )->parseAsBlock();
 		}
 
@@ -801,7 +811,9 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 			);
 		}
 
-		$form = new HTMLForm( $formItems, $this->specialPage->getContext(), 'securepoll-votereligibility' );
+		$form = new HTMLForm(
+			$formItems, $this->specialPage->getContext(), 'securepoll-votereligibility'
+		);
 		$form->addHeaderText(
 			$this->msg( 'securepoll-votereligibility-edit-header' )->parseAsBlock()
 		);
@@ -818,7 +830,8 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 			$out->setPageTitle( $this->msg( 'securepoll-votereligibility-saved' ) );
 			$out->addWikiMsg( 'securepoll-votereligibility-saved-text' );
 			$out->returnToMain( false,
-				SpecialPage::getTitleFor( 'SecurePoll', 'votereligibility/' . $this->election->getId() )
+				SpecialPage::getTitleFor( 'SecurePoll',
+					'votereligibility/' . $this->election->getId() )
 			);
 		}
 	}
@@ -907,7 +920,9 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 			$context = new SecurePoll_Context;
 			$election = $context->getElection( $this->election->getID() );
 
-			list( $title, $content ) = SecurePollContentHandler::makeContentFromElection( $election );
+			list( $title, $content ) = SecurePollContentHandler::makeContentFromElection(
+				$election
+			);
 			$wp = WikiPage::factory( $title );
 			$wp->doEditContent( $content,
 				$this->msg( 'securepoll-votereligibility-cleared-comment', $name ) );

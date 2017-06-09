@@ -42,7 +42,9 @@ class SecurePoll_DetailsPage extends SecurePoll_ActionPage {
 		$vote_ip = '';
 		$vote_xff = '';
 		$vote_ua = '';
-		if ( $row->el_end_date >= wfTimestamp( TS_MW, time() - ($wgSecurePollKeepPrivateInfoDays * 24 * 60 * 60 ) ) ) {
+		if ( $row->el_end_date >=
+			wfTimestamp( TS_MW, time() - ( $wgSecurePollKeepPrivateInfoDays * 24 * 60 * 60 ) )
+		) {
 			$vote_ip = IP::formatHex( $row->vote_ip );
 			$vote_xff = $row->vote_xff;
 			$vote_ua = $row->vote_ua;
@@ -77,7 +79,9 @@ class SecurePoll_DetailsPage extends SecurePoll_ActionPage {
 		);
 
 		# Show voter properties
-		$out->addHTML( '<h2>' . $this->msg( 'securepoll-voter-properties' )->escaped() . "</h2>\n" );
+		$out->addHTML(
+			'<h2>' . $this->msg( 'securepoll-voter-properties' )->escaped() . "</h2>\n"
+		);
 		$out->addHTML( '<table class="mw-datatable TablePager">' );
 		$props = SecurePoll_Voter::decodeProperties( $row->voter_properties );
 		foreach ( $props as $name => $value ) {

@@ -58,7 +58,9 @@ class SecurePollHooks {
 	 * @param $short
 	 * @return bool
 	 */
-	public static function onTitleQuickPermissions( $title, $user, $action, &$errors, $doExpensiveQueries, $short ) {
+	public static function onTitleQuickPermissions(
+		$title, $user, $action, &$errors, $doExpensiveQueries, $short
+	) {
 		global $wgSecurePollUseNamespace;
 		if ( $wgSecurePollUseNamespace && $title->getNamespace() === NS_SECUREPOLL &&
 			$action !== 'read'
