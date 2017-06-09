@@ -6,9 +6,9 @@
  * @ingroup Extensions
  */
 
-$namespaceNames = array();
+$namespaceNames = [];
 
-$namespaceNames['en'] = array(
+$namespaceNames['en'] = [
 	830 => 'SecurePoll',
 	831 => 'SecurePoll_talk',
-);
+];
