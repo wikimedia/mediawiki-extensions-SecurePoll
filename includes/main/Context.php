@@ -17,18 +17,18 @@
  */
 class SecurePoll_Context {
 	/** Language fallback sequence */
-	public $languages = array( 'en' );
+	public $languages = [ 'en' ];
 
 	/** Message text cache */
-	public $messageCache = array();
+	public $messageCache = [];
 
 	/** election cache */
-	public $electionCache = array();
+	public $electionCache = [];
 
 	/**
 	 * Which messages are loaded. 2-d array: language and entity ID, value arbitrary.
 	 */
-	public $messagesLoaded = array();
+	public $messagesLoaded = [];
 
 	/** ParserOptions instance used for message parsing */
 	public $parserOptions;
@@ -88,13 +88,13 @@ class SecurePoll_Context {
 	/** Set the store class */
 	function setStoreClass( $class ) {
 		$this->store = null;
-		$this->messageCache = $this->messagesLoaded = array();
+		$this->messageCache = $this->messagesLoaded = [];
 		$this->storeClass = $class;
 	}
 
 	/** Set the store object. Overrides any previous store class. */
 	function setStore( $store ) {
-		$this->messageCache = $this->messagesLoaded = array();
+		$this->messageCache = $this->messagesLoaded = [];
 		$this->store = $store;
 	}
 
@@ -110,7 +110,7 @@ class SecurePoll_Context {
 	 */
 	function getElection( $id ) {
 		if ( !isset( $this->electionCache[$id] ) ) {
-			$info = $this->getStore()->getElectionInfo( array( $id ) );
+			$info = $this->getStore()->getElectionInfo( [ $id ] );
 			if ( $info ) {
 				$this->electionCache[$id] = $this->newElection( reset( $info ) );
 			} else {
@@ -126,7 +126,7 @@ class SecurePoll_Context {
 	 * @return SecurePoll_Election
 	 */
 	function getElectionByTitle( $name ) {
-		$info = $this->getStore()->getElectionInfoByTitle( array( $name ) );
+		$info = $this->getStore()->getElectionInfoByTitle( [ $name ] );
 		if ( $info ) {
 			return $this->newElection( reset( $info ) );
 		} else {
@@ -236,7 +236,7 @@ class SecurePoll_Context {
 	 */
 	function getMessage( $lang, $id, $key ) {
 		if ( !isset( $this->messagesLoaded[$lang][$id] ) ) {
-			$this->getMessages( $lang, array( $id ) );
+			$this->getMessages( $lang, [ $id ] );
 		}
 		if ( isset( $this->messageCache[$lang][$id][$key] ) ) {
 			return $this->messageCache[$lang][$id][$key];

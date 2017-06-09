@@ -101,13 +101,13 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * Get a list of localisable message names. See SecurePoll_Entity.
 	 */
 	function getMessageNames() {
-		return array(
+		return [
 			'title',
 			'intro',
 			'jump-text',
 			'return-text',
 			'unqualified-error',
-		);
+		];
 	}
 
 	/**
@@ -183,8 +183,8 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		$props = $params['properties'];
 		$status = Status::newGood();
 
-		$lists = isset( $props['lists'] ) ? $props['lists'] : array();
-		$centralLists = isset( $props['central-lists'] ) ? $props['central-lists'] : array();
+		$lists = isset( $props['lists'] ) ? $props['lists'] : [];
+		$centralLists = isset( $props['central-lists'] ) ? $props['central-lists'] : [];
 		$includeList = $this->getProperty( 'include-list' );
 		$excludeList = $this->getProperty( 'exclude-list' );
 
@@ -241,7 +241,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 
 			// Groups
 			$needGroup = $this->getProperty( 'need-group' );
-			$groups = isset( $props['groups'] ) ? $props['groups'] : array();
+			$groups = isset( $props['groups'] ) ? $props['groups'] : [];
 			if ( $needGroup && !in_array( $needGroup, $groups ) ) {
 				$status->fatal( 'securepoll-not-in-group', $needGroup );
 			}
@@ -290,11 +290,11 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		$db = $this->context->getDB();
 		$row = $db->selectRow(
 			'securepoll_votes',
-			array( "1" ),
-			array(
+			[ "1" ],
+			[
 				'vote_election' => $this->getId(),
 				'vote_voter' => $voter->getId(),
-			),
+			],
 			__METHOD__ );
 		return $row !== false;
 	}
@@ -315,7 +315,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	function getQuestions() {
 		if ( $this->questions === null ) {
 			$info = $this->context->getStore()->getQuestionInfo( $this->getId() );
-			$this->questions = array();
+			$this->questions = [];
 			foreach ( $info as $questionInfo ) {
 				$this->questions[] = $this->context->newQuestion( $questionInfo );
 			}
@@ -380,12 +380,12 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		$db = $this->context->getDB();
 		$res = $db->select(
 			'securepoll_votes',
-			array( '*' ),
-			array(
+			[ '*' ],
+			[
 				'vote_election' => $this->getId(),
 				'vote_current' => 1,
 				'vote_struck' => 0
-			),
+			],
 			__METHOD__
 		);
 		if ( $res->numRows() ) {
@@ -402,31 +402,31 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	/**
 	 * Get an XML snippet describing the configuration of this object
 	 */
-	function getConfXml( $params = array() ) {
+	function getConfXml( $params = [] ) {
 		$s = "<configuration>\n" .
-			Xml::element( 'title', array(), $this->title ) . "\n" .
-			Xml::element( 'ballot', array(), $this->ballotType ) . "\n" .
-			Xml::element( 'tally', array(), $this->tallyType ) . "\n" .
-			Xml::element( 'primaryLang', array(), $this->primaryLang ) . "\n" .
-			Xml::element( 'startDate', array(), wfTimestamp( TS_ISO_8601, $this->startDate ) ) . "\n" .
-			Xml::element( 'endDate', array(), wfTimestamp( TS_ISO_8601, $this->endDate ) ) . "\n" .
+			Xml::element( 'title', [], $this->title ) . "\n" .
+			Xml::element( 'ballot', [], $this->ballotType ) . "\n" .
+			Xml::element( 'tally', [], $this->tallyType ) . "\n" .
+			Xml::element( 'primaryLang', [], $this->primaryLang ) . "\n" .
+			Xml::element( 'startDate', [], wfTimestamp( TS_ISO_8601, $this->startDate ) ) . "\n" .
+			Xml::element( 'endDate', [], wfTimestamp( TS_ISO_8601, $this->endDate ) ) . "\n" .
 			$this->getConfXmlEntityStuff( $params );
 
 		// If we're making a jump dump, we need to add some extra properties, and
 		// override the auth type
 		if ( !empty( $params['jump'] ) ) {
 			$s .=
-				Xml::element( 'auth', array(), 'local' ) . "\n" .
+				Xml::element( 'auth', [], 'local' ) . "\n" .
 				Xml::element( 'property',
-					array( 'name' => 'jump-url' ),
+					[ 'name' => 'jump-url' ],
 					$this->context->getSpecialTitle()->getCanonicalUrl()
 				) . "\n" .
 				Xml::element( 'property',
-					array( 'name' => 'jump-id' ),
+					[ 'name' => 'jump-id' ],
 					$this->getId()
 				) . "\n";
 		} else {
-			$s .= Xml::element( 'auth', array(), $this->authType ) . "\n";
+			$s .= Xml::element( 'auth', [], $this->authType ) . "\n";
 		}
 
 		foreach ( $this->getQuestions() as $question ) {
@@ -439,15 +439,15 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	/**
 	 * Get property names which aren't included in an XML dump
 	 */
-	function getPropertyDumpBlacklist( $params = array() ) {
+	function getPropertyDumpBlacklist( $params = [] ) {
 		if ( !empty( $params['jump'] ) ) {
-			return array(
+			return [
 				'gpg-encrypt-key',
 				'gpg-sign-key',
 				'gpg-decrypt-key'
-			);
+			];
 		} else {
-			return array();
+			return [];
 		}
 	}
 

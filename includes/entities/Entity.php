@@ -14,7 +14,7 @@ class SecurePoll_Entity {
 	public $id;
 	public $electionId;
 	public $context;
-	public $messagesLoaded = array();
+	public $messagesLoaded = [];
 	public $properties;
 
 	/**
@@ -50,7 +50,7 @@ class SecurePoll_Entity {
 	 */
 	function getMessageNames() {
 		# STUB
-		return array();
+		return [];
 	}
 
 	/**
@@ -78,7 +78,7 @@ class SecurePoll_Entity {
 	 * @return array
 	 */
 	function getChildren() {
-		return array();
+		return [];
 	}
 
 	/**
@@ -87,7 +87,7 @@ class SecurePoll_Entity {
 	 * @return array
 	 */
 	function getDescendants() {
-		$descendants = array();
+		$descendants = [];
 		$children = $this->getChildren();
 		foreach ( $children as $child ) {
 			$descendants[] = $child;
@@ -104,7 +104,7 @@ class SecurePoll_Entity {
 		if ( $lang === false ) {
 			$lang = reset( $this->context->languages );
 		}
-		$ids = array( $this->getId() );
+		$ids = [ $this->getId() ];
 		foreach ( $this->getDescendants() as $child ) {
 			$ids[] = $child->getId();
 		}
@@ -118,11 +118,11 @@ class SecurePoll_Entity {
 	 * automatically.
 	 */
 	function loadProperties() {
-		$properties = $this->context->getStore()->getProperties( array( $this->getId() ) );
+		$properties = $this->context->getStore()->getProperties( [ $this->getId() ] );
 		if ( count( $properties ) ) {
 			$this->properties = reset( $properties );
 		} else {
-			$this->properties = array();
+			$this->properties = [];
 		}
 	}
 
@@ -190,7 +190,7 @@ class SecurePoll_Entity {
 	 * and its descendants.
 	 */
 	function getLangList() {
-		$ids = array( $this->getId() );
+		$ids = [ $this->getId() ];
 		foreach ( $this->getDescendants() as $child ) {
 			$ids[] = $child->getId();
 		}
@@ -228,7 +228,7 @@ class SecurePoll_Entity {
 	/**
 	 * Get configuration XML. Overridden by most subclasses.
 	 */
-	function getConfXml( $params = array() ) {
+	function getConfXml( $params = [] ) {
 		return "<{$this->type}>\n" .
 			$this->getConfXmlEntityStuff( $params ) .
 			"</{$this->type}>\n";
@@ -237,12 +237,12 @@ class SecurePoll_Entity {
 	/**
 	 * Get an XML snippet giving the messages and properties
 	 */
-	function getConfXmlEntityStuff( $params = array() ) {
-		$s = Xml::element( 'id', array(), $this->getId() ) . "\n";
+	function getConfXmlEntityStuff( $params = [] ) {
+		$s = Xml::element( 'id', [], $this->getId() ) . "\n";
 		$blacklist = $this->getPropertyDumpBlacklist( $params );
 		foreach ( $this->getAllProperties() as $name => $value ) {
 			if ( !in_array( $name, $blacklist ) ) {
-				$s .= Xml::element( 'property', array( 'name' => $name ), $value ) . "\n";
+				$s .= Xml::element( 'property', [ 'name' => $name ], $value ) . "\n";
 			}
 		}
 		if ( isset( $params['langs'] ) ) {
@@ -256,7 +256,7 @@ class SecurePoll_Entity {
 				if ( $value !== false ) {
 					$s .= Xml::element(
 							'message',
-							array( 'name' => $name, 'lang' => $lang ),
+							[ 'name' => $name, 'lang' => $lang ],
 							$value
 						) . "\n";
 				}
@@ -269,8 +269,8 @@ class SecurePoll_Entity {
 	 * Get property names which aren't included in an XML dump.
 	 * Overloaded by Election.
 	 */
-	function getPropertyDumpBlacklist( $params = array() ) {
-		return array();
+	function getPropertyDumpBlacklist( $params = [] ) {
+		return [];
 	}
 
 }

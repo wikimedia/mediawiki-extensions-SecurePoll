@@ -7,24 +7,24 @@ use \MediaWiki\MediaWikiServices;
  */
 class SecurePoll_PopulateVoterListJob extends Job {
 	public static function pushJobsForElection( SecurePoll_Election $election ) {
-		static $props = array(
+		static $props = [
 			'need-list', 'list_populate',
 			'list_edits-before', 'list_edits-before-count', 'list_edits-before-date',
 			'list_edits-between', 'list_edits-between-count',
 			'list_edits-startdate', 'list_edits-enddate',
 			'list_exclude-groups', 'list_include-groups',
-		);
-		static $listProps = array(
+		];
+		static $listProps = [
 			'list_edits-startdate', 'list_edits-enddate',
 			'list_exclude-groups', 'list_include-groups',
-		);
+		];
 
 		$dbw = $election->context->getDB();
 		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 
 		// First, fetch the current config and calculate a hash of it for
 		// detecting changes
-		$params = array(
+		$params = [
 			'electionWiki' => wfWikiID(),
 			'electionId' => $election->getID(),
 			'list_populate' => '0',
@@ -33,15 +33,15 @@ class SecurePoll_PopulateVoterListJob extends Job {
 			'list_edits-between' => '',
 			'list_exclude-groups' => '',
 			'list_include-groups' => '',
-		);
+		];
 
 		$res = $dbw->select(
 			'securepoll_properties',
-			array( 'pr_key', 'pr_value' ),
-			array(
+			[ 'pr_key', 'pr_value' ],
+			[
 				'pr_entity' => $election->getID(),
 				'pr_key' => $props,
-			)
+			]
 		);
 		foreach ( $res as $row ) {
 			$params[$row->pr_key] = $row->pr_value;
@@ -56,7 +56,7 @@ class SecurePoll_PopulateVoterListJob extends Job {
 
 		foreach ( $listProps as $prop ) {
 			if ( $params[$prop] === '' ) {
-				$params[$prop] = array();
+				$params[$prop] = [];
 			} else {
 				$params[$prop] = explode( '|', $params[$prop] );
 			}
@@ -66,10 +66,10 @@ class SecurePoll_PopulateVoterListJob extends Job {
 		$key = sha1( serialize( $params ) );
 
 		// Now fill in the remaining params
-		$params += array(
+		$params += [
 			'jobKey' => $key,
 			'nextUserId' => 1,
-		);
+		];
 
 		// Get the list of wikis we need jobs on
 		$wikis = $election->getProperty( 'wikis' );
@@ -79,12 +79,12 @@ class SecurePoll_PopulateVoterListJob extends Job {
 				$wikis[] = wfWikiID();
 			}
 		} else {
-			$wikis = array( wfWikiID() );
+			$wikis = [ wfWikiID() ];
 		}
 
 		// Find the max user_id for each wiki, both to know when we're done
 		// with that wiki's job and for the special page to calculate progress.
-		$maxIds = array();
+		$maxIds = [];
 		$total = 0;
 		foreach ( $wikis as $wiki ) {
 			$dbr = wfGetLB( $wiki )->getConnectionRef( DB_SLAVE, [], $wiki );
@@ -121,24 +121,24 @@ class SecurePoll_PopulateVoterListJob extends Job {
 		// abort) and the progress figures.
 		$dbw->replace(
 			'securepoll_properties',
-			array( 'pr_entity', 'pr_key' ),
-			array(
-				array(
+			[ 'pr_entity', 'pr_key' ],
+			[
+				[
 					'pr_entity' => $election->getID(),
 					'pr_key' => 'list_job-key',
 					'pr_value' => $params['jobKey'],
-				),
-				array(
+				],
+				[
 					'pr_entity' => $election->getID(),
 					'pr_key' => 'list_total-count',
 					'pr_value' => $total,
-				),
-				array(
+				],
+				[
 					'pr_entity' => $election->getID(),
 					'pr_key' => 'list_complete-count',
 					'pr_value' => 0,
-				),
-			)
+				],
+			]
 		);
 
 		foreach ( $wikis as $wiki ) {
@@ -159,7 +159,7 @@ class SecurePoll_PopulateVoterListJob extends Job {
 			$jobQueueGroup->push( new JobSpecification(
 				'securePollPopulateVoterList',
 				$params,
-				array(),
+				[],
 				$title
 			) );
 		}
@@ -185,7 +185,7 @@ class SecurePoll_PopulateVoterListJob extends Job {
 		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		try {
 			// Check if the job key changed, and abort if so.
-			$dbwElection = wfGetDB( DB_MASTER, array(), $this->params['electionWiki'] );
+			$dbwElection = wfGetDB( DB_MASTER, [], $this->params['electionWiki'] );
 			$dbwLocal = wfGetDB( DB_MASTER );
 			$jobKey = self::fetchJobKey( $dbwElection, $this->params['electionId'] );
 			if ( $jobKey !== $this->params['jobKey'] ) {
@@ -204,21 +204,21 @@ class SecurePoll_PopulateVoterListJob extends Job {
 				$res = $dbr->select(
 					'revision',
 					'rev_user',
-					array(
+					[
 						"rev_user >= $min",
 						"rev_user < $max",
 						"rev_timestamp < $timestamp",
-					),
+					],
 					__METHOD__,
-					array(
+					[
 						'GROUP BY' => 'rev_user',
-						'HAVING' => array(
+						'HAVING' => [
 							'COUNT(*) >= ' . $dbr->addQuotes( $this->params['list_edits-before-count'] ),
-						)
-					)
+						]
+					]
 				);
 
-				$list = array();
+				$list = [];
 				foreach ( $res as $row ) {
 					$list[] = $row->rev_user;
 				}
@@ -238,21 +238,21 @@ class SecurePoll_PopulateVoterListJob extends Job {
 				$res = $dbr->select(
 					'revision',
 					'rev_user',
-					array(
+					[
 						"rev_user >= $min",
 						"rev_user < $max",
 						"rev_timestamp >= $timestamp1",
 						"rev_timestamp < $timestamp2",
-					),
+					],
 					__METHOD__,
-					array(
+					[
 						'GROUP BY' => 'rev_user',
-						'HAVING' => array(
+						'HAVING' => [
 							'COUNT(*) >= ' . $dbr->addQuotes( $this->params['list_edits-between-count'] ),
-						)
-					)
+						]
+					]
 				);
-				$list = array();
+				$list = [];
 				foreach ( $res as $row ) {
 					$list[] = $row->rev_user;
 				}
@@ -268,27 +268,27 @@ class SecurePoll_PopulateVoterListJob extends Job {
 			global $wgDisableUserGroupExpiry;
 			if ( $this->params['list_exclude-groups'] ) {
 				$res = $dbr->select(
-					array( 'user', 'user_groups' ),
+					[ 'user', 'user_groups' ],
 					'user_id',
-					array(
+					[
 						"user_id >= $min",
 						"user_id < $max",
 						'ug_user IS NULL',
-					),
+					],
 					__METHOD__,
-					array(),
-					array(
-						'user_groups' => array( 'LEFT OUTER JOIN', array(
+					[],
+					[
+						'user_groups' => [ 'LEFT OUTER JOIN', [
 								'ug_user = user_id',
 								'ug_group' => $this->params['list_exclude-groups'],
 								( !isset( $wgDisableUserGroupExpiry ) || $wgDisableUserGroupExpiry ) ?
 									'1' :
 									'ug_expiry IS NULL OR ug_expiry >= ' . $dbr->addQuotes( $dbr->timestamp() ),
-							)
-						),
-					)
+							]
+						],
+					]
 				);
-				$list = array();
+				$list = [];
 				foreach ( $res as $row ) {
 					$list[] = $row->user_id;
 				}
@@ -305,16 +305,16 @@ class SecurePoll_PopulateVoterListJob extends Job {
 				$res = $dbr->select(
 					'user_groups',
 					'ug_user',
-					array(
+					[
 						"ug_user >= $min",
 						"ug_user < $max",
 						'ug_group' => $this->params['list_include-groups'],
 						( !isset( $wgDisableUserGroupExpiry ) || $wgDisableUserGroupExpiry ) ?
 							'1' :
 							'ug_expiry IS NULL OR ug_expiry >= ' . $dbr->addQuotes( $dbr->timestamp() ),
-					)
+					]
 				);
-				$list = array();
+				$list = [];
 				foreach ( $res as $row ) {
 					$list[] = $row->ug_user;
 				}
@@ -326,12 +326,12 @@ class SecurePoll_PopulateVoterListJob extends Job {
 				}
 			}
 
-			$ins = array();
+			$ins = [];
 			foreach ( $users as $user_id ) {
-				$ins[] = array(
+				$ins[] = [
 					'li_name' => $this->params['need-list'],
 					'li_member' => $user_id,
-				);
+				];
 			}
 
 			// Flush any prior REPEATABLE-READ snapshots so the locking below works
@@ -353,26 +353,26 @@ class SecurePoll_PopulateVoterListJob extends Job {
 
 			$jobKey = self::fetchJobKey( $dbwElection, $this->params['electionId'] );
 			if ( $jobKey === $this->params['jobKey'] ) {
-				$dbwLocal->delete( 'securepoll_lists', array(
+				$dbwLocal->delete( 'securepoll_lists', [
 					'li_name' => $this->params['need-list'],
 					"li_member >= $min",
 					"li_member < $max",
-				) );
+				] );
 				$dbwLocal->insert( 'securepoll_lists', $ins );
 
-				$count = $dbwElection->selectField( 'securepoll_properties', 'pr_value', array(
+				$count = $dbwElection->selectField( 'securepoll_properties', 'pr_value', [
 					'pr_entity' => $this->params['electionId'],
 					'pr_key' => 'list_complete-count',
-				) );
+				] );
 				$dbwElection->update(
 					'securepoll_properties',
-					array(
+					[
 						'pr_value' => $count + $max - $min,
-					),
-					array(
+					],
+					[
 						'pr_entity' => $this->params['electionId'],
 						'pr_key' => 'list_complete-count',
-					)
+					]
 				);
 			}
 
@@ -395,7 +395,7 @@ class SecurePoll_PopulateVoterListJob extends Job {
 			JobQueueGroup::singleton()->push( new JobSpecification(
 				'securePollPopulateVoterList',
 				$params,
-				array(),
+				[],
 				$this->title
 			) );
 		}
@@ -407,10 +407,10 @@ class SecurePoll_PopulateVoterListJob extends Job {
 		return $db->selectField(
 			'securepoll_properties',
 			'pr_value',
-			array(
+			[
 				'pr_entity' => $electionId,
 				'pr_key' => 'list_job-key',
-			)
+			]
 		);
 	}
 }

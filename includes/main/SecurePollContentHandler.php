@@ -28,11 +28,11 @@ class SecurePollContentHandler extends JsonContentHandler {
 		if ( $subpage === '' ) {
 			$properties = $election->getAllProperties();
 			if ( $useBlacklist ) {
-				$blacklist = array_flip( $election->getPropertyDumpBlacklist() ) + array(
+				$blacklist = array_flip( $election->getPropertyDumpBlacklist() ) + [
 					'gpg-encrypt-key' => true,
 					'gpg-sign-key' => true,
 					'gpg-decrypt-key' => true,
-				);
+				];
 				foreach ( $properties as $k => $v ) {
 					if ( isset( $blacklist[$k] ) ) {
 						$properties[$k] = '<redacted>';
@@ -44,7 +44,7 @@ class SecurePollContentHandler extends JsonContentHandler {
 					$properties['list_complete-count']
 				);
 			}
-			$data = array(
+			$data = [
 				'id' => $election->getId(),
 				'title' => $election->title,
 				'ballot' => $election->ballotType,
@@ -54,8 +54,8 @@ class SecurePollContentHandler extends JsonContentHandler {
 				'endDate' => wfTimestamp( TS_ISO_8601, $election->getEndDate() ),
 				'authType' => $election->authType,
 				'properties' => $properties,
-				'questions' => array(),
-			);
+				'questions' => [],
+			];
 
 			foreach ( $election->getQuestions() as $question ) {
 				$properties = $question->getAllProperties();
@@ -67,11 +67,11 @@ class SecurePollContentHandler extends JsonContentHandler {
 						}
 					}
 				}
-				$q = array(
+				$q = [
 					'id' => $question->getId(),
 					'properties' => $properties,
-					'options' => array(),
-				);
+					'options' => [],
+				];
 
 				foreach ( $question->getOptions() as $option ) {
 					$properties = $option->getAllProperties();
@@ -83,10 +83,10 @@ class SecurePollContentHandler extends JsonContentHandler {
 							}
 						}
 					}
-					$o = array(
+					$o = [
 						'id' => $option->getId(),
 						'properties' => $properties,
-					);
+					];
 					$q['options'][] = $o;
 				}
 
@@ -94,12 +94,12 @@ class SecurePollContentHandler extends JsonContentHandler {
 			}
 		} elseif ( preg_match( '#^msg/(\S+)$#', $subpage, $m ) ) {
 			$lang = $m[1];
-			$data = array(
+			$data = [
 				'id' => $election->getId(),
 				'lang' => $lang,
-				'messages' => array(),
-				'questions' => array(),
-			);
+				'messages' => [],
+				'questions' => [],
+			];
 			foreach ( $election->getMessageNames() as $name ) {
 				$value = $election->getRawMessage( $name, $lang );
 				if ( $value !== false ) {
@@ -108,11 +108,11 @@ class SecurePollContentHandler extends JsonContentHandler {
 			}
 
 			foreach ( $election->getQuestions() as $question ) {
-				$q = array(
+				$q = [
 					'id' => $question->getId(),
-					'messages' => array(),
-					'options' => array(),
-				);
+					'messages' => [],
+					'options' => [],
+				];
 				foreach ( $question->getMessageNames() as $name ) {
 					$value = $question->getRawMessage( $name, $lang );
 					if ( $value !== false ) {
@@ -121,10 +121,10 @@ class SecurePollContentHandler extends JsonContentHandler {
 				}
 
 				foreach ( $question->getOptions() as $option ) {
-					$o = array(
+					$o = [
 						'id' => $option->getId(),
-						'messages' => array(),
-					);
+						'messages' => [],
+					];
 					foreach ( $option->getMessageNames() as $name ) {
 						$value = $option->getRawMessage( $name, $lang );
 						if ( $value !== false ) {
@@ -155,7 +155,7 @@ class SecurePollContentHandler extends JsonContentHandler {
 			false, FormatJson::ALL_OK );
 		$title = Title::makeTitle( NS_SECUREPOLL, $election->getId() .
 			( $subpage === '' ? '' : "/$subpage" ) );
-		return array( $title, ContentHandler::makeContent( $json, $title, 'SecurePoll' ) );
+		return [ $title, ContentHandler::makeContent( $json, $title, 'SecurePoll' ) ];
 	}
 
 	public function canBeUsedOn( Title $title ) {
@@ -165,7 +165,7 @@ class SecurePollContentHandler extends JsonContentHandler {
 
 	public function getActionOverrides() {
 		// Disable write actions
-		return array(
+		return [
 			'delete' => false,
 			'edit' => false,
 			'info' => false,
@@ -174,7 +174,7 @@ class SecurePollContentHandler extends JsonContentHandler {
 			'rollback' => false,
 			'submit' => false,
 			'unprotect' => false,
-		);
+		];
 	}
 
 	protected function getContentClass() {

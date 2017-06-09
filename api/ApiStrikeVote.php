@@ -44,7 +44,7 @@ class ApiStrikeVote extends ApiBase {
 		// if not logged in: fail
 		$user = $this->getUser();
 		if ( !$user->isLoggedIn() ) {
-			if ( is_callable( array( $this, 'dieWithError' ) ) ) {
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
 				$this->dieWithError(
 					'apierror-securepoll-mustbeloggedin-strikevote', 'notloggedin'
 				);
@@ -61,16 +61,16 @@ class ApiStrikeVote extends ApiBase {
 		$db = $context->getDB();
 		$table = $db->tableName( 'securepoll_elections' );
 		$row = $db->selectRow(
-			array( 'securepoll_votes', 'securepoll_elections' ),
+			[ 'securepoll_votes', 'securepoll_elections' ],
 			"$table.*",
-			array( 'vote_id' => $voteid, 'vote_election=el_entity' ),
+			[ 'vote_id' => $voteid, 'vote_election=el_entity' ],
 			__METHOD__
 		);
 
 		// if no vote: fail
 		if ( !$row ) {
-			if ( is_callable( array( $this, 'dieWithError' ) ) ) {
-				$this->dieWithError( array( 'apierror-securepoll-badvoteid', $voteid ), 'novote' );
+			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
+				$this->dieWithError( [ 'apierror-securepoll-badvoteid', $voteid ], 'novote' );
 			} else {
 				$this->dieUsage( "$voteid is not a valid vote id.", 'novote' );
 			}
@@ -81,7 +81,7 @@ class ApiStrikeVote extends ApiBase {
 		$subpage->election = $context->newElectionFromRow( $row );
 		$status = $subpage->strike( $option, $voteid, $reason );
 
-		$result = array();
+		$result = [];
 		if ( $status->isGood() ) {
 			$result['status'] = 'good';
 		} else {
@@ -103,32 +103,32 @@ class ApiStrikeVote extends ApiBase {
 	}
 
 	public function getAllowedParams() {
-		return array(
-			'option' => array(
-				ApiBase::PARAM_TYPE => array(
+		return [
+			'option' => [
+				ApiBase::PARAM_TYPE => [
 					'strike',
 					'unstrike'
-				),
+				],
 				ApiBase::PARAM_REQUIRED => true,
-				ApiBase::PARAM_HELP_MSG_PER_VALUE => array(),
-			),
-			'reason' => array(
+				ApiBase::PARAM_HELP_MSG_PER_VALUE => [],
+			],
+			'reason' => [
 				ApiBase::PARAM_TYPE => 'string',
 				ApiBase::PARAM_REQUIRED => true,
-			),
-			'voteid' => array(
+			],
+			'voteid' => [
 				ApiBase::PARAM_TYPE => 'integer',
 				ApiBase::PARAM_REQUIRED => true,
-			),
-		);
+			],
+		];
 	}
 
 	protected function getExamplesMessages() {
-		return array(
+		return [
 			'action=strikevote&option=strike&reason=duplication&voteid=1&token=123ABC' =>
 				'apihelp-strikevote-example-strike',
 			'action=strikevote&option=unstrike&reason=mistake&voteid=1&token=123ABC' =>
 				'apihelp-strikevote-example-unstrike',
-		);
+		];
 	}
 }

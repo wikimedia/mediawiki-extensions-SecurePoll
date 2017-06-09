@@ -19,6 +19,6 @@ class SecurePoll_Option extends SecurePoll_Entity {
 	 * translate subpage with a list of messages to localise.
 	 */
 	function getMessageNames() {
-		return array( 'text' );
+		return [ 'text' ];
 	}
 }

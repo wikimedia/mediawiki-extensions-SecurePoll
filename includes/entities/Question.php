@@ -16,7 +16,7 @@ class SecurePoll_Question extends SecurePoll_Entity {
 	 */
 	function __construct( $context, $info ) {
 		parent::__construct( $context, 'question', $info );
-		$this->options = array();
+		$this->options = [];
 		foreach ( $info['options'] as $optionInfo ) {
 			$this->options[] = new SecurePoll_Option( $context, $optionInfo );
 		}
@@ -27,7 +27,7 @@ class SecurePoll_Question extends SecurePoll_Entity {
 	 */
 	function getMessageNames() {
 		$ballot = $this->getElection()->getBallot();
-		return array_merge( $ballot->getMessageNames( $this ), array( 'text' ) );
+		return array_merge( $ballot->getMessageNames( $this ), [ 'text' ] );
 
 	}
 
@@ -42,7 +42,7 @@ class SecurePoll_Question extends SecurePoll_Entity {
 		return $this->options;
 	}
 
-	function getConfXml( $params = array() ) {
+	function getConfXml( $params = [] ) {
 		$s = "<question>\n" . $this->getConfXmlEntityStuff( $params );
 		foreach ( $this->getOptions() as $option ) {
 			$s .= $option->getConfXml( $params );

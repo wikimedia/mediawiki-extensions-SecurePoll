@@ -21,7 +21,7 @@ class SecurePoll_HTMLFormRadioRangeColumnLabels extends HTMLFormField {
 			}
 		}
 
-		$ret = array();
+		$ret = [];
 		foreach ( $values as $k => $v ) {
 			if ( preg_match( '/^-?\d+$/', $k ) ) {
 				$key = ( $neg && $k > 0 ) ? "+$k" : $k;
@@ -62,14 +62,14 @@ class SecurePoll_HTMLFormRadioRangeColumnLabels extends HTMLFormField {
 		$inputs = '';
 		foreach ( (array)$value as $k => $v ) {
 			$k = str_replace( 'column', '', $k );
-			$labels .= Html::element( 'th', array( 'data-securepoll-col-num' => $k ), $k );
-			$inputs .= Html::rawElement( 'td', array( 'data-securepoll-col-num' => $k ),
-				Html::element( 'input', array(
+			$labels .= Html::element( 'th', [ 'data-securepoll-col-num' => $k ], $k );
+			$inputs .= Html::rawElement( 'td', [ 'data-securepoll-col-num' => $k ],
+				Html::element( 'input', [
 					'type' => 'text',
 					'name' => "{$this->mName}[$k]",
 					'size' => $size,
 					'value' => $v,
-				) )
+				] )
 			);
 		}
 
@@ -78,13 +78,13 @@ class SecurePoll_HTMLFormRadioRangeColumnLabels extends HTMLFormField {
 			$attribs['class'] .= " $this->mClass";
 		}
 
-		$html = Html::rawElement( 'table', array(
+		$html = Html::rawElement( 'table', [
 				'class' => $class,
 				'data-securepoll-col-name' => $this->mName,
 				'data-securepoll-input-size' => $size,
-			),
-			Html::rawElement( 'tr', array( 'class' => 'securepoll-label-row' ), $labels ) .
-				Html::rawElement( 'tr', array( 'class' => 'securepoll-input-row' ), $inputs )
+			],
+			Html::rawElement( 'tr', [ 'class' => 'securepoll-label-row' ], $labels ) .
+				Html::rawElement( 'tr', [ 'class' => 'securepoll-input-row' ], $inputs )
 		);
 
 		return $html;

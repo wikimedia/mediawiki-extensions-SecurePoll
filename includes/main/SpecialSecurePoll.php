@@ -6,7 +6,7 @@
  * this or of SpecialPage, they're subclassed from SecurePoll_ActionPage.
  */
 class SecurePoll_SpecialSecurePoll extends SpecialPage {
-	public static $pages = array(
+	public static $pages = [
 		'create' => 'SecurePoll_CreatePage',
 		'edit' => 'SecurePoll_CreatePage',
 		'details' => 'SecurePoll_DetailsPage',
@@ -19,7 +19,7 @@ class SecurePoll_SpecialSecurePoll extends SpecialPage {
 		'translate' => 'SecurePoll_TranslatePage',
 		'vote' => 'SecurePoll_VotePage',
 		'votereligibility' => 'SecurePoll_VoterEligibilityPage',
-	);
+	];
 
 	public $sp_context;
 
@@ -42,11 +42,11 @@ class SecurePoll_SpecialSecurePoll extends SpecialPage {
 		$out = $this->getOutput();
 
 		$this->setHeaders();
-		$out->addLink( array(
+		$out->addLink( [
 			'rel' => 'stylesheet',
 			'href' => "$wgExtensionAssetsPath/SecurePoll/resources/SecurePoll.css",
 			'type' => 'text/css'
-		) );
+		] );
 		$out->addScriptFile( "$wgExtensionAssetsPath/SecurePoll/resources/SecurePoll.js" );
 
 		$paramString = strval( $paramString );

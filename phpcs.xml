@@ -2,7 +2,6 @@
 <ruleset>
 	<rule ref="./vendor/mediawiki/mediawiki-codesniffer/MediaWiki">
 		<exclude name="Squiz.Classes.ValidClassName.NotCamelCaps"/>
-		<exclude name="Generic.Arrays.DisallowLongArraySyntax.Found"/>
 	</rule>
 	<rule ref="MediaWiki.NamingConventions.ValidGlobalName">
 		<properties>

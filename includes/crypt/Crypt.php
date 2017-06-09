@@ -25,10 +25,10 @@ abstract class SecurePoll_Crypt {
 	 */
 	abstract function canDecrypt();
 
-	private static $cryptTypes = array(
+	private static $cryptTypes = [
 		'none' => false,
 		'gpg' => 'SecurePoll_GpgCrypt',
-	);
+	];
 
 	/**
 	 * Create an encryption object of the given type. Currently only "gpg" is
@@ -55,11 +55,11 @@ abstract class SecurePoll_Crypt {
 	 * @return array
 	 */
 	static function getCreateDescriptors() {
-		return array(
-			'election' => array(),
-			'question' => array(),
-			'option' => array(),
-		);
+		return [
+			'election' => [],
+			'question' => [],
+			'option' => [],
+		];
 	}
 }
 
@@ -82,35 +82,35 @@ class SecurePoll_GpgCrypt {
 		global $wgSecurePollGpgSignKey;
 
 		$ret = SecurePoll_Crypt::getCreateDescriptors();
-		$ret['election'] += array(
-			'gpg-encrypt-key' => array(
+		$ret['election'] += [
+			'gpg-encrypt-key' => [
 				'label-message' => 'securepoll-create-label-gpg_encrypt_key',
 				'type' => 'textarea',
 				'required' => true,
 				'SecurePoll_type' => 'property',
 				'rows' => 5,
 				'validation-callback' => 'SecurePoll_GpgCrypt::checkEncryptKey',
-			),
-		);
+			],
+		];
 
 		if ( $wgSecurePollGpgSignKey ) {
-			$ret['election'] += array(
-				'gpg-sign-key' => array(
+			$ret['election'] += [
+				'gpg-sign-key' => [
 					'type' => 'api',
 					'default' => $wgSecurePollGpgSignKey,
 					'SecurePoll_type' => 'property',
-				),
-			);
+				],
+			];
 		} else {
-			$ret['election'] += array(
-				'gpg-sign-key' => array(
+			$ret['election'] += [
+				'gpg-sign-key' => [
 					'label-message' => 'securepoll-create-label-gpg_sign_key',
 					'type' => 'textarea',
 					'SecurePoll_type' => 'property',
 					'rows' => 5,
 					'validation-callback' => 'SecurePoll_GpgCrypt::checkSignKey',
-				),
-			);
+				],
+			];
 		}
 
 		return $ret;

@@ -85,13 +85,13 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 		$res = $db->select(
 			'securepoll_msgs',
 			'*',
-			array(
+			[
 				'msg_entity' => $ids,
 				'msg_lang' => $lang
-			),
+			],
 			__METHOD__
 		);
-		$messages = array();
+		$messages = [];
 		foreach ( $res as $row ) {
 			$messages[$row->msg_entity][$row->msg_key] = $row->msg_text;
 		}
@@ -103,11 +103,11 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 		$res = $db->select(
 			'securepoll_msgs',
 			'DISTINCT msg_lang',
-			array(
+			[
 				'msg_entity' => $ids
-			),
+			],
 			__METHOD__ );
-		$langs = array();
+		$langs = [];
 		foreach ( $res as $row ) {
 			$langs[] = $row->msg_lang;
 		}
@@ -119,9 +119,9 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 		$res = $db->select(
 			'securepoll_properties',
 			'*',
-			array( 'pr_entity' => $ids ),
+			[ 'pr_entity' => $ids ],
 			__METHOD__ );
-		$properties = array();
+		$properties = [];
 		foreach ( $res as $row ) {
 			$properties[$row->pr_entity][$row->pr_key] = $row->pr_value;
 		}
@@ -134,9 +134,9 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 		$res = $db->select(
 			'securepoll_elections',
 			'*',
-			array( 'el_entity' => $ids ),
+			[ 'el_entity' => $ids ],
 			__METHOD__ );
-		$infos = array();
+		$infos = [];
 		foreach ( $res as $row ) {
 			$infos[$row->el_entity] = $this->decodeElectionRow( $row );
 		}
@@ -149,9 +149,9 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 		$res = $db->select(
 			'securepoll_elections',
 			'*',
-			array( 'el_title' => $names ),
+			[ 'el_title' => $names ],
 			__METHOD__ );
-		$infos = array();
+		$infos = [];
 		foreach ( $res as $row ) {
 			$infos[$row->el_title] = $this->decodeElectionRow( $row );
 		}
@@ -159,7 +159,7 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 	}
 
 	function decodeElectionRow( $row ) {
-		static $map = array(
+		static $map = [
 			'id' => 'el_entity',
 			'title' => 'el_title',
 			'ballot' => 'el_ballot',
@@ -169,9 +169,9 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 			'endDate' => 'el_end_date',
 			'auth' => 'el_auth_type',
 			'owner' => 'el_owner'
-		);
+		];
 
-		$info = array();
+		$info = [];
 		foreach ( $map as $key => $field ) {
 			if ( $key == 'startDate' || $key == 'endDate' ) {
 				$info[$key] = wfTimestamp( TS_MW, $row->$field );
@@ -189,54 +189,54 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 	function getQuestionInfo( $electionId ) {
 		$db = $this->getDB();
 		$res = $db->select(
-			array( 'securepoll_questions', 'securepoll_options' ),
+			[ 'securepoll_questions', 'securepoll_options' ],
 			'*',
-			array(
+			[
 				'qu_election' => $electionId,
 				'op_question=qu_entity'
-			),
+			],
 			__METHOD__,
-			array( 'ORDER BY' => 'qu_index, qu_entity' )
+			[ 'ORDER BY' => 'qu_index, qu_entity' ]
 		);
 
-		$questions = array();
-		$options = array();
+		$questions = [];
+		$options = [];
 		$questionId = false;
 		$electionId = false;
 		foreach ( $res as $row ) {
 			if ( $questionId === false ) {
 			} elseif ( $questionId !== $row->qu_entity ) {
-				$questions[] = array(
+				$questions[] = [
 					'id' => $questionId,
 					'election' => $electionId,
 					'options' => $options
-				);
-				$options = array();
+				];
+				$options = [];
 			}
-			$options[] = array(
+			$options[] = [
 				'id' => $row->op_entity,
 				'election' => $row->op_election,
-			);
+			];
 			$questionId = $row->qu_entity;
 			$electionId = $row->qu_election;
 		}
 		if ( $questionId !== false ) {
-			$questions[] = array(
+			$questions[] = [
 				'id' => $questionId,
 				'election' => $electionId,
 				'options' => $options
-			);
+			];
 		}
 		return $questions;
 	}
 
 	function callbackValidVotes( $electionId, $callback, $voterId = null ) {
 		$dbr = $this->getDB();
-		$where = array(
+		$where = [
 			'vote_election' => $electionId,
 			'vote_current' => 1,
 			'vote_struck' => 0
-		);
+		];
 		if ( $voterId !== null ){
 			$where['vote_voter'] = $voterId;
 		}
@@ -261,7 +261,7 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 		$res = $db->selectRow(
 			'securepoll_entity',
 			'*',
-			array( 'en_id' => $id ),
+			[ 'en_id' => $id ],
 			__METHOD__ );
 		return $res
 			? $res->en_type
@@ -282,7 +282,7 @@ class SecurePoll_MemoryStore implements SecurePoll_Store {
 	 * Get an array containing all election IDs stored in this object
 	 */
 	function getAllElectionIds() {
-		$electionIds = array();
+		$electionIds = [];
 		foreach ( $this->entityInfo as $info ) {
 			if ( $info['type'] !== 'election' ) {
 				continue;
@@ -294,13 +294,13 @@ class SecurePoll_MemoryStore implements SecurePoll_Store {
 
 	function getMessages( $lang, $ids ) {
 		if ( !isset( $this->messages[$lang] ) ) {
-			return array();
+			return [];
 		}
 		return array_intersect_key( $this->messages[$lang], array_flip( $ids ) );
 	}
 
 	function getLangList( $ids ) {
-		$langs = array();
+		$langs = [];
 		foreach ( $this->messages as $lang => $langMessages ) {
 			foreach ( $ids as $id ) {
 				if ( isset( $langMessages[$id] ) ) {
@@ -372,8 +372,8 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 	public $voteCallback, $voteElectionId, $voteCallbackStatus;
 
 	/** Valid entity info keys by entity type. */
-	private static $entityInfoKeys = array(
-		'election' => array(
+	private static $entityInfoKeys = [
+		'election' => [
 			'id',
 			'title',
 			'ballot',
@@ -382,20 +382,20 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 			'startDate',
 			'endDate',
 			'auth'
-		),
-		'question' => array( 'id', 'election' ),
-		'option' => array( 'id', 'election' ),
-	);
+		],
+		'question' => [ 'id', 'election' ],
+		'option' => [ 'id', 'election' ],
+	];
 
 	/** The type of each entity child and its corresponding (plural) info element */
-	private static $childTypes = array(
-		'election' => array( 'question' => 'questions' ),
-		'question' => array( 'option' => 'options' ),
-		'option' => array()
-	);
+	private static $childTypes = [
+		'election' => [ 'question' => 'questions' ],
+		'question' => [ 'option' => 'options' ],
+		'option' => []
+	];
 
 	/** All entity types */
-	private static $entityTypes = array( 'election', 'question', 'option' );
+	private static $entityTypes = [ 'election', 'question', 'option' ];
 
 	/**
 	 * Constructor. Note that readFile() must be called before any information
@@ -515,9 +515,9 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 	 */
 	function readEntity( $entityType ) {
 		$xr = $this->xmlReader;
-		$info = array( 'type' => $entityType );
-		$messages = array();
-		$properties = array();
+		$info = [ 'type' => $entityType ];
+		$messages = [];
+		$properties = [];
 		if ( $xr->isEmptyElement ) {
 			wfDebug( __METHOD__.": unexpected empty element\n" );
 			$xr->read();
