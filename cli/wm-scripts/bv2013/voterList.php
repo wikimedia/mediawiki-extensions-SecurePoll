@@ -11,31 +11,31 @@ if ( !$wgCentralAuthDatabase ) {
 	exit( 0 );
 }
 
-$dbw->delete( 'securepoll_lists', array( 'li_name' => $listName ), $fname );
+$dbw->delete( 'securepoll_lists', [ 'li_name' => $listName ], $fname );
 
 $userId = 0;
 $numQualified = 0;
 while ( true ) {
-	$res = $dbr->select( 'user', array( 'user_id', 'user_name' ),
-		array( 'user_id > ' . $dbr->addQuotes( $userId ) ),
+	$res = $dbr->select( 'user', [ 'user_id', 'user_name' ],
+		[ 'user_id > ' . $dbr->addQuotes( $userId ) ],
 		__METHOD__,
-		array( 'LIMIT' => 1000, 'ORDER BY' => 'user_id' ) );
+		[ 'LIMIT' => 1000, 'ORDER BY' => 'user_id' ] );
 	if ( !$res->numRows() ) {
 		break;
 	}
 
-	$users = array();
+	$users = [];
 	foreach ( $res as $row ) {
 		$users[$row->user_id] = $row->user_name;
 		$userId = $row->user_id;
 	}
 	$qualifieds = spGetQualifiedUsers( $users );
-	$insertBatch = array();
+	$insertBatch = [];
 	foreach ( $qualifieds as $id => $name ) {
-		$insertBatch[] = array(
+		$insertBatch[] = [
 			'li_name' => $listName,
 			'li_member' => $id
-		);
+		];
 	}
 	if ( $insertBatch ) {
 		$dbw->insert( 'securepoll_lists', $insertBatch, $fname );
@@ -50,22 +50,22 @@ echo wfWikiID() . " qualified \t$numQualified\n";
  */
 function spGetQualifiedUsers( $users ) {
 	global $wgCentralAuthDatabase, $wgLocalDatabases;
-	$dbc = wfGetDB( DB_SLAVE, array(), $wgCentralAuthDatabase );
-	$editCounts = array();
+	$dbc = wfGetDB( DB_SLAVE, [], $wgCentralAuthDatabase );
+	$editCounts = [];
 
 	# Check local attachment
-	$res = $dbc->select( 'localuser', array( 'lu_name' ),
-		array(
+	$res = $dbc->select( 'localuser', [ 'lu_name' ],
+		[
 			'lu_wiki' => wfWikiID(),
 			'lu_name' => array_values( $users )
-		), __METHOD__ );
+		], __METHOD__ );
 
-	$attached = array();
+	$attached = [];
 	foreach ( $res as $row ) {
 		$attached[] = $row->lu_name;
-		$editCounts[$row->lu_name] = array( 0, 0 );
+		$editCounts[$row->lu_name] = [ 0, 0 ];
 	}
-	$nonLocalUsers = array();
+	$nonLocalUsers = [];
 
 	$localEditCounts = spGetEditCounts( wfGetDB( DB_SLAVE ), $users );
 	foreach ( $localEditCounts as $user => $counts ) {
@@ -82,10 +82,10 @@ function spGetQualifiedUsers( $users ) {
 	$localWiki = wfWikiID();
 	if ( $attached ) {
 		$res = $dbc->select( 'localuser',
-			array( 'lu_name', 'lu_wiki' ),
-			array( 'lu_name' => $attached ),
+			[ 'lu_name', 'lu_wiki' ],
+			[ 'lu_name' => $attached ],
 			__METHOD__ );
-		$foreignUsers = array();
+		$foreignUsers = [];
 		foreach ( $res as $row ) {
 			if ( $row->lu_wiki != $localWiki ) {
 				$foreignUsers[$row->lu_wiki][] = $row->lu_name;
@@ -97,7 +97,7 @@ function spGetQualifiedUsers( $users ) {
 				continue;
 			}
 			$lb = wfGetLB( $wiki );
-			$db = $lb->getConnection( DB_SLAVE, array(), $wiki );
+			$db = $lb->getConnection( DB_SLAVE, [], $wiki );
 			$foreignEditCounts = spGetEditCounts( $db, $wikiUsers );
 			$lb->reuseConnection( $db );
 			foreach ( $foreignEditCounts as $name => $count ) {
@@ -108,7 +108,7 @@ function spGetQualifiedUsers( $users ) {
 	}
 
 	$idsByUser = array_flip( $users );
-	$qualifiedUsers = array();
+	$qualifiedUsers = [];
 	foreach ( $editCounts as $user => $count ) {
 		if ( spIsQualified( $count[0], $count[1] ) ) {
 			$id = $idsByUser[$user];
@@ -126,18 +126,18 @@ function spGetQualifiedUsers( $users ) {
  */
 function spGetEditCounts( $db, $userNames ) {
 	$res = $db->select(
-		array( 'user', 'bv2013_edits' ),
-		array( 'user_name', 'bv_long_edits', 'bv_short_edits' ),
-		array( 'bv_user=user_id', 'user_name' => $userNames ),
+		[ 'user', 'bv2013_edits' ],
+		[ 'user_name', 'bv_long_edits', 'bv_short_edits' ],
+		[ 'bv_user=user_id', 'user_name' => $userNames ],
 		__METHOD__
 	);
-	$editCounts = array();
+	$editCounts = [];
 	foreach ( $res as $row ) {
-		$editCounts[$row->user_name] = array( $row->bv_short_edits, $row->bv_long_edits );
+		$editCounts[$row->user_name] = [ $row->bv_short_edits, $row->bv_long_edits ];
 	}
 	foreach ( $userNames as $user ) {
 		if ( !isset( $editCounts[$user] ) ) {
-			$editCounts[$user] = array( 0, 0 );
+			$editCounts[$user] = [ 0, 0 ];
 		}
 	}
 	return $editCounts;

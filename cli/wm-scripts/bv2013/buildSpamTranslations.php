@@ -18,7 +18,7 @@ $textSuffix = "\n[[Category:Board elections 2013]]";
 $res = $dbr->select(
 	'page',
 	'page_id',
-	array( 'page_namespace' => 0, 'page_title ' . $dbr->buildLike( $prefix, $dbr->anyString() ) ),
+	[ 'page_namespace' => 0, 'page_title ' . $dbr->buildLike( $prefix, $dbr->anyString() ) ],
 	'boardelection-spam-translation'
 );
 

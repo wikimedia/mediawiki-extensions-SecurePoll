@@ -39,7 +39,7 @@ if ( !file_exists( $args[0] ) ) {
 }
 
 // $options already defined in global scope!
-foreach ( array( 'update-msgs', 'replace' ) as $optName ) {
+foreach ( [ 'update-msgs', 'replace' ] as $optName ) {
 	if ( !isset( $options[$optName] ) ) {
 		$options[$optName] = false;
 	}
@@ -73,14 +73,14 @@ function spImportDump( $fileName, $options ) {
 	# Start the configuration transaction
 	$dbw->begin( __METHOD__ );
 	foreach ( $electionIds as $id ) {
-		$elections = $store->getElectionInfo( array( $id ) );
+		$elections = $store->getElectionInfo( [ $id ] );
 		$electionInfo = reset( $elections );
 		$existingId = $dbw->selectField(
 			'securepoll_elections',
 			'el_entity',
-			array( 'el_title' => $electionInfo['title'] ),
+			[ 'el_title' => $electionInfo['title'] ],
 			__METHOD__,
-			array( 'FOR UPDATE' )
+			[ 'FOR UPDATE' ]
 		);
 		if ( $existingId !== false ) {
 			if ( $options['replace'] ) {
@@ -119,33 +119,33 @@ function spDeleteElection( $electionId ) {
 	$dbw = wfGetDB( DB_MASTER );
 
 	# Get a list of entity IDs and lock them
-	$questionIds = array();
-	$res = $dbw->select( 'securepoll_questions', array( 'qu_entity' ),
-		array( 'qu_election' => $electionId ),
-		__METHOD__, array( 'FOR UPDATE' ) );
+	$questionIds = [];
+	$res = $dbw->select( 'securepoll_questions', [ 'qu_entity' ],
+		[ 'qu_election' => $electionId ],
+		__METHOD__, [ 'FOR UPDATE' ] );
 	foreach ( $res as $row ) {
 		$questionIds[] = $row->qu_entity;
 	}
 
-	$res = $dbw->select( 'securepoll_options', array( 'op_entity' ),
-		array( 'op_election' => $electionId ),
-		__METHOD__, array( 'FOR UPDATE' ) );
-	$optionIds = array();
+	$res = $dbw->select( 'securepoll_options', [ 'op_entity' ],
+		[ 'op_election' => $electionId ],
+		__METHOD__, [ 'FOR UPDATE' ] );
+	$optionIds = [];
 	foreach ( $res as $row ) {
 		$optionIds[] = $row->op_entity;
 	}
 
-	$entityIds = array_merge( $optionIds, $questionIds, array( $electionId ) );
+	$entityIds = array_merge( $optionIds, $questionIds, [ $electionId ] );
 
 	# Delete the messages and properties
-	$dbw->delete( 'securepoll_msgs', array( 'msg_entity' => $entityIds ) );
-	$dbw->delete( 'securepoll_properties', array( 'pr_entity' => $entityIds ) );
+	$dbw->delete( 'securepoll_msgs', [ 'msg_entity' => $entityIds ] );
+	$dbw->delete( 'securepoll_properties', [ 'pr_entity' => $entityIds ] );
 
 	# Delete the entities
-	$dbw->delete( 'securepoll_options', array( 'op_entity' => $optionIds ), __METHOD__ );
-	$dbw->delete( 'securepoll_questions', array( 'qu_entity' => $questionIds ), __METHOD__ );
-	$dbw->delete( 'securepoll_elections', array( 'el_entity' => $electionId ), __METHOD__ );
-	$dbw->delete( 'securepoll_entity', array( 'en_id' => $entityIds ), __METHOD__ );
+	$dbw->delete( 'securepoll_options', [ 'op_entity' => $optionIds ], __METHOD__ );
+	$dbw->delete( 'securepoll_questions', [ 'qu_entity' => $questionIds ], __METHOD__ );
+	$dbw->delete( 'securepoll_elections', [ 'el_entity' => $electionId ], __METHOD__ );
+	$dbw->delete( 'securepoll_entity', [ 'en_id' => $entityIds ], __METHOD__ );
 }
 
 /**
@@ -155,10 +155,10 @@ function spDeleteElection( $electionId ) {
 function spInsertEntity( $type, $id ) {
 	$dbw = wfGetDB( DB_MASTER );
 	$dbw->insert( 'securepoll_entity',
-		array(
+		[
 			'en_id' => $id,
 			'en_type' => $type,
-		),
+		],
 		__METHOD__
 	);
 }
@@ -170,12 +170,12 @@ function spInsertEntity( $type, $id ) {
  */
 function spImportConfiguration( $store, $electionInfo ) {
 	$dbw = wfGetDB( DB_MASTER );
-	$sourceIds = array();
+	$sourceIds = [];
 
 	# Election
 	spInsertEntity( 'election', $electionInfo['id'] );
 	$dbw->insert( 'securepoll_elections',
-		array(
+		[
 			'el_entity' => $electionInfo['id'],
 			'el_title' => $electionInfo['title'],
 			'el_ballot' => $electionInfo['ballot'],
@@ -184,7 +184,7 @@ function spImportConfiguration( $store, $electionInfo ) {
 			'el_start_date' => $dbw->timestamp( $electionInfo['startDate'] ),
 			'el_end_date' => $dbw->timestamp( $electionInfo['endDate'] ),
 			'el_auth_type' => $electionInfo['auth']
-		),
+		],
 		__METHOD__ );
 	$sourceIds[] = $electionInfo['id'];
 
@@ -194,23 +194,23 @@ function spImportConfiguration( $store, $electionInfo ) {
 		foreach ( $electionInfo['questions'] as $questionInfo ) {
 			spInsertEntity( 'question', $questionInfo['id'] );
 			$dbw->insert( 'securepoll_questions',
-				array(
+				[
 					'qu_entity' => $questionInfo['id'],
 					'qu_election' => $electionInfo['id'],
 					'qu_index' => $index++,
-				),
+				],
 				__METHOD__ );
 			$sourceIds[] = $questionInfo['id'];
 
 			# Options
-			$insertBatch = array();
+			$insertBatch = [];
 			foreach ( $questionInfo['options'] as $optionInfo ) {
 				spInsertEntity( 'option', $optionInfo['id'] );
-				$insertBatch[] = array(
+				$insertBatch[] = [
 					'op_entity' => $optionInfo['id'],
 					'op_election' => $electionInfo['id'],
 					'op_question' => $questionInfo['id']
-				);
+				];
 				$sourceIds[] = $optionInfo['id'];
 			}
 			$dbw->insert( 'securepoll_options', $insertBatch, __METHOD__ );
@@ -222,14 +222,14 @@ function spImportConfiguration( $store, $electionInfo ) {
 
 	# Properties
 	$properties = $store->getProperties( $sourceIds );
-	$insertBatch = array();
+	$insertBatch = [];
 	foreach ( $properties as $id => $entityProps ) {
 		foreach ( $entityProps as $key => $value ) {
-			$insertBatch[] = array(
+			$insertBatch[] = [
 				'pr_entity' => $id,
 				'pr_key' => $key,
 				'pr_value' => $value
-			);
+			];
 		}
 	}
 	if ( $insertBatch ) {
@@ -244,17 +244,17 @@ function spImportConfiguration( $store, $electionInfo ) {
  */
 function spInsertMessages( $store, $entityIds ) {
 	$langs = $store->getLangList( $entityIds );
-	$insertBatch = array();
+	$insertBatch = [];
 	foreach ( $langs as $lang ) {
 		$messages = $store->getMessages( $lang, $entityIds );
 		foreach ( $messages as $id => $entityMsgs ) {
 			foreach ( $entityMsgs as $key => $text ) {
-				$insertBatch[] = array(
+				$insertBatch[] = [
 					'msg_entity' => $id,
 					'msg_lang' => $lang,
 					'msg_key' => $key,
 					'msg_text' => $text
-				);
+				];
 			}
 		}
 	}
@@ -270,7 +270,7 @@ function spInsertMessages( $store, $entityIds ) {
  * @return bool
  */
 function spUpdateMessages( $store, $electionInfo ) {
-	$entityIds = array( $electionInfo['id'] );
+	$entityIds = [ $electionInfo['id'] ];
 	if ( isset( $electionInfo['questions'] ) ) {
 		foreach ( $electionInfo['questions'] as $questionInfo ) {
 			$entityIds[] = $questionInfo['id'];
@@ -282,7 +282,7 @@ function spUpdateMessages( $store, $electionInfo ) {
 
 	# Delete existing messages
 	$dbw = wfGetDB( DB_MASTER );
-	$dbw->delete( 'securepoll_msgs', array( 'msg_entity' => $entityIds ), __METHOD__ );
+	$dbw->delete( 'securepoll_msgs', [ 'msg_entity' => $entityIds ], __METHOD__ );
 
 	# Insert new messages
 	spInsertMessages( $store, $entityIds );

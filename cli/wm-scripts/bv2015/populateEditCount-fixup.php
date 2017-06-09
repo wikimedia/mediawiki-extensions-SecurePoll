@@ -9,22 +9,22 @@ $dbr = wfGetDB( DB_SLAVE );
 $dbw = wfGetDB( DB_MASTER );
 
 $maxUser = $dbr->selectField( 'user', 'MAX(user_id)', false );
-$betweenTime = array( '20150401500000', '20150415000000' );
+$betweenTime = [ '20150401500000', '20150415000000' ];
 $fname = 'populateEditCount';
 
 $numUsers = 0;
 
 for ( $userId = 1; $userId <= $maxUser; $userId++ ) {
-	$exists = $dbr->selectField( 'user', '1', array( 'user_id' => $userId ) );
+	$exists = $dbr->selectField( 'user', '1', [ 'user_id' => $userId ] );
 	if ( !$exists ) {
 		continue;
 	}
 	$adjust = $dbr->selectField( 'revision', 'COUNT(*)',
-		array(
+		[
 			'rev_user' => $userId,
 			'rev_timestamp BETWEEN ' . $dbr->addQuotes( $betweenTime[0] ) .
 				' AND ' . $dbr->addQuotes( $betweenTime[1] )
-		),
+		],
 		$fname
 	);
 
@@ -32,9 +32,9 @@ for ( $userId = 1; $userId <= $maxUser; $userId++ ) {
 		echo "$userId\t$adjust\n";
 		$dbw->update( 'bv2015_edits',
 			// SET
-			array( 'bv_long_edits=bv_long_edits + ' . $dbr->addQuotes( $adjust ) ),
+			[ 'bv_long_edits=bv_long_edits + ' . $dbr->addQuotes( $adjust ) ],
 			// WHERE
-			array( 'bv_user' => $userId ),
+			[ 'bv_user' => $userId ],
 			$fname
 		);
 		if ( $dbw->affectedRows() < 1 ) {

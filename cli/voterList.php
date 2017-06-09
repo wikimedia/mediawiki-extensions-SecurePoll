@@ -7,7 +7,7 @@ if ( !file_exists( "$IP/includes/WebStart.php" ) ) {
 	$IP .= '/core';
 }
 
-$optionsWithArgs = array( 'before', 'edits' );
+$optionsWithArgs = [ 'before', 'edits' ];
 require $IP . '/maintenance/commandLine.inc';
 
 $dbr = wfGetDB( DB_SLAVE );
@@ -28,7 +28,7 @@ $name = $args[0];
 $count = 0;
 
 for ( $user = 1; $user <= $maxUser; $user++ ) {
-	$insertRow = array( 'li_name' => $name, 'li_member' => $user );
+	$insertRow = [ 'li_name' => $name, 'li_member' => $user ];
 	if ( $minEdits === false ) {
 		$dbw->insert( 'securepoll_lists', $insertRow, $fname );
 		$count++;
@@ -36,7 +36,7 @@ for ( $user = 1; $user <= $maxUser; $user++ ) {
 	}
 
 	# Count edits
-	$conds = array( 'rev_user' => $user );
+	$conds = [ 'rev_user' => $user ];
 	if ( $before !== false ) {
 		$conds[] = 'rev_timestamp < ' . $dbr->addQuotes( $before );
 	}

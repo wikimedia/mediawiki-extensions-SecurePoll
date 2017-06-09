@@ -2,13 +2,13 @@
 
 require __DIR__.'/../cli.inc';
 
-$voters = array();
+$voters = [];
 $batchSize = 1000;
 $wikis = $wgLocalDatabases;
 
 foreach ( $wikis as $wikiId ) {
 	$lb = wfGetLB( $wikiId );
-	$db = $lb->getConnection( DB_SLAVE, array(), $wikiId );
+	$db = $lb->getConnection( DB_SLAVE, [], $wikiId );
 
 	if ( !$db->tableExists( 'securepoll_lists' ) ) {
 		$lb->reuseConnection( $db );
@@ -19,14 +19,14 @@ foreach ( $wikis as $wikiId ) {
 	$userId = 0;
 	while ( true ) {
 		$res = $db->select(
-			array( 'securepoll_lists', 'user' ),
-			array( 'user_id', 'user_name', 'user_email', 'user_email_authenticated' ),
-			array(
+			[ 'securepoll_lists', 'user' ],
+			[ 'user_id', 'user_name', 'user_email', 'user_email_authenticated' ],
+			[
 				'user_id=li_member',
 				'li_member > ' . $db->addQuotes( $userId )
-			),
+			],
 			__METHOD__,
-			array( 'ORDER BY' => 'li_member', 'LIMIT' => $batchSize )
+			[ 'ORDER BY' => 'li_member', 'LIMIT' => $batchSize ]
 		);
 		if ( !$res->numRows() ) {
 			break;
@@ -39,10 +39,10 @@ foreach ( $wikis as $wikiId ) {
 			if ( isset( $voters[$row->user_email] ) ) {
 				$voters[$row->user_email]['wikis'] .= ', ' . $wikiName;
 			} else {
-				$voters[$row->user_email] = array(
+				$voters[$row->user_email] = [
 					'wikis' => $wikiName,
 					'name' => $row->user_name
-				);
+				];
 			}
 		}
 		fwrite( STDERR, "Found " . count( $voters ) . " voters with email addresses\n" );

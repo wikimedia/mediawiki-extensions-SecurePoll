@@ -2,11 +2,11 @@
 
 require __DIR__ . '/../../cli.inc';
 
-$spConf = array(
+$spConf = [
 	'numCandidates' => 18,
 	'baseId' => 17,
 	'basePage' => 'Board elections/2013/Vote interface',
-	'langs' => array(
+	'langs' => [
 		'ar',
 		'bn',
 		'ca',
@@ -45,8 +45,8 @@ $spConf = array(
 		'vi',
 		'zh-hans',
 		'zh-hant',
-	)
-);
+	]
+];
 
 $header = <<<EOT
 <SecurePoll>
@@ -73,7 +73,7 @@ $header = <<<EOT
 
 EOT;
 
-$allMessages = array();
+$allMessages = [];
 foreach ( $spConf['langs'] as $lang ) {
 	$messages = spGetMetaTranslations( $lang );
 	if ( $messages ) {
@@ -112,7 +112,7 @@ exit( 0 );
  */
 function spGetMetaTranslations( $lang ) {
 	global $spConf, $wgParser;
-	$messages = array();
+	$messages = [];
 	$titleText = "{$spConf['basePage']}/$lang";
 	$title = Title::newFromText( $titleText );
 	$numMessages = 0;
@@ -148,11 +148,11 @@ function spGetMetaTranslations( $lang ) {
 			continue;
 		}
 
-		$electionMsgMap = array(
+		$electionMsgMap = [
 			'title' => 'title',
 			'introduction' => 'intro',
 			'jump text' => 'jump-text'
-		);
+		];
 		if ( isset( $electionMsgMap[$sectionName] ) ) {
 			$messages['election'][$electionMsgMap[$sectionName]] = $remainder;
 			$numMessages++;
@@ -200,7 +200,7 @@ function spFormatEntityMessages( $messages, $entity ) {
 			foreach ( $entityMsgs as $key => $value ) {
 				$s .= Xml::element(
 						'message',
-						array( 'name' => $key, 'lang' => $lang ),
+						[ 'name' => $key, 'lang' => $lang ],
 						$value
 				) . "\n";
 			}

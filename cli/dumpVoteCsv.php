@@ -10,7 +10,7 @@
  * not feasible.
  */
 
-$optionsWithArgs = array( 'name' );
+$optionsWithArgs = [ 'name' ];
 require __DIR__ . '/cli.inc';
 
 $wgTitle = Title::newFromText( 'Special:SecurePoll' );

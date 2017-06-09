@@ -7,7 +7,7 @@ $dbcw = CentralAuthUser::getCentralDB();
 $fname = 'voterList.php';
 $listName = 'board-vote-2015a';
 
-$dbcw->delete( 'securepoll_lists', array( 'li_name' => $listName ), $fname );
+$dbcw->delete( 'securepoll_lists', [ 'li_name' => $listName ], $fname );
 
 $totalUsers = $dbcr->selectField( 'globaluser', 'MAX(gu_id)', false, $fname );
 
@@ -16,15 +16,15 @@ $numUsers = 0;
 $numQualified = 0;
 while ( true ) {
 	$res = $dbcr->select( 'globaluser',
-		array( 'gu_id', 'gu_name' ),
-		array( 'gu_name > ' . $dbcr->addQuotes( $userName ) ),
+		[ 'gu_id', 'gu_name' ],
+		[ 'gu_name > ' . $dbcr->addQuotes( $userName ) ],
 		$fname,
-		array( 'LIMIT' => 1000, 'ORDER BY' => 'gu_name' ) );
+		[ 'LIMIT' => 1000, 'ORDER BY' => 'gu_name' ] );
 	if ( !$res->numRows() ) {
 		break;
 	}
 
-	$users = array();
+	$users = [];
 	foreach ( $res as $row ) {
 		$users[$row->gu_id] = $row->gu_name;
 		$userName = $row->gu_name;
@@ -32,12 +32,12 @@ while ( true ) {
 	}
 
 	$qualifieds = spGetQualifiedUsers( $users );
-	$insertBatch = array();
+	$insertBatch = [];
 	foreach ( $qualifieds as $id => $name ) {
-		$insertBatch[] = array(
+		$insertBatch[] = [
 			'li_name' => $listName,
 			'li_member' => $id
-		);
+		];
 	}
 	if ( $insertBatch ) {
 		$dbcw->insert( 'securepoll_lists', $insertBatch, $fname );
@@ -56,15 +56,15 @@ function spGetQualifiedUsers( $users ) {
 	$dbcr = CentralAuthUser::getCentralSlaveDB();
 
 	$res = $dbcr->select( 'localuser',
-		array( 'lu_name', 'lu_wiki' ),
-		array( 'lu_name' => $users ),
+		[ 'lu_name', 'lu_wiki' ],
+		[ 'lu_name' => $users ],
 		__METHOD__ );
 
-	$editCounts = array();
-	$foreignUsers = array();
+	$editCounts = [];
+	$foreignUsers = [];
 	foreach ( $res as $row ) {
 		$foreignUsers[$row->lu_wiki][] = $row->lu_name;
-		$editCounts[$row->lu_name] = array( 0, 0 );
+		$editCounts[$row->lu_name] = [ 0, 0 ];
 	}
 
 	foreach ( $foreignUsers as $wiki => $wikiUsers ) {
@@ -72,7 +72,7 @@ function spGetQualifiedUsers( $users ) {
 			continue;
 		}
 		$lb = wfGetLB( $wiki );
-		$db = $lb->getConnection( DB_SLAVE, array(), $wiki );
+		$db = $lb->getConnection( DB_SLAVE, [], $wiki );
 		$foreignEditCounts = spGetEditCounts( $db, $wikiUsers );
 		$lb->reuseConnection( $db );
 		foreach ( $foreignEditCounts as $name => $count ) {
@@ -82,7 +82,7 @@ function spGetQualifiedUsers( $users ) {
 	}
 
 	$idsByUser = array_flip( $users );
-	$qualifiedUsers = array();
+	$qualifiedUsers = [];
 	foreach ( $editCounts as $user => $count ) {
 		if ( spIsQualified( $count[0], $count[1] ) ) {
 			$id = $idsByUser[$user];
@@ -100,18 +100,18 @@ function spGetQualifiedUsers( $users ) {
  */
 function spGetEditCounts( $db, $userNames ) {
 	$res = $db->select(
-		array( 'user', 'bv2015_edits' ),
-		array( 'user_name', 'bv_long_edits', 'bv_short_edits' ),
-		array( 'bv_user=user_id', 'user_name' => $userNames ),
+		[ 'user', 'bv2015_edits' ],
+		[ 'user_name', 'bv_long_edits', 'bv_short_edits' ],
+		[ 'bv_user=user_id', 'user_name' => $userNames ],
 		__METHOD__
 	);
-	$editCounts = array();
+	$editCounts = [];
 	foreach ( $res as $row ) {
-		$editCounts[$row->user_name] = array( $row->bv_short_edits, $row->bv_long_edits );
+		$editCounts[$row->user_name] = [ $row->bv_short_edits, $row->bv_long_edits ];
 	}
 	foreach ( $userNames as $user ) {
 		if ( !isset( $editCounts[$user] ) ) {
-			$editCounts[$user] = array( 0, 0 );
+			$editCounts[$user] = [ 0, 0 ];
 		}
 	}
 	return $editCounts;

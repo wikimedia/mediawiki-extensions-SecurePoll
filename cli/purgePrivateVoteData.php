@@ -48,8 +48,8 @@ class PurgePrivateVoteData extends Maintenance {
 			$this->mPurgeDays = $wgSecurePollKeepPrivateInfoDays;
 		}
 
-		$electionsToPurge = array();
-		$deleteSets = array();
+		$electionsToPurge = [];
+		$deleteSets = [];
 		$dbr = wfGetDB( DB_SLAVE );
 
 		if ( !$dbr->tableExists( 'securepoll_elections' ) ) {
@@ -58,7 +58,7 @@ class PurgePrivateVoteData extends Maintenance {
 		}
 
 		$elResult = $dbr->select( 'securepoll_elections',
-			array( 'el_entity', 'el_title', 'el_end_date' ),
+			[ 'el_entity', 'el_title', 'el_end_date' ],
 			"el_end_date < " . $dbr->addQuotes(
 				$dbr->timestamp( time() - ( $this->mPurgeDays * 24 * 60 * 60 ) )
 			),
@@ -73,16 +73,16 @@ class PurgePrivateVoteData extends Maintenance {
 
 		if ( count( $electionsToPurge ) > 0 ) {
 
-			$conds = array( 'vote_election' => $electionsToPurge );
+			$conds = [ 'vote_election' => $electionsToPurge ];
 			// In case a partial purge ran previously
 			$conds[] = "( vote_ip != '' OR vote_xff != '' OR vote_ua != '' )";
 			$minVoteId = 0;
 			do {
 				$vRes = $dbr->select( 'securepoll_votes',
-					array( 'vote_id' ),
-					array_merge( $conds, array( 'vote_id >= ' . $dbr->addQuotes( $minVoteId ) ) ),
+					[ 'vote_id' ],
+					array_merge( $conds, [ 'vote_id >= ' . $dbr->addQuotes( $minVoteId ) ] ),
 					__METHOD__,
-					array( 'ORDER BY' => 'vote_id ASC', 'LIMIT' => $this->mBatchSize )
+					[ 'ORDER BY' => 'vote_id ASC', 'LIMIT' => $this->mBatchSize ]
 				);
 
 				if ( $vRes->numRows() === 0 ) {
@@ -97,7 +97,7 @@ class PurgePrivateVoteData extends Maintenance {
 					}
 					$setMax = $row->vote_id + 1;
 				}
-				$deleteSets[] = array( $setMin, $setMax );
+				$deleteSets[] = [ $setMin, $setMax ];
 				$minVoteId = $setMax;
 			} while ( $vRes->numRows() == $this->mBatchSize );
 
@@ -107,13 +107,13 @@ class PurgePrivateVoteData extends Maintenance {
 				list ( $minId, $maxId ) = $deleteSet;
 				$dbw->update(
 					'securepoll_votes',
-					array( 'vote_ip' => '', 'vote_xff' => '', 'vote_ua' => '' ),
+					[ 'vote_ip' => '', 'vote_xff' => '', 'vote_ua' => '' ],
 					array_merge( $conds,
-						array( 'vote_id >= ' . $dbr->addQuotes( $minId ),
-							'vote_id < ' . $dbr->addQuotes( $maxId ) )
+						[ 'vote_id >= ' . $dbr->addQuotes( $minId ),
+							'vote_id < ' . $dbr->addQuotes( $maxId ) ]
 					),
 					__METHOD__,
-					array( 'LIMIT' => $this->mBatchSize )
+					[ 'LIMIT' => $this->mBatchSize ]
 				);
 				$this->output( "Purged data from " . $dbw->affectedRows() . " votes\n" );
 

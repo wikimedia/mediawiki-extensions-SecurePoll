@@ -29,8 +29,8 @@ function spDeleteElection( $electionId ) {
 	$dbw = wfGetDB( DB_MASTER );
 
 	$type = $dbw->selectField( 'securepoll_entity', 'en_type',
-		array( 'en_id' => $electionId ),
-		__METHOD__, array( 'FOR UPDATE' ) );
+		[ 'en_id' => $electionId ],
+		__METHOD__, [ 'FOR UPDATE' ] );
 	if ( !$type ) {
 		echo "The specified id does not exist.\n";
 		return false;
@@ -41,37 +41,37 @@ function spDeleteElection( $electionId ) {
 	}
 
 	# Get a list of entity IDs and lock them
-	$questionIds = array();
-	$res = $dbw->select( 'securepoll_questions', array( 'qu_entity' ),
-		array( 'qu_election' => $electionId ),
-		__METHOD__, array( 'FOR UPDATE' ) );
+	$questionIds = [];
+	$res = $dbw->select( 'securepoll_questions', [ 'qu_entity' ],
+		[ 'qu_election' => $electionId ],
+		__METHOD__, [ 'FOR UPDATE' ] );
 	foreach ( $res as $row ) {
 		$questionIds[] = $row->qu_entity;
 	}
 
-	$res = $dbw->select( 'securepoll_options', array( 'op_entity' ),
-		array( 'op_election' => $electionId ),
-		__METHOD__, array( 'FOR UPDATE' ) );
-	$optionIds = array();
+	$res = $dbw->select( 'securepoll_options', [ 'op_entity' ],
+		[ 'op_election' => $electionId ],
+		__METHOD__, [ 'FOR UPDATE' ] );
+	$optionIds = [];
 	foreach ( $res as $row ) {
 		$optionIds[] = $row->op_entity;
 	}
 
-	$entityIds = array_merge( $optionIds, $questionIds, array( $electionId ) );
+	$entityIds = array_merge( $optionIds, $questionIds, [ $electionId ] );
 
 	# Delete the messages and properties
-	$dbw->delete( 'securepoll_msgs', array( 'msg_entity' => $entityIds ) );
-	$dbw->delete( 'securepoll_properties', array( 'pr_entity' => $entityIds ) );
+	$dbw->delete( 'securepoll_msgs', [ 'msg_entity' => $entityIds ] );
+	$dbw->delete( 'securepoll_properties', [ 'pr_entity' => $entityIds ] );
 
 	# Delete the entities
 	if ( $optionIds ) {
-		$dbw->delete( 'securepoll_options', array( 'op_entity' => $optionIds ), __METHOD__ );
+		$dbw->delete( 'securepoll_options', [ 'op_entity' => $optionIds ], __METHOD__ );
 	}
 	if ( $questionIds ) {
-		$dbw->delete( 'securepoll_questions', array( 'qu_entity' => $questionIds ), __METHOD__ );
+		$dbw->delete( 'securepoll_questions', [ 'qu_entity' => $questionIds ], __METHOD__ );
 	}
-	$dbw->delete( 'securepoll_elections', array( 'el_entity' => $electionId ), __METHOD__ );
-	$dbw->delete( 'securepoll_entity', array( 'en_id' => $entityIds ), __METHOD__ );
+	$dbw->delete( 'securepoll_elections', [ 'el_entity' => $electionId ], __METHOD__ );
+	$dbw->delete( 'securepoll_entity', [ 'en_id' => $entityIds ], __METHOD__ );
 
 	return true;
 }

@@ -41,7 +41,7 @@ function spRunTest( $fileName, $debResult ) {
 		return;
 	}
 
-	$votes = array();
+	$votes = [];
 	$numCands = 0;
 	while ( !feof( $file ) ) {
 		$line = fgets( $file );
@@ -54,7 +54,7 @@ function spRunTest( $fileName, $debResult ) {
 			continue;
 		}
 
-		$record = array();
+		$record = [];
 		for ( $i = 0, $len = strlen( $m[1] ); $i < $len; $i++ ) {
 			$pref = substr( $m[1], $i, 1 );
 			if ( $i == strlen( $m[1] ) - 1 ) {
@@ -72,7 +72,7 @@ function spRunTest( $fileName, $debResult ) {
 		$numCands = max( $numCands, count( $record ) );
 	}
 
-	$options = array();
+	$options = [];
 	for ( $i = 0; $i < $numCands - 1; $i++ ) {
 		$id = chr( ord( 'A' ) + $i );
 		$options[$id] = $id;
@@ -85,7 +85,7 @@ function spRunTest( $fileName, $debResult ) {
 	}
 	$tallier->finishTally();
 	$ranks = $tallier->getRanks();
-	$winners = array();
+	$winners = [];
 	foreach ( $ranks as $oid => $rank ) {
 		if ( $rank === 1 ) {
 			$winners[] = $oid;
@@ -141,7 +141,7 @@ class SecurePoll_FakeQuestion {
 	public $options;
 
 	function __construct( $options ) {
-		$this->options = array();
+		$this->options = [];
 		foreach ( $options as $i => $option ) {
 			$this->options[] = new SecurePoll_FakeOption( $i, $option );
 		}

@@ -16,13 +16,13 @@ $sender = new MailAddress(
 
 // Pull templates
 // TODO: Get a list of all language codes from MediaWiki
-$langs = array(
+$langs = [
 	'ast', 'bn', 'ca', 'da', 'de', 'eml', 'en', 'es', 'fa', 'fi', 'fr', 'gl', 'he', 'hr', 'hu',
 	'id', 'it', 'ja', 'ka', 'ms', 'mt', 'nb', 'nl', 'pl', 'ps', 'pt-br', 'ru', 'sa', 'sv', 'ta',
 	'th', 'tr', 'uk', 'yi', 'zh'
-);
+];
 
-$transTemplates = array();
+$transTemplates = [];
 
 foreach ( $langs as $lang ) {
 	$file = "/a/common/elections-2013-spam/email-translations/$lang";
@@ -53,10 +53,10 @@ while ( !is_null( $line = fgets( $in ) ) ) {
 	}
 
 	$content = strtr( $content,
-		array(
+		[
 			'$USERNAME' => $name,
 			'$ACTIVEPROJECT' => $wgLang->ucfirst( $site ),
-		)
+		]
 	);
 
 	$address = new MailAddress( $address, $name );

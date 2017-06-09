@@ -57,12 +57,12 @@ class SecurePoll_ConvertVotes {
 	}
 
 	function convert( $electionId ) {
-		$this->votes = array();
+		$this->votes = [];
 		$this->crypt = $this->election->getCrypt();
 		$this->ballot = $this->election->getBallot();
 
 		$status = $this->context->getStore()->callbackValidVotes(
-			$electionId, array( $this, 'convertVote' ) );
+			$electionId, [ $this, 'convertVote' ] );
 		if ( !$status->isOK() ) {
 			spFatal( "Error: " . $status->getWikiText() );
 		}
@@ -72,7 +72,7 @@ class SecurePoll_ConvertVotes {
 				$s .= str_repeat( '-', 80 ) . "\n\n";
 			}
 			$s .= $question->getMessage( 'text' ) . "\n";
-			$names = array();
+			$names = [];
 			foreach ( $question->getOptions() as $option ) {
 				$names[$option->getId()] = $option->getMessage( 'text' );
 			}

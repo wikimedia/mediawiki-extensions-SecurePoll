@@ -10,7 +10,7 @@ $wgConf->loadFullData();
  * e.g. copied from https://meta.wikimedia.org/wiki/Wikimedia_nomail_list
  * @var array
  */
-$nomail = array();
+$nomail = [];
 $raw = file_get_contents(
 	'https://meta.wikimedia.org/wiki/Wikimedia_Foundation_nomail_list?action=raw'
 );
@@ -34,16 +34,16 @@ $specialWikis = MWWikiversions::readDbListFile( '/srv/mediawiki/dblists/special.
 
 function getDefaultLang( $db ) {
 	global $wgConf, $specialWikis;
-	static $langs = array();
+	static $langs = [];
 
 	if ( empty( $langs[$db] ) ) {
 		list( $site, $siteLang ) = $wgConf->siteFromDB( $db );
-		$tags = array();
+		$tags = [];
 		if ( in_array( $db, $specialWikis ) ) {
 			$tags[] = 'special';
 		}
 		$langs[$db] = RequestContext::sanitizeLangCode(
-			$wgConf->get( 'wgLanguageCode', $db, null, array( 'lang' => $siteLang ), $tags ) );
+			$wgConf->get( 'wgLanguageCode', $db, null, [ 'lang' => $siteLang ], $tags ) );
 	}
 
 	return $langs[$db];
@@ -55,7 +55,7 @@ function getLanguage( $userId, $wikiId ) {
 	try {
 		$lang = RequestContext::sanitizeLangCode(
 			$db->selectField( 'user_properties', 'up_value',
-			array( 'up_user' => $userId, 'up_property' => 'language' ) ) );
+			[ 'up_user' => $userId, 'up_property' => 'language' ] ) );
 	} catch ( Exception $e ) {
 		// echo 'Caught exception: ' .  $e->getMessage() . "\n";
 	}
@@ -65,29 +65,29 @@ function getLanguage( $userId, $wikiId ) {
 	return $lang;
 }
 
-$voted = array();
-$vdb = wfGetDB( DB_SLAVE, array(), 'votewiki' );
+$voted = [];
+$vdb = wfGetDB( DB_SLAVE, [], 'votewiki' );
 $voted = $vdb->selectFieldValues( 'securepoll_voters', 'voter_name',
-	array( 'voter_election' => $electionId ) );
+	[ 'voter_election' => $electionId ] );
 
 $db = CentralAuthUser::getCentralSlaveDB();
 $res = $db->select(
-	array( 'securepoll_lists', 'globaluser' ),
-	array(
+	[ 'securepoll_lists', 'globaluser' ],
+	[
 		'gu_id',
 		'gu_name',
 		'gu_email',
 		'gu_home_db',
-	),
-	array(
+	],
+	[
 		'gu_id=li_member',
 		'li_name' => $listName,
 		'gu_email_authenticated is not null',
 		'gu_email is not null',
-	)
+	]
 );
 
-$users = array();
+$users = [];
 foreach ( $res as $row ) {
 	if ( !$row->gu_email ) {
 		continue;
@@ -100,12 +100,12 @@ foreach ( $res as $row ) {
 		// echo "Skipping {$row->gu_name}; already voted.\n";
 		continue;
 	} else {
-		$users[] = array(
+		$users[] = [
 			'id'      => $row->gu_id,
 			'mail'    => $row->gu_email,
 			'name'    => $row->gu_name,
 			'project' => $row->gu_home_db,
-		);
+		];
 	}
 }
 

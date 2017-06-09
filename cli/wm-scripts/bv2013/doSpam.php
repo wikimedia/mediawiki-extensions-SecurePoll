@@ -30,12 +30,12 @@ $list_name = 'board-vote-2013';
  */
 $election_id = 290;
 
-$voted = array();
-$vdb = wfGetDB( DB_SLAVE, array(), 'votewiki' );
+$voted = [];
+$vdb = wfGetDB( DB_SLAVE, [], 'votewiki' );
 $res = $vdb->select(
-	array( 'securepoll_votes', 'securepoll_voters' ),
-	array( 'voter_name', 'voter_properties' ),
-	array( 'voter_id=vote_voter', 'vote_election' => $election_id )
+	[ 'securepoll_votes', 'securepoll_voters' ],
+	[ 'voter_name', 'voter_properties' ],
+	[ 'voter_id=vote_voter', 'vote_election' => $election_id ]
 );
 foreach ( $res as $row ) {
 	$row->voter_properties = unserialize( $row->voter_properties );
@@ -46,7 +46,7 @@ $wikis = CentralAuthUser::getWikiList();
 # $wikis = array( 'frwiki', 'dewiki', 'commonswiki', 'usabilitywiki' );
 $wgConf->loadFullData();
 
-$users = array();
+$users = [];
 
 $specialWikis = array_map( 'trim', file( '/a/common/special.dblist' ) );
 
@@ -54,31 +54,31 @@ fwrite( $err, "Loading data from database (pass 1)\n" );
 foreach ( $wikis as $w ) {
 	fwrite( $err, "$w...\n" );
 	list( $site, $siteLang ) = $wgConf->siteFromDB( $w );
-	$tags = array();
-	$pendingChecks = array();
-	$doneChecks = array();
+	$tags = [];
+	$pendingChecks = [];
+	$doneChecks = [];
 
 	if ( in_array( $w, $specialWikis ) ) {
 		$tags[] = 'special';
 	}
 
-	$defaultLang = $wgConf->get( 'wgLanguageCode', $w, null, array( 'lang' => $siteLang ), $tags );
+	$defaultLang = $wgConf->get( 'wgLanguageCode', $w, null, [ 'lang' => $siteLang ], $tags );
 
 	$db = wfGetDB( DB_SLAVE, null, $w );
 
 	try {
 		$res = $db->select(
-			array( 'securepoll_lists', 'user', 'user_properties' ),
+			[ 'securepoll_lists', 'user', 'user_properties' ],
 			'*',
-			array( 'li_name' => $list_name ),
+			[ 'li_name' => $list_name ],
 			__METHOD__,
-			array(),
-			array(
-				'user' => array( 'left join', 'user_id=li_member' ),
-				'user_properties' => array( 'left join',
-					array( 'up_user=li_member', 'up_property' => 'language' )
-				)
-			)
+			[],
+			[
+				'user' => [ 'left join', 'user_id=li_member' ],
+				'user_properties' => [ 'left join',
+					[ 'up_user=li_member', 'up_property' => 'language' ]
+				]
+			]
 		);
 
 		foreach ( $res as $row ) {
@@ -90,20 +90,20 @@ foreach ( $wikis as $w ) {
 			$name = $row->user_name;
 
 			if ( !isset( $users[$name] ) ) {
-				$users[$name] = array();
+				$users[$name] = [];
 			}
-			$users[$name][$w] = array( 'name' => $name, 'mail' => $mail, 'lang' => $lang,
+			$users[$name][$w] = [ 'name' => $name, 'mail' => $mail, 'lang' => $lang,
 						'editcount' => $row->user_editcount, 'project' => $site,
 						'db' => $w, 'id' => $row->user_id, 'ineligible' => false,
 						'voted' => isset( $voted[$w][$name] )
-			);
+			];
 
 			if ( !isset( $doneChecks[$row->user_id] ) ) {
 				$pendingChecks[$row->user_id] = $row->user_name;
 				if ( count( $pendingChecks ) > 100 ) {
 					runChecks( $w, $pendingChecks );
 					$doneChecks += $pendingChecks;
-					$pendingChecks = array();
+					$pendingChecks = [];
 				}
 			}
 		}
@@ -117,7 +117,7 @@ foreach ( $wikis as $w ) {
 }
 
 fwrite( $err, "Pass 2: Checking for users listed twice.\n" );
-$notifyUsers = array();
+$notifyUsers = [];
 foreach ( $users as $name => $info ) {
 	if ( in_array( $name, $nomail ) ) {
 		fwrite( $err, "Name $name is on the nomail list, ignoring\n" );
@@ -171,11 +171,11 @@ foreach ( $users as $name => $info ) {
 		}
 	}
 
-	$notifyUsers[$mail] = array(
+	$notifyUsers[$mail] = [
 		'name' => $name,
 		'editcount' => $bestEditCount,
 		'row' => "$mail\t$lang\t$project\t$name\n",
-	);
+	];
 }
 
 fwrite( $err, "Pass 3: Outputting user data.\n" );
@@ -196,10 +196,10 @@ function runChecks( $wiki, $usersToCheck /* user ID */ ) {
 	$dbr = wfGetDB( DB_SLAVE, null, $wiki );
 
 	$res = $dbr->select( 'ipblocks', 'ipb_user',
-		array(
+		[
 			'ipb_user' => array_keys( $usersToCheck ),
 			'ipb_expiry > ' . $dbr->addQuotes( $dbr->timestamp( wfTimestampNow() ) )
-		),
+		],
 		__METHOD__
 	);
 
@@ -211,7 +211,7 @@ function runChecks( $wiki, $usersToCheck /* user ID */ ) {
 	}
 
 	$res = $dbr->select( 'user_groups', 'ug_user',
-		array( 'ug_user' => array_keys( $usersToCheck ), 'ug_group' => 'bot' ),
+		[ 'ug_user' => array_keys( $usersToCheck ), 'ug_group' => 'bot' ],
 		__METHOD__
 	);
 

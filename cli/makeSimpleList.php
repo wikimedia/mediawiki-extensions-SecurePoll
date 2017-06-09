@@ -13,7 +13,7 @@
  *                      to be resumed.
  */
 
-$optionsWithArgs = array( 'before', 'edits', 'start-from' );
+$optionsWithArgs = [ 'before', 'edits', 'start-from' ];
 require __DIR__ . '/cli.inc';
 
 $dbr = wfGetDB( DB_SLAVE );
@@ -41,14 +41,14 @@ EOD;
 $listName = $args[0];
 $startBatch = isset( $options['start-from'] ) ? $options['start-from'] : 0;
 $batchSize = 100;
-$insertOptions = array();
+$insertOptions = [];
 
 $listExists = $dbr->selectField( 'securepoll_lists', '1',
-	array( 'li_name' => $listName ), $fname );
+	[ 'li_name' => $listName ], $fname );
 if ( $listExists ) {
 	if ( isset( $options['replace'] ) ) {
 		echo "Deleting existing list...\n";
-		$dbw->delete( 'securepoll_lists', array( 'li_name' => $listName ), $fname );
+		$dbw->delete( 'securepoll_lists', [ 'li_name' => $listName ], $fname );
 	} elseif ( isset( $options['ignore-existing'] ) ) {
 		$insertOptions[] = 'IGNORE';
 	} else {
@@ -60,25 +60,25 @@ if ( $listExists ) {
 while ( true ) {
 	echo "user_id > $startBatch\n";
 	$res = $dbr->select( 'user', 'user_id',
-		array( 'user_id > ' . $dbr->addQuotes( $startBatch ) ),
+		[ 'user_id > ' . $dbr->addQuotes( $startBatch ) ],
 		$fname,
-		array( 'LIMIT' => $batchSize ) );
+		[ 'LIMIT' => $batchSize ] );
 
 	if ( !$res->numRows() ) {
 		break;
 	}
 
-	$insertBatch = array();
+	$insertBatch = [];
 	foreach ( $res as $row ) {
 		$startBatch = $userId = $row->user_id;
-		$insertRow = array( 'li_name' => $listName, 'li_member' => $userId );
+		$insertRow = [ 'li_name' => $listName, 'li_member' => $userId ];
 		if ( $minEdits === false ) {
 			$insertBatch[] = $insertRow;
 			continue;
 		}
 
 		# Count edits
-		$conds = array( 'rev_user' => $userId );
+		$conds = [ 'rev_user' => $userId ];
 		if ( $before !== false ) {
 			$conds[] = 'rev_timestamp < ' . $dbr->addQuotes( $before );
 		}
@@ -87,12 +87,12 @@ while ( true ) {
 		}
 
 		$edits = $dbr->selectRowCount(
-			array( 'revision', 'page' ),
+			[ 'revision', 'page' ],
 			'1',
 			$conds,
 			$fname,
-			array( 'LIMIT' => $minEdits ),
-			array( 'page' => array( 'INNER JOIN', 'rev_page = page_id' ) )
+			[ 'LIMIT' => $minEdits ],
+			[ 'page' => [ 'INNER JOIN', 'rev_page = page_id' ] ]
 		);
 
 		if ( $edits >= $minEdits ) {

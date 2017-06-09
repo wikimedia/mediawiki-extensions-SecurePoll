@@ -4,7 +4,7 @@
  * Generate an XML dump of an election, including configuration and votes.
  */
 
-$optionsWithArgs = array( 'o' );
+$optionsWithArgs = [ 'o' ];
 require __DIR__ . '/cli.inc';
 
 $usage = <<<EOT
@@ -43,17 +43,17 @@ if ( !$outFile ) {
 if ( isset( $options['all-langs'] ) ) {
 	$langs = $election->getLangList();
 } else {
-	$langs = array( $election->getLanguage() );
+	$langs = [ $election->getLanguage() ];
 }
-$confXml = $election->getConfXml( array(
+$confXml = $election->getConfXml( [
 	'jump' => isset( $options['jump'] ),
 	'langs' => $langs
-) );
+] );
 
-$cbdata = array(
+$cbdata = [
 	'header' => "<SecurePoll>\n<election>\n$confXml",
 	'outFile' => $outFile
-);
+];
 $election->cbdata = $cbdata;
 
 # Write vote records
