@@ -6,7 +6,7 @@
  * have made at least 20 edits between 15 December 2012 and 30 April 2013.
  */
 
-require( __DIR__ . '/../../cli.inc' );
+require __DIR__ . '/../../cli.inc';
 
 $dbr = wfGetDB( DB_SLAVE );
 $dbw = wfGetDB( DB_MASTER );
@@ -54,4 +54,3 @@ for ( $userId = 1; $userId <= $maxUser; $userId++ ) {
 }
 
 echo wfWikiID() . ": $numUsers users added\n";
-

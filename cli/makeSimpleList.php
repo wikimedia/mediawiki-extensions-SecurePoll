@@ -14,7 +14,7 @@
  */
 
 $optionsWithArgs = array( 'before', 'edits', 'start-from' );
-require( __DIR__ . '/cli.inc' );
+require __DIR__ . '/cli.inc';
 
 $dbr = wfGetDB( DB_SLAVE );
 $dbw = wfGetDB( DB_MASTER );

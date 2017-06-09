@@ -8,7 +8,7 @@ if ( !file_exists( "$IP/includes/WebStart.php" ) ) {
 }
 
 $optionsWithArgs = array( 'before', 'edits' );
-require( $IP . '/maintenance/commandLine.inc' );
+require $IP . '/maintenance/commandLine.inc';
 
 $dbr = wfGetDB( DB_SLAVE );
 $dbw = wfGetDB( DB_MASTER );

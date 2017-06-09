@@ -4,7 +4,7 @@ $IP = getenv( 'MW_INSTALL_PATH' );
 if ( $IP === false ) {
 	$IP = __DIR__ . '/../../../../..';
 }
-require_once( "$IP/maintenance/commandLine.inc" );
+require_once "$IP/maintenance/commandLine.inc";
 
 ini_set( 'display_errors', 1 );
 
@@ -43,7 +43,7 @@ foreach ( $res as $row ) {
 }
 
 $wikis = CentralAuthUser::getWikiList();
-#$wikis = array( 'frwiki', 'dewiki', 'commonswiki', 'usabilitywiki' );
+# $wikis = array( 'frwiki', 'dewiki', 'commonswiki', 'usabilitywiki' );
 $wgConf->loadFullData();
 
 $users = array();

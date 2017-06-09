@@ -4,9 +4,8 @@
  * Generate an XML dump of an election, including configuration and votes.
  */
 
-
 $optionsWithArgs = array( 'o' );
-require( __DIR__.'/cli.inc' );
+require __DIR__ . '/cli.inc';
 
 $usage = <<<EOT
 Usage: php dump.php [options...] <election name>
@@ -82,4 +81,3 @@ function spDumpVote( $election, $row ) {
 	}
 	fwrite( $election->cbdata['outFile'], "<vote>" . $row->vote_record . "</vote>\n" );
 }
-

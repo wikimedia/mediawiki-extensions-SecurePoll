@@ -4,7 +4,7 @@ $IP = getenv( 'MW_INSTALL_PATH' );
 if ( $IP === false ) {
 	$IP = __DIR__ . '/../../../../..';
 }
-require_once( "$IP/maintenance/commandLine.inc" );
+require_once "$IP/maintenance/commandLine.inc";
 
 ini_set( 'display_errors', 1 );
 $err = fopen( 'php://stderr', 'w' );
@@ -32,7 +32,9 @@ foreach ( $langs as $lang ) {
 	$transTemplates[$lang] = file_get_contents( $file );
 }
 
+// @codingStandardsIgnoreStart
 while ( !is_null( $line = fgets( $in ) ) ) {
+// @codingStandardsIgnoreEnd
 	if ( !$line ) {
 		continue;
 	}

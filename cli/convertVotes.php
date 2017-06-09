@@ -1,6 +1,6 @@
 <?php
 
-require( __DIR__.'/cli.inc' );
+require __DIR__ . '/cli.inc';
 
 $usage = <<<EOT
 Usage:
@@ -11,7 +11,6 @@ Options are:
   --no-proof-protection    Disable protection for proof of vote (vote buying)
 EOT;
 
-
 if ( !isset( $options['name'] ) && !isset( $args[0] ) ) {
 	spFatal( $usage );
 }
@@ -20,7 +19,7 @@ if ( !class_exists( 'SecurePoll_Context' ) ) {
 	if ( isset( $options['name'] ) ) {
 		spFatal( "Cannot load from database when SecurePoll is not installed" );
 	}
-	require( __DIR__ . '/../SecurePoll.php' );
+	require __DIR__ . '/../SecurePoll.php';
 }
 
 $conv = new SecurePoll_ConvertVotes;
@@ -30,7 +29,6 @@ if ( !isset( $options['name'] ) ) {
 } else {
 	$conv->convertLocalElection( $options['name'] );
 }
-
 
 class SecurePoll_ConvertVotes {
 	public $context, $election;

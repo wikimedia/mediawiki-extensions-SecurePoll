@@ -1,6 +1,6 @@
 <?php
 
-require( __DIR__ . '/../../cli.inc' );
+require __DIR__ . '/../../cli.inc';
 $dbcr = CentralAuthUser::getCentralSlaveDB();
 $dbcw = CentralAuthUser::getCentralDB();
 
@@ -152,4 +152,3 @@ function spReportProgress( $current, $total ) {
 		$lang->formatDuration( $estRemaining ) .
 		"\n";
 }
-

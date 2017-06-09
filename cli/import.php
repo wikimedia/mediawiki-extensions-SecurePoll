@@ -1,6 +1,6 @@
 <?php
 
-require( __DIR__ . '/cli.inc' );
+require __DIR__ . '/cli.inc';
 
 $usage = <<<EOT
 Import configuration files into the local SecurePoll database. Files can be
@@ -288,4 +288,3 @@ function spUpdateMessages( $store, $electionInfo ) {
 	spInsertMessages( $store, $entityIds );
 	return true;
 }
-

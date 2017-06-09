@@ -24,13 +24,12 @@
  * @ingroup Maintenance
  */
 
-
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
 	$IP = __DIR__ . '/../../..';
 }
-require_once( "$IP/maintenance/Maintenance.php" );
+require_once "$IP/maintenance/Maintenance.php";
 
 class PurgePrivateVoteData extends Maintenance {
 
@@ -66,7 +65,7 @@ class PurgePrivateVoteData extends Maintenance {
 			__METHOD__
 		);
 
-		foreach ( $elResult as $row  ) {
+		foreach ( $elResult as $row ) {
 			$electionsToPurge[] = $row->el_entity;
 			$this->output( "Election '{$row->el_title}' with end date '{$row->el_end_date}' " .
 				"will have data purged\n" );
@@ -92,7 +91,7 @@ class PurgePrivateVoteData extends Maintenance {
 
 				$setMin = null;
 				$setMax = null;
-				foreach ( $vRes as $row  ) {
+				foreach ( $vRes as $row ) {
 					if ( $setMin === null ) {
 						$setMin = $row->vote_id;
 					}
@@ -100,7 +99,7 @@ class PurgePrivateVoteData extends Maintenance {
 				}
 				$deleteSets[] = array( $setMin, $setMax );
 				$minVoteId = $setMax;
-			} while( $vRes->numRows() == $this->mBatchSize );
+			} while ( $vRes->numRows() == $this->mBatchSize );
 
 			$dbw = wfGetDB( DB_MASTER );
 
@@ -126,4 +125,4 @@ class PurgePrivateVoteData extends Maintenance {
 }
 
 $maintClass = "PurgePrivateVoteData";
-require_once( RUN_MAINTENANCE_IF_MAIN );
+require_once RUN_MAINTENANCE_IF_MAIN;

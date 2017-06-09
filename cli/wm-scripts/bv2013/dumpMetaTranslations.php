@@ -1,6 +1,6 @@
 <?php
 
-require( __DIR__ . '/../../cli.inc' );
+require __DIR__ . '/../../cli.inc';
 
 $spConf = array(
 	'numCandidates' => 18,
@@ -86,7 +86,7 @@ foreach ( $spConf['langs'] as $lang ) {
 $s = $header .
 	spFormatEntityMessages( $allMessages, 'election' ) .
 	"<question>\n" .
-	"<id>" . ($spConf['baseId'] + 1) . "</id>\n" .
+	"<id>" . ( $spConf['baseId'] + 1 ) . "</id>\n" .
 	"<message name=\"text\" lang=\"en\"></message>\n";
 
 for ( $i = 1; $i <= $spConf['numCandidates']; $i++ ) {
@@ -104,7 +104,7 @@ $s .= "</question>
 
 echo $s;
 exit( 0 );
-//------------------------------------------------------------------
+// ------------------------------------------------------------------
 
 /**
  * @param $lang string
@@ -208,4 +208,3 @@ function spFormatEntityMessages( $messages, $entity ) {
 	}
 	return $s;
 }
-

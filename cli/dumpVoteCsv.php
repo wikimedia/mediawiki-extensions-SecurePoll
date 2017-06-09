@@ -11,7 +11,7 @@
  */
 
 $optionsWithArgs = array( 'name' );
-require( __DIR__.'/cli.inc' );
+require __DIR__ . '/cli.inc';
 
 $wgTitle = Title::newFromText( 'Special:SecurePoll' );
 
@@ -29,7 +29,7 @@ if ( !class_exists( 'SecurePoll_Context' ) ) {
 	if ( isset( $options['name'] ) ) {
 		spFatal( "Cannot load from database when SecurePoll is not installed" );
 	}
-	require( __DIR__ . '/../SecurePoll.php' );
+	require __DIR__ . '/../SecurePoll.php';
 }
 
 $context = new SecurePoll_Context;
@@ -55,13 +55,12 @@ $status = $tallier->execute();
 if ( !$status->isOK() ) {
 	spFatal( "Tally error: " . $status->getWikiText() );
 }
-//$tallier = $status->value;
+// $tallier = $status->value;
 if ( isset( $options['html'] ) ) {
 	echo $tallier->getHtmlResult();
 } else {
 	echo $tallier->getTextResult();
 }
-
 
 function spFatal( $message ) {
 	fwrite( STDERR, rtrim( $message ) . "\n" );

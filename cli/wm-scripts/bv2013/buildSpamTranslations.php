@@ -4,7 +4,7 @@ $IP = getenv( 'MW_INSTALL_PATH' );
 if ( $IP === false ) {
 	$IP = __DIR__ . '/../../../../..';
 }
-require_once( "$IP/maintenance/commandLine.inc" );
+require_once "$IP/maintenance/commandLine.inc";
 
 $wgDebugLogFile = '/dev/stderr';
 
@@ -22,7 +22,7 @@ $res = $dbr->select(
 	'boardelection-spam-translation'
 );
 
-foreach( $res as $row ) {
+foreach ( $res as $row ) {
 	$page = WikiPage::newFromID( $row->page_id );
 
 	print "Got article " . $row->page_id . "\n";

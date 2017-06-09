@@ -1,7 +1,7 @@
 <?php
 
-require( __DIR__.'/cli.inc' );
-$testDir = __DIR__.'/debtest';
+require __DIR__ . '/cli.inc';
+$testDir = __DIR__ . '/debtest';
 if ( !is_dir( $testDir ) ) {
 	mkdir( $testDir );
 }
@@ -55,7 +55,7 @@ function spRunTest( $fileName, $debResult ) {
 		}
 
 		$record = array();
-		for ( $i = 0; $i < strlen( $m[1] ); $i++ ) {
+		for ( $i = 0, $len = strlen( $m[1] ); $i < $len; $i++ ) {
 			$pref = substr( $m[1], $i, 1 );
 			if ( $i == strlen( $m[1] ) - 1 ) {
 				$id = 'X';
@@ -172,4 +172,3 @@ class SecurePoll_FakeOption {
 		return $this->id;
 	}
 }
-

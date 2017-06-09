@@ -3,7 +3,7 @@
 /** Fix for populateEditCount.php which used a cutoff date of
  *  20150401500000 instead of 20150415000000 for bv_long_edits
  */
-require( __DIR__ . '/../../cli.inc' );
+require __DIR__ . '/../../cli.inc';
 
 $dbr = wfGetDB( DB_SLAVE );
 $dbw = wfGetDB( DB_MASTER );
@@ -46,5 +46,3 @@ for ( $userId = 1; $userId <= $maxUser; $userId++ ) {
 }
 
 echo wfWikiID() . ": $numUsers users added\n";
-
-

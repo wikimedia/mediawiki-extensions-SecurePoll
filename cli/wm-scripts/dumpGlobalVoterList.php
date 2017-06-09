@@ -1,6 +1,6 @@
 <?php
 
-require( __DIR__.'/../cli.inc' );
+require __DIR__.'/../cli.inc';
 
 $voters = array();
 $batchSize = 1000;
@@ -53,4 +53,3 @@ foreach ( $wikis as $wikiId ) {
 foreach ( $voters as $email => $info ) {
 	echo "{$info['name']} <$email>\n";
 }
-

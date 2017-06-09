@@ -65,13 +65,10 @@ function getLanguage( $userId, $wikiId ) {
 	return $lang;
 }
 
-
-
 $voted = array();
 $vdb = wfGetDB( DB_SLAVE, array(), 'votewiki' );
 $voted = $vdb->selectFieldValues( 'securepoll_voters', 'voter_name',
 	array( 'voter_election' => $electionId ) );
-
 
 $db = CentralAuthUser::getCentralSlaveDB();
 $res = $db->select(
