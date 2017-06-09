@@ -6,11 +6,11 @@
  */
 class SecurePoll_Voter {
 	public $id, $electionId, $name, $domain, $wiki, $type, $url;
-	public $properties = array();
+	public $properties = [];
 
-	private static $paramNames = array(
+	private static $paramNames = [
 		'id', 'electionId', 'name', 'domain', 'wiki', 'type', 'url', 'properties'
-	);
+	];
 
 	/**
 	 * Create a voter from the given associative array of parameters
@@ -30,7 +30,7 @@ class SecurePoll_Voter {
 	 */
 	static function newFromId( $context, $id ) {
 		$db = $context->getDB();
-		$row = $db->selectRow( 'securepoll_voters', '*', array( 'voter_id' => $id ), __METHOD__ );
+		$row = $db->selectRow( 'securepoll_voters', '*', [ 'voter_id' => $id ], __METHOD__ );
 		if ( !$row ) {
 			return false;
 		}
@@ -41,7 +41,7 @@ class SecurePoll_Voter {
 	 * Create a voter from a DB result row
 	 */
 	static function newFromRow( $context, $row ) {
-		return new self( $context, array(
+		return new self( $context, [
 			'id' => $row->voter_id,
 			'electionId' => $row->voter_election,
 			'name' => $row->voter_name,
@@ -49,7 +49,7 @@ class SecurePoll_Voter {
 			'type' => $row->voter_type,
 			'url' => $row->voter_url,
 			'properties' => self::decodeProperties( $row->voter_properties )
-		) );
+		] );
 	}
 
 	/**
@@ -62,7 +62,7 @@ class SecurePoll_Voter {
 	static function createVoter( $context, $params ) {
 		$db = $context->getDB();
 		$id = $db->nextSequenceValue( 'voters_voter_id' );
-		$row = array(
+		$row = [
 			'voter_id' => $id,
 			'voter_election' => $params['electionId'],
 			'voter_name' => $params['name'],
@@ -70,7 +70,7 @@ class SecurePoll_Voter {
 			'voter_domain' => $params['domain'],
 			'voter_url' => $params['url'],
 			'voter_properties' => self::encodeProperties( $params['properties'] )
-		);
+		];
 		$db->insert( 'securepoll_voters', $row, __METHOD__ );
 		$params['id'] = $db->insertId();
 		return new self( $context, $params );
@@ -148,7 +148,7 @@ class SecurePoll_Voter {
 	 */
 	static function decodeProperties( $blob ) {
 		if ( strval( $blob ) == '' ) {
-			return array();
+			return [];
 		} else {
 			return unserialize( $blob );
 		}
@@ -184,21 +184,21 @@ class SecurePoll_Voter {
 		$dbw = $this->context->getDB();
 		# Insert the log record
 		$dbw->insert( 'securepoll_cookie_match',
-			array(
+			[
 				'cm_election' => $this->getElectionId(),
 				'cm_voter_1' => $this->getId(),
 				'cm_voter_2' => $voterId,
 				'cm_timestamp' => wfTimestampNow( TS_DB )
-			),
+			],
 			__METHOD__ );
 
 		# Update the denormalized fields
 		$dbw->update( 'securepoll_votes',
-			array( 'vote_cookie_dup' => 1 ),
-			array(
+			[ 'vote_cookie_dup' => 1 ],
+			[
 				'vote_election' => $this->getElectionId(),
-				'vote_voter' => array( $this->getId(), $voterId )
-			),
+				'vote_voter' => [ $this->getId(), $voterId ]
+			],
 			__METHOD__ );
 	}
 

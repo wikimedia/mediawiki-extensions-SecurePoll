@@ -23,7 +23,7 @@ class SecurePoll_SchulzeTallier extends SecurePoll_PairwiseTallier {
 
 		# First the path strength matrix is populated with the "direct" victory count in each
 		# direction, i.e. the number of people who preferenced A over B, and B over A.
-		$strengths = array();
+		$strengths = [];
 		foreach ( $this->optionIds as $oid1 ) {
 			foreach ( $this->optionIds as $oid2 ) {
 				if ( $oid1 === $oid2 ) {
@@ -33,10 +33,10 @@ class SecurePoll_SchulzeTallier extends SecurePoll_PairwiseTallier {
 				$v21 = $victories[$oid2][$oid1];
 				if ( $v12 > $v21 ) {
 					# Direct victory
-					$strengths[$oid1][$oid2] = array( $v12, $v21 );
+					$strengths[$oid1][$oid2] = [ $v12, $v21 ];
 				} else {
 					# Direct loss
-					$strengths[$oid1][$oid2] = array( 0, 0 );
+					$strengths[$oid1][$oid2] = [ 0, 0 ];
 				}
 			}
 		}
@@ -72,7 +72,7 @@ class SecurePoll_SchulzeTallier extends SecurePoll_PairwiseTallier {
 
 	function convertStrengthMatrixToRanks( $strengths ) {
 		$unusedIds = $this->optionIds;
-		$ranks = array();
+		$ranks = [];
 		$currentRank = 1;
 
 		while ( count( $unusedIds ) ) {

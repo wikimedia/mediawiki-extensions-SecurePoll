@@ -11,18 +11,18 @@ class SecurePoll_ChooseBallot extends SecurePoll_Ballot {
 	 * @return array
 	 */
 	static function getTallyTypes() {
-		return array( 'plurality' );
+		return [ 'plurality' ];
 	}
 
 	static function getCreateDescriptors() {
 		$ret = parent::getCreateDescriptors();
-		$ret['option'] += array(
-			'name' => array(
+		$ret['option'] += [
+			'name' => [
 				'label-message' => 'securepoll-create-label-option-name',
 				'type' => 'text',
 				'SecurePoll_type' => 'message',
-			),
-		);
+			],
+		];
 		return $ret;
 	}
 
@@ -41,9 +41,9 @@ class SecurePoll_ChooseBallot extends SecurePoll_Ballot {
 			$radioId = "{$name}_opt{$optionId}";
 			$s .=
 				'<div class="securepoll-option-choose">' .
-				Xml::radio( $name, $optionId, false, array( 'id' => $radioId ) ) .
+				Xml::radio( $name, $optionId, false, [ 'id' => $radioId ] ) .
 				'&#160;' .
-				Xml::tags( 'label', array( 'for' => $radioId ), $optionHTML ) .
+				Xml::tags( 'label', [ 'for' => $radioId ], $optionHTML ) .
 				"</div>\n";
 		}
 		return $s;
@@ -69,7 +69,7 @@ class SecurePoll_ChooseBallot extends SecurePoll_Ballot {
 	}
 
 	function unpackRecord( $record ) {
-		$result = array();
+		$result = [];
 		$record = trim( $record );
 		for ( $offset = 0, $len = strlen( $record ); $offset < $len; $offset += 18 ) {
 			if ( !preg_match( '/Q([0-9A-F]{8})A([0-9A-F]{8})/A', $record, $m, 0, $offset ) ) {
@@ -78,12 +78,12 @@ class SecurePoll_ChooseBallot extends SecurePoll_Ballot {
 			}
 			$qid = intval( base_convert( $m[1], 16, 10 ) );
 			$oid = intval( base_convert( $m[2], 16, 10 ) );
-			$result[$qid] = array( $oid => 1 );
+			$result[$qid] = [ $oid => 1 ];
 		}
 		return $result;
 	}
 
-	function convertScores( $scores, $params = array() ) {
+	function convertScores( $scores, $params = [] ) {
 		$s = '';
 		foreach ( $this->election->getQuestions() as $question ) {
 			$qid = $question->getId();

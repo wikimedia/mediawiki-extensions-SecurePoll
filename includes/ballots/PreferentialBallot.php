@@ -9,19 +9,19 @@
  */
 class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 	static function getTallyTypes() {
-		return array( 'schulze' );
+		return [ 'schulze' ];
 	}
 
 	static function getCreateDescriptors() {
 		$ret = parent::getCreateDescriptors();
-		$ret['election'] += array(
-			'must-rank-all' => array(
+		$ret['election'] += [
+			'must-rank-all' => [
 				'label-message' => 'securepoll-create-label-must_rank_all',
 				'type' => 'check',
 				'hidelabel' => true,
 				'SecurePoll_type' => 'property',
-			),
-		);
+			],
+		];
 		return $ret;
 	}
 
@@ -41,13 +41,13 @@ class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 			$oldValue = $wgRequest->getVal( $inputId, '' );
 			$s .=
 				'<div class="securepoll-option-preferential">' .
-				Xml::input( $inputId, '3', $oldValue, array(
+				Xml::input( $inputId, '3', $oldValue, [
 					'id' => $inputId,
 					'maxlength' => 3,
-				) ) .
+				] ) .
 				'&#160;' .
 				$this->errorLocationIndicator( $inputId ) .
-				Xml::tags( 'label', array( 'for' => $inputId ), $optionHTML ) .
+				Xml::tags( 'label', [ 'for' => $inputId ], $optionHTML ) .
 				'&#160;' .
 				"</div>\n";
 		}
@@ -99,7 +99,7 @@ class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 	}
 
 	function unpackRecord( $record ) {
-		$ranks = array();
+		$ranks = [];
 		$itemLength = 3*8 + 7;
 		for ( $offset = 0, $len = strlen( $record ); $offset < $len; $offset += $itemLength ) {
 			if ( !preg_match( '/Q([0-9A-F]{8})-A([0-9A-F]{8})-R([0-9A-F]{8})--/A',
@@ -116,8 +116,8 @@ class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 		return $ranks;
 	}
 
-	function convertScores( $scores, $params = array() ) {
-		$result = array();
+	function convertScores( $scores, $params = [] ) {
+		$result = [];
 		foreach ( $this->election->getQuestions() as $question ) {
 			$qid = $question->getId();
 			if ( !isset( $scores[$qid] ) ) {

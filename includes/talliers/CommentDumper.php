@@ -52,7 +52,7 @@ class SecurePoll_CommentDumper extends SecurePoll_ElectionTallier {
 			return Status::newGood();
 		}
 
-		$output = array( $comments['native'], $comments['en'] );
+		$output = [ $comments['native'], $comments['en'] ];
 
 		ksort( $output );
 

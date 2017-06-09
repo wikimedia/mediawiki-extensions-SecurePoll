@@ -10,10 +10,10 @@ class SecurePoll_Auth {
 	/**
 	 * List of available authorization modules (subclasses)
 	 */
-	private static $authTypes = array(
+	private static $authTypes = [
 		'local' => 'SecurePoll_LocalAuth',
 		'remote-mw' => 'SecurePoll_RemoteMWAuth',
-	);
+	];
 
 	/**
 	 * Create an auth object of the given type
@@ -39,7 +39,7 @@ class SecurePoll_Auth {
 	 * @return array
 	 */
 	static function getCreateDescriptors() {
-		return array();
+		return [];
 	}
 
 	function __construct( $context ) {
@@ -117,14 +117,14 @@ class SecurePoll_Auth {
 		$dbw->startAtomic( __METHOD__ );
 		$row = $dbw->selectRow(
 			'securepoll_voters', '*',
-			array(
+			[
 				'voter_name' => $params['name'],
 				'voter_election' => $params['electionId'],
 				'voter_domain' => $params['domain'],
 				'voter_url' => $params['url']
-			),
+			],
 			__METHOD__,
-			array( 'FOR UPDATE' )
+			[ 'FOR UPDATE' ]
 		);
 		if ( $row ) {
 			$user = $this->context->newVoterFromRow( $row );
@@ -215,12 +215,12 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 	 */
 	function getUserParams( $user ) {
 		global $wgServer;
-		$params = array(
+		$params = [
 			'name' => $user->getName(),
 			'type' => 'local',
 			'domain' => preg_replace( '!.*/(.*)$!', '$1', $wgServer ),
 			'url' => $user->getUserPage()->getCanonicalURL(),
-			'properties' => array(
+			'properties' => [
 				'wiki' => wfWikiID(),
 				'blocked' => $user->isBlocked(),
 				'central-block-count' => $this->getCentralBlockCount( $user ),
@@ -231,10 +231,10 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 				'lists' => $this->getLists( $user ),
 				'central-lists' => $this->getCentralLists( $user ),
 				'registration' => $user->getRegistration(),
-			)
-		);
+			]
+		];
 
-		Hooks::run( 'SecurePoll_GetUserParams', array( $this, $user, &$params ) );
+		Hooks::run( 'SecurePoll_GetUserParams', [ $this, $user, &$params ] );
 		return $params;
 	}
 
@@ -247,11 +247,11 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 		$dbr = $this->context->getDB();
 		$res = $dbr->select(
 			'securepoll_lists',
-			array( 'li_name' ),
-			array( 'li_member' => $user->getId() ),
+			[ 'li_name' ],
+			[ 'li_member' => $user->getId() ],
 			__METHOD__
 		);
-		$lists = array();
+		$lists = [];
 		foreach ( $res as $row ) {
 			$lists[] = $row->li_name;
 		}
@@ -265,20 +265,20 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 	 */
 	function getCentralLists( $user ) {
 		if ( !class_exists( 'CentralAuthUser' ) ) {
-			return array();
+			return [];
 		}
 		$centralUser = CentralAuthUser::getInstance( $user );
 		if ( !$centralUser->isAttached() ) {
-			return array();
+			return [];
 		}
 		$dbc = CentralAuthUser::getCentralSlaveDB();
 		$res = $dbc->select(
 			'securepoll_lists',
-			array( 'li_name' ),
-			array( 'li_member' => $centralUser->getId() ),
+			[ 'li_name' ],
+			[ 'li_member' => $centralUser->getId() ],
 			__METHOD__
 		);
-		$lists = array();
+		$lists = [];
 		foreach ( $res as $row ) {
 			$lists[] = $row->li_name;
 		}
@@ -315,14 +315,14 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
  */
 class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
 	static function getCreateDescriptors() {
-		return array(
-			'script-path' => array(
+		return [
+			'script-path' => [
 				'label-message' => 'securepoll-create-label-remote_mw_script_path',
 				'type' => 'url',
 				'required' => true,
 				'SecurePoll_type' => 'property',
-			),
-		);
+			],
+		];
 	}
 
 	/**
@@ -333,9 +333,9 @@ class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
 	function requestLogin( $election ) {
 		global $wgRequest, $wgSecurePollScript, $wgConf;
 
-		$urlParamNames = array( 'id', 'token', 'wiki', 'site', 'lang', 'domain' );
-		$vars = array();
-		$params = array();
+		$urlParamNames = [ 'id', 'token', 'wiki', 'site', 'lang', 'domain' ];
+		$vars = [];
+		$params = [];
 		foreach ( $urlParamNames as $name ) {
 			$value = $wgRequest->getVal( $name );
 			if ( !preg_match( '/^[\w.-]*$/', $value ) ) {
@@ -379,14 +379,14 @@ class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
 			$url .= '/';
 		}
 		$url .= $wgSecurePollScript . '?' .
-			wfArrayToCgi( array(
+			wfArrayToCgi( [
 				'token' => $params['token'],
 				'id' => $params['id']
-			) );
+			] );
 
 		// Use the default SSL certificate file
 		// Necessary on some versions of cURL, others do this by default
-		$curlParams = array( CURLOPT_CAINFO => '/etc/ssl/certs/ca-certificates.crt' );
+		$curlParams = [ CURLOPT_CAINFO => '/etc/ssl/certs/ca-certificates.crt' ];
 
 		$value = Http::get( $url, 20, $curlParams );
 

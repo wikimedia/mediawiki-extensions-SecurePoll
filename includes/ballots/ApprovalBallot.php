@@ -5,7 +5,7 @@
  */
 class SecurePoll_ApprovalBallot extends SecurePoll_Ballot {
 	static function getTallyTypes() {
-		return array( 'plurality' );
+		return [ 'plurality' ];
 	}
 
 	/**
@@ -24,9 +24,9 @@ class SecurePoll_ApprovalBallot extends SecurePoll_Ballot {
 			$oldValue = $wgRequest->getBool( $inputId );
 			$s .=
 				'<div class="securepoll-option-approval">' .
-				Xml::check( $inputId, $oldValue, array( 'id' => $inputId ) ) .
+				Xml::check( $inputId, $oldValue, [ 'id' => $inputId ] ) .
 				'&#160;' .
-				Xml::tags( 'label', array( 'for' => $inputId ), $optionHTML ) .
+				Xml::tags( 'label', [ 'for' => $inputId ], $optionHTML ) .
 				'&#160;' .
 				"</div>\n";
 		}
@@ -53,7 +53,7 @@ class SecurePoll_ApprovalBallot extends SecurePoll_Ballot {
 	}
 
 	function unpackRecord( $record ) {
-		$scores = array();
+		$scores = [];
 		$itemLength = 2 * 8 + 7;
 		for ( $offset = 0, $len = strlen( $record ); $offset < $len; $offset += $itemLength ) {
 			if ( !preg_match( '/Q([0-9A-F]{8})-A([0-9A-F]{8})-([yn])--/A',
@@ -70,8 +70,8 @@ class SecurePoll_ApprovalBallot extends SecurePoll_Ballot {
 		return $scores;
 	}
 
-	function convertScores( $scores, $params = array() ) {
-		$result = array();
+	function convertScores( $scores, $params = [] ) {
+		$result = [];
 		foreach ( $this->election->getQuestions() as $question ) {
 			$qid = $question->getId();
 			if ( !isset( $scores[$qid] ) ) {

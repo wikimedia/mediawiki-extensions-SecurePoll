@@ -5,19 +5,19 @@
  * Tested via SecurePoll_SchulzeTallier.
  */
 abstract class SecurePoll_PairwiseTallier extends SecurePoll_Tallier {
-	public $optionIds = array();
-	public $victories = array();
+	public $optionIds = [];
+	public $victories = [];
 	public $abbrevs;
-	public $rowLabels = array();
+	public $rowLabels = [];
 
 	function __construct( $context, $electionTallier, $question ) {
 		parent::__construct( $context, $electionTallier, $question );
-		$this->optionIds = array();
+		$this->optionIds = [];
 		foreach ( $question->getOptions() as $option ) {
 			$this->optionIds[] = $option->getId();
 		}
 
-		$this->victories = array();
+		$this->victories = [];
 		foreach ( $this->optionIds as $i ) {
 			foreach ( $this->optionIds as $j ) {
 				$this->victories[$i][$j] = 0;
@@ -43,7 +43,7 @@ abstract class SecurePoll_PairwiseTallier extends SecurePoll_Tallier {
 
 	function getOptionAbbreviations() {
 		if ( is_null( $this->abbrevs ) ) {
-			$abbrevs = array();
+			$abbrevs = [];
 			foreach ( $this->question->getOptions() as $option ) {
 				$text = $option->getMessage( 'text' );
 				$parts = explode( ' ', $text );
@@ -71,7 +71,7 @@ abstract class SecurePoll_PairwiseTallier extends SecurePoll_Tallier {
 
 	function getRowLabels( $format = 'html' ) {
 		if ( !isset( $this->rowLabels[$format] ) ) {
-			$rowLabels = array();
+			$rowLabels = [];
 			$abbrevs = $this->getOptionAbbreviations();
 			foreach ( $this->question->getOptions() as $option ) {
 				if ( $format == 'html' ) {
@@ -100,14 +100,14 @@ abstract class SecurePoll_PairwiseTallier extends SecurePoll_Tallier {
 
 		# Header row
 		foreach ( $rankedIds as $oid ) {
-			$s .= Xml::tags( 'th', array(), $abbrevs[$oid] ) . "\n";
+			$s .= Xml::tags( 'th', [], $abbrevs[$oid] ) . "\n";
 		}
 		$s .= "</tr>\n";
 
 		foreach ( $rankedIds as $oid1 ) {
 			# Header column
 			$s .= "<tr>\n";
-			$s .= Xml::tags( 'td', array( 'class' => 'securepoll-results-row-heading' ),
+			$s .= Xml::tags( 'td', [ 'class' => 'securepoll-results-row-heading' ],
 				$rowLabels[$oid1] );
 			# Rest of the matrix
 			foreach ( $rankedIds as $oid2 ) {
@@ -119,7 +119,7 @@ abstract class SecurePoll_PairwiseTallier extends SecurePoll_Tallier {
 				if ( is_array( $value ) ) {
 					$value = '(' . implode( ', ', $value ) . ')';
 				}
-				$s .= Xml::element( 'td', array(), $value ) . "\n";
+				$s .= Xml::element( 'td', [], $value ) . "\n";
 			}
 			$s .= "</tr>\n";
 		}
@@ -133,7 +133,7 @@ abstract class SecurePoll_PairwiseTallier extends SecurePoll_Tallier {
 		$rowLabels = $this->getRowLabels( 'text' );
 
 		# Calculate column widths
-		$colWidths = array();
+		$colWidths = [];
 		foreach ( $abbrevs as $id => $abbrev ) {
 			if ( strlen( $abbrev ) < $minWidth ) {
 				$colWidths[$id] = $minWidth;

@@ -29,7 +29,7 @@ class SecurePoll_ElectionTallier {
 		$this->crypt = $this->election->getCrypt();
 		$this->ballot = $this->election->getBallot();
 		$questions = $this->election->getQuestions();
-		$this->talliers = array();
+		$this->talliers = [];
 		$tallyType = $this->election->getTallyType();
 		foreach ( $questions as $question ) {
 			$tallier = $this->context->newTallier( $tallyType, $this, $question );
@@ -39,7 +39,7 @@ class SecurePoll_ElectionTallier {
 			$this->talliers[$question->getId()] = $tallier;
 		}
 
-		$status = $store->callbackValidVotes( $this->election->getId(), array( $this, 'addRecord' ) );
+		$status = $store->callbackValidVotes( $this->election->getId(), [ $this, 'addRecord' ] );
 		if ( !$status->isOK() ) {
 			return $status;
 		}

@@ -6,13 +6,13 @@
 abstract class SecurePoll_Ballot {
 	public $election, $context;
 
-	private static $ballotTypes = array(
+	private static $ballotTypes = [
 		'approval' => 'SecurePoll_ApprovalBallot',
 		'preferential' => 'SecurePoll_PreferentialBallot',
 		'choose' => 'SecurePoll_ChooseBallot',
 		'radio-range' => 'SecurePoll_RadioRangeBallot',
 		'radio-range-comment' => 'SecurePoll_RadioRangeCommentBallot',
-	);
+	];
 
 	/**
 	 * Get a list of names of tallying methods, which may be used to produce a
@@ -36,24 +36,24 @@ abstract class SecurePoll_Ballot {
 	 * @return array
 	 */
 	static function getCreateDescriptors() {
-		return array(
-			'election' => array(
-				'shuffle-questions' => array(
+		return [
+			'election' => [
+				'shuffle-questions' => [
 					'label-message' => 'securepoll-create-label-shuffle_questions',
 					'type' => 'check',
 					'hidelabel' => true,
 					'SecurePoll_type' => 'property',
-				),
-				'shuffle-options' => array(
+				],
+				'shuffle-options' => [
 					'label-message' => 'securepoll-create-label-shuffle_options',
 					'type' => 'check',
 					'hidelabel' => true,
 					'SecurePoll_type' => 'property',
-				),
-			),
-			'question' => array(),
-			'option' => array(),
-		);
+				],
+			],
+			'question' => [],
+			'option' => [],
+		];
 	}
 
 	/**
@@ -71,7 +71,7 @@ abstract class SecurePoll_Ballot {
 	 * @see SecurePoll_Election::getMessageNames()
 	 */
 	function getMessageNames() {
-		return array();
+		return [];
 	}
 
 	/**
@@ -114,7 +114,7 @@ abstract class SecurePoll_Ballot {
 	/**
 	 * Convert a record to a string of some kind
 	 */
-	function convertRecord( $record, $options = array() ) {
+	function convertRecord( $record, $options = [] ) {
 		$scores = $this->unpackRecord( $record );
 		return $this->convertScores( $scores );
 	}
@@ -122,7 +122,7 @@ abstract class SecurePoll_Ballot {
 	/**
 	 * Convert a score array to a string of some kind
 	 */
-	abstract function convertScores( $scores, $options = array() );
+	abstract function convertScores( $scores, $options = [] );
 
 	/**
 	 * Create a ballot of the given type
@@ -185,9 +185,9 @@ abstract class SecurePoll_Ballot {
 			$this->prevErrorIds = $status->sp_getIds();
 			$this->prevStatus = $status;
 		} else {
-			$this->prevErrorIds = array();
+			$this->prevErrorIds = [];
 		}
-		$this->usedErrorIds = array();
+		$this->usedErrorIds = [];
 	}
 
 	function errorLocationIndicator( $id ) {
@@ -196,7 +196,7 @@ abstract class SecurePoll_Ballot {
 		}
 		$this->usedErrorIds[$id] = true;
 		return
-			Xml::element( 'img', array(
+			Xml::element( 'img', [
 				'src' => $this->context->getResourceUrl( 'warning-22.png' ),
 				'width' => 22,
 				'height' => 22,
@@ -204,7 +204,7 @@ abstract class SecurePoll_Ballot {
 				'class' => 'securepoll-error-location',
 				'alt' => '',
 				'title' => $this->prevStatus->sp_getMessageText( $id )
-			) );
+			] );
 	}
 
 	/**
@@ -243,7 +243,7 @@ abstract class SecurePoll_Ballot {
 		$store = $this->context->getStore();
 		$status = $store->callbackValidVotes(
 			$this->election->info['id'],
-			array( $this, 'getCurrentVoteCallback' ),
+			[ $this, 'getCurrentVoteCallback' ],
 			$voter->getId()
 		);
 		if ( !$status->isOK() ){
@@ -263,7 +263,7 @@ abstract class SecurePoll_Ballot {
 
 class SecurePoll_BallotStatus extends Status {
 	public $sp_context;
-	public $sp_ids = array();
+	public $sp_ids = [];
 
 	function __construct( $context ) {
 		$this->sp_context = $context;
@@ -271,11 +271,11 @@ class SecurePoll_BallotStatus extends Status {
 
 	function sp_fatal( $message, $id /*, parameters... */ ) {
 		$params = array_slice( func_get_args(), 2 );
-		$this->errors[] = array(
+		$this->errors[] = [
 			'type' => 'error',
 			'securepoll-id' => $id,
 			'message' => $message,
-			'params' => $params );
+			'params' => $params ];
 		$this->sp_ids[$id] = true;
 		$this->ok = false;
 	}
@@ -295,14 +295,14 @@ class SecurePoll_BallotStatus extends Status {
 				$id = $error['securepoll-id'];
 				if ( isset( $usedIds[$id] ) ) {
 					$s .= '<li>' .
-						Xml::openElement( 'a', array(
+						Xml::openElement( 'a', [
 							'href' => '#' . urlencode( "$id-location" ),
 							'class' => 'securepoll-error-jump'
-						) ) .
-						Xml::element( 'img', array(
+						] ) .
+						Xml::element( 'img', [
 							'alt' => '',
 							'src' => $this->sp_context->getResourceUrl( 'down-16.png' ),
-						) ) .
+						] ) .
 						'</a>' .
 						htmlspecialchars( $text ) .
 						"</li>\n";

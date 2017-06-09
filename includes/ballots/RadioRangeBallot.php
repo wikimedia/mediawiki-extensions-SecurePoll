@@ -20,85 +20,85 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 	public $columnLabels, $minMax;
 
 	static function getTallyTypes() {
-		return array( 'plurality', 'histogram-range' );
+		return [ 'plurality', 'histogram-range' ];
 	}
 
 	static function getCreateDescriptors() {
 		$ret = parent::getCreateDescriptors();
-		$ret['election'] += array(
-			'must-answer-all' => array(
+		$ret['election'] += [
+			'must-answer-all' => [
 				'label-message' => 'securepoll-create-label-must_answer_all',
 				'type' => 'check',
 				'hidelabel' => true,
 				'SecurePoll_type' => 'property',
-			),
-		);
-		$ret['question'] += array(
-			array(
+			],
+		];
+		$ret['question'] += [
+			[
 				'type' => 'info',
 				'rawrow' => true,
 				'default' => '<table class="securepoll-layout-table"><tr><td>',
-			),
+			],
 
-			'min-score' => array(
+			'min-score' => [
 				'label-message' => 'securepoll-create-label-min_score',
 				'type' => 'int',
 				'required' => true,
 				'SecurePoll_type' => 'property',
-			),
+			],
 
-			array(
+			[
 				'type' => 'info',
 				'rawrow' => true,
 				'default' => '</td><td>',
-			),
+			],
 
-			'max-score' => array(
+			'max-score' => [
 				'label-message' => 'securepoll-create-label-max_score',
 				'type' => 'int',
 				'required' => true,
 				'SecurePoll_type' => 'property',
-			),
+			],
 
-			array(
+			[
 				'type' => 'info',
 				'rawrow' => true,
 				'default' => '</td><td>',
-			),
+			],
 
-			'default-score' => array(
+			'default-score' => [
 				'label-message' => 'securepoll-create-label-default_score',
 				'type' => 'int',
 				'SecurePoll_type' => 'property',
-			),
+			],
 
-			array(
+			[
 				'type' => 'info',
 				'rawrow' => true,
 				'default' => '</td></tr></table>',
-			),
+			],
 
-			'column-order' => array(
+			'column-order' => [
 				'label-message' => 'securepoll-create-label-column_order',
 				'type' => 'select',
-				'options-messages' => array(
+				'options-messages' => [
 					'securepoll-create-option-column_order-asc' => 'asc',
 					'securepoll-create-option-column_order-desc' => 'desc',
-				),
+				],
 				'SecurePoll_type' => 'property',
-			),
-			'column-label-msgs' => array(
+			],
+			'column-label-msgs' => [
 				'label-message' => 'securepoll-create-label-column_label_msgs',
 				'type' => 'check',
 				'hidelabel' => true,
 				'SecurePoll_type' => 'property',
-			),
-			'column-messages' => array(
-				'hide-if' => array( '!==', 'column-label-msgs', '1' ),
+			],
+			'column-messages' => [
+				'hide-if' => [ '!==', 'column-label-msgs', '1' ],
 				'class' => 'SecurePoll_HTMLFormRadioRangeColumnLabels',
 				'SecurePoll_type' => 'messages',
-			),
-		);
+			],
+		];
 		return $ret;
 	}
 
@@ -113,7 +113,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 		if ( $max <= $min ) {
 			throw new MWException( __METHOD__.': min/max not configured' );
 		}
-		return array( $min, $max );
+		return [ $min, $max ];
 	}
 
 	/**
@@ -157,7 +157,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 	 */
 	function getColumnLabels( $question ) {
 		// list( $min, $max ) = $this->getMinMax( $question );
-		$labels = array();
+		$labels = [];
 		$useMessageLabels = $question->getProperty( 'column-label-msgs' );
 		$scores = $this->getScoresLeftToRight( $question );
 		if ( $useMessageLabels ) {
@@ -176,12 +176,12 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 
 	function getMessageNames( $entity = null ) {
 		if ( $entity === null || $entity->getType() !== 'question' ) {
-			return array();
+			return [];
 		}
 		if ( !$entity->getProperty( 'column-label-msgs' ) ) {
-			return array();
+			return [];
 		}
-		$msgs = array();
+		$msgs = [];
 		list( $min, $max ) = $this->getMinMax( $entity );
 		for ( $score = $min; $score <= $max; $score++ ) {
 			$signedScore = $this->addSign( $entity, $score );
@@ -214,7 +214,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 			"<tr>\n" .
 			"<th>&#160;</th>\n";
 		foreach ( $labels as $label ) {
-			$s .= Html::rawElement( 'th', array(), $label ) . "\n";
+			$s .= Html::rawElement( 'th', [], $label ) . "\n";
 		}
 		$s .= "</tr>\n";
 		$defaultScore = $question->getProperty( 'default-score' );
@@ -226,15 +226,15 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 			$oldValue = $wgRequest->getVal( $inputId, $defaultScore );
 			$s .= "<tr class=\"securepoll-ballot-row\">\n" .
 				Xml::tags( 'td',
-					array( 'class' => 'securepoll-ballot-optlabel' ),
+					[ 'class' => 'securepoll-ballot-optlabel' ],
 					$this->errorLocationIndicator( $inputId ) . $optionHTML
 				);
 
 			foreach ( $labels as $score => $label ) {
 				$s .=
-					Xml::tags( 'td', array(),
+					Xml::tags( 'td', [],
 						Xml::radio( $inputId, $score, !strcmp( $oldValue, $score ),
-							array( 'title' => $label ) )
+							[ 'title' => $label ] )
 					) . "\n";
 			}
 			$s .= "</tr>\n";
@@ -292,9 +292,9 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 	}
 
 	function unpackRecord( $record ) {
-		$scores = array();
+		$scores = [];
 		$itemLength = 8 + 8 + 11 + 7;
-		$questions = array();
+		$questions = [];
 		foreach ( $this->election->getQuestions() as $question ) {
 			$questions[$question->getId()] = $question;
 		}
@@ -322,8 +322,8 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 		return $scores;
 	}
 
-	function convertScores( $scores, $params = array() ) {
-		$result = array();
+	function convertScores( $scores, $params = [] ) {
+		$result = [];
 		foreach ( $this->election->getQuestions() as $question ) {
 			$qid = $question->getId();
 			if ( !isset( $scores[$qid] ) ) {

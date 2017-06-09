@@ -4,7 +4,7 @@
  * Tallier that supports choose-one, approval and range voting
  */
 class SecurePoll_PluralityTallier extends SecurePoll_Tallier {
-	public $tally = array();
+	public $tally = [];
 
 	/**
 	 * @param  $context SecurePoll_Context
@@ -80,7 +80,7 @@ class SecurePoll_PluralityTallier extends SecurePoll_Tallier {
 	}
 
 	function getRanks() {
-		$ranks = array();
+		$ranks = [];
 		$currentRank = 1;
 		$oids = array_keys( $this->tally );
 		$scores = array_values( $this->tally );

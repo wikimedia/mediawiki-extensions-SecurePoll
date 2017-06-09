@@ -15,9 +15,9 @@ class SecurePoll_RadioRangeCommentBallot extends SecurePoll_RadioRangeBallot {
 
 		// Add the comments boxes.
 		$form .= Html::textarea( 'securepoll_comments_native', '',
-			array( 'rows' => 10, 'cols' => 20 ) );
+			[ 'rows' => 10, 'cols' => 20 ] );
 		$form .= Html::textarea( 'securepoll_comments_en', '',
-			array( 'rows' => 10, 'cols' => 20 ) );
+			[ 'rows' => 10, 'cols' => 20 ] );
 
 		return $form;
 	}
@@ -49,9 +49,9 @@ class SecurePoll_RadioRangeCommentBallot extends SecurePoll_RadioRangeBallot {
 	 * Copy and modify from parent function, complex to refactor.
 	 */
 	function unpackRecord( $record ) {
-		$scores = array();
+		$scores = [];
 		$itemLength = 8 + 8 + 11 + 7;
-		$questions = array();
+		$questions = [];
 		foreach ( $this->election->getQuestions() as $question ) {
 			$questions[$question->getId()] = $question;
 		}
@@ -83,7 +83,7 @@ class SecurePoll_RadioRangeCommentBallot extends SecurePoll_RadioRangeBallot {
 		}
 
 		// Read comments
-		$scores['comment'] = array();
+		$scores['comment'] = [];
 
 		$scores['comment']['native'] = $this->readComment( $record, $offset );
 

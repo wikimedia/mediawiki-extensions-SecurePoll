@@ -14,11 +14,11 @@ abstract class SecurePoll_Tallier {
 
 	abstract function finishTally();
 
-	public static $tallierTypes = array(
+	public static $tallierTypes = [
 		'plurality' => 'SecurePoll_PluralityTallier',
 		'schulze' => 'SecurePoll_SchulzeTallier',
 		'histogram-range' => 'SecurePoll_HistogramRangeTallier',
-	);
+	];
 
 	/**
 	 * @param $context
@@ -49,11 +49,11 @@ abstract class SecurePoll_Tallier {
 	 * @return array
 	 */
 	static function getCreateDescriptors() {
-		return array(
-			'election' => array(),
-			'question' => array(),
-			'option' => array(),
-		);
+		return [
+			'election' => [],
+			'question' => [],
+			'option' => [],
+		];
 	}
 
 	/**
@@ -88,8 +88,8 @@ abstract class SecurePoll_Tallier {
 
 			$option = $this->optionsById[$oid];
 			$s .= "<tr>" .
-				Xml::element( 'td', array(), $rank ) .
-				Xml::openElement( 'td', array() ) .
+				Xml::element( 'td', [], $rank ) .
+				Xml::openElement( 'td', [] ) .
 				$option->parseMessage( 'text', false ) .
 				Xml::closeElement( 'td' ) .
 				"</tr>\n";

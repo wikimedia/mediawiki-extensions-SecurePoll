@@ -1,9 +1,9 @@
 <?php
 
 class SecurePoll_HistogramRangeTallier extends SecurePoll_Tallier {
-	public $histogram = array();
-	public $sums = array();
-	public $counts = array();
+	public $histogram = [];
+	public $sums = [];
+	public $counts = [];
 	public $averages;
 	public $minScore, $maxScore;
 
@@ -33,7 +33,7 @@ class SecurePoll_HistogramRangeTallier extends SecurePoll_Tallier {
 	}
 
 	function finishTally() {
-		$this->averages = array();
+		$this->averages = [];
 		foreach ( $this->sums as $oid => $sum ) {
 			if ( $this->counts[$oid] === 0 ) {
 				$this->averages[$oid] = 'N/A';
@@ -46,10 +46,10 @@ class SecurePoll_HistogramRangeTallier extends SecurePoll_Tallier {
 
 	function getHtmlResult() {
 		$ballot = $this->election->getBallot();
-		if ( !is_callable( array( $ballot, 'getColumnLabels' ) ) ) {
+		if ( !is_callable( [ $ballot, 'getColumnLabels' ] ) ) {
 			throw new MWException( __METHOD__.': ballot type not supported by this tallier' );
 		}
-		$optionLabels = array();
+		$optionLabels = [];
 		foreach ( $this->question->getOptions() as $option ) {
 			$optionLabels[$option->getId()] = $option->parseMessageInline( 'text' );
 		}
@@ -59,20 +59,20 @@ class SecurePoll_HistogramRangeTallier extends SecurePoll_Tallier {
 			"<tr>\n" .
 			"<th>&#160;</th>\n";
 		foreach ( $labels as $label ) {
-			$s .= Xml::element( 'th', array(), $label ) . "\n";
+			$s .= Xml::element( 'th', [], $label ) . "\n";
 		}
-		$s .= Xml::element( 'th', array(), wfMessage( 'securepoll-average-score' )->text() );
+		$s .= Xml::element( 'th', [], wfMessage( 'securepoll-average-score' )->text() );
 		$s .= "</tr>\n";
 
 		foreach ( $this->averages as $oid => $average ) {
 			$s .= "<tr>\n" .
-				Xml::tags( 'td', array( 'class' => 'securepoll-results-row-heading' ),
+				Xml::tags( 'td', [ 'class' => 'securepoll-results-row-heading' ],
 					$optionLabels[$oid] ) .
 				"\n";
 			foreach ( $labels as $score => $label ) {
-				$s .= Xml::element( 'td', array(), $this->histogram[$oid][$score] ) . "\n";
+				$s .= Xml::element( 'td', [], $this->histogram[$oid][$score] ) . "\n";
 			}
-			$s .= Xml::element( 'td', array(), $average ) . "\n";
+			$s .= Xml::element( 'td', [], $average ) . "\n";
 			$s .= "</tr>\n";
 		}
 		$s .= "</table>\n";
