@@ -11,7 +11,9 @@ $wgConf->loadFullData();
  * @var array
  */
 $nomail = array();
-$raw = file_get_contents( 'https://meta.wikimedia.org/wiki/Wikimedia_Foundation_nomail_list?action=raw' );
+$raw = file_get_contents(
+	'https://meta.wikimedia.org/wiki/Wikimedia_Foundation_nomail_list?action=raw'
+);
 if ( preg_match( '/(?<=<pre>).*(?=<\/pre>)/ms', $raw, $matches ) ) {
 	$nomail = array_filter( array_map( 'trim', explode( "\n", $matches[0] ) ) );
 }

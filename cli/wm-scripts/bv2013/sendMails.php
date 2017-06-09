@@ -10,11 +10,17 @@ ini_set( 'display_errors', 1 );
 $err = fopen( 'php://stderr', 'w' );
 $in = fopen( 'php://stdin', 'r' );
 
-$sender = new MailAddress( 'board-elections@lists.wikimedia.org', 'Wikimedia Foundation Election Committee' );
+$sender = new MailAddress(
+	'board-elections@lists.wikimedia.org', 'Wikimedia Foundation Election Committee'
+);
 
 // Pull templates
 // TODO: Get a list of all language codes from MediaWiki
-$langs = explode( ' ', 'ast bn ca da de eml en es fa fi fr gl he hr hu id it ja ka ms mt nb nl pl ps pt-br ru sa sv ta th tr uk yi zh' );
+$langs = array(
+	'ast', 'bn', 'ca', 'da', 'de', 'eml', 'en', 'es', 'fa', 'fi', 'fr', 'gl', 'he', 'hr', 'hu',
+	'id', 'it', 'ja', 'ka', 'ms', 'mt', 'nb', 'nl', 'pl', 'ps', 'pt-br', 'ru', 'sa', 'sv', 'ta',
+	'th', 'tr', 'uk', 'yi', 'zh'
+);
 
 $transTemplates = array();
 

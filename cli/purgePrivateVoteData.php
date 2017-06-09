@@ -60,13 +60,16 @@ class PurgePrivateVoteData extends Maintenance {
 
 		$elResult = $dbr->select( 'securepoll_elections',
 			array( 'el_entity', 'el_title', 'el_end_date' ),
-			"el_end_date < " . $dbr->addQuotes( $dbr->timestamp( time() - ( $this->mPurgeDays * 24 * 60 * 60 ) ) ),
+			"el_end_date < " . $dbr->addQuotes(
+				$dbr->timestamp( time() - ( $this->mPurgeDays * 24 * 60 * 60 ) )
+			),
 			__METHOD__
 		);
 
 		foreach ( $elResult as $row  ) {
 			$electionsToPurge[] = $row->el_entity;
-			$this->output( "Election '{$row->el_title}' with end date '{$row->el_end_date}' will have data purged\n" );
+			$this->output( "Election '{$row->el_title}' with end date '{$row->el_end_date}' " .
+				"will have data purged\n" );
 		}
 
 		if ( count( $electionsToPurge ) > 0 ) {

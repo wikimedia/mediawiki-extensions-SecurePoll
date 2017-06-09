@@ -75,7 +75,9 @@ foreach ( $wikis as $w ) {
 			array(),
 			array(
 				'user' => array( 'left join', 'user_id=li_member' ),
-				'user_properties' => array( 'left join', array( 'up_user=li_member', 'up_property' => 'language' ) )
+				'user_properties' => array( 'left join',
+					array( 'up_user=li_member', 'up_property' => 'language' )
+				)
 			)
 		);
 
@@ -194,7 +196,10 @@ function runChecks( $wiki, $usersToCheck /* user ID */ ) {
 	$dbr = wfGetDB( DB_SLAVE, null, $wiki );
 
 	$res = $dbr->select( 'ipblocks', 'ipb_user',
-		array( 'ipb_user' => array_keys( $usersToCheck ), 'ipb_expiry > ' . $dbr->addQuotes( $dbr->timestamp( wfTimestampNow() ) ) ),
+		array(
+			'ipb_user' => array_keys( $usersToCheck ),
+			'ipb_expiry > ' . $dbr->addQuotes( $dbr->timestamp( wfTimestampNow() ) )
+		),
 		__METHOD__
 	);
 

@@ -63,7 +63,8 @@ class SecurePoll_ConvertVotes {
 		$this->crypt = $this->election->getCrypt();
 		$this->ballot = $this->election->getBallot();
 
-		$status = $this->context->getStore()->callbackValidVotes( $electionId, array( $this, 'convertVote' ) );
+		$status = $this->context->getStore()->callbackValidVotes(
+			$electionId, array( $this, 'convertVote' ) );
 		if ( !$status->isOK() ) {
 			spFatal( "Error: " . $status->getWikiText() );
 		}

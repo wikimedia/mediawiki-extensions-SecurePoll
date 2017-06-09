@@ -14,7 +14,9 @@ $dbr = wfGetDB( DB_SLAVE );
 $dbw = wfGetDB( DB_MASTER );
 $fname = 'voterList.php';
 $maxUser = $dbr->selectField( 'user', 'MAX(user_id)', false );
-$before = isset( $options['before'] ) ? wfTimestamp( TS_MW, strtotime( $options['before'] ) ) : false;
+$before = isset( $options['before'] )
+	? wfTimestamp( TS_MW, strtotime( $options['before'] ) )
+	: false;
 $minEdits = isset( $options['edits'] ) ? intval( $options['edits'] ) : false;
 
 if ( !isset( $args[0] ) ) {
