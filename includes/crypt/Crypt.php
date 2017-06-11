@@ -25,7 +25,7 @@ abstract class SecurePoll_Crypt {
 	 */
 	abstract function canDecrypt();
 
-	private static $cryptTypes = [
+	public static $cryptTypes = [
 		'none' => false,
 		'gpg' => 'SecurePoll_GpgCrypt',
 	];

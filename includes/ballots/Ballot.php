@@ -6,7 +6,7 @@
 abstract class SecurePoll_Ballot {
 	public $election, $context;
 
-	private static $ballotTypes = [
+	public static $ballotTypes = [
 		'approval' => 'SecurePoll_ApprovalBallot',
 		'preferential' => 'SecurePoll_PreferentialBallot',
 		'choose' => 'SecurePoll_ChooseBallot',
