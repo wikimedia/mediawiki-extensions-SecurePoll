@@ -245,6 +245,7 @@
 	"securepoll-voter-stats": "Out of all eligible voters, $1 {{PLURAL:$1|voter has|voters have}} voted.",
 	"securepoll-vote-stats": "A total of $1 {{PLURAL:$1|vote has|votes have}} been cast. Of these, $2 {{PLURAL:$2|is|are}} thrown away because the voter has voted again, and $3 {{PLURAL:$3|is|are}} struck.",
 	"apihelp-strikevote-description": "Allows admins to strike or unstrike a vote.",
+	"apihelp-strikevote-summary": "Allows admins to strike or unstrike a vote.",
 	"apihelp-strikevote-param-option": "Which action to take: strike or unstrike a vote.",
 	"apihelp-strikevote-paramvalue-option-strike": "Strike a vote (remove it from the count).",
 	"apihelp-strikevote-paramvalue-option-unstrike": "Unstrike a vote (restore it to the count).",
