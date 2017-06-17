@@ -90,7 +90,7 @@
 	"securepoll-translate-title": "Traduzir: $1",
 	"securepoll-translate-redirect-otherwiki": "a wiki de origem",
 	"securepoll-translate-label-comment": "Motivo:",
-	"securepoll-invalid-language": "Código de idioma \"$1\" inválido",
+	"securepoll-invalid-language": "Código de língua \"$1\" inválido",
 	"securepoll-submit-translate": "Atualizar",
 	"securepoll-language-label": "Escolha o idioma:",
 	"securepoll-submit-select-lang": "Traduzir",
