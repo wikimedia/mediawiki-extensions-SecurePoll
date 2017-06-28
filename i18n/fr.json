@@ -18,7 +18,8 @@
 			"Orikrin1998",
 			"Wladek92",
 			"Əric",
-			"Derugon"
+			"Derugon",
+			"Thibaut120094"
 		]
 	},
 	"securepoll": "Sondage sécurisé",
@@ -254,6 +255,7 @@
 	"securepoll-voter-stats": "Parmi les votants éligibles, $1 {{PLURAL:$1|votant a|votants ont}} voté.",
 	"securepoll-vote-stats": "Un total de $1 {{PLURAL:$1|vote|votes}} a été envoyé. Parmi ceux-ci, $2 {{PLURAL:$2|est rejeté|sont rejetés}} parce que le votant a revoté, et $3 {{PLURAL:$3|est supprimé|sont supprimés}}.",
 	"apihelp-strikevote-description": "Permet aux administrateurs d'annuler ou de réintégrer un vote.",
+	"apihelp-strikevote-summary": "Permet aux administrateurs d'annuler ou de réintégrer un vote.",
 	"apihelp-strikevote-param-option": "Quelle action prendre: annuler ou reintégrer un vote.",
 	"apihelp-strikevote-paramvalue-option-strike": "Annuler un vote (supprimer du comptage).",
 	"apihelp-strikevote-paramvalue-option-unstrike": "Réintégrer un vote (le remettre dans le comptage).",
