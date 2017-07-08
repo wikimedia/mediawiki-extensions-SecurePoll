@@ -72,7 +72,6 @@ class PurgePrivateVoteData extends Maintenance {
 		}
 
 		if ( count( $electionsToPurge ) > 0 ) {
-
 			$conds = [ 'vote_election' => $electionsToPurge ];
 			// In case a partial purge ran previously
 			$conds[] = "( vote_ip != '' OR vote_xff != '' OR vote_ua != '' )";

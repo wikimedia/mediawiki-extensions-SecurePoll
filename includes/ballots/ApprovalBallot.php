@@ -95,4 +95,3 @@ class SecurePoll_ApprovalBallot extends SecurePoll_Ballot {
 	}
 
 }
-

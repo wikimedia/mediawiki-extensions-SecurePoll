@@ -184,4 +184,3 @@ abstract class SecurePoll_PairwiseTallier extends SecurePoll_Tallier {
 	}
 
 }
-

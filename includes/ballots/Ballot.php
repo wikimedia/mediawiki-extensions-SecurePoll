@@ -246,7 +246,7 @@ abstract class SecurePoll_Ballot {
 			[ $this, 'getCurrentVoteCallback' ],
 			$voter->getId()
 		);
-		if ( !$status->isOK() ){
+		if ( !$status->isOK() ) {
 			return false;
 		}
 

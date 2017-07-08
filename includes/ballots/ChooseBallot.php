@@ -100,4 +100,3 @@ class SecurePoll_ChooseBallot extends SecurePoll_Ballot {
 		return $s;
 	}
 }
-

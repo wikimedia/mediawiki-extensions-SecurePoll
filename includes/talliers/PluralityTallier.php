@@ -93,4 +93,3 @@ class SecurePoll_PluralityTallier extends SecurePoll_Tallier {
 		return $ranks;
 	}
 }
-

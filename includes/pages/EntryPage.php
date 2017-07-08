@@ -198,4 +198,3 @@ class SecurePoll_ElectionPager extends TablePager {
 		return $this->entryPage->getTitle();
 	}
 }
-

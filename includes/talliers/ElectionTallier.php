@@ -116,4 +116,3 @@ class SecurePoll_ElectionTallier {
 		return $s;
 	}
 }
-

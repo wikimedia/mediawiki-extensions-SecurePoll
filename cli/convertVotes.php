@@ -112,4 +112,3 @@ function spFatal( $message ) {
 	fwrite( STDERR, rtrim( $message ) . "\n" );
 	exit( 1 );
 }
-

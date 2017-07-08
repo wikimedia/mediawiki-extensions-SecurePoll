@@ -237,7 +237,7 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 			'vote_current' => 1,
 			'vote_struck' => 0
 		];
-		if ( $voterId !== null ){
+		if ( $voterId !== null ) {
 			$where['vote_voter'] = $voterId;
 		}
 		$res = $dbr->select(
@@ -249,7 +249,7 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 
 		foreach ( $res as $row ) {
 			$status = call_user_func( $callback, $this, $row->vote_record );
-			if ( $status instanceof Status && !$status->isOK() ){
+			if ( $status instanceof Status && !$status->isOK() ) {
 				return $status;
 			}
 		}
@@ -485,8 +485,8 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 			if ( $xr->name === 'vote' ) {
 				# Notify tallier of vote record if requested
 				if ( $this->voteCallback && $electionInfo
-					&& $electionInfo['id'] == $this->voteElectionId )
-				{
+					&& $electionInfo['id'] == $this->voteElectionId
+				) {
 					$record = $this->readStringElement();
 					$status = call_user_func( $this->voteCallback, $this, $record );
 					if ( !$status->isOK() ) {

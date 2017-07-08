@@ -47,8 +47,8 @@ class SecurePoll_CommentDumper extends SecurePoll_ElectionTallier {
 
 		// Short circuit if the comments are empty
 		if ( $this->skipEmptyComments &&
-		 	$comments['native'] == '' && $comments['en'] == '' )
-		 {
+			$comments['native'] == '' && $comments['en'] == ''
+		) {
 			return Status::newGood();
 		}
 

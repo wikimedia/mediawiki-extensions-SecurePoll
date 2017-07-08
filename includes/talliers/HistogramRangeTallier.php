@@ -83,4 +83,3 @@ class SecurePoll_HistogramRangeTallier extends SecurePoll_Tallier {
 		return $this->getHtmlResult();
 	}
 }
-

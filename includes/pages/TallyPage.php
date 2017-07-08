@@ -144,8 +144,8 @@ class SecurePoll_TallyPage extends SecurePoll_ActionPage {
 
 		if ( !isset( $_FILES['tally_file'] )
 			|| !is_uploaded_file( $_FILES['tally_file']['tmp_name'] )
-			|| !$_FILES['tally_file']['size'] )
-		{
+			|| !$_FILES['tally_file']['size']
+		) {
 			$out->addWikiMsg( 'securepoll-no-upload' );
 			return;
 		}
