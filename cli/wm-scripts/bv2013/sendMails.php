@@ -66,5 +66,5 @@ while ( !is_null( $line = fgets( $in ) ) ) {
 	UserMailer::send( $address, $sender, $subject, $content );
 	print "Sent to $name <$address> in $lang\n";
 
-	sleep( 0.1 );
+	usleep( 100000 );
 }
