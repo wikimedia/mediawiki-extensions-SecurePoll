@@ -10,7 +10,7 @@
 	"securepoll-desc": "Erweiderung fir Walen an Ëmfroen",
 	"securepoll-invalid-page": "Net-valabel Ënnersäit \"<nowiki>$1</nowiki>\"",
 	"securepoll-need-admin": "Dir musst Admnistrateur vun de Wale si fir dëst kënnen ze maachen.",
-	"securepoll-too-few-params": "Net genuch Ënnersäite-Parameter (net valbele Link).",
+	"securepoll-too-few-params": "Net genuch Ënnersäite-Parameter (net valabele Link).",
 	"securepoll-invalid-election": "\"$1\" ass keng ID déi fir d'Wale gëlteg ass.",
 	"securepoll-welcome": "<strong>{{GENDER:$1|Wëllkomm}} $1!</strong>",
 	"securepoll-not-started": "Dës Walen hunn nach net ugefaang.\nSi fänke viraussiichtlech den $2 ëm $3 un.",
