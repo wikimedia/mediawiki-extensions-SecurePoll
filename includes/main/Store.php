@@ -35,8 +35,8 @@ interface SecurePoll_Store {
 
 	/**
 	 * Get the type of one or more SecurePoll entities.
-	 * @param $ids Int
-	 * @return String
+	 * @param int $id
+	 * @return string
 	 */
 	function getEntityType( $id );
 
@@ -60,7 +60,7 @@ interface SecurePoll_Store {
 
 	/**
 	 * Get a database connection object.
-	 * @param integer $index DB_MASTER or DB_REPLICA
+	 * @param int $index DB_MASTER or DB_REPLICA
 	 */
 	function getDB( $index = DB_MASTER );
 

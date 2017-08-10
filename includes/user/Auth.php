@@ -19,6 +19,7 @@ class SecurePoll_Auth {
 	 * Create an auth object of the given type
 	 * @param SecurePoll_Context $context
 	 * @param string $type
+	 * @return SecurePoll_LocalAuth|SecurePoll_RemoteMWAuth
 	 * @throws MWException
 	 */
 	static function factory( $context, $type ) {
@@ -49,7 +50,7 @@ class SecurePoll_Auth {
 	/**
 	 * Create a voter transparently, without user interaction.
 	 * Sessions authorized against local accounts are created this way.
-	 * @param $election SecurePoll_Election
+	 * @param SecurePoll_Election $election
 	 * @return Status
 	 */
 	function autoLogin( $election ) {
@@ -58,7 +59,7 @@ class SecurePoll_Auth {
 
 	/**
 	 * Create a voter on a direct request from a remote site.
-	 * @param $election SecurePoll_Election
+	 * @param SecurePoll_Election $election
 	 * @return Status
 	 */
 	function requestLogin( $election ) {
@@ -68,7 +69,7 @@ class SecurePoll_Auth {
 	/**
 	 * Get the voter associated with the current session. Returns false if
 	 * there is no session.
-	 * @param $election SecurePoll_Election
+	 * @param SecurePoll_Election $election
 	 * @return SecurePoll_Election
 	 */
 	function getVoterFromSession( $election ) {
@@ -105,7 +106,7 @@ class SecurePoll_Auth {
 	 * Get a voter object with the relevant parameters.
 	 * If no voter exists with those parameters, a new one is created. If one
 	 * does exist already, it is returned.
-	 * @param $params array
+	 * @param array $params
 	 * @return SecurePoll_Voter
 	 */
 	function getVoter( $params ) {
@@ -138,7 +139,7 @@ class SecurePoll_Auth {
 
 	/**
 	 * Create a voter without user interaction, and create a session for it.
-	 * @param $election SecurePoll_Election
+	 * @param SecurePoll_Election $election
 	 * @return Status
 	 */
 	function newAutoSession( $election ) {
@@ -153,7 +154,7 @@ class SecurePoll_Auth {
 
 	/**
 	 * Create a voter on an explicit request, and create a session for it.
-	 * @param $election SecurePoll_Election
+	 * @param SecurePoll_Election $election
 	 * @return Status
 	 */
 	function newRequestedSession( $election ) {
@@ -190,7 +191,7 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 	/**
 	 * Create a voter transparently, without user interaction.
 	 * Sessions authorized against local accounts are created this way.
-	 * @param $election SecurePoll_Election
+	 * @param SecurePoll_Election $election
 	 * @return Status
 	 */
 	function autoLogin( $election ) {
@@ -210,7 +211,7 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 
 	/**
 	 * Get voter parameters for a local User object.
-	 * @param $user User
+	 * @param User $user
 	 * @return array
 	 */
 	function getUserParams( $user ) {
@@ -240,7 +241,7 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 
 	/**
 	 * Get the lists a given local user belongs to
-	 * @param $user User
+	 * @param User $user
 	 * @return array
 	 */
 	function getLists( $user ) {
@@ -260,7 +261,7 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 
 	/**
 	 * Get the CentralAuth lists the user belongs to
-	 * @param $user User
+	 * @param User $user
 	 * @return array
 	 */
 	function getCentralLists( $user ) {
@@ -287,8 +288,8 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 
 	/**
 	 * Checks how many central wikis the user is blocked on
-	 * @param $user User
-	 * @return Integer the number of wikis the user is blocked on.
+	 * @param User $user
+	 * @return int the number of wikis the user is blocked on.
 	 */
 	function getCentralBlockCount( $user ) {
 		if ( ! class_exists( 'CentralAuthUser' ) ) {
@@ -327,7 +328,7 @@ class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
 
 	/**
 	 * Create a voter on a direct request from a remote site.
-	 * @param $election SecurePoll_Election
+	 * @param SecurePoll_Election $election
 	 * @return Status
 	 */
 	function requestLogin( $election ) {
@@ -424,6 +425,8 @@ class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
 	 * hexadecimal digits, to provide 24 bits less information than original token.
 	 * This makes discovery of the token difficult even if the hash function is
 	 * completely broken.
+	 * @param string $token
+	 * @return string
 	 */
 	static function encodeToken( $token ) {
 		return substr( sha1( __CLASS__ . '-' . $token ), 0, 26 );

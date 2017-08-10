@@ -10,7 +10,7 @@ class SecurePoll_ListPage extends SecurePoll_ActionPage {
 
 	/**
 	 * Execute the subpage.
-	 * @param $params array Array of subpage parameters.
+	 * @param array $params Array of subpage parameters.
 	 */
 	public function execute( $params ) {
 		$out = $this->specialPage->getOutput();
@@ -132,9 +132,9 @@ EOT
 
 	/**
 	 * The strike/unstrike backend.
-	 * @param $action string strike or unstrike
-	 * @param $voteId integer The vote ID
-	 * @param $reason string The reason
+	 * @param string $action strike or unstrike
+	 * @param int $voteId The vote ID
+	 * @param string $reason The reason
 	 */
 	public function strike( $action, $voteId, $reason ) {
 		$dbw = $this->context->getDB();
