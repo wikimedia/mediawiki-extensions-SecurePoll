@@ -103,7 +103,7 @@ class PurgePrivateVoteData extends Maintenance {
 			$dbw = wfGetDB( DB_MASTER );
 
 			foreach ( $deleteSets as $deleteSet ) {
-				list ( $minId, $maxId ) = $deleteSet;
+				list( $minId, $maxId ) = $deleteSet;
 				$dbw->update(
 					'securepoll_votes',
 					[ 'vote_ip' => '', 'vote_xff' => '', 'vote_ua' => '' ],

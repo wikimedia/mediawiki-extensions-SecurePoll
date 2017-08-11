@@ -100,7 +100,7 @@ class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 
 	function unpackRecord( $record ) {
 		$ranks = [];
-		$itemLength = 3*8 + 7;
+		$itemLength = 3 * 8 + 7;
 		for ( $offset = 0, $len = strlen( $record ); $offset < $len; $offset += $itemLength ) {
 			if ( !preg_match( '/Q([0-9A-F]{8})-A([0-9A-F]{8})-R([0-9A-F]{8})--/A',
 				$record, $m, 0, $offset )

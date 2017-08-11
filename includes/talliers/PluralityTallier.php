@@ -85,7 +85,7 @@ class SecurePoll_PluralityTallier extends SecurePoll_Tallier {
 		$oids = array_keys( $this->tally );
 		$scores = array_values( $this->tally );
 		foreach ( $oids as $i => $oid ) {
-			if ( $i > 0 && $scores[$i-1] !== $scores[$i] ) {
+			if ( $i > 0 && $scores[$i - 1] !== $scores[$i] ) {
 				$currentRank = $i + 1;
 			}
 			$ranks[$oid] = $currentRank;

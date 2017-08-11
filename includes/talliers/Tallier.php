@@ -80,8 +80,8 @@ abstract class SecurePoll_Tallier {
 		$ids = array_keys( $ranks );
 		foreach ( $ids as $i => $oid ) {
 			$rank = $ranks[$oid];
-			$prevRank = isset( $ids[$i-1] ) ? $ranks[$ids[$i-1]] : false;
-			$nextRank = isset( $ids[$i+1] ) ? $ranks[$ids[$i+1]] : false;
+			$prevRank = isset( $ids[$i - 1] ) ? $ranks[$ids[$i - 1]] : false;
+			$nextRank = isset( $ids[$i + 1] ) ? $ranks[$ids[$i + 1]] : false;
 			if ( $rank === $prevRank || $rank === $nextRank ) {
 				$rank .= '*';
 			}
@@ -112,8 +112,8 @@ abstract class SecurePoll_Tallier {
 
 		foreach ( $ids as $i => $oid ) {
 			$rank = $ranks[$oid];
-			$prevRank = isset( $ids[$i-1] ) ? $ranks[$ids[$i-1]] : false;
-			$nextRank = isset( $ids[$i+1] ) ? $ranks[$ids[$i+1]] : false;
+			$prevRank = isset( $ids[$i - 1] ) ? $ranks[$ids[$i - 1]] : false;
+			$nextRank = isset( $ids[$i + 1] ) ? $ranks[$ids[$i + 1]] : false;
 			if ( $rank === $prevRank || $rank === $nextRank ) {
 				$rank .= '*';
 			}

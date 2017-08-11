@@ -227,7 +227,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 			if ( $i === false ) {
 				$wiki = '*';
 			} else {
-				$wiki = trim( substr( $name, $i+1 ) );
+				$wiki = trim( substr( $name, $i + 1 ) );
 				$name = trim( substr( $name, 0, $i ) );
 			}
 			if ( $wiki !== '' && $name !== '' ) {
