@@ -162,7 +162,7 @@ class SecurePoll_GpgCrypt {
 		}
 
 		# Create the directory
-		$this->homeDir = $wgSecurePollTempDir . '/securepoll-' . sha1( mt_rand() . mt_rand() );
+		$this->homeDir = $wgSecurePollTempDir . '/securepoll-' . MWCryptRand::generateHex( 40 );
 		if ( !mkdir( $this->homeDir ) ) {
 			$this->homeDir = null;
 			return Status::newFatal( 'securepoll-no-gpg-home' );
