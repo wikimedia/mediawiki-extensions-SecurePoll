@@ -87,7 +87,7 @@ class SecurePoll_PopulateVoterListJob extends Job {
 		$maxIds = [];
 		$total = 0;
 		foreach ( $wikis as $wiki ) {
-			$dbr = wfGetLB( $wiki )->getConnectionRef( DB_SLAVE, [], $wiki );
+			$dbr = wfGetLB( $wiki )->getConnectionRef( DB_REPLICA, [], $wiki );
 			$max = $dbr->selectField( 'user', 'MAX(user_id)' );
 			if ( !$max ) {
 				$max = 0;
@@ -192,7 +192,7 @@ class SecurePoll_PopulateVoterListJob extends Job {
 				return true;
 			}
 
-			$dbr = wfGetDB( DB_SLAVE );
+			$dbr = wfGetDB( DB_REPLICA );
 
 			// Construct the list of user_ids in our range that pass the criteria
 			$users = null;

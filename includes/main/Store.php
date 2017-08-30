@@ -130,7 +130,7 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 
 	function getElectionInfo( $ids ) {
 		$ids = (array)$ids;
-		$db = $this->getDB( DB_SLAVE );
+		$db = $this->getDB( DB_REPLICA );
 		$res = $db->select(
 			'securepoll_elections',
 			'*',

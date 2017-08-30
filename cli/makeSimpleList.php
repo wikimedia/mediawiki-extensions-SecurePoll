@@ -16,7 +16,7 @@
 $optionsWithArgs = [ 'before', 'edits', 'start-from' ];
 require __DIR__ . '/cli.inc';
 
-$dbr = wfGetDB( DB_SLAVE );
+$dbr = wfGetDB( DB_REPLICA );
 $dbw = wfGetDB( DB_MASTER );
 $fname = 'makeSimpleList.php';
 $before = isset( $options['before'] ) ? $dbr->timestamp( strtotime( $options['before'] ) ) : false;

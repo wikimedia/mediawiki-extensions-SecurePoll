@@ -8,7 +8,7 @@ $wikis = $wgLocalDatabases;
 
 foreach ( $wikis as $wikiId ) {
 	$lb = wfGetLB( $wikiId );
-	$db = $lb->getConnection( DB_SLAVE, [], $wikiId );
+	$db = $lb->getConnection( DB_REPLICA, [], $wikiId );
 
 	if ( !$db->tableExists( 'securepoll_lists' ) ) {
 		$lb->reuseConnection( $db );

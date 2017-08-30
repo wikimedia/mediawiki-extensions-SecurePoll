@@ -72,7 +72,7 @@ function spGetQualifiedUsers( $users ) {
 			continue;
 		}
 		$lb = wfGetLB( $wiki );
-		$db = $lb->getConnection( DB_SLAVE, [], $wiki );
+		$db = $lb->getConnection( DB_REPLICA, [], $wiki );
 		$foreignEditCounts = spGetEditCounts( $db, $wikiUsers );
 		$lb->reuseConnection( $db );
 		foreach ( $foreignEditCounts as $name => $count ) {

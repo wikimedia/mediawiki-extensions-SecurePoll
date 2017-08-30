@@ -50,7 +50,7 @@ class PurgePrivateVoteData extends Maintenance {
 
 		$electionsToPurge = [];
 		$deleteSets = [];
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		if ( !$dbr->tableExists( 'securepoll_elections' ) ) {
 			$this->output( "`securepoll_elections` table does not exist. Nothing to do.\n" );

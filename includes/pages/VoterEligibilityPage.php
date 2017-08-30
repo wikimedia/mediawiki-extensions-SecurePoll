@@ -160,7 +160,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 		}
 	}
 
-	private function fetchList( $property, $db = DB_SLAVE ) {
+	private function fetchList( $property, $db = DB_REPLICA ) {
 		$wikis = $this->election->getProperty( 'wikis' );
 		if ( $wikis ) {
 			$wikis = explode( "\n", $wikis );

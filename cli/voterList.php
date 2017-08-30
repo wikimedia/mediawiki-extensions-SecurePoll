@@ -10,7 +10,7 @@ if ( !file_exists( "$IP/includes/WebStart.php" ) ) {
 $optionsWithArgs = [ 'before', 'edits' ];
 require $IP . '/maintenance/commandLine.inc';
 
-$dbr = wfGetDB( DB_SLAVE );
+$dbr = wfGetDB( DB_REPLICA );
 $dbw = wfGetDB( DB_MASTER );
 $fname = 'voterList.php';
 $maxUser = $dbr->selectField( 'user', 'MAX(user_id)', false );

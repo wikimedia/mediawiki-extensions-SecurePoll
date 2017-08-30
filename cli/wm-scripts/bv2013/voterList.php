@@ -1,7 +1,7 @@
 <?php
 
 require __DIR__ . '/../../cli.inc';
-$dbr = wfGetDB( DB_SLAVE );
+$dbr = wfGetDB( DB_REPLICA );
 $dbw = wfGetDB( DB_MASTER );
 $fname = 'voterList.php';
 $listName = 'board-vote-2013';
@@ -50,7 +50,7 @@ echo wfWikiID() . " qualified \t$numQualified\n";
  */
 function spGetQualifiedUsers( $users ) {
 	global $wgCentralAuthDatabase, $wgLocalDatabases;
-	$dbc = wfGetDB( DB_SLAVE, [], $wgCentralAuthDatabase );
+	$dbc = wfGetDB( DB_REPLICA, [], $wgCentralAuthDatabase );
 	$editCounts = [];
 
 	# Check local attachment
@@ -67,7 +67,7 @@ function spGetQualifiedUsers( $users ) {
 	}
 	$nonLocalUsers = [];
 
-	$localEditCounts = spGetEditCounts( wfGetDB( DB_SLAVE ), $users );
+	$localEditCounts = spGetEditCounts( wfGetDB( DB_REPLICA ), $users );
 	foreach ( $localEditCounts as $user => $counts ) {
 		if ( $counts[0] == 0 ) {
 			// No recent local edits, remove from consideration
@@ -97,7 +97,7 @@ function spGetQualifiedUsers( $users ) {
 				continue;
 			}
 			$lb = wfGetLB( $wiki );
-			$db = $lb->getConnection( DB_SLAVE, [], $wiki );
+			$db = $lb->getConnection( DB_REPLICA, [], $wiki );
 			$foreignEditCounts = spGetEditCounts( $db, $wikiUsers );
 			$lb->reuseConnection( $db );
 			foreach ( $foreignEditCounts as $name => $count ) {

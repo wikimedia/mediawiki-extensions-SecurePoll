@@ -31,7 +31,7 @@ $list_name = 'board-vote-2013';
 $election_id = 290;
 
 $voted = [];
-$vdb = wfGetDB( DB_SLAVE, [], 'votewiki' );
+$vdb = wfGetDB( DB_REPLICA, [], 'votewiki' );
 $res = $vdb->select(
 	[ 'securepoll_votes', 'securepoll_voters' ],
 	[ 'voter_name', 'voter_properties' ],
@@ -64,7 +64,7 @@ foreach ( $wikis as $w ) {
 
 	$defaultLang = $wgConf->get( 'wgLanguageCode', $w, null, [ 'lang' => $siteLang ], $tags );
 
-	$db = wfGetDB( DB_SLAVE, null, $w );
+	$db = wfGetDB( DB_REPLICA, null, $w );
 
 	try {
 		$res = $db->select(
@@ -193,7 +193,7 @@ fwrite( $err, "Done.\n" );
  */
 function runChecks( $wiki, $usersToCheck /* user ID */ ) {
 	global $users;
-	$dbr = wfGetDB( DB_SLAVE, null, $wiki );
+	$dbr = wfGetDB( DB_REPLICA, null, $wiki );
 
 	$res = $dbr->select( 'ipblocks', 'ipb_user',
 		[

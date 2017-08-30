@@ -8,7 +8,7 @@
 
 require __DIR__ . '/../../cli.inc';
 
-$dbr = wfGetDB( DB_SLAVE );
+$dbr = wfGetDB( DB_REPLICA );
 $dbw = wfGetDB( DB_MASTER );
 
 $maxUser = $dbr->selectField( 'user', 'MAX(user_id)', false );
