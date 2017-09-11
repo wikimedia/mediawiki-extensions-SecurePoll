@@ -11,6 +11,7 @@ $usage = <<<EOT
 Usage: php dump.php [options...] <election name>
 Options:
     -o <outfile>                Output to the specified file
+    --by-id                     Get election using its numerical ID, instead of its title
     --votes                     Include vote records
     --all-langs                 Include messages for all languages instead of just the primary
     --jump                      Produce a configuration dump suitable for setting up a jump wiki
@@ -21,7 +22,12 @@ if ( !isset( $args[0] ) ) {
 }
 
 $context = new SecurePoll_Context;
-$election = $context->getElectionByTitle( $args[0] );
+if ( isset( $options['by-id'] ) ) {
+  $election = $context->getElection( $args[0] );
+} else {
+  $election = $context->getElectionByTitle( $args[0] );
+}
+
 if ( !$election ) {
 	spFatal( "There is no election called \"$args[0]\"" );
 }
