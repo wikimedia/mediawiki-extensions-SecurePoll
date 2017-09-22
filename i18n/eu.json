@@ -7,7 +7,8 @@
 			"Theklan",
 			"Unai Fdz. de Betoño",
 			"Xabier Armendaritz",
-			"Subi"
+			"Subi",
+			"Mikel Ibaiba"
 		]
 	},
 	"securepoll": "BozketaSegurua",
@@ -16,7 +17,7 @@
 	"securepoll-need-admin": "Ekintza hori burutzeko hauteskundeetako administratzailea izan behar duzu.",
 	"securepoll-too-few-params": "Ez dago azpiorrialde parametro nahikorik (lotura ez baliagarria).",
 	"securepoll-invalid-election": "\"$1\" ez da hauteskunde ID baliagarria.",
-	"securepoll-welcome": "<strong>Ongi etorri $1!</strong>",
+	"securepoll-welcome": "<strong>{{GENDER:$1|Ongi etorri}} $1!</strong>",
 	"securepoll-not-started": "Bozketa ez da oraindik hasi. $2 ko $3 etan hastekoa da.",
 	"securepoll-finished": "Hauteskundeak bukatu dira, beraz, ezin duzu bozkatu.",
 	"securepoll-not-qualified": "Ez zara bozketa honetan bozkatzen gai: $1",
