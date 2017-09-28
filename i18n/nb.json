@@ -8,7 +8,8 @@
 			"Nghtwlkr",
 			"Ronja Addams-Moring",
 			"Stigmj",
-			"Chameleon222"
+			"Chameleon222",
+			"Jon Harald Søby"
 		]
 	},
 	"securepoll": "Sikkert valg",
@@ -81,7 +82,6 @@
 	"securepoll-header-admin": "Admin",
 	"securepoll-cookie-dup-list": "Cookie duplikatbruker",
 	"securepoll-dump-title": "Dump: $1",
-	"securepoll-dump-no-crypt": "Ingen kryptert valgregistrering er tilgjengelig for dette valget, på grunn av at valget ikke er satt opp til å benytte kryptering.",
 	"securepoll-dump-not-finished": "Krypterte valgregistre er kun tilgjengelige etter avsluttningen den $1 klokken $2",
 	"securepoll-dump-no-urandom": "Kan ikke åpne /dev/urandom.\nFor å sikre en hemmelig avstemning er de krypterte valgregistrene kun offentlig tilgjengelig når de kan blandes med en sikker strøm av tilfeldige tall.",
 	"securepoll-urandom-not-supported": "Denne tjeneren støtter ikke kryptografisk generering av tilfeldige tall.\nFor å opprettholde velgernes anonymitet vil de enkelte stemmene kun offentliggjøres når de kan anonymiseres med en generator for tilfeldige tall.",
@@ -122,13 +122,9 @@
 	"securepoll-round": "Runde $1",
 	"securepoll-spoilt": "(Ugyldig)",
 	"securepoll-exhausted": "(Oppbrukt)",
-	"securepoll-htmlform-date-invalid": "Verdien du angav blir ikke gjenkjent som en dato. Prøv å bruke formatet YYYY-MM-DD.",
-	"securepoll-htmlform-date-toolow": "Verdien du angav er før den tidligste tillatte datoen $1.",
-	"securepoll-htmlform-date-toohigh": "Verdien du angav er etter siste tillatte dato $1.",
-	"securepoll-htmlform-daterange-relative-layout": "Start $1 og vedvar i $2 dager",
-	"securepoll-htmlform-daterange-absolute-layout": "Start $1 og avslutt $2",
-	"securepoll-htmlform-daterange-days-badoption": "Verdien du angav for antall dager å vedvare er ikke et gyldig valg.",
-	"securepoll-htmlform-daterange-days-invalid": "Verdien du angav for antall dager å vedvare er ikke et heltall.",
 	"securepoll-edit-redirect": "Dette valget må konfigureres på $1",
-	"securepoll-edit-redirect-otherwiki": "hovedwikien"
+	"securepoll-edit-redirect-otherwiki": "hovedwikien",
+	"securepoll-votereligibility-redirect": "Stemmeberettighet for dette valget må konfigureres på $1",
+	"securepoll-votereligibility-redirect-otherwiki": "hovedwikien",
+	"securepoll-votereligibility-basic": "Grunnleggende innstillinger."
 }
