@@ -3,7 +3,8 @@
 		"authors": [
 			"Reza1615",
 			"محبوب عالم",
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"Obaid Raza"
 		]
 	},
 	"securepoll-desc": "توسیعہ برائے انتخابات و مساحات",
@@ -44,6 +45,8 @@
 	"securepoll-subpage-vote": "ووٹ",
 	"securepoll-subpage-translate": "کا ترجمہ",
 	"securepoll-subpage-list": "فہرست",
+	"securepoll-subpage-edit": "ترمیم",
+	"securepoll-subpage-votereligibility": "رائے دہندہ کی اہلیت",
 	"securepoll-tally-upload-legend": "خفیہ ڈمپ اپ لوڈ کریں",
 	"securepoll-strength-matrix": "راہ طاقت میٹرکس",
 	"securepoll-ranks": "آخری درجہ بندی",
