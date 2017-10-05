@@ -228,6 +228,11 @@ $specialPageAliases['uk'] = [
 	'SecurePoll' => [ 'Захищене_голосування', 'Защищённое_голосование' ],
 ];
 
+/** Urdu (اردو) */
+$specialPageAliases['ur'] = [
+	'SecurePoll' => [ 'محفوظ_انتخاب' ],
+];
+
 /** Vietnamese (Tiếng Việt) */
 $specialPageAliases['vi'] = [
 	'SecurePoll' => [ 'Bỏ_phiếu_an_toàn' ],
