@@ -9,7 +9,7 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 
 	/**
 	 * Execute the subpage.
-	 * @param $params array Array of subpage parameters.
+	 * @param array $params Array of subpage parameters.
 	 */
 	public function execute( $params ) {
 		$out = $this->specialPage->getOutput();
@@ -102,6 +102,7 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 
 	/**
 	 * Show the voting form.
+	 * @param Status|false $status
 	 */
 	public function showForm( $status = false ) {
 		$out = $this->specialPage->getOutput();
@@ -144,7 +145,7 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 
 	/**
 	 * Add a vote to the database with the given unencrypted answer record.
-	 * @param $record string
+	 * @param string $record
 	 */
 	public function logVote( $record ) {
 		$out = $this->specialPage->getOutput();

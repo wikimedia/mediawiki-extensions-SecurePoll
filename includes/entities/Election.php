@@ -79,7 +79,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 *
 	 * Do not use this constructor directly, instead use
 	 * SecurePoll_Context::getElection().
-	 * @param $context SecurePoll_Context
+	 * @param SecurePoll_Context $context
 	 * @param string $info
 	 */
 	function __construct( $context, $info ) {
@@ -99,6 +99,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 
 	/**
 	 * Get a list of localisable message names. See SecurePoll_Entity.
+	 * @return array
 	 */
 	function getMessageNames() {
 		return [
@@ -112,6 +113,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 
 	/**
 	 * Get the election's parent election... hmm...
+	 * @return SecurePoll_Election
 	 */
 	function getElection() {
 		return $this;
@@ -119,6 +121,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 
 	/**
 	 * Get a list of child entity objects. See SecurePoll_Entity.
+	 * @return array
 	 */
 	function getChildren() {
 		return $this->getQuestions();
@@ -126,6 +129,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 
 	/**
 	 * Get the start date in MW internal form.
+	 * @return string
 	 */
 	function getStartDate() {
 		return $this->startDate;
@@ -133,6 +137,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 
 	/**
 	 * Get the end date in MW internal form.
+	 * @return string
 	 */
 	function getEndDate() {
 		return $this->endDate;
@@ -140,7 +145,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 
 	/**
 	 * Returns true if the election has started.
-	 * @param $ts string|bool The reference timestamp, or false for now.
+	 * @param string|bool $ts The reference timestamp, or false for now.
 	 * @return bool
 	 */
 	function isStarted( $ts = false ) {
@@ -152,7 +157,8 @@ class SecurePoll_Election extends SecurePoll_Entity {
 
 	/**
 	 * Returns true if the election has finished.
-	 * @param $ts string|bool The reference timestamp, or false for now.
+	 * @param string|bool $ts The reference timestamp, or false for now.
+	 * @return bool
 	 */
 	function isFinished( $ts = false ) {
 		if ( $ts === false ) {
@@ -175,7 +181,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	/**
 	 * Determine whether a voter would be qualified to vote in this election,
 	 * based on the given associative array of parameters.
-	 * @param $params array Associative array
+	 * @param array $params Associative array
 	 * @return Status
 	 */
 	function getQualifiedStatus( $params ) {
@@ -274,7 +280,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 
 	/**
 	 * Returns true if the user is an admin of the current election.
-	 * @param $user User
+	 * @param User $user
 	 * @return bool
 	 */
 	function isAdmin( $user ) {
@@ -284,7 +290,8 @@ class SecurePoll_Election extends SecurePoll_Entity {
 
 	/**
 	 * Returns true if the voter has voted already.
-	 * @param $voter SecurePoll_Voter
+	 * @param SecurePoll_Voter $voter
+	 * @return bool
 	 */
 	function hasVoted( $voter ) {
 		$db = $this->context->getDB();
@@ -363,6 +370,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 
 	/**
 	 * Get the tally type
+	 * @return string
 	 */
 	function getTallyType() {
 		return $this->tallyType;
@@ -370,6 +378,8 @@ class SecurePoll_Election extends SecurePoll_Entity {
 
 	/**
 	 * Call a callback function for each valid vote record, in random order.
+	 * @param callable $callback
+	 * @return Status
 	 */
 	function dumpVotesToCallback( $callback ) {
 		$random = $this->context->getRandom();
@@ -401,6 +411,8 @@ class SecurePoll_Election extends SecurePoll_Entity {
 
 	/**
 	 * Get an XML snippet describing the configuration of this object
+	 * @param array $params
+	 * @return string
 	 */
 	function getConfXml( $params = [] ) {
 		$s = "<configuration>\n" .
@@ -438,6 +450,8 @@ class SecurePoll_Election extends SecurePoll_Entity {
 
 	/**
 	 * Get property names which aren't included in an XML dump
+	 * @param array $params
+	 * @return array
 	 */
 	function getPropertyDumpBlacklist( $params = [] ) {
 		if ( !empty( $params['jump'] ) ) {

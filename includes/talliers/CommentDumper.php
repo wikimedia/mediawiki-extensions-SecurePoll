@@ -24,8 +24,8 @@ class SecurePoll_CommentDumper extends SecurePoll_ElectionTallier {
 	 * On error, the Status object returned here will be passed through back to
 	 * the caller of callbackValidVotes().
 	 *
-	 * @param $store SecurePoll_Store
-	 * @param $record string Encrypted, packed record.
+	 * @param SecurePoll_Store $store
+	 * @param string $record Encrypted, packed record.
 	 * @return Status
 	 */
 	function addRecord( $store, $record ) {
@@ -73,6 +73,7 @@ class SecurePoll_CommentDumper extends SecurePoll_ElectionTallier {
 	/**
 	 * Get text formatted results for this tally. Should only be called after
 	 * execute().
+	 * @return string
 	 */
 	function getTextResult() {
 		return stream_get_contents( $this->csvHandle, -1, 0 );

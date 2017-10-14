@@ -21,10 +21,10 @@ abstract class SecurePoll_Tallier {
 	];
 
 	/**
-	 * @param $context
-	 * @param $type
-	 * @param $electionTallier
-	 * @param $question
+	 * @param SecurePoll_Context $context
+	 * @param string $type
+	 * @param SecurePoll_ElectionTallier $electionTallier
+	 * @param SecurePoll_Question $question
 	 * @return SecurePoll_Tallier
 	 * @throws MWException
 	 */
@@ -57,9 +57,9 @@ abstract class SecurePoll_Tallier {
 	}
 
 	/**
-	 * @param  $context SecurePoll_Context
-	 * @param  $electionTallier SecurePoll_ElectionTallier
-	 * @param  $question SecurePoll_Question
+	 * @param SecurePoll_Context $context
+	 * @param SecurePoll_ElectionTallier $electionTallier
+	 * @param SecurePoll_Question $question
 	 */
 	function __construct( $context, $electionTallier, $question ) {
 		$this->context = $context;
@@ -72,7 +72,7 @@ abstract class SecurePoll_Tallier {
 	}
 
 	/**
-	 * @param $ranks
+	 * @param array $ranks
 	 * @return string
 	 */
 	function convertRanksToHtml( $ranks ) {
@@ -99,7 +99,7 @@ abstract class SecurePoll_Tallier {
 	}
 
 	/**
-	 * @param $ranks
+	 * @param array $ranks
 	 * @return string
 	 */
 	function convertRanksToText( $ranks ) {

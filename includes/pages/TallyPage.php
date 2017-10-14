@@ -6,7 +6,7 @@
 class SecurePoll_TallyPage extends SecurePoll_ActionPage {
 	/**
 	 * Execute the subpage.
-	 * @param $params array Array of subpage parameters.
+	 * @param array $params Array of subpage parameters.
 	 */
 	public function execute( $params ) {
 		$out = $this->specialPage->getOutput();

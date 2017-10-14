@@ -6,7 +6,7 @@
 class SecurePoll_TranslatePage extends SecurePoll_ActionPage {
 	/**
 	 * Execute the subpage.
-	 * @param $params array Array of subpage parameters.
+	 * @param array $params Array of subpage parameters.
 	 */
 	public function execute( $params ) {
 		global $wgSecurePollUseNamespace;
@@ -142,6 +142,7 @@ class SecurePoll_TranslatePage extends SecurePoll_ActionPage {
 	}
 
 	/**
+	 * @param string|false $lang
 	 * @return Title
 	 */
 	public function getTitle( $lang = false ) {
@@ -155,6 +156,7 @@ class SecurePoll_TranslatePage extends SecurePoll_ActionPage {
 	/**
 	 * Show a language selector to allow the user to choose the language to
 	 * translate.
+	 * @param string $selectedCode
 	 */
 	public function showLanguageSelector( $selectedCode ) {
 		$s =
@@ -181,6 +183,7 @@ class SecurePoll_TranslatePage extends SecurePoll_ActionPage {
 
 	/**
 	 * Submit message text changes.
+	 * @param string $secondary
 	 */
 	public function doSubmit( $secondary ) {
 		global $wgSecurePollUseNamespace;

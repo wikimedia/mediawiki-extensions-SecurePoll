@@ -7,9 +7,9 @@ class SecurePoll_PluralityTallier extends SecurePoll_Tallier {
 	public $tally = [];
 
 	/**
-	 * @param  $context SecurePoll_Context
-	 * @param  $electionTallier SecurePoll_ElectionTallier
-	 * @param  $question SecurePoll_Question
+	 * @param SecurePoll_Context $context
+	 * @param SecurePoll_ElectionTallier $electionTallier
+	 * @param SecurePoll_Question $question
 	 */
 	function __construct( $context, $electionTallier, $question ) {
 		parent::__construct( $context, $electionTallier, $question );

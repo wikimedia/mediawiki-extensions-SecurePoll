@@ -103,7 +103,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 	}
 
 	/**
-	 * @param $question SecurePoll_Question
+	 * @param SecurePoll_Question $question
 	 * @return array
 	 * @throws MWException
 	 */
@@ -117,7 +117,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 	}
 
 	/**
-	 * @param $question SecurePoll_Question
+	 * @param SecurePoll_Question $question
 	 * @return int
 	 * @throws MWException
 	 */
@@ -135,7 +135,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 	}
 
 	/**
-	 * @param $question SecurePoll_Question
+	 * @param SecurePoll_Question $question
 	 * @return array
 	 */
 	function getScoresLeftToRight( $question ) {
@@ -152,7 +152,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 	}
 
 	/**
-	 * @param $question SecurePoll_Question
+	 * @param SecurePoll_Question $question
 	 * @return array
 	 */
 	function getColumnLabels( $question ) {
@@ -200,8 +200,8 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 	}
 
 	/**
-	 * @param $question SecurePoll_Question
-	 * @param $options array
+	 * @param SecurePoll_Question $question
+	 * @param array $options
 	 * @return array
 	 */
 	function getQuestionForm( $question, $options ) {
@@ -244,8 +244,8 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 	}
 
 	/**
-	 * @param $question SecurePoll_Question
-	 * @param $status Status
+	 * @param SecurePoll_Question $question
+	 * @param Status $status
 	 * @return array
 	 */
 	function submitQuestion( $question, $status ) {

@@ -48,7 +48,7 @@ while ( true ) {
 echo wfWikiID() . " qualified \t$numQualified\n";
 
 /**
- * @param $users array
+ * @param array $users
  * @return array
  */
 function spGetQualifiedUsers( $users ) {
@@ -94,8 +94,8 @@ function spGetQualifiedUsers( $users ) {
 }
 
 /**
- * @param $db DatabaseBase
- * @param $userNames
+ * @param IDatabase $db
+ * @param string[] $userNames
  * @return array
  */
 function spGetEditCounts( $db, $userNames ) {
@@ -120,8 +120,8 @@ function spGetEditCounts( $db, $userNames ) {
 /**
  * Returns whether a user "is qualified" to vote based on edit count
  *
- * @param $short
- * @param $long
+ * @param int $short
+ * @param int $long
  * @return bool
  */
 function spIsQualified( $short, $long ) {
@@ -130,6 +130,8 @@ function spIsQualified( $short, $long ) {
 
 /**
  * Report progress
+ * @param int $current
+ * @param int $total
  */
 function spReportProgress( $current, $total ) {
 	static $lastReportTime, $startTime;

@@ -28,8 +28,8 @@ class SecurePoll_ChooseBallot extends SecurePoll_Ballot {
 
 	/**
 	 * Get the HTML form segment for a single question
-	 * @param $question SecurePoll_Question
-	 * @param $options Array of options, in the order they should be displayed
+	 * @param SecurePoll_Question $question
+	 * @param array $options Array of options, in the order they should be displayed
 	 * @return string
 	 */
 	function getQuestionForm( $question, $options ) {
@@ -50,8 +50,8 @@ class SecurePoll_ChooseBallot extends SecurePoll_Ballot {
 	}
 
 	/**
-	 * @param $question SecurePoll_Question
-	 * @param $status Status
+	 * @param SecurePoll_Question $question
+	 * @param Status $status
 	 * @return string
 	 */
 	function submitQuestion( $question, $status ) {

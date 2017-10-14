@@ -26,7 +26,7 @@ class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 	}
 
 	/**
-	 * @param $question SecurePoll_Question
+	 * @param SecurePoll_Question $question
 	 * @param Array $options
 	 * @return string
 	 */
@@ -55,8 +55,8 @@ class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 	}
 
 	/**
-	 * @param $question SecurePoll_Question
-	 * @param $status Status
+	 * @param SecurePoll_Question $question
+	 * @param Status $status
 	 * @return string
 	 */
 	function submitQuestion( $question, $status ) {

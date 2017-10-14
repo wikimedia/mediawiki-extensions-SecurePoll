@@ -18,18 +18,22 @@ interface SecurePoll_Store {
 	 * Get an array of messages with a given language, and entity IDs
 	 * in a given array of IDs. The return format is a 2-d array mapping ID
 	 * and message key to value.
+	 * @param string $lang
+	 * @param int[] $ids
 	 */
 	function getMessages( $lang, $ids );
 
 	/**
 	 * Get a list of languages that the given entity IDs have messages for.
 	 * Returns an array of language codes.
+	 * @param int[] $ids
 	 */
 	function getLangList( $ids );
 
 	/**
 	 * Get an array of properties for a given set of IDs. Returns a 2-d array
 	 * mapping IDs and property keys to values.
+	 * @param int[] $ids
 	 */
 	function getProperties( $ids );
 
@@ -44,17 +48,20 @@ interface SecurePoll_Store {
 	 * Get information about a set of elections, specifically the data that
 	 * is stored in the securepoll_elections row in the DB. Returns a 2-d
 	 * array mapping ID to associative array of properties.
+	 * @param int[] $ids
 	 */
 	function getElectionInfo( $ids );
 
 	/**
 	 * Get election information for a given set of names.
+	 * @param array $names
 	 */
 	function getElectionInfoByTitle( $names );
 
 	/**
 	 * Convert a row from the securepoll_elections table into an associative
 	 * array suitable for return by getElectionInfo().
+	 * @param stdClass $row
 	 */
 	function decodeElectionRow( $row );
 
@@ -67,11 +74,14 @@ interface SecurePoll_Store {
 	/**
 	 * Get an associative array of information about all questions in a given
 	 * election.
+	 * @param int $electionId
 	 */
 	function getQuestionInfo( $electionId );
 
 	/**
 	 * Call a callback function for all valid votes with a given election ID.
+	 * @param int $electionId
+	 * @param callable $callback
 	 */
 	function callbackValidVotes( $electionId, $callback );
 }
@@ -280,6 +290,7 @@ class SecurePoll_MemoryStore implements SecurePoll_Store {
 
 	/**
 	 * Get an array containing all election IDs stored in this object
+	 * @return array
 	 */
 	function getAllElectionIds() {
 		$electionIds = [];
@@ -401,6 +412,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 	 * Constructor. Note that readFile() must be called before any information
 	 * can be accessed. SecurePoll_Context::newFromXmlFile() is a shortcut
 	 * method for this.
+	 * @param string $fileName
 	 */
 	function __construct( $fileName ) {
 		$this->fileName = $fileName;
@@ -408,6 +420,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 
 	/**
 	 * Read the file and return boolean success.
+	 * @return bool
 	 */
 	function readFile() {
 		$this->xmlReader = new XMLReader;
@@ -424,6 +437,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 
 	/**
 	 * Do the top-level document element, and return success.
+	 * @return bool
 	 */
 	function doTopLevel() {
 		$xr = $this->xmlReader;
@@ -454,6 +468,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 	/**
 	 * Read an <election> element and position the cursor past the end of it.
 	 * Return success.
+	 * @return bool
 	 */
 	function doElection() {
 		$xr = $this->xmlReader;
@@ -512,6 +527,8 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 	 *
 	 * This function operates recursively to read child elements. It returns
 	 * the info array for the entity.
+	 * @param string $entityType
+	 * @return false|array
 	 */
 	function readEntity( $entityType ) {
 		$xr = $this->xmlReader;
@@ -604,6 +621,9 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 
 	/**
 	 * Propagate parent ids to child elements
+	 * @param array &$info
+	 * @param string $key
+	 * @param int $id
 	 */
 	public function addParentIds( &$info, $key, $id ) {
 		foreach ( self::$childTypes[$info['type']] as $childType ) {
@@ -621,6 +641,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 	 * When the cursor is positioned on an element node, this reads the entire
 	 * element and returns the contents as a string. On return, the cursor is
 	 * positioned past the end of the element.
+	 * @return string
 	 */
 	function readStringElement() {
 		$xr = $this->xmlReader;

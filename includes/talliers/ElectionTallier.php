@@ -11,8 +11,8 @@
 class SecurePoll_ElectionTallier {
 	/**
 	 * Constructor.
-	 * @param $context SecurePoll_Context
-	 * @param $election SecurePoll_Election
+	 * @param SecurePoll_Context $context
+	 * @param SecurePoll_Election $election
 	 */
 	function __construct( $context, $election ) {
 		$this->context = $context;
@@ -23,6 +23,7 @@ class SecurePoll_ElectionTallier {
 	 * Do the tally. Returns a Status object. On success, the value property
 	 * of the status will be an array of SecurePoll_Tallier objects, which can
 	 * be queried for results information.
+	 * @return Status
 	 */
 	function execute() {
 		$store = $this->context->getStore();
@@ -55,8 +56,8 @@ class SecurePoll_ElectionTallier {
 	 * On error, the Status object returned here will be passed through back to
 	 * the caller of callbackValidVotes().
 	 *
-	 * @param $store SecurePoll_Store
-	 * @param $record string Encrypted, packed record.
+	 * @param SecurePoll_Store $store
+	 * @param string $record Encrypted, packed record.
 	 * @return Status
 	 */
 	function addRecord( $store, $record ) {
@@ -87,6 +88,7 @@ class SecurePoll_ElectionTallier {
 	/**
 	 * Get HTML formatted results for this tally. Should only be called after
 	 * execute().
+	 * @return string
 	 */
 	function getHtmlResult() {
 		$s = '';
@@ -103,6 +105,7 @@ class SecurePoll_ElectionTallier {
 	/**
 	 * Get text formatted results for this tally. Should only be called after
 	 * execute().
+	 * @return string
 	 */
 	function getTextResult() {
 		$s = '';

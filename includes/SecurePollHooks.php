@@ -3,7 +3,7 @@
 class SecurePollHooks {
 
 	/**
-	 * @param $user User
+	 * @param User $user
 	 * @return bool
 	 */
 	public static function onUserLogout( $user ) {
@@ -12,7 +12,7 @@ class SecurePollHooks {
 	}
 
 	/**
-	 * @param $updater DatabaseUpdater
+	 * @param DatabaseUpdater $updater
 	 * @return bool
 	 */
 	public static function onLoadExtensionSchemaUpdates( $updater ) {
@@ -39,7 +39,7 @@ class SecurePollHooks {
 	}
 
 	/**
-	 * @param $namespaces array
+	 * @param array &$namespaces
 	 */
 	public static function onCanonicalNamespaces( &$namespaces ) {
 		global $wgSecurePollUseNamespace;
@@ -50,12 +50,12 @@ class SecurePollHooks {
 	}
 
 	/**
-	 * @param $title Title
-	 * @param $user User
-	 * @param $action string
-	 * @param $errors array
-	 * @param $doExpensiveQueries bool
-	 * @param $short
+	 * @param Title $title
+	 * @param User $user
+	 * @param string $action
+	 * @param array &$errors
+	 * @param bool $doExpensiveQueries
+	 * @param bool $short
 	 * @return bool
 	 */
 	public static function onTitleQuickPermissions(
@@ -73,8 +73,8 @@ class SecurePollHooks {
 	}
 
 	/**
-	 * @param $title Title
-	 * @param $model string
+	 * @param Title $title
+	 * @param string &$model
 	 * @return bool
 	 */
 	public static function onContentHandlerDefaultModelFor( $title, &$model ) {

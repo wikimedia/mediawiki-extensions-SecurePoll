@@ -5,7 +5,7 @@ class SecurePoll_Random {
 
 	/**
 	 * Open a /dev/urandom file handle
-	 * Returns a Status object
+	 * @return Status
 	 */
 	function open() {
 		if ( $this->urandom ) {
@@ -35,6 +35,8 @@ class SecurePoll_Random {
 	/**
 	 * Get a random integer between 0 and ($maxp1 - 1).
 	 * Should only be called after open() succeeds.
+	 * @param int $maxp1
+	 * @return int
 	 */
 	function getInt( $maxp1 ) {
 		$numBytes = ceil( strlen( base_convert( $maxp1, 10, 16 ) ) / 2 );
@@ -56,6 +58,8 @@ class SecurePoll_Random {
 	/**
 	 * Works like shuffle() except more secure. Returns the new array instead
 	 * of modifying it. The algorithm is the Knuth/Durstenfeld kind.
+	 * @param array $a
+	 * @return array
 	 */
 	function shuffle( $a ) {
 		$a = array_values( $a );

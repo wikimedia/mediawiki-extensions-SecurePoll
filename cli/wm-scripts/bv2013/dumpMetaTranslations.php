@@ -107,7 +107,7 @@ exit( 0 );
 // ------------------------------------------------------------------
 
 /**
- * @param $lang string
+ * @param string $lang
  * @return array|bool
  */
 function spGetMetaTranslations( $lang ) {
@@ -185,8 +185,8 @@ function spGetMetaTranslations( $lang ) {
 }
 
 /**
- * @param $messages array
- * @param $entity
+ * @param array $messages
+ * @param array $entity
  * @return string
  */
 function spFormatEntityMessages( $messages, $entity ) {

@@ -17,7 +17,7 @@ abstract class SecurePoll_ActionPage {
 
 	/**
 	 * Constructor.
-	 * @param $specialPage SecurePoll_SpecialSecurePoll
+	 * @param SecurePoll_SpecialSecurePoll $specialPage
 	 */
 	public function __construct( $specialPage ) {
 		$this->specialPage = $specialPage;
@@ -26,13 +26,15 @@ abstract class SecurePoll_ActionPage {
 
 	/**
 	 * Execute the subpage.
-	 * @param $params array Array of subpage parameters.
+	 * @param array $params Array of subpage parameters.
 	 */
 	abstract public function execute( $params );
 
 	/**
 	 * Internal utility function for initializing the global entity language
 	 * fallback sequence.
+	 * @param User $user
+	 * @param SecurePoll_Election $election
 	 */
 	public function initLanguage( $user, $election ) {
 		$uselang = $this->specialPage->getRequest()->getVal( 'uselang' );
@@ -59,6 +61,7 @@ abstract class SecurePoll_ActionPage {
 
 	/**
 	 * Relay for SpecialPage::msg
+	 * @return string
 	 */
 	protected function msg( /* args */ ) {
 		return call_user_func_array( [ $this->specialPage, 'msg' ], func_get_args() );

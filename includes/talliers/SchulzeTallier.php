@@ -9,7 +9,7 @@
 class SecurePoll_SchulzeTallier extends SecurePoll_PairwiseTallier {
 
 	/**
-	 * @param $victories
+	 * @param array $victories
 	 * @return array
 	 */
 	function getPathStrengths( $victories ) {
@@ -115,6 +115,9 @@ class SecurePoll_SchulzeTallier extends SecurePoll_PairwiseTallier {
 	 *
 	 * The inequality in the second part is reversed because the first part
 	 * refers to wins, and the second part refers to losses.
+	 * @param array $s1
+	 * @param array $s2
+	 * @return bool
 	 */
 	function isSchulzeWin( $s1, $s2 ) {
 		return $s1[0] > $s2[0] || ( $s1[0] == $s2[0] && $s1[1] < $s2[1] );

@@ -6,7 +6,7 @@
 class SecurePoll_EntryPage extends SecurePoll_ActionPage {
 	/**
 	 * Execute the subpage.
-	 * @param $params array Array of subpage parameters.
+	 * @param array $params Array of subpage parameters.
 	 */
 	function execute( $params ) {
 		$pager = new SecurePoll_ElectionPager( $this );
@@ -112,7 +112,7 @@ class SecurePoll_ElectionPager extends TablePager {
 
 	/**
 	 * Add classes based on whether the poll is open or closed
-	 * @param $row database object
+	 * @param stdClass $row database object
 	 * @return String
 	 * @see TablePager::getRowClass()
 	 */

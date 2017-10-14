@@ -188,8 +188,8 @@ fwrite( $err, "Done.\n" );
 /**
  * Checks for ineligibility due to blocks or groups
  *
- * @param $wiki
- * @param $usersToCheck
+ * @param string $wiki
+ * @param int[] $usersToCheck
  */
 function runChecks( $wiki, $usersToCheck /* user ID */ ) {
 	global $users;

@@ -6,7 +6,7 @@
 class SecurePoll_DetailsPage extends SecurePoll_ActionPage {
 	/**
 	 * Execute the subpage.
-	 * @param $params array Array of subpage parameters.
+	 * @param array $params Array of subpage parameters.
 	 */
 	public function execute( $params ) {
 		global $wgSecurePollKeepPrivateInfoDays;
@@ -135,8 +135,8 @@ class SecurePoll_DetailsPage extends SecurePoll_ActionPage {
 
 	/**
 	 * Get a table row with a given header message and value
-	 * @param $header string
-	 * @param $value string
+	 * @param string $header
+	 * @param string $value
 	 * @return string
 	 */
 	public function detailEntry( $header, $value ) {

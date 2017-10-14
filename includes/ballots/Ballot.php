@@ -58,8 +58,8 @@ abstract class SecurePoll_Ballot {
 
 	/**
 	 * Get the HTML form segment for a single question
-	 * @param $question SecurePoll_Question
-	 * @param $options Array of options, in the order they should be displayed
+	 * @param SecurePoll_Question $question
+	 * @param array $options Array of options, in the order they should be displayed
 	 * @return string
 	 */
 	abstract function getQuestionForm( $question, $options );
@@ -79,6 +79,7 @@ abstract class SecurePoll_Ballot {
 	 * when successful, contains a voting record in the value member. To
 	 * preserve voter privacy, voting records should be the same length
 	 * regardless of voter choices.
+	 * @return Status
 	 */
 	function submitForm() {
 		$questions = $this->election->getQuestions();
@@ -100,19 +101,24 @@ abstract class SecurePoll_Ballot {
 	 * If there is a problem with the form data, the function should set a
 	 * fatal error in the $status object and return null.
 	 *
-	 * @param $question
-	 * @param $status
-	 * @return string
+	 * @param string $question
+	 * @param Status $status
+	 * @return string|null
 	 */
 	abstract function submitQuestion( $question, $status );
 
 	/**
 	 * Unpack a string record into an array format suitable for the tally type
+	 * @param string $record
+	 * @return array
 	 */
 	abstract function unpackRecord( $record );
 
 	/**
 	 * Convert a record to a string of some kind
+	 * @param string $record
+	 * @param array $options
+	 * @return array
 	 */
 	function convertRecord( $record, $options = [] ) {
 		$scores = $this->unpackRecord( $record );
@@ -121,14 +127,17 @@ abstract class SecurePoll_Ballot {
 
 	/**
 	 * Convert a score array to a string of some kind
+	 * @param array $scores
+	 * @param array $options
+	 * @return string
 	 */
 	abstract function convertScores( $scores, $options = [] );
 
 	/**
 	 * Create a ballot of the given type
-	 * @param $context SecurePoll_Context
-	 * @param $type string
-	 * @param $election SecurePoll_Election
+	 * @param SecurePoll_Context $context
+	 * @param string $type
+	 * @param SecurePoll_Election $election
 	 * @throws MWException
 	 * @return SecurePoll_Ballot
 	 */
@@ -142,8 +151,8 @@ abstract class SecurePoll_Ballot {
 
 	/**
 	 * Constructor.
-	 * @param $context SecurePoll_Context
-	 * @param $election SecurePoll_Election
+	 * @param SecurePoll_Context $context
+	 * @param SecurePoll_Election $election
 	 */
 	function __construct( $context, $election ) {
 		$this->context = $context;
@@ -153,6 +162,7 @@ abstract class SecurePoll_Ballot {
 	/**
 	 * Get the HTML for this ballot. <form> tags should not be included,
 	 * they will be added by the VotePage.
+	 * @param bool|Status $prevStatus
 	 * @return string
 	 */
 	function getForm( $prevStatus = false ) {
@@ -209,6 +219,8 @@ abstract class SecurePoll_Ballot {
 
 	/**
 	 * Convert a SecurePoll_BallotStatus object to HTML
+	 * @param Status $status
+	 * @return string
 	 */
 	function formatStatus( $status ) {
 		return $status->sp_getHTML( $this->usedErrorIds );

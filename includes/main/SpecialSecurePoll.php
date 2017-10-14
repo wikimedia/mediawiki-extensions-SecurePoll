@@ -38,7 +38,7 @@ class SecurePoll_SpecialSecurePoll extends SpecialPage {
 	/**
 	 * Show the special page
 	 *
-	 * @param $paramString Mixed: parameter passed to the page or null
+	 * @param string|null $paramString parameter passed to the page or null
 	 */
 	public function execute( $paramString ) {
 		global $wgExtensionAssetsPath;
@@ -74,6 +74,8 @@ class SecurePoll_SpecialSecurePoll extends SpecialPage {
 
 	/**
 	 * Get a SecurePoll_ActionPage subclass object for the given subpage name
+	 * @param string $name
+	 * @return false|SecurePoll_ActionPage
 	 */
 	public function getSubpage( $name ) {
 		if ( !isset( self::$pages[$name] ) ) {
@@ -86,6 +88,7 @@ class SecurePoll_SpecialSecurePoll extends SpecialPage {
 
 	/**
 	 * Get a random token for CSRF protection
+	 * @return string
 	 */
 	public function getEditToken() {
 		if ( !isset( $_SESSION['spToken'] ) ) {

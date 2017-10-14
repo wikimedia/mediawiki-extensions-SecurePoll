@@ -14,6 +14,8 @@ class SecurePoll_Voter {
 
 	/**
 	 * Create a voter from the given associative array of parameters
+	 * @param SecurePoll_Context $context
+	 * @param array $params
 	 */
 	function __construct( $context, $params ) {
 		$this->context = $context;
@@ -26,6 +28,8 @@ class SecurePoll_Voter {
 
 	/**
 	 * Create a voter object from the database
+	 * @param SecurePoll_Context $context
+	 * @param int $id
 	 * @return SecurePoll_Voter or false if the ID is not valid
 	 */
 	static function newFromId( $context, $id ) {
@@ -39,6 +43,9 @@ class SecurePoll_Voter {
 
 	/**
 	 * Create a voter from a DB result row
+	 * @param SecurePoll_Context $context
+	 * @param stdClass $row
+	 * @return self
 	 */
 	static function newFromRow( $context, $row ) {
 		return new self( $context, [
@@ -58,6 +65,9 @@ class SecurePoll_Voter {
 	 *
 	 * The row needs to be locked before this function is called, to avoid
 	 * duplicate key errors.
+	 * @param SecurePoll_Context $context
+	 * @param array $params
+	 * @return self
 	 */
 	static function createVoter( $context, $params ) {
 		$db = $context->getDB();
@@ -76,7 +86,10 @@ class SecurePoll_Voter {
 		return new self( $context, $params );
 	}
 
-	/** Get the voter ID */
+	/**
+	 * Get the voter ID
+	 * @return int
+	 */
 	function getId() {
 		return $this->id;
 	}
@@ -84,6 +97,7 @@ class SecurePoll_Voter {
 	/**
 	 * Get the voter name. This is a short, ambiguous name appropriate for
 	 * display.
+	 * @return string
 	 */
 	function getName() {
 		return $this->name;
@@ -91,6 +105,7 @@ class SecurePoll_Voter {
 
 	/**
 	 * Get the authorization type.
+	 * @return string
 	 */
 	function getType() {
 		return $this->type;
@@ -99,6 +114,7 @@ class SecurePoll_Voter {
 	/**
 	 * Get the voter domain. The name and domain, taken together, should usually be
 	 * unique, although this is not strictly necessary.
+	 * @return string
 	 */
 	function getDomain() {
 		return $this->domain;
@@ -106,6 +122,7 @@ class SecurePoll_Voter {
 
 	/**
 	 * Get a URL uniquely identifying the underlying user.
+	 * @return string
 	 */
 	function getUrl() {
 		return $this->url;
@@ -113,6 +130,7 @@ class SecurePoll_Voter {
 
 	/**
 	 * Get the associated election ID
+	 * @return int
 	 */
 	function getElectionId() {
 		return $this->electionId;
@@ -120,6 +138,7 @@ class SecurePoll_Voter {
 
 	/**
 	 * Get the voter's preferred language
+	 * @return mixed
 	 */
 	function getLanguage() {
 		return $this->getProperty( 'language', 'en' );
@@ -127,6 +146,9 @@ class SecurePoll_Voter {
 
 	/**
 	 * Get a property from the property blob
+	 * @param string $name
+	 * @param string|false $default
+	 * @return mixed
 	 */
 	function getProperty( $name, $default = false ) {
 		if ( isset( $this->properties[$name] ) ) {
@@ -138,6 +160,7 @@ class SecurePoll_Voter {
 
 	/**
 	 * Returns true if the voter is a guest user.
+	 * @return bool
 	 */
 	function isRemote() {
 		return $this->type !== 'local';
@@ -145,6 +168,8 @@ class SecurePoll_Voter {
 
 	/**
 	 * Decode the properties blob to produce an associative array.
+	 * @param string $blob
+	 * @return array
 	 */
 	static function decodeProperties( $blob ) {
 		if ( strval( $blob ) == '' ) {
@@ -157,6 +182,8 @@ class SecurePoll_Voter {
 	/**
 	 * Encode an associative array of properties to a blob suitable for storing
 	 * in the database.
+	 * @param array $props
+	 * @return string
 	 */
 	static function encodeProperties( $props ) {
 		return serialize( $props );
@@ -179,6 +206,7 @@ class SecurePoll_Voter {
 
 	/**
 	 * Flag a duplicate voter
+	 * @param int $voterId
 	 */
 	function addCookieDup( $voterId ) {
 		$dbw = $this->context->getDB();

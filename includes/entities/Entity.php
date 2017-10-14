@@ -20,9 +20,9 @@ class SecurePoll_Entity {
 	/**
 	 * Create an entity of the given type. This is typically called from the
 	 * child constructor.
-	 * @param $context SecurePoll_Context
-	 * @param $type string
-	 * @param $info array Associative array of entity info
+	 * @param SecurePoll_Context $context
+	 * @param string $type
+	 * @param array $info Associative array of entity info
 	 */
 	function __construct( $context, $type, $info ) {
 		$this->context = $context;
@@ -55,6 +55,7 @@ class SecurePoll_Entity {
 
 	/**
 	 * Get the entity ID.
+	 * @return int
 	 */
 	function getId() {
 		return $this->id;
@@ -99,6 +100,7 @@ class SecurePoll_Entity {
 	/**
 	 * Load messages for a given language. It's not generally necessary to call
 	 * this since getMessage() does it automatically.
+	 * @param string|false $lang
 	 */
 	function loadMessages( $lang = false ) {
 		if ( $lang === false ) {
@@ -130,8 +132,8 @@ class SecurePoll_Entity {
 	 * Get a message, or false if the message does not exist. Does not use
 	 * the fallback sequence.
 	 *
-	 * @param $name string
-	 * @param $language string
+	 * @param string $name
+	 * @param string $language
 	 * @return bool
 	 */
 	function getRawMessage( $name, $language ) {
@@ -146,7 +148,7 @@ class SecurePoll_Entity {
 	 * If the message is not found even after looking at all possible languages,
 	 * a placeholder string is returned.
 	 *
-	 * @param $name string
+	 * @param string $name
 	 * @return bool|string
 	 */
 	function getMessage( $name ) {
@@ -164,6 +166,9 @@ class SecurePoll_Entity {
 
 	/**
 	 * Get a message, and interpret it as wikitext, converting it to HTML.
+	 * @param string $name
+	 * @param bool $lineStart
+	 * @return string
 	 */
 	function parseMessage( $name, $lineStart = true ) {
 		global $wgParser, $wgTitle;
@@ -180,6 +185,8 @@ class SecurePoll_Entity {
 
 	/**
 	 * Get a message and convert it from wikitext to HTML, without <p> tags.
+	 * @param string $name
+	 * @return string
 	 */
 	function parseMessageInline( $name ) {
 		return $this->parseMessage( $name, false );
@@ -188,6 +195,7 @@ class SecurePoll_Entity {
 	/**
 	 * Get a list of languages for which we have translations, for this entity
 	 * and its descendants.
+	 * @return string
 	 */
 	function getLangList() {
 		$ids = [ $this->getId() ];
@@ -200,8 +208,8 @@ class SecurePoll_Entity {
 	/**
 	 * Get a property value. If it does not exist, the $default parameter
 	 * is passed back.
-	 * @param $name string
-	 * @param $default mixed
+	 * @param string $name
+	 * @param mixed $default
 	 * @return bool|mixed
 	 */
 	function getProperty( $name, $default = false ) {
@@ -217,6 +225,7 @@ class SecurePoll_Entity {
 
 	/**
 	 * Get all defined properties as an associative array
+	 * @return array
 	 */
 	function getAllProperties() {
 		if ( $this->properties === null ) {
@@ -227,6 +236,8 @@ class SecurePoll_Entity {
 
 	/**
 	 * Get configuration XML. Overridden by most subclasses.
+	 * @param array $params
+	 * @return string
 	 */
 	function getConfXml( $params = [] ) {
 		return "<{$this->type}>\n" .
@@ -236,6 +247,8 @@ class SecurePoll_Entity {
 
 	/**
 	 * Get an XML snippet giving the messages and properties
+	 * @param array $params
+	 * @return string
 	 */
 	function getConfXmlEntityStuff( $params = [] ) {
 		$s = Xml::element( 'id', [], $this->getId() ) . "\n";
@@ -268,6 +281,8 @@ class SecurePoll_Entity {
 	/**
 	 * Get property names which aren't included in an XML dump.
 	 * Overloaded by Election.
+	 * @param array $params
+	 * @return array
 	 */
 	function getPropertyDumpBlacklist( $params = [] ) {
 		return [];

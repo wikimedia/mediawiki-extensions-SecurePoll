@@ -49,8 +49,8 @@ $success = spImportDump( $args[0], $options );
 exit( $success ? 0 : 1 );
 
 /**
- * @param $fileName string
- * @param $options
+ * @param string $fileName
+ * @param array $options
  * @return bool
  */
 function spImportDump( $fileName, $options ) {
@@ -113,7 +113,7 @@ function spImportDump( $fileName, $options ) {
 }
 
 /**
- * @param $electionId int|string
+ * @param int|string $electionId
  */
 function spDeleteElection( $electionId ) {
 	$dbw = wfGetDB( DB_MASTER );
@@ -149,8 +149,8 @@ function spDeleteElection( $electionId ) {
 }
 
 /**
- * @param $type string
- * @param $id string
+ * @param string $type
+ * @param string $id
  */
 function spInsertEntity( $type, $id ) {
 	$dbw = wfGetDB( DB_MASTER );
@@ -164,8 +164,8 @@ function spInsertEntity( $type, $id ) {
 }
 
 /**
- * @param $store SecurePoll_Store
- * @param $electionInfo
+ * @param SecurePoll_Store $store
+ * @param array $electionInfo
  * @return bool
  */
 function spImportConfiguration( $store, $electionInfo ) {
@@ -239,8 +239,8 @@ function spImportConfiguration( $store, $electionInfo ) {
 }
 
 /**
- * @param $store SecurePoll_Store
- * @param $entityIds
+ * @param SecurePoll_Store $store
+ * @param array $entityIds
  */
 function spInsertMessages( $store, $entityIds ) {
 	$langs = $store->getLangList( $entityIds );
@@ -265,8 +265,8 @@ function spInsertMessages( $store, $entityIds ) {
 }
 
 /**
- * @param $store SecurePoll_Store
- * @param $electionInfo
+ * @param SecurePoll_Store $store
+ * @param array $electionInfo
  * @return bool
  */
 function spUpdateMessages( $store, $electionInfo ) {

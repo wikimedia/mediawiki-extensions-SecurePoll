@@ -6,7 +6,7 @@
 class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 	/**
 	 * Execute the subpage.
-	 * @param $params array Array of subpage parameters.
+	 * @param array $params Array of subpage parameters.
 	 * @throws MWException
 	 * @throws PermissionsError
 	 */

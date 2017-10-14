@@ -33,6 +33,10 @@ abstract class SecurePoll_Crypt {
 	/**
 	 * Create an encryption object of the given type. Currently only "gpg" is
 	 * implemented.
+	 * @param SecurePoll_Context $context
+	 * @param string $type
+	 * @param SecurePoll_Election $election
+	 * @return bool|SecurePoll_GpgCrypt
 	 */
 	static function factory( $context, $type, $election ) {
 		if ( !isset( self::$cryptTypes[$type] ) ) {
@@ -142,8 +146,8 @@ class SecurePoll_GpgCrypt {
 
 	/**
 	 * Constructor.
-	 * @param $context
-	 * @param $election SecurePoll_Election
+	 * @param SecurePoll_Context $context
+	 * @param SecurePoll_Election $election
 	 */
 	function __construct( $context, $election ) {
 		$this->context = $context;
@@ -216,7 +220,7 @@ class SecurePoll_GpgCrypt {
 
 	/**
 	 * Import a given exported key.
-	 * @param $key string The full key data.
+	 * @param string $key The full key data.
 	 * @return Status
 	 */
 	function importKey( $key ) {
@@ -260,7 +264,7 @@ class SecurePoll_GpgCrypt {
 
 	/**
 	 * Shell out to GPG with the given additional command-line parameters
-	 * @param $params string
+	 * @param string $params
 	 * @return Status
 	 */
 	protected function runGpg( $params ) {
@@ -323,7 +327,7 @@ class SecurePoll_GpgCrypt {
 	/**
 	 * Decrypt some data. When successful, the value member of the Status object
 	 * will contain the encrypted record.
-	 * @param $encrypted string
+	 * @param string $encrypted
 	 * @return Status
 	 */
 	function decrypt( $encrypted ) {

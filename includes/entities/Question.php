@@ -11,8 +11,8 @@ class SecurePoll_Question extends SecurePoll_Entity {
 
 	/**
 	 * Constructor
-	 * @param $context SecurePoll_Context
-	 * @param $info array Associative array of entity info
+	 * @param SecurePoll_Context $context
+	 * @param array $info Associative array of entity info
 	 */
 	function __construct( $context, $info ) {
 		parent::__construct( $context, 'question', $info );
@@ -24,6 +24,7 @@ class SecurePoll_Question extends SecurePoll_Entity {
 
 	/**
 	 * Get a list of localisable message names.
+	 * @return array
 	 */
 	function getMessageNames() {
 		$ballot = $this->getElection()->getBallot();
@@ -32,6 +33,7 @@ class SecurePoll_Question extends SecurePoll_Entity {
 
 	/**
 	 * Get the child entity objects.
+	 * @return array
 	 */
 	function getChildren() {
 		return $this->options;

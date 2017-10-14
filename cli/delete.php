@@ -23,7 +23,8 @@ $success = spDeleteElection( $id );
 exit( $success ? 0 : 1 );
 
 /**
- * @param $electionId int|string
+ * @param int|string $electionId
+ * @return bool
  */
 function spDeleteElection( $electionId ) {
 	$dbw = wfGetDB( DB_MASTER );

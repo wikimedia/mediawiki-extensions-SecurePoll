@@ -9,8 +9,8 @@ class SecurePoll_ApprovalBallot extends SecurePoll_Ballot {
 	}
 
 	/**
-	 * @param $question SecurePoll_Question
-	 * @param $options array
+	 * @param SecurePoll_Question $question
+	 * @param array $options
 	 * @return string
 	 */
 	function getQuestionForm( $question, $options ) {
@@ -34,8 +34,8 @@ class SecurePoll_ApprovalBallot extends SecurePoll_Ballot {
 	}
 
 	/**
-	 * @param $question SecurePoll_Question
-	 * @param $status Status
+	 * @param SecurePoll_Question $question
+	 * @param Status $status
 	 * @return string
 	 */
 	function submitQuestion( $question, $status ) {
