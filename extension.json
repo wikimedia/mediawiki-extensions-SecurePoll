@@ -112,11 +112,25 @@
 		],
 		"TitleQuickPermissions": [
 			"SecurePollHooks::onTitleQuickPermissions"
-		],
-		"ContentHandlerDefaultModelFor": [
-			"SecurePollHooks::onContentHandlerDefaultModelFor"
 		]
 	},
+	"namespaces": [
+		{
+			"id": 830,
+			"name": "SecurePoll",
+			"constant": "NS_SECUREPOLL",
+			"subpages": true,
+			"defaultcontentmodel": "SecurePoll",
+			"conditional": true
+		},
+		{
+			"id": 831,
+			"name": "SecurePoll_talk",
+			"constant": "NS_SECUREPOLL_TALK",
+			"subpages": true,
+			"conditional": true
+		}
+	],
 	"config": {
 		"SecurePollGPGCommand": "gpg",
 		"SecurePollTempDir": "/tmp",
@@ -127,12 +141,7 @@
 		"SecurePollCreateWikiGroups": [],
 		"SecurePollCreateRemoteScriptPath": "https:$wgServer/w",
 		"SecurePollUseNamespace": false,
-		"SecurePollGpgSignKey": null,
-		"NamespacesWithSubpages": {
-			"830": true,
-			"831": true
-		}
+		"SecurePollGpgSignKey": null
 	},
-	"callback": "SecurePollHooks::onRegistration",
 	"manifest_version": 1
 }

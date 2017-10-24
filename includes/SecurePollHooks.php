@@ -71,23 +71,4 @@ class SecurePollHooks {
 
 		return true;
 	}
-
-	/**
-	 * @param Title $title
-	 * @param string &$model
-	 * @return bool
-	 */
-	public static function onContentHandlerDefaultModelFor( $title, &$model ) {
-		global $wgSecurePollUseNamespace;
-		if ( $wgSecurePollUseNamespace && $title->getNamespace() == NS_SECUREPOLL ) {
-			$model = 'SecurePoll';
-			return false;
-		}
-		return true;
-	}
-
-	public static function onRegistration() {
-		define( 'NS_SECUREPOLL', 830 );
-		define( 'NS_SECUREPOLL_TALK', 831 );
-	}
 }
