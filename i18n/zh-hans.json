@@ -250,6 +250,7 @@
 	"securepoll-voter-stats": "在所有有效投票者中，$1位{{PLURAL:$1|投票者}}已投票。",
 	"securepoll-vote-stats": "总共投出$1张{{PLURAL:$1|票}}。其中$2张{{PLURAL:$2|已}}丢弃，因为投票者再次投票，并且$3张{{PLURAL:$3|已}}投出。",
 	"apihelp-strikevote-description": "允许管理员划去或取消划去一张投票。",
+	"apihelp-strikevote-summary": "允许管理员划去或取消划去一张投票。",
 	"apihelp-strikevote-param-option": "要执行的操作：划掉或取消划掉一张投票。",
 	"apihelp-strikevote-paramvalue-option-strike": "划掉一张投票（从计数中移除）。",
 	"apihelp-strikevote-paramvalue-option-unstrike": "取消划掉一张投票（将其恢复至计数）。",
