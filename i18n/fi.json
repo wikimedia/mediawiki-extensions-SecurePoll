@@ -80,7 +80,6 @@
 	"securepoll-header-admin": "Ylläpitäjä",
 	"securepoll-cookie-dup-list": "Käyttäjät, joilla on yhtäläinen eväste.",
 	"securepoll-dump-title": "Vedos: $1",
-	"securepoll-dump-no-crypt": "Salattua vaalitiedostoa ei ole saatavilla tälle äänestykselle, koska vaaleja ei ole asetuksissa säädetty käyttämään salausta.",
 	"securepoll-dump-not-finished": "Salauksin suojatut vaalitiedot ovat saatavilla vaalien päättymispäivän jälkeen $1 kello $2",
 	"securepoll-dump-no-urandom": "Toimintoa /dev/urandom ei voitu avata.\nÄänestyssalaisuuden varmistamiseksi salatut tietueet ovat julkisesti saatavilla ainoastaan silloin, kun niiden järjestys voidaan sekoittaa turvallisella satunnaislukuvirralla.",
 	"securepoll-urandom-not-supported": "Tämä palvelin ei tue satunnaislukujen tuottoa salauksen alla. Jotta äänestäjien yksityisyys säilytetään, vaalien salauksenalaiset tiedostot ovat julkisesti saatavilla ainoastaan, kun niiden järjestys voidaan sekoittaa turvatusta satunnaislukulähteestä.",

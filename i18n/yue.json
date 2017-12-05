@@ -76,7 +76,6 @@
 	"securepoll-header-admin": "管理",
 	"securepoll-cookie-dup-list": "重覆cookie嘅用戶",
 	"securepoll-dump-title": " 傾印: $1",
-	"securepoll-dump-no-crypt": "呢次選舉無加密選舉紀錄，因為選舉未設定去用加密。",
 	"securepoll-dump-not-finished": "加密選舉紀錄只會響 $1 $2 投票結束之後先至會提供",
 	"securepoll-dump-no-urandom": "開唔到 /dev/urandom。 \n去維持投票者嘅私隱，加密咗嘅紀錄只會響佢哋用亂數重整之後先會公開。",
 	"securepoll-urandom-not-supported": "呢個服務器唔支持加密嘅隨機數生成。\n為左維護選民嘅隱私，只有公開提供洗牌時先會提供加密嘅選舉記錄，佢地可以用安全嘅隨機數流。",

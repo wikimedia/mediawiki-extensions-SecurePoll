@@ -74,7 +74,6 @@
 	"securepoll-header-admin": "Správce",
 	"securepoll-cookie-dup-list": "Duplicitní uživatelé podle cookie",
 	"securepoll-dump-title": "Záznam – $1",
-	"securepoll-dump-no-crypt": "U těchto voleb není k dispozici šifrovaný záznam hlasování, neboť v jejich konfiguraci není šifrování zapnuto.",
 	"securepoll-dump-not-finished": "Šifrovaný záznam hlasování bude k dispozici až po skončení voleb, $1, $2",
 	"securepoll-dump-no-urandom": "Nelze otevřít <tt>/dev/urandom</tt>.\nKvůli tajnosti hlasování je šifrovaný záznam hlasování veřejně dostupný pouze v případě, že hlasy mohou být zamíchány pomocí bezpečného zdroje náhodných čísel.",
 	"securepoll-urandom-not-supported": "Tento server nepodporuje kryptografické generování náhodných čísel.\nKvůli tajnosti hlasování je šifrovaný záznam hlasování veřejně dostupný pouze v případě, že hlasy mohou být zamíchány pomocí bezpečného zdroje náhodných čísel.",

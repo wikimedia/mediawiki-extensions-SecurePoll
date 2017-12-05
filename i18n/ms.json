@@ -75,7 +75,6 @@
 	"securepoll-header-admin": "Penyelia",
 	"securepoll-cookie-dup-list": "Pengguna salinan cookie",
 	"securepoll-dump-title": "Longgokan: $1",
-	"securepoll-dump-no-crypt": "Tiada rekod sulit pemilihan yang ada untuk pemilihan ini, kerana pemilihan tidak disusun untuk menggunakan penyulitan.",
 	"securepoll-dump-not-finished": "Rekod sulit pemilihan hanya ada setelah tarikh tamat pada $1 pukul $2",
 	"securepoll-dump-no-urandom": "Gagal membuka /dev/urandom.  \nUntuk mengekalkan privasi pengundi, rekod sulit pemilihan hanya tersedia untuk awam apabila ia dirombak dengan aliran nombor rawak yang selamat.",
 	"securepoll-urandom-not-supported": "Pelayan ini tidak menyokong penjanaan nombor rawak kriptografi.\nUntuk mengekalkan keadaan berahsia pengundi, rekod pemilihan tersulit cuma boleh didapati umum apabila ia boleh diubah dengan aliran nombor rawak selamat.",

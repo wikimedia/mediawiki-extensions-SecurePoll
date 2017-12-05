@@ -80,7 +80,6 @@
 	"securepoll-header-admin": "Tagapangasiwa",
 	"securepoll-cookie-dup-list": "Mga tagagamit ng dalawahang kuki",
 	"securepoll-dump-title": "Itapon: $1",
-	"securepoll-dump-no-crypt": "Walang makuhang nakakodigong tala ng halalan para sa halalang ito, dahil ang halalan ay hindi nakaayos na gumamit ng kodigo.",
 	"securepoll-dump-not-finished": "Makakakuha lamang ng nakakodigong mga tala ng halalan pagkalipas ng petsa ng katapusang $1 sa $2",
 	"securepoll-dump-no-urandom": "Hindi mabuksan ang /dev/urandom.\nUpang mapanitili ang paglilihim ng mga botante, makukuha lamang ng publiko ang nakakodigong mga talaan ng halalan kapag mababalasa na sila sa isang ligtas na daloy ng walang-piling bilang.",
 	"securepoll-urandom-not-supported": "Hindi sinusuportahan ng serbidor na ito ang kriptograpikong paglilikha ng mga walang-piling bilang.\nUpang mapanitili ang paglilihim ng mga botante, makukuha lamang ng publiko ang nakakodigong mga talaan ng halalan kapag mababalasa na sila sa isang ligtas na daloy ng walang-piling bilang.",

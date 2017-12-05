@@ -40,7 +40,6 @@
 	"securepoll-header-admin": "Admin",
 	"securepoll-cookie-dup-list": "Cookie kopjuar përdoruesit",
 	"securepoll-dump-title": "Derdhin: $1",
-	"securepoll-dump-no-crypt": "Nuk ka rekord Encrypted zgjedhore është në dispozicion për këtë zgjedhje, sepse zgjedhjet nuk është i konfiguruar të përdorë encryption.",
 	"securepoll-dump-not-finished": "Encrypted zgjedhjeve të dhënat janë në dispozicion vetëm pas datës përfundojë më $1 tek $2",
 	"securepoll-dump-no-urandom": "Nuk mund te hap / dev / urandom. Për të ruajtur fshehtësinë e votuesve, Encrypted të dhënat e zgjedhjeve janë vetëm publikisht në dispozicion kur ato mund të jenë riorganizoi me një lumë të rastit numër të sigurt.",
 	"securepoll-urandom-not-supported": "Ky server nuk suporton kriptografike numër të brezit të rastit. Për të ruajtur fshehtësinë e votuesve, Encrypted të dhënat e zgjedhjeve janë vetëm publikisht në dispozicion kur ato mund të jenë riorganizoi me një lumë të rastit numër të sigurt.",

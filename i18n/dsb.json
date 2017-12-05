@@ -72,7 +72,6 @@
 	"securepoll-header-admin": "Administrator",
 	"securepoll-cookie-dup-list": "Dwójne wužywarje z cookiejom",
 	"securepoll-dump-title": "Wuśěg: $1",
-	"securepoll-dump-no-crypt": "Skoděrowane wólbne zapise njestoje k dispoziciji, dokulaž wólba njejo konfigurěrowana, aby wužywała  skoděrowanje.",
 	"securepoll-dump-not-finished": "Skóděrowane wólbne zapise stoje jano pó kóńcnem datumje $1 $2 k dispoziciji.",
 	"securepoll-dump-no-urandom": "/dev/urandom njedajo se wócyniś.\nAby zarucył šćit datow wólarja, skoděrowane wólbne zapise stoje jano zjawnje k dispoziciji, gaž daju se z wěsteju tšugu pśipadnych licbow měšaś.",
 	"securepoll-urandom-not-supported": "Toś ten serwer njepódpěra kryptografiske napóranje pśipadnych licbow.\nAby se priwatnosć wólarja šćitała, skoděrowane wólbne datowe zapise stoje jano zjawnje k dispozciji, gaž daju se z wěsteju tšugu pśipadnych licbow měšaś.",

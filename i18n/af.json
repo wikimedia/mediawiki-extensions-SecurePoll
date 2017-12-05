@@ -62,7 +62,6 @@
 	"securepoll-header-admin": "Beheer",
 	"securepoll-cookie-dup-list": "Gebruikers met duplikaat koekies",
 	"securepoll-dump-title": "Dump: $1",
-	"securepoll-dump-no-crypt": "Geen geïnkripteer verkiesing rekord is beskikbaar vir hierdie verkiesing, want die verkiesing is nie ingestel om die enkripsie te gebruik.",
 	"securepoll-urandom-not-supported": "Hierdie bediener ondersteun nie kriptografiese lukraakgetalgenerasie.\nKieser privaatheid te handhaaf, is geïnkripteer verkiesing rekords is slegs publiek beskikbaar is wanneer hulle skuifel kan word met 'n veilige ewekansige getal stroom.",
 	"securepoll-translate-title": "Vertaal: $1",
 	"securepoll-invalid-language": "Ongeldige taalkode \"$1\"",

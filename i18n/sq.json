@@ -76,7 +76,6 @@
 	"securepoll-header-admin": "Admin",
 	"securepoll-cookie-dup-list": "Cookie kopjuar përdoruesit",
 	"securepoll-dump-title": "Largo: $1",
-	"securepoll-dump-no-crypt": "Asnjë regjistrim i kriptuar nuk është i munshëm për këtë zgjedhje, sepse zgjedhja nuk është konfiguruar të përdorë kriptimin.",
 	"securepoll-dump-not-finished": "Regjistrimet e zgjedhjes së kriptuar janë të mundshme vetëm pas datës së përfundimit më $1 në orën $2",
 	"securepoll-dump-no-urandom": "Nuk mund të hapet /dev/urandom.\nPër të ruajtur fshehtësinë e votusve, regjistrimet e zgjedhjeve të kriptuara janë të mundshme publikisht vetëm ata mund të riorganizohen me një numër rastësor të sigurt.",
 	"securepoll-urandom-not-supported": "Ky server nuk mbështet gjenerimin e numrit të rastësishëm kriptografik.\nPër të ruajtur fshehtësinë e votuesve, regjistrimet e zgjedhjeve të kriptuara janë të mundshme publikisht vetëm kur ata mund të riorganizohen më një numër rastësor të sigurt.",

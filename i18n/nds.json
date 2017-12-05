@@ -66,7 +66,6 @@
 	"securepoll-header-admin": "Admin",
 	"securepoll-cookie-dup-list": "Brukers, de dubbelt afstimmt hebbt",
 	"securepoll-dump-title": "Dump: $1",
-	"securepoll-dump-no-crypt": "Dat gifft för disse Wahl keen verslötelt Stimmopteeknungen, för disse Wahl is keen Slötel instellt.",
 	"securepoll-dump-not-finished": "Verslötelt Stimmopteeknungen sünd eerst verföögbor, nadem de Wahl toenn is (an’n $1 üm $2)",
 	"securepoll-dump-no-urandom": "Kann /dev/urandom nixh apen maken.\nDat de Wählerdatenschutz sekerstellt is, sünd verslötelt Stimmopteeknungen blot denn apen to sehn, wenn se mit en sekern Tofallstallenstroom dörmengelt warrn köönt.",
 	"securepoll-translate-title": "Översetten: $1",

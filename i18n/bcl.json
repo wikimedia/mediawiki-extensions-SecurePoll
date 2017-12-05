@@ -72,7 +72,6 @@
 	"securepoll-header-admin": "Tagapagpalakaw",
 	"securepoll-cookie-dup-list": "Mga paragamit kan panduwahang kokie",
 	"securepoll-dump-title": "Ibasura: $1",
-	"securepoll-dump-no-crypt": "Mayong enkriptadong rekord kan eleksyon an makukua para sa eleksyong ini, nin huli ta an eleksyon dae pinagsunsay na gumamit nin enkripsyon.",
 	"securepoll-dump-not-finished": "An enkriptadong mga rekord kan eleksyon manunumpungan sana pagkatapos kan petsa $1 mga alas $2",
 	"securepoll-dump-no-urandom": "Dae makakabukas/dev/urandom.\nTanganing mantineron an pribasidad kan botante, an mga enkriptadong rekord kan eleksyon manunumpungan sana kan publiko kunsoarin sinda mapuwedeng maibalasa nin sarong segurong bulos kan purak nin numero.",
 	"securepoll-urandom-not-supported": "Ining serbidor dae makakasuporta nin kriptograpikong henerasyon kan purak na numero.\nTanganing mantineron an pribasidad kan botante, an mga enkriptadong rekord kan eleksyon manunumpungan sana kan publiko kunsoarin sinda mapuwedeng maibalasa nin sarong segurong bulos kan purak nin numero.",

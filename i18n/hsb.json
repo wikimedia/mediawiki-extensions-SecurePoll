@@ -72,7 +72,6 @@
 	"securepoll-header-admin": "Administrator",
 	"securepoll-cookie-dup-list": "Dwójni wužiwarjo z plackom",
 	"securepoll-dump-title": "Wućah: $1",
-	"securepoll-dump-no-crypt": "Za tutu wólbu žana zaklučowana lisćina wólby k dispoziciji njesteji, dokelž wólba njeje konfigurowana, zo by zaklučowanje wužiwała.",
 	"securepoll-dump-not-finished": "Zaklučowane zapiski wólby jenož po kónčnym datumje $1 $2 k dispoziciji steja",
 	"securepoll-dump-no-urandom": "/dev/urandom njeda so wočinić.\nZo by so škit datow wolerja wobchował, zaklučowane zapisy jenož zjawnje k dispoziciji steja, hdyž hodźa so   z wěstotnym prudom připadnych ličbow měšeć.",
 	"securepoll-urandom-not-supported": "Tutón serwer kryptografiske płodźenje připadnych ličbow njepodpěruje.\nZo by so priwatnosć wolerja wobchowała, su zaklučowane wólbne zapiski jenož zjawnje k dispoziciji, hdyž  dadźa so z wěstym prudom připadnych ličbow měšeć.",

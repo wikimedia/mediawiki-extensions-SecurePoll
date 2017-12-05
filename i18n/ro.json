@@ -78,7 +78,6 @@
 	"securepoll-header-admin": "Administrator",
 	"securepoll-cookie-dup-list": "Utilizatori reveniți, identificați după cookie",
 	"securepoll-dump-title": "Dump: $1",
-	"securepoll-dump-no-crypt": "Nicio înregistrare criptată nu este disponibilă pentru aceste alegeri, deoarece acest scrutin nu a fost configurat în vederea folosirii criptării.",
 	"securepoll-dump-not-finished": "Înregistrările criptate ale alegerilor sunt disponibile doar după momentul închiderii votului, în data de $1, ora $2",
 	"securepoll-dump-no-urandom": "Nu se poate deschide /dev/urandom.\nPentru a respecta confidențialitatea votanților, înregistrările criptate ale alegerilor sunt disponibile public doar atunci când pot fi amestecate folosind o secvență securizată de numere aleatoare.",
 	"securepoll-urandom-not-supported": "Acest server nu acceptă generarea criptografică de numere aleatoare.\nPentru a respecta confidențialitatea votanților, înregistrările criptate ale alegerilor sunt disponibile public doar atunci când pot fi amestecate folosind o secvență securizată de numere aleatoare.",

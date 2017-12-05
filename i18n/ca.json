@@ -83,7 +83,6 @@
 	"securepoll-header-admin": "Administrador",
 	"securepoll-cookie-dup-list": "Usuaris amb galetes duplicades",
 	"securepoll-dump-title": "Abocament: $1",
-	"securepoll-dump-no-crypt": "No existeix cap registre encriptat en aquesta elecció perquè no està configurada per usar encriptació.",
 	"securepoll-dump-not-finished": "Els registres encriptats de l'elecció només estaran disponibles després de la seva conclusió, a $1 del $2",
 	"securepoll-dump-no-urandom": "No es pot obrir /dev/urandom.\nPer mantenir la privadesa dels votants, els registres encriptats de l'elecció es fan públics només quan poden ser barrejats amb un generador segur de nombres aleatoris.",
 	"securepoll-urandom-not-supported": "Aquest servidor no suporta la generació criptogràfica de nombres aleatoris.\nPer mantenir la privadesa del votant, els registres d'elecció encriptats només són públicament disponibles quan es poden emetre amb un flux segur de nombres aleatoris.",

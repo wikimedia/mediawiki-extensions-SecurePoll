@@ -68,7 +68,6 @@
 	"securepoll-header-admin": "Administrator",
 	"securepoll-cookie-dup-list": "Cookie duplikatbrukar",
 	"securepoll-dump-title": "Dump: $1",
-	"securepoll-dump-no-crypt": "Inga kryptert valregistrering er tilgjengeleg for dette valet, på grunn av at valet ikkje er sett opp til å nytta kryptering.",
 	"securepoll-dump-not-finished": "Krypterte valregister er berre tilgjengelege etter avsluttinga den $1 klokka $2",
 	"securepoll-translate-title": "Set om: $1",
 	"securepoll-invalid-language": "Ugyldig språkode \"$1\"",

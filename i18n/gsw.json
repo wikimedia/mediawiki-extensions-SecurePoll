@@ -73,7 +73,6 @@
 	"securepoll-header-admin": "Ammann",
 	"securepoll-cookie-dup-list": "Dopplteti Benutzer (Cookie)",
 	"securepoll-dump-title": "Uuszug: $1",
-	"securepoll-dump-no-crypt": "Fir die Wahl sin kei verschlissleti Abstimmigsufzeichnige verfiegbar, wel d Wahl nit fir e Verschlisslig konfiguriert woren isch.",
 	"securepoll-dump-not-finished": "Verschlissleti Abstimmigsufzeichnige sin nume noch em Ändtermin am $1 am $2 verfiegbar",
 	"securepoll-dump-no-urandom": "/dev/urandom cha nit ufgmacht wäre.\nGo dr Wehlerdateschutz wohre, sin verschlissleti Abstimmigsufzeichnige nume effentli verfiebar, wänn si mit eme sichere  Zuefallszahlestrom chenne gmischt wäre.",
 	"securepoll-urandom-not-supported": "Dää Server unterstitzt kei kryptografischi Zuefallszahlegenerierig.\nAss es Wahlgheimnis sicher gstellt isch, sin verschlssleti Wahlufzeichnige nume effetlig verfiegbar, wänn si mit ere sichere Zuefallszahlereihefolg chenne vermischt wäre.",

@@ -72,7 +72,6 @@
 	"securepoll-header-admin": "Gweinyddwr",
 	"securepoll-cookie-dup-list": "Defnyddwyr dyblyg (dyb) o ran cwcis",
 	"securepoll-dump-title": "Dymp: $1",
-	"securepoll-dump-no-crypt": "Nid oes cofnod amgryptiedig o'r etholiad hwn ar gael, oherwydd nid yw'r etholiad wedi ei ffurfweddu i ddefnyddio amgryptio.",
 	"securepoll-dump-not-finished": "Ni fydd y cofnodion amgryptiedig o'r etholiad ar gael hyd at ddiwedd yr etholiad am $2 ar $1",
 	"securepoll-dump-no-urandom": "Ni ellir agor /dev/urandom.\nEr mwyn diogelu cyfrinachedd pleidleiswyr, nid yw cofnodion yr etholiad ar gael i'r cyhoedd ond pan y gellir eu cymysgu trwy ddefnyddio llif haprifau diogel.",
 	"securepoll-urandom-not-supported": "Nid yw'r gweinydd hwn yn gallu cynhyrchu haprifau ar gyfer amgryptio.\nEr mwyn diogelu cyfrinachedd y pleidleiswyr, nid yw cofnodion amgryptiedig yr etholiad ar gael i'r cyhoedd ond pan fo modd eu cymysgu'n ddi-ôl trwy ddefnyddio ffrwd diogel o haprifau.",

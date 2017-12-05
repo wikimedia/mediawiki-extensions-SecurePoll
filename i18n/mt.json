@@ -72,7 +72,6 @@
 	"securepoll-header-admin": "Amministratur",
 	"securepoll-cookie-dup-list": "Utenti doppji skont il-cookie",
 	"securepoll-dump-title": "Dump: $1",
-	"securepoll-dump-no-crypt": "Għal din l-elezzjoni mhi disponibbli l-ebda reġistrazzjoni kriptata, minħabba li l-elezzjoni mhix imposta li tuża' l-kritazzjoni.",
 	"securepoll-dump-not-finished": "Ir-reġistrazzjonijiet kriptati tal-elezzjoni huma disponibbli biss wara d-data ta' konklużjoni: $1 fil-$2",
 	"securepoll-dump-no-urandom": "Ma jistax jinfetaħ /dev/urandom.\nBiex tinżamm il-privatezza tal-votant, ir-reġistrazzjonijieet kriptati tal-elezzjoni huma disponibbli pubblikament biss meta jistgħu jkunu mħawwda b'influss sigur ta' numru każwali.",
 	"securepoll-urandom-not-supported": "Is-server ma jsostnix il-ġenerazzjoni ta' numri każwali għall-kriptografija.\nSabiex tinżamm il-privatezza tal-votant, il-proċedura ta' votazzjoni ċifrata tiġi wżata pubblikament meta jkun disponibbli ġeneratur ta' numri każwali għall-kriptografija tal-influss ta' informazzjoni.",

@@ -74,7 +74,6 @@
 	"securepoll-header-admin": "Správca",
 	"securepoll-cookie-dup-list": "Cookie duplicitným používateľom",
 	"securepoll-dump-title": "Výpis: $1",
-	"securepoll-dump-no-crypt": "Pre tieto voľby nie je dostupný žiadny šifrovaný záznam o voľbách, pretože nebolo nastavené aby tieto voľby používali šifrovanie.",
 	"securepoll-dump-not-finished": "Šifrované záznamy o voľbách sú dostupné len po dátume ich skončenia: $1 $2",
 	"securepoll-dump-no-urandom": "Nie je možné otvoriť /dev/urandom.\nAby bola zabezpečená anonymita hlasujúceho, šifrované záznamy o voľbách sú dostupné verejne len keď bôžu byť zamiešané náhodným tokom čísel.",
 	"securepoll-urandom-not-supported": "Tento server nepodporuje tvorbu kryptograficky náhodných čísiel.\nAby sa zachovalo súkromie hlasujúcich, šifrovaný záznam o voľbách je verejne dostupný iba keď ho možno kryptograficky zabezpečiť tokom náhodných čísiel.",

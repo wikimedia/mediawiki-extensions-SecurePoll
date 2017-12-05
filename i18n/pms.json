@@ -73,7 +73,6 @@
 	"securepoll-header-admin": "Aministrador",
 	"securepoll-cookie-dup-list": "Utent dobi për cookie",
 	"securepoll-dump-title": "Dump: $1",
-	"securepoll-dump-no-crypt": "Pa gnun-e registrassion cifrà dl'elession a-i son për st'elession-sì, përchè l'elession a l'é pa configurà për dovré la cifradura.",
 	"securepoll-dump-not-finished": "Le registrassion cifrà dl'elession a son mach disponìbij d'apress la data ëd fin ël $1 a $2",
 	"securepoll-dump-no-urandom": "As peul pa deurbe /dev/urandom.\nPër manten-e la privacy dij votant, le registrassion cifrà dl'elession a saran disponibij publicament mach quand a saran cifrà con un fluss sicur ëd nùmer casuaj.",
 	"securepoll-urandom-not-supported": "Sto server-sì a përmëtt pa la generassion casual ëd nùmer critogràfich.\nPër manten-e la privacy dij votant, le registrassion criptà dl'elession a son publicament dicponìbij mach quand che a peulo esse stërmà con un fluss sicur ëd nùmer casuaj.",

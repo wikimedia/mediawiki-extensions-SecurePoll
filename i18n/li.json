@@ -74,7 +74,6 @@
 	"securepoll-header-admin": "Beheer",
 	"securepoll-cookie-dup-list": "Gebroekers mit dóbbel cookies",
 	"securepoll-dump-title": "Dump: $1",
-	"securepoll-dump-no-crypt": "d'r Is gein versjleutelde sjtömmingsinformatie besjikbaar veur dees sjtömming, went de sjtömming is neet ingesjteld veur 't gebroek van versjleuteling.",
 	"securepoll-dump-not-finished": "De versjleutelde sjtömgegaeves zeen pas besjikbaar nao 't eindige van de sjtömming op $1 óm $2",
 	"securepoll-dump-no-urandom": "Kin /dev/urandom neet äöpene.\nÓm de sjtömmersprivacy te behaje, zeen de sjtömmingsgegaeves pas besjikbaar es ze willekeurig gesorteerd kinne waere mit behölp van 'ne willekeurige nómmerreiks.",
 	"securepoll-urandom-not-supported": "Deze server beet gein ongersteuning veur 't versleuteld aanmake van willekeurige getalle.\nOm de anonimiteit van stömmers te handjhave, zeen de versleutelde stömresultate pas besjikbaar es ze zeen herordend via 'n veilige reeks van willekeurige getalle.",

@@ -72,7 +72,6 @@
 	"securepoll-header-admin": "Administrador",
 	"securepoll-cookie-dup-list": "Usuarios con cookies duplicadas",
 	"securepoll-dump-title": "Vulcau: $1",
-	"securepoll-dump-no-crypt": "No se disposa d'un rechistro zifrau ta ista votación dau que ista votación no s'ha configurada ta fer servir zifrau.",
 	"securepoll-dump-not-finished": "Se disposa d'os rechistros zifraus d'a votación nomás dimpués d'a calendata de finalización en $1 de $2",
 	"securepoll-dump-no-urandom": "No se podió ubrir /dev/urandom.\nTa preservar a privacidat d'os votantes, nomás se publican os resultaus zifraus d'a eslección quan pueden estar mezclaus con un fluxo de numeros aleatorio.",
 	"securepoll-urandom-not-supported": "Iste servidor no poseye capacidat de cheneración criptografica de numeros aleatorios.\nTa preservar a privacidat d'os votantes, solament son publicaus os resultaus encriptados d'a eslección quan pueden estar mezclaus con un fluxo de numeros aleatorio.",

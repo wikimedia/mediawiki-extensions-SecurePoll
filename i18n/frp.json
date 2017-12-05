@@ -74,7 +74,6 @@
 	"securepoll-header-admin": "Administrator",
 	"securepoll-cookie-dup-list": "Usanciérs qu’ont un tèmouen (''cookie'') ja rencontrâ",
 	"securepoll-dump-title": "Èxtrèt : $1",
-	"securepoll-dump-no-crypt": "Les balyês criptâs sont pas disponibles por ceta èlèccion, perce que l’èlèccion est pas configurâ por utilisar un criptâjo.",
 	"securepoll-dump-not-finished": "Les balyês criptâs sont disponibles ren qu’aprés la cllotura de l’èlèccion lo $1 a $2",
 	"securepoll-dump-no-urandom": "Empossiblo d’uvrir /dev/urandom. \nPor mantegnir la confidencialitât ux votents, les balyês criptâs sont disponibles u publico ren que se pôvont étre braciês avouéc una suita de nombros a l’hasârd.",
 	"securepoll-urandom-not-supported": "Ceti sèrvor recognêt pas la g·ènèracion criptografica de nombros a l’hasârd.\nPor mantegnir la confidencialitât ux votents, les balyês criptâs sont disponibles u publico ren que se pôvont étre braciês avouéc una suita de nombros a l’hasârd.",

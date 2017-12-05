@@ -75,7 +75,6 @@
 	"securepoll-header-admin": "Administratorius",
 	"securepoll-cookie-dup-list": "Cookie dublikuoti naudotojai",
 	"securepoll-dump-title": "Išmestas: $1",
-	"securepoll-dump-no-crypt": "Nėra prieinamas nė vienas šifruotas rinkimų įrašas, nes rinkimai nėra sukonfigūruoti naudoti kodavimą.",
 	"securepoll-dump-not-finished": "Šifruoti rinkimų įrašai prieinami tik po $1 $2",
 	"securepoll-dump-no-urandom": "Nepavyko atidaryti /dev/urandom.  \nSiekiant išlaikyti balsuotojų privatumą, šifruoti rinkimų įrašai viešai prieinami tik kai jie sumaišyti su saugiu atsitiktinių skaičių srautu.",
 	"securepoll-urandom-not-supported": "Šis serveris nepalaiko šifruotų atsitiktinių skaičių generavimo.\nKad užtikrintume balsuojančiųjų slaptumą, šifruoti rinkimų rezultatai viešai pateikiami tik po to, kai jie sumaišomi su saugia atsitiktinių skaičių seka.",

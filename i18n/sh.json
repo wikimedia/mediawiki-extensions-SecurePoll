@@ -73,7 +73,6 @@
 	"securepoll-header-admin": "Admin",
 	"securepoll-cookie-dup-list": "Kolačić dvostrukih korisnika",
 	"securepoll-dump-title": "Dump: $1",
-	"securepoll-dump-no-crypt": "Ne postoji dešifrirana varijanta ovog izbora, zato što izbor nije konfiguriran za korištenje šifriranja.",
 	"securepoll-dump-not-finished": "Dešifrirani rezultati izbora su vidljivi tek poslije datuma završetka izbora $1 u $2 sati",
 	"securepoll-dump-no-urandom": "Da bi se sačuvala privatnost glasača, dešifrirani rezultati glasanja su dostupni kada bude dostupna mogućnost prenosa slučajnim izborom brojki.",
 	"securepoll-urandom-not-supported": "Ovaj server ne podržava generisanje kriptografskih nasumičnih brojeva.\nDa bi se zadržala privatnost glasača, šifrirani podaci o izborima su dostupni javno kada se mogu izmiješati putem sigurnog toka nasumičnih brojeva.",

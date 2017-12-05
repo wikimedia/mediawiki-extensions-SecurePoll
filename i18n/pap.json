@@ -70,7 +70,6 @@
 	"securepoll-header-admin": "Administrashon",
 	"securepoll-cookie-dup-list": "Kantidat di usuarionan ku a bai vota un di dos biaha",
 	"securepoll-dump-title": "Laga numa: $1",
-	"securepoll-dump-no-crypt": "No tin ningun encryption stipulá pa e elekshon aki, pasobra e elekshon aki no ta konfigurá pa husa encryptions.",
 	"securepoll-dump-not-finished": "Resultadonan encrypt di elekshon no ta aksesibel promé ku e fecha di klousura ku ta $2 riba $1",
 	"securepoll-dump-no-urandom": "No por habri /dev/urandom.\nPa mantené e privasidat di kada votadó, elekshonnan encrypt por wòrdu mirá dor di publiko solamente ora ku nan por wòrdu di shòbel dor di otro ku un stream di numbernan bruá dor di otro.",
 	"securepoll-translate-title": "Tradusí: $1",
