@@ -150,6 +150,8 @@
 	"securepoll-create-label-shuffle_options": "Vis alternativene på stemmesiden i tilfeldig rekkefølge.",
 	"securepoll-create-label-must_rank_all": "Krev at alle alternativer rangeres.",
 	"securepoll-create-label-must_answer_all": "Krev at alle alternativer besvares.",
+	"securepoll-create-label-gpg_encrypt_key": "GPG-krypteringsnøkkel",
+	"securepoll-create-label-gpg_sign_key": "GPG-signeringsnøkkel",
 	"securepoll-create-label-questions": "== Spørsmål ==",
 	"securepoll-create-questions-row-legend": "Spørsmål",
 	"securepoll-create-label-questions-question": "Spørsmålstekst:",
