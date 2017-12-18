@@ -19,7 +19,7 @@
 	"securepoll-desc": "Extensão para eleições e sondagens",
 	"securepoll-invalid-page": "Subpágina inválida: \"<nowiki>$1</nowiki>\"",
 	"securepoll-need-admin": "Precisa de ser um administrador de eleições para realizar esta operação.",
-	"securepoll-too-few-params": "Parâmetros de subpágina insuficientes (link inválido).",
+	"securepoll-too-few-params": "Parâmetros de subpágina insuficientes (hiperligação inválida).",
 	"securepoll-invalid-election": "\"$1\" não é um identificador de eleição válido.",
 	"securepoll-welcome": "<strong>{{GENDER:$1|Bem-vindo|Bem-vinda|Bem-vindo(a)}} $1!</strong>",
 	"securepoll-not-started": "Esta eleição ainda não começou.\nEstá programado iniciar-se a $2 às $3.",
