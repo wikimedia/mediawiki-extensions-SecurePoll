@@ -1,6 +1,7 @@
 <?php
 
 use \MediaWiki\MediaWikiServices;
+use Wikimedia\Rdbms\IDatabase;
 
 /**
  * Job for populating the voter list for an election.

@@ -94,7 +94,7 @@ function spGetQualifiedUsers( $users ) {
 }
 
 /**
- * @param IDatabase $db
+ * @param \Wikimedia\Rdbms\IDatabase $db
  * @param string[] $userNames
  * @return array
  */

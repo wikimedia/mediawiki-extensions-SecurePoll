@@ -736,7 +736,7 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 	/**
 	 * Insert an entry into the securepoll_entities table, and return the ID
 	 *
-	 * @param IDatabase $dbw
+	 * @param \Wikimedia\Rdbms\IDatabase $dbw
 	 * @param string $type Entity type
 	 * @return int
 	 */
@@ -756,7 +756,7 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 	/**
 	 * Save properties and messages for an entity
 	 *
-	 * @param IDatabase $dbw
+	 * @param \Wikimedia\Rdbms\IDatabase $dbw
 	 * @param int $id
 	 * @param SecurePoll_Entity $entity
 	 * @return array

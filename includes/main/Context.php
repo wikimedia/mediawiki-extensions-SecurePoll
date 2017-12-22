@@ -272,7 +272,7 @@ class SecurePoll_Context {
 	 * Get a database object, or throw an exception if the current store object
 	 * does not support database operations.
 	 * @param int $index DB_MASTER or DB_REPLICA
-	 * @return DatabaseBase
+	 * @return \Wikimedia\Rdbms\IDatabase
 	 */
 	function getDB( $index = DB_MASTER ) {
 		return $this->getStore()->getDB( $index );
