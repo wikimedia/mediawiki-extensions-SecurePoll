@@ -11,7 +11,7 @@
 			"minus-x fix ."
 		],
 		"test": [
-			"parallel-lint . --exclude vendor --exclude node_modules",
+			"parallel-lint . --exclude vendor --exclude node_modules -e php,inc",
 			"phpcs -p -s",
 			"minus-x check ."
 		]
