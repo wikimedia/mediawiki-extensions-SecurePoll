@@ -205,8 +205,7 @@ abstract class SecurePoll_Ballot {
 			return '';
 		}
 		$this->usedErrorIds[$id] = true;
-		return
-			Xml::element( 'img', [
+		return Xml::element( 'img', [
 				'src' => $this->context->getResourceUrl( 'warning-22.png' ),
 				'width' => 22,
 				'height' => 22,

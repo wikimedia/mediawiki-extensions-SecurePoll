@@ -149,8 +149,7 @@ class SecurePoll_SchulzeTallier extends SecurePoll_PairwiseTallier {
 	function getTextResult() {
 		$rankedIds = array_keys( $this->ranks );
 
-		return
-			wfMessage( 'securepoll-ranks' )->text() . "\n" .
+		return wfMessage( 'securepoll-ranks' )->text() . "\n" .
 			$this->convertRanksToText( $this->ranks ) . "\n\n" .
 			wfMessage( 'securepoll-pairwise-victories' )->text(). "\n" .
 			$this->convertMatrixToText( $this->victories, $rankedIds ) . "\n\n" .
