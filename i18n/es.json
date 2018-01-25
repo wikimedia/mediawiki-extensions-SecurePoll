@@ -46,7 +46,7 @@
 	"securepoll-gpg-parse-error": "Error al interpretar la salida de GPG.",
 	"securepoll-no-decryption-key": "No se ha especificado ninguna clave de desencriptación.\nNo se puede desencriptar.",
 	"securepoll-jump": "Ir al servidor de votación",
-	"securepoll-bad-ballot-submission": "Tu voto fue inválido: $1",
+	"securepoll-bad-ballot-submission": "Tu voto no fue válido: $1",
 	"securepoll-unanswered-questions": "Debes responder todas las preguntas.",
 	"securepoll-invalid-rank": "Clasificación no válida. Debes clasificar a los candidatos con un número entre 1 y 999.",
 	"securepoll-unranked-options": "Algunas opciones no fueron clasificadas.\nDebes clasificar a todas las opciones con un número entre 1 y 999.",
