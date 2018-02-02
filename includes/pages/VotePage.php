@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Session\SessionManager;
+
 /**
  * The subpage for casting votes.
  */
@@ -117,7 +119,7 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 		$thisTitle = $this->getTitle();
 		$encAction = htmlspecialchars( $thisTitle->getLocalURL( "action=vote" ) );
 		$encOK = $this->msg( 'securepoll-submit' )->escaped();
-		$encToken = htmlspecialchars( $this->specialPage->getEditToken() );
+		$encToken = htmlspecialchars( SessionManager::getGlobalSession()->getToken()->toString() );
 
 		$out->addHTML(
 			"<form name=\"securepoll\" id=\"securepoll\" method=\"post\" action=\"$encAction\">\n" .
@@ -184,7 +186,8 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 			$xff = $_SERVER['HTTP_X_FORWARDED_FOR'];
 		}
 
-		$tokenMatch = $this->specialPage->getEditToken() == $request->getVal( 'edit_token' );
+		$token = SessionManager::getGlobalSession()->getToken();
+		$tokenMatch = $token->match( $request->getVal( 'edit_token' ) );
 
 		$voteId = $dbw->nextSequenceValue( 'securepoll_votes_vote_id' );
 		$dbw->insert( 'securepoll_votes',
