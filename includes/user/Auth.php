@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Session\SessionManager;
+
 /**
  * Class for handling guest logins and sessions. Creates SecurePoll_Voter objects.
  */
@@ -74,7 +76,7 @@ class SecurePoll_Auth {
 	 */
 	function getVoterFromSession( $election ) {
 		if ( session_id() == '' ) {
-			wfSetupSession();
+			SessionManager::getGlobalSession()->persist();
 		}
 		if ( isset( $_SESSION['securepoll_voter'][$election->getId()] ) ) {
 			$voterId = $_SESSION['securepoll_voter'][$election->getId()];
@@ -159,7 +161,7 @@ class SecurePoll_Auth {
 	 */
 	function newRequestedSession( $election ) {
 		if ( session_id() == '' ) {
-			wfSetupSession();
+			SessionManager::getGlobalSession()->persist();
 		}
 		$status = $this->requestLogin( $election );
 		if ( !$status->isOK() ) {
