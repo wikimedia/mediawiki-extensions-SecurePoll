@@ -37,7 +37,7 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 				}
 				$jumpUrl .= "/edit/$jumpId";
 				if ( count( $params ) > 1 ) {
-					$jumpUrl .= '/' . join( '/', array_slice( $params, 1 ) );
+					$jumpUrl .= '/' . implode( '/', array_slice( $params, 1 ) );
 				}
 
 				$wiki = $this->election->getProperty( 'main-wiki' );
@@ -996,7 +996,7 @@ class SecurePoll_FormStore extends SecurePoll_MemoryStore {
 		];
 		$this->properties[$eId] = [
 			'encrypt-type' => $crypt,
-			'wikis' => join( "\n", $wikis ),
+			'wikis' => implode( "\n", $wikis ),
 			'wikis-val' => isset( $formData['property_wiki'] )
 				? $formData['property_wiki']
 				: wfWikiID(),
@@ -1212,7 +1212,7 @@ class SecurePoll_FormStore extends SecurePoll_MemoryStore {
 		foreach ( $data as $admin ) {
 			$admins[] = User::getCanonicalName( $admin['username'] );
 		}
-		return join( '|', $admins );
+		return implode( '|', $admins );
 	}
 }
 

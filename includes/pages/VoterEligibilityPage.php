@@ -41,7 +41,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 			}
 			$jumpUrl .= "/votereligibility/$jumpId";
 			if ( count( $params ) > 1 ) {
-				$jumpUrl .= '/' . join( '/', array_slice( $params, 1 ) );
+				$jumpUrl .= '/' . implode( '/', array_slice( $params, 1 ) );
 			}
 
 			$wiki = $this->election->getProperty( 'main-wiki' );
@@ -720,7 +720,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 					$date = new DateTime( $date, new DateTimeZone( 'GMT' ) );
 					return wfTimestamp( TS_MW, $date->format( 'YmdHis' ) );
 				}, (array)$formData[$prop] );
-				$properties[$prop] = join( '|', $dates );
+				$properties[$prop] = implode( '|', $dates );
 			} else {
 				$deleteProperties[] = $prop;
 			}
@@ -732,7 +732,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 					return $entry['group'];
 				}, $formData[$prop] );
 				sort( $names );
-				$properties[$prop] = join( '|', $names );
+				$properties[$prop] = implode( '|', $names );
 			} else {
 				$deleteProperties[] = $prop;
 			}
@@ -799,7 +799,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 			'label-message' => 'securepoll-votereligibility-label-names',
 			'type' => 'textarea',
 			'rows' => 20,
-			'default' => join( "\n", $this->fetchList( $property ) ),
+			'default' => implode( "\n", $this->fetchList( $property ) ),
 		];
 
 		if ( $wgSecurePollUseNamespace ) {

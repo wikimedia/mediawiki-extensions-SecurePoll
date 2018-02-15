@@ -36,7 +36,7 @@ class SecurePoll_TranslatePage extends SecurePoll_ActionPage {
 			}
 			$jumpUrl .= "/edit/$jumpId";
 			if ( count( $params ) > 1 ) {
-				$jumpUrl .= '/' . join( '/', array_slice( $params, 1 ) );
+				$jumpUrl .= '/' . implode( '/', array_slice( $params, 1 ) );
 			}
 
 			$wiki = $this->election->getProperty( 'main-wiki' );
