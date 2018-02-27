@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Session\SessionManager;
+
 /**
  * Class for handling guest logins and sessions. Creates SecurePoll_Voter objects.
  */
@@ -73,11 +75,10 @@ class SecurePoll_Auth {
 	 * @return SecurePoll_Election
 	 */
 	function getVoterFromSession( $election ) {
-		if ( session_id() == '' ) {
-			wfSetupSession();
-		}
-		if ( isset( $_SESSION['securepoll_voter'][$election->getId()] ) ) {
-			$voterId = $_SESSION['securepoll_voter'][$election->getId()];
+		$session = SessionManager::getGlobalSession();
+		$session->persist();
+		if ( isset( $session['securepoll_voter'][$election->getId()] ) ) {
+			$voterId = $session['securepoll_voter'][$election->getId()];
 
 			# Perform cookie fraud check
 			$status = $this->autoLogin( $election );
@@ -85,7 +86,7 @@ class SecurePoll_Auth {
 				$otherVoter = $status->value;
 				if ( $otherVoter->getId() != $voterId ) {
 					$otherVoter->addCookieDup( $voterId );
-					$_SESSION['securepoll_voter'][$election->getId()] = $otherVoter->getId();
+					$session['securepoll_voter'][$election->getId()] = $otherVoter->getId();
 					return $otherVoter;
 				}
 			}
@@ -146,7 +147,8 @@ class SecurePoll_Auth {
 		$status = $this->autoLogin( $election );
 		if ( $status->isGood() ) {
 			$voter = $status->value;
-			$_SESSION['securepoll_voter'][$election->getId()] = $voter->getId();
+			$session = SessionManager::getGlobalSession();
+			$session['securepoll_voter'][$election->getId()] = $voter->getId();
 			$voter->doCookieCheck();
 		}
 		return $status;
@@ -158,9 +160,9 @@ class SecurePoll_Auth {
 	 * @return Status
 	 */
 	function newRequestedSession( $election ) {
-		if ( session_id() == '' ) {
-			wfSetupSession();
-		}
+		$session = SessionManager::getGlobalSession();
+		$session->persist();
+
 		$status = $this->requestLogin( $election );
 		if ( !$status->isOK() ) {
 			return $status;
@@ -168,8 +170,8 @@ class SecurePoll_Auth {
 
 		# Do cookie dup flagging
 		$voter = $status->value;
-		if ( isset( $_SESSION['securepoll_voter'][$election->getId()] ) ) {
-			$otherVoterId = $_SESSION['securepoll_voter'][$election->getId()];
+		if ( isset( $session['securepoll_voter'][$election->getId()] ) ) {
+			$otherVoterId = $session['securepoll_voter'][$election->getId()];
 			if ( $voter->getId() != $otherVoterId ) {
 				$voter->addCookieDup( $otherVoterId );
 			}
@@ -177,7 +179,7 @@ class SecurePoll_Auth {
 			$voter->doCookieCheck();
 		}
 
-		$_SESSION['securepoll_voter'][$election->getId()] = $voter->getId();
+		$session['securepoll_voter'][$election->getId()] = $voter->getId();
 		return $status;
 	}
 }

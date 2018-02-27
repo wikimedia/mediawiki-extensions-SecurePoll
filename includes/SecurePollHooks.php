@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Session\SessionManager;
+
 class SecurePollHooks {
 
 	/**
@@ -7,7 +9,7 @@ class SecurePollHooks {
 	 * @return bool
 	 */
 	public static function onUserLogout( $user ) {
-		$_SESSION['securepoll_voter'] = null;
+		SessionManager::getGlobalSession()->remove( 'securepoll_voter' );
 		return true;
 	}
 

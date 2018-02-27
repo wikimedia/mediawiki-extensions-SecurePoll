@@ -87,17 +87,6 @@ class SecurePoll_SpecialSecurePoll extends SpecialPage {
 	}
 
 	/**
-	 * Get a random token for CSRF protection
-	 * @return string
-	 */
-	public function getEditToken() {
-		if ( !isset( $_SESSION['spToken'] ) ) {
-			$_SESSION['spToken'] = sha1( mt_rand() . mt_rand() . mt_rand() );
-		}
-		return $_SESSION['spToken'];
-	}
-
-	/**
 	 * Set a navigation subtitle.
 	 * Each argument is a two-element array giving a Title object to be used as
 	 * a link target, and the link text.
