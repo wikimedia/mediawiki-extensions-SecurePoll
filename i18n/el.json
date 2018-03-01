@@ -10,7 +10,8 @@
 			"Glavkos",
 			"Omnipaedista",
 			"ZaDiak",
-			"Απεργός"
+			"Απεργός",
+			"Nikosgranturismogt"
 		]
 	},
 	"securepoll": "SecurePoll",
@@ -116,5 +117,6 @@
 	"securepoll-average-score": "Μέσο σκορ",
 	"securepoll-round": "Γύρος $1",
 	"securepoll-spoilt": "(Άκυρα)",
-	"securepoll-exhausted": "(Εξαντλημένα)"
+	"securepoll-exhausted": "(Εξαντλημένα)",
+	"securepoll-create-title": "{{int:securepoll}}: Δημιουργία δημοσκόπησης"
 }
