@@ -33,7 +33,7 @@ require_once "$IP/maintenance/Maintenance.php";
 
 class PurgePrivateVoteData extends Maintenance {
 
-	private $mPurgeDays = null;
+	private $purgeDays = null;
 
 	function __construct() {
 		parent::__construct();
@@ -46,8 +46,8 @@ class PurgePrivateVoteData extends Maintenance {
 	public function execute() {
 		global $wgSecurePollKeepPrivateInfoDays;
 
-		if ( $this->mPurgeDays === null ) {
-			$this->mPurgeDays = $wgSecurePollKeepPrivateInfoDays;
+		if ( $this->purgeDays === null ) {
+			$this->purgeDays = $wgSecurePollKeepPrivateInfoDays;
 		}
 
 		$electionsToPurge = [];
@@ -62,7 +62,7 @@ class PurgePrivateVoteData extends Maintenance {
 		$elResult = $dbr->select( 'securepoll_elections',
 			[ 'el_entity', 'el_title', 'el_end_date' ],
 			"el_end_date < " . $dbr->addQuotes(
-				$dbr->timestamp( time() - ( $this->mPurgeDays * 24 * 60 * 60 ) )
+				$dbr->timestamp( time() - ( $this->purgeDays * 24 * 60 * 60 ) )
 			),
 			__METHOD__
 		);
