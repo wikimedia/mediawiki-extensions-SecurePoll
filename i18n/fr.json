@@ -19,7 +19,8 @@
 			"Wladek92",
 			"Əric",
 			"Derugon",
-			"Thibaut120094"
+			"Thibaut120094",
+			"Envlh"
 		]
 	},
 	"securepoll": "Sondage sécurisé",
@@ -92,7 +93,7 @@
 	"securepoll-header-action": "Action",
 	"securepoll-header-reason": "Raison",
 	"securepoll-header-admin": "Administrateur",
-	"securepoll-cookie-dup-list": "Utilisateurs ayant un témoin déjà rencontré",
+	"securepoll-cookie-dup-list": "Utilisateurs avec un cookie déjà rencontré",
 	"securepoll-dump-title": "Vidage : $1",
 	"securepoll-dump-not-finished": "Les données chiffrées ne sont disponibles qu’après la clôture de l’élection le $1 à $2",
 	"securepoll-dump-no-urandom": "Impossible d’ouvrir /dev/urandom.\nPour maintenir la confidentialité des votants, les données chiffrées ne sont disponibles que si elles peuvent être brassées à l’aide d’une suite de nombres aléatoires.",
