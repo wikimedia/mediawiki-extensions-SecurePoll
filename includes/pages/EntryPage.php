@@ -99,7 +99,7 @@ class SecurePoll_ElectionPager extends TablePager {
 		return [
 			'tables' => 'securepoll_elections',
 			'fields' => '*',
-			'conds' => false,
+			'conds' => [],
 			'options' => []
 		];
 	}
