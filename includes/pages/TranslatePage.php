@@ -150,7 +150,7 @@ class SecurePoll_TranslatePage extends SecurePoll_ActionPage {
 		if ( $lang !== false ) {
 			$subpage .= '/' . $lang;
 		}
-		return $this->specialPage->getTitle( $subpage );
+		return $this->specialPage->getPageTitle( $subpage );
 	}
 
 	/**

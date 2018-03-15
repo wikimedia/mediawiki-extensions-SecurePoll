@@ -51,7 +51,7 @@ class SecurePoll_DetailsPage extends SecurePoll_ActionPage {
 		}
 
 		$this->specialPage->setSubtitle( [
-			$this->specialPage->getTitle( 'list/' . $this->election->getId() ),
+			$this->specialPage->getPageTitle( 'list/' . $this->election->getId() ),
 			$this->msg( 'securepoll-list-title', $this->election->getMessage( 'title' ) )->text()
 		] );
 
@@ -150,7 +150,7 @@ class SecurePoll_DetailsPage extends SecurePoll_ActionPage {
 	 * @return Title
 	 */
 	public function getTitle() {
-		return $this->specialPage->getTitle( 'details/' . $this->voteId );
+		return $this->specialPage->getPageTitle( 'details/' . $this->voteId );
 	}
 }
 
@@ -158,7 +158,12 @@ class SecurePoll_DetailsPage extends SecurePoll_ActionPage {
  * Pager for the strike log. See TablePager documentation.
  */
 class SecurePoll_StrikePager extends TablePager {
-	public $detailsPage, $voteId;
+	/**
+	 * @var SecurePoll_DetailsPage
+	 */
+	public $detailsPage;
+
+	public $voteId;
 
 	public function __construct( $detailsPage, $voteId ) {
 		$this->detailsPage = $detailsPage;

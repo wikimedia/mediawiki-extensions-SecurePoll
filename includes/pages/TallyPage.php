@@ -167,6 +167,6 @@ class SecurePoll_TallyPage extends SecurePoll_ActionPage {
 	}
 
 	public function getTitle() {
-		return $this->specialPage->getTitle( 'tally/' . $this->election->getId() );
+		return $this->specialPage->getPageTitle( 'tally/' . $this->election->getId() );
 	}
 }

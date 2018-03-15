@@ -37,7 +37,7 @@ class SecurePoll_EntryPage extends SecurePoll_ActionPage {
 	 * @return Title
 	 */
 	function getTitle() {
-		return $this->specialPage->getTitle( 'entry' );
+		return $this->specialPage->getPageTitle( 'entry' );
 	}
 }
 

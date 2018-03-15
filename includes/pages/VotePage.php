@@ -99,7 +99,7 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 	 * @return Title
 	 */
 	public function getTitle() {
-		return $this->specialPage->getTitle( 'vote/' . $this->election->getId() );
+		return $this->specialPage->getPageTitle( 'vote/' . $this->election->getId() );
 	}
 
 	/**

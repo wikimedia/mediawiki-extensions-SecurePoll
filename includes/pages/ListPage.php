@@ -177,7 +177,7 @@ EOT
 	 * @return Title object
 	 */
 	function getTitle() {
-		return $this->specialPage->getTitle( 'list/' . $this->election->getId() );
+		return $this->specialPage->getPageTitle( 'list/' . $this->election->getId() );
 	}
 }
 
