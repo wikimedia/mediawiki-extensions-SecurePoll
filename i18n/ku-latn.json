@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"George Animal",
-			"Gomada"
+			"Gomada",
+			"Ghybu"
 		]
 	},
 	"securepoll-header-timestamp": "Dem",
@@ -15,5 +16,6 @@
 	"securepoll-header-title": "Nav",
 	"securepoll-subpage-vote": "Dengdan",
 	"securepoll-subpage-translate": "Wergerîne",
-	"securepoll-subpage-list": "Lîste"
+	"securepoll-subpage-list": "Lîste",
+	"securepoll-votereligibility-saved": "{{int:securepoll}}: Hat tomarkirin"
 }
