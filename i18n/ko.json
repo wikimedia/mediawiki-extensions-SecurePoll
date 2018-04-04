@@ -140,5 +140,15 @@
 	"securepoll-edit-action": "설문 수정",
 	"securepoll-votereligibility-redirect": "이 선거에 대한 선거권 자격은 $1에서 구성되어야 합니다",
 	"securepoll-votereligibility-redirect-otherwiki": "주 위키",
-	"securepoll-votereligibility-basic": "기본 옵션"
+	"securepoll-votereligibility-basic": "기본 옵션",
+	"apihelp-strikevote-description": "관리자가 투표를 제거하거나 제거를 취소할 수 있게 합니다.",
+	"apihelp-strikevote-summary": "관리자가 투표를 제거하거나 제거를 취소할 수 있게 합니다.",
+	"apihelp-strikevote-param-option": "수행할 동작: 투표를 제거하거나 제거를 취소합니다.",
+	"apihelp-strikevote-paramvalue-option-strike": "투표를 제거합니다. (개수에서 제거)",
+	"apihelp-strikevote-paramvalue-option-unstrike": "투표 제거를 취소합니다. (개수에서 복원)",
+	"apihelp-strikevote-param-voteid": "제거하거나 제거를 취소할 투표 ID입니다.",
+	"apihelp-strikevote-param-reason": "투표에서 제거하거나 제거를 취소하는 이유입니다.",
+	"apihelp-strikevote-example-strike": "이유를 <kbd>duplication</kbd>로 지정하여 투표 <kbd>1</kbd>을 제거합니다.",
+	"apihelp-strikevote-example-unstrike": "이유를 <kbd>mistake</kbd>로 지정하여 투표 <kbd>1</kbd>의 제거를 취소합니다.",
+	"apierror-securepoll-mustbeloggedin-strikevote": "투표를 제거하거나 제거를 취소하려면 로그인해야 합니다."
 }
