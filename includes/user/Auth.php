@@ -389,9 +389,9 @@ class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
 
 		// Use the default SSL certificate file
 		// Necessary on some versions of cURL, others do this by default
-		$curlParams = [ CURLOPT_CAINFO => '/etc/ssl/certs/ca-certificates.crt' ];
+		$curlParams = [ CURLOPT_CAINFO => '/etc/ssl/certs/ca-certificates.crt', 'timeout' => 20 ];
 
-		$value = Http::get( $url, 20, $curlParams );
+		$value = Http::get( $url, $curlParams, __METHOD__ );
 
 		if ( !$value ) {
 			return Status::newFatal( 'securepoll-remote-auth-error' );
