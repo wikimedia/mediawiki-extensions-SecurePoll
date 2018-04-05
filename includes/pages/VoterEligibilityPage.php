@@ -1,5 +1,7 @@
 <?php
 
+use Wikimedia\Rdbms\DBConnectionError;
+
 /**
  * Special:SecurePoll subpage for managing the voter list for a poll
  */
