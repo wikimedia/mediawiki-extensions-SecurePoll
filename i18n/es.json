@@ -212,7 +212,7 @@
 	"securepoll-votereligibility-label-not_blocked": "No debe bloquearse",
 	"securepoll-votereligibility-label-not_centrally_blocked": "No debe bloquearse en las wikis vinculadas",
 	"securepoll-votereligibility-label-central_block_threshold": "Umbral de bloqueo central",
-	"securepoll-votereligibility-label-not_bot": "No debe marcarse como bot",
+	"securepoll-votereligibility-label-not_bot": "No debe marcarse como de robot",
 	"securepoll-votereligibility-lists": "Listas de votantes",
 	"securepoll-votereligibility-lists-info": "Los votantes elegibles también puede aparecer de forma explícita. Hay tres listas:\n* El \"{{int:securepoll-votereligibility-list-voter}}\" es una lista de votantes a los que se les permite votar, si también cumplen con los requisitos básicos definidos anteriormente. Esta lista es a menudo rellenada automáticamente.\n* El \"{{int:securepoll-votereligibility-list-include}}\" es una lista de votantes a los que se les permite votar, independientemente de los requisitos básicos o la lista de elegibilidad.\n* El \"{{int:securepoll-votereligibility-list-exclude}}\" es una lista de los votantes que no tienen derecho a voto, independientemente de cualquier otra lista.",
 	"securepoll-votereligibility-list-voter": "Lista de elegibilidad",
