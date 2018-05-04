@@ -8,6 +8,9 @@
 	"descriptionmsg": "securepoll-desc",
 	"license-name": "GPL-2.0-or-later",
 	"type": "other",
+	"requires": {
+		"MediaWiki": ">= 1.27.0"
+	},
 	"AvailableRights": [
 		"securepoll-create-poll"
 	],

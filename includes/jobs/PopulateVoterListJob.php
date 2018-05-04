@@ -88,7 +88,7 @@ class SecurePoll_PopulateVoterListJob extends Job {
 		$maxIds = [];
 		$total = 0;
 		foreach ( $wikis as $wiki ) {
-			$dbr = wfGetLB( $wiki )->getConnectionRef( DB_REPLICA, [], $wiki );
+			$dbr = $lbFactory->getMainLB( $wiki )->getConnectionRef( DB_REPLICA, [], $wiki );
 			$max = $dbr->selectField( 'user', 'MAX(user_id)' );
 			if ( !$max ) {
 				$max = 0;

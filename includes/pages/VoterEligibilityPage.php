@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
 use Wikimedia\Rdbms\DBConnectionError;
 
 /**
@@ -95,11 +96,12 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 			$wikis = [ $localWiki ];
 		}
 
+		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		foreach ( $wikis as $dbname ) {
 			if ( $dbname === $localWiki ) {
 				$dbw = $this->context->getDB();
 			} else {
-				$lb = wfGetLB( $dbname );
+				$lb = $lbFactory->getMainLB( $dbname );
 				unset( $dbw ); // trigger DBConnRef destruction and connection reuse
 				$dbw = $lb->getConnectionRef( DB_MASTER, [], $dbname );
 				try {
@@ -252,12 +254,13 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 			$wikis = [ $localWiki ];
 		}
 
+		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		foreach ( $wikis as $dbname ) {
 			if ( $dbname === $localWiki ) {
 				$dbw = $this->context->getDB();
 			} else {
 				unset( $dbw ); // trigger DBConnRef destruction and connection reuse
-				$dbw = wfGetLB( $dbname )->getConnectionRef( DB_MASTER, [], $dbname );
+				$dbw = $lbFactory->getMainLB( $dbname )->getConnectionRef( DB_MASTER, [], $dbname );
 				try {
 					// Connect to the DB and check if the LB is in read-only mode
 					if ( $dbw->isReadOnly() ) {
@@ -875,11 +878,12 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 			$wikis = [ $localWiki ];
 		}
 
+		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		foreach ( $wikis as $dbname ) {
 			if ( $dbname === $localWiki ) {
 				$dbw = $this->context->getDB();
 			} else {
-				$lb = wfGetLB( $dbname );
+				$lb = $lbFactory->getMainLB( $dbname );
 				unset( $dbw ); // trigger DBConnRef destruction and connection reuse
 				$dbw = $lb->getConnectionRef( DB_MASTER, [], $dbname );
 			}

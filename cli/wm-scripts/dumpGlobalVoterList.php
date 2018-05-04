@@ -5,9 +5,10 @@ require __DIR__.'/../cli.inc';
 $voters = [];
 $batchSize = 1000;
 $wikis = $wgLocalDatabases;
+$lbFactory = MediaWiki\MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 
 foreach ( $wikis as $wikiId ) {
-	$lb = wfGetLB( $wikiId );
+	$lb = $lbFactory->getMainLB( $wikiId );
 	$db = $lb->getConnection( DB_REPLICA, [], $wikiId );
 
 	if ( !$db->tableExists( 'securepoll_lists' ) ) {

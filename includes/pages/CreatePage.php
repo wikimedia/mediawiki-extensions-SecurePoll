@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * Special:SecurePoll subpage for creating or editing a poll
  */
@@ -394,6 +396,7 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 	public function processInput( $formData, $form ) {
 		global $wgSecurePollUseNamespace;
 
+		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		try {
 			$context = new SecurePoll_Context;
 			$userId = $this->specialPage->getUser()->getId();
@@ -426,7 +429,7 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 			// matter in practice)
 			if ( $store->rId ) {
 				foreach ( $store->remoteWikis as $dbname ) {
-					$lb = wfGetLB( $dbname );
+					$lb = $lbFactory->getMainLB( $dbname );
 					$rdbw = $lb->getConnection( DB_MASTER, [], $dbname );
 
 					// Find an existing dummy election, if any
@@ -559,7 +562,7 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 		if ( $store->rId ) {
 			$election = $context->getElection( $store->rId );
 			foreach ( $store->remoteWikis as $dbname ) {
-				$lb = wfGetLB( $dbname );
+				$lb = $lbFactory->getMainLB( $dbname );
 				$dbw = $lb->getConnection( DB_MASTER, [], $dbname );
 				$dbw->startAtomic( __METHOD__ );
 				// Find an existing dummy election, if any

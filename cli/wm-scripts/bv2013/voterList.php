@@ -92,11 +92,12 @@ function spGetQualifiedUsers( $users ) {
 			}
 		}
 
+		$lbFactory = MediaWiki\MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		foreach ( $foreignUsers as $wiki => $wikiUsers ) {
 			if ( !in_array( $wiki, $wgLocalDatabases ) ) {
 				continue;
 			}
-			$lb = wfGetLB( $wiki );
+			$lb = $lbFactory->getMainLB( $wiki );
 			$db = $lb->getConnection( DB_REPLICA, [], $wiki );
 			$foreignEditCounts = spGetEditCounts( $db, $wikiUsers );
 			$lb->reuseConnection( $db );

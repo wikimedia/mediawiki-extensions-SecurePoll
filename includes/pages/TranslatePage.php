@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * A SecurePoll subpage for translating election messages.
  */
@@ -251,13 +253,14 @@ class SecurePoll_TranslatePage extends SecurePoll_ActionPage {
 				$wp->doEditContent( $content, $request->getText( 'comment' ) );
 			}
 
+			$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 			// Then each jump-wiki
 			foreach ( $wikis as $dbname ) {
 				if ( $dbname === wfWikiID() ) {
 					continue;
 				}
 
-				$lb = wfGetLB( $dbname );
+				$lb = $lbFactory->getMainLB( $dbname );
 				$dbw = $lb->getConnection( DB_MASTER, [], $dbname );
 				try {
 					$id = $dbw->selectField( 'securepoll_elections', 'el_entity', [
