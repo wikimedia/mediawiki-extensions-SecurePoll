@@ -4,10 +4,11 @@
 			"Ukabia"
 		]
 	},
+	"securepoll-submit": "Zibànye ntụnye",
 	"securepoll-header-timestamp": "Ógẹ",
 	"securepoll-header-voter-name": "Áhà",
 	"securepoll-strike-reason": "Mgbághapụtà:",
-	"securepoll-strike-cancel": "Kàchá",
+	"securepoll-strike-cancel": "Hapụ̀",
 	"securepoll-details-link": "Nkȯwa",
 	"securepoll-header-action": "Umẹ́",
 	"securepoll-header-reason": "Mgbaghaputa",
@@ -17,5 +18,6 @@
 	"securepoll-header-title": "Áhà",
 	"securepoll-subpage-vote": "Votu",
 	"securepoll-subpage-list": "Ndetu",
+	"securepoll-subpage-edit": "Mèzi",
 	"securepoll-subpage-dump": "Nkwáfù"
 }
