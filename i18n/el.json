@@ -14,7 +14,7 @@
 			"Nikosgranturismogt"
 		]
 	},
-	"securepoll": "SecurePoll",
+	"securepoll": "Ασφαλής δημοσκόπηση",
 	"securepoll-desc": "Επέκταση για εκλογές και δημοσκοπήσεις",
 	"securepoll-invalid-page": "Άκυρη υποσελίδα \"<nowiki>$1</nowiki>\"",
 	"securepoll-need-admin": "Πρέπει να είστε διαχειριστής εκλογών για να το κάνετε αυτό.",
