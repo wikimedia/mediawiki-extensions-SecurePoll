@@ -12,7 +12,8 @@
 			"Ssola",
 			"Vriullop",
 			"Edustus",
-			"Jaumeortola"
+			"Jaumeortola",
+			"Fitoschido"
 		]
 	},
 	"securepoll": "Vot segur",
@@ -49,7 +50,7 @@
 	"securepoll-remote-parse-error": "S'ha produit un error en la recepció de la resposta d'autorització des del servidor.",
 	"securepoll-api-invalid-params": "Paràmetres invàlids.",
 	"securepoll-api-no-user": "No s'ha trobat cap usuari amb aquesta identificació.",
-	"securepoll-api-token-mismatch": "El token de seguretat no coincideix. No s'ha pogut accedir.",
+	"securepoll-api-token-mismatch": "El testimoni de seguretat no coincideix. No s’ha pogut iniciar la sessió.",
 	"securepoll-not-logged-in": "Heu d'estar connectats en un compte per a votar en aquesta elecció",
 	"securepoll-too-few-edits": "Ho sentim, però no podeu votar.\nPer a votar en aquesta elecció cal haver fet un mínim {{PLURAL:$1|d'una modificació|de $1 modificacions}}, i n'heu fet $2.",
 	"securepoll-too-new": "Sentint-ho molt no podeu votar. Per a poder participar en aquesta votació cal que el vostre compte s'hagi registrat abans del $1 a les $3. La vostra data de registre és $2 a les $4.",
