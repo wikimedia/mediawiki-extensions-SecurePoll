@@ -21,7 +21,7 @@
 			"Hello903hello"
 		]
 	},
-	"securepoll": "SecurePoll",
+	"securepoll": "安全投票",
 	"securepoll-desc": "用來選舉及調查的擴充套件",
 	"securepoll-invalid-page": "無效的子頁面 \"<nowiki>$1</nowiki>\"",
 	"securepoll-need-admin": "您需為選選舉管理員才可進行此操作。",
@@ -100,7 +100,7 @@
 	"securepoll-submit-translate": "更新",
 	"securepoll-language-label": "請選擇語言：",
 	"securepoll-submit-select-lang": "翻譯",
-	"securepoll-entry-text": "以下為投票所清單。",
+	"securepoll-entry-text": "以下為投票清單。",
 	"securepoll-entry-createpoll": "建立新投票所",
 	"securepoll-header-title": "名稱",
 	"securepoll-header-start-date": "開始日期",
