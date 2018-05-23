@@ -184,6 +184,7 @@
 	"securepoll-create-user-does-not-exist": "指定的使用者不存在",
 	"securepoll-create-fail-bad-dblist": "指定的 wiki 或 wiki 清單無效",
 	"securepoll-create-duplicate-title": "指定的投票所標題已被使用於 $1",
+	"securepoll-edit-title": "{{int:securepoll}}: 編輯投票",
 	"securepoll-edit-redirect-otherwiki": "主 wiki",
 	"securepoll-votereligibility-title": "選民資格設定",
 	"securepoll-votereligibility-redirect": "此選舉的選民資格必須在 $1 設定",
