@@ -57,12 +57,32 @@ if ( $listExists ) {
 	}
 }
 
+if ( is_callable( [ 'User', 'getQueryInfo' ] ) ) {
+	$userQuery = User::getQueryInfo();
+} else {
+	$userQuery = [
+		'tables' => [ 'user' ],
+		'fields' => User::selectFields(),
+		'joins' => [],
+	];
+}
+if ( !class_exists( 'ActorMigration' ) ) {
+	// We only need user_id in this case
+	$userQuery['fields'] = [ 'user_id' ];
+}
+
+$beforeQ = $before !== false ? $dbr->addQuotes( $before ) : false;
+
 while ( true ) {
 	echo "user_id > $startBatch\n";
-	$res = $dbr->select( 'user', 'user_id',
+	$res = $dbr->select(
+		$userQuery['tables'],
+		$userQuery['fields'],
 		[ 'user_id > ' . $dbr->addQuotes( $startBatch ) ],
 		$fname,
-		[ 'LIMIT' => $batchSize ] );
+		[ 'LIMIT' => $batchSize ],
+		$userQuery['joins']
+	);
 
 	if ( !$res->numRows() ) {
 		break;
@@ -78,22 +98,35 @@ while ( true ) {
 		}
 
 		# Count edits
-		$conds = [ 'rev_user' => $userId ];
-		if ( $before !== false ) {
-			$conds[] = 'rev_timestamp < ' . $dbr->addQuotes( $before );
+		$edits = 0;
+		if ( class_exists( 'ActorMigration' ) ) {
+			$revWhere = ActorMigration::newMigration()
+				->getWhere( $dbr, 'rev_user', User::newFromRow( $row ) );
+		} else {
+			$revWhere = [
+				'tables' => [],
+				'orconds' => [ 'userid' => 'rev_user = ' . $row->user_id ],
+				'joins' => [],
+			];
 		}
-		if ( isset( $options['mainspace-only'] ) ) {
-			$conds['page_namespace'] = 0;
-		}
+		foreach ( $revWhere['orconds'] as $key => $cond ) {
+			$conds = [ $cond ];
+			if ( $before !== false ) {
+				$conds[] = ( $key === 'actor' ? 'revactor_timestamp' : 'rev_timestamp' ) . ' < ' . $beforeQ;
+			}
+			if ( isset( $options['mainspace-only'] ) ) {
+				$conds['page_namespace'] = 0;
+			}
 
-		$edits = $dbr->selectRowCount(
-			[ 'revision', 'page' ],
-			'1',
-			$conds,
-			$fname,
-			[ 'LIMIT' => $minEdits ],
-			[ 'page' => [ 'INNER JOIN', 'rev_page = page_id' ] ]
-		);
+			$edits = $dbr->selectRowCount(
+				[ 'revision', 'page' ] + $revWhere['tables'],
+				'1',
+				$conds,
+				$fname,
+				[ 'LIMIT' => $minEdits ],
+				$revWhere['joins'] + [ 'page' => [ 'INNER JOIN', 'rev_page = page_id' ] ]
+			);
+		}
 
 		if ( $edits >= $minEdits ) {
 			$insertBatch[] = $insertRow;

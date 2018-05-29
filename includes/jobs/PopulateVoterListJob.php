@@ -195,6 +195,17 @@ class SecurePoll_PopulateVoterListJob extends Job {
 
 			$dbr = wfGetDB( DB_REPLICA );
 
+			if ( class_exists( 'ActorMigration' ) ) {
+				$actorQuery = ActorMigration::newMigration()->getJoin( 'rev_user' );
+			} else {
+				$actorQuery = [
+					'tables' => [],
+					'fields' => [ 'rev_user' => 'rev_user' ],
+					'joins' => [],
+				];
+			}
+			$field = $actorQuery['fields']['rev_user'];
+
 			// Construct the list of user_ids in our range that pass the criteria
 			$users = null;
 
@@ -203,16 +214,16 @@ class SecurePoll_PopulateVoterListJob extends Job {
 				$timestamp = $dbr->addQuotes( $dbr->timestamp( $this->params['list_edits-before-date'] ) );
 
 				$res = $dbr->select(
-					'revision',
-					'rev_user',
+					[ 'revision' ] + $actorQuery['tables'],
+					[ 'rev_user' => $field ],
 					[
-						"rev_user >= $min",
-						"rev_user < $max",
+						"$field >= $min",
+						"$field < $max",
 						"rev_timestamp < $timestamp",
 					],
 					__METHOD__,
 					[
-						'GROUP BY' => 'rev_user',
+						'GROUP BY' => $field,
 						'HAVING' => [
 							'COUNT(*) >= ' . $dbr->addQuotes( $this->params['list_edits-before-count'] ),
 						]
@@ -237,17 +248,17 @@ class SecurePoll_PopulateVoterListJob extends Job {
 				$timestamp2 = $dbr->addQuotes( $dbr->timestamp( $this->params['list_edits-enddate'] ) );
 
 				$res = $dbr->select(
-					'revision',
-					'rev_user',
+					[ 'revision' ] + $actorQuery['tables'],
+					[ 'rev_user' => $field ],
 					[
-						"rev_user >= $min",
-						"rev_user < $max",
+						"$field >= $min",
+						"$field < $max",
 						"rev_timestamp >= $timestamp1",
 						"rev_timestamp < $timestamp2",
 					],
 					__METHOD__,
 					[
-						'GROUP BY' => 'rev_user',
+						'GROUP BY' => $field,
 						'HAVING' => [
 							'COUNT(*) >= ' . $dbr->addQuotes( $this->params['list_edits-between-count'] ),
 						]

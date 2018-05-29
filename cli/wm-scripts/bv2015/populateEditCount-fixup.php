@@ -9,24 +9,46 @@ $dbr = wfGetDB( DB_REPLICA );
 $dbw = wfGetDB( DB_MASTER );
 
 $maxUser = $dbr->selectField( 'user', 'MAX(user_id)', false );
-$betweenTime = [ '20150401500000', '20150415000000' ];
+$betweenTime = [
+	$dbr->addQuotes( '20150401500000' ),
+	$dbr->addQuotes( '20150415000000' )
+];
 $fname = 'populateEditCount';
 
 $numUsers = 0;
 
 for ( $userId = 1; $userId <= $maxUser; $userId++ ) {
-	$exists = $dbr->selectField( 'user', '1', [ 'user_id' => $userId ] );
-	if ( !$exists ) {
+	$user = User::newFromId( $userId );
+	if ( $user->isAnon() ) {
 		continue;
 	}
-	$adjust = $dbr->selectField( 'revision', 'COUNT(*)',
-		[
-			'rev_user' => $userId,
-			'rev_timestamp BETWEEN ' . $dbr->addQuotes( $betweenTime[0] ) .
-				' AND ' . $dbr->addQuotes( $betweenTime[1] )
-		],
-		$fname
-	);
+
+	$adjust = 0;
+	if ( class_exists( 'ActorMigration' ) ) {
+		$revWhere = ActorMigration::newMigration()
+			->getWhere( $dbr, 'rev_user', $user );
+	} else {
+		$revWhere = [
+			'tables' => [],
+			'orconds' => [ 'userid' => 'rev_user = ' . $userId ],
+			'joins' => [],
+		];
+	}
+	foreach ( $revWhere['orconds'] as $key => $cond ) {
+		$tsField = $key === 'actor' ? 'revactor_timestamp' : 'rev_timestamp';
+
+		$adjust += $dbr->selectField(
+			[ 'revision' ] + $revWhere['tables'],
+			'COUNT(*)',
+			[
+				$cond,
+				$tsField . ' BETWEEN ' . $betweenTime[0] . ' AND ' . $betweenTime[1]
+			],
+			$fname,
+			[],
+			$revWhere['joins']
+		);
+	}
 
 	if ( $adjust != 0 ) {
 		echo "$userId\t$adjust\n";
