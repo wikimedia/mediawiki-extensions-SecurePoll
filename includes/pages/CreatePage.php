@@ -147,7 +147,7 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 		ksort( $languages );
 		$options = [];
 		foreach ( $languages as $code => $name ) {
-			$display = wfBCP47( $code ) . ' - ' . $name;
+			$display = LanguageCode::bcp47( $code ) . ' - ' . $name;
 			$options[$display] = $code;
 		}
 		$formItems['election_primaryLang'] = [
