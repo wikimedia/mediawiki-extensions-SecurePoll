@@ -229,6 +229,7 @@
 	"securepoll-votereligibility-label-edits_before_date": "پیش از تاریخ",
 	"securepoll-votereligibility-label-edits_between": "نیاز به یک تعداد حداقلی ویرایش بین دو تاریخ",
 	"securepoll-votereligibility-label-edits_between_count": "حداقل تعداد ویرایش",
+	"securepoll-votereligibility-label-edits_enddate": "و قبل از:",
 	"securepoll-votereligibility-label-exclude_groups": "مستثنی‌کردن کاربران این گروه‌ها",
 	"securepoll-votereligibility-label-include_groups": "کاربران این گروه‌ها را مشمول کن، فارغ از ویرایش‌ها و دیگر گروه‌ها",
 	"securepoll-votereligibility-label-names": "نام‌های کاربری",
