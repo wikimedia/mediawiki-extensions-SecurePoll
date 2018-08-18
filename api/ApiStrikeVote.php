@@ -44,15 +44,9 @@ class ApiStrikeVote extends ApiBase {
 		// if not logged in: fail
 		$user = $this->getUser();
 		if ( !$user->isLoggedIn() ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError(
-					'apierror-securepoll-mustbeloggedin-strikevote', 'notloggedin'
-				);
-			} else {
-				$this->dieUsage(
-					'You must be logged in to strike or unstrike a vote.', 'notloggedin'
-				);
-			}
+			$this->dieWithError(
+				'apierror-securepoll-mustbeloggedin-strikevote', 'notloggedin'
+			);
 		}
 
 		// see if vote exists
@@ -69,11 +63,7 @@ class ApiStrikeVote extends ApiBase {
 
 		// if no vote: fail
 		if ( !$row ) {
-			if ( is_callable( [ $this, 'dieWithError' ] ) ) {
-				$this->dieWithError( [ 'apierror-securepoll-badvoteid', $voteid ], 'novote' );
-			} else {
-				$this->dieUsage( "$voteid is not a valid vote id.", 'novote' );
-			}
+			$this->dieWithError( [ 'apierror-securepoll-badvoteid', $voteid ], 'novote' );
 		}
 
 		// strike the vote
