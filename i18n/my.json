@@ -4,5 +4,7 @@
 			"Dr Lotus Black"
 		]
 	},
-	"securepoll-strike-cancel": "မလုပ်တော့ပါ"
+	"securepoll-strike-cancel": "မလုပ်တော့ပါ",
+	"securepoll-header-admin": "အက်ဒမင်",
+	"securepoll-create-label-property_admins": "အက်ဒမင်များ:"
 }
