@@ -6,5 +6,8 @@
 	},
 	"securepoll-strike-cancel": "မလုပ်တော့ပါ",
 	"securepoll-header-admin": "အက်ဒမင်",
+	"securepoll-translate-title": "ဘာသာပြန်ရန်: $1",
+	"securepoll-submit-select-lang": "ဘာသာပြန်ရန်",
+	"securepoll-subpage-translate": "ဘာသာပြန်ရန်",
 	"securepoll-create-label-property_admins": "အက်ဒမင်များ:"
 }
