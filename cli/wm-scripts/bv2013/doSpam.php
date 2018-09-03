@@ -112,7 +112,7 @@ foreach ( $wikis as $w ) {
 			runChecks( $w, $pendingChecks );
 		}
 	} catch ( MWException $excep ) {
-		fwrite( $err, "Error in query: ".$excep->getMessage()."\n" );
+		fwrite( $err, "Error in query: " . $excep->getMessage() . "\n" );
 	}
 }
 

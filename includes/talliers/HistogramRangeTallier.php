@@ -12,7 +12,7 @@ class SecurePoll_HistogramRangeTallier extends SecurePoll_Tallier {
 		$this->minScore = intval( $question->getProperty( 'min-score' ) );
 		$this->maxScore = intval( $question->getProperty( 'max-score' ) );
 		if ( $this->minScore >= $this->maxScore ) {
-			throw new MWException( __METHOD__.': min-score/max-score configured incorrectly' );
+			throw new MWException( __METHOD__ . ': min-score/max-score configured incorrectly' );
 		}
 
 		foreach ( $question->getOptions() as $option ) {
@@ -47,7 +47,7 @@ class SecurePoll_HistogramRangeTallier extends SecurePoll_Tallier {
 	function getHtmlResult() {
 		$ballot = $this->election->getBallot();
 		if ( !is_callable( [ $ballot, 'getColumnLabels' ] ) ) {
-			throw new MWException( __METHOD__.': ballot type not supported by this tallier' );
+			throw new MWException( __METHOD__ . ': ballot type not supported by this tallier' );
 		}
 		$optionLabels = [];
 		foreach ( $this->question->getOptions() as $option ) {

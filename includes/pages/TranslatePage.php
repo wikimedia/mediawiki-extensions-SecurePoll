@@ -130,7 +130,7 @@ class SecurePoll_TranslatePage extends SecurePoll_ActionPage {
 				$s .=
 					'<p style="text-align: center;">' .
 					wfMessage( 'securepoll-translate-label-comment' )->escaped() .
-					Xml::input( 'comment', 45, false, [ 'maxlength' => 250 ] )  .
+					Xml::input( 'comment', 45, false, [ 'maxlength' => 250 ] ) .
 					"</p>";
 			}
 

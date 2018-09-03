@@ -59,7 +59,7 @@ class SecurePoll_ApprovalBallot extends SecurePoll_Ballot {
 			if ( !preg_match( '/Q([0-9A-F]{8})-A([0-9A-F]{8})-([yn])--/A',
 				$record, $m, 0, $offset )
 			) {
-				wfDebug( __METHOD__.": regex doesn't match\n" );
+				wfDebug( __METHOD__ . ": regex doesn't match\n" );
 				return false;
 			}
 			$qid = intval( base_convert( $m[1], 16, 10 ) );

@@ -73,7 +73,7 @@ class SecurePoll_ChooseBallot extends SecurePoll_Ballot {
 		$record = trim( $record );
 		for ( $offset = 0, $len = strlen( $record ); $offset < $len; $offset += 18 ) {
 			if ( !preg_match( '/Q([0-9A-F]{8})A([0-9A-F]{8})/A', $record, $m, 0, $offset ) ) {
-				wfDebug( __METHOD__.": regex doesn't match\n" );
+				wfDebug( __METHOD__ . ": regex doesn't match\n" );
 				return false;
 			}
 			$qid = intval( base_convert( $m[1], 16, 10 ) );
