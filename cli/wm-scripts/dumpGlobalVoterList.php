@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__.'/../cli.inc';
+require __DIR__ . '/../cli.inc';
 
 $voters = [];
 $batchSize = 1000;

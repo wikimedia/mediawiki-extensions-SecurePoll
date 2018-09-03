@@ -21,7 +21,7 @@ class SecurePoll_PluralityTallier extends SecurePoll_Tallier {
 	function addVote( $scores ) {
 		foreach ( $scores as $oid => $score ) {
 			if ( !isset( $this->tally[$oid] ) ) {
-				wfDebug( __METHOD__.": unknown OID $oid\n" );
+				wfDebug( __METHOD__ . ": unknown OID $oid\n" );
 				return false;
 			}
 			$this->tally[$oid] += $score;

@@ -45,7 +45,7 @@ class SecurePoll_Random {
 		}
 		$data = fread( $this->urandom, $numBytes );
 		if ( strlen( $data ) != $numBytes ) {
-			throw new MWException( __METHOD__.': not enough bytes' );
+			throw new MWException( __METHOD__ . ': not enough bytes' );
 		}
 		$x = 0;
 		for ( $i = 0; $i < $numBytes; $i++ ) {

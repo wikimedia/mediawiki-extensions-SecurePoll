@@ -151,7 +151,7 @@ function spReportProgress( $current, $total ) {
 
 	print $lang->commafy( $current ) . " of " .
 		$lang->commafy( $total ) . " ; " .
-		number_format( $current / $total * 100, 2 ) .  '% ; estimated time remaining: ' .
+		number_format( $current / $total * 100, 2 ) . '% ; estimated time remaining: ' .
 		$lang->formatDuration( $estRemaining ) .
 		"\n";
 }

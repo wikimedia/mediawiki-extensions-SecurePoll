@@ -447,7 +447,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 		while ( $xr->read() && $xr->nodeType !== XMLReader::ELEMENT );
 		// @codingStandardsIgnoreEnd
 		if ( $xr->name != 'SecurePoll' ) {
-			wfDebug( __METHOD__.": invalid document element\n" );
+			wfDebug( __METHOD__ . ": invalid document element\n" );
 			return false;
 		}
 
@@ -473,7 +473,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 	function doElection() {
 		$xr = $this->xmlReader;
 		if ( $xr->isEmptyElement ) {
-			wfDebug( __METHOD__.": unexpected empty element\n" );
+			wfDebug( __METHOD__ . ": unexpected empty element\n" );
 			return false;
 		}
 		$xr->read();
@@ -514,10 +514,10 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 				continue;
 			}
 
-			wfDebug( __METHOD__.": ignoring unrecognized element <{$xr->name}>\n" );
+			wfDebug( __METHOD__ . ": ignoring unrecognized element <{$xr->name}>\n" );
 			$xr->next();
 		}
-		wfDebug( __METHOD__.": unexpected end of stream\n" );
+		wfDebug( __METHOD__ . ": unexpected end of stream\n" );
 		return false;
 	}
 
@@ -536,7 +536,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 		$messages = [];
 		$properties = [];
 		if ( $xr->isEmptyElement ) {
-			wfDebug( __METHOD__.": unexpected empty element\n" );
+			wfDebug( __METHOD__ . ": unexpected empty element\n" );
 			$xr->read();
 			return false;
 		}
@@ -544,7 +544,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 
 		while ( true ) {
 			if ( $xr->nodeType === XMLReader::NONE ) {
-				wfDebug( __METHOD__.": unexpected end of stream\n" );
+				wfDebug( __METHOD__ . ": unexpected end of stream\n" );
 				return false;
 			}
 			if ( $xr->nodeType === XMLReader::END_ELEMENT ) {
@@ -594,12 +594,12 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 				continue;
 			}
 
-			wfDebug( __METHOD__.": ignoring unrecognized element <{$xr->name}>\n" );
+			wfDebug( __METHOD__ . ": ignoring unrecognized element <{$xr->name}>\n" );
 			$xr->next();
 		}
 
 		if ( !isset( $info['id'] ) ) {
-			wfDebug( __METHOD__.": missing id element in <$entityType>\n" );
+			wfDebug( __METHOD__ . ": missing id element in <$entityType>\n" );
 			return false;
 		}
 

@@ -111,7 +111,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 		$min = intval( $question->getProperty( 'min-score' ) );
 		$max = intval( $question->getProperty( 'max-score' ) );
 		if ( $max <= $min ) {
-			throw new MWException( __METHOD__.': min/max not configured' );
+			throw new MWException( __METHOD__ . ': min/max not configured' );
 		}
 		return [ $min, $max ];
 	}
@@ -130,7 +130,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 		} elseif ( preg_match( '/^desc/i', $order ) ) {
 			return -1;
 		} else {
-			throw new MWException( __METHOD__.': column-order configured incorrectly' );
+			throw new MWException( __METHOD__ . ': column-order configured incorrectly' );
 		}
 	}
 
@@ -302,19 +302,19 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 			if ( !preg_match( '/Q([0-9A-F]{8})-A([0-9A-F]{8})-S([+-][0-9]{10})--/A',
 				$record, $m, 0, $offset )
 			) {
-				wfDebug( __METHOD__.": regex doesn't match\n" );
+				wfDebug( __METHOD__ . ": regex doesn't match\n" );
 				return false;
 			}
 			$qid = intval( base_convert( $m[1], 16, 10 ) );
 			$oid = intval( base_convert( $m[2], 16, 10 ) );
 			$score = intval( $m[3] );
 			if ( !isset( $questions[$qid] ) ) {
-				wfDebug( __METHOD__.": invalid question ID\n" );
+				wfDebug( __METHOD__ . ": invalid question ID\n" );
 				return false;
 			}
 			list( $min, $max ) = $this->getMinMax( $questions[$qid] );
 			if ( $score < $min || $score > $max ) {
-				wfDebug( __METHOD__.": score out of range\n" );
+				wfDebug( __METHOD__ . ": score out of range\n" );
 				return false;
 			}
 			$scores[$qid][$oid] = $score;

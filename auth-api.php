@@ -2,7 +2,7 @@
 
 $IP = getenv( 'MW_INSTALL_PATH' );
 if ( strval( $IP ) === '' ) {
-	$IP = __DIR__.'/../..';
+	$IP = __DIR__ . '/../..';
 }
 if ( !file_exists( "$IP/includes/WebStart.php" ) ) {
 	$IP .= '/core';
