@@ -115,6 +115,7 @@
 	"securepoll-round": "Runde $1",
 	"securepoll-spoilt": "(Ugyldig)",
 	"securepoll-exhausted": "(Udtømt)",
+	"securepoll-create-option-wiki-this_wiki": "Denne wiki",
 	"securepoll-create-label-election_primaryLang": "Primært sprog:",
 	"securepoll-create-label-questions": "== Spørgsmål ==",
 	"securepoll-create-questions-row-legend": "Spørgsmål",
