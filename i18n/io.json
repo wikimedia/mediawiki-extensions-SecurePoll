@@ -8,6 +8,7 @@
 	},
 	"securepoll": "SekuraVoto",
 	"securepoll-desc": "Extensilo por elekti e voti",
+	"securepoll-unranked-options": "Kelka temi selektebla ne klasifikesis.\nVu mustas rangizar omna temi, de 1 til 999.",
 	"securepoll-too-new": "Pardonez, vu ne povas votar. Nur konti enrejistrita ante $1, $3, povos votar en ica elekto, e vu enrejistris ye $2, $4.",
 	"securepoll-header-voter-name": "Nomo",
 	"securepoll-strike-reason": "Motivo:",
