@@ -285,7 +285,6 @@ class SecurePoll_ListPager extends TablePager {
 				[ 'href' => $title->getLocalUrl() ],
 				$this->msg( 'securepoll-details-link' )->text()
 			);
-			break;
 		case 'strike':
 			$voteId = intval( $this->mCurrentRow->vote_id );
 			if ( $this->mCurrentRow->vote_struck ) {
