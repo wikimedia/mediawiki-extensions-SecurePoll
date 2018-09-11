@@ -4,7 +4,8 @@
 			"Homo",
 			"Matasg",
 			"Perkunas",
-			"Eitvys200"
+			"Eitvys200",
+			"Manvydasz"
 		]
 	},
 	"securepoll": "Saugus balsavimas",
@@ -13,7 +14,7 @@
 	"securepoll-need-admin": "Jei norite atlikti šį veiksmą, Jums reikia būti rinkimų administratoriumi.",
 	"securepoll-too-few-params": "Nepakanka subpuslapio parametrų (negalioja nuoroda).",
 	"securepoll-invalid-election": "\"$1\" nėra tinkamas rinkimų ID.",
-	"securepoll-welcome": "<strong>Sveiki $1!</strong>",
+	"securepoll-welcome": "<strong>{{GENDER:$1|Sveiki}} $1!</strong>",
 	"securepoll-not-started": "Šie rinkimai dar nėra prasidėję.\nJie turėtų prasidėti $2 $3.",
 	"securepoll-finished": "Šie rinkimai baigėsi, jūs nebegalite balsuoti.",
 	"securepoll-not-qualified": "Jūs nesate kvalifikuotas balsuoti šiuose rinkimuose: $1",
