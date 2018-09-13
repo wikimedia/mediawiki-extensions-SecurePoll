@@ -308,7 +308,7 @@ class SecurePoll_GpgCrypt {
 			' --compress-level 0' .
 			' --recipient ' . wfEscapeShellArg( $this->recipient );
 		if ( $this->signer !== null ) {
-			$args .= ' --sign --local-user ' . $this->signer;
+			$args .= ' --sign --local-user ' . wfEscapeShellArg( $this->signer );
 		}
 		$args .= ' --output ' . wfEscapeShellArg( "{$this->homeDir}/output" ) .
 			' ' . wfEscapeShellArg( "{$this->homeDir}/input" ) . ' 2>&1';

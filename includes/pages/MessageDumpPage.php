@@ -1,6 +1,10 @@
 <?php
 
 class SecurePoll_MessageDumpPage extends SecurePoll_ActionPage {
+	/**
+	 * @param string $params
+	 * @suppress SecurityCheck-XSS Mime type is not html so all false positive
+	 */
 	public function execute( $params ) {
 		$out = $this->specialPage->getOutput();
 

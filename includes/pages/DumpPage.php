@@ -58,7 +58,7 @@ class SecurePoll_DumpPage extends SecurePoll_ActionPage {
 		if ( !$this->headersSent ) {
 			$this->sendHeaders();
 		}
-		echo "<vote>" . $row->vote_record . "</vote>\n";
+		echo "<vote>" . htmlspecialchars( $row->vote_record ) . "</vote>\n";
 	}
 
 	public function sendHeaders() {

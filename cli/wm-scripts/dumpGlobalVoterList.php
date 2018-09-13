@@ -33,7 +33,7 @@ foreach ( $wikis as $wikiId ) {
 			break;
 		}
 		foreach ( $res as $row ) {
-			$userId = $row->user_id;
+			$userId = (int)$row->user_id;
 			if ( !$row->user_email || !$row->user_email_authenticated ) {
 				continue;
 			}
@@ -52,5 +52,13 @@ foreach ( $wikis as $wikiId ) {
 }
 
 foreach ( $voters as $email => $info ) {
-	echo "{$info['name']} <$email>\n";
+	out( "{$info['name']} <$email>\n" );
+}
+
+/**
+ * @suppress SecurityCheck-XSS
+ * @param string $var
+ */
+function out( $var ) {
+	echo $var;
 }

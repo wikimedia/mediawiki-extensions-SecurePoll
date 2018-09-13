@@ -54,7 +54,7 @@ for ( $userId = 1; $userId <= $maxUser; $userId++ ) {
 			$revWhere['joins']
 		);
 
-		$shortEdits += $dbr->selectField(
+		$shortEdits += (int)$dbr->selectField(
 			[ 'revision' ] + $revWhere['tables'],
 			'COUNT(*)',
 			[

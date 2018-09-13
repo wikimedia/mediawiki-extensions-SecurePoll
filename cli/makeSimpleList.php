@@ -105,7 +105,7 @@ while ( true ) {
 		} else {
 			$revWhere = [
 				'tables' => [],
-				'orconds' => [ 'userid' => 'rev_user = ' . $row->user_id ],
+				'orconds' => [ 'userid' => 'rev_user = ' . (int)$row->user_id ],
 				'joins' => [],
 			];
 		}
@@ -133,7 +133,20 @@ while ( true ) {
 		}
 	}
 	if ( $insertBatch ) {
-		$dbw->insert( 'securepoll_lists', $insertBatch, $fname, $insertOptions );
+		doInsert( $dbw, $insertBatch, $fname, $insertOptions );
 		wfWaitForSlaves();
 	}
+}
+
+/**
+ * phan-taint-check gets confused with the other cli scripts due to globals
+ *
+ * @suppress SecurityCheck-SQLInjection
+ * @param IDatabase $dbw
+ * @param array $insertBatch
+ * @param string $fname
+ * @param array $insertOptions
+ */
+function doInsert( $dbw, $insertBatch, $fname, $insertOptions ) {
+	$dbw->insert( 'securepoll_lists', $insertBatch, $fname, $insertOptions );
 }

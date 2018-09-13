@@ -19,7 +19,7 @@
 	</rule>
 	<rule ref="MediaWiki.NamingConventions.PrefixedGlobalFunctions">
 		<properties>
-			<property name="ignoreList" type="array" value="spGetRandom,spGenerateTest,getLanguage,runChecks,spFatal,spDeleteElection,spDumpVote,spImportDump,spInsertEntity,spImportConfiguration,spInsertMessages,spUpdateMessages,spGetQualifiedUsers,spGetEditCounts,spIsQualified,getDefaultLang,spReportProgress,spGetMetaTranslations,spFormatEntityMessages,spRunTest,spRunDebianVote" />
+			<property name="ignoreList" type="array" value="spGetRandom,spGenerateTest,getLanguage,runChecks,spFatal,spDeleteElection,spDumpVote,spImportDump,spInsertEntity,spImportConfiguration,spInsertMessages,spUpdateMessages,spGetQualifiedUsers,spGetEditCounts,spIsQualified,getDefaultLang,spReportProgress,spGetMetaTranslations,spFormatEntityMessages,spRunTest,spRunDebianVote,doInsert,out" />
 		</properties>
 	</rule>
 	<file>.</file>

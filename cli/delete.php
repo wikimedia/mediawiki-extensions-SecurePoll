@@ -23,6 +23,7 @@ $success = spDeleteElection( $id );
 exit( $success ? 0 : 1 );
 
 /**
+ * @suppress SecurityCheck-XSS
  * @param int|string $electionId
  * @return bool
  */

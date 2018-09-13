@@ -178,9 +178,17 @@ foreach ( $users as $name => $info ) {
 	];
 }
 
+/**
+ * @suppress SecurityCheck-XSS
+ * @param string $val
+ */
+function out( $val ) {
+	echo $val;
+}
+
 fwrite( $err, "Pass 3: Outputting user data.\n" );
 foreach ( $notifyUsers as $info ) {
-	print $info['row'];
+	out( $info['row'] );
 }
 
 fwrite( $err, "Done.\n" );
