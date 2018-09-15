@@ -81,7 +81,7 @@
 	"securepoll-cookie-dup-list": "Korisnici sa duplikatima kolačića",
 	"securepoll-dump-title": "Damp: $1",
 	"securepoll-dump-not-finished": "Šifrovana glasačka evidencija je dostupna nakon što se završe izbori ($1 u $2)",
-	"securepoll-dump-no-urandom": "Ne mogu da otvorim /dev/urandom.\nDa biste održali privatnost glasača, šifrovana glasačka evidencija postaje dostupna za javnost nakon što se podaci evidencije promešaju uz pomoć bezbednog niza slučajnih brojeva.",
+	"securepoll-dump-no-urandom": "Ne mogu da otvorim /dev/urandom.\nDa biste održali privatnost glasača, šifrovan glasački dnevnik postaje dostupan za javnost nakon što se podaci dnevnika promešaju uz pomoć bezbednog niza slučajnih brojeva.",
 	"securepoll-urandom-not-supported": "Ovaj server ne podržava kriptografsko stvaranje slučajnih brojeva.\nDa biste održali privatnost glasača, šifrovani podaci izbora postaju dostupni za javnost nakon što se promešaju uz pomoć bezbednog niza slučajnih brojeva.",
 	"securepoll-translate-title": "Prevedi: $1",
 	"securepoll-invalid-language": "Neprepoznatljiv kod jezika: „$1“",
