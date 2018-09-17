@@ -25,7 +25,7 @@ $res = $dbr->select(
 foreach ( $res as $row ) {
 	$page = WikiPage::newFromID( $row->page_id );
 
-	print "Got article " . $row->page_id . "\n";
+	print "Got article " . (int)$row->page_id . "\n";
 
 	$text = ContentHandler::getContentText( $page->getContent() );
 

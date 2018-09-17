@@ -37,7 +37,7 @@ for ( $userId = 1; $userId <= $maxUser; $userId++ ) {
 	foreach ( $revWhere['orconds'] as $key => $cond ) {
 		$tsField = $key === 'actor' ? 'revactor_timestamp' : 'rev_timestamp';
 
-		$adjust += $dbr->selectField(
+		$adjust += (int)$dbr->selectField(
 			[ 'revision' ] + $revWhere['tables'],
 			'COUNT(*)',
 			[

@@ -27,7 +27,7 @@ while ( true ) {
 	$users = [];
 	foreach ( $res as $row ) {
 		$users[$row->user_id] = $row->user_name;
-		$userId = $row->user_id;
+		$userId = (int)$row->user_id;
 	}
 	$qualifieds = spGetQualifiedUsers( $users );
 	$insertBatch = [];

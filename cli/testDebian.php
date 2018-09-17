@@ -6,17 +6,25 @@ if ( !is_dir( $testDir ) ) {
 	mkdir( $testDir );
 }
 
+/**
+ * @param string $val To echo
+ * @param-taint $val none
+ */
+function out( $val ) {
+	echo $val;
+}
+
 $spDebianVoteDir = '/home/tstarling/src/voting/debian-vote/debian-vote-0.8-fixed';
 
 if ( count( $args ) ) {
 	foreach ( $args as $arg ) {
 		if ( !file_exists( $arg ) ) {
-			echo "File not found: $arg\n";
+			out( "File not found: $arg\n" );
 			exit( 1 );
 		}
 		$debResult = spRunDebianVote( $arg );
 		if ( spRunTest( $arg, $debResult ) ) {
-			echo "$arg OK\n";
+			out( "$arg OK\n" );
 		}
 	}
 	exit( 0 );
@@ -30,14 +38,20 @@ for ( $i = 1; true; $i++ ) {
 		unlink( $fileName );
 	}
 	if ( $i % 1000 == 0 ) {
-		echo "$i tests done\n";
+		out( "$i tests done\n" );
 	}
 }
 
+/**
+ * @suppress SecurityCheck-XSS
+ * @param string $fileName
+ * @param string $debResult
+ * @return bool
+ */
 function spRunTest( $fileName, $debResult ) {
 	$file = fopen( $fileName, 'r' );
 	if ( !$file ) {
-		echo "Unable to open file \"$fileName\" for input\n";
+		out( "Unable to open file \"$fileName\" for input\n" );
 		return;
 	}
 
@@ -50,7 +64,7 @@ function spRunTest( $fileName, $debResult ) {
 		}
 		$line = trim( $line );
 		if ( !preg_match( '/^V: ([0-9-]*)$/', $line, $m ) ) {
-			echo "Skipping unrecognized line $line\n";
+			out( "Skipping unrecognized line $line\n" );
 			continue;
 		}
 
@@ -100,10 +114,10 @@ function spRunTest( $fileName, $debResult ) {
 		return true;
 	}
 
-	echo "Mismatch in file $fileName\n";
-	echo "Debian got: $debResult\n";
-	echo "We got: $expected\n\n";
-	echo $tallier->getTextResult();
+	out( "Mismatch in file $fileName\n" );
+	out( "Debian got: $debResult\n" );
+	out( "We got: $expected\n\n" );
+	out( $tallier->getTextResult() );
 	return false;
 }
 
@@ -116,7 +130,7 @@ function spRunDebianVote( $fileName ) {
 		)
 	);
 	if ( !$result ) {
-		echo "Error running debian vote!\n";
+		out( "Error running debian vote!\n" );
 		exit( 1 );
 	}
 	$result = rtrim( $result );

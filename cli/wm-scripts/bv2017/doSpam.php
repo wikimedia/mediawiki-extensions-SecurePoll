@@ -109,11 +109,20 @@ foreach ( $res as $row ) {
 	}
 }
 
+/**
+ * @suppress SecurityCheck-XSS
+ * @param string $val
+ * @param-taint $val none
+ */
+function out( $val ) {
+	echo $val;
+}
+
 foreach ( $users as $user ) {
 	if ( empty( $user['project'] ) ) {
 		$caUser = new CentralAuthUser( $user['name'] );
 		$user['project'] = $caUser->getHomeWiki();
 	}
 	$user['lang'] = getLanguage( $user['id'], $user['project'] );
-	echo "{$user['mail']}\t{$user['lang']}\t{$user['project']}\t{$user['name']}\n";
+	out( "{$user['mail']}\t{$user['lang']}\t{$user['project']}\t{$user['name']}\n" );
 }
