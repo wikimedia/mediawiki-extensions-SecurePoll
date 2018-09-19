@@ -28,7 +28,7 @@
 	"securepoll-encrypt-error": "Не могу да шифрујем гласачки запис.\nВаш глас није заведен!\n\n$1",
 	"securepoll-no-gpg-home": "Не могу да направим основну фасциклу за GPG.",
 	"securepoll-secret-gpg-error": "Грешка при извршавању GPG-а.\nПоставите $wgSecurePollShowErrorDetail=true; у LocalSettings.php да добијете више детаља.",
-	"securepoll-full-gpg-error": "Грешка при извршавању GPG-а:\n\nНаредба: $1\n\nГрешка:\n<pre>$2</pre>",
+	"securepoll-full-gpg-error": "Грешка при извршавању GPG-а:\n\nКоманда: $1\n\nГрешка:\n<pre>$2</pre>",
 	"securepoll-gpg-config-error": "Кључеви GPG су погрешно подешени.",
 	"securepoll-gpg-parse-error": "Грешка при тумачењу излазних података за GPG.",
 	"securepoll-no-decryption-key": "Није постављен кључ за дешифровање.\nНе могу да дешифрујем.",
