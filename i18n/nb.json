@@ -214,6 +214,7 @@
 	"securepoll-votereligibility-saved": "{{int:securepoll}}: Lagret",
 	"securepoll-votereligibility-saved-text": "Endringene dine har blitt lagret.",
 	"securepoll-votereligibility-cleared": "{{int:securepoll}}: Tømt",
+	"securepoll-votereligibility-cleared-comment": "$1 tømt.",
 	"right-securepoll-create-poll": "Opprette avstemninger",
 	"action-securepoll-create-poll": "opprette avstemninger",
 	"securepoll-ns-readonly": "{{ns:SecurePoll}}-navnerommet er skrivebeskyttet",
