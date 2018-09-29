@@ -15,6 +15,8 @@ use MediaWiki\Extension\SecurePoll\Store\XMLStore;
 use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
 use MediaWiki\Extension\SecurePoll\Talliers\Tallier;
 use MediaWiki\Extension\SecurePoll\User\Auth;
+use MediaWiki\Extension\SecurePoll\User\LocalAuth;
+use MediaWiki\Extension\SecurePoll\User\RemoteMWAuth;
 use MediaWiki\Extension\SecurePoll\User\Voter;
 use MediaWiki\MediaWikiServices;
 use ParserOptions;
@@ -400,7 +402,7 @@ class Context {
 
 	/**
 	 * @param string $type
-	 * @return Auth
+	 * @return LocalAuth|RemoteMWAuth
 	 */
 	public function newAuth( $type ) {
 		return Auth::factory( $this, $type );

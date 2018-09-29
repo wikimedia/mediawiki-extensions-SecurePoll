@@ -28,7 +28,7 @@ class RemoteMWAuth extends Auth {
 	 * @return Status
 	 */
 	public function requestLogin( $election ) {
-		global $wgRequest, $wgSecurePollScript, $wgConf;
+		global $wgRequest, $wgConf;
 
 		$urlParamNames = [
 			'id',
@@ -82,37 +82,39 @@ class RemoteMWAuth extends Auth {
 		if ( substr( $url, -1 ) != '/' ) {
 			$url .= '/';
 		}
-		$url .= $wgSecurePollScript . '?' . wfArrayToCgi(
-				[
-					'token' => $params['token'],
-					'id' => $params['id']
-				]
-			);
+		$url .= 'api.php';
 
-		// Use the default SSL certificate file
-		// Necessary on some versions of cURL, others do this by default
-		$curlParams = [
+		$options = [
+			// Use the default SSL certificate file
+			// Necessary on some versions of cURL, others do this by default
 			CURLOPT_CAINFO => '/etc/ssl/certs/ca-certificates.crt',
-			'timeout' => 20
+			'timeout' => 20,
+			'postData' => [
+				'action' => 'securepollauth',
+				'id' => $params['id'],
+				'format' => 'json',
+				'token' => $params['token'],
+			],
 		];
 
-		$value = MediaWikiServices::getInstance()->getHttpRequestFactory()->get( $url, $curlParams, __METHOD__ );
+		$response = MediaWikiServices::getInstance()->getHttpRequestFactory()
+			->post( $url, $options, __METHOD__ );
 
-		if ( !$value ) {
+		if ( !$response ) {
 			return Status::newFatal( 'securepoll-remote-auth-error' );
 		}
 
-		$status = unserialize( $value );
-		$status->cleanCallback = false;
-
-		if ( !( $status instanceof Status ) ) {
+		/** @var array|null $json */
+		$json = json_decode( $response, true );
+		if ( $json === null ) {
 			return Status::newFatal( 'securepoll-remote-parse-error' );
 		}
-		if ( !$status->isOK() ) {
-			return $status;
+
+		if ( isset( $json['error'] ) ) {
+			return Status::newFatal( $json['error']['code'] );
 		}
-		$params = $status->value;
-		// @phan-suppress-next-line PhanTypeMismatchDimAssignment
+
+		$params = $json['securepollauth'];
 		$params['type'] = 'remote-mw';
 		$params['electionId'] = $election->getId();
 

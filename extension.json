@@ -35,6 +35,7 @@
 		"securePollUnarchiveElection": "\\MediaWiki\\Extension\\SecurePoll\\Jobs\\UnarchiveElectionJob"
 	},
 	"APIModules": {
+		"securepollauth": "\\MediaWiki\\Extension\\SecurePoll\\Api\\ApiSecurePollAuth",
 		"strikevote": {
 			"class": "\\MediaWiki\\Extension\\SecurePoll\\Api\\ApiStrikeVote",
 			"services": [
@@ -188,9 +189,6 @@
 		},
 		"SecurePollShowErrorDetail": {
 			"value": false
-		},
-		"SecurePollScript": {
-			"value": "extensions/SecurePoll/auth-api.php"
 		},
 		"SecurePollKeepPrivateInfoDays": {
 			"value": 90,
