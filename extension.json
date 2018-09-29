@@ -36,7 +36,7 @@
 		"SecurePollNamespaces": "SecurePoll.namespaces.php"
 	},
 	"AutoloadClasses": {
-		"ApiStrikeVote": "api/ApiStrikeVote.php",
+		"ApiStrikeVote": "includes/api/ApiStrikeVote.php",
 		"SecurePoll_ApprovalBallot": "includes/ballots/ApprovalBallot.php",
 		"SecurePoll_Ballot": "includes/ballots/Ballot.php",
 		"SecurePoll_BallotStatus": "includes/ballots/Ballot.php",
