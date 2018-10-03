@@ -13,6 +13,7 @@
 	"securepoll-header-voter-name": "Nomo",
 	"securepoll-strike-reason": "Motivo:",
 	"securepoll-header-reason": "Motivo",
+	"securepoll-invalid-language": "Nevalida linguala kodexo \"$1\"",
 	"securepoll-language-label": "Selektez linguo:",
 	"securepoll-header-title": "Nomo",
 	"securepoll-subpage-list": "Listo"
