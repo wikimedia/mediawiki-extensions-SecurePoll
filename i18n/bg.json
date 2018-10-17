@@ -60,7 +60,7 @@
 	"securepoll-strike-button": "Анулиране на глас",
 	"securepoll-unstrike-button": "Възстановяване на анулиран глас",
 	"securepoll-strike-reason": "Причина:",
-	"securepoll-strike-cancel": "Отмяна",
+	"securepoll-strike-cancel": "Отказ",
 	"securepoll-strike-error": "Грешка при анулиране на глас или възстановяване на анулиран глас: $1",
 	"securepoll-strike-token-mismatch": "Данните от сесията са изгубени",
 	"securepoll-details-link": "Подробности",
