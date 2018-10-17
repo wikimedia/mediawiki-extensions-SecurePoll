@@ -45,7 +45,7 @@ class SecurePoll_DumpPage extends SecurePoll_ActionPage {
 		$this->headersSent = false;
 		$status = $this->election->dumpVotesToCallback( [ $this, 'dumpVote' ] );
 		if ( !$status->isOK() && !$this->headersSent ) {
-			$out->addWikiText( $status->getWikiText() );
+			$out->addWikiTextAsInterface( $status->getWikiText() );
 			return;
 		}
 		if ( !$this->headersSent ) {
