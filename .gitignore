@@ -5,3 +5,4 @@
 .*.swp
 /vendor
 composer.lock
+/tests/phan/issues
