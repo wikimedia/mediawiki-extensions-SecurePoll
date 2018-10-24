@@ -129,7 +129,7 @@ class SecurePoll_TallyPage extends SecurePoll_ActionPage {
 	public function submitLocal() {
 		$status = $this->election->tally();
 		if ( !$status->isOK() ) {
-			$this->specialPage->getOutput()->addWikiText( $status->getWikiText() );
+			$this->specialPage->getOutput()->addWikiTextAsInterface( $status->getWikiText() );
 			return;
 		}
 		$tallier = $status->value;
@@ -159,7 +159,7 @@ class SecurePoll_TallyPage extends SecurePoll_ActionPage {
 
 		$status = $election->tally();
 		if ( !$status->isOK() ) {
-			$out->addWikiText( $status->getWikiText( 'securepoll-tally-upload-error' ) );
+			$out->addWikiTextAsInterface( $status->getWikiText( 'securepoll-tally-upload-error' ) );
 			return;
 		}
 		$tallier = $status->value;

@@ -23,7 +23,7 @@ class SecurePoll_LoginPage extends SecurePoll_ActionPage {
 		$auth = $this->election->getAuth();
 		$status = $auth->newRequestedSession( $this->election );
 		if ( !$status->isOK() ) {
-			$out->addWikiText( $status->getWikiText() );
+			$out->addWikiTextAsInterface( $status->getWikiText() );
 			return;
 		}
 		$votePage = SpecialPage::getTitleFor( 'SecurePoll', 'vote/' . $this->election->getId() );

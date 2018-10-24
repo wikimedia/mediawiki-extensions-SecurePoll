@@ -41,7 +41,7 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 			if ( $status->isOK() ) {
 				$this->voter = $status->value;
 			} else {
-				$out->addWikiText( $status->getWikiText() );
+				$out->addWikiTextAsInterface( $status->getWikiText() );
 				return;
 			}
 		}
@@ -113,7 +113,7 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 		if ( $this->election->hasVoted( $this->voter ) && $this->election->allowChange() ) {
 			$out->addWikiMsg( 'securepoll-change-allowed' );
 		}
-		$out->addWikiText( $this->election->getMessage( 'intro' ) );
+		$out->addWikiTextAsInterface( $this->election->getMessage( 'intro' ) );
 
 		// Show form
 		$thisTitle = $this->getTitle();
@@ -161,7 +161,7 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 		} else {
 			$status = $crypt->encrypt( $record );
 			if ( !$status->isOK() ) {
-				$out->addWikiText( $status->getWikiText( 'securepoll-encrypt-error' ) );
+				$out->addWikiTextAsInterface( $status->getWikiText( 'securepoll-encrypt-error' ) );
 				return;
 			}
 			$encrypted = $status->value;
@@ -247,7 +247,7 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 		}
 		$url .= "/login/$id";
 		Hooks::run( 'SecurePoll_JumpUrl', [ $this, &$url ] );
-		$out->addWikiText( $this->election->getMessage( 'jump-text' ) );
+		$out->addWikiTextAsInterface( $this->election->getMessage( 'jump-text' ) );
 		$out->addHTML(
 			Xml::openElement( 'form', [ 'action' => $url, 'method' => 'post' ] ) .
 			Html::hidden( 'token', SecurePoll_RemoteMWAuth::encodeToken( $user->getToken() ) ) .
