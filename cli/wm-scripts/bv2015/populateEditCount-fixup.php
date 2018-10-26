@@ -30,7 +30,7 @@ for ( $userId = 1; $userId <= $maxUser; $userId++ ) {
 	} else {
 		$revWhere = [
 			'tables' => [],
-			'orconds' => [ 'userid' => 'rev_user = ' . $userId ],
+			'orconds' => [ 'userid' => 'rev_user = ' . (int)$userId ],
 			'joins' => [],
 		];
 	}
