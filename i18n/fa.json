@@ -70,7 +70,9 @@
 	"securepoll-header-voter-name": "نام",
 	"securepoll-header-voter-domain": "دامنه",
 	"securepoll-header-ip": "IP",
+	"securepoll-header-xff": "اکس‌اف‌اف",
 	"securepoll-header-ua": "مرورگر کاربر",
+	"securepoll-header-token-match": "سی‌اس‌آراف",
 	"securepoll-header-cookie-dup": "تکراری",
 	"securepoll-header-strike": "خط‌زدن",
 	"securepoll-header-details": "جزئیات",
@@ -93,7 +95,7 @@
 	"securepoll-header-admin": "مدیر",
 	"securepoll-cookie-dup-list": "کاربران تکراری کوکی",
 	"securepoll-dump-title": "روگرفت: $1",
-	"securepoll-dump-not-finished": "رکوردهای انتخاباتی رمزگذاری‌شده تنها پس از تاریخ پایان $1 در $2 در دسترس خواهند بود.",
+	"securepoll-dump-not-finished": "رکوردهای انتخاباتی تنها پس از تاریخ پایان $1 در $2 در دسترس خواهند بود.",
 	"securepoll-dump-no-urandom": "نمی‌توان <span style=\"direction:ltr\">/dev/urandom</span> را باز کرد.\nبرای حفظ حریم خصوصی رأی‌دهندگان، رکوردهای انتخاباتی رمزگذاری‌شده تنها زمانی در دسترس عموم قرار خواهند گرفت که با یک جریان عددی تصادفی امن بُر بخورند.",
 	"securepoll-dump-private": "متاسفیم، دیدن روگرفت رکوردهای رمزنگاری شدهٔ این انتخابات به مدیران انتخابات محدود شده‌است.",
 	"securepoll-urandom-not-supported": "این سرور از تولید عدد تصادفی برای رمزنگاری پشتیبانی نمی‌کند. \nبرای حفظ حریم خصوصی رأی‌دهندگان، رکوردهای انتخاباتی رمزگذاری‌شده فقط زمانی عمومی خواهند شد که با یک سری اعداد تصادفی جاری بُر بخورند.",
@@ -189,6 +191,7 @@
 	"securepoll-create-option-election_type-radio-range-comment+plurality": "رأی‌گیری امتیازی (حاصل جمع) با نظر",
 	"securepoll-create-option-election_type-radio-range-comment+histogram-range": "رأی‌گیری امتیازی (میانگین) با نظر",
 	"securepoll-create-option-election_crypt-none": "عدم رمزگذاری",
+	"securepoll-create-option-election_crypt-gpg": "جی‌پی‌جی",
 	"securepoll-create-label-comment": "دلیل",
 	"securepoll-create-invalid-username": "نام کاربری واردشده معتبر نیست",
 	"securepoll-create-user-does-not-exist": "کاربر مورد نظر وجود ندارد",
@@ -261,5 +264,7 @@
 	"apihelp-strikevote-param-voteid": "شناسهٔ رأیی که باید خط بخورد یا از خط‌خوردگی به در آید.",
 	"apihelp-strikevote-param-reason": "دلیل برای خط زدن یا از خط‌خوردگی به در آوردن رأی.",
 	"apihelp-strikevote-example-strike": "خط زدن رأی <kbd>1</kbd>، به دلیل <kbd>duplication</kbd>.",
-	"apihelp-strikevote-example-unstrike": "از خط‌خودرگی به در آوردن رأی <kbd>1</kbd>، به دلیل <kbd>mistake</kbd>."
+	"apihelp-strikevote-example-unstrike": "از خط‌خودرگی به در آوردن رأی <kbd>1</kbd>، به دلیل <kbd>mistake</kbd>.",
+	"apierror-securepoll-mustbeloggedin-strikevote": "برای خط زدن آرا باید به سامانه وارد شوید.",
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> یک شناسهٔ رأی معتبر نیست"
 }
