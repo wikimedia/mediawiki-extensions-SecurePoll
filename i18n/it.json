@@ -13,7 +13,8 @@
 			"Stefano-c",
 			"Vituzzu",
 			"Ricordisamoa",
-			"Anto"
+			"Anto",
+			"Daimona Eaytoy"
 		]
 	},
 	"securepoll": "SecurePoll",
@@ -66,7 +67,7 @@
 	"securepoll-header-timestamp": "Data e ora",
 	"securepoll-header-voter-name": "Nome",
 	"securepoll-header-voter-domain": "Dominio",
-	"securepoll-header-ua": "Agente utente",
+	"securepoll-header-ua": "User agent",
 	"securepoll-header-cookie-dup": "Dup",
 	"securepoll-header-strike": "Annulla",
 	"securepoll-header-details": "Dettagli",

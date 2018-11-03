@@ -3,11 +3,12 @@
 		"authors": [
 			"Cekli829",
 			"Vago",
-			"Vugar 1981"
+			"Vugar 1981",
+			"Wertuose"
 		]
 	},
 	"securepoll": "SecurePoll",
-	"securepoll-welcome": "<strong>Xoş gəlmisiniz $1!</strong>",
+	"securepoll-welcome": "<strong>Xoş gəlmisiniz, $1!</strong>",
 	"securepoll-change-disallowed": "Siz bu seçkidə artıq səs vermisiniz. \nÜzr istəyirik, yenidən səs verə bilməzsiniz.",
 	"securepoll-submit": "Səs ver",
 	"securepoll-return": "$1 səhifəsinə qayıt.",
