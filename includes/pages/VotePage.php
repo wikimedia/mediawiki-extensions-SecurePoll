@@ -248,13 +248,17 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 		$url .= "/login/$id";
 		Hooks::run( 'SecurePoll_JumpUrl', [ $this, &$url ] );
 		$out->addWikiTextAsInterface( $this->election->getMessage( 'jump-text' ) );
-		$out->addHTML(
-			Xml::openElement( 'form', [ 'action' => $url, 'method' => 'post' ] ) .
-			Html::hidden( 'token', SecurePoll_RemoteMWAuth::encodeToken( $user->getToken() ) ) .
-			Html::hidden( 'id', $user->getId() ) .
-			Html::hidden( 'wiki', wfWikiID() ) .
-			Xml::submitButton( $this->msg( 'securepoll-jump' )->text() ) .
-			'</form>'
-		);
+		$hiddenFields = [
+			'token' => SecurePoll_RemoteMWAuth::encodeToken( $user->getToken() ),
+			'id' => $user->getId(),
+			'wiki' => wfWikiID(),
+		];
+
+		$htmlForm = HTMLForm::factory( 'ooui', [], $this->specialPage->getContext() )
+			->setSubmitTextMsg( 'securepoll-jump' )
+			->setAction( $url )
+			->addHiddenFields( $hiddenFields )
+			->prepareForm();
+		$out->addHTML( $htmlForm->getHTML( false ) );
 	}
 }
