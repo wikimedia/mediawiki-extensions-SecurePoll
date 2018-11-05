@@ -133,15 +133,14 @@ class SecurePoll_SchulzeTallier extends SecurePoll_PairwiseTallier {
 	}
 
 	function getHtmlResult() {
-		global $wgOut;
-		$s = $wgOut->parse( '<h2>' . wfMessage( 'securepoll-ranks' )->text() . "</h2>\n" );
+		$s = '<h2>' . wfMessage( 'securepoll-ranks' )->parse() . "</h2>\n";
 		$s .= $this->convertRanksToHtml( $this->ranks );
 
-		$s .= $wgOut->parse( '<h2>' . wfMessage( 'securepoll-pairwise-victories' )->text() . "</h2>\n" );
+		$s .= '<h2>' . wfMessage( 'securepoll-pairwise-victories' )->parse() . "</h2>\n";
 		$rankedIds = array_keys( $this->ranks );
 		$s .= $this->convertMatrixToHtml( $this->victories, $rankedIds );
 
-		$s .= $wgOut->parse( '<h2>' . wfMessage( 'securepoll-strength-matrix' )->text() . "</h2>\n" );
+		$s .= '<h2>' . wfMessage( 'securepoll-strength-matrix' )->parse() . "</h2>\n";
 		$s .= $this->convertMatrixToHtml( $this->strengths, $rankedIds );
 		return $s;
 	}
