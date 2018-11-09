@@ -154,14 +154,14 @@ function spGenerateTest( $fileName ) {
 class SecurePoll_FakeQuestion {
 	public $options;
 
-	function __construct( $options ) {
+	public function __construct( $options ) {
 		$this->options = [];
 		foreach ( $options as $i => $option ) {
 			$this->options[] = new SecurePoll_FakeOption( $i, $option );
 		}
 	}
 
-	function getOptions() {
+	public function getOptions() {
 		return $this->options;
 	}
 }
@@ -169,20 +169,20 @@ class SecurePoll_FakeQuestion {
 class SecurePoll_FakeOption {
 	public $id, $name;
 
-	function __construct( $id, $name ) {
+	public function __construct( $id, $name ) {
 		$this->id = $id;
 		$this->name = $name;
 	}
 
-	function getMessage( $key ) {
+	public function getMessage( $key ) {
 		return $this->name;
 	}
 
-	function parseMessage( $key ) {
+	public function parseMessage( $key ) {
 		return htmlspecialchars( $this->name );
 	}
 
-	function getId() {
+	public function getId() {
 		return $this->id;
 	}
 }

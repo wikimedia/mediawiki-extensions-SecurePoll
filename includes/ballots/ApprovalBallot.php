@@ -4,7 +4,7 @@
  * Checkbox approval voting.
  */
 class SecurePoll_ApprovalBallot extends SecurePoll_Ballot {
-	static function getTallyTypes() {
+	public static function getTallyTypes() {
 		return [ 'plurality' ];
 	}
 
@@ -13,7 +13,7 @@ class SecurePoll_ApprovalBallot extends SecurePoll_Ballot {
 	 * @param array $options
 	 * @return string
 	 */
-	function getQuestionForm( $question, $options ) {
+	public function getQuestionForm( $question, $options ) {
 		global $wgRequest;
 		$name = 'securepoll_q' . $question->getId();
 		$s = '';
@@ -38,7 +38,7 @@ class SecurePoll_ApprovalBallot extends SecurePoll_Ballot {
 	 * @param Status $status
 	 * @return string
 	 */
-	function submitQuestion( $question, $status ) {
+	public function submitQuestion( $question, $status ) {
 		global $wgRequest;
 
 		$options = $question->getOptions();
@@ -52,7 +52,7 @@ class SecurePoll_ApprovalBallot extends SecurePoll_Ballot {
 		return $record;
 	}
 
-	function unpackRecord( $record ) {
+	public function unpackRecord( $record ) {
 		$scores = [];
 		$itemLength = 2 * 8 + 7;
 		for ( $offset = 0, $len = strlen( $record ); $offset < $len; $offset += $itemLength ) {
@@ -70,7 +70,7 @@ class SecurePoll_ApprovalBallot extends SecurePoll_Ballot {
 		return $scores;
 	}
 
-	function convertScores( $scores, $params = [] ) {
+	public function convertScores( $scores, $params = [] ) {
 		$result = [];
 		foreach ( $this->election->getQuestions() as $question ) {
 			$qid = $question->getId();

@@ -19,11 +19,11 @@
 class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 	public $columnLabels, $minMax;
 
-	static function getTallyTypes() {
+	public static function getTallyTypes() {
 		return [ 'plurality', 'histogram-range' ];
 	}
 
-	static function getCreateDescriptors() {
+	public static function getCreateDescriptors() {
 		$ret = parent::getCreateDescriptors();
 		$ret['election'] += [
 			'must-answer-all' => [
@@ -107,7 +107,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 	 * @return array
 	 * @throws MWException
 	 */
-	function getMinMax( $question ) {
+	public function getMinMax( $question ) {
 		$min = intval( $question->getProperty( 'min-score' ) );
 		$max = intval( $question->getProperty( 'max-score' ) );
 		if ( $max <= $min ) {
@@ -121,7 +121,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 	 * @return int
 	 * @throws MWException
 	 */
-	function getColumnDirection( $question ) {
+	public function getColumnDirection( $question ) {
 		$order = $question->getProperty( 'column-order' );
 		if ( !$order ) {
 			return 1;
@@ -138,7 +138,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 	 * @param SecurePoll_Question $question
 	 * @return array
 	 */
-	function getScoresLeftToRight( $question ) {
+	public function getScoresLeftToRight( $question ) {
 		$incr = $this->getColumnDirection( $question );
 		list( $min, $max ) = $this->getMinMax( $question );
 		if ( $incr > 0 ) {
@@ -155,7 +155,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 	 * @param SecurePoll_Question $question
 	 * @return array
 	 */
-	function getColumnLabels( $question ) {
+	public function getColumnLabels( $question ) {
 		// list( $min, $max ) = $this->getMinMax( $question );
 		$labels = [];
 		$useMessageLabels = $question->getProperty( 'column-label-msgs' );
@@ -174,7 +174,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 		return $labels;
 	}
 
-	function getMessageNames( $entity = null ) {
+	public function getMessageNames( $entity = null ) {
 		if ( $entity === null || $entity->getType() !== 'question' ) {
 			return [];
 		}
@@ -190,7 +190,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 		return $msgs;
 	}
 
-	function addSign( $question, $score ) {
+	public function addSign( $question, $score ) {
 		list( $min, $max ) = $this->getMinMax( $question );
 		if ( $min < 0 && $score > 0 ) {
 			return "+$score";
@@ -204,7 +204,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 	 * @param array $options
 	 * @return array
 	 */
-	function getQuestionForm( $question, $options ) {
+	public function getQuestionForm( $question, $options ) {
 		global $wgRequest;
 		$name = 'securepoll_q' . $question->getId();
 		list( $min, $max ) = $this->getMinMax( $question );
@@ -248,7 +248,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 	 * @param Status $status
 	 * @return array
 	 */
-	function submitQuestion( $question, $status ) {
+	public function submitQuestion( $question, $status ) {
 		global $wgRequest, $wgLang;
 
 		$options = $question->getOptions();
@@ -291,7 +291,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 		}
 	}
 
-	function unpackRecord( $record ) {
+	public function unpackRecord( $record ) {
 		$scores = [];
 		$itemLength = 8 + 8 + 11 + 7;
 		$questions = [];
@@ -322,7 +322,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 		return $scores;
 	}
 
-	function convertScores( $scores, $params = [] ) {
+	public function convertScores( $scores, $params = [] ) {
 		$result = [];
 		foreach ( $this->election->getQuestions() as $question ) {
 			$qid = $question->getId();

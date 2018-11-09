@@ -14,7 +14,7 @@ class SecurePoll_ElectionTallier {
 	 * @param SecurePoll_Context $context
 	 * @param SecurePoll_Election $election
 	 */
-	function __construct( $context, $election ) {
+	public function __construct( $context, $election ) {
 		$this->context = $context;
 		$this->election = $election;
 	}
@@ -25,7 +25,7 @@ class SecurePoll_ElectionTallier {
 	 * be queried for results information.
 	 * @return Status
 	 */
-	function execute() {
+	public function execute() {
 		$store = $this->context->getStore();
 		$this->crypt = $this->election->getCrypt();
 		$this->ballot = $this->election->getBallot();
@@ -60,7 +60,7 @@ class SecurePoll_ElectionTallier {
 	 * @param string $record Encrypted, packed record.
 	 * @return Status
 	 */
-	function addRecord( $store, $record ) {
+	public function addRecord( $store, $record ) {
 		# Decrypt and unpack
 		if ( $this->crypt ) {
 			$status = $this->crypt->decrypt( $record );
@@ -90,7 +90,7 @@ class SecurePoll_ElectionTallier {
 	 * execute().
 	 * @return string
 	 */
-	function getHtmlResult() {
+	public function getHtmlResult() {
 		$s = '';
 		foreach ( $this->election->getQuestions() as $question ) {
 			if ( $s !== '' ) {
@@ -107,7 +107,7 @@ class SecurePoll_ElectionTallier {
 	 * execute().
 	 * @return string
 	 */
-	function getTextResult() {
+	public function getTextResult() {
 		$s = '';
 		foreach ( $this->election->getQuestions() as $question ) {
 			if ( $s !== '' ) {

@@ -10,11 +10,11 @@ class SecurePoll_ChooseBallot extends SecurePoll_Ballot {
 	 * result from this ballot type.
 	 * @return array
 	 */
-	static function getTallyTypes() {
+	public static function getTallyTypes() {
 		return [ 'plurality' ];
 	}
 
-	static function getCreateDescriptors() {
+	public static function getCreateDescriptors() {
 		$ret = parent::getCreateDescriptors();
 		$ret['option'] += [
 			'name' => [
@@ -32,7 +32,7 @@ class SecurePoll_ChooseBallot extends SecurePoll_Ballot {
 	 * @param array $options Array of options, in the order they should be displayed
 	 * @return string
 	 */
-	function getQuestionForm( $question, $options ) {
+	public function getQuestionForm( $question, $options ) {
 		$name = 'securepoll_q' . $question->getId();
 		$s = '';
 		foreach ( $options as $option ) {
@@ -54,7 +54,7 @@ class SecurePoll_ChooseBallot extends SecurePoll_Ballot {
 	 * @param Status $status
 	 * @return string
 	 */
-	function submitQuestion( $question, $status ) {
+	public function submitQuestion( $question, $status ) {
 		global $wgRequest;
 		$result = $wgRequest->getInt( 'securepoll_q' . $question->getId() );
 		if ( !$result ) {
@@ -64,11 +64,11 @@ class SecurePoll_ChooseBallot extends SecurePoll_Ballot {
 		}
 	}
 
-	function packRecord( $qid, $oid ) {
+	public function packRecord( $qid, $oid ) {
 		return sprintf( 'Q%08XA%08X', $qid, $oid );
 	}
 
-	function unpackRecord( $record ) {
+	public function unpackRecord( $record ) {
 		$result = [];
 		$record = trim( $record );
 		for ( $offset = 0, $len = strlen( $record ); $offset < $len; $offset += 18 ) {
@@ -83,7 +83,7 @@ class SecurePoll_ChooseBallot extends SecurePoll_Ballot {
 		return $result;
 	}
 
-	function convertScores( $scores, $params = [] ) {
+	public function convertScores( $scores, $params = [] ) {
 		$s = '';
 		foreach ( $this->election->getQuestions() as $question ) {
 			$qid = $question->getId();

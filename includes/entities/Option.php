@@ -10,7 +10,7 @@ class SecurePoll_Option extends SecurePoll_Entity {
 	 * @param SecurePoll_Context $context
 	 * @param array $info Associative array of entity info
 	 */
-	function __construct( $context, $info ) {
+	public function __construct( $context, $info ) {
 		parent::__construct( $context, 'option', $info );
 	}
 
@@ -19,7 +19,7 @@ class SecurePoll_Option extends SecurePoll_Entity {
 	 * translate subpage with a list of messages to localise.
 	 * @return array
 	 */
-	function getMessageNames() {
+	public function getMessageNames() {
 		return [ 'text' ];
 	}
 }

@@ -4,11 +4,11 @@
  * A table for the RadioRangeBallot message inputs.
  */
 class SecurePoll_HTMLFormRadioRangeColumnLabels extends HTMLFormField {
-	function getSize() {
+	public function getSize() {
 		return 10;
 	}
 
-	function loadDataFromRequest( $request ) {
+	public function loadDataFromRequest( $request ) {
 		$values = $request->getArray( $this->mName, false );
 		if ( $values === false ) {
 			return $this->getDefault();
@@ -31,7 +31,7 @@ class SecurePoll_HTMLFormRadioRangeColumnLabels extends HTMLFormField {
 		return $ret;
 	}
 
-	function validate( $value, $alldata ) {
+	public function validate( $value, $alldata ) {
 		$p = parent::validate( $value, $alldata );
 
 		if ( $p !== true ) {
@@ -55,7 +55,7 @@ class SecurePoll_HTMLFormRadioRangeColumnLabels extends HTMLFormField {
 		return true;
 	}
 
-	function getInputHTML( $value ) {
+	public function getInputHTML( $value ) {
 		$size = $this->getSize();
 
 		$labels = '';

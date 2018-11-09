@@ -24,7 +24,7 @@ class SecurePoll_Auth {
 	 * @return SecurePoll_LocalAuth|SecurePoll_RemoteMWAuth
 	 * @throws MWException
 	 */
-	static function factory( $context, $type ) {
+	public static function factory( $context, $type ) {
 		if ( !isset( self::$authTypes[$type] ) ) {
 			throw new MWException( "Invalid authentication type: $type" );
 		}
@@ -41,11 +41,11 @@ class SecurePoll_Auth {
 	 *
 	 * @return array
 	 */
-	static function getCreateDescriptors() {
+	public static function getCreateDescriptors() {
 		return [];
 	}
 
-	function __construct( $context ) {
+	public function __construct( $context ) {
 		$this->context = $context;
 	}
 
@@ -55,7 +55,7 @@ class SecurePoll_Auth {
 	 * @param SecurePoll_Election $election
 	 * @return Status
 	 */
-	function autoLogin( $election ) {
+	public function autoLogin( $election ) {
 		return Status::newFatal( 'securepoll-not-logged-in' );
 	}
 
@@ -64,7 +64,7 @@ class SecurePoll_Auth {
 	 * @param SecurePoll_Election $election
 	 * @return Status
 	 */
-	function requestLogin( $election ) {
+	public function requestLogin( $election ) {
 		return $this->autoLogin( $election );
 	}
 
@@ -74,7 +74,7 @@ class SecurePoll_Auth {
 	 * @param SecurePoll_Election $election
 	 * @return SecurePoll_Election
 	 */
-	function getVoterFromSession( $election ) {
+	public function getVoterFromSession( $election ) {
 		$session = SessionManager::getGlobalSession();
 		$session->persist();
 		if ( isset( $session['securepoll_voter'][$election->getId()] ) ) {
@@ -110,7 +110,7 @@ class SecurePoll_Auth {
 	 * @param array $params
 	 * @return SecurePoll_Voter
 	 */
-	function getVoter( $params ) {
+	public function getVoter( $params ) {
 		$dbw = $this->context->getDB();
 
 		# This needs to be protected by FOR UPDATE
@@ -143,7 +143,7 @@ class SecurePoll_Auth {
 	 * @param SecurePoll_Election $election
 	 * @return Status
 	 */
-	function newAutoSession( $election ) {
+	public function newAutoSession( $election ) {
 		$status = $this->autoLogin( $election );
 		if ( $status->isGood() ) {
 			$voter = $status->value;
@@ -159,7 +159,7 @@ class SecurePoll_Auth {
 	 * @param SecurePoll_Election $election
 	 * @return Status
 	 */
-	function newRequestedSession( $election ) {
+	public function newRequestedSession( $election ) {
 		$session = SessionManager::getGlobalSession();
 		$session->persist();
 
@@ -196,7 +196,7 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 	 * @param SecurePoll_Election $election
 	 * @return Status
 	 */
-	function autoLogin( $election ) {
+	public function autoLogin( $election ) {
 		global $wgUser;
 		if ( $wgUser->isAnon() ) {
 			return Status::newFatal( 'securepoll-not-logged-in' );
@@ -216,7 +216,7 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 	 * @param User $user
 	 * @return array
 	 */
-	function getUserParams( $user ) {
+	public function getUserParams( $user ) {
 		global $wgServer;
 		$params = [
 			'name' => $user->getName(),
@@ -246,7 +246,7 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 	 * @param User $user
 	 * @return array
 	 */
-	function getLists( $user ) {
+	public function getLists( $user ) {
 		$dbr = $this->context->getDB();
 		$res = $dbr->select(
 			'securepoll_lists',
@@ -266,7 +266,7 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 	 * @param User $user
 	 * @return array
 	 */
-	function getCentralLists( $user ) {
+	public function getCentralLists( $user ) {
 		if ( !class_exists( 'CentralAuthUser' ) ) {
 			return [];
 		}
@@ -293,7 +293,7 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 	 * @param User $user
 	 * @return int the number of wikis the user is blocked on.
 	 */
-	function getCentralBlockCount( $user ) {
+	public function getCentralBlockCount( $user ) {
 		if ( ! class_exists( 'CentralAuthUser' ) ) {
 			return 0;
 		}
@@ -317,7 +317,7 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
  * Class for guest login from one MW instance running SecurePoll to another.
  */
 class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
-	static function getCreateDescriptors() {
+	public static function getCreateDescriptors() {
 		return [
 			'script-path' => [
 				'label-message' => 'securepoll-create-label-remote_mw_script_path',
@@ -333,7 +333,7 @@ class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
 	 * @param SecurePoll_Election $election
 	 * @return Status
 	 */
-	function requestLogin( $election ) {
+	public function requestLogin( $election ) {
 		global $wgRequest, $wgSecurePollScript, $wgConf;
 
 		$urlParamNames = [ 'id', 'token', 'wiki', 'site', 'lang', 'domain' ];
@@ -430,7 +430,7 @@ class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
 	 * @param string $token
 	 * @return string
 	 */
-	static function encodeToken( $token ) {
+	public static function encodeToken( $token ) {
 		return substr( sha1( __CLASS__ . '-' . $token ), 0, 26 );
 	}
 }

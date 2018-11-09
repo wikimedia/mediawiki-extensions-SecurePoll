@@ -11,14 +11,14 @@ class SecurePoll_PluralityTallier extends SecurePoll_Tallier {
 	 * @param SecurePoll_ElectionTallier $electionTallier
 	 * @param SecurePoll_Question $question
 	 */
-	function __construct( $context, $electionTallier, $question ) {
+	public function __construct( $context, $electionTallier, $question ) {
 		parent::__construct( $context, $electionTallier, $question );
 		foreach ( $question->getOptions() as $option ) {
 			$this->tally[$option->getId()] = 0;
 		}
 	}
 
-	function addVote( $scores ) {
+	public function addVote( $scores ) {
 		foreach ( $scores as $oid => $score ) {
 			if ( !isset( $this->tally[$oid] ) ) {
 				wfDebug( __METHOD__ . ": unknown OID $oid\n" );
@@ -29,12 +29,12 @@ class SecurePoll_PluralityTallier extends SecurePoll_Tallier {
 		return true;
 	}
 
-	function finishTally() {
+	public function finishTally() {
 		// Sort the scores
 		arsort( $this->tally );
 	}
 
-	function getHtmlResult() {
+	public function getHtmlResult() {
 		// Show the results
 		$s = "<table class=\"securepoll-results\">\n";
 
@@ -48,7 +48,7 @@ class SecurePoll_PluralityTallier extends SecurePoll_Tallier {
 		return $s;
 	}
 
-	function getTextResult() {
+	public function getTextResult() {
 		// Calculate column width
 		$width = 10;
 		foreach ( $this->tally as $oid => $rank ) {
@@ -79,7 +79,7 @@ class SecurePoll_PluralityTallier extends SecurePoll_Tallier {
 		return $s;
 	}
 
-	function getRanks() {
+	public function getRanks() {
 		$ranks = [];
 		$currentRank = 1;
 		$oids = array_keys( $this->tally );

@@ -8,11 +8,11 @@
 abstract class SecurePoll_Tallier {
 	public $context, $question, $electionTallier, $election, $optionsById;
 
-	abstract function addVote( $scores );
-	abstract function getHtmlResult();
-	abstract function getTextResult();
+	abstract public function addVote( $scores );
+	abstract public function getHtmlResult();
+	abstract public function getTextResult();
 
-	abstract function finishTally();
+	abstract public function finishTally();
 
 	public static $tallierTypes = [
 		'plurality' => 'SecurePoll_PluralityTallier',
@@ -28,7 +28,7 @@ abstract class SecurePoll_Tallier {
 	 * @return SecurePoll_Tallier
 	 * @throws MWException
 	 */
-	static function factory( $context, $type, $electionTallier, $question ) {
+	public static function factory( $context, $type, $electionTallier, $question ) {
 		if ( !isset( self::$tallierTypes[$type] ) ) {
 			throw new MWException( "Invalid tallier type: $type" );
 		}
@@ -48,7 +48,7 @@ abstract class SecurePoll_Tallier {
 	 *
 	 * @return array
 	 */
-	static function getCreateDescriptors() {
+	public static function getCreateDescriptors() {
 		return [
 			'election' => [],
 			'question' => [],
@@ -61,7 +61,7 @@ abstract class SecurePoll_Tallier {
 	 * @param SecurePoll_ElectionTallier $electionTallier
 	 * @param SecurePoll_Question $question
 	 */
-	function __construct( $context, $electionTallier, $question ) {
+	public function __construct( $context, $electionTallier, $question ) {
 		$this->context = $context;
 		$this->question = $question;
 		$this->electionTallier = $electionTallier;
@@ -75,7 +75,7 @@ abstract class SecurePoll_Tallier {
 	 * @param array $ranks
 	 * @return string
 	 */
-	function convertRanksToHtml( $ranks ) {
+	public function convertRanksToHtml( $ranks ) {
 		$s = "<table class=\"securepoll-table\">";
 		$ids = array_keys( $ranks );
 		foreach ( $ids as $i => $oid ) {
@@ -102,7 +102,7 @@ abstract class SecurePoll_Tallier {
 	 * @param array $ranks
 	 * @return string
 	 */
-	function convertRanksToText( $ranks ) {
+	public function convertRanksToText( $ranks ) {
 		$s = '';
 		$ids = array_keys( $ranks );
 		$colWidth = 6;

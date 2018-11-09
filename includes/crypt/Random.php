@@ -7,7 +7,7 @@ class SecurePoll_Random {
 	 * Open a /dev/urandom file handle
 	 * @return Status
 	 */
-	function open() {
+	public function open() {
 		if ( $this->urandom ) {
 			return Status::newGood();
 		}
@@ -25,7 +25,7 @@ class SecurePoll_Random {
 	/**
 	 * Close any open file handles
 	 */
-	function close() {
+	public function close() {
 		if ( $this->urandom ) {
 			fclose( $this->urandom );
 			$this->urandom = null;
@@ -38,7 +38,7 @@ class SecurePoll_Random {
 	 * @param int $maxp1
 	 * @return int
 	 */
-	function getInt( $maxp1 ) {
+	public function getInt( $maxp1 ) {
 		$numBytes = ceil( strlen( base_convert( $maxp1, 10, 16 ) ) / 2 );
 		if ( $numBytes == 0 ) {
 			return 0;
@@ -61,7 +61,7 @@ class SecurePoll_Random {
 	 * @param array $a
 	 * @return array
 	 */
-	function shuffle( $a ) {
+	public function shuffle( $a ) {
 		$a = array_values( $a );
 		for ( $i = count( $a ) - 1; $i >= 0; $i-- ) {
 			$target = $this->getInt( $i + 1 );

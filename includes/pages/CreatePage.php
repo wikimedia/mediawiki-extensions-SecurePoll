@@ -12,7 +12,7 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 	 * @throws MWException
 	 * @throws PermissionsError
 	 */
-	function execute( $params ) {
+	public function execute( $params ) {
 		global $wgSecurePollCreateWikiGroupDir, $wgSecurePollCreateWikiGroups;
 		global $wgSecurePollUseNamespace;
 
@@ -1222,7 +1222,7 @@ class SecurePoll_FormStore extends SecurePoll_MemoryStore {
 class SecurePoll_StatusException extends Exception {
 	public $status;
 
-	function __construct( $message /* ... */ ) {
+	public function __construct( $message /* ... */ ) {
 		$args = func_get_args();
 		$this->status = call_user_func_array( 'Status::newFatal', $args );
 	}

@@ -198,7 +198,7 @@ class SecurePoll_StrikePager extends TablePager {
 		return 'st_timestamp';
 	}
 
-	function getFieldNames() {
+	public function getFieldNames() {
 		return [
 			'st_timestamp' => $this->msg( 'securepoll-header-timestamp' )->escaped(),
 			'st_user' => $this->msg( 'securepoll-header-admin' )->escaped(),
@@ -207,11 +207,11 @@ class SecurePoll_StrikePager extends TablePager {
 		];
 	}
 
-	function getTitle() {
+	public function getTitle() {
 		return $this->detailsPage->getTitle();
 	}
 
-	function isFieldSortable( $name ) {
+	public function isFieldSortable( $name ) {
 		return $name == 'st_timestamp';
 	}
 }

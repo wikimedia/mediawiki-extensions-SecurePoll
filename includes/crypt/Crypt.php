@@ -10,7 +10,7 @@ abstract class SecurePoll_Crypt {
 	 * @param string $record
 	 * @return Status
 	 */
-	abstract function encrypt( $record );
+	abstract public function encrypt( $record );
 
 	/**
 	 * Decrypt some data. When successful, the value member of the Status object
@@ -18,12 +18,12 @@ abstract class SecurePoll_Crypt {
 	 * @param string $record
 	 * @return Status
 	 */
-	abstract function decrypt( $record );
+	abstract public function decrypt( $record );
 
 	/**
 	 * Returns true if the object can decrypt data, false otherwise.
 	 */
-	abstract function canDecrypt();
+	abstract public function canDecrypt();
 
 	public static $cryptTypes = [
 		'none' => false,
@@ -38,7 +38,7 @@ abstract class SecurePoll_Crypt {
 	 * @param SecurePoll_Election $election
 	 * @return bool|SecurePoll_GpgCrypt
 	 */
-	static function factory( $context, $type, $election ) {
+	public static function factory( $context, $type, $election ) {
 		if ( !isset( self::$cryptTypes[$type] ) ) {
 			throw new MWException( "Invalid crypt type: $type" );
 		}
@@ -58,7 +58,7 @@ abstract class SecurePoll_Crypt {
 	 *
 	 * @return array
 	 */
-	static function getCreateDescriptors() {
+	public static function getCreateDescriptors() {
 		return [
 			'election' => [],
 			'question' => [],
@@ -82,7 +82,7 @@ class SecurePoll_GpgCrypt {
 	public $context, $election;
 	public $recipient, $signer, $homeDir;
 
-	static function getCreateDescriptors() {
+	public static function getCreateDescriptors() {
 		global $wgSecurePollGpgSignKey;
 
 		$ret = SecurePoll_Crypt::getCreateDescriptors();
@@ -149,7 +149,7 @@ class SecurePoll_GpgCrypt {
 	 * @param SecurePoll_Context $context
 	 * @param SecurePoll_Election $election
 	 */
-	function __construct( $context, $election ) {
+	public function __construct( $context, $election ) {
 		$this->context = $context;
 		$this->election = $election;
 	}
@@ -158,7 +158,7 @@ class SecurePoll_GpgCrypt {
 	 * Create a new GPG home directory
 	 * @return Status
 	 */
-	function setupHome() {
+	public function setupHome() {
 		global $wgSecurePollTempDir;
 		if ( $this->homeDir ) {
 			# Already done
@@ -180,7 +180,7 @@ class SecurePoll_GpgCrypt {
 	 * Create a new GPG home directory and import keys
 	 * @return Status
 	 */
-	function setupHomeAndKeys() {
+	public function setupHomeAndKeys() {
 		$status = $this->setupHome();
 		if ( !$status->isOK() ) {
 			return $status;
@@ -223,7 +223,7 @@ class SecurePoll_GpgCrypt {
 	 * @param string $key The full key data.
 	 * @return Status
 	 */
-	function importKey( $key ) {
+	public function importKey( $key ) {
 		# Import the key
 		file_put_contents( "{$this->homeDir}/key", $key );
 		$status = $this->runGpg( ' --import ' . wfEscapeShellArg( "{$this->homeDir}/key" ) );
@@ -240,7 +240,7 @@ class SecurePoll_GpgCrypt {
 	/**
 	 * Delete the temporary home directory
 	 */
-	function deleteHome() {
+	public function deleteHome() {
 		if ( !$this->homeDir ) {
 			return;
 		}
@@ -292,7 +292,7 @@ class SecurePoll_GpgCrypt {
 	 * @param string $record
 	 * @return Status
 	 */
-	function encrypt( $record ) {
+	public function encrypt( $record ) {
 		$status = $this->setupHomeAndKeys();
 		if ( !$status->isOK() ) {
 			$this->deleteHome();
@@ -330,7 +330,7 @@ class SecurePoll_GpgCrypt {
 	 * @param string $encrypted
 	 * @return Status
 	 */
-	function decrypt( $encrypted ) {
+	public function decrypt( $encrypted ) {
 		$status = $this->setupHomeAndKeys();
 		if ( !$status->isOK() ) {
 			$this->deleteHome();
@@ -367,7 +367,7 @@ class SecurePoll_GpgCrypt {
 	/**
 	 * @return bool
 	 */
-	function canDecrypt() {
+	public function canDecrypt() {
 		$decryptKey = strval( $this->election->getProperty( 'gpg-decrypt-key' ) );
 		return $decryptKey !== '';
 	}

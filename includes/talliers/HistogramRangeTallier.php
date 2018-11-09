@@ -7,7 +7,7 @@ class SecurePoll_HistogramRangeTallier extends SecurePoll_Tallier {
 	public $averages;
 	public $minScore, $maxScore;
 
-	function __construct( $context, $electionTallier, $question ) {
+	public function __construct( $context, $electionTallier, $question ) {
 		parent::__construct( $context, $electionTallier, $question );
 		$this->minScore = intval( $question->getProperty( 'min-score' ) );
 		$this->maxScore = intval( $question->getProperty( 'max-score' ) );
@@ -23,7 +23,7 @@ class SecurePoll_HistogramRangeTallier extends SecurePoll_Tallier {
 		}
 	}
 
-	function addVote( $scores ) {
+	public function addVote( $scores ) {
 		foreach ( $scores as $oid => $score ) {
 			$this->histogram[$oid][$score] ++;
 			$this->sums[$oid] += $score;
@@ -32,7 +32,7 @@ class SecurePoll_HistogramRangeTallier extends SecurePoll_Tallier {
 		return true;
 	}
 
-	function finishTally() {
+	public function finishTally() {
 		$this->averages = [];
 		foreach ( $this->sums as $oid => $sum ) {
 			if ( $this->counts[$oid] === 0 ) {
@@ -44,7 +44,7 @@ class SecurePoll_HistogramRangeTallier extends SecurePoll_Tallier {
 		arsort( $this->averages );
 	}
 
-	function getHtmlResult() {
+	public function getHtmlResult() {
 		$ballot = $this->election->getBallot();
 		if ( !is_callable( [ $ballot, 'getColumnLabels' ] ) ) {
 			throw new MWException( __METHOD__ . ': ballot type not supported by this tallier' );
@@ -79,7 +79,7 @@ class SecurePoll_HistogramRangeTallier extends SecurePoll_Tallier {
 		return $s;
 	}
 
-	function getTextResult() {
+	public function getTextResult() {
 		return $this->getHtmlResult();
 	}
 }

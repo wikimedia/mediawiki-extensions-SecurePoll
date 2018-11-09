@@ -13,7 +13,7 @@ class SecurePoll_CommentDumper extends SecurePoll_ElectionTallier {
 		$this->skipEmptyComments = $skipEmptyComments;
 	}
 
-	function execute() {
+	public function execute() {
 		$this->csvHandle = fopen( 'php://temp', 'r+' );
 		$this->countSoFar = 0;
 		return parent::execute();
@@ -28,7 +28,7 @@ class SecurePoll_CommentDumper extends SecurePoll_ElectionTallier {
 	 * @param string $record Encrypted, packed record.
 	 * @return Status
 	 */
-	function addRecord( $store, $record ) {
+	public function addRecord( $store, $record ) {
 		$this->countSoFar++;
 		wfDebug( "Processing vote {$this->countSoFar}\n" );
 		# Decrypt and unpack
@@ -66,7 +66,7 @@ class SecurePoll_CommentDumper extends SecurePoll_ElectionTallier {
 		return Status::newGood();
 	}
 
-	function getHtmlResult() {
+	public function getHtmlResult() {
 		return $this->getTextResult();
 	}
 
@@ -75,7 +75,7 @@ class SecurePoll_CommentDumper extends SecurePoll_ElectionTallier {
 	 * execute().
 	 * @return string
 	 */
-	function getTextResult() {
+	public function getTextResult() {
 		return stream_get_contents( $this->csvHandle, -1, 0 );
 	}
 }

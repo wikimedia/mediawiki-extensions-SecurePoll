@@ -54,7 +54,7 @@ class SecurePoll_DumpPage extends SecurePoll_ActionPage {
 		echo "</election>\n</SecurePoll>\n";
 	}
 
-	function dumpVote( $election, $row ) {
+	public function dumpVote( $election, $row ) {
 		if ( !$this->headersSent ) {
 			$this->sendHeaders();
 		}

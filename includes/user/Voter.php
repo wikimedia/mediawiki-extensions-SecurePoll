@@ -17,7 +17,7 @@ class SecurePoll_Voter {
 	 * @param SecurePoll_Context $context
 	 * @param array $params
 	 */
-	function __construct( $context, $params ) {
+	public function __construct( $context, $params ) {
 		$this->context = $context;
 		foreach ( self::$paramNames as $name ) {
 			if ( isset( $params[$name] ) ) {
@@ -32,7 +32,7 @@ class SecurePoll_Voter {
 	 * @param int $id
 	 * @return SecurePoll_Voter or false if the ID is not valid
 	 */
-	static function newFromId( $context, $id ) {
+	public static function newFromId( $context, $id ) {
 		$db = $context->getDB();
 		$row = $db->selectRow( 'securepoll_voters', '*', [ 'voter_id' => $id ], __METHOD__ );
 		if ( !$row ) {
@@ -47,7 +47,7 @@ class SecurePoll_Voter {
 	 * @param stdClass $row
 	 * @return self
 	 */
-	static function newFromRow( $context, $row ) {
+	public static function newFromRow( $context, $row ) {
 		return new self( $context, [
 			'id' => $row->voter_id,
 			'electionId' => $row->voter_election,
@@ -69,7 +69,7 @@ class SecurePoll_Voter {
 	 * @param array $params
 	 * @return self
 	 */
-	static function createVoter( $context, $params ) {
+	public static function createVoter( $context, $params ) {
 		$db = $context->getDB();
 		$id = $db->nextSequenceValue( 'voters_voter_id' );
 		$row = [
@@ -90,7 +90,7 @@ class SecurePoll_Voter {
 	 * Get the voter ID
 	 * @return int
 	 */
-	function getId() {
+	public function getId() {
 		return $this->id;
 	}
 
@@ -99,7 +99,7 @@ class SecurePoll_Voter {
 	 * display.
 	 * @return string
 	 */
-	function getName() {
+	public function getName() {
 		return $this->name;
 	}
 
@@ -107,7 +107,7 @@ class SecurePoll_Voter {
 	 * Get the authorization type.
 	 * @return string
 	 */
-	function getType() {
+	public function getType() {
 		return $this->type;
 	}
 
@@ -116,7 +116,7 @@ class SecurePoll_Voter {
 	 * unique, although this is not strictly necessary.
 	 * @return string
 	 */
-	function getDomain() {
+	public function getDomain() {
 		return $this->domain;
 	}
 
@@ -124,7 +124,7 @@ class SecurePoll_Voter {
 	 * Get a URL uniquely identifying the underlying user.
 	 * @return string
 	 */
-	function getUrl() {
+	public function getUrl() {
 		return $this->url;
 	}
 
@@ -132,7 +132,7 @@ class SecurePoll_Voter {
 	 * Get the associated election ID
 	 * @return int
 	 */
-	function getElectionId() {
+	public function getElectionId() {
 		return $this->electionId;
 	}
 
@@ -140,7 +140,7 @@ class SecurePoll_Voter {
 	 * Get the voter's preferred language
 	 * @return mixed
 	 */
-	function getLanguage() {
+	public function getLanguage() {
 		return $this->getProperty( 'language', 'en' );
 	}
 
@@ -150,7 +150,7 @@ class SecurePoll_Voter {
 	 * @param string|false $default
 	 * @return mixed
 	 */
-	function getProperty( $name, $default = false ) {
+	public function getProperty( $name, $default = false ) {
 		if ( isset( $this->properties[$name] ) ) {
 			return $this->properties[$name];
 		} else {
@@ -162,7 +162,7 @@ class SecurePoll_Voter {
 	 * Returns true if the voter is a guest user.
 	 * @return bool
 	 */
-	function isRemote() {
+	public function isRemote() {
 		return $this->type !== 'local';
 	}
 
@@ -171,7 +171,7 @@ class SecurePoll_Voter {
 	 * @param string $blob
 	 * @return array
 	 */
-	static function decodeProperties( $blob ) {
+	public static function decodeProperties( $blob ) {
 		if ( strval( $blob ) == '' ) {
 			return [];
 		} else {
@@ -185,11 +185,11 @@ class SecurePoll_Voter {
 	 * @param array $props
 	 * @return string
 	 */
-	static function encodeProperties( $props ) {
+	public static function encodeProperties( $props ) {
 		return serialize( $props );
 	}
 
-	function doCookieCheck() {
+	public function doCookieCheck() {
 		$cookieName = wfWikiID() . '_securepoll_check';
 		if ( isset( $_COOKIE[$cookieName] ) ) {
 			$otherVoterId = intval( $_COOKIE[$cookieName] );
@@ -208,7 +208,7 @@ class SecurePoll_Voter {
 	 * Flag a duplicate voter
 	 * @param int $voterId
 	 */
-	function addCookieDup( $voterId ) {
+	public function addCookieDup( $voterId ) {
 		$dbw = $this->context->getDB();
 		# Insert the log record
 		$dbw->insert( 'securepoll_cookie_match',

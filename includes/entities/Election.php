@@ -82,7 +82,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * @param SecurePoll_Context $context
 	 * @param string $info
 	 */
-	function __construct( $context, $info ) {
+	public function __construct( $context, $info ) {
 		parent::__construct( $context, 'election', $info );
 		$this->id = $info['id'];
 		$this->title = $info['title'];
@@ -101,7 +101,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * Get a list of localisable message names. See SecurePoll_Entity.
 	 * @return array
 	 */
-	function getMessageNames() {
+	public function getMessageNames() {
 		return [
 			'title',
 			'intro',
@@ -115,7 +115,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * Get the election's parent election... hmm...
 	 * @return SecurePoll_Election
 	 */
-	function getElection() {
+	public function getElection() {
 		return $this;
 	}
 
@@ -123,7 +123,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * Get a list of child entity objects. See SecurePoll_Entity.
 	 * @return array
 	 */
-	function getChildren() {
+	public function getChildren() {
 		return $this->getQuestions();
 	}
 
@@ -131,7 +131,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * Get the start date in MW internal form.
 	 * @return string
 	 */
-	function getStartDate() {
+	public function getStartDate() {
 		return $this->startDate;
 	}
 
@@ -139,7 +139,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * Get the end date in MW internal form.
 	 * @return string
 	 */
-	function getEndDate() {
+	public function getEndDate() {
 		return $this->endDate;
 	}
 
@@ -148,7 +148,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * @param string|bool $ts The reference timestamp, or false for now.
 	 * @return bool
 	 */
-	function isStarted( $ts = false ) {
+	public function isStarted( $ts = false ) {
 		if ( $ts === false ) {
 			$ts = wfTimestampNow();
 		}
@@ -160,7 +160,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * @param string|bool $ts The reference timestamp, or false for now.
 	 * @return bool
 	 */
-	function isFinished( $ts = false ) {
+	public function isFinished( $ts = false ) {
 		if ( $ts === false ) {
 			$ts = wfTimestampNow();
 		}
@@ -171,7 +171,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * Get the ballot object for this election.
 	 * @return SecurePoll_Ballot
 	 */
-	function getBallot() {
+	public function getBallot() {
 		if ( !$this->ballot ) {
 			$this->ballot = $this->context->newBallot( $this->ballotType, $this );
 		}
@@ -184,7 +184,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * @param array $params Associative array
 	 * @return Status
 	 */
-	function getQualifiedStatus( $params ) {
+	public function getQualifiedStatus( $params ) {
 		global $wgLang;
 		$props = $params['properties'];
 		$status = Status::newGood();
@@ -283,7 +283,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * @param User $user
 	 * @return bool
 	 */
-	function isAdmin( $user ) {
+	public function isAdmin( $user ) {
 		$admins = array_map( 'trim', explode( '|', $this->getProperty( 'admins' ) ) );
 		return in_array( $user->getName(), $admins );
 	}
@@ -293,7 +293,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * @param SecurePoll_Voter $voter
 	 * @return bool
 	 */
-	function hasVoted( $voter ) {
+	public function hasVoted( $voter ) {
 		$db = $this->context->getDB();
 		$row = $db->selectRow(
 			'securepoll_votes',
@@ -311,7 +311,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * is initially cast.
 	 * @return bool
 	 */
-	function allowChange() {
+	public function allowChange() {
 		return !$this->getProperty( 'disallow-change' );
 	}
 
@@ -319,7 +319,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * Get the questions in this election
 	 * @return SecurePoll_Question[]
 	 */
-	function getQuestions() {
+	public function getQuestions() {
 		if ( $this->questions === null ) {
 			$info = $this->context->getStore()->getQuestionInfo( $this->getId() );
 			$this->questions = [];
@@ -334,7 +334,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * Get the authorization object.
 	 * @return SecurePoll_Auth
 	 */
-	function getAuth() {
+	public function getAuth() {
 		if ( !$this->auth ) {
 			$this->auth = $this->context->newAuth( $this->authType );
 		}
@@ -346,7 +346,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * a default in the relevant places.
 	 * @return string
 	 */
-	function getLanguage() {
+	public function getLanguage() {
 		return $this->primaryLang;
 	}
 
@@ -356,7 +356,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * @throws MWException
 	 * @return SecurePoll_Crypt|bool
 	 */
-	function getCrypt() {
+	public function getCrypt() {
 		$type = $this->getProperty( 'encrypt-type' );
 		if ( $type === false || $type === 'none' ) {
 			return false;
@@ -372,7 +372,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * Get the tally type
 	 * @return string
 	 */
-	function getTallyType() {
+	public function getTallyType() {
 		return $this->tallyType;
 	}
 
@@ -381,7 +381,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * @param callable $callback
 	 * @return Status
 	 */
-	function dumpVotesToCallback( $callback ) {
+	public function dumpVotesToCallback( $callback ) {
 		$random = $this->context->getRandom();
 		$status = $random->open();
 		if ( !$status->isOK() ) {
@@ -414,7 +414,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * @param array $params
 	 * @return string
 	 */
-	function getConfXml( $params = [] ) {
+	public function getConfXml( $params = [] ) {
 		$s = "<configuration>\n" .
 			Xml::element( 'title', [], $this->title ) . "\n" .
 			Xml::element( 'ballot', [], $this->ballotType ) . "\n" .
@@ -453,7 +453,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * @param array $params
 	 * @return array
 	 */
-	function getPropertyDumpBlacklist( $params = [] ) {
+	public function getPropertyDumpBlacklist( $params = [] ) {
 		if ( !empty( $params['jump'] ) ) {
 			return [
 				'gpg-encrypt-key',
@@ -471,7 +471,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * SecurePoll_ElectionTallier object.
 	 * @return Status
 	 */
-	function tally() {
+	public function tally() {
 		$tallier = $this->context->newElectionTallier( $this );
 		$status = $tallier->execute();
 		if ( $status->isOK() ) {

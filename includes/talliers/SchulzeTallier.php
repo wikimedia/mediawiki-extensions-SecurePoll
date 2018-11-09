@@ -12,7 +12,7 @@ class SecurePoll_SchulzeTallier extends SecurePoll_PairwiseTallier {
 	 * @param array $victories
 	 * @return array
 	 */
-	function getPathStrengths( $victories ) {
+	private function getPathStrengths( $victories ) {
 		# This algorithm follows Markus Schulze, "A New Monotonic, Clone-Independent, Reversal
 		# Symmetric, and Condorcet-Consistent Single-Winner Election Method" and also
 		# http://en.wikipedia.org/w/index.php?title=User:MarkusSchulze/Statutory_Rules&oldid=303036893
@@ -70,7 +70,7 @@ class SecurePoll_SchulzeTallier extends SecurePoll_PairwiseTallier {
 		return $strengths;
 	}
 
-	function convertStrengthMatrixToRanks( $strengths ) {
+	private function convertStrengthMatrixToRanks( $strengths ) {
 		$unusedIds = $this->optionIds;
 		$ranks = [];
 		$currentRank = 1;
@@ -119,20 +119,20 @@ class SecurePoll_SchulzeTallier extends SecurePoll_PairwiseTallier {
 	 * @param array $s2
 	 * @return bool
 	 */
-	function isSchulzeWin( $s1, $s2 ) {
+	private function isSchulzeWin( $s1, $s2 ) {
 		return $s1[0] > $s2[0] || ( $s1[0] == $s2[0] && $s1[1] < $s2[1] );
 	}
 
-	function finishTally() {
+	public function finishTally() {
 		$this->strengths = $this->getPathStrengths( $this->victories );
 		$this->ranks = $this->convertStrengthMatrixToRanks( $this->strengths );
 	}
 
-	function getRanks() {
+	public function getRanks() {
 		return $this->ranks;
 	}
 
-	function getHtmlResult() {
+	public function getHtmlResult() {
 		$s = '<h2>' . wfMessage( 'securepoll-ranks' )->parse() . "</h2>\n";
 		$s .= $this->convertRanksToHtml( $this->ranks );
 
@@ -145,7 +145,7 @@ class SecurePoll_SchulzeTallier extends SecurePoll_PairwiseTallier {
 		return $s;
 	}
 
-	function getTextResult() {
+	public function getTextResult() {
 		$rankedIds = array_keys( $this->ranks );
 
 		return wfMessage( 'securepoll-ranks' )->text() . "\n" .

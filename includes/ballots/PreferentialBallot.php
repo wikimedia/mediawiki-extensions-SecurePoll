@@ -8,11 +8,11 @@
  *     must-rank-all
  */
 class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
-	static function getTallyTypes() {
+	public static function getTallyTypes() {
 		return [ 'schulze' ];
 	}
 
-	static function getCreateDescriptors() {
+	public static function getCreateDescriptors() {
 		$ret = parent::getCreateDescriptors();
 		$ret['election'] += [
 			'must-rank-all' => [
@@ -30,7 +30,7 @@ class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 	 * @param Array $options
 	 * @return string
 	 */
-	function getQuestionForm( $question, $options ) {
+	public function getQuestionForm( $question, $options ) {
 		global $wgRequest;
 		$name = 'securepoll_q' . $question->getId();
 		$s = '';
@@ -59,7 +59,7 @@ class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 	 * @param Status $status
 	 * @return string
 	 */
-	function submitQuestion( $question, $status ) {
+	public function submitQuestion( $question, $status ) {
 		global $wgRequest;
 
 		$options = $question->getOptions();
@@ -98,7 +98,7 @@ class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 		}
 	}
 
-	function unpackRecord( $record ) {
+	public function unpackRecord( $record ) {
 		$ranks = [];
 		$itemLength = 3 * 8 + 7;
 		for ( $offset = 0, $len = strlen( $record ); $offset < $len; $offset += $itemLength ) {
@@ -116,7 +116,7 @@ class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 		return $ranks;
 	}
 
-	function convertScores( $scores, $params = [] ) {
+	public function convertScores( $scores, $params = [] ) {
 		$result = [];
 		foreach ( $this->election->getQuestions() as $question ) {
 			$qid = $question->getId();

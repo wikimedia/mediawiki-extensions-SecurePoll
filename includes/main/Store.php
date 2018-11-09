@@ -21,28 +21,28 @@ interface SecurePoll_Store {
 	 * @param string $lang
 	 * @param int[] $ids
 	 */
-	function getMessages( $lang, $ids );
+	public function getMessages( $lang, $ids );
 
 	/**
 	 * Get a list of languages that the given entity IDs have messages for.
 	 * Returns an array of language codes.
 	 * @param int[] $ids
 	 */
-	function getLangList( $ids );
+	public function getLangList( $ids );
 
 	/**
 	 * Get an array of properties for a given set of IDs. Returns a 2-d array
 	 * mapping IDs and property keys to values.
 	 * @param int[] $ids
 	 */
-	function getProperties( $ids );
+	public function getProperties( $ids );
 
 	/**
 	 * Get the type of one or more SecurePoll entities.
 	 * @param int $id
 	 * @return string
 	 */
-	function getEntityType( $id );
+	public function getEntityType( $id );
 
 	/**
 	 * Get information about a set of elections, specifically the data that
@@ -50,47 +50,47 @@ interface SecurePoll_Store {
 	 * array mapping ID to associative array of properties.
 	 * @param int[] $ids
 	 */
-	function getElectionInfo( $ids );
+	public function getElectionInfo( $ids );
 
 	/**
 	 * Get election information for a given set of names.
 	 * @param array $names
 	 */
-	function getElectionInfoByTitle( $names );
+	public function getElectionInfoByTitle( $names );
 
 	/**
 	 * Convert a row from the securepoll_elections table into an associative
 	 * array suitable for return by getElectionInfo().
 	 * @param stdClass $row
 	 */
-	function decodeElectionRow( $row );
+	public function decodeElectionRow( $row );
 
 	/**
 	 * Get a database connection object.
 	 * @param int $index DB_MASTER or DB_REPLICA
 	 */
-	function getDB( $index = DB_MASTER );
+	public function getDB( $index = DB_MASTER );
 
 	/**
 	 * Get an associative array of information about all questions in a given
 	 * election.
 	 * @param int $electionId
 	 */
-	function getQuestionInfo( $electionId );
+	public function getQuestionInfo( $electionId );
 
 	/**
 	 * Call a callback function for all valid votes with a given election ID.
 	 * @param int $electionId
 	 * @param callable $callback
 	 */
-	function callbackValidVotes( $electionId, $callback );
+	public function callbackValidVotes( $electionId, $callback );
 }
 
 /**
  * Storage class for a DB backend. This is the one that's most often used.
  */
 class SecurePoll_DBStore implements SecurePoll_Store {
-	function getMessages( $lang, $ids ) {
+	public function getMessages( $lang, $ids ) {
 		$db = $this->getDB();
 		$res = $db->select(
 			'securepoll_msgs',
@@ -108,7 +108,7 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 		return $messages;
 	}
 
-	function getLangList( $ids ) {
+	public function getLangList( $ids ) {
 		$db = $this->getDB();
 		$res = $db->select(
 			'securepoll_msgs',
@@ -124,7 +124,7 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 		return $langs;
 	}
 
-	function getProperties( $ids ) {
+	public function getProperties( $ids ) {
 		$db = $this->getDB();
 		$res = $db->select(
 			'securepoll_properties',
@@ -138,7 +138,7 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 		return $properties;
 	}
 
-	function getElectionInfo( $ids ) {
+	public function getElectionInfo( $ids ) {
 		$ids = (array)$ids;
 		$db = $this->getDB( DB_REPLICA );
 		$res = $db->select(
@@ -153,7 +153,7 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 		return $infos;
 	}
 
-	function getElectionInfoByTitle( $names ) {
+	public function getElectionInfoByTitle( $names ) {
 		$names = (array)$names;
 		$db = $this->getDB();
 		$res = $db->select(
@@ -168,7 +168,7 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 		return $infos;
 	}
 
-	function decodeElectionRow( $row ) {
+	public function decodeElectionRow( $row ) {
 		static $map = [
 			'id' => 'el_entity',
 			'title' => 'el_title',
@@ -192,11 +192,11 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 		return $info;
 	}
 
-	function getDB( $index = DB_MASTER ) {
+	public function getDB( $index = DB_MASTER ) {
 		return wfGetDB( $index );
 	}
 
-	function getQuestionInfo( $electionId ) {
+	public function getQuestionInfo( $electionId ) {
 		$db = $this->getDB();
 		$res = $db->select(
 			[ 'securepoll_questions', 'securepoll_options' ],
@@ -240,7 +240,7 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 		return $questions;
 	}
 
-	function callbackValidVotes( $electionId, $callback, $voterId = null ) {
+	public function callbackValidVotes( $electionId, $callback, $voterId = null ) {
 		$dbr = $this->getDB();
 		$where = [
 			'vote_election' => $electionId,
@@ -266,7 +266,7 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 		return Status::newGood();
 	}
 
-	function getEntityType( $id ) {
+	public function getEntityType( $id ) {
 		$db = $this->getDB();
 		$res = $db->selectRow(
 			'securepoll_entity',
@@ -292,7 +292,7 @@ class SecurePoll_MemoryStore implements SecurePoll_Store {
 	 * Get an array containing all election IDs stored in this object
 	 * @return array
 	 */
-	function getAllElectionIds() {
+	public function getAllElectionIds() {
 		$electionIds = [];
 		foreach ( $this->entityInfo as $info ) {
 			if ( $info['type'] !== 'election' ) {
@@ -303,14 +303,14 @@ class SecurePoll_MemoryStore implements SecurePoll_Store {
 		return $electionIds;
 	}
 
-	function getMessages( $lang, $ids ) {
+	public function getMessages( $lang, $ids ) {
 		if ( !isset( $this->messages[$lang] ) ) {
 			return [];
 		}
 		return array_intersect_key( $this->messages[$lang], array_flip( $ids ) );
 	}
 
-	function getLangList( $ids ) {
+	public function getLangList( $ids ) {
 		$langs = [];
 		foreach ( $this->messages as $lang => $langMessages ) {
 			foreach ( $ids as $id ) {
@@ -323,38 +323,38 @@ class SecurePoll_MemoryStore implements SecurePoll_Store {
 		return $langs;
 	}
 
-	function getProperties( $ids ) {
+	public function getProperties( $ids ) {
 		$ids = (array)$ids;
 		return array_intersect_key( $this->properties, array_flip( $ids ) );
 	}
 
-	function getElectionInfo( $ids ) {
+	public function getElectionInfo( $ids ) {
 		$ids = (array)$ids;
 		return array_intersect_key( $this->entityInfo, array_flip( $ids ) );
 	}
 
-	function getElectionInfoByTitle( $names ) {
+	public function getElectionInfoByTitle( $names ) {
 		$names = (array)$names;
 		$ids = array_intersect_key( $this->idsByName, array_flip( $names ) );
 		$info = array_intersect_key( $this->entityInfo, array_flip( $ids ) );
 		return $info;
 	}
 
-	function getQuestionInfo( $electionId ) {
+	public function getQuestionInfo( $electionId ) {
 		return $this->entityInfo[$electionId]['questions'];
 	}
 
-	function decodeElectionRow( $row ) {
+	public function decodeElectionRow( $row ) {
 		throw new MWException( 'Internal error: attempt to use decodeElectionRow() with ' .
 			'a storage class that doesn\'t support it.' );
 	}
 
-	function getDB( $index = DB_MASTER ) {
+	public function getDB( $index = DB_MASTER ) {
 		throw new MWException( 'Internal error: attempt to use getDB() when the database ' .
 			'is disabled.' );
 	}
 
-	function callbackValidVotes( $electionId, $callback ) {
+	public function callbackValidVotes( $electionId, $callback ) {
 		if ( !isset( $this->votes[$electionId] ) ) {
 			return Status::newGood();
 		}
@@ -367,7 +367,7 @@ class SecurePoll_MemoryStore implements SecurePoll_Store {
 		return Status::newGood();
 	}
 
-	function getEntityType( $id ) {
+	public function getEntityType( $id ) {
 		return isset( $this->entityInfo[$id] )
 			? $this->entityInfo[$id]['type']
 			: false;
@@ -414,7 +414,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 	 * method for this.
 	 * @param string $fileName
 	 */
-	function __construct( $fileName ) {
+	public function __construct( $fileName ) {
 		$this->fileName = $fileName;
 	}
 
@@ -422,7 +422,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 	 * Read the file and return boolean success.
 	 * @return bool
 	 */
-	function readFile() {
+	public function readFile() {
 		$this->xmlReader = new XMLReader;
 		$xr = $this->xmlReader;
 		$fileName = realpath( $this->fileName );
@@ -439,7 +439,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 	 * Do the top-level document element, and return success.
 	 * @return bool
 	 */
-	function doTopLevel() {
+	public function doTopLevel() {
 		$xr = $this->xmlReader;
 
 		# Check document element
@@ -470,7 +470,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 	 * Return success.
 	 * @return bool
 	 */
-	function doElection() {
+	public function doElection() {
 		$xr = $this->xmlReader;
 		if ( $xr->isEmptyElement ) {
 			wfDebug( __METHOD__ . ": unexpected empty element\n" );
@@ -530,7 +530,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 	 * @param string $entityType
 	 * @return false|array
 	 */
-	function readEntity( $entityType ) {
+	public function readEntity( $entityType ) {
 		$xr = $this->xmlReader;
 		$info = [ 'type' => $entityType ];
 		$messages = [];
@@ -643,7 +643,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 	 * positioned past the end of the element.
 	 * @return string
 	 */
-	function readStringElement() {
+	public function readStringElement() {
 		$xr = $this->xmlReader;
 		if ( $xr->isEmptyElement ) {
 			$xr->read();
@@ -668,7 +668,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 		return $s;
 	}
 
-	function callbackValidVotes( $electionId, $callback ) {
+	public function callbackValidVotes( $electionId, $callback ) {
 		$this->voteCallback = $callback;
 		$this->voteElectionId = $electionId;
 		$this->voteCallbackStatus = Status::newGood();

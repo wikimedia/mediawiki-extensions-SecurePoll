@@ -48,7 +48,7 @@ class SecurePoll_Context {
 	 * @param string $fileName
 	 * @return false|self
 	 */
-	static function newFromXmlFile( $fileName ) {
+	public static function newFromXmlFile( $fileName ) {
 		$context = new self;
 		$store = new SecurePoll_XMLStore( $fileName );
 		$context->setStore( $store );
@@ -64,7 +64,7 @@ class SecurePoll_Context {
 	 * Get the ParserOptions instance
 	 * @return ParserOptions
 	 */
-	function getParserOptions() {
+	public function getParserOptions() {
 		if ( !$this->parserOptions ) {
 			$this->parserOptions = new ParserOptions;
 		}
@@ -75,7 +75,7 @@ class SecurePoll_Context {
 	 * Get the SecurePoll_Store instance
 	 * @return SecurePoll_Store
 	 */
-	function getStore() {
+	public function getStore() {
 		if ( !isset( $this->store ) ) {
 			$this->store = new $this->storeClass;
 		}
@@ -87,7 +87,7 @@ class SecurePoll_Context {
 	 * @param string|false $subpage
 	 * @return Title
 	 */
-	function getSpecialTitle( $subpage = false ) {
+	public function getSpecialTitle( $subpage = false ) {
 		return SpecialPage::getTitleFor( 'SecurePoll', $subpage );
 	}
 
@@ -95,7 +95,7 @@ class SecurePoll_Context {
 	 * Set the store class
 	 * @param string $class
 	 */
-	function setStoreClass( $class ) {
+	public function setStoreClass( $class ) {
 		$this->store = null;
 		$this->messageCache = $this->messagesLoaded = [];
 		$this->storeClass = $class;
@@ -105,7 +105,7 @@ class SecurePoll_Context {
 	 * Set the store object. Overrides any previous store class.
 	 * @param SecurePoll_Store $store
 	 */
-	function setStore( $store ) {
+	public function setStore( $store ) {
 		$this->messageCache = $this->messagesLoaded = [];
 		$this->store = $store;
 	}
@@ -115,7 +115,7 @@ class SecurePoll_Context {
 	 * @param int $id
 	 * @return string
 	 */
-	function getEntityType( $id ) {
+	public function getEntityType( $id ) {
 		return $this->getStore()->getEntityType( $id );
 	}
 
@@ -125,7 +125,7 @@ class SecurePoll_Context {
 	 * @param int $id
 	 * @return SecurePoll_Election
 	 */
-	function getElection( $id ) {
+	public function getElection( $id ) {
 		if ( !isset( $this->electionCache[$id] ) ) {
 			$info = $this->getStore()->getElectionInfo( [ $id ] );
 			if ( $info ) {
@@ -143,7 +143,7 @@ class SecurePoll_Context {
 	 * @param string $name
 	 * @return SecurePoll_Election|false
 	 */
-	function getElectionByTitle( $name ) {
+	public function getElectionByTitle( $name ) {
 		$info = $this->getStore()->getElectionInfoByTitle( [ $name ] );
 		if ( $info ) {
 			return $this->newElection( reset( $info ) );
@@ -158,7 +158,7 @@ class SecurePoll_Context {
 	 * @param stdClass $row
 	 * @return SecurePoll_Election
 	 */
-	function newElectionFromRow( $row ) {
+	public function newElectionFromRow( $row ) {
 		$info = $this->getStore()->decodeElectionRow( $row );
 		return $this->newElection( $info );
 	}
@@ -168,7 +168,7 @@ class SecurePoll_Context {
 	 * @param stdClass $row
 	 * @return SecurePoll_Voter
 	 */
-	function newVoterFromRow( $row ) {
+	public function newVoterFromRow( $row ) {
 		return SecurePoll_Voter::newFromRow( $this, $row );
 	}
 
@@ -181,7 +181,7 @@ class SecurePoll_Context {
 	 * @param array $params
 	 * @return SecurePoll_Voter
 	 */
-	function createVoter( $params ) {
+	public function createVoter( $params ) {
 		return SecurePoll_Voter::createVoter( $this, $params );
 	}
 
@@ -190,7 +190,7 @@ class SecurePoll_Context {
 	 * @param string $id
 	 * @return SecurePoll_Voter or false if the ID is not valid
 	 */
-	function getVoter( $id ) {
+	public function getVoter( $id ) {
 		return SecurePoll_Voter::newFromId( $this, $id );
 	}
 
@@ -199,7 +199,7 @@ class SecurePoll_Context {
 	 * number generation.
 	 * @return SecurePoll_Random
 	 */
-	function getRandom() {
+	public function getRandom() {
 		if ( !$this->random ) {
 			$this->random = new SecurePoll_Random;
 		}
@@ -212,7 +212,7 @@ class SecurePoll_Context {
 	 *     requested, the first code in the array will be tried first, followed
 	 *     by the subsequent codes.
 	 */
-	function setLanguages( $languages ) {
+	public function setLanguages( $languages ) {
 		$this->languages = $languages;
 	}
 
@@ -225,7 +225,7 @@ class SecurePoll_Context {
 	 * @param array $ids Entity IDs
 	 * @return array
 	 */
-	function getMessages( $lang, $ids ) {
+	public function getMessages( $lang, $ids ) {
 		if ( isset( $this->messagesLoaded[$lang] ) ) {
 			$cacheRow = $this->messagesLoaded[$lang];
 			$uncachedIds = array_flip( $ids );
@@ -257,7 +257,7 @@ class SecurePoll_Context {
 	 * @param string $key Message key
 	 * @return bool
 	 */
-	function getMessage( $lang, $id, $key ) {
+	public function getMessage( $lang, $id, $key ) {
 		if ( !isset( $this->messagesLoaded[$lang][$id] ) ) {
 			$this->getMessages( $lang, [ $id ] );
 		}
@@ -274,7 +274,7 @@ class SecurePoll_Context {
 	 * @param int $index DB_MASTER or DB_REPLICA
 	 * @return \Wikimedia\Rdbms\IDatabase
 	 */
-	function getDB( $index = DB_MASTER ) {
+	public function getDB( $index = DB_MASTER ) {
 		return $this->getStore()->getDB( $index );
 	}
 
@@ -282,7 +282,7 @@ class SecurePoll_Context {
 	 * @param array $info
 	 * @return SecurePoll_Election
 	 */
-	function newElection( $info ) {
+	public function newElection( $info ) {
 		return new SecurePoll_Election( $this, $info );
 	}
 
@@ -290,7 +290,7 @@ class SecurePoll_Context {
 	 * @param array $info
 	 * @return SecurePoll_Question
 	 */
-	function newQuestion( $info ) {
+	public function newQuestion( $info ) {
 		return new SecurePoll_Question( $this, $info );
 	}
 
@@ -298,7 +298,7 @@ class SecurePoll_Context {
 	 * @param array $info
 	 * @return SecurePoll_Option
 	 */
-	function newOption( $info ) {
+	public function newOption( $info ) {
 		return new SecurePoll_Option( $this, $info );
 	}
 
@@ -307,7 +307,7 @@ class SecurePoll_Context {
 	 * @param SecurePoll_Election $election
 	 * @return bool|SecurePoll_GpgCrypt
 	 */
-	function newCrypt( $type, $election ) {
+	public function newCrypt( $type, $election ) {
 		return SecurePoll_Crypt::factory( $this, $type, $election );
 	}
 
@@ -317,7 +317,7 @@ class SecurePoll_Context {
 	 * @param SecurePoll_Question $question
 	 * @return SecurePoll_Tallier
 	 */
-	function newTallier( $type, $electionTallier, $question ) {
+	public function newTallier( $type, $electionTallier, $question ) {
 		return SecurePoll_Tallier::factory( $this, $type, $electionTallier, $question );
 	}
 
@@ -326,7 +326,7 @@ class SecurePoll_Context {
 	 * @param SecurePoll_Election $election
 	 * @return SecurePoll_Ballot
 	 */
-	function newBallot( $type, $election ) {
+	public function newBallot( $type, $election ) {
 		return SecurePoll_Ballot::factory( $this, $type, $election );
 	}
 
@@ -334,7 +334,7 @@ class SecurePoll_Context {
 	 * @param string $type
 	 * @return SecurePoll_Auth
 	 */
-	function newAuth( $type ) {
+	public function newAuth( $type ) {
 		return SecurePoll_Auth::factory( $this, $type );
 	}
 
@@ -342,7 +342,7 @@ class SecurePoll_Context {
 	 * @param array $params
 	 * @return SecurePoll_Voter
 	 */
-	function newVoter( $params ) {
+	public function newVoter( $params ) {
 		return new SecurePoll_Voter( $this, $params );
 	}
 
@@ -350,7 +350,7 @@ class SecurePoll_Context {
 	 * @param SecurePoll_Election $election
 	 * @return SecurePoll_ElectionTallier
 	 */
-	function newElectionTallier( $election ) {
+	public function newElectionTallier( $election ) {
 		return new SecurePoll_ElectionTallier( $this, $election );
 	}
 
@@ -363,7 +363,7 @@ class SecurePoll_Context {
 	 * @param int $level Recursion level, leave this as zero when calling.
 	 * @return mixed|string
 	 */
-	function varDump( $var, $return = false, $level = 0 ) {
+	public function varDump( $var, $return = false, $level = 0 ) {
 		$tab = '    ';
 		$indent = str_repeat( $tab, $level );
 		if ( is_array( $var ) ) {
@@ -402,7 +402,7 @@ class SecurePoll_Context {
 	 * @param string $resource
 	 * @return string
 	 */
-	function getResourceUrl( $resource ) {
+	public function getResourceUrl( $resource ) {
 		global $wgScriptPath;
 		return "$wgScriptPath/extensions/SecurePoll/resources/$resource";
 	}

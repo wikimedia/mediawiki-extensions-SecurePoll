@@ -19,7 +19,7 @@ abstract class SecurePoll_Ballot {
 	 * result from this ballot type.
 	 * @return array
 	 */
-	static function getTallyTypes() {
+	public static function getTallyTypes() {
 		throw new MWException( "Subclass must override ::getTallyTypes()" );
 	}
 
@@ -35,7 +35,7 @@ abstract class SecurePoll_Ballot {
 	 *
 	 * @return array
 	 */
-	static function getCreateDescriptors() {
+	public static function getCreateDescriptors() {
 		return [
 			'election' => [
 				'shuffle-questions' => [
@@ -62,7 +62,7 @@ abstract class SecurePoll_Ballot {
 	 * @param array $options Array of options, in the order they should be displayed
 	 * @return string
 	 */
-	abstract function getQuestionForm( $question, $options );
+	abstract public function getQuestionForm( $question, $options );
 
 	/**
 	 * Get any extra messages that this ballot type uses to render questions.
@@ -70,7 +70,7 @@ abstract class SecurePoll_Ballot {
 	 * @return Array
 	 * @see SecurePoll_Election::getMessageNames()
 	 */
-	function getMessageNames() {
+	public function getMessageNames() {
 		return [];
 	}
 
@@ -81,7 +81,7 @@ abstract class SecurePoll_Ballot {
 	 * regardless of voter choices.
 	 * @return Status
 	 */
-	function submitForm() {
+	public function submitForm() {
 		$questions = $this->election->getQuestions();
 		$record = '';
 		$status = new SecurePoll_BallotStatus( $this->context );
@@ -105,14 +105,14 @@ abstract class SecurePoll_Ballot {
 	 * @param Status $status
 	 * @return string|null
 	 */
-	abstract function submitQuestion( $question, $status );
+	abstract public function submitQuestion( $question, $status );
 
 	/**
 	 * Unpack a string record into an array format suitable for the tally type
 	 * @param string $record
 	 * @return array
 	 */
-	abstract function unpackRecord( $record );
+	abstract public function unpackRecord( $record );
 
 	/**
 	 * Convert a record to a string of some kind
@@ -120,7 +120,7 @@ abstract class SecurePoll_Ballot {
 	 * @param array $options
 	 * @return array
 	 */
-	function convertRecord( $record, $options = [] ) {
+	public function convertRecord( $record, $options = [] ) {
 		$scores = $this->unpackRecord( $record );
 		return $this->convertScores( $scores );
 	}
@@ -131,7 +131,7 @@ abstract class SecurePoll_Ballot {
 	 * @param array $options
 	 * @return string
 	 */
-	abstract function convertScores( $scores, $options = [] );
+	abstract public function convertScores( $scores, $options = [] );
 
 	/**
 	 * Create a ballot of the given type
@@ -141,7 +141,7 @@ abstract class SecurePoll_Ballot {
 	 * @throws MWException
 	 * @return SecurePoll_Ballot
 	 */
-	static function factory( $context, $type, $election ) {
+	public static function factory( $context, $type, $election ) {
 		if ( !isset( self::$ballotTypes[$type] ) ) {
 			throw new MWException( "Invalid ballot type: $type" );
 		}
@@ -154,7 +154,7 @@ abstract class SecurePoll_Ballot {
 	 * @param SecurePoll_Context $context
 	 * @param SecurePoll_Election $election
 	 */
-	function __construct( $context, $election ) {
+	public function __construct( $context, $election ) {
 		$this->context = $context;
 		$this->election = $election;
 	}
@@ -165,7 +165,7 @@ abstract class SecurePoll_Ballot {
 	 * @param bool|Status $prevStatus
 	 * @return string
 	 */
-	function getForm( $prevStatus = false ) {
+	public function getForm( $prevStatus = false ) {
 		$questions = $this->election->getQuestions();
 		if ( $this->election->getProperty( 'shuffle-questions' ) ) {
 			shuffle( $questions );
@@ -190,7 +190,7 @@ abstract class SecurePoll_Ballot {
 		return $s;
 	}
 
-	function setErrorStatus( $status ) {
+	public function setErrorStatus( $status ) {
 		if ( $status ) {
 			$this->prevErrorIds = $status->sp_getIds();
 			$this->prevStatus = $status;
@@ -200,7 +200,7 @@ abstract class SecurePoll_Ballot {
 		$this->usedErrorIds = [];
 	}
 
-	function errorLocationIndicator( $id ) {
+	public function errorLocationIndicator( $id ) {
 		if ( !isset( $this->prevErrorIds[$id] ) ) {
 			return '';
 		}
@@ -221,7 +221,7 @@ abstract class SecurePoll_Ballot {
 	 * @param Status $status
 	 * @return string
 	 */
-	function formatStatus( $status ) {
+	public function formatStatus( $status ) {
 		return $status->sp_getHTML( $this->usedErrorIds );
 	}
 
@@ -231,7 +231,7 @@ abstract class SecurePoll_Ballot {
 	 * @return false on failure or if cast ballots are hidden, or the output
 	 *     of unpackRecord().
 	 */
-	function getCurrentVote() {
+	public function getCurrentVote() {
 		if ( !$this->election->getOption( 'show-change' ) ) {
 			return false;
 		}
@@ -266,7 +266,7 @@ abstract class SecurePoll_Ballot {
 			: false;
 	}
 
-	function getCurrentVoteCallback( $store, $record ) {
+	public function getCurrentVoteCallback( $store, $record ) {
 		$this->currentVote = $record;
 		return Status::newGood();
 	}
@@ -276,11 +276,11 @@ class SecurePoll_BallotStatus extends Status {
 	public $sp_context;
 	public $sp_ids = [];
 
-	function __construct( $context ) {
+	public function __construct( $context ) {
 		$this->sp_context = $context;
 	}
 
-	function sp_fatal( $message, $id /*, parameters... */ ) {
+	public function sp_fatal( $message, $id /*, parameters... */ ) {
 		$params = array_slice( func_get_args(), 2 );
 		$this->errors[] = [
 			'type' => 'error',
@@ -291,11 +291,11 @@ class SecurePoll_BallotStatus extends Status {
 		$this->ok = false;
 	}
 
-	function sp_getIds() {
+	public function sp_getIds() {
 		return $this->sp_ids;
 	}
 
-	function sp_getHTML( $usedIds ) {
+	public function sp_getHTML( $usedIds ) {
 		if ( !$this->errors ) {
 			return '';
 		}
@@ -327,7 +327,7 @@ class SecurePoll_BallotStatus extends Status {
 		return $s;
 	}
 
-	function sp_getMessageText( $id ) {
+	public function sp_getMessageText( $id ) {
 		foreach ( $this->errors as $error ) {
 			if ( $error['securepoll-id'] !== $id ) {
 				continue;

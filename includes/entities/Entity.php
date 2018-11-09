@@ -24,7 +24,7 @@ class SecurePoll_Entity {
 	 * @param string $type
 	 * @param array $info Associative array of entity info
 	 */
-	function __construct( $context, $type, $info ) {
+	public function __construct( $context, $type, $info ) {
 		$this->context = $context;
 		$this->type = $type;
 		$this->id = isset( $info['id'] )
@@ -39,7 +39,7 @@ class SecurePoll_Entity {
 	 * Get the type of the entity.
 	 * @return string
 	 */
-	function getType() {
+	public function getType() {
 		return $this->type;
 	}
 
@@ -48,7 +48,7 @@ class SecurePoll_Entity {
 	 * translate subpage with a list of messages to localise.
 	 * @return Array
 	 */
-	function getMessageNames() {
+	public function getMessageNames() {
 		# STUB
 		return [];
 	}
@@ -57,7 +57,7 @@ class SecurePoll_Entity {
 	 * Get the entity ID.
 	 * @return int
 	 */
-	function getId() {
+	public function getId() {
 		return $this->id;
 	}
 
@@ -78,7 +78,7 @@ class SecurePoll_Entity {
 	 *
 	 * @return array
 	 */
-	function getChildren() {
+	public function getChildren() {
 		return [];
 	}
 
@@ -87,7 +87,7 @@ class SecurePoll_Entity {
 	 * objects.
 	 * @return array
 	 */
-	function getDescendants() {
+	public function getDescendants() {
 		$descendants = [];
 		$children = $this->getChildren();
 		foreach ( $children as $child ) {
@@ -102,7 +102,7 @@ class SecurePoll_Entity {
 	 * this since getMessage() does it automatically.
 	 * @param string|false $lang
 	 */
-	function loadMessages( $lang = false ) {
+	public function loadMessages( $lang = false ) {
 		if ( $lang === false ) {
 			$lang = reset( $this->context->languages );
 		}
@@ -119,7 +119,7 @@ class SecurePoll_Entity {
 	 * call this function from another class since getProperty() does it
 	 * automatically.
 	 */
-	function loadProperties() {
+	public function loadProperties() {
 		$properties = $this->context->getStore()->getProperties( [ $this->getId() ] );
 		if ( count( $properties ) ) {
 			$this->properties = reset( $properties );
@@ -136,7 +136,7 @@ class SecurePoll_Entity {
 	 * @param string $language
 	 * @return bool
 	 */
-	function getRawMessage( $name, $language ) {
+	public function getRawMessage( $name, $language ) {
 		if ( empty( $this->messagesLoaded[$language] ) ) {
 			$this->loadMessages( $language );
 		}
@@ -151,7 +151,7 @@ class SecurePoll_Entity {
 	 * @param string $name
 	 * @return bool|string
 	 */
-	function getMessage( $name ) {
+	public function getMessage( $name ) {
 		foreach ( $this->context->languages as $language ) {
 			if ( empty( $this->messagesLoaded[$language] ) ) {
 				$this->loadMessages( $language );
@@ -170,7 +170,7 @@ class SecurePoll_Entity {
 	 * @param bool $lineStart
 	 * @return string
 	 */
-	function parseMessage( $name, $lineStart = true ) {
+	public function parseMessage( $name, $lineStart = true ) {
 		global $wgParser, $wgTitle;
 		$parserOptions = $this->context->getParserOptions();
 		if ( $wgTitle ) {
@@ -188,7 +188,7 @@ class SecurePoll_Entity {
 	 * @param string $name
 	 * @return string
 	 */
-	function parseMessageInline( $name ) {
+	public function parseMessageInline( $name ) {
 		return $this->parseMessage( $name, false );
 	}
 
@@ -197,7 +197,7 @@ class SecurePoll_Entity {
 	 * and its descendants.
 	 * @return string
 	 */
-	function getLangList() {
+	public function getLangList() {
 		$ids = [ $this->getId() ];
 		foreach ( $this->getDescendants() as $child ) {
 			$ids[] = $child->getId();
@@ -212,7 +212,7 @@ class SecurePoll_Entity {
 	 * @param mixed $default
 	 * @return bool|mixed
 	 */
-	function getProperty( $name, $default = false ) {
+	public function getProperty( $name, $default = false ) {
 		if ( $this->properties === null ) {
 			$this->loadProperties();
 		}
@@ -227,7 +227,7 @@ class SecurePoll_Entity {
 	 * Get all defined properties as an associative array
 	 * @return array
 	 */
-	function getAllProperties() {
+	public function getAllProperties() {
 		if ( $this->properties === null ) {
 			$this->loadProperties();
 		}
@@ -239,7 +239,7 @@ class SecurePoll_Entity {
 	 * @param array $params
 	 * @return string
 	 */
-	function getConfXml( $params = [] ) {
+	public function getConfXml( $params = [] ) {
 		return "<{$this->type}>\n" .
 			$this->getConfXmlEntityStuff( $params ) .
 			"</{$this->type}>\n";
@@ -250,7 +250,7 @@ class SecurePoll_Entity {
 	 * @param array $params
 	 * @return string
 	 */
-	function getConfXmlEntityStuff( $params = [] ) {
+	public function getConfXmlEntityStuff( $params = [] ) {
 		$s = Xml::element( 'id', [], $this->getId() ) . "\n";
 		$blacklist = $this->getPropertyDumpBlacklist( $params );
 		foreach ( $this->getAllProperties() as $name => $value ) {
@@ -284,7 +284,7 @@ class SecurePoll_Entity {
 	 * @param array $params
 	 * @return array
 	 */
-	function getPropertyDumpBlacklist( $params = [] ) {
+	public function getPropertyDumpBlacklist( $params = [] ) {
 		return [];
 	}
 

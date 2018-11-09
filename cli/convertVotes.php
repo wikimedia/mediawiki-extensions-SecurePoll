@@ -33,7 +33,7 @@ if ( !isset( $options['name'] ) ) {
 class SecurePoll_ConvertVotes {
 	public $context, $election;
 
-	function convertFile( $fileName ) {
+	private function convertFile( $fileName ) {
 		$this->context = SecurePoll_Context::newFromXmlFile( $fileName );
 		if ( !$this->context ) {
 			spFatal( "Unable to parse XML file \"$fileName\"" );
@@ -47,7 +47,7 @@ class SecurePoll_ConvertVotes {
 		$this->convert( $electionId );
 	}
 
-	function convertLocalElection( $name ) {
+	private function convertLocalElection( $name ) {
 		$this->context = new SecurePoll_Context;
 		$this->election = $this->context->getElectionByTitle( $name );
 		if ( !$this->election ) {
@@ -56,7 +56,7 @@ class SecurePoll_ConvertVotes {
 		$this->convert( $this->election->getId() );
 	}
 
-	function convert( $electionId ) {
+	public function convert( $electionId ) {
 		$this->votes = [];
 		$this->crypt = $this->election->getCrypt();
 		$this->ballot = $this->election->getBallot();
@@ -88,7 +88,7 @@ class SecurePoll_ConvertVotes {
 		echo $s;
 	}
 
-	function convertVote( $store, $record ) {
+	public function convertVote( $store, $record ) {
 		if ( $this->crypt ) {
 			$status = $this->crypt->decrypt( $record );
 			if ( !$status->isOK() ) {

@@ -10,7 +10,7 @@ abstract class SecurePoll_PairwiseTallier extends SecurePoll_Tallier {
 	public $abbrevs;
 	public $rowLabels = [];
 
-	function __construct( $context, $electionTallier, $question ) {
+	public function __construct( $context, $electionTallier, $question ) {
 		parent::__construct( $context, $electionTallier, $question );
 		$this->optionIds = [];
 		foreach ( $question->getOptions() as $option ) {
@@ -25,7 +25,7 @@ abstract class SecurePoll_PairwiseTallier extends SecurePoll_Tallier {
 		}
 	}
 
-	function addVote( $ranks ) {
+	public function addVote( $ranks ) {
 		foreach ( $this->optionIds as $oid1 ) {
 			if ( !isset( $ranks[$oid1] ) ) {
 				wfDebug( "Invalid vote record, missing option $oid1\n" );
@@ -41,7 +41,7 @@ abstract class SecurePoll_PairwiseTallier extends SecurePoll_Tallier {
 		return true;
 	}
 
-	function getOptionAbbreviations() {
+	public function getOptionAbbreviations() {
 		if ( is_null( $this->abbrevs ) ) {
 			$abbrevs = [];
 			foreach ( $this->question->getOptions() as $option ) {
@@ -69,7 +69,7 @@ abstract class SecurePoll_PairwiseTallier extends SecurePoll_Tallier {
 		return $this->abbrevs;
 	}
 
-	function getRowLabels( $format = 'html' ) {
+	public function getRowLabels( $format = 'html' ) {
 		if ( !isset( $this->rowLabels[$format] ) ) {
 			$rowLabels = [];
 			$abbrevs = $this->getOptionAbbreviations();
@@ -89,7 +89,7 @@ abstract class SecurePoll_PairwiseTallier extends SecurePoll_Tallier {
 		return $this->rowLabels[$format];
 	}
 
-	function convertMatrixToHtml( $matrix, $rankedIds ) {
+	public function convertMatrixToHtml( $matrix, $rankedIds ) {
 		$abbrevs = $this->getOptionAbbreviations();
 		$rowLabels = $this->getRowLabels( 'html' );
 
@@ -127,7 +127,7 @@ abstract class SecurePoll_PairwiseTallier extends SecurePoll_Tallier {
 		return $s;
 	}
 
-	function convertMatrixToText( $matrix, $rankedIds ) {
+	public function convertMatrixToText( $matrix, $rankedIds ) {
 		$abbrevs = $this->getOptionAbbreviations();
 		$minWidth = 15;
 		$rowLabels = $this->getRowLabels( 'text' );

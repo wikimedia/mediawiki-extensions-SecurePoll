@@ -8,7 +8,7 @@ class SecurePoll_EntryPage extends SecurePoll_ActionPage {
 	 * Execute the subpage.
 	 * @param array $params Array of subpage parameters.
 	 */
-	function execute( $params ) {
+	public function execute( $params ) {
 		$pager = new SecurePoll_ElectionPager( $this );
 		$out = $this->specialPage->getOutput();
 		$out->addWikiMsg( 'securepoll-entry-text' );
@@ -36,7 +36,7 @@ class SecurePoll_EntryPage extends SecurePoll_ActionPage {
 	/**
 	 * @return Title
 	 */
-	function getTitle() {
+	public function getTitle() {
 		return $this->specialPage->getPageTitle( 'entry' );
 	}
 }

@@ -50,7 +50,7 @@ class SecurePoll_RadioRangeCommentBallot extends SecurePoll_RadioRangeBallot {
 	 * @param string $record
 	 * @return bool
 	 */
-	function unpackRecord( $record ) {
+	public function unpackRecord( $record ) {
 		$scores = [];
 		$itemLength = 8 + 8 + 11 + 7;
 		$questions = [];
@@ -105,7 +105,7 @@ class SecurePoll_RadioRangeCommentBallot extends SecurePoll_RadioRangeBallot {
 		return $scores;
 	}
 
-	function readComment( $record, &$offset ) {
+	public function readComment( $record, &$offset ) {
 		$commentOffset = strpos( $record, '/', $offset + 1 );
 		$commentLength = intval( substr( $record, $offset + 1,
 			( $commentOffset - $offset ) - 1 ) );

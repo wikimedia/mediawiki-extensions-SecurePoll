@@ -14,7 +14,7 @@ class SecurePoll_Question extends SecurePoll_Entity {
 	 * @param SecurePoll_Context $context
 	 * @param array $info Associative array of entity info
 	 */
-	function __construct( $context, $info ) {
+	public function __construct( $context, $info ) {
 		parent::__construct( $context, 'question', $info );
 		$this->options = [];
 		foreach ( $info['options'] as $optionInfo ) {
@@ -26,7 +26,7 @@ class SecurePoll_Question extends SecurePoll_Entity {
 	 * Get a list of localisable message names.
 	 * @return array
 	 */
-	function getMessageNames() {
+	public function getMessageNames() {
 		$ballot = $this->getElection()->getBallot();
 		return array_merge( $ballot->getMessageNames( $this ), [ 'text' ] );
 	}
@@ -35,15 +35,15 @@ class SecurePoll_Question extends SecurePoll_Entity {
 	 * Get the child entity objects.
 	 * @return array
 	 */
-	function getChildren() {
+	public function getChildren() {
 		return $this->options;
 	}
 
-	function getOptions() {
+	public function getOptions() {
 		return $this->options;
 	}
 
-	function getConfXml( $params = [] ) {
+	public function getConfXml( $params = [] ) {
 		$s = "<question>\n" . $this->getConfXmlEntityStuff( $params );
 		foreach ( $this->getOptions() as $option ) {
 			$s .= $option->getConfXml( $params );
