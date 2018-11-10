@@ -51,7 +51,7 @@ for ( $userId = 1; $userId <= $maxUser; $userId++ ) {
 	}
 
 	if ( $adjust != 0 ) {
-		echo "$userId\t$adjust\n";
+		out( "$userId\t$adjust\n" );
 		$dbw->update( 'bv2015_edits',
 			// SET
 			[ 'bv_long_edits=bv_long_edits + ' . $dbr->addQuotes( $adjust ) ],
@@ -60,11 +60,19 @@ for ( $userId = 1; $userId <= $maxUser; $userId++ ) {
 			$fname
 		);
 		if ( $dbw->affectedRows() < 1 ) {
-			echo "ERROR: no bv2015_edits row for user $userId\n";
+			out( "ERROR: no bv2015_edits row for user $userId\n" );
 		}
 
 		$numUsers++;
 	}
 }
 
-echo wfWikiID() . ": $numUsers users added\n";
+out( wfWikiID() . ": $numUsers users added\n" );
+
+/**
+ * @suppress SecurityCheck-XSS
+ * @param string $val
+ */
+function out( $val ) {
+	echo $val;
+}

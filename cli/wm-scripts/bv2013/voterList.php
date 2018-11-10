@@ -38,7 +38,7 @@ while ( true ) {
 		];
 	}
 	if ( $insertBatch ) {
-		$dbw->insert( 'securepoll_lists', $insertBatch, $fname );
+		doInsert( $dbw, $insertBatch, $fname );
 		$numQualified += count( $insertBatch );
 	}
 }
@@ -155,4 +155,16 @@ function spGetEditCounts( $db, $userNames ) {
  */
 function spIsQualified( $short, $long ) {
 	return $short >= 20 && $long >= 300;
+}
+
+/**
+ * phan-taint-check gets confused with the other cli scripts due to globals
+ *
+ * @suppress SecurityCheck-SQLInjection
+ * @param IDatabase $dbw
+ * @param array $insertBatch
+ * @param string $fname
+ */
+function doInsert( $dbw, $insertBatch, $fname ) {
+	$dbw->insert( 'securepoll_lists', $insertBatch, $fname );
 }

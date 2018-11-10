@@ -40,7 +40,7 @@ while ( true ) {
 		];
 	}
 	if ( $insertBatch ) {
-		$dbcw->insert( 'securepoll_lists', $insertBatch, $fname );
+		doInsert( $dbcw, $insertBatch, $fname );
 		$numQualified += count( $insertBatch );
 	}
 	spReportProgress( $numUsers, $totalUsers );
@@ -154,4 +154,16 @@ function spReportProgress( $current, $total ) {
 		number_format( $current / $total * 100, 2 ) . '% ; estimated time remaining: ' .
 		$lang->formatDuration( $estRemaining ) .
 		"\n";
+}
+
+/**
+ * phan-taint-check gets confused with the other cli scripts due to globals
+ *
+ * @suppress SecurityCheck-SQLInjection
+ * @param IDatabase $dbw
+ * @param array $insertBatch
+ * @param string $fname
+ */
+function doInsert( $dbw, $insertBatch, $fname ) {
+	$dbw->insert( 'securepoll_lists', $insertBatch, $fname );
 }
