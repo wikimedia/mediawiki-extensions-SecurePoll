@@ -105,7 +105,7 @@ class SecurePoll_DetailsPage extends SecurePoll_ActionPage {
 		$res = $db->query( $sql, __METHOD__ );
 		if ( $res->numRows() ) {
 			$lang = $this->specialPage->getLanguage();
-			$out->addHTML( '<h2>' . $this->msg( 'securepoll-cookie-dup-list' )->escaped . '</h2>' );
+			$out->addHTML( '<h2>' . $this->msg( 'securepoll-cookie-dup-list' )->escaped() . '</h2>' );
 			$out->addHTML( '<table class="mw-datatable TablePager">' );
 			foreach ( $res as $row ) {
 				$voter = $this->context->getVoter( $row->voter );
