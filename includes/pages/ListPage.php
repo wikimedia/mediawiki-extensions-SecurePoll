@@ -280,7 +280,7 @@ class SecurePoll_ListPager extends TablePager {
 			}
 		case 'details':
 			$voteId = intval( $this->mCurrentRow->vote_id );
-			$title = $this->listPage->specialPage->getTitle( "details/$voteId" );
+			$title = $this->listPage->specialPage->getPageTitle( "details/$voteId" );
 			return Xml::element( 'a',
 				[ 'href' => $title->getLocalUrl() ],
 				$this->msg( 'securepoll-details-link' )->text()

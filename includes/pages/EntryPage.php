@@ -163,7 +163,7 @@ class SecurePoll_ElectionPager extends TablePager {
 				&& ( !$this->election->isStarted() || $props['visible-after-start'] )
 				&& ( !$this->election->isFinished() || $props['visible-after-close'] )
 			) {
-				$title = $this->entryPage->specialPage->getTitle( "$subpage/$id" );
+				$title = $this->entryPage->specialPage->getPageTitle( "$subpage/$id" );
 				$s .= Linker::linkKnown( $title, $linkText );
 			} else {
 				$s .= "<span class=\"securepoll-link-disabled\">" .
