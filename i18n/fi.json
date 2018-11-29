@@ -11,7 +11,8 @@
 			"ZeiP",
 			"Pitke",
 			"Pyscowicz",
-			"01miki10"
+			"01miki10",
+			"Valtlait"
 		]
 	},
 	"securepoll": "Turvattu äänestys",
@@ -19,7 +20,7 @@
 	"securepoll-invalid-page": "Virheellinen alasivu ”<nowiki>$1</nowiki>”",
 	"securepoll-need-admin": "Sinun täytyy olla vaalien ylläpitäjä suorittaaksesi tämän toiminnon.",
 	"securepoll-too-few-params": "Ei tarpeeksi alasivuparametrejä (linkki ei toimi).",
-	"securepoll-invalid-election": "\"$1\" ei ole kelvollinen vaalitunniste.",
+	"securepoll-invalid-election": "”$1” ei ole kelvollinen vaalitunniste.",
 	"securepoll-welcome": "<strong>{{GENDER:$1|Tervetuloa}} $1!</strong>",
 	"securepoll-not-started": "Tämä vaali ei ole vielä alkanut.\nSen on määrä alkaa $2 kello $3.",
 	"securepoll-already-started": "Tämä vaali on jo alkanut.\nSe alkoi $2 kello $3",
@@ -76,7 +77,7 @@
 	"securepoll-strike-token-mismatch": "Istuntotiedot hävinneet",
 	"securepoll-details-link": "Tiedot",
 	"securepoll-details-title": "Äänestystiedot: #$1",
-	"securepoll-invalid-vote": "\"$1\" ei ole kelvollinen tunniste.",
+	"securepoll-invalid-vote": "”$1” ei ole kelvollinen tunniste.",
 	"securepoll-header-voter-type": "Äänestäjätyyppi",
 	"securepoll-voter-properties": "Äänestäjän asetukset",
 	"securepoll-strike-log": "Poistoloki",
