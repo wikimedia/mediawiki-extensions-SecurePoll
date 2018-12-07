@@ -3,7 +3,8 @@
 		"authors": [
 			"Bjankuloski06",
 			"Brest",
-			"Rancher"
+			"Rancher",
+			"Vlad5250"
 		]
 	},
 	"securepoll": "БезбедноГласање",
@@ -240,12 +241,12 @@
 	"securepoll-ns-readonly": "Именскиот простор {{ns:SecurePoll}} може само да се чита",
 	"securepoll-voter-stats": "Од сите подобни гласачи, {{PLURAL:$1|гласот го има дадено еден|гласале вкупно $1}}.",
 	"securepoll-vote-stats": "{{PLURAL:$1|Даден е сè на сè еден глас|Дадени се вкупно $1 гласови}}. Од нив, $2 {{PLURAL:$2|е отфрлен|се отфрлени}}  бидејќи лицето гласало повторно, а $3 {{PLURAL:$3|е поништен|се поништени}}.",
-	"apihelp-strikevote-description": "Им овозможува на администраторите да поништат или повратат глас",
-	"apihelp-strikevote-summary": "Им овозможува на администраторите да поништат или повратат глас",
-	"apihelp-strikevote-param-option": "Кое дејство да се изврши: поништување или повраток",
+	"apihelp-strikevote-description": "Им овозможува на администраторите да поништат или повратат глас.",
+	"apihelp-strikevote-summary": "Им овозможува на администраторите да поништат или повратат глас.",
+	"apihelp-strikevote-param-option": "Кое дејство да се изврши: поништување или повраток.",
 	"apihelp-strikevote-paramvalue-option-strike": "Поништи глас (отстрани го од бројот на гласови).",
-	"apihelp-strikevote-paramvalue-option-unstrike": "Поврати глас (врати го меѓу бројот на гласови)",
-	"apihelp-strikevote-param-voteid": "Назнака на гласот за поништување/повраток",
+	"apihelp-strikevote-paramvalue-option-unstrike": "Поврати глас (врати го меѓу бројот на гласови).",
+	"apihelp-strikevote-param-voteid": "Назнака на гласот за поништување/повраток.",
 	"apihelp-strikevote-param-reason": "Причина за поништување/повраток на гласот.",
 	"apihelp-strikevote-example-strike": "Поништи го гласот <kbd>1</kbd>, давајќи ја причината <kbd>дуплирање</kbd>.",
 	"apihelp-strikevote-example-unstrike": "Поврати го гласот <kbd>1</kbd>, давајќи ја причината <kbd>грешка</kbd>.",
