@@ -7,57 +7,65 @@
  * not feasible.
  */
 
-$optionsWithArgs = [ 'name' ];
-require __DIR__ . '/cli.inc';
-
-$wgTitle = Title::newFromText( 'Special:SecurePoll' );
-
-$usage = <<<EOT
-Usage:
-  php tally.php [--html] --name <election name>
-  php tally.php [--html] <dump file>
-EOT;
-
-if ( !isset( $options['name'] ) && !isset( $args[0] ) ) {
-	spFatal( $usage );
-}
-
-if ( !class_exists( 'SecurePoll_Context' ) ) {
-	if ( isset( $options['name'] ) ) {
-		spFatal( "Cannot load from database when SecurePoll is not installed" );
-	}
-	require __DIR__ . '/../SecurePoll.php';
-}
-
-$context = new SecurePoll_Context;
-if ( !isset( $options['name'] ) ) {
-	$context = SecurePoll_Context::newFromXmlFile( $args[0] );
-	if ( !$context ) {
-		spFatal( "Unable to parse XML file \"{$args[0]}\"" );
-	}
-	$electionIds = $context->getStore()->getAllElectionIds();
-	if ( !count( $electionIds ) ) {
-		spFatal( "No elections found in XML file \"{$args[0]}\"" );
-	}
-	$election = $context->getElection( reset( $electionIds ) );
+if ( getenv( 'MW_INSTALL_PATH' ) ) {
+	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
-	$election = $context->getElectionByTitle( $options['name'] );
-	if ( !$election ) {
-		spFatal( "The specified election does not exist." );
+	$IP = __DIR__ . '/../../..';
+}
+require_once "$IP/maintenance/Maintenance.php";
+
+class TallyElection extends Maintenance {
+
+	public function __construct() {
+		parent::__construct();
+		$this->mDescription = 'Tally an election from a dump file or local database';
+
+		$this->addOption( 'name', 'Name of the election', false, true );
+		$this->addArg( 'dump', 'Dump file to process', false );
+		$this->addOption( 'html', 'Output results in HTML' );
+
+		$this->requireExtension( 'SecurePoll' );
+	}
+
+	public function execute() {
+		global $wgTitle;
+
+		// TODO: Is this necessary?
+		$wgTitle = Title::newFromText( 'Special:SecurePoll' );
+
+		$context = new SecurePoll_Context;
+		if ( !$this->hasOption( 'name' ) && $this->hasArg( 0 ) ) {
+			$dump = $this->getArg( 0 );
+			$context = SecurePoll_Context::newFromXmlFile( $dump );
+			if ( !$context ) {
+				$this->fatalError( "Unable to parse XML file \"{$dump}\"" );
+			}
+			$electionIds = $context->getStore()->getAllElectionIds();
+			if ( !count( $electionIds ) ) {
+				$this->fatalError( "No elections found in XML file \"{$dump}\"" );
+			}
+			$election = $context->getElection( reset( $electionIds ) );
+		} elseif ( $this->hasOption( 'name' ) ) {
+			$election = $context->getElectionByTitle( $this->getOption( 'name' ) );
+			if ( !$election ) {
+				$this->fatalError( "The specified election does not exist." );
+			}
+		} else {
+			$this->fatalError( 'Need to pass either --name or the dump file as an argument' );
+		}
+
+		$status = $election->tally();
+		if ( !$status->isOK() ) {
+			$this->fatalError( 'Tally error: ' . $status->getWikiText() );
+		}
+		$tallier = $status->value;
+		if ( $this->getOption( 'html' ) ) {
+			$this->output( $tallier->getHtmlResult() );
+		} else {
+			$this->output( $tallier->getTextResult() );
+		}
 	}
 }
-$status = $election->tally();
-if ( !$status->isOK() ) {
-	spFatal( "Tally error: " . $status->getWikiText() );
-}
-$tallier = $status->value;
-if ( isset( $options['html'] ) ) {
-	echo $tallier->getHtmlResult();
-} else {
-	echo $tallier->getTextResult();
-}
 
-function spFatal( $message ) {
-	fwrite( STDERR, rtrim( $message ) . "\n" );
-	exit( 1 );
-}
+$maintClass = "TallyElection";
+require_once RUN_MAINTENANCE_IF_MAIN;
