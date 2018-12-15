@@ -12,7 +12,7 @@ $dbr = wfGetDB( DB_REPLICA );
 $dbw = wfGetDB( DB_MASTER );
 
 $maxUser = $dbr->selectField( 'user', 'MAX(user_id)', false );
-$beforeTime = $dbr->addQuotes( '20150401500000' );
+$beforeTime = $dbr->addQuotes( '20150415000000' );
 $betweenTime = [
 	$dbr->addQuotes( '20141015000000' ),
 	$dbr->addQuotes( '20150415235959' )
