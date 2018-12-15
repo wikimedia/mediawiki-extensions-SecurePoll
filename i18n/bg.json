@@ -88,6 +88,7 @@
 	"securepoll-subpage-vote": "Гласуване",
 	"securepoll-subpage-translate": "Превеждане",
 	"securepoll-subpage-list": "Списък",
+	"securepoll-subpage-edit": "Редактиране",
 	"securepoll-subpage-dump": "Дъмп",
 	"securepoll-subpage-tally": "Преброяване",
 	"securepoll-tally-title": "Преброяване: $1",
