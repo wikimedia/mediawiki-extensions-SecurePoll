@@ -1,46 +1,44 @@
 <?php
 
-require __DIR__ . '/cli.inc';
-
-$usage = <<<EOT
-Usage:
-  php convertVotes.php [options] --name <election name>
-  php convertVotes.php [options] <dump file>
-
-Options are:
-  --no-proof-protection    Disable protection for proof of vote (vote buying)
-EOT;
-
-if ( !isset( $options['name'] ) && !isset( $args[0] ) ) {
-	spFatal( $usage );
-}
-
-if ( !class_exists( 'SecurePoll_Context' ) ) {
-	if ( isset( $options['name'] ) ) {
-		spFatal( "Cannot load from database when SecurePoll is not installed" );
-	}
-	require __DIR__ . '/../SecurePoll.php';
-}
-
-$conv = new SecurePoll_ConvertVotes;
-
-if ( !isset( $options['name'] ) ) {
-	$conv->convertFile( $args[0] );
+if ( getenv( 'MW_INSTALL_PATH' ) ) {
+	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
-	$conv->convertLocalElection( $options['name'] );
+	$IP = __DIR__ . '/../../..';
 }
+require_once "$IP/maintenance/Maintenance.php";
 
-class SecurePoll_ConvertVotes {
+class ConvertVotes extends Maintenance {
 	public $context, $election;
+
+	public function __construct() {
+		parent::__construct();
+		$this->mDescription = 'Converts votes';
+
+		$this->addOption( 'name', 'Name of the election', false, true );
+		$this->addArg( 'dump', 'Dump file to process', false );
+		$this->addOption( 'no-proof-protection', 'Disable protection for proof of vote (vote buying)' );
+
+		$this->requireExtension( 'SecurePoll' );
+	}
+
+	public function execute() {
+		if ( !$this->hasOption( 'name' ) && $this->hasArg( 0 ) ) {
+			$this->convertFile( $this->getArg( 0 ) );
+		} elseif ( $this->hasOption( 'name' ) ) {
+			$this->convertLocalElection( $this->getOption( 'name' ) );
+		} else {
+			$this->fatalError( 'Need to pass either --name or the dump file as an argument' );
+		}
+	}
 
 	private function convertFile( $fileName ) {
 		$this->context = SecurePoll_Context::newFromXmlFile( $fileName );
 		if ( !$this->context ) {
-			spFatal( "Unable to parse XML file \"$fileName\"" );
+			$this->fatalError( "Unable to parse XML file \"$fileName\"" );
 		}
 		$electionIds = $this->context->getStore()->getAllElectionIds();
 		if ( !count( $electionIds ) ) {
-			spFatal( "No elections found in XML file \"$fileName\"" );
+			$this->fatalError( "No elections found in XML file \"$fileName\"" );
 		}
 		$electionId = reset( $electionIds );
 		$this->election = $this->context->getElection( reset( $electionIds ) );
@@ -51,12 +49,12 @@ class SecurePoll_ConvertVotes {
 		$this->context = new SecurePoll_Context;
 		$this->election = $this->context->getElectionByTitle( $name );
 		if ( !$this->election ) {
-			spFatal( "The specified election does not exist." );
+			$this->fatalError( "The specified election does not exist." );
 		}
 		$this->convert( $this->election->getId() );
 	}
 
-	public function convert( $electionId ) {
+	private function convert( $electionId ) {
 		$this->votes = [];
 		$this->crypt = $this->election->getCrypt();
 		$this->ballot = $this->election->getBallot();
@@ -64,7 +62,7 @@ class SecurePoll_ConvertVotes {
 		$status = $this->context->getStore()->callbackValidVotes(
 			$electionId, [ $this, 'convertVote' ] );
 		if ( !$status->isOK() ) {
-			spFatal( "Error: " . $status->getWikiText() );
+			$this->fatalError( "Error: " . $status->getWikiText() );
 		}
 		$s = '';
 		foreach ( $this->election->getQuestions() as $question ) {
@@ -88,7 +86,7 @@ class SecurePoll_ConvertVotes {
 		echo $s;
 	}
 
-	public function convertVote( $store, $record ) {
+	private function convertVote( $store, $record ) {
 		if ( $this->crypt ) {
 			$status = $this->crypt->decrypt( $record );
 			if ( !$status->isOK() ) {
@@ -99,7 +97,7 @@ class SecurePoll_ConvertVotes {
 		$record = rtrim( $record );
 		$record = $this->ballot->convertRecord( $record );
 		if ( $record === false ) {
-			spFatal( 'Error: missing question in vote record' );
+			$this->fatalError( 'Error: missing question in vote record' );
 		}
 		foreach ( $record as $qid => $qrecord ) {
 			$this->votes[$qid][] = $qrecord;
@@ -108,7 +106,5 @@ class SecurePoll_ConvertVotes {
 	}
 }
 
-function spFatal( $message ) {
-	fwrite( STDERR, rtrim( $message ) . "\n" );
-	exit( 1 );
-}
+$maintClass = "ConvertVotes";
+require_once RUN_MAINTENANCE_IF_MAIN;
