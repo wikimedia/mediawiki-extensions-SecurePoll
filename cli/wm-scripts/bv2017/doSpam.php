@@ -22,7 +22,7 @@ if ( preg_match( '/(?<=<pre>).*(?=<\/pre>)/ms', $raw, $matches ) ) {
  * Name of the list of allowed voters
  * @var string
  */
-$listName = 'board-vote-2015a';
+$listName = 'board-vote-2017';
 
 /**
  * ID number of the election
