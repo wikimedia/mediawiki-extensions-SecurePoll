@@ -29,16 +29,10 @@ for ( $userId = 1; $userId <= $maxUser; $userId++ ) {
 
 	$longEdits = 0;
 	$shortEdits = 0;
-	if ( class_exists( 'ActorMigration' ) ) {
-		$revWhere = ActorMigration::newMigration()
-			->getWhere( $dbr, 'rev_user', $user );
-	} else {
-		$revWhere = [
-			'tables' => [],
-			'orconds' => [ 'userid' => 'rev_user = ' . (int)$userId ],
-			'joins' => [],
-		];
-	}
+
+	$revWhere = ActorMigration::newMigration()
+		->getWhere( $dbr, 'rev_user', $user );
+
 	foreach ( $revWhere['orconds'] as $key => $cond ) {
 		$tsField = $key === 'actor' ? 'revactor_timestamp' : 'rev_timestamp';
 
