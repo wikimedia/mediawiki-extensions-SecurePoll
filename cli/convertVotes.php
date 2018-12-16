@@ -8,7 +8,30 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 require_once "$IP/maintenance/Maintenance.php";
 
 class ConvertVotes extends Maintenance {
-	public $context, $election;
+	/**
+	 * @var SecurePoll_Context
+	 */
+	private $context;
+
+	/**
+	 * @var SecurePoll_Election
+	 */
+	private $election;
+
+	/**
+	 * @var array
+	 */
+	private $votes;
+
+	/**
+	 * @var SecurePoll_Crypt
+	 */
+	private $crypt;
+
+	/**
+	 * @var SecurePoll_Ballot
+	 */
+	private $ballot;
 
 	public function __construct() {
 		parent::__construct();
@@ -83,7 +106,7 @@ class ConvertVotes extends Maintenance {
 			sort( $votes );
 			$s .= implode( "\n", $votes ) . "\n";
 		}
-		echo $s;
+		$this->output( $s );
 	}
 
 	private function convertVote( $store, $record ) {
