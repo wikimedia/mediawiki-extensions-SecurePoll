@@ -4,5 +4,10 @@
 			"Rul1902"
 		]
 	},
-	"securepoll-language-label": "မ်ုလုဲႋ ဆ်ုခၠါင်ဘာႋသာ့:"
+	"securepoll-welcome": "<strong>{{GENDER:$1|အင်းၯးလင်ဖဝ်ႋ}} $1!</strong>",
+	"securepoll-strike-reason": "ဍာဏဲအ်ုၯာင်ႋကျံင်းဏါင်း:",
+	"securepoll-translate-title": "မ်ုခၠယ့်အိုဝ် $1",
+	"securepoll-language-label": "မ်ုလုဲႋ ဆ်ုခၠါင်ဘာႋသာ့:",
+	"securepoll-submit-select-lang": "မ်ုခၠယ့်အိုဝ်",
+	"securepoll-subpage-translate": "မ်ုခၠယ့်အိုဝ်"
 }
