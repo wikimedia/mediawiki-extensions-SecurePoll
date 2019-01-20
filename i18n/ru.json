@@ -157,6 +157,7 @@
 	"securepoll-create-label-election_duration": "Длительность выборов (дней):",
 	"securepoll-create-label-election_disallow-change": "Не разрешать изменять вариант ответа после голосования",
 	"securepoll-create-label-election_return-url": "URL-адрес для последующего перехода:",
+	"securepoll-create-label-election_jump-text": "Обоснование перехода:",
 	"securepoll-create-label-election_type": "Тип опроса:",
 	"securepoll-create-label-election_crypt": "Шифрование:",
 	"securepoll-create-label-property_admins": "Администраторы:",
