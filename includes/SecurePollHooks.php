@@ -6,16 +6,13 @@ class SecurePollHooks {
 
 	/**
 	 * @param User $user
-	 * @return bool
 	 */
 	public static function onUserLogout( $user ) {
 		SessionManager::getGlobalSession()->remove( 'securepoll_voter' );
-		return true;
 	}
 
 	/**
 	 * @param DatabaseUpdater $updater
-	 * @return bool
 	 */
 	public static function onLoadExtensionSchemaUpdates( $updater ) {
 		$base = dirname( __DIR__ );
@@ -37,7 +34,6 @@ class SecurePollHooks {
 				$updater->addExtensionTable( 'securepoll_entity', "$base/SecurePoll.pg.sql" );
 				break;
 		}
-		return true;
 	}
 
 	/**
