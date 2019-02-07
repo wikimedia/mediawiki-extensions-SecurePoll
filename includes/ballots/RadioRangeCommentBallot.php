@@ -25,7 +25,7 @@ class SecurePoll_RadioRangeCommentBallot extends SecurePoll_RadioRangeBallot {
 	public function submitForm() {
 		$status = parent::submitForm();
 
-		if ( ! $status->isGood() ) {
+		if ( !$status->isGood() ) {
 			return $status;
 		}
 
