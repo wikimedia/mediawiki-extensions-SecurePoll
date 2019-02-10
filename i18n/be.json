@@ -1,9 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Тест"
+			"Тест",
+			"Artsiom91"
 		]
 	},
 	"securepoll-strike-reason": "Прычына:",
-	"securepoll-header-reason": "Прычына"
+	"securepoll-header-reason": "Прычына",
+	"securepoll-translate-label-comment": "Прычына:",
+	"securepoll-create-label-comment": "Прычына",
+	"securepoll-votereligibility-label-comment": "Прычына"
 }
