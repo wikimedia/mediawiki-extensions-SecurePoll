@@ -38,7 +38,7 @@
 	"securepoll-api-no-user": "Ora ana panganggo mawa ID mangkono.",
 	"securepoll-api-token-mismatch": "Kodha aman ora cocok, ora bisa mlebu log.",
 	"securepoll-not-logged-in": "Panjenengan kudu mlebu log kanggo nywara nèng pamilihan iki",
-	"securepoll-too-few-edits": "Ngapunten, panjenengan ora bisa nywara. Panjenengan kudu wis nggawé paling ora $1 {{PLURAL:$1|suntingan|suntingan}} kanggo nywara nèng pamilihan iki, panjenengan nduwéné $2.",
+	"securepoll-too-few-edits": "Nyuwun pangapunten, panjenengan ora bisa awèh swara. Panjenengan kudu wis nggawé saorané $1 {{PLURAL:$1|besutan|besutan}} kanggo awèh swara ing pilihan iki, panjenengan wis nggawé $2 besutan.",
 	"securepoll-too-new": "Ngapunten, panjenengan ora bisa nywara. Akun panjenengan kudu kadaptar sakdurungé $1 wayah $3 kanggo nywara nèng pamilihan iki, panjenengan ndaptar $2 wayah $4.",
 	"securepoll-blocked": "Ngapunten, panjenengan ora bisa ngawèhi swara nèng pamilihan iki yèn panjenengan lagi diblokir saka nyunting.",
 	"securepoll-blocked-centrally": "Ngapunten, panjenengan ora bisa ngawèhi swara nèng pamilihan iki yèn panjenengan diblokir nèng paling ora $1 {{PLURAL:$1|wiki|wikis}}.",
