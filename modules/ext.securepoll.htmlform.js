@@ -1,7 +1,7 @@
 /**
  * Utility functions for HTMLForm date picker
  */
-( function ( mw, $ ) {
+( function () {
 
 	mw.hook( 'htmlform.enhance' ).add( function ( $root ) {
 		var numRegex = /^[+-]?\d+$/;
@@ -88,4 +88,4 @@
 		} );
 	} );
 
-}( mediaWiki, jQuery ) );
+}() );
