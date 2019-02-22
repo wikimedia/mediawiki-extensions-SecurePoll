@@ -1,0 +1,12 @@
+{
+	"extends": [
+		"wikimedia/client",
+		"wikimedia/jquery"
+	],
+	"globals": {
+		"mw": "readable"
+	},
+	"rules": {
+		"no-jquery/no-global-selector": "off"
+	}
+}
