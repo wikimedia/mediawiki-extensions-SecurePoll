@@ -79,5 +79,5 @@ class DumpGlobalVoterList extends Maintenance {
 	}
 }
 
-$maintClass = "DumpGlobalVoterList";
+$maintClass = DumpGlobalVoterList::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

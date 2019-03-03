@@ -129,5 +129,5 @@ class ConvertVotes extends Maintenance {
 	}
 }
 
-$maintClass = "ConvertVotes";
+$maintClass = ConvertVotes::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

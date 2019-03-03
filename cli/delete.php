@@ -77,5 +77,5 @@ class DeletePoll extends Maintenance {
 		$dbw->delete( 'securepoll_entity', [ 'en_id' => $entityIds ], __METHOD__ );
 	}
 }
-$maintClass = "DeletePoll";
+$maintClass = DeletePoll::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
