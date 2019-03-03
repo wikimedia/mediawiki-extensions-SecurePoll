@@ -195,7 +195,7 @@ class SecurePoll_PopulateVoterListJob extends Job {
 
 			$dbr = wfGetDB( DB_REPLICA );
 
-			if ( class_exists( 'ActorMigration' ) ) {
+			if ( class_exists( ActorMigration::class ) ) {
 				$actorQuery = ActorMigration::newMigration()->getJoin( 'rev_user' );
 			} else {
 				$actorQuery = [

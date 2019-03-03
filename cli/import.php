@@ -281,5 +281,5 @@ EOT;
 	}
 }
 
-$maintClass = "ImportElectionConfiguration";
+$maintClass = ImportElectionConfiguration::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

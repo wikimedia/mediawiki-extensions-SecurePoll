@@ -92,5 +92,5 @@ class DumpElection extends Maintenance {
 	}
 }
 
-$maintClass = "DumpElection";
+$maintClass = DumpElection::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

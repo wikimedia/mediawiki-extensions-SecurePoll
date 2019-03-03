@@ -125,5 +125,5 @@ class PurgePrivateVoteData extends Maintenance {
 	}
 }
 
-$maintClass = "PurgePrivateVoteData";
+$maintClass = PurgePrivateVoteData::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

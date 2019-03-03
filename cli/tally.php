@@ -67,5 +67,5 @@ class TallyElection extends Maintenance {
 	}
 }
 
-$maintClass = "TallyElection";
+$maintClass = TallyElection::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

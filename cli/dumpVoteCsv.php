@@ -64,5 +64,5 @@ class DumpVoteCsv extends Maintenance {
 	}
 }
 
-$maintClass = "DumpVoteCsv";
+$maintClass = DumpVoteCsv::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

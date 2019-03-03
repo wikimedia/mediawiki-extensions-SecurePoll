@@ -71,5 +71,5 @@ class DumpComments extends Maintenance {
 	}
 }
 
-$maintClass = "DumpComments";
+$maintClass = DumpComments::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

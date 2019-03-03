@@ -267,7 +267,7 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 	 * @return array
 	 */
 	public function getCentralLists( $user ) {
-		if ( !class_exists( 'CentralAuthUser' ) ) {
+		if ( !class_exists( CentralAuthUser::class ) ) {
 			return [];
 		}
 		$centralUser = CentralAuthUser::getInstance( $user );
@@ -294,7 +294,7 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 	 * @return int the number of wikis the user is blocked on.
 	 */
 	public function getCentralBlockCount( $user ) {
-		if ( !class_exists( 'CentralAuthUser' ) ) {
+		if ( !class_exists( CentralAuthUser::class ) ) {
 			return 0;
 		}
 
