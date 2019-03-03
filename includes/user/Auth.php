@@ -267,7 +267,7 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 	 * @return array
 	 */
 	public function getCentralLists( $user ) {
-		if ( !class_exists( CentralAuthUser::class ) ) {
+		if ( !ExtensionRegistry::getInstance()->isLoaded( 'CentralAuth' ) ) {
 			return [];
 		}
 		$centralUser = CentralAuthUser::getInstance( $user );
