@@ -27,7 +27,7 @@ class SecurePoll_PopulateVoterListJob extends Job {
 		// detecting changes
 		$params = [
 			'electionWiki' => wfWikiID(),
-			'electionId' => $election->getID(),
+			'electionId' => $election->getId(),
 			'list_populate' => '0',
 			'need-list' => '',
 			'list_edits-before' => '',
@@ -40,7 +40,7 @@ class SecurePoll_PopulateVoterListJob extends Job {
 			'securepoll_properties',
 			[ 'pr_key', 'pr_value' ],
 			[
-				'pr_entity' => $election->getID(),
+				'pr_entity' => $election->getId(),
 				'pr_key' => $props,
 			]
 		);
@@ -100,7 +100,7 @@ class SecurePoll_PopulateVoterListJob extends Job {
 
 		// Start the jobs!
 		$title = SpecialPage::getTitleFor( 'SecurePoll' );
-		$lockKey = "SecurePoll_PopulateVoterListJob-{$election->getID()}";
+		$lockKey = "SecurePoll_PopulateVoterListJob-{$election->getId()}";
 		$lockMethod = __METHOD__;
 
 		// Clear any transaction snapshots, acquire a mutex, and start a new transaction
@@ -112,7 +112,7 @@ class SecurePoll_PopulateVoterListJob extends Job {
 		} );
 
 		// If the same job is (supposed to be) already running, don't restart it
-		$jobKey = self::fetchJobKey( $dbw, $election->getID() );
+		$jobKey = self::fetchJobKey( $dbw, $election->getId() );
 		if ( $params['jobKey'] === $jobKey ) {
 			$dbw->endAtomic( __METHOD__ );
 			return;
@@ -125,17 +125,17 @@ class SecurePoll_PopulateVoterListJob extends Job {
 			[ 'pr_entity', 'pr_key' ],
 			[
 				[
-					'pr_entity' => $election->getID(),
+					'pr_entity' => $election->getId(),
 					'pr_key' => 'list_job-key',
 					'pr_value' => $params['jobKey'],
 				],
 				[
-					'pr_entity' => $election->getID(),
+					'pr_entity' => $election->getId(),
 					'pr_key' => 'list_total-count',
 					'pr_value' => $total,
 				],
 				[
-					'pr_entity' => $election->getID(),
+					'pr_entity' => $election->getId(),
 					'pr_key' => 'list_complete-count',
 					'pr_value' => 0,
 				],
