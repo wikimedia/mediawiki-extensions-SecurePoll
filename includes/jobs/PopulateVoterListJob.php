@@ -195,15 +195,7 @@ class SecurePoll_PopulateVoterListJob extends Job {
 
 			$dbr = wfGetDB( DB_REPLICA );
 
-			if ( class_exists( ActorMigration::class ) ) {
-				$actorQuery = ActorMigration::newMigration()->getJoin( 'rev_user' );
-			} else {
-				$actorQuery = [
-					'tables' => [],
-					'fields' => [ 'rev_user' => 'rev_user' ],
-					'joins' => [],
-				];
-			}
+			$actorQuery = ActorMigration::newMigration()->getJoin( 'rev_user' );
 			$field = $actorQuery['fields']['rev_user'];
 
 			// Construct the list of user_ids in our range that pass the criteria
