@@ -224,7 +224,7 @@
 	"securepoll-votereligibility-action": "Gardar configuración",
 	"securepoll-votereligibility-fail-nothing-to-process": "Solicitouse o preenchemento automático da {{int:securepoll-votereligibility-list-voter}}, pero todos os filtros deixáronse en branco.",
 	"securepoll-votereligibility-edit-title": "Modificación da lista de votantes:$1",
-	"securepoll-votereligibility-edit-header": "Insira nomes de usuarios(a) para a lista na caixa de texto de abaixo, un por liña. Unha conta nunha wiki específica debe ser identificada polo  nome con '@' seguida polo nome do proxecto; por exemplo, User:Exemplo na Wikipedia en inglés pode ser especificado como \"Exemplo@enwiki\".\n\nOs nomes de usuario son revisados cando este formulario é enviado, e os usuarios que non existen son ignorados. Nomes de usuario(a) inválidos tamén son ignorados.",
+	"securepoll-votereligibility-edit-header": "Insira nomes de usuaria(o) para a lista na caixa de texto de abaixo, un por liña. Unha conta nunha wiki específica debe ser identificada polo  nome con '@' seguida polo nome do proxecto; por exemplo, User:Exemplo na Wikipedia en inglés pode ser especificado como \"Exemplo@enwiki\".\n\nOs nomes de usuaria(o) son revisados cando este formulario é enviado, e os usuarios que non existen son ignorados. Nomes de usuaria(o) inválidos tamén son ignorados.",
 	"securepoll-votereligibility-edit-action": "Gardar lista",
 	"securepoll-votereligibility-saved": "{{int:securepoll}}: gardada",
 	"securepoll-votereligibility-saved-text": "Gardáronse os seus cambios.",
