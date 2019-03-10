@@ -90,12 +90,12 @@ class SecurePoll_SpecialSecurePoll extends SpecialPage {
 	 * Set a navigation subtitle.
 	 * Each argument is a two-element array giving a Title object to be used as
 	 * a link target, and the link text.
+	 * @param array ...$links
 	 */
-	public function setSubtitle( /*...*/ ) {
+	public function setSubtitle( ...$links ) {
 		$title = $this->getPageTitle();
 		$subtitle = '&lt; ' . Linker::linkKnown( $title, htmlspecialchars( $title->getText() ) );
 		$pipe = $this->msg( 'pipe-separator' )->text();
-		$links = func_get_args();
 		foreach ( $links as $link ) {
 			list( $title, $text ) = $link;
 			$subtitle .= $pipe . Linker::linkKnown( $title, htmlspecialchars( $text ) );

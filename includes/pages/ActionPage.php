@@ -61,9 +61,10 @@ abstract class SecurePoll_ActionPage {
 
 	/**
 	 * Relay for SpecialPage::msg
+	 * @param string ...$args
 	 * @return string
 	 */
-	protected function msg( /* args */ ) {
-		return call_user_func_array( [ $this->specialPage, 'msg' ], func_get_args() );
+	protected function msg( ...$args ) {
+		return call_user_func_array( [ $this->specialPage, 'msg' ], $args );
 	}
 }

@@ -280,8 +280,7 @@ class SecurePoll_BallotStatus extends Status {
 		$this->sp_context = $context;
 	}
 
-	public function sp_fatal( $message, $id /*, parameters... */ ) {
-		$params = array_slice( func_get_args(), 2 );
+	public function sp_fatal( $message, $id, ...$params ) {
 		$this->errors[] = [
 			'type' => 'error',
 			'securepoll-id' => $id,

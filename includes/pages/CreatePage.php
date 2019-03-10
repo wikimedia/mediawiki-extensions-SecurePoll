@@ -1222,8 +1222,7 @@ class SecurePoll_FormStore extends SecurePoll_MemoryStore {
 class SecurePoll_StatusException extends Exception {
 	public $status;
 
-	public function __construct( $message /* ... */ ) {
-		$args = func_get_args();
+	public function __construct( ...$args ) {
 		$this->status = call_user_func_array( 'Status::newFatal', $args );
 	}
 }
