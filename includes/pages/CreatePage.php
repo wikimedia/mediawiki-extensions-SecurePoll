@@ -762,7 +762,6 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 	 * @param \Wikimedia\Rdbms\IDatabase $dbw
 	 * @param int $id
 	 * @param SecurePoll_Entity $entity
-	 * @return array
 	 */
 	private static function savePropertiesAndMessages( $dbw, $id, $entity ) {
 		$properties = [];
@@ -774,7 +773,10 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 			];
 		}
 		$dbw->replace(
-			'securepoll_properties', [ 'pr_entity', 'pr_key' ], $properties, __METHOD__
+			'securepoll_properties',
+			[ [ 'pr_entity', 'pr_key' ] ],
+			$properties,
+			__METHOD__
 		);
 
 		$messages = [];
@@ -793,7 +795,10 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 			}
 		}
 		$dbw->replace(
-			'securepoll_msgs', [ 'msg_entity', 'msg_lang', 'msg_key' ], $messages, __METHOD__
+			'securepoll_msgs',
+			[ [ 'msg_entity', 'msg_lang', 'msg_key' ] ],
+			$messages,
+			__METHOD__
 		);
 	}
 

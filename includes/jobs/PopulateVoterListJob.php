@@ -122,7 +122,7 @@ class SecurePoll_PopulateVoterListJob extends Job {
 		// abort) and the progress figures.
 		$dbw->replace(
 			'securepoll_properties',
-			[ 'pr_entity', 'pr_key' ],
+			[ [ 'pr_entity', 'pr_key' ] ],
 			[
 				[
 					'pr_entity' => $election->getId(),
