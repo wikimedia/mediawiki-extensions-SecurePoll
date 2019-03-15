@@ -3,7 +3,8 @@
 		"authors": [
 			"SK-luuut",
 			"Robin0van0der0vliet",
-			"Robin van der Vliet"
+			"Robin van der Vliet",
+			"PiefPafPier"
 		]
 	},
 	"securepoll-welcome": "<strong>Wolkom $1!</strong>",
@@ -19,6 +20,6 @@
 	"securepoll-subpage-translate": "Oersette",
 	"securepoll-subpage-edit": "Bewurkje",
 	"securepoll-create-label-comment": "Reden",
-	"securepoll-votereligibility-label-names": "Brûkersnammen",
+	"securepoll-votereligibility-label-names": "Meidochnammen",
 	"securepoll-votereligibility-label-comment": "Reden"
 }
