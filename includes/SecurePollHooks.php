@@ -20,7 +20,7 @@ class SecurePollHooks {
 			case 'mysql':
 				$updater->addExtensionTable( 'securepoll_entity', "$base/SecurePoll.sql" );
 				$updater->modifyExtensionField( 'securepoll_votes', 'vote_ip',
-					"$base/patches/patch-vote_ip-extend.sql", true );
+					"$base/patches/patch-vote_ip-extend.sql" );
 				$updater->addExtensionIndex( 'securepoll_options', 'spop_election',
 					"$base/patches/patch-op_election-index.sql"
 				);
