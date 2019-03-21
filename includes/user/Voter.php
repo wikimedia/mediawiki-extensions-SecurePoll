@@ -216,7 +216,7 @@ class SecurePoll_Voter {
 				'cm_election' => $this->getElectionId(),
 				'cm_voter_1' => $this->getId(),
 				'cm_voter_2' => $voterId,
-				'cm_timestamp' => wfTimestampNow( TS_DB )
+				'cm_timestamp' => wfTimestampNow()
 			],
 			__METHOD__ );
 

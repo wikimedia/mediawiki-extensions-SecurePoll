@@ -113,11 +113,11 @@ class SecurePoll_ElectionPager extends TablePager {
 	/**
 	 * Add classes based on whether the poll is open or closed
 	 * @param stdClass $row database object
-	 * @return String
+	 * @return string
 	 * @see TablePager::getRowClass()
 	 */
 	public function getRowClass( $row ) {
-		return $row->el_end_date > wfTimestampNow( TS_DB )
+		return $row->el_end_date > wfTimestampNow()
 			? 'securepoll-election-open'
 			: 'securepoll-election-closed';
 	}

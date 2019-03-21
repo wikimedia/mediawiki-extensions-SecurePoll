@@ -155,7 +155,7 @@ EOT
 			[
 				'st_id' => $strikeId,
 				'st_vote' => $voteId,
-				'st_timestamp' => wfTimestampNow( TS_DB ),
+				'st_timestamp' => wfTimestampNow(),
 				'st_action' => $action,
 				'st_reason' => $reason,
 				'st_user' => $this->specialPage->getUser()->getId()
