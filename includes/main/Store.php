@@ -82,8 +82,9 @@ interface SecurePoll_Store {
 	 * Call a callback function for all valid votes with a given election ID.
 	 * @param int $electionId
 	 * @param callable $callback
+	 * @param int|null $voterId Optional, only used by some implementations
 	 */
-	public function callbackValidVotes( $electionId, $callback );
+	public function callbackValidVotes( $electionId, $callback, $voterId = null );
 }
 
 /**
@@ -354,7 +355,7 @@ class SecurePoll_MemoryStore implements SecurePoll_Store {
 			'is disabled.' );
 	}
 
-	public function callbackValidVotes( $electionId, $callback ) {
+	public function callbackValidVotes( $electionId, $callback, $voterId = null ) {
 		if ( !isset( $this->votes[$electionId] ) ) {
 			return Status::newGood();
 		}
@@ -668,7 +669,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 		return $s;
 	}
 
-	public function callbackValidVotes( $electionId, $callback ) {
+	public function callbackValidVotes( $electionId, $callback, $voterId = null ) {
 		$this->voteCallback = $callback;
 		$this->voteElectionId = $electionId;
 		$this->voteCallbackStatus = Status::newGood();
