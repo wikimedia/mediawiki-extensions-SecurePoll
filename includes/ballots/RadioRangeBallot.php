@@ -174,7 +174,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 		return $labels;
 	}
 
-	public function getMessageNames( $entity = null ) {
+	public function getMessageNames( SecurePoll_Entity $entity = null ) {
 		if ( $entity === null || $entity->getType() !== 'question' ) {
 			return [];
 		}

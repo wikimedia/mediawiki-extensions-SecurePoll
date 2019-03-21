@@ -67,10 +67,11 @@ abstract class SecurePoll_Ballot {
 	/**
 	 * Get any extra messages that this ballot type uses to render questions.
 	 * Used to get the list of translatable messages for TranslatePage.
-	 * @return Array
+	 * @param SecurePoll_Entity|null $entity
+	 * @return array
 	 * @see SecurePoll_Election::getMessageNames()
 	 */
-	public function getMessageNames() {
+	public function getMessageNames( SecurePoll_Entity $entity = null ) {
 		return [];
 	}
 
