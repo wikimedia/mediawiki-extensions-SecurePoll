@@ -154,7 +154,14 @@ class SecurePoll_TallyPage extends SecurePoll_ActionPage {
 			$out->addWikiMsg( 'securepoll-dump-corrupt' );
 			return;
 		}
-		$electionIds = $context->getStore()->getAllElectionIds();
+		$store = $context->getStore();
+		if ( !$store instanceof SecurePoll_MemoryStore ) {
+			$class = get_class( $store );
+			throw new Exception(
+				"Expected instance of SecurePoll_MemoryStore, got $class instead"
+			);
+		}
+		$electionIds = $store->getAllElectionIds();
 		$election = $context->getElection( reset( $electionIds ) );
 
 		$status = $election->tally();

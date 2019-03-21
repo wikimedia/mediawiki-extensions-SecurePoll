@@ -182,6 +182,12 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 			return [];
 		}
 		$msgs = [];
+		if ( !$entity instanceof SecurePoll_Question ) {
+			$class = get_class( $entity );
+			throw new Exception(
+				"Expecting instance of SecurePoll_Question, got $class instead"
+			);
+		}
 		list( $min, $max ) = $this->getMinMax( $entity );
 		for ( $score = $min; $score <= $max; $score++ ) {
 			$signedScore = $this->addSign( $entity, $score );
