@@ -651,17 +651,17 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 
 		$ballot = $data['ballot'];
 		$tally = $data['tally'];
-		$crypt = isset( $p['encrypt-type'] ) ? $p['encrypt-type'] : 'none';
+		$crypt = $p['encrypt-type'] ?? 'none';
 
 		$formData = [
 			'election_id' => $data['id'],
 			'election_title' => $data['title'],
-			'property_wiki' => isset( $p['wikis-val'] ) ? $p['wikis-val'] : null,
+			'property_wiki' => $p['wikis-val'] ?? null,
 			'election_primaryLang' => $data['lang'],
 			'election_startdate' => $startDate->format( 'Y-m-d' ),
 			'election_duration' => $duration,
-			'return-url' => isset( $p['return-url'] ) ? $p['return-url'] : null,
-			'jump-text' => isset( $m['jump-text'] ) ? $m['jump-text'] : null,
+			'return-url' => $p['return-url'] ?? null,
+			'jump-text' => $m['jump-text'] ?? null,
 			'election_type' => "{$ballot}+{$tally}",
 			'election_crypt' => $crypt,
 			'disallow-change' => isset( $p['disallow-change'] )
@@ -948,7 +948,7 @@ class SecurePoll_FormStore extends SecurePoll_MemoryStore {
 
 		$curId = 0;
 
-		$wikis = isset( $formData['property_wiki'] ) ? $formData['property_wiki'] : wfWikiID();
+		$wikis = $formData['property_wiki'] ?? wfWikiID();
 		if ( $wikis === '*' ) {
 			$wikis = array_values( self::getWikiList() );
 		} elseif ( substr( $wikis, 0, 1 ) === '@' ) {
@@ -1005,9 +1005,7 @@ class SecurePoll_FormStore extends SecurePoll_MemoryStore {
 		$this->properties[$eId] = [
 			'encrypt-type' => $crypt,
 			'wikis' => implode( "\n", $wikis ),
-			'wikis-val' => isset( $formData['property_wiki'] )
-				? $formData['property_wiki']
-				: wfWikiID(),
+			'wikis-val' => $formData['property_wiki'] ?? wfWikiID(),
 			'return-url' => $formData['return-url'],
 			'disallow-change' => $formData['disallow-change'] ? 1 : 0,
 			'voter-privacy' => $formData['voter-privacy'] ? 1 : 0,

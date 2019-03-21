@@ -189,8 +189,8 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		$props = $params['properties'];
 		$status = Status::newGood();
 
-		$lists = isset( $props['lists'] ) ? $props['lists'] : [];
-		$centralLists = isset( $props['central-lists'] ) ? $props['central-lists'] : [];
+		$lists = $props['lists'] ?? [];
+		$centralLists = $props['central-lists'] ?? [];
 		$includeList = $this->getProperty( 'include-list' );
 		$excludeList = $this->getProperty( 'exclude-list' );
 
@@ -201,7 +201,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		} else {
 			// Edits
 			$minEdits = $this->getProperty( 'min-edits' );
-			$edits = isset( $props['edit-count'] ) ? $props['edit-count'] : 0;
+			$edits = $props['edit-count'] ?? 0;
 			if ( $minEdits && $edits < $minEdits ) {
 				$status->fatal( 'securepoll-too-few-edits',
 					$wgLang->formatNum( $minEdits ), $wgLang->formatNum( $edits ) );
@@ -209,7 +209,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 
 			// Registration date
 			$maxDate = $this->getProperty( 'max-registration' );
-			$date = isset( $props['registration'] ) ? $props['registration'] : 0;
+			$date = $props['registration'] ?? 0;
 			if ( $maxDate && $date > $maxDate ) {
 				$status->fatal(
 					'securepoll-too-new',
@@ -229,9 +229,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 
 			// Centrally blocked on more than X projects
 			$notCentrallyBlocked = $this->getProperty( 'not-centrally-blocked' );
-			$centralBlockCount = isset( $props['central-block-count'] )
-				? $props['central-block-count']
-				: 0;
+			$centralBlockCount = $props['central-block-count'] ?? 0;
 			$centralBlockThreshold = $this->getProperty( 'central-block-threshold', 1 );
 			if ( $notCentrallyBlocked && $centralBlockCount >= $centralBlockThreshold ) {
 				$status->fatal( 'securepoll-blocked-centrally',
@@ -247,7 +245,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 
 			// Groups
 			$needGroup = $this->getProperty( 'need-group' );
-			$groups = isset( $props['groups'] ) ? $props['groups'] : [];
+			$groups = $props['groups'] ?? [];
 			if ( $needGroup && !in_array( $needGroup, $groups ) ) {
 				$status->fatal( 'securepoll-not-in-group', $needGroup );
 			}

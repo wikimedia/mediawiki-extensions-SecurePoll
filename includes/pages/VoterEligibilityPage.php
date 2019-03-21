@@ -754,7 +754,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 			return $this->msg( 'securepoll-htmlform-daterange-end-before-start' )->parseAsBlock();
 		}
 
-		$comment = isset( $formData['comment'] ) ? $formData['comment'] : '';
+		$comment = $formData['comment'] ?? '';
 
 		$this->saveProperties( $properties, $deleteProperties, $comment );
 

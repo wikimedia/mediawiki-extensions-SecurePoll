@@ -27,12 +27,8 @@ class SecurePoll_Entity {
 	public function __construct( $context, $type, $info ) {
 		$this->context = $context;
 		$this->type = $type;
-		$this->id = isset( $info['id'] )
-			? $info['id']
-			: false;
-		$this->electionId = isset( $info['election'] )
-			? $info['election']
-			: null;
+		$this->id = $info['id'] ?? false;
+		$this->electionId = $info['election'] ?? null;
 	}
 
 	/**
