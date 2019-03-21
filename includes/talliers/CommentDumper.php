@@ -4,7 +4,9 @@
  * A class that dumps the comments from an election
  */
 class SecurePoll_CommentDumper extends SecurePoll_ElectionTallier {
+	public $ballot;
 	public $csvHandle;
+	public $crypt;
 	public $skipEmptyComments;
 	private $countSoFar;
 

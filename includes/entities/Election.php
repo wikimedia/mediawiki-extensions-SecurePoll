@@ -80,7 +80,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * Do not use this constructor directly, instead use
 	 * SecurePoll_Context::getElection().
 	 * @param SecurePoll_Context $context
-	 * @param string $info
+	 * @param array $info
 	 */
 	public function __construct( $context, $info ) {
 		parent::__construct( $context, 'election', $info );

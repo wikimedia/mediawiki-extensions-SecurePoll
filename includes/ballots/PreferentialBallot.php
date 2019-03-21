@@ -56,7 +56,7 @@ class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 
 	/**
 	 * @param SecurePoll_Question $question
-	 * @param Status $status
+	 * @param SecurePoll_BallotStatus $status
 	 * @return string
 	 */
 	public function submitQuestion( $question, $status ) {

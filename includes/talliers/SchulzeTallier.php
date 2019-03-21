@@ -7,6 +7,7 @@
  * debian-vote (but not devotee).
  */
 class SecurePoll_SchulzeTallier extends SecurePoll_PairwiseTallier {
+	public $ranks, $strengths;
 
 	/**
 	 * @param array $victories

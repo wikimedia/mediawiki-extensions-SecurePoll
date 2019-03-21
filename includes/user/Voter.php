@@ -7,6 +7,7 @@
 class SecurePoll_Voter {
 	public $id, $electionId, $name, $domain, $wiki, $type, $url;
 	public $properties = [];
+	public $context;
 
 	private static $paramNames = [
 		'id', 'electionId', 'name', 'domain', 'wiki', 'type', 'url', 'properties'
@@ -30,7 +31,7 @@ class SecurePoll_Voter {
 	 * Create a voter object from the database
 	 * @param SecurePoll_Context $context
 	 * @param int $id
-	 * @return SecurePoll_Voter or false if the ID is not valid
+	 * @return SecurePoll_Voter|bool false if the ID is not valid
 	 */
 	public static function newFromId( $context, $id ) {
 		$db = $context->getDB();

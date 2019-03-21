@@ -28,6 +28,7 @@ class SecurePoll_HTMLFormRadioRangeColumnLabels extends HTMLFormField {
 				$ret["column$key"] = $v;
 			}
 		}
+		// @phan-suppress-next-line PhanTypeMismatchReturn
 		return $ret;
 	}
 

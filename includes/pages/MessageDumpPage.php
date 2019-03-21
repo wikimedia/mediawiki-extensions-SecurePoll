@@ -2,7 +2,7 @@
 
 class SecurePoll_MessageDumpPage extends SecurePoll_ActionPage {
 	/**
-	 * @param string $params
+	 * @param array $params
 	 * @suppress SecurityCheck-XSS Mime type is not html so all false positive
 	 */
 	public function execute( $params ) {

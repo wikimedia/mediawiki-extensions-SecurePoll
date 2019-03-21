@@ -4,6 +4,8 @@
  * Special:SecurePoll subpage for showing the details of a given vote to an administrator.
  */
 class SecurePoll_DetailsPage extends SecurePoll_ActionPage {
+	public $voteId;
+
 	/**
 	 * Execute the subpage.
 	 * @param array $params Array of subpage parameters.
@@ -97,6 +99,7 @@ class SecurePoll_DetailsPage extends SecurePoll_ActionPage {
 		$out->addHTML( '</table>' );
 
 		# Show cookie dups
+		// @phan-suppress-next-line PhanUndeclaredMethod no IDatabase::tableName
 		$cmTable = $db->tableName( 'securepoll_cookie_match' );
 		$voterId = intval( $row->voter_id );
 		$sql = "(SELECT cm_voter_2 as voter, cm_timestamp FROM $cmTable WHERE cm_voter_1=$voterId)" .

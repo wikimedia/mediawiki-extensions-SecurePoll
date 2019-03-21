@@ -88,6 +88,8 @@ class SecurePoll_ElectionPager extends TablePager {
 		'el_end_date',
 		'links'
 	];
+	public $isAdmin;
+	public $election;
 	public $entryPage;
 
 	public function __construct( $specialPage ) {

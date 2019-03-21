@@ -208,7 +208,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 	/**
 	 * @param SecurePoll_Question $question
 	 * @param array $options
-	 * @return array
+	 * @return string
 	 */
 	public function getQuestionForm( $question, $options ) {
 		global $wgRequest;
@@ -251,8 +251,8 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 
 	/**
 	 * @param SecurePoll_Question $question
-	 * @param Status $status
-	 * @return array
+	 * @param SecurePoll_BallotStatus $status
+	 * @return string
 	 */
 	public function submitQuestion( $question, $status ) {
 		global $wgRequest, $wgLang;
@@ -297,6 +297,10 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 		}
 	}
 
+	/**
+	 * @param string $record
+	 * @return array|bool
+	 */
 	public function unpackRecord( $record ) {
 		$scores = [];
 		$itemLength = 8 + 8 + 11 + 7;

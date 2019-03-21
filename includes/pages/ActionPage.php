@@ -33,7 +33,7 @@ abstract class SecurePoll_ActionPage {
 	/**
 	 * Internal utility function for initializing the global entity language
 	 * fallback sequence.
-	 * @param User $user
+	 * @param SecurePoll_Voter|User $user
 	 * @param SecurePoll_Election $election
 	 */
 	public function initLanguage( $user, $election ) {
@@ -62,7 +62,7 @@ abstract class SecurePoll_ActionPage {
 	/**
 	 * Relay for SpecialPage::msg
 	 * @param string ...$args
-	 * @return string
+	 * @return Message
 	 */
 	protected function msg( ...$args ) {
 		return call_user_func_array( [ $this->specialPage, 'msg' ], $args );

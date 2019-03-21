@@ -4,7 +4,10 @@
  * Parent class for ballot forms. This is the UI component of a voting method.
  */
 abstract class SecurePoll_Ballot {
-	public $election, $context;
+	public $election, $context, $currentVote;
+	public $prevErrorIds, $usedErrorIds;
+	/** @var SecurePoll_BallotStatus */
+	public $prevStatus;
 
 	public static $ballotTypes = [
 		'approval' => 'SecurePoll_ApprovalBallot',
@@ -102,8 +105,8 @@ abstract class SecurePoll_Ballot {
 	 * If there is a problem with the form data, the function should set a
 	 * fatal error in the $status object and return null.
 	 *
-	 * @param string $question
-	 * @param Status $status
+	 * @param SecurePoll_Question $question
+	 * @param SecurePoll_BallotStatus $status
 	 * @return string|null
 	 */
 	abstract public function submitQuestion( $question, $status );
@@ -111,7 +114,7 @@ abstract class SecurePoll_Ballot {
 	/**
 	 * Unpack a string record into an array format suitable for the tally type
 	 * @param string $record
-	 * @return array
+	 * @return array|bool
 	 */
 	abstract public function unpackRecord( $record );
 
@@ -130,7 +133,7 @@ abstract class SecurePoll_Ballot {
 	 * Convert a score array to a string of some kind
 	 * @param array $scores
 	 * @param array $options
-	 * @return string
+	 * @return string|array
 	 */
 	abstract public function convertScores( $scores, $options = [] );
 
@@ -163,7 +166,7 @@ abstract class SecurePoll_Ballot {
 	/**
 	 * Get the HTML for this ballot. <form> tags should not be included,
 	 * they will be added by the VotePage.
-	 * @param bool|Status $prevStatus
+	 * @param bool|SecurePoll_BallotStatus $prevStatus
 	 * @return string
 	 */
 	public function getForm( $prevStatus = false ) {
@@ -219,7 +222,7 @@ abstract class SecurePoll_Ballot {
 
 	/**
 	 * Convert a SecurePoll_BallotStatus object to HTML
-	 * @param Status $status
+	 * @param SecurePoll_BallotStatus $status
 	 * @return string
 	 */
 	public function formatStatus( $status ) {
@@ -233,6 +236,8 @@ abstract class SecurePoll_Ballot {
 	 *     of unpackRecord().
 	 */
 	public function getCurrentVote() {
+		// FIXME: getOption doesn't exist
+		// @phan-suppress-next-line PhanUndeclaredMethod
 		if ( !$this->election->getOption( 'show-change' ) ) {
 			return false;
 		}
@@ -254,6 +259,8 @@ abstract class SecurePoll_Ballot {
 
 		$store = $this->context->getStore();
 		$status = $store->callbackValidVotes(
+			// FIXME: Where is info property defined?
+			// @phan-suppress-next-line PhanUndeclaredProperty
 			$this->election->info['id'],
 			[ $this, 'getCurrentVoteCallback' ],
 			$voter->getId()

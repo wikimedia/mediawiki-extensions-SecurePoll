@@ -6,6 +6,8 @@ use MediaWiki\MediaWikiServices;
  * A SecurePoll subpage for translating election messages.
  */
 class SecurePoll_TranslatePage extends SecurePoll_ActionPage {
+	public $isAdmin;
+
 	/**
 	 * Execute the subpage.
 	 * @param array $params Array of subpage parameters.

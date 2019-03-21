@@ -48,7 +48,7 @@ class SecurePoll_RadioRangeCommentBallot extends SecurePoll_RadioRangeBallot {
 	/**
 	 * Copy and modify from parent function, complex to refactor.
 	 * @param string $record
-	 * @return bool
+	 * @return array|bool
 	 */
 	public function unpackRecord( $record ) {
 		$scores = [];

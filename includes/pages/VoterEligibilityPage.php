@@ -96,6 +96,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 			$wikis = [ $localWiki ];
 		}
 
+		$dbw = null;
 		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		foreach ( $wikis as $dbname ) {
 			if ( $dbname === $localWiki ) {
@@ -254,6 +255,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 			$wikis = [ $localWiki ];
 		}
 
+		$dbw = null;
 		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		foreach ( $wikis as $dbname ) {
 			if ( $dbname === $localWiki ) {
@@ -878,6 +880,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 			$wikis = [ $localWiki ];
 		}
 
+		$dbw = null;
 		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		foreach ( $wikis as $dbname ) {
 			if ( $dbname === $localWiki ) {

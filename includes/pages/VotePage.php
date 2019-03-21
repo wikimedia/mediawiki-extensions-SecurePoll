@@ -8,6 +8,7 @@ use MediaWiki\Session\SessionManager;
 class SecurePoll_VotePage extends SecurePoll_ActionPage {
 	public $languages;
 	public $election, $auth, $user;
+	public $voter;
 
 	/**
 	 * Execute the subpage.

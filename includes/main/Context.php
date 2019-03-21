@@ -19,7 +19,10 @@ class SecurePoll_Context {
 	/** Language fallback sequence */
 	public $languages = [ 'en' ];
 
-	/** Message text cache */
+	/**
+	 * Message text cache
+	 * @var string[][]
+	 */
 	public $messageCache = [];
 
 	/** election cache */

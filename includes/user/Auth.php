@@ -72,7 +72,7 @@ class SecurePoll_Auth {
 	 * Get the voter associated with the current session. Returns false if
 	 * there is no session.
 	 * @param SecurePoll_Election $election
-	 * @return SecurePoll_Election
+	 * @return SecurePoll_Voter|bool
 	 */
 	public function getVoterFromSession( $election ) {
 		$session = SessionManager::getGlobalSession();
@@ -407,6 +407,7 @@ class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
 			return $status;
 		}
 		$params = $status->value;
+		// @phan-suppress-next-line PhanTypeMismatchDimAssignment
 		$params['type'] = 'remote-mw';
 		$params['electionId'] = $election->getId();
 

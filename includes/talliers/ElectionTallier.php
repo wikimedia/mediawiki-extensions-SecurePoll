@@ -9,6 +9,8 @@
  * SecurePoll_Election::tally().
  */
 class SecurePoll_ElectionTallier {
+	public $ballot, $context, $crypt, $election, $questions, $talliers;
+
 	/**
 	 * Constructor.
 	 * @param SecurePoll_Context $context

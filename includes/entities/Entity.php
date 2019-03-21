@@ -16,6 +16,7 @@ class SecurePoll_Entity {
 	public $context;
 	public $messagesLoaded = [];
 	public $properties;
+	public $type;
 
 	/**
 	 * Create an entity of the given type. This is typically called from the
@@ -191,7 +192,7 @@ class SecurePoll_Entity {
 	/**
 	 * Get a list of languages for which we have translations, for this entity
 	 * and its descendants.
-	 * @return string
+	 * @return string[]
 	 */
 	public function getLangList() {
 		$ids = [ $this->getId() ];
