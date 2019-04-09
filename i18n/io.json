@@ -17,5 +17,6 @@
 	"securepoll-invalid-language": "Nevalida linguala kodexo \"$1\"",
 	"securepoll-language-label": "Selektez linguo:",
 	"securepoll-header-title": "Nomo",
+	"securepoll-header-start-date": "Dato dil komenco",
 	"securepoll-subpage-list": "Listo"
 }
