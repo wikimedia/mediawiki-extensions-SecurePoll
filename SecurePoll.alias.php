@@ -218,6 +218,16 @@ $specialPageAliases['sk'] = [
 	'SecurePoll' => [ 'BezpečnéHlasovanie' ],
 ];
 
+/** Serbian Cyrillic (српски (ћирилица)) */
+$specialPageAliases['sr-ec'] = [
+	'SecurePoll' => [ 'БезбедноГласање' ],
+];
+
+/** Serbian Latin (srpski (latinica)) */
+$specialPageAliases['sr-el'] = [
+	'SecurePoll' => [ 'BezbednoGlasanje' ],
+];
+
 /** Turkish (Türkçe) */
 $specialPageAliases['tr'] = [
 	'SecurePoll' => [ 'GüvenliHavuz' ],
