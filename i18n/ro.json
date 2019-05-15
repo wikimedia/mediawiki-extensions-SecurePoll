@@ -7,7 +7,8 @@
 			"KlaudiuMihaila",
 			"Mihai",
 			"Minisarm",
-			"Stelistcristi"
+			"Stelistcristi",
+			"Andrei Stroe"
 		]
 	},
 	"securepoll": "SondajSecurizat",
@@ -16,7 +17,7 @@
 	"securepoll-need-admin": "Trebuie să fiți un administrator de alegeri pentru a efectua această acțiune.",
 	"securepoll-too-few-params": "Insuficienți parametri pentru subpagină (legătură invalidă).",
 	"securepoll-invalid-election": "„$1” nu este un ID valid de alegeri.",
-	"securepoll-welcome": "<strong>Bun venit $1!</strong>",
+	"securepoll-welcome": "<strong>{{GENDER:$1|Bun venit}} $1!</strong>",
 	"securepoll-not-started": "Aceste alegeri nu au început încă.\nSunt programate să pornească pe $2 la $3.",
 	"securepoll-finished": "Alegerile s-au sfârșit, nu mai puteți vota.",
 	"securepoll-not-qualified": "Nu sunteți eligibil să votați în cadrul acestor alegeri: $1",
@@ -78,7 +79,7 @@
 	"securepoll-header-admin": "Administrator",
 	"securepoll-cookie-dup-list": "Utilizatori reveniți, identificați după cookie",
 	"securepoll-dump-title": "Dump: $1",
-	"securepoll-dump-not-finished": "Înregistrările criptate ale alegerilor sunt disponibile doar după momentul închiderii votului, în data de $1, ora $2",
+	"securepoll-dump-not-finished": "Înregistrările alegerilor sunt disponibile doar după data terminării votării, $1, ora $2",
 	"securepoll-dump-no-urandom": "Nu se poate deschide /dev/urandom.\nPentru a respecta confidențialitatea votanților, înregistrările criptate ale alegerilor sunt disponibile public doar atunci când pot fi amestecate folosind o secvență securizată de numere aleatoare.",
 	"securepoll-urandom-not-supported": "Acest server nu acceptă generarea criptografică de numere aleatoare.\nPentru a respecta confidențialitatea votanților, înregistrările criptate ale alegerilor sunt disponibile public doar atunci când pot fi amestecate folosind o secvență securizată de numere aleatoare.",
 	"securepoll-translate-title": "Traducere: $1",
