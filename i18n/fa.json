@@ -16,7 +16,8 @@
 			"ZxxZxxZ",
 			"Alirezaaa",
 			"Mehran",
-			"4nn1l2"
+			"4nn1l2",
+			"FarsiNevis"
 		]
 	},
 	"securepoll": "نظرسنجی امن",
@@ -105,7 +106,7 @@
 	"securepoll-translate-label-comment": "دلیل:",
 	"securepoll-invalid-language": "کد زبانی نامعتبر «$1»",
 	"securepoll-header-trans-id": "شناسه",
-	"securepoll-submit-translate": "به‌روزرسانی",
+	"securepoll-submit-translate": "روزامدسازی",
 	"securepoll-language-label": "انتخاب زبان:",
 	"securepoll-submit-select-lang": "ترجمه",
 	"securepoll-entry-text": "در زیر فهرستی از نظرسنجی‌ها آمده‌است.",
