@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Shell\Shell;
+
 /**
  * Cryptography module
  */
@@ -226,7 +228,7 @@ class SecurePoll_GpgCrypt {
 	public function importKey( $key ) {
 		# Import the key
 		file_put_contents( "{$this->homeDir}/key", $key );
-		$status = $this->runGpg( ' --import ' . wfEscapeShellArg( "{$this->homeDir}/key" ) );
+		$status = $this->runGpg( '--import', "{$this->homeDir}/key" );
 		if ( !$status->isOK() ) {
 			return $status;
 		}
@@ -264,25 +266,37 @@ class SecurePoll_GpgCrypt {
 
 	/**
 	 * Shell out to GPG with the given additional command-line parameters
-	 * @param string $params
+	 * @param string ...$params
 	 * @return Status
 	 */
-	protected function runGpg( $params ) {
+	protected function runGpg( ...$params ) {
 		global $wgSecurePollGPGCommand, $wgSecurePollShowErrorDetail;
-		$ret = 1;
-		$command = wfEscapeShellArg( $wgSecurePollGPGCommand ) .
-			' --homedir ' . wfEscapeShellArg( $this->homeDir ) . ' --trust-model always --batch --yes ' .
-			$params .
-			' 2>&1';
-		$output = wfShellExec( $command, $ret );
-		if ( $ret ) {
+
+		$params = array_merge(
+			[
+				$wgSecurePollGPGCommand,
+				'--homedir', $this->homeDir,
+				'--trust-model', 'always',
+				'--batch', '--yes',
+			],
+			$params
+		);
+		$command = Shell::command( $params )
+			->includeStderr();
+
+		$result = $command->execute();
+
+		if ( $result->getExitCode() ) {
 			if ( $wgSecurePollShowErrorDetail ) {
-				return Status::newFatal( 'securepoll-full-gpg-error', $command, $output );
+				return Status::newFatal( 'securepoll-full-gpg-error',
+					(string)$command,
+					$result->getStdout()
+				);
 			} else {
 				return Status::newFatal( 'securepoll-secret-gpg-error' );
 			}
 		} else {
-			return Status::newGood( $output );
+			return Status::newGood( $result->getStdout() );
 		}
 	}
 
@@ -303,16 +317,26 @@ class SecurePoll_GpgCrypt {
 		file_put_contents( "{$this->homeDir}/input", $record );
 
 		# Call GPG
-		$args = '--encrypt --armor' .
-			# Don't use compression, this may leak information about the plaintext
-			' --compress-level 0' .
-			' --recipient ' . wfEscapeShellArg( $this->recipient );
-		if ( $this->signer !== null ) {
-			$args .= ' --sign --local-user ' . wfEscapeShellArg( $this->signer );
-		}
-		$args .= ' --output ' . wfEscapeShellArg( "{$this->homeDir}/output" ) .
-			' ' . wfEscapeShellArg( "{$this->homeDir}/input" ) . ' 2>&1';
-		$status = $this->runGpg( $args );
+		$args = array_merge(
+			[
+				'--encrypt',
+				'--armor',
+				# Don't use compression, this may leak information about the plaintext
+				'--compress-level', '0',
+				'--recipient', $this->recipient,
+			],
+			$this->signer !== null
+				? [
+					'--sign',
+					'--local-user', $this->signer,
+				]
+				: [],
+			[
+				'--output', "{$this->homeDir}/output",
+				"{$this->homeDir}/input",
+			]
+		);
+		$status = $this->runGpg( ...$args );
 
 		# Read result
 		if ( $status->isOK() ) {
@@ -349,10 +373,11 @@ class SecurePoll_GpgCrypt {
 		file_put_contents( "{$this->homeDir}/input", $encrypted );
 
 		# Call GPG
-		$args = '--decrypt' .
-			' --output ' . wfEscapeShellArg( "{$this->homeDir}/output" ) .
-			' ' . wfEscapeShellArg( "{$this->homeDir}/input" ) . ' 2>&1';
-		$status = $this->runGpg( $args );
+		$status = $this->runGpg(
+			'--decrypt',
+			'--output', "{$this->homeDir}/output",
+			"{$this->homeDir}/input"
+		);
 
 		# Read result
 		if ( $status->isOK() ) {
