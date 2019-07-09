@@ -47,7 +47,7 @@ class SecurePoll_ListPage extends SecurePoll_ActionPage {
 				'vote_election' => $this->election->getID()
 			]
 		);
-		$distinct_voters = $res->result->num_rows;
+		$distinct_voters = $res->numRows();
 
 		$res = $dbr->select(
 			'securepoll_votes',
@@ -56,7 +56,7 @@ class SecurePoll_ListPage extends SecurePoll_ActionPage {
 				'vote_election' => $this->election->getID()
 			]
 		);
-		$all_votes = $res->result->num_rows;
+		$all_votes = $res->numRows();
 
 		$res = $dbr->select(
 			'securepoll_votes',
@@ -66,7 +66,7 @@ class SecurePoll_ListPage extends SecurePoll_ActionPage {
 				'vote_current' => 0
 			]
 		);
-		$not_current_votes = $res->result->num_rows;
+		$not_current_votes = $res->numRows();
 
 		$res = $dbr->select(
 			'securepoll_votes',
@@ -76,7 +76,7 @@ class SecurePoll_ListPage extends SecurePoll_ActionPage {
 				'vote_struck' => 1
 			]
 		);
-		$struck_votes = $res->result->num_rows;
+		$struck_votes = $res->numRows();
 
 		$out->addHTML( '<div id="mw-poll-stats"><p>' .
 			$this->msg( 'securepoll-voter-stats' )->numParams( $distinct_voters ) .
