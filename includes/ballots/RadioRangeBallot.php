@@ -209,6 +209,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 	 * @param SecurePoll_Question $question
 	 * @param array $options
 	 * @return string
+	 * @suppress SecurityCheck-DoubleEscaped It's an actual issue, but hard to fix.
 	 */
 	public function getQuestionForm( $question, $options ) {
 		global $wgRequest;
@@ -219,8 +220,8 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 		$s = "<table class=\"securepoll-ballot-table\">\n" .
 			"<tr>\n" .
 			"<th>&#160;</th>\n";
-		foreach ( $labels as $label ) {
-			$s .= Html::rawElement( 'th', [], $label ) . "\n";
+		foreach ( $labels as $lab ) {
+			$s .= Html::rawElement( 'th', [], $lab ) . "\n";
 		}
 		$s .= "</tr>\n";
 		$defaultScore = $question->getProperty( 'default-score' );

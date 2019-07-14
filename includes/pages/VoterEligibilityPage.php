@@ -412,7 +412,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 			'default' => Html::openElement( 'dl' ),
 		];
 		foreach ( self::$lists as $list => $property ) {
-			$name = $this->msg( "securepoll-votereligibility-list-$list" )->text();
+			$name = $this->msg( "securepoll-votereligibility-list-$list" )->escaped();
 			$formItems[] = [
 				'section' => 'lists',
 				'type' => 'info',
