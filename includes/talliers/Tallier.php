@@ -9,7 +9,9 @@ abstract class SecurePoll_Tallier {
 	public $context, $question, $electionTallier, $election, $optionsById;
 
 	abstract public function addVote( $scores );
+
 	abstract public function getHtmlResult();
+
 	abstract public function getTextResult();
 
 	abstract public function finishTally();

@@ -208,6 +208,7 @@ class SecurePoll_Context {
 		}
 		return $this->random;
 	}
+
 	/**
 	 * Set the global language fallback sequence.
 	 *
