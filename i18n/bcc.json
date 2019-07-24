@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Baloch Afghanistan"
+			"Baloch Afghanistan",
+			"Sultanselim baloch"
 		]
 	},
 	"securepoll-header-timestamp": "وهد",
@@ -11,7 +12,7 @@
 	"securepoll-strike-cancel": "کنسیل",
 	"securepoll-submit-translate": "آپڈ\tیت",
 	"securepoll-header-title": "نام",
-	"securepoll-subpage-edit": "ایڈیٹ",
+	"securepoll-subpage-edit": "ٹگلݔنگ",
 	"securepoll-create-option-wiki-all_wikis": "موچین ویکی هان",
 	"securepoll-create-label-questions-option": "===آپشن==="
 }
