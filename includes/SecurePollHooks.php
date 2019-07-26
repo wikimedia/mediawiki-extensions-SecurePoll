@@ -33,6 +33,9 @@ class SecurePollHooks {
 			case 'postgres':
 				$updater->addExtensionTable( 'securepoll_entity', "$base/SecurePoll.pg.sql" );
 				break;
+			case 'sqlite':
+				$updater->addExtensionTable( 'securepoll_entity', "$base/SecurePoll.sql" );
+				break;
 		}
 	}
 
