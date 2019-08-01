@@ -11,7 +11,7 @@
 	"securepoll": "सुरक्षित चुनाव",
 	"securepoll-desc": "चुनाव र सर्वेक्षणको लागि विस्तार",
 	"securepoll-invalid-page": "अमान्य उपपृष्ठ \"<nowiki>$1</nowiki>\"",
-	"securepoll-need-admin": "यो कार्य गर्न तपाईं चुनाव प्रवन्धक हुनुपर्छ।",
+	"securepoll-need-admin": "यो कार्य गर्न तपाईँ चुनाव प्रवन्धक हुनुपर्छ।",
 	"securepoll-too-few-params": "पर्याप्त  उपपृष्ठ मानक नभएको (अमान्य लिंक)।",
 	"securepoll-invalid-election": "\"$1\"  मान्य चुनाव परिचय भएन।",
 	"securepoll-welcome": "<strong>स्वागत $1!</strong>",
