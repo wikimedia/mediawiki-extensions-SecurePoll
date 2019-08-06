@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Geopoet"
+			"Geopoet",
+			"Brazal.dang"
 		]
 	},
 	"securepoll": "Paseguruhon-an-borotohan",
@@ -10,7 +11,7 @@
 	"securepoll-need-admin": "Ika kaipo na magin sarong administrador sa eleksyon tanganing magibo ining aksyon.",
 	"securepoll-too-few-params": "Bakong igo an sub-pahinang mga parametro (imbalido an kasugpunan).",
 	"securepoll-invalid-election": "\"$1\" bako tabi sarong balidong ID kan eleksyon.",
-	"securepoll-welcome": "<strong>Maogmang Pag-abot $1!</strong>",
+	"securepoll-welcome": "<strong>>{{GENDER:$1|Maogmang Pag-abot}} $1!</strong>",
 	"securepoll-not-started": "Ining eleksyon dae pa tabi pinagpoonan.\nInin naka-eskedyul na mapoon sa petsa $2 mga alas $3.",
 	"securepoll-finished": "Ining eleksyon pinagtapos na, ika tabi dae na makakaboto.",
 	"securepoll-not-qualified": "Ika tabi dae kwalipikado na magboto kaining eleksyon: $1",
