@@ -10,9 +10,10 @@ require_once "$IP/maintenance/Maintenance.php";
 class DeletePoll extends Maintenance {
 	public function __construct() {
 		parent::__construct();
-		$this->mDescription = 'Delete a poll from the local SecurePoll database';
+		$this->addDescription( 'Delete a poll from the local SecurePoll database' );
 
 		$this->addArg( 'id', 'Secure Poll id to delete' );
+		$this->requireExtension( 'SecurePoll' );
 	}
 
 	public function execute() {

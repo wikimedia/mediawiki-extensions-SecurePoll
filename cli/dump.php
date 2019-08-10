@@ -15,7 +15,7 @@ class DumpElection extends Maintenance {
 
 	public function __construct() {
 		parent::__construct();
-		$this->mDescription = 'Generate an XML dump of an election, including configuration and votes';
+		$this->addDescription( 'Generate an XML dump of an election, including configuration and votes' );
 
 		$this->addArg( 'electionname', 'Name of the election' );
 		$this->addOption( 'o', 'Output to the specified file' );

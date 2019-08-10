@@ -11,7 +11,7 @@ class ImportElectionConfiguration extends Maintenance {
 
 	public function __construct() {
 		parent::__construct();
-		$this->mDescription = <<<EOT
+		$this->addDescription( <<<EOT
 Import configuration files into the local SecurePoll database. Files can be
 generated with dump.php.
 
@@ -20,7 +20,8 @@ Note that any vote records will NOT be imported.
 For the moment, the entity IDs are preserved, to allow easier implementation of
 the message update feature. This means conflicting entity IDs in the local
 database will generate an error.
-EOT;
+EOT
+		);
 
 		$this->addOption(
 			'update-msgs',

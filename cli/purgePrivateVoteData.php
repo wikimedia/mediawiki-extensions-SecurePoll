@@ -37,7 +37,7 @@ class PurgePrivateVoteData extends Maintenance {
 
 	public function __construct() {
 		parent::__construct();
-		$this->mDescription = 'Script purge private data (IP, XFF, UA) from SecurePoll Votes';
+		$this->addDescription( 'Script purge private data (IP, XFF, UA) from SecurePoll Votes' );
 		$this->setBatchSize( 200 );
 
 		$this->requireExtension( 'SecurePoll' );
@@ -83,7 +83,7 @@ class PurgePrivateVoteData extends Maintenance {
 					[ 'vote_id' ],
 					array_merge( $conds, [ 'vote_id >= ' . $dbr->addQuotes( $minVoteId ) ] ),
 					__METHOD__,
-					[ 'ORDER BY' => 'vote_id ASC', 'LIMIT' => $this->mBatchSize ]
+					[ 'ORDER BY' => 'vote_id ASC', 'LIMIT' => $this->getBatchSize() ]
 				);
 
 				if ( $vRes->numRows() === 0 ) {
@@ -100,7 +100,7 @@ class PurgePrivateVoteData extends Maintenance {
 				}
 				$deleteSets[] = [ $setMin, $setMax ];
 				$minVoteId = $setMax;
-			} while ( $vRes->numRows() == $this->mBatchSize );
+			} while ( $vRes->numRows() == $this->getBatchSize );
 
 			$dbw = wfGetDB( DB_MASTER );
 
@@ -114,7 +114,7 @@ class PurgePrivateVoteData extends Maintenance {
 							'vote_id < ' . $dbr->addQuotes( $maxId ) ]
 					),
 					__METHOD__,
-					[ 'LIMIT' => $this->mBatchSize ]
+					[ 'LIMIT' => $this->getBatchSize ]
 				);
 				$this->output( "Purged data from " . $dbw->affectedRows() . " votes\n" );
 

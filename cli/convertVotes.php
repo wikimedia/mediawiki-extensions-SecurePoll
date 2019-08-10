@@ -35,7 +35,7 @@ class ConvertVotes extends Maintenance {
 
 	public function __construct() {
 		parent::__construct();
-		$this->mDescription = 'Converts votes';
+		$this->addDescription( 'Converts votes' );
 
 		$this->addOption( 'name', 'Name of the election', false, true );
 		$this->addArg( 'dump', 'Dump file to process', false );

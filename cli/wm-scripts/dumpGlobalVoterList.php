@@ -11,7 +11,8 @@ class DumpGlobalVoterList extends Maintenance {
 
 	public function __construct() {
 		parent::__construct();
-		$this->mDescription = 'Dumps the Global Voter list';
+		$this->addDescription( 'Dumps the Global Voter list' );
+		$this->requireExtension( 'SecurePoll' );
 	}
 
 	public function execute() {

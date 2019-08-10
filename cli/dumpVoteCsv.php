@@ -13,7 +13,7 @@
 class DumpVoteCsv extends Maintenance {
 	public function __construct() {
 		parent::__construct();
-		$this->mDescription = 'Dump all votes from an election from a dump file or local database';
+		$this->addDescription( 'Dump all votes from an election from a dump file or local database' );
 
 		$this->addOption( 'name', 'Name of the election', false, true );
 		$this->addArg( 'dump', 'Dump file to process', false );

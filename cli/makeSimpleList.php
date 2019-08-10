@@ -24,7 +24,7 @@ class MakeSimpleList extends Maintenance {
 
 	public function __construct() {
 		parent::__construct();
-		$this->mDescription = 'Generate a list of users with some number of edits before some date';
+		$this->addDescription( 'Generate a list of users with some number of edits before some date' );
 
 		$this->addArg( 'listname', 'Name of the list' );
 		$this->addOption( 'replace', 'If list exists, delete it and recreate' );
@@ -39,7 +39,7 @@ class MakeSimpleList extends Maintenance {
 			true
 		);
 
-		$this->mBatchSize = 100;
+		$this->setBatchSize( 100 );
 
 		$this->requireExtension( 'SecurePoll' );
 	}
@@ -84,7 +84,7 @@ class MakeSimpleList extends Maintenance {
 				$userQuery['fields'],
 				[ 'user_id > ' . $dbr->addQuotes( $startBatch ) ],
 				__METHOD__,
-				[ 'LIMIT' => $this->mBatchSize ],
+				[ 'LIMIT' => $this->getBatchSize() ],
 				$userQuery['joins']
 			);
 
