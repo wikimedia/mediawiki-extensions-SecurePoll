@@ -34,7 +34,7 @@
 	"securepoll-not-started": "Parameters:\n* $1 - (Unused)\n* $2 - the date of it\n* $3 - its time",
 	"securepoll-already-started": "Parameters:\n* $1 - (Unused)\n* $2 - the date of it\n* $3 - its time",
 	"securepoll-finished": "Used as error message.",
-	"securepoll-not-qualified": "Unused at this time. Paramters:\n* $1 - ...",
+	"securepoll-not-qualified": "Unused at this time. Parameters:\n* $1 - ...",
 	"securepoll-change-disallowed": "Used as error message.",
 	"securepoll-change-allowed": "Used as error message.",
 	"securepoll-submit": "{{Identical|Submit}}",
