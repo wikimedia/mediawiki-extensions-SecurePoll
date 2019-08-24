@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Tim Starling"
+		]
+	},
+	"apihelp-strikevote-description": "Allows admins to strike or unstrike a vote.",
+	"apihelp-strikevote-summary": "Allows admins to strike or unstrike a vote.",
+	"apihelp-strikevote-param-option": "Which action to take: strike or unstrike a vote.",
+	"apihelp-strikevote-paramvalue-option-strike": "Strike a vote (remove it from the count).",
+	"apihelp-strikevote-paramvalue-option-unstrike": "Unstrike a vote (restore it to the count).",
+	"apihelp-strikevote-param-voteid": "The ID of the vote to be struck or unstruck.",
+	"apihelp-strikevote-param-reason": "The reason for striking or unstriking the vote.",
+	"apihelp-strikevote-example-strike": "Strike vote <kbd>1</kbd>, giving the reason <kbd>duplication</kbd>.",
+	"apihelp-strikevote-example-unstrike": "Unstrike vote <kbd>1</kbd>, giving the reason <kbd>mistake</kbd>.",
+	"apierror-securepoll-mustbeloggedin-strikevote": "You must be logged in to strike or unstrike a vote.",
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> is not a valid vote id."
+}

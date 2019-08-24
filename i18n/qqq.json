@@ -263,16 +263,5 @@
 	"action-securepoll-create-poll": "{{Doc-action|securepoll-create-poll}}",
 	"securepoll-ns-readonly": "Error message to inform the user that the SecurePoll namespace cannot be edited.",
 	"securepoll-voter-stats": "Explanation of the unique number of voters who participated in the election; shown above the vote list.",
-	"securepoll-vote-stats": "Explanation of the total number of votes cast, as well as the number that were excluded because the voter had voted again, and the number that have been struck by an election admin; shown above the vote list.",
-	"apihelp-strikevote-description": "{{doc-apihelp-description|strikevote}}",
-	"apihelp-strikevote-summary": "{{doc-apihelp-summary|strikevote}}",
-	"apihelp-strikevote-param-option": "{{doc-apihelp-param|strikevote|option}}",
-	"apihelp-strikevote-paramvalue-option-strike": "{{doc-apihelp-paramvalue|strikevote|option|strike}}",
-	"apihelp-strikevote-paramvalue-option-unstrike": "{{doc-apihelp-paramvalue|strikevote|option|unstrike}}",
-	"apihelp-strikevote-param-voteid": "{{doc-apihelp-param|strikevote|voteid}}",
-	"apihelp-strikevote-param-reason": "{{doc-apihelp-param|strikevote|reason}}",
-	"apihelp-strikevote-example-strike": "{{doc-apihelp-example|strikevote}}",
-	"apihelp-strikevote-example-unstrike": "{{doc-apihelp-example|strikevote}}",
-	"apierror-securepoll-mustbeloggedin-strikevote": "{{doc-apierror}}",
-	"apierror-securepoll-badvoteid": "{{doc-apierror}}\n\nParameters:\n* $1 - Supplied vote id"
+	"securepoll-vote-stats": "Explanation of the total number of votes cast, as well as the number that were excluded because the voter had voted again, and the number that have been struck by an election admin; shown above the vote list."
 }
