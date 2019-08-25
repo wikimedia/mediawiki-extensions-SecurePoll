@@ -236,16 +236,5 @@
 	"action-securepoll-create-poll": "crear enquisas",
 	"securepoll-ns-readonly": "O espazo de nomes {{ns:SecurePoll}} só é de lectura",
 	"securepoll-voter-stats": "Entre os votantes posibles, $1 {{PLURAL:$1|votante votou|votantes votaron}}.",
-	"securepoll-vote-stats": "Un total de $1 {{PLURAL:$1|voto foi enviado|votos foron enviados}}. Deses, $2 {{PLURAL:$2|foi eliminado|foron eliminados}} porque o votante xa votara, e $3 {{PLURAL:$3|está suprimido|están suprimidos}}.",
-	"apihelp-strikevote-description": "Permite ós administradores anular ou restaurar un voto.",
-	"apihelp-strikevote-summary": "Permite ós administradores anular ou restaurar un voto.",
-	"apihelp-strikevote-param-option": "Qué acción tomar: anular ou restaurar un voto.",
-	"apihelp-strikevote-paramvalue-option-strike": "Anular un voto (eliminalo do reconto).",
-	"apihelp-strikevote-paramvalue-option-unstrike": "Restaurar un voto (restauralo no reconto).",
-	"apihelp-strikevote-param-voteid": "O identificador do voto para suprimir ou restaurar.",
-	"apihelp-strikevote-param-reason": "A razón pola que anular ou restaurar o voto.",
-	"apihelp-strikevote-example-strike": "Anular o voto <kbd>1</kbd>, co motivo <kbd>duplicado</kbd>.",
-	"apihelp-strikevote-example-unstrike": "Restaurar o voto <kbd>1</kbd>, co motivo <kbd>erro</kbd>.",
-	"apierror-securepoll-mustbeloggedin-strikevote": "Debe estar autenticado para riscar ou quitar o riscado dun voto.",
-	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> non é un identificador de voto válido."
+	"securepoll-vote-stats": "Un total de $1 {{PLURAL:$1|voto foi enviado|votos foron enviados}}. Deses, $2 {{PLURAL:$2|foi eliminado|foron eliminados}} porque o votante xa votara, e $3 {{PLURAL:$3|está suprimido|están suprimidos}}."
 }

@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Xuacu"
+		]
+	},
+	"apihelp-strikevote-description": "Permite a los alministradores anular o restaurar un votu.",
+	"apihelp-strikevote-summary": "Permite a los alministradores anular o restaurar un votu.",
+	"apihelp-strikevote-param-option": "Qué aición facer: anular o restaurar un votu.",
+	"apihelp-strikevote-paramvalue-option-strike": "Anular un votu (quitalu del recuentu).",
+	"apihelp-strikevote-paramvalue-option-unstrike": "Restaurar un votu (restaurar nel recuentu).",
+	"apihelp-strikevote-param-voteid": "L'identificador del votu p'anular o restaurar.",
+	"apihelp-strikevote-param-reason": "El motivu p'anular o restaurar el votu.",
+	"apihelp-strikevote-example-strike": "Anular el votu <kbd>1</kbd>, col motivu <kbd>duplicáu</kbd>.",
+	"apihelp-strikevote-example-unstrike": "Restaurar el votu <kbd>1</kbd>, col motivu <kbd>error</kbd>.",
+	"apierror-securepoll-mustbeloggedin-strikevote": "Tienes d'aniciar sesión pa poder anular o restaurar un votu.",
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> nun ye un identificador de votu válidu."
+}

@@ -251,16 +251,5 @@
 	"action-securepoll-create-poll": "建立投票所",
 	"securepoll-ns-readonly": "{{ns:SecurePoll}} 命名空間為唯讀",
 	"securepoll-voter-stats": "所有具資格的投票者裡，已有 $1 {{PLURAL:$1|位|位}}投過票。.",
-	"securepoll-vote-stats": "總計投出 $1 張{{PLURAL:$1|票|票}}。其中有 $2 {{PLURAL:$2|張|張}}票不被記入出於投票者重複投票緣故，並且有 $3 {{PLURAL:$3|張|張}}票作廢。",
-	"apihelp-strikevote-description": "允許管理員作廢或取消作廢投票。",
-	"apihelp-strikevote-summary": "允許管理員作廢或取消作廢投票。",
-	"apihelp-strikevote-param-option": "要採用的操作：作廢或取消作廢投票。",
-	"apihelp-strikevote-paramvalue-option-strike": "作廢投票（從次數裡移除）。",
-	"apihelp-strikevote-paramvalue-option-unstrike": "取消作廢投票（加回至次數裡）。",
-	"apihelp-strikevote-param-voteid": "要作廢或取消作廢的投票 ID。",
-	"apihelp-strikevote-param-reason": "作廢或取消作廢投票的原因。",
-	"apihelp-strikevote-example-strike": "作廢投票 <kbd>1</kbd>，原因為 <kbd>duplication</kbd>。",
-	"apihelp-strikevote-example-unstrike": "取消作廢投票 <kbd>1</kbd>，原因為 <kbd>mistake</kbd>。",
-	"apierror-securepoll-mustbeloggedin-strikevote": "您必須要登入才能作廢或取消作廢投票。",
-	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> 不是有效的投票 ID。"
+	"securepoll-vote-stats": "總計投出 $1 張{{PLURAL:$1|票|票}}。其中有 $2 {{PLURAL:$2|張|張}}票不被記入出於投票者重複投票緣故，並且有 $3 {{PLURAL:$3|張|張}}票作廢。"
 }

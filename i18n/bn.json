@@ -145,6 +145,5 @@
 	"securepoll-votereligibility-saved": "{{int:securepoll}}: সংরক্ষিত",
 	"securepoll-votereligibility-saved-text": "আপনার পরিবর্তনসমূহ সংরক্ষিত হয়েছে।",
 	"securepoll-votereligibility-cleared-comment": "$1 পরিষ্কার হয়েছে।",
-	"securepoll-voter-stats": "সব যোগ্য ভোটদানকারীর মধ্যে, $1 জন {{PLURAL:$1|ভোটার}} ভোট দিয়েছেন।",
-	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> একটি বৈধ ভোটের আইডি নয়।"
+	"securepoll-voter-stats": "সব যোগ্য ভোটদানকারীর মধ্যে, $1 জন {{PLURAL:$1|ভোটার}} ভোট দিয়েছেন।"
 }

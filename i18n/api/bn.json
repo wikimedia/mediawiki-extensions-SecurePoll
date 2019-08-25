@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"আফতাবুজ্জামান"
+		]
+	},
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> একটি বৈধ ভোটের আইডি নয়।"
+}

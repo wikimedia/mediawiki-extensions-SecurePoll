@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Metalhead64"
+		]
+	},
+	"apihelp-strikevote-description": "Erlaubt es Administratoren, eine Stimme zu streichen oder ihre Streichung zurückzunehmen.",
+	"apihelp-strikevote-summary": "Erlaubt es Administratoren, eine Stimme zu streichen oder ihre Streichung zurückzunehmen.",
+	"apihelp-strikevote-param-option": "Welche Aktion durchgeführt werden soll: Streichung der Stimme oder Rücknahme der Streichung.",
+	"apihelp-strikevote-paramvalue-option-strike": "Streicht eine Stimme (entfernt sie aus dem Zähler).",
+	"apihelp-strikevote-paramvalue-option-unstrike": "Nimmt eine Stimme zurück (setzt sie auf den Zähler zurück).",
+	"apihelp-strikevote-param-voteid": "Die Kennung der Stimme, die gestrichen oder deren Streichung zurückgenommen werden soll.",
+	"apihelp-strikevote-param-reason": "Der Grund für die Streichung oder Streichungsrücknahme der Stimme.",
+	"apihelp-strikevote-example-strike": "Streicht die Stimme <kbd>1</kbd> mit der Begründung <kbd>Duplikat</kbd>.",
+	"apihelp-strikevote-example-unstrike": "Nimmt die Streichung der Stimme <kbd>1</kbd> zurück, mit dem Grund <kbd>Versehen</kbd>.",
+	"apierror-securepoll-mustbeloggedin-strikevote": "Du musst angemeldet sein, um eine Stimme auszustreichen oder die Streichung zurückzunehmen.",
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> ist keine gültige Abstimmungskennung."
+}

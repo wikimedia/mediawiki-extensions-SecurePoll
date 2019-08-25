@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"4nn1l2",
+			"Huji",
+			"Ladsgroup"
+		]
+	},
+	"apihelp-strikevote-description": "اجازه می‌دهد که مدیران رأیی را خط بزنند یا از خط‌خوردگی به درش آورند.",
+	"apihelp-strikevote-summary": "اجازه می‌دهد که مدیران رأیی را خط بزنند یا از خط‌خوردگی به درش آورند.",
+	"apihelp-strikevote-param-option": "کدام عمل انجام شود: خط زدن رأی، یا از خط‌خوردگی به در آوردن.",
+	"apihelp-strikevote-paramvalue-option-strike": "خط زدن رأی (حذف آن از شمارش آرا).",
+	"apihelp-strikevote-paramvalue-option-unstrike": "به در آوردن رأی از خط‌خوردگی (بازگرداندن آن به شمارش آرا).",
+	"apihelp-strikevote-param-voteid": "شناسهٔ رأیی که باید خط بخورد یا از خط‌خوردگی به در آید.",
+	"apihelp-strikevote-param-reason": "دلیل برای خط زدن یا از خط‌خوردگی به در آوردن رأی.",
+	"apihelp-strikevote-example-strike": "خط زدن رأی <kbd>1</kbd>، به دلیل <kbd>duplication</kbd>.",
+	"apihelp-strikevote-example-unstrike": "از خط‌خودرگی به در آوردن رأی <kbd>1</kbd>، به دلیل <kbd>mistake</kbd>.",
+	"apierror-securepoll-mustbeloggedin-strikevote": "برای خط زدن آرا باید به سامانه وارد شوید.",
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> یک شناسهٔ رأی معتبر نیست"
+}

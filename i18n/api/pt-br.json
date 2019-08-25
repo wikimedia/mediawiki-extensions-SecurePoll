@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Chicocvenancio",
+			"Felipe L. Ewald"
+		]
+	},
+	"apihelp-strikevote-description": "Permitir aos administradores invalidar ou validar um voto.",
+	"apihelp-strikevote-summary": "Permitir aos administradores invalidar ou validar um voto.",
+	"apihelp-strikevote-param-option": "Que ação tomar: invalidar ou validar um voto.",
+	"apihelp-strikevote-paramvalue-option-strike": "Invalidar um voto (removê-lo da contagem).",
+	"apihelp-strikevote-paramvalue-option-unstrike": "Validar um voto (restaurá-lo à contagem).",
+	"apihelp-strikevote-param-voteid": "O ID do voto sendo invalidado ou validado.",
+	"apihelp-strikevote-param-reason": "O motivo para invalidar ou validar o voto.",
+	"apihelp-strikevote-example-strike": "Invalidar o voto <kbd>1</kbd>, dando o motivo <kbd>duplicação</kbd>.",
+	"apihelp-strikevote-example-unstrike": "Validar o voto <kbd>1</kbd>, dando o motivo <kbd>erro</kbd>.",
+	"apierror-securepoll-mustbeloggedin-strikevote": "Deves estar logado para invalidar ou validar um voto.",
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> não é um id válido de voto."
+}

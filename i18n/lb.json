@@ -184,7 +184,5 @@
 	"right-securepoll-create-poll": "Ëmfroen uleeën",
 	"action-securepoll-create-poll": "Ëmfroen uleeën",
 	"securepoll-ns-readonly": "Den Nummraum {{ns:SecurePoll}} ka just gelies ginn",
-	"securepoll-voter-stats": "Vun alle berechtegte Benotzer {{PLURAL:$1|huet ee|hu(nn) $1}} Benotzer ofgestëmmt.",
-	"apihelp-strikevote-description": "Erméiglecht et Administrateure fir eng Stëmm z'annuléieren oder d'Annulatioun réckgängeg ze maachen.",
-	"apihelp-strikevote-paramvalue-option-strike": "Eng Stëmm duerchsträichen (se vun deene gezielten ewechhuelen)."
+	"securepoll-voter-stats": "Vun alle berechtegte Benotzer {{PLURAL:$1|huet ee|hu(nn) $1}} Benotzer ofgestëmmt."
 }

@@ -246,16 +246,5 @@
 	"action-securepoll-create-poll": "بإنشاء الاقتراعات",
 	"securepoll-ns-readonly": "نطاق {{ns:SecurePoll}} للقراءة فقط",
 	"securepoll-voter-stats": "من بين جميع الناخبين المؤهلين، قد صوت $1 {{PLURAL:$1|ناخب}}.",
-	"securepoll-vote-stats": "تم تحصيل ما مجموعه $1 {{PLURAL:$1|صوت}} من بين هؤلاء،  تم رمي $2 {{PLURAL:$2|هذا|هذه}} لأن الناخب قد صوت مرة أخرى، و$3 {{PLURAL:$3|أُبطِل|أُبطِلت}}.",
-	"apihelp-strikevote-description": "يسمح للإداريين باحتساب أو إلغاء صوت.",
-	"apihelp-strikevote-summary": "يسمح للإداريين باحتساب أو إلغاء صوت.",
-	"apihelp-strikevote-param-option": "الإجراء الذي يجب اتخاذه: احتساب أو إلغاء صوت.",
-	"apihelp-strikevote-paramvalue-option-strike": "أبطل الصوت (أزله من العد).",
-	"apihelp-strikevote-paramvalue-option-unstrike": "احسب الصوت (استعده إلى العد).",
-	"apihelp-strikevote-param-voteid": "معرف الصوت لاحتسابه أو إلغائه.",
-	"apihelp-strikevote-param-reason": "سبب الاحتساب الإلغاء",
-	"apihelp-strikevote-example-strike": "إبطال صوت <kbd>1</kbd>; مع إعطاء السبب <kbd>duplication</kbd>.",
-	"apihelp-strikevote-example-unstrike": "إبطال صوت <kbd>1</kbd>; مع إعطاء السبب <kbd>mistake</kbd>.",
-	"apierror-securepoll-mustbeloggedin-strikevote": "يجب أن تكون مسجلا لاحتساب أو إلغاء صوت.",
-	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> ليس معرف صوت صالحا."
+	"securepoll-vote-stats": "تم تحصيل ما مجموعه $1 {{PLURAL:$1|صوت}} من بين هؤلاء،  تم رمي $2 {{PLURAL:$2|هذا|هذه}} لأن الناخب قد صوت مرة أخرى، و$3 {{PLURAL:$3|أُبطِل|أُبطِلت}}."
 }

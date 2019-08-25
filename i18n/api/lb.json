@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Robby"
+		]
+	},
+	"apihelp-strikevote-description": "Erméiglecht et Administrateure fir eng Stëmm z'annuléieren oder d'Annulatioun réckgängeg ze maachen.",
+	"apihelp-strikevote-paramvalue-option-strike": "Eng Stëmm duerchsträichen (se vun deene gezielten ewechhuelen)."
+}

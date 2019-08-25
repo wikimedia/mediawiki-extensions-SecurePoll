@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jon Harald Søby"
+		]
+	},
+	"apihelp-strikevote-description": "La administratorer stryke stemmer eller fjerne stryking av stemmer.",
+	"apihelp-strikevote-summary": "Lar administratorer stryke stemmer eller fjerne stryking av stemmer.",
+	"apihelp-strikevote-param-option": "Hvilken handling som skal tas: stryking av eller fjerning av stryking av en stemme.",
+	"apihelp-strikevote-paramvalue-option-strike": "Stryk en stemme (fjern den fra tellingen).",
+	"apihelp-strikevote-paramvalue-option-unstrike": "Fjern stryking av en stemme (legg den tilbake i tellingen).",
+	"apihelp-strikevote-param-voteid": "ID-en til stemmen som skal strykes eller avstrykes.",
+	"apihelp-strikevote-param-reason": "Årsaken til at en stemme strykes eller avstrykes."
+}

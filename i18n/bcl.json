@@ -108,13 +108,5 @@
 	"securepoll-average-score": "Katahawang iskor",
 	"securepoll-round": "Banhay $1",
 	"securepoll-spoilt": "(Naulá)",
-	"securepoll-exhausted": "(Naubusan)",
-	"apihelp-strikevote-description": "Minatugot sa mga administrador na magtao o dae magtao nin sarong boto.",
-	"apihelp-strikevote-param-option": "Ano an aksyon na gibohon: haleon o dae haleon an sarong boto.",
-	"apihelp-strikevote-paramvalue-option-strike": "Halea an sarong boto (haleon ini gikan sa kabilangan).",
-	"apihelp-strikevote-paramvalue-option-unstrike": "Dae haleon an sarong boto (balikon ini sa kabilangan).",
-	"apihelp-strikevote-param-voteid": "An kabistohan kan boto na hahaleon o dae hahaleon.",
-	"apihelp-strikevote-param-reason": "An rason para sa paghahale or dae paghahale nin boto.",
-	"apihelp-strikevote-example-strike": "Maghale nin boto <kbd>1</kbd>, magtao nin rason <kbd>duplikasyon</kbd>.",
-	"apihelp-strikevote-example-unstrike": "Dae maghale nin boto <kbd>1</kbd>, magtao nin rason <kbd>napasala</kbd>."
+	"securepoll-exhausted": "(Naubusan)"
 }

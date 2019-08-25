@@ -233,16 +233,5 @@
 	"action-securepoll-create-poll": "crear encuestes",
 	"securepoll-ns-readonly": "L'espaciu de nomes {{ns:SecurePoll}} ye de solo llectura",
 	"securepoll-voter-stats": "De tolos usuarios con derechu a votu, {{PLURAL:$1|votó|votaron}} $1.",
-	"securepoll-vote-stats": "{{PLURAL:$1|Emitióse|Emitiéronse}} un total de $1 {{PLURAL:$1|votu|votos}}. D'estos, {{PLURAL:$2|refugóse|refugáronse}} $2 porque'l votante votó nuevamente, y {{PLURAL:$3|anulóse|anuláronse}} $3.",
-	"apihelp-strikevote-description": "Permite a los alministradores anular o restaurar un votu.",
-	"apihelp-strikevote-summary": "Permite a los alministradores anular o restaurar un votu.",
-	"apihelp-strikevote-param-option": "Qué aición facer: anular o restaurar un votu.",
-	"apihelp-strikevote-paramvalue-option-strike": "Anular un votu (quitalu del recuentu).",
-	"apihelp-strikevote-paramvalue-option-unstrike": "Restaurar un votu (restaurar nel recuentu).",
-	"apihelp-strikevote-param-voteid": "L'identificador del votu p'anular o restaurar.",
-	"apihelp-strikevote-param-reason": "El motivu p'anular o restaurar el votu.",
-	"apihelp-strikevote-example-strike": "Anular el votu <kbd>1</kbd>, col motivu <kbd>duplicáu</kbd>.",
-	"apihelp-strikevote-example-unstrike": "Restaurar el votu <kbd>1</kbd>, col motivu <kbd>error</kbd>.",
-	"apierror-securepoll-mustbeloggedin-strikevote": "Tienes d'aniciar sesión pa poder anular o restaurar un votu.",
-	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> nun ye un identificador de votu válidu."
+	"securepoll-vote-stats": "{{PLURAL:$1|Emitióse|Emitiéronse}} un total de $1 {{PLURAL:$1|votu|votos}}. D'estos, {{PLURAL:$2|refugóse|refugáronse}} $2 porque'l votante votó nuevamente, y {{PLURAL:$3|anulóse|anuláronse}} $3."
 }

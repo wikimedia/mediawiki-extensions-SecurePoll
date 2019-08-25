@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hamilton Abreu"
+		]
+	},
+	"apihelp-strikevote-description": "Permite que os administradores anulem ou desfaçam a anulação de um voto.",
+	"apihelp-strikevote-summary": "Permite que os administradores anulem ou desfaçam a anulação de um voto.",
+	"apihelp-strikevote-param-option": "Ação a ser tomada: anular ou desfazer a anulação de um voto.",
+	"apihelp-strikevote-paramvalue-option-strike": "Anular um voto (removê-lo da contagem).",
+	"apihelp-strikevote-paramvalue-option-unstrike": "Desfazer a anulação de um voto (repo-lo na contagem).",
+	"apihelp-strikevote-param-voteid": "O identificador do voto a anular ou a desfazer a sua anulação.",
+	"apihelp-strikevote-param-reason": "O motivo para anular ou desfazer a anulação do voto.",
+	"apihelp-strikevote-example-strike": "Anular o voto <kbd>1</kbd>, fornecendo o motivo <kbd>duplication</kbd> (duplicação).",
+	"apihelp-strikevote-example-unstrike": "Desfazer a anulação do voto <kbd>1</kbd>, fornecendo o motivo <kbd>mistake</kbd> (erro).",
+	"apierror-securepoll-mustbeloggedin-strikevote": "Tem de iniciar sessão para poder anular ou desfazer a anulação de um voto.",
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> não é um identificador de voto válido."
+}

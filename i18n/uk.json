@@ -250,16 +250,5 @@
 	"action-securepoll-create-poll": "створення опитувань",
 	"securepoll-ns-readonly": "Простір назв {{ns:SecurePoll}} — лише для читання",
 	"securepoll-voter-stats": "Із усіх виборців із правом голосу, {{PLURAL:$1|проголосував $1 виборець|проголосували $1 виборці|проголосувало $1 виборців}}.",
-	"securepoll-vote-stats": "Загалом віддано {{PLURAL:$1|$1 голос|$1 голоси|$1 голосів}}. З них $2 {{PLURAL:$2|не враховано}}, оскільки виборці, що віддали ці голоси, проголосували повторно, і $3 {{PLURAL:$3|відхилено}}.",
-	"apihelp-strikevote-description": "Дозволяє адміністраторам викреслити або відновити голоси.",
-	"apihelp-strikevote-summary": "Дозволяє адміністраторам викреслити або відновити голоси.",
-	"apihelp-strikevote-param-option": "Яку дію здійснити: викреслити чи відновити голос.",
-	"apihelp-strikevote-paramvalue-option-strike": "Викреслити голос (вилучити його із підрахунку).",
-	"apihelp-strikevote-paramvalue-option-unstrike": "Відновити голос (повернути його до підрахунку).",
-	"apihelp-strikevote-param-voteid": "Ідентифікатор голосу, який слід викреслити або відновити.",
-	"apihelp-strikevote-param-reason": "Причина для викреслення або відновлення голосу.",
-	"apihelp-strikevote-example-strike": "Викреслити голос <kbd>1</kbd>, з причиною <kbd>дублікат</kbd>.",
-	"apihelp-strikevote-example-unstrike": "Відновити голос <kbd>1</kbd>, з причиною <kbd>помилка</kbd>.",
-	"apierror-securepoll-mustbeloggedin-strikevote": "Ви маєте перебувати в системі, щоб голосувати чи скасовувати свої голоси.",
-	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> не є дійсним ідентифікатором голосування."
+	"securepoll-vote-stats": "Загалом віддано {{PLURAL:$1|$1 голос|$1 голоси|$1 голосів}}. З них $2 {{PLURAL:$2|не враховано}}, оскільки виборці, що віддали ці голоси, проголосували повторно, і $3 {{PLURAL:$3|відхилено}}."
 }

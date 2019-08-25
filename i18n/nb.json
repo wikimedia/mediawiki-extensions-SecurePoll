@@ -219,12 +219,5 @@
 	"action-securepoll-create-poll": "opprette avstemninger",
 	"securepoll-ns-readonly": "{{ns:SecurePoll}}-navnerommet er skrivebeskyttet",
 	"securepoll-voter-stats": "Blant alle stemmeberettigede har $1 {{PLURAL:$1|stemt}}.",
-	"securepoll-vote-stats": "Totalt $1 {{PLURAL:$1|stemme|stemmer}} har blitt avlagt. Av disse har $2 {{PLURAL:$2|blitt}} forkastet fordi den stemmeberettigede har stemt på nytt, og $3 {{PLURAL:$3|har}} blitt strøket.",
-	"apihelp-strikevote-description": "La administratorer stryke stemmer eller fjerne stryking av stemmer.",
-	"apihelp-strikevote-summary": "Lar administratorer stryke stemmer eller fjerne stryking av stemmer.",
-	"apihelp-strikevote-param-option": "Hvilken handling som skal tas: stryking av eller fjerning av stryking av en stemme.",
-	"apihelp-strikevote-paramvalue-option-strike": "Stryk en stemme (fjern den fra tellingen).",
-	"apihelp-strikevote-paramvalue-option-unstrike": "Fjern stryking av en stemme (legg den tilbake i tellingen).",
-	"apihelp-strikevote-param-voteid": "ID-en til stemmen som skal strykes eller avstrykes.",
-	"apihelp-strikevote-param-reason": "Årsaken til at en stemme strykes eller avstrykes."
+	"securepoll-vote-stats": "Totalt $1 {{PLURAL:$1|stemme|stemmer}} har blitt avlagt. Av disse har $2 {{PLURAL:$2|blitt}} forkastet fordi den stemmeberettigede har stemt på nytt, og $3 {{PLURAL:$3|har}} blitt strøket."
 }
