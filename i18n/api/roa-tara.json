@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joetaras"
+		]
+	},
+	"apihelp-strikevote-description": "Permette a le amministrature de piogghià o luà 'nu vote.",
+	"apihelp-strikevote-summary": "Permette a le amministrature de piogghià o luà 'nu vote.",
+	"apihelp-strikevote-param-option": "Ce azione a fà: mitte o live 'u vote.",
+	"apihelp-strikevote-paramvalue-option-strike": "Live 'u vote ('u live da 'u cunde).",
+	"apihelp-strikevote-paramvalue-option-unstrike": "Mitte 'u vote ('u mitte jndr'à 'u cunde).",
+	"apihelp-strikevote-param-voteid": "L'ID d'u vote adda essere colpite o non colpite.",
+	"apihelp-strikevote-param-reason": "'U mutive pe luà o accettà 'u vote.",
+	"apihelp-strikevote-example-strike": "Annulle 'u vote <kbd>1</kbd>, cu 'u mutive <kbd>duplication</kbd>.",
+	"apihelp-strikevote-example-unstrike": "Accette 'u vote <kbd>1</kbd>, cu 'u mutive <kbd>mistake</kbd>.",
+	"apierror-securepoll-mustbeloggedin-strikevote": "A trasè pe annullà o accettà 'nu vote.",
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> non g'è 'n'ID de vote valide."
+}

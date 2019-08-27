@@ -26,6 +26,7 @@
 	"securepoll-header-action": "Darbība",
 	"securepoll-header-reason": "Iemesls",
 	"securepoll-translate-title": "Tulkot: $1",
+	"securepoll-translate-label-comment": "Iemesls:",
 	"securepoll-invalid-language": "Nederīgs valodas kods \"$1\"",
 	"securepoll-submit-translate": "Atjaunināt",
 	"securepoll-language-label": "Izvēlēties valodu:",
