@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"SpartacksCompatriot"
+			"SpartacksCompatriot",
+			"Iwan Novirion"
 		]
 	},
 	"securepoll": "SecurePoll",
@@ -14,7 +15,7 @@
 	"securepoll-finished": "Pamiliahan ko alah salasai, Sanak lah indak bisa mamiliah",
 	"securepoll-not-qualified": "Sanak indak layak untuak mamiliah: $1",
 	"securepoll-change-disallowed": "Sanak alah mamiliah sabalunnyo. Maaf, Sanak indak dipabuliahan mamiliah untuak nan kaduo kalinyo.",
-	"securepoll-change-allowed": "<strong>Catatan: Sanak alah mamiliah di pamiliahan ko sabalunnyo.\n</strong>\nSanak dapek mangubah suaro dengan caro mangisi formulir di bawah ko. Parhatian, kok Sanak mangisi formulir di bawah ko, suaro asli Sanak akan taapuih",
+	"securepoll-change-allowed": "<strong>Catatan: Sanak alah maagiah suaro di pamiliahan ko sabalunnyo.\n</strong>\nSanak dapek mangubah suaro jo mangisi formulir di bawah ko. Parhatian, kok Sanak mangisi formulir di bawah ko, suaro asli Sanak akan taapuih",
 	"securepoll-submit": "Kirim suaro",
 	"securepoll-gpg-receipt": "Tarimo kasih alah mamiliah!\n\nKok Sanak nio, Sanak bisa manyimpan resit ko sabagai bukti suaro Sanak:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "Tarimo kasih, suaro sanak alah disimpan.",
