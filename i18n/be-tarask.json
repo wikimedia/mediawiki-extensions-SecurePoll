@@ -4,7 +4,8 @@
 			"EugeneZelenko",
 			"Jim-by",
 			"Renessaince",
-			"Wizardist"
+			"Wizardist",
+			"Vlad5250"
 		]
 	},
 	"securepoll": "Бясьпечнае галасаваньне",
@@ -79,6 +80,7 @@
 	"securepoll-dump-no-urandom": "Не магчыма адкрыць /dev/urandom.\nКаб захаваць прыватнасьць галасоў, зашыфраваныя выбарчыя запісы будуць даступныя для грамадзкасьці, толькі калі іх парадак будуць будзе зьменены з дапамогай бясьпечнай крыніцы выпадковых лікаў.",
 	"securepoll-urandom-not-supported": "Гэты сэрвэр не падтрымлівае генэрацыю крыптаграфічных выпадковых лікаў.\nУ мэтах захаваньня прыватнасьці галасаваўшых, зашыфраваныя запісы выбараў будуць агульнадаступнымі толькі калі яны могуць быць зьмешаныя са струменем выпадковых лікаў.",
 	"securepoll-translate-title": "Пераклад: $1",
+	"securepoll-translate-label-comment": "Прычына:",
 	"securepoll-invalid-language": "Няслушны код мовы «$1»",
 	"securepoll-submit-translate": "Абнавіць",
 	"securepoll-language-label": "Выбар мовы:",
@@ -90,6 +92,7 @@
 	"securepoll-subpage-vote": "Голас",
 	"securepoll-subpage-translate": "Перакласьці",
 	"securepoll-subpage-list": "Сьпіс",
+	"securepoll-subpage-edit": "Рэдагаваць",
 	"securepoll-subpage-dump": "Дамп",
 	"securepoll-subpage-tally": "Падлік",
 	"securepoll-tally-title": "Падлік: $1",

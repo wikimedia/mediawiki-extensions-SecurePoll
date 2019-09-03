@@ -88,6 +88,7 @@
 	"securepoll-dump-no-urandom": "No es pot obrir /dev/urandom.\nPer mantenir la privadesa dels votants, els registres encriptats de l'elecció es fan públics només quan poden ser barrejats amb un generador segur de nombres aleatoris.",
 	"securepoll-urandom-not-supported": "Aquest servidor no suporta la generació criptogràfica de nombres aleatoris.\nPer mantenir la privadesa del votant, els registres d'elecció encriptats només són públicament disponibles quan es poden emetre amb un flux segur de nombres aleatoris.",
 	"securepoll-translate-title": "Traducció: $1",
+	"securepoll-translate-label-comment": "Motiu:",
 	"securepoll-invalid-language": "Codi d'idioma «$1» no vàlid",
 	"securepoll-submit-translate": "Actualitza",
 	"securepoll-language-label": "Seleccioneu la llengua:",
