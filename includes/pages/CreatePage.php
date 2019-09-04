@@ -611,8 +611,11 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 
 		// Record this election to the SecurePoll namespace, if so configured.
 		if ( $wgSecurePollUseNamespace ) {
-			// Create a new context to bypass caching
+			// Create a new context to bypass caching.
 			$context = new SecurePoll_Context;
+			// We may be inside a transaction, so force a master connection (T209804)
+			$context->setStore( new SecurePoll_DBStore( true ) );
+
 			$election = $context->getElection( $eId );
 
 			list( $title, $content ) = SecurePollContentHandler::makeContentFromElection(

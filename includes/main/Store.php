@@ -91,6 +91,16 @@ interface SecurePoll_Store {
  * Storage class for a DB backend. This is the one that's most often used.
  */
 class SecurePoll_DBStore implements SecurePoll_Store {
+
+	private $forceMaster = false;
+
+	/**
+	 * @param bool $forceMaster Force use of DB_MASTER
+	 */
+	public function __construct( $forceMaster = false ) {
+		$this->forceMaster = $forceMaster;
+	}
+
 	public function getMessages( $lang, $ids ) {
 		$db = $this->getDB();
 		$res = $db->select(
@@ -194,7 +204,7 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 	}
 
 	public function getDB( $index = DB_MASTER ) {
-		return wfGetDB( $index );
+		return wfGetDB( $this->forceMaster ? DB_MASTER : $index );
 	}
 
 	public function getQuestionInfo( $electionId ) {
