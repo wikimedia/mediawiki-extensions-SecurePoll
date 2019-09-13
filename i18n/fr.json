@@ -102,7 +102,7 @@
 	"securepoll-translate-title": "Traduire : $1",
 	"securepoll-translate-redirect": "Les messages pour cette élection doivent être configurés sur $1",
 	"securepoll-translate-redirect-otherwiki": "le wiki principal",
-	"securepoll-translate-label-comment": "Motif :",
+	"securepoll-translate-label-comment": "Motif :",
 	"securepoll-invalid-language": "Code de langue « $1 » invalide.",
 	"securepoll-header-trans-id": "Identifiant",
 	"securepoll-submit-translate": "Mettre à jour",
