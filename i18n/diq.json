@@ -118,6 +118,7 @@
 	"securepoll-round": "$1 reyi",
 	"securepoll-spoilt": "(Xırabo)",
 	"securepoll-exhausted": "(Bêkeyf)",
+	"securepoll-create-label-property_admins": "İdarekari:",
 	"securepoll-create-label-comment": "Sebeb",
 	"securepoll-votereligibility-label-comment": "Sebeb",
 	"securepoll-votereligibility-saved": "{{int:securepoll}}: Qeyd bi"
