@@ -50,7 +50,7 @@
 	"securepoll-remote-parse-error": "Virhe tulkittaessa lupavastausta palvelimelta.",
 	"securepoll-api-invalid-params": "Virheellisiä parametreja.",
 	"securepoll-api-no-user": "Annetulla tunnisteella ei löytynyt käyttäjää.",
-	"securepoll-api-token-mismatch": "Turvallisuusmerkintä ei täsmää, joten sisäänkirjautuminen ei onnistu.",
+	"securepoll-api-token-mismatch": "Sisäänkirjautuminen epäonnistui, koska turvallisuuspoletti ei täsmää.",
 	"securepoll-not-logged-in": "Sinun pitää kirjautua sisään voidaksesi äänestää.",
 	"securepoll-too-few-edits": "Valitettavasti et voi äänestää. Sinulla täytyy olla vähintään $1 {{PLURAL:$1|muokkaus|muokkausta}} voidaksesi äänestää näissä vaaleissa. Olet tehnyt $2.",
 	"securepoll-too-new": "Et voi äänestää, koska olet rekisteröitynyt vasta $2 kello $4. Vain käyttäjät, jotka ovat rekisteröityneet ennen $1 kello $3 voivat äänestää.",
