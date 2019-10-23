@@ -3,7 +3,8 @@
 		"authors": [
 			"Bulatbulat",
 			"KhayR",
-			"Ильнар"
+			"Ильнар",
+			"Ерней"
 		]
 	},
 	"securepoll-welcome": "<strong>{{GENDER:$1|Рәхим итегез}}, $1!</strong>",
@@ -19,7 +20,7 @@
 	"securepoll-strike-button": "Сызу",
 	"securepoll-unstrike-button": "Сызуны алу",
 	"securepoll-strike-reason": "Сәбәп:",
-	"securepoll-strike-cancel": "Баш тарту",
+	"securepoll-strike-cancel": "Кире алу",
 	"securepoll-translate-title": "Тәрҗемә: $1",
 	"securepoll-submit-translate": "Яңарту",
 	"securepoll-subpage-translate": "Тәрҗемә"
