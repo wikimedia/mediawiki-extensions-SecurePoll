@@ -111,7 +111,8 @@ exit( 0 );
  * @return array|bool
  */
 function spGetMetaTranslations( $lang ) {
-	global $spConf, $wgParser;
+	global $spConf;
+	$parser = MediaWikiServices::getInstance()->getParser();
 	$messages = [];
 	$titleText = "{$spConf['basePage']}/$lang";
 	$title = Title::newFromText( $titleText );
@@ -132,7 +133,7 @@ function spGetMetaTranslations( $lang ) {
 	}
 
 	for ( $sectionIndex = 1; $sectionIndex <= 10; $sectionIndex++ ) {
-		$section = $wgParser->getSection( $text, $sectionIndex, false );
+		$section = $parser->getSection( $text, $sectionIndex, false );
 		if ( $section === false ) {
 			break;
 		}

@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * There are three types of entity: elections, questions and options. The
  * entity abstraction provides generic i18n support, allowing localised message
@@ -168,7 +170,7 @@ class SecurePoll_Entity {
 	 * @return string
 	 */
 	public function parseMessage( $name, $lineStart = true ) {
-		global $wgParser, $wgTitle;
+		global $wgTitle;
 		$parserOptions = $this->context->getParserOptions();
 		if ( $wgTitle ) {
 			$title = $wgTitle;
@@ -176,7 +178,8 @@ class SecurePoll_Entity {
 			$title = SpecialPage::getTitleFor( 'SecurePoll' );
 		}
 		$wikiText = $this->getMessage( $name );
-		$out = $wgParser->parse( $wikiText, $title, $parserOptions, $lineStart );
+		$out = MediaWikiServices::getInstance()->getParser()
+			->parse( $wikiText, $title, $parserOptions, $lineStart );
 		return $out->getText();
 	}
 
