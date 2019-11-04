@@ -21,7 +21,7 @@ class SecurePoll_Context {
 
 	/**
 	 * Message text cache
-	 * @var string[][]
+	 * @var string[][][]
 	 */
 	public $messageCache = [];
 
@@ -227,7 +227,7 @@ class SecurePoll_Context {
 	 *
 	 * @param string $lang Language code
 	 * @param array $ids Entity IDs
-	 * @return array
+	 * @return string[][]
 	 */
 	public function getMessages( $lang, $ids ) {
 		if ( isset( $this->messagesLoaded[$lang] ) ) {

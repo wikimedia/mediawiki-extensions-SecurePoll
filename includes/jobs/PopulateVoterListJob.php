@@ -227,6 +227,7 @@ class SecurePoll_PopulateVoterListJob extends Job {
 					$list[] = $row->rev_user;
 				}
 
+				// @phan-suppress-next-line PhanSuspiciousValueComparison Same as in next if
 				if ( $users === null ) {
 					$users = $list;
 				} else {

@@ -20,6 +20,7 @@ interface SecurePoll_Store {
 	 * and message key to value.
 	 * @param string $lang
 	 * @param int[] $ids
+	 * @return string[][]
 	 */
 	public function getMessages( $lang, $ids );
 

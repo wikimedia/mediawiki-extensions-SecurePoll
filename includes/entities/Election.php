@@ -424,7 +424,6 @@ class SecurePoll_Election extends SecurePoll_Entity {
 
 		// If we're making a jump dump, we need to add some extra properties, and
 		// override the auth type
-		/** @phan-suppress-next-line PhanTypeInvalidDimOffset */
 		if ( !empty( $params['jump'] ) ) {
 			$s .=
 				Xml::element( 'auth', [], 'local' ) . "\n" .
@@ -453,7 +452,6 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * @return array
 	 */
 	public function getPropertyDumpBlacklist( $params = [] ) {
-		/** @phan-suppress-next-line PhanTypeInvalidDimOffset */
 		if ( !empty( $params['jump'] ) ) {
 			return [
 				'gpg-encrypt-key',

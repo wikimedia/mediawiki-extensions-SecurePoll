@@ -1213,7 +1213,7 @@ class SecurePoll_FormStore extends SecurePoll_MemoryStore {
 	 * Convert the submitted array of admin usernames into a string for
 	 * insertion into the database.
 	 *
-	 * @param array $data
+	 * @param array[] $data
 	 * @return string
 	 */
 	private function getAdminsList( $data ) {
