@@ -4,7 +4,8 @@
 			"CERminator",
 			"Seha",
 			"KWiki",
-			"Srdjan m"
+			"Srdjan m",
+			"Obsuser"
 		]
 	},
 	"securepoll": "Sigurno glasanje",
@@ -20,7 +21,7 @@
 	"securepoll-change-disallowed": "Već ste ranije glasali na ovom glasanju.\nŽao nam je, ne možete više glasati.",
 	"securepoll-change-allowed": "<strong>Napomena: Već ste ranije glasali na ovom glasanju.</strong>\nMožete promijeniti Vaš glas slanjem obrasca ispod.\nZapamtite da ako ovo učinite, Vaš prvobitni glas će biti nevažeći.",
 	"securepoll-submit": "Pošalji glas",
-	"securepoll-gpg-receipt": "Hvala Vam za glasanje.\n\nAko želite, možete zadržati slijedeću potvrdu kao dokaz Vašeg glasanja:\n\n<pre>$1</pre>",
+	"securepoll-gpg-receipt": "Hvala Vam za glasanje.\n\nAko želite, možete zadržati sljedeću potvrdu kao dokaz Vašeg glasanja:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "Hvala Vam, Vaš glas je zapisan.",
 	"securepoll-return": "Nazad na $1",
 	"securepoll-encrypt-error": "Šifriranje Vašeg zapisa glasanja nije uspjelo.\nVaš glas nije sačuvan!\n\n$1",

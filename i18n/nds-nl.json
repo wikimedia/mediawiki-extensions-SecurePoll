@@ -4,6 +4,7 @@
 			"Servien"
 		]
 	},
+	"securepoll": "VeiligStemmen",
 	"securepoll-translate-title": "Vertalen: $1",
 	"securepoll-submit-select-lang": "Vertalen",
 	"securepoll-subpage-translate": "Vertalen"
