@@ -10,5 +10,9 @@
 	"apihelp-strikevote-paramvalue-option-strike": "Stryk en stemme (fjern den fra tellingen).",
 	"apihelp-strikevote-paramvalue-option-unstrike": "Fjern stryking av en stemme (legg den tilbake i tellingen).",
 	"apihelp-strikevote-param-voteid": "ID-en til stemmen som skal strykes eller avstrykes.",
-	"apihelp-strikevote-param-reason": "Årsaken til at en stemme strykes eller avstrykes."
+	"apihelp-strikevote-param-reason": "Årsaken til at en stemme strykes eller avstrykes.",
+	"apihelp-strikevote-example-strike": "Stryk stemme nr. <kbd>1</kbd>, med årsak <kbd>duplication</kbd>.",
+	"apihelp-strikevote-example-unstrike": "Fjern stryking av stemme nr. <kbd>1</kbd>, med årsak <kbd>mistake</kbd>.",
+	"apierror-securepoll-mustbeloggedin-strikevote": "Du må være logget inn for å stryke eller fjerne stryking av en stemme.",
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> er ikke en gyldig stemme-ID."
 }
