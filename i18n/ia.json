@@ -38,7 +38,7 @@
 	"securepoll-remote-parse-error": "Error durante le interpretation del responsa de autorisation ab le servitor.",
 	"securepoll-api-invalid-params": "Parametros invalide.",
 	"securepoll-api-no-user": "Nulle usator ha essite trovate con le ID specificate.",
-	"securepoll-api-token-mismatch": "Le indicio de securitate non corresponde; non pote aperir session.",
+	"securepoll-api-token-mismatch": "Le token de securitate non corresponde; non pote aperir session.",
 	"securepoll-not-logged-in": "Tu debe aperir un session pro votar in iste election.",
 	"securepoll-too-few-edits": "Pardono, tu non pote votar. Tu debe haber facite al minus $1 {{PLURAL:$1|modification|modificationes}} pro votar in iste election, e tu ha facite $2.",
 	"securepoll-too-new": "Pardono, tu non pote votar. Un conto debe haber essite create ante le $1 a $3 pro poter votar in iste election, ma tu conto ha essite create le $2 a $4.",
