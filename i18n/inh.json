@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Adam-Yourist"
+		]
+	},
+	"securepoll-welcome": "<strong>{{GENDER:$1|Моаршал да хьога}}, $1!</strong>"
+}
