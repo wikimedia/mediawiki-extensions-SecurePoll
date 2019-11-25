@@ -14,7 +14,7 @@ class SecurePollHooks {
 	/**
 	 * @param DatabaseUpdater $updater
 	 */
-	public static function onLoadExtensionSchemaUpdates( $updater ) {
+	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
 		$base = dirname( __DIR__ );
 		switch ( $updater->getDB()->getType() ) {
 			case 'mysql':
