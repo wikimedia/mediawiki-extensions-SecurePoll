@@ -18,7 +18,7 @@ class DumpElection extends Maintenance {
 		$this->addDescription( 'Generate an XML dump of an election, including configuration and votes' );
 
 		$this->addArg( 'electionname', 'Name of the election' );
-		$this->addOption( 'o', 'Output to the specified file' );
+		$this->addOption( 'o', 'Output to the specified file', false, true );
 		$this->addOption( 'by-id', 'Get election using its numerical ID, instead of its title' );
 		$this->addOption( 'votes', 'Include vote records' );
 		$this->addOption( 'all-langs', 'Include messages for all languages instead of just the primary' );
@@ -31,7 +31,7 @@ class DumpElection extends Maintenance {
 		$context = new SecurePoll_Context;
 
 		$name = $this->getArg( 0 );
-		if ( $this->getOption( 'by-id' ) ) {
+		if ( $this->hasOption( 'by-id' ) ) {
 			$election = $context->getElection( $name );
 		} else {
 			$election = $context->getElectionByTitle( $name );
@@ -53,7 +53,7 @@ class DumpElection extends Maintenance {
 			$this->fatalError( "Unable to open $fileName for writing" );
 		}
 
-		if ( $this->getOption( 'all-langs' ) ) {
+		if ( $this->hasOption( 'all-langs' ) ) {
 			$langs = $election->getLangList();
 		} else {
 			$langs = [ $election->getLanguage() ];
@@ -70,7 +70,7 @@ class DumpElection extends Maintenance {
 		$election->cbdata = $cbdata;
 
 		# Write vote records
-		if ( $this->getOption( 'votes' ) ) {
+		if ( $this->hasOption( 'votes' ) ) {
 			$status = $election->dumpVotesToCallback( [ $this, 'dumpVote' ] );
 			if ( !$status->isOK() ) {
 				$this->fatalError( $status->getWikiText() );
