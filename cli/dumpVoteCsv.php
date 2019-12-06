@@ -1,5 +1,8 @@
 <?php
 
+use MediaWiki\Extensions\SecurePoll\Context;
+use MediaWiki\Extensions\SecurePoll\Talliers\CommentDumper;
+
 /**
  * Dump all votes from an election from a dump file or local database.
  *
@@ -28,10 +31,10 @@ class DumpVoteCsv extends Maintenance {
 		// TODO: Is this necessary?
 		$wgTitle = Title::newFromText( 'Special:SecurePoll' );
 
-		$context = new SecurePoll_Context;
+		$context = new Context;
 		if ( !$this->hasOption( 'name' ) && $this->hasArg( 0 ) ) {
 			$dump = $this->getArg( 0 );
-			$context = SecurePoll_Context::newFromXmlFile( $dump );
+			$context = Context::newFromXmlFile( $dump );
 			if ( !$context ) {
 				$this->fatalError( "Unable to parse XML file \"{$dump}\"" );
 			}
@@ -49,7 +52,7 @@ class DumpVoteCsv extends Maintenance {
 			$this->fatalError( 'Need to pass either --name or the dump file as an argument' );
 		}
 
-		$tallier = new SecurePoll_CommentDumper( $context, $election, false );
+		$tallier = new CommentDumper( $context, $election, false );
 		$status = $tallier->execute();
 		if ( !$status->isOK() ) {
 			$this->fatalError( "Tally error: " . $status->getWikiText() );

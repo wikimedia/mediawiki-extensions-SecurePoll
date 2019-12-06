@@ -7,6 +7,10 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 }
 require_once "$IP/maintenance/Maintenance.php";
 
+use MediaWiki\Extensions\SecurePoll\Context;
+use MediaWiki\Extensions\SecurePoll\Store;
+use MediaWiki\Extensions\SecurePoll\XMLStore;
+
 class ImportElectionConfiguration extends Maintenance {
 
 	public function __construct() {
@@ -48,7 +52,7 @@ EOT
 			$this->fatalError( "The specified file \"{$fileName}\" does not exist\n" );
 		}
 
-		$store = new SecurePoll_XMLStore( $fileName );
+		$store = new XMLStore( $fileName );
 		$success = $store->readFile();
 		if ( !$success ) {
 			$this->fatalError( "Error reading XML dump, possibly corrupt\n" );
@@ -58,7 +62,7 @@ EOT
 			$this->fatalError( "No elections found to import.\n" );
 		}
 
-		$xc = new SecurePoll_Context;
+		$xc = new Context;
 		$xc->setStore( $store );
 		$dbw = wfGetDB( DB_MASTER );
 
@@ -156,7 +160,7 @@ EOT
 	}
 
 	/**
-	 * @param SecurePoll_Store $store
+	 * @param Store $store
 	 * @param array $electionInfo
 	 * @return bool
 	 */
@@ -231,7 +235,7 @@ EOT
 	}
 
 	/**
-	 * @param SecurePoll_Store $store
+	 * @param Store $store
 	 * @param array $entityIds
 	 */
 	private function insertMessages( $store, $entityIds ) {
@@ -257,7 +261,7 @@ EOT
 	}
 
 	/**
-	 * @param SecurePoll_Store $store
+	 * @param Store $store
 	 * @param array $electionInfo
 	 * @return bool
 	 */

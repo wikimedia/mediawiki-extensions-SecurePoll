@@ -10,6 +10,9 @@
  * not feasible.
  */
 
+use MediaWiki\Extensions\SecurePoll\Context;
+use MediaWiki\Extensions\SecurePoll\Talliers\CommentDumper;
+
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
@@ -35,10 +38,10 @@ class DumpComments extends Maintenance {
 		// TODO: Is this necessary?
 		$wgTitle = Title::newFromText( 'Special:SecurePoll' );
 
-		$context = new SecurePoll_Context;
+		$context = new Context;
 		if ( !$this->hasOption( 'name' ) && $this->hasArg( 0 ) ) {
 			$dump = $this->getArg( 0 );
-			$context = SecurePoll_Context::newFromXmlFile( $dump );
+			$context = Context::newFromXmlFile( $dump );
 			if ( !$context ) {
 				$this->fatalError( "Unable to parse XML file \"{$dump}\"" );
 			}
@@ -56,7 +59,7 @@ class DumpComments extends Maintenance {
 			$this->fatalError( 'Need to pass either --name or the dump file as an argument' );
 		}
 
-		$tallier = new SecurePoll_CommentDumper( $context, $election );
+		$tallier = new CommentDumper( $context, $election );
 		$status = $tallier->execute();
 		if ( !$status->isOK() ) {
 			$this->fatalError( "Tally error: " . $status->getWikiText() );

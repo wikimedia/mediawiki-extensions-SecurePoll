@@ -1,5 +1,7 @@
 <?php
 
+use Wikimedia\Rdbms\IDatabase;
+
 require __DIR__ . '/../../cli.inc';
 $dbcr = CentralAuthUser::getCentralSlaveDB();
 $dbcw = CentralAuthUser::getCentralDB();
@@ -95,7 +97,7 @@ function spGetQualifiedUsers( $users ) {
 }
 
 /**
- * @param \Wikimedia\Rdbms\IDatabase $db
+ * @param IDatabase $db
  * @param string[] $userNames
  * @return array
  */

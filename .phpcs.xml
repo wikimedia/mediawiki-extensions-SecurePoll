@@ -4,8 +4,9 @@
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationPrivate" />
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationProtected" />
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic" />
-		<exclude name="MediaWiki.Files.ClassMatchesFilename.NotMatch" />
-		<exclude name="Squiz.Classes.ValidClassName.NotCamelCaps" />
+	</rule>
+	<rule ref="MediaWiki.Files.ClassMatchesFilename.NotMatch">
+		<exclude-pattern>*/cli/*.php</exclude-pattern>
 	</rule>
 	<rule ref="MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName">
 		<exclude-pattern>*/includes/ballots/BallotStatus.php</exclude-pattern>

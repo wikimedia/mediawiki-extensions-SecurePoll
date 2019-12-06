@@ -11,6 +11,8 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 }
 require_once "$IP/maintenance/Maintenance.php";
 
+use MediaWiki\Extensions\SecurePoll\Context;
+
 class DumpElection extends Maintenance {
 
 	public function __construct() {
@@ -28,7 +30,7 @@ class DumpElection extends Maintenance {
 	}
 
 	public function execute() {
-		$context = new SecurePoll_Context;
+		$context = new Context;
 
 		$name = $this->getArg( 0 );
 		if ( $this->hasOption( 'by-id' ) ) {

@@ -7,14 +7,19 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 }
 require_once "$IP/maintenance/Maintenance.php";
 
+use MediaWiki\Extensions\SecurePoll\Ballots\Ballot;
+use MediaWiki\Extensions\SecurePoll\Context;
+use MediaWiki\Extensions\SecurePoll\Crypt\Crypt;
+use MediaWiki\Extensions\SecurePoll\Entities\Election;
+
 class ConvertVotes extends Maintenance {
 	/**
-	 * @var SecurePoll_Context
+	 * @var Context
 	 */
 	private $context;
 
 	/**
-	 * @var SecurePoll_Election
+	 * @var Election
 	 */
 	private $election;
 
@@ -24,12 +29,12 @@ class ConvertVotes extends Maintenance {
 	private $votes;
 
 	/**
-	 * @var SecurePoll_Crypt
+	 * @var Crypt
 	 */
 	private $crypt;
 
 	/**
-	 * @var SecurePoll_Ballot
+	 * @var Ballot
 	 */
 	private $ballot;
 
@@ -55,7 +60,7 @@ class ConvertVotes extends Maintenance {
 	}
 
 	private function convertFile( $fileName ) {
-		$this->context = SecurePoll_Context::newFromXmlFile( $fileName );
+		$this->context = Context::newFromXmlFile( $fileName );
 		if ( !$this->context ) {
 			$this->fatalError( "Unable to parse XML file \"$fileName\"" );
 		}
@@ -69,7 +74,7 @@ class ConvertVotes extends Maintenance {
 	}
 
 	private function convertLocalElection( $name ) {
-		$this->context = new SecurePoll_Context;
+		$this->context = new Context;
 		$this->election = $this->context->getElectionByTitle( $name );
 		if ( !$this->election ) {
 			$this->fatalError( "The specified election does not exist." );

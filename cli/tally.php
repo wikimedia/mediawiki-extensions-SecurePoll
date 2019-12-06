@@ -14,6 +14,8 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 }
 require_once "$IP/maintenance/Maintenance.php";
 
+use MediaWiki\Extensions\SecurePoll\Context;
+
 class TallyElection extends Maintenance {
 
 	public function __construct() {
@@ -33,10 +35,10 @@ class TallyElection extends Maintenance {
 		// TODO: Is this necessary?
 		$wgTitle = Title::newFromText( 'Special:SecurePoll' );
 
-		$context = new SecurePoll_Context;
+		$context = new Context;
 		if ( !$this->hasOption( 'name' ) && $this->hasArg( 0 ) ) {
 			$dump = $this->getArg( 0 );
-			$context = SecurePoll_Context::newFromXmlFile( $dump );
+			$context = Context::newFromXmlFile( $dump );
 			if ( !$context ) {
 				$this->fatalError( "Unable to parse XML file \"{$dump}\"" );
 			}
