@@ -107,7 +107,9 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 				$dbw = $this->context->getDB();
 			} else {
 				$lb = $lbFactory->getMainLB( $dbname );
-				unset( $dbw ); // trigger DBConnRef destruction and connection reuse
+				// trigger DBConnRef destruction and connection reuse
+				unset( $dbw );
+
 				$dbw = $lb->getConnectionRef( DB_MASTER, [], $dbname );
 				try {
 					// Connect to the DB and check if the LB is in read-only mode
@@ -276,7 +278,9 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 			if ( $dbname === $localWiki ) {
 				$dbw = $this->context->getDB();
 			} else {
-				unset( $dbw ); // trigger DBConnRef destruction and connection reuse
+				// trigger DBConnRef destruction and connection reuse
+				unset( $dbw );
+
 				$dbw = $lbFactory->getMainLB( $dbname )->getConnectionRef( DB_MASTER, [], $dbname );
 				try {
 					// Connect to the DB and check if the LB is in read-only mode
@@ -785,7 +789,12 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 		}
 	}
 
-	// Based on HTMLDateRangeField::praseDate()
+	/**
+	 * Based on HTMLDateRangeField::praseDate()
+	 *
+	 * @param string $value Date to be parsed
+	 * @return int
+	 */
 	protected function parseDate( $value ) {
 		$value = trim( $value );
 		$value .= ' T00:00:00+0000';
@@ -1026,7 +1035,10 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 				$dbw = $this->context->getDB();
 			} else {
 				$lb = $lbFactory->getMainLB( $dbname );
-				unset( $dbw ); // trigger DBConnRef destruction and connection reuse
+
+				// trigger DBConnRef destruction and connection reuse
+				unset( $dbw );
+
 				$dbw = $lb->getConnectionRef( DB_MASTER, [], $dbname );
 			}
 

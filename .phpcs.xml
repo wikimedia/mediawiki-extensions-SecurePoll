@@ -3,12 +3,11 @@
 	<rule ref="./vendor/mediawiki/mediawiki-codesniffer/MediaWiki">
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationProtected" />
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic" />
-		<exclude name="MediaWiki.Commenting.FunctionComment.WrongStyle" />
 		<exclude name="MediaWiki.Files.ClassMatchesFilename.NotMatch" />
 		<exclude name="Squiz.Classes.ValidClassName.NotCamelCaps" />
-		<exclude name="MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName" />
-		<exclude name="MediaWiki.Usage.DeprecatedGlobalVariables.Deprecated$wgTitle" />
-		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment"/>
+	</rule>
+	<rule ref="MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName">
+		<exclude-pattern>*/includes/ballots/BallotStatus.php</exclude-pattern>
 	</rule>
 	<rule ref="MediaWiki.NamingConventions.ValidGlobalName">
 		<properties>
@@ -19,6 +18,10 @@
 		<properties>
 			<property name="ignoreList" type="array" value="spGetRandom,spGenerateTest,getLanguage,runChecks,spFatal,spDeleteElection,spDumpVote,spImportDump,spInsertEntity,spImportConfiguration,spInsertMessages,spUpdateMessages,spGetQualifiedUsers,spGetEditCounts,spIsQualified,getDefaultLang,spReportProgress,spGetMetaTranslations,spFormatEntityMessages,spRunTest,spRunDebianVote,doInsert,out" />
 		</properties>
+	</rule>
+	<rule ref="MediaWiki.Usage.DeprecatedGlobalVariables.Deprecated$wgTitle">
+		<exclude-pattern>*/cli/*.php</exclude-pattern>
+		<exclude-pattern>*/includes/entities/Entity.php</exclude-pattern>
 	</rule>
 	<file>.</file>
 	<arg name="extensions" value="php,php5,inc"/>

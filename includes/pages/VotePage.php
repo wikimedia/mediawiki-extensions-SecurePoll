@@ -186,8 +186,8 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 		# Mark previous votes as old
 		$dbw->update(
 			'securepoll_votes',
-			[ 'vote_current' => 0 ], # SET
-			[ # WHERE
+			[ 'vote_current' => 0 ],
+			[
 				'vote_election' => $this->election->getId(),
 				'vote_voter' => $this->voter->getId(),
 			],

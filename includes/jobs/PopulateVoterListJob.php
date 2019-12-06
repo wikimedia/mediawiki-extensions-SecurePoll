@@ -104,7 +104,9 @@ class SecurePoll_PopulateVoterListJob extends Job {
 			}
 			$maxIds[$wiki] = $max;
 			$total += $max;
-			unset( $dbr ); // reuse connection
+
+			// reuse connection
+			unset( $dbr );
 		}
 
 		// Start the jobs!
