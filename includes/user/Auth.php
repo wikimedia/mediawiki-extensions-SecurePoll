@@ -29,6 +29,7 @@ class SecurePoll_Auth {
 			throw new MWException( "Invalid authentication type: $type" );
 		}
 		$class = self::$authTypes[$type];
+
 		return new $class( $context );
 	}
 
@@ -87,6 +88,7 @@ class SecurePoll_Auth {
 				if ( $otherVoter->getId() != $voterId ) {
 					$otherVoter->addCookieDup( $voterId );
 					$session['securepoll_voter'][$election->getId()] = $otherVoter->getId();
+
 					return $otherVoter;
 				}
 			}
@@ -118,7 +120,8 @@ class SecurePoll_Auth {
 		# and thus to duplicate votes.
 		$dbw->startAtomic( __METHOD__ );
 		$row = $dbw->selectRow(
-			'securepoll_voters', '*',
+			'securepoll_voters',
+			'*',
 			[
 				'voter_name' => $params['name'],
 				'voter_election' => $params['electionId'],
@@ -151,6 +154,7 @@ class SecurePoll_Auth {
 			$session['securepoll_voter'][$election->getId()] = $voter->getId();
 			$voter->doCookieCheck();
 		}
+
 		return $status;
 	}
 
@@ -180,6 +184,7 @@ class SecurePoll_Auth {
 		}
 
 		$session['securepoll_voter'][$election->getId()] = $voter->getId();
+
 		return $status;
 	}
 }

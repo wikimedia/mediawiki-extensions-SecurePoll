@@ -45,7 +45,8 @@ class ApiStrikeVote extends ApiBase {
 		$user = $this->getUser();
 		if ( !$user->isLoggedIn() ) {
 			$this->dieWithError(
-				'apierror-securepoll-mustbeloggedin-strikevote', 'notloggedin'
+				'apierror-securepoll-mustbeloggedin-strikevote',
+				'notloggedin'
 			);
 		}
 
@@ -55,15 +56,27 @@ class ApiStrikeVote extends ApiBase {
 		$db = $context->getDB();
 		$table = $db->tableName( 'securepoll_elections' );
 		$row = $db->selectRow(
-			[ 'securepoll_votes', 'securepoll_elections' ],
+			[
+				'securepoll_votes',
+				'securepoll_elections'
+			],
 			"$table.*",
-			[ 'vote_id' => $voteid, 'vote_election=el_entity' ],
+			[
+				'vote_id' => $voteid,
+				'vote_election=el_entity'
+			],
 			__METHOD__
 		);
 
 		// if no vote: fail
 		if ( !$row ) {
-			$this->dieWithError( [ 'apierror-securepoll-badvoteid', $voteid ], 'novote' );
+			$this->dieWithError(
+				[
+					'apierror-securepoll-badvoteid',
+					$voteid
+				],
+				'novote'
+			);
 		}
 
 		// strike the vote

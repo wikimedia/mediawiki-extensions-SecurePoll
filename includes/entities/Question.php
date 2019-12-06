@@ -28,6 +28,7 @@ class SecurePoll_Question extends SecurePoll_Entity {
 	 */
 	public function getMessageNames() {
 		$ballot = $this->getElection()->getBallot();
+
 		return array_merge( $ballot->getMessageNames( $this ), [ 'text' ] );
 	}
 
@@ -49,6 +50,7 @@ class SecurePoll_Question extends SecurePoll_Entity {
 			$s .= $option->getConfXml( $params );
 		}
 		$s .= "</question>\n";
+
 		return $s;
 	}
 }

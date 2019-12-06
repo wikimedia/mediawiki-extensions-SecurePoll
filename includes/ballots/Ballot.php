@@ -96,6 +96,7 @@ abstract class SecurePoll_Ballot {
 		if ( $status->isOK() ) {
 			$status->value = $record . "\n";
 		}
+
 		return $status;
 	}
 
@@ -126,6 +127,7 @@ abstract class SecurePoll_Ballot {
 	 */
 	public function convertRecord( $record, $options = [] ) {
 		$scores = $this->unpackRecord( $record );
+
 		return $this->convertScores( $scores );
 	}
 
@@ -142,14 +144,15 @@ abstract class SecurePoll_Ballot {
 	 * @param SecurePoll_Context $context
 	 * @param string $type
 	 * @param SecurePoll_Election $election
-	 * @throws MWException
 	 * @return SecurePoll_Ballot
+	 * @throws MWException
 	 */
 	public static function factory( $context, $type, $election ) {
 		if ( !isset( self::$ballotTypes[$type] ) ) {
 			throw new MWException( "Invalid ballot type: $type" );
 		}
 		$class = self::$ballotTypes[$type];
+
 		return new $class( $context, $election );
 	}
 
@@ -183,14 +186,15 @@ abstract class SecurePoll_Ballot {
 			if ( $shuffleOptions ) {
 				shuffle( $options );
 			}
-			$s .= "<hr/>\n" .
-				$question->parseMessage( 'text' ) .
-				$this->getQuestionForm( $question, $options ) .
-				"\n";
+			$s .= "<hr/>\n" . $question->parseMessage( 'text' ) . $this->getQuestionForm(
+					$question,
+					$options
+				) . "\n";
 		}
 		if ( $prevStatus ) {
 			$s = $this->formatStatus( $prevStatus ) . $s;
 		}
+
 		return $s;
 	}
 
@@ -209,7 +213,10 @@ abstract class SecurePoll_Ballot {
 			return '';
 		}
 		$this->usedErrorIds[$id] = true;
-		return Xml::element( 'img', [
+
+		return Xml::element(
+			'img',
+			[
 				'src' => $this->context->getResourceUrl( 'warning-22.png' ),
 				'width' => 22,
 				'height' => 22,
@@ -217,7 +224,8 @@ abstract class SecurePoll_Ballot {
 				'class' => 'securepoll-error-location',
 				'alt' => '',
 				'title' => $this->prevStatus->sp_getMessageText( $id )
-			] );
+			]
+		);
 	}
 
 	/**
@@ -259,23 +267,25 @@ abstract class SecurePoll_Ballot {
 
 		$store = $this->context->getStore();
 		$status = $store->callbackValidVotes(
-			// FIXME: Where is info property defined?
-			// @phan-suppress-next-line PhanUndeclaredProperty
+		// FIXME: Where is info property defined?
+		// @phan-suppress-next-line PhanUndeclaredProperty
 			$this->election->info['id'],
-			[ $this, 'getCurrentVoteCallback' ],
+			[
+				$this,
+				'getCurrentVoteCallback'
+			],
 			$voter->getId()
 		);
 		if ( !$status->isOK() ) {
 			return false;
 		}
 
-		return isset( $this->currentVote )
-			? $this->unpackRecord( $this->currentVote )
-			: false;
+		return isset( $this->currentVote ) ? $this->unpackRecord( $this->currentVote ) : false;
 	}
 
 	public function getCurrentVoteCallback( $store, $record ) {
 		$this->currentVote = $record;
+
 		return Status::newGood();
 	}
 }

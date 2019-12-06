@@ -35,6 +35,7 @@ abstract class SecurePoll_Tallier {
 			throw new MWException( "Invalid tallier type: $type" );
 		}
 		$class = self::$tallierTypes[$type];
+
 		return new $class( $context, $electionTallier, $question );
 	}
 
@@ -89,14 +90,13 @@ abstract class SecurePoll_Tallier {
 			}
 
 			$option = $this->optionsById[$oid];
-			$s .= "<tr>" .
-				Xml::element( 'td', [], $rank ) .
-				Xml::openElement( 'td', [] ) .
-				$option->parseMessage( 'text', false ) .
-				Xml::closeElement( 'td' ) .
-				"</tr>\n";
+			$s .= "<tr>" . Xml::element( 'td', [], $rank ) . Xml::openElement(
+					'td',
+					[]
+				) . $option->parseMessage( 'text', false ) . Xml::closeElement( 'td' ) . "</tr>\n";
 		}
 		$s .= "</table>";
+
 		return $s;
 	}
 
@@ -121,9 +121,9 @@ abstract class SecurePoll_Tallier {
 			}
 
 			$option = $this->optionsById[$oid];
-			$s .= str_pad( $rank, 6 ) . ' | ' .
-				$option->getMessage( 'text' ) . "\n";
+			$s .= str_pad( $rank, 6 ) . ' | ' . $option->getMessage( 'text' ) . "\n";
 		}
+
 		return $s;
 	}
 }

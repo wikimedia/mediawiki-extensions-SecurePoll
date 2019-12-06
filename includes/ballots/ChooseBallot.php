@@ -23,6 +23,7 @@ class SecurePoll_ChooseBallot extends SecurePoll_Ballot {
 				'SecurePoll_type' => 'message',
 			],
 		];
+
 		return $ret;
 	}
 
@@ -39,13 +40,18 @@ class SecurePoll_ChooseBallot extends SecurePoll_Ballot {
 			$optionHTML = $option->parseMessageInline( 'text' );
 			$optionId = $option->getId();
 			$radioId = "{$name}_opt{$optionId}";
-			$s .=
-				'<div class="securepoll-option-choose">' .
-				Xml::radio( $name, $optionId, false, [ 'id' => $radioId ] ) .
-				'&#160;' .
-				Xml::tags( 'label', [ 'for' => $radioId ], $optionHTML ) .
-				"</div>\n";
+			$s .= '<div class="securepoll-option-choose">' . Xml::radio(
+					$name,
+					$optionId,
+					false,
+					[ 'id' => $radioId ]
+				) . '&#160;' . Xml::tags(
+					'label',
+					[ 'for' => $radioId ],
+					$optionHTML
+				) . "</div>\n";
 		}
+
 		return $s;
 	}
 
@@ -74,12 +80,14 @@ class SecurePoll_ChooseBallot extends SecurePoll_Ballot {
 		for ( $offset = 0, $len = strlen( $record ); $offset < $len; $offset += 18 ) {
 			if ( !preg_match( '/Q([0-9A-F]{8})A([0-9A-F]{8})/A', $record, $m, 0, $offset ) ) {
 				wfDebug( __METHOD__ . ": regex doesn't match\n" );
+
 				return false;
 			}
 			$qid = intval( base_convert( $m[1], 16, 10 ) );
 			$oid = intval( base_convert( $m[2], 16, 10 ) );
 			$result[$qid] = [ $oid => 1 ];
 		}
+
 		return $result;
 	}
 
@@ -97,6 +105,7 @@ class SecurePoll_ChooseBallot extends SecurePoll_Ballot {
 			$option = $this->election->getOption( $oid );
 			$s .= $option->getMessage( 'name' );
 		}
+
 		return $s;
 	}
 }

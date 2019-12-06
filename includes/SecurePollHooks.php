@@ -19,9 +19,14 @@ class SecurePollHooks {
 		switch ( $updater->getDB()->getType() ) {
 			case 'mysql':
 				$updater->addExtensionTable( 'securepoll_entity', "$base/SecurePoll.sql" );
-				$updater->modifyExtensionField( 'securepoll_votes', 'vote_ip',
-					"$base/patches/patch-vote_ip-extend.sql" );
-				$updater->addExtensionIndex( 'securepoll_options', 'spop_election',
+				$updater->modifyExtensionField(
+					'securepoll_votes',
+					'vote_ip',
+					"$base/patches/patch-vote_ip-extend.sql"
+				);
+				$updater->addExtensionIndex(
+					'securepoll_options',
+					'spop_election',
 					"$base/patches/patch-op_election-index.sql"
 				);
 				$updater->addExtensionField(
@@ -67,6 +72,7 @@ class SecurePollHooks {
 			$action !== 'read'
 		) {
 			$errors[] = [ 'securepoll-ns-readonly' ];
+
 			return false;
 		}
 

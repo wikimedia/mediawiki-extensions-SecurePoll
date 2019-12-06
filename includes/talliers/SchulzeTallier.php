@@ -34,10 +34,16 @@ class SecurePoll_SchulzeTallier extends SecurePoll_PairwiseTallier {
 				$v21 = $victories[$oid2][$oid1];
 				if ( $v12 > $v21 ) {
 					# Direct victory
-					$strengths[$oid1][$oid2] = [ $v12, $v21 ];
+					$strengths[$oid1][$oid2] = [
+						$v12,
+						$v21
+					];
 				} else {
 					# Direct loss
-					$strengths[$oid1][$oid2] = [ 0, 0 ];
+					$strengths[$oid1][$oid2] = [
+						0,
+						0
+					];
 				}
 			}
 		}
@@ -104,6 +110,7 @@ class SecurePoll_SchulzeTallier extends SecurePoll_PairwiseTallier {
 			$currentRank += count( $winners );
 			$unusedIds = array_diff( $unusedIds, array_keys( $winners ) );
 		}
+
 		return $ranks;
 	}
 
@@ -143,17 +150,20 @@ class SecurePoll_SchulzeTallier extends SecurePoll_PairwiseTallier {
 
 		$s .= '<h2>' . wfMessage( 'securepoll-strength-matrix' )->parse() . "</h2>\n";
 		$s .= $this->convertMatrixToHtml( $this->strengths, $rankedIds );
+
 		return $s;
 	}
 
 	public function getTextResult() {
 		$rankedIds = array_keys( $this->ranks );
 
-		return wfMessage( 'securepoll-ranks' )->text() . "\n" .
-			$this->convertRanksToText( $this->ranks ) . "\n\n" .
-			wfMessage( 'securepoll-pairwise-victories' )->text() . "\n" .
-			$this->convertMatrixToText( $this->victories, $rankedIds ) . "\n\n" .
-			wfMessage( 'securepoll-strength-matrix' )->text() . "\n" .
-			$this->convertMatrixToText( $this->strengths, $rankedIds );
+		return wfMessage( 'securepoll-ranks' )->text() . "\n" . $this->convertRanksToText(
+				$this->ranks
+			) . "\n\n" . wfMessage( 'securepoll-pairwise-victories' )->text(
+			) . "\n" . $this->convertMatrixToText(
+				$this->victories,
+				$rankedIds
+			) . "\n\n" . wfMessage( 'securepoll-strength-matrix' )->text(
+			) . "\n" . $this->convertMatrixToText( $this->strengths, $rankedIds );
 	}
 }

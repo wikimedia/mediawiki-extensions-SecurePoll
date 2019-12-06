@@ -21,6 +21,7 @@ class SecurePoll_MemoryStore implements SecurePoll_Store {
 			}
 			$electionIds[] = $info['id'];
 		}
+
 		return $electionIds;
 	}
 
@@ -28,6 +29,7 @@ class SecurePoll_MemoryStore implements SecurePoll_Store {
 		if ( !isset( $this->messages[$lang] ) ) {
 			return [];
 		}
+
 		return array_intersect_key( $this->messages[$lang], array_flip( $ids ) );
 	}
 
@@ -41,24 +43,27 @@ class SecurePoll_MemoryStore implements SecurePoll_Store {
 				}
 			}
 		}
+
 		return $langs;
 	}
 
 	public function getProperties( $ids ) {
 		$ids = (array)$ids;
+
 		return array_intersect_key( $this->properties, array_flip( $ids ) );
 	}
 
 	public function getElectionInfo( $ids ) {
 		$ids = (array)$ids;
+
 		return array_intersect_key( $this->entityInfo, array_flip( $ids ) );
 	}
 
 	public function getElectionInfoByTitle( $names ) {
 		$names = (array)$names;
 		$ids = array_intersect_key( $this->idsByName, array_flip( $names ) );
-		$info = array_intersect_key( $this->entityInfo, array_flip( $ids ) );
-		return $info;
+
+		return array_intersect_key( $this->entityInfo, array_flip( $ids ) );
 	}
 
 	public function getQuestionInfo( $electionId ) {
@@ -66,13 +71,16 @@ class SecurePoll_MemoryStore implements SecurePoll_Store {
 	}
 
 	public function decodeElectionRow( $row ) {
-		throw new MWException( 'Internal error: attempt to use decodeElectionRow() with ' .
-			'a storage class that doesn\'t support it.' );
+		throw new MWException(
+			'Internal error: attempt to use decodeElectionRow() with ' .
+			'a storage class that doesn\'t support it.'
+		);
 	}
 
 	public function getDB( $index = DB_MASTER ) {
-		throw new MWException( 'Internal error: attempt to use getDB() when the database ' .
-			'is disabled.' );
+		throw new MWException(
+			'Internal error: attempt to use getDB() when the database is disabled.'
+		);
 	}
 
 	public function callbackValidVotes( $electionId, $callback, $voterId = null ) {
@@ -85,12 +93,11 @@ class SecurePoll_MemoryStore implements SecurePoll_Store {
 				return $status;
 			}
 		}
+
 		return Status::newGood();
 	}
 
 	public function getEntityType( $id ) {
-		return isset( $this->entityInfo[$id] )
-			? $this->entityInfo[$id]['type']
-			: false;
+		return isset( $this->entityInfo[$id] ) ? $this->entityInfo[$id]['type'] : false;
 	}
 }

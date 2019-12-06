@@ -62,6 +62,7 @@ class SecurePoll_GpgCrypt {
 			$status = $that->importKey( $key );
 		}
 		$that->deleteHome();
+
 		return $status->isOK() ? true : $status->getMessage();
 	}
 
@@ -76,6 +77,7 @@ class SecurePoll_GpgCrypt {
 			$status = $that->importKey( $key );
 		}
 		$that->deleteHome();
+
 		return $status->isOK() ? true : $status->getMessage();
 	}
 
@@ -104,6 +106,7 @@ class SecurePoll_GpgCrypt {
 		$this->homeDir = $wgSecurePollTempDir . '/securepoll-' . MWCryptRand::generateHex( 40 );
 		if ( !mkdir( $this->homeDir ) ) {
 			$this->homeDir = null;
+
 			return Status::newFatal( 'securepoll-no-gpg-home' );
 		}
 		chmod( $this->homeDir, 0700 );
@@ -150,6 +153,7 @@ class SecurePoll_GpgCrypt {
 		} else {
 			$this->signer = null;
 		}
+
 		return Status::newGood();
 	}
 
@@ -169,6 +173,7 @@ class SecurePoll_GpgCrypt {
 		if ( !preg_match( '/^gpg: key (\w+):/m', $status->value, $m ) ) {
 			return Status::newFatal( 'securepoll-gpg-parse-error' );
 		}
+
 		return Status::newGood( $m[1] );
 	}
 
@@ -185,7 +190,7 @@ class SecurePoll_GpgCrypt {
 		}
 		// @codingStandardsIgnoreStart
 		while ( false !== ( $file = readdir( $dir ) ) ) {
-		// @codingStandardsIgnoreEnd
+			// @codingStandardsIgnoreEnd
 			if ( $file == '.' || $file == '..' ) {
 				continue;
 			}
@@ -208,20 +213,23 @@ class SecurePoll_GpgCrypt {
 		$params = array_merge(
 			[
 				$wgSecurePollGPGCommand,
-				'--homedir', $this->homeDir,
-				'--trust-model', 'always',
-				'--batch', '--yes',
+				'--homedir',
+				$this->homeDir,
+				'--trust-model',
+				'always',
+				'--batch',
+				'--yes',
 			],
 			$params
 		);
-		$command = Shell::command( $params )
-			->includeStderr();
+		$command = Shell::command( $params )->includeStderr();
 
 		$result = $command->execute();
 
 		if ( $result->getExitCode() ) {
 			if ( $wgSecurePollShowErrorDetail ) {
-				return Status::newFatal( 'securepoll-full-gpg-error',
+				return Status::newFatal(
+					'securepoll-full-gpg-error',
 					(string)$command,
 					$result->getStdout()
 				);
@@ -243,6 +251,7 @@ class SecurePoll_GpgCrypt {
 		$status = $this->setupHomeAndKeys();
 		if ( !$status->isOK() ) {
 			$this->deleteHome();
+
 			return $status;
 		}
 
@@ -255,17 +264,19 @@ class SecurePoll_GpgCrypt {
 				'--encrypt',
 				'--armor',
 				# Don't use compression, this may leak information about the plaintext
-				'--compress-level', '0',
-				'--recipient', $this->recipient,
+				'--compress-level',
+				'0',
+				'--recipient',
+				$this->recipient,
 			],
-			$this->signer !== null
-				? [
-					'--sign',
-					'--local-user', $this->signer,
-				]
-				: [],
+			$this->signer !== null ? [
+				'--sign',
+				'--local-user',
+				$this->signer,
+			] : [],
 			[
-				'--output', "{$this->homeDir}/output",
+				'--output',
+				"{$this->homeDir}/output",
 				"{$this->homeDir}/input",
 			]
 		);
@@ -278,6 +289,7 @@ class SecurePoll_GpgCrypt {
 
 		# Delete temporary files
 		$this->deleteHome();
+
 		return $status;
 	}
 
@@ -291,6 +303,7 @@ class SecurePoll_GpgCrypt {
 		$status = $this->setupHomeAndKeys();
 		if ( !$status->isOK() ) {
 			$this->deleteHome();
+
 			return $status;
 		}
 
@@ -298,6 +311,7 @@ class SecurePoll_GpgCrypt {
 		$decryptKey = strval( $this->election->getProperty( 'gpg-decrypt-key' ) );
 		if ( $decryptKey === '' ) {
 			$this->deleteHome();
+
 			return Status::newFatal( 'securepoll-no-decryption-key' );
 		}
 		$this->importKey( $decryptKey );
@@ -308,7 +322,8 @@ class SecurePoll_GpgCrypt {
 		# Call GPG
 		$status = $this->runGpg(
 			'--decrypt',
-			'--output', "{$this->homeDir}/output",
+			'--output',
+			"{$this->homeDir}/output",
 			"{$this->homeDir}/input"
 		);
 
@@ -319,6 +334,7 @@ class SecurePoll_GpgCrypt {
 
 		# Delete temporary files
 		$this->deleteHome();
+
 		return $status;
 	}
 
@@ -327,6 +343,7 @@ class SecurePoll_GpgCrypt {
 	 */
 	public function canDecrypt() {
 		$decryptKey = strval( $this->election->getProperty( 'gpg-decrypt-key' ) );
+
 		return $decryptKey !== '';
 	}
 

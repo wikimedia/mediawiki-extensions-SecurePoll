@@ -23,13 +23,21 @@ class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
 	public function requestLogin( $election ) {
 		global $wgRequest, $wgSecurePollScript, $wgConf;
 
-		$urlParamNames = [ 'id', 'token', 'wiki', 'site', 'lang', 'domain' ];
+		$urlParamNames = [
+			'id',
+			'token',
+			'wiki',
+			'site',
+			'lang',
+			'domain'
+		];
 		$vars = [];
 		$params = [];
 		foreach ( $urlParamNames as $name ) {
 			$value = $wgRequest->getVal( $name );
 			if ( !preg_match( '/^[\w.-]*$/', $value ) ) {
 				wfDebug( __METHOD__ . " Invalid parameter: $name\n" );
+
 				return false;
 			}
 			$params[$name] = $value;
@@ -55,9 +63,9 @@ class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
 		// does, the correct value is $params['site'] unless there is a string
 		// back-mapping for it in $wgConf->suffixes.
 		$suffixes = array_flip( $wgConf->suffixes );
-		$suffix = isset( $suffixes[$params['site']] ) && is_string( $suffixes[$params['site']] )
-			? $suffixes[$params['site']]
-			: $params['site'];
+		$suffix = isset( $suffixes[$params['site']] ) && is_string(
+			$suffixes[$params['site']]
+		) ? $suffixes[$params['site']] : $params['site'];
 
 		$server = $wgConf->get( 'wgServer', $params['wiki'], $suffix, $params );
 		$params['wgServer'] = $server;
@@ -68,15 +76,19 @@ class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
 		if ( substr( $url, -1 ) != '/' ) {
 			$url .= '/';
 		}
-		$url .= $wgSecurePollScript . '?' .
-			wfArrayToCgi( [
-				'token' => $params['token'],
-				'id' => $params['id']
-			] );
+		$url .= $wgSecurePollScript . '?' . wfArrayToCgi(
+				[
+					'token' => $params['token'],
+					'id' => $params['id']
+				]
+			);
 
 		// Use the default SSL certificate file
 		// Necessary on some versions of cURL, others do this by default
-		$curlParams = [ CURLOPT_CAINFO => '/etc/ssl/certs/ca-certificates.crt', 'timeout' => 20 ];
+		$curlParams = [
+			CURLOPT_CAINFO => '/etc/ssl/certs/ca-certificates.crt',
+			'timeout' => 20
+		];
 
 		$value = Http::get( $url, $curlParams, __METHOD__ );
 

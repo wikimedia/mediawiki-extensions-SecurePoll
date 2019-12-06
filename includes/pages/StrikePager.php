@@ -19,7 +19,10 @@ class SecurePoll_StrikePager extends TablePager {
 
 	public function getQueryInfo() {
 		return [
-			'tables' => [ 'user', 'securepoll_strike' ],
+			'tables' => [
+				'user',
+				'securepoll_strike'
+			],
 			'fields' => '*',
 			'conds' => [
 				'st_vote' => $this->voteId,
@@ -31,12 +34,12 @@ class SecurePoll_StrikePager extends TablePager {
 
 	public function formatValue( $name, $value ) {
 		switch ( $name ) {
-		case 'st_user':
-			return Linker::userLink( $value, $this->mCurrentRow->user_name );
-		case 'st_timestamp':
-			return $this->getLanguage()->timeanddate( $value );
-		default:
-			return htmlspecialchars( $value );
+			case 'st_user':
+				return Linker::userLink( $value, $this->mCurrentRow->user_name );
+			case 'st_timestamp':
+				return $this->getLanguage()->timeanddate( $value );
+			default:
+				return htmlspecialchars( $value );
 		}
 	}
 

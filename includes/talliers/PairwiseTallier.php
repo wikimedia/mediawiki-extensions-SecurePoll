@@ -29,6 +29,7 @@ abstract class SecurePoll_PairwiseTallier extends SecurePoll_Tallier {
 		foreach ( $this->optionIds as $oid1 ) {
 			if ( !isset( $ranks[$oid1] ) ) {
 				wfDebug( "Invalid vote record, missing option $oid1\n" );
+
 				return false;
 			}
 			foreach ( $this->optionIds as $oid2 ) {
@@ -38,6 +39,7 @@ abstract class SecurePoll_PairwiseTallier extends SecurePoll_Tallier {
 				}
 			}
 		}
+
 		return true;
 	}
 
@@ -66,6 +68,7 @@ abstract class SecurePoll_PairwiseTallier extends SecurePoll_Tallier {
 			}
 			$this->abbrevs = array_flip( $abbrevs );
 		}
+
 		return $this->abbrevs;
 	}
 
@@ -86,6 +89,7 @@ abstract class SecurePoll_PairwiseTallier extends SecurePoll_Tallier {
 			}
 			$this->rowLabels[$format] = $rowLabels;
 		}
+
 		return $this->rowLabels[$format];
 	}
 
@@ -107,8 +111,11 @@ abstract class SecurePoll_PairwiseTallier extends SecurePoll_Tallier {
 		foreach ( $rankedIds as $oid1 ) {
 			# Header column
 			$s .= "<tr>\n";
-			$s .= Xml::tags( 'td', [ 'class' => 'securepoll-results-row-heading' ],
-				$rowLabels[$oid1] );
+			$s .= Xml::tags(
+				'td',
+				[ 'class' => 'securepoll-results-row-heading' ],
+				$rowLabels[$oid1]
+			);
 			# Rest of the matrix
 			foreach ( $rankedIds as $oid2 ) {
 				if ( isset( $matrix[$oid1][$oid2] ) ) {
@@ -124,6 +131,7 @@ abstract class SecurePoll_PairwiseTallier extends SecurePoll_Tallier {
 			$s .= "</tr>\n";
 		}
 		$s .= "</table>";
+
 		return $s;
 	}
 
@@ -180,6 +188,7 @@ abstract class SecurePoll_PairwiseTallier extends SecurePoll_Tallier {
 			}
 			$s .= "\n";
 		}
+
 		return $s;
 	}
 

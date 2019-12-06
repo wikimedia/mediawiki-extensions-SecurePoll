@@ -20,8 +20,14 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 			'endDate',
 			'auth'
 		],
-		'question' => [ 'id', 'election' ],
-		'option' => [ 'id', 'election' ],
+		'question' => [
+			'id',
+			'election'
+		],
+		'option' => [
+			'id',
+			'election'
+		],
 	];
 
 	/** The type of each entity child and its corresponding (plural) info element */
@@ -32,7 +38,11 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 	];
 
 	/** All entity types */
-	private static $entityTypes = [ 'election', 'question', 'option' ];
+	private static $entityTypes = [
+		'election',
+		'question',
+		'option'
+	];
 
 	/**
 	 * Constructor. Note that readFile() must be called before any information
@@ -58,6 +68,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 		$success = $this->doTopLevel();
 		$xr->close();
 		$this->xmlReader = null;
+
 		return $success;
 	}
 
@@ -70,10 +81,13 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 
 		# Check document element
 		// @codingStandardsIgnoreStart
-		while ( $xr->read() && $xr->nodeType !== XMLReader::ELEMENT );
+		while ( $xr->read() && $xr->nodeType !== XMLReader::ELEMENT ) {
+			;
+		}
 		// @codingStandardsIgnoreEnd
 		if ( $xr->name != 'SecurePoll' ) {
 			wfDebug( __METHOD__ . ": invalid document element\n" );
+
 			return false;
 		}
 
@@ -88,6 +102,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 				return false;
 			}
 		}
+
 		return true;
 	}
 
@@ -100,6 +115,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 		$xr = $this->xmlReader;
 		if ( $xr->isEmptyElement ) {
 			wfDebug( __METHOD__ . ": unexpected empty element\n" );
+
 			return false;
 		}
 		$xr->read();
@@ -125,13 +141,12 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 
 			if ( $xr->name === 'vote' ) {
 				# Notify tallier of vote record if requested
-				if ( $this->voteCallback && $electionInfo
-					&& $electionInfo['id'] == $this->voteElectionId
-				) {
+				if ( $this->voteCallback && $electionInfo && $electionInfo['id'] == $this->voteElectionId ) {
 					$record = $this->readStringElement();
 					$status = call_user_func( $this->voteCallback, $this, $record );
 					if ( !$status->isOK() ) {
 						$this->voteCallbackStatus = $status;
+
 						return false;
 					}
 				} else {
@@ -144,6 +159,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 			$xr->next();
 		}
 		wfDebug( __METHOD__ . ": unexpected end of stream\n" );
+
 		return false;
 	}
 
@@ -164,6 +180,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 		if ( $xr->isEmptyElement ) {
 			wfDebug( __METHOD__ . ": unexpected empty element\n" );
 			$xr->read();
+
 			return false;
 		}
 		$xr->read();
@@ -171,6 +188,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 		while ( true ) {
 			if ( $xr->nodeType === XMLReader::NONE ) {
 				wfDebug( __METHOD__ . ": unexpected end of stream\n" );
+
 				return false;
 			}
 			if ( $xr->nodeType === XMLReader::END_ELEMENT ) {
@@ -226,6 +244,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 
 		if ( !isset( $info['id'] ) ) {
 			wfDebug( __METHOD__ . ": missing id element in <$entityType>\n" );
+
 			return false;
 		}
 
@@ -242,6 +261,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 			$this->messages[$lang][$id] = $values;
 		}
 		$this->properties[$id] = $properties;
+
 		return $info;
 	}
 
@@ -273,6 +293,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 		$xr = $this->xmlReader;
 		if ( $xr->isEmptyElement ) {
 			$xr->read();
+
 			return '';
 		}
 		$s = '';
@@ -291,6 +312,7 @@ class SecurePoll_XMLStore extends SecurePoll_MemoryStore {
 				continue;
 			}
 		}
+
 		return $s;
 	}
 

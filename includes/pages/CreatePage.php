@@ -24,10 +24,12 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 			$this->election = $this->context->getElection( $electionId );
 			if ( !$this->election ) {
 				$out->addWikiMsg( 'securepoll-invalid-election', $electionId );
+
 				return;
 			}
 			if ( !$this->election->isAdmin( $this->specialPage->getUser() ) ) {
 				$out->addWikiMsg( 'securepoll-need-admin' );
+
 				return;
 			}
 
@@ -49,7 +51,8 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 					$wiki = $this->msg( 'securepoll-edit-redirect-otherwiki' )->text();
 				}
 
-				$out->addWikiMsg( 'securepoll-edit-redirect',
+				$out->addWikiMsg(
+					'securepoll-edit-redirect',
 					Message::rawParam( Linker::makeExternalLink( $jumpUrl, $wiki ) )
 				);
 
@@ -123,8 +126,8 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 				unset( $wikiNames[$key] );
 			}
 			if ( $wikiNames ) {
-				$opts[$this->msg( 'securepoll-create-option-wiki-other_wiki' )->plain()] =
-					$wikiNames;
+				$opts[$this->msg( 'securepoll-create-option-wiki-other_wiki' )->plain(
+				)] = $wikiNames;
 			}
 			$formItems['property_wiki'] = [
 				'type' => 'select',
@@ -187,9 +190,17 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 				'type' => 'text',
 			];
 			if ( $formItems['property_wiki']['type'] === 'select' ) {
-				$formItems['jump-text']['hide-if'] = [ '===', 'property_wiki', wfWikiId() ];
+				$formItems['jump-text']['hide-if'] = [
+					'===',
+					'property_wiki',
+					wfWikiId()
+				];
 			} else {
-				$formItems['jump-text']['hide-if'] = [ '===', 'property_wiki-select', wfWikiId() ];
+				$formItems['jump-text']['hide-if'] = [
+					'===',
+					'property_wiki-select',
+					wfWikiId()
+				];
 			}
 		}
 
@@ -215,7 +226,8 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 			$formItems['election_crypt'] = [
 				'type' => 'hidden',
 				'default' => key( SecurePoll_Crypt::$cryptTypes ),
-				'options-messages' => [], // dummy, ignored
+				'options-messages' => [],
+				// dummy, ignored
 			];
 		}
 
@@ -242,7 +254,10 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 				'username' => [
 					'type' => 'text',
 					'required' => true,
-					'validation-callback' => [ $this, 'checkUsername' ],
+					'validation-callback' => [
+						$this,
+						'checkUsername'
+					],
 				],
 			],
 		];
@@ -284,23 +299,35 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 		$tallyTypes = [];
 		foreach ( SecurePoll_Ballot::$ballotTypes as $ballotType => $ballotClass ) {
 			$types = [];
-			foreach ( call_user_func_array( [ $ballotClass, 'getTallyTypes' ], [] )
-				as $tallyType
+			foreach (
+				call_user_func_array( [ $ballotClass, 'getTallyTypes' ], [] ) as $tallyType
 			) {
 				$type = "$ballotType+$tallyType";
 				$types[] = $type;
 				$tallyTypes[$tallyType][] = $type;
 				$formItems['election_type']['options-messages']
-					["securepoll-create-option-election_type-$type"] = $type;
+				["securepoll-create-option-election_type-$type"] = $type;
 			}
 			self::processFormItems(
-				$formItems, 'election_type', $types, $ballotClass, 'election'
+				$formItems,
+				'election_type',
+				$types,
+				$ballotClass,
+				'election'
 			);
 			self::processFormItems(
-				$questionFields, 'election_type', $types, $ballotClass, 'question'
+				$questionFields,
+				'election_type',
+				$types,
+				$ballotClass,
+				'question'
 			);
 			self::processFormItems(
-				$optionFields, 'election_type', $types, $ballotClass, 'option'
+				$optionFields,
+				'election_type',
+				$types,
+				$ballotClass,
+				'option'
 			);
 		}
 
@@ -309,28 +336,52 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 				continue;
 			}
 			self::processFormItems(
-				$formItems, 'election_type', $tallyTypes[$type], $class, 'election'
+				$formItems,
+				'election_type',
+				$tallyTypes[$type],
+				$class,
+				'election'
 			);
 			self::processFormItems(
-				$questionFields, 'election_type', $tallyTypes[$type], $class, 'question'
+				$questionFields,
+				'election_type',
+				$tallyTypes[$type],
+				$class,
+				'question'
 			);
 			self::processFormItems(
-				$optionFields, 'election_type', $tallyTypes[$type], $class, 'option'
+				$optionFields,
+				'election_type',
+				$tallyTypes[$type],
+				$class,
+				'option'
 			);
 		}
 
 		foreach ( SecurePoll_Crypt::$cryptTypes as $type => $class ) {
 			$formItems['election_crypt']['options-messages']
-				["securepoll-create-option-election_crypt-$type"] = $type;
+			["securepoll-create-option-election_crypt-$type"] = $type;
 			if ( $class !== false ) {
 				self::processFormItems(
-					$formItems, 'election_crypt', $type, $class, 'election'
+					$formItems,
+					'election_crypt',
+					$type,
+					$class,
+					'election'
 				);
 				self::processFormItems(
-					$questionFields, 'election_crypt', $type, $class, 'question'
+					$questionFields,
+					'election_crypt',
+					$type,
+					$class,
+					'question'
 				);
 				self::processFormItems(
-					$optionFields, 'election_crypt', $type, $class, 'option'
+					$optionFields,
+					'election_crypt',
+					$type,
+					$class,
+					'option'
 				);
 			}
 		}
@@ -360,20 +411,29 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 			];
 		}
 
-		$form = HTMLForm::factory( 'div', $formItems, $this->specialPage->getContext(),
+		$form = HTMLForm::factory(
+			'div',
+			$formItems,
+			$this->specialPage->getContext(),
 			$this->election ? 'securepoll-edit' : 'securepoll-create'
 		);
 
 		$form->setSubmitTextMsg(
 			$this->election ? 'securepoll-edit-action' : 'securepoll-create-action'
 		);
-		$form->setSubmitCallback( [ $this, 'processInput' ] );
+		$form->setSubmitCallback(
+			[
+				$this,
+				'processInput'
+			]
+		);
 		$form->prepareForm();
 
 		// If this isn't the result of a POST, load the data from the election
 		$request = $this->specialPage->getRequest();
-		if ( $this->election &&
-			!( $request->wasPosted() && $request->getCheck( 'wpEditToken' ) )
+		if ( $this->election && !( $request->wasPosted() && $request->getCheck(
+					'wpEditToken'
+				) )
 		) {
 			$form->mFieldData = $this->getFormDataFromElection( $this->election );
 		}
@@ -419,8 +479,10 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 				[ 'FOR UPDATE' ]
 			);
 			if ( $id && (int)$id !== $election->getId() ) {
-				throw new SecurePoll_StatusException( 'securepoll-create-duplicate-title',
-					SecurePoll_FormStore::getWikiName( wfWikiId() ), wfWikiID()
+				throw new SecurePoll_StatusException(
+					'securepoll-create-duplicate-title',
+					SecurePoll_FormStore::getWikiName( wfWikiId() ),
+					wfWikiID()
 				);
 			}
 
@@ -434,7 +496,10 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 
 					// Find an existing dummy election, if any
 					$rId = $rdbw->selectField(
-						[ 'p1' => 'securepoll_properties', 'p2' => 'securepoll_properties' ],
+						[
+							'p1' => 'securepoll_properties',
+							'p2' => 'securepoll_properties'
+						],
 						'p1.pr_entity',
 						[
 							'p1.pr_entity = p2.pr_entity',
@@ -445,15 +510,21 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 						]
 					);
 					// Test for duplicate title
-					$id = $rdbw->selectField( 'securepoll_elections', 'el_entity', [
-						'el_title' => $formData['election_title']
-					] );
+					$id = $rdbw->selectField(
+						'securepoll_elections',
+						'el_entity',
+						[
+							'el_title' => $formData['election_title']
+						]
+					);
 
 					$lb->reuseConnection( $rdbw );
 
 					if ( $id && $id !== $rId ) {
-						throw new SecurePoll_StatusException( 'securepoll-create-duplicate-title',
-							SecurePoll_FormStore::getWikiName( $dbname ), $dbname
+						throw new SecurePoll_StatusException(
+							'securepoll-create-duplicate-title',
+							SecurePoll_FormStore::getWikiName( $dbname ),
+							$dbname
 						);
 					}
 				}
@@ -465,11 +536,18 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 		// Ok, begin the actual work
 		$dbw->startAtomic( __METHOD__ );
 		if ( $election->getId() > 0 ) {
-			$id = $dbw->selectField( 'securepoll_elections', 'el_entity', [
-				'el_entity' => $election->getId()
-			], __METHOD__, [ 'FOR UPDATE' ] );
+			$id = $dbw->selectField(
+				'securepoll_elections',
+				'el_entity',
+				[
+					'el_entity' => $election->getId()
+				],
+				__METHOD__,
+				[ 'FOR UPDATE' ]
+			);
 			if ( !$id ) {
 				$dbw->endAtomic( __METHOD__ );
+
 				return Status::newFatal( 'securepoll-create-fail-id-missing' );
 			}
 		}
@@ -528,7 +606,8 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 			if ( !in_array( $qId, $qIds ) ) {
 				$qId = self::insertEntity( $dbw, 'question' );
 			}
-			$dbw->replace( 'securepoll_questions',
+			$dbw->replace(
+				'securepoll_questions',
 				[ 'qu_entity' ],
 				[
 					'qu_entity' => $qId,
@@ -544,7 +623,8 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 				if ( !in_array( $oId, $oIds ) ) {
 					$oId = self::insertEntity( $dbw, 'option' );
 				}
-				$dbw->replace( 'securepoll_options',
+				$dbw->replace(
+					'securepoll_options',
 					[ 'op_entity' ],
 					[
 						'op_entity' => $oId,
@@ -567,7 +647,10 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 				$dbw->startAtomic( __METHOD__ );
 				// Find an existing dummy election, if any
 				$rId = $dbw->selectField(
-					[ 'p1' => 'securepoll_properties', 'p2' => 'securepoll_properties' ],
+					[
+						'p1' => 'securepoll_properties',
+						'p2' => 'securepoll_properties'
+					],
 					'p1.pr_entity',
 					[
 						'p1.pr_entity = p2.pr_entity',
@@ -582,7 +665,8 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 				}
 
 				// Insert it! We don't have to care about questions or options here.
-				$dbw->replace( 'securepoll_elections',
+				$dbw->replace(
+					'securepoll_elections',
 					[ 'el_entity' ],
 					[
 						'el_entity' => $rId,
@@ -599,9 +683,13 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 				self::savePropertiesAndMessages( $dbw, $rId, $election );
 
 				// Fix jump-id
-				$dbw->update( 'securepoll_properties',
+				$dbw->update(
+					'securepoll_properties',
 					[ 'pr_value' => $eId ],
-					[ 'pr_entity' => $rId, 'pr_key' => 'jump-id' ],
+					[
+						'pr_entity' => $rId,
+						'pr_key' => 'jump-id'
+					],
 					__METHOD__
 				);
 				$dbw->endAtomic( __METHOD__ );
@@ -625,7 +713,9 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 			$wp->doEditContent( $content, $formData['comment'] );
 
 			list( $title, $content ) = SecurePollContentHandler::makeContentFromElection(
-				$election, 'msg/' . $election->getLanguage() );
+				$election,
+				'msg/' . $election->getLanguage()
+			);
 			$wp = WikiPage::factory( $title );
 			$wp->doEditContent( $content, $formData['comment'] );
 		}
@@ -667,9 +757,7 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 			'jump-text' => $m['jump-text'] ?? null,
 			'election_type' => "{$ballot}+{$tally}",
 			'election_crypt' => $crypt,
-			'disallow-change' => isset( $p['disallow-change'] )
-				? (bool)$p['disallow-change']
-				: null,
+			'disallow-change' => isset( $p['disallow-change'] ) ? (bool)$p['disallow-change'] : null,
 			'voter-privacy' => isset( $p['voter-privacy'] ) ? (bool)$p['voter-privacy'] : null,
 			'property_admins' => [],
 			'questions' => [],
@@ -748,7 +836,8 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 	 */
 	private static function insertEntity( $dbw, $type ) {
 		$id = $dbw->nextSequenceValue( 'securepoll_en_id_seq' );
-		$dbw->insert( 'securepoll_entity',
+		$dbw->insert(
+			'securepoll_entity',
 			[
 				'en_id' => $id,
 				'en_type' => $type,
@@ -756,6 +845,7 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 			__METHOD__
 		);
 		$id = $dbw->insertId();
+
 		return $id;
 	}
 
@@ -777,7 +867,12 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 		}
 		$dbw->replace(
 			'securepoll_properties',
-			[ [ 'pr_entity', 'pr_key' ] ],
+			[
+				[
+					'pr_entity',
+					'pr_key'
+				]
+			],
 			$properties,
 			__METHOD__
 		);
@@ -799,7 +894,13 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 		}
 		$dbw->replace(
 			'securepoll_msgs',
-			[ [ 'msg_entity', 'msg_lang', 'msg_key' ] ],
+			[
+				[
+					'msg_entity',
+					'msg_lang',
+					'msg_key'
+				]
+			],
 			$messages,
 			__METHOD__
 		);
@@ -816,14 +917,18 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 	 *    expected to return an array with subarrays for different categories
 	 *    of descriptors, and this selects which subarray to process.
 	 */
-	private static function processFormItems(
-		&$outItems, $field, $types, $class, $category = null
-	) {
+	private static function processFormItems( &$outItems, $field, $types, $class, $category = null ) {
 		if ( $class === false ) {
 			return;
 		}
 
-		$items = call_user_func_array( [ $class, 'getCreateDescriptors' ], [] );
+		$items = call_user_func_array(
+			[
+				$class,
+				'getCreateDescriptors'
+			],
+			[]
+		);
 
 		if ( !is_array( $types ) ) {
 			$types = [ $types ];
@@ -839,9 +944,14 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 		foreach ( $items as $key => $item ) {
 			if ( !isset( $outItems[$key] ) ) {
 				if ( !isset( $item['hide-if'] ) ) {
-					$item['hide-if'] = [ 'OR', [ 'AND' ] ];
+					$item['hide-if'] = [
+						'OR',
+						[ 'AND' ]
+					];
 				} else {
-					$item['hide-if'] = [ 'OR', [ 'AND' ],
+					$item['hide-if'] = [
+						'OR',
+						[ 'AND' ],
 						$item['hide-if']
 					];
 				}
@@ -850,7 +960,11 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 				// @todo Detect if this is really the same descriptor?
 			}
 			foreach ( $types as $type ) {
-				$outItems[$key]['hide-if'][1][] = [ '!==', $field, $type ];
+				$outItems[$key]['hide-if'][1][] = [
+					'!==',
+					$field,
+					$type
+				];
 			}
 		}
 	}
@@ -870,7 +984,13 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 			return;
 		}
 
-		$items = call_user_func_array( [ $class, 'getCreateDescriptors' ], [] );
+		$items = call_user_func_array(
+			[
+				$class,
+				'getCreateDescriptors'
+			],
+			[]
+		);
 
 		if ( $category ) {
 			if ( !isset( $items[$category] ) ) {

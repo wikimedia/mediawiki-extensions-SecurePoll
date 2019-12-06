@@ -10,6 +10,7 @@ class SecurePoll_MessageDumpPage extends SecurePoll_ActionPage {
 
 		if ( !count( $params ) ) {
 			$out->addWikiMsg( 'securepoll-too-few-params' );
+
 			return;
 		}
 
@@ -17,6 +18,7 @@ class SecurePoll_MessageDumpPage extends SecurePoll_ActionPage {
 		$this->election = $this->context->getElection( $electionId );
 		if ( !$this->election ) {
 			$out->addWikiMsg( 'securepoll-invalid-election', $electionId );
+
 			return;
 		}
 
@@ -35,7 +37,8 @@ class SecurePoll_MessageDumpPage extends SecurePoll_ActionPage {
 			'securepoll_msgs',
 			'*',
 			[ 'msg_entity' => $ids ],
-			__METHOD__ );
+			__METHOD__
+		);
 		if ( !$res->numRows() ) {
 			return;
 		}
@@ -53,7 +56,16 @@ class SecurePoll_MessageDumpPage extends SecurePoll_ActionPage {
 			} else {
 				echo ",\n";
 			}
-			echo '(' . implode( ', ', array_map( [ $dbr, 'addQuotes' ], $values ) ) . ')';
+			echo '(' . implode(
+					', ',
+					array_map(
+						[
+							$dbr,
+							'addQuotes'
+						],
+						$values
+					)
+				) . ')';
 		}
 		echo ";\n";
 	}

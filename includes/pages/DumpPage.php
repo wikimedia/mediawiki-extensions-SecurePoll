@@ -15,6 +15,7 @@ class SecurePoll_DumpPage extends SecurePoll_ActionPage {
 
 		if ( !count( $params ) ) {
 			$out->addWikiMsg( 'securepoll-too-few-params' );
+
 			return;
 		}
 
@@ -22,30 +23,45 @@ class SecurePoll_DumpPage extends SecurePoll_ActionPage {
 		$this->election = $this->context->getElection( $electionId );
 		if ( !$this->election ) {
 			$out->addWikiMsg( 'securepoll-invalid-election', $electionId );
+
 			return;
 		}
 		$this->initLanguage( $this->specialPage->getUser(), $this->election );
 
-		$out->setPageTitle( $this->msg( 'securepoll-dump-title',
-			$this->election->getMessage( 'title' ) )->text() );
+		$out->setPageTitle(
+			$this->msg(
+				'securepoll-dump-title',
+				$this->election->getMessage( 'title' )
+			)->text()
+		);
 
 		if ( !$this->election->isFinished() ) {
-			$out->addWikiMsg( 'securepoll-dump-not-finished',
+			$out->addWikiMsg(
+				'securepoll-dump-not-finished',
 				$this->specialPage->getLanguage()->date( $this->election->getEndDate() ),
-				$this->specialPage->getLanguage()->time( $this->election->getEndDate() ) );
+				$this->specialPage->getLanguage()->time( $this->election->getEndDate() )
+			);
+
 			return;
 		}
 
 		$isAdmin = $this->election->isAdmin( $this->specialPage->getUser() );
 		if ( $this->election->getProperty( 'voter-privacy' ) && !$isAdmin ) {
 			$out->addWikiMsg( 'securepoll-dump-private' );
+
 			return;
 		}
 
 		$this->headersSent = false;
-		$status = $this->election->dumpVotesToCallback( [ $this, 'dumpVote' ] );
+		$status = $this->election->dumpVotesToCallback(
+			[
+				$this,
+				'dumpVote'
+			]
+		);
 		if ( !$status->isOK() && !$this->headersSent ) {
 			$out->addWikiTextAsInterface( $status->getWikiText() );
+
 			return;
 		}
 		if ( !$this->headersSent ) {
@@ -68,8 +84,7 @@ class SecurePoll_DumpPage extends SecurePoll_ActionPage {
 		$electionId = $this->election->getId();
 		$filename = urlencode( "$electionId-" . wfTimestampNow() . '.securepoll' );
 		header( "Content-Disposition: attachment; filename=$filename" );
-		echo "<SecurePoll>\n<election>\n" .
-			$this->election->getConfXml();
+		echo "<SecurePoll>\n<election>\n" . $this->election->getConfXml();
 		$this->context->setLanguages( [ $this->election->getLanguage() ] );
 	}
 }

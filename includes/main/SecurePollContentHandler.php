@@ -33,6 +33,7 @@ class SecurePollContentHandler extends JsonContentHandler {
 					'gpg-sign-key' => true,
 					'gpg-decrypt-key' => true,
 				];
+
 				foreach ( $properties as $k => $v ) {
 					if ( isset( $blacklist[$k] ) ) {
 						$properties[$k] = '<redacted>';
@@ -151,15 +152,25 @@ class SecurePollContentHandler extends JsonContentHandler {
 	 * @return array ( Title, SecurePollContent )
 	 */
 	public static function makeContentFromElection( SecurePoll_Election $election, $subpage = '' ) {
-		$json = FormatJson::encode( self::getDataFromElection( $election, $subpage, true ),
-			false, FormatJson::ALL_OK );
-		$title = Title::makeTitle( NS_SECUREPOLL, $election->getId() .
-			( $subpage === '' ? '' : "/$subpage" ) );
-		return [ $title, ContentHandler::makeContent( $json, $title, 'SecurePoll' ) ];
+		$json = FormatJson::encode(
+			self::getDataFromElection( $election, $subpage, true ),
+			false,
+			FormatJson::ALL_OK
+		);
+		$title = Title::makeTitle(
+			NS_SECUREPOLL,
+			$election->getId() . ( $subpage === '' ? '' : "/$subpage" )
+		);
+
+		return [
+			$title,
+			ContentHandler::makeContent( $json, $title, 'SecurePoll' )
+		];
 	}
 
 	public function canBeUsedOn( Title $title ) {
 		global $wgSecurePollUseNamespace;
+
 		return $wgSecurePollUseNamespace && $title->getNamespace() == NS_SECUREPOLL;
 	}
 

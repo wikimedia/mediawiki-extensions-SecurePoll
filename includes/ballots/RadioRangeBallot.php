@@ -20,7 +20,10 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 	public $columnLabels, $minMax;
 
 	public static function getTallyTypes() {
-		return [ 'plurality', 'histogram-range' ];
+		return [
+			'plurality',
+			'histogram-range'
+		];
 	}
 
 	public static function getCreateDescriptors() {
@@ -94,11 +97,16 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 				'SecurePoll_type' => 'property',
 			],
 			'column-messages' => [
-				'hide-if' => [ '!==', 'column-label-msgs', '1' ],
+				'hide-if' => [
+					'!==',
+					'column-label-msgs',
+					'1'
+				],
 				'class' => 'SecurePoll_HTMLFormRadioRangeColumnLabels',
 				'SecurePoll_type' => 'messages',
 			],
 		];
+
 		return $ret;
 	}
 
@@ -113,7 +121,11 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 		if ( $max <= $min ) {
 			throw new MWException( __METHOD__ . ': min/max not configured' );
 		}
-		return [ $min, $max ];
+
+		return [
+			$min,
+			$max
+		];
 	}
 
 	/**
@@ -148,6 +160,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 			$left = $max;
 			$right = $min;
 		}
+
 		return range( $left, $right );
 	}
 
@@ -171,6 +184,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 				$labels[$score] = $wgLang->formatNum( $score );
 			}
 		}
+
 		return $labels;
 	}
 
@@ -193,6 +207,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 			$signedScore = $this->addSign( $entity, $score );
 			$msgs[] = "column$signedScore";
 		}
+
 		return $msgs;
 	}
 
@@ -217,9 +232,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 		list( $min, $max ) = $this->getMinMax( $question );
 		$labels = $this->getColumnLabels( $question );
 
-		$s = "<table class=\"securepoll-ballot-table\">\n" .
-			"<tr>\n" .
-			"<th>&#160;</th>\n";
+		$s = "<table class=\"securepoll-ballot-table\">\n" . "<tr>\n" . "<th>&#160;</th>\n";
 		foreach ( $labels as $lab ) {
 			$s .= Html::rawElement( 'th', [], $lab ) . "\n";
 		}
@@ -231,22 +244,28 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 			$optionId = $option->getId();
 			$inputId = "{$name}_opt{$optionId}";
 			$oldValue = $wgRequest->getVal( $inputId, $defaultScore );
-			$s .= "<tr class=\"securepoll-ballot-row\">\n" .
-				Xml::tags( 'td',
+			$s .= "<tr class=\"securepoll-ballot-row\">\n" . Xml::tags(
+					'td',
 					[ 'class' => 'securepoll-ballot-optlabel' ],
 					$this->errorLocationIndicator( $inputId ) . $optionHTML
 				);
 
 			foreach ( $labels as $score => $label ) {
-				$s .=
-					Xml::tags( 'td', [],
-						Xml::radio( $inputId, $score, !strcmp( $oldValue, $score ),
-							[ 'title' => $label ] )
+				$s .= Xml::tags(
+						'td',
+						[],
+						Xml::radio(
+							$inputId,
+							$score,
+							!strcmp( $oldValue, $score ),
+							[ 'title' => $label ]
+						)
 					) . "\n";
 			}
 			$s .= "</tr>\n";
 		}
 		$s .= "</table>\n";
+
 		return $s;
 	}
 
@@ -269,8 +288,12 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 
 			if ( is_numeric( $score ) ) {
 				if ( $score < $min || $score > $max ) {
-					$status->sp_fatal( 'securepoll-invalid-score', $id,
-						$wgLang->formatNum( $min ), $wgLang->formatNum( $max ) );
+					$status->sp_fatal(
+						'securepoll-invalid-score',
+						$id,
+						$wgLang->formatNum( $min ),
+						$wgLang->formatNum( $max )
+					);
 					$ok = false;
 					continue;
 				} else {
@@ -285,13 +308,21 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 					$score = $defaultScore;
 				}
 			} else {
-				$status->sp_fatal( 'securepoll-invalid-score', $id,
-					$wgLang->formatNum( $min ), $wgLang->formatNum( $max ) );
+				$status->sp_fatal(
+					'securepoll-invalid-score',
+					$id,
+					$wgLang->formatNum( $min ),
+					$wgLang->formatNum( $max )
+				);
 				$ok = false;
 				continue;
 			}
-			$record .= sprintf( 'Q%08X-A%08X-S%+011d--',
-				$question->getId(), $option->getId(), $score );
+			$record .= sprintf(
+				'Q%08X-A%08X-S%+011d--',
+				$question->getId(),
+				$option->getId(),
+				$score
+			);
 		}
 		if ( $ok ) {
 			return $record;
@@ -310,10 +341,16 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 			$questions[$question->getId()] = $question;
 		}
 		for ( $offset = 0, $len = strlen( $record ); $offset < $len; $offset += $itemLength ) {
-			if ( !preg_match( '/Q([0-9A-F]{8})-A([0-9A-F]{8})-S([+-][0-9]{10})--/A',
-				$record, $m, 0, $offset )
+			if ( !preg_match(
+				'/Q([0-9A-F]{8})-A([0-9A-F]{8})-S([+-][0-9]{10})--/A',
+				$record,
+				$m,
+				0,
+				$offset
+			)
 			) {
 				wfDebug( __METHOD__ . ": regex doesn't match\n" );
+
 				return false;
 			}
 			$qid = intval( base_convert( $m[1], 16, 10 ) );
@@ -321,15 +358,18 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 			$score = intval( $m[3] );
 			if ( !isset( $questions[$qid] ) ) {
 				wfDebug( __METHOD__ . ": invalid question ID\n" );
+
 				return false;
 			}
 			list( $min, $max ) = $this->getMinMax( $questions[$qid] );
 			if ( $score < $min || $score > $max ) {
 				wfDebug( __METHOD__ . ": score out of range\n" );
+
 				return false;
 			}
 			$scores[$qid][$oid] = $score;
 		}
+
 		return $scores;
 	}
 
@@ -354,6 +394,7 @@ class SecurePoll_RadioRangeBallot extends SecurePoll_Ballot {
 			}
 			$result[$qid] = $s;
 		}
+
 		return $result;
 	}
 }

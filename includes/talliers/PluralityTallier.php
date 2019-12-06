@@ -22,10 +22,12 @@ class SecurePoll_PluralityTallier extends SecurePoll_Tallier {
 		foreach ( $scores as $oid => $score ) {
 			if ( !isset( $this->tally[$oid] ) ) {
 				wfDebug( __METHOD__ . ": unknown OID $oid\n" );
+
 				return false;
 			}
 			$this->tally[$oid] += $score;
 		}
+
 		return true;
 	}
 
@@ -40,11 +42,12 @@ class SecurePoll_PluralityTallier extends SecurePoll_Tallier {
 
 		foreach ( $this->tally as $oid => $rank ) {
 			$option = $this->optionsById[$oid];
-			$s .= '<tr><td>' . $option->parseMessageInline( 'text' ) . "</td>\n" .
-				'<td>' . $this->tally[$oid] . "</td>\n" .
-				"</tr>\n";
+			$s .= '<tr><td>' . $option->parseMessageInline(
+					'text'
+				) . "</td>\n" . '<td>' . $this->tally[$oid] . "</td>\n" . "</tr>\n";
 		}
 		$s .= "</table>\n";
+
 		return $s;
 	}
 
@@ -73,9 +76,9 @@ class SecurePoll_PluralityTallier extends SecurePoll_Tallier {
 			} else {
 				$otext = str_pad( $otext, $width );
 			}
-			$s .= $otext . ' | ' .
-				$this->tally[$option->getId()] . "\n";
+			$s .= $otext . ' | ' . $this->tally[$option->getId()] . "\n";
 		}
+
 		return $s;
 	}
 
@@ -90,6 +93,7 @@ class SecurePoll_PluralityTallier extends SecurePoll_Tallier {
 			}
 			$ranks[$oid] = $currentRank;
 		}
+
 		return $ranks;
 	}
 }

@@ -29,6 +29,7 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 		foreach ( $res as $row ) {
 			$messages[$row->msg_entity][$row->msg_key] = $row->msg_text;
 		}
+
 		return $messages;
 	}
 
@@ -40,11 +41,13 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 			[
 				'msg_entity' => $ids
 			],
-			__METHOD__ );
+			__METHOD__
+		);
 		$langs = [];
 		foreach ( $res as $row ) {
 			$langs[] = $row->msg_lang;
 		}
+
 		return $langs;
 	}
 
@@ -54,11 +57,13 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 			'securepoll_properties',
 			'*',
 			[ 'pr_entity' => $ids ],
-			__METHOD__ );
+			__METHOD__
+		);
 		$properties = [];
 		foreach ( $res as $row ) {
 			$properties[$row->pr_entity][$row->pr_key] = $row->pr_value;
 		}
+
 		return $properties;
 	}
 
@@ -69,11 +74,13 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 			'securepoll_elections',
 			'*',
 			[ 'el_entity' => $ids ],
-			__METHOD__ );
+			__METHOD__
+		);
 		$infos = [];
 		foreach ( $res as $row ) {
 			$infos[$row->el_entity] = $this->decodeElectionRow( $row );
 		}
+
 		return $infos;
 	}
 
@@ -84,11 +91,13 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 			'securepoll_elections',
 			'*',
 			[ 'el_title' => $names ],
-			__METHOD__ );
+			__METHOD__
+		);
 		$infos = [];
 		foreach ( $res as $row ) {
 			$infos[$row->el_title] = $this->decodeElectionRow( $row );
 		}
+
 		return $infos;
 	}
 
@@ -113,6 +122,7 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 				$info[$key] = $row->$field;
 			}
 		}
+
 		return $info;
 	}
 
@@ -123,7 +133,10 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 	public function getQuestionInfo( $electionId ) {
 		$db = $this->getDB();
 		$res = $db->select(
-			[ 'securepoll_questions', 'securepoll_options' ],
+			[
+				'securepoll_questions',
+				'securepoll_options'
+			],
 			'*',
 			[
 				'qu_election' => $electionId,
@@ -161,6 +174,7 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 				'options' => $options
 			];
 		}
+
 		return $questions;
 	}
 
@@ -187,6 +201,7 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 				return $status;
 			}
 		}
+
 		return Status::newGood();
 	}
 
@@ -196,9 +211,9 @@ class SecurePoll_DBStore implements SecurePoll_Store {
 			'securepoll_entity',
 			'*',
 			[ 'en_id' => $id ],
-			__METHOD__ );
-		return $res
-			? $res->en_type
-			: false;
+			__METHOD__
+		);
+
+		return $res ? $res->en_type : false;
 	}
 }

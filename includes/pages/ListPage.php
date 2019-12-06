@@ -17,6 +17,7 @@ class SecurePoll_ListPage extends SecurePoll_ActionPage {
 
 		if ( !count( $params ) ) {
 			$out->addWikiMsg( 'securepoll-too-few-params' );
+
 			return;
 		}
 
@@ -24,17 +25,23 @@ class SecurePoll_ListPage extends SecurePoll_ActionPage {
 		$this->election = $this->context->getElection( $electionId );
 		if ( !$this->election ) {
 			$out->addWikiMsg( 'securepoll-invalid-election', $electionId );
+
 			return;
 		}
 		$this->initLanguage( $this->specialPage->getUser(), $this->election );
 
-		$out->setPageTitle( $this->msg(
-			'securepoll-list-title', $this->election->getMessage( 'title' ) )->text() );
+		$out->setPageTitle(
+			$this->msg(
+				'securepoll-list-title',
+				$this->election->getMessage( 'title' )
+			)->text()
+		);
 
 		$isAdmin = $this->election->isAdmin( $this->specialPage->getUser() );
 
 		if ( $this->election->getProperty( 'voter-privacy' ) && !$isAdmin ) {
 			$out->addWikiMsg( 'securepoll-list-private' );
+
 			return;
 		}
 
@@ -78,19 +85,20 @@ class SecurePoll_ListPage extends SecurePoll_ActionPage {
 		);
 		$struck_votes = $res->numRows();
 
-		$out->addHTML( '<div id="mw-poll-stats"><p>' .
-			$this->msg( 'securepoll-voter-stats' )->numParams( $distinct_voters ) .
-			'</p><p>' .
-			$this->msg( 'securepoll-vote-stats' )
-				->numParams( $all_votes, $not_current_votes, $struck_votes ) .
-			'</p></div>' );
+		$out->addHTML(
+			'<div id="mw-poll-stats"><p>' . $this->msg( 'securepoll-voter-stats' )->numParams(
+				$distinct_voters
+			) . '</p><p>' . $this->msg( 'securepoll-vote-stats' )->numParams(
+					$all_votes,
+					$not_current_votes,
+					$struck_votes
+				) . '</p></div>'
+		);
 
 		$pager = new SecurePoll_ListPager( $this );
 		$out->addHTML(
-			$pager->getLimitForm() .
-			$pager->getNavigationBar() .
-			$pager->getBody() .
-			$pager->getNavigationBar()
+			$pager->getLimitForm() . $pager->getNavigationBar() . $pager->getBody(
+			) . $pager->getNavigationBar()
 		);
 		if ( $isAdmin ) {
 			$msgStrike = $this->msg( 'securepoll-strike-button' )->escaped();
@@ -98,13 +106,18 @@ class SecurePoll_ListPage extends SecurePoll_ActionPage {
 			$msgCancel = $this->msg( 'securepoll-strike-cancel' )->escaped();
 			$msgReason = $this->msg( 'securepoll-strike-reason' )->escaped();
 			$encAction = htmlspecialchars( $this->getTitle()->getLocalUrl() );
-			$script = Skin::makeVariablesScript( [
-				'securepoll_strike_button' => $this->msg( 'securepoll-strike-button' )->text(),
-				'securepoll_unstrike_button' => $this->msg( 'securepoll-unstrike-button' )->text()
-			] );
+			$script = Skin::makeVariablesScript(
+				[
+					'securepoll_strike_button' => $this->msg( 'securepoll-strike-button' )->text(),
+					'securepoll_unstrike_button' => $this->msg(
+						'securepoll-unstrike-button'
+					)->text()
+				]
+			);
 
 			// @codingStandardsIgnoreStart
-			$out->addHTML( <<<EOT
+			$out->addHTML(
+				<<<EOT
 $script
 <div class="securepoll-popup" id="securepoll-popup">
 <form id="securepoll-strike-form" action="$encAction" method="post" onsubmit="securepoll_strike('submit');return false;">
@@ -151,7 +164,8 @@ EOT
 		$dbw->startAtomic( __METHOD__ );
 		// Add it to the strike log
 		$strikeId = $dbw->nextSequenceValue( 'securepoll_strike_st_id' );
-		$dbw->insert( 'securepoll_strike',
+		$dbw->insert(
+			'securepoll_strike',
 			[
 				'st_id' => $strikeId,
 				'st_vote' => $voteId,
@@ -163,7 +177,8 @@ EOT
 			__METHOD__
 		);
 		// Update the status cache
-		$dbw->update( 'securepoll_votes',
+		$dbw->update(
+			'securepoll_votes',
 			[ 'vote_struck' => intval( $action == 'strike' ) ],
 			[ 'vote_id' => $voteId ],
 			__METHOD__

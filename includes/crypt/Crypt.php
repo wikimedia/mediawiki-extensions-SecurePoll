@@ -43,6 +43,7 @@ abstract class SecurePoll_Crypt {
 			throw new MWException( "Invalid crypt type: $type" );
 		}
 		$class = self::$cryptTypes[$type];
+
 		return $class ? new $class( $context, $election ) : false;
 	}
 

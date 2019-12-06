@@ -22,6 +22,7 @@ class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 				'SecurePoll_type' => 'property',
 			],
 		];
+
 		return $ret;
 	}
 
@@ -39,18 +40,21 @@ class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 			$optionId = $option->getId();
 			$inputId = "{$name}_opt{$optionId}";
 			$oldValue = $wgRequest->getVal( $inputId, '' );
-			$s .=
-				'<div class="securepoll-option-preferential">' .
-				Xml::input( $inputId, '3', $oldValue, [
-					'id' => $inputId,
-					'maxlength' => 3,
-				] ) .
-				'&#160;' .
-				$this->errorLocationIndicator( $inputId ) .
-				Xml::tags( 'label', [ 'for' => $inputId ], $optionHTML ) .
-				'&#160;' .
-				"</div>\n";
+			$s .= '<div class="securepoll-option-preferential">' . Xml::input(
+					$inputId,
+					'3',
+					$oldValue,
+					[
+						'id' => $inputId,
+						'maxlength' => 3,
+					]
+				) . '&#160;' . $this->errorLocationIndicator( $inputId ) . Xml::tags(
+					'label',
+					[ 'for' => $inputId ],
+					$optionHTML
+				) . '&#160;' . "</div>\n";
 		}
+
 		return $s;
 	}
 
@@ -90,8 +94,12 @@ class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 				$ok = false;
 				continue;
 			}
-			$record .= sprintf( 'Q%08X-A%08X-R%08X--',
-				$question->getId(), $option->getId(), $rank );
+			$record .= sprintf(
+				'Q%08X-A%08X-R%08X--',
+				$question->getId(),
+				$option->getId(),
+				$rank
+			);
 		}
 		if ( $ok ) {
 			return $record;
@@ -102,10 +110,16 @@ class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 		$ranks = [];
 		$itemLength = 3 * 8 + 7;
 		for ( $offset = 0, $len = strlen( $record ); $offset < $len; $offset += $itemLength ) {
-			if ( !preg_match( '/Q([0-9A-F]{8})-A([0-9A-F]{8})-R([0-9A-F]{8})--/A',
-				$record, $m, 0, $offset )
+			if ( !preg_match(
+				'/Q([0-9A-F]{8})-A([0-9A-F]{8})-R([0-9A-F]{8})--/A',
+				$record,
+				$m,
+				0,
+				$offset
+			)
 			) {
 				wfDebug( __METHOD__ . ": regex doesn't match\n" );
+
 				return false;
 			}
 			$qid = intval( base_convert( $m[1], 16, 10 ) );
@@ -113,6 +127,7 @@ class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 			$rank = intval( base_convert( $m[3], 16, 10 ) );
 			$ranks[$qid][$oid] = $rank;
 		}
+
 		return $ranks;
 	}
 
@@ -141,6 +156,7 @@ class SecurePoll_PreferentialBallot extends SecurePoll_Ballot {
 			}
 			$result[$qid] = $s;
 		}
+
 		return $result;
 	}
 }

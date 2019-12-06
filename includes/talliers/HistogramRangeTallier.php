@@ -16,8 +16,11 @@ class SecurePoll_HistogramRangeTallier extends SecurePoll_Tallier {
 		}
 
 		foreach ( $question->getOptions() as $option ) {
-			$this->histogram[$option->getId()] =
-				array_fill( $this->minScore, $this->maxScore - $this->minScore + 1, 0 );
+			$this->histogram[$option->getId()] = array_fill(
+				$this->minScore,
+				$this->maxScore - $this->minScore + 1,
+				0
+			);
 			$this->sums[$option->getId()] = 0;
 			$this->counts[$option->getId()] = 0;
 		}
@@ -25,10 +28,11 @@ class SecurePoll_HistogramRangeTallier extends SecurePoll_Tallier {
 
 	public function addVote( $scores ) {
 		foreach ( $scores as $oid => $score ) {
-			$this->histogram[$oid][$score] ++;
+			$this->histogram[$oid][$score]++;
 			$this->sums[$oid] += $score;
-			$this->counts[$oid] ++;
+			$this->counts[$oid]++;
 		}
+
 		return true;
 	}
 
@@ -46,7 +50,13 @@ class SecurePoll_HistogramRangeTallier extends SecurePoll_Tallier {
 
 	public function getHtmlResult() {
 		$ballot = $this->election->getBallot();
-		if ( !is_callable( [ $ballot, 'getColumnLabels' ] ) ) {
+		if ( !is_callable(
+			[
+				$ballot,
+				'getColumnLabels'
+			]
+		)
+		) {
 			throw new MWException( __METHOD__ . ': ballot type not supported by this tallier' );
 		}
 		$optionLabels = [];
@@ -55,9 +65,7 @@ class SecurePoll_HistogramRangeTallier extends SecurePoll_Tallier {
 		}
 
 		$labels = $ballot->getColumnLabels( $this->question );
-		$s = "<table class=\"securepoll-table\">\n" .
-			"<tr>\n" .
-			"<th>&#160;</th>\n";
+		$s = "<table class=\"securepoll-table\">\n" . "<tr>\n" . "<th>&#160;</th>\n";
 		foreach ( $labels as $label ) {
 			$s .= Xml::element( 'th', [], $label ) . "\n";
 		}
@@ -65,10 +73,11 @@ class SecurePoll_HistogramRangeTallier extends SecurePoll_Tallier {
 		$s .= "</tr>\n";
 
 		foreach ( $this->averages as $oid => $average ) {
-			$s .= "<tr>\n" .
-				Xml::tags( 'td', [ 'class' => 'securepoll-results-row-heading' ],
-					$optionLabels[$oid] ) .
-				"\n";
+			$s .= "<tr>\n" . Xml::tags(
+					'td',
+					[ 'class' => 'securepoll-results-row-heading' ],
+					$optionLabels[$oid]
+				) . "\n";
 			foreach ( $labels as $score => $label ) {
 				$s .= Xml::element( 'td', [], $this->histogram[$oid][$score] ) . "\n";
 			}
@@ -76,6 +85,7 @@ class SecurePoll_HistogramRangeTallier extends SecurePoll_Tallier {
 			$s .= "</tr>\n";
 		}
 		$s .= "</table>\n";
+
 		return $s;
 	}
 

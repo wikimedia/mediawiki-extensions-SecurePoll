@@ -18,6 +18,7 @@ class SecurePoll_CommentDumper extends SecurePoll_ElectionTallier {
 	public function execute() {
 		$this->csvHandle = fopen( 'php://temp', 'r+' );
 		$this->countSoFar = 0;
+
 		return parent::execute();
 	}
 
@@ -48,13 +49,14 @@ class SecurePoll_CommentDumper extends SecurePoll_ElectionTallier {
 		unset( $scores['comment'] );
 
 		// Short circuit if the comments are empty
-		if ( $this->skipEmptyComments &&
-			$comments['native'] == '' && $comments['en'] == ''
-		) {
+		if ( $this->skipEmptyComments && $comments['native'] == '' && $comments['en'] == '' ) {
 			return Status::newGood();
 		}
 
-		$output = [ $comments['native'], $comments['en'] ];
+		$output = [
+			$comments['native'],
+			$comments['en']
+		];
 
 		ksort( $output );
 

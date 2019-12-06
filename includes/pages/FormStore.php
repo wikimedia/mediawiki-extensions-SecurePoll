@@ -45,8 +45,7 @@ class SecurePoll_FormStore extends SecurePoll_MemoryStore {
 		$crypt = $formData['election_crypt'];
 
 		$date = new DateTime(
-			"{$formData['election_startdate']}T00:00:00Z",
-			new DateTimeZone( 'GMT' )
+			"{$formData['election_startdate']}T00:00:00Z", new DateTimeZone( 'GMT' )
 		);
 		$startDate = $date->format( 'YmdHis' );
 
@@ -102,8 +101,9 @@ class SecurePoll_FormStore extends SecurePoll_MemoryStore {
 				'questions' => [],
 			];
 			$this->properties[$rId]['main-wiki'] = wfWikiID();
-			$this->properties[$rId]['jump-url'] =
-				SpecialPage::getTitleFor( 'SecurePoll' )->getFullUrl();
+			$this->properties[$rId]['jump-url'] = SpecialPage::getTitleFor(
+				'SecurePoll'
+			)->getFullUrl();
 			$this->properties[$rId]['jump-id'] = $eId;
 			$this->properties[$rId]['admins'] = $admins;
 			$this->messages[$this->lang][$rId] = [
@@ -113,13 +113,22 @@ class SecurePoll_FormStore extends SecurePoll_MemoryStore {
 		}
 
 		$this->processFormData(
-			$eId, $formData, SecurePoll_Ballot::$ballotTypes[$ballot], 'election'
+			$eId,
+			$formData,
+			SecurePoll_Ballot::$ballotTypes[$ballot],
+			'election'
 		);
 		$this->processFormData(
-			$eId, $formData, SecurePoll_Tallier::$tallierTypes[$tally], 'election'
+			$eId,
+			$formData,
+			SecurePoll_Tallier::$tallierTypes[$tally],
+			'election'
 		);
 		$this->processFormData(
-			$eId, $formData, SecurePoll_Crypt::$cryptTypes[$crypt], 'election'
+			$eId,
+			$formData,
+			SecurePoll_Crypt::$cryptTypes[$crypt],
+			'election'
 		);
 
 		// Process each question
@@ -142,13 +151,22 @@ class SecurePoll_FormStore extends SecurePoll_MemoryStore {
 			];
 
 			$this->processFormData(
-				$qId, $question, SecurePoll_Ballot::$ballotTypes[$ballot], 'question'
+				$qId,
+				$question,
+				SecurePoll_Ballot::$ballotTypes[$ballot],
+				'question'
 			);
 			$this->processFormData(
-				$qId, $question, SecurePoll_Tallier::$tallierTypes[$tally], 'question'
+				$qId,
+				$question,
+				SecurePoll_Tallier::$tallierTypes[$tally],
+				'question'
 			);
 			$this->processFormData(
-				$qId, $question, SecurePoll_Crypt::$cryptTypes[$crypt], 'question'
+				$qId,
+				$question,
+				SecurePoll_Crypt::$cryptTypes[$crypt],
+				'question'
 			);
 
 			// Process options for this question
@@ -171,13 +189,22 @@ class SecurePoll_FormStore extends SecurePoll_MemoryStore {
 				];
 
 				$this->processFormData(
-					$oId, $option, SecurePoll_Ballot::$ballotTypes[$ballot], 'option'
+					$oId,
+					$option,
+					SecurePoll_Ballot::$ballotTypes[$ballot],
+					'option'
 				);
 				$this->processFormData(
-					$oId, $option, SecurePoll_Tallier::$tallierTypes[$tally], 'option'
+					$oId,
+					$option,
+					SecurePoll_Tallier::$tallierTypes[$tally],
+					'option'
 				);
 				$this->processFormData(
-					$oId, $option, SecurePoll_Crypt::$cryptTypes[$crypt], 'option'
+					$oId,
+					$option,
+					SecurePoll_Crypt::$cryptTypes[$crypt],
+					'option'
 				);
 
 				$this->entityInfo[$qId]['options'][] = &$this->entityInfo[$oId];
@@ -202,7 +229,13 @@ class SecurePoll_FormStore extends SecurePoll_MemoryStore {
 			return;
 		}
 
-		$items = call_user_func_array( [ $class, 'getCreateDescriptors' ], [] );
+		$items = call_user_func_array(
+			[
+				$class,
+				'getCreateDescriptors'
+			],
+			[]
+		);
 
 		if ( $category ) {
 			if ( !isset( $items[$category] ) ) {
@@ -245,6 +278,7 @@ class SecurePoll_FormStore extends SecurePoll_MemoryStore {
 	 */
 	public static function getWikiName( $dbname ) {
 		$name = WikiMap::getWikiName( $dbname );
+
 		return $name ?: $dbname;
 	}
 
@@ -286,6 +320,7 @@ class SecurePoll_FormStore extends SecurePoll_MemoryStore {
 		foreach ( $data as $admin ) {
 			$admins[] = User::getCanonicalName( $admin['username'] );
 		}
+
 		return implode( '|', $admins );
 	}
 }

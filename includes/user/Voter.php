@@ -10,7 +10,14 @@ class SecurePoll_Voter {
 	public $context;
 
 	private static $paramNames = [
-		'id', 'electionId', 'name', 'domain', 'wiki', 'type', 'url', 'properties'
+		'id',
+		'electionId',
+		'name',
+		'domain',
+		'wiki',
+		'type',
+		'url',
+		'properties'
 	];
 
 	/**
@@ -39,6 +46,7 @@ class SecurePoll_Voter {
 		if ( !$row ) {
 			return false;
 		}
+
 		return self::newFromRow( $context, $row );
 	}
 
@@ -49,7 +57,8 @@ class SecurePoll_Voter {
 	 * @return self
 	 */
 	public static function newFromRow( $context, $row ) {
-		return new self( $context, [
+		return new self(
+			$context, [
 			'id' => $row->voter_id,
 			'electionId' => $row->voter_election,
 			'name' => $row->voter_name,
@@ -57,7 +66,8 @@ class SecurePoll_Voter {
 			'type' => $row->voter_type,
 			'url' => $row->voter_url,
 			'properties' => self::decodeProperties( $row->voter_properties )
-		] );
+		]
+		);
 	}
 
 	/**
@@ -84,6 +94,7 @@ class SecurePoll_Voter {
 		];
 		$db->insert( 'securepoll_voters', $row, __METHOD__ );
 		$params['id'] = $db->insertId();
+
 		return new self( $context, $params );
 	}
 
@@ -212,23 +223,30 @@ class SecurePoll_Voter {
 	public function addCookieDup( $voterId ) {
 		$dbw = $this->context->getDB();
 		# Insert the log record
-		$dbw->insert( 'securepoll_cookie_match',
+		$dbw->insert(
+			'securepoll_cookie_match',
 			[
 				'cm_election' => $this->getElectionId(),
 				'cm_voter_1' => $this->getId(),
 				'cm_voter_2' => $voterId,
 				'cm_timestamp' => wfTimestampNow()
 			],
-			__METHOD__ );
+			__METHOD__
+		);
 
 		# Update the denormalized fields
-		$dbw->update( 'securepoll_votes',
+		$dbw->update(
+			'securepoll_votes',
 			[ 'vote_cookie_dup' => 1 ],
 			[
 				'vote_election' => $this->getElectionId(),
-				'vote_voter' => [ $this->getId(), $voterId ]
+				'vote_voter' => [
+					$this->getId(),
+					$voterId
+				]
 			],
-			__METHOD__ );
+			__METHOD__
+		);
 	}
 
 }

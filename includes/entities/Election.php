@@ -152,6 +152,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		if ( $ts === false ) {
 			$ts = wfTimestampNow();
 		}
+
 		return !$this->startDate || $ts >= $this->startDate;
 	}
 
@@ -164,6 +165,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		if ( $ts === false ) {
 			$ts = wfTimestampNow();
 		}
+
 		return $this->endDate && $ts >= $this->endDate;
 	}
 
@@ -175,6 +177,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		if ( !$this->ballot ) {
 			$this->ballot = $this->context->newBallot( $this->ballotType, $this );
 		}
+
 		return $this->ballot;
 	}
 
@@ -203,8 +206,11 @@ class SecurePoll_Election extends SecurePoll_Entity {
 			$minEdits = $this->getProperty( 'min-edits' );
 			$edits = $props['edit-count'] ?? 0;
 			if ( $minEdits && $edits < $minEdits ) {
-				$status->fatal( 'securepoll-too-few-edits',
-					$wgLang->formatNum( $minEdits ), $wgLang->formatNum( $edits ) );
+				$status->fatal(
+					'securepoll-too-few-edits',
+					$wgLang->formatNum( $minEdits ),
+					$wgLang->formatNum( $edits )
+				);
 			}
 
 			// Registration date
@@ -232,8 +238,10 @@ class SecurePoll_Election extends SecurePoll_Entity {
 			$centralBlockCount = $props['central-block-count'] ?? 0;
 			$centralBlockThreshold = $this->getProperty( 'central-block-threshold', 1 );
 			if ( $notCentrallyBlocked && $centralBlockCount >= $centralBlockThreshold ) {
-				$status->fatal( 'securepoll-blocked-centrally',
-					$wgLang->formatNum( $centralBlockThreshold ) );
+				$status->fatal(
+					'securepoll-blocked-centrally',
+					$wgLang->formatNum( $centralBlockThreshold )
+				);
 			}
 
 			// Bot
@@ -283,6 +291,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 */
 	public function isAdmin( $user ) {
 		$admins = array_map( 'trim', explode( '|', $this->getProperty( 'admins' ) ) );
+
 		return in_array( $user->getName(), $admins );
 	}
 
@@ -300,7 +309,9 @@ class SecurePoll_Election extends SecurePoll_Entity {
 				'vote_election' => $this->getId(),
 				'vote_voter' => $voter->getId(),
 			],
-			__METHOD__ );
+			__METHOD__
+		);
+
 		return $row !== false;
 	}
 
@@ -325,6 +336,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 				$this->questions[] = $this->context->newQuestion( $questionInfo );
 			}
 		}
+
 		return $this->questions;
 	}
 
@@ -336,6 +348,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		if ( !$this->auth ) {
 			$this->auth = $this->context->newAuth( $this->authType );
 		}
+
 		return $this->auth;
 	}
 
@@ -351,8 +364,8 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	/**
 	 * Get the cryptography module for this election, or false if none is
 	 * defined.
-	 * @throws MWException
 	 * @return SecurePoll_Crypt|bool
+	 * @throws MWException
 	 */
 	public function getCrypt() {
 		$type = $this->getProperty( 'encrypt-type' );
@@ -363,6 +376,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 		if ( !$crypt ) {
 			throw new MWException( 'Invalid encryption type' );
 		}
+
 		return $crypt;
 	}
 
@@ -404,6 +418,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 			}
 		}
 		$random->close();
+
 		return Status::newGood();
 	}
 
@@ -413,25 +428,33 @@ class SecurePoll_Election extends SecurePoll_Entity {
 	 * @return string
 	 */
 	public function getConfXml( $params = [] ) {
-		$s = "<configuration>\n" .
-			Xml::element( 'title', [], $this->title ) . "\n" .
-			Xml::element( 'ballot', [], $this->ballotType ) . "\n" .
-			Xml::element( 'tally', [], $this->tallyType ) . "\n" .
-			Xml::element( 'primaryLang', [], $this->primaryLang ) . "\n" .
-			Xml::element( 'startDate', [], wfTimestamp( TS_ISO_8601, $this->startDate ) ) . "\n" .
-			Xml::element( 'endDate', [], wfTimestamp( TS_ISO_8601, $this->endDate ) ) . "\n" .
-			$this->getConfXmlEntityStuff( $params );
+		$s = "<configuration>\n" . Xml::element( 'title', [], $this->title ) . "\n" . Xml::element(
+				'ballot',
+				[],
+				$this->ballotType
+			) . "\n" . Xml::element( 'tally', [], $this->tallyType ) . "\n" . Xml::element(
+				'primaryLang',
+				[],
+				$this->primaryLang
+			) . "\n" . Xml::element(
+				'startDate',
+				[],
+				wfTimestamp( TS_ISO_8601, $this->startDate )
+			) . "\n" . Xml::element(
+				'endDate',
+				[],
+				wfTimestamp( TS_ISO_8601, $this->endDate )
+			) . "\n" . $this->getConfXmlEntityStuff( $params );
 
 		// If we're making a jump dump, we need to add some extra properties, and
 		// override the auth type
 		if ( !empty( $params['jump'] ) ) {
-			$s .=
-				Xml::element( 'auth', [], 'local' ) . "\n" .
-				Xml::element( 'property',
+			$s .= Xml::element( 'auth', [], 'local' ) . "\n" . Xml::element(
+					'property',
 					[ 'name' => 'jump-url' ],
 					$this->context->getSpecialTitle()->getCanonicalUrl()
-				) . "\n" .
-				Xml::element( 'property',
+				) . "\n" . Xml::element(
+					'property',
 					[ 'name' => 'jump-id' ],
 					$this->getId()
 				) . "\n";
@@ -443,6 +466,7 @@ class SecurePoll_Election extends SecurePoll_Entity {
 			$s .= $question->getConfXml( $params );
 		}
 		$s .= "</configuration>\n";
+
 		return $s;
 	}
 

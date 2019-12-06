@@ -20,6 +20,7 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 
 		if ( !count( $params ) ) {
 			$out->addWikiMsg( 'securepoll-too-few-params' );
+
 			return;
 		}
 
@@ -27,6 +28,7 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 		$this->election = $this->context->getElection( $electionId );
 		if ( !$this->election ) {
 			$out->addWikiMsg( 'securepoll-invalid-election', $electionId );
+
 			return;
 		}
 
@@ -43,6 +45,7 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 				$this->voter = $status->value;
 			} else {
 				$out->addWikiTextAsInterface( $status->getWikiText() );
+
 				return;
 			}
 		}
@@ -52,24 +55,31 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 		$out->setPageTitle( $this->election->getMessage( 'title' ) );
 
 		if ( !$this->election->isStarted() ) {
-			$out->addWikiMsg( 'securepoll-not-started',
+			$out->addWikiMsg(
+				'securepoll-not-started',
 				$language->timeanddate( $this->election->getStartDate() ),
 				$language->date( $this->election->getStartDate() ),
-				$language->time( $this->election->getStartDate() ) );
+				$language->time( $this->election->getStartDate() )
+			);
+
 			return;
 		}
 
 		if ( $this->election->isFinished() ) {
-			$out->addWikiMsg( 'securepoll-finished',
+			$out->addWikiMsg(
+				'securepoll-finished',
 				$language->timeanddate( $this->election->getEndDate() ),
 				$language->date( $this->election->getEndDate() ),
-				$language->time( $this->election->getEndDate() ) );
+				$language->time( $this->election->getEndDate() )
+			);
+
 			return;
 		}
 
 		// Show jump form if necessary
 		if ( $this->election->getProperty( 'jump-url' ) ) {
 			$this->showJumpForm();
+
 			return;
 		}
 
@@ -85,6 +95,7 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 		// Show change notice
 		if ( $this->election->hasVoted( $this->voter ) && !$this->election->allowChange() ) {
 			$out->addWikiMsg( 'securepoll-change-disallowed' );
+
 			return;
 		}
 
@@ -163,6 +174,7 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 			$status = $crypt->encrypt( $record );
 			if ( !$status->isOK() ) {
 				$out->addWikiTextAsInterface( $status->getWikiText( 'securepoll-encrypt-error' ) );
+
 				return;
 			}
 			$encrypted = $status->value;
@@ -172,7 +184,8 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 		$dbw->startAtomic( __METHOD__ );
 
 		# Mark previous votes as old
-		$dbw->update( 'securepoll_votes',
+		$dbw->update(
+			'securepoll_votes',
 			[ 'vote_current' => 0 ], # SET
 			[ # WHERE
 				'vote_election' => $this->election->getId(),
@@ -191,7 +204,8 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 		$tokenMatch = $token->match( $request->getVal( 'edit_token' ) );
 
 		$voteId = $dbw->nextSequenceValue( 'securepoll_votes_vote_id' );
-		$dbw->insert( 'securepoll_votes',
+		$dbw->insert(
+			'securepoll_votes',
 			[
 				'vote_id' => $voteId,
 				'vote_election' => $this->election->getId(),
@@ -206,7 +220,8 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 				'vote_current' => 1,
 				'vote_token_match' => $tokenMatch ? 1 : 0,
 			],
-			__METHOD__ );
+			__METHOD__
+		);
 		$voteId = $dbw->insertId();
 		$dbw->endAtomic( __METHOD__ );
 
@@ -247,7 +262,13 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 			throw new MWException( 'Configuration error: no jump-id' );
 		}
 		$url .= "/login/$id";
-		Hooks::run( 'SecurePoll_JumpUrl', [ $this, &$url ] );
+		Hooks::run(
+			'SecurePoll_JumpUrl',
+			[
+				$this,
+				&$url
+			]
+		);
 		$out->addWikiTextAsInterface( $this->election->getMessage( 'jump-text' ) );
 		$hiddenFields = [
 			'token' => SecurePoll_RemoteMWAuth::encodeToken( $user->getToken() ),
@@ -255,11 +276,13 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 			'wiki' => wfWikiID(),
 		];
 
-		$htmlForm = HTMLForm::factory( 'ooui', [], $this->specialPage->getContext() )
-			->setSubmitTextMsg( 'securepoll-jump' )
-			->setAction( $url )
-			->addHiddenFields( $hiddenFields )
-			->prepareForm();
+		$htmlForm = HTMLForm::factory(
+			'ooui',
+			[],
+			$this->specialPage->getContext()
+		)->setSubmitTextMsg( 'securepoll-jump' )->setAction( $url )->addHiddenFields(
+				$hiddenFields
+			)->prepareForm();
 		$out->addHTML( $htmlForm->getHTML( false ) );
 	}
 }

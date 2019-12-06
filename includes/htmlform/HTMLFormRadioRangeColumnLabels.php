@@ -28,6 +28,7 @@ class SecurePoll_HTMLFormRadioRangeColumnLabels extends HTMLFormField {
 				$ret["column$key"] = $v;
 			}
 		}
+
 		return $ret;
 	}
 
@@ -47,8 +48,10 @@ class SecurePoll_HTMLFormRadioRangeColumnLabels extends HTMLFormField {
 		for ( $i = $min; $i <= $max; $i++ ) {
 			$key = ( $min < 0 && $i > 0 ) ? "+$i" : $i;
 			if ( !isset( $value["column$key"] ) ) {
-				return $this->msg( 'securepoll-htmlform-radiorange-missing-message', $key )
-					->parseAsBlock();
+				return $this->msg(
+					'securepoll-htmlform-radiorange-missing-message',
+					$key
+				)->parseAsBlock();
 			}
 		}
 
@@ -63,13 +66,18 @@ class SecurePoll_HTMLFormRadioRangeColumnLabels extends HTMLFormField {
 		foreach ( (array)$value as $k => $v ) {
 			$k = str_replace( 'column', '', $k );
 			$labels .= Html::element( 'th', [ 'data-securepoll-col-num' => $k ], $k );
-			$inputs .= Html::rawElement( 'td', [ 'data-securepoll-col-num' => $k ],
-				Html::element( 'input', [
-					'type' => 'text',
-					'name' => "{$this->mName}[$k]",
-					'size' => $size,
-					'value' => $v,
-				] )
+			$inputs .= Html::rawElement(
+				'td',
+				[ 'data-securepoll-col-num' => $k ],
+				Html::element(
+					'input',
+					[
+						'type' => 'text',
+						'name' => "{$this->mName}[$k]",
+						'size' => $size,
+						'value' => $v,
+					]
+				)
 			);
 		}
 
@@ -78,13 +86,18 @@ class SecurePoll_HTMLFormRadioRangeColumnLabels extends HTMLFormField {
 			$attribs['class'] .= " $this->mClass";
 		}
 
-		$html = Html::rawElement( 'table', [
+		$html = Html::rawElement(
+			'table',
+			[
 				'class' => $class,
 				'data-securepoll-col-name' => $this->mName,
 				'data-securepoll-input-size' => $size,
 			],
-			Html::rawElement( 'tr', [ 'class' => 'securepoll-label-row' ], $labels ) .
-				Html::rawElement( 'tr', [ 'class' => 'securepoll-input-row' ], $inputs )
+			Html::rawElement(
+				'tr',
+				[ 'class' => 'securepoll-label-row' ],
+				$labels
+			) . Html::rawElement( 'tr', [ 'class' => 'securepoll-input-row' ], $inputs )
 		);
 
 		return $html;

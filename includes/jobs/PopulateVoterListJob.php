@@ -9,15 +9,23 @@ use Wikimedia\Rdbms\IDatabase;
 class SecurePoll_PopulateVoterListJob extends Job {
 	public static function pushJobsForElection( SecurePoll_Election $election ) {
 		static $props = [
-			'need-list', 'list_populate',
-			'list_edits-before', 'list_edits-before-count', 'list_edits-before-date',
-			'list_edits-between', 'list_edits-between-count',
-			'list_edits-startdate', 'list_edits-enddate',
-			'list_exclude-groups', 'list_include-groups',
+			'need-list',
+			'list_populate',
+			'list_edits-before',
+			'list_edits-before-count',
+			'list_edits-before-date',
+			'list_edits-between',
+			'list_edits-between-count',
+			'list_edits-startdate',
+			'list_edits-enddate',
+			'list_exclude-groups',
+			'list_include-groups',
 		];
 		static $listProps = [
-			'list_edits-startdate', 'list_edits-enddate',
-			'list_exclude-groups', 'list_include-groups',
+			'list_edits-startdate',
+			'list_edits-enddate',
+			'list_exclude-groups',
+			'list_include-groups',
 		];
 
 		$dbw = $election->context->getDB();
@@ -38,7 +46,10 @@ class SecurePoll_PopulateVoterListJob extends Job {
 
 		$res = $dbw->select(
 			'securepoll_properties',
-			[ 'pr_key', 'pr_value' ],
+			[
+				'pr_key',
+				'pr_value'
+			],
 			[
 				'pr_entity' => $election->getId(),
 				'pr_key' => $props,
@@ -48,9 +59,7 @@ class SecurePoll_PopulateVoterListJob extends Job {
 			$params[$row->pr_key] = $row->pr_value;
 		}
 
-		if ( !$params['list_populate'] ||
-			$params['need-list'] === ''
-		) {
+		if ( !$params['list_populate'] || $params['need-list'] === '' ) {
 			// No need for a job, bail out
 			return;
 		}
@@ -107,14 +116,17 @@ class SecurePoll_PopulateVoterListJob extends Job {
 		$lbFactory->commitMasterChanges( __METHOD__ );
 		$dbw->lock( $lockKey, $lockMethod );
 		$dbw->startAtomic( __METHOD__ );
-		$dbw->onTransactionResolution( function () use ( $dbw, $lockKey, $lockMethod ) {
-			$dbw->unlock( $lockKey, $lockMethod );
-		} );
+		$dbw->onTransactionResolution(
+			function () use ( $dbw, $lockKey, $lockMethod ) {
+				$dbw->unlock( $lockKey, $lockMethod );
+			}
+		);
 
 		// If the same job is (supposed to be) already running, don't restart it
 		$jobKey = self::fetchJobKey( $dbw, $election->getId() );
 		if ( $params['jobKey'] === $jobKey ) {
 			$dbw->endAtomic( __METHOD__ );
+
 			return;
 		}
 
@@ -122,7 +134,12 @@ class SecurePoll_PopulateVoterListJob extends Job {
 		// abort) and the progress figures.
 		$dbw->replace(
 			'securepoll_properties',
-			[ [ 'pr_entity', 'pr_key' ] ],
+			[
+				[
+					'pr_entity',
+					'pr_key'
+				]
+			],
 			[
 				[
 					'pr_entity' => $election->getId(),
@@ -157,12 +174,11 @@ class SecurePoll_PopulateVoterListJob extends Job {
 				unset( $params['jobReleaseTimestamp'] );
 			}
 
-			$jobQueueGroup->push( new JobSpecification(
-				'securePollPopulateVoterList',
-				$params,
-				[],
-				$title
-			) );
+			$jobQueueGroup->push(
+				new JobSpecification(
+					'securePollPopulateVoterList', $params, [], $title
+				)
+			);
 		}
 
 		$dbw->endAtomic( __METHOD__ );
@@ -203,7 +219,9 @@ class SecurePoll_PopulateVoterListJob extends Job {
 
 			// Criterion 1: $NUM edits before $DATE
 			if ( $this->params['list_edits-before'] ) {
-				$timestamp = $dbr->addQuotes( $dbr->timestamp( $this->params['list_edits-before-date'] ) );
+				$timestamp = $dbr->addQuotes(
+					$dbr->timestamp( $this->params['list_edits-before-date'] )
+				);
 
 				$res = $dbr->select(
 					[ 'revision' ] + $actorQuery['tables'],
@@ -217,7 +235,9 @@ class SecurePoll_PopulateVoterListJob extends Job {
 					[
 						'GROUP BY' => $field,
 						'HAVING' => [
-							'COUNT(*) >= ' . $dbr->addQuotes( $this->params['list_edits-before-count'] ),
+							'COUNT(*) >= ' . $dbr->addQuotes(
+								$this->params['list_edits-before-count']
+							),
 						]
 					]
 				);
@@ -237,8 +257,12 @@ class SecurePoll_PopulateVoterListJob extends Job {
 
 			// Criterion 2: $NUM edits bewteen $DATE1 and $DATE2
 			if ( $this->params['list_edits-between'] ) {
-				$timestamp1 = $dbr->addQuotes( $dbr->timestamp( $this->params['list_edits-startdate'] ) );
-				$timestamp2 = $dbr->addQuotes( $dbr->timestamp( $this->params['list_edits-enddate'] ) );
+				$timestamp1 = $dbr->addQuotes(
+					$dbr->timestamp( $this->params['list_edits-startdate'] )
+				);
+				$timestamp2 = $dbr->addQuotes(
+					$dbr->timestamp( $this->params['list_edits-enddate'] )
+				);
 
 				$res = $dbr->select(
 					[ 'revision' ] + $actorQuery['tables'],
@@ -253,7 +277,9 @@ class SecurePoll_PopulateVoterListJob extends Job {
 					[
 						'GROUP BY' => $field,
 						'HAVING' => [
-							'COUNT(*) >= ' . $dbr->addQuotes( $this->params['list_edits-between-count'] ),
+							'COUNT(*) >= ' . $dbr->addQuotes(
+								$this->params['list_edits-between-count']
+							),
 						]
 					]
 				);
@@ -273,7 +299,10 @@ class SecurePoll_PopulateVoterListJob extends Job {
 			global $wgDisableUserGroupExpiry;
 			if ( $this->params['list_exclude-groups'] ) {
 				$res = $dbr->select(
-					[ 'user', 'user_groups' ],
+					[
+						'user',
+						'user_groups'
+					],
 					'user_id',
 					[
 						"user_id >= $min",
@@ -283,12 +312,16 @@ class SecurePoll_PopulateVoterListJob extends Job {
 					__METHOD__,
 					[],
 					[
-						'user_groups' => [ 'LEFT OUTER JOIN', [
+						'user_groups' => [
+							'LEFT OUTER JOIN',
+							[
 								'ug_user = user_id',
 								'ug_group' => $this->params['list_exclude-groups'],
-								( !isset( $wgDisableUserGroupExpiry ) || $wgDisableUserGroupExpiry ) ?
-									'1' :
-									'ug_expiry IS NULL OR ug_expiry >= ' . $dbr->addQuotes( $dbr->timestamp() ),
+								( !isset( $wgDisableUserGroupExpiry ) || $wgDisableUserGroupExpiry )
+									? '1'
+									: 'ug_expiry IS NULL OR ug_expiry >= ' . $dbr->addQuotes(
+										$dbr->timestamp()
+									),
 							]
 						],
 					]
@@ -314,9 +347,11 @@ class SecurePoll_PopulateVoterListJob extends Job {
 						"ug_user >= $min",
 						"ug_user < $max",
 						'ug_group' => $this->params['list_include-groups'],
-						( !isset( $wgDisableUserGroupExpiry ) || $wgDisableUserGroupExpiry ) ?
-							'1' :
-							'ug_expiry IS NULL OR ug_expiry >= ' . $dbr->addQuotes( $dbr->timestamp() ),
+						( !isset( $wgDisableUserGroupExpiry ) || $wgDisableUserGroupExpiry )
+							? '1'
+							: 'ug_expiry IS NULL OR ug_expiry >= ' . $dbr->addQuotes(
+								$dbr->timestamp()
+							),
 					]
 				);
 				$list = [];
@@ -358,17 +393,24 @@ class SecurePoll_PopulateVoterListJob extends Job {
 
 			$jobKey = self::fetchJobKey( $dbwElection, $this->params['electionId'] );
 			if ( $jobKey === $this->params['jobKey'] ) {
-				$dbwLocal->delete( 'securepoll_lists', [
-					'li_name' => $this->params['need-list'],
-					"li_member >= $min",
-					"li_member < $max",
-				] );
+				$dbwLocal->delete(
+					'securepoll_lists',
+					[
+						'li_name' => $this->params['need-list'],
+						"li_member >= $min",
+						"li_member < $max",
+					]
+				);
 				$dbwLocal->insert( 'securepoll_lists', $ins );
 
-				$count = $dbwElection->selectField( 'securepoll_properties', 'pr_value', [
-					'pr_entity' => $this->params['electionId'],
-					'pr_key' => 'list_complete-count',
-				] );
+				$count = $dbwElection->selectField(
+					'securepoll_properties',
+					'pr_value',
+					[
+						'pr_entity' => $this->params['electionId'],
+						'pr_key' => 'list_complete-count',
+					]
+				);
 				$dbwElection->update(
 					'securepoll_properties',
 					[
@@ -397,12 +439,11 @@ class SecurePoll_PopulateVoterListJob extends Job {
 			$params['nextUserId'] = $next;
 			unset( $params['jobReleaseTimestamp'] );
 
-			JobQueueGroup::singleton()->push( new JobSpecification(
-				'securePollPopulateVoterList',
-				$params,
-				[],
-				$this->title
-			) );
+			JobQueueGroup::singleton()->push(
+				new JobSpecification(
+					'securePollPopulateVoterList', $params, [], $this->title
+				)
+			);
 		}
 
 		return true;

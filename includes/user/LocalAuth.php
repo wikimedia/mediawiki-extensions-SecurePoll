@@ -24,6 +24,7 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 			return $qualStatus;
 		}
 		$voter = $this->getVoter( $params );
+
 		return Status::newGood( $voter );
 	}
 
@@ -53,7 +54,14 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 			]
 		];
 
-		Hooks::run( 'SecurePoll_GetUserParams', [ $this, $user, &$params ] );
+		Hooks::run( 'SecurePoll_GetUserParams',
+			[
+				$this,
+				$user,
+				&$params
+			]
+		);
+
 		return $params;
 	}
 
@@ -74,6 +82,7 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 		foreach ( $res as $row ) {
 			$lists[] = $row->li_name;
 		}
+
 		return $lists;
 	}
 
@@ -101,6 +110,7 @@ class SecurePoll_LocalAuth extends SecurePoll_Auth {
 		foreach ( $res as $row ) {
 			$lists[] = $row->li_name;
 		}
+
 		return $lists;
 	}
 

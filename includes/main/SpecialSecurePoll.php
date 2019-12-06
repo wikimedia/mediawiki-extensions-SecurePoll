@@ -46,11 +46,13 @@ class SecurePoll_SpecialSecurePoll extends SpecialPage {
 		$out = $this->getOutput();
 
 		$this->setHeaders();
-		$out->addLink( [
-			'rel' => 'stylesheet',
-			'href' => "$wgExtensionAssetsPath/SecurePoll/resources/SecurePoll.css",
-			'type' => 'text/css'
-		] );
+		$out->addLink(
+			[
+				'rel' => 'stylesheet',
+				'href' => "$wgExtensionAssetsPath/SecurePoll/resources/SecurePoll.css",
+				'type' => 'text/css'
+			]
+		);
 		$out->addScriptFile( "$wgExtensionAssetsPath/SecurePoll/resources/SecurePoll.js" );
 
 		$paramString = strval( $paramString );
@@ -62,6 +64,7 @@ class SecurePoll_SpecialSecurePoll extends SpecialPage {
 		$page = $this->getSubpage( $pageName );
 		if ( !$page ) {
 			$out->addWikiMsg( 'securepoll-invalid-page', $pageName );
+
 			return;
 		}
 
@@ -82,8 +85,8 @@ class SecurePoll_SpecialSecurePoll extends SpecialPage {
 			return false;
 		}
 		$className = self::$pages[$name];
-		$page = new $className( $this );
-		return $page;
+
+		return new $className( $this );
 	}
 
 	/**

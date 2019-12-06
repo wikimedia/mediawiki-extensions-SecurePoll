@@ -66,9 +66,14 @@ class SecurePoll_ElectionPager extends TablePager {
 	}
 
 	public function isFieldSortable( $field ) {
-		return in_array( $field, [
-			'el_title', 'el_start_date', 'el_end_date'
-		] );
+		return in_array(
+			$field,
+			[
+				'el_title',
+				'el_start_date',
+				'el_end_date'
+			]
+		);
 	}
 
 	/**
@@ -78,20 +83,19 @@ class SecurePoll_ElectionPager extends TablePager {
 	 * @see TablePager::getRowClass()
 	 */
 	public function getRowClass( $row ) {
-		return $row->el_end_date > wfTimestampNow()
-			? 'securepoll-election-open'
-			: 'securepoll-election-closed';
+		return $row->el_end_date > wfTimestampNow(
+		) ? 'securepoll-election-open' : 'securepoll-election-closed';
 	}
 
 	public function formatValue( $name, $value ) {
 		switch ( $name ) {
-		case 'el_start_date':
-		case 'el_end_date':
-			return $this->getLanguage()->timeanddate( $value );
-		case 'links':
-			return $this->getLinks();
-		default:
-			return htmlspecialchars( $value );
+			case 'el_start_date':
+			case 'el_end_date':
+				return $this->getLanguage()->timeanddate( $value );
+			case 'links':
+				return $this->getLinks();
+			default:
+				return htmlspecialchars( $value );
 		}
 	}
 
@@ -103,6 +107,7 @@ class SecurePoll_ElectionPager extends TablePager {
 		} else {
 			$this->isAdmin = $this->election->isAdmin( $this->getUser() );
 		}
+
 		return parent::formatRow( $row );
 	}
 
@@ -120,17 +125,17 @@ class SecurePoll_ElectionPager extends TablePager {
 			if ( $s !== '' ) {
 				$s .= $sep;
 			}
-			if ( ( $this->isAdmin || $props['public'] )
-				&& ( !$this->election->isStarted() || $props['visible-after-start'] )
-				&& ( !$this->election->isFinished() || $props['visible-after-close'] )
+			if ( ( $this->isAdmin || $props['public'] ) && ( !$this->election->isStarted(
+					) || $props['visible-after-start'] ) && ( !$this->election->isFinished(
+					) || $props['visible-after-close'] )
 			) {
 				$title = $this->entryPage->specialPage->getPageTitle( "$subpage/$id" );
 				$s .= Linker::linkKnown( $title, $linkText );
 			} else {
-				$s .= "<span class=\"securepoll-link-disabled\">" .
-					$linkText . "</span>";
+				$s .= "<span class=\"securepoll-link-disabled\">" . $linkText . "</span>";
 			}
 		}
+
 		return $s;
 	}
 
@@ -147,11 +152,16 @@ class SecurePoll_ElectionPager extends TablePager {
 				// Give grep a chance to find the usages:
 				// securepoll-header-title, securepoll-header-start-date,
 				// securepoll-header-end-date
-				$msgName = 'securepoll-header-' .
-					strtr( $field, [ 'el_' => '', '_' => '-' ] );
+				$msgName = 'securepoll-header-' . strtr( $field,
+						[
+							'el_' => '',
+							'_' => '-'
+						]
+					);
 				$names[$field] = $this->msg( $msgName )->text();
 			}
 		}
+
 		return $names;
 	}
 

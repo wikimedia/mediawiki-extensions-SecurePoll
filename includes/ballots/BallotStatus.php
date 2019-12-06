@@ -13,7 +13,8 @@ class SecurePoll_BallotStatus extends Status {
 			'type' => 'error',
 			'securepoll-id' => $id,
 			'message' => $message,
-			'params' => $params ];
+			'params' => $params
+		];
 		$this->sp_ids[$id] = true;
 		$this->ok = false;
 	}
@@ -32,18 +33,19 @@ class SecurePoll_BallotStatus extends Status {
 			if ( isset( $error['securepoll-id'] ) ) {
 				$id = $error['securepoll-id'];
 				if ( isset( $usedIds[$id] ) ) {
-					$s .= '<li>' .
-						Xml::openElement( 'a', [
-							'href' => '#' . urlencode( "$id-location" ),
-							'class' => 'securepoll-error-jump'
-						] ) .
-						Xml::element( 'img', [
-							'alt' => '',
-							'src' => $this->sp_context->getResourceUrl( 'down-16.png' ),
-						] ) .
-						'</a>' .
-						htmlspecialchars( $text ) .
-						"</li>\n";
+					$s .= '<li>' . Xml::openElement(
+							'a',
+							[
+								'href' => '#' . urlencode( "$id-location" ),
+								'class' => 'securepoll-error-jump'
+							]
+						) . Xml::element(
+							'img',
+							[
+								'alt' => '',
+								'src' => $this->sp_context->getResourceUrl( 'down-16.png' ),
+							]
+						) . '</a>' . htmlspecialchars( $text ) . "</li>\n";
 					continue;
 				}
 			}
@@ -51,6 +53,7 @@ class SecurePoll_BallotStatus extends Status {
 		}
 		$s .= "</ul>\n";
 		$s .= '<script type="text/javascript"> securepoll_ballot_setup(); </script>';
+
 		return $s;
 	}
 
@@ -59,6 +62,7 @@ class SecurePoll_BallotStatus extends Status {
 			if ( $error['securepoll-id'] !== $id ) {
 				continue;
 			}
+
 			return wfMessage( $error['message'], $error['params'] )->text();
 		}
 	}

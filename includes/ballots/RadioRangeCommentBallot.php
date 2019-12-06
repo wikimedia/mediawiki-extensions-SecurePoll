@@ -14,10 +14,22 @@ class SecurePoll_RadioRangeCommentBallot extends SecurePoll_RadioRangeBallot {
 		$form .= Html::rawElement( 'p', null, $callForComments );
 
 		// Add the comments boxes.
-		$form .= Html::textarea( 'securepoll_comments_native', '',
-			[ 'rows' => 10, 'cols' => 20 ] );
-		$form .= Html::textarea( 'securepoll_comments_en', '',
-			[ 'rows' => 10, 'cols' => 20 ] );
+		$form .= Html::textarea(
+			'securepoll_comments_native',
+			'',
+			[
+				'rows' => 10,
+				'cols' => 20
+			]
+		);
+		$form .= Html::textarea(
+			'securepoll_comments_en',
+			'',
+			[
+				'rows' => 10,
+				'cols' => 20
+			]
+		);
 
 		return $form;
 	}
@@ -58,8 +70,13 @@ class SecurePoll_RadioRangeCommentBallot extends SecurePoll_RadioRangeBallot {
 			$questions[$question->getId()] = $question;
 		}
 		for ( $offset = 0, $len = strlen( $record ); $offset < $len; $offset += $itemLength ) {
-			if ( !preg_match( '/Q([0-9A-F]{8})-A([0-9A-F]{8})-S([+-][0-9]{10})--/A',
-				$record, $m, 0, $offset )
+			if ( !preg_match(
+				'/Q([0-9A-F]{8})-A([0-9A-F]{8})-S([+-][0-9]{10})--/A',
+				$record,
+				$m,
+				0,
+				$offset
+			)
 			) {
 				// Allow comments
 				if ( $record[$offset] == '/' ) {
@@ -67,6 +84,7 @@ class SecurePoll_RadioRangeCommentBallot extends SecurePoll_RadioRangeBallot {
 				}
 
 				wfDebug( __METHOD__ . ": regex doesn't match\n" );
+
 				return false;
 			}
 			$qid = intval( base_convert( $m[1], 16, 10 ) );
@@ -74,11 +92,13 @@ class SecurePoll_RadioRangeCommentBallot extends SecurePoll_RadioRangeBallot {
 			$score = intval( $m[3] );
 			if ( !isset( $questions[$qid] ) ) {
 				wfDebug( __METHOD__ . ": invalid question ID\n" );
+
 				return false;
 			}
 			list( $min, $max ) = $this->getMinMax( $questions[$qid] );
 			if ( $score < $min || $score > $max ) {
 				wfDebug( __METHOD__ . ": score out of range\n" );
+
 				return false;
 			}
 			$scores[$qid][$oid] = $score;
@@ -91,6 +111,7 @@ class SecurePoll_RadioRangeCommentBallot extends SecurePoll_RadioRangeBallot {
 
 		if ( substr( $record, $offset, 2 ) !== '--' ) {
 			wfDebug( __METHOD__ . ": Invalid format\n" );
+
 			return false;
 		}
 		$offset += 2;
@@ -99,6 +120,7 @@ class SecurePoll_RadioRangeCommentBallot extends SecurePoll_RadioRangeBallot {
 
 		if ( $offset < strlen( $record ) ) {
 			wfDebug( __METHOD__ . ": Invalid format\n" );
+
 			return false;
 		}
 
@@ -107,10 +129,16 @@ class SecurePoll_RadioRangeCommentBallot extends SecurePoll_RadioRangeBallot {
 
 	public function readComment( $record, &$offset ) {
 		$commentOffset = strpos( $record, '/', $offset + 1 );
-		$commentLength = intval( substr( $record, $offset + 1,
-			( $commentOffset - $offset ) - 1 ) );
+		$commentLength = intval(
+			substr(
+				$record,
+				$offset + 1,
+				( $commentOffset - $offset ) - 1
+			)
+		);
 		$result = substr( $record, $commentOffset + 1, $commentLength );
 		$offset = $commentOffset + $commentLength + 1; // Fast-forward
+
 		return $result;
 	}
 }

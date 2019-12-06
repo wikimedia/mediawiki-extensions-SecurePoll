@@ -15,6 +15,7 @@ class SecurePoll_TallyPage extends SecurePoll_ActionPage {
 
 		if ( !count( $params ) ) {
 			$out->addWikiMsg( 'securepoll-too-few-params' );
+
 			return;
 		}
 
@@ -22,6 +23,7 @@ class SecurePoll_TallyPage extends SecurePoll_ActionPage {
 		$this->election = $this->context->getElection( $electionId );
 		if ( !$this->election ) {
 			$out->addWikiMsg( 'securepoll-invalid-election', $electionId );
+
 			return;
 		}
 		$this->initLanguage( $user, $this->election );
@@ -30,11 +32,13 @@ class SecurePoll_TallyPage extends SecurePoll_ActionPage {
 		);
 		if ( !$this->election->isAdmin( $user ) ) {
 			$out->addWikiMsg( 'securepoll-need-admin' );
+
 			return;
 		}
 
 		if ( !$this->election->isFinished() ) {
 			$out->addWikiMsg( 'securepoll-tally-not-finished' );
+
 			return;
 		}
 
@@ -42,6 +46,7 @@ class SecurePoll_TallyPage extends SecurePoll_ActionPage {
 		if ( $crypt ) {
 			if ( !$crypt->canDecrypt() ) {
 				$out->addWikiMsg( 'securepoll-tally-no-key' );
+
 				return;
 			}
 
@@ -74,19 +79,17 @@ class SecurePoll_TallyPage extends SecurePoll_ActionPage {
 		$out->addHTML(
 			Xml::openElement(
 				'form',
-				[ 'method' => 'post', 'action' => $this->getTitle()->getLocalUrl() ]
-			) .
-			"\n" .
-			Xml::fieldset(
+				[
+					'method' => 'post',
+					'action' => $this->getTitle()->getLocalUrl()
+				]
+			) . "\n" . Xml::fieldset(
 				$this->msg( 'securepoll-tally-local-legend' )->text(),
-				'<div>' .
-				Xml::submitButton(
+				'<div>' . Xml::submitButton(
 					$this->msg( 'securepoll-tally-local-submit' )->text(),
 					[ 'name' => 'submit_local' ]
-				) .
-				'</div>'
-			) .
-			"</form>\n"
+				) . '</div>'
+			) . "</form>\n"
 		);
 	}
 
@@ -102,24 +105,20 @@ class SecurePoll_TallyPage extends SecurePoll_ActionPage {
 					'action' => $this->getTitle()->getLocalUrl(),
 					'enctype' => 'multipart/form-data'
 				]
-			) .
-			"\n" .
-			Xml::fieldset(
+			) . "\n" . Xml::fieldset(
 				$this->msg( 'securepoll-tally-upload-legend' )->text(),
-				'<div>' .
-				Xml::element( 'input', [
-					'type' => 'file',
-					'name' => 'tally_file',
-					'size' => 40,
-				] ) .
-				"</div>\n<div>" .
-				Xml::submitButton(
+				'<div>' . Xml::element(
+					'input',
+					[
+						'type' => 'file',
+						'name' => 'tally_file',
+						'size' => 40,
+					]
+				) . "</div>\n<div>" . Xml::submitButton(
 					$this->msg( 'securepoll-tally-upload-submit' )->text(),
 					[ 'name' => 'submit_upload' ]
-				) .
-				"</div>\n"
-			) .
-			"</form>\n"
+				) . "</div>\n"
+			) . "</form>\n"
 		);
 	}
 
@@ -130,6 +129,7 @@ class SecurePoll_TallyPage extends SecurePoll_ActionPage {
 		$status = $this->election->tally();
 		if ( !$status->isOK() ) {
 			$this->specialPage->getOutput()->addWikiTextAsInterface( $status->getWikiText() );
+
 			return;
 		}
 		$tallier = $status->value;
@@ -142,16 +142,18 @@ class SecurePoll_TallyPage extends SecurePoll_ActionPage {
 	public function submitUpload() {
 		$out = $this->specialPage->getOutput();
 
-		if ( !isset( $_FILES['tally_file'] )
-			|| !is_uploaded_file( $_FILES['tally_file']['tmp_name'] )
-			|| !$_FILES['tally_file']['size']
+		if ( !isset( $_FILES['tally_file'] ) || !is_uploaded_file(
+				$_FILES['tally_file']['tmp_name']
+			) || !$_FILES['tally_file']['size']
 		) {
 			$out->addWikiMsg( 'securepoll-no-upload' );
+
 			return;
 		}
 		$context = SecurePoll_Context::newFromXmlFile( $_FILES['tally_file']['tmp_name'] );
 		if ( !$context ) {
 			$out->addWikiMsg( 'securepoll-dump-corrupt' );
+
 			return;
 		}
 		$store = $context->getStore();
@@ -167,6 +169,7 @@ class SecurePoll_TallyPage extends SecurePoll_ActionPage {
 		$status = $election->tally();
 		if ( !$status->isOK() ) {
 			$out->addWikiTextAsInterface( $status->getWikiText( 'securepoll-tally-upload-error' ) );
+
 			return;
 		}
 		$tallier = $status->value;

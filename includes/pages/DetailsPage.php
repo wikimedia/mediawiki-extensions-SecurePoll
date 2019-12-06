@@ -17,6 +17,7 @@ class SecurePoll_DetailsPage extends SecurePoll_ActionPage {
 
 		if ( !count( $params ) ) {
 			$out->addWikiMsg( 'securepoll-too-few-params' );
+
 			return;
 		}
 
@@ -24,7 +25,11 @@ class SecurePoll_DetailsPage extends SecurePoll_ActionPage {
 
 		$db = $this->context->getDB();
 		$row = $db->selectRow(
-			[ 'securepoll_votes', 'securepoll_elections', 'securepoll_voters' ],
+			[
+				'securepoll_votes',
+				'securepoll_elections',
+				'securepoll_voters'
+			],
 			'*',
 			[
 				'vote_id' => $this->voteId,
@@ -35,6 +40,7 @@ class SecurePoll_DetailsPage extends SecurePoll_ActionPage {
 		);
 		if ( !$row ) {
 			$out->addWikiMsg( 'securepoll-invalid-vote', $this->voteId );
+
 			return;
 		}
 
@@ -44,40 +50,63 @@ class SecurePoll_DetailsPage extends SecurePoll_ActionPage {
 		$vote_ip = '';
 		$vote_xff = '';
 		$vote_ua = '';
-		if ( $row->el_end_date >=
-			wfTimestamp( TS_MW, time() - ( $wgSecurePollKeepPrivateInfoDays * 24 * 60 * 60 ) )
+		if ( $row->el_end_date >= wfTimestamp(
+				TS_MW,
+				time() - ( $wgSecurePollKeepPrivateInfoDays * 24 * 60 * 60 )
+			)
 		) {
 			$vote_ip = IP::formatHex( $row->vote_ip );
 			$vote_xff = $row->vote_xff;
 			$vote_ua = $row->vote_ua;
 		}
 
-		$this->specialPage->setSubtitle( [
-			$this->specialPage->getPageTitle( 'list/' . $this->election->getId() ),
-			$this->msg( 'securepoll-list-title', $this->election->getMessage( 'title' ) )->text()
-		] );
+		$this->specialPage->setSubtitle(
+			[
+				$this->specialPage->getPageTitle( 'list/' . $this->election->getId() ),
+				$this->msg( 'securepoll-list-title', $this->election->getMessage( 'title' ) )->text(
+				)
+			]
+		);
 
 		if ( !$this->election->isAdmin( $this->specialPage->getUser() ) ) {
 			$out->addWikiMsg( 'securepoll-need-admin' );
+
 			return;
 		}
 		# Show vote properties
-		$out->setPageTitle( $this->msg(
-			'securepoll-details-title', $this->voteId )->text() );
+		$out->setPageTitle(
+			$this->msg(
+				'securepoll-details-title',
+				$this->voteId
+			)->text()
+		);
 
 		$out->addHTML(
-			'<table class="mw-datatable TablePager">' .
-			$this->detailEntry( 'securepoll-header-id', $row->vote_id ) .
-			$this->detailEntry( 'securepoll-header-timestamp', $row->vote_timestamp ) .
-			$this->detailEntry( 'securepoll-header-voter-name', $row->voter_name ) .
-			$this->detailEntry( 'securepoll-header-voter-type', $row->voter_type ) .
-			$this->detailEntry( 'securepoll-header-voter-domain', $row->voter_domain ) .
-			$this->detailEntry( 'securepoll-header-url', $row->voter_url ) .
-			$this->detailEntry( 'securepoll-header-ip', $vote_ip ) .
-			$this->detailEntry( 'securepoll-header-xff', $vote_xff ) .
-			$this->detailEntry( 'securepoll-header-ua', $vote_ua ) .
-			$this->detailEntry( 'securepoll-header-token-match', $row->vote_token_match ) .
-			'</table>'
+			'<table class="mw-datatable TablePager">' . $this->detailEntry(
+				'securepoll-header-id',
+				$row->vote_id
+			) . $this->detailEntry(
+				'securepoll-header-timestamp',
+				$row->vote_timestamp
+			) . $this->detailEntry(
+				'securepoll-header-voter-name',
+				$row->voter_name
+			) . $this->detailEntry(
+				'securepoll-header-voter-type',
+				$row->voter_type
+			) . $this->detailEntry(
+				'securepoll-header-voter-domain',
+				$row->voter_domain
+			) . $this->detailEntry( 'securepoll-header-url', $row->voter_url ) . $this->detailEntry(
+				'securepoll-header-ip',
+				$vote_ip
+			) . $this->detailEntry( 'securepoll-header-xff', $vote_xff ) . $this->detailEntry(
+				'securepoll-header-ua',
+				$vote_ua
+			) . $this->detailEntry(
+				'securepoll-header-token-match',
+				$row->vote_token_match
+			) . '</table>'
 		);
 
 		# Show voter properties
@@ -91,9 +120,9 @@ class SecurePoll_DetailsPage extends SecurePoll_ActionPage {
 				$value = implode( ', ', $value );
 			}
 			$out->addHTML(
-				'<td class="securepoll-detail-header">' .
-				htmlspecialchars( $name ) . "</td>\n" .
-				'<td>' . htmlspecialchars( $value ) . "</td></tr>\n"
+				'<td class="securepoll-detail-header">' . htmlspecialchars(
+					$name
+				) . "</td>\n" . '<td>' . htmlspecialchars( $value ) . "</td></tr>\n"
 			);
 		}
 		$out->addHTML( '</table>' );
@@ -108,20 +137,20 @@ class SecurePoll_DetailsPage extends SecurePoll_ActionPage {
 		$res = $db->query( $sql, __METHOD__ );
 		if ( $res->numRows() ) {
 			$lang = $this->specialPage->getLanguage();
-			$out->addHTML( '<h2>' . $this->msg( 'securepoll-cookie-dup-list' )->escaped() . '</h2>' );
+			$out->addHTML(
+				'<h2>' . $this->msg( 'securepoll-cookie-dup-list' )->escaped() . '</h2>'
+			);
 			$out->addHTML( '<table class="mw-datatable TablePager">' );
 			foreach ( $res as $row ) {
 				$voter = $this->context->getVoter( $row->voter );
 				$out->addHTML(
-					'<tr>' .
-					'<td>' . htmlspecialchars( $lang->timeanddate( $row->cm_timestamp ) ) . '</td>' .
-					'<td>' .
-					Xml::element(
+					'<tr>' . '<td>' . htmlspecialchars(
+						$lang->timeanddate( $row->cm_timestamp )
+					) . '</td>' . '<td>' . Xml::element(
 						'a',
 						[ 'href' => $voter->getUrl() ],
 						$voter->getName() . '@' . $voter->getDomain()
-					) .
-					'</td></tr>'
+					) . '</td></tr>'
 				);
 			}
 			$out->addHTML( '</table>' );
@@ -131,8 +160,7 @@ class SecurePoll_DetailsPage extends SecurePoll_ActionPage {
 		$out->addHTML( '<h2>' . $this->msg( 'securepoll-strike-log' )->escaped() . "</h2>\n" );
 		$pager = new SecurePoll_StrikePager( $this, $this->voteId );
 		$out->addHTML(
-			$pager->getBody() .
-			$pager->getNavigationBar()
+			$pager->getBody() . $pager->getNavigationBar()
 		);
 	}
 
@@ -143,9 +171,9 @@ class SecurePoll_DetailsPage extends SecurePoll_ActionPage {
 	 * @return string
 	 */
 	public function detailEntry( $header, $value ) {
-		return "<tr>\n" .
-			"<td class=\"securepoll-detail-header\">" .	$this->msg( $header )->escaped() . "</td>\n" .
-			'<td>' . htmlspecialchars( $value ) . "</td></tr>\n";
+		return "<tr>\n" . "<td class=\"securepoll-detail-header\">" . $this->msg(
+				$header
+			)->escaped() . "</td>\n" . '<td>' . htmlspecialchars( $value ) . "</td></tr>\n";
 	}
 
 	/**

@@ -65,9 +65,7 @@ class SecurePoll_Entity {
 	 * @return SecurePoll_Election
 	 */
 	public function getElection() {
-		return $this->electionId !== null
-			? $this->context->getElection( $this->electionId )
-			: null;
+		return $this->electionId !== null ? $this->context->getElection( $this->electionId ) : null;
 	}
 
 	/**
@@ -93,6 +91,7 @@ class SecurePoll_Entity {
 			$descendants[] = $child;
 			$descendants = array_merge( $descendants, $child->getDescendants() );
 		}
+
 		return $descendants;
 	}
 
@@ -139,6 +138,7 @@ class SecurePoll_Entity {
 		if ( empty( $this->messagesLoaded[$language] ) ) {
 			$this->loadMessages( $language );
 		}
+
 		return $this->context->getMessage( $language, $this->getId(), $name );
 	}
 
@@ -160,6 +160,7 @@ class SecurePoll_Entity {
 				return $message;
 			}
 		}
+
 		return "[$name]";
 	}
 
@@ -178,8 +179,13 @@ class SecurePoll_Entity {
 			$title = SpecialPage::getTitleFor( 'SecurePoll' );
 		}
 		$wikiText = $this->getMessage( $name );
-		$out = MediaWikiServices::getInstance()->getParser()
-			->parse( $wikiText, $title, $parserOptions, $lineStart );
+		$out = MediaWikiServices::getInstance()->getParser()->parse(
+				$wikiText,
+				$title,
+				$parserOptions,
+				$lineStart
+			);
+
 		return $out->getText();
 	}
 
@@ -202,6 +208,7 @@ class SecurePoll_Entity {
 		foreach ( $this->getDescendants() as $child ) {
 			$ids[] = $child->getId();
 		}
+
 		return $this->context->getStore()->getLangList( $ids );
 	}
 
@@ -231,6 +238,7 @@ class SecurePoll_Entity {
 		if ( $this->properties === null ) {
 			$this->loadProperties();
 		}
+
 		return $this->properties;
 	}
 
@@ -240,9 +248,7 @@ class SecurePoll_Entity {
 	 * @return string
 	 */
 	public function getConfXml( $params = [] ) {
-		return "<{$this->type}>\n" .
-			$this->getConfXmlEntityStuff( $params ) .
-			"</{$this->type}>\n";
+		return "<{$this->type}>\n" . $this->getConfXmlEntityStuff( $params ) . "</{$this->type}>\n";
 	}
 
 	/**
@@ -269,12 +275,16 @@ class SecurePoll_Entity {
 				if ( $value !== false ) {
 					$s .= Xml::element(
 							'message',
-							[ 'name' => $name, 'lang' => $lang ],
+							[
+								'name' => $name,
+								'lang' => $lang
+							],
 							$value
 						) . "\n";
 				}
 			}
 		}
+
 		return $s;
 	}
 

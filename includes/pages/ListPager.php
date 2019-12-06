@@ -46,15 +46,24 @@ class SecurePoll_ListPager extends TablePager {
 	}
 
 	public function isFieldSortable( $field ) {
-		return in_array( $field, [
-			'vote_voter_name', 'vote_voter_domain', 'vote_timestamp', 'vote_ip'
-		] );
+		return in_array(
+			$field,
+			[
+				'vote_voter_name',
+				'vote_voter_domain',
+				'vote_timestamp',
+				'vote_ip'
+			]
+		);
 	}
 
 	public function formatValue( $name, $value ) {
 		global $wgScriptPath, $wgSecurePollKeepPrivateInfoDays;
-		$critical = Xml::element( 'img', [
-			'src' => "$wgScriptPath/extensions/SecurePoll/resources/critical-32.png" ]
+		$critical = Xml::element(
+			'img',
+			[
+				'src' => "$wgScriptPath/extensions/SecurePoll/resources/critical-32.png"
+			]
 		);
 		$voter = SecurePoll_Voter::newFromId(
 			$this->listPage->context,
@@ -62,75 +71,86 @@ class SecurePoll_ListPager extends TablePager {
 		);
 
 		switch ( $name ) {
-		case 'vote_timestamp':
-			return $this->getLanguage()->timeanddate( $value );
-		case 'vote_ip':
-			if ( $this->election->endDate <
-				wfTimestamp( TS_MW, time() - ( $wgSecurePollKeepPrivateInfoDays * 24 * 60 * 60 ) )
-			) {
-				return '';
-			} else {
-				return IP::formatHex( $value );
-			}
-		case 'vote_ua':
-			if ( $this->election->endDate <
-				wfTimestamp( TS_MW, time() - ( $wgSecurePollKeepPrivateInfoDays * 24 * 60 * 60 ) )
-			) {
-				return '';
-			} else {
-				return $value;
-			}
-		case 'vote_xff':
-			if ( $this->election->endDate <
-				wfTimestamp( TS_MW, time() - ( $wgSecurePollKeepPrivateInfoDays * 24 * 60 * 60 ) )
-			) {
-				return '';
-			} else {
-				return $value;
-			}
-		case 'vote_cookie_dup':
-			$value = !$value;
+			case 'vote_timestamp':
+				return $this->getLanguage()->timeanddate( $value );
+			case 'vote_ip':
+				if ( $this->election->endDate < wfTimestamp(
+						TS_MW,
+						time() - ( $wgSecurePollKeepPrivateInfoDays * 24 * 60 * 60 )
+					)
+				) {
+					return '';
+				} else {
+					return IP::formatHex( $value );
+				}
+			case 'vote_ua':
+				if ( $this->election->endDate < wfTimestamp(
+						TS_MW,
+						time() - ( $wgSecurePollKeepPrivateInfoDays * 24 * 60 * 60 )
+					)
+				) {
+					return '';
+				} else {
+					return $value;
+				}
+			case 'vote_xff':
+				if ( $this->election->endDate < wfTimestamp(
+						TS_MW,
+						time() - ( $wgSecurePollKeepPrivateInfoDays * 24 * 60 * 60 )
+					)
+				) {
+					return '';
+				} else {
+					return $value;
+				}
+			case 'vote_cookie_dup':
+				$value = !$value;
 			// fall through
-		case 'vote_token_match':
-			if ( $value ) {
-				return '';
-			} else {
-				return $critical;
-			}
-		case 'details':
-			$voteId = intval( $this->mCurrentRow->vote_id );
-			$title = $this->listPage->specialPage->getPageTitle( "details/$voteId" );
-			return Xml::element( 'a',
-				[ 'href' => $title->getLocalUrl() ],
-				$this->msg( 'securepoll-details-link' )->text()
-			);
-		case 'strike':
-			$voteId = intval( $this->mCurrentRow->vote_id );
-			if ( $this->mCurrentRow->vote_struck ) {
-				$label = $this->msg( 'securepoll-unstrike-button' )->text();
-				$action = "'unstrike'";
-			} else {
-				$label = $this->msg( 'securepoll-strike-button' )->text();
-				$action = "'strike'";
-			}
-			$id = 'securepoll-popup-' . $voteId;
-			return Xml::element( 'input',
-				[
-					'type' => 'button',
-					'id' => $id,
-					'value' => $label,
-					'onclick' => "securepoll_strike_popup(event, $action, $voteId)"
-				] );
-		case 'vote_voter_name':
-			$msg = $voter->isRemote()
-				? 'securepoll-voter-name-remote'
-				: 'securepoll-voter-name-local';
-			return $this->msg(
-				$msg,
-				[ $value ]
-			)->parse();
-		default:
-			return htmlspecialchars( $value );
+			case 'vote_token_match':
+				if ( $value ) {
+					return '';
+				} else {
+					return $critical;
+				}
+			case 'details':
+				$voteId = intval( $this->mCurrentRow->vote_id );
+				$title = $this->listPage->specialPage->getPageTitle( "details/$voteId" );
+
+				return Xml::element(
+					'a',
+					[ 'href' => $title->getLocalUrl() ],
+					$this->msg( 'securepoll-details-link' )->text()
+				);
+			case 'strike':
+				$voteId = intval( $this->mCurrentRow->vote_id );
+				if ( $this->mCurrentRow->vote_struck ) {
+					$label = $this->msg( 'securepoll-unstrike-button' )->text();
+					$action = "'unstrike'";
+				} else {
+					$label = $this->msg( 'securepoll-strike-button' )->text();
+					$action = "'strike'";
+				}
+				$id = 'securepoll-popup-' . $voteId;
+
+				return Xml::element(
+					'input',
+					[
+						'type' => 'button',
+						'id' => $id,
+						'value' => $label,
+						'onclick' => "securepoll_strike_popup(event, $action, $voteId)"
+					]
+				);
+			case 'vote_voter_name':
+				$msg = $voter->isRemote(
+				) ? 'securepoll-voter-name-remote' : 'securepoll-voter-name-local';
+
+				return $this->msg(
+					$msg,
+					[ $value ]
+				)->parse();
+			default:
+				return htmlspecialchars( $value );
 		}
 	}
 
@@ -151,9 +171,17 @@ class SecurePoll_ListPager extends TablePager {
 		// securepoll-header-xff, securepoll-header-ua, securepoll-header-token-match,
 		// securepoll-header-cookie-dup
 		foreach ( $fields as $field ) {
-			$names[$field] = $this->msg( 'securepoll-header-' . strtr( $field,
-				[ 'vote_' => '', '_' => '-' ] ) )->text();
+			$names[$field] = $this->msg(
+				'securepoll-header-' . strtr(
+					$field,
+					[
+						'vote_' => '',
+						'_' => '-'
+					]
+				)
+			)->text();
 		}
+
 		return $names;
 	}
 
@@ -165,6 +193,7 @@ class SecurePoll_ListPager extends TablePager {
 		if ( $row->vote_struck ) {
 			$classes[] = 'securepoll-struck-vote';
 		}
+
 		return implode( ' ', $classes );
 	}
 

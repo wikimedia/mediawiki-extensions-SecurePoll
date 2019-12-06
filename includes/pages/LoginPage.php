@@ -10,6 +10,7 @@ class SecurePoll_LoginPage extends SecurePoll_ActionPage {
 
 		if ( !count( $params ) ) {
 			$out->addWikiMsg( 'securepoll-too-few-params' );
+
 			return;
 		}
 
@@ -17,6 +18,7 @@ class SecurePoll_LoginPage extends SecurePoll_ActionPage {
 		$this->election = $this->context->getElection( $electionId );
 		if ( !$this->election ) {
 			$out->addWikiMsg( 'securepoll-invalid-election', $electionId );
+
 			return;
 		}
 
@@ -24,6 +26,7 @@ class SecurePoll_LoginPage extends SecurePoll_ActionPage {
 		$status = $auth->newRequestedSession( $this->election );
 		if ( !$status->isOK() ) {
 			$out->addWikiTextAsInterface( $status->getWikiText() );
+
 			return;
 		}
 		$votePage = SpecialPage::getTitleFor( 'SecurePoll', 'vote/' . $this->election->getId() );

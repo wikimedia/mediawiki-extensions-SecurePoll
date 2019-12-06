@@ -22,14 +22,17 @@ class SecurePoll_ApprovalBallot extends SecurePoll_Ballot {
 			$optionId = $option->getId();
 			$inputId = "{$name}_opt{$optionId}";
 			$oldValue = $wgRequest->getBool( $inputId );
-			$s .=
-				'<div class="securepoll-option-approval">' .
-				Xml::check( $inputId, $oldValue, [ 'id' => $inputId ] ) .
-				'&#160;' .
-				Xml::tags( 'label', [ 'for' => $inputId ], $optionHTML ) .
-				'&#160;' .
-				"</div>\n";
+			$s .= '<div class="securepoll-option-approval">' . Xml::check(
+					$inputId,
+					$oldValue,
+					[ 'id' => $inputId ]
+				) . '&#160;' . Xml::tags(
+					'label',
+					[ 'for' => $inputId ],
+					$optionHTML
+				) . '&#160;' . "</div>\n";
 		}
+
 		return $s;
 	}
 
@@ -46,9 +49,14 @@ class SecurePoll_ApprovalBallot extends SecurePoll_Ballot {
 		foreach ( $options as $option ) {
 			$id = 'securepoll_q' . $question->getId() . '_opt' . $option->getId();
 			$checked = $wgRequest->getBool( $id );
-			$record .= sprintf( 'Q%08X-A%08X-%s--',
-				$question->getId(), $option->getId(), $checked ? 'y' : 'n' );
+			$record .= sprintf(
+				'Q%08X-A%08X-%s--',
+				$question->getId(),
+				$option->getId(),
+				$checked ? 'y' : 'n'
+			);
 		}
+
 		return $record;
 	}
 
@@ -56,10 +64,16 @@ class SecurePoll_ApprovalBallot extends SecurePoll_Ballot {
 		$scores = [];
 		$itemLength = 2 * 8 + 7;
 		for ( $offset = 0, $len = strlen( $record ); $offset < $len; $offset += $itemLength ) {
-			if ( !preg_match( '/Q([0-9A-F]{8})-A([0-9A-F]{8})-([yn])--/A',
-				$record, $m, 0, $offset )
+			if ( !preg_match(
+				'/Q([0-9A-F]{8})-A([0-9A-F]{8})-([yn])--/A',
+				$record,
+				$m,
+				0,
+				$offset
+			)
 			) {
 				wfDebug( __METHOD__ . ": regex doesn't match\n" );
+
 				return false;
 			}
 			$qid = intval( base_convert( $m[1], 16, 10 ) );
@@ -67,6 +81,7 @@ class SecurePoll_ApprovalBallot extends SecurePoll_Ballot {
 			$score = ( $m[3] === 'y' ) ? 1 : 0;
 			$scores[$qid][$oid] = $score;
 		}
+
 		return $scores;
 	}
 
@@ -91,6 +106,7 @@ class SecurePoll_ApprovalBallot extends SecurePoll_Ballot {
 			}
 			$result[$qid] = $s;
 		}
+
 		return $result;
 	}
 

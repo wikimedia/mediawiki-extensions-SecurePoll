@@ -42,7 +42,12 @@ class SecurePoll_ElectionTallier {
 			$this->talliers[$question->getId()] = $tallier;
 		}
 
-		$status = $store->callbackValidVotes( $this->election->getId(), [ $this, 'addRecord' ] );
+		$status = $store->callbackValidVotes( $this->election->getId(),
+			[
+				$this,
+				'addRecord'
+			]
+		);
 		if ( !$status->isOK() ) {
 			return $status;
 		}
@@ -50,6 +55,7 @@ class SecurePoll_ElectionTallier {
 		foreach ( $this->talliers as $tallier ) {
 			$tallier->finishTally();
 		}
+
 		return Status::newGood( $this->talliers );
 	}
 
@@ -84,6 +90,7 @@ class SecurePoll_ElectionTallier {
 				return Status::newFatal( 'securepoll-tally-error' );
 			}
 		}
+
 		return Status::newGood();
 	}
 
@@ -101,6 +108,7 @@ class SecurePoll_ElectionTallier {
 			$tallier = $this->talliers[$question->getId()];
 			$s .= $tallier->getHtmlResult();
 		}
+
 		return $s;
 	}
 
@@ -118,6 +126,7 @@ class SecurePoll_ElectionTallier {
 			$tallier = $this->talliers[$question->getId()];
 			$s .= $tallier->getTextResult();
 		}
+
 		return $s;
 	}
 }

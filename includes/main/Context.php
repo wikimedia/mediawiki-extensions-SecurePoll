@@ -71,6 +71,7 @@ class SecurePoll_Context {
 		if ( !$this->parserOptions ) {
 			$this->parserOptions = new ParserOptions;
 		}
+
 		return $this->parserOptions;
 	}
 
@@ -82,6 +83,7 @@ class SecurePoll_Context {
 		if ( !isset( $this->store ) ) {
 			$this->store = new $this->storeClass;
 		}
+
 		return $this->store;
 	}
 
@@ -137,6 +139,7 @@ class SecurePoll_Context {
 				$this->electionCache[$id] = false;
 			}
 		}
+
 		return $this->electionCache[$id];
 	}
 
@@ -163,6 +166,7 @@ class SecurePoll_Context {
 	 */
 	public function newElectionFromRow( $row ) {
 		$info = $this->getStore()->decodeElectionRow( $row );
+
 		return $this->newElection( $info );
 	}
 
@@ -206,6 +210,7 @@ class SecurePoll_Context {
 		if ( !$this->random ) {
 			$this->random = new SecurePoll_Random;
 		}
+
 		return $this->random;
 	}
 
@@ -243,10 +248,12 @@ class SecurePoll_Context {
 				$this->messageCache[$lang] = $this->messageCache[$lang] + $messages;
 				$this->messagesLoaded[$lang] = $this->messagesLoaded[$lang] + $uncachedIds;
 			}
+
 			return array_intersect_key( $this->messageCache[$lang], array_flip( $ids ) );
 		} else {
 			$this->messagesLoaded[$lang] = $ids;
 			$this->messageCache[$lang] = $this->getStore()->getMessages( $lang, $ids );
+
 			return $this->messageCache[$lang];
 		}
 	}
@@ -373,8 +380,11 @@ class SecurePoll_Context {
 		if ( is_array( $var ) ) {
 			$s = "array(\n";
 			foreach ( $var as $key => $value ) {
-				$s .= "$indent$tab" . $this->varDump( $key, true, $level + 1 ) . " => " .
-					$this->varDump( $value, true, $level + 1 ) . ",\n";
+				$s .= "$indent$tab" . $this->varDump(
+						$key,
+						true,
+						$level + 1
+					) . " => " . $this->varDump( $value, true, $level + 1 ) . ",\n";
 			}
 			$s .= "{$indent})";
 		} elseif ( is_object( $var ) ) {
@@ -408,6 +418,7 @@ class SecurePoll_Context {
 	 */
 	public function getResourceUrl( $resource ) {
 		global $wgScriptPath;
+
 		return "$wgScriptPath/extensions/SecurePoll/resources/$resource";
 	}
 }

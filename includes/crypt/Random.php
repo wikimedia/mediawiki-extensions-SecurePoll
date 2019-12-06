@@ -19,6 +19,7 @@ class SecurePoll_Random {
 		if ( !$this->urandom ) {
 			return Status::newFatal( 'securepoll-dump-no-urandom' );
 		}
+
 		return Status::newGood();
 	}
 
@@ -52,6 +53,7 @@ class SecurePoll_Random {
 			$x *= 256;
 			$x += ord( substr( $data, $i, 1 ) );
 		}
+
 		return $x % $maxp1;
 	}
 
@@ -69,6 +71,7 @@ class SecurePoll_Random {
 			$a[$i] = $a[$target];
 			$a[$target] = $tmp;
 		}
+
 		return $a;
 	}
 }

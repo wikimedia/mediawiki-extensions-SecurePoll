@@ -4,7 +4,7 @@
  * Parent class for Special:SecurePoll subpages.
  */
 abstract class SecurePoll_ActionPage {
-	/** @var SecurePoll_SpecialSecurePoll  */
+	/** @var SecurePoll_SpecialSecurePoll */
 	public $specialPage;
 	/** @var SecurePoll_Election */
 	public $election;
@@ -48,7 +48,8 @@ abstract class SecurePoll_ActionPage {
 
 		$languages = array_merge(
 			[ $userLang ],
-			Language::getFallbacksFor( $userLang ) );
+			Language::getFallbacksFor( $userLang )
+		);
 
 		if ( !in_array( $election->getLanguage(), $languages ) ) {
 			$languages[] = $election->getLanguage();
@@ -65,6 +66,12 @@ abstract class SecurePoll_ActionPage {
 	 * @return Message
 	 */
 	protected function msg( ...$args ) {
-		return call_user_func_array( [ $this->specialPage, 'msg' ], $args );
+		return call_user_func_array(
+			[
+				$this->specialPage,
+				'msg'
+			],
+			$args
+		);
 	}
 }
