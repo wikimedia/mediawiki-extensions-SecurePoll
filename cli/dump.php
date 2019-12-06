@@ -19,10 +19,10 @@ class DumpElection extends Maintenance {
 
 		$this->addArg( 'electionname', 'Name of the election' );
 		$this->addOption( 'o', 'Output to the specified file' );
-		$this->getOption( 'by-id', 'Get election using its numerical ID, instead of its title' );
-		$this->getOption( 'votes', 'Include vote records' );
-		$this->getOption( 'all-langs', 'Include messages for all languages instead of just the primary' );
-		$this->getOption( 'jump', 'Produce a configuration dump suitable for setting up a jump wiki' );
+		$this->addOption( 'by-id', 'Get election using its numerical ID, instead of its title' );
+		$this->addOption( 'votes', 'Include vote records' );
+		$this->addOption( 'all-langs', 'Include messages for all languages instead of just the primary' );
+		$this->addOption( 'jump', 'Produce a configuration dump suitable for setting up a jump wiki' );
 
 		$this->requireExtension( 'SecurePoll' );
 	}
