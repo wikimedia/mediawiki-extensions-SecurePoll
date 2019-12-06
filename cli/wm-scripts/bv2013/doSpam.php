@@ -197,9 +197,9 @@ fwrite( $err, "Done.\n" );
  * Checks for ineligibility due to blocks or groups
  *
  * @param string $wiki
- * @param int[] $usersToCheck
+ * @param int[] $usersToCheck User ID
  */
-function runChecks( $wiki, $usersToCheck /* user ID */ ) {
+function runChecks( $wiki, $usersToCheck ) {
 	global $users;
 	$dbr = wfGetDB( DB_REPLICA, null, $wiki );
 

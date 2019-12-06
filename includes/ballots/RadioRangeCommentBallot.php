@@ -137,7 +137,8 @@ class SecurePoll_RadioRangeCommentBallot extends SecurePoll_RadioRangeBallot {
 			)
 		);
 		$result = substr( $record, $commentOffset + 1, $commentLength );
-		$offset = $commentOffset + $commentLength + 1; // Fast-forward
+		// Fast-forward
+		$offset = $commentOffset + $commentLength + 1;
 
 		return $result;
 	}
