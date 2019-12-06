@@ -46,13 +46,8 @@ class SecurePoll_SpecialSecurePoll extends SpecialPage {
 		$out = $this->getOutput();
 
 		$this->setHeaders();
-		$out->addLink(
-			[
-				'rel' => 'stylesheet',
-				'href' => "$wgExtensionAssetsPath/SecurePoll/resources/SecurePoll.css",
-				'type' => 'text/css'
-			]
-		);
+
+		$out->addModuleStyles( 'ext.securepoll.special' );
 		$out->addScriptFile( "$wgExtensionAssetsPath/SecurePoll/resources/SecurePoll.js" );
 
 		$paramString = strval( $paramString );

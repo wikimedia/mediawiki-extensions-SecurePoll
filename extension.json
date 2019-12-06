@@ -99,6 +99,9 @@
 		},
 		"ext.securepoll": {
 			"styles": "ext.securepoll.css"
+		},
+		"ext.securepoll.special": {
+			"styles": "ext.securepoll.special.css"
 		}
 	},
 	"ResourceFileModulePaths": {
