@@ -59,7 +59,7 @@ class TallyElection extends Maintenance {
 			$this->fatalError( 'Tally error: ' . $status->getWikiText() );
 		}
 		$tallier = $status->value;
-		if ( $this->getOption( 'html' ) ) {
+		if ( $this->hasOption( 'html' ) ) {
 			$this->output( $tallier->getHtmlResult() );
 		} else {
 			$this->output( $tallier->getTextResult() );

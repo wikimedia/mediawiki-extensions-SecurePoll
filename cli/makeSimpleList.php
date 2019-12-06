@@ -62,10 +62,10 @@ class MakeSimpleList extends Maintenance {
 			__METHOD__
 		);
 		if ( $listExists ) {
-			if ( $this->getOption( 'replace' ) ) {
+			if ( $this->hasOption( 'replace' ) ) {
 				$this->output( "Deleting existing list...\n" );
 				$dbw->delete( 'securepoll_lists', [ 'li_name' => $listName ], __METHOD__ );
-			} elseif ( $this->getOption( 'ignore-existing' ) ) {
+			} elseif ( $this->hasOption( 'ignore-existing' ) ) {
 				$insertOptions[] = 'IGNORE';
 			} else {
 				$this->fatalError( "Error: list exists. Use --replace to replace it.\n" );
@@ -112,7 +112,7 @@ class MakeSimpleList extends Maintenance {
 						$conds[] = ( $key === 'actor' ? 'revactor_timestamp' : 'rev_timestamp' )
 							. ' < ' . $beforeQ;
 					}
-					if ( $this->getOption( 'mainspace-only' ) ) {
+					if ( $this->hasOption( 'mainspace-only' ) ) {
 						$conds['page_namespace'] = 0;
 					}
 

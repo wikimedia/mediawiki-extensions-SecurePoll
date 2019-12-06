@@ -56,7 +56,7 @@ class DumpVoteCsv extends Maintenance {
 		}
 
 		// $tallier = $status->value;
-		if ( $this->getOption( 'html' ) ) {
+		if ( $this->hasOption( 'html' ) ) {
 			$this->output( $tallier->getHtmlResult() );
 		} else {
 			$this->output( $tallier->getTextResult() );
