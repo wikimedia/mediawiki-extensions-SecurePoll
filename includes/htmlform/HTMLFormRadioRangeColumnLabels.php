@@ -75,7 +75,7 @@ class SecurePoll_HTMLFormRadioRangeColumnLabels extends HTMLFormField {
 
 		$class = 'securepoll-radiorange-messages';
 		if ( $this->mClass !== '' ) {
-			$attribs['class'] .= " $this->mClass";
+			$class .= " $this->mClass";
 		}
 
 		$html = Html::rawElement( 'table', [
