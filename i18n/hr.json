@@ -11,7 +11,7 @@
 		]
 	},
 	"securepoll": "Sigurno glasovanje",
-	"securepoll-desc": "MediaWiki ekstenzija za izbore i ankete",
+	"securepoll-desc": "Proširenje MediaWikija za izbore i ankete",
 	"securepoll-invalid-page": "Nevaljana podstranica \"<nowiki>$1</nowiki>\"",
 	"securepoll-need-admin": "Morate biti administrator izbora za izvršenje ove radnje.",
 	"securepoll-too-few-params": "Nema dovoljno parametara podstranice (neispravna poveznica).",
