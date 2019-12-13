@@ -9,8 +9,8 @@ class SecurePoll_HTMLFormRadioRangeColumnLabels extends HTMLFormField {
 	}
 
 	public function loadDataFromRequest( $request ) {
-		$values = $request->getArray( $this->mName, false );
-		if ( $values === false ) {
+		$values = $request->getArray( $this->mName );
+		if ( $values === null ) {
 			return $this->getDefault();
 		}
 
