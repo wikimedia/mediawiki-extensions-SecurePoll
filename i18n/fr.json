@@ -252,7 +252,7 @@
 	"securepoll-votereligibility-cleared-comment": "$1 effacé.",
 	"right-securepoll-create-poll": "Créer des sondages",
 	"action-securepoll-create-poll": "créer des sondages",
-	"securepoll-ns-readonly": "L'espace de noms {{ns:SecurePoll}} est en lecture seule",
+	"securepoll-ns-readonly": "L’espace de noms {{ns:SecurePoll}} est en lecture seule",
 	"securepoll-voter-stats": "Parmi les votants éligibles, $1 {{PLURAL:$1|votant a|votants ont}} voté.",
 	"securepoll-vote-stats": "Un total de $1 {{PLURAL:$1|vote|votes}} a été envoyé. Parmi ceux-ci, $2 {{PLURAL:$2|est rejeté|sont rejetés}} parce que le votant a revoté, et $3 {{PLURAL:$3|est supprimé|sont supprimés}}."
 }
