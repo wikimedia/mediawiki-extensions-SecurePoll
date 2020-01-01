@@ -156,7 +156,7 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 		$formItems['election_primaryLang'] = [
 			'type' => 'select',
 			'options' => $options,
-			'label-message' => 'securepoll-create-label-election_primaryLang',
+			'label-message' => 'securepoll-create-label-election_primarylang',
 			'default' => 'en',
 			'required' => true,
 		];
