@@ -8,7 +8,8 @@
 			"Suelnur",
 			"Vito Genovese",
 			"Sayginer",
-			"Mavrikant"
+			"Mavrikant",
+			"BaRaN6161 TURK"
 		]
 	},
 	"securepoll": "GüvenliOylama",
@@ -124,6 +125,8 @@
 	"securepoll-create-label-election_type": "Anket türü:",
 	"securepoll-create-label-questions": "== Sorular ==",
 	"securepoll-create-questions-row-legend": "Soru",
+	"securepoll-create-option-column_order-asc": "Artan",
+	"securepoll-create-option-column_order-desc": "Azalan",
 	"securepoll-create-label-questions-option": "=== Seçenekler ===",
 	"securepoll-votereligibility-label-edit": "Listeyi düzenle",
 	"right-securepoll-create-poll": "Anketler oluştur"
