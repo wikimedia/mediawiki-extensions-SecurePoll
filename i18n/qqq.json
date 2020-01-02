@@ -158,7 +158,7 @@
 	"securepoll-create-option-wiki-this_wiki": "Label for form option on Special:SecurePoll/create.",
 	"securepoll-create-option-wiki-all_wikis": "Label for form option on Special:SecurePoll/create.\n{{Identical|All wikis}}",
 	"securepoll-create-option-wiki-other_wiki": "Label for form option on Special:SecurePoll/create.",
-	"securepoll-create-label-election_primaryLang": "Label for form field on Special:SecurePoll/create.\n{{Identical|Primary language}}",
+	"securepoll-create-label-election_primarylang": "Label for form field on Special:SecurePoll/create.\n{{Identical|Primary language}}",
 	"securepoll-create-label-election_startdate": "Label for form field on Special:SecurePoll/create.",
 	"securepoll-create-label-election_duration": "Label for form field on Special:SecurePoll/create.",
 	"securepoll-create-label-election_disallow-change": "Label for form field on Special:SecurePoll/create.",
