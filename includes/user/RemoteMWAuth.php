@@ -63,8 +63,11 @@ class SecurePoll_RemoteMWAuth extends SecurePoll_Auth {
 		// does, the correct value is $params['site'] unless there is a string
 		// back-mapping for it in $wgConf->suffixes.
 		$suffixes = array_flip( $wgConf->suffixes );
+		// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset
 		$suffix = isset( $suffixes[$params['site']] ) && is_string(
+			// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset
 			$suffixes[$params['site']]
+			// @phan-suppress-next-line PhanTypePossiblyInvalidDimOffset
 		) ? $suffixes[$params['site']] : $params['site'];
 
 		$server = $wgConf->get( 'wgServer', $params['wiki'], $suffix, $params );
