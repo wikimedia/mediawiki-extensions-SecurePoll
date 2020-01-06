@@ -99,7 +99,7 @@
 	"securepoll-spoilt": "(Zuria edo Baliogabea)",
 	"securepoll-create-option-wiki-this_wiki": "Wiki hau",
 	"securepoll-create-option-wiki-all_wikis": "Wiki guztiak",
-	"securepoll-create-label-election_primaryLang": "Lehen hizkuntza:",
+	"securepoll-create-label-election_primarylang": "Lehen hizkuntza:",
 	"securepoll-create-label-election_type": "Inkesta mota:",
 	"securepoll-create-label-election_crypt": "Zifraketa:",
 	"securepoll-create-label-property_admins": "Administratzaileak:",

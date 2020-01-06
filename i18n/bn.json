@@ -120,7 +120,7 @@
 	"securepoll-create-option-wiki-this_wiki": "এই উইকি",
 	"securepoll-create-option-wiki-all_wikis": "সকল উইকি",
 	"securepoll-create-option-wiki-other_wiki": "অন্যান্য নির্দিষ্ট উইকি",
-	"securepoll-create-label-election_primaryLang": "প্রাথমিক ভাষা:",
+	"securepoll-create-label-election_primarylang": "প্রাথমিক ভাষা:",
 	"securepoll-create-label-election_type": "জরিপের ধরন:",
 	"securepoll-create-label-property_admins": "প্রশাসকগণ:",
 	"securepoll-create-label-questions": "== প্রশ্নসমূহ ==",

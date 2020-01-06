@@ -129,7 +129,7 @@
 	"securepoll-create-option-wiki-this_wiki": "ეს ვიკი",
 	"securepoll-create-option-wiki-all_wikis": "ყველა ვიკი",
 	"securepoll-create-option-wiki-other_wiki": "სხვა სპეციფიური ვიკი",
-	"securepoll-create-label-election_primaryLang": "ძირითადი ენა:",
+	"securepoll-create-label-election_primarylang": "ძირითადი ენა:",
 	"securepoll-create-label-property_admins": "ადმინები:",
 	"securepoll-create-label-questions-question": "შეკითხვის ტექსტი:",
 	"securepoll-create-label-questions-add": "სხვა შეკითხვის დამატება",

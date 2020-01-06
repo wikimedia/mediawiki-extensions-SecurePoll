@@ -137,7 +137,7 @@
 	"securepoll-create-option-wiki-this_wiki": "אתר הוויקי הזה",
 	"securepoll-create-option-wiki-all_wikis": "כל אתרי הוויקי",
 	"securepoll-create-option-wiki-other_wiki": "אתר ויקי מסוים אחר",
-	"securepoll-create-label-election_primaryLang": "שפה עיקרית:",
+	"securepoll-create-label-election_primarylang": "שפה עיקרית:",
 	"securepoll-create-label-election_startdate": "תאריך ההתחלה של הבחירות:",
 	"securepoll-create-label-election_duration": "משך הבחירות (בימים):",
 	"securepoll-create-label-election_disallow-change": "לא לאפשר למצביעים לשנות את ההצבעות",

@@ -136,7 +136,7 @@
 	"securepoll-create-option-wiki-this_wiki": "Ова вики",
 	"securepoll-create-option-wiki-all_wikis": "Сите викија",
 	"securepoll-create-option-wiki-other_wiki": "Друго поединечно вики",
-	"securepoll-create-label-election_primaryLang": "Главен јазик:",
+	"securepoll-create-label-election_primarylang": "Главен јазик:",
 	"securepoll-create-label-election_startdate": "Почеток на изборите:",
 	"securepoll-create-label-election_duration": "Траење на изборите (денови):",
 	"securepoll-create-label-election_disallow-change": "Спречи ја можноста за промена на дадениот глас",

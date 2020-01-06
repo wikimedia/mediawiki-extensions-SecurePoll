@@ -124,7 +124,7 @@
 	"securepoll-create-option-wiki-this_wiki": "Dës Wiki",
 	"securepoll-create-option-wiki-all_wikis": "All Wikiën",
 	"securepoll-create-option-wiki-other_wiki": "Aner spezifesch Wiki",
-	"securepoll-create-label-election_primaryLang": "Haaptsprooch:",
+	"securepoll-create-label-election_primarylang": "Haaptsprooch:",
 	"securepoll-create-label-election_startdate": "Ufanksdatum vun de Walen:",
 	"securepoll-create-label-election_duration": "Dauer vun de Walen (Deeg):",
 	"securepoll-create-label-election_disallow-change": "Wieler dovun ofhale fir hier Stëmmen z'änneren",

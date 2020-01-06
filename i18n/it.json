@@ -142,7 +142,7 @@
 	"securepoll-create-option-wiki-this_wiki": "Questo wiki",
 	"securepoll-create-option-wiki-all_wikis": "Tutti i siti wiki",
 	"securepoll-create-option-wiki-other_wiki": "Altri wiki specifici",
-	"securepoll-create-label-election_primaryLang": "Lingua principale:",
+	"securepoll-create-label-election_primarylang": "Lingua principale:",
 	"securepoll-create-label-election_startdate": "Data inizio elezioni:",
 	"securepoll-create-label-election_duration": "Durata elezioni (giorni):",
 	"securepoll-create-label-election_disallow-change": "Impedisci agli elettori di cambiare i loro voti",

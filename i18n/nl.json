@@ -133,7 +133,7 @@
 	"securepoll-create-option-wiki-this_wiki": "Deze wiki",
 	"securepoll-create-option-wiki-all_wikis": "Alle wiki's",
 	"securepoll-create-option-wiki-other_wiki": "Andere specifieke wiki",
-	"securepoll-create-label-election_primaryLang": "Primaire taal:",
+	"securepoll-create-label-election_primarylang": "Primaire taal:",
 	"securepoll-create-label-election_startdate": "Startdatum van de verkiezing:",
 	"securepoll-create-label-election_duration": "Duur van de verkiezing (dagen):",
 	"securepoll-create-label-election_disallow-change": "Kiezers niet toelaten hun stemmen aan te passen",

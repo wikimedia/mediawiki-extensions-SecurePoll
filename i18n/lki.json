@@ -103,7 +103,7 @@
 	"securepoll-create-option-wiki-this_wiki": "این ویکی",
 	"securepoll-create-option-wiki-all_wikis": "همهٔ ویکی‌ها",
 	"securepoll-create-option-wiki-other_wiki": "ویکی خاص دیگری",
-	"securepoll-create-label-election_primaryLang": "زوون اصلی:",
+	"securepoll-create-label-election_primarylang": "زوون اصلی:",
 	"securepoll-create-label-property_admins": "مدیران:",
 	"securepoll-create-label-questions": "== پرسش‌ها ==",
 	"securepoll-create-questions-row-legend": "پرسش",

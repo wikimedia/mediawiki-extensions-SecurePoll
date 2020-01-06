@@ -135,7 +135,7 @@
 	"securepoll-create-option-wiki-this_wiki": "Dieses Wiki",
 	"securepoll-create-option-wiki-all_wikis": "Alle Wikis",
 	"securepoll-create-option-wiki-other_wiki": "Anderes bestimmtes Wiki",
-	"securepoll-create-label-election_primaryLang": "Primäre Sprache:",
+	"securepoll-create-label-election_primarylang": "Primäre Sprache:",
 	"securepoll-create-label-election_startdate": "Startdatum der Abstimmung:",
 	"securepoll-create-label-election_duration": "Abstimmungsdauer (Tage):",
 	"securepoll-create-label-election_disallow-change": "Wähler davon abhalten, ihre Stimmen abzuändern",

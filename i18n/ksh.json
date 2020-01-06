@@ -133,7 +133,7 @@
 	"securepoll-create-option-wiki-this_wiki": "Heh dat Wiki",
 	"securepoll-create-option-wiki-all_wikis": "Alle Wikkis",
 	"securepoll-create-option-wiki-other_wiki": "En annder eijnzel Wikki",
-	"securepoll-create-label-election_primaryLang": "Houpshprooch:",
+	"securepoll-create-label-election_primarylang": "Houpshprooch:",
 	"securepoll-create-label-election_disallow-change": "Lohß de Metmaacher ehr eijmohl jetroffe Affschtemmonge nit ändere",
 	"securepoll-create-label-election_return-url": "Dä <i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"Uniform Ressource Locator\">URL</i> för hen zeröck ze jonn:",
 	"securepoll-create-label-election_jump-text": "Woröm omjeleidt weed:",

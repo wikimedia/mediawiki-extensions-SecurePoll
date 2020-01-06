@@ -132,7 +132,7 @@
 	"securepoll-create-option-wiki-this_wiki": "Wiki này",
 	"securepoll-create-option-wiki-all_wikis": "Tất cả các wiki",
 	"securepoll-create-option-wiki-other_wiki": "Wiki cụ thể khác",
-	"securepoll-create-label-election_primaryLang": "Ngôn ngữ chính:",
+	"securepoll-create-label-election_primarylang": "Ngôn ngữ chính:",
 	"securepoll-create-label-election_startdate": "Ngày bắt đầu bầu cử:",
 	"securepoll-create-label-election_duration": "Thời gian bầu cử (ngày):",
 	"securepoll-create-label-election_disallow-change": "Không cho phép người bỏ phiếu thay đổi lựa chọn",

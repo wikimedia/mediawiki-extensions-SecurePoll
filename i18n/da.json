@@ -118,7 +118,7 @@
 	"securepoll-exhausted": "(Udtømt)",
 	"securepoll-create-option-wiki-this_wiki": "Denne wiki",
 	"securepoll-create-option-wiki-all_wikis": "Alle wikier",
-	"securepoll-create-label-election_primaryLang": "Primært sprog:",
+	"securepoll-create-label-election_primarylang": "Primært sprog:",
 	"securepoll-create-label-election_crypt": "Krytering:",
 	"securepoll-create-label-questions": "== Spørgsmål ==",
 	"securepoll-create-questions-row-legend": "Spørgsmål",

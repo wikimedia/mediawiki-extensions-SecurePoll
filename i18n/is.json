@@ -40,7 +40,7 @@
 	"securepoll-subpage-dump": "Afrita",
 	"securepoll-average-score": "Meðal-stigagjöf",
 	"securepoll-round": "Umferð $1",
-	"securepoll-create-label-election_primaryLang": "Aðaltungumál:",
+	"securepoll-create-label-election_primarylang": "Aðaltungumál:",
 	"securepoll-create-label-election_crypt": "Dulritun:",
 	"securepoll-create-label-property_admins": "Kerfisstjórar:",
 	"securepoll-create-label-questions": "== Spurningar ==",

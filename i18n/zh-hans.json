@@ -144,7 +144,7 @@
 	"securepoll-create-option-wiki-this_wiki": "此wiki",
 	"securepoll-create-option-wiki-all_wikis": "所有wiki",
 	"securepoll-create-option-wiki-other_wiki": "其他指定的wiki",
-	"securepoll-create-label-election_primaryLang": "主要语言：",
+	"securepoll-create-label-election_primarylang": "主要语言：",
 	"securepoll-create-label-election_startdate": "选举开始日期：",
 	"securepoll-create-label-election_duration": "选举时间（日）：",
 	"securepoll-create-label-election_disallow-change": "防止来自更改他们投票的投票者",

@@ -137,7 +137,7 @@
 	"securepoll-create-option-wiki-this_wiki": "Denne wikien",
 	"securepoll-create-option-wiki-all_wikis": "Alle wikier",
 	"securepoll-create-option-wiki-other_wiki": "Annen spesifikk wiki",
-	"securepoll-create-label-election_primaryLang": "Primærspråk:",
+	"securepoll-create-label-election_primarylang": "Primærspråk:",
 	"securepoll-create-label-election_startdate": "Startdato for valget:",
 	"securepoll-create-label-election_duration": "Valgets varighet (dager):",
 	"securepoll-create-label-election_disallow-change": "Forhindre stemmende fra å endre stemmene sine",

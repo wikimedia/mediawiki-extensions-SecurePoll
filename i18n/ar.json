@@ -142,7 +142,7 @@
 	"securepoll-create-option-wiki-this_wiki": "هذا الويكي",
 	"securepoll-create-option-wiki-all_wikis": "جميع الويكيات",
 	"securepoll-create-option-wiki-other_wiki": "ويكي آخر محدد",
-	"securepoll-create-label-election_primaryLang": "اللغة الأولية:",
+	"securepoll-create-label-election_primarylang": "اللغة الأولية:",
 	"securepoll-create-label-election_startdate": "تاريخ بدء الانتخابات:",
 	"securepoll-create-label-election_duration": "مدة الانتخاب (أيام):",
 	"securepoll-create-label-election_disallow-change": "امنع المصوتين من تغيير تصويتهم",

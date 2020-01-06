@@ -138,7 +138,7 @@
 	"securepoll-create-option-wiki-this_wiki": "Denna wiki",
 	"securepoll-create-option-wiki-all_wikis": "Alla wikis",
 	"securepoll-create-option-wiki-other_wiki": "Annan specifik wiki",
-	"securepoll-create-label-election_primaryLang": "Primärt språk:",
+	"securepoll-create-label-election_primarylang": "Primärt språk:",
 	"securepoll-create-label-election_disallow-change": "Förhindra att väljarna ändrar sina röster",
 	"securepoll-create-label-election_return-url": "Tillbaka-till-URL:",
 	"securepoll-create-label-election_jump-text": "Vidaresändningstext:",

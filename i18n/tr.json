@@ -129,5 +129,6 @@
 	"securepoll-create-option-column_order-desc": "Azalan",
 	"securepoll-create-label-questions-option": "=== Seçenekler ===",
 	"securepoll-votereligibility-label-edit": "Listeyi düzenle",
+	"securepoll-votereligibility-label-names": "Kullanıcı adları",
 	"right-securepoll-create-poll": "Anketler oluştur"
 }

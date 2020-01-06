@@ -152,7 +152,7 @@
 	"securepoll-create-option-wiki-this_wiki": "Эта вики",
 	"securepoll-create-option-wiki-all_wikis": "Все вики",
 	"securepoll-create-option-wiki-other_wiki": "Другие конкретные вики",
-	"securepoll-create-label-election_primaryLang": "Основной язык:",
+	"securepoll-create-label-election_primarylang": "Основной язык:",
 	"securepoll-create-label-election_startdate": "Начало выборов:",
 	"securepoll-create-label-election_duration": "Длительность выборов (дней):",
 	"securepoll-create-label-election_disallow-change": "Не разрешать изменять вариант ответа после голосования",

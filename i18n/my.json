@@ -42,7 +42,7 @@
 	"securepoll-create-label-wiki": "ဝီကီအတွက်:",
 	"securepoll-create-option-wiki-this_wiki": "ဤဝီကီသည်",
 	"securepoll-create-option-wiki-all_wikis": "ဝီကီအားလုံး",
-	"securepoll-create-label-election_primaryLang": "ပင်မ ဘာသာစကား:",
+	"securepoll-create-label-election_primarylang": "ပင်မ ဘာသာစကား:",
 	"securepoll-create-label-property_admins": "အက်ဒမင်များ:",
 	"securepoll-create-label-questions": "== မေးခွန်းများ ==",
 	"securepoll-create-questions-row-legend": "မေးခွန်း",

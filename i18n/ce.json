@@ -70,7 +70,7 @@
 	"securepoll-create-option-wiki-this_wiki": "ХӀара вики ю",
 	"securepoll-create-option-wiki-all_wikis": "Массо викеш",
 	"securepoll-create-option-wiki-other_wiki": "Кхин билгала викеш",
-	"securepoll-create-label-election_primaryLang": "Коьрта мотт:",
+	"securepoll-create-label-election_primarylang": "Коьрта мотт:",
 	"securepoll-create-label-election_type": "Хаттаран тайп:",
 	"securepoll-create-label-election_crypt": "Терхьаца яздина:",
 	"securepoll-create-label-property_admins": "Куьйгалхой:",

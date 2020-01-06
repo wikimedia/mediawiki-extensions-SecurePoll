@@ -103,7 +103,7 @@
 	"securepoll-create-option-wiki-this_wiki": "Wiki iki",
 	"securepoll-create-option-wiki-all_wikis": "Kabèh wiki",
 	"securepoll-create-option-wiki-other_wiki": "Wiki mirunggan liyané",
-	"securepoll-create-label-election_primaryLang": "Basa Baku:",
+	"securepoll-create-label-election_primarylang": "Basa Baku:",
 	"securepoll-create-label-election_startdate": "Tanggal Wiwit Pilihan:",
 	"securepoll-create-label-election_duration": "Suwéné Pilihan (Dina):",
 	"securepoll-create-label-election_crypt": "Ènkripsi:",

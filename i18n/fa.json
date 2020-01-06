@@ -151,7 +151,7 @@
 	"securepoll-create-option-wiki-this_wiki": "این ویکی",
 	"securepoll-create-option-wiki-all_wikis": "همهٔ ویکی‌ها",
 	"securepoll-create-option-wiki-other_wiki": "ویکی خاص دیگری",
-	"securepoll-create-label-election_primaryLang": "زبان اصلی:",
+	"securepoll-create-label-election_primarylang": "زبان اصلی:",
 	"securepoll-create-label-election_startdate": "تاریخ شروع انتخابات:",
 	"securepoll-create-label-election_duration": "مدت انتخابات (روز):",
 	"securepoll-create-label-election_disallow-change": "سلب اجازهٔ تغییر رأی از رأی‌دهندگان",

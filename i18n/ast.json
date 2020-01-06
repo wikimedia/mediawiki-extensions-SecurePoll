@@ -129,7 +129,7 @@
 	"securepoll-create-option-wiki-this_wiki": "Esta wiki",
 	"securepoll-create-option-wiki-all_wikis": "Toles wikis",
 	"securepoll-create-option-wiki-other_wiki": "Otra wiki específica",
-	"securepoll-create-label-election_primaryLang": "Llingua principal:",
+	"securepoll-create-label-election_primarylang": "Llingua principal:",
 	"securepoll-create-label-election_startdate": "Fecha d'entamu de la elección:",
 	"securepoll-create-label-election_duration": "Duración de la elección (díes):",
 	"securepoll-create-label-election_disallow-change": "Torgar que los votantes puedan camudar el votu",
