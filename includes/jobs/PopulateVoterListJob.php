@@ -59,6 +59,7 @@ class SecurePoll_PopulateVoterListJob extends Job {
 			$params[$row->pr_key] = $row->pr_value;
 		}
 
+		// @phan-suppress-next-line PhanRedundantCondition
 		if ( !$params['list_populate'] || $params['need-list'] === '' ) {
 			// No need for a job, bail out
 			return;
