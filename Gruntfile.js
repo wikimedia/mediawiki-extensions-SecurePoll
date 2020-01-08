@@ -10,8 +10,7 @@ module.exports = function ( grunt ) {
 		banana: conf.MessagesDirs,
 		eslint: {
 			options: {
-				cache: true,
-				reportUnusedDisableDirectives: true
+				cache: true
 			},
 			all: [
 				'**/*.js',
