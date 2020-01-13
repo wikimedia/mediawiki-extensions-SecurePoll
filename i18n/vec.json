@@ -3,7 +3,8 @@
 		"authors": [
 			"Candalua",
 			"GatoSelvadego",
-			"Nick1915"
+			"Nick1915",
+			"Conky77"
 		]
 	},
 	"securepoll": "SecurePoll",
@@ -74,7 +75,7 @@
 	"securepoll-header-admin": "Aministrador",
 	"securepoll-cookie-dup-list": "Utenti duplici par cookie",
 	"securepoll-dump-title": "Dump: $1",
-	"securepoll-dump-not-finished": "Le registrasion criptade de l'elesion le xe disponibiłi solo dopo ła data de conclusion: $1 a łe $2",
+	"securepoll-dump-not-finished": "Le registrasion de l'elesion le xe disponibiƚi solo dopo ƚa data de conclusion: $1 a ƚe $2",
 	"securepoll-dump-no-urandom": "No se riesse a vèrzar /dev/urandom.  \nPar protègiare la riservatessa dei votanti, le registrassion criptade de l'elession le xe disponibili publicamente solo quando le podarà vegner smissià con un flusso sicuro de nùmari casuali.",
 	"securepoll-urandom-not-supported": "Sto server no suporta la generazion de numari casuali par la critografia.\nAl fine de garantire la privacy dei votanti, la procedura de votazion cifrata xe publicamente utilizabile quando xe disponibile un generator de numari casuali par la critografia del flusso de dati.",
 	"securepoll-translate-title": "Tradusi: $1",
