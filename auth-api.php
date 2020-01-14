@@ -29,7 +29,7 @@ header( 'Content-Type: application/vnd.php.serialized; charset=utf-8' );
 
 $token = $wgRequest->getVal( 'token' );
 $id = $wgRequest->getInt( 'id' );
-if ( is_null( $token ) || !$id ) {
+if ( $token === null || !$id ) {
 	out( serialize( Status::newFatal( 'securepoll-api-invalid-params' ) ) );
 	exit;
 }

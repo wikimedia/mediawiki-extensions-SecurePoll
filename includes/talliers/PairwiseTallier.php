@@ -44,7 +44,7 @@ abstract class SecurePoll_PairwiseTallier extends SecurePoll_Tallier {
 	}
 
 	public function getOptionAbbreviations() {
-		if ( is_null( $this->abbrevs ) ) {
+		if ( $this->abbrevs === null ) {
 			$abbrevs = [];
 			foreach ( $this->question->getOptions() as $option ) {
 				$text = $option->getMessage( 'text' );
