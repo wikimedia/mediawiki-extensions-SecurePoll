@@ -10,7 +10,7 @@
 	"version": "1.0.0",
 	"type": "other",
 	"requires": {
-		"MediaWiki": ">= 1.32.0"
+		"MediaWiki": ">= 1.35.0"
 	},
 	"AvailableRights": [
 		"securepoll-create-poll"

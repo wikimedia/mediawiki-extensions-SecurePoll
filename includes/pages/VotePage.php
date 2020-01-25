@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Session\SessionManager;
+use Wikimedia\IPUtils;
 
 /**
  * The subpage for casting votes.
@@ -213,7 +214,7 @@ class SecurePoll_VotePage extends SecurePoll_ActionPage {
 				'vote_voter_name' => $this->voter->getName(),
 				'vote_voter_domain' => $this->voter->getDomain(),
 				'vote_record' => $encrypted,
-				'vote_ip' => IP::toHex( $request->getIP() ),
+				'vote_ip' => IPUtils::toHex( $request->getIP() ),
 				'vote_xff' => $xff,
 				'vote_ua' => $_SERVER['HTTP_USER_AGENT'],
 				'vote_timestamp' => $now,

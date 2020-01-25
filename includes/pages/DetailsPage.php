@@ -1,5 +1,7 @@
 <?php
 
+use Wikimedia\IPUtils;
+
 /**
  * Special:SecurePoll subpage for showing the details of a given vote to an administrator.
  */
@@ -55,7 +57,7 @@ class SecurePoll_DetailsPage extends SecurePoll_ActionPage {
 				time() - ( $wgSecurePollKeepPrivateInfoDays * 24 * 60 * 60 )
 			)
 		) {
-			$vote_ip = IP::formatHex( $row->vote_ip );
+			$vote_ip = IPUtils::formatHex( $row->vote_ip );
 			$vote_xff = $row->vote_xff;
 			$vote_ua = $row->vote_ua;
 		}

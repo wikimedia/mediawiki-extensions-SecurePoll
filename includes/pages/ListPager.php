@@ -1,5 +1,7 @@
 <?php
 
+use Wikimedia\IPUtils;
+
 /**
  * A TablePager for showing a list of votes in a given election.
  * Shows much more information, and a strike/unstrike interface, if the user
@@ -81,7 +83,7 @@ class SecurePoll_ListPager extends TablePager {
 				) {
 					return '';
 				} else {
-					return IP::formatHex( $value );
+					return IPUtils::formatHex( $value );
 				}
 			case 'vote_ua':
 				if ( $this->election->endDate < wfTimestamp(
