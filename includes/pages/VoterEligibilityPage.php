@@ -453,6 +453,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 			];
 
 			$use = null;
+			$links = [];
 			if ( $list === 'voter' ) {
 				$complete = $this->election->getProperty( 'list_complete-count', 0 );
 				$total = $this->election->getProperty( 'list_total-count', 0 );
