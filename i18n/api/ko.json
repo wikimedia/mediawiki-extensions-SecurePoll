@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Ykhwong",
-			"아라"
+			"아라",
+			"Revi"
 		]
 	},
 	"apihelp-strikevote-description": "관리자가 투표를 제거하거나 제거를 취소할 수 있게 합니다.",
@@ -14,5 +15,6 @@
 	"apihelp-strikevote-param-reason": "투표에서 제거하거나 제거를 취소하는 이유입니다.",
 	"apihelp-strikevote-example-strike": "이유를 <kbd>duplication</kbd>로 지정하여 투표 <kbd>1</kbd>을 제거합니다.",
 	"apihelp-strikevote-example-unstrike": "이유를 <kbd>mistake</kbd>로 지정하여 투표 <kbd>1</kbd>의 제거를 취소합니다.",
-	"apierror-securepoll-mustbeloggedin-strikevote": "투표를 제거하거나 제거를 취소하려면 로그인해야 합니다."
+	"apierror-securepoll-mustbeloggedin-strikevote": "투표를 제거하거나 제거를 취소하려면 로그인해야 합니다.",
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd>은(는) 유효한 투표 ID가 아닙니다."
 }
