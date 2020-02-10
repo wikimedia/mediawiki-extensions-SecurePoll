@@ -13,7 +13,7 @@
 	"securepoll-need-admin": "Aby ste mohli vykonať túto operáciu musíte byť správca volieb.",
 	"securepoll-too-few-params": "Nedostatok parametrov podstránky (neplatný odkaz).",
 	"securepoll-invalid-election": "„$1“ nie je platný ID hlasovania.",
-	"securepoll-welcome": "<strong>Vitajte $1!</strong>",
+	"securepoll-welcome": "<strong>{{GENDER:$1|Vitajte}} $1!</strong>",
 	"securepoll-not-started": "Tieto voľby zatiaľ nezačali.\nZačiatok je naplánovaný na $2 $3.",
 	"securepoll-finished": "Toto hlasovanie skončilo. Už nemôžete hlasovať.",
 	"securepoll-not-qualified": "Nekvalifikujete sa do tohto hlasovania: $1",
