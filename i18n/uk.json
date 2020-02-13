@@ -190,7 +190,7 @@
 	"securepoll-create-label-comment": "Причина",
 	"securepoll-create-invalid-username": "Вказане ім'я користувача недопустиме",
 	"securepoll-create-user-does-not-exist": "Зазначений користувач не існує",
-	"securepoll-create-fail-bad-id": "Поданий ID виборів не співпадає з виборами, які редагуються",
+	"securepoll-create-fail-bad-id": "Поданий ID виборів не відповідає виборам, які редагуються",
 	"securepoll-create-fail-id-missing": "Вибори, які редагувалися, більше не існують",
 	"securepoll-create-fail-bad-dblist": "Вказана вікі або список вікі є неприпустимими",
 	"securepoll-create-duplicate-title": "Поданих заголовок опитування вже використовується на $1",
