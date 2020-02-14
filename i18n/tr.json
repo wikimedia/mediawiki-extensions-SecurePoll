@@ -94,7 +94,7 @@
 	"securepoll-translate-label-comment": "Nedeni:",
 	"securepoll-invalid-language": "Geçersiz dil kodu \"$1\"",
 	"securepoll-submit-translate": "Güncelle",
-	"securepoll-language-label": "Dili seç:",
+	"securepoll-language-label": "Dil seç:",
 	"securepoll-submit-select-lang": "Çevir",
 	"securepoll-entry-text": "Aşağıdaki, anketlerin listesidir.",
 	"securepoll-entry-createpoll": "Yeni bir anket oluştur",
