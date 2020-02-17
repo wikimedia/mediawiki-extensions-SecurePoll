@@ -60,7 +60,7 @@
 	"securepoll-header-timestamp": "זמן",
 	"securepoll-header-voter-name": "שם",
 	"securepoll-header-voter-domain": "תחום",
-	"securepoll-header-ua": "זיהוי דפדפן",
+	"securepoll-header-ua": "סוכן לקוח",
 	"securepoll-header-cookie-dup": "יצירת עותק",
 	"securepoll-header-strike": "מחיקה",
 	"securepoll-header-details": "פרטים",
