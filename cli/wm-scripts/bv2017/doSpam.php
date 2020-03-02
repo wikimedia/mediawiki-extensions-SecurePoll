@@ -30,7 +30,7 @@ $listName = 'board-vote-2017';
  */
 $electionId = 512;
 
-$specialWikis = MWWikiversions::readDbListFile( '/srv/mediawiki/dblists/special.dblist' );
+$specialWikis = MWWikiversions::readDbListFile( 'special' );
 
 function getDefaultLang( $db ) {
 	global $wgConf, $specialWikis;
