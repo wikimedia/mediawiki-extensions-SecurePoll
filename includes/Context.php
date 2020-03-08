@@ -14,6 +14,7 @@ use MediaWiki\Extensions\SecurePoll\Talliers\Tallier;
 use MediaWiki\Extensions\SecurePoll\User\Auth;
 use MediaWiki\Extensions\SecurePoll\User\Voter;
 use ParserOptions;
+use RequestContext;
 use SpecialPage;
 use stdClass;
 use Title;
@@ -87,7 +88,9 @@ class Context {
 	 */
 	public function getParserOptions() {
 		if ( !$this->parserOptions ) {
-			$this->parserOptions = new ParserOptions;
+			$this->parserOptions = ParserOptions::newFromUser(
+				RequestContext::getMain()->getUser()
+			);
 		}
 
 		return $this->parserOptions;
