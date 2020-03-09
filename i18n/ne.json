@@ -5,7 +5,8 @@
 			"RajeshPandey",
 			"सरोज कुमार ढकाल",
 			"NehalDaveND",
-			"राम प्रसाद जोशी"
+			"राम प्रसाद जोशी",
+			"पर्वत सुबेदी"
 		]
 	},
 	"securepoll": "सुरक्षित चुनाव",
@@ -55,6 +56,7 @@
 	"securepoll-header-timestamp": "समय",
 	"securepoll-header-voter-name": "नाम",
 	"securepoll-header-voter-domain": "डोमेन",
+	"securepoll-header-ip": "आइपी",
 	"securepoll-header-ua": "प्रयोगकर्ता एजेन्ट(ब्राउजर)",
 	"securepoll-header-cookie-dup": "दोहोरिएको",
 	"securepoll-header-strike": "काट्ने",
