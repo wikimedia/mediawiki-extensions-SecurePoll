@@ -121,12 +121,14 @@ function spGetMetaTranslations( $lang ) {
 		fwrite( STDERR, "Title invalid for lang $lang\n" );
 		return false;
 	}
-	$revision = Revision::newFromTitle( $title );
+	$revision = MediaWikiServices::getInstance()
+		->getRevisionLookup()
+		->getRevisionByTitle( $title );
 	if ( !$revision ) {
 		fwrite( STDERR, "Revision not found for page [[$titleText]]\n" );
 		return false;
 	}
-	$text = ContentHandler::getContentText( $revision->getContent() );
+	$text = ContentHandler::getContentText( $revision->getContent( SlotRecord::MAIN ) );
 	if ( $text === false ) {
 		fwrite( STDERR, "Text not found for page [[$titleText]]\n" );
 		return false;
