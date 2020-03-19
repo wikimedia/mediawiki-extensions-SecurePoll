@@ -246,7 +246,7 @@
 	"securepoll-votereligibility-cleared": "{{int:securepoll}}: Очищено",
 	"securepoll-votereligibility-cleared-text": "$1 було очищено і він не буде використовуватися опитуванням.",
 	"securepoll-votereligibility-cleared-comment": "$1 очищено.",
-	"right-securepoll-create-poll": "Створити опитування",
+	"right-securepoll-create-poll": "Створення опитувань",
 	"action-securepoll-create-poll": "створення опитувань",
 	"securepoll-ns-readonly": "Простір назв {{ns:SecurePoll}} — лише для читання",
 	"securepoll-voter-stats": "Із усіх виборців із правом голосу, {{PLURAL:$1|проголосував $1 виборець|проголосували $1 виборці|проголосувало $1 виборців}}.",
