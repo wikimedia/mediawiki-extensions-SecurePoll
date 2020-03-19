@@ -970,7 +970,7 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 		$that = $this;
 		$form->setSubmitCallback(
 			function ( $formData, $form ) use ( $property, $that ) {
-				$that->saveList( $property, $formData['names'], $formData['comment'] );
+				$that->saveList( $property, $formData['names'], $formData['comment'] ?? '' );
 
 				return Status::newGood();
 			}
