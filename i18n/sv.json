@@ -12,7 +12,8 @@
 			"Ronja Addams-Moring",
 			"StefanB",
 			"WikiPhoenix",
-			"Jopparn"
+			"Jopparn",
+			"Technic2"
 		]
 	},
 	"securepoll": "SäkerOmröstning",
@@ -85,7 +86,7 @@
 	"securepoll-header-admin": "Administratör",
 	"securepoll-cookie-dup-list": "Cookie dubblettanvändare",
 	"securepoll-dump-title": "Dump: $1",
-	"securepoll-dump-not-finished": "Krypterade valregister finns endast tillgängliga efter avslutandet den $1 klockan $2",
+	"securepoll-dump-not-finished": "Valregister finns endast tillgängliga efter avslutandet den $1 klockan $2",
 	"securepoll-dump-no-urandom": "Kan inte öppna /dev/urandom.\nFör att säkra en hemlig omröstning är de krypterade valregisterna endast tillgängliga offentligt när de kan blandas av en säker ström av tillfälliga tal.",
 	"securepoll-urandom-not-supported": "Den här servern har inte stöd för att generera slumpmässiga tal för kryptering. \nFör att säkerställa väljarnas integritet så kan krypterade valresultat enbart göras allmänt tillgängliga om de kan blandas med en säker slumptalsgenerator.",
 	"securepoll-translate-title": "Översätt: $1",
