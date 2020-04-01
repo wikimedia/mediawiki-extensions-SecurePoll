@@ -51,7 +51,7 @@ class MakeSimpleList extends Maintenance {
 			? $dbr->timestamp( strtotime( $this->getOption( 'before' ) ) ) : false;
 		$minEdits = $this->getOption( 'edits', false );
 
-		$listName = $this->getArg();
+		$listName = $this->getArg( 0 );
 		$startBatch = $this->getOption( 'start-from', 0 );
 		$insertOptions = [];
 

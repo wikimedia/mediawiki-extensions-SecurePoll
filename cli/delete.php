@@ -17,7 +17,7 @@ class DeletePoll extends Maintenance {
 	}
 
 	public function execute() {
-		$electionId = (int)$this->getArg();
+		$electionId = (int)$this->getArg( 0 );
 
 		$dbw = wfGetDB( DB_MASTER );
 

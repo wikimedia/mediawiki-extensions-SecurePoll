@@ -47,7 +47,7 @@ EOT
 		# of the entity and context classes, but that project can wait until we have a
 		# setup UI.
 
-		$fileName = $this->getArg();
+		$fileName = $this->getArg( 0 );
 		if ( !file_exists( $fileName ) ) {
 			$this->fatalError( "The specified file \"{$fileName}\" does not exist\n" );
 		}
