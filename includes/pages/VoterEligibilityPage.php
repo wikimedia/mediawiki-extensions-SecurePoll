@@ -305,8 +305,10 @@ class SecurePoll_VoterEligibilityPage extends SecurePoll_ActionPage {
 				$dbw->replace(
 					'securepoll_properties',
 					[
-						'pr_entity',
-						'pr_key'
+						[
+							'pr_entity',
+							'pr_key'
+						]
 					],
 					[
 						'pr_entity' => $id,

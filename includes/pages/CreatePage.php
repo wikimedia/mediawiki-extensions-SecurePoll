@@ -608,7 +608,7 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 			}
 			$dbw->replace(
 				'securepoll_questions',
-				[ 'qu_entity' ],
+				'qu_entity',
 				[
 					'qu_entity' => $qId,
 					'qu_election' => $eId,
@@ -625,7 +625,7 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 				}
 				$dbw->replace(
 					'securepoll_options',
-					[ 'op_entity' ],
+					'op_entity',
 					[
 						'op_entity' => $oId,
 						'op_election' => $eId,
@@ -667,7 +667,7 @@ class SecurePoll_CreatePage extends SecurePoll_ActionPage {
 				// Insert it! We don't have to care about questions or options here.
 				$dbw->replace(
 					'securepoll_elections',
-					[ 'el_entity' ],
+					'el_entity',
 					[
 						'el_entity' => $rId,
 						'el_title' => $election->title,
