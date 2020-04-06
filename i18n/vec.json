@@ -4,7 +4,8 @@
 			"Candalua",
 			"GatoSelvadego",
 			"Nick1915",
-			"Conky77"
+			"Conky77",
+			"Fierodelveneto"
 		]
 	},
 	"securepoll": "SecurePoll",
@@ -61,7 +62,7 @@
 	"securepoll-strike-button": "Anùla sta voto",
 	"securepoll-unstrike-button": "Recupera sto voto",
 	"securepoll-strike-reason": "Motivo:",
-	"securepoll-strike-cancel": "Anùla",
+	"securepoll-strike-cancel": "Descançełare",
 	"securepoll-strike-error": "Eròr durante l'anulamento o el ripristino del voto: $1",
 	"securepoll-strike-token-mismatch": "I dati de la session i xe ndà persi",
 	"securepoll-details-link": "Detaji",
