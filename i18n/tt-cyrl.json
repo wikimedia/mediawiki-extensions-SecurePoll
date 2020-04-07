@@ -3,8 +3,8 @@
 		"authors": [
 			"Bulatbulat",
 			"KhayR",
-			"Ильнар",
-			"Ерней"
+			"Ерней",
+			"Ильнар"
 		]
 	},
 	"securepoll-welcome": "<strong>{{GENDER:$1|Рәхим итегез}}, $1!</strong>",

@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mdupont",
-			"Kosovastar"
+			"Kosovastar",
+			"Mdupont"
 		]
 	},
 	"securepoll-remote-parse-error": "Gabim gjatë interpretimit përgjigje autorizim nga serveri.",

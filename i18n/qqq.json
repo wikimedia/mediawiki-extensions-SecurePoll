@@ -1,27 +1,27 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Bennylin",
 			"Darth Kule",
 			"EugeneZelenko",
+			"Fhocutt (WMF)",
 			"Fryed-peach",
 			"IAlex",
 			"Kiranmayee",
 			"Kwj2772",
+			"Liuxinyu970226",
 			"Lloffiwr",
+			"Lokal Profil",
 			"Mormegil",
+			"Nemo bis",
 			"Purodha",
 			"Raymond",
 			"Saper",
 			"Shirayuki",
 			"Siebrand",
 			"Umherirrender",
-			"Amire80",
-			"Liuxinyu970226",
-			"Lokal Profil",
-			"아라",
-			"Nemo bis",
-			"Fhocutt (WMF)"
+			"아라"
 		]
 	},
 	"securepoll": "Used in the following messages:\n* {{msg-mw|Securepoll-create-title}}\n* {{msg-mw|Securepoll-create-created}}\n* {{msg-mw|Securepoll-edit-title}}\n* {{msg-mw|Securepoll-edit-edited}}\n* {{msg-mw|Securepoll-votereligibility-saved}}\n* {{msg-mw|Securepoll-votereligibility-cleared}}",

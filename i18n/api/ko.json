@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
+			"Revi",
 			"Ykhwong",
-			"아라",
-			"Revi"
+			"아라"
 		]
 	},
 	"apihelp-strikevote-description": "관리자가 투표를 제거하거나 제거를 취소할 수 있게 합니다.",

@@ -1,27 +1,27 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Bennylin",
 			"Darth Kule",
 			"EugeneZelenko",
+			"Fhocutt (WMF)",
 			"Fryed-peach",
 			"IAlex",
 			"Kiranmayee",
 			"Kwj2772",
+			"Liuxinyu970226",
 			"Lloffiwr",
+			"Lokal Profil",
 			"Mormegil",
+			"Nemo bis",
 			"Purodha",
 			"Raymond",
 			"Saper",
 			"Shirayuki",
 			"Siebrand",
 			"Umherirrender",
-			"Amire80",
-			"Liuxinyu970226",
-			"Lokal Profil",
-			"아라",
-			"Nemo bis",
-			"Fhocutt (WMF)"
+			"아라"
 		]
 	},
 	"apihelp-strikevote-description": "{{doc-apihelp-description|strikevote}}",
