@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Reptilien.19831209BE1",
 			"Srtxg"
 		]
 	},
@@ -18,7 +19,7 @@
 	"securepoll-header-reason": "Råjhon",
 	"securepoll-header-admin": "Manaedjeu",
 	"securepoll-cookie-dup-list": "Uzeus avou des coûkes dedja veyowes",
-	"securepoll-language-label": "Tchoezixhoz l' lingaedje:",
+	"securepoll-language-label": "Tchoezixhoz l’&nbsp;lingaedje&nbsp;:",
 	"securepoll-submit-select-lang": "Ratourner",
 	"securepoll-entry-text": "Chal pa dzo l' djivêye des ploncaedjes.",
 	"securepoll-header-title": "No",

@@ -90,7 +90,7 @@
 	"securepoll-translate-redirect": "הודעות עבור הבחירות האלו מצריכות להיות מוגדרות ב־$1",
 	"securepoll-translate-redirect-otherwiki": "הוויקי הראשי",
 	"securepoll-translate-label-comment": "סיבה:",
-	"securepoll-invalid-language": "קוד שפה בלתי תקין \"$1\"",
+	"securepoll-invalid-language": "קוד שפה בלתי־תקין \"$1\"",
 	"securepoll-header-trans-id": "מספר",
 	"securepoll-submit-translate": "עדכון",
 	"securepoll-language-label": "בחירת שפה:",
