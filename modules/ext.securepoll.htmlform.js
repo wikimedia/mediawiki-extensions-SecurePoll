@@ -23,7 +23,7 @@
 				if ( !cells[ n ] ) {
 					cells[ n ] = {};
 				}
-				cells[ n ].label = $t;
+				cells[ n ].$label = $t;
 			} );
 			$inputRow.find( 'td' ).each( function () {
 				var $t = $( this ),
@@ -32,7 +32,7 @@
 				if ( !cells[ n ] ) {
 					cells[ n ] = {};
 				}
-				cells[ n ].input = $t;
+				cells[ n ].$input = $t;
 			} );
 
 			function changeHandler() {
@@ -50,29 +50,29 @@
 					if ( !cells[ i ] ) {
 						cells[ i ] = {};
 					}
-					if ( !cells[ i ].label ) {
-						cells[ i ].label = $( '<th>' );
-						cells[ i ].label.data( 'securepollColNum', i )
+					if ( !cells[ i ].$label ) {
+						cells[ i ].$label = $( '<th>' );
+						cells[ i ].$label.data( 'securepollColNum', i )
 							.text( i );
 					}
-					if ( !cells[ i ].input ) {
+					if ( !cells[ i ].$input ) {
 						$input = $( '<input>' );
 						$input.attr( {
 							type: 'text',
 							name: name + '[' + i + ']',
 							size: size
 						} );
-						cells[ i ].input = $( '<td>' );
-						cells[ i ].input.data( 'securepollColNum', i )
+						cells[ i ].$input = $( '<td>' );
+						cells[ i ].$input.data( 'securepollColNum', i )
 							.append( $input );
 					}
 
-					$labelRow.prepend( cells[ i ].label );
-					$inputRow.prepend( cells[ i ].input );
+					$labelRow.prepend( cells[ i ].$label );
+					$inputRow.prepend( cells[ i ].$input );
 				}
 
-				cells[ max ].label.nextAll().detach();
-				cells[ max ].input.nextAll().detach();
+				cells[ max ].$label.nextAll().detach();
+				cells[ max ].$input.nextAll().detach();
 			}
 
 			for ( $p = $i.parent(); $p.length > 0; $p = $p.parent() ) {

@@ -119,6 +119,7 @@ function securepoll_modify_document( action, voteId ) {
 		// eslint-disable-next-line no-undef
 		popupButton.value = securepoll_unstrike_button;
 	} else {
+		// eslint-disable-next-line mediawiki/class-doc
 		row.className = row.className.replace( 'securepoll-struck-vote', '' );
 		// eslint-disable-next-line no-undef
 		popupButton.value = securepoll_strike_button;
