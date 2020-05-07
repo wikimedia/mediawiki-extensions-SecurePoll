@@ -104,7 +104,7 @@
 	"securepoll-translate-redirect": "پیام‌های مربوط به این انتخابات باید روی $1 پیکربندی شوند",
 	"securepoll-translate-redirect-otherwiki": "ویکی اصلی",
 	"securepoll-translate-label-comment": "دلیل:",
-	"securepoll-invalid-language": "کد زبانی نامعتبر «$1»",
+	"securepoll-invalid-language": "کد نامعتبر زبان «$1»",
 	"securepoll-header-trans-id": "شناسه",
 	"securepoll-submit-translate": "روزآمدسازی",
 	"securepoll-language-label": "انتخاب زبان:",
