@@ -6,6 +6,7 @@ use CentralAuthUser;
 use ExtensionRegistry;
 use Hooks;
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
+use RequestContext;
 use Status;
 use User;
 
@@ -22,11 +23,11 @@ class LocalAuth extends Auth {
 	 * @return Status
 	 */
 	public function autoLogin( $election ) {
-		global $wgUser;
-		if ( $wgUser->isAnon() ) {
+		$user = RequestContext::getMain()->getUser();
+		if ( $user->isAnon() ) {
 			return Status::newFatal( 'securepoll-not-logged-in' );
 		}
-		$params = $this->getUserParams( $wgUser );
+		$params = $this->getUserParams( $user );
 		$params['electionId'] = $election->getId();
 		$qualStatus = $election->getQualifiedStatus( $params );
 		if ( !$qualStatus->isOK() ) {
