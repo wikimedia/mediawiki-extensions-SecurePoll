@@ -87,16 +87,36 @@
 		}
 	],
 	"config": {
-		"SecurePollGPGCommand": "gpg",
-		"SecurePollTempDir": "/tmp",
-		"SecurePollShowErrorDetail": false,
-		"SecurePollScript": "extensions/SecurePoll/auth-api.php",
-		"SecurePollKeepPrivateInfoDays": 90,
-		"SecurePollCreateWikiGroupDir": "/../",
-		"SecurePollCreateWikiGroups": [],
-		"SecurePollCreateRemoteScriptPath": "https:$wgServer/w",
-		"SecurePollUseNamespace": false,
-		"SecurePollGpgSignKey": null
+		"SecurePollGPGCommand": {
+			"value": "gpg"
+		},
+		"SecurePollTempDir": {
+			"value": "/tmp"
+		},
+		"SecurePollShowErrorDetail": {
+			"value": false
+		},
+		"SecurePollScript": {
+			"value": "extensions/SecurePoll/auth-api.php"
+		},
+		"SecurePollKeepPrivateInfoDays": {
+			"value": 90
+		},
+		"SecurePollCreateWikiGroupDir": {
+			"value": "/../"
+		},
+		"SecurePollCreateWikiGroups": {
+			"value": []
+		},
+		"SecurePollCreateRemoteScriptPath": {
+			"value": "https:$wgServer/w"
+		},
+		"SecurePollUseNamespace": {
+			"value": false
+		},
+		"SecurePollGpgSignKey": {
+			"value": null
+		}
 	},
-	"manifest_version": 1
+	"manifest_version": 2
 }
