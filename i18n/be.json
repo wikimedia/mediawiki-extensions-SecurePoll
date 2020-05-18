@@ -5,9 +5,16 @@
 			"Тест"
 		]
 	},
+	"securepoll": "Бяспечнае галасаванне",
 	"securepoll-strike-reason": "Прычына:",
 	"securepoll-header-reason": "Прычына",
 	"securepoll-translate-label-comment": "Прычына:",
+	"securepoll-create-title": "{{int:securepoll}}: Стварыць апытанне",
+	"securepoll-create-created": "{{int:securepoll}}: Апытанне створана",
 	"securepoll-create-label-comment": "Прычына",
-	"securepoll-votereligibility-label-comment": "Прычына"
+	"securepoll-edit-title": "{{int:securepoll}}: Правіць апытанне",
+	"securepoll-edit-edited": "{{int:securepoll}}: Апытанне адрэдагавана",
+	"securepoll-votereligibility-label-comment": "Прычына",
+	"securepoll-votereligibility-saved": "{{int:securepoll}}: Захавана",
+	"securepoll-votereligibility-cleared": "{{int:securepoll}}: Ачышчана"
 }
