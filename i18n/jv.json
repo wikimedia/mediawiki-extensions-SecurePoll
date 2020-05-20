@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"N219",
 			"NoiX180",
 			"Pras"
 		]
@@ -67,7 +68,7 @@
 	"securepoll-strike-log": "Log corèk",
 	"securepoll-header-action": "Laku",
 	"securepoll-header-reason": "Alesan",
-	"securepoll-header-admin": "Pangurus",
+	"securepoll-header-admin": "Panata",
 	"securepoll-cookie-dup-list": "''Cookie'' panganggo dobel",
 	"securepoll-dump-title": "Guwang: $1",
 	"securepoll-translate-title": "Pertal: $1",
