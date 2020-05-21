@@ -9,7 +9,7 @@
 	"securepoll": "SecurePoll",
 	"securepoll-desc": "Èkstènsi tumrap pamilihan lan survé",
 	"securepoll-invalid-page": "Anak kaca ora sah \"<nowiki>$1</nowiki>\"",
-	"securepoll-need-admin": "Tumindak punika namung saged dipunayahi déning pangurus.",
+	"securepoll-need-admin": "Tumindak punika namung saged dipunayahi déning panata.",
 	"securepoll-too-few-params": "Parameter anak kaca ora pepak (pranala ora sah).",
 	"securepoll-invalid-election": "ID pamilihan ora sah: \"$1\"",
 	"securepoll-welcome": "<strong>{{GENDER:$1|Sugeng rawuh}} $1!</strong>",
