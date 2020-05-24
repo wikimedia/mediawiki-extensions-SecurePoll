@@ -1128,14 +1128,14 @@ class VoterEligibilityPage extends ActionPage {
 			$wp = WikiPage::factory( $title );
 			$wp->doEditContent(
 				$content,
-				$this->msg( 'securepoll-votereligibility-cleared-comment', $name )
+				$this->msg( 'securepoll-votereligibility-cleared-comment', $name )->text()
 			);
 
 			$title = Title::makeTitle( NS_SECUREPOLL, "{$election->getId()}/list/$property" );
 			$wp = WikiPage::factory( $title );
 			$wp->doEditContent(
 				SecurePollContentHandler::makeContent( '[]', $title, 'SecurePoll' ),
-				$this->msg( 'securepoll-votereligibility-cleared-comment', $name )
+				$this->msg( 'securepoll-votereligibility-cleared-comment', $name )->text()
 			);
 		}
 

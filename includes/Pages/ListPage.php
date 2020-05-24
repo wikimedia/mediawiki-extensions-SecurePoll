@@ -93,13 +93,13 @@ class ListPage extends ActionPage {
 		$struck_votes = $res->numRows();
 
 		$out->addHTML(
-			'<div id="mw-poll-stats"><p>' . $this->msg( 'securepoll-voter-stats' )->numParams(
+			'<div id="mw-poll-stats">' . $this->msg( 'securepoll-voter-stats' )->numParams(
 				$distinct_voters
-			) . '</p><p>' . $this->msg( 'securepoll-vote-stats' )->numParams(
+			)->parseAsBlock() . $this->msg( 'securepoll-vote-stats' )->numParams(
 					$all_votes,
 					$not_current_votes,
 					$struck_votes
-				) . '</p></div>'
+				)->parseAsBlock() . '</div>'
 		);
 
 		$pager = new ListPager( $this );
