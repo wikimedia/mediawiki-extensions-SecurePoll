@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Diki Ananta",
 			"N219",
 			"NoiX180",
 			"Pras"
@@ -36,7 +37,7 @@
 	"securepoll-remote-auth-error": "Masalah njupuk katerangan akuné panjenengan saka paladèn.",
 	"securepoll-remote-parse-error": "Masalah nepsiraké wangsulan otorisasi saka paladèn.",
 	"securepoll-api-invalid-params": "Paramèter ora sah.",
-	"securepoll-api-no-user": "Ora ana panganggo mawa ID mangkono.",
+	"securepoll-api-no-user": "Ora ana naraguna mawa ID mangkono.",
 	"securepoll-api-token-mismatch": "Kodha aman ora cocok, ora bisa mlebu log.",
 	"securepoll-not-logged-in": "Panjenengan kudu mlebu log kanggo nywara nèng pamilihan iki",
 	"securepoll-too-few-edits": "Nyuwun pangapunten, panjenengan ora bisa awèh swara. Panjenengan kudu wis nggawé saorané $1 {{PLURAL:$1|besutan|besutan}} kanggo awèh swara ing pilihan iki, panjenengan wis nggawé $2 besutan.",
@@ -50,7 +51,7 @@
 	"securepoll-header-timestamp": "Wektu",
 	"securepoll-header-voter-name": "Jeneng",
 	"securepoll-header-voter-domain": "Domain",
-	"securepoll-header-ua": "Agèn panganggo",
+	"securepoll-header-ua": "Agèn naraguna",
 	"securepoll-header-cookie-dup": "Padha",
 	"securepoll-header-strike": "Orèk",
 	"securepoll-header-details": "Rincian",
@@ -69,7 +70,7 @@
 	"securepoll-header-action": "Laku",
 	"securepoll-header-reason": "Alesan",
 	"securepoll-header-admin": "Panata",
-	"securepoll-cookie-dup-list": "''Cookie'' panganggo dobel",
+	"securepoll-cookie-dup-list": "''Cookie'' naraguna dobel",
 	"securepoll-dump-title": "Guwang: $1",
 	"securepoll-translate-title": "Pertal: $1",
 	"securepoll-translate-redirect": "Layang tumrap pilihan iki kudu dikonfigurasi ing $1",
@@ -138,7 +139,7 @@
 	"securepoll-votereligibility-label-edits_before_count": "Cacah besutan minimum",
 	"securepoll-votereligibility-label-edits_between": "Butuh cacah minimun besutan antarané rong tanggal",
 	"securepoll-votereligibility-label-edits_between_count": "Cacah besutan minimum",
-	"securepoll-votereligibility-label-names": "Jeneng panganggo",
+	"securepoll-votereligibility-label-names": "Jeneng naraguna",
 	"securepoll-votereligibility-label-comment": "Alesan",
 	"securepoll-votereligibility-action": "Simpen konfigurasi",
 	"securepoll-votereligibility-edit-action": "Simpen pratélan",
