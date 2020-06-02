@@ -107,6 +107,8 @@ class ChooseBallot extends Ballot {
 				$s .= '; ';
 			}
 			$oid = key( $scores );
+			// FIXME: getOption doesn't exist
+			// @phan-suppress-next-line PhanUndeclaredMethod
 			$option = $this->election->getOption( $oid );
 			$s .= $option->getMessage( 'name' );
 		}

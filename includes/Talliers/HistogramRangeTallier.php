@@ -69,6 +69,7 @@ class HistogramRangeTallier extends Tallier {
 			$optionLabels[$option->getId()] = $option->parseMessageInline( 'text' );
 		}
 
+		// @phan-suppress-next-line PhanUndeclaredMethod Checked by is_callable
 		$labels = $ballot->getColumnLabels( $this->question );
 		$s = "<table class=\"securepoll-table\">\n" . "<tr>\n" . "<th>&#160;</th>\n";
 		foreach ( $labels as $label ) {

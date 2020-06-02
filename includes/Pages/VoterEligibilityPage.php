@@ -514,6 +514,7 @@ class VoterEligibilityPage extends ActionPage {
 					$this->msg( "securepoll-votereligibility-label-$action" )->parse()
 				);
 				$formItems[] = [
+					// @phan-suppress-next-line SecurityCheck-XSS
 					'section' => 'lists',
 					'type' => 'info',
 					'rawrow' => true,

@@ -112,7 +112,6 @@ class RemoteMWAuth extends Auth {
 			return $status;
 		}
 		$params = $status->value;
-		// @phan-suppress-next-line PhanTypeMismatchDimAssignment
 		$params['type'] = 'remote-mw';
 		$params['electionId'] = $election->getId();
 
