@@ -25,7 +25,6 @@ class EntryPage extends ActionPage {
 
 		if ( $this->specialPage->getUser()->isAllowed( 'securepoll-create-poll' ) ) {
 			$title = SpecialPage::getTitleFor( 'SecurePoll', 'create' );
-			// @phan-suppress-next-line SecurityCheck-XSS
 			$out->addHTML(
 				Html::rawElement(
 					'p',
