@@ -24,6 +24,8 @@
  * @ingroup Maintenance
  */
 
+use MediaWiki\MediaWikiServices;
+
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
@@ -100,9 +102,10 @@ class PurgePrivateVoteData extends Maintenance {
 				}
 				$deleteSets[] = [ $setMin, $setMax ];
 				$minVoteId = $setMax;
-			} while ( $vRes->numRows() == $this->getBatchSize );
+			} while ( $vRes->numRows() == $this->getBatchSize() );
 
 			$dbw = wfGetDB( DB_MASTER );
+			$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 
 			foreach ( $deleteSets as $deleteSet ) {
 				list( $minId, $maxId ) = $deleteSet;
@@ -114,11 +117,11 @@ class PurgePrivateVoteData extends Maintenance {
 							'vote_id < ' . $dbr->addQuotes( $maxId ) ]
 					),
 					__METHOD__,
-					[ 'LIMIT' => $this->getBatchSize ]
+					[ 'LIMIT' => $this->getBatchSize() ]
 				);
 				$this->output( "Purged data from " . $dbw->affectedRows() . " votes\n" );
 
-				wfWaitForSlaves();
+				$lbFactory->waitForReplication();
 			}
 		}
 		$this->output( "Done.\n" );

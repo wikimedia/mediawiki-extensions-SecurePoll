@@ -13,6 +13,8 @@
  *                      to be resumed.
  */
 
+use MediaWiki\MediaWikiServices;
+
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
@@ -77,6 +79,8 @@ class MakeSimpleList extends Maintenance {
 
 		$beforeQ = $before !== false ? $dbr->addQuotes( $before ) : false;
 
+		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+
 		while ( true ) {
 			echo "user_id > $startBatch\n";
 			$res = $dbr->select(
@@ -132,7 +136,7 @@ class MakeSimpleList extends Maintenance {
 			}
 			if ( $insertBatch ) {
 				$dbw->insert( 'securepoll_lists', $insertBatch, __METHOD__, $insertOptions );
-				wfWaitForSlaves();
+				$lbFactory->waitForReplication();
 			}
 		}
 	}
