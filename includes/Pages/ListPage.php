@@ -59,7 +59,8 @@ class ListPage extends ActionPage {
 			[ 'DISTINCT vote_voter' ],
 			[
 				'vote_election' => $this->election->getID()
-			]
+			],
+			__METHOD__
 		);
 		$distinct_voters = $res->numRows();
 
@@ -68,7 +69,8 @@ class ListPage extends ActionPage {
 			[ 'vote_id' ],
 			[
 				'vote_election' => $this->election->getID()
-			]
+			],
+			__METHOD__
 		);
 		$all_votes = $res->numRows();
 
@@ -78,7 +80,8 @@ class ListPage extends ActionPage {
 			[
 				'vote_election' => $this->election->getID(),
 				'vote_current' => 0
-			]
+			],
+			__METHOD__
 		);
 		$not_current_votes = $res->numRows();
 
@@ -88,7 +91,8 @@ class ListPage extends ActionPage {
 			[
 				'vote_election' => $this->election->getID(),
 				'vote_struck' => 1
-			]
+			],
+			__METHOD__
 		);
 		$struck_votes = $res->numRows();
 

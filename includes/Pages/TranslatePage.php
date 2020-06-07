@@ -321,7 +321,8 @@ class TranslatePage extends ActionPage {
 						'el_entity',
 						[
 							'el_title' => $this->election->title
-						]
+						],
+						__METHOD__
 					);
 					if ( $id ) {
 						foreach ( $jumpReplaceBatch as &$row ) {

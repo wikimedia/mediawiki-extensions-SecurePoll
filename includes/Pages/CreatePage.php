@@ -533,7 +533,8 @@ class CreatePage extends ActionPage {
 							'p1.pr_value' => $election->getId(),
 							'p2.pr_key' => 'main-wiki',
 							'p2.pr_value' => wfWikiID(),
-						]
+						],
+						__METHOD__
 					);
 					// Test for duplicate title
 					$id = $rdbw->selectField(
@@ -541,7 +542,8 @@ class CreatePage extends ActionPage {
 						'el_entity',
 						[
 							'el_title' => $formData['election_title']
-						]
+						],
+						__METHOD__
 					);
 
 					$lb->reuseConnection( $rdbw );
@@ -602,12 +604,12 @@ class CreatePage extends ActionPage {
 			// Delete any questions or options that weren't included in the
 			// form submission.
 			$qIds = [];
-			$res = $dbw->select( 'securepoll_questions', 'qu_entity', [ 'qu_election' => $eId ] );
+			$res = $dbw->select( 'securepoll_questions', 'qu_entity', [ 'qu_election' => $eId ], __METHOD__ );
 			foreach ( $res as $row ) {
 				$qIds[] = $row->qu_entity;
 			}
 			$oIds = [];
-			$res = $dbw->select( 'securepoll_options', 'op_entity', [ 'op_election' => $eId ] );
+			$res = $dbw->select( 'securepoll_options', 'op_entity', [ 'op_election' => $eId ], __METHOD__ );
 			foreach ( $res as $row ) {
 				$oIds[] = $row->op_entity;
 			}
@@ -684,7 +686,8 @@ class CreatePage extends ActionPage {
 						'p1.pr_value' => $eId,
 						'p2.pr_key' => 'main-wiki',
 						'p2.pr_value' => wfWikiID(),
-					]
+					],
+					__METHOD__
 				);
 				if ( !$rId ) {
 					$rId = self::insertEntity( $dbw, 'election' );

@@ -64,7 +64,8 @@ class PopulateVoterListJob extends Job {
 			[
 				'pr_entity' => $election->getId(),
 				'pr_key' => $props,
-			]
+			],
+			__METHOD__
 		);
 		foreach ( $res as $row ) {
 			$params[$row->pr_key] = $row->pr_value;
@@ -110,7 +111,7 @@ class PopulateVoterListJob extends Job {
 		$total = 0;
 		foreach ( $wikis as $wiki ) {
 			$dbr = $lbFactory->getMainLB( $wiki )->getConnectionRef( DB_REPLICA, [], $wiki );
-			$max = $dbr->selectField( 'user', 'MAX(user_id)' );
+			$max = $dbr->selectField( 'user', 'MAX(user_id)', [], __METHOD__ );
 			if ( !$max ) {
 				$max = 0;
 			}
@@ -133,7 +134,8 @@ class PopulateVoterListJob extends Job {
 		$dbw->onTransactionResolution(
 			function () use ( $dbw, $lockKey, $lockMethod ) {
 				$dbw->unlock( $lockKey, $lockMethod );
-			}
+			},
+			__METHOD__
 		);
 
 		// If the same job is (supposed to be) already running, don't restart it
@@ -170,7 +172,8 @@ class PopulateVoterListJob extends Job {
 					'pr_key' => 'list_complete-count',
 					'pr_value' => 0,
 				],
-			]
+			],
+			__METHOD__
 		);
 
 		foreach ( $wikis as $wiki ) {
@@ -366,7 +369,8 @@ class PopulateVoterListJob extends Job {
 							: 'ug_expiry IS NULL OR ug_expiry >= ' . $dbr->addQuotes(
 								$dbr->timestamp()
 							),
-					]
+					],
+					__METHOD__
 				);
 				$list = [];
 				foreach ( $res as $row ) {
@@ -401,7 +405,8 @@ class PopulateVoterListJob extends Job {
 			$dbwElection->onTransactionResolution(
 				function () use ( $dbwElection, $lockKey, $lockMethod ) {
 					$dbwElection->unlock( $lockKey, $lockMethod );
-				}
+				},
+				__METHOD__
 			);
 			$dbwLocal->startAtomic( __METHOD__ );
 
@@ -413,9 +418,10 @@ class PopulateVoterListJob extends Job {
 						'li_name' => $this->params['need-list'],
 						"li_member >= $min",
 						"li_member < $max",
-					]
+					],
+					__METHOD__
 				);
-				$dbwLocal->insert( 'securepoll_lists', $ins );
+				$dbwLocal->insert( 'securepoll_lists', $ins, __METHOD__ );
 
 				$count = $dbwElection->selectField(
 					'securepoll_properties',
@@ -423,7 +429,8 @@ class PopulateVoterListJob extends Job {
 					[
 						'pr_entity' => $this->params['electionId'],
 						'pr_key' => 'list_complete-count',
-					]
+					],
+					__METHOD__
 				);
 				$dbwElection->update(
 					'securepoll_properties',
@@ -433,7 +440,8 @@ class PopulateVoterListJob extends Job {
 					[
 						'pr_entity' => $this->params['electionId'],
 						'pr_key' => 'list_complete-count',
-					]
+					],
+					__METHOD__
 				);
 			}
 
@@ -470,7 +478,8 @@ class PopulateVoterListJob extends Job {
 			[
 				'pr_entity' => $electionId,
 				'pr_key' => 'list_job-key',
-			]
+			],
+			__METHOD__
 		);
 	}
 }

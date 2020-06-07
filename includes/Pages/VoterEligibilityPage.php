@@ -171,7 +171,7 @@ class VoterEligibilityPage extends ActionPage {
 				);
 
 				if ( $ins ) {
-					$dbw->insert( 'securepoll_properties', $ins );
+					$dbw->insert( 'securepoll_properties', $ins, __METHOD__ );
 				}
 			}
 
@@ -212,7 +212,8 @@ class VoterEligibilityPage extends ActionPage {
 				'el_entity',
 				[
 					'el_title' => $this->election->title
-				]
+				],
+				__METHOD__
 			);
 			if ( !$id ) {
 				// WTF?
@@ -224,7 +225,8 @@ class VoterEligibilityPage extends ActionPage {
 				[
 					'pr_entity' => $id,
 					'pr_key' => $property,
-				]
+				],
+				__METHOD__
 			);
 			if ( !$list ) {
 				continue;
@@ -239,7 +241,8 @@ class VoterEligibilityPage extends ActionPage {
 				[
 					'li_name' => $list,
 					'user_id=li_member',
-				]
+				],
+				__METHOD__
 			);
 			foreach ( $res as $row ) {
 				$names[] = str_replace( '_', ' ', $row->user_name ) . "@$dbname";
@@ -1073,7 +1076,8 @@ class VoterEligibilityPage extends ActionPage {
 				'el_entity',
 				[
 					'el_title' => $this->election->title
-				]
+				],
+				__METHOD__
 			);
 			if ( $id ) {
 				$list = $dbw->selectField(
@@ -1082,16 +1086,18 @@ class VoterEligibilityPage extends ActionPage {
 					[
 						'pr_entity' => $id,
 						'pr_key' => $property,
-					]
+					],
+					__METHOD__
 				);
 				if ( $list ) {
-					$dbw->delete( 'securepoll_lists', [ 'li_name' => $list ] );
+					$dbw->delete( 'securepoll_lists', [ 'li_name' => $list ], __METHOD__ );
 					$dbw->delete(
 						'securepoll_properties',
 						[
 							'pr_entity' => $id,
 							'pr_key' => $property
-						]
+						],
+						__METHOD__
 					);
 				}
 
@@ -1107,7 +1113,8 @@ class VoterEligibilityPage extends ActionPage {
 								'list_complete-count',
 								'list_job-key',
 							],
-						]
+						],
+						__METHOD__
 					);
 				}
 			}
