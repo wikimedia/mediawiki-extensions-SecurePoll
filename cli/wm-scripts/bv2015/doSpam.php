@@ -70,7 +70,7 @@ $vdb = wfGetDB( DB_REPLICA, [], 'votewiki' );
 $voted = $vdb->selectFieldValues( 'securepoll_voters', 'voter_name',
 	[ 'voter_election' => $electionId ] );
 
-$db = CentralAuthUser::getCentralSlaveDB();
+$db = CentralAuthUtils::getCentralReplicaDB();
 $res = $db->select(
 	[ 'securepoll_lists', 'globaluser' ],
 	[

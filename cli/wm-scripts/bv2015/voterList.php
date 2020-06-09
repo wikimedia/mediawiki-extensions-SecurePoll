@@ -1,8 +1,8 @@
 <?php
 
 require __DIR__ . '/../../cli.inc';
-$dbcr = CentralAuthUser::getCentralSlaveDB();
-$dbcw = CentralAuthUser::getCentralDB();
+$dbcr = CentralAuthUtils::getCentralReplicaDB();
+$dbcw = CentralAuthUtils::getCentralDB();
 
 $fname = 'voterList.php';
 $listName = 'board-vote-2015a';
@@ -53,7 +53,7 @@ echo wfWikiID() . " qualified \t$numQualified\n";
  */
 function spGetQualifiedUsers( $users ) {
 	global $wgLocalDatabases;
-	$dbcr = CentralAuthUser::getCentralSlaveDB();
+	$dbcr = CentralAuthUtils::getCentralReplicaDB();
 
 	$res = $dbcr->select( 'localuser',
 		[ 'lu_name', 'lu_wiki' ],
