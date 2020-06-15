@@ -28,25 +28,25 @@ class SecurePollContentHandler extends JsonContentHandler {
 	 *
 	 * @param Election $election
 	 * @param string $subpage Subpage to get content for
-	 * @param bool $useBlacklist
+	 * @param bool $useExclusion
 	 * @return array
 	 */
 	public static function getDataFromElection(
 		Election $election,
 		$subpage = '',
-		$useBlacklist = false
+		$useExclusion = false
 	) {
 		if ( $subpage === '' ) {
 			$properties = $election->getAllProperties();
-			if ( $useBlacklist ) {
-				$blacklist = array_flip( $election->getPropertyDumpBlacklist() ) + [
+			if ( $useExclusion ) {
+				$excludedNames = array_flip( $election->getPropertyDumpExclusion() ) + [
 					'gpg-encrypt-key' => true,
 					'gpg-sign-key' => true,
 					'gpg-decrypt-key' => true,
 				];
 
 				foreach ( $properties as $k => $v ) {
-					if ( isset( $blacklist[$k] ) ) {
+					if ( isset( $excludedNames[$k] ) ) {
 						$properties[$k] = '<redacted>';
 					}
 				}
@@ -71,10 +71,10 @@ class SecurePollContentHandler extends JsonContentHandler {
 
 			foreach ( $election->getQuestions() as $question ) {
 				$properties = $question->getAllProperties();
-				if ( $useBlacklist ) {
-					$blacklist = array_flip( $question->getPropertyDumpBlacklist() );
+				if ( $useExclusion ) {
+					$excludedNames = array_flip( $question->getPropertyDumpExclusion() );
 					foreach ( $properties as $k => $v ) {
-						if ( isset( $blacklist[$k] ) ) {
+						if ( isset( $excludedNames[$k] ) ) {
 							$properties[$k] = '<redacted>';
 						}
 					}
@@ -87,10 +87,10 @@ class SecurePollContentHandler extends JsonContentHandler {
 
 				foreach ( $question->getOptions() as $option ) {
 					$properties = $option->getAllProperties();
-					if ( $useBlacklist ) {
-						$blacklist = array_flip( $option->getPropertyDumpBlacklist() );
+					if ( $useExclusion ) {
+						$excludedNames = array_flip( $option->getPropertyDumpExclusion() );
 						foreach ( $properties as $k => $v ) {
-							if ( isset( $blacklist[$k] ) ) {
+							if ( isset( $excludedNames[$k] ) ) {
 								$properties[$k] = '<redacted>';
 							}
 						}

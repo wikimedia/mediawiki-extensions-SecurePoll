@@ -263,9 +263,9 @@ class Entity {
 	 */
 	public function getConfXmlEntityStuff( $params = [] ) {
 		$s = Xml::element( 'id', [], $this->getId() ) . "\n";
-		$blacklist = $this->getPropertyDumpBlacklist( $params );
+		$excludedNames = $this->getPropertyDumpExclusion( $params );
 		foreach ( $this->getAllProperties() as $name => $value ) {
-			if ( !in_array( $name, $blacklist ) ) {
+			if ( !in_array( $name, $excludedNames ) ) {
 				$s .= Xml::element( 'property', [ 'name' => $name ], $value ) . "\n";
 			}
 		}
@@ -299,7 +299,7 @@ class Entity {
 	 * @param array $params
 	 * @return array
 	 */
-	public function getPropertyDumpBlacklist( $params = [] ) {
+	public function getPropertyDumpExclusion( $params = [] ) {
 		return [];
 	}
 
