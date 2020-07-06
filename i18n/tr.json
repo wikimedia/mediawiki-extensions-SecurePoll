@@ -54,7 +54,7 @@
 	"securepoll-blocked": "Üzgünüz, eğer şu anda değişiklik yapmaya engellenmiş iseniz bu seçimlerde oy kullanamazsınız.",
 	"securepoll-blocked-centrally": "Üzgünüz, en az $1 {{PLURAL:$1|viki|viki}} de engellendiyseniz, bu seçimde oy kullanamazsınız.",
 	"securepoll-bot": "Üzgünüz, bot olarak işaretli hesaplar bu seçimde oy kullanamaz.",
-	"securepoll-not-in-group": "Bu seçimlerde sadece $1 grubu üyeleri oy verebilir.",
+	"securepoll-not-in-group": "Bu seçimlerde yalnızca $1 grubu üyeleri oy verebilir.",
 	"securepoll-not-in-list": "Üzgünüz, bu seçimde oy kullanmaya yetkili öntanımlı kullanıcılar listesinde değilsiniz.",
 	"securepoll-in-exclude-list": "Üzgünüz, bu seçimde oy kullanma yetkiniz yok.",
 	"securepoll-list-title": "Oyları listele: $1",
