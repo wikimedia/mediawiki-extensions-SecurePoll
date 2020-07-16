@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
+			"BaRaN6161 TURK",
 			"Bennylin",
 			"Darth Kule",
 			"EugeneZelenko",
@@ -258,7 +259,7 @@
 	"securepoll-votereligibility-clear-title": "Title for Special:SecurePoll/votereligibility/#/clear/X\n* $1 – text of one of the following messages:\n** {{msg-mw|securepoll-votereligibility-list-include}}\n** {{msg-mw|securepoll-votereligibility-list-exclude}}\n** {{msg-mw|securepoll-votereligibility-list-voter}}",
 	"securepoll-votereligibility-cleared": "Title for clear confirmation page for [[Special:SecurePoll/votereligibility]].\n\nRefers to {{msg-mw|Securepoll}}.",
 	"securepoll-votereligibility-cleared-text": "Text for clear confirmation page for Special:SecurePoll/votereligibility. $1 is a list name.",
-	"securepoll-votereligibility-cleared-comment": "Text used as the edit summary when clearing a list on Special:SecurePoll/votereligibility. $1 is a list name.\n{{Identical|Cleared}}",
+	"securepoll-votereligibility-cleared-comment": "Text used as the edit summary when clearing a list on Special:SecurePoll/votereligibility. $1 is a list name.",
 	"right-securepoll-create-poll": "{{doc-right|securepoll-create-poll}}",
 	"action-securepoll-create-poll": "{{Doc-action|securepoll-create-poll}}",
 	"securepoll-ns-readonly": "Error message to inform the user that the SecurePoll namespace cannot be edited.",
