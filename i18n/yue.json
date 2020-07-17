@@ -4,6 +4,7 @@
 			"Deryck Chan",
 			"Horacewai2",
 			"Lauhenry",
+			"Moon0319",
 			"Shinjiman",
 			"Waihorace"
 		]
@@ -70,7 +71,7 @@
 	"securepoll-invalid-vote": "\"$1\"唔係一個有效嘅投票ID",
 	"securepoll-header-voter-type": "投票者類型",
 	"securepoll-voter-properties": "投票者屬性",
-	"securepoll-strike-log": "刪除紀錄",
+	"securepoll-strike-log": "剷嘢紀錄",
 	"securepoll-header-action": "動作",
 	"securepoll-header-reason": "原因",
 	"securepoll-header-admin": "管理",
