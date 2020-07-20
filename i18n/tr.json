@@ -7,6 +7,7 @@
 			"Koc61",
 			"Mavrikant",
 			"Noumenon",
+			"Rapsar",
 			"Sayginer",
 			"Suelnur",
 			"Vito Genovese"
@@ -16,7 +17,7 @@
 	"securepoll-desc": "Seçimler ve anketler için eklenti",
 	"securepoll-invalid-page": "Geçersiz alt sayfa \"<nowiki>$1</nowiki>\"",
 	"securepoll-need-admin": "Bu eylemi gerçekleştirebilmek için bir seçim yöneticisi olmanız gerekir.",
-	"securepoll-too-few-params": "Yeterli altsayfa parametresi yok (geçersiz bağlantı).",
+	"securepoll-too-few-params": "Yeterli alt sayfa parametresi yok (geçersiz bağlantı).",
 	"securepoll-invalid-election": "\"$1\" geçerli bir seçim IDsi değil.",
 	"securepoll-welcome": "<strong>{{GENDER:$1|Hoş geldiniz}} $1!</strong>",
 	"securepoll-not-started": "Bu seçim henüz başlamadı.\n$2 tarihinde $3 saatinde başlaması planlanıyor.",
