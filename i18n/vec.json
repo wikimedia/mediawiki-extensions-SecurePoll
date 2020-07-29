@@ -23,7 +23,7 @@
 	"securepoll-submit": "Manda el voto",
 	"securepoll-gpg-receipt": "Grassie de aver votà.\n\nSta chì xe la riçevuta de la votassion:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "Grassie, el to voto el xe stà rejistrà.",
-	"securepoll-return": "Torna a $1",
+	"securepoll-return": "Revolvi a $1",
 	"securepoll-encrypt-error": "No se riesse a cifrar le informassion de voto.\nEl voto no'l xe mia stà rejistrà.\n\n$1",
 	"securepoll-no-gpg-home": "NO se riesse a crear la cartèla prinsipale de GPG.",
 	"securepoll-secret-gpg-error": "Eròr durante l'esecussion de GPG.\nDòpara $wgSecurePollShowErrorDetail=true; in LocalSettings.php par védar majori detagli.",
