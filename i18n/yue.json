@@ -5,6 +5,7 @@
 			"Horacewai2",
 			"Lauhenry",
 			"Moon0319",
+			"Roy17",
 			"Shinjiman",
 			"Waihorace"
 		]
@@ -100,7 +101,7 @@
 	"securepoll-tally-no-key": "你唔可以響呢次選舉度記數，因為投票加密咗，又有解密匙。",
 	"securepoll-tally-local-legend": "記數存咗嘅結果",
 	"securepoll-tally-local-submit": "整記數",
-	"securepoll-tally-upload-legend": "噏撈加密咗嘅傾印",
+	"securepoll-tally-upload-legend": "上載加密嘅傾印",
 	"securepoll-tally-upload-submit": "整記數",
 	"securepoll-tally-error": "處理投票紀錄時出錯，整唔到記數。",
 	"securepoll-no-upload": "冇快勞噏撈到，整唔到記數結果。",
