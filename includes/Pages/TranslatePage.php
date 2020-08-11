@@ -168,7 +168,7 @@ class TranslatePage extends ActionPage {
 			if ( $wgSecurePollUseNamespace ) {
 				$s .= '<p style="text-align: center;">' . wfMessage(
 						'securepoll-translate-label-comment'
-					)->escaped() . Xml::input(
+					)->escaped() . '&#160;' . Xml::input(
 						'comment',
 						45,
 						false,

@@ -90,7 +90,7 @@
 	"securepoll-translate-title": "Translate: $1",
 	"securepoll-translate-redirect": "Messages for this election must be configured on $1",
 	"securepoll-translate-redirect-otherwiki": "the main wiki",
-	"securepoll-translate-label-comment": "Reason: ",
+	"securepoll-translate-label-comment": "Reason:",
 	"securepoll-invalid-language": "Invalid language code \"$1\"",
 	"securepoll-header-trans-id": "ID",
 	"securepoll-submit-translate": "Update",
