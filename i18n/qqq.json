@@ -200,7 +200,7 @@
 	"securepoll-create-option-election_type-radio-range-comment+plurality": "Label for form option on Special:SecurePoll/create.",
 	"securepoll-create-option-election_type-radio-range-comment+histogram-range": "Label for form option on Special:SecurePoll/create.",
 	"securepoll-create-option-election_crypt-none": "Label for form option on Special:SecurePoll/create.",
-	"securepoll-create-option-election_crypt-gpg": "Label for form option on Special:SecurePoll/create.",
+	"securepoll-create-option-election_crypt-gpg": "{{optional}}\nLabel for form option on Special:SecurePoll/create.",
 	"securepoll-create-label-comment": "Label for the \"edit summary\" field on Special:SecurePoll/create.\n{{Identical|Reason}}",
 	"securepoll-create-invalid-username": "Used as error message in Special:SecurePoll/create.",
 	"securepoll-create-user-does-not-exist": "Used as error message in Special:SecurePoll/create.",
