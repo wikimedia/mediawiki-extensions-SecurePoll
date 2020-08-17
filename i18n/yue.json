@@ -104,7 +104,7 @@
 	"securepoll-tally-upload-legend": "上載加密嘅傾印",
 	"securepoll-tally-upload-submit": "整記數",
 	"securepoll-tally-error": "處理投票紀錄時出錯，整唔到記數。",
-	"securepoll-no-upload": "冇快勞噏撈到，整唔到記數結果。",
+	"securepoll-no-upload": "冇檔案上載到，統計唔到結果。",
 	"securepoll-dump-corrupt": "Dump檔案唔能夠繼續",
 	"securepoll-tally-upload-error": "錯嘅dump檔案：$1",
 	"securepoll-pairwise-victories": "成對勝利矩陣",
