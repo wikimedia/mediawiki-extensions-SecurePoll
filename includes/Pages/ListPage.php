@@ -3,7 +3,7 @@
 namespace MediaWiki\Extensions\SecurePoll\Pages;
 
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
-use Skin;
+use ResourceLoader;
 use Status;
 use Title;
 
@@ -117,14 +117,12 @@ class ListPage extends ActionPage {
 			$msgCancel = $this->msg( 'securepoll-strike-cancel' )->escaped();
 			$msgReason = $this->msg( 'securepoll-strike-reason' )->escaped();
 			$encAction = htmlspecialchars( $this->getTitle()->getLocalUrl() );
-			$script = Skin::makeVariablesScript(
-				[
-					'securepoll_strike_button' => $this->msg( 'securepoll-strike-button' )->text(),
-					'securepoll_unstrike_button' => $this->msg(
-						'securepoll-unstrike-button'
-					)->text()
-				]
-			);
+			$data = [
+				'securepoll_strike_button' => $this->msg( 'securepoll-strike-button' )->text(),
+				'securepoll_unstrike_button' => $this->msg( 'securepoll-unstrike-button' )->text()
+			];
+			$script = ResourceLoader::makeConfigSetScript( $data );
+			$script = ResourceLoader::makeInlineScript( $script, $out->getCSP()->getNonce() );
 
 			// @codingStandardsIgnoreStart
 			$out->addHTML(
