@@ -30,7 +30,7 @@
 	"securepoll-gpg-parse-error": "GPG ଆଉଟପୁଟ ପଢ଼ିବାରେ ବିଫଳ ।",
 	"securepoll-no-decryption-key": "ବିବରଣୀ ପୃଷ୍ଠା ସଜାଯାଇନାହିଁ ।\nଗୋପନ ତଥ୍ୟ ଖୋଲି ପାରିଲୁଁ ନାହିଁ ।",
 	"securepoll-jump": "ମତାମତ ସର୍ଭରକୁ ଯିବେ",
-	"securepoll-bad-ballot-submission": "ଆପଣଙ୍କ ମତଦାନ ଅବୈଧ ଅଟେ: $1",
+	"securepoll-bad-ballot-submission": "ଆପଣଙ୍କ ମତଦାନ ଅବୈଧ: $1",
 	"securepoll-unanswered-questions": "ଆପଣଙ୍କୁ ସବୁଯାକ ପ୍ରଶ୍ନର ଉତ୍ତର ଦେବାକୁ ପଡ଼ିବ ।",
 	"securepoll-invalid-rank": "ଅସଙ୍ଗତ କ୍ରମାଙ୍କ । ଆପଣ ୧ ରୁ ୯୯୯ ଭିତରେ ଏକ କ୍ରମାଙ୍କ ଦେଇପାରିବେ ।",
 	"securepoll-unranked-options": "କେତେଗୁଡ଼ିଏ ବିକଳ୍ପ କ୍ରମଅନୁସାରେ ସଜାଯାଇ ନାହିଁ ।\nଆପଣ ସବୁଯାକ ବିକଳ୍ପକୁ ୧ ରୁ ୯୯୯ ଭିତରେ ଏକ କ୍ରମାଙ୍କ ଦେଇପାରିବେ ।",
