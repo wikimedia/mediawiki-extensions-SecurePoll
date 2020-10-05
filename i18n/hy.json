@@ -4,6 +4,9 @@
 			"Kareyac"
 		]
 	},
+	"securepoll-strike-cancel": "Չեղարկել",
 	"securepoll-header-action": "Գործողություն",
-	"securepoll-header-admin": "Ադմին"
+	"securepoll-header-reason": "Պատճառ",
+	"securepoll-header-admin": "Ադմին",
+	"securepoll-create-label-comment": "Պատճառ"
 }
