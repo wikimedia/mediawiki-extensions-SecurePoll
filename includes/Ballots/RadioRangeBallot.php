@@ -8,6 +8,7 @@ use MediaWiki\Extensions\SecurePoll\Entities\Entity;
 use MediaWiki\Extensions\SecurePoll\Entities\Question;
 use MediaWiki\Extensions\SecurePoll\HtmlForm\HTMLFormRadioRangeColumnLabels;
 use MWException;
+use Sanitizer;
 use Xml;
 
 /**
@@ -234,7 +235,7 @@ class RadioRangeBallot extends Ballot {
 	 * @param Question $question
 	 * @param array $options
 	 * @return string
-	 * @suppress SecurityCheck-DoubleEscaped It's an actual issue, but hard to fix.
+	 * @suppress SecurityCheck-DoubleEscaped Fails with $score which is actually just an integer
 	 */
 	public function getQuestionForm( $question, $options ) {
 		global $wgRequest;
@@ -268,7 +269,7 @@ class RadioRangeBallot extends Ballot {
 							$inputId,
 							$score,
 							!strcmp( $oldValue, $score ),
-							[ 'title' => $label ]
+							[ 'title' => Sanitizer::stripAllTags( $label ) ]
 						)
 					) . "\n";
 			}

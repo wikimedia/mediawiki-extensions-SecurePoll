@@ -172,10 +172,10 @@ class Entity {
 	/**
 	 * Get a message, and interpret it as wikitext, converting it to HTML.
 	 * @param string $name
-	 * @param bool $lineStart
+	 * @param bool $block
 	 * @return string
 	 */
-	public function parseMessage( $name, $lineStart = true ) {
+	public function parseMessage( $name, $block = true ) {
 		global $wgTitle;
 		$parserOptions = $this->context->getParserOptions();
 		if ( $wgTitle ) {
@@ -187,11 +187,14 @@ class Entity {
 		$out = MediaWikiServices::getInstance()->getParser()->parse(
 			$wikiText,
 			$title,
-			$parserOptions,
-			$lineStart
+			$parserOptions
 		);
 
-		return $out->getText();
+		$html = $out->getText( [ 'unwrap' => true ] );
+		if ( !$block ) {
+			$html = \Parser::stripOuterParagraph( $html );
+		}
+		return $html;
 	}
 
 	/**
