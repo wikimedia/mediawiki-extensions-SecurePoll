@@ -151,6 +151,8 @@ function spReportProgress( $current, $total ) {
 	$estTotalDuration = ( $now - $startTime ) * $total / $current;
 	$estRemaining = $estTotalDuration - ( $now - $startTime );
 
+	// NOTE: commafy was deprecated in 1.36. If you're copy-pasting this for
+	// a future election, please change this to use formatNum.
 	print $lang->commafy( $current ) . " of " .
 		$lang->commafy( $total ) . " ; " .
 		number_format( $current / $total * 100, 2 ) . '% ; estimated time remaining: ' .
