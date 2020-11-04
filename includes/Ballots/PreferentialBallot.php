@@ -33,7 +33,7 @@ class PreferentialBallot extends Ballot {
 
 	/**
 	 * @param Question $question
-	 * @param Array $options
+	 * @param array $options
 	 * @return string
 	 */
 	public function getQuestionForm( $question, $options ) {

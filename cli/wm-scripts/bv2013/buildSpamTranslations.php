@@ -34,8 +34,8 @@ foreach ( $res as $row ) {
 		$text = substr( $text, $len );
 	}
 
-	if ( substr( $text, - $len ) == $textSuffix ) {
-		$text = substr( $text, 0, - $len );
+	if ( substr( $text, -$len ) == $textSuffix ) {
+		$text = substr( $text, 0, -$len );
 	}
 
 	$text = trim( $text ) . "\n";

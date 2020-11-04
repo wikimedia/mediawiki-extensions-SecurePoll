@@ -4,6 +4,10 @@
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationPrivate" />
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationProtected" />
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic" />
+		<exclude name="MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationPrivate" />
+		<exclude name="MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationPublic" />
+		<exclude name="MediaWiki.Commenting.PropertyDocumentation.MissingVar" />
+		<exclude name="MediaWiki.Usage.ExtendClassUsage.FunctionConfigUsage" />
 	</rule>
 	<rule ref="MediaWiki.Files.ClassMatchesFilename.NotMatch">
 		<exclude-pattern>*/cli/*.php</exclude-pattern>

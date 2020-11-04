@@ -50,7 +50,7 @@ class Entity {
 	/**
 	 * Get a list of localisable message names. This is used to provide the
 	 * translate subpage with a list of messages to localise.
-	 * @return Array
+	 * @return array
 	 */
 	public function getMessageNames() {
 		# STUB
