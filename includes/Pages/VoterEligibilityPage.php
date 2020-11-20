@@ -863,7 +863,7 @@ class VoterEligibilityPage extends ActionPage {
 			!$formData['list_edits-before'] &&
 			!$formData['list_edits-between'] &&
 			!$formData['list_exclude-groups'] &&
-			!$formData['list_exclude-groups']
+			!$formData['list_include-groups']
 		) {
 			return Status::newFatal( 'securepoll-votereligibility-fail-nothing-to-process' );
 		}
