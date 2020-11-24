@@ -282,7 +282,8 @@ class GpgCrypt {
 				$this->signer,
 			] : [],
 			[
-				'--output',
+				// Don't use --output due to T258763
+				'-o',
 				"{$this->homeDir}/output",
 				"{$this->homeDir}/input",
 			]
@@ -329,7 +330,8 @@ class GpgCrypt {
 		# Call GPG
 		$status = $this->runGpg(
 			'--decrypt',
-			'--output',
+			// Don't use --output due to T258763
+			'-o',
 			"{$this->homeDir}/output",
 			"{$this->homeDir}/input"
 		);
