@@ -310,7 +310,8 @@ class SecurePoll_GpgCrypt {
 		if ( $this->signer !== null ) {
 			$args .= ' --sign --local-user ' . wfEscapeShellArg( $this->signer );
 		}
-		$args .= ' --output ' . wfEscapeShellArg( "{$this->homeDir}/output" ) .
+		// Don't use --output due to T258763
+		$args .= ' -o ' . wfEscapeShellArg( "{$this->homeDir}/output" ) .
 			' ' . wfEscapeShellArg( "{$this->homeDir}/input" ) . ' 2>&1';
 		$status = $this->runGpg( $args );
 
@@ -350,7 +351,8 @@ class SecurePoll_GpgCrypt {
 
 		# Call GPG
 		$args = '--decrypt' .
-			' --output ' . wfEscapeShellArg( "{$this->homeDir}/output" ) .
+			// Don't use --output due to T258763
+			' -o ' . wfEscapeShellArg( "{$this->homeDir}/output" ) .
 			' ' . wfEscapeShellArg( "{$this->homeDir}/input" ) . ' 2>&1';
 		$status = $this->runGpg( $args );
 
