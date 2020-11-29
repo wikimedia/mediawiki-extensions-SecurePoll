@@ -115,14 +115,11 @@ function securepoll_modify_document( action, voteId ) {
 		row = popupButton.parentNode.parentNode;
 	if ( action === 'strike' ) {
 		row.className += ' securepoll-struck-vote';
-		// FIXME: This yields "ReferenceError: securepoll_unstrike_button is not defined"
-		// eslint-disable-next-line no-undef
-		popupButton.value = securepoll_unstrike_button;
+		popupButton.value = mw.config.get( 'securepoll_unstrike_button' );
 	} else {
 		// eslint-disable-next-line mediawiki/class-doc
 		row.className = row.className.replace( 'securepoll-struck-vote', '' );
-		// eslint-disable-next-line no-undef
-		popupButton.value = securepoll_strike_button;
+		popupButton.value = mw.config.get( 'securepoll_strike_button' );
 	}
 	popupButton.onclick = function ( event ) {
 		securepoll_strike_popup( event, action === 'strike' ? 'unstrike' : 'strike', voteId );
