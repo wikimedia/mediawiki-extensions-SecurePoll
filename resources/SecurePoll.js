@@ -81,7 +81,7 @@ function securepoll_strike( action ) {
 	spinner.style.display = 'block';
 	reason = document.getElementById( 'securepoll-strike-reason' ).value;
 
-	new mw.Api().postWithToken( 'edit', {
+	new mw.Api().postWithToken( 'csrf', {
 		action: 'strikevote', // API action module
 		option: action, // 'strike' or 'unstrike'
 		voteid: id,
