@@ -69,16 +69,21 @@ class HTMLFormRadioRangeColumnLabels extends HTMLFormField {
 		$labels = '';
 		$inputs = '';
 		foreach ( (array)$value as $k => $v ) {
-			$k = str_replace( 'column', '', $k );
-			$labels .= Html::element( 'th', [ 'data-securepoll-col-num' => $k ], $k );
+			if ( !preg_match( '/^column([-+]?)(\d+)$/', $k, $m ) ) {
+				// Ignore "text"
+				continue;
+			}
+			$signedColNum = $m[1] . $m[2];
+			$intColNum = $m[1] === '-' ? $signedColNum : $m[2];
+			$labels .= Html::element( 'th', [ 'data-securepoll-col-num' => $intColNum ], $signedColNum );
 			$inputs .= Html::rawElement(
 				'td',
-				[ 'data-securepoll-col-num' => $k ],
+				[ 'data-securepoll-col-num' => $intColNum ],
 				Html::element(
 					'input',
 					[
 						'type' => 'text',
-						'name' => "{$this->mName}[$k]",
+						'name' => "{$this->mName}[$intColNum]",
 						'size' => $size,
 						'value' => $v,
 					]

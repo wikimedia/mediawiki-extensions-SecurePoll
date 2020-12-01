@@ -275,7 +275,7 @@ class FormStore extends MemoryStore {
 					$this->messages[$this->lang][$id][$key] = $value;
 					break;
 				case 'messages':
-					foreach ( $value as $k => $v ) {
+					foreach ( $value ?? [] as $k => $v ) {
 						$this->messages[$this->lang][$id][$k] = $v;
 					}
 					break;

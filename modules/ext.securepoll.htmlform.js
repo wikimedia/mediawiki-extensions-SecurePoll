@@ -35,6 +35,14 @@
 				cells[ n ].$input = $t;
 			} );
 
+			function addSign( min, x ) {
+				if ( min < 0 && x > 0 ) {
+					return '+' + x;
+				} else {
+					return x;
+				}
+			}
+
 			function changeHandler() {
 				var i, min, max, $input;
 
@@ -52,9 +60,9 @@
 					}
 					if ( !cells[ i ].$label ) {
 						cells[ i ].$label = $( '<th>' );
-						cells[ i ].$label.data( 'securepollColNum', i )
-							.text( i );
+						cells[ i ].$label.data( 'securepollColNum', i );
 					}
+					cells[ i ].$label.text( addSign( min, i ) );
 					if ( !cells[ i ].$input ) {
 						$input = $( '<input>' );
 						$input.attr( {
