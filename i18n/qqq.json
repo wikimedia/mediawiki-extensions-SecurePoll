@@ -73,6 +73,7 @@
 	"securepoll-list-title": "Used as page title and as page subtitle. Parameters:\n* $1 - title of the election, or the string \"[title]\"",
 	"securepoll-list-private": "Used as an error message.",
 	"securepoll-header-timestamp": "{{Identical|Time}}",
+	"securepoll-header-date": "Column header used instead of \"Time\" when only the date is shown",
 	"securepoll-header-voter-name": "{{Identical|Name}}",
 	"securepoll-header-voter-domain": "{{Identical|Domain}}",
 	"securepoll-header-ip": "{{optional}}",
