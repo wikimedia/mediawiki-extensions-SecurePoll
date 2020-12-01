@@ -53,6 +53,7 @@
 	"securepoll-list-title": "List votes: $1",
 	"securepoll-list-private": "Sorry, viewing the list of voters for this election is restricted to election administrators.",
 	"securepoll-header-timestamp": "Time",
+	"securepoll-header-date": "Date",
 	"securepoll-header-voter-name": "Name",
 	"securepoll-header-voter-domain": "Domain",
 	"securepoll-header-ip": "IP",

@@ -16,22 +16,22 @@ class ListPager extends TablePager {
 	public $listPage, $isAdmin, $election;
 
 	public static $publicFields = [
-		'vote_timestamp',
-		'vote_voter_name',
-		'vote_voter_domain',
+		'vote_timestamp' => 'securepoll-header-date',
+		'vote_voter_name' => 'securepoll-header-voter-name',
+		'vote_voter_domain' => 'securepoll-header-voter-domain',
 	];
 
 	public static $adminFields = [
-		'details',
-		'strike',
-		'vote_timestamp',
-		'vote_voter_name',
-		'vote_voter_domain',
-		'vote_ip',
-		'vote_xff',
-		'vote_ua',
-		'vote_token_match',
-		'vote_cookie_dup',
+		'details' => 'securepoll-header-details',
+		'strike' => 'securepoll-header-strike',
+		'vote_timestamp' => 'securepoll-header-timestamp',
+		'vote_voter_name' => 'securepoll-header-voter-name',
+		'vote_voter_domain' => 'securepoll-header-voter-domain',
+		'vote_ip' => 'securepoll-header-ip',
+		'vote_xff' => 'securepoll-header-xff',
+		'vote_ua' => 'securepoll-header-ua',
+		'vote_token_match' => 'securepoll-header-token-match',
+		'vote_cookie_dup' => 'securepoll-header-cookie-dup',
 	];
 
 	public function __construct( $listPage ) {
@@ -80,7 +80,11 @@ class ListPager extends TablePager {
 
 		switch ( $name ) {
 			case 'vote_timestamp':
-				return $this->getLanguage()->timeanddate( $value );
+				if ( $this->isAdmin ) {
+					return $this->getLanguage()->timeanddate( $value );
+				} else {
+					return $this->getLanguage()->date( $value );
+				}
 			case 'vote_ip':
 				if ( $this->election->endDate < wfTimestamp(
 						TS_MW,
@@ -174,21 +178,9 @@ class ListPager extends TablePager {
 		} else {
 			$fields = self::$publicFields;
 		}
-		// Give grep a chance to find the usages:
-		// securepoll-header-details, securepoll-header-strike, securepoll-header-timestamp,
-		// securepoll-header-voter-name, securepoll-header-voter-domain, securepoll-header-ip,
-		// securepoll-header-xff, securepoll-header-ua, securepoll-header-token-match,
-		// securepoll-header-cookie-dup
-		foreach ( $fields as $field ) {
-			$names[$field] = $this->msg(
-				'securepoll-header-' . strtr(
-					$field,
-					[
-						'vote_' => '',
-						'_' => '-'
-					]
-				)
-			)->text();
+
+		foreach ( $fields as $field => $headerMessageName ) {
+			$names[$field] = $this->msg( $headerMessageName )->text();
 		}
 
 		return $names;
