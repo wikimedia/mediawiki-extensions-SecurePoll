@@ -62,6 +62,7 @@
 	"securepoll-list-title": "Oyları listele: $1",
 	"securepoll-list-private": "Üzgünüz, bu seçim için seçmenlerin listesini görüntülemek seçim yöneticileriyle sınırlıdır.",
 	"securepoll-header-timestamp": "Zaman",
+	"securepoll-header-date": "Tarih",
 	"securepoll-header-voter-name": "Ad",
 	"securepoll-header-voter-domain": "Etki alanı",
 	"securepoll-header-ua": "Kullanıcı temsilcisi",

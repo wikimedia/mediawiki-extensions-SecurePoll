@@ -58,6 +58,7 @@
 	"securepoll-list-title": "Stimmen auflisten: $1",
 	"securepoll-list-private": "Leider ist die Betrachtung der Wählerliste für diese Abstimmung auf Abstimmungsadministratoren beschränkt.",
 	"securepoll-header-timestamp": "Zeit",
+	"securepoll-header-date": "Datum",
 	"securepoll-header-voter-name": "Name",
 	"securepoll-header-voter-domain": "Domäne",
 	"securepoll-header-ua": "Browser",

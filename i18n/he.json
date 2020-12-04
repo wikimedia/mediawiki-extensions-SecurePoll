@@ -58,6 +58,7 @@
 	"securepoll-list-title": "רשימת הצבעות: $1",
 	"securepoll-list-private": "סליחה, הצגת רשימת המצביעים בבחירות האלה מוגבלת למנהלי הבחירות.",
 	"securepoll-header-timestamp": "זמן",
+	"securepoll-header-date": "תאריך",
 	"securepoll-header-voter-name": "שם",
 	"securepoll-header-voter-domain": "תחום",
 	"securepoll-header-ua": "סוכן לקוח",

@@ -71,6 +71,7 @@
 	"securepoll-list-title": "投票清單︰$1",
 	"securepoll-list-private": "很抱歉，能檢視此選舉的投票者清單僅限選舉管理員。",
 	"securepoll-header-timestamp": "時間",
+	"securepoll-header-date": "日期",
 	"securepoll-header-voter-name": "名稱",
 	"securepoll-header-voter-domain": "網域",
 	"securepoll-header-ua": "使用者代理",
