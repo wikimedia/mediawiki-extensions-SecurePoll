@@ -52,6 +52,7 @@
 	"securepoll-in-exclude-list": "Pardon, Dir däerft bei dëse Waleb net ofstëmmen.",
 	"securepoll-list-title": "Lëscht vun de Stëmmen: $1",
 	"securepoll-header-timestamp": "Zäit",
+	"securepoll-header-date": "Datum",
 	"securepoll-header-voter-name": "Numm",
 	"securepoll-header-voter-domain": "Domaine",
 	"securepoll-header-ua": "Browser",

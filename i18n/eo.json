@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"ArnoLagrange",
+			"Javiero",
 			"Marcos",
 			"Robin van der Vliet",
 			"ThomasPusch",
@@ -53,6 +54,7 @@
 	"securepoll-not-in-list": "Bedaŭrinde, vi ne estas unu el la antaŭdetermitaj uzantoj kiuj estas permesitaj voĉdoni dum ĉi tiu voĉdono.",
 	"securepoll-list-title": "Listigi voĉdonojn: $1",
 	"securepoll-header-timestamp": "Tempo",
+	"securepoll-header-date": "Dato",
 	"securepoll-header-voter-name": "Nomo",
 	"securepoll-header-voter-domain": "Domajno",
 	"securepoll-header-ua": "Klienta aplikaĵo",

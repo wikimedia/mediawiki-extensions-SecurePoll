@@ -65,6 +65,7 @@
 	"securepoll-list-title": "Elenco voti: $1",
 	"securepoll-list-private": "Spiacenti, la visualizzazione dell'elenco degli elettori per questa elezione è limitato agli amministratori dell'elezione.",
 	"securepoll-header-timestamp": "Data e ora",
+	"securepoll-header-date": "Data",
 	"securepoll-header-voter-name": "Nome",
 	"securepoll-header-voter-domain": "Dominio",
 	"securepoll-header-ua": "User agent",
