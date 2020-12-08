@@ -55,6 +55,7 @@
 	"securepoll-not-in-list": "Du er desværre ikke på listen over brugere, som kan stemme i dette valg.",
 	"securepoll-list-title": "Vis stemmer: $1",
 	"securepoll-header-timestamp": "Tid",
+	"securepoll-header-date": "Dato",
 	"securepoll-header-voter-name": "Navn",
 	"securepoll-header-voter-domain": "Domæne",
 	"securepoll-header-ua": "Useragent",
