@@ -69,6 +69,7 @@
 	"securepoll-list-title": "Lista de votos: $1",
 	"securepoll-list-private": "La visualización de la lista de votantes de esta elección está restringida a los administradores de elección.",
 	"securepoll-header-timestamp": "Hora",
+	"securepoll-header-date": "Fecha",
 	"securepoll-header-voter-name": "Nombre",
 	"securepoll-header-voter-domain": "Dominio",
 	"securepoll-header-ua": "Agente de usuario",
