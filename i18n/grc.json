@@ -2,11 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Crazymadlover",
-			"Omnipaedista"
+			"Omnipaedista",
+			"PastelKos"
 		]
 	},
 	"securepoll": "Ἠσφαλισμένη Κάλπη",
 	"securepoll-header-timestamp": "Χρόνος",
+	"securepoll-header-date": "Ἡμερομηνία",
 	"securepoll-header-voter-name": "Ὄνομα",
 	"securepoll-header-voter-domain": "Περιοχή",
 	"securepoll-header-details": "Λεπτομέρειαι",

@@ -64,6 +64,7 @@
 	"securepoll-list-title": "표 목록: $1",
 	"securepoll-list-private": "죄송하지만, 이 선거에 참여하여 투표한 사람들의 목록은 선거 관리자에게는 제한되어있습니다.",
 	"securepoll-header-timestamp": "시간",
+	"securepoll-header-date": "날짜",
 	"securepoll-header-voter-name": "이름",
 	"securepoll-header-voter-domain": "도메인",
 	"securepoll-header-ua": "유저 에이전트",
