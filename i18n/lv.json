@@ -17,6 +17,7 @@
 	"securepoll-api-invalid-params": "Nederīgi parametri.",
 	"securepoll-list-title": "Uzskaitīt balsis: $1",
 	"securepoll-header-timestamp": "Laiks",
+	"securepoll-header-date": "Datums",
 	"securepoll-header-voter-name": "Vārds",
 	"securepoll-header-voter-domain": "Domēns",
 	"securepoll-header-ua": "Lietotāja aģents",
