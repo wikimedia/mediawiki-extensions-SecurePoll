@@ -386,7 +386,6 @@ class CreatePage extends ActionPage {
 			$formItems['election_crypt']['options-messages']
 			["securepoll-create-option-election_crypt-$type"] = $type;
 			if ( $class !== false ) {
-				self::processFormItems( $formItems, 'election_crypt', $type, $class, 'election' );
 				self::processFormItems(
 					$formItems,
 					'election_crypt',
@@ -408,7 +407,6 @@ class CreatePage extends ActionPage {
 					$class,
 					'option'
 				);
-				self::processFormItems( $optionFields, 'election_crypt', $type, $class, 'option' );
 			}
 		}
 
