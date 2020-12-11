@@ -266,8 +266,8 @@ class Context {
 			}
 			if ( count( $uncachedIds ) ) {
 				$messages = $this->getStore()->getMessages( $lang, array_keys( $uncachedIds ) );
-				$this->messageCache[$lang] = $this->messageCache[$lang] + $messages;
-				$this->messagesLoaded[$lang] = $this->messagesLoaded[$lang] + $uncachedIds;
+				$this->messageCache[$lang] += $messages;
+				$this->messagesLoaded[$lang] += $uncachedIds;
 			}
 
 			return array_intersect_key( $this->messageCache[$lang], array_flip( $ids ) );
