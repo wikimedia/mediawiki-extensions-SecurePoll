@@ -50,6 +50,7 @@
 	"securepoll-not-in-list": "معاف کرنا تسیں اوناں ورتن والیاں دی لسٹ چ نئیں او جناں نوں ایس چنوتی ج ووٹ پان دی اجازت اے۔",
 	"securepoll-list-title": "ووٹ لسٹ: $1",
 	"securepoll-header-timestamp": "ویلہ",
+	"securepoll-header-date": "تریخ",
 	"securepoll-header-voter-name": "ناں",
 	"securepoll-header-voter-domain": "ڈومین",
 	"securepoll-header-ua": "ورتن آلا اجنٹ",
