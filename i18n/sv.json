@@ -64,6 +64,7 @@
 	"securepoll-in-exclude-list": "Tyvärr, du är inte behörig att rösta i detta val.",
 	"securepoll-list-title": "Visa röster: $1",
 	"securepoll-header-timestamp": "Tid",
+	"securepoll-header-date": "Datum",
 	"securepoll-header-voter-name": "Namn",
 	"securepoll-header-voter-domain": "Domän",
 	"securepoll-header-ua": "Användaragent",
