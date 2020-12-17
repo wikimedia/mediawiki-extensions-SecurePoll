@@ -1,3 +1,8 @@
+/* Hide the submit button at the very top */
+[ name='wpdefault_submit' ] {
+	display: none;
+}
+
 /* Embolden field labels */
 .mw-label {
 	font-weight: bold;
