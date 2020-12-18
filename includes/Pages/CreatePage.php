@@ -1074,7 +1074,7 @@ class CreatePage extends ActionPage {
 		if ( !$user ) {
 			return $this->msg( 'securepoll-create-invalid-username' )->parse();
 		}
-		if ( !$user->isLoggedIn() ) {
+		if ( !$user->isRegistered() ) {
 			return $this->msg( 'securepoll-create-user-does-not-exist' )->parse();
 		}
 
