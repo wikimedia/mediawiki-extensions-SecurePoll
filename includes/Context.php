@@ -35,7 +35,7 @@ use Wikimedia\Rdbms\Database;
  * is available as $context->varDump().
  */
 class Context {
-	/** Language fallback sequence */
+	/** @var string[] Language fallback sequence */
 	public $languages = [ 'en' ];
 
 	/**
@@ -44,24 +44,24 @@ class Context {
 	 */
 	public $messageCache = [];
 
-	/** election cache */
+	/** @var array election cache */
 	public $electionCache = [];
 
 	/**
-	 * Which messages are loaded. 2-d array: language and entity ID, value arbitrary.
+	 * @var array Which messages are loaded. 2-d array: language and entity ID, value arbitrary.
 	 */
 	public $messagesLoaded = [];
 
-	/** ParserOptions instance used for message parsing */
+	/** @var ParserOptions|null ParserOptions instance used for message parsing */
 	public $parserOptions;
 
-	/** The store class, for lazy loading */
+	/** @var string The store class, for lazy loading */
 	public $storeClass = DBStore::class;
 
-	/** The store object */
+	/** @var Store|null The store object */
 	public $store;
 
-	/** The Random instance */
+	/** @var Random|null The Random instance */
 	public $random;
 
 	/**

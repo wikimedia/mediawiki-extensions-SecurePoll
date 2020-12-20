@@ -5,6 +5,7 @@ namespace MediaWiki\Extensions\SecurePoll\Pages;
 use Exception;
 
 class StatusException extends Exception {
+	/** @var \Status */
 	public $status;
 
 	public function __construct( ...$args ) {

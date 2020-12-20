@@ -35,6 +35,7 @@ require_once "$IP/maintenance/Maintenance.php";
 
 class PurgePrivateVoteData extends Maintenance {
 
+	/** @var int|null */
 	private $purgeDays = null;
 
 	public function __construct() {

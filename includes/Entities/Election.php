@@ -81,9 +81,29 @@ use Xml;
  *          return-url
  */
 class Election extends Entity {
-	public $questions, $auth, $ballot;
-	public $id, $title, $ballotType, $tallyType, $primaryLang;
-	public $startDate, $endDate, $authType;
+	/** @var Question[]|null */
+	public $questions;
+	/** @var Auth|null */
+	public $auth;
+	/** @var Ballot|null */
+	public $ballot;
+	/** @var string */
+	public $id;
+	/** @var string */
+	public $title;
+	/** @var string */
+	public $ballotType;
+	/** @var string */
+	public $tallyType;
+	/** @var string */
+	public $primaryLang;
+	/** @var string */
+	public $startDate;
+	/** @var string */
+	public $endDate;
+	/** @var string */
+	public $authType;
+	/** @var int */
 	public $owner = 0;
 
 	/**

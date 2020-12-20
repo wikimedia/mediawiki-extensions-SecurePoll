@@ -11,6 +11,7 @@ use MediaWiki\Extensions\SecurePoll\Context;
 class Question extends Entity {
 	/** @var Option[] */
 	public $options;
+	/** @var int|null */
 	public $electionId;
 
 	/**

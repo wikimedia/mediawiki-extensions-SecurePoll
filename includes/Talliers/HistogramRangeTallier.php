@@ -6,11 +6,18 @@ use MWException;
 use Xml;
 
 class HistogramRangeTallier extends Tallier {
+	/** @var array */
 	public $histogram = [];
+	/** @var array */
 	public $sums = [];
+	/** @var array */
 	public $counts = [];
+	/** @var array|null */
 	public $averages;
-	public $minScore, $maxScore;
+	/** @var int */
+	public $minScore;
+	/** @var int */
+	public $maxScore;
 
 	public function __construct( $context, $electionTallier, $question ) {
 		parent::__construct( $context, $electionTallier, $question );

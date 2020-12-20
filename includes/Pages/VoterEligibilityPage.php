@@ -28,6 +28,7 @@ use WikiPage;
  * Special:SecurePoll subpage for managing the voter list for a poll
  */
 class VoterEligibilityPage extends ActionPage {
+	/** @var string[] */
 	private static $lists = [
 		'voter' => 'need-list',
 		'include' => 'include-list',

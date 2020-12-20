@@ -28,7 +28,10 @@ use Xml;
  *     column-1, column0, column+1, etc.
  */
 class RadioRangeBallot extends Ballot {
-	public $columnLabels, $minMax;
+	/** @var string[]|null */
+	public $columnLabels;
+	/** @var int[]|null */
+	public $minMax;
 
 	public static function getTallyTypes() {
 		return [

@@ -2,11 +2,14 @@
 
 namespace MediaWiki\Extensions\SecurePoll\Ballots;
 
+use MediaWiki\Extensions\SecurePoll\Context;
 use Status;
 use Xml;
 
 class BallotStatus extends Status {
+	/** @var Context */
 	public $sp_context;
+	/** @var true[] */
 	public $sp_ids = [];
 
 	public function __construct( $context ) {

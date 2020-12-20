@@ -6,6 +6,7 @@ use MWException;
 use Status;
 
 class Random {
+	/** @var resource|null */
 	public $urandom;
 
 	/**

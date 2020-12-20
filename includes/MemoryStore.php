@@ -11,8 +11,16 @@ use Status;
  * subclass.
  */
 class MemoryStore implements Store {
-	public $messages, $properties, $idsByName, $votes;
-	public $entityInfo;
+	/** @var array|null */
+	public $messages;
+	/** @var array|null */
+	public $properties;
+	/** @var array|null */
+	public $idsByName;
+	/** @var array|null */
+	public $votes;
+	/** @var array */
+	public $entityInfo = [];
 
 	/**
 	 * Get an array containing all election IDs stored in this object

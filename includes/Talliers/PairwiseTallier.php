@@ -9,9 +9,13 @@ use Xml;
  * Tested via SchulzeTallier.
  */
 abstract class PairwiseTallier extends Tallier {
+	/** @var array */
 	public $optionIds = [];
+	/** @var array */
 	public $victories = [];
+	/** @var array|null */
 	public $abbrevs;
+	/** @var array */
 	public $rowLabels = [];
 
 	public function __construct( $context, $electionTallier, $question ) {

@@ -6,6 +6,7 @@ namespace MediaWiki\Extensions\SecurePoll\Pages;
  * Special:SecurePoll subpage for exporting encrypted election records.
  */
 class DumpPage extends ActionPage {
+	/** @var bool|null */
 	public $headersSent;
 
 	/**

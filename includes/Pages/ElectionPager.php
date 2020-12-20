@@ -3,6 +3,7 @@
 namespace MediaWiki\Extensions\SecurePoll\Pages;
 
 use Linker;
+use MediaWiki\Extensions\SecurePoll\Entities\Election;
 use stdClass;
 use TablePager;
 
@@ -10,6 +11,7 @@ use TablePager;
  * Pager for an election list. See TablePager documentation.
  */
 class ElectionPager extends TablePager {
+	/** @var bool[][] */
 	public $subpages = [
 		'vote' => [
 			'public' => true,
@@ -47,14 +49,18 @@ class ElectionPager extends TablePager {
 			'visible-after-close' => true,
 		],
 	];
+	/** @var string[] */
 	public $fields = [
 		'el_title',
 		'el_start_date',
 		'el_end_date',
 		'links'
 	];
+	/** @var bool|null */
 	public $isAdmin;
+	/** @var Election|null */
 	public $election;
+	/** @var EntryPage */
 	public $entryPage;
 
 	public function __construct( $specialPage ) {

@@ -9,7 +9,10 @@ namespace MediaWiki\Extensions\SecurePoll\Talliers;
  * debian-vote (but not devotee).
  */
 class SchulzeTallier extends PairwiseTallier {
-	public $ranks, $strengths;
+	/** @var array|null */
+	public $ranks;
+	/** @var array|null */
+	public $strengths;
 
 	/**
 	 * @param array $victories

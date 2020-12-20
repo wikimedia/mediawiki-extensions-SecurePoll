@@ -17,10 +17,18 @@ use WikiMap;
  * Store for loading the form data.
  */
 class FormStore extends MemoryStore {
-	public $eId, $rId = 0;
-	public $qIds = [], $oIds = [];
+	/** @var int */
+	public $eId;
+	/** @var int */
+	public $rId = 0;
+	/** @var int[] */
+	public $qIds = [];
+	/** @var int[] */
+	public $oIds = [];
+	/** @var string[] */
 	public $remoteWikis;
 
+	/** @var string */
 	private $lang;
 
 	public function __construct( $formData, $userId ) {

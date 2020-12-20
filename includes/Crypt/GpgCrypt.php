@@ -21,8 +21,16 @@ use Status;
  * gpg-decrypt-key is for tallying.
  */
 class GpgCrypt {
-	public $context, $election;
-	public $recipient, $signer, $homeDir;
+	/** @var Context */
+	public $context;
+	/** @var Election */
+	public $election;
+	/** @var string|null */
+	public $recipient;
+	/** @var string|null */
+	public $signer;
+	/** @var string|null */
+	public $homeDir;
 
 	public static function getCreateDescriptors() {
 		global $wgSecurePollGpgSignKey;
