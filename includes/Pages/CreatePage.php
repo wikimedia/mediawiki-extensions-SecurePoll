@@ -90,7 +90,7 @@ class CreatePage extends ActionPage {
 		}
 
 		$out->addModules( 'ext.securepoll.htmlform' );
-		$out->addModules( 'ext.securepoll' );
+		$out->addModuleStyles( 'ext.securepoll' );
 		$out->setPageTitle( $this->msg( 'securepoll-create-title' ) );
 
 		# These are for injecting raw HTML into the HTMLForm for the
@@ -117,6 +117,16 @@ class CreatePage extends ActionPage {
 			'type' => 'hidden',
 			'default' => -1,
 			'output-as-default' => false,
+		];
+
+		// Submit intended to be hidden w/CSS
+		// Placed at the beginning of the form so that when the form
+		// is submitted by pressing enter while focused on an input,
+		// it will trigger this generic submit and not generate an event
+		// on a cloner add/delete item
+		$formItems['default_submit'] = [
+			'type' => 'submit',
+			'buttonlabel' => 'submit',
 		];
 
 		$formItems['election_title'] = [
