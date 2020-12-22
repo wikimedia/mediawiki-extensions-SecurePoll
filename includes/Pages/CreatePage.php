@@ -93,24 +93,6 @@ class CreatePage extends ActionPage {
 		$out->addModuleStyles( 'ext.securepoll' );
 		$out->setPageTitle( $this->msg( 'securepoll-create-title' ) );
 
-		# These are for injecting raw HTML into the HTMLForm for the
-		# multi-column aspects of the designed layout.
-		$layoutTableStart = [
-			'type' => 'info',
-			'rawrow' => true,
-			'default' => '<table class="securepoll-layout-table"><tr><td>',
-		];
-		$layoutTableMid = [
-			'type' => 'info',
-			'rawrow' => true,
-			'default' => '</td><td>',
-		];
-		$layoutTableEnd = [
-			'type' => 'info',
-			'rawrow' => true,
-			'default' => '</td></tr></table>',
-		];
-
 		$formItems = [];
 
 		$formItems['election_id'] = [
@@ -127,6 +109,7 @@ class CreatePage extends ActionPage {
 		$formItems['default_submit'] = [
 			'type' => 'submit',
 			'buttonlabel' => 'submit',
+			'cssclass' => 'oo-ui-element-hidden',
 		];
 
 		$formItems['election_title'] = [
@@ -237,8 +220,6 @@ class CreatePage extends ActionPage {
 			}
 		}
 
-		$formItems[] = $layoutTableStart;
-
 		$formItems['election_type'] = [
 			'label-message' => 'securepoll-create-label-election_type',
 			'type' => 'radio',
@@ -247,7 +228,6 @@ class CreatePage extends ActionPage {
 		];
 
 		if ( count( Crypt::$cryptTypes ) > 1 ) {
-			$formItems[] = $layoutTableMid;
 			$formItems['election_crypt'] = [
 				'label-message' => 'securepoll-create-label-election_crypt',
 				'type' => 'radio',
@@ -263,8 +243,6 @@ class CreatePage extends ActionPage {
 				// dummy, ignored
 			];
 		}
-
-		$formItems[] = $layoutTableEnd;
 
 		$formItems['disallow-change'] = [
 			'label-message' => 'securepoll-create-label-election_disallow-change',
@@ -449,7 +427,7 @@ class CreatePage extends ActionPage {
 		}
 
 		$form = HTMLForm::factory(
-			'div',
+			'ooui',
 			$formItems,
 			$this->specialPage->getContext(),
 			$this->election ? 'securepoll-edit' : 'securepoll-create'

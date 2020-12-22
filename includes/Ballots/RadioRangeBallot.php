@@ -52,12 +52,6 @@ class RadioRangeBallot extends Ballot {
 			],
 		];
 		$ret['question'] += [
-			[
-				'type' => 'info',
-				'rawrow' => true,
-				'default' => '<table class="securepoll-layout-table"><tr><td>',
-			],
-
 			'min-score' => [
 				'label-message' => 'securepoll-create-label-min_score',
 				'type' => 'int',
@@ -67,13 +61,6 @@ class RadioRangeBallot extends Ballot {
 				],
 				'SecurePoll_type' => 'property',
 			],
-
-			[
-				'type' => 'info',
-				'rawrow' => true,
-				'default' => '</td><td>',
-			],
-
 			'max-score' => [
 				'label-message' => 'securepoll-create-label-max_score',
 				'type' => 'int',
@@ -83,25 +70,11 @@ class RadioRangeBallot extends Ballot {
 				],
 				'SecurePoll_type' => 'property',
 			],
-
-			[
-				'type' => 'info',
-				'rawrow' => true,
-				'default' => '</td><td>',
-			],
-
 			'default-score' => [
 				'label-message' => 'securepoll-create-label-default_score',
 				'type' => 'int',
 				'SecurePoll_type' => 'property',
 			],
-
-			[
-				'type' => 'info',
-				'rawrow' => true,
-				'default' => '</td></tr></table>',
-			],
-
 			'column-order' => [
 				'label-message' => 'securepoll-create-label-column_order',
 				'type' => 'select',
