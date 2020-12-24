@@ -16,7 +16,7 @@ class Auth {
 	public $context;
 
 	/**
-	 * List of available authorization modules (subclasses)
+	 * @var string[] List of available authorization modules (subclasses)
 	 */
 	private static $authTypes = [
 		'local' => LocalAuth::class,

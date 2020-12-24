@@ -23,6 +23,7 @@ use SpecialPage;
  * this or of SpecialPage, they're subclassed from ActionPage.
  */
 class SpecialSecurePoll extends SpecialPage {
+	/** @var string[] */
 	public static $pages = [
 		'create' => CreatePage::class,
 		'edit' => CreatePage::class,
@@ -38,6 +39,7 @@ class SpecialSecurePoll extends SpecialPage {
 		'votereligibility' => VoterEligibilityPage::class,
 	];
 
+	/** @var Context */
 	public $sp_context;
 
 	/**

@@ -10,10 +10,26 @@ use stdClass;
  * properties include a snapshot of heuristic qualifications such as edit count.
  */
 class Voter {
-	public $id, $electionId, $name, $domain, $wiki, $type, $url;
+	/** @var int|null */
+	public $id;
+	/** @var int|null */
+	public $electionId;
+	/** @var string|null */
+	public $name;
+	/** @var string|null */
+	public $domain;
+	/** @var string|null */
+	public $wiki;
+	/** @var string|null */
+	public $type;
+	/** @var string|null */
+	public $url;
+	/** @var array|null */
 	public $properties = [];
+	/** @var Context */
 	public $context;
 
+	/** @var string[] */
 	private static $paramNames = [
 		'id',
 		'electionId',

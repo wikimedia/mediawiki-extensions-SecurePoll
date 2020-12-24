@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extensions\SecurePoll\Pages;
 
+use MediaWiki\Extensions\SecurePoll\Entities\Election;
 use MediaWiki\Extensions\SecurePoll\User\Voter;
 use TablePager;
 use Wikimedia\IPUtils;
@@ -13,14 +14,21 @@ use Xml;
  * is an admin.
  */
 class ListPager extends TablePager {
-	public $listPage, $isAdmin, $election;
+	/** @var ListPage */
+	public $listPage;
+	/** @var bool */
+	public $isAdmin;
+	/** @var Election */
+	public $election;
 
+	/** @var string[] */
 	public static $publicFields = [
 		'vote_timestamp' => 'securepoll-header-date',
 		'vote_voter_name' => 'securepoll-header-voter-name',
 		'vote_voter_domain' => 'securepoll-header-voter-domain',
 	];
 
+	/** @var string[] */
 	public static $adminFields = [
 		'details' => 'securepoll-header-details',
 		'strike' => 'securepoll-header-strike',

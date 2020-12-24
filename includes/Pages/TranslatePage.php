@@ -20,6 +20,7 @@ use Xml;
  * A SecurePoll subpage for translating election messages.
  */
 class TranslatePage extends ActionPage {
+	/** @var bool|null */
 	public $isAdmin;
 
 	/**

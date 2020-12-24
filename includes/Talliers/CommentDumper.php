@@ -2,6 +2,8 @@
 
 namespace MediaWiki\Extensions\SecurePoll\Talliers;
 
+use MediaWiki\Extensions\SecurePoll\Ballots\Ballot;
+use MediaWiki\Extensions\SecurePoll\Crypt\Crypt;
 use MediaWiki\Extensions\SecurePoll\Store;
 use Status;
 
@@ -9,10 +11,15 @@ use Status;
  * A class that dumps the comments from an election
  */
 class CommentDumper extends ElectionTallier {
+	/** @var Ballot|null */
 	public $ballot;
+	/** @var resource|null */
 	public $csvHandle;
+	/** @var Crypt|null */
 	public $crypt;
+	/** @var bool */
 	public $skipEmptyComments;
+	/** @var int|null */
 	private $countSoFar;
 
 	public function __construct( $context, $election, $skipEmptyComments = true ) {

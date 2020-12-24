@@ -11,6 +11,7 @@ use Xml;
  * Special:SecurePoll subpage for showing the details of a given vote to an administrator.
  */
 class DetailsPage extends ActionPage {
+	/** @var int|null */
 	public $voteId;
 
 	/**

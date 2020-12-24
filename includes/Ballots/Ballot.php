@@ -14,11 +14,20 @@ use Xml;
  * Parent class for ballot forms. This is the UI component of a voting method.
  */
 abstract class Ballot {
-	public $election, $context, $currentVote;
-	public $prevErrorIds, $usedErrorIds;
-	/** @var BallotStatus */
+	/** @var Election */
+	public $election;
+	/** @var Context */
+	public $context;
+	/** @var string|null */
+	public $currentVote;
+	/** @var int[]|null */
+	public $prevErrorIds;
+	/** @var true[]|null */
+	public $usedErrorIds;
+	/** @var BallotStatus|null */
 	public $prevStatus;
 
+	/** @var string[] */
 	public static $ballotTypes = [
 		'approval' => ApprovalBallot::class,
 		'preferential' => PreferentialBallot::class,
@@ -250,7 +259,7 @@ abstract class Ballot {
 	/**
 	 * Get the way the voter cast their vote previously, if we're allowed
 	 * to show that information.
-	 * @return false on failure or if cast ballots are hidden, or the output
+	 * @return array|false on failure or if cast ballots are hidden, or the output
 	 *     of unpackRecord().
 	 */
 	public function getCurrentVote() {

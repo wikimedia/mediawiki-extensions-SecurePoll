@@ -18,11 +18,17 @@ use Xml;
  * properties, and a descendant tree which is used to accelerate message loading.
  */
 class Entity {
+	/** @var int|false */
 	public $id;
+	/** @var int|null */
 	public $electionId;
+	/** @var Context */
 	public $context;
+	/** @var array */
 	public $messagesLoaded = [];
+	/** @var array|null */
 	public $properties;
+	/** @var string */
 	public $type;
 
 	/**

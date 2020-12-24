@@ -9,6 +9,7 @@ use MediaWiki\Extensions\SecurePoll\Entities\Question;
  * Tallier that supports choose-one, approval and range voting
  */
 class PluralityTallier extends Tallier {
+	/** @var int[] */
 	public $tally = [];
 
 	/**

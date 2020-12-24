@@ -3,6 +3,7 @@
 namespace MediaWiki\Extensions\SecurePoll\Talliers;
 
 use MediaWiki\Extensions\SecurePoll\Context;
+use MediaWiki\Extensions\SecurePoll\Entities\Election;
 use MediaWiki\Extensions\SecurePoll\Entities\Question;
 use MWException;
 use Xml;
@@ -13,7 +14,16 @@ use Xml;
  * questions.
  */
 abstract class Tallier {
-	public $context, $question, $electionTallier, $election, $optionsById;
+	/** @var Context */
+	public $context;
+	/** @var Question */
+	public $question;
+	/** @var ElectionTallier */
+	public $electionTallier;
+	/** @var Election */
+	public $election;
+	/** @var array */
+	public $optionsById = [];
 
 	abstract public function addVote( $scores );
 
@@ -23,6 +33,7 @@ abstract class Tallier {
 
 	abstract public function finishTally();
 
+	/** @var string[] */
 	public static $tallierTypes = [
 		'plurality' => PluralityTallier::class,
 		'schulze' => SchulzeTallier::class,

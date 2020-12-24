@@ -32,6 +32,7 @@ abstract class Crypt {
 	 */
 	abstract public function canDecrypt();
 
+	/** @var (string|false)[] */
 	public static $cryptTypes = [
 		'none' => false,
 		'gpg' => GpgCrypt::class,

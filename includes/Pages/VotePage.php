@@ -4,7 +4,10 @@ namespace MediaWiki\Extensions\SecurePoll\Pages;
 
 use Hooks;
 use HTMLForm;
+use MediaWiki\Extensions\SecurePoll\Entities\Election;
+use MediaWiki\Extensions\SecurePoll\User\Auth;
 use MediaWiki\Extensions\SecurePoll\User\RemoteMWAuth;
+use MediaWiki\Extensions\SecurePoll\User\Voter;
 use MediaWiki\Session\SessionManager;
 use MWException;
 use Status;
@@ -15,8 +18,15 @@ use Wikimedia\IPUtils;
  * The subpage for casting votes.
  */
 class VotePage extends ActionPage {
+	/** @var array|null */
 	public $languages;
-	public $election, $auth, $user;
+	/** @var Election|null */
+	public $election;
+	/** @var Auth|null */
+	public $auth;
+	/** @var \User|null */
+	public $user;
+	/** @var Voter|null */
 	public $voter;
 
 	/**

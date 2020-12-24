@@ -9,6 +9,7 @@ use Status;
  */
 class DBStore implements Store {
 
+	/** @var bool */
 	private $forceMaster = false;
 
 	/**

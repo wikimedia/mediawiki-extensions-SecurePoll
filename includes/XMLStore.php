@@ -10,10 +10,18 @@ use XMLReader;
  * and vote data can be loaded into a tallier on demand.
  */
 class XMLStore extends MemoryStore {
-	public $xmlReader, $fileName;
-	public $voteCallback, $voteElectionId, $voteCallbackStatus;
+	/** @var XMLReader|null */
+	public $xmlReader;
+	/** @var string */
+	public $fileName;
+	/** @var callable|null */
+	public $voteCallback;
+	/** @var int|null */
+	public $voteElectionId;
+	/** @var Status|null */
+	public $voteCallbackStatus;
 
-	/** Valid entity info keys by entity type. */
+	/** @var string[][] Valid entity info keys by entity type. */
 	private static $entityInfoKeys = [
 		'election' => [
 			'id',
@@ -35,14 +43,14 @@ class XMLStore extends MemoryStore {
 		],
 	];
 
-	/** The type of each entity child and its corresponding (plural) info element */
+	/** @var string[][] The type of each entity child and its corresponding (plural) info element */
 	private static $childTypes = [
 		'election' => [ 'question' => 'questions' ],
 		'question' => [ 'option' => 'options' ],
 		'option' => []
 	];
 
-	/** All entity types */
+	/** @var string[] All entity types */
 	private static $entityTypes = [
 		'election',
 		'question',

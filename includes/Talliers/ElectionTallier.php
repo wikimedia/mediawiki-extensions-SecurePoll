@@ -2,8 +2,11 @@
 
 namespace MediaWiki\Extensions\SecurePoll\Talliers;
 
+use MediaWiki\Extensions\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extensions\SecurePoll\Context;
+use MediaWiki\Extensions\SecurePoll\Crypt\Crypt;
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
+use MediaWiki\Extensions\SecurePoll\Entities\Question;
 use MediaWiki\Extensions\SecurePoll\Store;
 use MWException;
 use Status;
@@ -17,7 +20,18 @@ use Status;
  * Election::tally().
  */
 class ElectionTallier {
-	public $ballot, $context, $crypt, $election, $questions, $talliers;
+	/** @var Ballot|null */
+	public $ballot;
+	/** @var Context */
+	public $context;
+	/** @var Crypt|null */
+	public $crypt;
+	/** @var Election */
+	public $election;
+	/** @var Question[]|null */
+	public $questions;
+	/** @var Tallier[] */
+	public $talliers = [];
 
 	/**
 	 * Constructor.
