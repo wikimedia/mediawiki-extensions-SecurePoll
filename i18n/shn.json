@@ -1,15 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
+			"Saimawnkham",
 			"Saosukham"
 		]
 	},
-	"apihelp-strikevote-description": "ၶႂၢင်းပၼ် ဢႅတ်ႉမိၼ်ႉသ်မၼ်း ပၼ်ၵၢင်ၸႂ် သၢၼ်ၶတ်း ႁိုဝ် ဢမ်ႇသၢၼ်ၶတ်း",
-	"apihelp-strikevote-param-option": "တေဢဝ်လွင်ႈလႂ်: သၢၼ်ၶတ်း ႁိုဝ် ဢမ်ႇသၢၼ်ၶတ်း ၵၢင်ၸႂ်",
-	"apihelp-strikevote-paramvalue-option-strike": "သၢၼ်ၶတ်း ၵၢင်ၸႂ် (မွတ်ႇပႅတ်ႈ ၼႂ်းသဵၼ်ႈ)",
-	"apihelp-strikevote-paramvalue-option-unstrike": "ဢမ်ႇသၢၼ်ၶတ်း ၵၢင်ၸႂ် (ၶိုၼ်းသိမ်းဝႆႉ ၼႂ်းသဵၼ်ႈ)",
-	"apihelp-strikevote-param-voteid": "ID ၵၢင်ၸႂ်ၼၼ်ႉ တေသၢၼ်ၶတ်း ႁိုဝ် ဢမ်ႇသၢၼ်ၶတ်း",
-	"apihelp-strikevote-param-reason": "လွင်ႈတၢင်းတႃႇ သၢၼ်ၶတ်း ႁိုဝ် ဢမ်ႇသၢၼ်ၶတ်း ၵၢင်ၸႂ်",
-	"apihelp-strikevote-example-strike": "ၵၢင်ၸႂ်သၢၼ်ၶတ်း <kbd>1</kbd>, ၼႄပၼ်လွင်ႈတၢင်း <kbd>တၢင်းႁဵတ်း</kbd>",
-	"apihelp-strikevote-example-unstrike": "ဢမ်ႇသၢၼ်ၶတ်း ၵၢင်ၸႂ် <kbd>1</kbd>, ၼႄလွင်ႈတၢင်း <kbd>ၽိတ်း</kbd>."
+	"securepoll-language-label": "လိူၵ်ႈ ၽႃႇသႃႇၵႂၢမ်းː",
+	"securepoll-create-label-election_primarylang": "ၽႃႇသႃႇၵႂၢမ်း ပိူင်လူင်ː"
 }

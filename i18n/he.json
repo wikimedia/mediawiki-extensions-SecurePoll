@@ -70,7 +70,7 @@
 	"securepoll-strike-reason": "סיבה:",
 	"securepoll-strike-cancel": "ביטול",
 	"securepoll-strike-error": "שגיאה בביצוע הסתרה או בביטול הסתרה: $1",
-	"securepoll-strike-token-mismatch": "מידע הכניסה אבד",
+	"securepoll-strike-token-mismatch": "נתוני ההתחברות אבדו",
 	"securepoll-details-link": "פרטים",
 	"securepoll-details-title": "פרטי ההצבעה: #$1",
 	"securepoll-invalid-vote": "\"$1\" אינו מספר הצבעה תקין",
