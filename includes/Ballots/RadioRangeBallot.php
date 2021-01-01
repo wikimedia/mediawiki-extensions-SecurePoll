@@ -7,6 +7,7 @@ use Html;
 use MediaWiki\Extensions\SecurePoll\Entities\Entity;
 use MediaWiki\Extensions\SecurePoll\Entities\Question;
 use MediaWiki\Extensions\SecurePoll\HtmlForm\HTMLFormRadioRangeColumnLabels;
+use MediaWiki\Extensions\SecurePoll\Pages\CreatePage;
 use MWException;
 use Sanitizer;
 use Xml;
@@ -60,7 +61,10 @@ class RadioRangeBallot extends Ballot {
 			'min-score' => [
 				'label-message' => 'securepoll-create-label-min_score',
 				'type' => 'int',
-				'required' => true,
+				'validation-callback' => [
+					CreatePage::class,
+					'checkRequired',
+				],
 				'SecurePoll_type' => 'property',
 			],
 
@@ -73,7 +77,10 @@ class RadioRangeBallot extends Ballot {
 			'max-score' => [
 				'label-message' => 'securepoll-create-label-max_score',
 				'type' => 'int',
-				'required' => true,
+				'validation-callback' => [
+					CreatePage::class,
+					'checkRequired',
+				],
 				'SecurePoll_type' => 'property',
 			],
 

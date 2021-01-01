@@ -281,12 +281,10 @@ class CreatePage extends ActionPage {
 		$formItems['property_admins'] = [
 			'label-message' => 'securepoll-create-label-property_admins',
 			'type' => 'cloner',
-			'required' => true,
 			'format' => 'raw',
 			'fields' => [
 				'username' => [
 					'type' => 'text',
-					'required' => true,
 					'validation-callback' => [
 						$this,
 						'checkUsername'
@@ -304,7 +302,10 @@ class CreatePage extends ActionPage {
 			'text' => [
 				'label-message' => 'securepoll-create-label-questions-question',
 				'type' => 'text',
-				'required' => true,
+				'validation-callback' => [
+					$this,
+					'checkRequired',
+				],
 			],
 			'delete' => [
 				'type' => 'submit',
@@ -321,7 +322,10 @@ class CreatePage extends ActionPage {
 			'text' => [
 				'label-message' => 'securepoll-create-label-options-option',
 				'type' => 'text',
-				'required' => true,
+				'validation-callback' => [
+					$this,
+					'checkRequired',
+				],
 			],
 			'delete' => [
 				'type' => 'submit',
@@ -431,7 +435,6 @@ class CreatePage extends ActionPage {
 		$formItems['questions'] = [
 			'label-message' => 'securepoll-create-label-questions',
 			'type' => 'cloner',
-			'required' => true,
 			'row-legend' => 'securepoll-create-questions-row-legend',
 			'create-button-message' => 'securepoll-create-label-questions-add',
 			'fields' => $questionFields,
@@ -1088,6 +1091,25 @@ class CreatePage extends ActionPage {
 			return $this->msg( 'securepoll-create-user-does-not-exist' )->parse();
 		}
 
+		return true;
+	}
+
+	/**
+	 * Check that a required field has been filled.
+	 *
+	 * This is a hack for using with cloner fields. Just setting required=true
+	 * breaks cloner fields when used with OOUI, in no-JS environments, because
+	 * the browser will prevent submission on clicking the remove button of an
+	 * empty field.
+	 *
+	 * @internal For use by the HTMLFormField
+	 * @param string $value
+	 * @return bool|string true on success, string on error
+	 */
+	public static function checkRequired( $value ) {
+		if ( $value === '' ) {
+			return Status::newFatal( 'htmlform-required' )->getMessage();
+		}
 		return true;
 	}
 }

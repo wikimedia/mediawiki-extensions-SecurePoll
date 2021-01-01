@@ -40,7 +40,6 @@ class GpgCrypt {
 			'gpg-encrypt-key' => [
 				'label-message' => 'securepoll-create-label-gpg_encrypt_key',
 				'type' => 'textarea',
-				'required' => true,
 				'SecurePoll_type' => 'property',
 				'rows' => 5,
 				'validation-callback' => [ self::class, 'checkEncryptKey' ],
@@ -71,6 +70,9 @@ class GpgCrypt {
 	}
 
 	public static function checkEncryptKey( $key ) {
+		if ( $key === '' ) {
+			return Status::newFatal( 'htmlform-required' )->getMessage();
+		}
 		$that = new GpgCrypt( null, null );
 		$status = $that->setupHome();
 		if ( $status->isOK() ) {
