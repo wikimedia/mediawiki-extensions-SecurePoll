@@ -16,11 +16,9 @@ class DumpGlobalVoterList extends Maintenance {
 	}
 
 	public function execute() {
-		global $wgLocalDatabases;
-
 		$voters = [];
 		$batchSize = 1000;
-		$wikis = $wgLocalDatabases;
+		$wikis = $this->getConfig()->get( 'LocalDatabases' );
 		$lbFactory = MediaWiki\MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 
 		foreach ( $wikis as $wikiId ) {

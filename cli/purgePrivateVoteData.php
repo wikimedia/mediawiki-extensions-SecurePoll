@@ -47,10 +47,8 @@ class PurgePrivateVoteData extends Maintenance {
 	}
 
 	public function execute() {
-		global $wgSecurePollKeepPrivateInfoDays;
-
 		if ( $this->purgeDays === null ) {
-			$this->purgeDays = $wgSecurePollKeepPrivateInfoDays;
+			$this->purgeDays = $this->getConfig()->get( 'SecurePollKeepPrivateInfoDays' );
 		}
 
 		$electionsToPurge = [];
