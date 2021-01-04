@@ -9,6 +9,7 @@ use MediaWiki\Extensions\SecurePoll\Entities\Election;
 use MediaWiki\Extensions\SecurePoll\MemoryStore;
 use OOUIHTMLForm;
 use Status;
+use WebRequestUpload;
 
 /**
  * A subpage for tallying votes and producing results
@@ -112,13 +113,14 @@ class TallyPage extends ActionPage {
 	 * @return bool|string|array|Status As documented for HTMLForm::trySubmit
 	 */
 	public function submitForm( array $data ) {
-		if ( !isset( $_FILES['tally_file'] ) || !is_uploaded_file(
-				$_FILES['tally_file']['tmp_name']
-			) || !$_FILES['tally_file']['size']
+		$upload = $this->specialPage->getRequest()->getUpload( 'tally_file' );
+		if ( !$upload->exists()
+			|| !is_uploaded_file( $upload->getTempName() )
+			|| !$upload->getSize()
 		) {
 			return $this->submitLocal( $data );
 		}
-		return $this->submitUpload( $data );
+		return $this->submitUpload( $data, $upload );
 	}
 
 	/**
@@ -142,12 +144,13 @@ class TallyPage extends ActionPage {
 	 * Show a tally of the results in the uploaded file
 	 *
 	 * @param array $data Data from the form fields
+	 * @param WebRequestUpload $upload
 	 * @return bool|string|array|Status As documented for HTMLForm::trySubmit
 	 */
-	private function submitUpload( array $data ) {
+	private function submitUpload( array $data, WebRequestUpload $upload ) {
 		$out = $this->specialPage->getOutput();
 
-		$context = Context::newFromXmlFile( $_FILES['tally_file']['tmp_name'] );
+		$context = Context::newFromXmlFile( $upload->getTempName() );
 		if ( !$context ) {
 			return [ 'securepoll-dump-corrupt' ];
 		}
