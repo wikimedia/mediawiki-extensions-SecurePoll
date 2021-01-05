@@ -1,8 +1,3 @@
-/* Hide the submit button at the very top */
-[ name='wpdefault_submit' ] {
-	display: none;
-}
-
 /* Embolden field labels */
 .mw-label {
 	font-weight: bold;
@@ -17,6 +12,10 @@
 .mw-htmlform-field-HTMLAutoCompleteSelectField,
 .securepoll-layout-table {
 	margin: 1em 0;
+}
+
+.mw-htmlform-cloner-create-button {
+	margin-top: 1em;
 }
 
 /* ... but not inside the tables */
