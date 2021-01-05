@@ -26,11 +26,6 @@ class DumpVoteCsv extends Maintenance {
 	}
 
 	public function execute() {
-		global $wgTitle;
-
-		// TODO: Is this necessary?
-		$wgTitle = Title::newFromText( 'Special:SecurePoll' );
-
 		$context = new Context;
 		if ( !$this->hasOption( 'name' ) && $this->hasArg( 0 ) ) {
 			$dump = $this->getArg( 0 );
