@@ -445,7 +445,10 @@ class VoterEligibilityPage extends ActionPage {
 			'label-message' => 'securepoll-votereligibility-label-central_block_threshold',
 			'type' => 'int',
 			'min' => 1,
-			'required' => true,
+			'validation-callback' => [
+				$this,
+				'checkRequired',
+			],
 			'hide-if' => [
 				'===',
 				'not-centrally-blocked',
@@ -558,7 +561,10 @@ class VoterEligibilityPage extends ActionPage {
 					'label-message' => 'securepoll-votereligibility-label-edits_before_count',
 					'type' => 'int',
 					'min' => 1,
-					'required' => true,
+					'validation-callback' => [
+						$this,
+						'checkRequired',
+					],
 					'hide-if' => [
 						'OR',
 						[
@@ -620,7 +626,10 @@ class VoterEligibilityPage extends ActionPage {
 					'label-message' => 'securepoll-votereligibility-label-edits_between_count',
 					'type' => 'int',
 					'min' => 1,
-					'required' => true,
+					'validation-callback' => [
+						$this,
+						'checkRequired',
+					],
 					'hide-if' => [
 						'OR',
 						[
@@ -834,6 +843,24 @@ class VoterEligibilityPage extends ActionPage {
 		} catch ( Exception $ex ) {
 			return 0;
 		}
+	}
+
+	/**
+	 * Check that a required field has been filled.
+	 *
+	 * This is a hack to allow OOUI to work with no-JS environments,
+	 * because the browser will prevent submission if fields that
+	 * would be hidden by JS are required but not filled.
+	 *
+	 * @internal For use by the HTMLFormField
+	 * @param int $value
+	 * @return bool|string true on success, string on error
+	 */
+	public function checkRequired( $value ) {
+		if ( $value === '' ) {
+			return Status::newFatal( 'htmlform-required' )->getMessage();
+		}
+		return true;
 	}
 
 	public function processConfig( $formData, $form ) {
