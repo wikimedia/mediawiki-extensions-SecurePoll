@@ -7,7 +7,6 @@ use DateTimeZone;
 use DeferredUpdates;
 use Exception;
 use FormatJson;
-use Html;
 use HTMLForm;
 use Linker;
 use MediaWiki\Extensions\SecurePoll\Context;
@@ -465,23 +464,7 @@ class VoterEligibilityPage extends ActionPage {
 			'default' => $this->election->getProperty( 'not-bot', false ),
 		];
 
-		$formItems[] = [
-			'section' => 'lists',
-			'type' => 'info',
-			'rawrow' => true,
-			'default' => Html::openElement( 'dl' ),
-		];
 		foreach ( self::$lists as $list => $property ) {
-			$name = $this->msg( "securepoll-votereligibility-list-$list" )->escaped();
-			$formItems[] = [
-				'section' => 'lists',
-				'type' => 'info',
-				'rawrow' => true,
-				'default' => Html::rawElement( 'dt', [], $name ) . Html::openElement(
-						'dd'
-					) . Html::openElement( 'ul' ),
-			];
-
 			$use = null;
 			$links = [];
 			if ( $list === 'voter' ) {
@@ -507,10 +490,10 @@ class VoterEligibilityPage extends ActionPage {
 			}
 
 			$formItems[] = [
-				'section' => 'lists',
+				'section' => "lists/$list",
 				'type' => 'info',
-				'rawrow' => true,
-				'default' => Html::rawElement( 'li', [], $use->parse() ),
+				'raw' => true,
+				'default' => $use->parse(),
 			];
 
 			$prefix = 'votereligibility/' . $this->election->getId();
@@ -521,23 +504,16 @@ class VoterEligibilityPage extends ActionPage {
 					$this->msg( "securepoll-votereligibility-label-$action" )->parse()
 				);
 				$formItems[] = [
-					'section' => 'lists',
+					'section' => "lists/$list",
 					'type' => 'info',
-					'rawrow' => true,
-					'default' => Html::rawElement( 'li', [], $link ),
+					'raw' => true,
+					'default' => $link,
 				];
 			}
 
 			if ( $list === 'voter' ) {
-				$formItems[] = [
-					'section' => 'lists',
-					'type' => 'info',
-					'rawrow' => true,
-					'default' => Html::openElement( 'li' ),
-				];
-
 				$formItems['list_populate'] = [
-					'section' => 'lists',
+					'section' => "lists/$list",
 					'label-message' => 'securepoll-votereligibility-label-populate',
 					'type' => 'check',
 					'hidelabel' => true,
@@ -545,7 +521,7 @@ class VoterEligibilityPage extends ActionPage {
 				];
 
 				$formItems['list_edits-before'] = [
-					'section' => 'lists',
+					'section' => "lists/$list",
 					'label-message' => 'securepoll-votereligibility-label-edits_before',
 					'type' => 'check',
 					'default' => $this->election->getProperty( 'list_edits-before', false ),
@@ -557,7 +533,7 @@ class VoterEligibilityPage extends ActionPage {
 				];
 
 				$formItems['list_edits-before-count'] = [
-					'section' => 'lists',
+					'section' => "lists/$list",
 					'label-message' => 'securepoll-votereligibility-label-edits_before_count',
 					'type' => 'int',
 					'min' => 1,
@@ -588,7 +564,7 @@ class VoterEligibilityPage extends ActionPage {
 					$date = gmdate( 'Y-m-d', strtotime( 'yesterday' ) );
 				}
 				$formItems['list_edits-before-date'] = [
-					'section' => 'lists',
+					'section' => "lists/$list",
 					'label-message' => 'securepoll-votereligibility-label-edits_before_date',
 					'type' => 'date',
 					'max' => gmdate( 'Y-m-d', strtotime( 'yesterday' ) ),
@@ -610,7 +586,7 @@ class VoterEligibilityPage extends ActionPage {
 				];
 
 				$formItems['list_edits-between'] = [
-					'section' => 'lists',
+					'section' => "lists/$list",
 					'label-message' => 'securepoll-votereligibility-label-edits_between',
 					'type' => 'check',
 					'hide-if' => [
@@ -622,7 +598,7 @@ class VoterEligibilityPage extends ActionPage {
 				];
 
 				$formItems['list_edits-between-count'] = [
-					'section' => 'lists',
+					'section' => "lists/$list",
 					'label-message' => 'securepoll-votereligibility-label-edits_between_count',
 					'type' => 'int',
 					'min' => 1,
@@ -655,7 +631,7 @@ class VoterEligibilityPage extends ActionPage {
 				}
 
 				$formItems['list_edits-startdate'] = [
-					'section' => 'lists',
+					'section' => "lists/$list",
 					'label-message' => 'securepoll-votereligibility-label-edits_startdate',
 					'type' => 'date',
 					'max' => gmdate( 'Y-m-d', strtotime( 'yesterday' ) ),
@@ -687,7 +663,7 @@ class VoterEligibilityPage extends ActionPage {
 				}
 
 				$formItems['list_edits-enddate'] = [
-					'section' => 'lists',
+					'section' => "lists/$list",
 					'label-message' => 'securepoll-votereligibility-label-edits_enddate',
 					'type' => 'date',
 					'max' => gmdate( 'Y-m-d', strtotime( 'yesterday' ) ),
@@ -718,7 +694,7 @@ class VoterEligibilityPage extends ActionPage {
 					);
 				}
 				$formItems['list_exclude-groups'] = [
-					'section' => 'lists',
+					'section' => "lists/$list",
 					'label-message' => 'securepoll-votereligibility-label-exclude_groups',
 					'type' => 'cloner',
 					'format' => 'raw',
@@ -746,7 +722,7 @@ class VoterEligibilityPage extends ActionPage {
 					);
 				}
 				$formItems['list_include-groups'] = [
-					'section' => 'lists',
+					'section' => "lists/$list",
 					'label-message' => 'securepoll-votereligibility-label-include_groups',
 					'type' => 'cloner',
 					'format' => 'raw',
@@ -763,29 +739,8 @@ class VoterEligibilityPage extends ActionPage {
 						''
 					],
 				];
-
-				$formItems[] = [
-					'section' => 'lists',
-					'type' => 'info',
-					'rawrow' => true,
-					'default' => Html::closeElement( 'li' ),
-				];
 			}
-
-			$formItems[] = [
-				'section' => 'lists',
-				'type' => 'info',
-				'rawrow' => true,
-				'default' => '</ul></dd>',
-			];
 		}
-
-		$formItems[] = [
-			'section' => 'lists',
-			'type' => 'info',
-			'rawrow' => true,
-			'default' => Html::closeElement( 'dl' ),
-		];
 
 		if ( $wgSecurePollUseNamespace ) {
 			$formItems['comment'] = [
@@ -796,7 +751,7 @@ class VoterEligibilityPage extends ActionPage {
 		}
 
 		$form = HTMLForm::factory(
-			'div',
+			'ooui',
 			$formItems,
 			$this->specialPage->getContext(),
 			'securepoll-votereligibility'
@@ -979,7 +934,7 @@ class VoterEligibilityPage extends ActionPage {
 			return;
 		}
 		$property = self::$lists[$which];
-		$name = $this->msg( "securepoll-votereligibility-list-$which" )->text();
+		$name = $this->msg( "securepoll-votereligibility-$which" )->text();
 
 		if ( $which === 'voter' ) {
 			$complete = $this->election->getProperty( 'list_complete-count', 0 );
@@ -1055,7 +1010,7 @@ class VoterEligibilityPage extends ActionPage {
 			return;
 		}
 		$property = self::$lists[$which];
-		$name = $this->msg( "securepoll-votereligibility-list-$which" )->text();
+		$name = $this->msg( "securepoll-votereligibility-$which" )->text();
 
 		$out = $this->specialPage->getOutput();
 		$out->setPageTitle( $this->msg( 'securepoll-votereligibility-clear-title', $name ) );
