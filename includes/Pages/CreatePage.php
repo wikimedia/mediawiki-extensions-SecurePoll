@@ -90,7 +90,10 @@ class CreatePage extends ActionPage {
 		}
 
 		$out->addModules( 'ext.securepoll.htmlform' );
-		$out->addModuleStyles( 'ext.securepoll' );
+		$out->addModuleStyles( [
+			'mediawiki.widgets.TagMultiselectWidget.styles',
+			'ext.securepoll',
+		] );
 		$out->setPageTitle( $this->msg( 'securepoll-create-title' ) );
 
 		$formItems = [];
@@ -258,16 +261,12 @@ class CreatePage extends ActionPage {
 
 		$formItems['property_admins'] = [
 			'label-message' => 'securepoll-create-label-property_admins',
-			'type' => 'cloner',
-			'format' => 'raw',
-			'fields' => [
-				'username' => [
-					'type' => 'text',
-					'validation-callback' => [
-						$this,
-						'checkUsername'
-					],
-				],
+			'type' => 'usersmultiselect',
+			'exists' => true,
+			'required' => true,
+			'validation-callback' => [
+				$this,
+				'checkIfInElectionAdminUserGroup'
 			],
 		];
 
@@ -777,15 +776,14 @@ class CreatePage extends ActionPage {
 			'election_crypt' => $crypt,
 			'disallow-change' => isset( $p['disallow-change'] ) ? (bool)$p['disallow-change'] : null,
 			'voter-privacy' => isset( $p['voter-privacy'] ) ? (bool)$p['voter-privacy'] : null,
-			'property_admins' => [],
+			'property_admins' => '',
 			'questions' => [],
 			'comment' => '',
 		];
 
 		if ( isset( $data['properties']['admins'] ) ) {
-			foreach ( explode( '|', $data['properties']['admins'] ) as $admin ) {
-				$formData['property_admins'][] = [ 'username' => $admin ];
-			}
+			// HTMLUsersMultiselectField takes a line-separated string
+			$formData['property_admins'] = implode( "\n", explode( '|', $data['properties']['admins'] ) );
 		}
 
 		$classes = [];
@@ -1053,20 +1051,17 @@ class CreatePage extends ActionPage {
 	}
 
 	/**
-	 * Check a username for validity.
+	 * Check that the user is part of the electionadmin group
 	 *
 	 * @param string $value Username
 	 * @param array $alldata All form data
 	 * @param HTMLForm $containingForm Containing HTMLForm
 	 * @return bool|string true on success, string on error
 	 */
-	public function checkUsername( $value, $alldata, HTMLForm $containingForm ) {
+	public function checkIfInElectionAdminUserGroup( $value, $alldata, HTMLForm $containingForm ) {
 		$user = User::newFromName( $value );
-		if ( !$user ) {
-			return $this->msg( 'securepoll-create-invalid-username' )->parse();
-		}
-		if ( !$user->isRegistered() ) {
-			return $this->msg( 'securepoll-create-user-does-not-exist' )->parse();
+		if ( !$user || !in_array( 'electionadmin', $user->getEffectiveGroups() ) ) {
+			return $this->msg( 'securepoll-user-not-in-electionadmin-group', $value )->parse();
 		}
 
 		return true;
