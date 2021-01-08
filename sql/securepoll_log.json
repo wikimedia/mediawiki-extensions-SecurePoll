@@ -1,0 +1,48 @@
+[
+	{
+		"name": "securepoll_log",
+		"comment": "Log of actions performed by election admins.",
+		"columns": [
+			{
+				"name": "spl_id",
+				"comment": "Unique identifier",
+				"type": "integer",
+				"options": { "unsigned": true, "notnull": true, "autoincrement": true }
+			},
+			{
+				"name": "spl_timestamp",
+				"comment": "Timestamp of the logged action",
+				"type": "mwtimestamp",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "spl_election_id",
+				"comment": "ID of the election on which the action was performed",
+				"type": "integer",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "spl_user",
+				"comment": "ID of the user who performed the action",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "spl_type",
+				"comment": "The type of action performed. May be any ActionPage::LOG_TYPE_ constant",
+				"type": "mwtinyint",
+				"options": { "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "spl_target",
+				"comment": "ID of the user on whom the action was performed. Null if spl_type is ActionPage::LOG_TYPE_ACCESSDATA",
+				"type": "integer",
+				"options": { "notnull": false, "unsigned": true }
+			}
+		],
+		"indexes": [
+			{ "name": "spl_timestamp", "columns": [ "spl_timestamp" ], "unique": false }
+		],
+		"pk": [ "spl_id" ]
+	}
+]

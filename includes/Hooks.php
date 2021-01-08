@@ -21,7 +21,11 @@ class Hooks {
 	 */
 	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
 		$base = dirname( __DIR__ );
-		switch ( $updater->getDB()->getType() ) {
+		$type = $updater->getDB()->getType();
+
+		$updater->addExtensionTable( 'securepoll_log', "$base/sql/$type/securepoll_log.sql" );
+
+		switch ( $type ) {
 			case 'mysql':
 				$updater->addExtensionTable( 'securepoll_entity', "$base/SecurePoll.sql" );
 				$updater->modifyExtensionField(
