@@ -206,7 +206,7 @@
 	"securepoll-votereligibility-label-central_block_threshold": "רף חסימה מרכזי",
 	"securepoll-votereligibility-label-not_bot": "לא צריך להיות מסומן כבוט",
 	"securepoll-votereligibility-lists": "רשימות מצביעים",
-	"securepoll-votereligibility-lists-info": "בעלי זכות הצבעה יכולים גם להיות רשומים במפורש. יש שלוש רשימות:\n* '''int:securepoll-votereligibility-voter}}''' היא רשימת מצביעים שמותר להם להצביע, אם הם גם מתאימים לדרישות הבסיסיות שמוגדרות לעיל. הרשימה הזאת מתמלאת באופן אוטומטי.\n* '''int:securepoll-votereligibility-include}}''' היא רשימת מצביעים שמותר להם להצביע בלי קשר לדרישות הבסיסיות ברשימת בעלי הזכות.\n* '''int:securepoll-votereligibility-exclude}}''' היא רשימה של מצביעים שאסור להם להצביע בלי קשר לשום רשימה אחרת.",
+	"securepoll-votereligibility-lists-info": "בעלי זכות הצבעה יכולים גם להיות רשומים במפורש. יש שלוש רשימות:\n* '''{{int:securepoll-votereligibility-voter}}''' היא רשימת מצביעים שמותר להם להצביע, אם הם גם מתאימים לדרישות הבסיסיות שמוגדרות לעיל. הרשימה הזאת מתמלאת באופן אוטומטי.\n* '''{{int:securepoll-votereligibility-include}}''' היא רשימת מצביעים שמותר להם להצביע בלי קשר לדרישות הבסיסיות ברשימת בעלי הזכות.\n* '''{{int:securepoll-votereligibility-exclude}}''' היא רשימה של מצביעים שאסור להם להצביע בלי קשר לשום רשימה אחרת.",
 	"securepoll-votereligibility-voter": "רשימת בעלי הזכות",
 	"securepoll-votereligibility-include": "רשימת מעקף",
 	"securepoll-votereligibility-exclude": "רשימת מחוקים",

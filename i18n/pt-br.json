@@ -221,7 +221,7 @@
 	"securepoll-votereligibility-label-central_block_threshold": "Limite de bloqueio central",
 	"securepoll-votereligibility-label-not_bot": "Não pode estar marcado como bot",
 	"securepoll-votereligibility-lists": "Listas de eleitores",
-	"securepoll-votereligibility-lists-info": "Eleitores em potencial podem também serem listados explicitamente. Há três listas:\n* A ''int:securepoll-votereligibility-voter}}'' é uma lista de eleitores a quem é permitido votar se também cumprirem os requisitos definidos acima. Essa lista é normalmente preenchida automaticamente.\n* A ''int:securepoll-votereligibility-include}}'' é uma lista de eleitores a quem é permitido votar independentemente dos requisitos definidos ou da lista de elegibilidade.\n* A ''int:securepoll-votereligibility-exclude}}'' é uma lista de eleitores a quem não será permitido votar, independentemente de quaisquer outras listas.",
+	"securepoll-votereligibility-lists-info": "Eleitores em potencial podem também serem listados explicitamente. Há três listas:\n* A ''{{int:securepoll-votereligibility-voter}}'' é uma lista de eleitores a quem é permitido votar se também cumprirem os requisitos definidos acima. Essa lista é normalmente preenchida automaticamente.\n* A ''{{int:securepoll-votereligibility-include}}'' é uma lista de eleitores a quem é permitido votar independentemente dos requisitos definidos ou da lista de elegibilidade.\n* A ''{{int:securepoll-votereligibility-exclude}}'' é uma lista de eleitores a quem não será permitido votar, independentemente de quaisquer outras listas.",
 	"securepoll-votereligibility-voter": "Lista de elegibilidade",
 	"securepoll-votereligibility-include": "Lista de exceções",
 	"securepoll-votereligibility-exclude": "Lista de exclusão",
