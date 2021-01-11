@@ -1061,7 +1061,10 @@ class CreatePage extends ActionPage {
 	public function checkIfInElectionAdminUserGroup( $value, $alldata, HTMLForm $containingForm ) {
 		$user = User::newFromName( $value );
 		if ( !$user || !in_array( 'electionadmin', $user->getEffectiveGroups() ) ) {
-			return $this->msg( 'securepoll-user-not-in-electionadmin-group', $value )->parse();
+			return $this->msg(
+				'securepoll-create-user-not-in-electionadmin-group',
+				$value
+			)->parse();
 		}
 
 		return true;
