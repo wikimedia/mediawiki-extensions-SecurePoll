@@ -10,7 +10,6 @@ use MediaWiki\Extensions\SecurePoll\Crypt\Crypt;
 use MediaWiki\Extensions\SecurePoll\MemoryStore;
 use MediaWiki\Extensions\SecurePoll\Talliers\Tallier;
 use SpecialPage;
-use User;
 use WikiMap;
 
 /**
@@ -330,18 +329,13 @@ class FormStore extends MemoryStore {
 	}
 
 	/**
-	 * Convert the submitted array of admin usernames into a string for
-	 * insertion into the database.
+	 * Convert the submitted line-separated string of admin usernames into a
+	 * pipe-separated string for insertion into the database.
 	 *
-	 * @param array[] $data
+	 * @param string $data
 	 * @return string
 	 */
 	private function getAdminsList( $data ) {
-		$admins = [];
-		foreach ( $data as $admin ) {
-			$admins[] = User::getCanonicalName( $admin['username'] );
-		}
-
-		return implode( '|', $admins );
+		return implode( '|', explode( "\n", $data ) );
 	}
 }
