@@ -15,6 +15,8 @@ use User;
  * Parent class for Special:SecurePoll subpages.
  */
 abstract class ActionPage {
+	public const LOG_TYPE_VIEWVOTES = 2;
+
 	/** @var SpecialSecurePoll */
 	public $specialPage;
 	/** @var Election */

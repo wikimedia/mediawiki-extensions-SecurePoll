@@ -107,6 +107,21 @@ class ListPage extends ActionPage {
 		);
 
 		$pager = new ListPager( $this );
+
+		// If an admin is viewing the votes, log it
+		$securePollUseLogging = $this->specialPage->getConfig()->get( 'SecurePollUseLogging' );
+		if ( $isAdmin && $securePollUseLogging ) {
+			$dbw = $this->context->getDB();
+			$fields = [
+				'spl_timestamp' => $dbw->timestamp( time() ),
+				'spl_election_id' => $electionId,
+				'spl_user' => $this->specialPage->getUser()->getId(),
+				'spl_type' => self::LOG_TYPE_VIEWVOTES,
+
+			];
+			$dbw->insert( 'securepoll_log', $fields, __METHOD__ );
+		}
+
 		$out->addHTML(
 			$pager->getLimitForm() . $pager->getNavigationBar() . $pager->getBody(
 			) . $pager->getNavigationBar()
