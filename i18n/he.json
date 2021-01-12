@@ -180,8 +180,6 @@
 	"securepoll-create-option-election_type-radio-range-comment+histogram-range": "הצבעת טווח (טווח היסטוגרמה) עם הערה",
 	"securepoll-create-option-election_crypt-none": "ללא הצפנה",
 	"securepoll-create-label-comment": "סיבה",
-	"securepoll-create-invalid-username": "שם המשתמש שצוין אינו תקין",
-	"securepoll-create-user-does-not-exist": "המשתמש שצוין אינו קיים",
 	"securepoll-create-fail-bad-id": "מזהה ההצבעה שנשלח אינו תואם להצבעה שהשינויים נעשים בה",
 	"securepoll-create-fail-id-missing": "ההצבעה שנעשים בה שינויים כבר אינה קיימת",
 	"securepoll-create-fail-bad-dblist": "אתר הוויקי שצוין או רשימת אתרי אינם תקינים",

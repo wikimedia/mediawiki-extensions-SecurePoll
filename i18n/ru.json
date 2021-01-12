@@ -187,8 +187,6 @@
 	"securepoll-create-option-election_type-choose+plurality": "Множество",
 	"securepoll-create-option-election_crypt-none": "Без шифрования",
 	"securepoll-create-label-comment": "Причина",
-	"securepoll-create-invalid-username": "Указанное имя участника некорректно",
-	"securepoll-create-user-does-not-exist": "Указанного участника не существует",
 	"securepoll-create-fail-bad-id": "Заданный ID выборов не совпадает с редактируемыми выборами",
 	"securepoll-create-fail-id-missing": "Редактируемые выборы более не существуют",
 	"securepoll-create-fail-bad-dblist": "Указанная вики или викисписок некорректны",

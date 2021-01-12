@@ -145,8 +145,6 @@
 	"securepoll-create-label-option-name": "Lehetőség neve:",
 	"securepoll-create-option-election_crypt-none": "Nincs titkosítás",
 	"securepoll-create-label-comment": "Indoklás",
-	"securepoll-create-invalid-username": "A megadott felhasználónév érvénytelen",
-	"securepoll-create-user-does-not-exist": "A megadott felhasználó nem létezik",
 	"securepoll-create-fail-id-missing": "A szerkesztett választás már nem létezik",
 	"securepoll-create-fail-bad-dblist": "A megadott wiki vagy wikilista érvénytelen",
 	"securepoll-create-duplicate-title": "A megadott szavazáscím már a(z) $1 szavazásban használatban van",

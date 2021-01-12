@@ -184,8 +184,6 @@
 	"securepoll-create-option-election_type-radio-range-comment+histogram-range": "Voto a punteggio (intervallo istogramma) con commento",
 	"securepoll-create-option-election_crypt-none": "Nessuna cifratura",
 	"securepoll-create-label-comment": "Motivo",
-	"securepoll-create-invalid-username": "Il nome utente indicato non è valido",
-	"securepoll-create-user-does-not-exist": "L'utente indicato non esiste",
 	"securepoll-create-fail-bad-dblist": "L'elenco wiki o il wiki indicato non è valido",
 	"securepoll-create-duplicate-title": "Il titolo del sondaggio indicato è già stato utilizzato su $1",
 	"securepoll-edit-title": "{{int:securepoll}}: modifica sondaggio",

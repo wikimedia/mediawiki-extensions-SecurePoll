@@ -4,8 +4,6 @@
 			"Liuxinyu970226"
 		]
 	},
-	"securepoll-create-invalid-username": "指定的用戶名稱無效",
-	"securepoll-create-user-does-not-exist": "指定的用戶不存在",
 	"securepoll-votereligibility-basic-info": "當用戶嘗試投票時勾選基本選項。",
 	"securepoll-votereligibility-label-names": "用戶名稱",
 	"securepoll-votereligibility-edit-header": "於下方文字方塊中輸入用戶名稱清單，每行一戶口。指定 Wiki 上的用戶可於名稱後方加上 '@' + 專案名稱以識別。例如：User:Example 於中文維基百科可以使用 \"Example@zhwiki\" 表示。\n\n用戶名稱將在表單送出後查詢，若用戶不存在則直接跳過。 無效的用戶也將直接跳過。"

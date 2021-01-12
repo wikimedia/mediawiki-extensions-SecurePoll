@@ -143,8 +143,6 @@
 	"securepoll-create-label-option-name": "選択肢名:",
 	"securepoll-create-option-election_crypt-none": "暗号化なし",
 	"securepoll-create-label-comment": "理由",
-	"securepoll-create-invalid-username": "指定した利用者名は無効です",
-	"securepoll-create-user-does-not-exist": "指定した利用者は存在しません",
 	"securepoll-create-fail-bad-id": "送信された選挙 ID が、編集中の選挙の ID と一致しません",
 	"securepoll-edit-title": "{{int:securepoll}}: 投票所の編集",
 	"securepoll-edit-action": "投票所を編集",

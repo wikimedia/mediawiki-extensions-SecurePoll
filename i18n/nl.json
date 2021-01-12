@@ -159,8 +159,6 @@
 	"securepoll-create-option-election_type-choose+plurality": "Pluraliteit",
 	"securepoll-create-option-election_crypt-none": "Geen encryptie",
 	"securepoll-create-label-comment": "Reden",
-	"securepoll-create-invalid-username": "De opgegeven gebruikersnaam is niet geldig",
-	"securepoll-create-user-does-not-exist": "De opgegeven gebruiker bestaat niet",
 	"securepoll-edit-title": "{{int:securepoll}}: Peiling bewerken",
 	"securepoll-edit-redirect": "De verkiezing moet worden ingesteld op $1",
 	"securepoll-edit-redirect-otherwiki": "de hoofdwiki",

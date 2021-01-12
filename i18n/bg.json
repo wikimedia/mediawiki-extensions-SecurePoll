@@ -144,8 +144,6 @@
 	"securepoll-create-option-election_type-choose+plurality": "Мнозинство",
 	"securepoll-create-option-election_crypt-none": "Без криптиране",
 	"securepoll-create-label-comment": "Причина",
-	"securepoll-create-invalid-username": "Посоченото потребителско име е невалидно",
-	"securepoll-create-user-does-not-exist": "Посоченият потребител не съществува",
 	"securepoll-edit-title": "{{int:securepoll}}: Редактиране на анкета",
 	"securepoll-edit-redirect-otherwiki": "главното уики",
 	"securepoll-edit-action": "Редактиране на анкета",

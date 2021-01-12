@@ -149,8 +149,6 @@
 	"securepoll-create-label-option-name": "Numm vun der Optioun:",
 	"securepoll-create-option-election_crypt-none": "Keng Verschlësselung",
 	"securepoll-create-label-comment": "Grond",
-	"securepoll-create-invalid-username": "De spezifizéierte Benotzernumm ass net valabel.",
-	"securepoll-create-user-does-not-exist": "De spezifizéierte Benotzer gëtt et net.",
 	"securepoll-edit-title": "{{int:securepoll}}: Ëmfro änneren",
 	"securepoll-edit-redirect-otherwiki": "der Haaptwiki",
 	"securepoll-edit-action": "Ëmfro änneren",

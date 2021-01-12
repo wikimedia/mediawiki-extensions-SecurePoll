@@ -166,8 +166,6 @@
 	"securepoll-create-option-election_crypt-none": "kein Verschlößelong",
 	"securepoll-create-option-election_crypt-gpg": "<i lang=\"de\" xml:lang=\"de\" dir=\"ltr\" title=\"GNU Privacy Guard\">GPG</i>",
 	"securepoll-create-label-comment": "Jrond",
-	"securepoll-create-invalid-username": "Dä aanjejovve Metmaacher es nit jöltesch",
-	"securepoll-create-user-does-not-exist": "Dä aanjejovve Metmaacher jidd_et nit",
 	"securepoll-create-fail-bad-id": "De Kännong för de Affschtemmong paß nit zor Affschtemmong en Ärbeid",
 	"securepoll-create-fail-id-missing": "De Affschtemmong en Ärbeid es nit mih doh.",
 	"securepoll-create-fail-bad-dblist": "Dat aanjejovve Wikki udder di Leß met Wikkis es nit jöltesch.",

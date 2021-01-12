@@ -179,8 +179,6 @@
 	"securepoll-create-option-election_type-radio-range-comment+histogram-range": "Опсежно гласање (хистограмски опсег) со коментар",
 	"securepoll-create-option-election_crypt-none": "Без шифрирање",
 	"securepoll-create-label-comment": "Причина",
-	"securepoll-create-invalid-username": "Укажаното корисничко име е неважечко",
-	"securepoll-create-user-does-not-exist": "Укажаниот корисник не постои",
 	"securepoll-create-fail-bad-id": "Поднесената назнака на изборите не се совпаѓа со уредуваните избори",
 	"securepoll-create-fail-id-missing": "Уредуваните избори веќе не постојат",
 	"securepoll-create-fail-bad-dblist": "Укажаното вики или викисписок не е важечко",
