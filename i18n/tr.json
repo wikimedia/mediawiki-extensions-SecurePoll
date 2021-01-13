@@ -183,6 +183,7 @@
 	"securepoll-create-option-election_type-radio-range-comment+histogram-range": "Aralıklı oylama (histogram aralığı)",
 	"securepoll-create-option-election_crypt-none": "Şifreleme yok",
 	"securepoll-create-label-comment": "Sebep",
+	"securepoll-create-user-not-in-electionadmin-group": "\"$1\", seçim yöneticileri grubunun bir üyesi değildir.",
 	"securepoll-create-fail-bad-id": "Gönderilen seçim kimliği düzenlenmekte olan seçimle eşleşmiyor",
 	"securepoll-create-fail-id-missing": "Düzenlenen seçim artık mevcut değil",
 	"securepoll-create-fail-bad-dblist": "Belirtilen viki veya viki listesi geçerli değil",
