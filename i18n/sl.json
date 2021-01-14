@@ -45,7 +45,7 @@
 	"securepoll-too-new": "Oprostite, ne morete glasovati. Za glasovanje mora biti vaš račun registriran pred dnem $1 ob $3; registrirali ste se dne $2 ob $4.",
 	"securepoll-blocked": "Oprostite, ne morete voliti na teh volitvah, če vam je urejanje trenutno preprečeno.",
 	"securepoll-blocked-centrally": "Oprostite, na teh volitvah ne morete glasovati, ker ste blokirani na vsaj $1 {{PLURAL:$1|wikiju|wikijih}}.",
-	"securepoll-bot": "Oprostite, računom z oznako robota ni dovoljeno voliti na teh volitvah.",
+	"securepoll-bot": "Računom z oznako robota žal ni dovoljeno glasovati na teh volitvah.",
 	"securepoll-not-in-group": "Samo člani skupine »$1« lahko volijo na teh volitvah.",
 	"securepoll-not-in-list": "Oprostite, vendar niste na predpripravljenem seznamu uporabnikov, ki so pooblaščeni za voljenje na teh volitvah.",
 	"securepoll-list-title": "Seznam glasov: $1",
