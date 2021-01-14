@@ -324,7 +324,7 @@ class Election extends Entity {
 	public function isAdmin( $user ) {
 		$admins = array_map( 'trim', explode( '|', $this->getProperty( 'admins' ) ) );
 
-		return in_array( $user->getName(), $admins );
+		return in_array( $user->getName(), $admins ) && in_array( 'electionadmin', $user->getEffectiveGroups() );
 	}
 
 	/**
