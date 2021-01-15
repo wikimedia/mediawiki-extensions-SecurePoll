@@ -201,22 +201,32 @@ class GpgCrypt {
 		if ( !$this->homeDir ) {
 			return;
 		}
-		$dir = opendir( $this->homeDir );
+
+		$this->deleteDir( $this->homeDir );
+		$this->homeDir = false;
+		$this->recipient = false;
+	}
+
+	private function deleteDir( $dirname ) {
+		$dir = opendir( $dirname );
 		if ( !$dir ) {
 			return;
 		}
+
 		// @codingStandardsIgnoreStart
 		while ( false !== ( $file = readdir( $dir ) ) ) {
 			// @codingStandardsIgnoreEnd
 			if ( $file == '.' || $file == '..' ) {
 				continue;
 			}
-			unlink( "$this->homeDir/$file" );
+			if ( !is_dir( "$dirname/$file" ) ) {
+				unlink( "$dirname/$file" );
+			} else {
+				$this->deleteDir( "$dirname/$file" );
+			}
 		}
 		closedir( $dir );
-		rmdir( $this->homeDir );
-		$this->homeDir = false;
-		$this->recipient = false;
+		rmdir( $dirname );
 	}
 
 	/**
