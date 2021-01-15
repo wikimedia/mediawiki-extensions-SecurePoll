@@ -18,6 +18,7 @@
 			"Renessaince",
 			"Vlad5250",
 			"Volkov",
+			"Wileyfoxyx",
 			"Александр Сигачёв",
 			"Туллук"
 		]
@@ -187,6 +188,7 @@
 	"securepoll-create-option-election_type-choose+plurality": "Множество",
 	"securepoll-create-option-election_crypt-none": "Без шифрования",
 	"securepoll-create-label-comment": "Причина",
+	"securepoll-create-user-not-in-electionadmin-group": "\"$1\" не является членом группы \"electionadmin\".",
 	"securepoll-create-fail-bad-id": "Заданный ID выборов не совпадает с редактируемыми выборами",
 	"securepoll-create-fail-id-missing": "Редактируемые выборы более не существуют",
 	"securepoll-create-fail-bad-dblist": "Указанная вики или викисписок некорректны",
