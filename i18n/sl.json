@@ -38,7 +38,7 @@
 	"securepoll-remote-auth-error": "Napaka pri pridobivanju informacij o vašem računu s strežnika.",
 	"securepoll-remote-parse-error": "Napaka pri tolmačenju pooblastitvenega odgovora od strežnika.",
 	"securepoll-api-invalid-params": "Neveljavni parametri.",
-	"securepoll-api-no-user": "Najden ni bil noben uporabnik z danim ID.",
+	"securepoll-api-no-user": "Najden ni bil noben uporabnik z navedenim ID-jem.",
 	"securepoll-api-token-mismatch": "Neujemanje varnostnega žetona; ne morem vas prijaviti.",
 	"securepoll-not-logged-in": "Za glasovanje na teh volitvah se morate prijaviti.",
 	"securepoll-too-few-edits": "Oprostite, ne morete voliti. Morali bi storiti najmanj $1 {{PLURAL:$1|urejanje|urejanji|urejanja|urejanj}} za voljenje na teh volitvah; naredili ste jih $2.",
@@ -77,6 +77,7 @@
 	"securepoll-dump-no-urandom": "Ne morem odpreti /dev/urandom. \nZa zagotavljanje zasebnosti volivcev so šifrirani volilni zapisi javno vidni šele po tem, ko so lahko premešani z varnim tokom naključnih števil.",
 	"securepoll-urandom-not-supported": "Ta strežnik ne podpira kriptografskega ustvarjanja naključnih števil.\nZa zagotavljanje zasebnosti volivcev so šifrirani volilni zapisi javno vidni šele po tem, ko so lahko premešani z varnim tokom naključnih števil.",
 	"securepoll-translate-title": "Prevedi: $1",
+	"securepoll-translate-label-comment": "Razlog:",
 	"securepoll-invalid-language": "Neveljavna koda jezika »$1«",
 	"securepoll-submit-translate": "Posodobi",
 	"securepoll-language-label": "Izberite jezik:",
@@ -108,5 +109,7 @@
 	"securepoll-average-score": "Povprečni rezultat",
 	"securepoll-round": "Krog $1",
 	"securepoll-spoilt": "(Neveljavno)",
-	"securepoll-exhausted": "(Izkoriščeno)"
+	"securepoll-exhausted": "(Izkoriščeno)",
+	"securepoll-create-label-comment": "Razlog",
+	"securepoll-votereligibility-label-comment": "Razlog"
 }
