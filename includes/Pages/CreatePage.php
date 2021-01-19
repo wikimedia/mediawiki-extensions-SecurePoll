@@ -37,9 +37,6 @@ class CreatePage extends ActionPage {
 	 * @throws PermissionsError
 	 */
 	public function execute( $params ) {
-		global $wgSecurePollCreateWikiGroupDir, $wgSecurePollCreateWikiGroups;
-		global $wgSecurePollUseNamespace;
-
 		$out = $this->specialPage->getOutput();
 
 		if ( $params ) {
@@ -127,8 +124,9 @@ class CreatePage extends ActionPage {
 		if ( count( $wikiNames ) > 1 ) {
 			$options['securepoll-create-option-wiki-all_wikis'] = '*';
 		}
-		foreach ( $wgSecurePollCreateWikiGroups as $file => $msg ) {
-			if ( is_readable( "$wgSecurePollCreateWikiGroupDir$file.dblist" ) ) {
+		$securePollCreateWikiGroupDir = $this->specialPage->getConfig()->get( 'SecurePollCreateWikiGroupDir' );
+		foreach ( $this->specialPage->getConfig()->get( 'SecurePollCreateWikiGroups' ) as $file => $msg ) {
+			if ( is_readable( "$securePollCreateWikiGroupDir$file.dblist" ) ) {
 				$options[$msg] = "@$file";
 			}
 		}
@@ -417,7 +415,7 @@ class CreatePage extends ActionPage {
 			'fields' => $questionFields,
 		];
 
-		if ( $wgSecurePollUseNamespace ) {
+		if ( $this->specialPage->getConfig()->get( 'SecurePollUseNamespace' ) ) {
 			$formItems['comment'] = [
 				'type' => 'text',
 				'label-message' => 'securepoll-create-label-comment',
@@ -468,8 +466,6 @@ class CreatePage extends ActionPage {
 	}
 
 	public function processInput( $formData, $form ) {
-		global $wgSecurePollUseNamespace;
-
 		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		try {
 			$context = new Context;
@@ -715,7 +711,7 @@ class CreatePage extends ActionPage {
 		}
 
 		// Record this election to the SecurePoll namespace, if so configured.
-		if ( $wgSecurePollUseNamespace ) {
+		if ( $this->specialPage->getConfig()->get( 'SecurePollUseNamespace' ) ) {
 			// Create a new context to bypass caching.
 			$context = new Context;
 			// We may be inside a transaction, so force a master connection (T209804)

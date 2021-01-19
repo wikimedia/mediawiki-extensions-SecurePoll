@@ -28,7 +28,6 @@ class TranslatePage extends ActionPage {
 	 * @param array $params Array of subpage parameters.
 	 */
 	public function execute( $params ) {
-		global $wgSecurePollUseNamespace;
 		$out = $this->specialPage->getOutput();
 		$request = $this->specialPage->getRequest();
 
@@ -166,7 +165,7 @@ class TranslatePage extends ActionPage {
 		}
 		$s .= '</table>';
 		if ( $this->isAdmin ) {
-			if ( $wgSecurePollUseNamespace ) {
+			if ( $this->specialPage->getConfig()->get( 'SecurePollUseNamespace' ) ) {
 				$s .= '<p style="text-align: center;">' . wfMessage(
 						'securepoll-translate-label-comment'
 					)->escaped() . '&#160;' . Xml::input(
@@ -233,8 +232,6 @@ class TranslatePage extends ActionPage {
 	 * @param string $secondary
 	 */
 	public function doSubmit( $secondary ) {
-		global $wgSecurePollUseNamespace;
-
 		$out = $this->specialPage->getOutput();
 		$request = $this->specialPage->getRequest();
 
@@ -294,7 +291,7 @@ class TranslatePage extends ActionPage {
 				__METHOD__
 			);
 
-			if ( $wgSecurePollUseNamespace ) {
+			if ( $this->specialPage->getConfig()->get( 'SecurePollUseNamespace' ) ) {
 				// Create a new context to bypass caching
 				$context = new Context;
 				$election = $context->getElection( $this->election->getId() );

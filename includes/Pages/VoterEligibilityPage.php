@@ -106,8 +106,6 @@ class VoterEligibilityPage extends ActionPage {
 	}
 
 	private function saveProperties( $properties, $delete, $comment ) {
-		global $wgSecurePollUseNamespace;
-
 		$localWiki = wfWikiID();
 		$wikis = $this->election->getProperty( 'wikis' );
 		if ( $wikis ) {
@@ -179,7 +177,7 @@ class VoterEligibilityPage extends ActionPage {
 		}
 
 		// Record this election to the SecurePoll namespace, if so configured.
-		if ( $wgSecurePollUseNamespace ) {
+		if ( $this->specialPage->getConfig()->get( 'SecurePollUseNamespace' ) ) {
 			// Create a new context to bypass caching
 			$context = new Context;
 			$election = $context->getElection( $this->election->getID() );
@@ -254,8 +252,6 @@ class VoterEligibilityPage extends ActionPage {
 	}
 
 	private function saveList( $property, $names, $comment ) {
-		global $wgSecurePollUseNamespace;
-
 		$wikis = $this->election->getProperty( 'wikis' );
 		if ( $wikis ) {
 			$wikis = explode( "\n", $wikis );
@@ -367,7 +363,7 @@ class VoterEligibilityPage extends ActionPage {
 		}
 
 		// Record this election to the SecurePoll namespace, if so configured.
-		if ( $wgSecurePollUseNamespace ) {
+		if ( $this->specialPage->getConfig()->get( 'SecurePollUseNamespace' ) ) {
 			// Create a new context to bypass caching
 			$context = new Context;
 			$election = $context->getElection( $this->election->getID() );
@@ -393,8 +389,6 @@ class VoterEligibilityPage extends ActionPage {
 	}
 
 	private function executeConfig() {
-		global $wgSecurePollUseNamespace;
-
 		$this->specialPage->getOutput()->addModules( 'ext.securepoll' );
 
 		$out = $this->specialPage->getOutput();
@@ -742,7 +736,7 @@ class VoterEligibilityPage extends ActionPage {
 			}
 		}
 
-		if ( $wgSecurePollUseNamespace ) {
+		if ( $this->specialPage->getConfig()->get( 'SecurePollUseNamespace' ) ) {
 			$formItems['comment'] = [
 				'type' => 'text',
 				'label-message' => 'securepoll-votereligibility-label-comment',
@@ -924,8 +918,6 @@ class VoterEligibilityPage extends ActionPage {
 	}
 
 	private function executeEdit( $which ) {
-		global $wgSecurePollUseNamespace;
-
 		$out = $this->specialPage->getOutput();
 
 		if ( !isset( self::$lists[$which] ) ) {
@@ -960,7 +952,7 @@ class VoterEligibilityPage extends ActionPage {
 			'default' => implode( "\n", $this->fetchList( $property ) ),
 		];
 
-		if ( $wgSecurePollUseNamespace ) {
+		if ( $this->specialPage->getConfig()->get( 'SecurePollUseNamespace' ) ) {
 			$formItems['comment'] = [
 				'type' => 'text',
 				'label-message' => 'securepoll-votereligibility-label-comment',
@@ -1000,8 +992,6 @@ class VoterEligibilityPage extends ActionPage {
 	}
 
 	private function executeClear( $which ) {
-		global $wgSecurePollUseNamespace;
-
 		$out = $this->specialPage->getOutput();
 
 		if ( !isset( self::$lists[$which] ) ) {
@@ -1106,7 +1096,7 @@ class VoterEligibilityPage extends ActionPage {
 		}
 
 		// Record this election to the SecurePoll namespace, if so configured.
-		if ( $wgSecurePollUseNamespace ) {
+		if ( $this->specialPage->getConfig()->get( 'SecurePollUseNamespace' ) ) {
 			// Create a new context to bypass caching
 			$context = new Context;
 			$election = $context->getElection( $this->election->getID() );

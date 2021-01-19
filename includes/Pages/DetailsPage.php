@@ -19,8 +19,6 @@ class DetailsPage extends ActionPage {
 	 * @param array $params Array of subpage parameters.
 	 */
 	public function execute( $params ) {
-		global $wgSecurePollKeepPrivateInfoDays;
-
 		$out = $this->specialPage->getOutput();
 
 		if ( !count( $params ) ) {
@@ -60,7 +58,7 @@ class DetailsPage extends ActionPage {
 		$vote_ua = '';
 		if ( $row->el_end_date >= wfTimestamp(
 				TS_MW,
-				time() - ( $wgSecurePollKeepPrivateInfoDays * 24 * 60 * 60 )
+				time() - ( $this->specialPage->getConfig()->get( 'SecurePollKeepPrivateInfoDays' ) * 24 * 60 * 60 )
 			)
 		) {
 			$vote_ip = IPUtils::formatHex( $row->vote_ip );
