@@ -1,0 +1,198 @@
+[
+	{
+		"name": "securepoll_entity",
+		"comment": "Generic entity ID allocation",
+		"columns": [
+			{
+				"name": "en_id",
+				"comment": "Unique identifier",
+				"type": "integer",
+				"options": { "notnull": true, "autoincrement": true }
+			},
+			{
+				"name": "en_type",
+				"comment": "Can be 'election', 'question', or 'option",
+				"type": "binary",
+				"options": { "length": 32, "notnull": true }
+			}
+		],
+		"indexes": [],
+		"pk": [ "en_id" ]
+	},
+	{
+		"name": "securepoll_properties",
+		"comment": "key/value pairs (properties) associated with an entity",
+		"columns": [
+			{
+				"name": "pr_entity",
+				"comment": "securepoll_entity.en_id",
+				"type": "integer",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "pr_key",
+				"comment": "Property key",
+				"type": "binary",
+				"options": { "length": 32, "notnull": true }
+			},
+			{
+				"name": "pr_value",
+				"comment": "Property value",
+				"type": "blob",
+				"options": { "length": 16777215, "notnull": true }
+			}
+		],
+		"indexes": [
+			{
+				"name": "sppr_entity",
+				"columns": [ "pr_entity", "pr_key" ],
+				"unique": true
+			}
+		]
+	},
+	{
+		"name": "securepoll_questions",
+		"comment": "Questions, see Question.php",
+		"columns": [
+			{
+				"name": "qu_entity",
+				"comment": "securepoll_entity.en_id",
+				"type": "integer",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "qu_election",
+				"comment": "securepoll_elections.el_entity",
+				"type": "integer",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "qu_index",
+				"comment": "Index determining the order the questions are shown, if shuffle is off",
+				"type": "integer",
+				"options": { "notnull": true }
+			}
+		],
+		"indexes": [
+			{
+				"name": "spqu_election_index",
+				"columns": [ "qu_election", "qu_index", "qu_entity" ],
+				"unique": false
+			}
+		],
+		"pk": [ "qu_entity" ]
+	},
+	{
+		"name": "securepoll_options",
+		"comment": "Options for answering a given question, see Option.php. FIXME: needs op_index column for determining the order if shuffle is off",
+		"columns": [
+			{
+				"name": "op_entity",
+				"comment": "securepoll_entity.en_id",
+				"type": "integer",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "op_election",
+				"comment": "securepoll_elections.el_entity",
+				"type": "integer",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "op_question",
+				"comment": "securepoll_questions.qu_entity",
+				"type": "integer",
+				"options": { "notnull": true }
+			}
+		],
+		"indexes": [
+			{
+				"name": "spop_question",
+				"columns": [ "op_question", "op_entity" ],
+				"unique": false
+			},
+			{
+				"name": "spop_election",
+				"columns": [ "op_election" ],
+				"unique": false
+			}
+		],
+		"pk": [ "op_entity" ]
+	},
+	{
+		"name": "securepoll_lists",
+		"comment": "Local voter qualification lists. Currently manually populated, referenced by Auth.php",
+		"columns": [
+			{
+				"name": "li_name",
+				"comment": "List name",
+				"type": "binary",
+				"options": { "length": 255, "notnull": false }
+			},
+			{
+				"name": "li_member",
+				"comment": "user.user_id",
+				"type": "integer",
+				"options": { "notnull": true }
+			}
+		],
+		"indexes": [
+			{
+				"name": "splists_name",
+				"columns": [ "li_name", "li_member" ],
+				"unique": false
+			},
+			{
+				"name": "splists_member",
+				"columns": [ "li_member", "li_name" ],
+				"unique": false
+			}
+		]
+	},
+	{
+		"name": "securepoll_log",
+		"comment": "Log of actions performed by election admins.",
+		"columns": [
+			{
+				"name": "spl_id",
+				"comment": "Unique identifier",
+				"type": "integer",
+				"options": { "unsigned": true, "notnull": true, "autoincrement": true }
+			},
+			{
+				"name": "spl_timestamp",
+				"comment": "Timestamp of the logged action",
+				"type": "mwtimestamp",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "spl_election_id",
+				"comment": "ID of the election on which the action was performed",
+				"type": "integer",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "spl_user",
+				"comment": "ID of the user who performed the action",
+				"type": "integer",
+				"options": { "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "spl_type",
+				"comment": "The type of action performed. May be any ActionPage::LOG_TYPE_ constant",
+				"type": "mwtinyint",
+				"options": { "notnull": true, "unsigned": true }
+			},
+			{
+				"name": "spl_target",
+				"comment": "ID of the user on whom the action was performed. Null if spl_type is ActionPage::LOG_TYPE_ACCESSDATA",
+				"type": "integer",
+				"options": { "notnull": false, "unsigned": true }
+			}
+		],
+		"indexes": [
+			{ "name": "spl_timestamp", "columns": [ "spl_timestamp" ], "unique": false }
+		],
+		"pk": [ "spl_id" ]
+	}
+]

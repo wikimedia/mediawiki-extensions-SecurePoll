@@ -4,14 +4,6 @@
 \set ON_ERROR_STOP on
 BEGIN;
 
--- Generic entity ID allocation
-CREATE SEQUENCE securepoll_en_id_seq;
-CREATE TABLE securepoll_entity (
-  en_id   INTEGER NOT NULL PRIMARY KEY DEFAULT nextval('securepoll_en_id_seq'),
-  en_type TEXT    NOT NULL
-);
-
-
 -- i18n text associated with an entity
 CREATE TABLE securepoll_msgs (
   msg_entity INTEGER NOT NULL PRIMARY KEY
@@ -21,16 +13,6 @@ CREATE TABLE securepoll_msgs (
   msg_text   TEXT    NOT NULL
 );
 CREATE UNIQUE INDEX spmsg_entity ON securepoll_msgs (msg_entity, msg_lang, msg_key);
-
-
--- key/value pairs (properties) associated with an entity
-CREATE TABLE securepoll_properties (
-  pr_entity INTEGER NOT NULL PRIMARY KEY
-    REFERENCES securepoll_entity(en_id) ON UPDATE CASCADE ON DELETE CASCADE,
-  pr_key    TEXT    NOT NULL,
-  pr_value  TEXT    NOT NULL
-);
-CREATE UNIQUE INDEX sppr_entity ON securepoll_properties (pr_entity, pr_key);
 
 
 -- List of elections (or polls, surveys, etc)
@@ -47,30 +29,6 @@ CREATE TABLE securepoll_elections (
   el_auth_type    TEXT    NOT NULL
 );
 CREATE UNIQUE INDEX spel_title ON securepoll_elections (el_title);
-
-
--- Questions, see Question.php
-CREATE TABLE securepoll_questions (
-  qu_entity   INTEGER NOT NULL PRIMARY KEY
-    REFERENCES securepoll_entity(en_id) ON UPDATE CASCADE ON DELETE CASCADE,
-  qu_election INTEGER NOT NULL
-    REFERENCES securepoll_elections(el_entity) ON UPDATE CASCADE ON DELETE CASCADE,
-  qu_index    INTEGER NOT NULL
-);
-CREATE INDEX spqu_election_index ON securepoll_questions (qu_election, qu_index, qu_entity);
-
-
--- Options for answering a given question, see Option.php
-CREATE TABLE securepoll_options (
-  op_entity   INTEGER NOT NULL PRIMARY KEY
-    REFERENCES securepoll_entity(en_id) ON UPDATE CASCADE ON DELETE CASCADE,
-  op_election INTEGER NOT NULL
-    REFERENCES securepoll_elections(el_entity) ON UPDATE CASCADE ON DELETE CASCADE,
-  op_question INTEGER NOT NULL
-    REFERENCES securepoll_questions(qu_entity) ON UPDATE CASCADE ON DELETE CASCADE
-);
-CREATE INDEX spop_question ON securepoll_options (op_question, op_entity);
-CREATE INDEX spop_election ON securepoll_options (op_election);
 
 
 -- Voter list, independent for each election
@@ -129,16 +87,6 @@ CREATE TABLE securepoll_strike (
   st_user      INTEGER NOT NULL
 );
 CREATE INDEX spstrike_vote ON securepoll_strike (st_vote, st_timestamp);
-
-
--- Local voter qualification lists
--- Currently manually populated, referenced by Auth.php
-CREATE TABLE securepoll_lists (
-  li_name   TEXT,
-  li_member INTEGER NOT NULL
-);
-CREATE INDEX splists_name ON securepoll_lists (li_name, li_member);
-CREATE INDEX splists_member ON securepoll_lists (li_member, li_name);
 
 
 -- Suspicious cookie match logs

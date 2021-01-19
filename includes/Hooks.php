@@ -23,11 +23,11 @@ class Hooks {
 		$base = dirname( __DIR__ );
 		$type = $updater->getDB()->getType();
 
-		$updater->addExtensionTable( 'securepoll_log', "$base/sql/$type/securepoll_log.sql" );
+		$updater->addExtensionTable( 'securepoll_entity', "$base/sql/$type/tables.sql" );
 
 		switch ( $type ) {
 			case 'mysql':
-				$updater->addExtensionTable( 'securepoll_entity', "$base/SecurePoll.sql" );
+				$updater->addExtensionTable( 'securepoll_msgs', "$base/SecurePoll.sql" );
 				$updater->modifyExtensionField(
 					'securepoll_votes',
 					'vote_ip',
@@ -45,10 +45,10 @@ class Hooks {
 				);
 				break;
 			case 'postgres':
-				$updater->addExtensionTable( 'securepoll_entity', "$base/SecurePoll.pg.sql" );
+				$updater->addExtensionTable( 'securepoll_msgs', "$base/SecurePoll.pg.sql" );
 				break;
 			case 'sqlite':
-				$updater->addExtensionTable( 'securepoll_entity', "$base/SecurePoll.sql" );
+				$updater->addExtensionTable( 'securepoll_msgs', "$base/SecurePoll.sql" );
 				break;
 		}
 	}

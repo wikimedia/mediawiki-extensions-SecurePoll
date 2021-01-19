@@ -1,14 +1,4 @@
 
--- Generic entity ID allocation
-CREATE TABLE /*_*/securepoll_entity (
-	-- ID
-	en_id int not null primary key auto_increment,
-
-	-- "election", "question" or "option"
-	en_type varbinary(32) not null
-) /*$wgDBTableOptions*/;
-
-
 -- i18n text associated with an entity
 CREATE TABLE /*_*/securepoll_msgs (
 	-- securepoll_entity.en_id
@@ -24,20 +14,6 @@ CREATE TABLE /*_*/securepoll_msgs (
 	msg_text mediumtext not null
 ) /*$wgDBTableOptions*/;
 CREATE UNIQUE INDEX /*i*/spmsg_entity ON /*_*/securepoll_msgs (msg_entity, msg_lang, msg_key);
-
-
--- key/value pairs (properties) associated with an entity
-CREATE TABLE /*_*/securepoll_properties (
-	-- securepoll_entity.en_id
-	pr_entity int not null,
-
-	-- Property key
-	pr_key varbinary(32) not null,
-
-	-- Property value
-	pr_value mediumblob not null
-) /*$wgDBTableOptions*/;
-CREATE UNIQUE INDEX /*i*/sppr_entity ON /*_*/securepoll_properties (pr_entity, pr_key);
 
 
 -- List of elections (or polls, surveys, etc)
@@ -72,34 +48,6 @@ CREATE TABLE /*_*/securepoll_elections (
 	el_auth_type varbinary(32) not null
 ) /*$wgDBTableOptions*/;
 CREATE UNIQUE INDEX /*i*/spel_title ON /*_*/securepoll_elections (el_title);
-
-
--- Questions, see Question.php
-CREATE TABLE /*_*/securepoll_questions (
-	-- securepoll_entity.en_id
-	qu_entity int not null primary key,
-
-	-- securepoll_elections.el_entity
-	qu_election int not null,
-
-	-- Index determining the order the questions are shown, if shuffle is off
-	qu_index int not null
-) /*$wgDBTableOptions*/;
-CREATE INDEX /*i*/spqu_election_index ON /*_*/securepoll_questions (qu_election, qu_index, qu_entity);
-
-
--- Options for answering a given question, see Option.php
--- FIXME: needs op_index column for determining the order if shuffle is off
-CREATE TABLE /*_*/securepoll_options (
-	-- securepoll_entity.en_id
-	op_entity int not null primary key,
-	-- securepoll_elections.el_entity
-	op_election int not null,
-	-- securepoll_questions.qu_entity
-	op_question int not null
-) /*$wgDBTableOptions*/;
-CREATE INDEX /*i*/spop_question ON /*_*/securepoll_options (op_question, op_entity);
-CREATE INDEX /*i*/spop_election ON /*_*/securepoll_options (op_election);
 
 
 -- Voter list, independent for each election
@@ -207,19 +155,6 @@ CREATE TABLE /*_*/securepoll_strike (
 CREATE INDEX /*i*/spstrike_vote ON /*_*/securepoll_strike
 	(st_vote, st_timestamp);
 
-
--- Local voter qualification lists
--- Currently manually populated, referenced by Auth.php
-CREATE TABLE /*_*/securepoll_lists (
-	-- List name
-	li_name varbinary(255),
-	-- user.user_id
-	li_member int not null
-) /*$wgDBTableOptions*/;
-CREATE INDEX /*i*/splists_name ON /*_*/securepoll_lists
-	(li_name, li_member);
-CREATE INDEX /*i*/splists_member ON /*_*/securepoll_lists
-	(li_member, li_name);
 
 -- Suspicious cookie match logs
 CREATE TABLE /*_*/securepoll_cookie_match (
