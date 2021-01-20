@@ -73,11 +73,13 @@ class ListPager extends TablePager {
 	}
 
 	public function formatValue( $name, $value ) {
-		global $wgScriptPath, $wgSecurePollKeepPrivateInfoDays;
+		$config = $this->listPage->specialPage->getConfig();
+		$scriptPath = $config->get( 'ScriptPath' );
+		$securePollKeepPrivateInfoDays = $config->get( 'SecurePollKeepPrivateInfoDays' );
 		$critical = Xml::element(
 			'img',
 			[
-				'src' => "$wgScriptPath/extensions/SecurePoll/resources/critical-32.png"
+				'src' => "$scriptPath/extensions/SecurePoll/resources/critical-32.png"
 			]
 		);
 
@@ -96,7 +98,7 @@ class ListPager extends TablePager {
 			case 'vote_ip':
 				if ( $this->election->endDate < wfTimestamp(
 						TS_MW,
-						time() - ( $wgSecurePollKeepPrivateInfoDays * 24 * 60 * 60 )
+						time() - ( $securePollKeepPrivateInfoDays * 24 * 60 * 60 )
 					)
 				) {
 					return '';
@@ -106,7 +108,7 @@ class ListPager extends TablePager {
 			case 'vote_ua':
 				if ( $this->election->endDate < wfTimestamp(
 						TS_MW,
-						time() - ( $wgSecurePollKeepPrivateInfoDays * 24 * 60 * 60 )
+						time() - ( $securePollKeepPrivateInfoDays * 24 * 60 * 60 )
 					)
 				) {
 					return '';
@@ -116,7 +118,7 @@ class ListPager extends TablePager {
 			case 'vote_xff':
 				if ( $this->election->endDate < wfTimestamp(
 						TS_MW,
-						time() - ( $wgSecurePollKeepPrivateInfoDays * 24 * 60 * 60 )
+						time() - ( $securePollKeepPrivateInfoDays * 24 * 60 * 60 )
 					)
 				) {
 					return '';
