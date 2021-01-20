@@ -60,14 +60,14 @@ class SpecialSecurePoll extends SpecialPage {
 	 * @param string|null $paramString parameter passed to the page or null
 	 */
 	public function execute( $paramString ) {
-		global $wgExtensionAssetsPath;
+		$extensionAssetsPath = $this->getConfig()->get( 'ExtensionAssetsPath' );
 
 		$out = $this->getOutput();
 
 		$this->setHeaders();
 
 		$out->addModuleStyles( 'ext.securepoll.special' );
-		$out->addScriptFile( "$wgExtensionAssetsPath/SecurePoll/resources/SecurePoll.js" );
+		$out->addScriptFile( "$extensionAssetsPath/SecurePoll/resources/SecurePoll.js" );
 
 		$paramString = strval( $paramString );
 		if ( $paramString === '' ) {
