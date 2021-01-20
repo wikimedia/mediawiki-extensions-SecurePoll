@@ -24,7 +24,7 @@ class ElectionTallier {
 	public $ballot;
 	/** @var Context */
 	public $context;
-	/** @var Crypt|null */
+	/** @var Crypt|bool */
 	public $crypt;
 	/** @var Election */
 	public $election;
