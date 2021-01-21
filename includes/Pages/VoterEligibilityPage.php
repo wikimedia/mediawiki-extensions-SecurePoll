@@ -938,7 +938,7 @@ class VoterEligibilityPage extends ActionPage {
 			}
 		}
 
-		$this->specialPage->getOutput()->addModules( 'ext.securepoll' );
+		$this->specialPage->getOutput()->addModuleStyles( 'ext.securepoll' );
 
 		$out = $this->specialPage->getOutput();
 		$out->setPageTitle( $this->msg( 'securepoll-votereligibility-edit-title', $name ) );
