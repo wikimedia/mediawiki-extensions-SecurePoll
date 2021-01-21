@@ -100,19 +100,23 @@
 			"value": "extensions/SecurePoll/auth-api.php"
 		},
 		"SecurePollKeepPrivateInfoDays": {
-			"value": 90
+			"value": 90,
+			"description": "Maximum number of days for which to store private information about voters."
 		},
 		"SecurePollCreateWikiGroupDir": {
-			"value": "/../"
+			"value": "/../",
+			"description": "Directory containing files defining groups of wikis that can participate in an election. File names are defined in SecurePollCreateWikiGroups."
 		},
 		"SecurePollCreateWikiGroups": {
-			"value": []
+			"value": [],
+			"description": "Array of $fileName => $messageKey for defining groups of wikis that can participate in an election, and the groups' labels in the Create form. Files should be stored in SecurePollCreateWikiGroupDir with the suffix .dblist, and contain a list of participating wikis. The suffix should be omitted from the file names given here."
 		},
 		"SecurePollCreateRemoteScriptPath": {
 			"value": "https:$wgServer/w"
 		},
 		"SecurePollUseNamespace": {
-			"value": false
+			"value": false,
+			"description": "Make the SecurePoll namespace available, and record election details to pages in this namespace."
 		},
 		"SecurePollGpgSignKey": {
 			"value": null
