@@ -396,6 +396,13 @@ class VoterEligibilityPage extends ActionPage {
 
 		$formItems = [];
 
+		$formItems['default_submit'] = [
+			'section' => 'basic',
+			'type' => 'submit',
+			'buttonlabel' => 'submit',
+			'cssclass' => 'securepoll-default-submit'
+		];
+
 		$formItems['min-edits'] = [
 			'section' => 'basic',
 			'label-message' => 'securepoll-votereligibility-label-min_edits',

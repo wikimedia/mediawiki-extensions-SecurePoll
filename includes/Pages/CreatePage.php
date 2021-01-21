@@ -109,7 +109,7 @@ class CreatePage extends ActionPage {
 		$formItems['default_submit'] = [
 			'type' => 'submit',
 			'buttonlabel' => 'submit',
-			'cssclass' => 'oo-ui-element-hidden',
+			'cssclass' => 'securepoll-default-submit'
 		];
 
 		$formItems['election_title'] = [
