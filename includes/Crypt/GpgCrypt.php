@@ -78,7 +78,7 @@ class GpgCrypt {
 		if ( $status->isOK() ) {
 			$status = $that->importKey( $key );
 		}
-		$that->deleteHome();
+		$that->cleanup();
 
 		return $status->isOK() ? true : $status->getMessage();
 	}
@@ -93,7 +93,7 @@ class GpgCrypt {
 		if ( $status->isOK() ) {
 			$status = $that->importKey( $key );
 		}
-		$that->deleteHome();
+		$that->cleanup();
 
 		return $status->isOK() ? true : $status->getMessage();
 	}
@@ -195,9 +195,12 @@ class GpgCrypt {
 	}
 
 	/**
+	 * @internal for use by classes that call GpgCrypt
+	 * because cleanup has to happen after all decryptions
+	 *
 	 * Delete the temporary home directory
 	 */
-	public function deleteHome() {
+	public function cleanup() {
 		if ( !$this->homeDir ) {
 			return;
 		}
@@ -277,7 +280,7 @@ class GpgCrypt {
 	public function encrypt( $record ) {
 		$status = $this->setupHomeAndKeys();
 		if ( !$status->isOK() ) {
-			$this->deleteHome();
+			$this->cleanup();
 
 			return $status;
 		}
@@ -316,7 +319,7 @@ class GpgCrypt {
 		}
 
 		# Delete temporary files
-		$this->deleteHome();
+		$this->cleanup();
 
 		return $status;
 	}
@@ -330,7 +333,7 @@ class GpgCrypt {
 	public function decrypt( $encrypted ) {
 		$status = $this->setupHomeAndKeys();
 		if ( !$status->isOK() ) {
-			$this->deleteHome();
+			$this->cleanup();
 
 			return $status;
 		}
@@ -338,7 +341,7 @@ class GpgCrypt {
 		# Import the decryption key
 		$decryptKey = strval( $this->election->getProperty( 'gpg-decrypt-key' ) );
 		if ( $decryptKey === '' ) {
-			$this->deleteHome();
+			$this->cleanup();
 
 			return Status::newFatal( 'securepoll-no-decryption-key' );
 		}
@@ -360,9 +363,6 @@ class GpgCrypt {
 		if ( $status->isOK() ) {
 			$status->value = file_get_contents( "{$this->homeDir}/output" );
 		}
-
-		# Delete temporary files
-		$this->deleteHome();
 
 		return $status;
 	}

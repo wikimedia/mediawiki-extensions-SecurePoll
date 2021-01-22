@@ -71,6 +71,12 @@ class ElectionTallier {
 				'addRecord'
 			]
 		);
+
+		if ( $this->crypt ) {
+			// Delete temporary files
+			$this->crypt->cleanup();
+		}
+
 		if ( !$status->isOK() ) {
 			return $status;
 		}

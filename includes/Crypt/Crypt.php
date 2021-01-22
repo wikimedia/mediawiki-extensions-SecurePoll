@@ -28,6 +28,15 @@ abstract class Crypt {
 	abstract public function decrypt( $record );
 
 	/**
+	 * @internal Generic clean up function. Internal functions can call this to clean up
+	 * after themselves or callers can manually clean up after processing.
+	 * Ideally, functions would be self-contained but due to performance
+	 * constraints, this is not always possible. In those cases, the caller
+	 * should be responsible for cleanup.
+	 */
+	abstract public function cleanup();
+
+	/**
 	 * Returns true if the object can decrypt data, false otherwise.
 	 */
 	abstract public function canDecrypt();

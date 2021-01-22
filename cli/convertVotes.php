@@ -89,9 +89,16 @@ class ConvertVotes extends Maintenance {
 
 		$status = $this->context->getStore()->callbackValidVotes(
 			$electionId, [ $this, 'convertVote' ] );
+
+		if ( $this->crypt ) {
+			// Delete temporary files
+			$this->crypt->cleanup();
+		}
+
 		if ( !$status->isOK() ) {
 			$this->fatalError( "Error: " . $status->getWikiText() );
 		}
+
 		$s = '';
 		foreach ( $this->election->getQuestions() as $question ) {
 			if ( $s !== '' ) {
