@@ -6,6 +6,8 @@ use Exception;
 use HTMLForm;
 use MediaWiki\Extensions\SecurePoll\Context;
 use MediaWiki\Extensions\SecurePoll\MemoryStore;
+use OOUIHTMLForm;
+use Status;
 
 /**
  * A subpage for tallying votes and producing results
@@ -49,6 +51,9 @@ class TallyPage extends ActionPage {
 			return;
 		}
 
+		$localForm = $this->createLocalForm();
+		$uploadForm = $this->createUploadForm();
+
 		$crypt = $this->election->getCrypt();
 		if ( $crypt ) {
 			if ( !$crypt->canDecrypt() ) {
@@ -59,28 +64,55 @@ class TallyPage extends ActionPage {
 
 			if ( $request->wasPosted() ) {
 				if ( $request->getVal( 'submit_upload' ) ) {
-					$this->submitUpload();
+					$result = $this->trySubmitForm( $uploadForm );
+					if ( $result !== true ) {
+						$this->displayFormNoErrors( $localForm );
+						$uploadForm->displayForm( $result );
+					}
 				} else {
-					$this->submitLocal();
+					$result = $this->trySubmitForm( $localForm );
+					if ( $result !== true ) {
+						$localForm->displayForm( $result );
+						$this->displayFormNoErrors( $uploadForm );
+					}
 				}
 			} else {
 				$out->addWikiMsg( 'securepoll-can-decrypt' );
-				$this->showLocalForm();
-				$this->showUploadForm();
+				$localForm->show();
+				$uploadForm->show();
 			}
 		} else {
-			if ( $request->wasPosted() ) {
-				$this->submitLocal();
-			} else {
-				$this->showLocalForm();
-			}
+			$localForm->show();
 		}
 	}
 
 	/**
-	 * Show a form which, when submitted, shows a tally for the results in the DB
+	 * Try to submit a form
+	 *
+	 * @param OOUIHTMLForm $form
+	 * @return bool|string|array|Status As documented for HTMLForm::trySubmit
 	 */
-	public function showLocalForm() {
+	private function trySubmitForm( $form ) {
+		$form->prepareForm();
+		return $form->tryAuthorizedSubmit();
+	}
+
+	/**
+	 * Display a form without errors
+	 *
+	 * @param OOUIHTMLForm $form
+	 */
+	private function displayFormNoErrors( $form ) {
+		$form->prepareForm();
+		$form->displayForm( true );
+	}
+
+	/**
+	 * Create a form which, when submitted, shows a tally for the results in the DB
+	 *
+	 * @return OOUIHTMLForm
+	 */
+	private function createLocalForm() {
 		$form = HTMLForm::factory(
 			'ooui',
 			[],
@@ -90,16 +122,20 @@ class TallyPage extends ActionPage {
 
 		$form->setSubmitTextMsg( 'securepoll-tally-local-submit' )
 			->setSubmitName( 'submit_local' )
+			->setSubmitCallback( [ $this, 'submitLocal' ] )
 			->setWrapperLegend(
 				$this->msg( 'securepoll-tally-local-legend' )->text()
-			)
-			->show();
+			);
+
+		return $form;
 	}
 
 	/**
-	 * Shows a form for upload of a record produced by the dump subpage.
+	 * Create a form for upload of a record produced by the dump subpage
+	 *
+	 * @return OOUIHTMLForm
 	 */
-	public function showUploadForm() {
+	private function createUploadForm() {
 		$form = HTMLForm::factory(
 			'ooui',
 			[
@@ -114,28 +150,35 @@ class TallyPage extends ActionPage {
 
 		$form->setSubmitTextMsg( 'securepoll-tally-upload-submit' )
 			->setSubmitName( 'submit_upload' )
+			->setSubmitCallback( [ $this, 'submitUpload' ] )
 			->setWrapperLegend(
 				$this->msg( 'securepoll-tally-upload-legend' )->text()
-			)
-			->show();
+			);
+
+		return $form;
 	}
 
 	/**
 	 * Show a tally of the local DB
+	 *
+	 * @internal Submit callback for the HTMLForm
+	 * @return bool|string|array|Status As documented for HTMLForm::trySubmit
 	 */
 	public function submitLocal() {
 		$status = $this->election->tally();
 		if ( !$status->isOK() ) {
-			$this->specialPage->getOutput()->addWikiTextAsInterface( $status->getWikiText() );
-
-			return;
+			return $status->getMessage();
 		}
 		$tallier = $status->value;
 		$this->specialPage->getOutput()->addHTML( $tallier->getHtmlResult() );
+		return true;
 	}
 
 	/**
 	 * Show a tally of the results in the uploaded file
+	 *
+	 * @internal Submit callback for the HTMLForm
+	 * @return bool|string|array|Status As documented for HTMLForm::trySubmit
 	 */
 	public function submitUpload() {
 		$out = $this->specialPage->getOutput();
@@ -144,15 +187,11 @@ class TallyPage extends ActionPage {
 				$_FILES['tally_file']['tmp_name']
 			) || !$_FILES['tally_file']['size']
 		) {
-			$out->addWikiMsg( 'securepoll-no-upload' );
-
-			return;
+			return [ 'securepoll-no-upload' ];
 		}
 		$context = Context::newFromXmlFile( $_FILES['tally_file']['tmp_name'] );
 		if ( !$context ) {
-			$out->addWikiMsg( 'securepoll-dump-corrupt' );
-
-			return;
+			return [ 'securepoll-dump-corrupt' ];
 		}
 		$store = $context->getStore();
 		if ( !$store instanceof MemoryStore ) {
@@ -166,12 +205,11 @@ class TallyPage extends ActionPage {
 
 		$status = $election->tally();
 		if ( !$status->isOK() ) {
-			$out->addWikiTextAsInterface( $status->getWikiText( 'securepoll-tally-upload-error' ) );
-
-			return;
+			return [ [ 'securepoll-tally-upload-error', $status->getMessage() ] ];
 		}
 		$tallier = $status->value;
 		$out->addHTML( $tallier->getHtmlResult() );
+		return true;
 	}
 
 	public function getTitle() {
