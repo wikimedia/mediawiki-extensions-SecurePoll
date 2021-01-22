@@ -69,6 +69,24 @@ class GpgCrypt {
 		return $ret;
 	}
 
+	public static function getTallyDescriptors() {
+		return [
+			'gpg-decrypt-key' => [
+				'label-message' => 'securepoll-tally-gpg-decrypt-key',
+				'type' => 'textarea',
+				'required' => true,
+				'rows' => 5,
+				'validation-callback' => [ self::class, 'checkEncryptKey' ],
+			],
+		];
+	}
+
+	public static function updateTallyContext( Context $context, array $data ) : void {
+		if ( isset( $data['gpg-decrypt-key'] ) ) {
+			$context->decryptData['gpg-decrypt-key'] = $data['gpg-decrypt-key'];
+		}
+	}
+
 	public static function checkEncryptKey( $key ) {
 		if ( $key === '' ) {
 			return Status::newFatal( 'htmlform-required' )->getMessage();
@@ -333,13 +351,15 @@ class GpgCrypt {
 	public function decrypt( $encrypted ) {
 		$status = $this->setupHomeAndKeys();
 		if ( !$status->isOK() ) {
+
 			$this->cleanup();
 
 			return $status;
 		}
 
 		# Import the decryption key
-		$decryptKey = strval( $this->election->getProperty( 'gpg-decrypt-key' ) );
+		$decryptKey = $this->context->decryptData[ 'gpg-decrypt-key' ] ??
+			strval( $this->election->getProperty( 'gpg-decrypt-key' ) );
 		if ( $decryptKey === '' ) {
 			$this->cleanup();
 

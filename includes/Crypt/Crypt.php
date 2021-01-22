@@ -83,4 +83,26 @@ abstract class Crypt {
 			'option' => [],
 		];
 	}
+
+	/**
+	 * Return descriptors for any properties this type requires for poll
+	 * tallying.
+	 *
+	 * @return array
+	 */
+	public static function getTallyDescriptors() : array {
+		return [];
+	}
+
+	/**
+	 * Update the given context with any information needed for tallying.
+	 *
+	 * This allows some information, e.g. private keys, to be used for a
+	 * single request and not added to the database.
+	 *
+	 * @param Context $context
+	 * @param array $data
+	 */
+	public static function updateTallyContext( Context $context, array $data ) : void {
+	}
 }

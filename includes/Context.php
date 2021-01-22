@@ -55,6 +55,15 @@ class Context {
 	/** @var ParserOptions|null ParserOptions instance used for message parsing */
 	public $parserOptions;
 
+	/**
+	 * Key value store of data needed for a decryption method. Data is added and
+	 * used by a decryption object and persists across different decryption
+	 * object instances.
+	 *
+	 * @var array
+	 */
+	public $decryptData = [];
+
 	/** @var string The store class, for lazy loading */
 	public $storeClass = DBStore::class;
 

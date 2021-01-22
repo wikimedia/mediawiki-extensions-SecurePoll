@@ -5,6 +5,7 @@ namespace MediaWiki\Extensions\SecurePoll\Pages;
 use Exception;
 use HTMLForm;
 use MediaWiki\Extensions\SecurePoll\Context;
+use MediaWiki\Extensions\SecurePoll\Entities\Election;
 use MediaWiki\Extensions\SecurePoll\MemoryStore;
 use OOUIHTMLForm;
 use Status;
@@ -56,12 +57,6 @@ class TallyPage extends ActionPage {
 
 		$crypt = $this->election->getCrypt();
 		if ( $crypt ) {
-			if ( !$crypt->canDecrypt() ) {
-				$out->addWikiMsg( 'securepoll-tally-no-key' );
-
-				return;
-			}
-
 			if ( $request->wasPosted() ) {
 				if ( $request->getVal( 'submit_upload' ) ) {
 					$result = $this->trySubmitForm( $uploadForm );
@@ -113,9 +108,12 @@ class TallyPage extends ActionPage {
 	 * @return OOUIHTMLForm
 	 */
 	private function createLocalForm() {
+		$formFields = [];
+		$formFields += $this->getCryptDescriptors();
+
 		$form = HTMLForm::factory(
 			'ooui',
-			[],
+			$formFields,
 			$this->specialPage->getContext(),
 			'securepoll-tally'
 		);
@@ -136,14 +134,17 @@ class TallyPage extends ActionPage {
 	 * @return OOUIHTMLForm
 	 */
 	private function createUploadForm() {
+		$formFields = [
+			'tally_file' => [
+				'type' => 'file',
+				'name' => 'tally_file',
+			],
+		];
+		$formFields += $this->getCryptDescriptors();
+
 		$form = HTMLForm::factory(
 			'ooui',
-			[
-				'tally_file' => [
-					'type' => 'file',
-					'name' => 'tally_file',
-				],
-			],
+			$formFields,
 			$this->specialPage->getContext(),
 			'securepoll-tally'
 		);
@@ -159,12 +160,27 @@ class TallyPage extends ActionPage {
 	}
 
 	/**
+	 * Get any crypt-specific descriptors for the form.
+	 *
+	 * @return array
+	 */
+	private function getCryptDescriptors() : array {
+		$crypt = $this->election->getCrypt();
+		if ( $crypt && !$crypt->canDecrypt() ) {
+			return $crypt->getTallyDescriptors();
+		}
+		return [];
+	}
+
+	/**
 	 * Show a tally of the local DB
 	 *
 	 * @internal Submit callback for the HTMLForm
+	 * @param array $data Data from the form fields
 	 * @return bool|string|array|Status As documented for HTMLForm::trySubmit
 	 */
-	public function submitLocal() {
+	public function submitLocal( array $data ) {
+		$this->updateContextForCrypt( $this->election, $data );
 		$status = $this->election->tally();
 		if ( !$status->isOK() ) {
 			return $status->getMessage();
@@ -178,9 +194,10 @@ class TallyPage extends ActionPage {
 	 * Show a tally of the results in the uploaded file
 	 *
 	 * @internal Submit callback for the HTMLForm
+	 * @param array $data Data from the form fields
 	 * @return bool|string|array|Status As documented for HTMLForm::trySubmit
 	 */
-	public function submitUpload() {
+	public function submitUpload( array $data ) {
 		$out = $this->specialPage->getOutput();
 
 		if ( !isset( $_FILES['tally_file'] ) || !is_uploaded_file(
@@ -203,6 +220,7 @@ class TallyPage extends ActionPage {
 		$electionIds = $store->getAllElectionIds();
 		$election = $context->getElection( reset( $electionIds ) );
 
+		$this->updateContextForCrypt( $election, $data );
 		$status = $election->tally();
 		if ( !$status->isOK() ) {
 			return [ [ 'securepoll-tally-upload-error', $status->getMessage() ] ];
@@ -210,6 +228,20 @@ class TallyPage extends ActionPage {
 		$tallier = $status->value;
 		$out->addHTML( $tallier->getHtmlResult() );
 		return true;
+	}
+
+	/**
+	 * Update the context of the election to be tallied with any information
+	 * not stored in the database that is needed for decryption.
+	 *
+	 * @param Election $election The election to be tallied
+	 * @param array $data Form data
+	 */
+	private function updateContextForCrypt( Election $election, array $data ) : void {
+		$crypt = $election->getCrypt();
+		if ( $crypt ) {
+			$crypt->updateTallyContext( $election->context, $data );
+		}
 	}
 
 	public function getTitle() {
