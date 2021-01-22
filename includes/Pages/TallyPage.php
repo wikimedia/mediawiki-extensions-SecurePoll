@@ -3,9 +3,9 @@
 namespace MediaWiki\Extensions\SecurePoll\Pages;
 
 use Exception;
+use HTMLForm;
 use MediaWiki\Extensions\SecurePoll\Context;
 use MediaWiki\Extensions\SecurePoll\MemoryStore;
-use Xml;
 
 /**
  * A subpage for tallying votes and producing results
@@ -81,52 +81,43 @@ class TallyPage extends ActionPage {
 	 * Show a form which, when submitted, shows a tally for the results in the DB
 	 */
 	public function showLocalForm() {
-		$out = $this->specialPage->getOutput();
-
-		$out->addHTML(
-			Xml::openElement(
-				'form',
-				[
-					'method' => 'post',
-					'action' => $this->getTitle()->getLocalUrl()
-				]
-			) . "\n" . Xml::fieldset(
-				$this->msg( 'securepoll-tally-local-legend' )->text(),
-				'<div>' . Xml::submitButton(
-					$this->msg( 'securepoll-tally-local-submit' )->text(),
-					[ 'name' => 'submit_local' ]
-				) . '</div>'
-			) . "</form>\n"
+		$form = HTMLForm::factory(
+			'ooui',
+			[],
+			$this->specialPage->getContext(),
+			'securepoll-tally'
 		);
+
+		$form->setSubmitTextMsg( 'securepoll-tally-local-submit' )
+			->setSubmitName( 'submit_local' )
+			->setWrapperLegend(
+				$this->msg( 'securepoll-tally-local-legend' )->text()
+			)
+			->show();
 	}
 
 	/**
 	 * Shows a form for upload of a record produced by the dump subpage.
 	 */
 	public function showUploadForm() {
-		$this->specialPage->getOutput()->addHTML(
-			Xml::openElement(
-				'form',
-				[
-					'method' => 'post',
-					'action' => $this->getTitle()->getLocalUrl(),
-					'enctype' => 'multipart/form-data'
-				]
-			) . "\n" . Xml::fieldset(
-				$this->msg( 'securepoll-tally-upload-legend' )->text(),
-				'<div>' . Xml::element(
-					'input',
-					[
-						'type' => 'file',
-						'name' => 'tally_file',
-						'size' => 40,
-					]
-				) . "</div>\n<div>" . Xml::submitButton(
-					$this->msg( 'securepoll-tally-upload-submit' )->text(),
-					[ 'name' => 'submit_upload' ]
-				) . "</div>\n"
-			) . "</form>\n"
+		$form = HTMLForm::factory(
+			'ooui',
+			[
+				'tally_file' => [
+					'type' => 'file',
+					'name' => 'tally_file',
+				],
+			],
+			$this->specialPage->getContext(),
+			'securepoll-tally'
 		);
+
+		$form->setSubmitTextMsg( 'securepoll-tally-upload-submit' )
+			->setSubmitName( 'submit_upload' )
+			->setWrapperLegend(
+				$this->msg( 'securepoll-tally-upload-legend' )->text()
+			)
+			->show();
 	}
 
 	/**
