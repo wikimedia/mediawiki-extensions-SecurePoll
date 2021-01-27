@@ -1,5 +1,6 @@
 /**
- * Utility functions for HTMLForm date picker
+ * Dynamically add inputs for column labels if they've been enabled
+ * The number of labels is based on the min/max range in range voting
  */
 ( function () {
 
@@ -7,7 +8,9 @@
 		var numRegex = /^[+-]?\d+$/;
 
 		$root.find( '.securepoll-radiorange-messages' ).each( function () {
-			var $p, $i, $labelRow, $inputRow, $min, $max, name, size, cells;
+			var $p, $i, $labelRow, $inputRow,
+				minInputWidget, maxInputWidget, $min, $max,
+				name, size, cells;
 
 			$i = $( this );
 			$labelRow = $i.find( '.securepoll-label-row' );
@@ -46,8 +49,8 @@
 			function changeHandler() {
 				var i, min, max, $input;
 
-				min = $min.val();
-				max = $max.val();
+				min = minInputWidget.getNumericValue();
+				max = maxInputWidget.getNumericValue();
 				if ( !numRegex.test( min ) || !numRegex.test( max ) ) {
 					return;
 				}
@@ -84,11 +87,13 @@
 			}
 
 			for ( $p = $i.parent(); $p.length > 0; $p = $p.parent() ) {
-				$min = $p.find( '[name$="[min-score]"]' );
-				$max = $p.find( '[name$="[max-score]"]' );
+				$min = $p.find( '[name$="[min-score]"]' ).closest( '.oo-ui-numberInputWidget' );
+				$max = $p.find( '[name$="[max-score]"]' ).closest( '.oo-ui-numberInputWidget' );
 				if ( $min.length > 0 && $max.length > 0 ) {
-					$min.on( 'change', changeHandler );
-					$max.on( 'change', changeHandler );
+					minInputWidget = OO.ui.infuse( $min );
+					maxInputWidget = OO.ui.infuse( $max );
+					minInputWidget.on( 'change', changeHandler );
+					maxInputWidget.on( 'change', changeHandler );
 					changeHandler();
 					break;
 				}
