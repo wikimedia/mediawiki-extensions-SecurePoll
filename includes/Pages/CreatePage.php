@@ -544,6 +544,13 @@ class CreatePage extends ActionPage {
 			return $ex->status;
 		}
 
+		$originalFormData = [];
+		$securePollUseLogging = $this->specialPage->getConfig()->get( 'SecurePollUseLogging' );
+		if ( $securePollUseLogging && $this->election ) {
+			// Store original form data for logging
+			$originalFormData = $this->getFormDataFromElection();
+		}
+
 		// Ok, begin the actual work
 		$dbw->startAtomic( __METHOD__ );
 		if ( $election->getId() > 0 ) {
@@ -649,6 +656,10 @@ class CreatePage extends ActionPage {
 		}
 		$dbw->endAtomic( __METHOD__ );
 
+		if ( $securePollUseLogging ) {
+			$this->logAdminChanges( $originalFormData, $formData, $eId );
+		}
+
 		// Create the "redirect" polls on all the local wikis
 		if ( $store->rId ) {
 			$election = $context->getElection( $store->rId );
@@ -733,6 +744,55 @@ class CreatePage extends ActionPage {
 		}
 
 		return Status::newGood( $eId );
+	}
+
+	/**
+	 * Log changes made to the admins of the election.
+	 *
+	 * @param array $originalFormData Empty array if no election exists
+	 * @param array $formData
+	 * @param int $electionId
+	 */
+	private function logAdminChanges(
+		array $originalFormData,
+		array $formData,
+		int $electionId
+	) : void {
+		if ( isset( $originalFormData['property_admins'] ) ) {
+			$oldAdmins = explode( "\n", $originalFormData['property_admins'] );
+		} else {
+			$oldAdmins = [];
+		}
+		$newAdmins = explode( "\n", $formData['property_admins'] );
+
+		if ( $oldAdmins === $newAdmins ) {
+			return;
+		}
+
+		$actions = [
+			self::LOG_TYPE_ADDADMIN => array_diff( $newAdmins, $oldAdmins ),
+			self::LOG_TYPE_REMOVEADMIN => array_diff( $oldAdmins, $newAdmins ),
+		];
+
+		$dbw = $this->context->getDB();
+		$fields = [
+			'spl_timestamp' => $dbw->timestamp( time() ),
+			'spl_election_id' => $electionId,
+			'spl_user' => $this->specialPage->getUser()->getId(),
+		];
+
+		foreach ( array_keys( $actions ) as $action ) {
+			foreach ( $actions[$action] as $admin ) {
+				$dbw->insert(
+					'securepoll_log',
+					$fields + [
+						'spl_type' => $action,
+						'spl_target' => User::newFromName( $admin )->getId(),
+					],
+					__METHOD__
+				);
+			}
+		}
 	}
 
 	/**
