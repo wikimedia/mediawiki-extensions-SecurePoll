@@ -114,7 +114,6 @@
 	"securepoll-tally-title": "Uppräkning: $1",
 	"securepoll-tally-not-finished": "Beklagar, du kan inte räkna upp valresultatet innan omröstningen är slutförd.",
 	"securepoll-can-decrypt": "Valregistret har krypterats, men dekrypteringsnyckeln finns tillgänglig.\nDu kan välja att antingen räkna upp resultaten som finns tillgängliga i databasen eller räkna upp de krypterade resultaten från en uppladdad fil.",
-	"securepoll-tally-no-key": "Du kan inte kontrollräkna det här valet eftersom rösterna är krypterade, och det finns ingen tillgänglig nyckel för att dekryptera dem.",
 	"securepoll-tally-local-legend": "Kontrollräkna lagrat resultat.",
 	"securepoll-tally-local-submit": "Skapa rösträkning",
 	"securepoll-tally-upload-legend": "Ladda upp krypterad dump.",

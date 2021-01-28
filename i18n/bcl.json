@@ -93,7 +93,6 @@
 	"securepoll-tally-title": "An kurit: $1",
 	"securepoll-tally-not-finished": "Sori po, ika dae makakakurit sa eleksyon sagkod na matapos an borotohan nakumpleto na.",
 	"securepoll-can-decrypt": "An rekord kan eleksyon enkriptado na, alagad an susi kan dekripsyon yaon.\n   Ika makakapili sa arinman na kurit kan presenteng mga resulta na yaon sa datos-sarayan, o tanganing ikurit an enkriptadong mga resulta gikan sa sarong ipinagkargang sagunson.",
-	"securepoll-tally-no-key": "Ika dae makakakurit kaining eleksyon, nin huli ta an mga boto magin enkriptado, asin an susi kan dekripsyon dae manunumpungan.",
 	"securepoll-tally-local-legend": "Ikurit an pinagsaray na mga resulta",
 	"securepoll-tally-local-submit": "Muknaon an kurit",
 	"securepoll-tally-upload-legend": "Ikarga an enkriptadong basura",

@@ -93,7 +93,6 @@
 	"securepoll-tally-title": "Uuszellig: $1",
 	"securepoll-tally-not-finished": "Excusez, Du chasch kei Stimme uuszelle, bis d Abstimmig umme isch.",
 	"securepoll-can-decrypt": "D Wahlufzeichnig isch verschlisslet wore, aber dr Entschlisslingsschlissel isch verfiegbar.\nDu chasch wehle zwische dr Uuszellig vu dr aktuällen Ergebnis in dr Datebank un dr Uuszellig vu dr verschlissleten Ergebnis us ere ufegladene Datei.",
-	"securepoll-tally-no-key": "Du chasch d Stimme nit uuszelle, wel d Stimme verschlisslet sin un dr Entschlissligsschlissel nit verfiegbar isch.",
 	"securepoll-tally-local-legend": "Gspychereti Ergebnis uuszelle",
 	"securepoll-tally-local-submit": "Uuszellig aalege",
 	"securepoll-tally-upload-legend": "Verschlisslete Uuszug ufelade",

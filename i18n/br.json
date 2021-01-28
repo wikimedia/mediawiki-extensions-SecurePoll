@@ -94,7 +94,6 @@
 	"securepoll-tally-title": "Kontadur : $1",
 	"securepoll-tally-not-finished": "Ho tigarez, n'haller ket kontañ an disoc'hoù a-raok na vefe echuet ar vouezhiadeg.",
 	"securepoll-can-decrypt": "Enrineget eo bet enrolladenn an dilennadeg, hegerz eo an alc'hwez disrinegañ avat.\nGallout a rit kontañ an disoc'hoù adal an diaz roadennoù pe adal ur restr enporzhiet.",
-	"securepoll-tally-no-key": "N'hallit ket kontañ disoc'hoù an dilennadeg-mañ pa n'eo ket enrineget ar votoù ha n'eo ket hegerz an alc'hwez disrinegañ",
 	"securepoll-tally-local-legend": "Kontañ an disoc'hoù bet enrollet",
 	"securepoll-tally-local-submit": "Sevel ur c'hontadur",
 	"securepoll-tally-upload-legend": "Enporzhiañ un enrolladenn enrineget",

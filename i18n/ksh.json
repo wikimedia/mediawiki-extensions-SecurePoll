@@ -106,7 +106,6 @@
 	"securepoll-tally-title": "Ußzälle: $1",
 	"securepoll-tally-not-finished": "Do kanns nit et Ußzälle aanfange, wann de Afshtemmung noch aam Loufe es.",
 	"securepoll-can-decrypt": "De Opzeishnunge för di Afshtemmung sen verschlößeldt, ävver de Schlößel för et Äntschlößelle ham_mer.\nDonn Desch entscheide doh zwesche, de neuste Zahle en de Datebangk uß_ze_zälle, udder de Shtemme en en huhjelaade, verschlößelte Datei uß_ze_zälle.",
-	"securepoll-tally-no-key": "Do kanns de Shtemme vun dä Afshtemmung nit ußzälle. De Shtemme sen verschlößeldt, u dä Schlößel ham_mer nit.",
 	"securepoll-tally-local-legend": "De jespeisherte Shtemme uß de Datebangk ußzälle",
 	"securepoll-tally-local-submit": "Lohß Jonn!",
 	"securepoll-tally-upload-legend": "Donn en verschlößelte Dattei huhlahde",

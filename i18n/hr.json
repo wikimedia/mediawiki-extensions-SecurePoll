@@ -101,7 +101,6 @@
 	"securepoll-tally-title": "Rezultat: $1",
 	"securepoll-tally-not-finished": "Nažalost, ne možete vidjeti rezultate izbora za trajanja glasovanja.",
 	"securepoll-can-decrypt": "Izborni zapis je enkriptiran, ali dekripcijski ključ je dostupan.\nMožete odabrati bilo prikaz rezultata iz baze podataka, ili prikaz enkriptiranih rezultata iz učitane datoteke.",
-	"securepoll-tally-no-key": "Ne možete prikazati rezultate ovih izbore, jer su glasovi enkriptirani a dekripcijski ključ nije dostupan.",
 	"securepoll-tally-local-legend": "Prikaži raspodjelu glasova pohranjenih izbora",
 	"securepoll-tally-local-submit": "Napravi prikaz rezultata",
 	"securepoll-tally-upload-legend": "Učitaj enkriptirani ispis",

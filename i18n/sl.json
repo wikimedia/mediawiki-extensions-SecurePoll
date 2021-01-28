@@ -94,7 +94,6 @@
 	"securepoll-tally-title": "Evidenca: $1",
 	"securepoll-tally-not-finished": "Žal ne morete evidentirati volitev preden se glasovanje zaključi.",
 	"securepoll-can-decrypt": "Volilni zapis je šifriran, vendar je na razpolago ključ za dešifriranje.\n\tIzberete lahko, da bodisi združite trenutne rezultate v zbirki podatkov, bodisi da združite šifrirane rezultate iz naložene datoteke.",
-	"securepoll-tally-no-key": "Teh volitev ne morete evidentirati, saj so glasovi šifrirani, dešifrirni ključ pa ni na razpolago.",
 	"securepoll-tally-local-legend": "Evidentiraj shranjene rezultate",
 	"securepoll-tally-local-submit": "Ustvari evidenco",
 	"securepoll-tally-upload-legend": "Naloži šifriran odložek",

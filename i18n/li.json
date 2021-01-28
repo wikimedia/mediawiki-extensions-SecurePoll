@@ -94,7 +94,6 @@
 	"securepoll-tally-title": "Telling: $1",
 	"securepoll-tally-not-finished": "Doe kins gein telling oetveure totdet de sjtömming is aafgeloupe.",
 	"securepoll-can-decrypt": "De resultate van de stömming zeen versleuteld, mer de coderingssleutel is besjikbaar.\nDoe kins de in de database besjikbare resultate telle, of de resultate oet 'n bestandjsupload telle.",
-	"securepoll-tally-no-key": "De kins gein telling uutveure veur dees stumming, omdet de stumme versleuteld zeen en de sleutel neet besjikbaar is.",
 	"securepoll-tally-local-legend": "Ópgeslage resultare",
 	"securepoll-tally-local-submit": "Veur telling oet",
 	"securepoll-tally-upload-legend": "Laaj versleutelde dump óp",

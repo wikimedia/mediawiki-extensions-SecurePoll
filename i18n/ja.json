@@ -103,7 +103,6 @@
 	"securepoll-tally-title": "集計: $1",
 	"securepoll-tally-not-finished": "申し訳ありませんが、投票が終了するまで票の集計はできません。",
 	"securepoll-can-decrypt": "選挙記録の暗号化が完了し、復号鍵を入手できます。データベース中の結果か、あるいは、アップロードされたファイルから取り出した暗号化済みの結果のどちらを集計するか選ぶことができます。",
-	"securepoll-tally-no-key": "この投票は暗号化されており、復号鍵が取得できないため、あなたは票の集計を行うことができません。",
 	"securepoll-tally-local-legend": "保存されている記録の集計",
 	"securepoll-tally-local-submit": "集計開始",
 	"securepoll-tally-upload-legend": "暗号化された記録のアップロード",

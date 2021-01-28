@@ -92,7 +92,6 @@
 	"securepoll-tally-title": "Licenje: $1",
 	"securepoll-tally-not-finished": "Wódaj, njamóžoš wólbu pśelicyś, až wótgłosowanje njejo skóńcone.",
 	"securepoll-can-decrypt": "Wólbny zapis jo se skoděrował, ale dešifrěrowański kluc stoj k dispoziciji.\nMóžoš pak wuslědki licyś, kótarež su w datowej bance pak skoděrowane wuslědki z nagrateje dataje.",
-	"securepoll-tally-no-key": "Njamóžoš toś tu wólbu pśelicyś, dokulaž głose su skoděrowane a dešifrěrowański kluc njestoj k dispoziciji.",
 	"securepoll-tally-local-legend": "Składowane wuslědki licyś",
 	"securepoll-tally-local-submit": "Licenje napóraś",
 	"securepoll-tally-upload-legend": "Skoděrowany wuśěg nagraś",

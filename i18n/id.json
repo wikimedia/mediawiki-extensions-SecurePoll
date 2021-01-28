@@ -99,7 +99,6 @@
 	"securepoll-tally-title": "Penghitungan suara: $1",
 	"securepoll-tally-not-finished": "Maaf, Anda tidak dapat menghitung suara sampai pemungutan selesai.",
 	"securepoll-can-decrypt": "Catatan pemilihan telah di-enkripsi, tapi kunci dekripsi tersedia.\nAnda dapat memilih antara menghitung dari hasil suara yang terdapat di basis data, atau untuk menghitung hasil yang ter-enkripsi dari berkas yang dimuatkan.",
-	"securepoll-tally-no-key": "Anda tidak dapat melakukan penghitungan suara, karena suara-suaranya ter-enkripsi dan kunci dekripsinya tidak tersedia.",
 	"securepoll-tally-local-legend": "Menghitung hasil yang tersimpan",
 	"securepoll-tally-local-submit": "Lakukan penghitungan",
 	"securepoll-tally-upload-legend": "Muat dump ter-enkripsi",

@@ -97,7 +97,6 @@
 	"securepoll-tally-title": "Prebrojavanje: $1",
 	"securepoll-tally-not-finished": "Žao nam je, ne možete prebrojavati glasove dok se ne završi glasanje.",
 	"securepoll-can-decrypt": "Zapis izbora je šifriran, ali je dostupan ključ za otključavanje.\nMožete da izvršite prebrojavanje glasova koji su prisutni u bazi podataka ili da prebrojite šifrirane rezultate iz postavljene datoteke.",
-	"securepoll-tally-no-key": "Ne možete prebrojavati glasove, jer su šifrirani a nije dostupan ključ za otvaranje.",
 	"securepoll-tally-local-legend": "Spremljeni rezultati glasanja",
 	"securepoll-tally-local-submit": "Izvrši prebrojavanje",
 	"securepoll-tally-upload-legend": "Postavi šifriranu arhivu",

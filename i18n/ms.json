@@ -98,7 +98,6 @@
 	"securepoll-tally-title": "Semak: $1",
 	"securepoll-tally-not-finished": "Maaf, anda tidak dapat menyemak pemilihan sehingga selepas undian selesai.",
 	"securepoll-can-decrypt": "Rekod pemilihan telah disulitkan, tetapi kunci penyulitan dapat diperoleh. \nAnda boleh memilih untuk menyemak keputusan yang ada dalam pangkalan data, atau menyemak keputusan yang disulitkan daripada fail yang dimuat naik.",
-	"securepoll-tally-no-key": "Anda tidak boleh menyemak pemilihan ini, kerana undian disulitkan, dan kunci penyulitan tidak dapat diperoleh.",
 	"securepoll-tally-local-legend": "Semak keputusan tersimpan",
 	"securepoll-tally-local-submit": "Cipta semakan",
 	"securepoll-tally-upload-legend": "Muat naik longgakan bersulit",

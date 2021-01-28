@@ -97,7 +97,6 @@
 	"securepoll-tally-title": "Arvestus: $1",
 	"securepoll-tally-not-finished": "Enne valimise lõppu ei saa hääli üle lugeda.",
 	"securepoll-can-decrypt": "Valimiskirje on krüptitud, aga dekrüptimisvõti on saadaval.\n\nSa võid üle lugeda kas andmebaasis olevad tulemused või üleslaaditavas failis olevad tulemused.",
-	"securepoll-tally-no-key": "Sa ei saa selle valimise hääli üle lugeda, sest hääled on krüptitud ja dekrüptimisvõtit ei ole saadaval.",
 	"securepoll-tally-local-legend": "Loe talletatud tulemused üle",
 	"securepoll-tally-local-submit": "Loe üle",
 	"securepoll-tally-upload-legend": "Laadi üles krüptitud tõmmis",

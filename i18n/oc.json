@@ -95,7 +95,6 @@
 	"securepoll-tally-title": "Comptatge : $1",
 	"securepoll-tally-not-finished": "O planhèm, podètz pas comptar los resultats de l'eleccion abans que siá acabada.",
 	"securepoll-can-decrypt": "L'enregistrament de l'eleccion es estat criptat, mas la clau de descriptatge es disponibla.\nPodètz causir de comptar los resultats dempuèi la basa de donadas o dempuèi un fichièr telecargat.",
-	"securepoll-tally-no-key": "Podètz pas far lo descompte dels resultats d'aquesta eleccion perque los vòtes son criptats e que la clau de descriptatge es pas disponibla.",
 	"securepoll-tally-local-legend": "Comptar los resultats salvats",
 	"securepoll-tally-local-submit": "Crear un comptatge",
 	"securepoll-tally-upload-legend": "Telecargar un salvament criptat",

@@ -123,7 +123,6 @@
 	"securepoll-tally-title": "計票：$1",
 	"securepoll-tally-not-finished": "抱歉，在投票尚未結束前無法計票。",
 	"securepoll-can-decrypt": "選舉記錄已加密，但可使用解密金鑰。\n您可以選擇使用資料庫中的投票結果計票，或上傳檔案使用已加密的投票結果計票。",
-	"securepoll-tally-no-key": "因選票已加密且無法取得解密金鑰，您無法對此次選舉進行計票。",
 	"securepoll-tally-local-legend": "計算已儲存的投票結果",
 	"securepoll-tally-local-submit": "建立計票",
 	"securepoll-tally-upload-legend": "上傳已加密的匯出資料",

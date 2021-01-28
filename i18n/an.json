@@ -92,7 +92,6 @@
 	"securepoll-tally-title": "Contador: $1",
 	"securepoll-tally-not-finished": "Lo sentimos, no puede actualizar os contadors d'a eslección dica que a votación no haiga finalizau.",
 	"securepoll-can-decrypt": "O rechistro d'eslección s'han zifrau pero la clave de desencriptación ye disponible.\nPuede trigar entre escrutar os resultaus de la base de datos, u escrutar os resultaus zifraus dende un fichero cargau.",
-	"securepoll-tally-no-key": "No puede actualizar o contador d'a eslección, ya que os votos son zifraus y a clau de desenzifrau no ye disponible.",
 	"securepoll-tally-local-legend": "Recuento de resultaus esviellau",
 	"securepoll-tally-local-submit": "Creyar recuento",
 	"securepoll-tally-upload-legend": "Puyar vulcau d'o zifrau",

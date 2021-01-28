@@ -98,7 +98,6 @@
 	"securepoll-tally-title": "Kalkulo: $1",
 	"securepoll-tally-not-finished": "Bedaŭrinde vi ne povas kalkuli la voĉdonado ĝis post voĉdonado finas.",
 	"securepoll-can-decrypt": "La balotregistraĵo estis ĉifita, sed la malĉifra ŝlosilo haveblas.\nVi povas elekti nombri ĉu la rezultojn el la datumbazo, ĉu ĉifritajn rezultojn el elŝutita dosiero.",
-	"securepoll-tally-no-key": "Vi ne povas nombri la rezulton de ĉi tiu baloto, ĉar ĝi estas ĉifrita kaj la malĉifra ŝlosilo malhaveblas.",
 	"securepoll-tally-local-legend": "Konservitaj nombrorezultoj",
 	"securepoll-tally-local-submit": "Krei nombradon",
 	"securepoll-tally-upload-legend": "Elŝuti ĉifritan dosieron",

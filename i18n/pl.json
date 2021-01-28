@@ -102,7 +102,6 @@
 	"securepoll-tally-title": "Rejestr $1",
 	"securepoll-tally-not-finished": "Nie można podliczać głosów dopóki wybory trwają.",
 	"securepoll-can-decrypt": "Rekord głosu został zaszyfrowany, ale klucz odszyfrowujący jest dostępny.\nMożna podliczyć wyniki obecne w bazie danych lub podliczyć wyniki z przesłanego zaszyfrowanego pliku.",
-	"securepoll-tally-no-key": "Nie możesz podliczyć wyniku wyborów, ponieważ głosy są zaszyfrowane, a klucz odszyfrowujący jest niedostępny.",
 	"securepoll-tally-local-legend": "Wyniki zapisane w rejestrze",
 	"securepoll-tally-local-submit": "Utwórz rejestr",
 	"securepoll-tally-upload-legend": "Prześlij zaszyfrowany zrzut",

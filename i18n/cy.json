@@ -92,7 +92,6 @@
 	"securepoll-tally-title": "Cyfrif: $1",
 	"securepoll-tally-not-finished": "Ni allwch gyfrif yr etholiad hyd nes bod y pleidleisio wedi ei gwblhau.",
 	"securepoll-can-decrypt": "Mae cofnodion yr etholiad wedi eu hamgryptio, ond mae'r allwedd dadgryptio ar gael.\nGallwch naill ai gyfrif y canlyniadau sydd yn y bas data, neu gallwch gyfrif y canlyniadau amgryptiedig mewn ffeil wedi ei huwchlwytho.",
-	"securepoll-tally-no-key": "Ni allwch gyfrif canlyniad yr etholiad, oherwydd bod y pleidleisiau wedi eu hamgryptio, ac nid yw'r allwedd dadgryptio ar gael.",
 	"securepoll-tally-local-legend": "Cyfrif y canlyniadau sydd ar gadw",
 	"securepoll-tally-local-submit": "Cadw cyfrif",
 	"securepoll-tally-upload-legend": "Uwchlwytho'r dymp amgryptiedig",

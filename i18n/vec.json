@@ -96,7 +96,6 @@
 	"securepoll-tally-title": "Conta: $1",
 	"securepoll-tally-not-finished": "Ne dispiase, ma no se pole contar i voti prima che la votassion la sia finìa.",
 	"securepoll-can-decrypt": "Le informazion relative a l'elezion le xe stà cifrate, ma xe disponibile la ciave de decifratura.\nTe poli far la conta dei risultati presenti nel database o far la conta dei risultati cifrati contenuti in un file caricà.",
-	"securepoll-tally-no-key": "No te poli far la conta dei risultati de sta elezione parché i voti i xe cifrati e la ciave de decifrazion no la xe disponibile.",
 	"securepoll-tally-local-legend": "Conta dei risultati memorizà",
 	"securepoll-tally-local-submit": "Fà na conta",
 	"securepoll-tally-upload-legend": "Carga su un dump criptà",

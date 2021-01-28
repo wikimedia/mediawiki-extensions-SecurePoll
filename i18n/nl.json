@@ -108,7 +108,6 @@
 	"securepoll-tally-title": "Telling: $1",
 	"securepoll-tally-not-finished": "U kunt geen telling uitvoeren totdat de stemming is afgelopen.",
 	"securepoll-can-decrypt": "De resultaten van de stemming zijn versleuteld, maar de coderingssleutel is beschikbaar.\nU kunt de in de database beschikbare resultaten tellen, of de resultaten uit een bestandsupload tellen.",
-	"securepoll-tally-no-key": "U kunt geen telling uitvoeren voor deze stemming, omdat de stemmen versleuteld zijn en de sleutel niet beschikbaar is.",
 	"securepoll-tally-local-legend": "Opgeslagen resultaten",
 	"securepoll-tally-local-submit": "Telling uitvoeren",
 	"securepoll-tally-upload-legend": "Versleutelde dump uploaden",

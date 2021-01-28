@@ -105,7 +105,6 @@
 	"securepoll-tally-title": "Escrutinio: $1",
 	"securepoll-tally-not-finished": "Sentímolo, non pode escrutar os votos das eleccións antes de que a votación remate.",
 	"securepoll-can-decrypt": "O rexistro electoral foi codificado, pero a clave para desencriptalo está dispoñible.  \nPode optar por escrutar os resultados presentes na base de datos ou por escrutar os resultados encriptados nun ficheiro cargado.",
-	"securepoll-tally-no-key": "Non pode escrutar os votos destas eleccións, porque estes votos están encriptados e clave para desencriptalos non está dispoñible.",
 	"securepoll-tally-local-legend": "Resultados almacenados do escrutinio",
 	"securepoll-tally-local-submit": "Crear o escrutinio",
 	"securepoll-tally-upload-legend": "Cargar unha copia de seguridade codificada",

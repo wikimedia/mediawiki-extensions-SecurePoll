@@ -92,7 +92,6 @@
 	"securepoll-tally-title": "Talja: $1",
 	"securepoll-tally-not-finished": "Jiddispjaċina, ma tisgtħux tgħoddu r-riżultati tal-elezzjoni qabel mal-votazzjoni tispiċċa.",
 	"securepoll-can-decrypt": "Ir-reġistru tal-elezzjoni ġie kriptat, però ċ-ċavetta ta' dekritazzjoni hija disponibbli.\nInti tista' tagħżel jew li tgħodd ir-riżultati preżenti fid-databażi, jew li tgħodd ir-riżultati kriptati minn fajl imtella'.",
-	"securepoll-tally-no-key": "Ma tistax tgħodd ir-riżultati tal-elezzjoni, minħabba li l-voti huma kriptati, u ċ-ċavetta tad-dekritazzjoni mhix disponibbli.",
 	"securepoll-tally-local-legend": "L-għadd tar-riżultati salvati",
 	"securepoll-tally-local-submit": "Oħloq talja",
 	"securepoll-tally-upload-legend": "Tella' riserva kriptata",

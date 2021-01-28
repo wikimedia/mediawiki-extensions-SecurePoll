@@ -92,7 +92,6 @@
 	"securepoll-tally-title": "Tarkasan: $1",
 	"securepoll-tally-not-finished": "Pasensia, saanmo a mabalin a tarkasan ti panagbutos aginggana no kalpasan ti panagbutos.",
 	"securepoll-can-decrypt": "Ti rehistro ti panagbutos ket naenkripto, ngem ti dekripsion a tulbek ket saan a magun-od.\nMabalinmo ti agpili a tarkasan dagiti nagbanagan nga addaan iti database, wenno tarkasan dagiti naenkripto a nagbanagan manipud iti naipan a papeles.",
-	"securepoll-tally-no-key": "Saanmo a mabalin a tarkasan daytoy a panagbutos, ngamin ket dagiti butos ket naenkripto, ken ti dekripsion a tulbek ket saan a magun-od.",
 	"securepoll-tally-local-legend": "Tarkasan dagiti naidulin a resulta",
 	"securepoll-tally-local-submit": "Agaramid ti tarkasan",
 	"securepoll-tally-upload-legend": "Agipan ti naenkripto a naipakbo",

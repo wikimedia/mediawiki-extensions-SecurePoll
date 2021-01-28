@@ -80,7 +80,6 @@
 	"securepoll-tally-title": "Telling: $1",
 	"securepoll-tally-not-finished": "Jammer, kan jy nie kerfstok die verkiesing tot na die stem is voltooi.",
 	"securepoll-can-decrypt": "Die verkiesing rekord is geïnkripteer, maar die dekripsie sleutel is beskikbaar.\nJy kan kies om óf kerfstok die resultate wat in die databasis teenwoordig is, of aan kerfstok geïnkripteer resultate van 'n opgelaai lêer.",
-	"securepoll-tally-no-key": "Jy kan nie kerfstok hierdie verkiesing, omdat die stemme word geïnkripteer, en die dekripsiesleutel nie beskikbaar is nie nie.",
 	"securepoll-tally-local-legend": "Telling gestoor resultate",
 	"securepoll-tally-local-submit": "Skep telling",
 	"securepoll-tally-upload-legend": "Foto geïnkripteer dump",

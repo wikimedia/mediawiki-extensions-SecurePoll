@@ -101,7 +101,6 @@
 	"securepoll-tally-title": "Tala ng bilang: $1",
 	"securepoll-tally-not-finished": "Paumanhin, hindi mo maitatala ang bilang ng halalan hangga't hindi pa natatapos ang halalan.",
 	"securepoll-can-decrypt": "Nakakodigo ang talaan ng halalan, subalit makukuha ang susing pantanggal ng kodigo.\nMaaari mong piliin ang itala ang bilang ng mga kinalabasang naroroon sa loob ng kalipunan ng dato, o kaya itala ang bilang ng nakakodigong mga kinalabasan mula sa talaksang ikinargang papasok.",
-	"securepoll-tally-no-key": "Hindi mo maitatala ang bilang ng halalang ito, dahil nakakodigo ang mga boto, at ang susi ng pagtanggal ng kodigo ay hindi makukuha.",
 	"securepoll-tally-local-legend": "Itala ang nakatabing mga kinalabasan",
 	"securepoll-tally-local-submit": "Likhain ang talaan ng mga bilang",
 	"securepoll-tally-upload-legend": "Ikargang paitaas ang nakakodigong pagtapon",

@@ -91,7 +91,6 @@
 	"securepoll-tally-title": "المحصلة: $1",
 	"securepoll-tally-not-finished": "عذرا، لن تستطيع تحصيل الانتخابات حتى يكتمل التصويت.",
 	"securepoll-can-decrypt": "لقد عُمّى سجل الانتخابات، لكن مفتاح فك التعميه متوفر.\nتستطيع الاختيار بين تحصيل الانتخابات فى  قاعده البيانات مباشره، أو تحصيل نتائج معماه من ملفٍ مرفوع.",
-	"securepoll-tally-no-key": "لا تستطيع تحصيل هذه الانتخابات، لأن التصويتات مُعمّاه، ومفتاح فك التعميه غير متوفر.",
 	"securepoll-tally-local-legend": "محصله النتائج المخزنة",
 	"securepoll-tally-local-submit": "أنشئ محصلة",
 	"securepoll-tally-upload-legend": "رفع خزين مشفر",

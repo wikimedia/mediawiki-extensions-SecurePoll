@@ -116,7 +116,6 @@
 	"securepoll-tally-title": "Apurar: $1",
 	"securepoll-tally-not-finished": "Desculpe, mas não pode apurar os resultados da eleição até que a votação esteja terminada.",
 	"securepoll-can-decrypt": "O registo da eleição foi encriptado, mas a chave de descodificação está disponível.\nPode escolher entre apurar os resultados presentes na base de dados, ou apurar resultados encriptados de um ficheiro carregado.",
-	"securepoll-tally-no-key": "Não pode apurar esta eleição, porque os votos estão encriptados e a chave de descodificação não está disponível.",
 	"securepoll-tally-local-legend": "Apurar resultados armazenados",
 	"securepoll-tally-local-submit": "Criar apuramento",
 	"securepoll-tally-upload-legend": "Upload da cópia em ficheiro encriptada",

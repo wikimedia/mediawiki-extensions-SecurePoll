@@ -117,7 +117,6 @@
 	"securepoll-tally-title": "计票：$1",
 	"securepoll-tally-not-finished": "对不起，您只有在投票完成后方可计票。",
 	"securepoll-can-decrypt": "投票记录已被加密，但可获得密匙。您可以选择对当前数据库中的数据进行点票，或上传一个包含加密结果的文件以进行点票。",
-	"securepoll-tally-no-key": "您无法对本次投票进行点票，因为选票已被加密，并无法获得解密密匙。",
 	"securepoll-tally-local-legend": "点票结果",
 	"securepoll-tally-local-submit": "新建点票数据",
 	"securepoll-tally-upload-legend": "上传已加密的数据",

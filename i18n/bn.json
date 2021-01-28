@@ -99,7 +99,6 @@
 	"securepoll-subpage-tally": "গণনা",
 	"securepoll-tally-title": "গণনা: $1",
 	"securepoll-tally-not-finished": "দুঃখতি, ভোট গ্রহণ শেষ না হওয়ার পূর্ব পর্যন্ত আপনি এই নির্বাচনের ভোট গণনা করতে পারবেন না।",
-	"securepoll-tally-no-key": "আপনি এই নির্বাচন হিসাব করতে পারবেন না, কারণ ভোটগুলো এনক্রিপ্ট করা, এবং ডিক্রিপশন কি লভ্য নয়।",
 	"securepoll-tally-local-legend": "সংরক্ষণকৃত ফলাফল হিসাব করো",
 	"securepoll-tally-local-submit": "গণনা তৈরি",
 	"securepoll-tally-upload-legend": "এনক্রিপ্ট ডাম্প আপলোড",

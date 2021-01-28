@@ -93,7 +93,6 @@
 	"securepoll-tally-title": "Puntegi: $1",
 	"securepoll-tally-not-finished": "Spiasent, it peule pa contegé l'elession fin a che ël vot a sia nen complet.",
 	"securepoll-can-decrypt": "La registrassion ëd l'elession a l'é stàita cifrà, ma la ciav ëd decifrassion a l'é disponìbila.\nIt peule serne sia ëd conté j'arzultà present ant ël database, sia ëd conté j'arzultà cifrà da un file carià.",
-	"securepoll-tally-no-key": "It peule pa conté st'elession-sì, përchè ij vot a son cifrà, e la ciav ëd decifrassion a l'é pa disponìbil.",
 	"securepoll-tally-local-legend": "Conta j'arzultà memorisà",
 	"securepoll-tally-local-submit": "Crea ël contegi",
 	"securepoll-tally-upload-legend": "Caria ël dump cifrà",

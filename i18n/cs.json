@@ -95,7 +95,6 @@
 	"securepoll-tally-title": "Součet hlasů – $1",
 	"securepoll-tally-not-finished": "Promiňte, ale nemůžete sčítat hlasy, dokud hlasování ještě probíhá.",
 	"securepoll-can-decrypt": "Záznam hlasování byl zašifrován, ale dešifrovací klíč je k dispozici.\nMůžete si vybrat, zda chcete sečíst výsledky v databázi, nebo sečíst šifrované výsledky z načteného souboru.",
-	"securepoll-tally-no-key": "Toto hlasování nemůžete sečíst, protože hlasy jsou zašifrované a dešifrovací klíč není dostupný.",
 	"securepoll-tally-local-legend": "Sečíst uložené hlasy",
 	"securepoll-tally-local-submit": "Provést sčítání",
 	"securepoll-tally-upload-legend": "Načíst šifrovaný záznam",

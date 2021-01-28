@@ -105,7 +105,6 @@
 	"securepoll-tally-title": "Kiểm phiếu: $1",
 	"securepoll-tally-not-finished": "Xin lỗi, bạn không thể kiểm phiếu cho đến khi kết thúc bỏ phiếu.",
 	"securepoll-can-decrypt": "Bản ghi bầu cử đã được mã hóa, nhưng đã có sẵn khóa giải mã.\nBạn có thể lựa chọn hoặc kiểm kết quả hiện có trong cơ sở dữ liệu, hoặc kiểm kết quả đã mã hóa từ một tập tin được tải lên.",
-	"securepoll-tally-no-key": "Bạn không thể kiểm phiếu cho cuộc bầu cử này, vì các lá phiếu được mã hóa, và khóa giải mã hiện chưa có.",
 	"securepoll-tally-local-legend": "Kiểm các kết quả lưu trữ",
 	"securepoll-tally-local-submit": "Tạo cuộc kiểm phiếu",
 	"securepoll-tally-upload-legend": "Tải kết xuất đã mã hóa lên",

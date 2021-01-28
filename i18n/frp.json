@@ -95,7 +95,6 @@
 	"securepoll-tally-title": "Comptâjo : $1",
 	"securepoll-tally-not-finished": "Dèsolâ, vos pouede pas comptar los rèsultats de l’èlèccion devant que seye chavonâ.",
 	"securepoll-can-decrypt": "L’encartâjo de l’èlèccion at étâ criptâ, mas la cllâf de dècriptâjo est disponibla. \nVos pouede chouèsir de comptar los rèsultats dês la bâsa de balyês ou ben dês un fichiér tèlèchargiê.",
-	"securepoll-tally-no-key": "Vos pouede pas fâre lo dècompto des rèsultats de ceta èlèccion perce que los votos sont criptâs et que la cllâf de dècriptâjo est pas disponibla.",
 	"securepoll-tally-local-legend": "Comptar los rèsultats encartâs",
 	"securepoll-tally-local-submit": "Fâre un comptâjo",
 	"securepoll-tally-upload-legend": "Tèlèchargiér un èxtrèt criptâ",

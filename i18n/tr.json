@@ -9,6 +9,7 @@
 			"MuratTheTurkish",
 			"Noumenon",
 			"Rapsar",
+			"SaldırganSincap",
 			"Sayginer",
 			"Suelnur",
 			"Vito Genovese"
@@ -113,8 +114,7 @@
 	"securepoll-subpage-tally": "Sayım",
 	"securepoll-tally-title": "Sayım: $1",
 	"securepoll-tally-not-finished": "Üzgünüz, seçim tamamlanmadan oyları sayamazsınız.",
-	"securepoll-can-decrypt": "Seçim kaydı şifrelendi, ancak şifre çözme anahtarı mevcut.\n\tVeritabanında bulunan sonuçları saymayı veya yüklenen bir dosyadan şifrelenmiş sonuçları saymayı seçebilirsiniz.",
-	"securepoll-tally-no-key": "Bu seçimi sayamazsınız, çünkü oylar şifrelenmiş, ve deşifre anahtarı mevcut değil.",
+	"securepoll-can-decrypt": "Seçim kaydı şifrelenmiştir. Veritabanında bulunan sonuçları saymayı veya yüklenen bir dosyadan şifrelenmiş sonuçları saymayı seçebilirsiniz.",
 	"securepoll-tally-local-legend": "Kaydedilmiş sonuçları say",
 	"securepoll-tally-local-submit": "Sayım oluştur",
 	"securepoll-tally-upload-legend": "Şifreli dökümü yükle",

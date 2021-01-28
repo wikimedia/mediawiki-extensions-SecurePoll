@@ -89,7 +89,6 @@
 	"securepoll-tally-title": "Konteo: $1",
 	"securepoll-tally-not-finished": "Despensa, pero bo no por krea e konteo di e votonan promé ku e elekshon sera.",
 	"securepoll-can-decrypt": "E elekshon a wòrdu encrypt, pero e klave di deskripshon ta disponibel.\nBo por skohe pa sea konta e resultadonan di e votona ya risibí òf konta e resultadonan encrypy di un file ku bo por load.",
-	"securepoll-tally-no-key": "Bo no por hasi e konteo di e elekshon aki, pasobra e votonan ta encrypt i e klave deskriptivo no ta disponibel.",
 	"securepoll-tally-local-legend": "Konta e resultadonan di votonan warda",
 	"securepoll-tally-local-submit": "Krea konteo",
 	"securepoll-tally-upload-legend": "Trese dumpnan encrypted",

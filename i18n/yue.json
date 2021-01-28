@@ -98,7 +98,6 @@
 	"securepoll-tally-title": "記數: $1",
 	"securepoll-tally-not-finished": "對唔住，響投票完成之前，你唔可以將選舉記數。",
 	"securepoll-can-decrypt": "個選舉紀錄加密咗，但係有解密匙。 \n\t你可以揀個記數響個資料庫做，或者衵一個上載檔案度記數個加密咗嘅結果。",
-	"securepoll-tally-no-key": "你唔可以響呢次選舉度記數，因為投票加密咗，又有解密匙。",
 	"securepoll-tally-local-legend": "記數存咗嘅結果",
 	"securepoll-tally-local-submit": "整記數",
 	"securepoll-tally-upload-legend": "上載加密嘅傾印",

@@ -95,7 +95,6 @@
 	"securepoll-tally-title": "Zistiť výsledok: $1",
 	"securepoll-tally-not-finished": "Ľutujeme, nemôžete zistiť výsledok hlasovania, kým nebude dokončené.",
 	"securepoll-can-decrypt": "Záznam o hlasovaní bol zašifrovaný, ale dešifrovací kľúč je k dispozícii.\nMôžete buď zistiť výsledok hlasovania z výsledkov dostupných v databáze alebo zo zašifrovaných výsledkov v nahranom súbore.",
-	"securepoll-tally-no-key": "Nemôžete zistiť výsledok hlasovania, pretože hlasy sú zašifrované a dešifrovací kľúč nie je k dispozícii.",
 	"securepoll-tally-local-legend": "Zistiť výsledok uložených hlasov",
 	"securepoll-tally-local-submit": "Vytvoriť vyhodnotenie",
 	"securepoll-tally-upload-legend": "Nahrať zašifrovaný výpis",

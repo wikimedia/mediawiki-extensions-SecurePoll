@@ -101,7 +101,6 @@
 	"securepoll-tally-title": "Optælling: $1",
 	"securepoll-tally-not-finished": "Du kan desværre ikke optælle valgresultatet før afstemningen er slut.",
 	"securepoll-can-decrypt": "Valgregisteret er blevet krypteret, men en dekrypteringsnøgle er tilgængelig.\nDu kan enten optælle de nuværende stemmer i databasen, eller optælle krypterede resultater fra en oplagt fil.",
-	"securepoll-tally-no-key": "Du kan ikke tælle resultatet op, fordi stemmerne er krypterede, og dekrypteringsnøglen er utilgængelig.",
 	"securepoll-tally-local-legend": "Optællig af stemmerne",
 	"securepoll-tally-local-submit": "Opret en optælling",
 	"securepoll-tally-upload-legend": "Læg et krypteret dump op",

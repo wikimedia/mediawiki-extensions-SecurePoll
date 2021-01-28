@@ -109,7 +109,6 @@
 	"securepoll-tally-title": "Laskenta: $1",
 	"securepoll-tally-not-finished": "Et voi suorittaa laskentaa vaalille ennen kuin äänestys on päättynyt.",
 	"securepoll-can-decrypt": "Äänestystiedot on salakirjoitettu, mutta salauksenpurkuavain on saatavilla.\nVoit valita tuloslaskennan tietokantatiedoista, tai salakirjoitetuista tuloksista, jotka ovat peräisin lähetettävästä tiedostosta.",
-	"securepoll-tally-no-key": "Et voi suorittaa laskentaa näille vaaleille, koska äänet on suojattu salauksella, eikä salauksen avainkoodia ole tarjottu.",
 	"securepoll-tally-local-legend": "Laske tallenetuista tuloksista",
 	"securepoll-tally-local-submit": "Tuota laskenta",
 	"securepoll-tally-upload-legend": "Tallenna salakirjoitettu vedos",
