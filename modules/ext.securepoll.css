@@ -9,41 +9,15 @@
 	opacity: 0;
 }
 
-/* Embolden field labels */
-.mw-label {
-	font-weight: bold;
-}
-
 /* Add spacing between controls */
 .mw-htmlform-field-HTMLTextField,
 .mw-htmlform-field-HTMLIntField,
 .mw-htmlform-field-HTMLDateTimeField,
 .mw-htmlform-field-HTMLFormFieldCloner,
-.mw-htmlform-field-HTMLSelectField,
-.mw-htmlform-field-HTMLAutoCompleteSelectField,
-.securepoll-layout-table {
+.mw-htmlform-field-HTMLSelectField {
 	margin: 1em 0;
 }
 
 .mw-htmlform-cloner-create-button {
 	margin-top: 1em;
-}
-
-/* ... but not inside the tables */
-.securepoll-layout-table td .mw-htmlform-field-HTMLTextField {
-	margin: 0;
-}
-
-/* width and table-layout make the columns be sized sanely.
- * border-collapse prevents Firefox from leaving space for the borders */
-.securepoll-layout-table {
-	width: 100%;
-	table-layout: fixed;
-	border: 0;
-	border-collapse: collapse;
-}
-
-.securepoll-layout-table td {
-	vertical-align: top;
-	padding: 0;
 }
