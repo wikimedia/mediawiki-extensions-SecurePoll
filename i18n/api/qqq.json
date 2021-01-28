@@ -24,7 +24,6 @@
 			"아라"
 		]
 	},
-	"apihelp-strikevote-description": "{{doc-apihelp-description|strikevote}}",
 	"apihelp-strikevote-summary": "{{doc-apihelp-summary|strikevote}}",
 	"apihelp-strikevote-param-option": "{{doc-apihelp-param|strikevote|option}}",
 	"apihelp-strikevote-paramvalue-option-strike": "{{doc-apihelp-paramvalue|strikevote|option|strike}}",

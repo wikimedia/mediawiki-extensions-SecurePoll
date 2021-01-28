@@ -4,7 +4,6 @@
 			"Tim Starling"
 		]
 	},
-	"apihelp-strikevote-description": "Allows admins to strike or unstrike a vote.",
 	"apihelp-strikevote-summary": "Allows admins to strike or unstrike a vote.",
 	"apihelp-strikevote-param-option": "Which action to take: strike or unstrike a vote.",
 	"apihelp-strikevote-paramvalue-option-strike": "Strike a vote (remove it from the count).",
