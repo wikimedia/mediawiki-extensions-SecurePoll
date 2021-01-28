@@ -42,7 +42,8 @@
 	},
 	"ResourceModules": {
 		"ext.securepoll.htmlform": {
-			"scripts": "ext.securepoll.htmlform.js"
+			"scripts": "ext.securepoll.htmlform.js",
+			"dependencies": [ "oojs-ui-core" ]
 		},
 		"ext.securepoll": {
 			"styles": "ext.securepoll.css"
