@@ -120,6 +120,10 @@
 		},
 		"SecurePollGpgSignKey": {
 			"value": null
+		},
+		"SecurePollUseLogging": {
+			"value": false,
+			"description": "Whether to log admin actions to securepoll_log table."
 		}
 	},
 	"manifest_version": 2
