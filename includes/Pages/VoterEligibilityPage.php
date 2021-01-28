@@ -389,9 +389,8 @@ class VoterEligibilityPage extends ActionPage {
 	}
 
 	private function executeConfig() {
-		$this->specialPage->getOutput()->addModules( 'ext.securepoll' );
-
 		$out = $this->specialPage->getOutput();
+		$out->addModuleStyles( 'ext.securepoll' );
 		$out->setPageTitle( $this->msg( 'securepoll-votereligibility-title' ) );
 
 		$formItems = [];
@@ -945,9 +944,7 @@ class VoterEligibilityPage extends ActionPage {
 			}
 		}
 
-		$this->specialPage->getOutput()->addModuleStyles( 'ext.securepoll' );
-
-		$out = $this->specialPage->getOutput();
+		$out->addModuleStyles( 'ext.securepoll' );
 		$out->setPageTitle( $this->msg( 'securepoll-votereligibility-edit-title', $name ) );
 
 		$formItems = [];
