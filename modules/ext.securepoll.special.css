@@ -131,3 +131,8 @@ tr.securepoll-exhausted td {
 tr.securepoll-spoilt {
 	font-style: italic;
 }
+
+/* Hide form until T271279 */
+.mw-special-SecurePollLog form {
+	display: none;
+}

@@ -265,5 +265,10 @@
 	"action-securepoll-create-poll": "{{Doc-action|securepoll-create-poll}}",
 	"securepoll-ns-readonly": "Error message to inform the user that the SecurePoll namespace cannot be edited.",
 	"securepoll-voter-stats": "Explanation of the unique number of voters who participated in the election; shown above the vote list.",
-	"securepoll-vote-stats": "Explanation of the total number of votes cast, as well as the number that were excluded because the voter had voted again, and the number that have been struck by an election admin; shown above the vote list."
+	"securepoll-vote-stats": "Explanation of the total number of votes cast, as well as the number that were excluded because the voter had voted again, and the number that have been struck by an election admin; shown above the vote list.",
+	"securepolllog": "{{doc-special|SecurePollLog}}",
+	"securepoll-log-action-type-0": "Log entry for an admin action in [[Special:SecurePollLog]].\n\nParameters:\n* $1 - formatted timestamp when the action was performed\n* $2 - username of the admin who performed the action\n* $3 - title of the poll\n* $4 - username of the admin who was added to the election",
+	"securepoll-log-action-type-1": "Log entry for an admin action in [[Special:SecurePollLog]].\n\nParameters:\n* $1 - formatted timestamp when the action was performed\n* $2 - username of the admin who performed the action\n* $3 - title of the poll\n* $4 - username of the admin who was removed from the election",
+	"securepoll-log-action-type-2": "Log entry for an admin action in [[Special:SecurePollLog]].\n\nParameters:\n* $1 - formatted timestamp when the action was performed\n* $2 - username of the admin who performed the action\n* $3 - title of the poll",
+	"securepoll-log-empty": "Used in [[Special:SecurePollLog]] if there are no log entries to display."
 }

@@ -68,7 +68,14 @@
 		],
 		"TitleQuickPermissions": [
 			"\\MediaWiki\\Extensions\\SecurePoll\\Hooks::onTitleQuickPermissions"
-		]
+		],
+		"SpecialPage_initList": "specialpage"
+	},
+	"HookHandlers": {
+		"specialpage": {
+			"class": "\\MediaWiki\\Extensions\\SecurePoll\\HookHandler\\SpecialPageHandler",
+			"services": [ "MainConfig" ]
+		}
 	},
 	"namespaces": [
 		{

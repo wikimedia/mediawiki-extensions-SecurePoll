@@ -11,6 +11,7 @@ $specialPageAliases = [];
 /** English (English) */
 $specialPageAliases['en'] = [
 	'SecurePoll' => [ 'SecurePoll' ],
+	'SecurePollLog' => [ 'SecurePollLog' ],
 ];
 
 /** Arabic (العربية) */
