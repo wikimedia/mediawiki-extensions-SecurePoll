@@ -4,7 +4,6 @@
 			"Jon Harald Søby"
 		]
 	},
-	"apihelp-strikevote-description": "La administratorer stryke stemmer eller fjerne stryking av stemmer.",
 	"apihelp-strikevote-summary": "Lar administratorer stryke stemmer eller fjerne stryking av stemmer.",
 	"apihelp-strikevote-param-option": "Hvilken handling som skal tas: stryking av eller fjerning av stryking av en stemme.",
 	"apihelp-strikevote-paramvalue-option-strike": "Stryk en stemme (fjern den fra tellingen).",

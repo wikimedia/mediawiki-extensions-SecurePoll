@@ -6,7 +6,6 @@
 			"아라"
 		]
 	},
-	"apihelp-strikevote-description": "관리자가 투표를 제거하거나 제거를 취소할 수 있게 합니다.",
 	"apihelp-strikevote-summary": "관리자가 투표를 제거하거나 제거를 취소할 수 있게 합니다.",
 	"apihelp-strikevote-param-option": "수행할 동작: 투표를 제거하거나 제거를 취소합니다.",
 	"apihelp-strikevote-paramvalue-option-strike": "투표를 제거합니다. (개수에서 제거)",

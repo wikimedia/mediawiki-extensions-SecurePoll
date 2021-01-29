@@ -4,7 +4,6 @@
 			"Hamilton Abreu"
 		]
 	},
-	"apihelp-strikevote-description": "Permite que os administradores anulem ou desfaçam a anulação de um voto.",
 	"apihelp-strikevote-summary": "Permite que os administradores anulem ou desfaçam a anulação de um voto.",
 	"apihelp-strikevote-param-option": "Ação a ser tomada: anular ou desfazer a anulação de um voto.",
 	"apihelp-strikevote-paramvalue-option-strike": "Anular um voto (removê-lo da contagem).",

@@ -6,7 +6,6 @@
 			"Ladsgroup"
 		]
 	},
-	"apihelp-strikevote-description": "اجازه می‌دهد که مدیران رأیی را خط بزنند یا از خط‌خوردگی به درش آورند.",
 	"apihelp-strikevote-summary": "اجازه می‌دهد که مدیران رأیی را خط بزنند یا از خط‌خوردگی به درش آورند.",
 	"apihelp-strikevote-param-option": "کدام عمل انجام شود: خط زدن رأی، یا از خط‌خوردگی به در آوردن.",
 	"apihelp-strikevote-paramvalue-option-strike": "خط زدن رأی (حذف آن از شمارش آرا).",

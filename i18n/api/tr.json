@@ -4,7 +4,6 @@
 			"BaRaN6161 TURK"
 		]
 	},
-	"apihelp-strikevote-description": "Yöneticilerin oy kullanmasına veya greve gitmesine izin verir.",
 	"apihelp-strikevote-summary": "Yöneticilerin oy kullanmasına veya greve gitmesine izin verir.",
 	"apihelp-strikevote-param-option": "Yapılması gereken eylem: oylama veya grevde bulunmak.",
 	"apihelp-strikevote-paramvalue-option-strike": "Bir oy verin (sayıdan kaldırın).",

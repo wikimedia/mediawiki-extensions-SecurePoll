@@ -4,7 +4,6 @@
 			"Chrumps"
 		]
 	},
-	"apihelp-strikevote-description": "Pozwala administratorom wykreślić lub przywrócić głos.",
 	"apihelp-strikevote-paramvalue-option-strike": "Wykreśl głos (usuń go z liczenia).",
 	"apihelp-strikevote-paramvalue-option-unstrike": "Przywróć głos (przywróć go do liczenia).",
 	"apihelp-strikevote-param-reason": "Przyczyna wykreślenia lub przywrócenia głosu.",

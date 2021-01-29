@@ -5,7 +5,6 @@
 			"Piramidion"
 		]
 	},
-	"apihelp-strikevote-description": "Дозволяє адміністраторам викреслити або відновити голоси.",
 	"apihelp-strikevote-summary": "Дозволяє адміністраторам викреслити або відновити голоси.",
 	"apihelp-strikevote-param-option": "Яку дію здійснити: викреслити чи відновити голос.",
 	"apihelp-strikevote-paramvalue-option-strike": "Викреслити голос (вилучити його із підрахунку).",

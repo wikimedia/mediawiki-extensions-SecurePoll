@@ -4,7 +4,6 @@
 			"Elisardojm"
 		]
 	},
-	"apihelp-strikevote-description": "Permite ós administradores anular ou restaurar un voto.",
 	"apihelp-strikevote-summary": "Permite ós administradores anular ou restaurar un voto.",
 	"apihelp-strikevote-param-option": "Qué acción tomar: anular ou restaurar un voto.",
 	"apihelp-strikevote-paramvalue-option-strike": "Anular un voto (eliminalo do reconto).",

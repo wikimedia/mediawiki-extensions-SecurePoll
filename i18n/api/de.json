@@ -4,7 +4,6 @@
 			"Metalhead64"
 		]
 	},
-	"apihelp-strikevote-description": "Erlaubt es Administratoren, eine Stimme zu streichen oder ihre Streichung zurückzunehmen.",
 	"apihelp-strikevote-summary": "Erlaubt es Administratoren, eine Stimme zu streichen oder ihre Streichung zurückzunehmen.",
 	"apihelp-strikevote-param-option": "Welche Aktion durchgeführt werden soll: Streichung der Stimme oder Rücknahme der Streichung.",
 	"apihelp-strikevote-paramvalue-option-strike": "Streicht eine Stimme (entfernt sie aus dem Zähler).",

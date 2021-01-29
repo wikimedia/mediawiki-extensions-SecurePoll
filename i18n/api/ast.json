@@ -4,7 +4,6 @@
 			"Xuacu"
 		]
 	},
-	"apihelp-strikevote-description": "Permite a los alministradores anular o restaurar un votu.",
 	"apihelp-strikevote-summary": "Permite a los alministradores anular o restaurar un votu.",
 	"apihelp-strikevote-param-option": "Qué aición facer: anular o restaurar un votu.",
 	"apihelp-strikevote-paramvalue-option-strike": "Anular un votu (quitalu del recuentu).",

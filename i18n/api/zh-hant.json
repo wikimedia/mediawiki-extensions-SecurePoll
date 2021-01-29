@@ -4,7 +4,6 @@
 			"Kly"
 		]
 	},
-	"apihelp-strikevote-description": "允許管理員作廢或取消作廢投票。",
 	"apihelp-strikevote-summary": "允許管理員作廢或取消作廢投票。",
 	"apihelp-strikevote-param-option": "要採用的操作：作廢或取消作廢投票。",
 	"apihelp-strikevote-paramvalue-option-strike": "作廢投票（從次數裡移除）。",

@@ -5,7 +5,6 @@
 			"Guycn2"
 		]
 	},
-	"apihelp-strikevote-description": "לאפשר למנהלים למחוק הצבעה או לבטל את מחיקתה.",
 	"apihelp-strikevote-summary": "מתן אפשרות למפעילי מערכת למחוק הצבעה או לבטל את מחיקתה.",
 	"apihelp-strikevote-param-option": "איזו פעולה לעשות: למחוק הצבעה או לבטל את מחיקתה.",
 	"apihelp-strikevote-paramvalue-option-strike": "למחוק הצבעה (להסיר אותה מהספירה).",

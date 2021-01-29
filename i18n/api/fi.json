@@ -4,7 +4,6 @@
 			"Pitke"
 		]
 	},
-	"apihelp-strikevote-description": "Antaa ylläpitäjän viivata äänen yli tai poistaa yliviivauksen.",
 	"apihelp-strikevote-param-option": "Mitä tehdään: lisää tai poista yliviivaus äänestä.",
 	"apihelp-strikevote-paramvalue-option-strike": "Yliviivaa ääni (ääntä ei lasketa).",
 	"apihelp-strikevote-paramvalue-option-unstrike": "Poista yliviivaus (ääni lasketaan taas).",

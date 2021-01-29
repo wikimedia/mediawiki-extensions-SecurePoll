@@ -6,7 +6,6 @@
 			"Macofe"
 		]
 	},
-	"apihelp-strikevote-description": "Permite a los administradores validar o invalidar un voto.",
 	"apihelp-strikevote-summary": "Permite a administradores tachar o destachar un voto.",
 	"apihelp-strikevote-param-option": "Qué acción tomar: validar o invalidar un voto.",
 	"apihelp-strikevote-paramvalue-option-strike": "Invalidar un voto (quitar del conteo).",

@@ -118,6 +118,7 @@
 	"securepoll-tally-local-submit": "Skapa rösträkning",
 	"securepoll-tally-upload-legend": "Ladda upp krypterad dump.",
 	"securepoll-tally-upload-submit": "Skapa rösträkning",
+	"securepoll-tally-gpg-decrypt-key": "GPG-dekrypteringsnyckel",
 	"securepoll-tally-error": "Fel vid läsning av röstlängd, kan inte skapa rösträkning.",
 	"securepoll-no-upload": "Ingen fil laddades upp, kan inte räkna fram ett resultat.",
 	"securepoll-dump-corrupt": "Dumpningsfilen är korrupt och kan inte bearbetas.",

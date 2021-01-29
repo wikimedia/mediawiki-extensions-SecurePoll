@@ -4,7 +4,6 @@
 			"Liuxinyu970226"
 		]
 	},
-	"apihelp-strikevote-description": "允许管理员划去或取消划去一张投票。",
 	"apihelp-strikevote-summary": "允许管理员划去或取消划去一张投票。",
 	"apihelp-strikevote-param-option": "要执行的操作：划掉或取消划掉一张投票。",
 	"apihelp-strikevote-paramvalue-option-strike": "划掉一张投票（从计数中移除）。",

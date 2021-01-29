@@ -5,7 +5,6 @@
 			"Felipe L. Ewald"
 		]
 	},
-	"apihelp-strikevote-description": "Permitir aos administradores invalidar ou validar um voto.",
 	"apihelp-strikevote-summary": "Permitir aos administradores invalidar ou validar um voto.",
 	"apihelp-strikevote-param-option": "Que ação tomar: invalidar ou validar um voto.",
 	"apihelp-strikevote-paramvalue-option-strike": "Invalidar um voto (removê-lo da contagem).",

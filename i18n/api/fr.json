@@ -5,7 +5,6 @@
 			"Wladek92"
 		]
 	},
-	"apihelp-strikevote-description": "Permet aux administrateurs d'annuler ou de réintégrer un vote.",
 	"apihelp-strikevote-summary": "Permet aux administrateurs d'annuler ou de réintégrer un vote.",
 	"apihelp-strikevote-param-option": "Quelle action prendre: annuler ou reintégrer un vote.",
 	"apihelp-strikevote-paramvalue-option-strike": "Annuler un vote (supprimer du comptage).",

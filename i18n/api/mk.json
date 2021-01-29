@@ -5,7 +5,6 @@
 			"Vlad5250"
 		]
 	},
-	"apihelp-strikevote-description": "Им овозможува на администраторите да поништат или повратат глас.",
 	"apihelp-strikevote-summary": "Им овозможува на администраторите да поништат или повратат глас.",
 	"apihelp-strikevote-param-option": "Кое дејство да се изврши: поништување или повраток.",
 	"apihelp-strikevote-paramvalue-option-strike": "Поништи глас (отстрани го од бројот на гласови).",

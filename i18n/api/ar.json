@@ -4,7 +4,6 @@
 			"ديفيد"
 		]
 	},
-	"apihelp-strikevote-description": "يسمح للإداريين باحتساب أو إلغاء صوت.",
 	"apihelp-strikevote-summary": "يسمح للإداريين باحتساب أو إلغاء صوت.",
 	"apihelp-strikevote-param-option": "الإجراء الذي يجب اتخاذه: احتساب أو إلغاء صوت.",
 	"apihelp-strikevote-paramvalue-option-strike": "أبطل الصوت (أزله من العد).",
