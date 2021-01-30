@@ -317,8 +317,8 @@ class CreatePage extends ActionPage {
 				$type = "$ballotType+$tallyType";
 				$types[] = $type;
 				$tallyTypes[$tallyType][] = $type;
-				$formItems['election_type']['options-messages']
-				["securepoll-create-option-election_type-$type"] = $type;
+				$formItems['election_type']['options-messages']["securepoll-create-option-election_type-$type"]
+					= $type;
 			}
 
 			self::processFormItems(
@@ -372,8 +372,8 @@ class CreatePage extends ActionPage {
 		}
 
 		foreach ( Crypt::$cryptTypes as $type => $class ) {
-			$formItems['election_crypt']['options-messages']
-			["securepoll-create-option-election_crypt-$type"] = $type;
+			$formItems['election_crypt']['options-messages']["securepoll-create-option-election_crypt-$type"]
+				= $type;
 			if ( $class !== false ) {
 				self::processFormItems(
 					$formItems,
