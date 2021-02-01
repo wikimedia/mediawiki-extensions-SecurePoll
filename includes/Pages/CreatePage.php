@@ -10,7 +10,6 @@ use MediaWiki\Extensions\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extensions\SecurePoll\Context;
 use MediaWiki\Extensions\SecurePoll\Crypt\Crypt;
 use MediaWiki\Extensions\SecurePoll\DBStore;
-use MediaWiki\Extensions\SecurePoll\Entities\Election;
 use MediaWiki\Extensions\SecurePoll\Entities\Entity;
 use MediaWiki\Extensions\SecurePoll\SecurePollContentHandler;
 use MediaWiki\Extensions\SecurePoll\Talliers\Tallier;
@@ -447,7 +446,7 @@ class CreatePage extends ActionPage {
 					'wpEditToken'
 				) )
 		) {
-			$form->mFieldData = $this->getFormDataFromElection( $this->election );
+			$form->mFieldData = $this->getFormDataFromElection();
 		}
 
 		$result = $form->tryAuthorizedSubmit();
@@ -739,10 +738,9 @@ class CreatePage extends ActionPage {
 	/**
 	 * Recreate the form data from an election
 	 *
-	 * @param Election $election
 	 * @return array
 	 */
-	private function getFormDataFromElection( $election ) {
+	private function getFormDataFromElection() {
 		$lang = $this->election->getLanguage();
 		$data = array_replace_recursive(
 			SecurePollContentHandler::getDataFromElection( $this->election, "msg/$lang" ),
