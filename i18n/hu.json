@@ -8,6 +8,7 @@
 			"Dani",
 			"Dj",
 			"Glanthor Reviol",
+			"Hanna Tardos",
 			"Hunyadym",
 			"Tacsipacsi",
 			"Tgr"
@@ -112,6 +113,7 @@
 	"securepoll-tally-local-submit": "Összesítés készítése",
 	"securepoll-tally-upload-legend": "Titkosított dump feltöltése",
 	"securepoll-tally-upload-submit": "Összesítés készítése",
+	"securepoll-tally-gpg-decrypt-key": "GPG feloldókulcs",
 	"securepoll-tally-error": "Hiba a szavazási jegyzőkönyv értelmezésében, nem lehetett összesítést készíteni.",
 	"securepoll-no-upload": "Semmilyen fájlt nem töltöttek fel, az eredményt így nem lehet összesíteni.",
 	"securepoll-dump-corrupt": "A dump fájl hibás, nem sikerült feldolgozni.",
