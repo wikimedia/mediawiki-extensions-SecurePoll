@@ -422,6 +422,16 @@ class CreatePage extends ActionPage {
 			];
 		}
 
+		// Set form field defaults from any existing election
+		if ( $this->election ) {
+			$existingFieldData = $this->getFormDataFromElection();
+			foreach ( $existingFieldData as $fieldName => $fieldValue ) {
+				if ( isset( $formItems[ $fieldName ] ) ) {
+					$formItems[ $fieldName ]['default'] = $fieldValue;
+				}
+			}
+		}
+
 		$form = HTMLForm::factory(
 			'ooui',
 			$formItems,
