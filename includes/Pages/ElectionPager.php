@@ -30,7 +30,7 @@ class ElectionPager extends TablePager {
 		],
 		'edit' => [
 			'public' => false,
-			'visible-after-start' => false,
+			'visible-after-start' => true,
 			'visible-after-close' => false,
 		],
 		'votereligibility' => [
