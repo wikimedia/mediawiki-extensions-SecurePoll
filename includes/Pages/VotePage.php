@@ -238,6 +238,8 @@ class VotePage extends ActionPage {
 				'vote_timestamp' => $now,
 				'vote_current' => 1,
 				'vote_token_match' => $tokenMatch ? 1 : 0,
+				'vote_struck' => 0,
+				'vote_cookie_dup' => 0,
 			],
 			__METHOD__
 		);
