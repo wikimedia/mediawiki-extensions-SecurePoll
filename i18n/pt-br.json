@@ -256,5 +256,10 @@
 	"action-securepoll-create-poll": "criar enquetes",
 	"securepoll-ns-readonly": "O domínio {{ns:SecurePoll}} é somente leitura",
 	"securepoll-voter-stats": "De todos eleitores em potencial, $1 {{PLURAL:$1|eleitor votou|eleitores votaram}}.",
-	"securepoll-vote-stats": "Um total de $1 {{PLURAL:$1|voto foi registrado|votos foram registrados}}. Desses, $2 {{PLURAL:$2|foi descartado|foram descartados}} porque o eleitor votou mais de uma vez e $3 {{PLURAL:$3|foi suprimido|foram suprimidos}}."
+	"securepoll-vote-stats": "Um total de $1 {{PLURAL:$1|voto foi registrado|votos foram registrados}}. Desses, $2 {{PLURAL:$2|foi descartado|foram descartados}} porque o eleitor votou mais de uma vez e $3 {{PLURAL:$3|foi suprimido|foram suprimidos}}.",
+	"securepolllog": "Registro de SecurePoll",
+	"securepoll-log-action-type-0": "$1, $2 adicionou $4 aos administradores da votação para a eleição <em>$3</em>.",
+	"securepoll-log-action-type-1": "$1, $2 removeu $4 dos administradores da votação para a eleição <em>$3</em>.",
+	"securepoll-log-action-type-2": "$1, $2 visualizou os dados do eleitor para a votação <em>$3</em>.",
+	"securepoll-log-empty": "Nenhuma entrada de registro encontrada."
 }

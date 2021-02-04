@@ -241,5 +241,10 @@
 	"action-securepoll-create-poll": "ליצור הצבעות",
 	"securepoll-ns-readonly": "מרחב השם {{ns:SecurePoll}} מיועד לקריאה בלבד",
 	"securepoll-voter-stats": "מכל בעלי זכות ההצבעה, {{PLURAL:$1|הצביע אחד|הצביעו $1}}.",
-	"securepoll-vote-stats": "בסך הכול {{PLURAL:$1|היה קול אחד|היו $1 קולות}}. מתוך אלה, {{PLURAL:$2|אחד נזרק|$2 נזרקו}} כי המצביע הצביע שוב {{PLURAL:$3|ואחד נמחק|ו־$3 נמחקו}}."
+	"securepoll-vote-stats": "בסך הכול {{PLURAL:$1|היה קול אחד|היו $1 קולות}}. מתוך אלה, {{PLURAL:$2|אחד נזרק|$2 נזרקו}} כי המצביע הצביע שוב {{PLURAL:$3|ואחד נמחק|ו־$3 נמחקו}}.",
+	"securepolllog": "יומן הצבעה מאובטחת",
+	"securepoll-log-action-type-0": "$1, $2 {{GENDER:$2|הוסיף|הוסיפה}} את $4 למנהלי ההצבעה עבור הבחירות <em>$3</em>.",
+	"securepoll-log-action-type-1": "$1, $2 {{GENDER:$2|הסיר|הסירה}} את $4 ממנהלי ההצבעה עבור הבחירות <em>$3</em>.",
+	"securepoll-log-action-type-2": "$1, $2 {{GENDER:$2|צפה|צפתה}} בנתוני ההצבעה עבור הבחירות <em>$3</em>.",
+	"securepoll-log-empty": "לא נמצאו רשומות יומן."
 }

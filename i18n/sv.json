@@ -237,5 +237,10 @@
 	"securepoll-votereligibility-cleared-comment": "$1 tömd.",
 	"right-securepoll-create-poll": "Skapa enkäter",
 	"action-securepoll-create-poll": "skapa enkäter",
-	"securepoll-ns-readonly": "Namnrymden {{ns:SecurePoll}} är i skrivskyddat läge"
+	"securepoll-ns-readonly": "Namnrymden {{ns:SecurePoll}} är i skrivskyddat läge",
+	"securepolllog": "SecurePoll-logg",
+	"securepoll-log-action-type-0": "$1, $2 la till $4 till valadministratörerna för valet <em>$3</em>.",
+	"securepoll-log-action-type-1": "$1, $2 tog bort $4 från valadministratörerna för valet <em>$3</em>.",
+	"securepoll-log-action-type-2": "$1, $2 visade röstningsdata för valet <em>$3</em>.",
+	"securepoll-log-empty": "Inga logginlägg hittades."
 }

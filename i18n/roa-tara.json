@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Casadelproverbio",
 			"Joetaras"
 		]
 	},
@@ -127,5 +128,6 @@
 	"securepoll-votereligibility-action": "Reggistre 'a configurazione",
 	"securepoll-votereligibility-cleared-comment": "$1 sdevacate.",
 	"right-securepoll-create-poll": "Ccreje sondagge",
-	"action-securepoll-create-poll": "ccreje sondagge"
+	"action-securepoll-create-poll": "ccreje sondagge",
+	"securepolllog": "Archivije de SecurPoll"
 }
