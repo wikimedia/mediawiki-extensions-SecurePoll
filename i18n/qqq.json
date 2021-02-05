@@ -270,6 +270,7 @@
 	"securepolllog-form-type-option-all": "Label for a dropdown option in [[Special:SecurePollLog]]",
 	"securepolllog-form-type-option-voter": "Label for a dropdown option in [[Special:SecurePollLog]]",
 	"securepolllog-form-type-option-admin": "Label for a dropdown option in [[Special:SecurePollLog]]",
+	"securepolllog-form-target-label": "Label for a field in [[Special:SecurePollLog]]",
 	"securepoll-log-action-type-0": "Log entry for an admin action in [[Special:SecurePollLog]].\n\nParameters:\n* $1 - formatted timestamp when the action was performed\n* $2 - username of the admin who performed the action\n* $3 - title of the poll\n* $4 - username of the admin who was added to the election",
 	"securepoll-log-action-type-1": "Log entry for an admin action in [[Special:SecurePollLog]].\n\nParameters:\n* $1 - formatted timestamp when the action was performed\n* $2 - username of the admin who performed the action\n* $3 - title of the poll\n* $4 - username of the admin who was removed from the election",
 	"securepoll-log-action-type-2": "Log entry for an admin action in [[Special:SecurePollLog]].\n\nParameters:\n* $1 - formatted timestamp when the action was performed\n* $2 - username of the admin who performed the action\n* $3 - title of the poll",

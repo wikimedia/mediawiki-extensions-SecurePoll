@@ -15,17 +15,23 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 	/** @var string */
 	private $type;
 
+	/** @var string */
+	private $target;
+
 	/**
 	 * @param Context $context
 	 * @param string $type
+	 * @param string $target
 	 */
 	public function __construct(
 		Context $context,
-		string $type
+		string $type,
+		string $target
 	) {
 		parent::__construct();
 		$this->context = $context;
 		$this->type = $type;
+		$this->target = $target;
 	}
 
 	/**
@@ -65,6 +71,11 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 		}
 		if ( $type ) {
 			$conds['spl_type'] = $type;
+		}
+
+		if ( $this->target ) {
+			$target = User::newFromName( $this->target )->getId();
+			$conds['spl_target'] = $target;
 		}
 
 		return $conds;
