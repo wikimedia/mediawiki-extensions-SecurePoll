@@ -26,6 +26,9 @@ class SpecialPageHandler implements SpecialPage_initListHook {
 		if ( $this->config->get( 'SecurePollUseLogging' ) ) {
 			$list['SecurePollLog'] = [
 				'class' => SpecialSecurePollLog::class,
+				'services' => [
+					'UserFactory',
+				]
 			];
 		}
 	}

@@ -4,17 +4,22 @@ namespace MediaWiki\Extensions\SecurePoll;
 
 use FormSpecialPage;
 use HTMLForm;
+use MediaWiki\User\UserFactory;
 
 class SpecialSecurePollLog extends FormSpecialPage {
 	/** @var Context */
 	private $context;
 
+	/** @var UserFactory */
+	private $userFactory;
+
 	/**
 	 * @inheritDoc
 	 */
-	public function __construct() {
+	public function __construct( UserFactory $userFactory ) {
 		parent::__construct( 'SecurePollLog', 'securepoll-create-poll' );
 		$this->context = new Context();
+		$this->userFactory = $userFactory;
 	}
 
 	/**
@@ -127,6 +132,7 @@ class SpecialSecurePollLog extends FormSpecialPage {
 
 		$pager = new SecurePollLogPager(
 			$this->context,
+			$this->userFactory,
 			$data['type'],
 			$data['performer'],
 			$data['type'] === 'voter' ? '' : $data['target'],

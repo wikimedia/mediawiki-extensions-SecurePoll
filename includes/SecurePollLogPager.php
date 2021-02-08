@@ -5,12 +5,15 @@ namespace MediaWiki\Extensions\SecurePoll;
 use HTML;
 use Linker;
 use MediaWiki\Extensions\SecurePoll\Pages\ActionPage;
+use MediaWiki\User\UserFactory;
 use ReverseChronologicalPager;
-use User;
 
 class SecurePollLogPager extends ReverseChronologicalPager {
 	/** @var Context */
 	private $context;
+
+	/** @var UserFactory */
+	private $userFactory;
 
 	/** @var string */
 	private $type;
@@ -26,6 +29,7 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 
 	/**
 	 * @param Context $context
+	 * @param UserFactory $userFactory
 	 * @param string $type
 	 * @param string $performer
 	 * @param string $target
@@ -33,6 +37,7 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 	 */
 	public function __construct(
 		Context $context,
+		UserFactory $userFactory,
 		string $type,
 		string $performer,
 		string $target,
@@ -40,6 +45,7 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 	) {
 		parent::__construct();
 		$this->context = $context;
+		$this->userFactory = $userFactory;
 		$this->type = $type;
 		$this->performer = $performer;
 		$this->target = $target;
@@ -86,12 +92,12 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 		}
 
 		if ( $this->performer ) {
-			$performer = User::newFromName( $this->performer )->getId();
+			$performer = $this->userFactory->newFromName( $this->performer )->getId();
 			$conds['spl_user'] = $performer;
 		}
 
 		if ( $this->target ) {
-			$target = User::newFromName( $this->target )->getId();
+			$target = $this->userFactory->newFromName( $this->target )->getId();
 			$conds['spl_target'] = $target;
 		}
 
@@ -119,7 +125,7 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 			true
 		);
 
-		$user = User::newFromId( $row->spl_user );
+		$user = $this->userFactory->newFromId( $row->spl_user );
 		$userLink = Linker::userLink( $user->getId(), $user->getName() );
 
 		$election = $this->context->getElection( $row->spl_election_id );
@@ -132,7 +138,7 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 		];
 
 		if ( $row->spl_target ) {
-			$target = User::newFromId( $row->spl_target );
+			$target = $this->userFactory->newFromId( $row->spl_target );
 			$messageParams[] = Linker::userLink( $target->getId(), $target->getName() );
 		}
 

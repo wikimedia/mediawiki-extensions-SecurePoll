@@ -3,6 +3,7 @@
 namespace MediaWiki\Extensions\SecurePoll\Test\Integration;
 
 use MediaWiki\Extensions\SecurePoll\SpecialSecurePollLog;
+use MediaWiki\User\UserFactory;
 use PermissionsError;
 use SpecialPageTestBase;
 
@@ -15,7 +16,9 @@ class SpecialSecurePollLogTest extends SpecialPageTestBase {
 	 * @inheritDoc
 	 */
 	protected function newSpecialPage() {
-		return new SpecialSecurePollLog();
+		return new SpecialSecurePollLog(
+			$this->createMock( UserFactory::class )
+		);
 	}
 
 	public function testUserWrongPermissions() {
