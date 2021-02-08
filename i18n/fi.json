@@ -113,6 +113,7 @@
 	"securepoll-tally-local-submit": "Tuota laskenta",
 	"securepoll-tally-upload-legend": "Tallenna salakirjoitettu vedos",
 	"securepoll-tally-upload-submit": "Luo laskenta",
+	"securepoll-tally-gpg-decrypt-key": "GPG-salauksenpurkuavain",
 	"securepoll-tally-error": "Virhe äänestystiedoston tulkinnassa, joten ei voitu tuottaa laskentaa.",
 	"securepoll-no-upload": "Tiedostoa ei lähetettynä, joten laskenta ei onnistunut.",
 	"securepoll-dump-corrupt": "Vedostiedosto on vioittunut eikä sitä voida käsitellä.",
@@ -134,5 +135,8 @@
 	"securepoll-votereligibility-label-names": "Käyttäjänimet",
 	"securepoll-votereligibility-label-comment": "Syy",
 	"securepoll-votereligibility-edit-action": "Tallenna lista",
-	"securepoll-votereligibility-saved": "{{int:securepoll}}: Tallennettu"
+	"securepoll-votereligibility-saved": "{{int:securepoll}}: Tallennettu",
+	"securepolllog": "SecurePoll-loki",
+	"securepoll-log-action-type-2": "$1, $2 katsoi vaalin <em>$3</em> äänestäjätiedot.",
+	"securepoll-log-empty": "Ei lokimerkintöjä."
 }
