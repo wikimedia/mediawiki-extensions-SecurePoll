@@ -58,6 +58,17 @@ class SpecialSecurePollLog extends FormSpecialPage {
 			'default' => 'all',
 		];
 
+		$fields['electionName'] = [
+			'name' => 'election_name',
+			'type' => 'text',
+			'label-message' => $prefix . '-form-electionname-label',
+			'default' => '',
+			'validation-callback' => [
+				$this,
+				'checkIfElectionExists',
+			],
+		];
+
 		$fields['target'] = [
 			'name' => 'target',
 			'type' => 'user',
@@ -109,7 +120,8 @@ class SpecialSecurePollLog extends FormSpecialPage {
 		$pager = new SecurePollLogPager(
 			$this->context,
 			$data['type'],
-			$data['type'] === 'voter' ? '' : $data['target']
+			$data['type'] === 'voter' ? '' : $data['target'],
+			$data['electionName']
 		);
 
 		$this->getOutput()->addHTML(
@@ -118,5 +130,25 @@ class SpecialSecurePollLog extends FormSpecialPage {
 			$pager->getNavigationBar()
 		);
 		return true;
+	}
+
+	/**
+	 * Check that the election id exists
+	 *
+	 * Given a title, return the id of the election or false if it doesn't exist
+	 *
+	 * @internal For use by the HTMLFormField
+	 * @param string $value
+	 * @return bool|string true on success, string on error
+	 */
+	public function checkIfElectionExists( $value ) {
+		$election = $this->context->getElectionByTitle( $value );
+		if ( !$value || $election ) {
+			return true;
+		}
+		return $this->msg(
+			'securepolllog-election-does-not-exist',
+			$value
+		)->parse();
 	}
 }
