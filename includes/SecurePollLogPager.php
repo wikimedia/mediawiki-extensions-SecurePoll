@@ -4,6 +4,7 @@ namespace MediaWiki\Extensions\SecurePoll;
 
 use HTML;
 use Linker;
+use MediaWiki\Extensions\SecurePoll\Pages\ActionPage;
 use ReverseChronologicalPager;
 use User;
 
@@ -11,12 +12,20 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 	/** @var Context */
 	private $context;
 
+	/** @var string */
+	private $type;
+
 	/**
 	 * @param Context $context
+	 * @param string $type
 	 */
-	public function __construct( Context $context ) {
+	public function __construct(
+		Context $context,
+		string $type
+	) {
 		parent::__construct();
 		$this->context = $context;
+		$this->type = $type;
 	}
 
 	/**
@@ -33,7 +42,32 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 				'spl_type',
 				'spl_target',
 			],
+			'conds' => $this->getFilterConds(),
 		];
+	}
+
+	private function getFilterConds() {
+		$conds = [];
+
+		switch ( $this->type ) {
+			case 'voter':
+				$type = ActionPage::LOG_TYPE_VIEWVOTES;
+				break;
+			case 'admin':
+				$type = [
+					ActionPage::LOG_TYPE_ADDADMIN,
+					ActionPage::LOG_TYPE_REMOVEADMIN,
+				];
+				break;
+			default:
+				$type = null;
+				break;
+		}
+		if ( $type ) {
+			$conds['spl_type'] = $type;
+		}
+
+		return $conds;
 	}
 
 	/**
