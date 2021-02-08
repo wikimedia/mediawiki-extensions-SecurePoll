@@ -15,6 +15,7 @@ class SecurePollLogPagerTest extends MediaWikiIntegrationTestCase {
 			$this->createMock( Context::class ),
 			'all',
 			'',
+			'',
 			''
 		);
 		$conds = $pager->getQueryInfo()['conds'];

@@ -16,6 +16,9 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 	private $type;
 
 	/** @var string */
+	private $performer;
+
+	/** @var string */
 	private $target;
 
 	/** @var string */
@@ -24,18 +27,21 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 	/**
 	 * @param Context $context
 	 * @param string $type
+	 * @param string $performer
 	 * @param string $target
 	 * @param string $electionName
 	 */
 	public function __construct(
 		Context $context,
 		string $type,
+		string $performer,
 		string $target,
 		string $electionName
 	) {
 		parent::__construct();
 		$this->context = $context;
 		$this->type = $type;
+		$this->performer = $performer;
 		$this->target = $target;
 		$this->electionName = $electionName;
 	}
@@ -77,6 +83,11 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 		}
 		if ( $type ) {
 			$conds['spl_type'] = $type;
+		}
+
+		if ( $this->performer ) {
+			$performer = User::newFromName( $this->performer )->getId();
+			$conds['spl_user'] = $performer;
 		}
 
 		if ( $this->target ) {

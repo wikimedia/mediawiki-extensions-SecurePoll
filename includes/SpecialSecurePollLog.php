@@ -69,6 +69,14 @@ class SpecialSecurePollLog extends FormSpecialPage {
 			],
 		];
 
+		$fields['performer'] = [
+			'name' => 'performer',
+			'type' => 'user',
+			'label-message' => $prefix . '-form-performer-label',
+			'exists' => true,
+			'default' => '',
+		];
+
 		$fields['target'] = [
 			'name' => 'target',
 			'type' => 'user',
@@ -120,6 +128,7 @@ class SpecialSecurePollLog extends FormSpecialPage {
 		$pager = new SecurePollLogPager(
 			$this->context,
 			$data['type'],
+			$data['performer'],
 			$data['type'] === 'voter' ? '' : $data['target'],
 			$data['electionName']
 		);
