@@ -90,6 +90,14 @@ class SpecialSecurePollLog extends FormSpecialPage {
 			'default' => '',
 		];
 
+		$fields['date'] = [
+			'name' => 'date',
+			'type' => 'date',
+			'label-message' => $prefix . '-form-date-label',
+			'default' => '',
+			'max' => gmdate( 'M-d-Y' ),
+		];
+
 		$this->setFormDefaults( $fields );
 
 		return $fields;
@@ -130,13 +138,28 @@ class SpecialSecurePollLog extends FormSpecialPage {
 		$form->prepareForm();
 		$form->displayForm( true );
 
+		// Get date components
+		if ( $data['date'] ) {
+			$date = explode( '-', $data['date'] );
+			$year = (int)$date[0];
+			$month = (int)$date[1];
+			$day = (int)$date[2];
+		} else {
+			$year = 0;
+			$month = 0;
+			$day = 0;
+		}
+
 		$pager = new SecurePollLogPager(
 			$this->context,
 			$this->userFactory,
 			$data['type'],
 			$data['performer'],
 			$data['type'] === 'voter' ? '' : $data['target'],
-			$data['electionName']
+			$data['electionName'],
+			$year,
+			$month,
+			$day
 		);
 
 		$this->getOutput()->addHTML(
