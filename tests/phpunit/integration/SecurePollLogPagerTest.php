@@ -13,7 +13,8 @@ class SecurePollLogPagerTest extends MediaWikiIntegrationTestCase {
 	public function testGetQueryInfoNoFilters() {
 		$pager = new SecurePollLogPager(
 			$this->createMock( Context::class ),
-			'all'
+			'all',
+			''
 		);
 		$conds = $pager->getQueryInfo()['conds'];
 		$this->assertSame( $conds, [] );

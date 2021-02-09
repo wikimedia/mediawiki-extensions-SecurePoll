@@ -20,6 +20,15 @@ class SpecialSecurePollLog extends FormSpecialPage {
 	/**
 	 * @inheritDoc
 	 */
+	public function execute( $par ) {
+		parent::execute( $par );
+
+		$this->getOutput()->addModules( 'ext.securepoll.htmlform' );
+	}
+
+	/**
+	 * @inheritDoc
+	 */
 	public function requiresWrite() {
 		return false;
 	}
@@ -47,6 +56,14 @@ class SpecialSecurePollLog extends FormSpecialPage {
 				$prefix . '-form-type-option-admin' => 'admin',
 			],
 			'default' => 'all',
+		];
+
+		$fields['target'] = [
+			'name' => 'target',
+			'type' => 'user',
+			'label-message' => $prefix . '-form-target-label',
+			'exists' => true,
+			'default' => '',
 		];
 
 		$this->setFormDefaults( $fields );
@@ -91,7 +108,8 @@ class SpecialSecurePollLog extends FormSpecialPage {
 
 		$pager = new SecurePollLogPager(
 			$this->context,
-			$data['type']
+			$data['type'],
+			$data['type'] === 'voter' ? '' : $data['target']
 		);
 
 		$this->getOutput()->addHTML(

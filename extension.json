@@ -43,7 +43,10 @@
 	"ResourceModules": {
 		"ext.securepoll.htmlform": {
 			"scripts": "ext.securepoll.htmlform.js",
-			"dependencies": [ "oojs-ui-core" ]
+			"dependencies": [
+				"oojs-ui-core",
+				"mediawiki.widgets.UserInputWidget"
+			]
 		},
 		"ext.securepoll": {
 			"styles": "ext.securepoll.css"
