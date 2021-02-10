@@ -11,6 +11,7 @@
 			"Góngora",
 			"Imre",
 			"Indiralena",
+			"JamesB",
 			"Macofe",
 			"MarcoAurelio",
 			"Matiia",
@@ -248,5 +249,7 @@
 	"action-securepoll-create-poll": "crear encuestas",
 	"securepoll-ns-readonly": "El espacio de nombres {{ns:SecurePoll}} es de solo lectura",
 	"securepoll-voter-stats": "De todos los usuarios con derecho de voto, $1 {{PLURAL:$1|ha|han}} votado.",
-	"securepoll-vote-stats": "Se {{PLURAL:$1|ha|han}} emitido $1 {{PLURAL:$1|voto|votos}}. De estos, se {{PLURAL:$2|ha|han}} rechazado $2 porque el votante ha votado de nuevo, y se {{PLURAL:$3|ha|han}} suprimido $3."
+	"securepoll-vote-stats": "Se {{PLURAL:$1|ha|han}} emitido $1 {{PLURAL:$1|voto|votos}}. De estos, se {{PLURAL:$2|ha|han}} rechazado $2 porque el votante ha votado de nuevo, y se {{PLURAL:$3|ha|han}} suprimido $3.",
+	"securepolllog-form-type-option-voter": "Registro de votantes",
+	"securepolllog-form-type-option-admin": "Registro Admin"
 }
