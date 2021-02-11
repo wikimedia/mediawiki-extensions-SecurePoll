@@ -252,6 +252,7 @@
 	"securepolllog-form-target-label": "Target (username):",
 	"securepolllog-form-electionname-label": "Election (title):",
 	"securepolllog-election-does-not-exist": "Election not found",
+	"securepolllog-form-date-label": "From date (and earlier):",
 	"securepoll-log-action-type-0": "$1, $2 added $4 to the poll admins for the election <em>$3</em>.",
 	"securepoll-log-action-type-1": "$1, $2 removed $4 from the poll admins for the election <em>$3</em>.",
 	"securepoll-log-action-type-2": "$1, $2 viewed voter data for the election <em>$3</em>.",

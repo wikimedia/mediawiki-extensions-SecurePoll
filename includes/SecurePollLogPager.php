@@ -34,6 +34,9 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 	 * @param string $performer
 	 * @param string $target
 	 * @param string $electionName
+	 * @param int $year
+	 * @param int $month
+	 * @param int $day
 	 */
 	public function __construct(
 		Context $context,
@@ -41,7 +44,10 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 		string $type,
 		string $performer,
 		string $target,
-		string $electionName
+		string $electionName,
+		int $year,
+		int $month,
+		int $day
 	) {
 		parent::__construct();
 		$this->context = $context;
@@ -50,6 +56,8 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 		$this->performer = $performer;
 		$this->target = $target;
 		$this->electionName = $electionName;
+
+		$this->getDateCond( $year, $month, $day );
 	}
 
 	/**
@@ -68,6 +76,15 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 			],
 			'conds' => $this->getFilterConds(),
 		];
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getDefaultQuery() {
+		parent::getDefaultQuery();
+		unset( $this->mDefaultQuery['date'] );
+		return $this->mDefaultQuery;
 	}
 
 	private function getFilterConds() {
