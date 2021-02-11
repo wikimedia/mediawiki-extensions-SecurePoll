@@ -92,6 +92,8 @@ class CreatePage extends ActionPage {
 		] );
 		$out->setPageTitle( $this->msg( 'securepoll-create-title' ) );
 
+		$election = $this->election;
+		$isRunning = $election && $election->isStarted() && !$election->isFinished();
 		$formItems = [];
 
 		$formItems['election_id'] = [
@@ -108,13 +110,14 @@ class CreatePage extends ActionPage {
 		$formItems['default_submit'] = [
 			'type' => 'submit',
 			'buttonlabel' => 'submit',
-			'cssclass' => 'securepoll-default-submit'
+			'cssclass' => 'securepoll-default-submit',
 		];
 
 		$formItems['election_title'] = [
 			'label-message' => 'securepoll-create-label-election_title',
 			'type' => 'text',
 			'required' => true,
+			'disabled' => $isRunning,
 		];
 
 		$wikiNames = FormStore::getWikiList();
@@ -149,6 +152,7 @@ class CreatePage extends ActionPage {
 				'type' => 'select',
 				'options' => $opts,
 				'label-message' => 'securepoll-create-label-wiki',
+				'disabled' => $isRunning,
 			];
 		} else {
 			$options['securepoll-create-option-wiki-other_wiki'] = 'other';
@@ -159,6 +163,7 @@ class CreatePage extends ActionPage {
 				'label-message' => 'securepoll-create-label-wiki',
 				'require-match' => true,
 				'default' => wfWikiID(),
+				'disabled' => $isRunning,
 			];
 		}
 
@@ -175,13 +180,15 @@ class CreatePage extends ActionPage {
 			'label-message' => 'securepoll-create-label-election_primarylang',
 			'default' => 'en',
 			'required' => true,
+			'disabled' => $isRunning,
 		];
 
 		$formItems['election_startdate'] = [
 			'label-message' => 'securepoll-create-label-election_startdate',
 			'type' => 'date',
 			'required' => true,
-			'min' => gmdate( 'M-d-Y' ),
+			'min' => $isRunning ? '' : gmdate( 'M-d-Y' ),
+			'disabled' => $isRunning,
 		];
 
 		$days = [];
@@ -193,6 +200,7 @@ class CreatePage extends ActionPage {
 			'label-message' => 'securepoll-create-label-election_duration',
 			'required' => true,
 			'options' => $days,
+			'disabled' => $isRunning,
 		];
 
 		$formItems['return-url'] = [
@@ -204,6 +212,7 @@ class CreatePage extends ActionPage {
 			$formItems['jump-text'] = [
 				'label-message' => 'securepoll-create-label-election_jump-text',
 				'type' => 'text',
+				'disabled' => $isRunning,
 			];
 			if ( $formItems['property_wiki']['type'] === 'select' ) {
 				$formItems['jump-text']['hide-if'] = [
@@ -225,6 +234,7 @@ class CreatePage extends ActionPage {
 			'type' => 'radio',
 			'options-messages' => [],
 			'required' => true,
+			'disabled' => $isRunning,
 		];
 
 		if ( count( Crypt::$cryptTypes ) > 1 ) {
@@ -233,6 +243,7 @@ class CreatePage extends ActionPage {
 				'type' => 'radio',
 				'options-messages' => [],
 				'required' => true,
+				'disabled' => $isRunning,
 			];
 		} else {
 			reset( Crypt::$cryptTypes );
@@ -248,12 +259,14 @@ class CreatePage extends ActionPage {
 			'label-message' => 'securepoll-create-label-election_disallow-change',
 			'type' => 'check',
 			'hidelabel' => true,
+			'disabled' => $isRunning,
 		];
 
 		$formItems['voter-privacy'] = [
 			'label-message' => 'securepoll-create-label-voter_privacy',
 			'type' => 'check',
 			'hidelabel' => true,
+			'disabled' => $isRunning,
 		];
 
 		$formItems['property_admins'] = [
@@ -280,10 +293,12 @@ class CreatePage extends ActionPage {
 					$this,
 					'checkRequired',
 				],
+				'disabled' => $isRunning,
 			],
 			'delete' => [
 				'type' => 'submit',
 				'default' => $this->msg( 'securepoll-create-label-questions-delete' )->text(),
+				'disabled' => $isRunning,
 			],
 		];
 
@@ -300,10 +315,12 @@ class CreatePage extends ActionPage {
 					$this,
 					'checkRequired',
 				],
+				'disabled' => $isRunning,
 			],
 			'delete' => [
 				'type' => 'submit',
 				'default' => $this->msg( 'securepoll-create-label-options-delete' )->text(),
+				'disabled' => $isRunning,
 			],
 		];
 
@@ -325,21 +342,24 @@ class CreatePage extends ActionPage {
 				'election_type',
 				$types,
 				$ballotClass,
-				'election'
+				'election',
+				$isRunning
 			);
 			self::processFormItems(
 				$questionFields,
 				'election_type',
 				$types,
 				$ballotClass,
-				'question'
+				'question',
+				$isRunning
 			);
 			self::processFormItems(
 				$optionFields,
 				'election_type',
 				$types,
 				$ballotClass,
-				'option'
+				'option',
+				$isRunning
 			);
 		}
 
@@ -352,21 +372,24 @@ class CreatePage extends ActionPage {
 				'election_type',
 				$tallyTypes[$type],
 				$class,
-				'election'
+				'election',
+				$isRunning
 			);
 			self::processFormItems(
 				$questionFields,
 				'election_type',
 				$tallyTypes[$type],
 				$class,
-				'question'
+				'question',
+				$isRunning
 			);
 			self::processFormItems(
 				$optionFields,
 				'election_type',
 				$tallyTypes[$type],
 				$class,
-				'option'
+				'option',
+				$isRunning
 			);
 		}
 
@@ -379,21 +402,24 @@ class CreatePage extends ActionPage {
 					'election_crypt',
 					$type,
 					$class,
-					'election'
+					'election',
+					$isRunning
 				);
 				self::processFormItems(
 					$questionFields,
 					'election_crypt',
 					$type,
 					$class,
-					'question'
+					'question',
+					$isRunning
 				);
 				self::processFormItems(
 					$optionFields,
 					'election_crypt',
 					$type,
 					$class,
-					'option'
+					'option',
+					$isRunning
 				);
 			}
 		}
@@ -404,6 +430,7 @@ class CreatePage extends ActionPage {
 			'required' => true,
 			'create-button-message' => 'securepoll-create-label-options-add',
 			'fields' => $optionFields,
+			'disabled' => $isRunning,
 		];
 
 		$formItems['questions'] = [
@@ -412,6 +439,7 @@ class CreatePage extends ActionPage {
 			'row-legend' => 'securepoll-create-questions-row-legend',
 			'create-button-message' => 'securepoll-create-label-questions-add',
 			'fields' => $questionFields,
+			'disabled' => $isRunning,
 		];
 
 		if ( $this->specialPage->getConfig()->get( 'SecurePollUseNamespace' ) ) {
@@ -419,6 +447,7 @@ class CreatePage extends ActionPage {
 				'type' => 'text',
 				'label-message' => 'securepoll-create-label-comment',
 				'maxlength' => 250,
+				'disabled' => $isRunning,
 			];
 		}
 
@@ -445,7 +474,7 @@ class CreatePage extends ActionPage {
 		$form->setSubmitCallback(
 			[
 				$this,
-				'processInput'
+				$isRunning ? 'processInputDuringElection' : 'processInput'
 			]
 		);
 		$form->prepareForm();
@@ -472,6 +501,45 @@ class CreatePage extends ActionPage {
 		} else {
 			$form->displayForm( $result );
 		}
+	}
+
+	public function processInputDuringElection( $formData ) {
+		// If editing a poll while it's running, only allow certain fields to be updated
+		// For now only property_admins and return-url can be edited
+		$fields = [
+			'admins' => implode( '|', explode( "\n", $formData['property_admins'] ) ),
+			'return-url' => $formData['return-url']
+		];
+
+		$originalFormData = [];
+		$securePollUseLogging = $this->specialPage->getConfig()->get( 'SecurePollUseLogging' );
+		if ( $securePollUseLogging ) {
+			// Store original form data for logging
+			$originalFormData = $this->getFormDataFromElection();
+		}
+
+		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+		$dbw = $this->context->getDB();
+		$dbw->startAtomic( __METHOD__ );
+		foreach ( $fields as $pr_key => $pr_value ) {
+			$dbw->update(
+				'securepoll_properties',
+				[ 'pr_value' => $pr_value ],
+				[
+					'pr_entity' => $this->election->getId(),
+					'pr_key' => $pr_key
+				],
+				__METHOD__
+			);
+		}
+		$dbw->endAtomic( __METHOD__ );
+
+		// Log any changes to admins
+		if ( $securePollUseLogging ) {
+			$this->logAdminChanges( $originalFormData, $formData, $this->election->getId() );
+		}
+
+		return Status::newGood( $this->election->getId() );
 	}
 
 	public function processInput( $formData, $form ) {
@@ -996,8 +1064,13 @@ class CreatePage extends ActionPage {
 	 * @param string|null $category If given, ::getCreateDescriptors is
 	 *    expected to return an array with subarrays for different categories
 	 *    of descriptors, and this selects which subarray to process.
+	 * @param bool|null $disabled Should the field be disabled
 	 */
-	private static function processFormItems( &$outItems, $field, $types, $class, $category = null ) {
+	private static function processFormItems(
+		&$outItems, $field, $types, $class,
+		$category = null,
+		$disabled = false
+	) {
 		if ( $class === false ) {
 			return;
 		}
@@ -1022,6 +1095,9 @@ class CreatePage extends ActionPage {
 		}
 
 		foreach ( $items as $key => $item ) {
+			if ( $disabled ) {
+				$item['disabled'] = true;
+			}
 			if ( !isset( $outItems[$key] ) ) {
 				if ( !isset( $item['hide-if'] ) ) {
 					$item['hide-if'] = [
