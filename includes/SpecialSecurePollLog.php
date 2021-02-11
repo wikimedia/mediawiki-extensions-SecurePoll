@@ -4,6 +4,7 @@ namespace MediaWiki\Extensions\SecurePoll;
 
 use FormSpecialPage;
 use HTMLForm;
+use MediaWiki\Extensions\SecurePoll\Pages\ActionPage;
 use MediaWiki\User\UserFactory;
 
 class SpecialSecurePollLog extends FormSpecialPage {
@@ -98,6 +99,20 @@ class SpecialSecurePollLog extends FormSpecialPage {
 			'max' => gmdate( 'M-d-Y' ),
 		];
 
+		$fields['actions'] = [
+			'name' => 'actions',
+			'type' => 'radio',
+			'cssclass' => 'securepolllog-actions-radio',
+			'label-message' => $prefix . '-form-action-label',
+			'options-messages' => [
+				'securepolllog-form-action-option-addadmin' => ActionPage::LOG_TYPE_ADDADMIN,
+				'securepolllog-form-action-option-removeadmin' => ActionPage::LOG_TYPE_REMOVEADMIN,
+				'securepolllog-form-action-option-both' => -1,
+			],
+			'default' => -1,
+			'flatlist' => true,
+		];
+
 		$this->setFormDefaults( $fields );
 
 		return $fields;
@@ -150,6 +165,14 @@ class SpecialSecurePollLog extends FormSpecialPage {
 			$day = 0;
 		}
 
+		// Transform action codes to integer(s) in an array
+		// (to match LOG_TYPE_ADDADMIN and LOG_TYPE_REMOVEADMIN)
+		if ( (int)$data['actions'] === -1 ) {
+			$data['actions'] = [ ActionPage::LOG_TYPE_ADDADMIN, ActionPage::LOG_TYPE_REMOVEADMIN ];
+		} else {
+			$data['actions'] = [ (int)$data['actions'] ];
+		}
+
 		$pager = new SecurePollLogPager(
 			$this->context,
 			$this->userFactory,
@@ -159,7 +182,8 @@ class SpecialSecurePollLog extends FormSpecialPage {
 			$data['electionName'],
 			$year,
 			$month,
-			$day
+			$day,
+			$data['actions']
 		);
 
 		$this->getOutput()->addHTML(

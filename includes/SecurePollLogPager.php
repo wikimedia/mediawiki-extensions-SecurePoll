@@ -27,6 +27,9 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 	/** @var string */
 	private $electionName;
 
+	/** @var int[] */
+	private $actions;
+
 	/**
 	 * @param Context $context
 	 * @param UserFactory $userFactory
@@ -37,6 +40,7 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 	 * @param int $year
 	 * @param int $month
 	 * @param int $day
+	 * @param int[] $actions
 	 */
 	public function __construct(
 		Context $context,
@@ -47,7 +51,8 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 		string $electionName,
 		int $year,
 		int $month,
-		int $day
+		int $day,
+		array $actions
 	) {
 		parent::__construct();
 		$this->context = $context;
@@ -56,6 +61,7 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 		$this->performer = $performer;
 		$this->target = $target;
 		$this->electionName = $electionName;
+		$this->actions = $actions;
 
 		$this->getDateCond( $year, $month, $day );
 	}
@@ -95,10 +101,7 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 				$type = ActionPage::LOG_TYPE_VIEWVOTES;
 				break;
 			case 'admin':
-				$type = [
-					ActionPage::LOG_TYPE_ADDADMIN,
-					ActionPage::LOG_TYPE_REMOVEADMIN,
-				];
+				$type = $this->actions;
 				break;
 			default:
 				$type = null;

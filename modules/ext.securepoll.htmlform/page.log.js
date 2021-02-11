@@ -3,13 +3,18 @@
 	// Ensure form fields are enabled/disabled according to selected log types
 	$( function () {
 		var actionTypeWidget = OO.ui.infuse( $( '#mw-input-type' ) ),
-			targetWidget = OO.ui.infuse( $( '#mw-input-target' ) );
+			targetWidget = OO.ui.infuse( $( '#mw-input-target' ) ),
+			actionsWidget = OO.ui.infuse( $( '.securepolllog-actions-radio.mw-htmlform-field-HTMLRadioField' ) );
 
 		function updateDisabledFields() {
-			if ( actionTypeWidget.getValue() === 'voter' ) {
+			if ( actionTypeWidget.getValue() === 'all' ) {
+				actionsWidget.fieldWidget.setDisabled( true );
+			} else if ( actionTypeWidget.getValue() === 'voter' ) {
 				targetWidget.setDisabled( true );
-			} else {
+				actionsWidget.fieldWidget.setDisabled( true );
+			} else if ( actionTypeWidget.getValue() === 'admin' ) {
 				targetWidget.setDisabled( false );
+				actionsWidget.fieldWidget.setDisabled( false );
 			}
 		}
 
