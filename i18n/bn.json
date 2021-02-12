@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Aftabuzzaman",
+			"Ankan",
 			"Bellayet",
 			"Nasir8891",
 			"Wikitanvir",
@@ -144,5 +145,6 @@
 	"securepoll-votereligibility-saved": "{{int:securepoll}}: সংরক্ষিত",
 	"securepoll-votereligibility-saved-text": "আপনার পরিবর্তনসমূহ সংরক্ষিত হয়েছে।",
 	"securepoll-votereligibility-cleared-comment": "$1 পরিষ্কার হয়েছে।",
-	"securepoll-voter-stats": "সব যোগ্য ভোটদানকারীর মধ্যে, $1 জন {{PLURAL:$1|ভোটার}} ভোট দিয়েছেন।"
+	"securepoll-voter-stats": "সব যোগ্য ভোটদানকারীর মধ্যে, $1 জন {{PLURAL:$1|ভোটার}} ভোট দিয়েছেন।",
+	"securepolllog-form-target-label": "লক্ষ্য (ব্যবহারকারী নাম)"
 }

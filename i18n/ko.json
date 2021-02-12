@@ -180,5 +180,6 @@
 	"securepoll-votereligibility-basic": "기본 옵션",
 	"securepolllog-form-type-option-all": "모든 SecurePoll 기록",
 	"securepolllog-form-type-option-voter": "투표자 기록",
-	"securepolllog-form-type-option-admin": "관리 기록"
+	"securepolllog-form-type-option-admin": "관리 기록",
+	"securepolllog-form-target-label": "대상(사용자 이름):"
 }

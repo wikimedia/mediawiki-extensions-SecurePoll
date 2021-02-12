@@ -250,5 +250,14 @@
 	"action-securepoll-create-poll": "створення опитувань",
 	"securepoll-ns-readonly": "Простір назв {{ns:SecurePoll}} — лише для читання",
 	"securepoll-voter-stats": "Із усіх виборців із правом голосу, {{PLURAL:$1|проголосував $1 виборець|проголосували $1 виборці|проголосувало $1 виборців}}.",
-	"securepoll-vote-stats": "Загалом віддано {{PLURAL:$1|$1 голос|$1 голоси|$1 голосів}}. З них $2 {{PLURAL:$2|не враховано}}, оскільки виборці, що віддали ці голоси, проголосували повторно, і $3 {{PLURAL:$3|відхилено}}."
+	"securepoll-vote-stats": "Загалом віддано {{PLURAL:$1|$1 голос|$1 голоси|$1 голосів}}. З них $2 {{PLURAL:$2|не враховано}}, оскільки виборці, що віддали ці голоси, проголосували повторно, і $3 {{PLURAL:$3|відхилено}}.",
+	"securepolllog": "Журнал SecurePoll",
+	"securepolllog-form-type-option-all": "Усі журнали SecurePoll",
+	"securepolllog-form-type-option-voter": "Журнал виборців",
+	"securepolllog-form-type-option-admin": "Адміністративний журнал",
+	"securepolllog-form-performer-label": "Виконавець (ім'я користувача):",
+	"securepolllog-form-target-label": "Ціль (ім'я користувача):",
+	"securepolllog-form-electionname-label": "Голосування (назва):",
+	"securepolllog-election-does-not-exist": "Голосування не знайдено",
+	"securepoll-log-empty": "Не знайдено записів у журналі."
 }
