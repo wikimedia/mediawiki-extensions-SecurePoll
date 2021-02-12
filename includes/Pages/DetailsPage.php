@@ -163,8 +163,8 @@ class DetailsPage extends ActionPage {
 		# Show strike log
 		$out->addHTML( '<h2>' . $this->msg( 'securepoll-strike-log' )->escaped() . "</h2>\n" );
 		$pager = new StrikePager( $this, $this->voteId );
-		$out->addHTML(
-			$pager->getBody() . $pager->getNavigationBar()
+		$out->addParserOutputContent(
+			$pager->getFullOutput()
 		);
 	}
 
