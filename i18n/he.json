@@ -250,6 +250,7 @@
 	"securepolllog-form-target-label": "יעד (שם משתמש):",
 	"securepolllog-form-electionname-label": "בחירות (כותרת):",
 	"securepolllog-election-does-not-exist": "הבחירות לא נמצאו",
+	"securepolllog-form-date-label": "מהתאריך הזה (ומוקדם יותר):",
 	"securepoll-log-action-type-0": "$1, $2 {{GENDER:$2|הוסיף|הוסיפה}} את $4 למנהלי ההצבעה עבור הבחירות <em>$3</em>.",
 	"securepoll-log-action-type-1": "$1, $2 {{GENDER:$2|הסיר|הסירה}} את $4 ממנהלי ההצבעה עבור הבחירות <em>$3</em>.",
 	"securepoll-log-action-type-2": "$1, $2 {{GENDER:$2|צפה|צפתה}} בנתוני ההצבעה עבור הבחירות <em>$3</em>.",

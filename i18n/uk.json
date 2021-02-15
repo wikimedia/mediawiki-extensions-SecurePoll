@@ -159,7 +159,7 @@
 	"securepoll-create-label-shuffle_questions": "Перемішати питання на сторінці голосування.",
 	"securepoll-create-label-shuffle_options": "Перетасувати параметри на сторінці голосування.",
 	"securepoll-create-label-must_rank_all": "Вимагати, щоб усі варіанти бути проранжовані.",
-	"securepoll-create-label-must_answer_all": "Вимагати, щоб на всім варіанти була відповідь.",
+	"securepoll-create-label-must_answer_all": "Вимагати, щоб на всі варіанти була відповідь.",
 	"securepoll-create-label-voter_privacy": "Вимкнути функції прозорості (напр., список виборців), аби захистити конфіденційність виборців",
 	"securepoll-create-label-gpg_encrypt_key": "Ключ шифрування GPG",
 	"securepoll-create-label-gpg_sign_key": "Ключ підпису GPG",

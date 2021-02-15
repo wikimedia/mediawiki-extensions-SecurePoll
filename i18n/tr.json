@@ -119,6 +119,7 @@
 	"securepoll-tally-local-submit": "Sayım oluştur",
 	"securepoll-tally-upload-legend": "Şifreli dökümü yükle",
 	"securepoll-tally-upload-submit": "Sayım oluştur",
+	"securepoll-tally-gpg-decrypt-key": "GPG şifre çözme anahtarı",
 	"securepoll-tally-error": "Oy kaydı yorumlanırken hata, bir sayım üretilemiyor.",
 	"securepoll-no-upload": "Hiçbir dosya yüklenmedi, sonuçlar sayılamıyor.",
 	"securepoll-dump-corrupt": "Yığın dosyası bozuk ve işlenebilir değil.",
@@ -244,5 +245,17 @@
 	"action-securepoll-create-poll": "anket oluştur",
 	"securepoll-ns-readonly": "{{ns:SecurePoll}} ad alanı salt okunur",
 	"securepoll-voter-stats": "Tüm uygun seçmenlerden $1 {{PLURAL:$1|seçmen|seçmen}} oy verdi.",
-	"securepoll-vote-stats": "Toplam $1 {{PLURAL:$1|oy|oy}} kullanıldı. Bunlardan, seçmen tekrar oy kullandığından $2 ve $3 vurulur."
+	"securepoll-vote-stats": "Toplam $1 {{PLURAL:$1|oy|oy}} kullanıldı. Bunlardan, seçmen tekrar oy kullandığından $2 ve $3 vurulur.",
+	"securepolllog": "SecurePoll Günlüğü",
+	"securepolllog-form-type-option-all": "Tüm SecurePoll günlükleri",
+	"securepolllog-form-type-option-voter": "Seçmen günlüğü",
+	"securepolllog-form-type-option-admin": "Yönetici günlüğü",
+	"securepolllog-form-performer-label": "Yapan (kullanıcı adı):",
+	"securepolllog-form-target-label": "Hedef (kullanıcı adı):",
+	"securepolllog-form-electionname-label": "Seçim (başlık):",
+	"securepolllog-election-does-not-exist": "Seçim bulunamadı",
+	"securepoll-log-action-type-0": "$1, $2 <em>$3</em> seçimi için $4 kullanıcısını anket yöneticilerine ekledi.",
+	"securepoll-log-action-type-1": "$1, $2 <em>$3</em> seçimi için $4 kullanıcısını anket yöneticilerinden çıkardı.",
+	"securepoll-log-action-type-2": "$1, $2 <em>$3</em> seçimi için seçmen verisini görüntüledi.",
+	"securepoll-log-empty": "Günlük girdisi bulunamadı."
 }

@@ -155,5 +155,6 @@
 	"securepoll-votereligibility-label-edit": "Lista szerkesztése",
 	"securepoll-votereligibility-label-clear": "Lista eltávolítása",
 	"securepoll-votereligibility-label-populate": "Lista automatikus feltöltése",
-	"securepoll-votereligibility-label-names": "Felhasználónevek"
+	"securepoll-votereligibility-label-names": "Felhasználónevek",
+	"securepolllog-form-date-label": "Ettől a dátumtól (és korábbról):"
 }

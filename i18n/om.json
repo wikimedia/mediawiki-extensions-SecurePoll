@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ahrada2016",
 			"Maammee",
 			"Tumsaa"
 		]
@@ -14,5 +15,6 @@
 	"securepoll-create-option-column_order-asc": "Irraa olee",
 	"securepoll-votereligibility-label-clear": "Tarree balleessi",
 	"securepoll-votereligibility-edit-action": "Tarree olkaayi",
-	"securepoll-votereligibility-saved-text": "Jijjiiramni kee olkaawwameera"
+	"securepoll-votereligibility-saved-text": "Jijjiiramni kee olkaawwameera",
+	"securepolllog-form-target-label": "Manii (maqaafayyadamaa):"
 }

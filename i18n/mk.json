@@ -7,7 +7,7 @@
 			"Vlad5250"
 		]
 	},
-	"securepoll": "БезбедноГласање",
+	"securepoll": "Безбедно гласање",
 	"securepoll-desc": "Додаток за избори и анкети",
 	"securepoll-invalid-page": "Неважечка потстраница „<nowiki>$1</nowiki>“",
 	"securepoll-need-admin": "Треба да бидете изборен администратор за да можете да го сторите тоа.",
@@ -242,6 +242,14 @@
 	"securepoll-voter-stats": "Од сите подобни гласачи, {{PLURAL:$1|гласот го има дадено еден|гласале вкупно $1}}.",
 	"securepoll-vote-stats": "{{PLURAL:$1|Даден е сè на сè еден глас|Дадени се вкупно $1 гласови}}. Од нив, $2 {{PLURAL:$2|е отфрлен|се отфрлени}}  бидејќи лицето гласало повторно, а $3 {{PLURAL:$3|е поништен|се поништени}}.",
 	"securepolllog": "Дневник на SecurePoll",
+	"securepolllog-form-type-option-all": "Сите дневници на Безбедно гласање",
+	"securepolllog-form-type-option-voter": "Дневник на гласачи",
+	"securepolllog-form-type-option-admin": "Дневник на администратори",
+	"securepolllog-form-performer-label": "Извршувач (корисничко име):",
+	"securepolllog-form-target-label": "Цел (корисничко име):",
+	"securepolllog-form-electionname-label": "Избори (наслов):",
+	"securepolllog-election-does-not-exist": "Изборите не се пронадјени",
+	"securepolllog-form-date-label": "Од датумот (и порано):",
 	"securepoll-log-action-type-0": "$1, $2 го додаде $4 во анкетните администратори за изборите  <em>$3</em>.",
 	"securepoll-log-action-type-1": "$1, $2 го отстрани $4 од анкетните администратори за изборите  <em>$3</em>.",
 	"securepoll-log-action-type-2": "$1, $2 ги погледа податоците за гласачите за изборите <em>$3</em>.",
