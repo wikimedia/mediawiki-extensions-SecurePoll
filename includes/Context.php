@@ -158,7 +158,7 @@ class Context {
 	 * Get an election object from the store, with a given entity ID. Returns
 	 * false if it does not exist.
 	 * @param int $id
-	 * @return Election
+	 * @return Election|bool
 	 */
 	public function getElection( $id ) {
 		if ( !isset( $this->electionCache[$id] ) ) {
