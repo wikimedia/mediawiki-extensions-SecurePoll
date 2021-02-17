@@ -36,7 +36,7 @@ class FormStore extends MemoryStore {
 
 		$curId = 0;
 
-		$wikis = $formData['property_wiki'] ?? wfWikiID();
+		$wikis = $formData['property_wiki'] ?? WikiMap::getCurrentWikiId();
 		if ( $wikis === '*' ) {
 			$wikis = array_values( self::getWikiList() );
 		} elseif ( substr( $wikis, 0, 1 ) === '@' ) {
@@ -58,7 +58,7 @@ class FormStore extends MemoryStore {
 			$wikis = (array)$wikis;
 		}
 
-		$this->remoteWikis = array_diff( $wikis, [ wfWikiID() ] );
+		$this->remoteWikis = array_diff( $wikis, [ WikiMap::getCurrentWikiId() ] );
 
 		// Create the entry for the election
 		list( $ballot, $tally ) = explode( '+', $formData['election_type'] );
@@ -92,7 +92,7 @@ class FormStore extends MemoryStore {
 		$this->properties[$eId] = [
 			'encrypt-type' => $crypt,
 			'wikis' => implode( "\n", $wikis ),
-			'wikis-val' => $formData['property_wiki'] ?? wfWikiID(),
+			'wikis-val' => $formData['property_wiki'] ?? WikiMap::getCurrentWikiId(),
 			'return-url' => $formData['return-url'],
 			'disallow-change' => $formData['disallow-change'] ? 1 : 0,
 			'voter-privacy' => $formData['voter-privacy'] ? 1 : 0,
@@ -120,7 +120,7 @@ class FormStore extends MemoryStore {
 				'auth' => 'local',
 				'questions' => [],
 			];
-			$this->properties[$rId]['main-wiki'] = wfWikiID();
+			$this->properties[$rId]['main-wiki'] = WikiMap::getCurrentWikiId();
 			$this->properties[$rId]['jump-url'] = SpecialPage::getTitleFor(
 				'SecurePoll'
 			)->getFullUrl();
@@ -320,7 +320,7 @@ class FormStore extends MemoryStore {
 		}
 
 		// Make sure the local wiki is represented
-		$dbname = wfWikiID();
+		$dbname = WikiMap::getCurrentWikiId();
 		$wikiNames[self::getWikiName( $dbname )] = $dbname;
 
 		ksort( $wikiNames );
