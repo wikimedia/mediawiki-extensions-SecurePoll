@@ -133,10 +133,8 @@ class CreatePage extends ActionPage {
 			}
 		}
 
-		if ( count( $wikiNames ) <= 1 && count( $options ) === 1 ) {
-			// Only option is wfWikiID(), so don't bother making the user select it.
-		} elseif ( count( $wikiNames ) < 10 ) {
-			// So few, we may as well just list them explicitly
+		// If the only option is wfWikiID() don't show it; otherwise...
+		if ( count( $wikiNames ) > 1 || count( $options ) > 1 ) {
 			$opts = [];
 			foreach ( $options as $msg => $value ) {
 				$opts[$this->msg( $msg )->plain()] = $value;
@@ -152,17 +150,6 @@ class CreatePage extends ActionPage {
 				'type' => 'select',
 				'options' => $opts,
 				'label-message' => 'securepoll-create-label-wiki',
-				'disabled' => $isRunning,
-			];
-		} else {
-			$options['securepoll-create-option-wiki-other_wiki'] = 'other';
-			$formItems['property_wiki'] = [
-				'type' => 'autocompleteselect',
-				'autocomplete-data' => $wikiNames,
-				'options-messages' => $options,
-				'label-message' => 'securepoll-create-label-wiki',
-				'require-match' => true,
-				'default' => wfWikiID(),
 				'disabled' => $isRunning,
 			];
 		}
@@ -214,19 +201,11 @@ class CreatePage extends ActionPage {
 				'type' => 'text',
 				'disabled' => $isRunning,
 			];
-			if ( $formItems['property_wiki']['type'] === 'select' ) {
-				$formItems['jump-text']['hide-if'] = [
-					'===',
-					'property_wiki',
-					wfWikiId()
-				];
-			} else {
-				$formItems['jump-text']['hide-if'] = [
-					'===',
-					'property_wiki-select',
-					wfWikiId()
-				];
-			}
+			$formItems['jump-text']['hide-if'] = [
+				'===',
+				'property_wiki',
+				wfWikiId()
+			];
 		}
 
 		$formItems['election_type'] = [
