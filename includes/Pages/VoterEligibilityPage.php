@@ -444,10 +444,9 @@ class VoterEligibilityPage extends ActionPage {
 			'section' => 'basic',
 			'label-message' => 'securepoll-votereligibility-label-central_block_threshold',
 			'type' => 'int',
-			'min' => 1,
 			'validation-callback' => [
 				$this,
-				'checkRequired',
+				'checkCentralBlockThreshold',
 			],
 			'hide-if' => [
 				'===',
@@ -535,10 +534,9 @@ class VoterEligibilityPage extends ActionPage {
 					'section' => "lists/$list",
 					'label-message' => 'securepoll-votereligibility-label-edits_before_count',
 					'type' => 'int',
-					'min' => 1,
 					'validation-callback' => [
 						$this,
-						'checkRequired',
+						'checkEditsBeforeCount',
 					],
 					'hide-if' => [
 						'OR',
@@ -600,10 +598,9 @@ class VoterEligibilityPage extends ActionPage {
 					'section' => "lists/$list",
 					'label-message' => 'securepoll-votereligibility-label-edits_between_count',
 					'type' => 'int',
-					'min' => 1,
 					'validation-callback' => [
 						$this,
-						'checkRequired',
+						'checkEditsBetweenCount',
 					],
 					'hide-if' => [
 						'OR',
@@ -819,6 +816,96 @@ class VoterEligibilityPage extends ActionPage {
 			return Status::newFatal( 'htmlform-required' )->getMessage();
 		}
 		return true;
+	}
+
+	/**
+	 * Check that a field has a minimum value
+	 *
+	 * This is a hack that reimplements input[min] because the
+	 * browser implementation implicitly makes the field required
+	 * as well. Since the hide-if infrastructure doesn't manage
+	 * conditional requirements, this re-implementation allows
+	 * for hide-if-affected fields to display errors when they are
+	 * relevant (as opposed to all the time, even if the field
+	 * is not in use)
+	 *
+	 * @internal For use by the HTMLFormField
+	 * @param int $value
+	 * @param int $min
+	 * @return bool|string true on success, string on error
+	 */
+	public function checkMin( $value, $min ) {
+		if ( $value < $min ) {
+			return $this->msg( 'htmlform-int-toolow', $min )->parse();
+		}
+
+		return true;
+	}
+
+	/**
+	 * Pass input automatically if the parent input is not checked
+	 * Otherwise check that input exists and is not less than 1
+	 *
+	 * @internal For use by the HTMLFormField
+	 * @param string $value
+	 * @param mixed[] $formData
+	 * @return bool|string true on success, string on error
+	 */
+	public function checkCentralBlockThreshold( $value, $formData ) {
+		if ( !$formData['not-centrally-blocked'] ) {
+			return true;
+		}
+
+		$exists = $this->checkRequired( $value );
+		if ( $exists !== true ) {
+			return $exists;
+		}
+
+		return $this->checkMin( $value, 1 );
+	}
+
+	/**
+	 * Pass input automatically if the parent input is not checked
+	 * Otherwise check that input exists and is not less than 1
+	 *
+	 * @internal For use by the HTMLFormField
+	 * @param string $value
+	 * @param mixed[] $formData
+	 * @return bool|string true on success, string on error
+	 */
+	public function checkEditsBeforeCount( $value, $formData ) {
+		if ( !$formData['list_edits-before'] ) {
+			return true;
+		}
+
+		$exists = $this->checkRequired( $value );
+		if ( $exists !== true ) {
+			return $exists;
+		}
+
+		return $this->checkMin( $value, 1 );
+	}
+
+	/**
+	 * Pass input automatically if the parent input is not checked
+	 * Otherwise check that input exists and is not less than 1
+	 *
+	 * @internal For use by the HTMLFormField
+	 * @param string $value
+	 * @param mixed[] $formData
+	 * @return bool|string true on success, string on error
+	 */
+	public function checkEditsBetweenCount( $value, $formData ) {
+		if ( !$formData['list_edits-between'] ) {
+			return true;
+		}
+
+		$exists = $this->checkRequired( $value );
+		if ( $exists !== true ) {
+			return $exists;
+		}
+
+		return $this->checkMin( $value, 1 );
 	}
 
 	/**
