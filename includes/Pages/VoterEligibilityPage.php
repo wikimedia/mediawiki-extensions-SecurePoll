@@ -842,6 +842,21 @@ class VoterEligibilityPage extends ActionPage {
 			'list_include-groups',
 		];
 
+		static $propPrereqs = [
+			'not-centrally-blocked' => [
+				'central-block-threshold'
+			],
+			'list_edits-before' => [
+				'list_edits-before-count',
+				'list_edits-before-date',
+			],
+			'list_edits-between' => [
+				'list_edits-between-count',
+				'list_edits-startdate',
+				'list_edits-enddate',
+			]
+		];
+
 		if ( $formData['list_populate'] &&
 			!$formData['list_edits-before'] &&
 			!$formData['list_edits-between'] &&
@@ -853,6 +868,17 @@ class VoterEligibilityPage extends ActionPage {
 
 		$properties = [];
 		$deleteProperties = [];
+
+		// Unset any properties where the parent property is not checked and
+		// mark them for deletion from the database
+		foreach ( $propPrereqs as $parentProp => $childrenProps ) {
+			if ( $formData[$parentProp] === '' || $formData[$parentProp] === false ) {
+				foreach ( $childrenProps as $childProp ) {
+					$formData[ $childProp ] = '';
+					$deleteProperties[] = $childProp;
+				}
+			}
+		}
 
 		foreach ( $props as $prop ) {
 			if ( $formData[$prop] !== '' && $formData[$prop] !== false ) {
@@ -892,6 +918,9 @@ class VoterEligibilityPage extends ActionPage {
 				$deleteProperties[] = $prop;
 			}
 		}
+
+		// De-dupe the $deleteProperties array
+		$deleteProperties = array_unique( $deleteProperties );
 
 		$populate = !empty( $properties['list_populate'] );
 		if ( $populate ) {
