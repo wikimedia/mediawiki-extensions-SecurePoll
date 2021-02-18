@@ -667,6 +667,10 @@ class VoterEligibilityPage extends ActionPage {
 					'type' => 'date',
 					'max' => gmdate( 'Y-m-d', strtotime( 'yesterday' ) ),
 					'required' => true,
+					'validation-callback' => [
+						$this,
+						'checkListEditsEndDate'
+					],
 					'hide-if' => [
 						'OR',
 						[
@@ -817,6 +821,29 @@ class VoterEligibilityPage extends ActionPage {
 		return true;
 	}
 
+	/**
+	 * Check the end date exists and is after the start date
+	 *
+	 * @internal For use by the HTMLFormField
+	 * @param string $value
+	 * @param mixed[] $formData
+	 * @return bool|string true on success, string on error
+	 */
+	public function checkListEditsEndDate( $value, $formData ) {
+		if ( !$formData['list_edits-between'] ) {
+			return true;
+		}
+
+		$startDate = $this->parseDate( $formData['list_edits-startdate'] );
+		$endDate = $this->parseDate( $value );
+
+		if ( $startDate >= $endDate ) {
+			return $this->msg( 'securepoll-htmlform-daterange-end-before-start' )->parseAsBlock();
+		}
+
+		return true;
+	}
+
 	public function processConfig( $formData, $form ) {
 		static $props = [
 			'min-edits',
@@ -924,13 +951,6 @@ class VoterEligibilityPage extends ActionPage {
 		$populate = !empty( $properties['list_populate'] );
 		if ( $populate ) {
 			$properties['need-list'] = 'need-list-' . $this->election->getId();
-		}
-
-		if ( $this->parseDate( $formData['list_edits-startdate'] ) >= $this->parseDate(
-				$formData['list_edits-enddate']
-			)
-		) {
-			return $this->msg( 'securepoll-htmlform-daterange-end-before-start' )->parseAsBlock();
 		}
 
 		$comment = $formData['comment'] ?? '';
