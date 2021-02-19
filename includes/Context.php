@@ -77,7 +77,7 @@ class Context {
 	 * Create a new Context with an XML file as the storage backend.
 	 * Returns false if there was a problem with the file, like a parse error.
 	 * @param string $fileName
-	 * @return false|self
+	 * @return bool|self
 	 */
 	public static function newFromXmlFile( $fileName ) {
 		$context = new self;
@@ -177,7 +177,7 @@ class Context {
 	 * Get an election object from the store, with a given name. Returns false
 	 * if there is no such election.
 	 * @param string $name
-	 * @return Election|false
+	 * @return Election|bool
 	 */
 	public function getElectionByTitle( $name ) {
 		$info = $this->getStore()->getElectionInfoByTitle( [ $name ] );
