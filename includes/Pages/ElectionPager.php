@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extensions\SecurePoll\Pages;
 
-use Linker;
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
+use MediaWiki\MediaWikiServices;
 use stdClass;
 use TablePager;
 
@@ -133,17 +133,18 @@ class ElectionPager extends TablePager {
 			// securepoll-subpage-vote, securepoll-subpage-translate,
 			// securepoll-subpage-list, securepoll-subpage-dump,
 			// securepoll-subpage-tally, securepoll-subpage-votereligibility
-			$linkText = $this->msg( "securepoll-subpage-$subpage" )->parse();
+			$linkText = $this->msg( "securepoll-subpage-$subpage" )->text();
 			if ( $s !== '' ) {
 				$s .= $sep;
 			}
-
 			if ( ( $this->isAdmin || $props['public'] ) && ( !$this->election->isStarted()
 				|| $props['visible-after-start'] ) && ( !$this->election->isFinished() )
 				|| $props['visible-after-close']
 			) {
 				$title = $this->entryPage->specialPage->getPageTitle( "$subpage/$id" );
-				$s .= Linker::linkKnown( $title, $linkText );
+				$services = MediaWikiServices::getInstance();
+				$linkRenderer = $services->getLinkRenderer();
+				$s .= $linkRenderer->makeKnownLink( $title, $linkText );
 			} else {
 				$s .= "<span class=\"securepoll-link-disabled\">" . $linkText . "</span>";
 			}
