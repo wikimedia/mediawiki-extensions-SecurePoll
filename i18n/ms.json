@@ -4,7 +4,8 @@
 			"Anakmalaysia",
 			"Aurora",
 			"Izzudin",
-			"Pizza1016"
+			"Pizza1016",
+			"Tofeiku"
 		]
 	},
 	"securepoll": "SecurePoll",
@@ -114,5 +115,7 @@
 	"securepoll-spoilt": "(Rosak)",
 	"securepoll-exhausted": "(Lupus)",
 	"securepoll-create-label-comment": "Sebab",
-	"securepoll-edit-edited": "{{int:securepoll}}: Tinjauan disunting"
+	"securepoll-edit-edited": "{{int:securepoll}}: Tinjauan disunting",
+	"securepolllog-form-target-label": "Sasaran (nama pengguna):",
+	"securepolllog-form-electionname-label": "Pilihan raya (tajuk):"
 }
