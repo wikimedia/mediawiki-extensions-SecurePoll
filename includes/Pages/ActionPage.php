@@ -2,12 +2,12 @@
 
 namespace MediaWiki\Extensions\SecurePoll\Pages;
 
-use Language;
 use MediaWiki\Extensions\SecurePoll\Context;
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
 use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Extensions\SecurePoll\User\Auth;
 use MediaWiki\Extensions\SecurePoll\User\Voter;
+use MediaWiki\MediaWikiServices;
 use Message;
 use User;
 
@@ -53,17 +53,20 @@ abstract class ActionPage {
 	 */
 	public function initLanguage( $user, $election ) {
 		$uselang = $this->specialPage->getRequest()->getVal( 'uselang' );
+		$services = MediaWikiServices::getInstance();
+		$userOptionsLookup = $services->getUserOptionsLookup();
+		$languageFallback = $services->getLanguageFallback();
 		if ( $uselang !== null ) {
 			$userLang = $uselang;
 		} elseif ( $user instanceof Voter ) {
 			$userLang = $user->getLanguage();
 		} else {
-			$userLang = $user->getOption( 'language' );
+			$userLang = $userOptionsLookup->getOption( $user, 'language' );
 		}
 
 		$languages = array_merge(
 			[ $userLang ],
-			Language::getFallbacksFor( $userLang )
+			$languageFallback->getAll( $userLang )
 		);
 
 		if ( !in_array( $election->getLanguage(), $languages ) ) {
