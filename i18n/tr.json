@@ -254,6 +254,7 @@
 	"securepolllog-form-target-label": "Hedef (kullanıcı adı):",
 	"securepolllog-form-electionname-label": "Seçim (başlık):",
 	"securepolllog-election-does-not-exist": "Seçim bulunamadı",
+	"securepolllog-form-date-label": "Bu tarihten (ve daha öncesi):",
 	"securepoll-log-action-type-0": "$1, $2 <em>$3</em> seçimi için $4 kullanıcısını anket yöneticilerine ekledi.",
 	"securepoll-log-action-type-1": "$1, $2 <em>$3</em> seçimi için $4 kullanıcısını anket yöneticilerinden çıkardı.",
 	"securepoll-log-action-type-2": "$1, $2 <em>$3</em> seçimi için seçmen verisini görüntüledi.",
