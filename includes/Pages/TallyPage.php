@@ -52,95 +52,17 @@ class TallyPage extends ActionPage {
 			return;
 		}
 
-		$localForm = $this->createLocalForm();
-		$uploadForm = $this->createUploadForm();
-
-		$crypt = $this->election->getCrypt();
-		if ( $crypt ) {
-			if ( $request->wasPosted() ) {
-				if ( $request->getVal( 'submit_upload' ) ) {
-					$result = $this->trySubmitForm( $uploadForm );
-					if ( $result !== true ) {
-						$this->displayFormNoErrors( $localForm );
-						$uploadForm->displayForm( $result );
-					}
-				} else {
-					$result = $this->trySubmitForm( $localForm );
-					if ( $result !== true ) {
-						$localForm->displayForm( $result );
-						$this->displayFormNoErrors( $uploadForm );
-					}
-				}
-			} else {
-				$out->addWikiMsg( 'securepoll-can-decrypt' );
-				$localForm->show();
-				$uploadForm->show();
-			}
-		} else {
-			$localForm->show();
-		}
+		$form = $this->createForm();
+		$form->show();
 	}
 
 	/**
-	 * Try to submit a form
-	 *
-	 * @param OOUIHTMLForm $form
-	 * @return bool|string|array|Status As documented for HTMLForm::trySubmit
-	 */
-	private function trySubmitForm( $form ) {
-		$form->prepareForm();
-		return $form->tryAuthorizedSubmit();
-	}
-
-	/**
-	 * Display a form without errors
-	 *
-	 * @param OOUIHTMLForm $form
-	 */
-	private function displayFormNoErrors( $form ) {
-		$form->prepareForm();
-		$form->displayForm( true );
-	}
-
-	/**
-	 * Create a form which, when submitted, shows a tally for the results in the DB
+	 * Create a form which, when submitted, shows a tally for the election.
 	 *
 	 * @return OOUIHTMLForm
 	 */
-	private function createLocalForm() {
-		$formFields = [];
-		$formFields += $this->getCryptDescriptors();
-
-		$form = HTMLForm::factory(
-			'ooui',
-			$formFields,
-			$this->specialPage->getContext(),
-			'securepoll-tally'
-		);
-
-		$form->setSubmitTextMsg( 'securepoll-tally-local-submit' )
-			->setSubmitName( 'submit_local' )
-			->setSubmitCallback( [ $this, 'submitLocal' ] )
-			->setWrapperLegend(
-				$this->msg( 'securepoll-tally-local-legend' )->text()
-			);
-
-		return $form;
-	}
-
-	/**
-	 * Create a form for upload of a record produced by the dump subpage
-	 *
-	 * @return OOUIHTMLForm
-	 */
-	private function createUploadForm() {
-		$formFields = [
-			'tally_file' => [
-				'type' => 'file',
-				'name' => 'tally_file',
-			],
-		];
-		$formFields += $this->getCryptDescriptors();
+	private function createForm() {
+		$formFields = $this->getCryptDescriptors();
 
 		$form = HTMLForm::factory(
 			'ooui',
@@ -150,11 +72,7 @@ class TallyPage extends ActionPage {
 		);
 
 		$form->setSubmitTextMsg( 'securepoll-tally-upload-submit' )
-			->setSubmitName( 'submit_upload' )
-			->setSubmitCallback( [ $this, 'submitUpload' ] )
-			->setWrapperLegend(
-				$this->msg( 'securepoll-tally-upload-legend' )->text()
-			);
+			->setSubmitCallback( [ $this, 'submitForm' ] );
 
 		return $form;
 	}
@@ -166,20 +84,50 @@ class TallyPage extends ActionPage {
 	 */
 	private function getCryptDescriptors() : array {
 		$crypt = $this->election->getCrypt();
-		if ( $crypt && !$crypt->canDecrypt() ) {
-			return $crypt->getTallyDescriptors();
+
+		if ( !$crypt ) {
+			return [];
 		}
-		return [];
+
+		$formFields = [
+			'tally_file' => [
+				'type' => 'file',
+				'name' => 'tally_file',
+				'help-message' => 'securepoll-tally-form-file-help',
+			],
+		];
+
+		if ( !$crypt->canDecrypt() ) {
+			$formFields += $crypt->getTallyDescriptors();
+		}
+
+		return $formFields;
 	}
 
 	/**
-	 * Show a tally of the local DB
+	 * Show a tally, either from the database or from an uploaded file.
 	 *
 	 * @internal Submit callback for the HTMLForm
 	 * @param array $data Data from the form fields
 	 * @return bool|string|array|Status As documented for HTMLForm::trySubmit
 	 */
-	public function submitLocal( array $data ) {
+	public function submitForm( array $data ) {
+		if ( !isset( $_FILES['tally_file'] ) || !is_uploaded_file(
+				$_FILES['tally_file']['tmp_name']
+			) || !$_FILES['tally_file']['size']
+		) {
+			return $this->submitLocal( $data );
+		}
+		return $this->submitUpload( $data );
+	}
+
+	/**
+	 * Show a tally of the local DB
+	 *
+	 * @param array $data Data from the form fields
+	 * @return bool|string|array|Status As documented for HTMLForm::trySubmit
+	 */
+	private function submitLocal( array $data ) {
 		$this->updateContextForCrypt( $this->election, $data );
 		$status = $this->election->tally();
 		if ( !$status->isOK() ) {
@@ -193,19 +141,12 @@ class TallyPage extends ActionPage {
 	/**
 	 * Show a tally of the results in the uploaded file
 	 *
-	 * @internal Submit callback for the HTMLForm
 	 * @param array $data Data from the form fields
 	 * @return bool|string|array|Status As documented for HTMLForm::trySubmit
 	 */
-	public function submitUpload( array $data ) {
+	private function submitUpload( array $data ) {
 		$out = $this->specialPage->getOutput();
 
-		if ( !isset( $_FILES['tally_file'] ) || !is_uploaded_file(
-				$_FILES['tally_file']['tmp_name']
-			) || !$_FILES['tally_file']['size']
-		) {
-			return [ 'securepoll-no-upload' ];
-		}
 		$context = Context::newFromXmlFile( $_FILES['tally_file']['tmp_name'] );
 		if ( !$context ) {
 			return [ 'securepoll-dump-corrupt' ];
