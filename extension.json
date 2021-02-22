@@ -42,7 +42,13 @@
 	},
 	"ResourceModules": {
 		"ext.securepoll.htmlform": {
-			"scripts": "ext.securepoll.htmlform.js",
+			"localBasePath": "modules/ext.securepoll.htmlform",
+			"remoteExtPath": "SecurePoll/modules/ext.securepoll.htmlform",
+			"packageFiles": [
+				"dispatcher.js",
+				"page.log.js",
+				"page.create.js"
+			],
 			"dependencies": [
 				"oojs-ui-core",
 				"mediawiki.widgets.UserInputWidget"
