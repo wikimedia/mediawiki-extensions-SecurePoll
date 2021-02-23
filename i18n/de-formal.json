@@ -28,6 +28,5 @@
 	"securepoll-blocked": "Sie dürfen leider nicht abstimmen, da Ihr Benutzerkonto derzeit gesperrt bist.",
 	"securepoll-blocked-centrally": "Sie dürfen leider nicht abstimmen, da Ihr Benutzerkonto derzeit auf mindestens $1 {{PLURAL:$1|Wiki|Wikis}} gesperrt ist.",
 	"securepoll-not-in-list": "Sie befinden sich leider nicht auf der Liste der Benutzer, die bei dieser Wahl abstimmen dürfen.",
-	"securepoll-tally-not-finished": "Sie können leider keine Stimmen auszählen, bevor die Abstimmung beendet wurde.",
-	"securepoll-can-decrypt": "Die Wahlaufzeichnung wurde verschlüsselt, aber der Entschlüsselungsschlüssel ist verfügbar.\nSie können zwischen der Zählung der aktuellen Ergebnisse in der Datenbank und der Zählung der verschlüsselten Ergebnisse einer hochgeladenen Datei wählen."
+	"securepoll-tally-not-finished": "Sie können leider keine Stimmen auszählen, bevor die Abstimmung beendet wurde."
 }

@@ -96,8 +96,6 @@
 	"securepoll-subpage-tally": "जुळणे",
 	"securepoll-tally-title": "जुळले: $1",
 	"securepoll-tally-not-finished": "माफकरा, आपण मतदान प्रक्रिया पूर्ण होई पर्यंत निवडणूक मते जुळवू शकत नाहीत",
-	"securepoll-tally-local-legend": "पूर्वी केलेले निकाल जुळवा",
-	"securepoll-tally-local-submit": " गिनती तयार करा",
 	"securepoll-tally-upload-submit": " गिनती तयार करा",
 	"securepoll-tally-error": "मतदान दस्ताऐवजाचा अर्थ लावण्यात त्रुटी आलेली आहे. पडताळा देउ शकत नाही.",
 	"securepoll-dump-corrupt": "राशिपात माहितीची संचिका दुषित झाल्यामुळे पुढील कार्य करता येत नाही",

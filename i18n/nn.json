@@ -84,8 +84,6 @@
 	"securepoll-subpage-tally": "Oppteljing",
 	"securepoll-tally-title": "Oppteljing: $1",
 	"securepoll-tally-not-finished": "Diverre, du kan ikkje telja opp valresultatet før valet er fullført.",
-	"securepoll-can-decrypt": "Valregisteret har vorte kryptert, men dekrypteringsnøkkelen er tilgjengeleg.\nDu kan velja å anten telja opp resultata tilgjengelege i databasen, eller å telja opp dei krypterte resultata frå ei opplasta fil.",
-	"securepoll-tally-local-submit": "Opprett ei oppteljing",
 	"securepoll-tally-upload-submit": "Opprett ei oppteljing",
 	"securepoll-no-upload": "Ingen fil vart lasta opp, kan ikkje summera resultata."
 }

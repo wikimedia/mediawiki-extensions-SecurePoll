@@ -83,10 +83,6 @@
 	"securepoll-subpage-tally": "Tell",
 	"securepoll-tally-title": "Tell: $1",
 	"securepoll-tally-not-finished": "Du kannst keen Tell opstellen, solang de Wahl nich toenn is.",
-	"securepoll-can-decrypt": "De Stimmopteeknungen sünd verslötelt, aver de Opslötel-Slötel is verföögbor.  \nDu kannst de Resultaten in de Datenbank tohooptellen laten, oder de verslötelt Resultaten ut en hoochlaadt Datei.",
-	"securepoll-tally-local-legend": "Spiekert Resultaten tohooptellen",
-	"securepoll-tally-local-submit": "Tell opstellen",
-	"securepoll-tally-upload-legend": "Verslötelt Dump hoochladen",
 	"securepoll-tally-upload-submit": "Tell opstellen",
 	"securepoll-tally-error": "Fehler bi’t Interpreteren vun de Stimmopteeknungen, kann keen Tell opstellen.",
 	"securepoll-no-upload": "Keen Datei hoochlaadt, kann keen Tell opstellen."
