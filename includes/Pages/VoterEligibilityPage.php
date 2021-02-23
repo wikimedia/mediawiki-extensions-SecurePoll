@@ -106,7 +106,7 @@ class VoterEligibilityPage extends ActionPage {
 	}
 
 	private function saveProperties( $properties, $delete, $comment ) {
-		$localWiki = wfWikiID();
+		$localWiki = WikiMap::getCurrentWikiId();
 		$wikis = $this->election->getProperty( 'wikis' );
 		if ( $wikis ) {
 			$wikis = explode( "\n", $wikis );
@@ -192,13 +192,14 @@ class VoterEligibilityPage extends ActionPage {
 
 	private function fetchList( $property, $db = DB_REPLICA ) {
 		$wikis = $this->election->getProperty( 'wikis' );
+		$localWiki = WikiMap::getCurrentWikiId();
 		if ( $wikis ) {
 			$wikis = explode( "\n", $wikis );
-			if ( !in_array( wfWikiID(), $wikis ) ) {
-				$wikis[] = wfWikiID();
+			if ( !in_array( $localWiki, $wikis ) ) {
+				$wikis[] = $localWiki;
 			}
 		} else {
-			$wikis = [ wfWikiID() ];
+			$wikis = [ $localWiki ];
 		}
 
 		$names = [];
@@ -253,13 +254,14 @@ class VoterEligibilityPage extends ActionPage {
 
 	private function saveList( $property, $names, $comment ) {
 		$wikis = $this->election->getProperty( 'wikis' );
+		$localWiki = WikiMap::getCurrentWikiId();
 		if ( $wikis ) {
 			$wikis = explode( "\n", $wikis );
-			if ( !in_array( wfWikiID(), $wikis ) ) {
-				$wikis[] = wfWikiID();
+			if ( !in_array( $localWiki, $wikis ) ) {
+				$wikis[] = $localWiki;
 			}
 		} else {
-			$wikis = [ wfWikiID() ];
+			$wikis = [ $localWiki ];
 		}
 
 		$wikiNames = [ '*' => [] ];
@@ -279,7 +281,6 @@ class VoterEligibilityPage extends ActionPage {
 
 		$list = "{$this->election->getId()}/list/$property";
 
-		$localWiki = wfWikiID();
 		$wikis = $this->election->getProperty( 'wikis' );
 		if ( $wikis ) {
 			$wikis = explode( "\n", $wikis );
@@ -499,10 +500,8 @@ class VoterEligibilityPage extends ActionPage {
 			$prefix = 'votereligibility/' . $this->election->getId();
 			foreach ( $links as $action ) {
 				$title = SpecialPage::getTitleFor( 'SecurePoll', "$prefix/$action/$list" );
-				$link = Linker::link(
-					$title,
-					$this->msg( "securepoll-votereligibility-label-$action" )->parse()
-				);
+				$link = MediaWikiServices::getInstance()->getLinkRenderer()->makeLink( $title,
+					$this->msg( "securepoll-votereligibility-label-$action" )->text() );
 				$formItems[] = [
 					'section' => "lists/$list",
 					'type' => 'info',
@@ -997,6 +996,7 @@ class VoterEligibilityPage extends ActionPage {
 
 	private function executeClear( $which ) {
 		$out = $this->specialPage->getOutput();
+		$localWiki = WikiMap::getCurrentWikiId();
 
 		if ( !isset( self::$lists[$which] ) ) {
 			$out->addWikiMsg( 'securepoll-votereligibility-invalid-list' );
@@ -1012,14 +1012,13 @@ class VoterEligibilityPage extends ActionPage {
 		$wikis = $this->election->getProperty( 'wikis' );
 		if ( $wikis ) {
 			$wikis = explode( "\n", $wikis );
-			if ( !in_array( wfWikiID(), $wikis ) ) {
-				$wikis[] = wfWikiID();
+			if ( !in_array( $localWiki, $wikis ) ) {
+				$wikis[] = $localWiki;
 			}
 		} else {
-			$wikis = [ wfWikiID() ];
+			$wikis = [ $localWiki ];
 		}
 
-		$localWiki = wfWikiID();
 		$wikis = $this->election->getProperty( 'wikis' );
 		if ( $wikis ) {
 			$wikis = explode( "\n", $wikis );
