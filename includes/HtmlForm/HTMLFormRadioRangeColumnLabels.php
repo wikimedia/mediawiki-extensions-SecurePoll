@@ -86,6 +86,7 @@ class HTMLFormRadioRangeColumnLabels extends HTMLFormField {
 						'name' => "{$this->mName}[$intColNum]",
 						'size' => $size,
 						'value' => $v,
+						'disabled' => isset( $this->mParams['disabled'] ) && $this->mParams['disabled'],
 					]
 				)
 			);
