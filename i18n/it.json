@@ -239,6 +239,10 @@
 	"securepoll-ns-readonly": "Il namespace {{ns:SecurePoll}} è di sola lettura",
 	"securepoll-voter-stats": "Di tutti gli aventi diritto, $1 {{PLURAL:$1|ha|hanno}} votato.",
 	"securepoll-vote-stats": "Un totale di $1 {{PLURAL:$1|voto è|voti sono}} stati espressi. Di cui, $2 {{PLURAL:$2|è stato annullato|sono stati annullati}}  perché l'elettore ha votato di nuovo, e $3 {{PLURAL:$3|è stato rimosso|sono stati rimossi}}.",
+	"securepolllog-form-action-label": "Tipo di azione:",
+	"securepolllog-form-action-option-addadmin": "Aggiunto amministratore",
+	"securepolllog-form-action-option-removeadmin": "Rimosso amministratore",
+	"securepolllog-form-action-option-both": "Entrambi",
 	"securepolllog-form-electionname-label": "Elezione (titolo):",
 	"securepolllog-election-does-not-exist": "Elezione non trovata",
 	"securepolllog-form-date-label": "Dal giorno (e precedenti):"
