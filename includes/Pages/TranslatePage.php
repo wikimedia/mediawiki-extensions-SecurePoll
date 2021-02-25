@@ -3,7 +3,6 @@
 namespace MediaWiki\Extensions\SecurePoll\Pages;
 
 use Exception;
-use Language;
 use Linker;
 use MediaWiki\Extensions\SecurePoll\Context;
 use MediaWiki\Extensions\SecurePoll\SecurePollContentHandler;
@@ -100,8 +99,10 @@ class TranslatePage extends ActionPage {
 
 		$secondary = $params[1];
 		$inLanguage = $this->specialPage->getLanguage()->getCode();
-		$primaryName = Language::fetchLanguageName( $primary, $inLanguage );
-		$secondaryName = Language::fetchLanguageName( $secondary, $inLanguage );
+		$services = MediaWikiServices::getInstance();
+		$languageNameUtils = $services->getLanguageNameUtils();
+		$primaryName = $languageNameUtils->getLanguageName( $primary, $inLanguage );
+		$secondaryName = $languageNameUtils->getLanguageName( $secondary, $inLanguage );
 		if ( strval( $secondaryName ) === '' ) {
 			$out->addWikiMsg( 'securepoll-invalid-language', $secondary );
 			$this->showLanguageSelector( $primary );
@@ -216,7 +217,8 @@ class TranslatePage extends ActionPage {
 				]
 			) . "\n";
 
-		$languages = Language::fetchLanguageNames();
+		$services = MediaWikiServices::getInstance();
+		$languages = $services->getLanguageNameUtils()->getLanguageNames();
 		ksort( $languages );
 		foreach ( $languages as $code => $name ) {
 			$s .= "\n" . Xml::option( "$code - $name", $code, $code == $selectedCode );
@@ -269,6 +271,7 @@ class TranslatePage extends ActionPage {
 			}
 		}
 		if ( $replaceBatch ) {
+			$services = MediaWikiServices::getInstance();
 			$wikis = $this->election->getProperty( 'wikis' );
 			if ( $wikis ) {
 				$wikis = explode( "\n", $wikis );
@@ -300,14 +303,15 @@ class TranslatePage extends ActionPage {
 					$election,
 					"msg/$secondary"
 				);
+
 				$wp = WikiPage::factory( $title );
 				$wp->doEditContent( $content, $request->getText( 'comment' ) );
 			}
 
-			$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+			$lbFactory = $services->getDBLoadBalancerFactory();
 			// Then each jump-wiki
 			foreach ( $wikis as $dbname ) {
-				if ( $dbname === wfWikiID() ) {
+				if ( $dbname === WikiMap::getCurrentWikiId() ) {
 					continue;
 				}
 
