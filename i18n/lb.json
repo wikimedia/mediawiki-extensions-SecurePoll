@@ -180,6 +180,7 @@
 	"securepoll-ns-readonly": "Den Nummraum {{ns:SecurePoll}} ka just gelies ginn",
 	"securepoll-voter-stats": "Vun alle berechtegte Benotzer {{PLURAL:$1|huet ee|hu(nn) $1}} Benotzer ofgestëmmt.",
 	"securepolllog-form-target-label": "Zil (Benotzernumm):",
+	"securepolllog-form-action-option-both": "Béid",
 	"securepolllog-form-electionname-label": "Walen (Titel):",
 	"securepolllog-election-does-not-exist": "Walen net fonnt"
 }

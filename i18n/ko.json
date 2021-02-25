@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Albamhandae",
+			"Codenstory",
 			"Dohyundark",
 			"Freebiekr",
 			"Gjue",
@@ -178,6 +179,9 @@
 	"securepolllog-form-type-option-voter": "투표자 기록",
 	"securepolllog-form-type-option-admin": "관리 기록",
 	"securepolllog-form-target-label": "대상(사용자 이름):",
+	"securepolllog-form-action-label": "조치 유형:",
+	"securepolllog-form-action-option-addadmin": "관리자 추가됨",
+	"securepolllog-form-action-option-removeadmin": "관리자 제거됨",
 	"securepolllog-form-action-option-both": "둘 다",
 	"securepolllog-form-date-label": "날짜부터 (혹은 이전):",
 	"securepoll-log-empty": "기록이 없습니다."
