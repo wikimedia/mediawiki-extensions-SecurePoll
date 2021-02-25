@@ -8,6 +8,7 @@
 
 		function updateDisabledFields() {
 			if ( actionTypeWidget.getValue() === 'all' ) {
+				targetWidget.setDisabled( false );
 				actionsWidget.fieldWidget.setDisabled( true );
 			} else if ( actionTypeWidget.getValue() === 'voter' ) {
 				targetWidget.setDisabled( true );
