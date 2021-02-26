@@ -4,17 +4,7 @@ namespace MediaWiki\Extensions\SecurePoll;
 
 use Linker;
 use MediaWiki\Extensions\SecurePoll\Pages\ActionPage;
-use MediaWiki\Extensions\SecurePoll\Pages\CreatePage;
-use MediaWiki\Extensions\SecurePoll\Pages\DetailsPage;
-use MediaWiki\Extensions\SecurePoll\Pages\DumpPage;
 use MediaWiki\Extensions\SecurePoll\Pages\EntryPage;
-use MediaWiki\Extensions\SecurePoll\Pages\ListPage;
-use MediaWiki\Extensions\SecurePoll\Pages\LoginPage;
-use MediaWiki\Extensions\SecurePoll\Pages\MessageDumpPage;
-use MediaWiki\Extensions\SecurePoll\Pages\TallyPage;
-use MediaWiki\Extensions\SecurePoll\Pages\TranslatePage;
-use MediaWiki\Extensions\SecurePoll\Pages\VotePage;
-use MediaWiki\Extensions\SecurePoll\Pages\VoterEligibilityPage;
 use SpecialPage;
 
 /**
@@ -23,31 +13,23 @@ use SpecialPage;
  * this or of SpecialPage, they're subclassed from ActionPage.
  */
 class SpecialSecurePoll extends SpecialPage {
-	/** @var string[] */
-	public static $pages = [
-		'create' => CreatePage::class,
-		'edit' => CreatePage::class,
-		'details' => DetailsPage::class,
-		'dump' => DumpPage::class,
-		'entry' => EntryPage::class,
-		'list' => ListPage::class,
-		'login' => LoginPage::class,
-		'msgdump' => MessageDumpPage::class,
-		'tally' => TallyPage::class,
-		'translate' => TranslatePage::class,
-		'vote' => VotePage::class,
-		'votereligibility' => VoterEligibilityPage::class,
-	];
-
 	/** @var Context */
 	public $sp_context;
 
+	/** @var ActionPageFactory */
+	private $actionPageFactory;
+
 	/**
 	 * Constructor
+	 * @param ActionPageFactory $actionPageFactory
 	 */
-	public function __construct() {
+	public function __construct(
+		ActionPageFactory $actionPageFactory
+	) {
 		parent::__construct( 'SecurePoll' );
 		$this->sp_context = new Context;
+
+		$this->actionPageFactory = $actionPageFactory;
 	}
 
 	public function doesWrites() {
@@ -92,15 +74,10 @@ class SpecialSecurePoll extends SpecialPage {
 	/**
 	 * Get a _ActionPage subclass object for the given subpage name
 	 * @param string $name
-	 * @return false|ActionPage
+	 * @return null|ActionPage
 	 */
 	public function getSubpage( $name ) {
-		if ( !isset( self::$pages[$name] ) ) {
-			return false;
-		}
-		$className = self::$pages[$name];
-
-		return new $className( $this );
+		return $this->actionPageFactory->getPage( $name, $this );
 	}
 
 	/**

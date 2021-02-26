@@ -19,7 +19,12 @@
 		"SecurePoll": "\\MediaWiki\\Extensions\\SecurePoll\\SecurePollContentHandler"
 	},
 	"SpecialPages": {
-		"SecurePoll": "\\MediaWiki\\Extensions\\SecurePoll\\SpecialSecurePoll"
+		"SecurePoll": {
+			"class": "\\MediaWiki\\Extensions\\SecurePoll\\SpecialSecurePoll",
+			"services": [
+				"SecurePoll.ActionPageFactory"
+			]
+		}
 	},
 	"JobClasses": {
 		"securePollPopulateVoterList": "\\MediaWiki\\Extensions\\SecurePoll\\Jobs\\PopulateVoterListJob"
@@ -86,6 +91,9 @@
 			"services": [ "MainConfig" ]
 		}
 	},
+	"ServiceWiringFiles": [
+		"includes/ServiceWiring.php"
+	],
 	"namespaces": [
 		{
 			"id": 830,

@@ -7,7 +7,9 @@ use MediaWiki\Extensions\SecurePoll\Entities\Election;
 use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Extensions\SecurePoll\User\Auth;
 use MediaWiki\Extensions\SecurePoll\User\Voter;
+use MediaWiki\Languages\LanguageFallback;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\User\UserOptionsLookup;
 use Message;
 use User;
 
@@ -29,6 +31,10 @@ abstract class ActionPage {
 	public $user;
 	/** @var Context */
 	public $context;
+	/** @var UserOptionsLookup */
+	protected $userOptionsLookup;
+	/** @var LanguageFallback */
+	protected $languageFallback;
 
 	/**
 	 * Constructor.
@@ -76,6 +82,14 @@ abstract class ActionPage {
 			$languages[] = 'en';
 		}
 		$this->context->setLanguages( $languages );
+	}
+
+	public function setUserOptionsLookup( $userOptionsLookup ) {
+		$this->userOptionsLookup = $userOptionsLookup;
+	}
+
+	public function setLanguageFallback( $languageFallback ) {
+		$this->languageFallback = $languageFallback;
 	}
 
 	/**
