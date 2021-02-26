@@ -2,16 +2,17 @@
 
 namespace MediaWiki\Extensions\SecurePoll\Pages;
 
-use Hooks;
 use HTMLForm;
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
 use MediaWiki\Extensions\SecurePoll\User\Auth;
 use MediaWiki\Extensions\SecurePoll\User\RemoteMWAuth;
 use MediaWiki\Extensions\SecurePoll\User\Voter;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Session\SessionManager;
 use MWException;
 use Status;
 use Title;
+use WikiMap;
 use Wikimedia\IPUtils;
 
 /**
@@ -283,7 +284,8 @@ class VotePage extends ActionPage {
 			throw new MWException( 'Configuration error: no jump-id' );
 		}
 		$url .= "/login/$id";
-		Hooks::run(
+		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
+		$hookContainer->run(
 			'SecurePoll_JumpUrl',
 			[
 				$this,
@@ -293,8 +295,8 @@ class VotePage extends ActionPage {
 		$out->addWikiTextAsInterface( $this->election->getMessage( 'jump-text' ) );
 		$hiddenFields = [
 			'token' => RemoteMWAuth::encodeToken( $user->getToken() ),
-			'id' => $user->getId(),
-			'wiki' => wfWikiID(),
+			'id' => $user->getUserId(),
+			'wiki' => WikiMap::getCurrentWikiId(),
 		];
 
 		$htmlForm = HTMLForm::factory(
