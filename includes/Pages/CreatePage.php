@@ -12,8 +12,8 @@ use MediaWiki\Extensions\SecurePoll\Crypt\Crypt;
 use MediaWiki\Extensions\SecurePoll\DBStore;
 use MediaWiki\Extensions\SecurePoll\Entities\Entity;
 use MediaWiki\Extensions\SecurePoll\SecurePollContentHandler;
+use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Extensions\SecurePoll\Talliers\Tallier;
-use MediaWiki\MediaWikiServices;
 use Message;
 use MWException;
 use MWTimestamp;
@@ -23,12 +23,28 @@ use Status;
 use User;
 use WikiMap;
 use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\ILoadBalancer;
 use WikiPage;
 
 /**
  * Special:SecurePoll subpage for creating or editing a poll
  */
 class CreatePage extends ActionPage {
+	/** @var ILoadBalancer */
+	private $loadBalancer;
+
+	/**
+	 * @param SpecialSecurePoll $specialPage
+	 * @param ILoadBalancer $loadBalancer
+	 */
+	public function __construct(
+		SpecialSecurePoll $specialPage,
+		ILoadBalancer $loadBalancer
+	) {
+		parent::__construct( $specialPage );
+		$this->loadBalancer = $loadBalancer;
+	}
+
 	/**
 	 * Execute the subpage.
 	 * @param array $params Array of subpage parameters.
@@ -497,8 +513,7 @@ class CreatePage extends ActionPage {
 			$originalFormData = $this->getFormDataFromElection();
 		}
 
-		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
-		$dbw = $this->context->getDB();
+		$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_MASTER );
 		$dbw->startAtomic( __METHOD__ );
 		foreach ( $fields as $pr_key => $pr_value ) {
 			$dbw->update(
@@ -522,7 +537,6 @@ class CreatePage extends ActionPage {
 	}
 
 	public function processInput( $formData, $form ) {
-		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		try {
 			$context = new Context;
 			$userId = $this->specialPage->getUser()->getId();
@@ -534,7 +548,7 @@ class CreatePage extends ActionPage {
 				return Status::newFatal( 'securepoll-create-fail-bad-id' );
 			}
 
-			$dbw = $this->context->getDB();
+			$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_MASTER );
 
 			// Check for duplicate titles on the local wiki
 			$id = $dbw->selectField(
@@ -557,8 +571,7 @@ class CreatePage extends ActionPage {
 			// matter in practice)
 			if ( $store->rId ) {
 				foreach ( $store->remoteWikis as $dbname ) {
-					$lb = $lbFactory->getMainLB( $dbname );
-					$rdbw = $lb->getConnection( DB_MASTER, [], $dbname );
+					$rdbw = $this->loadBalancer->getConnection( DB_MASTER, [], $dbname );
 
 					// Find an existing dummy election, if any
 					$rId = $rdbw->selectField(
@@ -586,7 +599,7 @@ class CreatePage extends ActionPage {
 						__METHOD__
 					);
 
-					$lb->reuseConnection( $rdbw );
+					$this->loadBalancer->reuseConnection( $rdbw );
 
 					if ( $id && $id !== $rId ) {
 						throw new StatusException(
@@ -721,8 +734,7 @@ class CreatePage extends ActionPage {
 		if ( $store->rId ) {
 			$election = $context->getElection( $store->rId );
 			foreach ( $store->remoteWikis as $dbname ) {
-				$lb = $lbFactory->getMainLB( $dbname );
-				$dbw = $lb->getConnection( DB_MASTER, [], $dbname );
+				$dbw = $this->loadBalancer->getConnection( ILoadBalancer::DB_MASTER, [], $dbname );
 				$dbw->startAtomic( __METHOD__ );
 				// Find an existing dummy election, if any
 				$rId = $dbw->selectField(
@@ -773,7 +785,7 @@ class CreatePage extends ActionPage {
 					__METHOD__
 				);
 				$dbw->endAtomic( __METHOD__ );
-				$lb->reuseConnection( $dbw );
+				$this->loadBalancer->reuseConnection( $dbw );
 			}
 		}
 
@@ -831,7 +843,7 @@ class CreatePage extends ActionPage {
 			self::LOG_TYPE_REMOVEADMIN => array_diff( $oldAdmins, $newAdmins ),
 		];
 
-		$dbw = $this->context->getDB();
+		$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_MASTER );
 		$fields = [
 			'spl_timestamp' => $dbw->timestamp( time() ),
 			'spl_election_id' => $electionId,
