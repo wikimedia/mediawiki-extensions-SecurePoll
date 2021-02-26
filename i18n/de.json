@@ -175,7 +175,7 @@
 	"securepoll-create-option-election_type-radio-range-comment+histogram-range": "Bereichsabstimmung (Histogramm-Bereich) mit Kommentar",
 	"securepoll-create-option-election_crypt-none": "Keine Verschlüsselung",
 	"securepoll-create-label-comment": "Grund",
-	"securepoll-create-user-not-in-electionadmin-group": "„$1“ ist kein Mitglied der Wahladministratoren-Gruppe",
+	"securepoll-create-user-not-in-electionadmin-group": "„$1“ ist kein {{GENDER:$1|Mitglied}} der Wahladministratoren-Gruppe",
 	"securepoll-create-fail-bad-id": "Die übermittelte Abstimmungskennung stimmt nicht mit der bearbeiteten Abstimmung überein",
 	"securepoll-create-fail-id-missing": "Die bearbeitete Abstimmung ist nicht mehr vorhanden",
 	"securepoll-create-fail-bad-dblist": "Das angegebene Wiki oder die Wikiliste ist ungültig",

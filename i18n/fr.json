@@ -191,7 +191,7 @@
 	"securepoll-create-option-election_type-radio-range-comment+histogram-range": "Gamme des votes (plage d’histogramme) avec commentaire",
 	"securepoll-create-option-election_crypt-none": "Pas de chiffrement",
 	"securepoll-create-label-comment": "Motif",
-	"securepoll-create-user-not-in-electionadmin-group": "« $1 » n’est pas membre du groupe electionadmin.",
+	"securepoll-create-user-not-in-electionadmin-group": "« $1 » n’est pas {{GENDER:$1|membre}} du groupe electionadmin.",
 	"securepoll-create-fail-bad-id": "L'élection ID soumis ne correspond pas à l'élection en cours d'édition",
 	"securepoll-create-fail-id-missing": "L'élection en cours d'édition n'existe plus",
 	"securepoll-create-fail-bad-dblist": "Le wiki ou la liste de wikis spécifié n’est pas valide",
