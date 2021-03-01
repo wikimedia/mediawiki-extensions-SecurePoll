@@ -27,8 +27,8 @@
 namespace MediaWiki\Extensions\SecurePoll\Api;
 
 use ApiBase;
-use MediaWiki\Extensions\SecurePoll\Pages\ListPage;
 use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
+use MediaWiki\MediaWikiServices;
 
 /**
  * API module to facilitate striking/unstriking SecurePoll votes.
@@ -55,8 +55,11 @@ class ApiStrikeVote extends ApiBase {
 			);
 		}
 
+		$services = MediaWikiServices::getInstance();
+
 		// see if vote exists
-		$page = new SpecialSecurePoll;
+		// (using SpecialPageFactory gets us bad type hints for phan here)
+		$page = new SpecialSecurePoll( $services->getService( 'SecurePoll.ActionPageFactory' ) );
 		$context = $page->sp_context;
 		$db = $context->getDB();
 		$table = $db->tableName( 'securepoll_elections' );
@@ -85,8 +88,9 @@ class ApiStrikeVote extends ApiBase {
 		}
 
 		// strike the vote
-		$subpage = new ListPage( $page );
+		$subpage = $page->getSubpage( 'list' );
 		$subpage->election = $context->newElectionFromRow( $row );
+		// @phan-suppress-next-line PhanUndeclaredMethod
 		$status = $subpage->strike( $option, $voteid, $reason );
 
 		$result = [];
