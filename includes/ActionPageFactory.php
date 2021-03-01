@@ -52,6 +52,10 @@ class ActionPageFactory {
 		],
 		'translate' => [
 			'class' => TranslatePage::class,
+			'services' => [
+				'DBLoadBalancer',
+				'LanguageNameUtils',
+			],
 		],
 		'vote' => [
 			'class' => VotePage::class,
@@ -97,7 +101,7 @@ class ActionPageFactory {
 			return null;
 		}
 		// ObjectFactory::createObject accepts an array, not just a callable (phan bug)
-		// @phan-suppress-next-line PhanTypeInvalidCallableArraySize
+		// @phan-suppress-next-line PhanTypeInvalidCallableArrayKey
 		$page = $this->objectFactory->createObject(
 			self::PAGE_LIST[$name],
 			[
