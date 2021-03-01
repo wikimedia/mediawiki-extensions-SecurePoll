@@ -30,7 +30,12 @@
 		"securePollPopulateVoterList": "\\MediaWiki\\Extensions\\SecurePoll\\Jobs\\PopulateVoterListJob"
 	},
 	"APIModules": {
-		"strikevote": "\\MediaWiki\\Extensions\\SecurePoll\\Api\\ApiStrikeVote"
+		"strikevote": {
+			"class": "\\MediaWiki\\Extensions\\SecurePoll\\Api\\ApiStrikeVote",
+			"services": [
+				"SecurePoll.ActionPageFactory"
+			]
+		}
 	},
 	"MessagesDirs": {
 		"SecurePoll": [
