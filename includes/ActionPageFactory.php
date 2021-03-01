@@ -25,9 +25,15 @@ class ActionPageFactory {
 	private const PAGE_LIST = [
 		'create' => [
 			'class' => CreatePage::class,
+			'services' => [
+				'DBLoadBalancer',
+			],
 		],
 		'edit' => [
 			'class' => CreatePage::class,
+			'services' => [
+				'DBLoadBalancer',
+			],
 		],
 		'details' => [
 			'class' => DetailsPage::class,
@@ -97,7 +103,7 @@ class ActionPageFactory {
 			return null;
 		}
 		// ObjectFactory::createObject accepts an array, not just a callable (phan bug)
-		// @phan-suppress-next-line PhanTypeInvalidCallableArraySize
+		// @phan-suppress-next-line PhanTypeInvalidCallableArrayKey
 		$page = $this->objectFactory->createObject(
 			self::PAGE_LIST[$name],
 			[
