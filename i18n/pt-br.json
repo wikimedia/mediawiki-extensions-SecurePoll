@@ -193,7 +193,7 @@
 	"securepoll-create-option-election_crypt-none": "Sem criptografia",
 	"securepoll-create-option-election_crypt-gpg": "GPG",
 	"securepoll-create-label-comment": "Motivo",
-	"securepoll-create-user-not-in-electionadmin-group": "\"$1\" não é membro do grupo de administradores de eleições.",
+	"securepoll-create-user-not-in-electionadmin-group": "\"$1\" não é {GENDER:$1|membro}} do grupo de administradores de eleições.",
 	"securepoll-create-fail-bad-id": "O identificador da eleição enviado não corresponde à eleição que está a ser editada",
 	"securepoll-create-fail-id-missing": "A eleição que está sendo editada não existe mais",
 	"securepoll-create-fail-bad-dblist": "A wiki ou lista de wikis especificada não é válida",
