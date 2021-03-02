@@ -33,8 +33,6 @@ class PopulateVoterListJob extends Job {
 			'list_include-groups',
 		];
 		static $listProps = [
-			'list_edits-startdate',
-			'list_edits-enddate',
 			'list_exclude-groups',
 			'list_include-groups',
 		];
