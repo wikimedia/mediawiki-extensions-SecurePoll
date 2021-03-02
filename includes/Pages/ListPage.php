@@ -115,17 +115,16 @@ class ListPage extends ActionPage {
 			$fields = [
 				'spl_timestamp' => $dbw->timestamp( time() ),
 				'spl_election_id' => $electionId,
-				'spl_user' => $this->specialPage->getUser()->getId(),
+				'spl_user' => $this->specialPage->getUser()->getUserId(),
 				'spl_type' => self::LOG_TYPE_VIEWVOTES,
 
 			];
 			$dbw->insert( 'securepoll_log', $fields, __METHOD__ );
 		}
 
-		$out->addHTML(
-			$pager->getLimitForm() . $pager->getNavigationBar() . $pager->getBody(
-			) . $pager->getNavigationBar()
-		);
+		$out->addHTML( $pager->getLimitForm() . $pager->getNavigationBar() );
+		$out->addParserOutputContent( $pager->getBodyOutput() );
+		$out->addHTML( $pager->getNavigationBar() );
 		if ( $isAdmin ) {
 			$msgStrike = $this->msg( 'securepoll-strike-button' )->escaped();
 			$msgUnstrike = $this->msg( 'securepoll-unstrike-button' )->escaped();
@@ -196,7 +195,7 @@ EOT
 				'st_timestamp' => wfTimestampNow(),
 				'st_action' => $action,
 				'st_reason' => $reason,
-				'st_user' => $this->specialPage->getUser()->getId()
+				'st_user' => $this->specialPage->getUser()->getUserId()
 			],
 			__METHOD__
 		);
