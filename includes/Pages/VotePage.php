@@ -4,16 +4,18 @@ namespace MediaWiki\Extensions\SecurePoll\Pages;
 
 use HTMLForm;
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
+use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Extensions\SecurePoll\User\Auth;
 use MediaWiki\Extensions\SecurePoll\User\RemoteMWAuth;
 use MediaWiki\Extensions\SecurePoll\User\Voter;
-use MediaWiki\MediaWikiServices;
+use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Session\SessionManager;
 use MWException;
 use Status;
 use Title;
 use WikiMap;
 use Wikimedia\IPUtils;
+use Wikimedia\Rdbms\ILoadBalancer;
 
 /**
  * The subpage for casting votes.
@@ -29,6 +31,25 @@ class VotePage extends ActionPage {
 	public $user;
 	/** @var Voter|null */
 	public $voter;
+	/** @var ILoadBalancer */
+	private $loadBalancer;
+	/** @var HookContainer */
+	private $hookContainer;
+
+	/**
+	 * @param SpecialSecurePoll $specialPage
+	 * @param ILoadBalancer $loadBalancer
+	 * @param HookContainer $hookContainer
+	 */
+	public function __construct(
+		SpecialSecurePoll $specialPage,
+		ILoadBalancer $loadBalancer,
+		HookContainer $hookContainer
+	) {
+		parent::__construct( $specialPage );
+		$this->loadBalancer = $loadBalancer;
+		$this->hookContainer = $hookContainer;
+	}
 
 	/**
 	 * Execute the subpage.
@@ -200,7 +221,7 @@ class VotePage extends ActionPage {
 			$encrypted = $status->value;
 		}
 
-		$dbw = $this->context->getDB();
+		$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_MASTER );
 		$dbw->startAtomic( __METHOD__ );
 
 		# Mark previous votes as old
@@ -284,8 +305,7 @@ class VotePage extends ActionPage {
 			throw new MWException( 'Configuration error: no jump-id' );
 		}
 		$url .= "/login/$id";
-		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
-		$hookContainer->run(
+		$this->hookContainer->run(
 			'SecurePoll_JumpUrl',
 			[
 				$this,

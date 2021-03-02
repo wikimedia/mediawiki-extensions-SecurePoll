@@ -61,6 +61,10 @@ class ActionPageFactory {
 		],
 		'vote' => [
 			'class' => VotePage::class,
+			'services' => [
+				'DBLoadBalancer',
+				'HookContainer'
+			],
 		],
 		'votereligibility' => [
 			'class' => VoterEligibilityPage::class,
