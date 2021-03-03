@@ -32,7 +32,11 @@ use Xml;
  *          max-registration
  *              Latest acceptable registration date
  *          not-blocked
- *              True if voters need to not be blocked
+ *              (deprecated) True if voters need to not be blocked
+ *          not-sitewide-blocked
+ *              True if voters need to not have a sitewide block
+ *          not-partial-blocked
+ *              True if voters need to not have a partial block
  *          not-bot
  *              True if voters need to not have the bot permission
  *          need-group
@@ -279,10 +283,16 @@ class Election extends Entity {
 			}
 
 			// Blocked
+			// TODO: remove not-blocked references after T277079
 			$notBlocked = $this->getProperty( 'not-blocked' );
+			$notSitewideBlocked = $this->getProperty( 'not-sitewide-blocked' );
+			$notPartialBlocked = $this->getProperty( 'not-partial-blocked' );
 			$isBlocked = !empty( $props['blocked'] );
-			if ( $notBlocked && $isBlocked ) {
+			$isSitewideBlocked = $props['isSitewideBlocked'];
+			if ( ( $notBlocked || $notSitewideBlocked ) && $isBlocked && $isSitewideBlocked ) {
 				$status->fatal( 'securepoll-blocked' );
+			} elseif ( ( $notBlocked || $notPartialBlocked ) && $isBlocked && !$isSitewideBlocked ) {
+				$status->fatal( 'securepoll-blocked-partial' );
 			}
 
 			// Centrally blocked on more than X projects

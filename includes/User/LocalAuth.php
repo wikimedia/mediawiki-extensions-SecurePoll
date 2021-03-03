@@ -54,6 +54,7 @@ class LocalAuth extends Auth {
 			'properties' => [
 				'wiki' => wfWikiID(),
 				'blocked' => $user->isBlocked(),
+				'isSitewideBlocked' => $user->getBlock() ? $user->getBlock()->isSitewide() : null,
 				'central-block-count' => $this->getCentralBlockCount( $user ),
 				'edit-count' => $user->getEditCount(),
 				'bot' => $user->isAllowed( 'bot' ),
