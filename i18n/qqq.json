@@ -131,6 +131,7 @@
 	"securepoll-subpage-votereligibility": "Link text to a sub page in the SecurePoll extension where users can configure voter eligibility.",
 	"securepoll-subpage-dump": "Link text to a sub page in the SecurePoll extension where users can dump results.\n{{Identical|Dump}}",
 	"securepoll-subpage-tally": "Link text to a sub page in the SecurePoll extension where users can tally.\n{{Identical|Tally}}",
+	"securepoll-subpage-log": "Link text to the logs for a specific election in SecurePoll",
 	"securepoll-tally-title": "Used as page title. Parameters:\n* $1 - title of the election, or the string \"[title]\"\n{{Identical|Tally}}",
 	"securepoll-tally-not-finished": "Used as error message.",
 	"securepoll-tally-form-file-help": "Used as help text for a form field.",
