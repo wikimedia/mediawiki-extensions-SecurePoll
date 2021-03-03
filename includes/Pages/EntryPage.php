@@ -3,7 +3,7 @@
 namespace MediaWiki\Extensions\SecurePoll\Pages;
 
 use Html;
-use Linker;
+use MediaWiki\MediaWikiServices;
 use SpecialPage;
 use Title;
 
@@ -19,9 +19,8 @@ class EntryPage extends ActionPage {
 		$pager = new ElectionPager( $this );
 		$out = $this->specialPage->getOutput();
 		$out->addWikiMsg( 'securepoll-entry-text' );
-		$out->addHTML(
-			$pager->getBody() . $pager->getNavigationBar()
-		);
+		$out->addParserOutputContent( $pager->getBodyOutput() );
+		$out->addHTML( $pager->getNavigationBar() );
 
 		if ( $this->specialPage->getUser()->isAllowed( 'securepoll-create-poll' ) ) {
 			$title = SpecialPage::getTitleFor( 'SecurePoll', 'create' );
@@ -29,13 +28,8 @@ class EntryPage extends ActionPage {
 				Html::rawElement(
 					'p',
 					[],
-					Linker::link(
-						$title,
-						$this->msg( 'securepoll-entry-createpoll' )->escaped(),
-						[],
-						[],
-						[ 'known' ]
-					)
+					MediaWikiServices::getInstance()->getLinkRenderer()->makeKnownLink(
+						$title, $this->msg( 'securepoll-entry-createpoll' )->text() )
 				)
 			);
 		}
