@@ -315,7 +315,7 @@ class VotePage extends ActionPage {
 		$out->addWikiTextAsInterface( $this->election->getMessage( 'jump-text' ) );
 		$hiddenFields = [
 			'token' => RemoteMWAuth::encodeToken( $user->getToken() ),
-			'id' => $user->getUserId(),
+			'id' => $user->getId(),
 			'wiki' => WikiMap::getCurrentWikiId(),
 		];
 

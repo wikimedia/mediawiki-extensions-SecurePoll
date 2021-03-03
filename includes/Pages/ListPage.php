@@ -115,7 +115,7 @@ class ListPage extends ActionPage {
 			$fields = [
 				'spl_timestamp' => $dbw->timestamp( time() ),
 				'spl_election_id' => $electionId,
-				'spl_user' => $this->specialPage->getUser()->getUserId(),
+				'spl_user' => $this->specialPage->getUser()->getId(),
 				'spl_type' => self::LOG_TYPE_VIEWVOTES,
 
 			];
@@ -195,7 +195,7 @@ EOT
 				'st_timestamp' => wfTimestampNow(),
 				'st_action' => $action,
 				'st_reason' => $reason,
-				'st_user' => $this->specialPage->getUser()->getUserId()
+				'st_user' => $this->specialPage->getUser()->getId()
 			],
 			__METHOD__
 		);

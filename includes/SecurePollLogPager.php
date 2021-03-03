@@ -112,12 +112,12 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 		}
 
 		if ( $this->performer ) {
-			$performer = $this->userFactory->newFromName( $this->performer )->getUserId();
+			$performer = $this->userFactory->newFromName( $this->performer )->getId();
 			$conds['spl_user'] = $performer;
 		}
 
 		if ( $this->target ) {
-			$target = $this->userFactory->newFromName( $this->target )->getUserId();
+			$target = $this->userFactory->newFromName( $this->target )->getId();
 			$conds['spl_target'] = $target;
 		}
 
@@ -146,7 +146,7 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 		);
 
 		$user = $this->userFactory->newFromId( $row->spl_user );
-		$userLink = Linker::userLink( $user->getUserId(), $user->getName() );
+		$userLink = Linker::userLink( $user->getId(), $user->getName() );
 
 		$election = $this->context->getElection( $row->spl_election_id );
 		$electionTitle = htmlspecialchars( $election->title );
@@ -159,7 +159,7 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 
 		if ( $row->spl_target ) {
 			$target = $this->userFactory->newFromId( $row->spl_target );
-			$messageParams[] = Linker::userLink( $target->getUserId(), $target->getName() );
+			$messageParams[] = Linker::userLink( $target->getId(), $target->getName() );
 		}
 
 		$message = $this->msg(
