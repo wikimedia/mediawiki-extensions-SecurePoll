@@ -27,12 +27,16 @@ class ActionPageFactory {
 			'class' => CreatePage::class,
 			'services' => [
 				'DBLoadBalancer',
+				'UserGroupManager',
+				'LanguageNameUtils'
 			],
 		],
 		'edit' => [
 			'class' => CreatePage::class,
 			'services' => [
 				'DBLoadBalancer',
+				'UserGroupManager',
+				'LanguageNameUtils'
 			],
 		],
 		'details' => [
