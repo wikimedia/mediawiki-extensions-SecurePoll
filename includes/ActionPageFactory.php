@@ -43,6 +43,9 @@ class ActionPageFactory {
 		],
 		'entry' => [
 			'class' => EntryPage::class,
+			'services' => [
+				'LinkRenderer',
+			],
 		],
 		'list' => [
 			'class' => ListPage::class,

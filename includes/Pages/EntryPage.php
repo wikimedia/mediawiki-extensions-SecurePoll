@@ -3,7 +3,8 @@
 namespace MediaWiki\Extensions\SecurePoll\Pages;
 
 use Html;
-use MediaWiki\MediaWikiServices;
+use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
+use MediaWiki\Linker\LinkRenderer;
 use SpecialPage;
 use Title;
 
@@ -11,6 +12,21 @@ use Title;
  * The entry page for SecurePoll. Shows a list of elections.
  */
 class EntryPage extends ActionPage {
+	/** @var LinkRenderer */
+	private $linkRenderer;
+
+	/**
+	 * @param SpecialSecurePoll $specialPage
+	 * @param LinkRenderer $linkRenderer
+	 */
+	public function __construct(
+		SpecialSecurePoll $specialPage,
+		LinkRenderer $linkRenderer
+	) {
+		parent::__construct( $specialPage );
+		$this->linkRenderer = $linkRenderer;
+	}
+
 	/**
 	 * Execute the subpage.
 	 * @param array $params Array of subpage parameters.
@@ -28,7 +44,7 @@ class EntryPage extends ActionPage {
 				Html::rawElement(
 					'p',
 					[],
-					MediaWikiServices::getInstance()->getLinkRenderer()->makeKnownLink(
+					$this->linkRenderer->makeKnownLink(
 						$title, $this->msg( 'securepoll-entry-createpoll' )->text() )
 				)
 			);
