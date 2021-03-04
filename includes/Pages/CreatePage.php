@@ -68,6 +68,10 @@ class CreatePage extends ActionPage {
 
 				return;
 			}
+			if ( $this->election->isFinished() ) {
+				$out->addWikiMsg( 'securepoll-finished-no-edit' );
+				return;
+			}
 
 			$jumpUrl = $this->election->getProperty( 'jump-url' );
 			if ( $jumpUrl ) {
