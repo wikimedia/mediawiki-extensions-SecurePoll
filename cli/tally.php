@@ -51,6 +51,7 @@ class TallyElection extends Maintenance {
 			$this->fatalError( 'Need to pass either --name or the dump file as an argument' );
 		}
 
+		$startTime = time();
 		$status = $election->tally();
 		if ( !$status->isOK() ) {
 			$this->fatalError( 'Tally error: ' . $status->getWikiText() );
@@ -61,6 +62,11 @@ class TallyElection extends Maintenance {
 		} else {
 			$this->output( $tallier->getTextResult() );
 		}
+		$endTime = time();
+		$timeElapsed = $endTime - $startTime;
+		$this->output( "\n" );
+		$this->output( "Script finished in $timeElapsed s" );
+		$this->output( "\n" );
 	}
 }
 
