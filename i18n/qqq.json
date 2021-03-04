@@ -32,6 +32,7 @@
 	"securepoll-need-admin": "Used as error message.",
 	"securepoll-too-few-params": "Used as error message.",
 	"securepoll-invalid-election": "Used as error message. Parameters:\n* $1 - invalid election ID",
+	"securepoll-finished-no-edit": "Used as an error message.",
 	"securepoll-welcome": "Used as welcome message for remote voters. Parameters:\n* $1 - username of remote voter\n{{Identical|Welcome}}",
 	"securepoll-not-started": "Parameters:\n* $1 - (Unused)\n* $2 - the date of it\n* $3 - its time",
 	"securepoll-already-started": "Parameters:\n* $1 - (Unused)\n* $2 - the date of it\n* $3 - its time",
