@@ -45,7 +45,8 @@ class EntryPage extends ActionPage {
 					'p',
 					[],
 					$this->linkRenderer->makeKnownLink(
-						$title, $this->msg( 'securepoll-entry-createpoll' )->text() )
+						$title, $this->msg( 'securepoll-entry-createpoll' )->text()
+					)
 				)
 			);
 		}
