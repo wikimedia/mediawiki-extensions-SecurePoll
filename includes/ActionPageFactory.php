@@ -135,4 +135,13 @@ class ActionPageFactory {
 		$page->setLanguageFallback( $this->languageFallback );
 		return $page;
 	}
+
+	/**
+	 * Returns a list of action page names.
+	 *
+	 * @return string[]
+	 */
+	public function getNames() {
+		return array_keys( self::PAGE_LIST );
+	}
 }
