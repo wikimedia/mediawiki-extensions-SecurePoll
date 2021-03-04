@@ -6,12 +6,14 @@ use Exception;
 use Linker;
 use MediaWiki\Extensions\SecurePoll\Context;
 use MediaWiki\Extensions\SecurePoll\SecurePollContentHandler;
-use MediaWiki\MediaWikiServices;
+use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
+use MediaWiki\Languages\LanguageNameUtils;
 use Message;
 use MWException;
 use MWExceptionHandler;
 use Title;
 use WikiMap;
+use Wikimedia\Rdbms\ILoadBalancer;
 use WikiPage;
 use Xml;
 
@@ -21,6 +23,27 @@ use Xml;
 class TranslatePage extends ActionPage {
 	/** @var bool|null */
 	public $isAdmin;
+
+	/** @var ILoadBalancer */
+	private $loadBalancer;
+
+	/** @var LanguageNameUtils */
+	private $languageNameUtils;
+
+	/**
+	 * @param SpecialSecurePoll $specialPage
+	 * @param ILoadBalancer $loadBalancer
+	 * @param LanguageNameUtils $languageNameUtils
+	 */
+	public function __construct(
+		SpecialSecurePoll $specialPage,
+		ILoadBalancer $loadBalancer,
+		LanguageNameUtils $languageNameUtils
+	) {
+		parent::__construct( $specialPage );
+		$this->loadBalancer = $loadBalancer;
+		$this->languageNameUtils = $languageNameUtils;
+	}
 
 	/**
 	 * Execute the subpage.
@@ -99,10 +122,8 @@ class TranslatePage extends ActionPage {
 
 		$secondary = $params[1];
 		$inLanguage = $this->specialPage->getLanguage()->getCode();
-		$services = MediaWikiServices::getInstance();
-		$languageNameUtils = $services->getLanguageNameUtils();
-		$primaryName = $languageNameUtils->getLanguageName( $primary, $inLanguage );
-		$secondaryName = $languageNameUtils->getLanguageName( $secondary, $inLanguage );
+		$primaryName = $this->languageNameUtils->getLanguageName( $primary, $inLanguage );
+		$secondaryName = $this->languageNameUtils->getLanguageName( $secondary, $inLanguage );
 		if ( strval( $secondaryName ) === '' ) {
 			$out->addWikiMsg( 'securepoll-invalid-language', $secondary );
 			$this->showLanguageSelector( $primary );
@@ -217,8 +238,7 @@ class TranslatePage extends ActionPage {
 				]
 			) . "\n";
 
-		$services = MediaWikiServices::getInstance();
-		$languages = $services->getLanguageNameUtils()->getLanguageNames();
+		$languages = $this->languageNameUtils->getLanguageNames();
 		ksort( $languages );
 		foreach ( $languages as $code => $name ) {
 			$s .= "\n" . Xml::option( "$code - $name", $code, $code == $selectedCode );
@@ -271,7 +291,6 @@ class TranslatePage extends ActionPage {
 			}
 		}
 		if ( $replaceBatch ) {
-			$services = MediaWikiServices::getInstance();
 			$wikis = $this->election->getProperty( 'wikis' );
 			if ( $wikis ) {
 				$wikis = explode( "\n", $wikis );
@@ -280,7 +299,7 @@ class TranslatePage extends ActionPage {
 			}
 
 			// First, the main wiki
-			$dbw = $this->context->getDB();
+			$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_MASTER );
 			$dbw->replace(
 				'securepoll_msgs',
 				[
@@ -308,15 +327,13 @@ class TranslatePage extends ActionPage {
 				$wp->doEditContent( $content, $request->getText( 'comment' ) );
 			}
 
-			$lbFactory = $services->getDBLoadBalancerFactory();
 			// Then each jump-wiki
 			foreach ( $wikis as $dbname ) {
 				if ( $dbname === WikiMap::getCurrentWikiId() ) {
 					continue;
 				}
 
-				$lb = $lbFactory->getMainLB( $dbname );
-				$dbw = $lb->getConnection( DB_MASTER, [], $dbname );
+				$dbw = $this->loadBalancer->getConnection( ILoadBalancer::DB_MASTER, [], $dbname );
 				try {
 					$id = $dbw->selectField(
 						'securepoll_elections',
@@ -349,7 +366,7 @@ class TranslatePage extends ActionPage {
 					// Log the exception, but don't abort the updating of the rest of the jump-wikis
 					MWExceptionHandler::logException( $ex );
 				}
-				$lb->reuseConnection( $dbw );
+				$this->loadBalancer->reuseConnection( $dbw );
 			}
 		}
 		$out->redirect( $this->getTitle( $secondary )->getFullUrl() );

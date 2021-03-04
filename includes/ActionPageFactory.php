@@ -58,6 +58,10 @@ class ActionPageFactory {
 		],
 		'translate' => [
 			'class' => TranslatePage::class,
+			'services' => [
+				'DBLoadBalancer',
+				'LanguageNameUtils',
+			],
 		],
 		'vote' => [
 			'class' => VotePage::class,
