@@ -16,6 +16,7 @@
 	"securepoll-need-admin": "Du musst ein Wahl-Administrator sein, um diese Aktion durchzuführen.",
 	"securepoll-too-few-params": "Nicht genügend Unterseitenparameter (ungültiger Link).",
 	"securepoll-invalid-election": "„$1“ ist keine gültige Abstimmungskennung.",
+	"securepoll-finished-no-edit": "Diese Wahl ist beendet und du kanns sie nicht mehr bearbeiten.",
 	"securepoll-welcome": "<strong>{{GENDER:$1|Willkommen}} $1!</strong>",
 	"securepoll-not-started": "Die Wahl hat noch nicht begonnen.\nIhr Start ist für den $2 um $3 Uhr geplant.",
 	"securepoll-already-started": "Diese Abstimmung hat bereits begonnen.\nSie startete am $2 um $3.",
