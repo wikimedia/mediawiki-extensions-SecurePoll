@@ -21,3 +21,8 @@
 .mw-htmlform-cloner-create-button {
 	margin-top: 1em;
 }
+
+.mw-htmlform-cloner-li {
+	list-style: none;
+	margin-top: 1em;
+}
