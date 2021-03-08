@@ -2,17 +2,13 @@
 
 namespace MediaWiki\Extensions\SecurePoll\HtmlForm;
 
-use Html;
 use HTMLFormField;
+use OOUI;
 
 /**
  * A table for the RadioRangeBallot message inputs.
  */
 class HTMLFormRadioRangeColumnLabels extends HTMLFormField {
-	public function getSize() {
-		return 10;
-	}
-
 	public function loadDataFromRequest( $request ) {
 		$values = $request->getArray( $this->mName );
 		if ( $values === null ) {
@@ -64,10 +60,8 @@ class HTMLFormRadioRangeColumnLabels extends HTMLFormField {
 	}
 
 	public function getInputHTML( $value ) {
-		$size = $this->getSize();
+		$inputs = [];
 
-		$labels = '';
-		$inputs = '';
 		foreach ( (array)$value as $k => $v ) {
 			if ( !preg_match( '/^column([-+]?)(\d+)$/', $k, $m ) ) {
 				// Ignore "text"
@@ -75,40 +69,23 @@ class HTMLFormRadioRangeColumnLabels extends HTMLFormField {
 			}
 			$signedColNum = $m[1] . $m[2];
 			$intColNum = $m[1] === '-' ? $signedColNum : $m[2];
-			$labels .= Html::element( 'th', [ 'data-securepoll-col-num' => $intColNum ], $signedColNum );
-			$inputs .= Html::rawElement(
-				'td',
-				[ 'data-securepoll-col-num' => $intColNum ],
-				Html::element(
-					'input',
-					[
-						'type' => 'text',
-						'name' => "{$this->mName}[$intColNum]",
-						'size' => $size,
-						'value' => $v,
-						'disabled' => isset( $this->mParams['disabled'] ) && $this->mParams['disabled'],
-					]
-				)
-			);
+
+			$inputs[] = ( new OOUI\FieldLayout(
+				new OOUI\TextInputWidget( [
+					'value' => $v,
+					'name' => "{$this->mName}[$intColNum]",
+					'disabled' => isset( $this->mParams['disabled'] ) && $this->mParams['disabled'],
+				] ),
+				[
+					'label' => $signedColNum,
+					'align' => 'top',
+				]
+			) )->setAttributes( [ 'data-securepoll-col-num' => $intColNum ] );
 		}
 
-		$class = 'securepoll-radiorange-messages';
-		if ( $this->mClass !== '' ) {
-			$class .= " $this->mClass";
-		}
-
-		return Html::rawElement(
-			'table',
-			[
-				'class' => $class,
-				'data-securepoll-col-name' => $this->mName,
-				'data-securepoll-input-size' => $size,
-			],
-			Html::rawElement(
-				'tr',
-				[ 'class' => 'securepoll-label-row' ],
-				$labels
-			) . Html::rawElement( 'tr', [ 'class' => 'securepoll-input-row' ], $inputs )
-		);
+		return ( new OOUI\Widget( [
+			'content' => new OOUI\HorizontalLayout( [ 'items' => $inputs ] ),
+			'classes' => [ 'securepoll-radiorange-messages' ],
+		] ) )->setAttributes( [ 'data-securepoll-col-name' => $this->mName, ] );
 	}
 }

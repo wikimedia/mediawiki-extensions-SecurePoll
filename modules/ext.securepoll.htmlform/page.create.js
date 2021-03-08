@@ -6,46 +6,30 @@
 		var numRegex = /^[+-]?\d+$/;
 
 		$root.find( '.securepoll-radiorange-messages' ).each( function () {
-			var $p, $i, $labelRow, $inputRow,
+			var $p, $i, $layout,
 				minInputWidget, maxInputWidget, $min, $max,
-				name, size, cells;
+				name, cells;
 
 			$i = $( this );
-			$labelRow = $i.find( '.securepoll-label-row' );
-			$inputRow = $i.find( '.securepoll-input-row' );
+			$layout = $i.children( '.oo-ui-horizontalLayout' );
 			name = $i.data( 'securepollColName' );
-			size = $i.data( 'securepollInputSize' );
-
 			cells = {};
-			$labelRow.find( 'th' ).each( function () {
-				var $t = $( this ),
-					n = $t.data( 'securepollColNum' );
 
-				if ( !cells[ n ] ) {
-					cells[ n ] = {};
-				}
-				cells[ n ].$label = $t;
-			} );
-			$inputRow.find( 'td' ).each( function () {
-				var $t = $( this ),
-					n = $t.data( 'securepollColNum' );
-
-				if ( !cells[ n ] ) {
-					cells[ n ] = {};
-				}
-				cells[ n ].$input = $t;
+			$i.find( 'div[data-securepoll-col-num]' ).each( function () {
+				var $t = $( this );
+				cells[ $t.data( 'securepollColNum' ) ] = $t;
 			} );
 
 			function addSign( min, x ) {
 				if ( min < 0 && x > 0 ) {
 					return '+' + x;
 				} else {
-					return x;
+					return x.toString();
 				}
 			}
 
 			function changeHandler() {
-				var i, min, max, $input;
+				var i, min, max;
 
 				min = minInputWidget.getNumericValue();
 				max = maxInputWidget.getNumericValue();
@@ -57,31 +41,19 @@
 
 				for ( i = max; i >= min; i-- ) {
 					if ( !cells[ i ] ) {
-						cells[ i ] = {};
+						cells[ i ] = ( new OO.ui.FieldLayout(
+							new OO.ui.TextInputWidget( {
+								name: name + '[' + i + ']'
+							} ),
+							{
+								align: 'top',
+								label: addSign( min, i )
+							}
+						) ).$element;
 					}
-					if ( !cells[ i ].$label ) {
-						cells[ i ].$label = $( '<th>' );
-						cells[ i ].$label.data( 'securepollColNum', i );
-					}
-					cells[ i ].$label.text( addSign( min, i ) );
-					if ( !cells[ i ].$input ) {
-						$input = $( '<input>' );
-						$input.attr( {
-							type: 'text',
-							name: name + '[' + i + ']',
-							size: size
-						} );
-						cells[ i ].$input = $( '<td>' );
-						cells[ i ].$input.data( 'securepollColNum', i )
-							.append( $input );
-					}
-
-					$labelRow.prepend( cells[ i ].$label );
-					$inputRow.prepend( cells[ i ].$input );
+					$layout.prepend( cells[ i ] );
 				}
-
-				cells[ max ].$label.nextAll().detach();
-				cells[ max ].$input.nextAll().detach();
+				cells[ max ].nextAll().detach();
 			}
 
 			for ( $p = $i.parent(); $p.length > 0; $p = $p.parent() ) {
