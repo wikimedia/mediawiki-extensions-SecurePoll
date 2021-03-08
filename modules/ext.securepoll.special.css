@@ -131,3 +131,7 @@ tr.securepoll-exhausted td {
 tr.securepoll-spoilt {
 	font-style: italic;
 }
+
+.securepoll-radiorange-messages .oo-ui-textInputWidget .oo-ui-inputWidget-input {
+	width: 7em;
+}
