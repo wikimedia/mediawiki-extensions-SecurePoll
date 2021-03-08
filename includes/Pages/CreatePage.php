@@ -3,7 +3,6 @@
 namespace MediaWiki\Extensions\SecurePoll\Pages;
 
 use HTMLForm;
-use Language;
 use LanguageCode;
 use Linker;
 use MediaWiki\Extensions\SecurePoll\Ballots\Ballot;
@@ -14,6 +13,8 @@ use MediaWiki\Extensions\SecurePoll\Entities\Entity;
 use MediaWiki\Extensions\SecurePoll\SecurePollContentHandler;
 use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Extensions\SecurePoll\Talliers\Tallier;
+use MediaWiki\Languages\LanguageNameUtils;
+use MediaWiki\User\UserGroupManager;
 use Message;
 use MWException;
 use MWTimestamp;
@@ -33,16 +34,28 @@ class CreatePage extends ActionPage {
 	/** @var ILoadBalancer */
 	private $loadBalancer;
 
+	/** @var UserGroupManager */
+	private $userGroupManager;
+
+	/** @var LanguageNameUtils */
+	private $languageNameUtils;
+
 	/**
 	 * @param SpecialSecurePoll $specialPage
 	 * @param ILoadBalancer $loadBalancer
+	 * @param UserGroupManager $userGroupManager
+	 * @param LanguageNameUtils $languageNameUtils
 	 */
 	public function __construct(
 		SpecialSecurePoll $specialPage,
-		ILoadBalancer $loadBalancer
+		ILoadBalancer $loadBalancer,
+		UserGroupManager $userGroupManager,
+		LanguageNameUtils $languageNameUtils
 	) {
 		parent::__construct( $specialPage );
 		$this->loadBalancer = $loadBalancer;
+		$this->userGroupManager = $userGroupManager;
+		$this->languageNameUtils = $languageNameUtils;
 	}
 
 	/**
@@ -142,7 +155,7 @@ class CreatePage extends ActionPage {
 
 		$wikiNames = FormStore::getWikiList();
 		$options = [];
-		$options['securepoll-create-option-wiki-this_wiki'] = wfWikiID();
+		$options['securepoll-create-option-wiki-this_wiki'] = WikiMap::getCurrentWikiId();
 		if ( count( $wikiNames ) > 1 ) {
 			$options['securepoll-create-option-wiki-all_wikis'] = '*';
 		}
@@ -153,13 +166,13 @@ class CreatePage extends ActionPage {
 			}
 		}
 
-		// If the only option is wfWikiID() don't show it; otherwise...
+		// If the only option is WikiMap::getCurrentWikiId() don't show it; otherwise...
 		if ( count( $wikiNames ) > 1 || count( $options ) > 1 ) {
 			$opts = [];
 			foreach ( $options as $msg => $value ) {
 				$opts[$this->msg( $msg )->plain()] = $value;
 			}
-			$key = array_search( wfWikiID(), $wikiNames, true );
+			$key = array_search( WikiMap::getCurrentWikiId(), $wikiNames, true );
 			if ( $key !== false ) {
 				unset( $wikiNames[$key] );
 			}
@@ -174,7 +187,7 @@ class CreatePage extends ActionPage {
 			];
 		}
 
-		$languages = Language::fetchLanguageNames( null, 'mw' );
+		$languages = $this->languageNameUtils->getLanguageNames( null, 'mw' );
 		ksort( $languages );
 		$options = [];
 		foreach ( $languages as $code => $name ) {
@@ -224,7 +237,7 @@ class CreatePage extends ActionPage {
 			$formItems['jump-text']['hide-if'] = [
 				'===',
 				'property_wiki',
-				wfWikiId()
+				WikiMap::getCurrentWikiId()
 			];
 		}
 
@@ -565,8 +578,8 @@ class CreatePage extends ActionPage {
 			if ( $id && (int)$id !== $election->getId() ) {
 				throw new StatusException(
 					'securepoll-create-duplicate-title',
-					FormStore::getWikiName( wfWikiId() ),
-					wfWikiID()
+					FormStore::getWikiName( WikiMap::getCurrentWikiId() ),
+					WikiMap::getCurrentWikiId()
 				);
 			}
 
@@ -589,7 +602,7 @@ class CreatePage extends ActionPage {
 							'p1.pr_key' => 'jump-id',
 							'p1.pr_value' => $election->getId(),
 							'p2.pr_key' => 'main-wiki',
-							'p2.pr_value' => wfWikiID(),
+							'p2.pr_value' => WikiMap::getCurrentWikiId(),
 						],
 						__METHOD__
 					);
@@ -752,7 +765,7 @@ class CreatePage extends ActionPage {
 						'p1.pr_key' => 'jump-id',
 						'p1.pr_value' => $eId,
 						'p2.pr_key' => 'main-wiki',
-						'p2.pr_value' => wfWikiID(),
+						'p2.pr_value' => WikiMap::getCurrentWikiId(),
 					],
 					__METHOD__
 				);
@@ -978,11 +991,9 @@ class CreatePage extends ActionPage {
 	 * @return int
 	 */
 	private static function insertEntity( $dbw, $type ) {
-		$id = $dbw->nextSequenceValue( 'securepoll_en_id_seq' );
 		$dbw->insert(
 			'securepoll_entity',
 			[
-				'en_id' => $id,
 				'en_type' => $type,
 			],
 			__METHOD__
@@ -1195,7 +1206,7 @@ class CreatePage extends ActionPage {
 	 */
 	public function checkIfInElectionAdminUserGroup( $value, $alldata, HTMLForm $containingForm ) {
 		$user = User::newFromName( $value );
-		if ( !$user || !in_array( 'electionadmin', $user->getEffectiveGroups() ) ) {
+		if ( !$user || !in_array( 'electionadmin', $this->userGroupManager->getUserEffectiveGroups( $user ) ) ) {
 			return $this->msg(
 				'securepoll-create-user-not-in-electionadmin-group',
 				$value
