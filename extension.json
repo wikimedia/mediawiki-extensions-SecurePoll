@@ -76,24 +76,22 @@
 		"remoteExtPath": "SecurePoll/modules"
 	},
 	"Hooks": {
-		"UserLogout": [
-			"\\MediaWiki\\Extensions\\SecurePoll\\Hooks::onUserLogout"
-		],
-		"LoadExtensionSchemaUpdates": [
-			"\\MediaWiki\\Extensions\\SecurePoll\\Hooks::onLoadExtensionSchemaUpdates"
-		],
-		"CanonicalNamespaces": [
-			"\\MediaWiki\\Extensions\\SecurePoll\\Hooks::onCanonicalNamespaces"
-		],
-		"TitleQuickPermissions": [
-			"\\MediaWiki\\Extensions\\SecurePoll\\Hooks::onTitleQuickPermissions"
-		],
-		"SpecialPage_initList": "specialpage"
+		"UserLogout": "logout",
+		"LoadExtensionSchemaUpdates": "install",
+		"CanonicalNamespaces": "setup",
+		"TitleQuickPermissions": "setup",
+		"SpecialPage_initList": "setup"
 	},
 	"HookHandlers": {
-		"specialpage": {
-			"class": "\\MediaWiki\\Extensions\\SecurePoll\\HookHandler\\SpecialPageHandler",
+		"install": {
+			"class": "\\MediaWiki\\Extensions\\SecurePoll\\HookHandler\\InstallHandler"
+		},
+		"setup": {
+			"class": "\\MediaWiki\\Extensions\\SecurePoll\\HookHandler\\SetupHandler",
 			"services": [ "MainConfig" ]
+		},
+		"logout": {
+			"class": "\\MediaWiki\\Extensions\\SecurePoll\\HookHandler\\LogoutHandler"
 		}
 	},
 	"ServiceWiringFiles": [
