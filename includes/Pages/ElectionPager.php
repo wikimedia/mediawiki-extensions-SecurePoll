@@ -4,6 +4,7 @@ namespace MediaWiki\Extensions\SecurePoll\Pages;
 
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
 use MediaWiki\MediaWikiServices;
+use SpecialPage;
 use stdClass;
 use TablePager;
 
@@ -11,7 +12,7 @@ use TablePager;
  * Pager for an election list. See TablePager documentation.
  */
 class ElectionPager extends TablePager {
-	/** @var bool[][] */
+	/** @var array[] */
 	public $subpages = [
 		'vote' => [
 			'public' => true,
@@ -48,6 +49,12 @@ class ElectionPager extends TablePager {
 			'visible-after-start' => true,
 			'visible-after-close' => true,
 		],
+		'log' => [
+			'public' => false,
+			'visible-after-start' => true,
+			'visible-after-close' => true,
+			'link' => 'getLogLink'
+		]
 	];
 	/** @var string[] */
 	public $fields = [
@@ -133,6 +140,7 @@ class ElectionPager extends TablePager {
 			// securepoll-subpage-vote, securepoll-subpage-translate,
 			// securepoll-subpage-list, securepoll-subpage-dump,
 			// securepoll-subpage-tally, securepoll-subpage-votereligibility
+			// securepoll-subpage-log
 			$linkText = $this->msg( "securepoll-subpage-$subpage" )->text();
 			if ( $s !== '' ) {
 				$s .= $sep;
@@ -141,16 +149,39 @@ class ElectionPager extends TablePager {
 				|| $props['visible-after-start'] ) && ( !$this->election->isFinished() )
 				|| $props['visible-after-close']
 			) {
-				$title = $this->entryPage->specialPage->getPageTitle( "$subpage/$id" );
-				$services = MediaWikiServices::getInstance();
-				$linkRenderer = $services->getLinkRenderer();
-				$s .= $linkRenderer->makeKnownLink( $title, $linkText );
+				if ( isset( $props['link'] ) ) {
+					$s .= $this->{$props['link']}( $id );
+				} else {
+					$title = $this->entryPage->specialPage->getPageTitle( "$subpage/$id" );
+					$services = MediaWikiServices::getInstance();
+					$linkRenderer = $services->getLinkRenderer();
+					$s .= $linkRenderer->makeKnownLink( $title, $linkText );
+				}
 			} else {
 				$s .= "<span class=\"securepoll-link-disabled\">" . $linkText . "</span>";
 			}
 		}
 
 		return $s;
+	}
+
+	/**
+	 * Generate the link to the logs on SecurePollLog for an election
+	 * @param string $id
+	 * @return string
+	 */
+	public function getLogLink( $id ) {
+		$services = MediaWikiServices::getInstance();
+		$linkRenderer = $services->getLinkRenderer();
+		return $linkRenderer->makeLink(
+			SpecialPage::getTitleValueFor( 'SecurePollLog' ),
+			$this->msg( 'securepoll-subpage-log' )->text(),
+			[],
+			[
+				'type' => 'all',
+				'election_name' => $this->entryPage->context->getElection( $id )->title,
+			]
+		);
 	}
 
 	public function getDefaultSort() {
