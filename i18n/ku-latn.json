@@ -1,11 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Bikarhêner",
 			"George Animal",
 			"Ghybu",
 			"Gomada"
 		]
 	},
+	"securepoll-finished-no-edit": "Ev hilbijartin xilas bûye û tu êdî nikarî wê biguherînî.",
 	"securepoll-header-timestamp": "Dem",
 	"securepoll-header-voter-name": "Nav",
 	"securepoll-strike-reason": "Sedem:",

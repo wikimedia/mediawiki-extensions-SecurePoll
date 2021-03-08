@@ -16,6 +16,7 @@
 	"securepoll-need-admin": "עליכם להיות מנהלי ההצבעה כדי לבצע פעולה זו.",
 	"securepoll-too-few-params": "אין מספיק פרמטרים של דפי־משנה (קישור בלתי־תקין).",
 	"securepoll-invalid-election": "\"$1\" אינו מזהה הצבעה תקין.",
+	"securepoll-finished-no-edit": "ההצבעה הזאת הסתיימה ואין לך יותר אפשרות לערוך אותה.",
 	"securepoll-welcome": "<strong>{{GENDER:$1|ברוך הבא|ברוכה הבאה|ברוך בואך}}, $1!</strong>",
 	"securepoll-not-started": "הצבעה זו טרם התחילה.\nתחילתה נקבעה ל־$3, $2.",
 	"securepoll-already-started": "ההצבעה הזאת כבר התחילה.\nהיא התחילה ב־$2 ב־$3.",
