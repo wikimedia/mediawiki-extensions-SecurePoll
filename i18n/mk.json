@@ -108,6 +108,7 @@
 	"securepoll-subpage-votereligibility": "Избирачка подобност",
 	"securepoll-subpage-dump": "Склад на гласови",
 	"securepoll-subpage-tally": "Преброј",
+	"securepoll-subpage-log": "Дневници",
 	"securepoll-tally-title": "Пребројување: $1",
 	"securepoll-tally-not-finished": "Жалиме, но не можете да ги пребројувате изборите додека прво не заврши гласањето.",
 	"securepoll-tally-form-file-help": "Ако подигате шифриран резервен склад, неговата содржина ќе биде пребројана. Во спротивно ќе се пребројат исходните ставки од базата.",

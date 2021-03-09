@@ -5,6 +5,7 @@
 			"Ankan",
 			"Bellayet",
 			"Nasir8891",
+			"R4356th",
 			"Wikitanvir",
 			"আফতাবুজ্জামান"
 		]
@@ -98,6 +99,7 @@
 	"securepoll-subpage-votereligibility": "ভোটার যোগ্যতা",
 	"securepoll-subpage-dump": "ডাম্প",
 	"securepoll-subpage-tally": "গণনা",
+	"securepoll-subpage-log": "লগগুলি",
 	"securepoll-tally-title": "গণনা: $1",
 	"securepoll-tally-not-finished": "দুঃখতি, ভোট গ্রহণ শেষ না হওয়ার পূর্ব পর্যন্ত আপনি এই নির্বাচনের ভোট গণনা করতে পারবেন না।",
 	"securepoll-tally-upload-submit": "গণনা তৈরি",
@@ -143,5 +145,6 @@
 	"securepoll-votereligibility-saved-text": "আপনার পরিবর্তনসমূহ সংরক্ষিত হয়েছে।",
 	"securepoll-votereligibility-cleared-comment": "$1 পরিষ্কার হয়েছে।",
 	"securepoll-voter-stats": "সব যোগ্য ভোটদানকারীর মধ্যে, $1 জন {{PLURAL:$1|ভোটার}} ভোট দিয়েছেন।",
-	"securepolllog-form-target-label": "লক্ষ্য (ব্যবহারকারী নাম)"
+	"securepolllog-form-target-label": "লক্ষ্য (ব্যবহারকারী নাম)",
+	"securepolllog-form-action-option-both": "দুটোই"
 }

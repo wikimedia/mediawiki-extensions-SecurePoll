@@ -114,6 +114,7 @@
 	"securepoll-subpage-votereligibility": "선거 자격",
 	"securepoll-subpage-dump": "기록 내용",
 	"securepoll-subpage-tally": "개표",
+	"securepoll-subpage-log": "기록",
 	"securepoll-tally-title": "개표: $1",
 	"securepoll-tally-not-finished": "죄송합니다. 투표가 끝나기 전까지는 개표할 수 없습니다.",
 	"securepoll-tally-upload-submit": "개표하기",

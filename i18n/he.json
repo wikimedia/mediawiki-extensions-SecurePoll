@@ -109,6 +109,7 @@
 	"securepoll-subpage-votereligibility": "זכות הצבעה",
 	"securepoll-subpage-dump": "היטל",
 	"securepoll-subpage-tally": "חישוב תוצאות",
+	"securepoll-subpage-log": "יומנים",
 	"securepoll-tally-title": "חישוב תוצאות: $1",
 	"securepoll-tally-not-finished": "מצטערים, אין באפשרותך לחשב את תוצאות ההצבעה עד שיושלם תהליך ההצבעה.",
 	"securepoll-tally-form-file-help": "אם {{GENDER:|תעלה|תעלי}} היטל מוצפן, התוכן שלו ייספר. אחרת תיספרנה התוצאות במסד הנתונים.",
