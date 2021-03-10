@@ -113,6 +113,7 @@
 	"securepoll-subpage-votereligibility": "Idoneità votanti",
 	"securepoll-subpage-dump": "File di dump",
 	"securepoll-subpage-tally": "Conteggio",
+	"securepoll-subpage-log": "Registri",
 	"securepoll-tally-title": "Conteggio: $1",
 	"securepoll-tally-not-finished": "Non puoi effettuare il conteggio dei voti prima che la votazione sia terminata.",
 	"securepoll-tally-upload-submit": "Crea conteggio",

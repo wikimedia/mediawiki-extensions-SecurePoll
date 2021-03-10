@@ -113,6 +113,7 @@
 	"securepoll-subpage-votereligibility": "Seçmen Uygunluğu",
 	"securepoll-subpage-dump": "Döküm",
 	"securepoll-subpage-tally": "Sayım",
+	"securepoll-subpage-log": "Günlükler",
 	"securepoll-tally-title": "Sayım: $1",
 	"securepoll-tally-not-finished": "Üzgünüz, seçim tamamlanmadan oyları sayamazsınız.",
 	"securepoll-tally-form-file-help": "Şifreli bir döküm yüklerseniz, içeriği hesaplanacaktır. Aksi durumda, veritabanındaki sonuçlar hesaplanır.",
