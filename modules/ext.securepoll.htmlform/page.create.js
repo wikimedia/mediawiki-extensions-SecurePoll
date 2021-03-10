@@ -51,6 +51,7 @@
 							}
 						) ).$element;
 					}
+					cells[ i ].find( 'label' ).html( addSign( min, i ) );
 					$layout.prepend( cells[ i ] );
 				}
 				cells[ max ].nextAll().detach();
