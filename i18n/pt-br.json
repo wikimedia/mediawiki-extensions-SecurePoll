@@ -27,6 +27,7 @@
 	"securepoll-need-admin": "Você precisa ser um administrador de eleição para realizar esta ação.",
 	"securepoll-too-few-params": "Parâmetros de subpágina insuficientes (link inválido).",
 	"securepoll-invalid-election": "\"$1\" não é um ID de eleição válido.",
+	"securepoll-finished-no-edit": "Esta eleição foi concluída e você não pode mais editá-la.",
 	"securepoll-welcome": "<strong>¡{{GENDER:$1|Bem vindo|Bem vinda|Bem vindo(a)}}, $1!</strong>",
 	"securepoll-not-started": "Esta eleição ainda não começou.\nEla está programada para se iniciar em $2, às $3.",
 	"securepoll-already-started": "Esta eleição já começou.\nComeçou em $2 às $3",

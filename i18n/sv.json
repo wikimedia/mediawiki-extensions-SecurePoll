@@ -111,6 +111,7 @@
 	"securepoll-subpage-votereligibility": "Röstberättigande",
 	"securepoll-subpage-dump": "Dump",
 	"securepoll-subpage-tally": "Uppräkning",
+	"securepoll-subpage-log": "Loggar",
 	"securepoll-tally-title": "Uppräkning: $1",
 	"securepoll-tally-not-finished": "Beklagar, du kan inte räkna upp valresultatet innan omröstningen är slutförd.",
 	"securepoll-tally-form-file-help": "Om du laddar upp en krypterad dump, kommer dess innehåll räknas. Annars kommer resultaten i databasen att räknas.",
