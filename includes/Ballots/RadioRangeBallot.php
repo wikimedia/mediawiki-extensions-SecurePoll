@@ -3,14 +3,12 @@
 namespace MediaWiki\Extensions\SecurePoll\Ballots;
 
 use Exception;
-use Html;
 use MediaWiki\Extensions\SecurePoll\Entities\Entity;
 use MediaWiki\Extensions\SecurePoll\Entities\Question;
 use MediaWiki\Extensions\SecurePoll\HtmlForm\HTMLFormRadioRangeColumnLabels;
 use MediaWiki\Extensions\SecurePoll\Pages\CreatePage;
 use MWException;
 use Sanitizer;
-use Xml;
 
 /**
  * A ballot form for range voting where the number of allowed responses is small,
@@ -226,11 +224,20 @@ class RadioRangeBallot extends Ballot {
 		list( $min, $max ) = $this->getMinMax( $question );
 		$labels = $this->getColumnLabels( $question );
 
-		$s = "<table class=\"securepoll-ballot-table\">\n" . "<tr>\n" . "<th>&#160;</th>\n";
+		$table = new \OOUI\Tag( 'table' );
+		$table->addClasses( [ 'securepoll-ballot-table' ] );
+
+		$thead = new \OOUI\Tag( 'thead' );
+		$table->appendContent( $thead );
+		$tr = new \OOUI\Tag( 'tr' );
+		$tr->appendContent( new \OOUI\Tag( 'th' ) );
 		foreach ( $labels as $lab ) {
-			$s .= Html::rawElement( 'th', [], $lab ) . "\n";
+			$tr->appendContent( ( new \OOUI\Tag( 'th' ) )->appendContent( $lab ) );
 		}
-		$s .= "</tr>\n";
+		$thead->appendContent( $tr );
+		$tbody = new \OOUI\Tag( 'tbody' );
+		$table->appendContent( $tbody );
+
 		$defaultScore = $question->getProperty( 'default-score' );
 
 		foreach ( $options as $option ) {
@@ -238,29 +245,27 @@ class RadioRangeBallot extends Ballot {
 			$optionId = $option->getId();
 			$inputId = "{$name}_opt{$optionId}";
 			$oldValue = $wgRequest->getVal( $inputId, $defaultScore );
-			$s .= "<tr class=\"securepoll-ballot-row\">\n" . Xml::tags(
-					'td',
-					[ 'class' => 'securepoll-ballot-optlabel' ],
-					$this->errorLocationIndicator( $inputId ) . $optionHTML
-				);
 
+			$tr = ( new \OOUI\Tag( 'tr' ) )->addClasses( [ 'securepoll-ballot-row' ] );
+			$tr->appendContent(
+				( new \OOUI\Tag( 'td' ) )
+					->addClasses( [ 'securepoll-ballot-optlabel' ] )
+					->appendContent( new \OOUI\HtmlSnippet( $this->errorLocationIndicator( $inputId ) . $optionHTML ) )
+			);
 			foreach ( $labels as $score => $label ) {
-				$s .= Xml::tags(
-						'td',
-						[],
-						Xml::radio(
-							$inputId,
-							$score,
-							!strcmp( $oldValue, $score ),
-							[ 'title' => Sanitizer::stripAllTags( $label ) ]
-						)
-					) . "\n";
+				$tr->appendContent( ( new \OOUI\Tag( 'td' ) )->appendContent(
+					new \OOUI\RadioInputWidget( [
+						'name' => $inputId,
+						'value' => $score,
+						'selected' => !strcmp( $oldValue, $score ),
+						'title' => Sanitizer::stripAllTags( $label ),
+					] )
+				) );
 			}
-			$s .= "</tr>\n";
+			$tbody->appendContent( $tr );
 		}
-		$s .= "</table>\n";
 
-		return $s;
+		return $table;
 	}
 
 	/**
