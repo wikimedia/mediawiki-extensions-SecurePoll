@@ -14,6 +14,7 @@ use MediaWiki\Extensions\SecurePoll\Jobs\PopulateVoterListJob;
 use MediaWiki\Extensions\SecurePoll\SecurePollContentHandler;
 use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Linker\LinkRenderer;
+use MediaWiki\User\UserGroupManager;
 use Message;
 use MWException;
 use MWExceptionHandler;
@@ -45,22 +46,28 @@ class VoterEligibilityPage extends ActionPage {
 	/** @var TitleFactory */
 	private $titleFactory;
 
+	/** @var UserGroupManager */
+	private $userGroupManager;
+
 	/**
 	 * @param SpecialSecurePoll $specialPage
 	 * @param ILoadBalancer $loadBalancer
 	 * @param LinkRenderer $linkRenderer
 	 * @param TitleFactory $titleFactory
+	 * @param UserGroupManager $userGroupManager
 	 */
 	public function __construct(
 		SpecialSecurePoll $specialPage,
 		ILoadBalancer $loadBalancer,
 		LinkRenderer $linkRenderer,
-		TitleFactory $titleFactory
+		TitleFactory $titleFactory,
+		UserGroupManager $userGroupManager
 	) {
 		parent::__construct( $specialPage );
 		$this->loadBalancer = $loadBalancer;
 		$this->linkRenderer = $linkRenderer;
 		$this->titleFactory = $titleFactory;
+		$this->userGroupManager = $userGroupManager;
 	}
 
 	/**
@@ -416,7 +423,10 @@ class VoterEligibilityPage extends ActionPage {
 
 	private function executeConfig() {
 		$out = $this->specialPage->getOutput();
-		$out->addModuleStyles( 'ext.securepoll' );
+		$out->addModuleStyles( [
+			'mediawiki.widgets.TagMultiselectWidget.styles',
+			'ext.securepoll',
+		] );
 		$out->setPageTitle( $this->msg( 'securepoll-votereligibility-title' ) );
 
 		$formItems = [];
@@ -496,6 +506,15 @@ class VoterEligibilityPage extends ActionPage {
 			'type' => 'check',
 			'hidelabel' => true,
 			'default' => $this->election->getProperty( 'not-bot', false ),
+		];
+
+		$formItems['allow-usergroups'] = [
+			'section' => 'basic',
+			'label-message' => 'securepoll-votereligibility-label-include_groups',
+			'allowArbitrary' => false,
+			'type' => 'tagmultiselect',
+			'allowedValues' => $this->userGroupManager->listAllGroups(),
+			'default' => implode( "\n", explode( '|', $this->election->getProperty( 'allow-usergroups', "" ) ) )
 		];
 
 		foreach ( self::$lists as $list => $property ) {
@@ -989,6 +1008,9 @@ class VoterEligibilityPage extends ActionPage {
 			'list_exclude-groups',
 			'list_include-groups',
 		];
+		static $multiselectProps = [
+			'allow-usergroups'
+		];
 
 		static $propPrereqs = [
 			'not-centrally-blocked' => [
@@ -1072,6 +1094,14 @@ class VoterEligibilityPage extends ActionPage {
 				);
 				sort( $names );
 				$properties[$prop] = implode( '|', $names );
+			} else {
+				$deleteProperties[] = $prop;
+			}
+		}
+
+		foreach ( $multiselectProps as $prop ) {
+			if ( $formData[$prop] ) {
+				$properties[$prop] = implode( '|', explode( "\n", $formData[$prop] ) );
 			} else {
 				$deleteProperties[] = $prop;
 			}

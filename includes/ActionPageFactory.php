@@ -85,7 +85,8 @@ class ActionPageFactory {
 			'services' => [
 				'DBLoadBalancer',
 				'LinkRenderer',
-				'TitleFactory'
+				'TitleFactory',
+				'UserGroupManager',
 			]
 		],
 	];
