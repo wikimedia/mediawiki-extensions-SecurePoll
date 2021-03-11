@@ -60,7 +60,6 @@ class BallotStatus extends Status {
 			$s .= '<li>' . htmlspecialchars( $text ) . "</li>\n";
 		}
 		$s .= "</ul>\n";
-		$s .= '<script type="text/javascript"> securepoll_ballot_setup(); </script>';
 
 		return $s;
 	}

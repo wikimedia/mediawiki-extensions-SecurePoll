@@ -49,7 +49,6 @@ class SpecialSecurePoll extends SpecialPage {
 		$this->setHeaders();
 
 		$out->addModuleStyles( 'ext.securepoll.special' );
-		$out->addScriptFile( "$extensionAssetsPath/SecurePoll/resources/SecurePoll.js" );
 
 		$paramString = strval( $paramString );
 		if ( $paramString === '' ) {

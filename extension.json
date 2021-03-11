@@ -57,7 +57,8 @@
 			"packageFiles": [
 				"dispatcher.js",
 				"page.log.js",
-				"page.create.js"
+				"page.create.js",
+				"page.list.js"
 			],
 			"dependencies": [
 				"oojs-ui-core",

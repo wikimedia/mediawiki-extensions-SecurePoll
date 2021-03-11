@@ -126,6 +126,8 @@ class ListPage extends ActionPage {
 		$out->addParserOutputContent( $pager->getBodyOutput() );
 		$out->addHTML( $pager->getNavigationBar() );
 		if ( $isAdmin ) {
+			$out->addModules( 'ext.securepoll.htmlform' );
+
 			$msgStrike = $this->msg( 'securepoll-strike-button' )->escaped();
 			$msgUnstrike = $this->msg( 'securepoll-unstrike-button' )->escaped();
 			$msgCancel = $this->msg( 'securepoll-strike-cancel' )->escaped();
