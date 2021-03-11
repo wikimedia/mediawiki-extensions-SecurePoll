@@ -6,29 +6,14 @@
 	text-decoration: line-through;
 }
 
-.securepoll-popup {
-	padding: 0.5em 1em 0.5em 1em;
-	border: outset;
-	position: absolute;
-	height: 7em;
-	width: 38em;
-	display: none;
-	background-color: #ffd;
-	overflow: auto;
-	z-index: 3;
-}
-
 .securepoll-confirm-button {
 	width: 16%;
 	margin-left: 16%;
 	margin-right: 16%;
 }
 
-#securepoll-strike-spinner {
+.securepoll-popup .mw-spinner {
 	display: none;
-	margin-left: auto;
-	margin-right: auto;
-	width: 30px;
 }
 
 .securepoll-detail-header {

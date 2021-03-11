@@ -62,7 +62,13 @@
 			],
 			"dependencies": [
 				"oojs-ui-core",
-				"mediawiki.widgets.UserInputWidget"
+				"mediawiki.widgets.UserInputWidget",
+				"jquery.spinner"
+			],
+			"messages": [
+				"securepoll-strike-button",
+				"securepoll-strike-reason",
+				"securepoll-unstrike-button"
 			]
 		},
 		"ext.securepoll": {

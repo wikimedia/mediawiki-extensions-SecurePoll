@@ -147,22 +147,20 @@ class ListPager extends TablePager {
 				$voteId = intval( $this->mCurrentRow->vote_id );
 				if ( $this->mCurrentRow->vote_struck ) {
 					$label = $this->msg( 'securepoll-unstrike-button' )->text();
-					$action = "'unstrike'";
+					$action = "unstrike";
 				} else {
 					$label = $this->msg( 'securepoll-strike-button' )->text();
-					$action = "'strike'";
+					$action = "strike";
 				}
 				$id = 'securepoll-popup-' . $voteId;
 
-				return Xml::element(
-					'input',
-					[
-						'type' => 'button',
-						'id' => $id,
-						'value' => $label,
-						'onclick' => "securepoll_strike_popup(event, $action, $voteId)"
-					]
-				);
+				return ( new \OOUI\ButtonWidget( [
+					'id' => $id,
+					'label' => $label,
+				] ) )->setAttributes( [
+					'data-action' => $action,
+					'data-voteId' => $voteId,
+				] );
 			case 'vote_voter_name':
 				$msg = $voter->isRemote(
 				) ? 'securepoll-voter-name-remote' : 'securepoll-voter-name-local';
