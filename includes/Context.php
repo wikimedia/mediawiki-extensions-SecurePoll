@@ -447,8 +447,8 @@ class Context {
 	 * @return string
 	 */
 	public function getResourceUrl( $resource ) {
-		global $wgScriptPath;
+		global $wgExtensionAssetsPath;
 
-		return "$wgScriptPath/extensions/SecurePoll/resources/$resource";
+		return "$wgExtensionAssetsPath/SecurePoll/resources/$resource";
 	}
 }
