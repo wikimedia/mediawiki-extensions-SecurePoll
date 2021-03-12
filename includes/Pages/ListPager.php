@@ -74,12 +74,11 @@ class ListPager extends TablePager {
 
 	public function formatValue( $name, $value ) {
 		$config = $this->listPage->specialPage->getConfig();
-		$scriptPath = $config->get( 'ScriptPath' );
 		$securePollKeepPrivateInfoDays = $config->get( 'SecurePollKeepPrivateInfoDays' );
 		$critical = Xml::element(
 			'img',
 			[
-				'src' => "$scriptPath/extensions/SecurePoll/resources/critical-32.png"
+				'src' => $this->listPage->context->getResourceUrl( 'critical-32.png' ),
 			]
 		);
 
