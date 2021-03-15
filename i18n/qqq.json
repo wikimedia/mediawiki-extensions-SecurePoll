@@ -89,7 +89,6 @@
 	"securepoll-strike-button": "{{Identical|Strike}}",
 	"securepoll-unstrike-button": "{{Identical|Unstrike}}",
 	"securepoll-strike-reason": "{{Identical|Reason}}",
-	"securepoll-strike-cancel": "{{Identical|Cancel}}",
 	"securepoll-strike-error": "Used as error message. Parameters:\n* $1 - error message",
 	"securepoll-strike-token-mismatch": "Used as error message.",
 	"securepoll-details-link": "{{Identical|Detail}}",

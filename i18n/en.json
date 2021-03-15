@@ -67,7 +67,6 @@
 	"securepoll-strike-button": "Strike",
 	"securepoll-unstrike-button": "Unstrike",
 	"securepoll-strike-reason": "Reason:",
-	"securepoll-strike-cancel": "Cancel",
 	"securepoll-strike-error": "Error performing strike/unstrike: $1",
 	"securepoll-strike-token-mismatch": "Session data lost",
 	"securepoll-details-link": "Details",
