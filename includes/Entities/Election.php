@@ -210,9 +210,11 @@ class Election extends Entity {
 		$res = $dbr->selectField(
 			'securepoll_votes',
 			[ 'COUNT(*)' ],
-			[ 'vote_election' => $this->getID(),
+			[
+				'vote_election' => $this->getID(),
 				'vote_current' => 1,
-				'vote_struck' => 0 ],
+				'vote_struck' => 0
+			],
 			__METHOD__
 		);
 

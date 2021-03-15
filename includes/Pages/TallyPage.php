@@ -53,12 +53,15 @@ class TallyPage extends ActionPage {
 			return;
 		}
 
-		if ( ( $this->election->getVotesCount() > 100 ) &&
-			( $this->election->getCrypt() ) ) {
-				$out->addWikiMsg( 'securepoll-tally-too-large' );
+		if (
+			$this->election->getVotesCount() > 100 &&
+			$this->election->getCrypt()
+		) {
+			$out->addWikiMsg( 'securepoll-tally-too-large' );
 
-				return;
+			return;
 		}
+
 		$form = $this->createForm();
 		$form->show();
 	}
