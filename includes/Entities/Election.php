@@ -213,7 +213,7 @@ class Election extends Entity {
 			[
 				'vote_election' => $this->getID(),
 				'vote_current' => 1,
-				'vote_struck' => 0
+				'vote_struck' => 0,
 			],
 			__METHOD__
 		);
