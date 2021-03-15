@@ -8,6 +8,7 @@ use MediaWiki\Extensions\SecurePoll\Entities\Question;
 use MediaWiki\Extensions\SecurePoll\HtmlForm\HTMLFormRadioRangeColumnLabels;
 use MediaWiki\Extensions\SecurePoll\Pages\CreatePage;
 use MWException;
+use RequestContext;
 use Sanitizer;
 
 /**
@@ -171,9 +172,8 @@ class RadioRangeBallot extends Ballot {
 				$labels[$score] = $question->parseMessageInline( "column$signedScore" );
 			}
 		} else {
-			global $wgLang;
 			foreach ( $scores as $score ) {
-				$labels[$score] = $wgLang->formatNum( $score );
+				$labels[$score] = RequestContext::getMain()->getLanguage()->formatNum( $score );
 			}
 		}
 
@@ -219,7 +219,6 @@ class RadioRangeBallot extends Ballot {
 	 * @suppress SecurityCheck-DoubleEscaped Fails with $score which is actually just an integer
 	 */
 	public function getQuestionForm( $question, $options ) {
-		global $wgRequest;
 		$name = 'securepoll_q' . $question->getId();
 		list( $min, $max ) = $this->getMinMax( $question );
 		$labels = $this->getColumnLabels( $question );
@@ -244,7 +243,7 @@ class RadioRangeBallot extends Ballot {
 			$optionHTML = $option->parseMessageInline( 'text' );
 			$optionId = $option->getId();
 			$inputId = "{$name}_opt{$optionId}";
-			$oldValue = $wgRequest->getVal( $inputId, $defaultScore );
+			$oldValue = RequestContext::getMain()->getRequest()->getVal( $inputId, $defaultScore );
 
 			$tr = ( new \OOUI\Tag( 'tr' ) )->addClasses( [ 'securepoll-ballot-row' ] );
 			$tr->appendContent(
@@ -274,8 +273,6 @@ class RadioRangeBallot extends Ballot {
 	 * @return string
 	 */
 	public function submitQuestion( $question, $status ) {
-		global $wgRequest, $wgLang;
-
 		$options = $question->getOptions();
 		$record = '';
 		$ok = true;
@@ -283,15 +280,15 @@ class RadioRangeBallot extends Ballot {
 		$defaultScore = $question->getProperty( 'default-score' );
 		foreach ( $options as $option ) {
 			$id = 'securepoll_q' . $question->getId() . '_opt' . $option->getId();
-			$score = $wgRequest->getVal( $id );
+			$score = RequestContext::getMain()->getRequest()->getVal( $id );
 
 			if ( is_numeric( $score ) ) {
 				if ( $score < $min || $score > $max ) {
 					$status->sp_fatal(
 						'securepoll-invalid-score',
 						$id,
-						$wgLang->formatNum( $min ),
-						$wgLang->formatNum( $max )
+						RequestContext::getMain()->getLanguage()->formatNum( $min ),
+						RequestContext::getMain()->getLanguage()->formatNum( $max )
 					);
 					$ok = false;
 					continue;
@@ -310,8 +307,8 @@ class RadioRangeBallot extends Ballot {
 				$status->sp_fatal(
 					'securepoll-invalid-score',
 					$id,
-					$wgLang->formatNum( $min ),
-					$wgLang->formatNum( $max )
+					RequestContext::getMain()->getLanguage()->formatNum( $min ),
+					RequestContext::getMain()->getLanguage()->formatNum( $max )
 				);
 				$ok = false;
 				continue;
