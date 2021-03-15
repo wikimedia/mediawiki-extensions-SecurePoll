@@ -202,6 +202,24 @@ class Election extends Entity {
 	}
 
 	/**
+	 * Returns number of votes from an election.
+	 * @return string
+	 */
+	public function getVotesCount() {
+		$dbr = $this->context->getDB( DB_REPLICA );
+		$res = $dbr->selectField(
+			'securepoll_votes',
+			[ 'COUNT(*)' ],
+			[ 'vote_election' => $this->getID(),
+				'vote_current' => 1,
+				'vote_struck' => 0 ],
+			__METHOD__
+		);
+
+		return $res;
+	}
+
+	/**
 	 * Get the ballot object for this election.
 	 * @return Ballot
 	 */

@@ -117,6 +117,7 @@
 	"securepoll-tally-upload-submit": "Create tally",
 	"securepoll-tally-gpg-decrypt-key": "GPG decryption key",
 	"securepoll-tally-error": "Error interpreting vote record, cannot produce a tally.",
+	"securepoll-tally-too-large": "The election is too large to be tallied via this page. Please use the maintenance script tally.php instead",
 	"securepoll-no-upload": "No file was uploaded, cannot tally results.",
 	"securepoll-dump-corrupt": "The dump file is corrupt and cannot be processed.",
 	"securepoll-tally-upload-error": "Error tallying dump file: $1",

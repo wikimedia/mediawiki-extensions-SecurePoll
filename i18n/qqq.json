@@ -139,6 +139,7 @@
 	"securepoll-tally-upload-submit": "Label for the tally button. {{Identical|Create tally}}",
 	"securepoll-tally-gpg-decrypt-key": "Label for the GPG decryption key input.",
 	"securepoll-tally-error": "Used as error message.",
+	"securepoll-tally-too-large": "Used as error message.",
 	"securepoll-no-upload": "Used as error message.",
 	"securepoll-dump-corrupt": "Used as error message.",
 	"securepoll-tally-upload-error": "Used as error message. Parameters:\n* $1 - error message",
