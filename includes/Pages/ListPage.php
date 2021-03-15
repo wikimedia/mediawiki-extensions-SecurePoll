@@ -3,7 +3,6 @@
 namespace MediaWiki\Extensions\SecurePoll\Pages;
 
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
-use ResourceLoader;
 use Status;
 use Title;
 
@@ -21,6 +20,7 @@ class ListPage extends ActionPage {
 	 */
 	public function execute( $params ) {
 		$out = $this->specialPage->getOutput();
+		$out->enableOOUI();
 
 		if ( !count( $params ) ) {
 			$out->addWikiMsg( 'securepoll-too-few-params' );
@@ -127,44 +127,6 @@ class ListPage extends ActionPage {
 		$out->addHTML( $pager->getNavigationBar() );
 		if ( $isAdmin ) {
 			$out->addModules( 'ext.securepoll.htmlform' );
-
-			$msgStrike = $this->msg( 'securepoll-strike-button' )->escaped();
-			$msgUnstrike = $this->msg( 'securepoll-unstrike-button' )->escaped();
-			$msgCancel = $this->msg( 'securepoll-strike-cancel' )->escaped();
-			$msgReason = $this->msg( 'securepoll-strike-reason' )->escaped();
-			$encAction = htmlspecialchars( $this->getTitle()->getLocalUrl() );
-			$data = [
-				'securepoll_strike_button' => $this->msg( 'securepoll-strike-button' )->text(),
-				'securepoll_unstrike_button' => $this->msg( 'securepoll-unstrike-button' )->text()
-			];
-			$script = ResourceLoader::makeConfigSetScript( $data );
-			$script = ResourceLoader::makeInlineScript( $script, $out->getCSP()->getNonce() );
-
-			// @codingStandardsIgnoreStart
-			$out->addHTML(
-				<<<EOT
-$script
-<div class="securepoll-popup" id="securepoll-popup">
-<form id="securepoll-strike-form" action="$encAction" method="post" onsubmit="securepoll_strike('submit');return false;">
-<input type="hidden" id="securepoll-vote-id" name="vote_id" value=""/>
-<input type="hidden" id="securepoll-action" name="action" value=""/>
-<label for="securepoll-strike-reason">{$msgReason}</label>
-<input type="text" size="45" id="securepoll-strike-reason"/>
-<p>
-<input class="securepoll-confirm-button" type="button" value="$msgCancel"
-	onclick="securepoll_strike('cancel');"/>
-<input class="securepoll-confirm-button" id="securepoll-strike-button"
-	type="button" value="$msgStrike" onclick="securepoll_strike('strike');" />
-<input class="securepoll-confirm-button" id="securepoll-unstrike-button"
-	type="button" value="$msgUnstrike" onclick="securepoll_strike('unstrike');" />
-</p>
-</form>
-<div id="securepoll-strike-result"></div>
-<div id="securepoll-strike-spinner" class="mw-small-spinner"></div>
-</div>
-EOT
-			// @codingStandardsIgnoreEnd
-			);
 		}
 	}
 
