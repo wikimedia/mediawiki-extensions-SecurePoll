@@ -79,6 +79,11 @@ class ActionPageFactory {
 		],
 		'votereligibility' => [
 			'class' => VoterEligibilityPage::class,
+			'services' => [
+				'DBLoadBalancer',
+				'LinkRenderer',
+				'TitleFactory'
+			]
 		],
 	];
 

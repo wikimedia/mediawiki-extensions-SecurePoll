@@ -12,15 +12,17 @@ use Linker;
 use MediaWiki\Extensions\SecurePoll\Context;
 use MediaWiki\Extensions\SecurePoll\Jobs\PopulateVoterListJob;
 use MediaWiki\Extensions\SecurePoll\SecurePollContentHandler;
-use MediaWiki\MediaWikiServices;
+use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
+use MediaWiki\Linker\LinkRenderer;
 use Message;
 use MWException;
 use MWExceptionHandler;
 use SpecialPage;
 use Status;
-use Title;
+use TitleFactory;
 use WikiMap;
 use Wikimedia\Rdbms\DBConnectionError;
+use Wikimedia\Rdbms\ILoadBalancer;
 use WikiPage;
 
 /**
@@ -33,6 +35,33 @@ class VoterEligibilityPage extends ActionPage {
 		'include' => 'include-list',
 		'exclude' => 'exclude-list',
 	];
+
+	/** @var ILoadBalancer */
+	private $loadBalancer;
+
+	/** @var LinkRenderer */
+	private $linkRenderer;
+
+	/** @var TitleFactory */
+	private $titleFactory;
+
+	/**
+	 * @param SpecialSecurePoll $specialPage
+	 * @param ILoadBalancer $loadBalancer
+	 * @param LinkRenderer $linkRenderer
+	 * @param TitleFactory $titleFactory
+	 */
+	public function __construct(
+		SpecialSecurePoll $specialPage,
+		ILoadBalancer $loadBalancer,
+		LinkRenderer $linkRenderer,
+		TitleFactory $titleFactory
+	) {
+		parent::__construct( $specialPage );
+		$this->loadBalancer = $loadBalancer;
+		$this->linkRenderer = $linkRenderer;
+		$this->titleFactory = $titleFactory;
+	}
 
 	/**
 	 * Execute the subpage.
@@ -120,16 +149,14 @@ class VoterEligibilityPage extends ActionPage {
 		}
 
 		$dbw = null;
-		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		foreach ( $wikis as $dbname ) {
-			if ( $dbname === $localWiki ) {
-				$dbw = $this->context->getDB();
-			} else {
-				$lb = $lbFactory->getMainLB( $dbname );
-				// trigger DBConnRef destruction and connection reuse
-				unset( $dbw );
 
-				$dbw = $lb->getConnectionRef( DB_MASTER, [], $dbname );
+			if ( $dbname === $localWiki ) {
+				$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_MASTER );
+			} else {
+				unset( $dbw );
+				$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_MASTER, [], $dbname );
+
 				try {
 					// Connect to the DB and check if the LB is in read-only mode
 					if ( $dbw->isReadOnly() ) {
@@ -204,7 +231,7 @@ class VoterEligibilityPage extends ActionPage {
 
 		$names = [];
 		foreach ( $wikis as $dbname ) {
-			$dbr = wfGetDB( $db, [], $dbname );
+			$dbr = $this->loadBalancer->getConnectionref( $db, [], $dbname );
 
 			$id = $dbr->selectField(
 				'securepoll_elections',
@@ -294,15 +321,13 @@ class VoterEligibilityPage extends ActionPage {
 		}
 
 		$dbw = null;
-		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		foreach ( $wikis as $dbname ) {
 			if ( $dbname === $localWiki ) {
-				$dbw = $this->context->getDB();
+				$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_MASTER );
 			} else {
-				// trigger DBConnRef destruction and connection reuse
 				unset( $dbw );
+				$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_MASTER, [], $dbname );
 
-				$dbw = $lbFactory->getMainLB( $dbname )->getConnectionRef( DB_MASTER, [], $dbname );
 				try {
 					// Connect to the DB and check if the LB is in read-only mode
 					if ( $dbw->isReadOnly() ) {
@@ -380,7 +405,7 @@ class VoterEligibilityPage extends ActionPage {
 				false,
 				FormatJson::ALL_OK
 			);
-			$title = Title::makeTitle( NS_SECUREPOLL, $list );
+			$title = $this->titleFactory->makeTitle( NS_SECUREPOLL, $list );
 			$wp = WikiPage::factory( $title );
 			$wp->doEditContent(
 				SecurePollContentHandler::makeContent( $json, $title, 'SecurePoll' ),
@@ -499,7 +524,7 @@ class VoterEligibilityPage extends ActionPage {
 			$prefix = 'votereligibility/' . $this->election->getId();
 			foreach ( $links as $action ) {
 				$title = SpecialPage::getTitleFor( 'SecurePoll', "$prefix/$action/$list" );
-				$link = MediaWikiServices::getInstance()->getLinkRenderer()->makeLink( $title,
+				$link = $this->linkRenderer->makeLink( $title,
 					$this->msg( "securepoll-votereligibility-label-$action" )->text() );
 				$formItems[] = [
 					'section' => "lists/$list",
@@ -1168,17 +1193,14 @@ class VoterEligibilityPage extends ActionPage {
 		}
 
 		$dbw = null;
-		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		foreach ( $wikis as $dbname ) {
+
 			if ( $dbname === $localWiki ) {
-				$dbw = $this->context->getDB();
+				$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_MASTER );
 			} else {
-				$lb = $lbFactory->getMainLB( $dbname );
 
-				// trigger DBConnRef destruction and connection reuse
 				unset( $dbw );
-
-				$dbw = $lb->getConnectionRef( DB_MASTER, [], $dbname );
+				$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_MASTER, [], $dbname );
 			}
 
 			$dbw->startAtomic( __METHOD__ );
@@ -1249,7 +1271,7 @@ class VoterEligibilityPage extends ActionPage {
 				$this->msg( 'securepoll-votereligibility-cleared-comment', $name )->text()
 			);
 
-			$title = Title::makeTitle( NS_SECUREPOLL, "{$election->getId()}/list/$property" );
+			$title = $this->titleFactory->makeTitle( NS_SECUREPOLL, "{$election->getId()}/list/$property" );
 			$wp = WikiPage::factory( $title );
 			$wp->doEditContent(
 				SecurePollContentHandler::makeContent( '[]', $title, 'SecurePoll' ),
