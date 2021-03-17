@@ -9,6 +9,7 @@
 			"Schu",
 			"Shirayuki",
 			"Sujiniku",
+			"Tamaki Wakita",
 			"ネイ",
 			"青子守歌"
 		]
@@ -104,6 +105,7 @@
 	"securepoll-tally-not-finished": "申し訳ありませんが、投票が終了するまで票の集計はできません。",
 	"securepoll-tally-upload-submit": "集計開始",
 	"securepoll-tally-error": "投票記録の解析に失敗し、集計結果を出力できません。",
+	"securepoll-tally-too-large": "選挙は大きすぎてこのページで集計することができません。代わりにメンテナンススクリプトのtally.phpを使用してください。",
 	"securepoll-no-upload": "ファイルがアップロードされておらず、結果を集計できません。",
 	"securepoll-dump-corrupt": "ダンプファイルが破損しており、処理できません。",
 	"securepoll-tally-upload-error": "ダンプファイルの集計中にエラー: $1",
@@ -149,6 +151,6 @@
 	"securepoll-votereligibility-saved": "{{int:securepoll}}: 保存しました",
 	"securepoll-votereligibility-saved-text": "変更内容を保存しました。",
 	"right-securepoll-create-poll": "投票所を作成",
-	"action-securepoll-create-poll": "投票所の作成",
+	"action-securepoll-create-poll": "投票を作成し、ログを表示する。",
 	"securepoll-ns-readonly": "{{ns:SecurePoll}} 名前空間は、読み取り専用です"
 }
