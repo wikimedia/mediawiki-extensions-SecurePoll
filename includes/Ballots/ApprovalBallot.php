@@ -3,7 +3,6 @@
 namespace MediaWiki\Extensions\SecurePoll\Ballots;
 
 use MediaWiki\Extensions\SecurePoll\Entities\Question;
-use Xml;
 
 /**
  * Checkbox approval voting.
@@ -21,21 +20,26 @@ class ApprovalBallot extends Ballot {
 	public function getQuestionForm( $question, $options ) {
 		global $wgRequest;
 		$name = 'securepoll_q' . $question->getId();
-		$s = '';
+
+		$s = new \OOUI\FieldsetLayout( [
+			'classes' => [ 'securepoll-option-approval ' ]
+		] );
+
 		foreach ( $options as $option ) {
 			$optionHTML = $option->parseMessageInline( 'text' );
 			$optionId = $option->getId();
 			$inputId = "{$name}_opt{$optionId}";
-			$oldValue = $wgRequest->getBool( $inputId );
-			$s .= '<div class="securepoll-option-approval">' . Xml::check(
-					$inputId,
-					$oldValue,
-					[ 'id' => $inputId ]
-				) . '&#160;' . Xml::tags(
-					'label',
-					[ 'for' => $inputId ],
-					$optionHTML
-				) . '&#160;' . "</div>\n";
+
+			$s->addItems( [
+				new \OOUI\FieldLayout( new \OOUI\CheckboxInputWidget( [
+					'name' => $inputId,
+					'selected' => $wgRequest->getBool( $inputId ),
+					'value' => 1
+				] ), [
+					'label' => new \OOUI\HtmlSnippet( $this->errorLocationIndicator( $inputId ) . $optionHTML ),
+					'align' => 'inline'
+				] )
+			] );
 		}
 
 		return $s;
