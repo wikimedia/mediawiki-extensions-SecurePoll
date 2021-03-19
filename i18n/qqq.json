@@ -136,6 +136,7 @@
 	"securepoll-tally-title": "Used as page title. Parameters:\n* $1 - title of the election, or the string \"[title]\"\n{{Identical|Tally}}",
 	"securepoll-tally-not-finished": "Used as error message.",
 	"securepoll-tally-form-file-help": "Used as help text for a form field.",
+	"securepoll-tally-form-file-label": "Label for a field in Special:SecurePoll/tally",
 	"securepoll-tally-upload-submit": "Label for the tally button. {{Identical|Create tally}}",
 	"securepoll-tally-gpg-decrypt-key": "Label for the GPG decryption key input.",
 	"securepoll-tally-error": "Used as error message.",

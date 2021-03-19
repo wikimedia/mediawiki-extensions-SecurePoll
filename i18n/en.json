@@ -114,6 +114,7 @@
 	"securepoll-tally-title": "Tally: $1",
 	"securepoll-tally-not-finished": "Sorry, you cannot tally the election until after voting is complete.",
 	"securepoll-tally-form-file-help": "If you upload an encrypted dump, its contents will be tallied. Otherwise the results in the database will be tallied.",
+	"securepoll-tally-form-file-label": "Upload encrypted dump (optional)",
 	"securepoll-tally-upload-submit": "Create tally",
 	"securepoll-tally-gpg-decrypt-key": "GPG decryption key",
 	"securepoll-tally-error": "Error interpreting vote record, cannot produce a tally.",

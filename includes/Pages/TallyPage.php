@@ -98,18 +98,19 @@ class TallyPage extends ActionPage {
 		if ( !$crypt ) {
 			return [];
 		}
+		$formFields = [];
+		if ( !$crypt->canDecrypt() ) {
+			$formFields += $crypt->getTallyDescriptors();
+		}
 
-		$formFields = [
+		$formFields += [
 			'tally_file' => [
 				'type' => 'file',
 				'name' => 'tally_file',
 				'help-message' => 'securepoll-tally-form-file-help',
+				'label-message' => 'securepoll-tally-form-file-label'
 			],
 		];
-
-		if ( !$crypt->canDecrypt() ) {
-			$formFields += $crypt->getTallyDescriptors();
-		}
 
 		return $formFields;
 	}
