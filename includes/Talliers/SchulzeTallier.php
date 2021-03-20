@@ -145,6 +145,20 @@ class SchulzeTallier extends PairwiseTallier {
 		return $this->ranks;
 	}
 
+	public function loadJSONResult( $data ) {
+		$this->ranks = $data['ranks'];
+		$this->victories = $data['victories'];
+		$this->strengths = $data['strengths'];
+	}
+
+	public function getJSONResult() {
+		return [
+			'ranks' => $this->ranks,
+			'victories' => $this->victories,
+			'strengths' => $this->strengths,
+		];
+	}
+
 	public function getHtmlResult() {
 		$s = '<h2>' . wfMessage( 'securepoll-ranks' )->parse() . "</h2>\n";
 		$s .= $this->convertRanksToHtml( $this->ranks );

@@ -27,6 +27,20 @@ abstract class Tallier {
 
 	abstract public function addVote( $scores );
 
+	/**
+	 * @param array $data stored output of getJSONResult
+	 */
+	abstract public function loadJSONResult( array $data );
+
+	/**
+	 * Get an array suitable to be serialized to JSON representing the result
+	 *
+	 * This array MUST contain all required information for getHtmlResult or getTextResult to run after it is loaded.
+	 *
+	 * @return array
+	 */
+	abstract public function getJSONResult();
+
 	abstract public function getHtmlResult();
 
 	abstract public function getTextResult();

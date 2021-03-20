@@ -44,15 +44,10 @@ class ElectionTallier {
 	}
 
 	/**
-	 * Do the tally. Returns a Status object. On success, the value property
-	 * of the status will be an array of Tallier objects, which can
-	 * be queried for results information.
-	 * @return Status
+	 * Set up a Tallier of the appropriate type for every question
+	 * @throws MWException
 	 */
-	public function execute() {
-		$store = $this->context->getStore();
-		$this->crypt = $this->election->getCrypt();
-		$this->ballot = $this->election->getBallot();
+	protected function setupTalliers() {
 		$questions = $this->election->getQuestions();
 		$this->talliers = [];
 		$tallyType = $this->election->getTallyType();
@@ -63,6 +58,19 @@ class ElectionTallier {
 			}
 			$this->talliers[$question->getId()] = $tallier;
 		}
+	}
+
+	/**
+	 * Do the tally. Returns a Status object. On success, the value property
+	 * of the status will be an array of Tallier objects, which can
+	 * be queried for results information.
+	 * @return Status
+	 */
+	public function execute() {
+		$store = $this->context->getStore();
+		$this->crypt = $this->election->getCrypt();
+		$this->ballot = $this->election->getBallot();
+		$this->setupTalliers();
 
 		$status = $store->callbackValidVotes(
 			$this->election->getId(),
@@ -121,6 +129,34 @@ class ElectionTallier {
 		}
 
 		return Status::newGood();
+	}
+
+	/**
+	 * Get a simple array structure representing results for this tally. Should
+	 * only be called after execute().
+	 * @return array
+	 */
+	public function getJSONResult() {
+		$data = [
+			'type' => $this->election->getTallyType(),
+			'results' => [],
+		];
+		foreach ( $this->election->getQuestions() as $question ) {
+			$data['results'][ $question->getId() ] = $this->talliers[ $question->getId() ]->getJSONResult();
+		}
+		return $data;
+	}
+
+	/**
+	 * Restores results from getJSONResult
+	 *
+	 * @param array $data
+	 */
+	public function loadJSONResult( $data ) {
+		$this->setupTalliers();
+		foreach ( $data['results'] as $questionid => $questiondata ) {
+			$this->talliers[$questionid]->loadJSONResult( $questiondata );
+		}
 	}
 
 	/**
