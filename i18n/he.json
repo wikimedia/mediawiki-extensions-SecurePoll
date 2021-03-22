@@ -113,6 +113,7 @@
 	"securepoll-tally-title": "חישוב תוצאות: $1",
 	"securepoll-tally-not-finished": "מצטערים, אין באפשרותך לחשב את תוצאות ההצבעה עד שיושלם תהליך ההצבעה.",
 	"securepoll-tally-form-file-help": "אם {{GENDER:|תעלה|תעלי}} היטל מוצפן, התוכן שלו ייספר. אחרת תיספרנה התוצאות במסד הנתונים.",
+	"securepoll-tally-form-file-label": "העלאת היטל מוצפן (לא חובה)",
 	"securepoll-tally-upload-submit": "חישוב התוצאות",
 	"securepoll-tally-gpg-decrypt-key": "מפתח פענוח GPG",
 	"securepoll-tally-error": "שגיאה בפענוח ההצבעה, לא ניתן לחשב את התוצאות.",

@@ -111,6 +111,7 @@
 	"securepoll-tally-title": "Zählung: $1",
 	"securepoll-tally-not-finished": "Du kannst leider keine Stimmen auszählen, bevor die Abstimmung beendet wurde.",
 	"securepoll-tally-form-file-help": "Wenn du einen verschlüsselten Dump hochlädst, wird sein Inhalt ausgewertet. Andernfalls werden die Ergebnisse in der Datenbank ausgewertet.",
+	"securepoll-tally-form-file-label": "Verschlüsselten Dump hochladen (optional)",
 	"securepoll-tally-upload-submit": "Zählung erstellen",
 	"securepoll-tally-gpg-decrypt-key": "GPG-Entschlüsselungsschlüssel",
 	"securepoll-tally-error": "Fehler beim Interpretieren der Abstimmungsaufzeichnung, Auszählungserstellung nicht möglich.",

@@ -117,6 +117,7 @@
 	"securepoll-tally-title": "Sayım: $1",
 	"securepoll-tally-not-finished": "Üzgünüz, seçim tamamlanmadan oyları sayamazsınız.",
 	"securepoll-tally-form-file-help": "Şifreli bir döküm yüklerseniz, içeriği hesaplanacaktır. Aksi durumda, veritabanındaki sonuçlar hesaplanır.",
+	"securepoll-tally-form-file-label": "Şifreli dökümü yükle (isteğe bağlı)",
 	"securepoll-tally-upload-submit": "Sayım oluştur",
 	"securepoll-tally-gpg-decrypt-key": "GPG şifre çözme anahtarı",
 	"securepoll-tally-error": "Oy kaydı yorumlanırken hata, bir sayım üretilemiyor.",

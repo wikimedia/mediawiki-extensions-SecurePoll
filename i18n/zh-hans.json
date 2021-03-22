@@ -118,6 +118,7 @@
 	"securepoll-subpage-tally": "计票",
 	"securepoll-tally-title": "计票：$1",
 	"securepoll-tally-not-finished": "对不起，您只有在投票完成后方可计票。",
+	"securepoll-tally-form-file-label": "上传加密的垃圾箱（自选的）",
 	"securepoll-tally-upload-submit": "创建点票数据",
 	"securepoll-tally-error": "处理投票记录时出错，无法创建点票数据。",
 	"securepoll-no-upload": "没有上传文件。",

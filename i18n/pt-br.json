@@ -128,6 +128,7 @@
 	"securepoll-tally-title": "Contagem de votos: $1",
 	"securepoll-tally-not-finished": "Desculpe, você não pode apurar os resultados da eleição antes do término da votação.",
 	"securepoll-tally-form-file-help": "Se você enviar um despejo criptografado, seu conteúdo será computado. Caso contrário, os resultados no banco de dados serão computados.",
+	"securepoll-tally-form-file-label": "Carregar despejo criptografado (opcional)",
 	"securepoll-tally-upload-submit": "Criar contagem de votos",
 	"securepoll-tally-gpg-decrypt-key": "Chave de descriptografia GPG",
 	"securepoll-tally-error": "Erro ao interpretar registro de votos, não foi possível produzir uma contagem.",

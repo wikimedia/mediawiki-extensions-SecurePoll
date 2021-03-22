@@ -131,6 +131,7 @@
 	"securepoll-tally-title": "Dépouillement : $1",
 	"securepoll-tally-not-finished": "Désolé, vous ne pouvez pas dépouiller l’élection avant qu’elle ne soit terminée.",
 	"securepoll-tally-form-file-help": "Si vous téléchargez un vidage chiffré, son contenu sera enregistré. Sinon, les résultats de la base de données seront dépouillés.",
+	"securepoll-tally-form-file-label": "Téléverser un vidage chiffré (facultatif)",
 	"securepoll-tally-upload-submit": "Créer un dépouillement",
 	"securepoll-tally-gpg-decrypt-key": "Clé de déchiffrement GPG",
 	"securepoll-tally-error": "Erreur lors de l’interprétation des enregistrements de vote, impossible de produire un dépouillement.",

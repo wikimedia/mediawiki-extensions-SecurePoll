@@ -6,6 +6,7 @@
 			"Bellayet",
 			"Nasir8891",
 			"R4356th",
+			"WikiAbuHuraira",
 			"Wikitanvir",
 			"আফতাবুজ্জামান"
 		]
@@ -99,7 +100,7 @@
 	"securepoll-subpage-votereligibility": "ভোটার যোগ্যতা",
 	"securepoll-subpage-dump": "ডাম্প",
 	"securepoll-subpage-tally": "গণনা",
-	"securepoll-subpage-log": "লগগুলি",
+	"securepoll-subpage-log": "লগসমূহ",
 	"securepoll-tally-title": "গণনা: $1",
 	"securepoll-tally-not-finished": "দুঃখতি, ভোট গ্রহণ শেষ না হওয়ার পূর্ব পর্যন্ত আপনি এই নির্বাচনের ভোট গণনা করতে পারবেন না।",
 	"securepoll-tally-upload-submit": "গণনা তৈরি",

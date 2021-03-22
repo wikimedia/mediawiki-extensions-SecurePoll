@@ -112,6 +112,7 @@
 	"securepoll-tally-title": "Пребројување: $1",
 	"securepoll-tally-not-finished": "Жалиме, но не можете да ги пребројувате изборите додека прво не заврши гласањето.",
 	"securepoll-tally-form-file-help": "Ако подигате шифриран резервен склад, неговата содржина ќе биде пребројана. Во спротивно ќе се пребројат исходните ставки од базата.",
+	"securepoll-tally-form-file-label": "Подигни шифриран резер. склад (незадол.)",
 	"securepoll-tally-upload-submit": "Создај пребројување",
 	"securepoll-tally-gpg-decrypt-key": "GPG-шифрарен клуч",
 	"securepoll-tally-error": "Грешка при толкување на гласовите, не можам да создадам пребројување.",
