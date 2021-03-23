@@ -42,6 +42,14 @@ class PluralityTallier extends Tallier {
 		arsort( $this->tally );
 	}
 
+	public function loadJSONResult( $data ) {
+		$this->tally = $data;
+	}
+
+	public function getJSONResult() {
+		return $this->tally;
+	}
+
 	public function getHtmlResult() {
 		// Show the results
 		$s = "<table class=\"securepoll-results\">\n";

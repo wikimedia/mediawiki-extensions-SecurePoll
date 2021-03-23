@@ -60,6 +60,18 @@ class HistogramRangeTallier extends Tallier {
 		arsort( $this->averages );
 	}
 
+	public function loadJSONResult( $data ) {
+		$this->averages = $data['averages'];
+		$this->histogram = $data['histogram'];
+	}
+
+	public function getJSONResult() {
+		return [
+			'averages' => $this->averages,
+			'histogram' => $this->histogram,
+		];
+	}
+
 	public function getHtmlResult() {
 		$ballot = $this->election->getBallot();
 		if ( !is_callable(
