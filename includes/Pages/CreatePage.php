@@ -459,7 +459,6 @@ class CreatePage extends ActionPage {
 				'type' => 'text',
 				'label-message' => 'securepoll-create-label-comment',
 				'maxlength' => 250,
-				'disabled' => $isRunning,
 			];
 		}
 
@@ -549,6 +548,8 @@ class CreatePage extends ActionPage {
 		if ( $securePollUseLogging ) {
 			$this->logAdminChanges( $originalFormData, $formData, $this->election->getId() );
 		}
+
+		$this->recordElectionToNamespace( $this->election->getId(), $formData );
 
 		return Status::newGood( $this->election->getId() );
 	}
@@ -806,7 +807,18 @@ class CreatePage extends ActionPage {
 			}
 		}
 
-		// Record this election to the SecurePoll namespace, if so configured.
+		$this->recordElectionToNamespace( $eId, $formData );
+
+		return Status::newGood( $eId );
+	}
+
+	/**
+	 * Record this election to the SecurePoll namespace, if so configured.
+	 *
+	 * @param int $eId election id
+	 * @param array $formData
+	 */
+	private function recordElectionToNamespace( $eId, $formData ) {
 		if ( $this->specialPage->getConfig()->get( 'SecurePollUseNamespace' ) ) {
 			// Create a new context to bypass caching.
 			$context = new Context;
@@ -828,8 +840,6 @@ class CreatePage extends ActionPage {
 			$wp = WikiPage::factory( $title );
 			$wp->doEditContent( $content, $formData['comment'] );
 		}
-
-		return Status::newGood( $eId );
 	}
 
 	/**
