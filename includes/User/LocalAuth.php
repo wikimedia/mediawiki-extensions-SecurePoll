@@ -46,6 +46,8 @@ class LocalAuth extends Auth {
 	 */
 	public function getUserParams( $user ) {
 		global $wgServer;
+
+		$block = $user->getBlock();
 		$params = [
 			'name' => $user->getName(),
 			'type' => 'local',
@@ -53,8 +55,8 @@ class LocalAuth extends Auth {
 			'url' => $user->getUserPage()->getCanonicalURL(),
 			'properties' => [
 				'wiki' => wfWikiID(),
-				'blocked' => $user->isBlocked(),
-				'isSitewideBlocked' => $user->getBlock() ? $user->getBlock()->isSitewide() : null,
+				'blocked' => (bool)$block,
+				'isSitewideBlocked' => $block ? $block->isSitewide() : null,
 				'central-block-count' => $this->getCentralBlockCount( $user ),
 				'edit-count' => $user->getEditCount(),
 				'bot' => $user->isAllowed( 'bot' ),
