@@ -674,6 +674,17 @@ class CreatePage extends ActionPage {
 			$oIds = [];
 			$fields['el_entity'] = $eId;
 			$dbw->insert( 'securepoll_elections', $fields, __METHOD__ );
+
+			// Enable sitewide block by default on new elections
+			$dbw->insert(
+				'securepoll_properties',
+				[
+					'pr_entity' => $eId,
+					'pr_key' => 'not-sitewide-blocked',
+					'pr_value' => 1,
+				],
+				__METHOD__
+			);
 		} else {
 			$eId = $election->getId();
 			$dbw->update( 'securepoll_elections', $fields, [ 'el_entity' => $eId ], __METHOD__ );
