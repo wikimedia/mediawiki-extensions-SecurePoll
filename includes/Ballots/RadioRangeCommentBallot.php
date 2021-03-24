@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extensions\SecurePoll\Ballots;
 
-use Html;
+use OOUI;
 
 /**
  * A ballot used specifically for the Wikimedia Referendum on the personal image filter.
@@ -12,27 +12,24 @@ class RadioRangeCommentBallot extends RadioRangeBallot {
 	public function getForm( $prevStatus = false ) {
 		$form = parent::getForm( $prevStatus );
 
-		$form .= Html::element( 'hr' );
+		$form .= new OOUI\Tag( 'hr' );
+
 		// Add the comment call
 		$callForComments = $this->election->parseMessage( 'comments' );
-		$form .= Html::rawElement( 'p', null, $callForComments );
+		$form .= ( new OOUI\Tag( 'p' ) )->appendContent( new \OOUI\HtmlSnippet( $callForComments ) );
 
 		// Add the comments boxes.
-		$form .= Html::textarea(
-			'securepoll_comments_native',
-			'',
-			[
-				'rows' => 10,
-				'cols' => 20
-			]
+		$form .= new OOUI\MultilineTextInputWidget( [
+			'name' => 'securepoll_comments_native',
+			'value' => '',
+			'rows' => 10,
+		]
 		);
-		$form .= Html::textarea(
-			'securepoll_comments_en',
-			'',
-			[
-				'rows' => 10,
-				'cols' => 20
-			]
+		$form .= new OOUI\MultilineTextInputWidget( [
+			'name' => 'securepoll_comments_en',
+			'value' => '',
+			'rows' => 10,
+		]
 		);
 
 		return $form;
