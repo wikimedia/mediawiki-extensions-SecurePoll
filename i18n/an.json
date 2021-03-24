@@ -58,7 +58,6 @@
 	"securepoll-strike-button": "Inalidar",
 	"securepoll-unstrike-button": "Revalidar",
 	"securepoll-strike-reason": "Razón:",
-	"securepoll-strike-cancel": "Cancelar",
 	"securepoll-strike-error": "S'ha produciu una error en invalidar/revalidar: $1",
 	"securepoll-strike-token-mismatch": "S'ha perdiu a información d'a sesión",
 	"securepoll-details-link": "Detalles",

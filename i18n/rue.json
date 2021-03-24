@@ -58,7 +58,6 @@
 	"securepoll-strike-button": "Перечаркнути",
 	"securepoll-unstrike-button": "Зняти перечаркнутя",
 	"securepoll-strike-reason": "Причіна:",
-	"securepoll-strike-cancel": "Сторно",
 	"securepoll-strike-error": "Не подарило ся выконати перечаркнутя ці ёго зрушіня: $1",
 	"securepoll-strike-token-mismatch": "Дата сеансу страчены",
 	"securepoll-details-link": "Детайлы",

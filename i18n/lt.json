@@ -62,7 +62,6 @@
 	"securepoll-strike-button": "Uždrausti",
 	"securepoll-unstrike-button": "Nebedrausti",
 	"securepoll-strike-reason": "Priežastis:",
-	"securepoll-strike-cancel": "Atšaukti",
 	"securepoll-strike-error": "Klaida atliekant uždraudimą/nebedraudimą: $1",
 	"securepoll-strike-token-mismatch": "Prarasti sesijos duomenys",
 	"securepoll-details-link": "Detalės",

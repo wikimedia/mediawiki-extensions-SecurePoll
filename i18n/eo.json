@@ -64,7 +64,6 @@
 	"securepoll-strike-button": "Forstreki",
 	"securepoll-unstrike-button": "Malforstreki",
 	"securepoll-strike-reason": "Kialo:",
-	"securepoll-strike-cancel": "Nuligi",
 	"securepoll-strike-error": "Eraro farante forstrekadon/malforstrekadon: $1",
 	"securepoll-strike-token-mismatch": "Sesiaj datenoj perditaj",
 	"securepoll-details-link": "Detaloj",

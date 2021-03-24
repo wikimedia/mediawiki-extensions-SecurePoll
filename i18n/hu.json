@@ -70,7 +70,6 @@
 	"securepoll-strike-button": "Kihúzás",
 	"securepoll-unstrike-button": "Kihúzás visszavonása",
 	"securepoll-strike-reason": "Ok:",
-	"securepoll-strike-cancel": "Mégse",
 	"securepoll-strike-error": "Hiba történt a kihúzáskor vagy annak visszavonásakor: $1",
 	"securepoll-strike-token-mismatch": "A munkafázis adatai elvesztek.",
 	"securepoll-details-link": "Részletek",

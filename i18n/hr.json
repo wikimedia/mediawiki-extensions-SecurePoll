@@ -67,7 +67,6 @@
 	"securepoll-strike-button": "Prekriži",
 	"securepoll-unstrike-button": "Ukloni prekriženo",
 	"securepoll-strike-reason": "Razlog:",
-	"securepoll-strike-cancel": "Odustani",
 	"securepoll-strike-error": "Pogreška tijekom izvođenja prekriži/ukloni prekriženo: $1",
 	"securepoll-strike-token-mismatch": "Izgubljeni su podaci o sesiji",
 	"securepoll-details-link": "Detalji",

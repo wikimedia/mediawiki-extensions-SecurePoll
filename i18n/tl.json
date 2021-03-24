@@ -64,7 +64,6 @@
 	"securepoll-strike-button": "Kalusin",
 	"securepoll-unstrike-button": "Huwag kalusin",
 	"securepoll-strike-reason": "Dahilan:",
-	"securepoll-strike-cancel": "Huwag ipagpatuloy",
 	"securepoll-strike-error": "Kamalian sa pagsasagawa ng pagkalos/'di-pagkalos: $1",
 	"securepoll-strike-token-mismatch": "Nawala ang datos ng sesyon",
 	"securepoll-details-link": "Mga detalye",

@@ -59,7 +59,6 @@
 	"securepoll-strike-button": "വെട്ടുക",
 	"securepoll-unstrike-button": "വെട്ടൽ നീക്കുക",
 	"securepoll-strike-reason": "കാരണം:",
-	"securepoll-strike-cancel": "റദ്ദാക്കുക",
 	"securepoll-strike-error": "വെട്ടൽ/അതൊഴിവാക്കൽ ചെയ്തതിൽ പിഴവ്: $1",
 	"securepoll-strike-token-mismatch": "സെഷൻ വിവരങ്ങൾ നഷ്ടപ്പെട്ടിരിക്കുന്നു",
 	"securepoll-details-link": "വിശദാംശങ്ങൾ",

@@ -72,7 +72,6 @@
 	"securepoll-strike-button": "Poisto",
 	"securepoll-unstrike-button": "Palautus",
 	"securepoll-strike-reason": "Syy",
-	"securepoll-strike-cancel": "Peruuta",
 	"securepoll-strike-error": "Tapahtui virhe poistossa/palautuksessa: $1",
 	"securepoll-strike-token-mismatch": "Istuntotiedot hävinneet",
 	"securepoll-details-link": "Tiedot",

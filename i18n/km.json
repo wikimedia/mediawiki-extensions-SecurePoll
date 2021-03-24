@@ -46,7 +46,6 @@
 	"securepoll-header-cookie-dup": "Dup",
 	"securepoll-header-details": "ព័ត៌មាន​លម្អិត​",
 	"securepoll-strike-reason": "មូលហេតុ៖",
-	"securepoll-strike-cancel": "បោះបង់",
 	"securepoll-details-link": "ព័ត៌មាន​លម្អិត​",
 	"securepoll-details-title": "លម្ពិត​ពី​ការ​បោះឆ្នោត: #$1",
 	"securepoll-invalid-vote": "\"$1\" គឺ​ជា ID បោះឆ្នោត​មិន​ត្រឹម​ត្រូវ។",

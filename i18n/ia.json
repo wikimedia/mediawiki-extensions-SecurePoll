@@ -58,7 +58,6 @@
 	"securepoll-strike-button": "Cancellar voto",
 	"securepoll-unstrike-button": "Restaurar voto",
 	"securepoll-strike-reason": "Motivo:",
-	"securepoll-strike-cancel": "Cancellar",
 	"securepoll-strike-error": "Error durante le cancellation/restauration: $1",
 	"securepoll-strike-token-mismatch": "Datos de session perdite",
 	"securepoll-details-link": "Detalios",

@@ -60,7 +60,6 @@
 	"securepoll-strike-button": "Raiar",
 	"securepoll-unstrike-button": "Desraiar",
 	"securepoll-strike-reason": "Rason :",
-	"securepoll-strike-cancel": "Anullar",
 	"securepoll-strike-error": "Error al moment del (des)raiatge : $1",
 	"securepoll-strike-token-mismatch": "Pèrda de donadas de session",
 	"securepoll-details-link": "Detalhs",

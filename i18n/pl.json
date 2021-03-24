@@ -64,7 +64,6 @@
 	"securepoll-strike-button": "Skreśl",
 	"securepoll-unstrike-button": "Usuń skreślenie",
 	"securepoll-strike-reason": "Powód",
-	"securepoll-strike-cancel": "Zrezygnuj",
 	"securepoll-strike-error": "Błąd podczas skreślania lub usuwania skreślenia – $1",
 	"securepoll-strike-token-mismatch": "Sesja użytkownika została utracona",
 	"securepoll-details-link": "Szczegóły",

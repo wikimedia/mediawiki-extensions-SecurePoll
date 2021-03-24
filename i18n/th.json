@@ -64,7 +64,6 @@
 	"securepoll-strike-button": "ขีดฆ่า",
 	"securepoll-unstrike-button": "ยกเลิกการขีดฆ่า",
 	"securepoll-strike-reason": "เหตุผล:",
-	"securepoll-strike-cancel": "ยกเลิก",
 	"securepoll-strike-error": "เกิดความผิดพลาดในการขีดฆ่า/ยกเลิกขีดฆ่า: $1",
 	"securepoll-strike-token-mismatch": "ข้อมูลของภาคนี้สูญหาย",
 	"securepoll-details-link": "รายละเอียด",

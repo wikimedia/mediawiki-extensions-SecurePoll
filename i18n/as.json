@@ -62,7 +62,6 @@
 	"securepoll-strike-button": "ষ্ট্ৰাইক",
 	"securepoll-unstrike-button": "আনষ্ট্ৰাইক",
 	"securepoll-strike-reason": "কাৰণ:",
-	"securepoll-strike-cancel": "বাতিল কৰক",
 	"securepoll-strike-error": "ষ্ট্ৰাইক/আনষ্ট্ৰাইক কৰোঁতে ত্ৰুটী হৈছে: $1",
 	"securepoll-strike-token-mismatch": "চেছন ডেটা হেৰাই গৈছে",
 	"securepoll-details-link": "বিস্তাৰিত",

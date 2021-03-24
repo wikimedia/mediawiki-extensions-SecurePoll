@@ -58,7 +58,6 @@
 	"securepoll-strike-button": "Annulla dan il-vot",
 	"securepoll-unstrike-button": "Neħħi l-annulament",
 	"securepoll-strike-reason": "Raġuni:",
-	"securepoll-strike-cancel": "Annulla",
 	"securepoll-strike-error": "Żball waqt l-annulament jew ir-ripristinaġġ tal-vot: $1",
 	"securepoll-strike-token-mismatch": "L-informazzjoni tas-sessjoni ntilfet",
 	"securepoll-details-link": "Dettalji",

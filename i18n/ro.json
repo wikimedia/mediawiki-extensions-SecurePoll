@@ -65,7 +65,6 @@
 	"securepoll-strike-button": "Elimină",
 	"securepoll-unstrike-button": "Anulare eliminare",
 	"securepoll-strike-reason": "Motiv:",
-	"securepoll-strike-cancel": "Revocare",
 	"securepoll-strike-error": "Eroare la efectuarea operațiunii de eliminare/anulare a eliminării: $1",
 	"securepoll-strike-token-mismatch": "Informațiile despre sesiune s-au pierdut",
 	"securepoll-details-link": "Detalii",

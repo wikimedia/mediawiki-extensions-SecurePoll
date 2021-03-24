@@ -61,7 +61,6 @@
 	"securepoll-strike-button": "Škrtnúť",
 	"securepoll-unstrike-button": "Zrušiť škrtnutie",
 	"securepoll-strike-reason": "Dôvod:",
-	"securepoll-strike-cancel": "Zrušiť",
 	"securepoll-strike-error": "Chyba operácie škrtnutie/zrušenie škrtnutia: $1",
 	"securepoll-strike-token-mismatch": "Údaje o relácii boli stratené",
 	"securepoll-details-link": "Podrobnosti",

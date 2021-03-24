@@ -64,7 +64,6 @@
 	"securepoll-strike-button": "काट्ने",
 	"securepoll-unstrike-button": "काटेको हटाउने",
 	"securepoll-strike-reason": "कारण:",
-	"securepoll-strike-cancel": "रद्द गर्ने",
 	"securepoll-strike-error": "त्रुटि काट्ने/ काटेको हटाउनेमा: $1",
 	"securepoll-strike-token-mismatch": "सेसन डेटा हरायो",
 	"securepoll-details-link": "विवरणहरु",

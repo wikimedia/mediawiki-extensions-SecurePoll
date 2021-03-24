@@ -72,7 +72,6 @@
 	"securepoll-strike-button": "Διαγραφή",
 	"securepoll-unstrike-button": "Αναίρεση διαγραφής",
 	"securepoll-strike-reason": "Λόγος:",
-	"securepoll-strike-cancel": "Άκυρο",
 	"securepoll-strike-error": "Σφάλμα κατά τη διαγραφή/την αναίρεση διαγραφής: $1",
 	"securepoll-strike-token-mismatch": "Χάθηκαν τα δεδομένα της περιόδου σύνδεσης",
 	"securepoll-details-link": "Λεπτομέρειες",

@@ -60,7 +60,6 @@
 	"securepoll-strike-button": "Přeškrtnout",
 	"securepoll-unstrike-button": "Neškrtat",
 	"securepoll-strike-reason": "Důvod:",
-	"securepoll-strike-cancel": "Storno",
 	"securepoll-strike-error": "Nepodařilo se provést přeškrtnutí či jeho zrušení: $1",
 	"securepoll-strike-token-mismatch": "Data z relace byla ztracena",
 	"securepoll-details-link": "Podrobnosti",

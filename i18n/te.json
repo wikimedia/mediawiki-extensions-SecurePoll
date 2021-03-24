@@ -49,7 +49,6 @@
 	"securepoll-strike-button": "కొట్టివేయి",
 	"securepoll-unstrike-button": "కొట్టివేత తుడుపు",
 	"securepoll-strike-reason": "కారణం:",
-	"securepoll-strike-cancel": "రద్దు",
 	"securepoll-details-link": "వివరాలు",
 	"securepoll-details-title": "వోటు వివరాలు: #$1",
 	"securepoll-invalid-vote": "\"$1\" అనేది సరైన వోటు ID కాదు",

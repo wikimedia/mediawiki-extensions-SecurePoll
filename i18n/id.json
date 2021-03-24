@@ -65,7 +65,6 @@
 	"securepoll-strike-button": "Coret",
 	"securepoll-unstrike-button": "Hapus coretan",
 	"securepoll-strike-reason": "Alasan:",
-	"securepoll-strike-cancel": "Batalkan",
 	"securepoll-strike-error": "Gagal mencoret/membatalkan pencoretan: $1",
 	"securepoll-strike-token-mismatch": "Data sesi terhilang",
 	"securepoll-details-link": "Rincian",

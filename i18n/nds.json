@@ -53,7 +53,6 @@
 	"securepoll-strike-button": "Strieken",
 	"securepoll-unstrike-button": "Strieken trüchnehmen",
 	"securepoll-strike-reason": "Grund:",
-	"securepoll-strike-cancel": "Afbreken",
 	"securepoll-strike-error": "Fehler bi’t Strieken/Strieken rutnehmen: $1",
 	"securepoll-details-link": "Details",
 	"securepoll-details-title": "Afstimmdetails: #$1",

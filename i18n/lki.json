@@ -60,7 +60,6 @@
 	"securepoll-strike-button": "خط‌زدن",
 	"securepoll-unstrike-button": "از خط‌خوردگی به در آوردن",
 	"securepoll-strike-reason": ":دةلیل",
-	"securepoll-strike-cancel": "ئآهووسانن/لغو",
 	"securepoll-strike-error": "خطا در انجام خط‌زدن/از خط‌خوردگی به در آوردن: $1",
 	"securepoll-strike-token-mismatch": "داده‌های نشست از دست رفت",
 	"securepoll-details-link": "جزئیات",

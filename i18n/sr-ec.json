@@ -67,7 +67,6 @@
 	"securepoll-strike-button": "Прецртај",
 	"securepoll-unstrike-button": "Поништи прецртавање",
 	"securepoll-strike-reason": "Разлог:",
-	"securepoll-strike-cancel": "Откажи",
 	"securepoll-strike-error": "Грешка при прецртавању/уклањању црте: $1",
 	"securepoll-strike-token-mismatch": "Подаци о сесији су изгубљени",
 	"securepoll-details-link": "Детаљи",

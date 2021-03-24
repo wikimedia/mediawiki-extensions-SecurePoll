@@ -64,7 +64,6 @@
 	"securepoll-strike-button": "გადახაზვა",
 	"securepoll-unstrike-button": "ამოშლის მოხსნა",
 	"securepoll-strike-reason": "მიზეზი:",
-	"securepoll-strike-cancel": "გაუქმება",
 	"securepoll-strike-error": "შეცდომა ამოშლიასას, ან ამოშლის მოხსნისას: $1",
 	"securepoll-strike-token-mismatch": "სესიის მონაცემების დაკარგვა",
 	"securepoll-details-link": "დეტალები",

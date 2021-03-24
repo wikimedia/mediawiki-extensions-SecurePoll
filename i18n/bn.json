@@ -65,7 +65,6 @@
 	"securepoll-strike-button": "স্ট্রাইক",
 	"securepoll-unstrike-button": "আনস্ট্রাইক",
 	"securepoll-strike-reason": "কারণ:",
-	"securepoll-strike-cancel": "বাতিল",
 	"securepoll-strike-error": "স্ট্রাইক/আনস্ট্রাইক করার সময় ত্রুটি দেখা দিয়েছে: $1",
 	"securepoll-strike-token-mismatch": "সেশনের ডেটা হারিয়ে গেছে",
 	"securepoll-details-link": "বিস্তারিত",

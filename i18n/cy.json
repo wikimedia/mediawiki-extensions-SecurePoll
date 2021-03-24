@@ -58,7 +58,6 @@
 	"securepoll-strike-button": "Annilysu",
 	"securepoll-unstrike-button": "Ail-ddilysu",
 	"securepoll-strike-reason": "Rheswm:",
-	"securepoll-strike-cancel": "Canslo",
 	"securepoll-strike-error": "Gwall wrth geisio annilysu/ail-ddilysu: $1",
 	"securepoll-strike-token-mismatch": "Collwyd data'r sesiwn",
 	"securepoll-details-link": "Manylion",

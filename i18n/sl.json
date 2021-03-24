@@ -59,7 +59,6 @@
 	"securepoll-strike-button": "Prečrtaj",
 	"securepoll-unstrike-button": "Odčrtaj",
 	"securepoll-strike-reason": "Razlog:",
-	"securepoll-strike-cancel": "Prekliči",
 	"securepoll-strike-error": "Napaka pri izvajanju prečrtanja/odčrtanja: $1",
 	"securepoll-strike-token-mismatch": "Podatki seje so izgubljeni",
 	"securepoll-details-link": "Podrobnosti",

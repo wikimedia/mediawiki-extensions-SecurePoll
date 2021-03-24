@@ -62,7 +62,6 @@
 	"securepoll-strike-button": "Nënvizoj",
 	"securepoll-unstrike-button": "Zhbëje nënvizojën",
 	"securepoll-strike-reason": "Arsyeja:",
-	"securepoll-strike-cancel": "Anulo",
 	"securepoll-strike-error": "Gabim gjatë performimit strike/unstrike: $1",
 	"securepoll-strike-token-mismatch": "Sesioni i të dhënave humbi",
 	"securepoll-details-link": "Detajet",

@@ -61,7 +61,6 @@
 	"securepoll-strike-button": "तिरस्करोतु",
 	"securepoll-unstrike-button": "अङ्गीकरोतु",
 	"securepoll-strike-reason": "कारणम् :",
-	"securepoll-strike-cancel": "निरस्यताम्",
 	"securepoll-strike-error": "तिरस्करणे/अङ्गीकरणे कृतः दोषः : $1",
 	"securepoll-strike-token-mismatch": "सत्रस्य विवरणं नष्टम्",
 	"securepoll-details-link": "विवरणम्",

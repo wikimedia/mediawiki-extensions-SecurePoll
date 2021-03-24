@@ -59,7 +59,6 @@
 	"securepoll-strike-button": "Anulà",
 	"securepoll-unstrike-button": "Scansela anulament",
 	"securepoll-strike-reason": "Rason:",
-	"securepoll-strike-cancel": "Scancela",
 	"securepoll-strike-error": "Eror an fasend anula/scansela anulament: $1",
 	"securepoll-strike-token-mismatch": "Përdù ij dat ëd session",
 	"securepoll-details-link": "Detaj",

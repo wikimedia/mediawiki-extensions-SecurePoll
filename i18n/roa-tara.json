@@ -59,7 +59,6 @@
 	"securepoll-strike-button": "Annulle stu vote",
 	"securepoll-unstrike-button": "Repristine 'u vote",
 	"securepoll-strike-reason": "Mutive:",
-	"securepoll-strike-cancel": "Annulle",
 	"securepoll-strike-error": "Errore eseguenne annulle/repristine: $1",
 	"securepoll-strike-token-mismatch": "Sessione de date perdute",
 	"securepoll-details-link": "Detaglie",
