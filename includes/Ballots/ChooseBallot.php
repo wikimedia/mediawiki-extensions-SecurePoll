@@ -3,7 +3,7 @@
 namespace MediaWiki\Extensions\SecurePoll\Ballots;
 
 use MediaWiki\Extensions\SecurePoll\Entities\Question;
-use Xml;
+use RequestContext;
 
 /**
  * A ballot class which asks the user to choose one answer only from the
@@ -40,21 +40,22 @@ class ChooseBallot extends Ballot {
 	 */
 	public function getQuestionForm( $question, $options ) {
 		$name = 'securepoll_q' . $question->getId();
-		$s = '';
+		$s = new \OOUI\FieldsetLayout();
 		foreach ( $options as $option ) {
 			$optionHTML = $option->parseMessageInline( 'text' );
 			$optionId = $option->getId();
-			$radioId = "{$name}_opt{$optionId}";
-			$s .= '<div class="securepoll-option-choose">' . Xml::radio(
-					$name,
-					$optionId,
-					false,
-					[ 'id' => $radioId ]
-				) . '&#160;' . Xml::tags(
-					'label',
-					[ 'for' => $radioId ],
-					$optionHTML
-				) . "</div>\n";
+
+			$s->appendContent( [
+				new \OOUI\FieldLayout( new \OOUI\RadioInputWidget( [
+					'name' => $name,
+					'value' => $optionId,
+					'required' => true,
+					] ), [
+						'classes' => [ 'securepoll-option-choose' ],
+						'label' => new \OOUI\HtmlSnippet( $this->errorLocationIndicator( $optionId ) . $optionHTML ),
+						'align' => 'inline'
+					] )
+			] );
 		}
 
 		return $s;
@@ -66,8 +67,7 @@ class ChooseBallot extends Ballot {
 	 * @return string
 	 */
 	public function submitQuestion( $question, $status ) {
-		global $wgRequest;
-		$result = $wgRequest->getInt( 'securepoll_q' . $question->getId() );
+		$result = RequestContext::getMain()->getRequest()->getInt( 'securepoll_q' . $question->getId() );
 		if ( !$result ) {
 			$status->fatal( 'securepoll-unanswered-questions' );
 		} else {
