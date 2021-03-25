@@ -108,7 +108,7 @@ class TallyPage extends ActionPage {
 				'type' => 'file',
 				'name' => 'tally_file',
 				'help-message' => 'securepoll-tally-form-file-help',
-				'label-message' => 'securepoll-tally-form-file-label'
+				'label-message' => 'securepoll-tally-form-file-label',
 			],
 		];
 
