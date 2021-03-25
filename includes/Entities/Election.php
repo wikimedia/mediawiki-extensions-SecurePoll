@@ -5,11 +5,13 @@ namespace MediaWiki\Extensions\SecurePoll\Entities;
 use MediaWiki\Extensions\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extensions\SecurePoll\Context;
 use MediaWiki\Extensions\SecurePoll\Crypt\Crypt;
+use MediaWiki\Extensions\SecurePoll\Talliers\ElectionTallier;
 use MediaWiki\Extensions\SecurePoll\User\Auth;
 use MediaWiki\Extensions\SecurePoll\User\Voter;
 use MWException;
 use Status;
 use User;
+use Wikimedia\Rdbms\IDatabase;
 use Xml;
 
 /**
@@ -563,5 +565,35 @@ class Election extends Entity {
 		} else {
 			return $status;
 		}
+	}
+
+	/**
+	 * Get the stored tally results for this election. The caller can use the
+	 * returned tallier to format the results in the desired way.
+	 *
+	 * @param IDatabase $dbr
+	 * @return ElectionTallier|bool
+	 */
+	public function getTallyFromDb( $dbr ) {
+		$result = $dbr->selectField(
+			'securepoll_properties',
+			[
+				'pr_value',
+			],
+			[
+				'pr_entity' => $this->getId(),
+				'pr_key' => [
+					'tally-result',
+				],
+			],
+			__METHOD__
+		);
+		if ( !$result ) {
+			return false;
+		}
+
+		$tallier = $this->context->newElectionTallier( $this );
+		$tallier->loadJSONResult( json_decode( $result, true ) );
+		return $tallier;
 	}
 }

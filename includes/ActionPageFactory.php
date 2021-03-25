@@ -62,6 +62,9 @@ class ActionPageFactory {
 		],
 		'tally' => [
 			'class' => TallyPage::class,
+			'services' => [
+				'DBLoadBalancer',
+			],
 		],
 		'translate' => [
 			'class' => TranslatePage::class,

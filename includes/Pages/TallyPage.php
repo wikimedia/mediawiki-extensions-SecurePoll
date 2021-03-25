@@ -2,25 +2,48 @@
 
 namespace MediaWiki\Extensions\SecurePoll\Pages;
 
+use DeferredUpdates;
 use Exception;
 use HTMLForm;
 use MediaWiki\Extensions\SecurePoll\Context;
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
 use MediaWiki\Extensions\SecurePoll\MemoryStore;
+use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
+use OOUI\MessageWidget;
 use OOUIHTMLForm;
 use Status;
 use WebRequestUpload;
+use Wikimedia\Rdbms\ILoadBalancer;
 
 /**
  * A subpage for tallying votes and producing results
  */
 class TallyPage extends ActionPage {
+	/** @var ILoadBalancer */
+	private $loadBalancer;
+
+	/** @var bool */
+	private $tallyOngoing = null;
+
+	/**
+	 * @param SpecialSecurePoll $specialPage
+	 * @param ILoadBalancer $loadBalancer
+	 */
+	public function __construct(
+		SpecialSecurePoll $specialPage,
+		ILoadBalancer $loadBalancer
+	) {
+		parent::__construct( $specialPage );
+		$this->loadBalancer = $loadBalancer;
+	}
+
 	/**
 	 * Execute the subpage.
 	 * @param array $params Array of subpage parameters.
 	 */
 	public function execute( $params ) {
 		$out = $this->specialPage->getOutput();
+		$out->enableOOUI();
 		$user = $this->specialPage->getUser();
 		$request = $this->specialPage->getRequest();
 
@@ -53,17 +76,116 @@ class TallyPage extends ActionPage {
 			return;
 		}
 
-		if (
-			$this->election->getVotesCount() > 100 &&
-			$this->election->getCrypt()
-		) {
-			$out->addWikiMsg( 'securepoll-tally-too-large' );
+		$form = $this->createForm();
+		$form->show();
 
+		if ( !$form->wasSubmitted() ) {
+			$this->showTallyStatus();
+			$this->showTallyError();
+			$this->showTallyResult();
+		}
+	}
+
+	/**
+	 * Show any errors from the most recent tally attempt
+	 */
+	private function showTallyError() : void {
+		$dbr = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_REPLICA );
+		$out = $this->specialPage->getOutput();
+
+		$result = $dbr->selectField(
+			'securepoll_properties',
+			[
+				'pr_value',
+			],
+			[
+				'pr_entity' => $this->election->getId(),
+				'pr_key' => [
+					'tally-error',
+				],
+			]
+		);
+
+		if ( $result ) {
+			$message = new MessageWidget( [
+				'label' => $this->msg( 'securepoll-tally-result-error', $result )->text(),
+				'type' => 'error',
+			] );
+			$out->prependHtml( $message->toString() );
+		}
+	}
+
+	/**
+	 * Check whether there is an ongoing tally
+	 *
+	 * @return bool
+	 */
+	private function isTallyOngoing() : bool {
+		if ( $this->tallyOngoing !== null ) {
+			return $this->tallyOngoing;
+		}
+
+		$dbr = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_REPLICA );
+		$result = $dbr->selectField(
+			'securepoll_properties',
+			[
+				'pr_value',
+			],
+			[
+				'pr_entity' => $this->election->getId(),
+				'pr_key' => [
+					'tally-ongoing',
+				],
+			]
+		);
+		$this->tallyOngoing = (bool)$result;
+		return $this->tallyOngoing;
+	}
+
+	/**
+	 * Show messages indicating the status of tallying if relevant
+	 */
+	private function showTallyStatus() : void {
+		if ( $this->isTallyOngoing() ) {
+			$message = new MessageWidget( [
+				'label' => $this->msg( 'securepoll-tally-ongoing' )->text(),
+				'type' => 'warning',
+			] );
+			$this->specialPage->getOutput()->prependHtml( $message->toString() );
+		}
+	}
+
+	/**
+	 * Show the tally result if one has previously been calculated
+	 */
+	private function showTallyResult() : void {
+		$dbr = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_REPLICA );
+		$out = $this->specialPage->getOutput();
+
+		$tallier = $this->election->getTallyFromDb( $dbr );
+
+		if ( !$tallier ) {
 			return;
 		}
 
-		$form = $this->createForm();
-		$form->show();
+		$time = $dbr->selectField(
+			'securepoll_properties',
+			[
+				'pr_value',
+			],
+			[
+				'pr_entity' => $this->election->getId(),
+				'pr_key' => [
+					'tally-result-time',
+				],
+			]
+		);
+
+		$out->addWikiMsg(
+			'securepoll-tally-result',
+			$tallier->getHtmlResult(),
+			gmdate( 'Y-m-d H:i', wfTimestamp( TS_UNIX, $time ) )
+		);
 	}
 
 	/**
@@ -74,6 +196,18 @@ class TallyPage extends ActionPage {
 	private function createForm() {
 		$formFields = $this->getCryptDescriptors();
 
+		if ( $this->isTallyOngoing() ) {
+			foreach ( $formFields as $fieldname => $field ) {
+				$formFields[$fieldname]['disabled'] = true;
+			}
+			// This will replace the default submit button
+			$formFields['disabledSubmit'] = [
+				'type' => 'submit',
+				'disabled' => true,
+				'buttonlabel-message' => 'securepoll-tally-upload-submit',
+			];
+		}
+
 		$form = HTMLForm::factory(
 			'ooui',
 			$formFields,
@@ -83,6 +217,14 @@ class TallyPage extends ActionPage {
 
 		$form->setSubmitTextMsg( 'securepoll-tally-upload-submit' )
 			->setSubmitCallback( [ $this, 'submitForm' ] );
+
+		if ( $this->isTallyOngoing() ) {
+			$form->suppressDefaultSubmit();
+		}
+
+		if ( $this->election->getCrypt() ) {
+			$form->setWrapperLegend( true );
+		}
 
 		return $form;
 	}
@@ -140,13 +282,122 @@ class TallyPage extends ActionPage {
 	 * @return bool|string|array|Status As documented for HTMLForm::trySubmit
 	 */
 	private function submitLocal( array $data ) {
-		$this->updateContextForCrypt( $this->election, $data );
-		$status = $this->election->tally();
-		if ( !$status->isOK() ) {
-			return $status->getMessage();
+		if ( $this->isTallyOngoing() ) {
+			// Do nothing until the ongoing tally completes
+			return;
 		}
-		$tallier = $status->value;
-		$this->specialPage->getOutput()->addHTML( $tallier->getHtmlResult() );
+
+		$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_MASTER );
+		$election = $this->election;
+		$electionId = $election->getId();
+		$method = __METHOD__;
+
+		$this->updateContextForCrypt( $election, $data );
+
+		// Record that the election is being tallied. This will be
+		// deleted on completion.
+		$dbw->insert(
+			'securepoll_properties',
+			[
+				'pr_entity' => $electionId,
+				'pr_key' => 'tally-ongoing',
+				'pr_value' => 1,
+			],
+			$method,
+			[ 'IGNORE' ]
+		);
+
+		// Remove any errors from previous tally attempts
+		$dbw->delete(
+			'securepoll_properties',
+			[
+				'pr_entity' => $electionId,
+				'pr_key' => 'tally-error',
+			],
+			$method
+		);
+
+		// Tallying can take a long time, so defer
+		DeferredUpdates::addCallableUpdate(
+			function () use ( $method, $election, $dbw ) {
+				$electionId = $election->getId();
+
+				$status = $election->tally();
+				if ( !$status->isOK() ) {
+					$dbw->upsert(
+						'securepoll_properties',
+						[
+							'pr_entity' => $electionId,
+							'pr_key' => 'tally-error',
+							'pr_value' => $status->getMessage(),
+						],
+						[
+							[
+								'pr_entity',
+								'pr_key',
+							],
+						],
+						[
+							'pr_value' => $status->getMessage(),
+						],
+						$method
+					);
+				} else {
+					$tallier = $status->value;
+					$result = json_encode( $tallier->getJSONResult() );
+
+					$dbw->upsert(
+						'securepoll_properties',
+						[
+							'pr_entity' => $electionId,
+							'pr_key' => 'tally-result',
+							'pr_value' => $result,
+						],
+						[
+							[
+								'pr_entity',
+								'pr_key',
+							],
+						],
+						[
+							'pr_value' => $result,
+						],
+						$method
+					);
+
+					$time = time();
+					$dbw->upsert(
+						'securepoll_properties',
+						[
+							'pr_entity' => $electionId,
+							'pr_key' => 'tally-result-time',
+							'pr_value' => $time,
+						],
+						[
+							[
+								'pr_entity',
+								'pr_key',
+							],
+						],
+						[
+							'pr_value' => $time,
+						],
+						$method
+					);
+				}
+
+				$dbw->delete(
+					'securepoll_properties',
+					[
+						'pr_entity' => $electionId,
+						'pr_key' => 'tally-ongoing',
+					],
+					$method
+				);
+			}
+		);
+
+		$this->specialPage->getOutput()->addWikiMsg( 'securepoll-tally-ongoing' );
 		return true;
 	}
 
@@ -175,6 +426,7 @@ class TallyPage extends ActionPage {
 		$election = $context->getElection( reset( $electionIds ) );
 
 		$this->updateContextForCrypt( $election, $data );
+
 		$status = $election->tally();
 		if ( !$status->isOK() ) {
 			return [ [ 'securepoll-tally-upload-error', $status->getMessage() ] ];
