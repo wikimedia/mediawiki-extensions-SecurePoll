@@ -78,7 +78,7 @@ class DetailsPage extends ActionPage {
 
 			return;
 		}
-		# Show vote properties
+		// Show vote properties
 		$out->setPageTitle(
 			$this->msg(
 				'securepoll-details-title',
@@ -114,7 +114,7 @@ class DetailsPage extends ActionPage {
 			) . '</table>'
 		);
 
-		# Show voter properties
+		// Show voter properties
 		$out->addHTML(
 			'<h2>' . $this->msg( 'securepoll-voter-properties' )->escaped() . "</h2>\n"
 		);
@@ -132,7 +132,7 @@ class DetailsPage extends ActionPage {
 		}
 		$out->addHTML( '</table>' );
 
-		# Show cookie dups
+		// Show cookie dups
 		$cmTable = $db->tableName( 'securepoll_cookie_match' );
 		$voterId = intval( $row->voter_id );
 		$sql = "(SELECT cm_voter_2 as voter, cm_timestamp FROM $cmTable WHERE cm_voter_1=$voterId)" .
@@ -160,7 +160,7 @@ class DetailsPage extends ActionPage {
 			$out->addHTML( '</table>' );
 		}
 
-		# Show strike log
+		// Show strike log
 		$out->addHTML( '<h2>' . $this->msg( 'securepoll-strike-log' )->escaped() . "</h2>\n" );
 		$pager = new StrikePager( $this, $this->voteId );
 		$out->addParserOutputContent(

@@ -76,11 +76,11 @@ class VotePage extends ActionPage {
 
 		$this->auth = $this->election->getAuth();
 
-		# Get voter from session
+		// Get voter from session
 		$this->voter = $this->auth->getVoterFromSession( $this->election );
 
-		# If there's no session, try creating one.
-		# This will fail if the user is not authorized to vote in the election
+		// If there's no session, try creating one.
+		// This will fail if the user is not authorized to vote in the election
 		if ( !$this->voter ) {
 			$status = $this->auth->newAutoSession( $this->election );
 			if ( $status->isOK() ) {
@@ -225,7 +225,7 @@ class VotePage extends ActionPage {
 		$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_MASTER );
 		$dbw->startAtomic( __METHOD__ );
 
-		# Mark previous votes as old
+		// Mark previous votes as old
 		$dbw->update(
 			'securepoll_votes',
 			[ 'vote_current' => 0 ],
@@ -236,7 +236,7 @@ class VotePage extends ActionPage {
 			__METHOD__
 		);
 
-		# Add vote to log
+		// Add vote to log
 		$xff = '';
 		if ( !empty( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
 			$xff = $_SERVER['HTTP_X_FORWARDED_FOR'];
