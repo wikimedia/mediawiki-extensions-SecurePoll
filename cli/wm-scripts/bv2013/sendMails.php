@@ -32,9 +32,8 @@ foreach ( $langs as $lang ) {
 	$transTemplates[$lang] = file_get_contents( $file );
 }
 
-// @codingStandardsIgnoreStart
-while ( !is_null( $line = fgets( $in ) ) ) {
-// @codingStandardsIgnoreEnd
+// phpcs:ignore MediaWiki.ControlStructures.AssignmentInControlStructures
+while ( ( $line = fgets( $in ) ) !== null ) {
 	if ( !$line ) {
 		continue;
 	}

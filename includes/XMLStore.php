@@ -93,11 +93,9 @@ class XMLStore extends MemoryStore {
 		$xr = $this->xmlReader;
 
 		# Check document element
-		// @codingStandardsIgnoreStart
 		while ( $xr->read() && $xr->nodeType !== XMLReader::ELEMENT ) {
-			;
 		}
-		// @codingStandardsIgnoreEnd
+
 		if ( $xr->name != 'SecurePoll' ) {
 			wfDebug( __METHOD__ . ": invalid document element\n" );
 

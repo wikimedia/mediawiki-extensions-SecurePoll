@@ -234,9 +234,8 @@ class GpgCrypt {
 			return;
 		}
 
-		// @codingStandardsIgnoreStart
-		while ( false !== ( $file = readdir( $dir ) ) ) {
-			// @codingStandardsIgnoreEnd
+		// phpcs:ignore MediaWiki.ControlStructures.AssignmentInControlStructures
+		while ( ( $file = readdir( $dir ) ) !== false ) {
 			if ( $file == '.' || $file == '..' ) {
 				continue;
 			}
