@@ -121,6 +121,7 @@
 	"securepoll-no-upload": "Nessun file è stato caricato, non è possibile effettuare il conteggio.",
 	"securepoll-dump-corrupt": "Il file di dump è corrotto e non può essere elaborato.",
 	"securepoll-tally-upload-error": "Errore nell'effettuare il conteggio sul file di dump: $1",
+	"securepoll-tally-result": "<h2>Risultati precedenti</h2><p>$1</p><p>(Resultati da $2)</p>",
 	"securepoll-pairwise-victories": "Matrice di vittoria a due a due",
 	"securepoll-strength-matrix": "Matrice di fortezza del percorso",
 	"securepoll-ranks": "Classifica finale",
