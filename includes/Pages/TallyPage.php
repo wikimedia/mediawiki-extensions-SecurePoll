@@ -76,6 +76,10 @@ class TallyPage extends ActionPage {
 			return;
 		}
 
+		if ( $this->election->getVotesCount() > 100 ) {
+			$out->addWikiMsg( 'securepoll-tally-timeout-warning' );
+		}
+
 		$form = $this->createForm();
 		$form->show();
 
