@@ -21,7 +21,7 @@ class ApprovalBallot extends Ballot {
 		global $wgRequest;
 		$name = 'securepoll_q' . $question->getId();
 
-		$s = new \OOUI\FieldsetLayout( [
+		$fieldset = new \OOUI\FieldsetLayout( [
 			'classes' => [ 'securepoll-option-approval ' ]
 		] );
 
@@ -30,7 +30,7 @@ class ApprovalBallot extends Ballot {
 			$optionId = $option->getId();
 			$inputId = "{$name}_opt{$optionId}";
 
-			$s->addItems( [
+			$fieldset->addItems( [
 				new \OOUI\FieldLayout( new \OOUI\CheckboxInputWidget( [
 					'name' => $inputId,
 					'selected' => $wgRequest->getBool( $inputId ),
@@ -42,7 +42,7 @@ class ApprovalBallot extends Ballot {
 			] );
 		}
 
-		return $s;
+		return $fieldset;
 	}
 
 	/**

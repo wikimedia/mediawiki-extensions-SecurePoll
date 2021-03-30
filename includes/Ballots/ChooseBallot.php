@@ -40,12 +40,12 @@ class ChooseBallot extends Ballot {
 	 */
 	public function getQuestionForm( $question, $options ) {
 		$name = 'securepoll_q' . $question->getId();
-		$s = new \OOUI\FieldsetLayout();
+		$fieldset = new \OOUI\FieldsetLayout();
 		foreach ( $options as $option ) {
 			$optionHTML = $option->parseMessageInline( 'text' );
 			$optionId = $option->getId();
 
-			$s->appendContent( [
+			$fieldset->appendContent( [
 				new \OOUI\FieldLayout( new \OOUI\RadioInputWidget( [
 					'name' => $name,
 					'value' => $optionId,
@@ -58,7 +58,7 @@ class ChooseBallot extends Ballot {
 			] );
 		}
 
-		return $s;
+		return $fieldset;
 	}
 
 	/**
