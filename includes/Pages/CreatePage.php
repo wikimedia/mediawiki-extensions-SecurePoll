@@ -798,6 +798,7 @@ class CreatePage extends ActionPage {
 						'el_start_date' => $dbw->timestamp( $election->getStartDate() ),
 						'el_end_date' => $dbw->timestamp( $election->getEndDate() ),
 						'el_auth_type' => $election->authType,
+						'el_owner' => $election->owner,
 					],
 					__METHOD__
 				);
