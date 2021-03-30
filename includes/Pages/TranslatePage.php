@@ -15,7 +15,6 @@ use Title;
 use WikiMap;
 use Wikimedia\Rdbms\ILoadBalancer;
 use WikiPage;
-use Xml;
 
 /**
  * A SecurePoll subpage for translating election messages.
@@ -52,6 +51,7 @@ class TranslatePage extends ActionPage {
 	public function execute( $params ) {
 		$out = $this->specialPage->getOutput();
 		$request = $this->specialPage->getRequest();
+		$out->enableOOUI();
 
 		if ( !count( $params ) ) {
 			$out->addWikiMsg( 'securepoll-too-few-params' );
@@ -151,59 +151,63 @@ class TranslatePage extends ActionPage {
 
 		# Show the form
 		$action = $this->getTitle( $secondary )->getLocalUrl( 'action=submit' );
-		$s =
-			Xml::openElement( 'form', [ 'method' => 'post', 'action' => $action ] ) .
-			'<table class="mw-datatable TablePager securepoll-trans-table">' .
-			'<col class="securepoll-col-trans-id" width="1*"/>' .
-			'<col class="securepoll-col-primary" width="30%"/>' .
-			'<col class="securepoll-col-secondary"/>' .
-			'<tr><th>' . $this->msg( 'securepoll-header-trans-id' )->escaped() . '</th>' .
-			'<th>' . htmlspecialchars( $primaryName ) . '</th>' .
-			'<th>' . htmlspecialchars( $secondaryName ) . '</th></tr>';
+		$form = new \OOUI\FormLayout( [ 'method' => 'post', 'action' => $action ] );
+
+		$table = new \OOUI\Tag( 'table' );
+		$table->addClasses( [ 'mw-datatable', 'TablePager', 'securepoll-trans-table' ] )->appendContent(
+			( new \OOUI\Tag( 'thead' ) )->appendContent( ( new \OOUI\Tag( 'tr' ) )->appendContent(
+				( new \OOUI\Tag( 'th' ) )->appendContent( $this->msg( 'securepoll-header-trans-id' ) ),
+				( new \OOUI\Tag( 'th' ) )->appendContent( $primaryName ),
+				( new \OOUI\Tag( 'th' ) )->appendContent( $secondaryName )
+			) )
+		);
+		$tbody = new \OOUI\Tag( 'tbody' );
+		$table->appendContent( $tbody );
 
 		$entities = array_merge( [ $this->election ], $this->election->getDescendants() );
 		foreach ( $entities as $entity ) {
 			$entityName = $entity->getType() . '(' . $entity->getId() . ')';
 			foreach ( $entity->getMessageNames() as $messageName ) {
-				$controlName = 'trans_' . $entity->getId() . '_' . $messageName;
-				$primaryText = $entity->getRawMessage( $messageName, $primary );
-				$secondaryText = $entity->getRawMessage( $messageName, $secondary );
-				$attribs = [ 'class' => 'securepoll-translate-box' ];
-				if ( !$this->isAdmin ) {
-					$attribs['readonly'] = '1';
-				}
-				$s .= '<tr><td>' . htmlspecialchars(
-						"$entityName/$messageName"
-					) . "</td>\n" . '<td>' . nl2br(
-						htmlspecialchars( $primaryText )
-					) . '</td>' . '<td>' . Xml::textarea(
-						$controlName,
-						$secondaryText,
-						40,
-						3,
-						$attribs
-					) . "</td></tr>\n";
+				$tbody->appendContent( ( new \OOUI\Tag( 'tr' ) )->appendContent(
+					( new \OOUI\Tag( 'td' ) )->appendContent( "$entityName/$messageName" ),
+					( new \OOUI\Tag( 'td' ) )->appendContent( new \OOUI\HtmlSnippet(
+						nl2br( htmlspecialchars( $entity->getRawMessage( $messageName, $primary ) ) )
+					) ),
+					( new \OOUI\Tag( 'td' ) )->appendContent( new \OOUI\MultilineTextInputWidget( [
+						'name' => 'trans_' . $entity->getId() . '_' . $messageName,
+						'value' => $entity->getRawMessage( $messageName, $secondary ),
+						'classes' => [ 'securepoll-translate-box' ],
+						'readonly' => !$this->isAdmin,
+						'rows' => 2,
+					] ) )
+				) );
 			}
 		}
-		$s .= '</table>';
-		if ( $this->isAdmin ) {
-			if ( $this->specialPage->getConfig()->get( 'SecurePollUseNamespace' ) ) {
-				$s .= '<p style="text-align: center;">' . wfMessage(
-						'securepoll-translate-label-comment'
-					)->escaped() . '&#160;' . Xml::input(
-						'comment',
-						45,
-						false,
-						[ 'maxlength' => 250 ]
-					) . "</p>";
-			}
 
-			$s .= '<p style="text-align: center;">' . Xml::submitButton(
-					$this->msg( 'securepoll-submit-translate' )->text()
-				) . "</p>";
+		$fields = new \OOUI\FieldsetLayout();
+
+		$fields->addItems( [ new \OOUI\Element( [ 'content' => [ $table ] ] ) ] );
+
+		if ( $this->isAdmin && $this->specialPage->getConfig()->get( 'SecurePollUseNamespace' ) ) {
+			$fields->addItems( [ new \OOUI\FieldLayout( new \OOUI\TextInputWidget( [
+				'name' => 'comment',
+				'maxlength' => 250,
+			] ), [
+				'label' => $this->msg( 'securepoll-translate-label-comment' ),
+				'align' => 'top',
+			] ) ] );
 		}
-		$s .= "</form>\n";
-		$out->addHTML( $s );
+
+		$fields->addItems( [ new \OOUI\FieldLayout( new \OOUI\ButtonInputWidget( [
+			'label' => $this->msg( 'securepoll-submit-translate' )->text(),
+			'flags' => [ 'primary', 'progressive' ],
+			'type' => 'submit',
+			'disabled' => !$this->isAdmin,
+		] ) ) ] );
+
+		$form->appendContent( $fields );
+
+		$out->addHTML( $form );
 	}
 
 	/**
@@ -225,28 +229,31 @@ class TranslatePage extends ActionPage {
 	 * @param string $selectedCode
 	 */
 	public function showLanguageSelector( $selectedCode ) {
-		$s = Xml::openElement(
-				'form',
-				[
-					'action' => $this->getTitle( false )->getLocalUrl()
-				]
-			) . Xml::openElement(
-				'select',
-				[
-					'id' => 'secondary_lang',
-					'name' => 'secondary_lang'
-				]
-			) . "\n";
-
 		$languages = $this->languageNameUtils->getLanguageNames();
 		ksort( $languages );
-		foreach ( $languages as $code => $name ) {
-			$s .= "\n" . Xml::option( "$code - $name", $code, $code == $selectedCode );
-		}
-		$s .= "\n</select>\n" . '<p>' . Xml::submitButton(
-				$this->msg( 'securepoll-submit-select-lang' )->text()
-			) . '</p>' . "</form>\n";
-		$this->specialPage->getOutput()->addHTML( $s );
+
+		$form = new \OOUI\FormLayout( [
+			'action' => $this->getTitle( false )->getLocalUrl(),
+			'method' => 'get',
+			'items' => [ new \OOUI\FieldsetLayout( [ 'items' => [
+				new \OOUI\FieldLayout( new \OOUI\DropdownInputWidget( [
+					'name' => 'secondary_lang',
+					'value' => $selectedCode,
+					'options' => array_map( function ( $code, $name ) {
+						return [
+							'label' => "$code - $name",
+							'data' => $code,
+						];
+					}, array_keys( $languages ), $languages )
+				] ) ),
+				new \OOUI\FieldLayout( new \OOUI\ButtonInputWidget( [
+					'label' => $this->msg( 'securepoll-submit-select-lang' )->text(),
+					'flags' => [ 'primary', 'progressive' ],
+					'type' => 'submit',
+				] ) ),
+			] ] ) ]
+		] );
+		$this->specialPage->getOutput()->addHTML( $form );
 	}
 
 	/**
