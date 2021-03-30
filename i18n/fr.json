@@ -141,6 +141,7 @@
 	"securepoll-tally-upload-error": "Erreur lors du dépouillement du fichier de vidage : $1",
 	"securepoll-tally-ongoing": "Cette élection est en cours de (re-)dépouillement. Veuillez revenir plus tard pour les résultats.",
 	"securepoll-tally-result-error": "Le dépouillement a échoué avec l’erreur : $1",
+	"securepoll-tally-timeout-warning": "Si vous avez téléversé un vidage chiffré, son contenu sera dépouillé. Sinon les résultats présents dans la base de données seront dépouillés. NOTE : le téléversement d’une élection avec plus de 100 votes peut ne donner aucun résultat et conduire à une erreur dépassement de délai.",
 	"securepoll-tally-result": "<h2>Résultats précédents</h2><p>$1</p><p>(Résultats du $2)</p>",
 	"securepoll-pairwise-victories": "Matrice des victoires par paire",
 	"securepoll-strength-matrix": "Matrice de force des chemins",
