@@ -255,9 +255,13 @@ class Election extends Entity {
 		$includeList = $this->getProperty( 'include-list' );
 		$excludeList = $this->getProperty( 'exclude-list' );
 
+		$includeUserGroups = explode( '|', $this->getProperty( 'allow-usergroups', '' ) );
+		$inAllowedUserGroups = array_intersect( $includeUserGroups, $props['groups'] );
+
 		if ( $excludeList && in_array( $excludeList, $lists ) ) {
 			$status->fatal( 'securepoll-in-exclude-list' );
-		} elseif ( $includeList && in_array( $includeList, $lists ) ) {
+		} elseif ( ( $includeList && in_array( $includeList, $lists ) ) ||
+			$inAllowedUserGroups ) {
 			// Good
 		} else {
 			// Edits
