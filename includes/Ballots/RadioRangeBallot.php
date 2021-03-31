@@ -264,7 +264,7 @@ class RadioRangeBallot extends Ballot {
 			$tbody->appendContent( $tr );
 		}
 
-		return $table;
+		return new \OOUI\FieldsetLayout( [ 'items' => [ new \OOUI\Element( [ 'content' => [ $table ] ] ) ] ] );
 	}
 
 	/**
