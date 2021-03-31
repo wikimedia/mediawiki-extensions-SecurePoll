@@ -12,26 +12,22 @@ class RadioRangeCommentBallot extends RadioRangeBallot {
 	public function getForm( $prevStatus = false ) {
 		$form = parent::getForm( $prevStatus );
 
-		$form .= new OOUI\Tag( 'hr' );
-
-		// Add the comment call
-		$callForComments = $this->election->parseMessage( 'comments' );
-		$form .= ( new OOUI\Tag( 'p' ) )->appendContent( new \OOUI\HtmlSnippet( $callForComments ) );
-
-		// Add the comments boxes.
-		$form .= new OOUI\MultilineTextInputWidget( [
-			'name' => 'securepoll_comments_native',
-			'value' => '',
-			'rows' => 10,
-		]
-		);
-		$form .= new OOUI\MultilineTextInputWidget( [
-			'name' => 'securepoll_comments_en',
-			'value' => '',
-			'rows' => 10,
-		]
-		);
-
+		$fieldSet = new \OOUI\FieldsetLayout( [
+			'label' => new \OOUI\HtmlSnippet( $this->election->parseMessage( 'comments' ) ),
+			'items' => [
+				new OOUI\MultilineTextInputWidget( [
+					'name' => 'securepoll_comments_native',
+					'value' => '',
+					'rows' => 10,
+				] ),
+				new OOUI\MultilineTextInputWidget( [
+					'name' => 'securepoll_comments_en',
+					'value' => '',
+					'rows' => 10,
+				] )
+			]
+		] );
+		$form[] = $fieldSet;
 		return $form;
 	}
 
