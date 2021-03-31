@@ -116,7 +116,7 @@
 	"securepoll-subpage-log": "Günlükler",
 	"securepoll-tally-title": "Sayım: $1",
 	"securepoll-tally-not-finished": "Üzgünüz, seçim tamamlanmadan oyları sayamazsınız.",
-	"securepoll-tally-form-file-help": "Şifreli bir döküm yüklerseniz, içeriği hesaplanacaktır. Aksi durumda, veritabanındaki sonuçlar hesaplanır.",
+	"securepoll-tally-form-file-help": "Şifrelenmiş bir döküm yüklediyseniz, içeriği kaydedilecektir. Aksi takdirde veri tabanındaki sonuçlar sayılacaktır. NOT: 100'den fazla oy içeren bir seçim yüklemek herhangi bir sonuç vermeyebilir ve zaman aşımına neden olabilir.",
 	"securepoll-tally-form-file-label": "Şifreli dökümü yükle (isteğe bağlı)",
 	"securepoll-tally-upload-submit": "Sayım oluştur",
 	"securepoll-tally-gpg-decrypt-key": "GPG şifre çözme anahtarı",

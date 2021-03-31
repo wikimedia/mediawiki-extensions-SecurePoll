@@ -137,6 +137,7 @@
 	"securepoll-create-option-election_type-approval+plurality": "অনুমোদনের জন্য ভোট",
 	"securepoll-create-label-comment": "কারণ",
 	"securepoll-votereligibility-basic": "মৌলিক বিকল্পগুলি",
+	"securepoll-votereligibility-label-not_blocked_partial": "অবশ্যই আংশিক অবরুদ্ধ থাকবে না",
 	"securepoll-votereligibility-lists": "ভোটার তালিকা",
 	"securepoll-votereligibility-label-names": "ব্যবহারকারী নাম",
 	"securepoll-votereligibility-label-comment": "কারণ",
