@@ -120,3 +120,7 @@ tr.securepoll-spoilt {
 .securepoll-radiorange-messages .oo-ui-textInputWidget .oo-ui-inputWidget-input {
 	width: 7em;
 }
+
+.securepoll-option-preferential > .oo-ui-numberInputWidget {
+	width: 4em;
+}

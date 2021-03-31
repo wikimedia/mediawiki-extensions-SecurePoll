@@ -3,7 +3,7 @@
 namespace MediaWiki\Extensions\SecurePoll\Ballots;
 
 use MediaWiki\Extensions\SecurePoll\Entities\Question;
-use Xml;
+use RequestContext;
 
 /**
  * Ballot for preferential voting
@@ -37,30 +37,40 @@ class PreferentialBallot extends Ballot {
 	 * @return string
 	 */
 	public function getQuestionForm( $question, $options ) {
-		global $wgRequest;
 		$name = 'securepoll_q' . $question->getId();
-		$s = '';
+		$fieldset = new \OOUI\FieldsetLayout();
+		$request = RequestContext::getMain()->getRequest();
 		foreach ( $options as $option ) {
 			$optionHTML = $option->parseMessageInline( 'text' );
 			$optionId = $option->getId();
 			$inputId = "{$name}_opt{$optionId}";
-			$oldValue = $wgRequest->getVal( $inputId, '' );
-			$s .= '<div class="securepoll-option-preferential">' . Xml::input(
-					$inputId,
-					'3',
-					$oldValue,
-					[
-						'id' => $inputId,
-						'maxlength' => 3,
-					]
-				) . '&#160;' . $this->errorLocationIndicator( $inputId ) . Xml::tags(
-					'label',
-					[ 'for' => $inputId ],
-					$optionHTML
-				) . '&#160;' . "</div>\n";
+			$oldValue = $request->getVal( $inputId, '' );
+
+			$widget = new \OOUI\NumberInputWidget( [
+				'name' => $inputId,
+				'default' => $oldValue,
+				'min' => 1,
+				'max' => 999,
+				'required' => $this->election->getProperty( 'must-rank-all' ),
+			] );
+
+			$label = new \OOUI\LabelWidget( [
+				'label' => new \OOUI\HtmlSnippet( $this->errorLocationIndicator( $optionId ) . $optionHTML ),
+				'input' => $widget,
+			] );
+
+			$fieldset->appendContent( new \OOUI\HorizontalLayout(
+				[
+					'classes' => [ 'securepoll-option-preferential' ],
+					'items' => [
+						$widget,
+						$label,
+					],
+				]
+			) );
 		}
 
-		return $s;
+		return $fieldset;
 	}
 
 	/**
@@ -69,14 +79,12 @@ class PreferentialBallot extends Ballot {
 	 * @return string
 	 */
 	public function submitQuestion( $question, $status ) {
-		global $wgRequest;
-
 		$options = $question->getOptions();
 		$record = '';
 		$ok = true;
 		foreach ( $options as $option ) {
 			$id = 'securepoll_q' . $question->getId() . '_opt' . $option->getId();
-			$rank = $wgRequest->getVal( $id );
+			$rank = RequestContext::getMain()->getRequest()->getVal( $id );
 
 			if ( is_numeric( $rank ) ) {
 				if ( $rank <= 0 || $rank >= 1000 ) {
