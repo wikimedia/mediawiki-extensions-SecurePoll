@@ -3,10 +3,10 @@
 namespace MediaWiki\Extensions\SecurePoll\User;
 
 use CentralAuthUser;
-use CentralAuthUtils;
 use ExtensionRegistry;
 use Hooks;
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
+use MediaWiki\MediaWikiServices;
 use RequestContext;
 use Status;
 use User;
@@ -114,7 +114,10 @@ class LocalAuth extends Auth {
 		if ( !$centralUser->isAttached() ) {
 			return [];
 		}
-		$dbc = CentralAuthUtils::getCentralReplicaDB();
+		$centralAuthUtilityService = MediaWikiServices::getInstance()->getService(
+			'CentralAuth.CentralAuthUtilityService'
+		);
+		$dbc = $centralAuthUtilityService->getCentralReplicaDB();
 		$res = $dbc->select(
 			'securepoll_lists',
 			[ 'li_name' ],
