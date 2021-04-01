@@ -36,7 +36,7 @@ class ChooseBallot extends Ballot {
 	 * Get the HTML form segment for a single question
 	 * @param Question $question
 	 * @param array $options Array of options, in the order they should be displayed
-	 * @return string
+	 * @return \OOUI\FieldsetLayout
 	 */
 	public function getQuestionForm( $question, $options ) {
 		$name = 'securepoll_q' . $question->getId();

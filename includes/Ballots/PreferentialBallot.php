@@ -34,7 +34,7 @@ class PreferentialBallot extends Ballot {
 	/**
 	 * @param Question $question
 	 * @param array $options
-	 * @return string
+	 * @return \OOUI\FieldsetLayout
 	 */
 	public function getQuestionForm( $question, $options ) {
 		$name = 'securepoll_q' . $question->getId();

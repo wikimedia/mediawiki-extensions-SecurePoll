@@ -215,7 +215,7 @@ class RadioRangeBallot extends Ballot {
 	/**
 	 * @param Question $question
 	 * @param array $options
-	 * @return string
+	 * @return \OOUI\FieldsetLayout
 	 * @suppress SecurityCheck-DoubleEscaped Fails with $score which is actually just an integer
 	 */
 	public function getQuestionForm( $question, $options ) {
