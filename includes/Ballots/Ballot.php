@@ -8,7 +8,6 @@ use MediaWiki\Extensions\SecurePoll\Entities\Entity;
 use MediaWiki\Extensions\SecurePoll\Entities\Question;
 use MWException;
 use Status;
-use Xml;
 
 /**
  * Parent class for ballot forms. This is the UI component of a voting method.
@@ -233,18 +232,13 @@ abstract class Ballot {
 		}
 		$this->usedErrorIds[$id] = true;
 
-		return Xml::element(
-			'img',
-			[
-				'src' => $this->context->getResourceUrl( 'warning-22.png' ),
-				'width' => 22,
-				'height' => 22,
-				'id' => "$id-location",
-				'class' => 'securepoll-error-location',
-				'alt' => '',
-				'title' => $this->prevStatus->sp_getMessageText( $id )
-			]
-		);
+		return new \OOUI\IconWidget( [
+			'icon' => 'alert',
+			'title' => $this->prevStatus->sp_getMessageText( $id ),
+			'id' => "$id-location",
+			'classes' => [ 'securepoll-error-location' ],
+			'flags' => 'warning',
+		 ] );
 	}
 
 	/**

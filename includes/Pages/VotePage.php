@@ -59,6 +59,10 @@ class VotePage extends ActionPage {
 		$out = $this->specialPage->getOutput();
 		$language = $this->specialPage->getLanguage();
 		$out->enableOOUI();
+		$out->addModuleStyles( [
+			'oojs-ui.styles.icons-alerts',
+			'oojs-ui.styles.icons-movement'
+		] );
 
 		if ( !count( $params ) ) {
 			$out->addWikiMsg( 'securepoll-too-few-params' );
