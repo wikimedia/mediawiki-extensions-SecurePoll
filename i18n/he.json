@@ -112,7 +112,7 @@
 	"securepoll-subpage-log": "יומנים",
 	"securepoll-tally-title": "חישוב תוצאות: $1",
 	"securepoll-tally-not-finished": "מצטערים, אין באפשרותך לחשב את תוצאות ההצבעה עד שיושלם תהליך ההצבעה.",
-	"securepoll-tally-form-file-help": "אם {{GENDER:|תעלה|תעלי}} היטל מוצפן, התוכן שלו ייספר. אחרת תיספרנה התוצאות במסד הנתונים.",
+	"securepoll-tally-form-file-help": "אם העלית היטל מוצפן, התוכן שלו ייספר. אחרת התוצאות במסד הנתונים תיספרנה. לתשומת ליבך: העלאת הצבעה עם יותר יותר מ־100 הצבעות עשויה לא לתת שום תוצאה ולהוביל לפקיעת זמן.",
 	"securepoll-tally-form-file-label": "העלאת היטל מוצפן (לא חובה)",
 	"securepoll-tally-upload-submit": "חישוב התוצאות",
 	"securepoll-tally-gpg-decrypt-key": "מפתח פענוח GPG",

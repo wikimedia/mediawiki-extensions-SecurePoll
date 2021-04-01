@@ -16,6 +16,7 @@
 			"Helder.wiki",
 			"Heldergeovane",
 			"Luckas",
+			"Mariagarbin",
 			"MetalBrasil",
 			"Mordecool",
 			"Opraco"
@@ -136,6 +137,9 @@
 	"securepoll-no-upload": "Nenhum arquivo foi carregado, não foi possível contar os votos para o resultado.",
 	"securepoll-dump-corrupt": "O arquivo de dump está corrompido e não pode ser processado.",
 	"securepoll-tally-upload-error": "Erro ao contar o arquivo de dump: $1",
+	"securepoll-tally-ongoing": "Esta eleição está sendo recontada no momento. Verifique novamente mais tarde para ver os resultados.",
+	"securepoll-tally-result-error": "Contagem falhou com o erro:$1",
+	"securepoll-tally-result": "<h2>Resultados anteriores</h2><p>$1</p><p>(Resultados de $2)</p>",
 	"securepoll-pairwise-victories": "Matriz de vitórias par a par",
 	"securepoll-strength-matrix": "Matriz de forças de caminho",
 	"securepoll-ranks": "Classificação final",
