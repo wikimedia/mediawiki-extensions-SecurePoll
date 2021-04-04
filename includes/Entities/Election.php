@@ -33,6 +33,8 @@ use Xml;
  *              Minimum number of edits needed to be qualified
  *          max-registration
  *              Latest acceptable registration date
+ *          not-blocked
+ *              (deprecated) True if voters need to not be blocked
  *          not-sitewide-blocked
  *              True if voters need to not have a sitewide block
  *          not-partial-blocked
@@ -287,13 +289,15 @@ class Election extends Entity {
 			}
 
 			// Blocked
-			$notAllowedSitewideBlocked = $this->getProperty( 'not-sitewide-blocked' );
+			// TODO: remove not-blocked references after T277079
+			$notBlocked = $this->getProperty( 'not-blocked' );
+			$notSitewideBlocked = $this->getProperty( 'not-sitewide-blocked' );
 			$notPartialBlocked = $this->getProperty( 'not-partial-blocked' );
 			$isBlocked = !empty( $props['blocked'] );
 			$isSitewideBlocked = $props['isSitewideBlocked'];
-			if ( $notAllowedSitewideBlocked && $isBlocked && $isSitewideBlocked ) {
+			if ( ( $notBlocked || $notSitewideBlocked ) && $isBlocked && $isSitewideBlocked ) {
 				$status->fatal( 'securepoll-blocked' );
-			} elseif ( $notPartialBlocked && $isBlocked && !$isSitewideBlocked ) {
+			} elseif ( ( $notBlocked || $notPartialBlocked ) && $isBlocked && !$isSitewideBlocked ) {
 				$status->fatal( 'securepoll-blocked-partial' );
 			}
 
