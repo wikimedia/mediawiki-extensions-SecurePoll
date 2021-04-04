@@ -449,18 +449,21 @@ class VoterEligibilityPage extends ActionPage {
 			'default' => $date,
 		];
 
+		// TODO: remove not-blocked references after T277079
 		$formItems['not-sitewide-blocked'] = [
 			'section' => 'basic',
 			'type' => 'check',
 			'label-message' => 'securepoll-votereligibility-label-not_blocked_sitewide',
-			'default' => $this->election->getProperty( 'not-sitewide-blocked' ),
+			'default' => $this->election->getProperty( 'not-sitewide-blocked' ) ||
+				$this->election->getProperty( 'not-blocked' ),
 		];
 
 		$formItems['not-partial-blocked'] = [
 			'section' => 'basic',
 			'type' => 'check',
 			'label-message' => 'securepoll-votereligibility-label-not_blocked_partial',
-			'default' => $this->election->getProperty( 'not-partial-blocked' ),
+			'default' => $this->election->getProperty( 'not-partial-blocked' ) ||
+				$this->election->getProperty( 'not-blocked' ),
 		];
 
 		$formItems['not-centrally-blocked'] = [
@@ -1023,6 +1026,13 @@ class VoterEligibilityPage extends ActionPage {
 					$deleteProperties[] = $childProp;
 				}
 			}
+		}
+
+		// TODO: remove this after T277079
+		// If not-blocked is set up for this election, delete it on save
+		// since not-sitewide-blocked/not-partial-blocked will be used
+		if ( $this->election->getProperty( 'not-blocked' ) ) {
+			$deleteProperties[] = 'not-blocked';
 		}
 
 		foreach ( $props as $prop ) {

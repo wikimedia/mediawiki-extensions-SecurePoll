@@ -7,7 +7,7 @@
 	"url": "https://www.mediawiki.org/wiki/Extension:SecurePoll",
 	"descriptionmsg": "securepoll-desc",
 	"license-name": "GPL-2.0-or-later",
-	"version": "3.0.0",
+	"version": "2.0.0",
 	"type": "other",
 	"requires": {
 		"MediaWiki": ">= 1.35.0"
