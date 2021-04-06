@@ -170,19 +170,26 @@ class VotePage extends ActionPage {
 		$out->addWikiTextAsInterface( $this->election->getMessage( 'intro' ) );
 
 		// Show form
-		$thisTitle = $this->getTitle();
-		$encAction = htmlspecialchars( $thisTitle->getLocalURL( "action=vote" ) );
-		$encOK = $this->msg( 'securepoll-submit' )->escaped();
-		$encToken = htmlspecialchars( SessionManager::getGlobalSession()->getToken()->toString() );
+		$form = new \OOUI\FormLayout( [
+			'action' => $this->getTitle()->getLocalURL( "action=vote" ),
+			'method' => 'post',
+			'items' => $this->election->getBallot()->getForm( $status )
+		] );
 
-		$out->addHTML(
-			"<form name=\"securepoll\" id=\"securepoll\" method=\"post\" action=\"$encAction\">\n" .
-			$this->election->getBallot()->getForm( $status ) .
-			"<br />\n" .
-			"<input name=\"submit\" type=\"submit\" value=\"$encOK\">\n" .
-			"<input type='hidden' name='edit_token' value=\"{$encToken}\" /></td>\n" .
-			"</form>"
-		);
+		$form->addItems( [
+			new \OOUI\FieldLayout(
+				new \OOUI\ButtonInputWidget( [
+					'label' => $this->msg( 'securepoll-submit' )->text(),
+					'flags' => [ 'primary', 'progressive' ],
+					'type' => 'submit',
+			] ) ),
+			new \OOUI\HiddenInputWidget( [
+				'name' => 'edit_token',
+				'value' => SessionManager::getGlobalSession()->getToken()->toString(),
+			] )
+		] );
+
+		$out->addHTML( $form );
 	}
 
 	/**

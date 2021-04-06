@@ -189,7 +189,7 @@ abstract class Ballot {
 	 * Get the HTML for this ballot. <form> tags should not be included,
 	 * they will be added by the VotePage.
 	 * @param bool|BallotStatus $prevStatus
-	 * @return string
+	 * @return \OOUI\Element[]
 	 */
 	public function getForm( $prevStatus = false ) {
 		$questions = $this->election->getQuestions();
@@ -199,22 +199,30 @@ abstract class Ballot {
 		$shuffleOptions = $this->election->getProperty( 'shuffle-options' );
 		$this->setErrorStatus( $prevStatus );
 
-		$s = '';
+		$itemArray = [];
 		foreach ( $questions as $question ) {
 			$options = $question->getOptions();
 			if ( $shuffleOptions ) {
 				shuffle( $options );
 			}
-			$s .= "<hr/>\n" . $question->parseMessage( 'text' ) . $this->getQuestionForm(
+
+			$questionForm = $this->getQuestionForm(
 					$question,
 					$options
-				) . "\n";
+			);
+			$questionForm->setLabel(
+				new \OOUI\HtmlSnippet( $question->parseMessage( 'text' ) )
+			);
+			$itemArray[] = $questionForm;
 		}
 		if ( $prevStatus ) {
-			$s = $this->formatStatus( $prevStatus ) . $s;
+			$formStatus = new \OOUI\Element( [
+				'content' => $this->formatStatus( $prevStatus ),
+			] );
+			array_unshift( $itemArray, $formStatus );
 		}
 
-		return $s;
+		return $itemArray;
 	}
 
 	public function setErrorStatus( $status ) {
