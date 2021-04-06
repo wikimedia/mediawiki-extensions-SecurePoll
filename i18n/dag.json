@@ -1,9 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"Achiri Bitamsimli",
+			"Chirifo",
 			"Hidrash"
 		]
 	},
-	"securepoll-blocked-partial": "Gaafara, a ku tooi niŋ piibu piibu maa di yi lee ka bɛ bi taa soli zaasa malisabi palo.",
+	"securepoll-blocked-partial": "Gaafara, a ku tooi niŋ piibu piibu maa di yi lee ka bɛ bi ti a soli zaasa malisabi palo.",
+	"securepoll-tally-form-file-help": "A  yi bahi satarili din kpari",
+	"securepoll-tally-ongoing": "Piibu piibu maa nyɛla bɛ ni labiri maani sheli laasabu pumpoŋɔ. A ni tooi labi bɔhi di ni nyɛ shɛm sahashɛli.",
+	"securepoll-tally-result-error": "Laasabu malibu zani soli:$1",
 	"securepoll-votereligibility-label-not_blocked_partial": "Di bi tu ni di kpari yaɣili ka che din kpalim."
 }

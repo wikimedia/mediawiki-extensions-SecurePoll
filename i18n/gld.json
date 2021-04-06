@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"RFScott"
+		]
+	},
+	"securepoll-blocked-partial": "Кайран, паси калаори мутэйсу осини, эй выборы голосовайсу ачаси.",
+	"securepoll-votereligibility-label-not_blocked_sitewide": "Хэм сайтаду хардикто би ачаси",
+	"securepoll-votereligibility-label-not_blocked_partial": "Эм паси хардикто би ачаси"
+}

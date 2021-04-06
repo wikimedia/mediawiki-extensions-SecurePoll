@@ -16,6 +16,7 @@
 			"Mark85296341",
 			"Oapbtommy",
 			"PhiLiP",
+			"SiderealArt",
 			"Skjackey tse",
 			"Winston Sung",
 			"Wong128hk",
@@ -242,7 +243,7 @@
 	"securepoll-votereligibility-cleared-text": "已清空 $1 且投票所將不會使用此清單。",
 	"securepoll-votereligibility-cleared-comment": "$1 清除。",
 	"right-securepoll-create-poll": "建立投票所",
-	"action-securepoll-create-poll": "建立投票所",
+	"action-securepoll-create-poll": "建立投票並查看日誌",
 	"securepoll-ns-readonly": "{{ns:SecurePoll}} 命名空間為唯讀",
 	"securepoll-voter-stats": "所有具資格的投票者裡，已有 $1 {{PLURAL:$1|位|位}}投過票。.",
 	"securepoll-vote-stats": "總計投出 $1 張{{PLURAL:$1|票|票}}。其中有 $2 {{PLURAL:$2|張|張}}票不被記入出於投票者重複投票緣故，並且有 $3 {{PLURAL:$3|張|張}}票作廢。"
