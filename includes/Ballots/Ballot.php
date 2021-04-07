@@ -217,7 +217,9 @@ abstract class Ballot {
 		}
 		if ( $prevStatus ) {
 			$formStatus = new \OOUI\Element( [
-				'content' => $this->formatStatus( $prevStatus ),
+				'content' => new \OOUI\HTMLSnippet(
+					$this->formatStatus( $prevStatus )
+				),
 			] );
 			array_unshift( $itemArray, $formStatus );
 		}
