@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"J budissin",
 			"Michawiki"
 		]
 	},
 	"securepoll": "Wěste hłosowanje",
 	"securepoll-desc": "Rozšěrjenje za wólby a naprašniki",
 	"securepoll-invalid-page": "Njepłaćiwa podstrona \"<nowiki>$1</nowiki>",
-	"securepoll-need-admin": "Dyrbiš wólbny administrator być, zo by tutu akciju přewjedł.",
+	"securepoll-need-admin": "Dyrbiš wólbny administrator być, zo by tutu akciju přewjedł{{GENDER:||a|(a)}}.",
 	"securepoll-too-few-params": "Nic dosć parametrow podstrony (njepłaćiwy wotkaz).",
 	"securepoll-invalid-election": "\"$1\" płaćiwy wólbny ID njeje.",
 	"securepoll-welcome": "<strong>Witaj $1!</strong>",

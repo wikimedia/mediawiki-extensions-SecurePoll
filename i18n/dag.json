@@ -3,6 +3,7 @@
 		"authors": [
 			"Achiri Bitamsimli",
 			"Chirifo",
+			"Hasslaebetch",
 			"Hidrash"
 		]
 	},
@@ -10,5 +11,6 @@
 	"securepoll-tally-form-file-help": "A  yi bahi satarili din kpari",
 	"securepoll-tally-ongoing": "Piibu piibu maa nyɛla bɛ ni labiri maani sheli laasabu pumpoŋɔ. A ni tooi labi bɔhi di ni nyɛ shɛm sahashɛli.",
 	"securepoll-tally-result-error": "Laasabu malibu zani soli:$1",
+	"securepoll-tally-result": "<h2>shahara din gari</h2><p>$1</p><p>(shahara zaŋ ti $2)</p>",
 	"securepoll-votereligibility-label-not_blocked_partial": "Di bi tu ni di kpari yaɣili ka che din kpalim."
 }
