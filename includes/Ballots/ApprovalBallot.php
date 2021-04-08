@@ -36,7 +36,7 @@ class ApprovalBallot extends Ballot {
 					'selected' => $wgRequest->getBool( $inputId ),
 					'value' => 1
 				] ), [
-					'label' => new \OOUI\HtmlSnippet( $this->errorLocationIndicator( $inputId ) . $optionHTML ),
+					'label' => new \OOUI\HtmlSnippet( $optionHTML ),
 					'align' => 'inline'
 				] )
 			] );

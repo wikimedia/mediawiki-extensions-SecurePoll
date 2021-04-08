@@ -52,7 +52,7 @@ class ChooseBallot extends Ballot {
 					'required' => true,
 					] ), [
 						'classes' => [ 'securepoll-option-choose' ],
-						'label' => new \OOUI\HtmlSnippet( $this->errorLocationIndicator( $optionId ) . $optionHTML ),
+						'label' => new \OOUI\HtmlSnippet( $optionHTML ),
 						'align' => 'inline'
 					] )
 			] );

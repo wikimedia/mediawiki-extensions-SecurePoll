@@ -4,7 +4,6 @@ namespace MediaWiki\Extensions\SecurePoll\Ballots;
 
 use MediaWiki\Extensions\SecurePoll\Context;
 use Status;
-use Xml;
 
 class BallotStatus extends Status {
 	/** @var Context */
@@ -41,19 +40,18 @@ class BallotStatus extends Status {
 			if ( isset( $error['securepoll-id'] ) ) {
 				$id = $error['securepoll-id'];
 				if ( isset( $usedIds[$id] ) ) {
-					$s .= '<li>' . Xml::openElement(
-							'a',
-							[
-								'href' => '#' . urlencode( "$id-location" ),
-								'class' => 'securepoll-error-jump'
-							]
-						) . Xml::element(
-							'img',
-							[
-								'alt' => '',
-								'src' => $this->sp_context->getResourceUrl( 'down-16.png' ),
-							]
-						) . '</a>' . htmlspecialchars( $text ) . "</li>\n";
+					$error = new \OOUI\Tag( 'li' );
+					$error->appendContent(
+						new \OOUI\HtmlSnippet( htmlspecialchars( $text ) )
+					);
+					$error->appendContent(
+						new \OOUI\ButtonWidget( [
+							'icon' => 'downTriangle',
+							'label' => wfMessage( 'securepoll-ballot-see-error' )->text(),
+							'href' => '#' . urlencode( "$id-location" ),
+						] )
+					);
+					$s .= $error;
 					continue;
 				}
 			}

@@ -124,3 +124,12 @@ tr.securepoll-spoilt {
 .securepoll-option-preferential > .oo-ui-numberInputWidget {
 	width: 4em;
 }
+
+.securepoll-option-preferential .securepoll-error-location {
+	vertical-align: sub;
+	padding-right: 5px;
+}
+
+.securepoll-error-box .oo-ui-buttonElement {
+	padding-left: 5px;
+}

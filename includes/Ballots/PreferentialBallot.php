@@ -55,7 +55,7 @@ class PreferentialBallot extends Ballot {
 			] );
 
 			$label = new \OOUI\LabelWidget( [
-				'label' => new \OOUI\HtmlSnippet( $this->errorLocationIndicator( $optionId ) . $optionHTML ),
+				'label' => new \OOUI\HtmlSnippet( $this->errorLocationIndicator( $inputId ) . $optionHTML ),
 				'input' => $widget,
 			] );
 

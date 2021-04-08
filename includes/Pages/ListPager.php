@@ -75,12 +75,6 @@ class ListPager extends TablePager {
 	public function formatValue( $name, $value ) {
 		$config = $this->listPage->specialPage->getConfig();
 		$securePollKeepPrivateInfoDays = $config->get( 'SecurePollKeepPrivateInfoDays' );
-		$critical = Xml::element(
-			'img',
-			[
-				'src' => $this->listPage->context->getResourceUrl( 'critical-32.png' ),
-			]
-		);
 
 		$voter = Voter::newFromId(
 			$this->listPage->context,
@@ -126,12 +120,16 @@ class ListPager extends TablePager {
 				}
 			case 'vote_cookie_dup':
 				$value = !$value;
-			// fall through
+				if ( $value ) {
+					return '';
+				} else {
+					return $this->msg( 'securepoll-vote-duplicate' )->text();
+				}
 			case 'vote_token_match':
 				if ( $value ) {
 					return '';
 				} else {
-					return $critical;
+					return $this->msg( 'securepoll-vote-csrf' )->text();
 				}
 			case 'details':
 				$voteId = intval( $this->mCurrentRow->vote_id );
