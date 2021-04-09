@@ -88,8 +88,6 @@
 	"securepoll-header-cookie-dup": "Column caption above the table of voters shown at [[Special:SecurePoll/list/1]]. The column displays whether the vote is a duplicate (detected by a cookie). See also {{msg-mw|securepoll-cookie-dup-list}}. This translation should be as short as possible (an abbreviation for \"duplicate\").",
 	"securepoll-header-strike": "\"Strike\" here means to strikeout a vote (slash it) so as to mark is as not being counted. E.g. a user voted a second time; a user was not eligible for voting because of an insufficient edit count; a known sockpuppet was used, and the puppetmaster also voted; a bot user vote, etc.\n{{Identical|Strike}}",
 	"securepoll-header-details": "{{Identical|Detail}}",
-	"securepoll-vote-duplicate": "Shown on vote list page if vote is thought to be a duplicate of another vote",
-	"securepoll-vote-csrf": "CSRF stands for Cross-Site Request Forgery and this is shown when a vote was potentially made by a third party without the listed voter's consent",
 	"securepoll-strike-button": "{{Identical|Strike}}",
 	"securepoll-unstrike-button": "{{Identical|Unstrike}}",
 	"securepoll-strike-reason": "{{Identical|Reason}}",
