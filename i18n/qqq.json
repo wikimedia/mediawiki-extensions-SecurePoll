@@ -89,7 +89,7 @@
 	"securepoll-header-strike": "\"Strike\" here means to strikeout a vote (slash it) so as to mark is as not being counted. E.g. a user voted a second time; a user was not eligible for voting because of an insufficient edit count; a known sockpuppet was used, and the puppetmaster also voted; a bot user vote, etc.\n{{Identical|Strike}}",
 	"securepoll-header-details": "{{Identical|Detail}}",
 	"securepoll-vote-duplicate": "Shown on vote list page if vote is thought to be a duplicate of another vote",
-	"securepoll-vote-csrf": "CSRF stands for Cross-Site Request Forgery and this is shown when a vote was potentially made by a third party without the listed voter's consent",
+	"securepoll-vote-csrf": "{{optional}}\nCSRF stands for Cross-Site Request Forgery and this is shown when a vote was potentially made by a third party without the listed voter's consent",
 	"securepoll-strike-button": "{{Identical|Strike}}",
 	"securepoll-unstrike-button": "{{Identical|Unstrike}}",
 	"securepoll-strike-reason": "{{Identical|Reason}}",
