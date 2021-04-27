@@ -14,14 +14,17 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 }
 require_once "$IP/maintenance/Maintenance.php";
 
-class UpdateNotBlockedKey extends Maintenance {
+class UpdateNotBlockedKey extends LoggedUpdateMaintenance {
 	public function __construct() {
 		parent::__construct();
-		$this->addDescription( 'Update election property with new block keys' );
+		$this->addDescription( 'Updates old elections to use voter eligibility ' .
+			'properties introduced in T268800. Elections that previously disallowed ' .
+			'blocked voters now disallow sitewide and partially blocked voters.'
+		);
 		$this->requireExtension( 'SecurePoll' );
 	}
 
-	public function execute() {
+	public function doDBUpdates() {
 		$updatedRows = 0;
 		$addedRows = 0;
 		$dbw = $this->getDB( DB_MASTER );
@@ -50,6 +53,11 @@ class UpdateNotBlockedKey extends Maintenance {
 			$dbw->insert( 'securepoll_properties', $row, __METHOD__, [ 'IGNORE' ] );
 		}
 		$this->output( "$updatedRows row(s) updated\nDone\n" );
+		return true;
+	}
+
+	protected function getUpdateKey() {
+		return __CLASS__;
 	}
 }
 

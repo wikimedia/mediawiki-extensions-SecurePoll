@@ -47,6 +47,9 @@
 		"SecurePollAlias": "SecurePoll.alias.php",
 		"SecurePollNamespaces": "SecurePoll.namespaces.php"
 	},
+	"AutoloadClasses": {
+		"UpdateNotBlockedKey": "cli/updateNotBlockedKey.php"
+	},
 	"AutoloadNamespaces": {
 		"MediaWiki\\Extensions\\SecurePoll\\": "includes/"
 	},

@@ -40,5 +40,7 @@ class InstallHandler implements LoadExtensionSchemaUpdatesHook {
 				$updater->addExtensionTable( 'securepoll_msgs', "$base/SecurePoll.sql" );
 				break;
 		}
+
+		$updater->addPostDatabaseUpdateMaintenance( 'UpdateNotBlockedKey' );
 	}
 }
