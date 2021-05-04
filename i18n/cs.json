@@ -3,7 +3,8 @@
 		"authors": [
 			"Dvorapa",
 			"Mormegil",
-			"Vks"
+			"Vks",
+			"Want"
 		]
 	},
 	"securepoll": "Bezpečné hlasování",
@@ -31,6 +32,7 @@
 	"securepoll-no-decryption-key": "Nebyl nakonfigurován dešifrovací klíč.\nNelze dešifrovat.",
 	"securepoll-jump": "Přejít na hlasovací server",
 	"securepoll-bad-ballot-submission": "Váš hlas je neplatný: $1",
+	"securepoll-ballot-see-error": "Viz následující upozornění",
 	"securepoll-unanswered-questions": "Musíte zodpovědět všechny otázky.",
 	"securepoll-invalid-rank": "Neplatné pořadí. Kandidátům musíte přidělit pořadí mezi 1 a 999.",
 	"securepoll-unranked-options": "Některé možnosti nebyly ohodnoceny.\nMusíte všem možnostem přidělit pořadí mezi 1 a 999.",
@@ -57,6 +59,7 @@
 	"securepoll-header-cookie-dup": "Dup",
 	"securepoll-header-strike": "Přeškrtnutí",
 	"securepoll-header-details": "Podrobnosti",
+	"securepoll-vote-duplicate": "Duplikovat",
 	"securepoll-strike-button": "Přeškrtnout",
 	"securepoll-unstrike-button": "Neškrtat",
 	"securepoll-strike-reason": "Důvod:",
