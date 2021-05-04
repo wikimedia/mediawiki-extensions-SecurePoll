@@ -131,8 +131,8 @@ class DBStore implements Store {
 		return $info;
 	}
 
-	public function getDB( $index = DB_MASTER ) {
-		return wfGetDB( $this->forceMaster ? DB_MASTER : $index );
+	public function getDB( $index = DB_PRIMARY ) {
+		return wfGetDB( $this->forceMaster ? DB_PRIMARY : $index );
 	}
 
 	public function getQuestionInfo( $electionId ) {

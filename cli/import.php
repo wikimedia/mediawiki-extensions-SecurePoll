@@ -64,7 +64,7 @@ EOT
 
 		$xc = new Context;
 		$xc->setStore( $store );
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 
 		# Start the configuration transaction
 		$dbw->begin( __METHOD__ );
@@ -112,7 +112,7 @@ EOT
 	 * @param int|string $electionId
 	 */
 	private function deleteElection( $electionId ) {
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 
 		# Get a list of entity IDs and lock them
 		$questionIds = [];
@@ -149,7 +149,7 @@ EOT
 	 * @param string $id
 	 */
 	private function insertEntity( $type, $id ) {
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		$dbw->insert( 'securepoll_entity',
 			[
 				'en_id' => $id,
@@ -165,7 +165,7 @@ EOT
 	 * @return bool
 	 */
 	private function importConfiguration( $store, $electionInfo ) {
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		$sourceIds = [];
 
 		# Election
@@ -255,7 +255,7 @@ EOT
 			}
 		}
 		if ( $insertBatch ) {
-			$dbw = wfGetDB( DB_MASTER );
+			$dbw = wfGetDB( DB_PRIMARY );
 			$dbw->insert( 'securepoll_msgs', $insertBatch, __METHOD__ );
 		}
 	}
@@ -277,7 +277,7 @@ EOT
 		}
 
 		# Delete existing messages
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		$dbw->delete( 'securepoll_msgs', [ 'msg_entity' => $entityIds ], __METHOD__ );
 
 		# Insert new messages

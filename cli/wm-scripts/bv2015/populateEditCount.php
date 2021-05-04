@@ -9,7 +9,7 @@
 require __DIR__ . '/../../cli.inc';
 
 $dbr = wfGetDB( DB_REPLICA );
-$dbw = wfGetDB( DB_MASTER );
+$dbw = wfGetDB( DB_PRIMARY );
 
 $maxUser = $dbr->selectField( 'user', 'MAX(user_id)', false );
 $beforeTime = $dbr->addQuotes( '20150415000000' );

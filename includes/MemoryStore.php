@@ -90,7 +90,7 @@ class MemoryStore implements Store {
 		);
 	}
 
-	public function getDB( $index = DB_MASTER ) {
+	public function getDB( $index = DB_PRIMARY ) {
 		throw new MWException(
 			'Internal error: attempt to use getDB() when the database is disabled.'
 		);

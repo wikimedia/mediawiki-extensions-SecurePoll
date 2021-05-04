@@ -19,7 +19,7 @@ class DeletePoll extends Maintenance {
 	public function execute() {
 		$electionId = (int)$this->getArg( 0 );
 
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 
 		$type = $dbw->selectField(
 			'securepoll_entity',

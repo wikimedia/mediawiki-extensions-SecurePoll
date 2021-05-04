@@ -239,7 +239,7 @@ class TranslatePage extends ActionPage {
 				new \OOUI\FieldLayout( new \OOUI\DropdownInputWidget( [
 					'name' => 'secondary_lang',
 					'value' => $selectedCode,
-					'options' => array_map( function ( $code, $name ) {
+					'options' => array_map( static function ( $code, $name ) {
 						return [
 							'label' => "$code - $name",
 							'data' => $code,
@@ -306,7 +306,7 @@ class TranslatePage extends ActionPage {
 			}
 
 			// First, the main wiki
-			$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_MASTER );
+			$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_PRIMARY );
 			$dbw->replace(
 				'securepoll_msgs',
 				[
@@ -340,7 +340,7 @@ class TranslatePage extends ActionPage {
 					continue;
 				}
 
-				$dbw = $this->loadBalancer->getConnection( ILoadBalancer::DB_MASTER, [], $dbname );
+				$dbw = $this->loadBalancer->getConnection( ILoadBalancer::DB_PRIMARY, [], $dbname );
 				try {
 					$id = $dbw->selectField(
 						'securepoll_elections',

@@ -130,7 +130,7 @@ class PopulateVoterListJob extends Job {
 		$dbw->lock( $lockKey, $lockMethod );
 		$dbw->startAtomic( __METHOD__ );
 		$dbw->onTransactionResolution(
-			function () use ( $dbw, $lockKey, $lockMethod ) {
+			static function () use ( $dbw, $lockKey, $lockMethod ) {
 				$dbw->unlock( $lockKey, $lockMethod );
 			},
 			__METHOD__
@@ -217,8 +217,8 @@ class PopulateVoterListJob extends Job {
 		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		try {
 			// Check if the job key changed, and abort if so.
-			$dbwElection = wfGetDB( DB_MASTER, [], $this->params['electionWiki'] );
-			$dbwLocal = wfGetDB( DB_MASTER );
+			$dbwElection = wfGetDB( DB_PRIMARY, [], $this->params['electionWiki'] );
+			$dbwLocal = wfGetDB( DB_PRIMARY );
 			$jobKey = self::fetchJobKey( $dbwElection, $this->params['electionId'] );
 			if ( $jobKey !== $this->params['jobKey'] ) {
 				return true;
@@ -401,7 +401,7 @@ class PopulateVoterListJob extends Job {
 			}
 			$dbwElection->startAtomic( __METHOD__ );
 			$dbwElection->onTransactionResolution(
-				function () use ( $dbwElection, $lockKey, $lockMethod ) {
+				static function () use ( $dbwElection, $lockKey, $lockMethod ) {
 					$dbwElection->unlock( $lockKey, $lockMethod );
 				},
 				__METHOD__

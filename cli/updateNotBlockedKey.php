@@ -27,7 +27,7 @@ class UpdateNotBlockedKey extends LoggedUpdateMaintenance {
 	public function doDBUpdates() {
 		$updatedRows = 0;
 		$addedRows = 0;
-		$dbw = $this->getDB( DB_MASTER );
+		$dbw = $this->getDB( DB_PRIMARY );
 		$res = $dbw->select(
 			'securepoll_properties',
 			'pr_entity',

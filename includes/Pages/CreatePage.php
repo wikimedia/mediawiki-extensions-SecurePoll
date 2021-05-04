@@ -529,7 +529,7 @@ class CreatePage extends ActionPage {
 			$originalFormData = $this->getFormDataFromElection();
 		}
 
-		$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_MASTER );
+		$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_PRIMARY );
 		$dbw->startAtomic( __METHOD__ );
 		foreach ( $fields as $pr_key => $pr_value ) {
 			$dbw->update(
@@ -566,7 +566,7 @@ class CreatePage extends ActionPage {
 				return Status::newFatal( 'securepoll-create-fail-bad-id' );
 			}
 
-			$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_MASTER );
+			$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_PRIMARY );
 
 			// Check for duplicate titles on the local wiki
 			$id = $dbw->selectField(
@@ -589,7 +589,7 @@ class CreatePage extends ActionPage {
 			// matter in practice)
 			if ( $store->rId ) {
 				foreach ( $store->remoteWikis as $dbname ) {
-					$rdbw = $this->loadBalancer->getConnection( DB_MASTER, [], $dbname );
+					$rdbw = $this->loadBalancer->getConnection( DB_PRIMARY, [], $dbname );
 
 					// Find an existing dummy election, if any
 					$rId = $rdbw->selectField(
@@ -763,7 +763,7 @@ class CreatePage extends ActionPage {
 		if ( $store->rId ) {
 			$election = $context->getElection( $store->rId );
 			foreach ( $store->remoteWikis as $dbname ) {
-				$dbw = $this->loadBalancer->getConnection( ILoadBalancer::DB_MASTER, [], $dbname );
+				$dbw = $this->loadBalancer->getConnection( ILoadBalancer::DB_PRIMARY, [], $dbname );
 				$dbw->startAtomic( __METHOD__ );
 				// Find an existing dummy election, if any
 				$rId = $dbw->selectField(
@@ -882,7 +882,7 @@ class CreatePage extends ActionPage {
 			self::LOG_TYPE_REMOVEADMIN => array_diff( $oldAdmins, $newAdmins ),
 		];
 
-		$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_MASTER );
+		$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_PRIMARY );
 		$fields = [
 			'spl_timestamp' => $dbw->timestamp( time() ),
 			'spl_election_id' => $electionId,

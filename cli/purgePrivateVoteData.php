@@ -103,7 +103,7 @@ class PurgePrivateVoteData extends Maintenance {
 				$minVoteId = $setMax;
 			} while ( $vRes->numRows() == $this->getBatchSize() );
 
-			$dbw = wfGetDB( DB_MASTER );
+			$dbw = wfGetDB( DB_PRIMARY );
 			$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 
 			foreach ( $deleteSets as $deleteSet ) {

@@ -48,7 +48,7 @@ class MakeSimpleList extends Maintenance {
 
 	public function execute() {
 		$dbr = wfGetDB( DB_REPLICA );
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		$before = $this->hasOption( 'before' )
 			? $dbr->timestamp( strtotime( $this->getOption( 'before' ) ) ) : false;
 		$minEdits = $this->getOption( 'edits', false );

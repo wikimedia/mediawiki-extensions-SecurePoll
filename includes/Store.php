@@ -74,7 +74,7 @@ interface Store {
 	 * Get a database connection object.
 	 * @param int $index DB_MASTER or DB_REPLICA
 	 */
-	public function getDB( $index = DB_MASTER );
+	public function getDB( $index = DB_PRIMARY );
 
 	/**
 	 * Get an associative array of information about all questions in a given

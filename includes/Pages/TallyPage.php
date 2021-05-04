@@ -287,7 +287,7 @@ class TallyPage extends ActionPage {
 			return;
 		}
 
-		$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_MASTER );
+		$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_PRIMARY );
 		$election = $this->election;
 		$electionId = $election->getId();
 		$method = __METHOD__;
@@ -319,7 +319,7 @@ class TallyPage extends ActionPage {
 
 		// Tallying can take a long time, so defer
 		DeferredUpdates::addCallableUpdate(
-			function () use ( $method, $election, $dbw ) {
+			static function () use ( $method, $election, $dbw ) {
 				$electionId = $election->getId();
 
 				$status = $election->tally();

@@ -315,7 +315,7 @@ class Context {
 	 * @param int $index DB_MASTER or DB_REPLICA
 	 * @return Database
 	 */
-	public function getDB( $index = DB_MASTER ) {
+	public function getDB( $index = DB_PRIMARY ) {
 		return $this->getStore()->getDB( $index );
 	}
 

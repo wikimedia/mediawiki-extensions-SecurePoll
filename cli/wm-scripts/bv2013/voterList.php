@@ -2,7 +2,7 @@
 
 require __DIR__ . '/../../cli.inc';
 $dbr = wfGetDB( DB_REPLICA );
-$dbw = wfGetDB( DB_MASTER );
+$dbw = wfGetDB( DB_PRIMARY );
 $fname = 'voterList.php';
 $listName = 'board-vote-2013';
 

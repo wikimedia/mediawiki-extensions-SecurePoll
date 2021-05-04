@@ -159,10 +159,10 @@ class VoterEligibilityPage extends ActionPage {
 		foreach ( $wikis as $dbname ) {
 
 			if ( $dbname === $localWiki ) {
-				$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_MASTER );
+				$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_PRIMARY );
 			} else {
 				unset( $dbw );
-				$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_MASTER, [], $dbname );
+				$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_PRIMARY, [], $dbname );
 
 				try {
 					// Connect to the DB and check if the LB is in read-only mode
@@ -330,10 +330,10 @@ class VoterEligibilityPage extends ActionPage {
 		$dbw = null;
 		foreach ( $wikis as $dbname ) {
 			if ( $dbname === $localWiki ) {
-				$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_MASTER );
+				$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_PRIMARY );
 			} else {
 				unset( $dbw );
-				$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_MASTER, [], $dbname );
+				$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_PRIMARY, [], $dbname );
 
 				try {
 					// Connect to the DB and check if the LB is in read-only mode
@@ -408,7 +408,7 @@ class VoterEligibilityPage extends ActionPage {
 			$wp->doEditContent( $content, $comment );
 
 			$json = FormatJson::encode(
-				$this->fetchList( $property, DB_MASTER ),
+				$this->fetchList( $property, DB_PRIMARY ),
 				false,
 				FormatJson::ALL_OK
 			);
@@ -740,7 +740,7 @@ class VoterEligibilityPage extends ActionPage {
 				$groups = $this->election->getProperty( 'list_exclude-groups', [] );
 				if ( $groups ) {
 					$groups = array_map(
-						function ( $group ) {
+						static function ( $group ) {
 							return [ 'group' => $group ];
 						},
 						explode( '|', $groups )
@@ -768,7 +768,7 @@ class VoterEligibilityPage extends ActionPage {
 				$groups = $this->election->getProperty( 'list_include-groups', [] );
 				if ( $groups ) {
 					$groups = array_map(
-						function ( $group ) {
+						static function ( $group ) {
 							return [ 'group' => $group ];
 						},
 						explode( '|', $groups )
@@ -1071,7 +1071,7 @@ class VoterEligibilityPage extends ActionPage {
 		foreach ( $dateProps as $prop ) {
 			if ( $formData[$prop] !== '' && $formData[$prop] !== [] ) {
 				$dates = array_map(
-					function ( $date ) {
+					static function ( $date ) {
 						$date = new DateTime( $date, new DateTimeZone( 'GMT' ) );
 
 						return wfTimestamp( TS_MW, $date->format( 'YmdHis' ) );
@@ -1087,7 +1087,7 @@ class VoterEligibilityPage extends ActionPage {
 		foreach ( $listProps as $prop ) {
 			if ( $formData[$prop] ) {
 				$names = array_map(
-					function ( $entry ) {
+					static function ( $entry ) {
 						return $entry['group'];
 					},
 					$formData[$prop]
@@ -1184,7 +1184,7 @@ class VoterEligibilityPage extends ActionPage {
 		$form->setSubmitTextMsg( 'securepoll-votereligibility-edit-action' );
 		$that = $this;
 		$form->setSubmitCallback(
-			function ( $formData, $form ) use ( $property, $that ) {
+			static function ( $formData, $form ) use ( $property, $that ) {
 				$that->saveList( $property, $formData['names'], $formData['comment'] ?? '' );
 
 				return Status::newGood();
@@ -1246,11 +1246,11 @@ class VoterEligibilityPage extends ActionPage {
 		foreach ( $wikis as $dbname ) {
 
 			if ( $dbname === $localWiki ) {
-				$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_MASTER );
+				$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_PRIMARY );
 			} else {
 
 				unset( $dbw );
-				$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_MASTER, [], $dbname );
+				$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_PRIMARY, [], $dbname );
 			}
 
 			$dbw->startAtomic( __METHOD__ );

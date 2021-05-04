@@ -233,7 +233,7 @@ class VotePage extends ActionPage {
 			$encrypted = $status->value;
 		}
 
-		$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_MASTER );
+		$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_PRIMARY );
 		$dbw->startAtomic( __METHOD__ );
 
 		// Mark previous votes as old
