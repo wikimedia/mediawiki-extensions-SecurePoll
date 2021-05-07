@@ -162,6 +162,10 @@
 		"SecurePollUseLogging": {
 			"value": false,
 			"description": "Whether to log admin actions to securepoll_log table."
+		},
+		"SecurePollSingleTransferableVoteEnabled": {
+			"value": false,
+			"description": "Enable or disable Single Transferable Vote on secure poll."
 		}
 	},
 	"manifest_version": 2
