@@ -52,7 +52,7 @@
 	"securepoll-subpage-vote": "Кхажтасар",
 	"securepoll-subpage-translate": "Гоч",
 	"securepoll-subpage-list": "МогӀам",
-	"securepoll-subpage-edit": "Нисъе",
+	"securepoll-subpage-edit": "Нисйе",
 	"securepoll-subpage-votereligibility": "Кхажтаса бакъо",
 	"securepoll-subpage-dump": "Дамп",
 	"securepoll-subpage-tally": "Ларар",
@@ -65,7 +65,7 @@
 	"securepoll-create-created-text": "Хьан хаттар кхоьллина.",
 	"securepoll-create-label-election_title": "Хаттаран цӀе:",
 	"securepoll-create-label-wiki": "Викина:",
-	"securepoll-create-option-wiki-this_wiki": "ХӀара вики ю",
+	"securepoll-create-option-wiki-this_wiki": "ХӀара вики йу",
 	"securepoll-create-option-wiki-all_wikis": "Массо викеш",
 	"securepoll-create-option-wiki-other_wiki": "Кхин билгала викеш",
 	"securepoll-create-label-election_primarylang": "Коьрта мотт:",
@@ -115,9 +115,9 @@
 	"securepoll-votereligibility-saved": "{{int:securepoll}}: Ӏалашйина",
 	"securepoll-votereligibility-saved-text": "Хьа хийцамаш Ӏалашбина.",
 	"securepoll-votereligibility-cleared": "{{int:securepoll}}: ДӀацӀанйина",
-	"securepoll-votereligibility-cleared-comment": "$1 дӀацӀанйиш ю.",
+	"securepoll-votereligibility-cleared-comment": "$1 дӀацӀанйина.",
 	"right-securepoll-create-poll": "Хаттарш кхолар",
 	"action-securepoll-create-poll": "хаттарш кхолар",
 	"securepoll-voter-stats": "Массо кхажтаса тӀебитинчу  {{PLURAL:$1|кхаж тесна $1 декъашхочо}}.",
-	"securepoll-vote-stats": "Берриг {{PLURAL:$1|$1 кхаж белла}}. Царах $2 {{PLURAL:$2|ларанза бу}} кхаж тосучу юху тасар бахьна долуш, цунделла $3 {{PLURAL:$3|юкъара дӀабеккхина}}."
+	"securepoll-vote-stats": "Берриг {{PLURAL:$1|$1 кхаж белла}}. Царах $2 {{PLURAL:$2|ларанза бу}} кхаж тосучу йуха тасар бахьна долуш, цунделла $3 {{PLURAL:$3|йукъара дӀабеккхина}}."
 }
