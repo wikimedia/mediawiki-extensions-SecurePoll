@@ -47,6 +47,7 @@ class LocalAuth extends Auth {
 	public function getUserParams( $user ) {
 		global $wgServer;
 
+		$services = MediaWikiServices::getInstance();
 		$block = $user->getBlock();
 		$params = [
 			'name' => $user->getName(),
@@ -60,8 +61,8 @@ class LocalAuth extends Auth {
 				'central-block-count' => $this->getCentralBlockCount( $user ),
 				'edit-count' => $user->getEditCount(),
 				'bot' => $user->isAllowed( 'bot' ),
-				'language' => $user->getOption( 'language' ),
-				'groups' => $user->getGroups(),
+				'language' => $services->getUserOptionsLookup()->getOption( $user, 'language' ),
+				'groups' => $services->getUserGroupManager()->getUserGroups( $user ),
 				'lists' => $this->getLists( $user ),
 				'central-lists' => $this->getCentralLists( $user ),
 				'registration' => $user->getRegistration(),

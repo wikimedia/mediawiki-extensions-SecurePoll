@@ -8,6 +8,7 @@ use MediaWiki\Extensions\SecurePoll\Crypt\Crypt;
 use MediaWiki\Extensions\SecurePoll\Talliers\ElectionTallier;
 use MediaWiki\Extensions\SecurePoll\User\Auth;
 use MediaWiki\Extensions\SecurePoll\User\Voter;
+use MediaWiki\MediaWikiServices;
 use MWException;
 use Status;
 use User;
@@ -360,7 +361,9 @@ class Election extends Entity {
 	public function isAdmin( $user ) {
 		$admins = array_map( 'trim', explode( '|', $this->getProperty( 'admins' ) ) );
 
-		return in_array( $user->getName(), $admins ) && in_array( 'electionadmin', $user->getEffectiveGroups() );
+		$userGroupManager = MediaWikiServices::getInstance()->getUserGroupManager();
+		return in_array( $user->getName(), $admins )
+			&& in_array( 'electionadmin', $userGroupManager->getUserEffectiveGroups( $user ) );
 	}
 
 	/**
