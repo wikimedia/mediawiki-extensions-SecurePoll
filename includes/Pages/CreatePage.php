@@ -336,6 +336,11 @@ class CreatePage extends ActionPage {
 			],
 		];
 
+		// Remove STV from options if flag is not set
+		if ( !$this->specialPage->getConfig()->get( 'SecurePollSingleTransferableVoteEnabled' ) ) {
+			unset( Ballot::$ballotTypes['stv'] );
+		}
+
 		$tallyTypes = [];
 		foreach ( Ballot::$ballotTypes as $ballotType => $ballotClass ) {
 			$types = [];

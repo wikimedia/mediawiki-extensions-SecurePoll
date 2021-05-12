@@ -52,6 +52,7 @@ abstract class Tallier {
 		'plurality' => PluralityTallier::class,
 		'schulze' => SchulzeTallier::class,
 		'histogram-range' => HistogramRangeTallier::class,
+		'droop-quota' => STVTallier::class,
 	];
 
 	/**

@@ -3,6 +3,7 @@
 namespace MediaWiki\Extensions\SecurePoll\Ballots;
 
 use MediaWiki\Extensions\SecurePoll\Entities\Question;
+use MediaWiki\Extensions\SecurePoll\Pages\CreatePage;
 use OOUI\FieldsetLayout;
 
 /**
@@ -16,11 +17,26 @@ class STVBallot extends Ballot {
 	 * @return array
 	 */
 	public static function getTallyTypes(): array {
-		// still TBC, we might add more, or remove some.
 		return [
-			'hare-qouta',
-			'droop-qouta'
+			'droop-quota'
 		];
+	}
+
+	public static function getCreateDescriptors() {
+		$description = parent::getCreateDescriptors();
+		$description['question'] += [
+			'min-seats' => [
+				'label-message' => 'securepoll-create-label-seat_count',
+				'type' => 'int',
+				'min' => 1,
+				'validation-callback' => [
+					CreatePage::class,
+					'checkRequired',
+				],
+				'SecurePoll_type' => 'property',
+			],
+		];
+		return $description;
 	}
 
 	/**
