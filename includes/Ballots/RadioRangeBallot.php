@@ -286,6 +286,7 @@ class RadioRangeBallot extends Ballot {
 					$status->sp_fatal(
 						'securepoll-invalid-score',
 						$id,
+						false,
 						RequestContext::getMain()->getLanguage()->formatNum( $min ),
 						RequestContext::getMain()->getLanguage()->formatNum( $max )
 					);
@@ -296,7 +297,7 @@ class RadioRangeBallot extends Ballot {
 				}
 			} elseif ( strval( $score ) === '' ) {
 				if ( $this->election->getProperty( 'must-answer-all' ) ) {
-					$status->sp_fatal( 'securepoll-unanswered-options', $id );
+					$status->sp_fatal( 'securepoll-unanswered-options', $id, false );
 					$ok = false;
 					continue;
 				} else {
@@ -306,6 +307,7 @@ class RadioRangeBallot extends Ballot {
 				$status->sp_fatal(
 					'securepoll-invalid-score',
 					$id,
+					false,
 					RequestContext::getMain()->getLanguage()->formatNum( $min ),
 					RequestContext::getMain()->getLanguage()->formatNum( $max )
 				);
