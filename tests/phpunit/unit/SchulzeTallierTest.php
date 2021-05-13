@@ -32,8 +32,7 @@ class SchulzeTallierTest extends MediaWikiUnitTestCase {
 
 	public static function resultsFromTally() {
 		return [
-			// No tie
-			[
+			'Results contain no ties' => [
 				[
 					'optionIds' => [ 1, 2 ],
 					'victories' => [
@@ -72,8 +71,7 @@ class SchulzeTallierTest extends MediaWikiUnitTestCase {
 					]
 				]
 			],
-			// Tie
-			[
+			'Results contain a tie' => [
 				[
 					'optionIds' => [ 1, 2 ],
 					'victories' => [
