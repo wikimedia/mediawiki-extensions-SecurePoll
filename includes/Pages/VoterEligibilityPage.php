@@ -1182,10 +1182,9 @@ class VoterEligibilityPage extends ActionPage {
 		);
 		$form->setDisplayFormat( 'div' );
 		$form->setSubmitTextMsg( 'securepoll-votereligibility-edit-action' );
-		$that = $this;
 		$form->setSubmitCallback(
-			static function ( $formData, $form ) use ( $property, $that ) {
-				$that->saveList( $property, $formData['names'], $formData['comment'] ?? '' );
+			function ( $formData, $form ) use ( $property ) {
+				$this->saveList( $property, $formData['names'], $formData['comment'] ?? '' );
 
 				return Status::newGood();
 			}
