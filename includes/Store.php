@@ -72,7 +72,7 @@ interface Store {
 
 	/**
 	 * Get a database connection object.
-	 * @param int $index DB_MASTER or DB_REPLICA
+	 * @param int $index DB_PRIMARY or DB_REPLICA
 	 */
 	public function getDB( $index = DB_PRIMARY );
 

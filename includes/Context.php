@@ -312,7 +312,7 @@ class Context {
 	/**
 	 * Get a database object, or throw an exception if the current store object
 	 * does not support database operations.
-	 * @param int $index DB_MASTER or DB_REPLICA
+	 * @param int $index DB_PRIMARY or DB_REPLICA
 	 * @return Database
 	 */
 	public function getDB( $index = DB_PRIMARY ) {

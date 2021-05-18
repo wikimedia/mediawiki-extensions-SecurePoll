@@ -10,13 +10,13 @@ use Status;
 class DBStore implements Store {
 
 	/** @var bool */
-	private $forceMaster = false;
+	private $forcePrimary = false;
 
 	/**
-	 * @param bool $forceMaster Force use of DB_MASTER
+	 * @param bool $forcePrimary Force use of DB_PRIMARY
 	 */
-	public function __construct( $forceMaster = false ) {
-		$this->forceMaster = $forceMaster;
+	public function __construct( $forcePrimary = false ) {
+		$this->forcePrimary = $forcePrimary;
 	}
 
 	public function getMessages( $lang, $ids ) {
@@ -132,7 +132,7 @@ class DBStore implements Store {
 	}
 
 	public function getDB( $index = DB_PRIMARY ) {
-		return wfGetDB( $this->forceMaster ? DB_PRIMARY : $index );
+		return wfGetDB( $this->forcePrimary ? DB_PRIMARY : $index );
 	}
 
 	public function getQuestionInfo( $electionId ) {

@@ -834,7 +834,7 @@ class CreatePage extends ActionPage {
 		if ( $this->specialPage->getConfig()->get( 'SecurePollUseNamespace' ) ) {
 			// Create a new context to bypass caching.
 			$context = new Context;
-			// We may be inside a transaction, so force a master connection (T209804)
+			// We may be inside a transaction, so force a primary DB connection (T209804)
 			$context->setStore( new DBStore( true ) );
 
 			$election = $context->getElection( $eId );
