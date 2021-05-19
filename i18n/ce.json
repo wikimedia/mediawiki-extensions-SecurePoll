@@ -8,7 +8,7 @@
 	"securepoll": "Кхерамза кхажтасар",
 	"securepoll-desc": "Харжамаш а, хаттарш а шордеш хӀума",
 	"securepoll-invalid-page": "Нийса йоцу бухара агӀо «<nowiki>$1</nowiki>»",
-	"securepoll-too-few-params": "Бухара агӀона параметраш тоьуш йац (гӀалате хьажорг).",
+	"securepoll-too-few-params": "Бухара агӀонан параметраш тоьуш йац (гӀалате хьажорг).",
 	"securepoll-invalid-election": "«$1» — нийса йоцу кхажтасаран идентификатор",
 	"securepoll-welcome": "<strong>{{GENDER:$1|Марша догӀийла}}, $1!</strong>",
 	"securepoll-submit": "ДӀабахьийта кхаж",
