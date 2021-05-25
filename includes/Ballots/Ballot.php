@@ -33,6 +33,7 @@ abstract class Ballot {
 		'choose' => ChooseBallot::class,
 		'radio-range' => RadioRangeBallot::class,
 		'radio-range-comment' => RadioRangeCommentBallot::class,
+		'stv' => STVBallot::class,
 	];
 
 	/**
