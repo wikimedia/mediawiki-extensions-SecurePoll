@@ -38,5 +38,6 @@
 	"securepoll-subpage-vote": "Balsot",
 	"securepoll-subpage-translate": "Tulkot",
 	"securepoll-subpage-list": "Saraksts",
-	"securepoll-average-score": "Vidējais rezultāts"
+	"securepoll-average-score": "Vidējais rezultāts",
+	"securepoll-create-label-seat_count": "Vietu skaits:"
 }
