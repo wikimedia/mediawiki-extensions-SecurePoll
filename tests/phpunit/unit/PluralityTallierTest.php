@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extensions\SecurePoll\Test\Unit;
 
+use MediaWiki\Extensions\SecurePoll\Entities\Option;
 use MediaWiki\Extensions\SecurePoll\Entities\Question;
 use MediaWiki\Extensions\SecurePoll\Talliers\ElectionTallier;
 use MediaWiki\Extensions\SecurePoll\Talliers\PluralityTallier;
@@ -18,9 +19,14 @@ class PluralityTallierTest extends MediaWikiUnitTestCase {
 		parent::setUp();
 
 		// Tallier constructor requires getOptions to return iterable
+		$options = array_map( function ( $id ) {
+			$option = $this->createMock( Option::class );
+			$option->method( 'getId' )
+				->willReturn( $id );
+			return $option;
+		}, [ 101, 102 ] );
 		$question = $this->createMock( Question::class );
-		$question->method( 'getOptions' )
-			->willReturn( [] );
+		$question->method( 'getOptions' )->willReturn( $options );
 
 		$this->tallier = Tallier::factory(
 			$this->createMock( RequestContext::class ),
@@ -35,33 +41,36 @@ class PluralityTallierTest extends MediaWikiUnitTestCase {
 			// No tie
 			[
 				[
-					'results' => [
-						'Q1' => 1,
-						'Q2' => 2,
+					[
+						101 => 1
+					],
+					[
+						101 => 1
+					],
+					[
+						102 => 1
 					]
 				],
 				[
-					'results' => [
-						'Q2' => 2,
-						'Q1' => 1,
-					]
+					101 => 2,
+					102 => 1
 				]
 			],
 			// Tie
 			[
 				[
-					'results' => [
-						'Q1' => 0,
-						'Q2' => 0,
+					[
+						101 => 1
+					],
+					[
+						102 => 1
 					]
 				],
 				[
-					'results' => [
-						'Q1' => 0,
-						'Q2' => 0,
-					]
+					101 => 1,
+					102 => 1
 				]
-			]
+			],
 		];
 	}
 
@@ -74,7 +83,9 @@ class PluralityTallierTest extends MediaWikiUnitTestCase {
 	 * @covers \MediaWiki\Extensions\SecurePoll\Talliers\PluralityTallier::finishTally
 	 */
 	public function testPluralityTally( $electionResults, $expected ) {
-		$this->tallier->tally = $electionResults;
+		foreach ( $electionResults as $record ) {
+			$this->tallier->addVote( $record );
+		}
 		$this->tallier->finishTally();
 		$this->assertArrayEquals(
 			$expected,
