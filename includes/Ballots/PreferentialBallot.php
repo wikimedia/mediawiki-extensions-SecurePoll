@@ -88,7 +88,7 @@ class PreferentialBallot extends Ballot {
 
 			if ( is_numeric( $rank ) ) {
 				if ( $rank <= 0 || $rank >= 1000 ) {
-					$status->sp_fatal( 'securepoll-invalid-rank', $id );
+					$status->sp_fatal( 'securepoll-invalid-rank', $id, false );
 					$ok = false;
 					continue;
 				} else {
@@ -96,14 +96,14 @@ class PreferentialBallot extends Ballot {
 				}
 			} elseif ( strval( $rank ) === '' ) {
 				if ( $this->election->getProperty( 'must-rank-all' ) ) {
-					$status->sp_fatal( 'securepoll-unranked-options', $id );
+					$status->sp_fatal( 'securepoll-unranked-options', $id, false );
 					$ok = false;
 					continue;
 				} else {
 					$rank = 1000;
 				}
 			} else {
-				$status->sp_fatal( 'securepoll-invalid-rank', $id );
+				$status->sp_fatal( 'securepoll-invalid-rank', $id, false );
 				$ok = false;
 				continue;
 			}

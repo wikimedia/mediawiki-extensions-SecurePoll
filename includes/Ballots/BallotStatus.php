@@ -15,12 +15,13 @@ class BallotStatus extends Status {
 		$this->sp_context = $context;
 	}
 
-	public function sp_fatal( $message, $id, ...$params ) {
+	public function sp_fatal( $message, $id, $localized, ...$params ) {
 		$this->errors[] = [
 			'type' => 'error',
 			'securepoll-id' => $id,
 			'message' => $message,
-			'params' => $params
+			'params' => $params,
+			'localized' => $localized
 		];
 		$this->sp_ids[$id] = true;
 		$this->ok = false;
@@ -36,26 +37,28 @@ class BallotStatus extends Status {
 		}
 		$s = '<ul class="securepoll-error-box">';
 		foreach ( $this->errors as $error ) {
-			$text = wfMessage( $error['message'], $error['params'] )->text();
-			if ( isset( $error['securepoll-id'] ) ) {
-				$id = $error['securepoll-id'];
-				if ( isset( $usedIds[$id] ) ) {
-					$error = new \OOUI\Tag( 'li' );
-					$error->appendContent(
-						new \OOUI\HtmlSnippet( htmlspecialchars( $text ) )
-					);
-					$error->appendContent(
-						new \OOUI\ButtonWidget( [
-							'icon' => 'downTriangle',
-							'label' => wfMessage( 'securepoll-ballot-see-error' )->text(),
-							'href' => '#' . urlencode( "$id-location" ),
-						] )
-					);
-					$s .= $error;
-					continue;
+			if ( !isset( $error['localized'] ) || !$error['localized'] ) {
+				$text = wfMessage( $error['message'], $error['params'] )->text();
+				if ( isset( $error['securepoll-id'] ) ) {
+					$id = $error['securepoll-id'];
+					if ( isset( $usedIds[$id] ) ) {
+						$error = new \OOUI\Tag( 'li' );
+						$error->appendContent(
+							new \OOUI\HtmlSnippet( htmlspecialchars( $text ) )
+						);
+						$error->appendContent(
+							new \OOUI\ButtonWidget( [
+								'icon' => 'downTriangle',
+								'label' => wfMessage( 'securepoll-ballot-see-error' )->text(),
+								'href' => '#' . urlencode( "$id-location" ),
+							] )
+						);
+						$s .= $error;
+						continue;
+					}
 				}
+				$s .= '<li>' . htmlspecialchars( $text ) . "</li>\n";
 			}
-			$s .= '<li>' . htmlspecialchars( $text ) . "</li>\n";
 		}
 		$s .= "</ul>\n";
 
@@ -64,7 +67,7 @@ class BallotStatus extends Status {
 
 	public function sp_getMessageText( $id ) {
 		foreach ( $this->errors as $error ) {
-			if ( $error['securepoll-id'] !== $id ) {
+			if ( !isset( $error['securepoll-id'] ) || $error['securepoll-id'] !== $id ) {
 				continue;
 			}
 
