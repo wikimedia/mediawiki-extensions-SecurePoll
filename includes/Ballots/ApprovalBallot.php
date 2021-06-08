@@ -3,6 +3,7 @@
 namespace MediaWiki\Extensions\SecurePoll\Ballots;
 
 use MediaWiki\Extensions\SecurePoll\Entities\Question;
+use RequestContext;
 
 /**
  * Checkbox approval voting.
@@ -18,12 +19,13 @@ class ApprovalBallot extends Ballot {
 	 * @return \OOUI\FieldsetLayout
 	 */
 	public function getQuestionForm( $question, $options ) {
-		global $wgRequest;
 		$name = 'securepoll_q' . $question->getId();
 
 		$fieldset = new \OOUI\FieldsetLayout( [
 			'classes' => [ 'securepoll-option-approval ' ]
 		] );
+
+		$request = RequestContext::getMain()->getRequest();
 
 		foreach ( $options as $option ) {
 			$optionHTML = $option->parseMessageInline( 'text' );
@@ -33,7 +35,7 @@ class ApprovalBallot extends Ballot {
 			$fieldset->addItems( [
 				new \OOUI\FieldLayout( new \OOUI\CheckboxInputWidget( [
 					'name' => $inputId,
-					'selected' => $wgRequest->getBool( $inputId ),
+					'selected' => $request->getBool( $inputId ),
 					'value' => 1
 				] ), [
 					'label' => new \OOUI\HtmlSnippet( $optionHTML ),
@@ -51,22 +53,25 @@ class ApprovalBallot extends Ballot {
 	 * @return string
 	 */
 	public function submitQuestion( $question, $status ) {
-		global $wgRequest;
-
 		$options = $question->getOptions();
 		$record = '';
+		$request = RequestContext::getMain()->getRequest();
 		foreach ( $options as $option ) {
 			$id = 'securepoll_q' . $question->getId() . '_opt' . $option->getId();
-			$checked = $wgRequest->getBool( $id );
-			$record .= sprintf(
-				'Q%08X-A%08X-%s--',
-				$question->getId(),
-				$option->getId(),
-				$checked ? 'y' : 'n'
-			);
+			$checked = $request->getBool( $id );
+			$record .= $this->packRecord( $question, $option, $checked );
 		}
 
 		return $record;
+	}
+
+	public function packRecord( $question, $option, $checked ) {
+		return sprintf(
+			'Q%08X-A%08X-%s--',
+			$question->getId(),
+			$option->getId(),
+			$checked ? 'y' : 'n'
+		);
 	}
 
 	public function unpackRecord( $record ) {
