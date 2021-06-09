@@ -266,5 +266,12 @@
 	"securepoll-log-action-type-0": "$1, $2 го додаде $4 во анкетните администратори за изборите  <em>$3</em>.",
 	"securepoll-log-action-type-1": "$1, $2 го отстрани $4 од анкетните администратори за изборите  <em>$3</em>.",
 	"securepoll-log-action-type-2": "$1, $2 ги погледа податоците за гласачите за изборите <em>$3</em>.",
-	"securepoll-log-empty": "Нема дневнички ставки."
+	"securepoll-log-empty": "Нема дневнички ставки.",
+	"securepoll-stv-droop-default-value": "Одберете можност",
+	"securepoll-stv-droop-choice-rank": "Можност $1",
+	"securepoll-stv-invalid-rank-empty": "Мора да рангирате барем една можност",
+	"securepoll-stv-invalid-rank-order": "Претпочитаните можности треба да се одберат во последователен редослед. Изберете можност за: $1",
+	"securepoll-stv-invalid-rank-duplicate": "Не можете повеќекратно да одбирате исти можности во рангирањето. Сменете ја можноста за: $1",
+	"securepoll-stv-invalid-input-empty": "Пополнете го ова претпочитање",
+	"securepoll-stv-invalid-input-duplicate": "Одберете друга можност за ова претпочитање"
 }
