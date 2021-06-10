@@ -103,6 +103,28 @@ class STVBallotTest extends MediaWikiIntegrationTestCase {
 		];
 	}
 
+	public static function packedRecords() {
+		return [
+			'Valid record, all options ranked' => [
+				'Q00000065-C00000002-R00000000--Q00000065-C00000004-R00000001--' .
+				'Q00000065-C00000001-R00000002--Q00000065-C00000003-R00000003--',
+				[
+					101 => [ 2, 4, 1, 3 ]
+				]
+			],
+			'Valid record, some options ranked' => [
+				'Q00000065-C00000002-R00000000--Q00000065-C00000004-R00000001--',
+				[
+					101 => [ 2, 4 ]
+				]
+			],
+			'Invalid record' => [
+				'Q00000065-C',
+				false
+			]
+		];
+	}
+
 	/**
 	 * @dataProvider votesFromRequestContext
 	 * @covers \MediaWiki\Extensions\SecurePoll\Ballots\ApprovalBallot::submitQuestion
@@ -124,5 +146,13 @@ class STVBallotTest extends MediaWikiIntegrationTestCase {
 		foreach ( $votes as $option => $answer ) {
 			$this->context::getMain()->getRequest()->unsetVal( $option );
 		}
+	}
+
+	/**
+	 * @dataProvider packedRecords
+	 * @covers \MediaWiki\Extensions\SecurePoll\Ballots\ApprovalBallot::unpackRecord
+	 */
+	public function testUnpackRecord( $record, $expected ) {
+		$this->assertEquals( $this->ballot->unpackRecord( $record ), $expected );
 	}
 }
