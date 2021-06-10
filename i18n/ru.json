@@ -16,6 +16,7 @@
 			"Putnik",
 			"Rave",
 			"Renessaince",
+			"Rivka Silinsky",
 			"Vlad5250",
 			"Volkov",
 			"Wileyfoxyx",
@@ -228,5 +229,11 @@
 	"securepoll-ns-readonly": "Пространство имён {{ns:SecurePoll}} доступно только для просмотра",
 	"securepoll-voter-stats": "Из всех участников, допущенных к голосованию, {{PLURAL:$1|проголосовал $1 участник|проголосовало $1 участников|проголосовало $1 участника}}.",
 	"securepoll-vote-stats": "Всего {{PLURAL:$1|был отдан $1 голос|было отдано $1 голосов}}. Из них $2 не {{PLURAL:$2|был учтён|было учтено}} из-за того, что голосующие проголосовал повторно, и $3 {{PLURAL:$3|был исключён|было исключено}}.",
-	"securepolllog-form-date-label": "С даты (и ранее):"
+	"securepolllog-form-date-label": "С даты (и ранее):",
+	"securepoll-stv-droop-choice-rank": "Примечание $1",
+	"securepoll-stv-invalid-rank-empty": "По крайней мере один вариант должен быть ранжирован",
+	"securepoll-stv-invalid-rank-order": "Настройки должны быть выбраны в последовательном порядке. Выберите опцию для: $1",
+	"securepoll-stv-invalid-rank-duplicate": "Параметры не могут быть выбраны несколько раз в ранжировании. Измените параметр на: $1",
+	"securepoll-stv-invalid-input-empty": "Просьба указать это предпочтение",
+	"securepoll-stv-invalid-input-duplicate": "Пожалуйта выберите другой параметр для данного предпочтения"
 }

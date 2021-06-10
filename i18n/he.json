@@ -267,5 +267,12 @@
 	"securepoll-log-action-type-0": "$1, $2 {{GENDER:$2|הוסיף|הוסיפה}} את $4 למנהלי ההצבעה עבור הבחירות <em>$3</em>.",
 	"securepoll-log-action-type-1": "$1, $2 {{GENDER:$2|הסיר|הסירה}} את $4 ממנהלי ההצבעה עבור הבחירות <em>$3</em>.",
 	"securepoll-log-action-type-2": "$1, $2 {{GENDER:$2|צפה|צפתה}} בנתוני ההצבעה עבור הבחירות <em>$3</em>.",
-	"securepoll-log-empty": "לא נמצאו רשומות יומן."
+	"securepoll-log-empty": "לא נמצאו רשומות יומן.",
+	"securepoll-stv-droop-default-value": "נא לבחור אפשרות",
+	"securepoll-stv-droop-choice-rank": "העדפה $1",
+	"securepoll-stv-invalid-rank-empty": "חובה לדרג לפחות אפשרות אחד",
+	"securepoll-stv-invalid-rank-order": "חובה לדרג את ההעדפות לפי סדר. נא לבחור אפשר עבור: $1",
+	"securepoll-stv-invalid-rank-duplicate": "לא ניתן לבחור אפשרויות כמה פעמים באותו דירוג. נא שנות את האפשרות עבור: $1",
+	"securepoll-stv-invalid-input-empty": "נא למלא את ההעדפה הזאת",
+	"securepoll-stv-invalid-input-duplicate": "נא לבחור אפשרות אחרת עבור ההעדפה הזאת"
 }

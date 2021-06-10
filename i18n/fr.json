@@ -287,5 +287,11 @@
 	"securepoll-log-action-type-0": "$1, $2 a ajouté $4 aux administrateurs du sondage pour l’élection <em>$3</em>.",
 	"securepoll-log-action-type-1": "$1, $2 a supprimé $4 des administrateurs du sondage pour l’élection <em>$3</em>.",
 	"securepoll-log-action-type-2": "$1, $2 a regardé les données de vote pour l’élection <em>$3</em>.",
-	"securepoll-log-empty": "Aucune entrée trouvée dans le journal."
+	"securepoll-log-empty": "Aucune entrée trouvée dans le journal.",
+	"securepoll-stv-droop-default-value": "Sélectionner une option",
+	"securepoll-stv-droop-choice-rank": "Préférence $1",
+	"securepoll-stv-invalid-rank-empty": "Au moins une option doit être classée",
+	"securepoll-stv-invalid-rank-order": "Les préférences doivent être sélectionnées dans un ordre séquentiel. Veuillez choisir une option pour : $1",
+	"securepoll-stv-invalid-rank-duplicate": "Les options ne peuvent pas être sélectionnées plusieurs fois dans le classement. Veuillez changer l’option pour : $1",
+	"securepoll-stv-invalid-input-empty": "Veuillez compéter cette préférence"
 }
