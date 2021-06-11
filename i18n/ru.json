@@ -178,6 +178,7 @@
 	"securepoll-create-label-options-add": "Добавить другой ответ",
 	"securepoll-create-label-options-delete": "Удалить ответ",
 	"securepoll-create-label-option-name": "Название ответа:",
+	"securepoll-create-label-seat_count": "Количества сиденьях:",
 	"securepoll-create-option-election_type-approval+plurality": "Одобрительное голосование",
 	"securepoll-create-option-election_type-preferential+schulze": "Голосование по методу Шульце",
 	"securepoll-create-option-election_type-choose+plurality": "Множество",

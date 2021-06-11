@@ -293,5 +293,6 @@
 	"securepoll-stv-invalid-rank-empty": "Au moins une option doit être classée",
 	"securepoll-stv-invalid-rank-order": "Les préférences doivent être sélectionnées dans un ordre séquentiel. Veuillez choisir une option pour : $1",
 	"securepoll-stv-invalid-rank-duplicate": "Les options ne peuvent pas être sélectionnées plusieurs fois dans le classement. Veuillez changer l’option pour : $1",
-	"securepoll-stv-invalid-input-empty": "Veuillez compéter cette préférence"
+	"securepoll-stv-invalid-input-empty": "Veuillez compéter cette préférence",
+	"securepoll-stv-invalid-input-duplicate": "Veuillez sélectionner une option différente pour cette préférence"
 }
