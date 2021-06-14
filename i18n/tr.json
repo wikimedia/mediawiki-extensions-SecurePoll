@@ -272,5 +272,12 @@
 	"securepoll-log-action-type-0": "$1, $2 <em>$3</em> seçimi için $4 kullanıcısını anket yöneticilerine ekledi.",
 	"securepoll-log-action-type-1": "$1, $2 <em>$3</em> seçimi için $4 kullanıcısını anket yöneticilerinden çıkardı.",
 	"securepoll-log-action-type-2": "$1, $2 <em>$3</em> seçimi için seçmen verisini görüntüledi.",
-	"securepoll-log-empty": "Günlük girdisi bulunamadı."
+	"securepoll-log-empty": "Günlük girdisi bulunamadı.",
+	"securepoll-stv-droop-default-value": "Bir seçenek seçin",
+	"securepoll-stv-droop-choice-rank": "Tercih $1",
+	"securepoll-stv-invalid-rank-empty": "En azından bir seçenek derecelendirilmelidir",
+	"securepoll-stv-invalid-rank-order": "Tercihler sıralı seçilmelidir. Lütfen bir seçenek seçin: $1",
+	"securepoll-stv-invalid-rank-duplicate": "Seçenekler derecelendirmede birden fazla seçilemez. Lütfen seçeneği değiştirin: $1",
+	"securepoll-stv-invalid-input-empty": "Lütfen bu tercihi doldurun",
+	"securepoll-stv-invalid-input-duplicate": "Lütfen bu tercih için farklı bir seçenek seçin"
 }
