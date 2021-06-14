@@ -170,15 +170,19 @@ class STVBallot extends Ballot {
 		// Q{question id in hexadecimal, padded to 8 chars}-C{choice id in hex, padded}-R{rank in hex, padded}--
 		$record = '';
 		foreach ( $rankedChoices as $rank => $choice ) {
-			$record .= sprintf(
-				'Q%08X-C%08X-R%08X--',
-				$question->getId(),
-				$choice,
-				$rank
-			);
+			$record .= $this->packRecord( $question, $choice, $rank );
 		}
 
 		return $record;
+	}
+
+	public function packRecord( $question, $choice, $rank ) {
+		return sprintf(
+			'Q%08X-C%08X-R%08X--',
+			$question->getId(),
+			$choice,
+			$rank
+		);
 	}
 
 	/**

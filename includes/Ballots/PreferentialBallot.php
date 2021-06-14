@@ -107,16 +107,20 @@ class PreferentialBallot extends Ballot {
 				$ok = false;
 				continue;
 			}
-			$record .= sprintf(
-				'Q%08X-A%08X-R%08X--',
-				$question->getId(),
-				$option->getId(),
-				$rank
-			);
+			$record .= $this->packRecord( $question, $option, $rank );
 		}
 		if ( $ok ) {
 			return $record;
 		}
+	}
+
+	public function packRecord( $question, $option, $rank ) {
+		return sprintf(
+			'Q%08X-A%08X-R%08X--',
+			$question->getId(),
+			$option->getId(),
+			$rank
+		);
 	}
 
 	public function unpackRecord( $record ) {
