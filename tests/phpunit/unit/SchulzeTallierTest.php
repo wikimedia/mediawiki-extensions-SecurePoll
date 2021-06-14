@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extensions\SecurePoll\Test\Unit;
 
+use MediaWiki\Extensions\SecurePoll\Entities\Option;
 use MediaWiki\Extensions\SecurePoll\Entities\Question;
 use MediaWiki\Extensions\SecurePoll\Talliers\ElectionTallier;
 use MediaWiki\Extensions\SecurePoll\Talliers\SchulzeTallier;
@@ -18,9 +19,14 @@ class SchulzeTallierTest extends MediaWikiUnitTestCase {
 		parent::setUp();
 
 		// Tallier constructor requires getOptions to return iterable
+		$options = array_map( function ( $id ) {
+			$option = $this->createMock( Option::class );
+			$option->method( 'getId' )
+				->willReturn( $id );
+			return $option;
+		}, [ 101, 102 ] );
 		$question = $this->createMock( Question::class );
-		$question->method( 'getOptions' )
-			->willReturn( [] );
+		$question->method( 'getOptions' )->willReturn( $options );
 
 		$this->tallier = Tallier::factory(
 			$this->createMock( RequestContext::class ),
@@ -34,78 +40,72 @@ class SchulzeTallierTest extends MediaWikiUnitTestCase {
 		return [
 			'Results contain no ties' => [
 				[
-					'optionIds' => [ 1, 2 ],
-					'victories' => [
-						1 => [
-							1 => 0,
-							2 => 1
-						],
-						2 => [
-							1 => 0,
-							2 => 0
-						]
+					[
+						101 => 1,
+						102 => 2,
+					],
+					[
+						101 => 1,
+						102 => 2,
 					]
 				],
 				[
 					'victories' => [
-						1 => [
-							1 => 0,
-							2 => 1
+						101 => [
+							101 => 0,
+							102 => 2
 						],
-						2 => [
-							1 => 0,
-							2 => 0
+						102 => [
+							101 => 0,
+							102 => 0
 						]
 					],
 					'ranks' => [
-						1 => 1,
-						2 => 2
+						101 => 1,
+						102 => 2
 					],
 					'strengths' => [
-						1 => [
-							2 => [ 1, 0 ]
+						101 => [
+							102 => [ 2, 0 ]
 						],
-						2 => [
-							1 => [ 0, 0 ]
+						102 => [
+							101 => [ 0, 0 ]
 						]
 					]
 				]
 			],
 			'Results contain a tie' => [
 				[
-					'optionIds' => [ 1, 2 ],
-					'victories' => [
-						1 => [
-							1 => 0,
-							2 => 1
-						],
-						2 => [
-							1 => 1,
-							2 => 0
-						]
+					[
+						101 => 1,
+						102 => 2,
+					],
+					[
+						101 => 2,
+						102 => 1,
 					]
 				],
 				[
 					'victories' => [
-						1 => [
-							1 => 0,
-							2 => 1
+						101 => [
+							101 => 0,
+							102 => 1
 						],
-						2 => [
-							1 => 1,
-							2 => 0
+						102 => [
+							101 => 1,
+							102 => 0
 						]
 					],
 					'ranks' => [
-						1 => 1,
-						2 => 1
+						101 => 1,
+						102 => 1
 					],
 					'strengths' => [
-						1 => [
-							2 => [ 0, 0 ]
+						101 => [
+							102 => [ 0, 0 ]
 						],
-						2 => [
-							1 => [ 0, 0 ]
+						102 => [
+							101 => [ 0, 0 ]
 						]
 					]
 				]
@@ -122,8 +122,9 @@ class SchulzeTallierTest extends MediaWikiUnitTestCase {
 	 * @covers \MediaWiki\Extensions\SecurePoll\Talliers\SchulzeTallier::finishTally
 	 */
 	public function testSchulzeTally( $electionResults, $expected ) {
-		$this->tallier->optionIds = $electionResults['optionIds'];
-		$this->tallier->victories = $electionResults['victories'];
+		foreach ( $electionResults as $record ) {
+			$this->tallier->addVote( $record );
+		}
 		$this->tallier->finishTally();
 		$this->assertArrayEquals(
 			$expected,
