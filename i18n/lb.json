@@ -182,5 +182,6 @@
 	"securepolllog-form-target-label": "Zil (Benotzernumm):",
 	"securepolllog-form-action-option-both": "Béid",
 	"securepolllog-form-electionname-label": "Walen (Titel):",
-	"securepolllog-election-does-not-exist": "Walen net fonnt"
+	"securepolllog-election-does-not-exist": "Walen net fonnt",
+	"securepoll-stv-droop-choice-rank": "Astellung $1"
 }
