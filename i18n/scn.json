@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ajeje Brazorf",
 			"Aushulz",
 			"Melos",
 			"Sarvaturi"
@@ -17,5 +18,6 @@
 	"securepoll-strike-reason": "Mutivu:",
 	"securepoll-header-action": "Azzioni",
 	"securepoll-header-reason": "Mutivu",
+	"securepoll-submit-translate": "Aggiorna",
 	"securepoll-header-title": "Nomu"
 }
