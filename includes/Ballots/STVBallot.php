@@ -186,12 +186,33 @@ class STVBallot extends Ballot {
 	}
 
 	/**
+	 * If the record is valid, return an array of optionIds in ranked order for each questionId
 	 * @param string $record
 	 * @return array|bool
 	 */
 	public function unpackRecord( $record ) {
-		// TODO: Implement unpackRecord() method.
-		return [];
+		$ranks = [];
+		$itemLength = 3 * 8 + 7;
+		for ( $offset = 0, $len = strlen( $record ); $offset < $len; $offset += $itemLength ) {
+			if ( !preg_match(
+				'/Q([0-9A-F]{8})-C([0-9A-F]{8})-R([0-9A-F]{8})--/A',
+				$record,
+				$m,
+				0,
+				$offset
+			)
+			) {
+				wfDebug( __METHOD__ . ": regex doesn't match\n" );
+
+				return false;
+			}
+			$qid = intval( base_convert( $m[1], 16, 10 ) );
+			$oid = intval( base_convert( $m[2], 16, 10 ) );
+			$rank = intval( base_convert( $m[3], 16, 10 ) );
+			$ranks[$qid][$rank] = $oid;
+		}
+
+		return $ranks;
 	}
 
 	/**
