@@ -331,7 +331,11 @@ class TranslatePage extends ActionPage {
 				);
 
 				$wp = WikiPage::factory( $title );
-				$wp->doEditContent( $content, $request->getText( 'comment' ) );
+				$wp->doUserEditContent(
+					$content,
+					$this->specialPage->getUser(),
+					$request->getText( 'comment' )
+				);
 			}
 
 			// Then each jump-wiki

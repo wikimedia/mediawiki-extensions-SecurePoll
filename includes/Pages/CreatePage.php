@@ -848,14 +848,22 @@ class CreatePage extends ActionPage {
 				$election
 			);
 			$wp = WikiPage::factory( $title );
-			$wp->doEditContent( $content, $formData['comment'] );
+			$wp->doUserEditContent(
+				$content,
+				$this->specialPage->getUser(),
+				$formData['comment']
+			);
 
 			list( $title, $content ) = SecurePollContentHandler::makeContentFromElection(
 				$election,
 				'msg/' . $election->getLanguage()
 			);
 			$wp = WikiPage::factory( $title );
-			$wp->doEditContent( $content, $formData['comment'] );
+			$wp->doUserEditContent(
+				$content,
+				$this->specialPage->getUser(),
+				$formData['comment']
+			);
 		}
 	}
 

@@ -220,7 +220,7 @@ class VoterEligibilityPage extends ActionPage {
 				$election
 			);
 			$wp = WikiPage::factory( $title );
-			$wp->doEditContent( $content, $comment );
+			$wp->doUserEditContent( $content, $this->specialPage->getUser(), $comment );
 		}
 	}
 
@@ -405,7 +405,7 @@ class VoterEligibilityPage extends ActionPage {
 				$election
 			);
 			$wp = WikiPage::factory( $title );
-			$wp->doEditContent( $content, $comment );
+			$wp->doUserEditContent( $content, $this->specialPage->getUser(), $comment );
 
 			$json = FormatJson::encode(
 				$this->fetchList( $property, DB_PRIMARY ),
@@ -414,8 +414,9 @@ class VoterEligibilityPage extends ActionPage {
 			);
 			$title = $this->titleFactory->makeTitle( NS_SECUREPOLL, $list );
 			$wp = WikiPage::factory( $title );
-			$wp->doEditContent(
+			$wp->doUserEditContent(
 				SecurePollContentHandler::makeContent( $json, $title, 'SecurePoll' ),
+				$this->specialPage->getUser(),
 				$comment
 			);
 		}
@@ -1305,15 +1306,17 @@ class VoterEligibilityPage extends ActionPage {
 				$election
 			);
 			$wp = WikiPage::factory( $title );
-			$wp->doEditContent(
+			$wp->doUserEditContent(
 				$content,
+				$this->specialPage->getUser(),
 				$this->msg( 'securepoll-votereligibility-cleared-comment', $name )->text()
 			);
 
 			$title = $this->titleFactory->makeTitle( NS_SECUREPOLL, "{$election->getId()}/list/$property" );
 			$wp = WikiPage::factory( $title );
-			$wp->doEditContent(
+			$wp->doUserEditContent(
 				SecurePollContentHandler::makeContent( '[]', $title, 'SecurePoll' ),
+				$this->specialPage->getUser(),
 				$this->msg( 'securepoll-votereligibility-cleared-comment', $name )->text()
 			);
 		}
