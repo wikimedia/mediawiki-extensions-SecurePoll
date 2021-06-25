@@ -15,6 +15,9 @@ class STVTallier extends Tallier {
 	 */
 	public $rankedVotes = [];
 
+	/**
+	 * @inheritDoc
+	 */
 	public function addVote( $scores ) {
 		$id = implode( '_', $scores );
 		$rank = [];
@@ -45,10 +48,12 @@ class STVTallier extends Tallier {
 
 	public function getHtmlResult() {
 		// TODO: Implement getHtmlResult() method.
+		return '';
 	}
 
 	public function getTextResult() {
 		// TODO: Implement getTextResult() method.
+		return '';
 	}
 
 	public function finishTally() {

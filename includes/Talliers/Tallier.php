@@ -25,26 +25,45 @@ abstract class Tallier {
 	/** @var array */
 	public $optionsById = [];
 
+	/**
+	 * Transforms individual ballots into an aggregated dataset that then gets consumed by finishTally()
+	 *
+	 * @param array $scores
+	 * @return bool
+	 */
 	abstract public function addVote( $scores );
 
 	/**
-	 * @param array $data stored output of getJSONResult
+	 * Restores results from getJSONResult
+	 *
+	 * @param array $data
 	 */
 	abstract public function loadJSONResult( array $data );
 
 	/**
-	 * Get an array suitable to be serialized to JSON representing the result
-	 *
+	 * Get a simple array structure representing results for this tally. Should
+	 * only be called after execute().
 	 * This array MUST contain all required information for getHtmlResult or getTextResult to run after it is loaded.
-	 *
 	 * @return array
 	 */
 	abstract public function getJSONResult();
 
+	/**
+	 * Build string result from tallier's stored values
+	 * @return string
+	 */
 	abstract public function getHtmlResult();
 
+	/**
+	 * Get text formatted results for this tally. Should only be called after
+	 * execute().
+	 * @return string
+	 */
 	abstract public function getTextResult();
 
+	/**
+	 * See inherit doc.
+	 */
 	abstract public function finishTally();
 
 	/** @var string[] */
@@ -108,6 +127,7 @@ abstract class Tallier {
 	}
 
 	/**
+	 * Build the result into HTML to display
 	 * @param array $ranks
 	 * @return string
 	 */
@@ -134,6 +154,7 @@ abstract class Tallier {
 	}
 
 	/**
+	 * Build the result into HTML to display
 	 * @param array $ranks
 	 * @return string
 	 */

@@ -136,6 +136,10 @@ class SchulzeTallier extends PairwiseTallier {
 		return $s1[0] > $s2[0] || ( $s1[0] == $s2[0] && $s1[1] < $s2[1] );
 	}
 
+	/**
+	 * @inheritDoc
+	 *
+	 */
 	public function finishTally() {
 		$this->strengths = $this->getPathStrengths( $this->victories );
 		$this->ranks = $this->convertStrengthMatrixToRanks( $this->strengths );
@@ -145,12 +149,20 @@ class SchulzeTallier extends PairwiseTallier {
 		return $this->ranks;
 	}
 
+	/**
+	 * @inheritDoc
+	 *
+	 */
 	public function loadJSONResult( $data ) {
 		$this->ranks = $data['ranks'];
 		$this->victories = $data['victories'];
 		$this->strengths = $data['strengths'];
 	}
 
+	/**
+	 * @inheritDoc
+	 *
+	 */
 	public function getJSONResult() {
 		return [
 			'ranks' => $this->ranks,
@@ -159,6 +171,10 @@ class SchulzeTallier extends PairwiseTallier {
 		];
 	}
 
+	/**
+	 * @inheritDoc
+	 *
+	 */
 	public function getHtmlResult() {
 		$s = '<h2>' . wfMessage( 'securepoll-ranks' )->parse() . "</h2>\n";
 		$s .= $this->convertRanksToHtml( $this->ranks );
@@ -173,6 +189,10 @@ class SchulzeTallier extends PairwiseTallier {
 		return $s;
 	}
 
+	/**
+	 * @inheritDoc
+	 *
+	 */
 	public function getTextResult() {
 		$rankedIds = array_keys( $this->ranks );
 

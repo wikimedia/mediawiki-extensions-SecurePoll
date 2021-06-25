@@ -82,14 +82,18 @@ class CommentDumper extends ElectionTallier {
 		return Status::newGood();
 	}
 
+	/**
+	 * @inheritDoc
+	 * Get text formatted results for this tally. Should only be called after
+	 * execute().
+	 */
 	public function getHtmlResult() {
 		return $this->getTextResult();
 	}
 
 	/**
-	 * Get text formatted results for this tally. Should only be called after
-	 * execute().
-	 * @return string
+	 * @inheritDoc
+	 *
 	 */
 	public function getTextResult() {
 		return stream_get_contents( $this->csvHandle, -1, 0 );

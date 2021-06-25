@@ -24,6 +24,9 @@ class PluralityTallier extends Tallier {
 		}
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function addVote( $scores ) {
 		foreach ( $scores as $oid => $score ) {
 			if ( !isset( $this->tally[$oid] ) ) {
@@ -37,11 +40,19 @@ class PluralityTallier extends Tallier {
 		return true;
 	}
 
+	/**
+	 * @inheritDoc
+	 *
+	 */
 	public function finishTally() {
 		// Sort the scores
 		arsort( $this->tally );
 	}
 
+	/**
+	 * @inheritDoc
+	 *
+	 */
 	public function loadJSONResult( $data ) {
 		$this->tally = $data;
 	}
@@ -50,6 +61,10 @@ class PluralityTallier extends Tallier {
 		return $this->tally;
 	}
 
+	/**
+	 * @inheritDoc
+	 *
+	 */
 	public function getHtmlResult() {
 		// Show the results
 		$s = "<table class=\"securepoll-results\">\n";

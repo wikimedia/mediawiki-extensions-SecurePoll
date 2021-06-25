@@ -38,6 +38,10 @@ class HistogramRangeTallier extends Tallier {
 		}
 	}
 
+	/**
+	 * @inheritDoc
+	 *
+	 */
 	public function addVote( $scores ) {
 		foreach ( $scores as $oid => $score ) {
 			$this->histogram[$oid][$score]++;
@@ -48,6 +52,10 @@ class HistogramRangeTallier extends Tallier {
 		return true;
 	}
 
+	/**
+	 * @inheritDoc
+	 *
+	 */
 	public function finishTally() {
 		$this->averages = [];
 		foreach ( $this->sums as $oid => $sum ) {
@@ -60,11 +68,19 @@ class HistogramRangeTallier extends Tallier {
 		arsort( $this->averages );
 	}
 
+	/**
+	 * @inheritDoc
+	 *
+	 */
 	public function loadJSONResult( $data ) {
 		$this->averages = $data['averages'];
 		$this->histogram = $data['histogram'];
 	}
 
+	/**
+	 * @inheritDoc
+	 *
+	 */
 	public function getJSONResult() {
 		return [
 			'averages' => $this->averages,
@@ -72,6 +88,10 @@ class HistogramRangeTallier extends Tallier {
 		];
 	}
 
+	/**
+	 * @inheritDoc
+	 * @throws MWException
+	 */
 	public function getHtmlResult() {
 		$ballot = $this->election->getBallot();
 		if ( !is_callable(
@@ -114,6 +134,10 @@ class HistogramRangeTallier extends Tallier {
 		return $s;
 	}
 
+	/**
+	 * @inheritDoc
+	 *
+	 */
 	public function getTextResult() {
 		return $this->getHtmlResult();
 	}
