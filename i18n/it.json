@@ -8,6 +8,7 @@
 			"Capmo",
 			"Daimona Eaytoy",
 			"Darth Kule",
+			"Lorem Ipsum",
 			"Massimiliano Lincetto",
 			"Melos",
 			"Nemo bis",
@@ -247,5 +248,6 @@
 	"securepolllog-form-electionname-label": "Elezione (titolo):",
 	"securepolllog-election-does-not-exist": "Elezione non trovata",
 	"securepolllog-form-date-label": "Dal giorno (e precedenti):",
-	"securepoll-stv-droop-default-value": "Seleziona un'opzione"
+	"securepoll-stv-droop-default-value": "Seleziona un'opzione",
+	"securepoll-stv-invalid-input-empty": "Si prega di compilare questa preferenza"
 }
