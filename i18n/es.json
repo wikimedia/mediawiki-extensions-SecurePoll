@@ -11,6 +11,7 @@
 			"Góngora",
 			"Imre",
 			"Indiralena",
+			"Jackiezelaya",
 			"JamesB",
 			"Macofe",
 			"MarcoAurelio",
@@ -247,5 +248,12 @@
 	"securepoll-voter-stats": "De todos los usuarios con derecho de voto, $1 {{PLURAL:$1|ha|han}} votado.",
 	"securepoll-vote-stats": "Se {{PLURAL:$1|ha|han}} emitido $1 {{PLURAL:$1|voto|votos}}. De estos, se {{PLURAL:$2|ha|han}} rechazado $2 porque el votante ha votado de nuevo, y se {{PLURAL:$3|ha|han}} suprimido $3.",
 	"securepolllog-form-type-option-voter": "Registro de votantes",
-	"securepolllog-form-type-option-admin": "Registro Admin"
+	"securepolllog-form-type-option-admin": "Registro Admin",
+	"securepoll-stv-droop-default-value": "Seleccione una opción",
+	"securepoll-stv-droop-choice-rank": "Preferencia $1",
+	"securepoll-stv-invalid-rank-empty": "Se debe clasificar al menos una opción",
+	"securepoll-stv-invalid-rank-order": "Las preferencias deben seleccionarse en orden secuencial. Por favor, elija una opción para: $1",
+	"securepoll-stv-invalid-rank-duplicate": "Las opciones no se pueden seleccionar varias veces en la clasificación. Cambie la opción de: $1",
+	"securepoll-stv-invalid-input-empty": "Por favor llene esta preferencia",
+	"securepoll-stv-invalid-input-duplicate": "Complacer seleccionar una opción diferente para esta preferencia"
 }
