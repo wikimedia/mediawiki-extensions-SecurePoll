@@ -181,11 +181,11 @@ class TallyPage extends ActionPage {
 			]
 		);
 
-		$out->addWikiMsg(
-			'securepoll-tally-result',
-			$tallier->getHtmlResult(),
-			gmdate( 'Y-m-d H:i', wfTimestamp( TS_UNIX, $time ) )
-		);
+		$out->addHTML(
+			$out->msg( 'securepoll-tally-result' )
+			  ->rawParams( $tallier->getHtmlResult() )
+			  ->dateTimeParams( wfTimestamp( TS_UNIX, $time ) )
+		  );
 	}
 
 	/**

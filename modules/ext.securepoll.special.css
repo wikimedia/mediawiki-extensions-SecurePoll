@@ -133,3 +133,23 @@ tr.securepoll-spoilt {
 .securepoll-error-box .oo-ui-buttonElement {
 	padding-left: 5px;
 }
+
+/* Match ol margin to ul margin */
+.election-summary-elected-list,
+.round-summary-tally-list {
+	margin: 0.3em 0 0 1.6em;
+}
+
+.round-summary-candidate-name {
+	display: inline;
+	font-weight: normal;
+}
+
+.round-candidate-elected .round-summary-candidate-name,
+.previously-elected .round-summary-candidate-name {
+	font-weight: bold;
+}
+
+.previously-elected {
+	color: #72777d;
+}

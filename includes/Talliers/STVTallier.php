@@ -4,6 +4,7 @@ namespace MediaWiki\Extensions\SecurePoll\Talliers;
 
 use MediaWiki\Extensions\SecurePoll\Context;
 use MediaWiki\Extensions\SecurePoll\Entities\Question;
+use OOUI\Tag;
 
 /**
  * A STVTallier class,
@@ -87,17 +88,291 @@ class STVTallier extends Tallier {
 	}
 
 	public function loadJSONResult( array $data ) {
-		// TODO: Implement loadJSONResult() method.
+		$this->resultsLog = $data['resultsLog'];
+		$this->rankedVotes = $data['rankedVotes'];
 	}
 
 	public function getJSONResult() {
-		// TODO: Implement getJSONResult() method.
-		return [];
+		return [
+			'resultsLog' => $this->resultsLog,
+			'rankedVotes' => $this->rankedVotes,
+		];
 	}
 
 	public function getHtmlResult() {
-		// TODO: Implement getHtmlResult() method.
-		return '';
+		// Generate overview of elected candidates
+		$electionSummary = new \OOUI\PanelLayout( [
+			'expanded' => false,
+			'content' => [],
+		] );
+		$electionSummary->appendContent(
+			( new Tag( 'h2' ) )->appendContent(
+				wfMessage( 'securepoll-stv-result-election-elected-header' )
+			)
+		);
+
+		$totalVotes = array_reduce( $this->rankedVotes, static function ( $count, $ballot ) {
+			return $count + $ballot['count'];
+		}, 0 );
+		$electionSummary->appendContent(
+			( new Tag( 'p' ) )->appendContent(
+				wfMessage( 'securepoll-stv-election-paramters' )
+					->numParams(
+						$this->seats,
+						count( $this->candidates ),
+						$totalVotes
+					)
+			)
+		);
+
+		$electedList = ( new Tag( 'ol' ) )->addClasses( [ 'election-summary-elected-list' ] );
+		for ( $i = 0; $i < $this->seats; $i++ ) {
+			if ( isset( $this->resultsLog['elected'][$i] ) ) {
+				$currentCandidate = $this->resultsLog['elected'][$i];
+				$electedList->appendContent(
+					( new Tag( 'li' ) )->appendContent(
+						$this->getCandidateName( $currentCandidate )
+					)
+				);
+			} else {
+				$electedList->appendContent(
+					( new Tag( 'li' ) )->appendContent(
+						( new Tag( 'i' ) )->appendContent(
+							wfMessage(
+								'securepoll-stv-result-elected-list-unfilled-seat',
+								implode(
+									wfMessage( 'comma-separator' ),
+									$this->getLastEliminated( $this->resultsLog['rounds'] )
+								)
+							)
+						)
+					)
+				);
+			}
+		}
+		$electionSummary->appendContent( $electedList );
+
+		// Generate overview of eliminated candidates
+		$electionSummary->appendContent(
+			( new Tag( 'h2' ) )->appendContent(
+				wfMessage( 'securepoll-stv-result-election-eliminated-header' )
+			)
+		);
+		$eliminatedList = ( new Tag( 'ul' ) );
+		foreach ( $this->resultsLog['eliminated'] as $eliminatedCandidate ) {
+			$eliminatedList->appendContent(
+				( new Tag( 'li' ) )->appendContent(
+					$this->getCandidateName( $eliminatedCandidate )
+				)
+			);
+		}
+		$electionSummary->appendContent( $eliminatedList );
+
+		$electionRounds = new \OOUI\PanelLayout( [
+			'expanded' => false,
+			'content' => [],
+		] );
+
+		$electionRounds->appendContent(
+			( new Tag( 'h2' ) )->appendContent(
+				wfMessage( 'securepoll-stv-result-election-rounds-header' )
+			)
+			);
+
+		// Generate rounds table
+		$table = new Tag( 'table' );
+		$table->addClasses( [
+			'wikitable'
+		] );
+
+		// thead
+		$table->appendContent(
+			( new Tag( 'thead' ) )->appendContent( ( new Tag( 'tr' ) )->appendContent(
+				( new Tag( 'th' ) )->appendContent(
+					wfMessage( 'securepoll-stv-result-election-round-number-table-heading' )
+				),
+				( new Tag( 'th' ) )->appendContent(
+					wfMessage( 'securepoll-stv-result-election-tally-table-heading' )
+				),
+				( new Tag( 'th' ) )->appendContent(
+					wfMessage( 'securepoll-stv-result-election-result-table-heading' )
+				)
+			) )
+		);
+
+		// tbody
+		$previouslyElected = [];
+		$previouslyEliminated = [];
+
+		$tbody = new Tag( 'tbody' );
+		foreach ( $this->resultsLog['rounds'] as $i => $round ) {
+			$tr = new Tag( 'tr' );
+
+			// Round number
+			$tr->appendContent(
+				( new Tag( 'td' ) )->appendContent(
+					$round['round']
+				)
+			);
+
+			// Sort rankings before listing them
+			uasort( $round['rankings'], static function ( $a, $b ) {
+				if ( $a['total'] == $b['total'] ) {
+					return 0;
+				}
+				return ( $a['total'] > $b['total'] ) ? -1 : 1;
+			} );
+
+			$tally = ( new Tag( 'ol' ) )->addClasses( [ 'round-summary-tally-list' ] );
+			$votesTransferred = false;
+			foreach ( $round['rankings'] as $currentCandidate => $rank ) {
+				$content = $lineItem = ( new Tag( 'li' ) );
+
+				// Was the candidate eliminated this round?
+				$candidateEliminatedThisRound = in_array( $currentCandidate, $round['eliminated'] );
+
+				if ( $candidateEliminatedThisRound ) {
+					$content = new Tag( 's' );
+					$lineItem->appendContent( $content );
+				}
+
+				$name = $this->getCandidateName( $currentCandidate );
+				$nameContent = ( new Tag( 'span' ) )
+					->appendContent( wfMessage( 'securepoll-stv-result-candidate', $name ) )
+					->addClasses( [ 'round-summary-candidate-name' ] );
+
+				$content->appendContent( $nameContent );
+
+				$candidateState = ( new Tag( 'span' ) )->addClasses( [ 'round-summary-candidate-votes' ] );
+				// Only show candidates who haven't been eliminated by this round
+				if ( !in_array( $currentCandidate, $previouslyEliminated ) ) {
+					// Round 1 should just show the initial votes and is guaranteed to neither elect nor eliminate
+					if ( $round['round'] === 1 ) {
+						$candidateState->appendContent(
+							wfMessage( 'securepoll-stv-result-votes-no-change' )
+								->numParams( $rank['total'] )
+						);
+					} elseif ( $rank['earned'] > 0 ) {
+						$candidateState->appendContent(
+							wfMessage( 'securepoll-stv-result-votes-gain' )
+								->numParams(
+									round( $rank['votes'], 6 ),
+									round( $rank['earned'], 6 ),
+									round( $rank['total'], 6 )
+								)
+						);
+						$votesTransferred = true;
+					} elseif ( $rank['earned'] < 0 ) {
+						$candidateState->appendContent(
+						wfMessage( 'securepoll-stv-result-votes-surplus' )
+							->numParams(
+								round( $rank['votes'], 6 ),
+								-round( $rank['earned'], 6 ),
+								round( $rank['total'], 6 )
+							)
+						);
+						$votesTransferred = true;
+					} else {
+						$candidateState->appendContent(
+							wfMessage( 'securepoll-stv-result-votes-no-change' )
+								->numParams( $rank['total'] )
+						);
+					}
+
+					if ( in_array( $currentCandidate, $round['elected'] ) ) {
+						$content->addClasses( [ 'round-candidate-elected' ] );
+
+						// Mark the candidate as having been previously elected (for display purposes only).
+						$previouslyElected[] = $currentCandidate;
+					} elseif ( in_array( $currentCandidate, $previouslyElected ) ) {
+						$content->addClasses( [ 'previously-elected' ] );
+						$candidateState
+							->appendContent( ' ' )
+							->appendContent(
+								wfMessage( 'securepoll-stv-result-round-keep-factor' )
+								->numParams( round( $round['keepFactors'][$currentCandidate], 6 ) )
+							);
+					} elseif ( $candidateEliminatedThisRound ) {
+						// Mark the candidate as having been previously eliminated (for display purposes only).
+						$previouslyEliminated[] = $currentCandidate;
+					}
+
+					$content->appendContent( $candidateState );
+
+					$tally->appendContent( $lineItem );
+				}
+			}
+			$tr->appendContent(
+				( new Tag( 'td' ) )->appendContent(
+					$tally
+				)
+			);
+
+			// Result
+			$roundResults = new Tag( 'td' );
+
+			// Quota
+			$roundResults->appendContent(
+				wfMessage( 'securepoll-stv-result-round-quota' )
+					->numParams( round( $round['quota'], 6 ) )
+			);
+			$roundResults->appendContent( new Tag( 'br' ) );
+
+			// Elected
+			if ( count( $round['elected'] ) ) {
+				$roundResults
+					->appendContent(
+						wfMessage(
+							'securepoll-stv-result-round-elected',
+							implode(
+								wfMessage( 'comma-separator' ),
+								array_map( [ $this, 'getCandidateName' ], $round['elected'] )
+							)
+						)
+					)
+					->appendContent( new Tag( 'br' ) );
+			}
+
+			// Eliminated
+			if ( count( $round['eliminated'] ) ) {
+				$roundResults
+					->appendContent(
+						wfMessage(
+							'securepoll-stv-result-round-eliminated',
+							implode(
+								wfMessage( 'comma-separator' ),
+								array_map( [ $this, 'getCandidateName' ], $round['eliminated'] )
+							)
+						)
+					)
+					->appendContent( new Tag( 'br' ) );
+			}
+
+			// Votes transferred
+			if ( $votesTransferred ) {
+				$roundResults
+					->appendContent( wfMessage( 'securepoll-stv-votes-transferred' ) )
+					->appendContent( new Tag( 'br' ) );
+			}
+
+			$tr->appendContent(
+				$roundResults
+			);
+
+			$tbody->appendContent( $tr );
+		}
+		$table->appendContent( $tbody );
+
+		$electionRounds->appendContent( $table );
+		return new \OOUI\StackLayout( [
+			'items' => [
+				$electionSummary,
+				$electionRounds,
+			],
+			'continuous' => true,
+			'expanded' => false,
+			'classes' => [ 'election-tally-results--stv' ]
+		] );
 	}
 
 	public function getTextResult() {
@@ -318,10 +593,10 @@ class STVTallier extends Tallier {
 		uasort(
 			$ranking,
 			static function ( $a, $b ) {
-			if ( $a['total'] == $b['total'] ) {
-				return 0;
-			}
-			return ( $a['total'] > $b['total'] ) ? -1 : 1;
+				if ( $a['total'] == $b['total'] ) {
+					return 0;
+				}
+				return ( $a['total'] > $b['total'] ) ? -1 : 1;
 			}
 		);
 
@@ -352,6 +627,34 @@ class STVTallier extends Tallier {
 				}
 				return false;
 			} ) );
+		}
+		return [];
+	}
+
+	/**
+	 * Given a candidate id, return the candidate name
+	 * @param string $id
+	 * @return string
+	 */
+	private function getCandidateName( $id ) {
+		return $this->candidates[$id];
+	}
+
+	/**
+	 * Given the rounds of an election, return the last set
+	 * of eliminated candidates by their candidate name
+	 * @param array $rounds
+	 * @return string[]
+	 */
+	private function getLastEliminated( $rounds ) {
+		$eliminationRounds = array_filter( $rounds, static function ( $round ) {
+			return $round['eliminated'];
+		} );
+		if ( $eliminationRounds ) {
+			$eliminated = array_pop( $eliminationRounds )['eliminated'];
+			return array_map( function ( $candidateId ) {
+				return $this->getCandidateName( $candidateId );
+			}, $eliminated );
 		}
 		return [];
 	}
