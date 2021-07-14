@@ -8,13 +8,13 @@ use MediaWiki\Extensions\SecurePoll\Context;
 use MediaWiki\Extensions\SecurePoll\SecurePollContentHandler;
 use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Languages\LanguageNameUtils;
+use MediaWiki\MediaWikiServices;
 use Message;
 use MWException;
 use MWExceptionHandler;
 use Title;
 use WikiMap;
 use Wikimedia\Rdbms\ILoadBalancer;
-use WikiPage;
 
 /**
  * A SecurePoll subpage for translating election messages.
@@ -330,12 +330,9 @@ class TranslatePage extends ActionPage {
 					"msg/$secondary"
 				);
 
-				$wp = WikiPage::factory( $title );
-				$wp->doUserEditContent(
-					$content,
-					$this->specialPage->getUser(),
-					$request->getText( 'comment' )
-				);
+				$page = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
+				$updater = $page->newPageUpdater( $this->user );
+				$updater->saveRevision( $content, $request->getText( 'comment' ) );
 			}
 
 			// Then each jump-wiki
