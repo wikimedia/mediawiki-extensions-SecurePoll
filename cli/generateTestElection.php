@@ -74,8 +74,8 @@ class GenerateTestElection extends Maintenance {
 
 				// Check if anyone withdrew
 				// (We currently do nothing with this information)
-				$withdrew = explode( ' ', array_shift( $ballotsFile ) );
-				if ( is_numeric( trim( $withdrew[0] ) ) && (int)$withdrew[0] >= 0 ) {
+				$withdrew = array_shift( $ballotsFile );
+				if ( is_numeric( trim( explode( ' ', $withdrew )[0] ) ) && (int)$withdrew[0] >= 0 ) {
 					// It's actually a ballot. Put it back.
 					array_unshift( $ballotsFile, $withdrew );
 				}
