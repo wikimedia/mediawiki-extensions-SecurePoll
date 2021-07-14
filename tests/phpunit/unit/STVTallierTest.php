@@ -9,6 +9,7 @@ use MediaWiki\Extensions\SecurePoll\Talliers\STVTallier;
 use MediaWiki\Extensions\SecurePoll\Talliers\Tallier;
 use MediaWikiUnitTestCase;
 use RequestContext;
+use Wikimedia\TestingAccessWrapper;
 
 /**
  * @group SecurePoll
@@ -111,4 +112,13 @@ class STVTallierTest extends MediaWikiUnitTestCase {
 			$expected['rankedVotes']
 		);
 	}
+
+	/**
+	 * @covers \MediaWiki\Extensions\SecurePoll\Talliers\STVTallier::calculateDroopQuota
+	 */
+	public function testCalculateDroopQuota() {
+		$actual = TestingAccessWrapper::newFromObject( $this->tallier )->calculateDroopQuota( 57, 2 );
+		$this->assertSame( 19.000001000000001, $actual );
+	}
+
 }
