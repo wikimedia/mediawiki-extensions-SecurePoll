@@ -311,6 +311,9 @@ class CreatePage extends ActionPage {
 				'type' => 'submit',
 				'default' => $this->msg( 'securepoll-create-label-questions-delete' )->text(),
 				'disabled' => $isRunning,
+				'flags' => [
+					'destructive'
+				],
 			],
 		];
 
@@ -333,6 +336,9 @@ class CreatePage extends ActionPage {
 				'type' => 'submit',
 				'default' => $this->msg( 'securepoll-create-label-options-delete' )->text(),
 				'disabled' => $isRunning,
+				'flags' => [
+					'destructive'
+				],
 			],
 		];
 
