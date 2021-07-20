@@ -27,7 +27,8 @@ foreach ( $res as $row ) {
 
 	print "Got article " . (int)$row->page_id . "\n";
 
-	$text = ContentHandler::getContentText( $page->getContent() );
+	$content = $page->getContent();
+	$text = ( $content instanceof TextContent ) ? $content->getText() : null;
 
 	$len = strlen( $textPrefix );
 	if ( substr( $text, 0, $len ) == $textPrefix ) {
