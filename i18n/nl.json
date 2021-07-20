@@ -3,6 +3,7 @@
 		"authors": [
 			"Hansmuller",
 			"Lolsimon",
+			"McDutchie",
 			"Mwpnl",
 			"NthnH",
 			"Robin van der Vliet",
@@ -182,7 +183,7 @@
 	"securepoll-votereligibility-cleared": "{{int:securepoll}}: Gewist",
 	"securepoll-votereligibility-cleared-comment": "$1 gewist.",
 	"right-securepoll-create-poll": "Peilingen aanmaken",
-	"action-securepoll-create-poll": "peilingen aanmaken",
+	"action-securepoll-create-poll": "peilingen aan te maken en logs te bekijken",
 	"securepoll-stv-droop-default-value": "Selecteer een optie",
 	"securepoll-stv-droop-choice-rank": "Voorkeur $1",
 	"securepoll-stv-invalid-rank-order": "Voorkeuren moeten geselecteerd worden in opeenvolgende volgorde. Kies alstublieft een optie uit voor: $1",
