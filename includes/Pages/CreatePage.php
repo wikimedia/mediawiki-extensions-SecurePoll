@@ -878,7 +878,7 @@ class CreatePage extends ActionPage {
 		array $originalFormData,
 		array $formData,
 		int $electionId
-	) : void {
+	): void {
 		if ( isset( $originalFormData['property_admins'] ) ) {
 			$oldAdmins = explode( "\n", $originalFormData['property_admins'] );
 		} else {

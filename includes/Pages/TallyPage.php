@@ -89,7 +89,7 @@ class TallyPage extends ActionPage {
 	/**
 	 * Show any errors from the most recent tally attempt
 	 */
-	private function showTallyError() : void {
+	private function showTallyError(): void {
 		$dbr = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_REPLICA );
 		$out = $this->specialPage->getOutput();
 
@@ -120,7 +120,7 @@ class TallyPage extends ActionPage {
 	 *
 	 * @return bool
 	 */
-	private function isTallyOngoing() : bool {
+	private function isTallyOngoing(): bool {
 		if ( $this->tallyOngoing !== null ) {
 			return $this->tallyOngoing;
 		}
@@ -145,7 +145,7 @@ class TallyPage extends ActionPage {
 	/**
 	 * Show messages indicating the status of tallying if relevant
 	 */
-	private function showTallyStatus() : void {
+	private function showTallyStatus(): void {
 		if ( $this->isTallyOngoing() ) {
 			$message = new MessageWidget( [
 				'label' => $this->msg( 'securepoll-tally-ongoing' )->text(),
@@ -158,7 +158,7 @@ class TallyPage extends ActionPage {
 	/**
 	 * Show the tally result if one has previously been calculated
 	 */
-	private function showTallyResult() : void {
+	private function showTallyResult(): void {
 		$dbr = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_REPLICA );
 		$out = $this->specialPage->getOutput();
 
@@ -234,7 +234,7 @@ class TallyPage extends ActionPage {
 	 *
 	 * @return array
 	 */
-	private function getCryptDescriptors() : array {
+	private function getCryptDescriptors(): array {
 		$crypt = $this->election->getCrypt();
 
 		if ( !$crypt ) {
@@ -443,7 +443,7 @@ class TallyPage extends ActionPage {
 	 * @param Election $election The election to be tallied
 	 * @param array $data Form data
 	 */
-	private function updateContextForCrypt( Election $election, array $data ) : void {
+	private function updateContextForCrypt( Election $election, array $data ): void {
 		$crypt = $election->getCrypt();
 		if ( $crypt ) {
 			$crypt->updateTallyContext( $election->context, $data );

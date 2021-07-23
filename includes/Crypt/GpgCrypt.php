@@ -81,7 +81,7 @@ class GpgCrypt {
 		];
 	}
 
-	public static function updateTallyContext( Context $context, array $data ) : void {
+	public static function updateTallyContext( Context $context, array $data ): void {
 		if ( isset( $data['gpg-decrypt-key'] ) ) {
 			$context->decryptData['gpg-decrypt-key'] = $data['gpg-decrypt-key'];
 		}

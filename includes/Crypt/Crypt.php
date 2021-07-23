@@ -90,7 +90,7 @@ abstract class Crypt {
 	 *
 	 * @return array
 	 */
-	public static function getTallyDescriptors() : array {
+	public static function getTallyDescriptors(): array {
 		return [];
 	}
 
@@ -103,6 +103,6 @@ abstract class Crypt {
 	 * @param Context $context
 	 * @param array $data
 	 */
-	public static function updateTallyContext( Context $context, array $data ) : void {
+	public static function updateTallyContext( Context $context, array $data ): void {
 	}
 }
