@@ -166,6 +166,7 @@ class STVTallier extends Tallier {
 		$roundWinners = $round['elected'] = array_diff( $allWinners, $this->resultsLog['elected'] );
 
 		// If no winners, check for eliminated (no distribution happens here)
+		$round['surplus'] = $this->calculateSurplus( $round['rankings'], $allWinners, $round['quota'] );
 		$allEliminated = $this->declareEliminated(
 			$round['rankings'],
 			$round['surplus'],
