@@ -2,9 +2,10 @@
 
 namespace MediaWiki\Extensions\SecurePoll\Pages;
 
-use DeferredUpdates;
 use Exception;
 use HTMLForm;
+use JobQueueGroup;
+use JobSpecification;
 use MediaWiki\Extensions\SecurePoll\Context;
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
 use MediaWiki\Extensions\SecurePoll\MemoryStore;
@@ -22,19 +23,25 @@ class TallyPage extends ActionPage {
 	/** @var ILoadBalancer */
 	private $loadBalancer;
 
+	/** @var JobQueueGroup */
+	private $jobQueueGroup;
+
 	/** @var bool */
-	private $tallyOngoing = null;
+	private $tallyEnqueued = null;
 
 	/**
 	 * @param SpecialSecurePoll $specialPage
 	 * @param ILoadBalancer $loadBalancer
+	 * @param JobQueueGroup $jobQueueGroup
 	 */
 	public function __construct(
 		SpecialSecurePoll $specialPage,
-		ILoadBalancer $loadBalancer
+		ILoadBalancer $loadBalancer,
+		JobQueueGroup $jobQueueGroup
 	) {
 		parent::__construct( $specialPage );
 		$this->loadBalancer = $loadBalancer;
+		$this->jobQueueGroup = $jobQueueGroup;
 	}
 
 	/**
@@ -76,11 +83,12 @@ class TallyPage extends ActionPage {
 			return;
 		}
 
+		$this->showTallyStatus();
+
 		$form = $this->createForm();
 		$form->show();
 
 		if ( !$form->wasSubmitted() ) {
-			$this->showTallyStatus();
 			$this->showTallyError();
 			$this->showTallyResult();
 		}
@@ -116,13 +124,13 @@ class TallyPage extends ActionPage {
 	}
 
 	/**
-	 * Check whether there is an ongoing tally
+	 * Check whether there is enqueued tally
 	 *
 	 * @return bool
 	 */
-	private function isTallyOngoing(): bool {
-		if ( $this->tallyOngoing !== null ) {
-			return $this->tallyOngoing;
+	private function isTallyEnqueued(): bool {
+		if ( $this->tallyEnqueued !== null ) {
+			return $this->tallyEnqueued;
 		}
 
 		$dbr = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_REPLICA );
@@ -134,24 +142,40 @@ class TallyPage extends ActionPage {
 			[
 				'pr_entity' => $this->election->getId(),
 				'pr_key' => [
-					'tally-ongoing',
+					'tally-job-enqueued',
 				],
 			]
 		);
-		$this->tallyOngoing = (bool)$result;
-		return $this->tallyOngoing;
+		$this->tallyEnqueued = (bool)$result;
+		return $this->tallyEnqueued;
 	}
 
 	/**
 	 * Show messages indicating the status of tallying if relevant
 	 */
 	private function showTallyStatus(): void {
-		if ( $this->isTallyOngoing() ) {
+		$dbr = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_REPLICA );
+		$out = $this->specialPage->getOutput();
+
+		$result = $dbr->selectField(
+			'securepoll_properties',
+			[
+				'pr_value',
+			],
+			[
+				'pr_entity' => $this->election->getId(),
+				'pr_key' => [
+					'tally-job-enqueued',
+				],
+			]
+		);
+
+		if ( $result ) {
 			$message = new MessageWidget( [
-				'label' => $this->msg( 'securepoll-tally-ongoing' )->text(),
+				'label' => $this->msg( 'securepoll-tally-job-enqueued' )->text(),
 				'type' => 'warning',
 			] );
-			$this->specialPage->getOutput()->prependHtml( $message->toString() );
+			$out->addHtml( $message->toString() );
 		}
 	}
 
@@ -183,9 +207,9 @@ class TallyPage extends ActionPage {
 
 		$out->addHTML(
 			$out->msg( 'securepoll-tally-result' )
-			  ->rawParams( $tallier->getHtmlResult() )
-			  ->dateTimeParams( wfTimestamp( TS_UNIX, $time ) )
-		  );
+				->rawParams( $tallier->getHtmlResult() )
+				->dateTimeParams( wfTimestamp( TS_UNIX, $time ) )
+		);
 	}
 
 	/**
@@ -196,7 +220,7 @@ class TallyPage extends ActionPage {
 	private function createForm() {
 		$formFields = $this->getCryptDescriptors();
 
-		if ( $this->isTallyOngoing() ) {
+		if ( $this->isTallyEnqueued() ) {
 			foreach ( $formFields as $fieldname => $field ) {
 				$formFields[$fieldname]['disabled'] = true;
 			}
@@ -218,7 +242,7 @@ class TallyPage extends ActionPage {
 		$form->setSubmitTextMsg( 'securepoll-tally-upload-submit' )
 			->setSubmitCallback( [ $this, 'submitForm' ] );
 
-		if ( $this->isTallyOngoing() ) {
+		if ( $this->isTallyEnqueued() ) {
 			$form->suppressDefaultSubmit();
 		}
 
@@ -270,135 +294,9 @@ class TallyPage extends ActionPage {
 			|| !is_uploaded_file( $upload->getTempName() )
 			|| !$upload->getSize()
 		) {
-			return $this->submitLocal( $data );
+			return $this->submitJob( $this->election, $data );
 		}
 		return $this->submitUpload( $data, $upload );
-	}
-
-	/**
-	 * Show a tally of the local DB
-	 *
-	 * @param array $data Data from the form fields
-	 * @return bool|string|array|Status As documented for HTMLForm::trySubmit
-	 */
-	private function submitLocal( array $data ) {
-		if ( $this->isTallyOngoing() ) {
-			// Do nothing until the ongoing tally completes
-			return;
-		}
-
-		$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_PRIMARY );
-		$election = $this->election;
-		$electionId = $election->getId();
-		$method = __METHOD__;
-
-		$this->updateContextForCrypt( $election, $data );
-
-		// Record that the election is being tallied. This will be
-		// deleted on completion.
-		$dbw->insert(
-			'securepoll_properties',
-			[
-				'pr_entity' => $electionId,
-				'pr_key' => 'tally-ongoing',
-				'pr_value' => 1,
-			],
-			$method,
-			[ 'IGNORE' ]
-		);
-
-		// Remove any errors from previous tally attempts
-		$dbw->delete(
-			'securepoll_properties',
-			[
-				'pr_entity' => $electionId,
-				'pr_key' => 'tally-error',
-			],
-			$method
-		);
-
-		// Tallying can take a long time, so defer
-		DeferredUpdates::addCallableUpdate(
-			static function () use ( $method, $election, $dbw ) {
-				$electionId = $election->getId();
-
-				$status = $election->tally();
-				if ( !$status->isOK() ) {
-					$dbw->upsert(
-						'securepoll_properties',
-						[
-							'pr_entity' => $electionId,
-							'pr_key' => 'tally-error',
-							'pr_value' => $status->getMessage(),
-						],
-						[
-							[
-								'pr_entity',
-								'pr_key',
-							],
-						],
-						[
-							'pr_value' => $status->getMessage(),
-						],
-						$method
-					);
-				} else {
-					$tallier = $status->value;
-					$result = json_encode( $tallier->getJSONResult() );
-
-					$dbw->upsert(
-						'securepoll_properties',
-						[
-							'pr_entity' => $electionId,
-							'pr_key' => 'tally-result',
-							'pr_value' => $result,
-						],
-						[
-							[
-								'pr_entity',
-								'pr_key',
-							],
-						],
-						[
-							'pr_value' => $result,
-						],
-						$method
-					);
-
-					$time = time();
-					$dbw->upsert(
-						'securepoll_properties',
-						[
-							'pr_entity' => $electionId,
-							'pr_key' => 'tally-result-time',
-							'pr_value' => $time,
-						],
-						[
-							[
-								'pr_entity',
-								'pr_key',
-							],
-						],
-						[
-							'pr_value' => $time,
-						],
-						$method
-					);
-				}
-
-				$dbw->delete(
-					'securepoll_properties',
-					[
-						'pr_entity' => $electionId,
-						'pr_key' => 'tally-ongoing',
-					],
-					$method
-				);
-			}
-		);
-
-		$this->specialPage->getOutput()->addWikiMsg( 'securepoll-tally-ongoing' );
-		return true;
 	}
 
 	/**
@@ -433,6 +331,66 @@ class TallyPage extends ActionPage {
 		}
 		$tallier = $status->value;
 		$out->addHTML( $tallier->getHtmlResult() );
+		return true;
+	}
+
+	/**
+	 * @param Election $election
+	 * @param array $data
+	 * @return bool
+	 */
+	private function submitJob( Election $election, array $data ): bool {
+		$electionId = $election->getId();
+		$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_PRIMARY );
+
+		$crypt = $election->getCrypt();
+		if ( $crypt ) {
+			// Save any request data that is needed for tallying
+			$election->getCrypt()->updateDbForTallyJob( $electionId, $dbw, $data );
+		}
+
+		// Record that the election is being tallied. The job will
+		// delete this on completion.
+		$dbw->upsert(
+			'securepoll_properties',
+			[
+				'pr_entity' => $electionId,
+				'pr_key' => 'tally-job-enqueued',
+				'pr_value' => 1,
+			],
+			[
+				[
+					'pr_entity',
+					'pr_key'
+				],
+			],
+			[
+				'pr_entity' => $electionId,
+				'pr_key' => 'tally-job-enqueued',
+			],
+			__METHOD__
+		);
+
+		$this->jobQueueGroup->push(
+			new JobSpecification(
+				'securePollTallyElection',
+				[ 'electionId' => $electionId ],
+				[],
+				$this->getTitle()
+			)
+		);
+
+		$this->showTallyStatus();
+
+		// Delete error to prevent showing old errors while job is queueing
+		$dbw->delete(
+			'securepoll_properties',
+			[
+				'pr_entity' => $electionId,
+				'pr_key' => 'tally-error',
+			],
+			__METHOD__
+		);
 		return true;
 	}
 

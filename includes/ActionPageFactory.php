@@ -64,6 +64,7 @@ class ActionPageFactory {
 			'class' => TallyPage::class,
 			'services' => [
 				'DBLoadBalancer',
+				'JobQueueGroup',
 			],
 		],
 		'translate' => [

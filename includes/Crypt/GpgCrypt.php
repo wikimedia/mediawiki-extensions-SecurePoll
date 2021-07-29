@@ -8,6 +8,7 @@ use MediaWiki\Shell\Shell;
 use MWCryptRand;
 use MWException;
 use Status;
+use Wikimedia\Rdbms\IDatabase;
 
 /**
  * Cryptography module that shells out to GPG
@@ -81,10 +82,70 @@ class GpgCrypt {
 		];
 	}
 
-	public static function updateTallyContext( Context $context, array $data ): void {
+	public static function updateDbForTallyJob(
+		int $electionId,
+		IDatabase $dbw,
+		array $data
+	): void {
+		// Add private key to DB if it was entered in the form
 		if ( isset( $data['gpg-decrypt-key'] ) ) {
-			$context->decryptData['gpg-decrypt-key'] = $data['gpg-decrypt-key'];
+			$dbw->upsert(
+				'securepoll_properties',
+				[
+					'pr_entity' => $electionId,
+					'pr_key' => 'gpg-decrypt-key',
+					'pr_value' => $data['gpg-decrypt-key'],
+				],
+				[
+					[
+						'pr_entity',
+						'pr_key'
+					],
+				],
+				[
+					'pr_entity' => $electionId,
+					'pr_key' => 'gpg-decrypt-key',
+					'pr_value' => $data['gpg-decrypt-key'],
+				],
+				__METHOD__
+			);
+			$dbw->insert(
+				'securepoll_properties',
+				[
+					'pr_entity' => $electionId,
+					'pr_key' => 'delete-gpg-decrypt-key',
+					'pr_value' => 1,
+				],
+				__METHOD__,
+				[ 'IGNORE' ]
+			);
 		}
+	}
+
+	public static function cleanupDbForTallyJob( int $electionId, IDatabase $dbw ): void {
+		$result = $dbw->select(
+			'securepoll_properties',
+			[ 'pr_entity' ],
+			[
+				'pr_entity' => $electionId,
+				'pr_key' => 'delete-gpg-decrypt-key',
+			],
+			__METHOD__
+		);
+
+		// Only delete key if it was added for this job
+		if ( !$result->numRows() ) {
+			return;
+		}
+
+		$dbw->delete(
+			'securepoll_properties',
+			[
+				'pr_entity' => $electionId,
+				'pr_key' => [ 'gpg-decrypt-key', 'delete-gpg-decrypt-key' ],
+			],
+			__METHOD__
+		);
 	}
 
 	public static function checkEncryptKey( $key ) {
@@ -234,8 +295,9 @@ class GpgCrypt {
 			return;
 		}
 
-		// phpcs:ignore MediaWiki.ControlStructures.AssignmentInControlStructures
-		while ( ( $file = readdir( $dir ) ) !== false ) {
+		// @codingStandardsIgnoreStart
+		while ( false !== ( $file = readdir( $dir ) ) ) {
+			// @codingStandardsIgnoreEnd
 			if ( $file == '.' || $file == '..' ) {
 				continue;
 			}
