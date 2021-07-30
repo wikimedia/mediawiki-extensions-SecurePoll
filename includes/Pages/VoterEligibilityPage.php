@@ -24,6 +24,7 @@ use TitleFactory;
 use WikiMap;
 use Wikimedia\Rdbms\DBConnectionError;
 use Wikimedia\Rdbms\ILoadBalancer;
+use Wikimedia\Rdbms\LBFactory;
 use WikiPage;
 
 /**
@@ -37,8 +38,8 @@ class VoterEligibilityPage extends ActionPage {
 		'exclude' => 'exclude-list',
 	];
 
-	/** @var ILoadBalancer */
-	private $loadBalancer;
+	/** @var LBFactory */
+	private $lbFactory;
 
 	/** @var LinkRenderer */
 	private $linkRenderer;
@@ -51,20 +52,20 @@ class VoterEligibilityPage extends ActionPage {
 
 	/**
 	 * @param SpecialSecurePoll $specialPage
-	 * @param ILoadBalancer $loadBalancer
+	 * @param LBFactory $lbFactory
 	 * @param LinkRenderer $linkRenderer
 	 * @param TitleFactory $titleFactory
 	 * @param UserGroupManager $userGroupManager
 	 */
 	public function __construct(
 		SpecialSecurePoll $specialPage,
-		ILoadBalancer $loadBalancer,
+		LBFactory $lbFactory,
 		LinkRenderer $linkRenderer,
 		TitleFactory $titleFactory,
 		UserGroupManager $userGroupManager
 	) {
 		parent::__construct( $specialPage );
-		$this->loadBalancer = $loadBalancer;
+		$this->lbFactory = $lbFactory;
 		$this->linkRenderer = $linkRenderer;
 		$this->titleFactory = $titleFactory;
 		$this->userGroupManager = $userGroupManager;
@@ -159,10 +160,12 @@ class VoterEligibilityPage extends ActionPage {
 		foreach ( $wikis as $dbname ) {
 
 			if ( $dbname === $localWiki ) {
-				$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_PRIMARY );
+				$lb = $this->lbFactory->getMainLB();
+				$dbw = $lb->getConnectionRef( ILoadBalancer::DB_PRIMARY );
 			} else {
 				unset( $dbw );
-				$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_PRIMARY, [], $dbname );
+				$lb = $this->lbFactory->getMainLB( $dbname );
+				$dbw = $lb->getConnectionRef( ILoadBalancer::DB_PRIMARY, [], $dbname );
 
 				try {
 					// Connect to the DB and check if the LB is in read-only mode
@@ -238,7 +241,8 @@ class VoterEligibilityPage extends ActionPage {
 
 		$names = [];
 		foreach ( $wikis as $dbname ) {
-			$dbr = $this->loadBalancer->getConnectionref( $db, [], $dbname );
+			$lb = $this->lbFactory->getMainLB( $dbname );
+			$dbr = $lb->getConnectionref( $db, [], $dbname );
 
 			$id = $dbr->selectField(
 				'securepoll_elections',
@@ -330,10 +334,12 @@ class VoterEligibilityPage extends ActionPage {
 		$dbw = null;
 		foreach ( $wikis as $dbname ) {
 			if ( $dbname === $localWiki ) {
-				$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_PRIMARY );
+				$lb = $this->lbFactory->getMainLB( $dbname );
+				$dbw = $lb->getConnectionRef( ILoadBalancer::DB_PRIMARY );
 			} else {
 				unset( $dbw );
-				$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_PRIMARY, [], $dbname );
+				$lb = $this->lbFactory->getMainLB( $dbname );
+				$dbw = $lb->getConnectionRef( ILoadBalancer::DB_PRIMARY, [], $dbname );
 
 				try {
 					// Connect to the DB and check if the LB is in read-only mode
@@ -1236,11 +1242,13 @@ class VoterEligibilityPage extends ActionPage {
 		foreach ( $wikis as $dbname ) {
 
 			if ( $dbname === $localWiki ) {
-				$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_PRIMARY );
+				$lb = $this->lbFactory->getMainLB();
+				$dbw = $lb->getConnectionRef( ILoadBalancer::DB_PRIMARY );
 			} else {
 
 				unset( $dbw );
-				$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_PRIMARY, [], $dbname );
+				$lb = $this->lbFactory->getMainLB( $dbname );
+				$dbw = $lb->getConnectionRef( ILoadBalancer::DB_PRIMARY, [], $dbname );
 			}
 
 			$dbw->startAtomic( __METHOD__ );

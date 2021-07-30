@@ -25,14 +25,15 @@ use User;
 use WikiMap;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\ILoadBalancer;
+use Wikimedia\Rdbms\LBFactory;
 use WikiPage;
 
 /**
  * Special:SecurePoll subpage for creating or editing a poll
  */
 class CreatePage extends ActionPage {
-	/** @var ILoadBalancer */
-	private $loadBalancer;
+	/** @var LBFactory */
+	private $lbFactory;
 
 	/** @var UserGroupManager */
 	private $userGroupManager;
@@ -42,18 +43,18 @@ class CreatePage extends ActionPage {
 
 	/**
 	 * @param SpecialSecurePoll $specialPage
-	 * @param ILoadBalancer $loadBalancer
+	 * @param LBFactory $lbFactory
 	 * @param UserGroupManager $userGroupManager
 	 * @param LanguageNameUtils $languageNameUtils
 	 */
 	public function __construct(
 		SpecialSecurePoll $specialPage,
-		ILoadBalancer $loadBalancer,
+		LBFactory $lbFactory,
 		UserGroupManager $userGroupManager,
 		LanguageNameUtils $languageNameUtils
 	) {
 		parent::__construct( $specialPage );
-		$this->loadBalancer = $loadBalancer;
+		$this->lbFactory = $lbFactory;
 		$this->userGroupManager = $userGroupManager;
 		$this->languageNameUtils = $languageNameUtils;
 	}
@@ -534,7 +535,7 @@ class CreatePage extends ActionPage {
 			$originalFormData = $this->getFormDataFromElection();
 		}
 
-		$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_PRIMARY );
+		$dbw = $this->lbFactory->getMainLB()->getConnectionRef( ILoadBalancer::DB_PRIMARY );
 		$dbw->startAtomic( __METHOD__ );
 		foreach ( $fields as $pr_key => $pr_value ) {
 			$dbw->update(
@@ -571,7 +572,7 @@ class CreatePage extends ActionPage {
 				return Status::newFatal( 'securepoll-create-fail-bad-id' );
 			}
 
-			$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_PRIMARY );
+			$dbw = $this->lbFactory->getMainLB()->getConnectionRef( ILoadBalancer::DB_PRIMARY );
 
 			// Check for duplicate titles on the local wiki
 			$id = $dbw->selectField(
@@ -594,7 +595,8 @@ class CreatePage extends ActionPage {
 			// matter in practice)
 			if ( $store->rId ) {
 				foreach ( $store->remoteWikis as $dbname ) {
-					$rdbw = $this->loadBalancer->getConnection( DB_PRIMARY, [], $dbname );
+					$lb = $this->lbFactory->getMainLB( $dbname );
+					$rdbw = $lb->getConnection( DB_PRIMARY, [], $dbname );
 
 					// Find an existing dummy election, if any
 					$rId = $rdbw->selectField(
@@ -622,7 +624,7 @@ class CreatePage extends ActionPage {
 						__METHOD__
 					);
 
-					$this->loadBalancer->reuseConnection( $rdbw );
+					$lb->reuseConnection( $rdbw );
 
 					if ( $id && $id !== $rId ) {
 						throw new StatusException(
@@ -768,7 +770,8 @@ class CreatePage extends ActionPage {
 		if ( $store->rId ) {
 			$election = $context->getElection( $store->rId );
 			foreach ( $store->remoteWikis as $dbname ) {
-				$dbw = $this->loadBalancer->getConnection( ILoadBalancer::DB_PRIMARY, [], $dbname );
+				$lb = $this->lbFactory->getMainLB( $dbname );
+				$dbw = $lb->getConnection( ILoadBalancer::DB_PRIMARY, [], $dbname );
 				$dbw->startAtomic( __METHOD__ );
 				// Find an existing dummy election, if any
 				$rId = $dbw->selectField(
@@ -820,7 +823,7 @@ class CreatePage extends ActionPage {
 					__METHOD__
 				);
 				$dbw->endAtomic( __METHOD__ );
-				$this->loadBalancer->reuseConnection( $dbw );
+				$lb->reuseConnection( $dbw );
 			}
 		}
 
@@ -895,7 +898,7 @@ class CreatePage extends ActionPage {
 			self::LOG_TYPE_REMOVEADMIN => array_diff( $oldAdmins, $newAdmins ),
 		];
 
-		$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_PRIMARY );
+		$dbw = $this->lbFactory->getMainLB()->getConnectionRef( ILoadBalancer::DB_PRIMARY );
 		$fields = [
 			'spl_timestamp' => $dbw->timestamp( time() ),
 			'spl_election_id' => $electionId,
