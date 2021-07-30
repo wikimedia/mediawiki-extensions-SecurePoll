@@ -282,5 +282,18 @@
 	"securepoll-stv-invalid-rank-order": "Preferensi harus dipilih secara berurutan. Silakan pilih opsi untuk: $1",
 	"securepoll-stv-invalid-rank-duplicate": "Opsi tidak dapat dipilih beberapa kali dalam peringkat yang sama. Silakan ubah opsi untuk: $1",
 	"securepoll-stv-invalid-input-empty": "Silakan isi preferensi ini",
-	"securepoll-stv-invalid-input-duplicate": "Silakan pilih opsi yang berbeda untuk preferensi ini"
+	"securepoll-stv-invalid-input-duplicate": "Silakan pilih opsi yang berbeda untuk preferensi ini",
+	"securepoll-stv-result-election-elected-header": "Terpilih",
+	"securepoll-stv-election-paramters": "Pemilihan untuk $1 kursi dengan $2 calon. Total $3 suara.",
+	"securepoll-stv-result-elected-list-unfilled-seat": "Kursi ini tidak dapat diisi karena tidak ada calon yang memenuhi kriteria. Calon yang tersingkir terakhir adalah: $1",
+	"securepoll-stv-result-election-eliminated-header": "Tersingkir",
+	"securepoll-stv-result-election-rounds-header": "Forum diskusi",
+	"securepoll-stv-result-election-round-number-table-heading": "Angka Bulat",
+	"securepoll-stv-result-election-tally-table-heading": "Turus",
+	"securepoll-stv-result-election-result-table-heading": "Hasil",
+	"securepoll-stv-votes-transferred": "Memindahkan suara",
+	"securepoll-stv-result-round-quota": "Kuota: $1",
+	"securepoll-stv-result-round-elected": "Terpilih: $1",
+	"securepoll-stv-result-round-eliminated": "Tersingkir: $1",
+	"securepoll-stv-result-round-keep-factor": "(pertahankan faktor: $1 )"
 }

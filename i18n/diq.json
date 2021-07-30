@@ -115,5 +115,6 @@
 	"securepoll-create-label-property_admins": "İdarekari:",
 	"securepoll-create-label-comment": "Sebeb",
 	"securepoll-votereligibility-label-comment": "Sebeb",
-	"securepoll-votereligibility-saved": "{{int:securepoll}}: Qeyd bi"
+	"securepoll-votereligibility-saved": "{{int:securepoll}}: Qeyd bi",
+	"securepoll-stv-result-election-result-table-heading": "Netice"
 }

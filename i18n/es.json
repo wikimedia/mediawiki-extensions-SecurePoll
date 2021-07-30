@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"-sasha-",
 			"Armando-Martin",
 			"Crazymadlover",
 			"Dferg",
@@ -295,5 +296,9 @@
 	"securepoll-stv-invalid-rank-order": "Las preferencias deben seleccionarse en orden secuencial. Por favor, elija una opción para: $1",
 	"securepoll-stv-invalid-rank-duplicate": "Las opciones no se pueden seleccionar varias veces en la clasificación. Cambie la opción de: $1",
 	"securepoll-stv-invalid-input-empty": "Por favor llene esta preferencia",
-	"securepoll-stv-invalid-input-duplicate": "Complacer seleccionar una opción diferente para esta preferencia"
+	"securepoll-stv-invalid-input-duplicate": "Complacer seleccionar una opción diferente para esta preferencia",
+	"securepoll-stv-result-election-eliminated-header": "Eliminado",
+	"securepoll-stv-result-election-result-table-heading": "Resultado",
+	"securepoll-stv-result-round-quota": "Cuota: $1",
+	"securepoll-stv-result-round-eliminated": "Eliminado: $1"
 }

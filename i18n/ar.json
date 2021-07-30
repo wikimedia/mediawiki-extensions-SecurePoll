@@ -5,6 +5,7 @@
 			"Aiman titi",
 			"Kuwaity26",
 			"Meno25",
+			"Mervat (WMF)",
 			"Orango",
 			"OsamaK",
 			"Ravan",
@@ -281,5 +282,18 @@
 	"securepoll-stv-invalid-rank-order": "يجب تحديد التفضيلات بترتيب تسلسلي. الرجاء تحديد خيار ل: $1",
 	"securepoll-stv-invalid-rank-duplicate": "لا يمكن اختيار نفس الترتيب عدة مرات. الرجاء تغيير خيار: $1",
 	"securepoll-stv-invalid-input-empty": "يرجى ملء هذا التفضيل",
-	"securepoll-stv-invalid-input-duplicate": "الرجاء تحديد خيار مختلف لهذا التفضيل"
+	"securepoll-stv-invalid-input-duplicate": "الرجاء تحديد خيار مختلف لهذا التفضيل",
+	"securepoll-stv-result-election-elected-header": "منَتخَب",
+	"securepoll-stv-election-paramters": "الانتخابات لـ $1 مثاعد بعدد $2 مرشّحاً. مجموع الأصوات $3",
+	"securepoll-stv-result-elected-list-unfilled-seat": "لم يتسنّ شغل هذا المقعد لعدم وجود مرشحين يستوفون المعايير. آخر المرشحين المستبعدين هم: $1",
+	"securepoll-stv-result-election-eliminated-header": "المستبعدون",
+	"securepoll-stv-result-election-rounds-header": "نقاش طاولة مستديرة",
+	"securepoll-stv-result-election-round-number-table-heading": "رقم الجولة",
+	"securepoll-stv-result-election-tally-table-heading": "إحصاء الأصوات",
+	"securepoll-stv-result-election-result-table-heading": "النتيجة",
+	"securepoll-stv-votes-transferred": "نقل الأصوات",
+	"securepoll-stv-result-round-quota": "الكوتا: $1",
+	"securepoll-stv-result-round-elected": "المنتخبون: $1",
+	"securepoll-stv-result-round-eliminated": "المستبعدون: $1",
+	"securepoll-stv-result-round-keep-factor": "(معامل الاحتفاظ: $1)"
 }

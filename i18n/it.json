@@ -281,5 +281,18 @@
 	"securepoll-stv-invalid-rank-order": "Le preferenze devono essere selezionate in ordine sequenziale. Scegli un'opzione per: $1",
 	"securepoll-stv-invalid-rank-duplicate": "Le opzioni non possono essere selezionate più volte nella classifica. Si prega di modificare l'opzione per: $1",
 	"securepoll-stv-invalid-input-empty": "Si prega di compilare questa preferenza",
-	"securepoll-stv-invalid-input-duplicate": "Seleziona un'opzione diversa per questa preferenza"
+	"securepoll-stv-invalid-input-duplicate": "Seleziona un'opzione diversa per questa preferenza",
+	"securepoll-stv-result-election-elected-header": "Eletto",
+	"securepoll-stv-election-paramters": "Elezione per $1 seggi con $2 candidati. Totale $3 voti.",
+	"securepoll-stv-result-elected-list-unfilled-seat": "Questo seggio non può essere occupato perché nessun candidato soddisfa i criteri. Gli ultimi candidati eliminati sono stati: $1",
+	"securepoll-stv-result-election-eliminated-header": "Eliminato",
+	"securepoll-stv-result-election-rounds-header": "Tavola rotonda",
+	"securepoll-stv-result-election-round-number-table-heading": "Numero tondo",
+	"securepoll-stv-result-election-tally-table-heading": "Conteggio",
+	"securepoll-stv-result-election-result-table-heading": "Risultato",
+	"securepoll-stv-votes-transferred": "Trasferimento di voti",
+	"securepoll-stv-result-round-quota": "Quota: $1",
+	"securepoll-stv-result-round-elected": "Eletto: $1",
+	"securepoll-stv-result-round-eliminated": "Eliminato: $1",
+	"securepoll-stv-result-round-keep-factor": "(fattore di mantenimento: $1 )"
 }
