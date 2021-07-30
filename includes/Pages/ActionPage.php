@@ -27,8 +27,6 @@ abstract class ActionPage {
 	public $election;
 	/** @var Auth */
 	public $auth;
-	/** @var User */
-	public $user;
 	/** @var Context */
 	public $context;
 	/** @var UserOptionsLookup */

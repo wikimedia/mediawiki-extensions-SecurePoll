@@ -332,7 +332,7 @@ class TranslatePage extends ActionPage {
 				);
 
 				$page = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
-				$updater = $page->newPageUpdater( $this->user );
+				$updater = $page->newPageUpdater( $this->specialPage->getUser() );
 				$updater->saveRevision( $content, $request->getText( 'comment' ) );
 			}
 
