@@ -240,6 +240,7 @@ class STVTallier extends Tallier {
 				$nameContent = ( new Tag( 'span' ) )
 					->appendContent( wfMessage( 'securepoll-stv-result-candidate', $name ) )
 					->addClasses( [ 'round-summary-candidate-name' ] );
+				$nameContent->appendContent( ' ' );
 
 				$content->appendContent( $nameContent );
 
