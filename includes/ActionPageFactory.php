@@ -26,7 +26,7 @@ class ActionPageFactory {
 		'create' => [
 			'class' => CreatePage::class,
 			'services' => [
-				'DBLoadBalancer',
+				'DBLoadBalancerFactory',
 				'UserGroupManager',
 				'LanguageNameUtils'
 			],
@@ -34,7 +34,7 @@ class ActionPageFactory {
 		'edit' => [
 			'class' => CreatePage::class,
 			'services' => [
-				'DBLoadBalancer',
+				'DBLoadBalancerFactory',
 				'UserGroupManager',
 				'LanguageNameUtils'
 			],
@@ -69,7 +69,7 @@ class ActionPageFactory {
 		'translate' => [
 			'class' => TranslatePage::class,
 			'services' => [
-				'DBLoadBalancer',
+				'DBLoadBalancerFactory',
 				'LanguageNameUtils',
 			],
 		],
@@ -83,7 +83,7 @@ class ActionPageFactory {
 		'votereligibility' => [
 			'class' => VoterEligibilityPage::class,
 			'services' => [
-				'DBLoadBalancer',
+				'DBLoadBalancerFactory',
 				'LinkRenderer',
 				'TitleFactory',
 				'UserGroupManager',

@@ -14,6 +14,7 @@ use MWExceptionHandler;
 use Title;
 use WikiMap;
 use Wikimedia\Rdbms\ILoadBalancer;
+use Wikimedia\Rdbms\LBFactory;
 use WikiPage;
 
 /**
@@ -23,24 +24,24 @@ class TranslatePage extends ActionPage {
 	/** @var bool|null */
 	public $isAdmin;
 
-	/** @var ILoadBalancer */
-	private $loadBalancer;
+	/** @var LBFactory */
+	private $lbFactory;
 
 	/** @var LanguageNameUtils */
 	private $languageNameUtils;
 
 	/**
 	 * @param SpecialSecurePoll $specialPage
-	 * @param ILoadBalancer $loadBalancer
+	 * @param LBFactory $lbFactory
 	 * @param LanguageNameUtils $languageNameUtils
 	 */
 	public function __construct(
 		SpecialSecurePoll $specialPage,
-		ILoadBalancer $loadBalancer,
+		LBFactory $lbFactory,
 		LanguageNameUtils $languageNameUtils
 	) {
 		parent::__construct( $specialPage );
-		$this->loadBalancer = $loadBalancer;
+		$this->lbFactory = $lbFactory;
 		$this->languageNameUtils = $languageNameUtils;
 	}
 
@@ -306,7 +307,7 @@ class TranslatePage extends ActionPage {
 			}
 
 			// First, the main wiki
-			$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_MASTER );
+			$dbw = $this->lbFactory->getMainLB()->getConnectionRef( ILoadBalancer::DB_PRIMARY );
 			$dbw->replace(
 				'securepoll_msgs',
 				[
@@ -340,7 +341,8 @@ class TranslatePage extends ActionPage {
 					continue;
 				}
 
-				$dbw = $this->loadBalancer->getConnection( ILoadBalancer::DB_MASTER, [], $dbname );
+				$lb = $this->lbFactory->getMainLB( $dbname );
+				$dbw = $lb->getConnection( ILoadBalancer::DB_PRIMARY, [], $dbname );
 				try {
 					$id = $dbw->selectField(
 						'securepoll_elections',
@@ -373,7 +375,7 @@ class TranslatePage extends ActionPage {
 					// Log the exception, but don't abort the updating of the rest of the jump-wikis
 					MWExceptionHandler::logException( $ex );
 				}
-				$this->loadBalancer->reuseConnection( $dbw );
+				$lb->reuseConnection( $dbw );
 			}
 		}
 		$out->redirect( $this->getTitle( $secondary )->getFullUrl() );
