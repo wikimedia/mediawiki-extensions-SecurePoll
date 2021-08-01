@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extensions\SecurePoll\Pages;
 
+use CommentStoreComment;
 use Exception;
 use Linker;
 use MediaWiki\Extensions\SecurePoll\Context;
@@ -9,6 +10,7 @@ use MediaWiki\Extensions\SecurePoll\SecurePollContentHandler;
 use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\SlotRecord;
 use Message;
 use MWException;
 use MWExceptionHandler;
@@ -333,7 +335,10 @@ class TranslatePage extends ActionPage {
 
 				$page = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
 				$updater = $page->newPageUpdater( $this->specialPage->getUser() );
-				$updater->saveRevision( $content, $request->getText( 'comment' ) );
+				$updater->setContent( SlotRecord::MAIN, $content );
+				$updater->saveRevision(
+					CommentStoreComment::newUnsavedComment( trim( $request->getText( 'comment' ) ) )
+				);
 			}
 
 			// Then each jump-wiki
