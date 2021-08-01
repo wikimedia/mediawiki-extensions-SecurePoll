@@ -312,6 +312,13 @@ class FormStore extends MemoryStore {
 
 		$wikiNames = [];
 		foreach ( $wgConf->getLocalDatabases() as $dbname ) {
+
+			// TODO: Implement this properly and get rid of this hack
+			// SecurePoll is not installed on these
+			if ( $dbname == 'labtestwiki' || $dbname == 'labswiki' || $dbname == 'loginwiki' ) {
+				continue;
+			}
+
 			$host = self::getWikiName( $dbname );
 			if ( strpos( $host, '.' ) ) {
 				// e.g. "en.wikipedia.org"
