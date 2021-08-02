@@ -5,6 +5,7 @@
 			"Aotake",
 			"Fryed-peach",
 			"Fumi37s",
+			"MathXplore",
 			"Miya",
 			"Otokoume",
 			"Schu",
@@ -155,5 +156,9 @@
 	"securepoll-votereligibility-saved-text": "変更内容を保存しました。",
 	"right-securepoll-create-poll": "投票所を作成",
 	"action-securepoll-create-poll": "投票を作成し、ログを表示する。",
-	"securepoll-ns-readonly": "{{ns:SecurePoll}} 名前空間は、読み取り専用です"
+	"securepoll-ns-readonly": "{{ns:SecurePoll}} 名前空間は、読み取り専用です",
+	"securepoll-stv-result-election-elected-header": "選出されました",
+	"securepoll-stv-result-election-eliminated-header": "除去されました",
+	"securepoll-stv-result-election-result-table-heading": "結果",
+	"securepoll-stv-votes-transferred": "投票の転送"
 }

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Tokvo",
 			"Xuacu"
 		]
 	},
@@ -224,5 +225,6 @@
 	"action-securepoll-create-poll": "crear encuestes",
 	"securepoll-ns-readonly": "L'espaciu de nomes {{ns:SecurePoll}} ye de solo llectura",
 	"securepoll-voter-stats": "De tolos usuarios con derechu a votu, {{PLURAL:$1|votó|votaron}} $1.",
-	"securepoll-vote-stats": "{{PLURAL:$1|Emitióse|Emitiéronse}} un total de $1 {{PLURAL:$1|votu|votos}}. D'estos, {{PLURAL:$2|refugóse|refugáronse}} $2 porque'l votante votó nuevamente, y {{PLURAL:$3|anulóse|anuláronse}} $3."
+	"securepoll-vote-stats": "{{PLURAL:$1|Emitióse|Emitiéronse}} un total de $1 {{PLURAL:$1|votu|votos}}. D'estos, {{PLURAL:$2|refugóse|refugáronse}} $2 porque'l votante votó nuevamente, y {{PLURAL:$3|anulóse|anuláronse}} $3.",
+	"securepoll-stv-result-election-result-table-heading": "Resultáu"
 }

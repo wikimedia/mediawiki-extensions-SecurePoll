@@ -273,5 +273,18 @@
 	"securepoll-stv-invalid-rank-order": "Претпочитаните можности треба да се одберат во последователен редослед. Изберете можност за: $1",
 	"securepoll-stv-invalid-rank-duplicate": "Не можете повеќекратно да одбирате исти можности во рангирањето. Сменете ја можноста за: $1",
 	"securepoll-stv-invalid-input-empty": "Пополнете го ова претпочитање",
-	"securepoll-stv-invalid-input-duplicate": "Одберете друга можност за ова претпочитање"
+	"securepoll-stv-invalid-input-duplicate": "Одберете друга можност за ова претпочитање",
+	"securepoll-stv-result-election-elected-header": "Избран",
+	"securepoll-stv-election-paramters": "Избор за $1 {{PLURAL:$1|место|места}} со $2 {{PLURAL:$2|кандидат|кандидати}}. Вкупно $3 {{PLURAL:$3|глас|гласа}}.",
+	"securepoll-stv-result-elected-list-unfilled-seat": "Ова место не може да се пополни бидејќи ниеден кандидат не ги исполнува условите. {{PLURAL:$1|Последниот испаднат кандидат беше|Последни испаднати кандидати беа}}: $1",
+	"securepoll-stv-result-election-eliminated-header": "Испаднати",
+	"securepoll-stv-result-election-rounds-header": "Табела на кругови",
+	"securepoll-stv-result-election-round-number-table-heading": "Број на круг",
+	"securepoll-stv-result-election-tally-table-heading": "Пребројување",
+	"securepoll-stv-result-election-result-table-heading": "Исход",
+	"securepoll-stv-votes-transferred": "Пренесување на гласови",
+	"securepoll-stv-result-round-quota": "Квота: $1",
+	"securepoll-stv-result-round-elected": "Избрани: $1",
+	"securepoll-stv-result-round-eliminated": "Испаднати: $1",
+	"securepoll-stv-result-round-keep-factor": "(коефициент на задршка: $1)"
 }

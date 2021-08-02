@@ -297,8 +297,17 @@
 	"securepoll-stv-invalid-rank-duplicate": "Las opciones no se pueden seleccionar varias veces en la clasificación. Cambie la opción de: $1",
 	"securepoll-stv-invalid-input-empty": "Por favor llene esta preferencia",
 	"securepoll-stv-invalid-input-duplicate": "Complacer seleccionar una opción diferente para esta preferencia",
+	"securepoll-stv-result-election-elected-header": "Elegidos",
+	"securepoll-stv-election-paramters": "Elección de escaños de $1 con candidatos de $2. Total de $3 votos",
+	"securepoll-stv-result-elected-list-unfilled-seat": "Esta plaza no se ha podido cubrir porque ningún candidato cumple los criterios. Los últimos candidatos eliminados fueron: $1",
 	"securepoll-stv-result-election-eliminated-header": "Eliminado",
+	"securepoll-stv-result-election-rounds-header": "Cuadro de rondas",
+	"securepoll-stv-result-election-round-number-table-heading": "Número redondo",
+	"securepoll-stv-result-election-tally-table-heading": "Contador",
 	"securepoll-stv-result-election-result-table-heading": "Resultado",
+	"securepoll-stv-votes-transferred": "Transferencia de votos",
 	"securepoll-stv-result-round-quota": "Cuota: $1",
-	"securepoll-stv-result-round-eliminated": "Eliminado: $1"
+	"securepoll-stv-result-round-elected": "Elegido: $1",
+	"securepoll-stv-result-round-eliminated": "Eliminado: $1",
+	"securepoll-stv-result-round-keep-factor": "(factor de conservación: $1)"
 }

@@ -292,5 +292,7 @@
 	"securepoll-stv-invalid-rank-order": "As preferências devem ser selecionadas em ordem sequencial. Por favor, escolha uma opção para: $1",
 	"securepoll-stv-invalid-rank-duplicate": "As opções não podem ser selecionadas várias vezes na classificação. Por favor, altere a opção para: $1",
 	"securepoll-stv-invalid-input-empty": "Por favor, preencha esta preferência",
-	"securepoll-stv-invalid-input-duplicate": "Por favor, selecione uma opção diferente para esta preferência"
+	"securepoll-stv-invalid-input-duplicate": "Por favor, selecione uma opção diferente para esta preferência",
+	"securepoll-stv-result-election-eliminated-header": "Eliminado",
+	"securepoll-stv-result-round-eliminated": "Eliminado: $1"
 }
