@@ -6,6 +6,7 @@ use MediaWiki\Extensions\SecurePoll\Context;
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
 use MWException;
 use Status;
+use Wikimedia\Rdbms\IDatabase;
 
 /**
  * Cryptography module
@@ -104,5 +105,34 @@ abstract class Crypt {
 	 * @param array $data
 	 */
 	public static function updateTallyContext( Context $context, array $data ): void {
+	}
+
+	/**
+	 * Update the database with any information needed for tallying via a job.
+	 *
+	 * This may include adding private keys to the database. While not ideal,
+	 * this is nothing new in SecurePoll. It should only be done once an
+	 * election is finished, and should be cleaned up.
+	 *
+	 * @see Crypt::cleanupDbForTallyJob
+	 * @param int $electionId
+	 * @param IDatabase $dbw
+	 * @param array $data
+	 */
+	public static function updateDbForTallyJob(
+		int $electionId,
+		IDatabase $dbw,
+		array $data
+	): void {
+	}
+
+	/**
+	 * Clean up the database after tallying via a job.
+	 *
+	 * @see Crypt::updateDbForTallyJob
+	 * @param int $electionId
+	 * @param IDatabase $dbw
+	 */
+	public static function cleanupDbForTallyJob( int $electionId, IDatabase $dbw ): void {
 	}
 }

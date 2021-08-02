@@ -27,7 +27,8 @@
 		}
 	},
 	"JobClasses": {
-		"securePollPopulateVoterList": "\\MediaWiki\\Extensions\\SecurePoll\\Jobs\\PopulateVoterListJob"
+		"securePollPopulateVoterList": "\\MediaWiki\\Extensions\\SecurePoll\\Jobs\\PopulateVoterListJob",
+		"securePollTallyElection": "\\MediaWiki\\Extensions\\SecurePoll\\Jobs\\TallyElectionJob"
 	},
 	"APIModules": {
 		"strikevote": {
