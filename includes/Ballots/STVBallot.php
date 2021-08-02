@@ -4,6 +4,7 @@ namespace MediaWiki\Extensions\SecurePoll\Ballots;
 
 use MediaWiki\Extensions\SecurePoll\Entities\Question;
 use MediaWiki\Extensions\SecurePoll\Pages\CreatePage;
+use OOUI\DropdownInputWidget;
 use OOUI\FieldsetLayout;
 use RequestContext;
 
@@ -53,7 +54,7 @@ class STVBallot extends Ballot {
 		$allOptions = [
 			[
 				'data' => 0,
-				'label' => RequestContext::getMain()->msg( 'securepoll-stv-droop-default-value' ),
+				'label' => RequestContext::getMain()->msg( 'securepoll-stv-droop-default-value' )->text(),
 			]
 		];
 		foreach ( $options as $option ) {
@@ -64,7 +65,8 @@ class STVBallot extends Ballot {
 		}
 		for ( $i = 0; $i < count( $options ); $i++ ) {
 			$inputId = "{$name}_opt{$i}";
-			$widget = new \OOUI\DropdownInputWidget( [
+			$widget = new DropdownInputWidget( [
+				'infusable' => true,
 				'name' => $inputId,
 				'options' => $allOptions,
 				'value' => $request->getVal( $inputId, 0 ),

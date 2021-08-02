@@ -61,7 +61,8 @@
 				"dispatcher.js",
 				"page.log.js",
 				"page.create.js",
-				"page.list.js"
+				"page.list.js",
+				"page.vote.js"
 			],
 			"dependencies": [
 				"oojs-ui-core",
