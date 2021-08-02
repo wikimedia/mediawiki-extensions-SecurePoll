@@ -136,7 +136,7 @@ class DBStore implements Store {
 	}
 
 	public function getQuestionInfo( $electionId ) {
-		$db = $this->getDB();
+		$db = $this->getDB( DB_REPLICA );
 		$res = $db->select(
 			[
 				'securepoll_questions',
