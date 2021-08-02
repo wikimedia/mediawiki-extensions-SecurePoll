@@ -59,6 +59,7 @@ class VotePage extends ActionPage {
 		$out = $this->specialPage->getOutput();
 		$language = $this->specialPage->getLanguage();
 		$out->enableOOUI();
+		$out->addModules( 'ext.securepoll.htmlform' );
 		$out->addModuleStyles( [
 			'oojs-ui.styles.icons-alerts',
 			'oojs-ui.styles.icons-movement'
