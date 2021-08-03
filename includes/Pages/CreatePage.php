@@ -572,15 +572,17 @@ class CreatePage extends ActionPage {
 				return Status::newFatal( 'securepoll-create-fail-bad-id' );
 			}
 
-			$dbw = $this->lbFactory->getMainLB()->getConnectionRef( ILoadBalancer::DB_PRIMARY );
+			// Get a connection in autocommit mode so that it is possible to do
+			// explicit transactions on it (T287859)
+			$dbw = $this->lbFactory->getMainLB()->getConnectionRef( ILoadBalancer::DB_PRIMARY,
+				[], false, ILoadBalancer::CONN_TRX_AUTOCOMMIT );
 
 			// Check for duplicate titles on the local wiki
 			$id = $dbw->selectField(
 				'securepoll_elections',
 				'el_entity',
 				[ 'el_title' => $election->title ],
-				__METHOD__,
-				[ 'FOR UPDATE' ]
+				__METHOD__
 			);
 			if ( $id && (int)$id !== $election->getId() ) {
 				throw new StatusException(
@@ -596,7 +598,10 @@ class CreatePage extends ActionPage {
 			if ( $store->rId ) {
 				foreach ( $store->remoteWikis as $dbname ) {
 					$lb = $this->lbFactory->getMainLB( $dbname );
-					$rdbw = $lb->getConnection( DB_PRIMARY, [], $dbname );
+					// Use autocommit mode so that we can share connections with
+					// the write code below
+					$rdbw = $lb->getConnection( DB_PRIMARY, [], $dbname,
+						ILoadBalancer::CONN_TRX_AUTOCOMMIT );
 
 					// Find an existing dummy election, if any
 					$rId = $rdbw->selectField(
@@ -766,12 +771,14 @@ class CreatePage extends ActionPage {
 			$this->logAdminChanges( $originalFormData, $formData, $eId );
 		}
 
-		// Create the "redirect" polls on all the local wikis
+		// Create the "redirect" polls on foreign wikis
 		if ( $store->rId ) {
 			$election = $context->getElection( $store->rId );
 			foreach ( $store->remoteWikis as $dbname ) {
 				$lb = $this->lbFactory->getMainLB( $dbname );
-				$dbw = $lb->getConnection( ILoadBalancer::DB_PRIMARY, [], $dbname );
+				// As for the local wiki, request autocommit mode to get outer transaction scope
+				$dbw = $lb->getConnection( ILoadBalancer::DB_PRIMARY, [], $dbname,
+					ILoadBalancer::CONN_TRX_AUTOCOMMIT );
 				$dbw->startAtomic( __METHOD__ );
 				// Find an existing dummy election, if any
 				$rId = $dbw->selectField(
