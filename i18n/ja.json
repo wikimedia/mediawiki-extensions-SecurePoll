@@ -107,7 +107,6 @@
 	"securepoll-tally-not-finished": "申し訳ありませんが、投票が終了するまで票の集計はできません。",
 	"securepoll-tally-upload-submit": "集計開始",
 	"securepoll-tally-error": "投票記録の解析に失敗し、集計結果を出力できません。",
-	"securepoll-tally-too-large": "選挙は大きすぎてこのページで集計することができません。代わりにメンテナンススクリプトのtally.phpを使用してください。",
 	"securepoll-no-upload": "ファイルがアップロードされておらず、結果を集計できません。",
 	"securepoll-dump-corrupt": "ダンプファイルが破損しており、処理できません。",
 	"securepoll-tally-upload-error": "ダンプファイルの集計中にエラー: $1",
