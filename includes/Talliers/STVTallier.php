@@ -166,6 +166,21 @@ class STVTallier extends Tallier {
 				)
 			);
 		}
+
+		// If any candidates weren't eliminated from the rounds (as a result of seats filling)
+		// Output them to the eliminated list after all of the round-eliminated candidates
+		foreach (
+			array_diff(
+				array_keys( $this->candidates ),
+				array_merge( $this->resultsLog['elected'], $this->resultsLog['eliminated'] )
+		) as $remainingCandidate ) {
+			$eliminatedList->appendContent(
+				( new Tag( 'li' ) )->appendContent(
+					$this->getCandidateName( $remainingCandidate )
+				)
+			);
+		}
+
 		$electionSummary->appendContent( $eliminatedList );
 
 		$electionRounds = new \OOUI\PanelLayout( [
