@@ -13,4 +13,4 @@ if ( !file_exists( "$IP/includes/WebStart.php" ) ) {
 	exit( 1 );
 }
 
-require $IP . '/maintenance/commandLine.inc';
+require $IP . '/maintenance/CommandLineInc.php';
