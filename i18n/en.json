@@ -281,7 +281,7 @@
 	"securepoll-stv-result-election-elected-header": "Elected",
 	"securepoll-stv-election-paramters": "Election for $1 {{PLURAL:$1|seat|seats}} with $2 {{PLURAL:$2|candidate|candidates}}. Total $3 {{PLURAL:$3|vote|votes}}.",
 	"securepoll-stv-result-elected-list-unfilled-seat": "This seat could not be filled because no candidates fulfill the criteria. The last eliminated {{PLURAL:$1|candidate was|candidates were}}: $1",
-	"securepoll-stv-result-election-eliminated-header": "Eliminated",
+	"securepoll-stv-result-election-eliminated-header": "Eliminated/Not elected",
 	"securepoll-stv-result-election-rounds-header": "Rounds table",
 	"securepoll-stv-result-election-round-number-table-heading": "Round Number",
 	"securepoll-stv-result-election-tally-table-heading": "Tally",
