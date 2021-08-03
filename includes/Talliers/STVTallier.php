@@ -4,7 +4,11 @@ namespace MediaWiki\Extensions\SecurePoll\Talliers;
 
 use MediaWiki\Extensions\SecurePoll\Context;
 use MediaWiki\Extensions\SecurePoll\Entities\Question;
+use OOUI\Element;
 use OOUI\Tag;
+use OOUI\Theme;
+use RequestContext;
+use ResourceLoaderOOUIModule;
 
 /**
  * A STVTallier class,
@@ -377,8 +381,18 @@ class STVTallier extends Tallier {
 	}
 
 	public function getTextResult() {
-		// TODO: Implement getTextResult() method.
-		return '';
+		// Lifted from OutputPage->setupOOUI()
+		// Since this is only output from the cli, we have to
+		// manually set up OOUI before it will return a markup
+		$skinName = strtolower( RequestContext::getMain()->getSkin()->getSkinName() );
+		$dir = RequestContext::getMain()->getLanguage()->getDir();
+		$themes = ResourceLoaderOOUIModule::getSkinThemeMap();
+		$theme = $themes[$skinName] ?? $themes['default'];
+		// For example, 'OOUI\WikimediaUITheme'.
+		$themeClass = "OOUI\\{$theme}Theme";
+		Theme::setSingleton( new $themeClass() );
+		Element::setDefaultDir( $dir );
+		return $this->getHtmlResult();
 	}
 
 	/**
@@ -526,7 +540,7 @@ class STVTallier extends Tallier {
 	 * @return float
 	 */
 	private function calculateDroopQuota( $votes, $seats ): float {
-		return ( $votes / ( $seats + 1 ) ) + 0.000001;
+		return ( $votes / ( (float)$seats + 1 ) ) + 0.000001;
 	}
 
 	/**
