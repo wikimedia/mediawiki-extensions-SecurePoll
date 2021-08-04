@@ -23,6 +23,7 @@ class GenerateTestElection extends Maintenance {
 		$this->addOption( 'name', 'Name of the election' );
 		$this->addOption( 'election', 'Type of election', true );
 		$this->addOption( 'ballots', 'File with ballots', true );
+		$this->addOption( 'admins', 'pipe delimited list of electionadmins', true );
 		$this->addOption( 'reset', 'Delete votes if an election already exists' );
 
 		$this->requireExtension( 'SecurePoll' );
@@ -61,6 +62,25 @@ class GenerateTestElection extends Maintenance {
 			$this->fatalError( "The specified file \"{$fileName}\" does not exist\n" );
 		}
 
+		// Check all users psased in admins param are members of electionadmin
+		$electionAdmins = explode( '|', $this->getOption( 'admins' ) );
+		$userGroupManager = MediaWikiServices::getInstance()->getUserGroupManager();
+		foreach ( $electionAdmins as $admin ) {
+			$user = User::newFromName( $admin );
+			if (
+				!$user ||
+				!in_array(
+					'electionadmin',
+					$userGroupManager->getUserEffectiveGroups( $user )
+				)
+			) {
+				$this->fatalError( $admin . ' is not a member of electionadmin' );
+			}
+		}
+
+		// All users are eligible to be election admins. Implode with a newline for intake
+		$electionAdmins = implode( "\n", $electionAdmins );
+
 		// Supported election types:
 		// - stv
 		$electionType = $this->getOption( 'election' );
@@ -82,10 +102,22 @@ class GenerateTestElection extends Maintenance {
 
 				// If no $electionId, the election must be created
 				if ( !$electionId ) {
-					$electionId = $this->generateSTVElection( $electionName, $stvParameters[0], $stvParameters[1] );
+					$electionId = $this->generateSTVElection(
+						$electionName,
+						$electionAdmins,
+						$stvParameters[0],
+						$stvParameters[1]
+					);
 					$this->output( "\n" );
-					$this->output( 'Created election with id ' . $electionId );
+					$this->output( 'Trying to create an election with id ' . $electionId );
 				}
+
+				// If no electionId is returned, election generation failed and should throw
+				if ( !$electionId ) {
+					$this->output( "\n" );
+					$this->fatalError( 'Election not created. Aborting.' );
+				}
+
 				$ballots = $this->generateSTVBallots( $dbw, $electionId, $stvParameters, $ballotsFile );
 				break;
 			default:
@@ -97,6 +129,11 @@ class GenerateTestElection extends Maintenance {
 		$this->output( 'Inserting ballots' );
 		$this->writeBallots( $dbw, $electionId, $ballots );
 		$dbw->commit( __METHOD__ );
+
+		$this->output( "\n" );
+		$this->output( 'Finished! You can tally your election at ' .
+			SpecialPage::getTitleFor( 'SecurePoll' )->getFullURL() . '/tally/' . $electionId
+		);
 
 		$endTime = time();
 		$timeElapsed = $endTime - $startTime;
@@ -135,14 +172,14 @@ class GenerateTestElection extends Maintenance {
 		}
 	}
 
-	private function generateSTVElection( $name, $candidateCount, $seatCount ) {
+	private function generateSTVElection( $name, $admins, $candidateCount, $seatCount ) {
 		// To avoid re-writing the insertion logic,
 		// get the processInput() function from the CreatePage
 		$createPage = new CreatePage(
 			new SpecialSecurePoll(
 				MediaWikiServices::getInstance()->getService( 'SecurePoll.ActionPageFactory' )
 			),
-			MediaWikiServices::getInstance()->getDBLoadBalancer(),
+			MediaWikiServices::getInstance()->getDBLoadBalancerFactory(),
 			MediaWikiServices::getInstance()->getUserGroupManager(),
 			MediaWikiServices::getInstance()->getLanguageNameUtils()
 		);
@@ -155,14 +192,14 @@ class GenerateTestElection extends Maintenance {
 			'election_id' => '-1',
 			'election_title' => $name,
 			'election_primaryLang' => 'en',
-			'election_startdate' => date( 'Y-m-d' ),
+			'election_startdate' => ( new DateTime )->modify( '-1 days' )->format( 'Y-m-d' ),
 			'election_duration' => '1',
 			'return-url' => '',
 			'election_type' => 'stv+droop-quota',
 			'election_crypt' => 'none',
 			'disallow-change' => false,
 			'voter-privacy' => false,
-			'property_admins' => 'Admin',
+			'property_admins' => $admins,
 			'shuffle-questions' => false,
 			'shuffle-options' => false,
 			'must-rank-all' => false,
@@ -247,7 +284,7 @@ class GenerateTestElection extends Maintenance {
 				$record = '';
 				foreach ( $entity as $rank => $choice ) {
 					// Short circuit when we reach 0, the stop indicator
-					if ( $choice === '0' ) {
+					if ( (int)$choice === 0 ) {
 						break;
 					}
 					$choiceId = $options[ $choice - 1 ]->getId();
