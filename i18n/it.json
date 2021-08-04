@@ -126,7 +126,7 @@
 	"securepoll-tally-upload-submit": "Crea conteggio",
 	"securepoll-tally-gpg-decrypt-key": "Chiave di decrittazione GPG",
 	"securepoll-tally-error": "Errore nell'elaborazione delle informazioni del voto, non è possibile effettuare il conteggio.",
-	"securepoll-tally-job-enqueued": "Questa elezione è attualmente in (ri)conteggio. Si prega di controllare più tardi per i risultati.",
+	"securepoll-tally-job-enqueued": "Questa elezione è in (ri)conteggio. Si prega di controllare più tardi per i risultati.",
 	"securepoll-no-upload": "Nessun file è stato caricato, non è possibile effettuare il conteggio.",
 	"securepoll-dump-corrupt": "Il file di dump è corrotto e non può essere elaborato.",
 	"securepoll-tally-upload-error": "Errore nell'effettuare il conteggio sul file di dump: $1",

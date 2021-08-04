@@ -120,7 +120,7 @@
 	"securepoll-tally-upload-submit": "יצירת חישוב התוצאות",
 	"securepoll-tally-gpg-decrypt-key": "מפתח פענוח GPG",
 	"securepoll-tally-error": "שגיאה בפענוח ההצבעה, לא ניתן לחשב את התוצאות.",
-	"securepoll-tally-job-enqueued": "בבחירות האלו נספרות (או נספרות מחדש) עכשיו. נא לבדוק את התוצאות מאוחר יותר.",
+	"securepoll-tally-job-enqueued": "בבחירות האלו נספרות (או נספרות מחדש). נא לבדוק את התוצאות מאוחר יותר.",
 	"securepoll-no-upload": "לא הועלה קובץ, לא ניתן לחשב את התוצאות.",
 	"securepoll-dump-corrupt": "ההיטל פגום ולא ניתן לעבדו.",
 	"securepoll-tally-upload-error": "שגיאה בחישוב התוצאות מתוך ההיטל: $1",
