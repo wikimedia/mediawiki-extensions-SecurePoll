@@ -42,7 +42,7 @@ foreach ( $res as $row ) {
 	$voted[$row->voter_properties['wiki']][$row->voter_name] = 1;
 }
 
-$wikis = CentralAuthUser::getWikiList();
+$wikis = CentralAuthServices::getWikiListService()->getWikiList();
 # $wikis = array( 'frwiki', 'dewiki', 'commonswiki', 'usabilitywiki' );
 $wgConf->loadFullData();
 
