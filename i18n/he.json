@@ -278,7 +278,7 @@
 	"securepoll-stv-result-election-elected-header": "נבחרו",
 	"securepoll-stv-election-paramters": "בחירות {{PLURAL:$1|למושב אחד|ל־$1 מושבים}} עם {{PLURAL:$2|מועמד אחד|$2 מועמדים}}. סה\"כ {{PLURAL:$3|קול אחד|$3 קולות}}.",
 	"securepoll-stv-result-elected-list-unfilled-seat": "לא היה אפשר למלא את המושב הזה כי שום מועמד לא מתאים לתנאים. {{PLURAL:$1|המועמד האחרון שנופה|המועמדים האחרונים שנופו}}: $1",
-	"securepoll-stv-result-election-eliminated-header": "נופו",
+	"securepoll-stv-result-election-eliminated-header": "נופו / לא נבחרו",
 	"securepoll-stv-result-election-rounds-header": "טבלת סיבובים",
 	"securepoll-stv-result-election-round-number-table-heading": "מספר הסיבוב",
 	"securepoll-stv-result-election-tally-table-heading": "חישוב תוצאות",

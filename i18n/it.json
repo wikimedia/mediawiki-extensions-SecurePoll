@@ -284,7 +284,7 @@
 	"securepoll-stv-result-election-elected-header": "Eletto",
 	"securepoll-stv-election-paramters": "Elezione per $1 {{PLURAL:$1|seggio|seggi}} con $2 {{PLURAL:$2|candidato|candidati}}. Totale $3 {{PLURAL:$3|voto|voti}}.",
 	"securepoll-stv-result-elected-list-unfilled-seat": "Questo seggio non può essere occupato perché nessun candidato soddisfa i criteri. {{PLURAL:$1|L'ultimo candidato eliminato è stato|Gli ultimi candidati eliminati sono stati}}: $1",
-	"securepoll-stv-result-election-eliminated-header": "Eliminato",
+	"securepoll-stv-result-election-eliminated-header": "Eliminato/Non eletto",
 	"securepoll-stv-result-election-rounds-header": "Tavola rotonda",
 	"securepoll-stv-result-election-round-number-table-heading": "Numero tondo",
 	"securepoll-stv-result-election-tally-table-heading": "Conteggio",

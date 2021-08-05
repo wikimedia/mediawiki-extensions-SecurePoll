@@ -299,7 +299,7 @@
 	"securepoll-stv-result-election-elected-header": "Élu",
 	"securepoll-stv-election-paramters": "Élection pour $1 {{PLURAL:$1|siège|sièges}} avec $2 {{PLURAL:$2|candidat|candidats}}. $3 {{PLURAL:$3|vote|votes}} au total.",
 	"securepoll-stv-result-elected-list-unfilled-seat": "Ce siège n’a pas pu être comblé parce qu’aucun candidat ne remplit les critères. {{PLURAL:$1|Le dernier candidat éliminé était|Les derniers candidats éliminés étaient}} : $1",
-	"securepoll-stv-result-election-eliminated-header": "Éliminé",
+	"securepoll-stv-result-election-eliminated-header": "Éliminé/Non élu",
 	"securepoll-stv-result-election-rounds-header": "Tableau des tours",
 	"securepoll-stv-result-election-round-number-table-heading": "Numéro de tour",
 	"securepoll-stv-result-election-tally-table-heading": "Score",
