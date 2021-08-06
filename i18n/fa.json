@@ -250,5 +250,17 @@
 	"action-securepoll-create-poll": "نظرسنجی ایجاد کنید",
 	"securepoll-ns-readonly": "فضای نام {{ns:SecurePoll}} فقط-خواندنی است",
 	"securepoll-voter-stats": "از بین تمام واجدان شرایط، $1 نفر رأی {{PLURAL:$1|داده‌است|داده‌اند}}.",
-	"securepoll-vote-stats": "در کل $1 رأی به صندوق {{PLURAL:$1|ریخته شده‌است|ریخته شده‌اند}}. از این بین، $2 رأی نادیده گرفته {{PLURAL:$2|شده‌است|شده‌اند}} چون کاربر دوباره رأی جدیدی داده‌است، و $3 رأی هم خط {{PLURAL:$3|خورده‌است|خورده‌اند}}."
+	"securepoll-vote-stats": "در کل $1 رأی به صندوق {{PLURAL:$1|ریخته شده‌است|ریخته شده‌اند}}. از این بین، $2 رأی نادیده گرفته {{PLURAL:$2|شده‌است|شده‌اند}} چون کاربر دوباره رأی جدیدی داده‌است، و $3 رأی هم خط {{PLURAL:$3|خورده‌است|خورده‌اند}}.",
+	"securepoll-stv-result-election-elected-header": "منتخب",
+	"securepoll-stv-election-paramters": "انتخابات برای $1 {{PLURAL:$1|کرسی}} با $2 {{PLURAL:$2|نامزد}}. در مجموع $3 {{PLURAL:$3|رأی}}.",
+	"securepoll-stv-result-elected-list-unfilled-seat": "این کرسی قابل پر شدن نبود؛ زیرا هیچ نامزدی معیار را احراز نکرد. آخرین {{PLURAL:$1|نامزد|نامزدهای}} مغلوب: $1",
+	"securepoll-stv-result-election-rounds-header": "جدول دوره‌ها",
+	"securepoll-stv-result-election-round-number-table-heading": "شمارهٔ دور",
+	"securepoll-stv-result-election-tally-table-heading": "چوب‌خط",
+	"securepoll-stv-result-election-result-table-heading": "نتیجه",
+	"securepoll-stv-votes-transferred": "در حال انتقال آراء",
+	"securepoll-stv-result-round-quota": "سهم: $1",
+	"securepoll-stv-result-round-elected": "منتخب: $1",
+	"securepoll-stv-result-round-eliminated": "مغلوب: $1",
+	"securepoll-stv-result-round-keep-factor": "(عامل نگه‌داشتن: $1)"
 }

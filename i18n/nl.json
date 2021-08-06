@@ -123,7 +123,7 @@
 	"securepoll-tally-upload-submit": "Telling uitvoeren",
 	"securepoll-tally-gpg-decrypt-key": "GPG-decoderingssleutel",
 	"securepoll-tally-error": "Er is een fout opgetreden bij het interpreteren van resulaten van de stemming.\nHet is niet mogelijk een telling uit te voeren.",
-	"securepoll-tally-job-enqueued": "Deze verkiezing wordt momenteel (her-)geteld. Kom later terug voor de resultaten.",
+	"securepoll-tally-job-enqueued": "Deze verkiezing wordt momenteel (opnieuw) geteld. Kom later terug voor de resultaten.",
 	"securepoll-no-upload": "Er is geen bestand geüpload.\nDe resultaten kunnen niet geteld worden.",
 	"securepoll-dump-corrupt": "Het dumpbestand is beschadigd en kan niet worden verwerkt.",
 	"securepoll-tally-upload-error": "Er is een fout opgetreden bij het tellen uit de dump: $1",
