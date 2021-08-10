@@ -299,6 +299,7 @@
 	"securepoll-stv-invalid-rank-duplicate": "Used as an error message.",
 	"securepoll-stv-invalid-input-empty": "Used as an error message.",
 	"securepoll-stv-invalid-input-duplicate": "Used as an error message.",
+	"securepoll-stv-help-text": "Description of the methodology used in tallying via Meek's method to help with table comprehension",
 	"securepoll-stv-result-election-elected-header": "Header for list of elected candidates in the STV election",
 	"securepoll-stv-election-paramters": "Summary of the election parameters",
 	"securepoll-stv-result-elected-list-unfilled-seat": "Explanation for why a seat in the STV election is empty",

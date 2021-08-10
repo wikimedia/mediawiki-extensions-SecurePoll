@@ -196,7 +196,14 @@ class STVTallier extends Tallier {
 			( new Tag( 'h2' ) )->appendContent(
 				wfMessage( 'securepoll-stv-result-election-rounds-header' )
 			)
-			);
+		);
+
+		// Help text
+		$electionRounds->appendContent(
+			( new Tag( 'p' ) )->appendContent(
+				new \OOUI\HtmlSnippet( wfMessage( 'securepoll-stv-help-text' )->parse() )
+			)
+		);
 
 		// Generate rounds table
 		$table = new Tag( 'table' );

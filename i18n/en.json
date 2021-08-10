@@ -277,6 +277,7 @@
 	"securepoll-stv-invalid-rank-duplicate": "Options cannot be selected multiple times in the ranking. Please change the option for: $1",
 	"securepoll-stv-invalid-input-empty": "Please fill out this preference",
 	"securepoll-stv-invalid-input-duplicate": "Please select a different option for this preference",
+	"securepoll-stv-help-text": "The following table describes the calculations that happened in order to achieve the result above. In each round of calculation, the candidate(s) who achieved more votes than the quota are declared elected. Their surplus votes above the quota are redistributed to the remaining candidates. If nobody achieves the quota, the lowest ranking candidate is eliminated and their votes are redistributed to the remaining candidates. To understand this better, please refer to [https://web.archive.org/web/20210225045400/https://prfound.org/resources/reference/reference-meek-rule/ this link].",
 	"securepoll-stv-result-election-elected-header": "Elected",
 	"securepoll-stv-election-paramters": "Election for $1 {{PLURAL:$1|seat|seats}} with $2 {{PLURAL:$2|candidate|candidates}}. Total $3 {{PLURAL:$3|vote|votes}}.",
 	"securepoll-stv-result-elected-list-unfilled-seat": "This seat could not be filled because no candidates fulfill the criteria. The last eliminated {{PLURAL:$1|candidate was|candidates were}}: $1",
