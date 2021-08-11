@@ -2,6 +2,8 @@
 
 namespace MediaWiki\Extensions\SecurePoll\Test\Unit;
 
+use DirectoryIterator;
+use Generator;
 use MediaWiki\Extensions\SecurePoll\Entities\Option;
 use MediaWiki\Extensions\SecurePoll\Entities\Question;
 use MediaWiki\Extensions\SecurePoll\Talliers\ElectionTallier;
@@ -20,12 +22,14 @@ class STVTallierTest extends MediaWikiUnitTestCase {
 		parent::setUp();
 
 		// Tallier constructor requires getOptions to return iterable
-		$options = array_map( function ( $id ) {
+		$options = array_map( function ( $id, $message ) {
 			$option = $this->createMock( Option::class );
 			$option->method( 'getId' )
 				->willReturn( $id );
+			$option->method( 'getMessage' )
+				->willReturn( $message );
 			return $option;
-		}, [ 100, 101, 102 ] );
+		}, [ 100, 101, 102 ], [ 100, 101, 102 ] );
 		$question = $this->createMock( Question::class );
 		$question->method( 'getOptions' )->willReturn( $options );
 
@@ -35,6 +39,7 @@ class STVTallierTest extends MediaWikiUnitTestCase {
 			$this->createMock( ElectionTallier::class ),
 			$question
 		);
+		$this->wrappedRevStore = TestingAccessWrapper::newFromObject( $this->tallier );
 	}
 
 	public static function resultsFromTally() {
@@ -121,4 +126,26 @@ class STVTallierTest extends MediaWikiUnitTestCase {
 		$this->assertSame( 19.000001000000001, $actual );
 	}
 
+	public function finishTallyResults(): Generator {
+		$fixtures = new DirectoryIterator( __DIR__ . '/fixtures' );
+		foreach ( $fixtures as $fixture ) {
+			if ( $fixture->isFile() && $fixture->isReadable() && $fixture->getExtension() === 'php' ) {
+				yield require $fixture->getPathname();
+			}
+		}
+	}
+
+	/**
+	 * @dataProvider finishTallyResults
+	 */
+	public function testFinishTally( $electionResults, $expected ) {
+		$this->wrappedRevStore->__set( 'seats', $electionResults['seats'] );
+		$this->wrappedRevStore->__set( 'candidates', $electionResults['candidates'] );
+		$this->tallier->rankedVotes = $electionResults['rankedVotes'];
+		$this->tallier->finishTally();
+		$this->assertArrayEquals( $expected, $this->tallier->resultsLog );
+		$this->assertArrayEquals( $expected[ 'rounds'], $this->tallier->resultsLog['rounds'] );
+		$expectedRounds = count( $expected[ 'rounds'] );
+		$this->assertCount( $expectedRounds, $this->tallier->resultsLog['rounds'] );
+	}
 }
