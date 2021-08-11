@@ -8,6 +8,7 @@ use MediaWiki\Extensions\SecurePoll\Crypt\Crypt;
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
 use MediaWiki\Extensions\SecurePoll\Entities\Question;
 use MediaWiki\Extensions\SecurePoll\Store;
+use MediaWiki\Logger\LoggerFactory;
 use MWException;
 use Status;
 
@@ -71,6 +72,15 @@ class ElectionTallier {
 		$this->crypt = $this->election->getCrypt();
 		$this->ballot = $this->election->getBallot();
 		$this->setupTalliers();
+
+		// T288366 Tallies fail on beta/prod with little visibility
+		// Add logging to gain more context into where it fails
+		LoggerFactory::getInstance( 'AdHocDebug' )->info(
+			'Starting queued election tally',
+			[
+				'electionId' => $this->election->getId(),
+			]
+		);
 
 		$status = $store->callbackValidVotes(
 			$this->election->getId(),
