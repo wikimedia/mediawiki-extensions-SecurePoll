@@ -4,6 +4,7 @@ namespace MediaWiki\Extensions\SecurePoll\Crypt;
 
 use MediaWiki\Extensions\SecurePoll\Context;
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
+use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Shell\Shell;
 use MWCryptRand;
 use MWException;
@@ -207,6 +208,16 @@ class GpgCrypt {
 		}
 		chmod( $this->homeDir, 0700 );
 
+		// T288366 Tallies fail on beta/prod with little visibility
+		// Add logging to gain more context into where it fails
+		LoggerFactory::getInstance( 'AdHocDebug' )->info(
+			'Created the temp directory for GPG decryption',
+			[
+				'electionId' => $this->election->getId(),
+				'tmpDir' => $this->homeDir,
+			]
+		);
+
 		return Status::newGood();
 	}
 
@@ -270,6 +281,16 @@ class GpgCrypt {
 			return Status::newFatal( 'securepoll-gpg-parse-error' );
 		}
 
+		// T288366 Tallies fail on beta/prod with little visibility
+		// Add logging to gain more context into where it fails
+		LoggerFactory::getInstance( 'AdHocDebug' )->info(
+			'Imported GPG decryption key',
+			[
+				'electionId' => $this->election->getId(),
+				'fileLocation' => "{$this->homeDir}/key",
+			]
+		);
+
 		return Status::newGood( $m[1] );
 	}
 
@@ -309,6 +330,15 @@ class GpgCrypt {
 		}
 		closedir( $dir );
 		rmdir( $dirname );
+
+		// T288366 Tallies fail on beta/prod with little visibility
+		// Add logging to gain more context into where it fails
+		LoggerFactory::getInstance( 'AdHocDebug' )->info(
+			'Cleaned up GPG data after tally',
+			[
+				'electionId' => $this->election->getId(),
+			]
+		);
 	}
 
 	/**
@@ -442,6 +472,14 @@ class GpgCrypt {
 
 		# Read result
 		if ( $status->isOK() ) {
+			// T288366 Tallies fail on beta/prod with little visibility
+			// Add logging to gain more context into where it fails
+			LoggerFactory::getInstance( 'AdHocDebug' )->info(
+				'Successfully decrypted vote',
+				[
+					'electionId' => $this->election->getId(),
+				]
+			);
 			$status->value = file_get_contents( "{$this->homeDir}/output" );
 		}
 
