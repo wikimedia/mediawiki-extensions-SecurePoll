@@ -33,7 +33,7 @@ class DBStore implements Store {
 	}
 
 	public function getMessages( $lang, $ids ) {
-		$db = $this->getDB();
+		$db = $this->getDB( DB_REPLICA );
 		$res = $db->select(
 			'securepoll_msgs',
 			'*',
@@ -52,7 +52,7 @@ class DBStore implements Store {
 	}
 
 	public function getLangList( $ids ) {
-		$db = $this->getDB();
+		$db = $this->getDB( DB_REPLICA );
 		$res = $db->select(
 			'securepoll_msgs',
 			'DISTINCT msg_lang',
@@ -70,7 +70,7 @@ class DBStore implements Store {
 	}
 
 	public function getProperties( $ids ) {
-		$db = $this->getDB();
+		$db = $this->getDB( DB_REPLICA );
 		$res = $db->select(
 			'securepoll_properties',
 			'*',
@@ -104,7 +104,7 @@ class DBStore implements Store {
 
 	public function getElectionInfoByTitle( $names ) {
 		$names = (array)$names;
-		$db = $this->getDB();
+		$db = $this->getDB( DB_REPLICA );
 		$res = $db->select(
 			'securepoll_elections',
 			'*',
@@ -205,7 +205,7 @@ class DBStore implements Store {
 	}
 
 	public function callbackValidVotes( $electionId, $callback, $voterId = null ) {
-		$dbr = $this->getDB();
+		$dbr = $this->getDB( DB_REPLICA );
 		$where = [
 			'vote_election' => $electionId,
 			'vote_current' => 1,
@@ -232,7 +232,7 @@ class DBStore implements Store {
 	}
 
 	public function getEntityType( $id ) {
-		$db = $this->getDB();
+		$db = $this->getDB( DB_REPLICA );
 		$res = $db->selectRow(
 			'securepoll_entity',
 			'*',
