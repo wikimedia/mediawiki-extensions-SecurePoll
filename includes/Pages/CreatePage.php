@@ -8,10 +8,10 @@ use Linker;
 use MediaWiki\Extensions\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extensions\SecurePoll\Context;
 use MediaWiki\Extensions\SecurePoll\Crypt\Crypt;
-use MediaWiki\Extensions\SecurePoll\DBStore;
 use MediaWiki\Extensions\SecurePoll\Entities\Entity;
 use MediaWiki\Extensions\SecurePoll\SecurePollContentHandler;
 use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
+use MediaWiki\Extensions\SecurePoll\Store\FormStore;
 use MediaWiki\Extensions\SecurePoll\Talliers\Tallier;
 use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\User\UserGroupManager;
@@ -850,7 +850,7 @@ class CreatePage extends ActionPage {
 			// Create a new context to bypass caching.
 			$context = new Context;
 			// We may be inside a transaction, so force a primary DB connection (T209804)
-			$context->setStore( new DBStore( true ) );
+			$context->getStore()->setForcePrimary( true );
 
 			$election = $context->getElection( $eId );
 

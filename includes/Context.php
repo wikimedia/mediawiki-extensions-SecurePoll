@@ -9,10 +9,14 @@ use MediaWiki\Extensions\SecurePoll\Crypt\Random;
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
 use MediaWiki\Extensions\SecurePoll\Entities\Option;
 use MediaWiki\Extensions\SecurePoll\Entities\Question;
+use MediaWiki\Extensions\SecurePoll\Store\DBStore;
+use MediaWiki\Extensions\SecurePoll\Store\Store;
+use MediaWiki\Extensions\SecurePoll\Store\XMLStore;
 use MediaWiki\Extensions\SecurePoll\Talliers\ElectionTallier;
 use MediaWiki\Extensions\SecurePoll\Talliers\Tallier;
 use MediaWiki\Extensions\SecurePoll\User\Auth;
 use MediaWiki\Extensions\SecurePoll\User\Voter;
+use MediaWiki\MediaWikiServices;
 use ParserOptions;
 use RequestContext;
 use SpecialPage;
@@ -64,9 +68,6 @@ class Context {
 	 */
 	public $decryptData = [];
 
-	/** @var string The store class, for lazy loading */
-	public $storeClass = DBStore::class;
-
 	/** @var Store|null The store object */
 	public $store;
 
@@ -111,7 +112,10 @@ class Context {
 	 */
 	public function getStore() {
 		if ( !isset( $this->store ) ) {
-			$this->store = new $this->storeClass;
+			$this->store = new DBStore(
+				MediaWikiServices::getInstance()->getDBLoadBalancer(),
+				false
+			);
 		}
 
 		return $this->store;
@@ -124,16 +128,6 @@ class Context {
 	 */
 	public function getSpecialTitle( $subpage = false ) {
 		return SpecialPage::getTitleFor( 'SecurePoll', $subpage );
-	}
-
-	/**
-	 * Set the store class
-	 * @param string $class
-	 */
-	public function setStoreClass( $class ) {
-		$this->store = null;
-		$this->messageCache = $this->messagesLoaded = [];
-		$this->storeClass = $class;
 	}
 
 	/**

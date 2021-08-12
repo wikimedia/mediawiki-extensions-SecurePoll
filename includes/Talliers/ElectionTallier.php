@@ -7,7 +7,7 @@ use MediaWiki\Extensions\SecurePoll\Context;
 use MediaWiki\Extensions\SecurePoll\Crypt\Crypt;
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
 use MediaWiki\Extensions\SecurePoll\Entities\Question;
-use MediaWiki\Extensions\SecurePoll\Store;
+use MediaWiki\Extensions\SecurePoll\Store\Store;
 use MediaWiki\Logger\LoggerFactory;
 use MWException;
 use Status;
