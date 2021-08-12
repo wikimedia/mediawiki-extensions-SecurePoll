@@ -25,7 +25,7 @@ use Wikimedia\Rdbms\IDatabase;
 class GpgCrypt {
 	/** @var Context */
 	public $context;
-	/** @var Election */
+	/** @var Election|null */
 	public $election;
 	/** @var string|null */
 	public $recipient;
@@ -210,15 +210,33 @@ class GpgCrypt {
 
 		// T288366 Tallies fail on beta/prod with little visibility
 		// Add logging to gain more context into where it fails
-		LoggerFactory::getInstance( 'AdHocDebug' )->info(
+		$this->adHocDebug(
 			'Created the temp directory for GPG decryption',
 			[
-				'electionId' => $this->election->getId(),
 				'tmpDir' => $this->homeDir,
 			]
 		);
 
 		return Status::newGood();
+	}
+
+	/**
+	 * Log the message and context to the AdHocDebug channel.
+	 *
+	 * @see https://phabricator.wikimedia.org/T288366
+	 *
+	 * @param string $message
+	 * @param array $context
+	 */
+	private function adHocDebug( string $message, array $context = [] ) {
+		if ( $this->election ) {
+			$context += [
+				'electionId' => $this->election->getId(),
+			];
+		}
+
+		LoggerFactory::getInstance( 'AdHocDebug' )
+			->info( $message, $context );
 	}
 
 	/**
@@ -283,10 +301,9 @@ class GpgCrypt {
 
 		// T288366 Tallies fail on beta/prod with little visibility
 		// Add logging to gain more context into where it fails
-		LoggerFactory::getInstance( 'AdHocDebug' )->info(
+		$this->adHocDebug(
 			'Imported GPG decryption key',
 			[
-				'electionId' => $this->election->getId(),
 				'fileLocation' => "{$this->homeDir}/key",
 			]
 		);
@@ -333,12 +350,7 @@ class GpgCrypt {
 
 		// T288366 Tallies fail on beta/prod with little visibility
 		// Add logging to gain more context into where it fails
-		LoggerFactory::getInstance( 'AdHocDebug' )->info(
-			'Cleaned up GPG data after tally',
-			[
-				'electionId' => $this->election->getId(),
-			]
-		);
+		$this->adHocDebug( 'Cleaned up GPG data after tally' );
 	}
 
 	/**
@@ -474,12 +486,8 @@ class GpgCrypt {
 		if ( $status->isOK() ) {
 			// T288366 Tallies fail on beta/prod with little visibility
 			// Add logging to gain more context into where it fails
-			LoggerFactory::getInstance( 'AdHocDebug' )->info(
-				'Successfully decrypted vote',
-				[
-					'electionId' => $this->election->getId(),
-				]
-			);
+			$this->adHocDebug( 'Successfully decrypted vote' );
+
 			$status->value = file_get_contents( "{$this->homeDir}/output" );
 		}
 
