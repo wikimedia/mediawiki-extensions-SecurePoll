@@ -22,7 +22,7 @@ use Wikimedia\Rdbms\IDatabase;
  * Generally only gpg-encrypt-key and gpg-sign-key are required for voting,
  * gpg-decrypt-key is for tallying.
  */
-class GpgCrypt {
+class GpgCrypt extends Crypt {
 	/** @var Context */
 	public $context;
 	/** @var Election */
@@ -37,7 +37,7 @@ class GpgCrypt {
 	public static function getCreateDescriptors() {
 		global $wgSecurePollGpgSignKey;
 
-		$ret = Crypt::getCreateDescriptors();
+		$ret = parent::getCreateDescriptors();
 		$ret['election'] += [
 			'gpg-encrypt-key' => [
 				'label-message' => 'securepoll-create-label-gpg_encrypt_key',
@@ -71,7 +71,7 @@ class GpgCrypt {
 		return $ret;
 	}
 
-	public static function getTallyDescriptors() {
+	public function getTallyDescriptors(): array {
 		return [
 			'gpg-decrypt-key' => [
 				'label-message' => 'securepoll-tally-gpg-decrypt-key',
@@ -83,7 +83,7 @@ class GpgCrypt {
 		];
 	}
 
-	public static function updateDbForTallyJob(
+	public function updateDbForTallyJob(
 		int $electionId,
 		IDatabase $dbw,
 		array $data
@@ -123,7 +123,7 @@ class GpgCrypt {
 		}
 	}
 
-	public static function cleanupDbForTallyJob( int $electionId, IDatabase $dbw ): void {
+	public function cleanupDbForTallyJob( int $electionId, IDatabase $dbw ): void {
 		$result = $dbw->select(
 			'securepoll_properties',
 			[ 'pr_entity' ],
@@ -495,4 +495,15 @@ class GpgCrypt {
 		return $decryptKey !== '';
 	}
 
+	/**
+	 * Update the given context with any information needed for tallying.
+	 *
+	 * This allows some information, e.g. private keys, to be used for a
+	 * single request and not added to the database.
+	 *
+	 * @param Context $context
+	 * @param array $data
+	 */
+	public function updateTallyContext( Context $context, array $data ): void {
+	}
 }
