@@ -4,7 +4,7 @@ namespace MediaWiki\Extensions\SecurePoll\Talliers;
 
 use MediaWiki\Extensions\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extensions\SecurePoll\Crypt\Crypt;
-use MediaWiki\Extensions\SecurePoll\Store;
+use MediaWiki\Extensions\SecurePoll\Store\Store;
 use Status;
 
 /**

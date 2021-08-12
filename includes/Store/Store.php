@@ -1,6 +1,6 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll;
+namespace MediaWiki\Extensions\SecurePoll\Store;
 
 use stdClass;
 
@@ -75,6 +75,14 @@ interface Store {
 	 * @param int $index DB_PRIMARY or DB_REPLICA
 	 */
 	public function getDB( $index = DB_PRIMARY );
+
+	/**
+	 * Set a flag which, if true, forces subsequent calls to getDB() to return
+	 * a primary connection even if $index is DB_REPLICA.
+	 *
+	 * @param bool $forcePrimary
+	 */
+	public function setForcePrimary( $forcePrimary );
 
 	/**
 	 * Get an associative array of information about all questions in a given
