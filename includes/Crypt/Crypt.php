@@ -91,9 +91,7 @@ abstract class Crypt {
 	 *
 	 * @return array
 	 */
-	public static function getTallyDescriptors(): array {
-		return [];
-	}
+	abstract public function getTallyDescriptors(): array;
 
 	/**
 	 * Update the given context with any information needed for tallying.
@@ -104,8 +102,7 @@ abstract class Crypt {
 	 * @param Context $context
 	 * @param array $data
 	 */
-	public static function updateTallyContext( Context $context, array $data ): void {
-	}
+	abstract public function updateTallyContext( Context $context, array $data ): void;
 
 	/**
 	 * Update the database with any information needed for tallying via a job.
@@ -119,12 +116,11 @@ abstract class Crypt {
 	 * @param IDatabase $dbw
 	 * @param array $data
 	 */
-	public static function updateDbForTallyJob(
+	abstract public function updateDbForTallyJob(
 		int $electionId,
 		IDatabase $dbw,
 		array $data
-	): void {
-	}
+	): void;
 
 	/**
 	 * Clean up the database after tallying via a job.
@@ -133,6 +129,5 @@ abstract class Crypt {
 	 * @param int $electionId
 	 * @param IDatabase $dbw
 	 */
-	public static function cleanupDbForTallyJob( int $electionId, IDatabase $dbw ): void {
-	}
+	abstract public function cleanupDbForTallyJob( int $electionId, IDatabase $dbw ): void;
 }
