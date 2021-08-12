@@ -273,36 +273,56 @@ class STVTallier extends Tallier {
 				$candidateState = ( new Tag( 'span' ) )->addClasses( [ 'round-summary-candidate-votes' ] );
 				// Only show candidates who haven't been eliminated by this round
 				if ( !in_array( $currentCandidate, $previouslyEliminated ) ) {
+					// Prep numbers in advance to round before display
+					// There's a lot to unpack here:
+					// 1. Check if the value is an integer by transforming it into a 6-precision string representation
+					//    and ensuring it's in the format x.000000
+					// 2. If it's an integer, set it to the rounded value so that numParams will display an integer
+					//    and not a floated value like 0.000000
+					// 3. If it's not an integer, force it into the decimal representation before passing it
+					//    to numParams. Not doing this will pass the number in scientific notation (eg. 1E-6)
+					//    which has the tendency to become 0 somewhere in the number formatting pipeline
+					$roundedVotes = preg_match( '/\.0+$/', number_format( $rank['votes'], 6 ) ) ?
+						round( $rank['votes'], 6 ) : number_format( $rank['votes'], 6 );
+					$roundedTotal = preg_match( '/\.0+$/', number_format( $rank['total'], 6 ) ) ?
+						round( $rank['total'], 6 ) : number_format( $rank['total'], 6 );
+
+					// Rounding doesn't guarantee accurate display. One value may be rounded up/down and another one
+					// left as-is, resulting in a discrepency of 1E-6
+					// Calculating the earned votes post-rounding simulates how earned votes are calculated by
+					// the algorithm and ensures that our display shows accurate math
+					$roundedEarned = number_format( $roundedTotal - $roundedVotes, 6 );
+
 					// Round 1 should just show the initial votes and is guaranteed to neither elect nor eliminate
 					if ( $round['round'] === 1 ) {
 						$candidateState->appendContent(
 							wfMessage( 'securepoll-stv-result-votes-no-change' )
-								->numParams( $rank['total'] )
+								->numParams( $roundedTotal )
 						);
-					} elseif ( $rank['earned'] > 0 ) {
+					} elseif ( $roundedEarned > 0 ) {
 						$candidateState->appendContent(
 							wfMessage( 'securepoll-stv-result-votes-gain' )
 								->numParams(
-									round( $rank['votes'], 6 ),
-									round( $rank['earned'], 6 ),
-									round( $rank['total'], 6 )
+									$roundedVotes,
+									$roundedEarned,
+									$roundedTotal
 								)
 						);
 						$votesTransferred = true;
-					} elseif ( $rank['earned'] < 0 ) {
+					} elseif ( $roundedEarned < 0 ) {
 						$candidateState->appendContent(
 						wfMessage( 'securepoll-stv-result-votes-surplus' )
 							->numParams(
-								round( $rank['votes'], 6 ),
-								-round( $rank['earned'], 6 ),
-								round( $rank['total'], 6 )
+								$roundedVotes,
+								-$roundedEarned,
+								$roundedTotal
 							)
 						);
 						$votesTransferred = true;
 					} else {
 						$candidateState->appendContent(
 							wfMessage( 'securepoll-stv-result-votes-no-change' )
-								->numParams( $rank['total'] )
+								->numParams( $roundedTotal )
 						);
 					}
 
@@ -317,7 +337,7 @@ class STVTallier extends Tallier {
 							->appendContent( ' ' )
 							->appendContent(
 								wfMessage( 'securepoll-stv-result-round-keep-factor' )
-								->numParams( round( $round['keepFactors'][$currentCandidate], 6 ) )
+								->numParams( number_format( $round['keepFactors'][$currentCandidate], 6 ) )
 							);
 					} elseif ( $candidateEliminatedThisRound ) {
 						// Mark the candidate as having been previously eliminated (for display purposes only).
@@ -341,7 +361,7 @@ class STVTallier extends Tallier {
 			// Quota
 			$roundResults->appendContent(
 				wfMessage( 'securepoll-stv-result-round-quota' )
-					->numParams( round( $round['quota'], 6 ) )
+					->numParams( number_format( $round['quota'], 6 ) )
 			);
 			$roundResults->appendContent( new Tag( 'br' ) );
 
