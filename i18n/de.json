@@ -273,6 +273,7 @@
 	"securepoll-stv-invalid-rank-duplicate": "Optionen können in der Rangliste nicht mehrfach ausgewählt werden. Bitte änder die Option für: $1",
 	"securepoll-stv-invalid-input-empty": "Bitte fülle diese Einstellung aus",
 	"securepoll-stv-invalid-input-duplicate": "Bitte wähle eine andere Option für diese Einstellung",
+	"securepoll-stv-help-text": "Die folgende Tabelle beschreibt die Berechnungen, die durchgeführt wurden, um das oben genannte Ergebnis zu erzielen. In jeder Berechnungsrunde werden die Kandidaten, die mehr Stimmen als die Quote erhalten haben, für gewählt erklärt. Die über die Quote hinausgehenden überschüssigen Stimmen werden auf die übrigen Kandidaten umverteilt. Erreicht niemand die Quote, scheidet der Kandidat mit dem niedrigsten Rang aus, und seine Stimmen werden an die übrigen Kandidaten verteilt. Um dies besser zu verstehen, lies bitte [https://web.archive.org/web/20210225045400/https://prfound.org/resources/reference/reference-meek-rule/ diese Seite]",
 	"securepoll-stv-result-election-elected-header": "Gewählt",
 	"securepoll-stv-election-paramters": "Wahl für $1 {{PLURAL:$1|Sitz|Sitze}} mit $2 {{PLURAL:$2|Kandidat|Kandidaten}}. Insgesamt $3 {{PLURAL:$3|Stimme|Stimmen}}.",
 	"securepoll-stv-result-elected-list-unfilled-seat": "Dieser Sitz konnte nicht besetzt werden, da kein Bewerber die Kriterien erfüllt. {{PLURAL:$1|Der letzte ausgeschiedene Kandidat war|Die letzten ausgeschiedenen Kandidaten waren}}: $1",

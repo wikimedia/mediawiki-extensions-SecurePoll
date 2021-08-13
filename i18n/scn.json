@@ -18,6 +18,9 @@
 	"securepoll-strike-reason": "Mutivu:",
 	"securepoll-header-action": "Azzioni",
 	"securepoll-header-reason": "Mutivu",
+	"securepoll-translate-label-comment": "Mutivu:",
 	"securepoll-submit-translate": "Aggiorna",
-	"securepoll-header-title": "Nomu"
+	"securepoll-header-title": "Nomu",
+	"securepoll-create-label-comment": "Mutivu",
+	"securepoll-votereligibility-label-comment": "Mutivu"
 }
