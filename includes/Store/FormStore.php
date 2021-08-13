@@ -1,13 +1,13 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Pages;
+namespace MediaWiki\Extensions\SecurePoll\Store;
 
 use DateInterval;
 use DateTime;
 use DateTimeZone;
 use MediaWiki\Extensions\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extensions\SecurePoll\Crypt\Crypt;
-use MediaWiki\Extensions\SecurePoll\MemoryStore;
+use MediaWiki\Extensions\SecurePoll\Pages\StatusException;
 use MediaWiki\Extensions\SecurePoll\Talliers\Tallier;
 use SpecialPage;
 use WikiMap;

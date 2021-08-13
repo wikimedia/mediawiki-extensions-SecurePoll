@@ -1,8 +1,9 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll;
+namespace MediaWiki\Extensions\SecurePoll\Store;
 
 use Status;
+use Wikimedia\Rdbms\ILoadBalancer;
 
 /**
  * Storage class for a DB backend. This is the one that's most often used.
@@ -12,11 +13,23 @@ class DBStore implements Store {
 	/** @var bool */
 	private $forcePrimary = false;
 
+	/** @var ILoadBalancer */
+	private $loadBalancer;
+
+	/** @var string|bool */
+	private $wiki;
+
 	/**
-	 * @param bool $forcePrimary Force use of DB_PRIMARY
+	 * DBStore constructor.
+	 * @param ILoadBalancer $loadBalancer The load balancer used to get connection objects
+	 * @param string|bool $wiki The wiki ID or false to use the local wiki
 	 */
-	public function __construct( $forcePrimary = false ) {
-		$this->forcePrimary = $forcePrimary;
+	public function __construct(
+		ILoadBalancer $loadBalancer,
+		$wiki = false
+	) {
+		$this->loadBalancer = $loadBalancer;
+		$this->wiki = $wiki;
 	}
 
 	public function getMessages( $lang, $ids ) {
@@ -132,7 +145,15 @@ class DBStore implements Store {
 	}
 
 	public function getDB( $index = DB_PRIMARY ) {
-		return wfGetDB( $this->forcePrimary ? DB_PRIMARY : $index );
+		return $this->loadBalancer->getConnection(
+			$this->forcePrimary ? DB_PRIMARY : $index,
+			[],
+			$this->wiki
+		);
+	}
+
+	public function setForcePrimary( $forcePrimary ) {
+		$this->forcePrimary = $forcePrimary;
 	}
 
 	public function getQuestionInfo( $electionId ) {

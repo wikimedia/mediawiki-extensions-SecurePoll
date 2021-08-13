@@ -1,6 +1,6 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll;
+namespace MediaWiki\Extensions\SecurePoll\Store;
 
 use MediaWiki\Logger\LoggerFactory;
 use MWException;
@@ -95,6 +95,9 @@ class MemoryStore implements Store {
 		throw new MWException(
 			'Internal error: attempt to use getDB() when the database is disabled.'
 		);
+	}
+
+	public function setForcePrimary( $forcePrimary ) {
 	}
 
 	public function callbackValidVotes( $electionId, $callback, $voterId = null ) {
