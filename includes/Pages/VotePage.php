@@ -67,15 +67,19 @@ class VotePage extends ActionPage {
 
 		if ( !count( $params ) ) {
 			$out->addWikiMsg( 'securepoll-too-few-params' );
-
 			return;
 		}
 
-		$electionId = intval( $params[0] );
-		$this->election = $this->context->getElection( $electionId );
+		if ( preg_match( '/^[0-9]+$/', $params[0] ) ) {
+			$electionId = intval( $params[0] );
+			$this->election = $this->context->getElection( $electionId );
+		} else {
+			$electionId = str_replace( '_', ' ', $params[0] );
+			$this->election = $this->context->getElectionByTitle( $electionId );
+		}
+
 		if ( !$this->election ) {
 			$out->addWikiMsg( 'securepoll-invalid-election', $electionId );
-
 			return;
 		}
 
