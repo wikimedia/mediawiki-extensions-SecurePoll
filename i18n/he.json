@@ -275,6 +275,7 @@
 	"securepoll-stv-invalid-rank-duplicate": "לא ניתן לבחור אפשרויות כמה פעמים באותו דירוג. נא לשנות את האפשרות עבור: $1",
 	"securepoll-stv-invalid-input-empty": "נא למלא את ההעדפה הזאת",
 	"securepoll-stv-invalid-input-duplicate": "נא לבחור אפשרות אחרת עבור ההעדפה הזאת",
+	"securepoll-stv-help-text": "הטבלה הבאה מתארת את החישובים שהתרחשו כדי להגיע לתוצאה לעיל. בכל סיבוב של חישוב, המועמד או המועמדים שקיבלו יותר קולות מהמִכסה מוכרזים כנבחרים. הקולות העודפים שלהם מעל המכסה מחולקים מחדש למועמדים הנותרים. אם אף אחד לא מקבל את המכסה, המועמד עם הדירוג הנמוך ביותר מנופה והקולות בעדו מחולקים מחדש למועמדים הנותרים. כדי להבין את זה טוב יותר, נא לעיין ב [https://web.archive.org/web/20210225045400/https://prfound.org/resources/reference/reference-meek-rule/ קישור הזה].",
 	"securepoll-stv-result-election-elected-header": "נבחרו",
 	"securepoll-stv-election-paramters": "בחירות {{PLURAL:$1|למושב אחד|ל־$1 מושבים}} עם {{PLURAL:$2|מועמד אחד|$2 מועמדים}}. סה\"כ {{PLURAL:$3|קול אחד|$3 קולות}}.",
 	"securepoll-stv-result-elected-list-unfilled-seat": "לא היה אפשר למלא את המושב הזה כי שום מועמד לא מתאים לתנאים. {{PLURAL:$1|המועמד האחרון שנופה|המועמדים האחרונים שנופו}}: $1",
