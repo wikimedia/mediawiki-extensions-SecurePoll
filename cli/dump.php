@@ -25,6 +25,7 @@ class DumpElection extends Maintenance {
 		$this->addOption( 'votes', 'Include vote records' );
 		$this->addOption( 'all-langs', 'Include messages for all languages instead of just the primary' );
 		$this->addOption( 'jump', 'Produce a configuration dump suitable for setting up a jump wiki' );
+		$this->addOption( 'private', 'Include encryption keys' );
 
 		$this->requireExtension( 'SecurePoll' );
 	}
@@ -62,7 +63,8 @@ class DumpElection extends Maintenance {
 		}
 		$confXml = $election->getConfXml( [
 			'jump' => $this->getOption( 'jump', false ),
-			'langs' => $langs
+			'langs' => $langs,
+			'private' => $this->hasOption( 'private' )
 		] );
 
 		$cbdata = [

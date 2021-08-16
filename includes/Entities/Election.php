@@ -543,7 +543,7 @@ class Election extends Entity {
 	 * @return array
 	 */
 	public function getPropertyDumpExclusion( $params = [] ) {
-		if ( !empty( $params['jump'] ) ) {
+		if ( empty( $params['private'] ) ) {
 			return [
 				'gpg-encrypt-key',
 				'gpg-sign-key',
