@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extensions\SecurePoll\Pages;
 
+use ExtensionRegistry;
 use HTMLForm;
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
 use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
@@ -10,6 +11,7 @@ use MediaWiki\Extensions\SecurePoll\User\RemoteMWAuth;
 use MediaWiki\Extensions\SecurePoll\User\Voter;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Session\SessionManager;
+use MobileContext;
 use MWException;
 use Status;
 use Title;
@@ -314,9 +316,18 @@ class VotePage extends ActionPage {
 		$out = $this->specialPage->getOutput();
 
 		$url = $this->election->getProperty( 'jump-url' );
+		if ( ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
+			$mobileUrl = $this->election->getProperty( 'mobile-jump-url' );
+			// @phan-suppress-next-line PhanUndeclaredClassMethod
+			$mobileContext = MobileContext::singleton();
+			if ( $mobileUrl && $mobileContext->usingMobileDomain() ) {
+				$url = $mobileUrl;
+			}
+		}
 		if ( !$url ) {
 			throw new MWException( 'Configuration error: no jump-url' );
 		}
+
 		$id = $this->election->getProperty( 'jump-id' );
 		if ( !$id ) {
 			throw new MWException( 'Configuration error: no jump-id' );
