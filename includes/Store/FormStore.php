@@ -5,10 +5,12 @@ namespace MediaWiki\Extensions\SecurePoll\Store;
 use DateInterval;
 use DateTime;
 use DateTimeZone;
+use ExtensionRegistry;
 use MediaWiki\Extensions\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extensions\SecurePoll\Crypt\Crypt;
 use MediaWiki\Extensions\SecurePoll\Pages\StatusException;
 use MediaWiki\Extensions\SecurePoll\Talliers\Tallier;
+use MobileContext;
 use SpecialPage;
 use WikiMap;
 
@@ -121,9 +123,16 @@ class FormStore extends MemoryStore {
 				'questions' => [],
 			];
 			$this->properties[$rId]['main-wiki'] = WikiMap::getCurrentWikiId();
-			$this->properties[$rId]['jump-url'] = SpecialPage::getTitleFor(
-				'SecurePoll'
-			)->getFullUrl();
+
+			$jumpUrl = SpecialPage::getTitleFor( 'SecurePoll' )->getFullUrl();
+			$this->properties[$rId]['jump-url'] = $jumpUrl;
+			if ( ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
+				// @phan-suppress-next-line PhanUndeclaredClassMethod
+				$mobileContext = MobileContext::singleton();
+				$this->properties[$rId]['mobile-jump-url'] =
+					$mobileContext->getMobileUrl( $jumpUrl );
+			}
+
 			$this->properties[$rId]['jump-id'] = $eId;
 			$this->properties[$rId]['admins'] = $admins;
 			$this->messages[$this->lang][$rId] = [
