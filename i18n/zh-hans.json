@@ -285,5 +285,6 @@
 	"securepoll-stv-invalid-rank-duplicate": "不能在排名中多次选择选项。请更改选项：$1",
 	"securepoll-stv-invalid-input-empty": "请填写此首选项",
 	"securepoll-stv-invalid-input-duplicate": "请为此首选项选择其他选项",
-	"securepoll-stv-help-text": "以下的列表描述了用于达成以上结果的计算。在每一轮计算中，获得过于指标数量票数的候选人将会被宣布被选拔。他们高于指标的多余票数将会被重新分配到剩余的候选人中。如果没人达成指标，排名最低的候选人将会被淘汰，他的票将会被重新分配到剩余的候选人中。为了更好的理解，请参考[https://web.archive.org/web/20210225045400/https://prfound.org/resources/reference/reference-meek-rule/ this link]。"
+	"securepoll-stv-help-text": "以下的列表描述了用于达成以上结果的计算。在每一轮计算中，获得过于指标数量票数的候选人将会被宣布被选拔。他们高于指标的多余票数将会被重新分配到剩余的候选人中。如果没人达成指标，排名最低的候选人将会被淘汰，他的票将会被重新分配到剩余的候选人中。为了更好的理解，请参考[https://web.archive.org/web/20210225045400/https://prfound.org/resources/reference/reference-meek-rule/ this link]。",
+	"securepoll-stv-result-election-eliminated-header": "已被消灭/未被选择"
 }

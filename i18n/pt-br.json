@@ -293,6 +293,7 @@
 	"securepoll-stv-invalid-rank-duplicate": "As opções não podem ser selecionadas várias vezes na classificação. Por favor, altere a opção para: $1",
 	"securepoll-stv-invalid-input-empty": "Por favor, preencha esta preferência",
 	"securepoll-stv-invalid-input-duplicate": "Por favor, selecione uma opção diferente para esta preferência",
+	"securepoll-stv-help-text": "A tabela a seguir descreve os cálculos que aconteceram para atingir o resultado acima. Em cada rodada de cálculo, o(s) candidato(s) que obtiverem mais votos do que a cota são declarados eleitos. Seus votos excedentes acima da cota são redistribuídos aos candidatos restantes. Se ninguém atingir a cota, o candidato com a posição mais baixa é eliminado e seus votos são redistribuídos aos demais candidatos. Para entender isso melhor, consulte [https://web.archive.org/web/20210225045400/https://prfound.org/resources/reference/reference-meek-rule/ este link].",
 	"securepoll-stv-result-election-elected-header": "Eleito",
 	"securepoll-stv-election-paramters": "Eleição para $1 {{PLURAL:$1|assento|assentos}} com $ 2 {{PLURAL:$2|candidato|candidatos}}. Total de $3 {{PLURAL:$3|voto|votos}}.",
 	"securepoll-stv-result-elected-list-unfilled-seat": "Este assento não pôde ser preenchida porque nenhum candidato preenche os critérios. {{PLURAL:$1|O último candidato foi eliminado|Os últimos candidatos foram eliminados}}: $1",

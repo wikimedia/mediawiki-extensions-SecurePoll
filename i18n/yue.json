@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Deryck Chan",
+			"Hello903hello",
 			"Horacewai2",
 			"Lauhenry",
 			"Moon0319",
@@ -33,7 +34,7 @@
 	"securepoll-gpg-config-error": "GPG匙未能正班噉設定。",
 	"securepoll-gpg-parse-error": "處理GPG輸出出錯。",
 	"securepoll-no-decryption-key": "未設定解密匙。\n唔可以解密。",
-	"securepoll-jump": "去緊投票伺服器",
+	"securepoll-jump": "去投票伺服器",
 	"securepoll-bad-ballot-submission": "<div class=\"securepoll-error-box\">\n\t你嘅投票無效: $1\n\t</div>",
 	"securepoll-unanswered-questions": "你一定要答全部嘅問題。",
 	"securepoll-invalid-rank": "錯嘅評分。你嘅評分必須要係1-999之間。",
