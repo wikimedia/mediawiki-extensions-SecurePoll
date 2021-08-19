@@ -49,6 +49,7 @@
 		"SecurePollNamespaces": "SecurePoll.namespaces.php"
 	},
 	"AutoloadClasses": {
+		"DeletePoll": "cli/delete.php",
 		"UpdateNotBlockedKey": "cli/updateNotBlockedKey.php"
 	},
 	"AutoloadNamespaces": {

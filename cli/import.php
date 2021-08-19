@@ -112,36 +112,11 @@ EOT
 	 * @param int|string $electionId
 	 */
 	private function deleteElection( $electionId ) {
-		$dbw = wfGetDB( DB_PRIMARY );
-
-		# Get a list of entity IDs and lock them
-		$questionIds = [];
-		$res = $dbw->select( 'securepoll_questions', [ 'qu_entity' ],
-			[ 'qu_election' => $electionId ],
-			__METHOD__, [ 'FOR UPDATE' ] );
-		foreach ( $res as $row ) {
-			$questionIds[] = $row->qu_entity;
-		}
-
-		$res = $dbw->select( 'securepoll_options', [ 'op_entity' ],
-			[ 'op_election' => $electionId ],
-			__METHOD__, [ 'FOR UPDATE' ] );
-		$optionIds = [];
-		foreach ( $res as $row ) {
-			$optionIds[] = $row->op_entity;
-		}
-
-		$entityIds = array_merge( $optionIds, $questionIds, [ $electionId ] );
-
-		# Delete the messages and properties
-		$dbw->delete( 'securepoll_msgs', [ 'msg_entity' => $entityIds ] );
-		$dbw->delete( 'securepoll_properties', [ 'pr_entity' => $entityIds ] );
-
-		# Delete the entities
-		$dbw->delete( 'securepoll_options', [ 'op_entity' => $optionIds ], __METHOD__ );
-		$dbw->delete( 'securepoll_questions', [ 'qu_entity' => $questionIds ], __METHOD__ );
-		$dbw->delete( 'securepoll_elections', [ 'el_entity' => $electionId ], __METHOD__ );
-		$dbw->delete( 'securepoll_entity', [ 'en_id' => $entityIds ], __METHOD__ );
+		$delete = new DeletePoll();
+		$delete->loadWithArgv(
+			[ '--id=' . $electionId ]
+		);
+		$delete->execute();
 	}
 
 	/**
