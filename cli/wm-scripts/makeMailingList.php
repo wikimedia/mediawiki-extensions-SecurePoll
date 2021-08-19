@@ -68,6 +68,8 @@ class MakeMailingList extends Maintenance {
 	private $numNotQualified = 0;
 	/** @var int */
 	private $numWritten = 0;
+	/** @var int */
+	private $numInExcludeList = 0;
 
 	public function __construct() {
 		parent::__construct();
@@ -75,6 +77,9 @@ class MakeMailingList extends Maintenance {
 		$this->addOption( 'election', 'Election title or ID', true, true );
 		$this->addOption( 'election-wiki',
 			'The wiki on which the election is stored, or omit for the local wiki',
+			false, true );
+		$this->addOption( 'exclude-central-list',
+			'Exclude voters in the specified central list',
 			false, true );
 		$this->addOption( 'output-file',
 			'The filename to write to, or omit for stdout',
@@ -114,6 +119,8 @@ class MakeMailingList extends Maintenance {
 			$this->outFile = STDOUT;
 		}
 
+		$excludeCentralList = $this->getOption( 'exclude-central-list' );
+
 		$localAuth = new LocalAuth( $this->context );
 		/** @var User $user */
 		foreach ( $this->generateUsers() as $user ) {
@@ -132,11 +139,18 @@ class MakeMailingList extends Maintenance {
 				$this->numAlreadyVoted++;
 				continue;
 			}
-			$params = $localAuth->getUserParams( $user );
+			$params = $localAuth->getUserParamsFast( $user );
 			$status = $this->election->getQualifiedStatus( $params );
 			if ( !$status->isOK() ) {
 				$this->debug( "{$user->getName()}: not qualified" );
 				$this->numNotQualified++;
+				continue;
+			}
+			if ( $excludeCentralList
+				&& in_array( $excludeCentralList, $params['central-lists'] )
+			) {
+				$this->debug( "{$user->getName()}: in exclusion list" );
+				$this->numInExcludeList++;
 				continue;
 			}
 			$this->numWritten++;
@@ -145,6 +159,7 @@ class MakeMailingList extends Maintenance {
 		$this->error(
 			"Users added: {$this->numWritten}\n" .
 			"Not qualified: {$this->numNotQualified}\n" .
+			"In exclude list: {$this->numInExcludeList}\n" .
 			"Already voted: {$this->numAlreadyVoted}\n" .
 			"No valid address: {$this->numInvalidEmail}\n" .
 			"In nomail list: {$this->numInNomail}"

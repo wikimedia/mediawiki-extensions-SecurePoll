@@ -82,6 +82,49 @@ class LocalAuth extends Auth {
 	}
 
 	/**
+	 * Get voter parameters for a local User object, except without central block count.
+	 *
+	 * @param User $user
+	 * @return array
+	 */
+	public function getUserParamsFast( $user ) {
+		global $wgServer;
+
+		$services = MediaWikiServices::getInstance();
+		$block = $user->getBlock();
+		$params = [
+			'name' => $user->getName(),
+			'type' => 'local',
+			'domain' => preg_replace( '!.*/(.*)$!', '$1', $wgServer ),
+			'url' => $user->getUserPage()->getCanonicalURL(),
+			'properties' => [
+				'wiki' => wfWikiID(),
+				'blocked' => (bool)$block,
+				'isSitewideBlocked' => $block ? $block->isSitewide() : null,
+				'central-block-count' => 0,
+				'edit-count' => $user->getEditCount(),
+				'bot' => $user->isAllowed( 'bot' ),
+				'language' => $services->getUserOptionsLookup()->getOption( $user, 'language' ),
+				'groups' => $services->getUserGroupManager()->getUserGroups( $user ),
+				'lists' => $this->getLists( $user ),
+				'central-lists' => $this->getCentralLists( $user ),
+				'registration' => $user->getRegistration(),
+			]
+		];
+
+		Hooks::run(
+			'SecurePoll_GetUserParams',
+			[
+				$this,
+				$user,
+				&$params
+			]
+		);
+
+		return $params;
+	}
+
+	/**
 	 * Get the lists a given local user belongs to
 	 * @param User $user
 	 * @return array
