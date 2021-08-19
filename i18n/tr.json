@@ -3,6 +3,7 @@
 		"authors": [
 			"BaRaN6161 TURK",
 			"Emperyan",
+			"Hedda",
 			"Joseph",
 			"Justinianus",
 			"Koc61",
@@ -281,6 +282,7 @@
 	"securepoll-stv-invalid-rank-duplicate": "Seçenekler derecelendirmede birden fazla seçilemez. Lütfen seçeneği değiştirin: $1",
 	"securepoll-stv-invalid-input-empty": "Lütfen bu tercihi doldurun",
 	"securepoll-stv-invalid-input-duplicate": "Lütfen bu tercih için farklı bir seçenek seçin",
+	"securepoll-stv-help-text": "Aşağıdaki tablo, yukarıdaki sonuca ulaşmak için yapılan hesaplamaları açıklamaktadır. Her hesaplama turunda, kotadan fazla oy alan aday(lar) seçilmiş ilan edilir. Kotanın üzerindeki fazla oyları, kalan adaylara yeniden dağıtılır. Kotaya kimse ulaşamazsa en düşük sıradaki aday elenir ve oyları, kalan adaylara yeniden dağıtılır. Bunu daha iyi anlamak için lütfen [https://web.archive.org/web/20210225045400/https://prfound.org/resources/reference/reference-meek-rule/ bu bağlantıya] bakın.",
 	"securepoll-stv-result-election-elected-header": "Seçilmiş",
 	"securepoll-stv-election-paramters": "$1 {{PLURAL:$1|koltuk}} için $2 adayla seçim. Toplam $3 oy.",
 	"securepoll-stv-result-elected-list-unfilled-seat": "Hiçbir aday kriterleri yerine getirmediği için bu koltuk doldurulamadı. Son elenen {{PLURAL:$1|aday|adaylar}}: $1",
