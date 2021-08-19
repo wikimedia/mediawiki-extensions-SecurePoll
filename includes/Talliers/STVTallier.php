@@ -680,7 +680,7 @@ class STVTallier extends Tallier {
 		// using Hill's surplus-based short circuit elimination
 		if ( $lowest + $surplus < $secondLowest ) {
 			return array_keys( array_filter( $ranking, static function ( $ranked ) use ( $lowest ) {
-				if ( $ranked['total'] === $lowest ) {
+				if ( abs( $ranked['total'] - $lowest ) < PHP_FLOAT_EPSILON ) {
 					return true;
 				}
 				return false;
