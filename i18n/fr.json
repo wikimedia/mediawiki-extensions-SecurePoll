@@ -296,6 +296,7 @@
 	"securepoll-stv-invalid-rank-duplicate": "Les options ne peuvent pas être sélectionnées plusieurs fois dans le classement. Veuillez changer l’option pour : $1",
 	"securepoll-stv-invalid-input-empty": "Veuillez compéter cette préférence",
 	"securepoll-stv-invalid-input-duplicate": "Veuillez sélectionner une option différente pour cette préférence",
+	"securepoll-stv-help-text": "Le tableau suivant décrit les calculs qui aboutissent au résultat ci-dessus. À chaque étape du calcul, les candidats qui obtiennent plus de votes que le quota sont déclarés élus. Leurs votes obtenus au-delà du quota sont redistribués aux candidats restants. Si personne n’atteint le quota, le candidat de rang le plus bas est éliminé, et ses votes sont redistribués aux candidats restants. Pour mieux comprendre, veuillez vous référer à [https://web.archive.org/web/20210225045400/https://prfound.org/resources/reference/reference-meek-rule/ ce lien].",
 	"securepoll-stv-result-election-elected-header": "Élu",
 	"securepoll-stv-election-paramters": "Élection pour $1 {{PLURAL:$1|siège|sièges}} avec $2 {{PLURAL:$2|candidat|candidats}}. $3 {{PLURAL:$3|vote|votes}} au total.",
 	"securepoll-stv-result-elected-list-unfilled-seat": "Ce siège n’a pas pu être comblé parce qu’aucun candidat ne remplit les critères. {{PLURAL:$1|Le dernier candidat éliminé était|Les derniers candidats éliminés étaient}} : $1",
