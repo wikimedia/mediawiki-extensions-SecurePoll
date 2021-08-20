@@ -147,7 +147,7 @@ class MakeMailingList extends Maintenance {
 				continue;
 			}
 			if ( $excludeCentralList
-				&& in_array( $excludeCentralList, $params['central-lists'] )
+				&& in_array( $excludeCentralList, $params['properties']['central-lists'] )
 			) {
 				$this->debug( "{$user->getName()}: in exclusion list" );
 				$this->numInExcludeList++;
