@@ -149,6 +149,7 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 		$userLink = Linker::userLink( $user->getId(), $user->getName() );
 
 		$election = $this->context->getElection( $row->spl_election_id );
+		// TODO: this is double escaped
 		$electionTitle = htmlspecialchars( $election->title );
 
 		$messageParams = [
@@ -167,7 +168,7 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 			$messageParams
 		)->text();
 
-		return HTML::rawElement( 'li', [], $message );
+		return Html::element( 'li', [], $message );
 	}
 
 	/**
@@ -188,6 +189,6 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 	 * @inheritDoc
 	 */
 	public function getEmptyBody() {
-		return HTML::rawElement( 'p', [], $this->msg( 'securepoll-log-empty' )->text() );
+		return Html::element( 'p', [], $this->msg( 'securepoll-log-empty' )->text() );
 	}
 }

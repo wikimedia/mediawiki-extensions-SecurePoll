@@ -84,9 +84,9 @@ class ListPager extends TablePager {
 		switch ( $name ) {
 			case 'vote_timestamp':
 				if ( $this->isAdmin ) {
-					return $this->getLanguage()->timeanddate( $value );
+					return htmlspecialchars( $this->getLanguage()->timeanddate( $value ) );
 				} else {
-					return $this->getLanguage()->date( $value );
+					return htmlspecialchars( $this->getLanguage()->date( $value ) );
 				}
 			case 'vote_ip':
 				if ( $this->election->endDate < wfTimestamp(
@@ -106,7 +106,7 @@ class ListPager extends TablePager {
 				) {
 					return '';
 				} else {
-					return $value;
+					return htmlspecialchars( $value );
 				}
 			case 'vote_xff':
 				if ( $this->election->endDate < wfTimestamp(
@@ -116,20 +116,20 @@ class ListPager extends TablePager {
 				) {
 					return '';
 				} else {
-					return $value;
+					return htmlspecialchars( $value );
 				}
 			case 'vote_cookie_dup':
 				$value = !$value;
 				if ( $value ) {
 					return '';
 				} else {
-					return $this->msg( 'securepoll-vote-duplicate' )->text();
+					return $this->msg( 'securepoll-vote-duplicate' )->escaped();
 				}
 			case 'vote_token_match':
 				if ( $value ) {
 					return '';
 				} else {
-					return $this->msg( 'securepoll-vote-csrf' )->text();
+					return $this->msg( 'securepoll-vote-csrf' )->escaped();
 				}
 			case 'details':
 				$voteId = intval( $this->mCurrentRow->vote_id );
