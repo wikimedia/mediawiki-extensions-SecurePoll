@@ -197,7 +197,7 @@ class MakeMailingList extends Maintenance {
 	 * @return Generator
 	 */
 	private function generateCentralListUsers( $centralList ) {
-		$dbcr = CentralAuthServices::getUtilityService()->getCentralReplicaDB();
+		$dbcr = CentralAuthServices::getDatabaseManager()->getCentralDB( DB_REPLICA );
 		$offsetId = 0;
 		do {
 			// Get a list of local users who are in the central list and are

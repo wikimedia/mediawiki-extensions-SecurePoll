@@ -47,9 +47,9 @@ class MakeGlobalVoterList extends Maintenance {
 	}
 
 	public function execute() {
-		$centralUtils = CentralAuthServices::getUtilityService();
-		$dbcr = $centralUtils->getCentralReplicaDB();
-		$dbcw = $centralUtils->getCentralDB();
+		$caDbManager = CentralAuthServices::getDatabaseManager();
+		$dbcr = $caDbManager->getCentralDB( DB_REPLICA );
+		$dbcw = $caDbManager->getCentralDB( DB_PRIMARY );
 
 		$listName = $this->getOption( 'list-name' );
 		$this->shortMinEdits = $this->getOption( 'short-min-edits' );
@@ -114,8 +114,8 @@ class MakeGlobalVoterList extends Maintenance {
 	 */
 	private function getQualifiedUsers( $users ) {
 		global $wgLocalDatabases;
-		$centralUtils = CentralAuthServices::getUtilityService();
-		$dbcr = $centralUtils->getCentralReplicaDB();
+		$caDbManager = CentralAuthServices::getDatabaseManager();
+		$dbcr = $caDbManager->getCentralDB( DB_REPLICA );
 
 		$res = $dbcr->newSelectQueryBuilder()
 			->select( [ 'lu_name', 'lu_wiki' ] )

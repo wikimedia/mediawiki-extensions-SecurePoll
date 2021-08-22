@@ -34,9 +34,9 @@ class ImportGlobalVoterList extends \Maintenance {
 	}
 
 	public function execute() {
-		$centralUtils = CentralAuthServices::getUtilityService();
-		$this->dbcr = $centralUtils->getCentralReplicaDB();
-		$this->dbcw = $centralUtils->getCentralDB();
+		$caDbManager = CentralAuthServices::getDatabaseManager();
+		$this->dbcr = $caDbManager->getCentralDB( DB_REPLICA );
+		$this->dbcw = $caDbManager->getCentralDB( DB_PRIMARY );
 
 		$this->listName = $this->getOption( 'list-name' );
 		if ( $this->hasOption( 'delete' ) ) {

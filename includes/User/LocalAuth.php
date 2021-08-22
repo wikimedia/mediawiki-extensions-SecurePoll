@@ -158,10 +158,10 @@ class LocalAuth extends Auth {
 		if ( !$centralUser->isAttached() ) {
 			return [];
 		}
-		$centralAuthUtilityService = MediaWikiServices::getInstance()->getService(
-			'CentralAuth.CentralAuthUtilityService'
+		$caDbManager = MediaWikiServices::getInstance()->getService(
+			'CentralAuth.CentralAuthDatabaseManager'
 		);
-		$dbc = $centralAuthUtilityService->getCentralReplicaDB();
+		$dbc = $caDbManager->getCentralDB( DB_REPLICA );
 		$res = $dbc->select(
 			'securepoll_lists',
 			[ 'li_name' ],
