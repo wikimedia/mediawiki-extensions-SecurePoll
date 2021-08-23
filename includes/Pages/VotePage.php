@@ -23,8 +23,6 @@ use Wikimedia\Rdbms\ILoadBalancer;
  * The subpage for casting votes.
  */
 class VotePage extends ActionPage {
-	/** @var array|null */
-	public $languages;
 	/** @var Election|null */
 	public $election;
 	/** @var Auth|null */
@@ -59,7 +57,6 @@ class VotePage extends ActionPage {
 	 */
 	public function execute( $params ) {
 		$out = $this->specialPage->getOutput();
-		$language = $this->specialPage->getLanguage();
 		$out->enableOOUI();
 		$out->addModules( 'ext.securepoll.htmlform' );
 		$out->addModuleStyles( [
@@ -104,6 +101,8 @@ class VotePage extends ActionPage {
 		}
 
 		$this->initLanguage( $this->voter, $this->election );
+		$language = $this->getUserLang();
+		$this->specialPage->getContext()->setLanguage( $language );
 
 		$out->setPageTitle( $this->election->getMessage( 'title' ) );
 

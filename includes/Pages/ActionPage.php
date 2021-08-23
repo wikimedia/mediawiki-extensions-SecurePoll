@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extensions\SecurePoll\Pages;
 
+use Language;
 use MediaWiki\Extensions\SecurePoll\Context;
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
 use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
@@ -33,6 +34,8 @@ abstract class ActionPage {
 	protected $userOptionsLookup;
 	/** @var LanguageFallback */
 	protected $languageFallback;
+	/** @var Language */
+	public $userLang;
 
 	/**
 	 * Constructor.
@@ -60,6 +63,7 @@ abstract class ActionPage {
 		$services = MediaWikiServices::getInstance();
 		$userOptionsLookup = $services->getUserOptionsLookup();
 		$languageFallback = $services->getLanguageFallback();
+		$languageFactory = $services->getLanguageFactory();
 		if ( $uselang !== null ) {
 			$userLang = $uselang;
 		} elseif ( $user instanceof Voter ) {
@@ -80,6 +84,21 @@ abstract class ActionPage {
 			$languages[] = 'en';
 		}
 		$this->context->setLanguages( $languages );
+		$this->userLang = $languageFactory->getLanguage( $userLang );
+	}
+
+	/**
+	 * Get the current language. Call this after initLanguage() to get the
+	 * voter language on the vote subpage.
+	 *
+	 * @return Language
+	 */
+	public function getUserLang() {
+		if ( $this->userLang ) {
+			return $this->userLang;
+		} else {
+			return $this->specialPage->getLanguage();
+		}
 	}
 
 	public function setUserOptionsLookup( $userOptionsLookup ) {
