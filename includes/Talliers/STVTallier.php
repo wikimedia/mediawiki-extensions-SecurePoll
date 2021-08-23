@@ -663,9 +663,20 @@ class STVTallier extends Tallier {
 			return !in_array( $key, $eliminated ) ? true : false;
 		}, ARRAY_FILTER_USE_KEY );
 
-		$voteTotals = array_unique( array_map( static function ( $candidate ) {
-			return $candidate['total'];
-		}, $ranking ) );
+		// Manually implement array_unique with higher precision than the default function
+		$voteTotals = [];
+		foreach ( $ranking as $candidate ) {
+			// Since it's already been ordered by vote totals, we only need to check the
+			// difference against the last recorded unique value
+			if ( count( $voteTotals ) === 0 ) {
+				// First value is always unique
+				$voteTotals[] = $candidate['total'];
+			} elseif ( isset( $voteTotals[ count( $voteTotals ) - 1 ] ) ) {
+				if ( abs( $candidate['total'] - $voteTotals[ count( $voteTotals ) - 1 ] ) > PHP_FLOAT_EPSILON ) {
+					$voteTotals[] = $candidate['total'];
+				}
+			}
+		}
 
 		// If everyone left is tied and no one made quota
 		// Everyone left gets eliminated
