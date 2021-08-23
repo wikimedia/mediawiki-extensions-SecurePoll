@@ -4,6 +4,7 @@ namespace MediaWiki\Extensions\SecurePoll;
 
 use CentralAuthServices;
 use Exception;
+use ExtensionRegistry;
 use Generator;
 use Maintenance;
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
@@ -156,13 +157,13 @@ class MakeMailingList extends Maintenance {
 			$this->numWritten++;
 			$this->writeUser( $user );
 		}
-		$this->error(
+		fwrite( STDERR,
 			"Users added: {$this->numWritten}\n" .
 			"Not qualified: {$this->numNotQualified}\n" .
 			"In exclude list: {$this->numInExcludeList}\n" .
 			"Already voted: {$this->numAlreadyVoted}\n" .
 			"No valid address: {$this->numInvalidEmail}\n" .
-			"In nomail list: {$this->numInNomail}"
+			"In nomail list: {$this->numInNomail}\n"
 		);
 	}
 
@@ -197,12 +198,17 @@ class MakeMailingList extends Maintenance {
 	 * @return Generator
 	 */
 	private function generateCentralListUsers( $centralList ) {
+		if ( !ExtensionRegistry::getInstance()->isLoaded( 'CentralAuth' ) ) {
+			return;
+		}
 		$dbcr = CentralAuthServices::getDatabaseManager()->getCentralDB( DB_REPLICA );
+		$dbr = $this->localLoadBalancer->getConnection( DB_REPLICA );
+
 		$offsetId = 0;
 		do {
 			// Get a list of local users who are in the central list and are
 			// attached to their central account
-			$res = $dbcr->newSelectQueryBuilder()
+			$centralRes = $dbcr->newSelectQueryBuilder()
 				->select( [ 'gu_name', 'gu_id' ] )
 				->from( 'globaluser' )
 				// Note: no key on lu_global_id, it's conventional to join on name
@@ -217,14 +223,26 @@ class MakeMailingList extends Maintenance {
 				->limit( $this->getBatchSize() )
 				->caller( __METHOD__ )
 				->fetchResultSet();
-			foreach ( $res as $row ) {
-				$user = $this->userFactory->newFromName( $row->gu_name );
-				if ( $user->isRegistered() ) {
-					yield $user;
+
+			if ( $centralRes->numRows() ) {
+				$names = [];
+				foreach ( $centralRes as $row ) {
+					$names[] = $row->gu_name;
+					$offsetId = $row->gu_id;
 				}
-				$offsetId = $row->gu_id;
+				$res = $dbr->newSelectQueryBuilder()
+					->queryInfo( User::getQueryInfo() )
+					->where( [
+						'user_name' => $names,
+						'user_editcount > 0'
+					] )
+					->caller( __METHOD__ )
+					->fetchResultSet();
+				foreach ( $res as $row ) {
+					yield $this->userFactory->newFromRow( $row );
+				}
 			}
-		} while ( $res->numRows() === $this->getBatchSize() );
+		} while ( $centralRes->numRows() === $this->getBatchSize() );
 	}
 
 	/**
@@ -248,14 +266,6 @@ class MakeMailingList extends Maintenance {
 				yield User::newFromRow( $row );
 			}
 		} while ( $res->numRows() === $this->getBatchSize() );
-	}
-
-	/**
-	 * @param User $user
-	 * @return bool
-	 */
-	private function isMailAllowed( $user ) {
-		return true;
 	}
 
 	/**
