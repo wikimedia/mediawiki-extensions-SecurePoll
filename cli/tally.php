@@ -15,6 +15,7 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 require_once "$IP/maintenance/Maintenance.php";
 
 use MediaWiki\Extensions\SecurePoll\Context;
+use MediaWiki\MediaWikiServices;
 
 class TallyElection extends Maintenance {
 
@@ -44,6 +45,9 @@ class TallyElection extends Maintenance {
 			$election = $context->getElection( reset( $electionIds ) );
 		} elseif ( $this->hasOption( 'name' ) ) {
 			$election = $context->getElectionByTitle( $this->getOption( 'name' ) );
+			if ( !$election->isFinished() ) {
+				$this->fatalError( "Cannot tally the election until after voting is complete" );
+			}
 			if ( !$election ) {
 				$this->fatalError( "The specified election does not exist." );
 			}
@@ -57,6 +61,31 @@ class TallyElection extends Maintenance {
 			$this->fatalError( 'Tally error: ' . $status->getWikiText() );
 		}
 		$tallier = $status->value;
+
+		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
+		$dbw->replace(
+			'securepoll_properties',
+			[
+				[
+					'pr_entity',
+					'pr_key'
+				],
+			],
+			[
+				[
+					'pr_entity' => $election->getId(),
+					'pr_key' => 'tally-result',
+					'pr_value' => json_encode( $tallier->getJSONResult() ),
+				],
+				[
+					'pr_entity' => $election->getId(),
+					'pr_key' => 'tally-result-time',
+					'pr_value' => time(),
+				],
+			],
+			__METHOD__
+		);
+
 		if ( $this->hasOption( 'html' ) ) {
 			$this->output( $tallier->getHtmlResult() );
 		} else {
