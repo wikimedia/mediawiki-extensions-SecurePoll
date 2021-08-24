@@ -88,10 +88,8 @@ class TallyPage extends ActionPage {
 		$form = $this->createForm();
 		$form->show();
 
-		if ( !$form->wasSubmitted() ) {
-			$this->showTallyError();
-			$this->showTallyResult();
-		}
+		$this->showTallyError();
+		$this->showTallyResult();
 	}
 
 	/**
@@ -380,8 +378,6 @@ class TallyPage extends ActionPage {
 			)
 		);
 
-		$this->showTallyStatus();
-
 		// Delete error to prevent showing old errors while job is queueing
 		$dbw->delete(
 			'securepoll_properties',
@@ -391,6 +387,15 @@ class TallyPage extends ActionPage {
 			],
 			__METHOD__
 		);
+
+		// Redirect (using HTTP 303 See Other) the UA to the current URL so that the user does not
+		// inadvertently resubmit the form while trying to determine if the tallier has finished.
+		$url = $this->getTitle()
+			->getFullURL();
+
+		$this->specialPage->getOutput()
+			->redirect( $url, 303 );
+
 		return true;
 	}
 
