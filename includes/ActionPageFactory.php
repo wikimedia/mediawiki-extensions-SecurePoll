@@ -53,6 +53,9 @@ class ActionPageFactory {
 		],
 		'list' => [
 			'class' => ListPage::class,
+			'services' => [
+				'JobQueueGroup',
+			],
 		],
 		'login' => [
 			'class' => LoginPage::class,

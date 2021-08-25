@@ -2,7 +2,10 @@
 
 namespace MediaWiki\Extensions\SecurePoll\Pages;
 
+use JobQueueGroup;
+use JobSpecification;
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
+use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
 use Status;
 use Title;
 
@@ -13,6 +16,21 @@ use Title;
 class ListPage extends ActionPage {
 	/** @var Election */
 	public $election;
+
+	/** @var JobQueueGroup */
+	private $jobQueueGroup;
+
+	/**
+	 * @param SpecialSecurePoll $specialPage
+	 * @param JobQueueGroup $jobQueueGroup
+	 */
+	public function __construct(
+		SpecialSecurePoll $specialPage,
+		JobQueueGroup $jobQueueGroup
+	) {
+		parent::__construct( $specialPage );
+		$this->jobQueueGroup = $jobQueueGroup;
+	}
 
 	/**
 	 * Execute the subpage.
@@ -111,15 +129,20 @@ class ListPage extends ActionPage {
 		// If an admin is viewing the votes, log it
 		$securePollUseLogging = $this->specialPage->getConfig()->get( 'SecurePollUseLogging' );
 		if ( $isAdmin && $securePollUseLogging ) {
-			$dbw = $this->context->getDB();
 			$fields = [
-				'spl_timestamp' => $dbw->timestamp( time() ),
 				'spl_election_id' => $electionId,
 				'spl_user' => $this->specialPage->getUser()->getId(),
 				'spl_type' => self::LOG_TYPE_VIEWVOTES,
 
 			];
-			$dbw->insert( 'securepoll_log', $fields, __METHOD__ );
+			$this->jobQueueGroup->push(
+				new JobSpecification(
+					'securePollLogAdminAction',
+					[ 'fields' => $fields ],
+					[],
+					$this->getTitle()
+				)
+			);
 		}
 
 		$out->addHTML( $pager->getLimitForm() . $pager->getNavigationBar() );
