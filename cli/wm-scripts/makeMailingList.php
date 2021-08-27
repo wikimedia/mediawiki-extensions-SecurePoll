@@ -302,17 +302,14 @@ class MakeMailingList extends Maintenance {
 			$this->votersByName = [];
 			$db = $this->context->getDB();
 			$res = $db->newSelectQueryBuilder()
-				->select( [ 'voter_name', 'voter_properties' ] )
+				->select( [ 'voter_name' ] )
 				->from( 'securepoll_voters' )
 				->join( 'securepoll_votes', null, 'voter_id=vote_voter' )
 				->where( [ 'vote_election' => $this->election->getId() ] )
 				->caller( __METHOD__ )
 				->fetchResultSet();
 			foreach ( $res as $row ) {
-				$props = unserialize( $row->voter_properties );
-				if ( $props['wiki'] === WikiMap::getCurrentWikiId() ) {
-					$this->votersByName[$row->voter_name] = 1;
-				}
+				$this->votersByName[$row->voter_name] = 1;
 			}
 		}
 		return isset( $this->votersByName[$user->getName()] );
