@@ -502,7 +502,8 @@ class STVTallier extends Tallier {
 		$allEliminated = $this->declareEliminated(
 			$round['rankings'],
 			$round['surplus'],
-			$this->resultsLog['eliminated']
+			$this->resultsLog['eliminated'],
+			$this->resultsLog['elected']
 		);
 		$roundEliminated = $round['eliminated'] = !$roundWinners ?
 			array_diff( $allEliminated, $this->resultsLog['eliminated'] ) : [];
@@ -644,9 +645,10 @@ class STVTallier extends Tallier {
 	 * @param array $ranking
 	 * @param int|float $surplus
 	 * @param array $eliminated
+	 * @param array $elected
 	 * @return array
 	 */
-	private function declareEliminated( $ranking, $surplus, $eliminated ) {
+	private function declareEliminated( $ranking, $surplus, $eliminated, $elected ) {
 		// Make sure it's ordered by vote totals
 		uasort(
 			$ranking,
@@ -658,7 +660,7 @@ class STVTallier extends Tallier {
 			}
 		);
 
-		// Remove anyone who was already eliminated
+		// Remove anyone who was already eliminated or elected
 		$ranking = array_filter( $ranking, static function ( $key ) use ( $eliminated ) {
 			return !in_array( $key, $eliminated ) ? true : false;
 		}, ARRAY_FILTER_USE_KEY );
@@ -690,8 +692,9 @@ class STVTallier extends Tallier {
 		// Check if we can eliminate the lowest candidate
 		// using Hill's surplus-based short circuit elimination
 		if ( $lowest + $surplus < $secondLowest ) {
-			return array_keys( array_filter( $ranking, static function ( $ranked ) use ( $lowest ) {
-				if ( abs( $ranked['total'] - $lowest ) < PHP_FLOAT_EPSILON ) {
+			return array_keys( array_filter( $ranking, static function ( $ranked ) use ( $lowest, $elected ) {
+				if ( abs( $ranked['total'] - $lowest ) < PHP_FLOAT_EPSILON &&
+					!in_array( key( $ranked ), $elected ) ) {
 					return true;
 				}
 				return false;
