@@ -26,6 +26,13 @@ use ResourceLoaderOOUIModule;
  */
 class STVTallier extends Tallier {
 	/**
+	 * The precision with which to render numbers in `::getHTMLResult()` and `::getTextResult()`.
+	 *
+	 * @var int
+	 */
+	private const DISPLAY_PRECISION = 6;
+
+	/**
 	 * An array of vote combinations keyed by underscore-delimited
 	 * and ranked options. Each vote has a rank array (which allows
 	 * index-1 access to each ranked option) and a count
@@ -101,6 +108,31 @@ class STVTallier extends Tallier {
 			'resultsLog' => $this->resultsLog,
 			'rankedVotes' => $this->rankedVotes,
 		];
+	}
+
+	/**
+	 * Prep numbers in advance to round before display.
+	 *
+	 * There's a lot to unpack here:
+	 * 1. Check if the value is an integer by transforming it into a 6-precision string
+	 *    representation and ensuring it's in the format x.000000
+	 * 2. If it's an integer, set it to the rounded value so that numParams will display an integer
+	 *    and not a floated value like 0.000000
+	 * 3. If it's not an integer, force it into the decimal representation before passing it
+	 *    to numParams. Not doing this will pass the number in scientific notation (eg. 1E-6)
+	 *    which has the tendency to become 0 somewhere in the number formatting pipeline
+	 *
+	 * @param float $n
+	 * @return string|float
+	 */
+	private function formatForNumParams( float $n ) {
+		$formatted = number_format( $n, self::DISPLAY_PRECISION, '.', '' );
+
+		if ( preg_match( '/\.0+$/', $formatted ) ) {
+			return round( $n, self::DISPLAY_PRECISION );
+		}
+
+		return $formatted;
 	}
 
 	public function getHtmlResult() {
@@ -273,39 +305,35 @@ class STVTallier extends Tallier {
 				$candidateState = ( new Tag( 'span' ) )->addClasses( [ 'round-summary-candidate-votes' ] );
 				// Only show candidates who haven't been eliminated by this round
 				if ( !in_array( $currentCandidate, $previouslyEliminated ) ) {
-					// Prep numbers in advance to round before display
-					// There's a lot to unpack here:
-					// 1. Check if the value is an integer by transforming it into a 6-precision string representation
-					//    and ensuring it's in the format x.000000
-					// 2. If it's an integer, set it to the rounded value so that numParams will display an integer
-					//    and not a floated value like 0.000000
-					// 3. If it's not an integer, force it into the decimal representation before passing it
-					//    to numParams. Not doing this will pass the number in scientific notation (eg. 1E-6)
-					//    which has the tendency to become 0 somewhere in the number formatting pipeline
-					$roundedVotes = preg_match( '/\.0+$/', number_format( $rank['votes'], 6 ) ) ?
-						round( $rank['votes'], 6 ) : number_format( $rank['votes'], 6 );
-					$roundedTotal = preg_match( '/\.0+$/', number_format( $rank['total'], 6 ) ) ?
-						round( $rank['total'], 6 ) : number_format( $rank['total'], 6 );
+					$roundedVotes = round( $rank['votes'], self::DISPLAY_PRECISION );
+					$roundedTotal = round( $rank['total'], self::DISPLAY_PRECISION );
 
 					// Rounding doesn't guarantee accurate display. One value may be rounded up/down and another one
 					// left as-is, resulting in a discrepency of 1E-6
 					// Calculating the earned votes post-rounding simulates how earned votes are calculated by
 					// the algorithm and ensures that our display shows accurate math
-					$roundedEarned = number_format( $roundedTotal - $roundedVotes, 6 );
+					$roundedEarned = round( $roundedTotal - $roundedVotes, self::DISPLAY_PRECISION );
+
+					$formattedVotes = $this->formatForNumParams( $roundedVotes );
+					$formattedTotal = $this->formatForNumParams( $roundedTotal );
+
+					// We select the votes-gain/-votes-surplus message based on the sign of
+					// $roundedEarned. However, those messages expect its absolute value.
+					$formattedEarned = $this->formatForNumParams( abs( $roundedEarned ) );
 
 					// Round 1 should just show the initial votes and is guaranteed to neither elect nor eliminate
 					if ( $round['round'] === 1 ) {
 						$candidateState->appendContent(
 							wfMessage( 'securepoll-stv-result-votes-no-change' )
-								->numParams( $roundedTotal )
+								->numParams( $formattedTotal )
 						);
 					} elseif ( $roundedEarned > 0 ) {
 						$candidateState->appendContent(
 							wfMessage( 'securepoll-stv-result-votes-gain' )
 								->numParams(
-									$roundedVotes,
-									$roundedEarned,
-									$roundedTotal
+									$formattedVotes,
+									$formattedEarned,
+									$formattedTotal
 								)
 						);
 						$votesTransferred = true;
@@ -313,16 +341,16 @@ class STVTallier extends Tallier {
 						$candidateState->appendContent(
 						wfMessage( 'securepoll-stv-result-votes-surplus' )
 							->numParams(
-								$roundedVotes,
-								-$roundedEarned,
-								$roundedTotal
+								$formattedVotes,
+								$formattedEarned,
+								$formattedTotal
 							)
 						);
 						$votesTransferred = true;
 					} else {
 						$candidateState->appendContent(
 							wfMessage( 'securepoll-stv-result-votes-no-change' )
-								->numParams( $roundedTotal )
+								->numParams( $formattedTotal )
 						);
 					}
 
@@ -337,7 +365,7 @@ class STVTallier extends Tallier {
 							->appendContent( ' ' )
 							->appendContent(
 								wfMessage( 'securepoll-stv-result-round-keep-factor' )
-								->numParams( number_format( $round['keepFactors'][$currentCandidate], 6 ) )
+								->numParams( $this->formatForNumParams( $round['keepFactors'][$currentCandidate] ) )
 							);
 					} elseif ( $candidateEliminatedThisRound ) {
 						// Mark the candidate as having been previously eliminated (for display purposes only).
@@ -361,7 +389,7 @@ class STVTallier extends Tallier {
 			// Quota
 			$roundResults->appendContent(
 				wfMessage( 'securepoll-stv-result-round-quota' )
-					->numParams( number_format( $round['quota'], 6 ) )
+					->numParams( $this->formatForNumParams( $round['quota'] ) )
 			);
 			$roundResults->appendContent( new Tag( 'br' ) );
 
