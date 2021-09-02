@@ -4,8 +4,8 @@ namespace MediaWiki\Extensions\SecurePoll\User;
 
 use CentralAuthUser;
 use ExtensionRegistry;
-use Hooks;
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
+use MediaWiki\Extensions\SecurePoll\Hooks\HookRunner;
 use MediaWiki\MediaWikiServices;
 use RequestContext;
 use Status;
@@ -17,6 +17,19 @@ use User;
  * parameters to a remote SecurePoll installation.
  */
 class LocalAuth extends Auth {
+	/** @var HookRunner */
+	private $hookRunner;
+
+	/**
+	 * @inheritDoc
+	 */
+	public function __construct( $context ) {
+		parent::__construct( $context );
+		$this->hookRunner = new HookRunner(
+			MediaWikiServices::getInstance()->getHookContainer()
+		);
+	}
+
 	/**
 	 * Create a voter transparently, without user interaction.
 	 * Sessions authorized against local accounts are created this way.
@@ -69,14 +82,7 @@ class LocalAuth extends Auth {
 			]
 		];
 
-		Hooks::run(
-			'SecurePoll_GetUserParams',
-			[
-				$this,
-				$user,
-				&$params
-			]
-		);
+		$this->hookRunner->onSecurePoll_GetUserParams( $this, $user, $params );
 
 		return $params;
 	}
@@ -112,14 +118,7 @@ class LocalAuth extends Auth {
 			]
 		];
 
-		Hooks::run(
-			'SecurePoll_GetUserParams',
-			[
-				$this,
-				$user,
-				&$params
-			]
-		);
+		$this->hookRunner->onSecurePoll_GetUserParams( $this, $user, $params );
 
 		return $params;
 	}

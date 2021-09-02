@@ -5,11 +5,11 @@ namespace MediaWiki\Extensions\SecurePoll\Pages;
 use ExtensionRegistry;
 use HTMLForm;
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
+use MediaWiki\Extensions\SecurePoll\Hooks\HookRunner;
 use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Extensions\SecurePoll\User\Auth;
 use MediaWiki\Extensions\SecurePoll\User\RemoteMWAuth;
 use MediaWiki\Extensions\SecurePoll\User\Voter;
-use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Session\SessionManager;
 use MobileContext;
 use MWException;
@@ -33,22 +33,22 @@ class VotePage extends ActionPage {
 	public $voter;
 	/** @var ILoadBalancer */
 	private $loadBalancer;
-	/** @var HookContainer */
-	private $hookContainer;
+	/** @var HookRunner */
+	private $hookRunner;
 
 	/**
 	 * @param SpecialSecurePoll $specialPage
 	 * @param ILoadBalancer $loadBalancer
-	 * @param HookContainer $hookContainer
+	 * @param HookRunner $hookRunner
 	 */
 	public function __construct(
 		SpecialSecurePoll $specialPage,
 		ILoadBalancer $loadBalancer,
-		HookContainer $hookContainer
+		HookRunner $hookRunner
 	) {
 		parent::__construct( $specialPage );
 		$this->loadBalancer = $loadBalancer;
-		$this->hookContainer = $hookContainer;
+		$this->hookRunner = $hookRunner;
 	}
 
 	/**
@@ -332,13 +332,9 @@ class VotePage extends ActionPage {
 			throw new MWException( 'Configuration error: no jump-id' );
 		}
 		$url .= "/login/$id";
-		$this->hookContainer->run(
-			'SecurePoll_JumpUrl',
-			[
-				$this,
-				&$url
-			]
-		);
+
+		$this->hookRunner->onSecurePoll_JumpUrl( $this, $url );
+
 		$out->addWikiTextAsInterface( $this->election->getMessage( 'jump-text' ) );
 		$hiddenFields = [
 			'token' => RemoteMWAuth::encodeToken( $user->getToken() ),

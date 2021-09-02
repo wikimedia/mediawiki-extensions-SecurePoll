@@ -81,7 +81,7 @@ class ActionPageFactory {
 			'class' => VotePage::class,
 			'services' => [
 				'DBLoadBalancer',
-				'HookContainer'
+				'SecurePoll.HookRunner',
 			],
 		],
 		'votereligibility' => [
