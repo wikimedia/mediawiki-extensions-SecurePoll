@@ -126,7 +126,7 @@ class PopulateVoterListJob extends Job {
 		$lockMethod = __METHOD__;
 
 		// Clear any transaction snapshots, acquire a mutex, and start a new transaction
-		$lbFactory->commitMasterChanges( __METHOD__ );
+		$lbFactory->commitPrimaryChanges( __METHOD__ );
 		$dbw->lock( $lockKey, $lockMethod );
 		$dbw->startAtomic( __METHOD__ );
 		$dbw->onTransactionResolution(
@@ -197,7 +197,7 @@ class PopulateVoterListJob extends Job {
 		}
 
 		$dbw->endAtomic( __METHOD__ );
-		$lbFactory->commitMasterChanges( __METHOD__ );
+		$lbFactory->commitPrimaryChanges( __METHOD__ );
 	}
 
 	public function __construct( $title, $params ) {
@@ -391,7 +391,7 @@ class PopulateVoterListJob extends Job {
 			}
 
 			// Flush any prior REPEATABLE-READ snapshots so the locking below works
-			$lbFactory->commitMasterChanges( __METHOD__ );
+			$lbFactory->commitPrimaryChanges( __METHOD__ );
 
 			// Check again that the jobKey didn't change, holding a lock this time...
 			$lockKey = "SecurePoll_PopulateVoterListJob-{$this->params['electionId']}";
@@ -446,11 +446,11 @@ class PopulateVoterListJob extends Job {
 			$dbwLocal->endAtomic( __METHOD__ );
 			$dbwElection->endAtomic( __METHOD__ );
 			// Commit now so the jobs pushed below see any changes from above
-			$lbFactory->commitMasterChanges( __METHOD__ );
+			$lbFactory->commitPrimaryChanges( __METHOD__ );
 
 			$next = $max;
 		} catch ( Exception $exception ) {
-			MWExceptionHandler::rollbackMasterChangesAndLog( $exception );
+			MWExceptionHandler::rollbackPrimaryChangesAndLog( $exception );
 		}
 
 		// Schedule the next run of this job, if necessary
