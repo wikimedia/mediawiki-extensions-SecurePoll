@@ -85,6 +85,7 @@ class MemoryStore implements Store {
 	}
 
 	public function decodeElectionRow( $row ) {
+		// @phan-suppress-previous-line PhanPluginNeverReturnMethod LSP violation
 		throw new MWException(
 			'Internal error: attempt to use decodeElectionRow() with ' .
 			'a storage class that doesn\'t support it.'
@@ -92,6 +93,7 @@ class MemoryStore implements Store {
 	}
 
 	public function getDB( $index = DB_PRIMARY ) {
+		// @phan-suppress-previous-line PhanPluginNeverReturnMethod LSP violation
 		throw new MWException(
 			'Internal error: attempt to use getDB() when the database is disabled.'
 		);

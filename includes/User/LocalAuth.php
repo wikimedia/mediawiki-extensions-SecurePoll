@@ -186,7 +186,7 @@ class LocalAuth extends Auth {
 			return 0;
 		}
 
-		$centralUser = new CentralAuthUser( $user->getName() );
+		$centralUser = CentralAuthUser::getInstanceByName( $user->getName() );
 
 		$attached = $centralUser->queryAttached();
 		$blockCount = 0;

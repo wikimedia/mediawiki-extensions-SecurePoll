@@ -248,6 +248,7 @@ class TallyPage extends ActionPage {
 			$form->setWrapperLegend( true );
 		}
 
+		// @phan-suppress-next-line PhanTypeMismatchReturnSuperType
 		return $form;
 	}
 

@@ -3,6 +3,7 @@
 namespace MediaWiki\Extensions\SecurePoll\User;
 
 use Http;
+use InvalidArgumentException;
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
 use Status;
 
@@ -42,9 +43,7 @@ class RemoteMWAuth extends Auth {
 		foreach ( $urlParamNames as $name ) {
 			$value = $wgRequest->getVal( $name );
 			if ( !preg_match( '/^[\w.-]*$/', $value ) ) {
-				wfDebug( __METHOD__ . " Invalid parameter: $name\n" );
-
-				return false;
+				throw new InvalidArgumentException( "Invalid parameter: $name" );
 			}
 			$params[$name] = $value;
 			$vars["\$$name"] = $value;

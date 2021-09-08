@@ -456,6 +456,7 @@ class STVTallier extends Tallier {
 		// manually set up OOUI before it will return a markup
 		$skinName = strtolower( RequestContext::getMain()->getSkin()->getSkinName() );
 		$dir = RequestContext::getMain()->getLanguage()->getDir();
+		// @phan-suppress-next-line PhanCompatibleAccessMethodOnTraitDefinition XXX FIXME
 		$themes = ResourceLoaderOOUIModule::getSkinThemeMap();
 		$theme = $themes[$skinName] ?? $themes['default'];
 		// For example, 'OOUI\WikimediaUITheme'.
@@ -690,7 +691,7 @@ class STVTallier extends Tallier {
 
 		// Remove anyone who was already eliminated or elected
 		$ranking = array_filter( $ranking, static function ( $key ) use ( $eliminated ) {
-			return !in_array( $key, $eliminated ) ? true : false;
+			return !in_array( $key, $eliminated );
 		}, ARRAY_FILTER_USE_KEY );
 
 		// Manually implement array_unique with higher precision than the default function
