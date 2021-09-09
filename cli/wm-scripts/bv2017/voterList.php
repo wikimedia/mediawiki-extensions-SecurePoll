@@ -3,8 +3,8 @@
 use Wikimedia\Rdbms\IDatabase;
 
 require __DIR__ . '/../../cli.inc';
-$dbcr = CentralAuthUtils::getCentralReplicaDB();
-$dbcw = CentralAuthUtils::getCentralDB();
+$dbcr = CentralAuthServices::getDatabaseManager()->getCentralDB( DB_REPLICA );
+$dbcw = CentralAuthServices::getDatabaseManager()->getCentralDB( DB_PRIMARY );
 
 $fname = 'voterList.php';
 $listName = 'board-vote-2017';
@@ -55,7 +55,7 @@ echo wfWikiID() . " qualified \t$numQualified\n";
  */
 function spGetQualifiedUsers( $users ) {
 	global $wgLocalDatabases;
-	$dbcr = CentralAuthUtils::getCentralReplicaDB();
+	$dbcr = CentralAuthServices::getDatabaseManager()->getCentralDB( DB_REPLICA );
 
 	$res = $dbcr->select( 'localuser',
 		[ 'lu_name', 'lu_wiki' ],
