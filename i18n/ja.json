@@ -262,6 +262,7 @@
 	"securepolllog-form-type-option-admin": "管理者のログ",
 	"securepolllog-form-action-option-addadmin": "管理者が追加されました",
 	"securepolllog-form-action-option-removeadmin": "管理者が削除されました",
+	"securepolllog-form-action-option-both": "両方",
 	"securepolllog-form-electionname-label": "選挙（タイトル）：",
 	"securepolllog-election-does-not-exist": "選挙が見つかりません",
 	"securepoll-log-empty": "ログエントリが見つかりません。",
