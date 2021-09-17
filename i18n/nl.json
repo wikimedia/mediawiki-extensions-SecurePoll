@@ -3,6 +3,7 @@
 		"authors": [
 			"Bas dehaan",
 			"Hansmuller",
+			"Krinkle",
 			"Lolsimon",
 			"McDutchie",
 			"Mwpnl",
@@ -17,7 +18,7 @@
 		]
 	},
 	"securepoll": "VeiligStemmen",
-	"securepoll-desc": "Uitbreiding voor stemmingen en enquêtes",
+	"securepoll-desc": "Stemmingen en enquêtes",
 	"securepoll-invalid-page": "Ongeldige subpagina \"<nowiki>$1</nowiki>\"",
 	"securepoll-need-admin": "U moet een stemmingenbeheerder zijn om deze handeling te mogen uitvoeren.",
 	"securepoll-too-few-params": "Onvoldoende subpaginaparameters (ongeldige koppeling).",
