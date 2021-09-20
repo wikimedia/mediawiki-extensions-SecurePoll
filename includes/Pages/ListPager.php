@@ -3,14 +3,15 @@
 namespace MediaWiki\Extensions\SecurePoll\Pages;
 
 use MediaWiki\Extensions\SecurePoll\User\Voter;
+use MediaWiki\MediaWikiServices;
 use TablePager;
 use Wikimedia\IPUtils;
 use Xml;
 
 /**
  * A TablePager for showing a list of votes in a given election.
- * Shows much more information, and a strike/unstrike interface, if the user
- * is an admin.
+ * Shows much more information, including voter's Personally Identifiable Information, and a strike/unstrike interface,
+ * if the global user is an admin.
  */
 class ListPager extends TablePager {
 	public $listPage, $isAdmin, $election;
@@ -27,17 +28,36 @@ class ListPager extends TablePager {
 		'vote_timestamp' => 'securepoll-header-timestamp',
 		'vote_voter_name' => 'securepoll-header-voter-name',
 		'vote_voter_domain' => 'securepoll-header-voter-domain',
-		'vote_ip' => 'securepoll-header-ip',
-		'vote_xff' => 'securepoll-header-xff',
-		'vote_ua' => 'securepoll-header-ua',
 		'vote_token_match' => 'securepoll-header-token-match',
 		'vote_cookie_dup' => 'securepoll-header-cookie-dup',
 	];
 
+	/** @var string[] */
+	public static $piiFields = [
+		'vote_ip' => 'securepoll-header-ip',
+		'vote_xff' => 'securepoll-header-xff',
+		'vote_ua' => 'securepoll-header-ua',
+	];
+
+	/**
+	 * Whether to include voter's Personally Identifiable Information.
+	 *
+	 * @var bool
+	 */
+	private $includeVoterPii;
+
 	public function __construct( $listPage ) {
 		$this->listPage = $listPage;
 		$this->election = $listPage->election;
-		$this->isAdmin = $this->election->isAdmin( $this->getUser() );
+
+		$user = $this->getUser();
+
+		$this->isAdmin = $this->election->isAdmin( $user );
+
+		$permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
+		$this->includeVoterPii =
+			$this->isAdmin && $permissionManager->userHasRight( $user, 'securepoll-view-voter-pii' );
+
 		parent::__construct();
 	}
 
@@ -175,6 +195,10 @@ class ListPager extends TablePager {
 		$names = [];
 		if ( $this->isAdmin ) {
 			$fields = self::$adminFields;
+
+			if ( $this->includeVoterPii ) {
+				$fields += self::$piiFields;
+			}
 		} else {
 			$fields = self::$publicFields;
 		}
