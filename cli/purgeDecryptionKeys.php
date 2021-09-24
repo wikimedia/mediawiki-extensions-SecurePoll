@@ -40,6 +40,9 @@ class PurgeDecryptionKeys extends Maintenance {
 		$this->addDescription( 'Purge decryption keys from SecurePoll elections that have ended' );
 		$this->setBatchSize( 200 );
 
+		$this->addOption( 'dry-run', 'No decryption keys will be purged' );
+		$this->addOption( 'before', 'Filter out elections that ended after this time, e.g. \'20210923000000\'' );
+
 		$this->requireExtension( 'SecurePoll' );
 	}
 
@@ -56,6 +59,7 @@ class PurgeDecryptionKeys extends Maintenance {
 			}
 		}
 
+		$before = $this->getOption( 'before', 0 );
 		$res = $dbr->select(
 			[
 				'securepoll_elections',
@@ -67,7 +71,7 @@ class PurgeDecryptionKeys extends Maintenance {
 				'el_end_date',
 			],
 			[
-				'el_end_date < ' . $dbr->addQuotes( $dbr->timestamp() ),
+				'el_end_date < ' . $dbr->addQuotes( $dbr->timestamp( $before ) ),
 				'pr_key' => 'gpg-decrypt-key',
 			],
 			__METHOD__,
@@ -78,7 +82,7 @@ class PurgeDecryptionKeys extends Maintenance {
 		);
 
 		if ( $res->count() === 0 ) {
-			$this->output( "No elections that have ended with decryption keys to purge. Nothing to do.\n" );
+			$this->output( "No elections that have ended have decryption keys to purge. Nothing to do.\n" );
 
 			return;
 		}
@@ -89,10 +93,18 @@ class PurgeDecryptionKeys extends Maintenance {
 			$allElectionIDs[] = $row->el_entity;
 
 			$this->output( sprintf(
-				"Election '%s' with end date '%s' will have its GPG decryption key purged\n",
+				"Election '%s' with end date '%s' will have its decryption key purged.\n",
 				$row->el_title,
 				$row->el_end_date
 			) );
+		}
+
+		if ( $this->hasOption( 'dry-run' ) ) {
+			$this->output(
+				"Run this maintenance script again without the dry-run option to purge these decryption keys.\n"
+			);
+
+			return;
 		}
 
 		$electionIDChunks = array_chunk( $allElectionIDs, $this->getBatchSize() );
