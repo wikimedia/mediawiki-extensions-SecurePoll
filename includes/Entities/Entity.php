@@ -73,7 +73,7 @@ class Entity {
 
 	/**
 	 * Get the parent election
-	 * @return Election
+	 * @return Election|null
 	 */
 	public function getElection() {
 		return $this->electionId !== null ? $this->context->getElection( $this->electionId ) : null;

@@ -23,7 +23,7 @@ use Wikimedia\Rdbms\IDatabase;
  * gpg-decrypt-key is for tallying.
  */
 class GpgCrypt extends Crypt {
-	/** @var Context */
+	/** @var Context|null */
 	public $context;
 	/** @var Election|null */
 	public $election;
@@ -180,8 +180,8 @@ class GpgCrypt extends Crypt {
 
 	/**
 	 * Constructor.
-	 * @param Context $context
-	 * @param Election $election
+	 * @param Context|null $context
+	 * @param Election|null $election
 	 */
 	public function __construct( $context, $election ) {
 		$this->context = $context;

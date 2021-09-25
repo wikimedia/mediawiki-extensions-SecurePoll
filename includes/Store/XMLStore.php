@@ -216,12 +216,14 @@ class XMLStore extends MemoryStore {
 				$name = $xr->getAttribute( 'name' );
 				$lang = $xr->getAttribute( 'lang' );
 				$value = $this->readStringElement();
+				// @phan-suppress-next-line PhanTypeMismatchDimAssignment
 				$messages[$lang][$name] = $value;
 				continue;
 			}
 			if ( $xr->name == 'property' ) {
 				$name = $xr->getAttribute( 'name' );
 				$value = $this->readStringElement();
+				// @phan-suppress-next-line PhanTypeMismatchDimAssignment
 				$properties[$name] = $value;
 				continue;
 			}
