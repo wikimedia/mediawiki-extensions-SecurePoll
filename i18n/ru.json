@@ -299,7 +299,7 @@
 	"securepoll-stv-result-election-elected-header": "Избранный",
 	"securepoll-stv-election-paramters": "Выборы на $1 места с $2 кандидатами. Всего $3 голоса.",
 	"securepoll-stv-result-elected-list-unfilled-seat": "Это место не может быть заполненным, поскольку ни один из кандидатов не соответствует критериям. Последними выбывшими кандидатами были: $1",
-	"securepoll-stv-result-election-eliminated-header": "Исключенный",
+	"securepoll-stv-result-election-eliminated-header": "Исключённый/не выбранный",
 	"securepoll-stv-result-election-rounds-header": "Круглый стол",
 	"securepoll-stv-result-election-round-number-table-heading": "Круглое число",
 	"securepoll-stv-result-election-tally-table-heading": "Подсчёт",
