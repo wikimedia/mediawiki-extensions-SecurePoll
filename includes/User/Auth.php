@@ -52,6 +52,9 @@ class Auth {
 		return [];
 	}
 
+	/**
+	 * @param Context $context
+	 */
 	public function __construct( $context ) {
 		$this->context = $context;
 	}
