@@ -116,18 +116,12 @@ class Auth {
 
 	/**
 	 * Get a voter object with the relevant parameters.
-	 * If no voter exists with those parameters, a new one is created. If one
-	 * does exist already, it is returned.
+	 * If no voter exists return false
 	 * @param array $params
-	 * @return Voter
+	 * @return false|Voter
 	 */
 	public function getVoter( $params ) {
-		$dbw = $this->context->getDB();
-
-		# This needs to be protected by FOR UPDATE
-		# Otherwise a race condition could lead to duplicate users for a single remote user,
-		# and thus to duplicate votes.
-		$dbw->startAtomic( __METHOD__ );
+		$dbw = $this->context->getDB( DB_REPLICA );
 		$row = $dbw->selectRow(
 			'securepoll_voters',
 			'*',
@@ -137,17 +131,12 @@ class Auth {
 				'voter_domain' => $params['domain'],
 				'voter_url' => $params['url']
 			],
-			__METHOD__,
-			[ 'FOR UPDATE' ]
+			__METHOD__
 		);
-		if ( $row ) {
-			$user = $this->context->newVoterFromRow( $row );
-		} else {
-			$user = $this->context->createVoter( $params );
+		if ( !$row ) {
+			return false;
 		}
-		$dbw->endAtomic( __METHOD__ );
-
-		return $user;
+		return $this->context->newVoterFromRow( $row );
 	}
 
 	/**

@@ -105,6 +105,7 @@ class ActionPageFactory {
 			'services' => [
 				'DBLoadBalancer',
 				'SecurePoll.HookRunner',
+				'UserOptionsLookup',
 			],
 		],
 		'votereligibility' => [
