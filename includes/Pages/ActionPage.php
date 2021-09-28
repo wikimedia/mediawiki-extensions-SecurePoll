@@ -12,12 +12,14 @@ use MediaWiki\Languages\LanguageFallback;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserOptionsLookup;
 use Message;
+use MessageLocalizer;
+use MessageSpecifier;
 use User;
 
 /**
  * Parent class for Special:SecurePoll subpages.
  */
-abstract class ActionPage {
+abstract class ActionPage implements MessageLocalizer {
 	public const LOG_TYPE_ADDADMIN = 0;
 	public const LOG_TYPE_REMOVEADMIN = 1;
 	public const LOG_TYPE_VIEWVOTES = 2;
@@ -111,16 +113,12 @@ abstract class ActionPage {
 
 	/**
 	 * Relay for SpecialPage::msg
-	 * @param string ...$args
+	 * @param string|string[]|MessageSpecifier $key Message key, or array of keys,
+	 *   or a MessageSpecifier.
+	 * @param mixed ...$params Normal message parameters
 	 * @return Message
 	 */
-	protected function msg( ...$args ) {
-		return call_user_func_array(
-			[
-				$this->specialPage,
-				'msg'
-			],
-			$args
-		);
+	public function msg( $key, ...$params ) {
+		return $this->specialPage->msg( $key, ...$params );
 	}
 }
