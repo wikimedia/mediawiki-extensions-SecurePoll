@@ -18,7 +18,7 @@ interface SecurePoll_JumpUrlHook {
 	 * This hook is called when a user is told he needs to jump to another wiki to cast
 	 * their vote.
 	 *
-	 * @since 1.37
+	 * @since 1.38
 	 *
 	 * @param VotePage $page
 	 * @param string &$url

@@ -18,7 +18,7 @@ interface SecurePoll_GetUserParamsHook {
 	/**
 	 * This hook is called when voter parameters for a local User object are collected.
 	 *
-	 * @since 1.37
+	 * @since 1.38
 	 *
 	 * @param LocalAuth $localAuth
 	 * @param User $user

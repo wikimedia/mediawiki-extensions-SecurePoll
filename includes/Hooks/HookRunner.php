@@ -12,7 +12,7 @@ use User;
  * Run hooks provided by SecurePoll.
  *
  * @author Zabe
- * @since 1.37
+ * @since 1.38
  */
 class HookRunner implements
 	SecurePoll_GetUserParamsHook,
