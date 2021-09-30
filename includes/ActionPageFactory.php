@@ -3,6 +3,7 @@
 namespace MediaWiki\Extensions\SecurePoll;
 
 use MediaWiki\Extensions\SecurePoll\Pages\ActionPage;
+use MediaWiki\Extensions\SecurePoll\Pages\ArchivedPage;
 use MediaWiki\Extensions\SecurePoll\Pages\ArchivePage;
 use MediaWiki\Extensions\SecurePoll\Pages\CreatePage;
 use MediaWiki\Extensions\SecurePoll\Pages\DetailsPage;
@@ -13,6 +14,7 @@ use MediaWiki\Extensions\SecurePoll\Pages\LoginPage;
 use MediaWiki\Extensions\SecurePoll\Pages\MessageDumpPage;
 use MediaWiki\Extensions\SecurePoll\Pages\TallyPage;
 use MediaWiki\Extensions\SecurePoll\Pages\TranslatePage;
+use MediaWiki\Extensions\SecurePoll\Pages\UnarchivePage;
 use MediaWiki\Extensions\SecurePoll\Pages\VotePage;
 use MediaWiki\Extensions\SecurePoll\Pages\VoterEligibilityPage;
 use MediaWiki\Languages\LanguageFallback;
@@ -28,6 +30,13 @@ class ActionPageFactory {
 			'class' => ArchivePage::class,
 			'services' => [
 				'JobQueueGroup'
+			],
+		],
+		'archived' => [
+			'class' => ArchivedPage::class,
+			'services' => [
+				'LinkRenderer',
+				'DBLoadBalancer',
 			],
 		],
 		'create' => [
@@ -56,6 +65,7 @@ class ActionPageFactory {
 			'class' => EntryPage::class,
 			'services' => [
 				'LinkRenderer',
+				'DBLoadBalancer',
 			],
 		],
 		'list' => [
@@ -82,6 +92,12 @@ class ActionPageFactory {
 			'services' => [
 				'DBLoadBalancerFactory',
 				'LanguageNameUtils',
+			],
+		],
+		'unarchive' => [
+			'class' => UnarchivePage::class,
+			'services' => [
+				'JobQueueGroup'
 			],
 		],
 		'vote' => [
