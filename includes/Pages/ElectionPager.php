@@ -54,6 +54,11 @@ class ElectionPager extends TablePager {
 			'visible-after-start' => true,
 			'visible-after-close' => true,
 			'link' => 'getLogLink'
+		],
+		'archive' => [
+			'public' => false,
+			'visible-after-start' => false,
+			'visible-after-close' => true,
 		]
 	];
 	/** @var string[] */
@@ -76,11 +81,19 @@ class ElectionPager extends TablePager {
 	}
 
 	public function getQueryInfo() {
+		$subquery = $this->mDb->buildSelectSubquery(
+			'securepoll_properties',
+			'pr_entity',
+			[ 'pr_key' => 'is-archived' ],
+			__METHOD__
+		);
+
 		return [
 			'tables' => 'securepoll_elections',
 			'fields' => '*',
-			'conds' => [],
-			'options' => []
+			'conds' => [
+				'el_entity NOT IN ' . $subquery,
+			],
 		];
 	}
 
@@ -140,14 +153,17 @@ class ElectionPager extends TablePager {
 			// securepoll-subpage-vote, securepoll-subpage-translate,
 			// securepoll-subpage-list, securepoll-subpage-dump,
 			// securepoll-subpage-tally, securepoll-subpage-votereligibility
-			// securepoll-subpage-log
+			// securepoll-subpage-log, securepoll-subpage-archive
 			$linkText = $this->msg( "securepoll-subpage-$subpage" )->text();
 			if ( $s !== '' ) {
 				$s .= $sep;
 			}
-			if ( ( $this->isAdmin || $props['public'] ) && ( !$this->election->isStarted()
-				|| $props['visible-after-start'] ) && ( !$this->election->isFinished() )
-				|| $props['visible-after-close']
+			if (
+				( $this->isAdmin || $props['public'] ) &&
+				( !$this->election->isStarted() ||
+					( $this->election->isStarted() && $this->election->isFinished() ) ||
+					$props['visible-after-start'] ) &&
+				( !$this->election->isFinished() || $props['visible-after-close'] )
 			) {
 				if ( isset( $props['link'] ) ) {
 					$s .= $this->{$props['link']}( $id );

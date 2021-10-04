@@ -3,6 +3,7 @@
 namespace MediaWiki\Extensions\SecurePoll;
 
 use MediaWiki\Extensions\SecurePoll\Pages\ActionPage;
+use MediaWiki\Extensions\SecurePoll\Pages\ArchivePage;
 use MediaWiki\Extensions\SecurePoll\Pages\CreatePage;
 use MediaWiki\Extensions\SecurePoll\Pages\DetailsPage;
 use MediaWiki\Extensions\SecurePoll\Pages\DumpPage;
@@ -23,6 +24,12 @@ class ActionPageFactory {
 	 * List of page names to the subclass of ActionPage which handles them.
 	 */
 	private const PAGE_LIST = [
+		'archive' => [
+			'class' => ArchivePage::class,
+			'services' => [
+				'JobQueueGroup'
+			],
+		],
 		'create' => [
 			'class' => CreatePage::class,
 			'services' => [
