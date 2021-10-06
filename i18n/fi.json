@@ -110,6 +110,8 @@
 	"securepoll-subpage-dump": "Vedos",
 	"securepoll-subpage-tally": "Laskenta",
 	"securepoll-subpage-log": "Lokit",
+	"securepoll-subpage-archive": "Arkisto",
+	"securepoll-archive-title": "Arkisto $1",
 	"securepoll-tally-title": "Laskenta: $1",
 	"securepoll-tally-not-finished": "Et voi suorittaa laskentaa vaalille ennen kuin äänestys on päättynyt.",
 	"securepoll-tally-upload-submit": "Luo laskenta",

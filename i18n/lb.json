@@ -98,6 +98,8 @@
 	"securepoll-subpage-dump": "Dump",
 	"securepoll-subpage-tally": "Auszielung",
 	"securepoll-subpage-log": "Logbicher",
+	"securepoll-subpage-archive": "Archivéieren",
+	"securepoll-archive-in-progress": "D'Wale ginn elo archivéiert.",
 	"securepoll-tally-title": "Auszielung: $1",
 	"securepoll-tally-not-finished": "Pardon, Dir kënnt d'Walen net auszielen bis d'Ofstëmmung fäerdeg ass.",
 	"securepoll-tally-upload-submit": "Auszielung uleeën",

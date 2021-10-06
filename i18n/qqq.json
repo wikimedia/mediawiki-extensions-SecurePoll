@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ajeje Brazorf",
 			"Amire80",
 			"BaRaN6161 TURK",
 			"Bennylin",
@@ -136,8 +137,8 @@
 	"securepoll-subpage-dump": "Link text to a sub page in the SecurePoll extension where users can dump results.\n{{Identical|Dump}}",
 	"securepoll-subpage-tally": "Link text to a sub page in the SecurePoll extension where users can tally.\n{{Identical|Tally}}",
 	"securepoll-subpage-log": "Link text to the logs for a specific election in SecurePoll",
-	"securepoll-subpage-archive": "Link text to archive a finished election in SecurePoll",
-	"securepoll-archive-title": "Title of the archive page for an election",
+	"securepoll-subpage-archive": "This is a verb. Link text to archive a finished election in SecurePoll\n\n{{Identical|Archive}}",
+	"securepoll-archive-title": "Title of the archive page for an election\n\n{{Identical|Archive}}",
 	"securepoll-archive-private": "Used as an error message",
 	"securepoll-archive-not-finished": "Used as an error message",
 	"securepoll-archive-in-progress": "Confirmation that an election is scheduled to be archived",
