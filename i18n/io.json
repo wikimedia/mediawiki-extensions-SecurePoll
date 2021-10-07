@@ -23,5 +23,8 @@
 	"securepoll-header-start-date": "Dato dil komenco",
 	"securepoll-subpage-list": "Listo",
 	"securepoll-subpage-edit": "Redaktar",
-	"securepoll-create-label-property_admins": "Administreri:"
+	"securepoll-subpage-archive": "Arkivo",
+	"securepoll-create-label-property_admins": "Administreri:",
+	"securepoll-create-option-column_order-asc": "Acensanta",
+	"securepoll-create-option-column_order-desc": "Decensanta"
 }

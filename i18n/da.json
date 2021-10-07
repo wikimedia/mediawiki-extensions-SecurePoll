@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Antonla",
 			"Byrial",
 			"Christian List",
 			"Kaare",
@@ -98,6 +99,12 @@
 	"securepoll-subpage-edit": "Rediger",
 	"securepoll-subpage-dump": "Dump",
 	"securepoll-subpage-tally": "Optælling",
+	"securepoll-subpage-archive": "Arkivér",
+	"securepoll-archive-title": "Arkiv $1",
+	"securepoll-archive-private": "Beklager, men kun valgadministratorer kan arkivere/uarkivere valg.",
+	"securepoll-archive-not-finished": "Beklager, men du kan kun arkivere afsluttede valg.",
+	"securepoll-archive-error": "Det mislykkedes at arkivere valg. Prøv venligst igen.",
+	"securepoll-already-archived-error": "Dette valg er allerede arkiveret",
 	"securepoll-tally-title": "Optælling: $1",
 	"securepoll-tally-not-finished": "Du kan desværre ikke optælle valgresultatet før afstemningen er slut.",
 	"securepoll-tally-upload-submit": "Opret optælling",
