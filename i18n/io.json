@@ -24,6 +24,10 @@
 	"securepoll-subpage-list": "Listo",
 	"securepoll-subpage-edit": "Redaktar",
 	"securepoll-subpage-archive": "Arkivo",
+	"securepoll-archive-title": "Arkivo $1",
+	"securepoll-archive-not-finished": "Pardonez, vu nur povas arkivar elekti kompletigita.",
+	"securepoll-archive-error": "Ne povis arkivar elekto. Voluntez probar itere.",
+	"securepoll-already-archived-error": "Ca elekto ja arkivesis.",
 	"securepoll-create-label-property_admins": "Administreri:",
 	"securepoll-create-option-column_order-asc": "Acensanta",
 	"securepoll-create-option-column_order-desc": "Decensanta"
