@@ -57,7 +57,7 @@ class HookRunner implements
 			'SecurePoll_JumpUrl',
 			[
 				$page,
-				&$page
+				&$url
 			]
 		);
 	}
