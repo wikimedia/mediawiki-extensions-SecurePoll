@@ -3,98 +3,33 @@
 namespace MediaWiki\Extensions\SecurePoll\Pages;
 
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
-use MediaWiki\MediaWikiServices;
-use SpecialPage;
 use stdClass;
 use TablePager;
 
 /**
- * Pager for an election list. See TablePager documentation.
+ * Parent class for election pagers:
+ * - unarchived elections
+ * - archived elections
  */
-class ElectionPager extends TablePager {
+abstract class ElectionPager extends TablePager {
 	/** @var array[] */
-	public $subpages = [
-		'vote' => [
-			'public' => true,
-			'visible-after-start' => true,
-			'visible-after-close' => false,
-		],
-		'translate' => [
-			'public' => true,
-			'visible-after-start' => true,
-			'visible-after-close' => true,
-		],
-		'list' => [
-			'public' => true,
-			'visible-after-start' => true,
-			'visible-after-close' => true,
-		],
-		'edit' => [
-			'public' => false,
-			'visible-after-start' => true,
-			'visible-after-close' => false,
-		],
-		'votereligibility' => [
-			'public' => false,
-			'visible-after-start' => true,
-			'visible-after-close' => true,
-		],
-		'dump' => [
-			'public' => false,
-			'visible-after-start' => true,
-			'visible-after-close' => true,
-		],
-		'tally' => [
-			'public' => false,
-			'visible-after-start' => true,
-			'visible-after-close' => true,
-		],
-		'log' => [
-			'public' => false,
-			'visible-after-start' => true,
-			'visible-after-close' => true,
-			'link' => 'getLogLink'
-		],
-		'archive' => [
-			'public' => false,
-			'visible-after-start' => false,
-			'visible-after-close' => true,
-		]
-	];
+	private $subpages = [];
+	/** @var bool|null */
+	public $isAdmin;
+	/** @var Election|null */
+	public $election;
+	/** @var ArchivedPage|EntryPage */
+	public $page;
 	/** @var string[] */
-	public $fields = [
+	private const FIELDS = [
 		'el_title',
 		'el_start_date',
 		'el_end_date',
 		'links'
 	];
-	/** @var bool|null */
-	public $isAdmin;
-	/** @var Election|null */
-	public $election;
-	/** @var EntryPage */
-	public $entryPage;
 
-	public function __construct( $specialPage ) {
-		$this->entryPage = $specialPage;
+	public function __construct() {
 		parent::__construct();
-	}
-
-	public function getQueryInfo() {
-		$subquery = $this->mDb->buildSelectSubquery(
-			'securepoll_properties',
-			'pr_entity',
-			[ 'pr_key' => 'is-archived' ],
-			__METHOD__
-		);
-
-		return [
-			'tables' => 'securepoll_elections',
-			'fields' => '*',
-			'conds' => [
-				'el_entity NOT IN ' . $subquery,
-			],
-		];
 	}
 
 	public function isFieldSortable( $field ) {
@@ -133,7 +68,7 @@ class ElectionPager extends TablePager {
 
 	public function formatRow( $row ) {
 		$id = $row->el_entity;
-		$this->election = $this->entryPage->context->getElection( $id );
+		$this->election = $this->page->context->getElection( $id );
 		if ( !$this->election ) {
 			$this->isAdmin = false;
 		} else {
@@ -143,62 +78,11 @@ class ElectionPager extends TablePager {
 		return parent::formatRow( $row );
 	}
 
-	public function getLinks() {
-		$id = $this->mCurrentRow->el_entity;
-
-		$s = '';
-		$sep = $this->msg( 'pipe-separator' )->text();
-		foreach ( $this->subpages as $subpage => $props ) {
-			// Message keys used here:
-			// securepoll-subpage-vote, securepoll-subpage-translate,
-			// securepoll-subpage-list, securepoll-subpage-dump,
-			// securepoll-subpage-tally, securepoll-subpage-votereligibility
-			// securepoll-subpage-log, securepoll-subpage-archive
-			$linkText = $this->msg( "securepoll-subpage-$subpage" )->text();
-			if ( $s !== '' ) {
-				$s .= $sep;
-			}
-			if (
-				( $this->isAdmin || $props['public'] ) &&
-				( !$this->election->isStarted() ||
-					( $this->election->isStarted() && $this->election->isFinished() ) ||
-					$props['visible-after-start'] ) &&
-				( !$this->election->isFinished() || $props['visible-after-close'] )
-			) {
-				if ( isset( $props['link'] ) ) {
-					$s .= $this->{$props['link']}( $id );
-				} else {
-					$title = $this->entryPage->specialPage->getPageTitle( "$subpage/$id" );
-					$services = MediaWikiServices::getInstance();
-					$linkRenderer = $services->getLinkRenderer();
-					$s .= $linkRenderer->makeKnownLink( $title, $linkText );
-				}
-			} else {
-				$s .= "<span class=\"securepoll-link-disabled\">" . $linkText . "</span>";
-			}
-		}
-
-		return $s;
-	}
-
 	/**
-	 * Generate the link to the logs on SecurePollLog for an election
-	 * @param string $id
+	 * Return html for election-specific links
 	 * @return string
 	 */
-	public function getLogLink( $id ) {
-		$services = MediaWikiServices::getInstance();
-		$linkRenderer = $services->getLinkRenderer();
-		return $linkRenderer->makeLink(
-			SpecialPage::getTitleValueFor( 'SecurePollLog' ),
-			$this->msg( 'securepoll-subpage-log' )->text(),
-			[],
-			[
-				'type' => 'all',
-				'election_name' => $this->entryPage->context->getElection( $id )->title,
-			]
-		);
-	}
+	abstract public function getLinks();
 
 	public function getDefaultSort() {
 		return 'el_start_date';
@@ -206,7 +90,7 @@ class ElectionPager extends TablePager {
 
 	public function getFieldNames() {
 		$names = [];
-		foreach ( $this->fields as $field ) {
+		foreach ( self::FIELDS as $field ) {
 			if ( $field == 'links' ) {
 				$names[$field] = '';
 			} else {
@@ -228,6 +112,6 @@ class ElectionPager extends TablePager {
 	}
 
 	public function getTitle() {
-		return $this->entryPage->getTitle();
+		return $this->page->getTitle();
 	}
 }

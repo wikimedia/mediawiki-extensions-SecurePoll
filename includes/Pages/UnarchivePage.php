@@ -11,21 +11,17 @@ use SpecialPage;
 /**
  * SecurePoll subpage for archiving past elections
  */
-class ArchivePage extends ActionPage {
-		/** @var JobQueueGroup */
-		private $jobQueueGroup;
+class UnarchivePage extends ActionPage {
+	/** @var JobQueueGroup */
+	private $jobQueueGroup;
 
-		/**
-		 * @param SpecialSecurePoll $specialPage
-		 * @param JobQueueGroup $jobQueueGroup
-		 */
-		public function __construct(
-			SpecialSecurePoll $specialPage,
-			JobQueueGroup $jobQueueGroup
-		) {
-			parent::__construct( $specialPage );
-			$this->jobQueueGroup = $jobQueueGroup;
-		}
+	public function __construct(
+		SpecialSecurePoll $specialPage,
+		JobQueueGroup $jobQueueGroup
+	) {
+		parent::__construct( $specialPage );
+		$this->jobQueueGroup = $jobQueueGroup;
+	}
 
 	/**
 	 * Execute the subpage.
@@ -38,20 +34,26 @@ class ArchivePage extends ActionPage {
 		$out->returnToMain( false, SpecialPage::getTitleFor( 'SecurePoll' ) );
 
 		if ( !count( $params ) ) {
-			$out->addWikiMsg( 'securepoll-too-few-params' );
+			$out->prependHtml( ( new MessageWidget( [
+				'label' => $this->msg( 'securepoll-too-few-params' )->text(),
+				'type' => 'error',
+			] ) ) );
 			return;
 		}
 
 		$electionId = intval( $params[0] );
 		$this->election = $this->context->getElection( $electionId );
 		if ( !$this->election ) {
-			$out->addWikiMsg( 'securepoll-invalid-election', $electionId );
+			$out->prependHtml( ( new MessageWidget( [
+				'label' => $this->msg( 'securepoll-invalid-election', $electionId )->text(),
+				'type' => 'error',
+			] ) ) );
 			return;
 		}
 
 		$out->setPageTitle(
 			$this->msg(
-				'securepoll-archive-title',
+				'securepoll-unarchive-title',
 				$this->election->getMessage( 'title' )
 			)->text()
 		);
@@ -74,7 +76,6 @@ class ArchivePage extends ActionPage {
 			return;
 		}
 
-		// Already archived?
 		$dbr = $this->election->context->getDB( DB_REPLICA );
 		$isArchived = $dbr->selectField(
 			'securepoll_properties',
@@ -86,23 +87,23 @@ class ArchivePage extends ActionPage {
 			__METHOD__
 		);
 
-		if ( !$isArchived ) {
-			// Not archived if row doesn't exist; go ahead and archive
+		if ( $isArchived ) {
+			// If a row exists, it's archived; unarchive it
 			$this->jobQueueGroup->push(
 				new JobSpecification(
-					'securePollArchiveElection',
+					'securePollUnarchiveElection',
 					[ 'electionId' => $electionId ],
 					[]
 				)
 			);
 			$out->prependHtml( ( new MessageWidget( [
-				'label' => $this->msg( 'securepoll-archive-in-progress' )->text(),
+				'label' => $this->msg( 'securepoll-unarchive-in-progress' )->text(),
 				'type' => 'success',
 			] ) ) );
 		} else {
-			// Already archived
+			// Not archived
 			$out->prependHtml( ( new MessageWidget( [
-				'label' => $this->msg( 'securepoll-already-archived-error' )->text(),
+				'label' => $this->msg( 'securepoll-already-unarchived-error' )->text(),
 				'type' => 'error',
 			] ) ) );
 		}
