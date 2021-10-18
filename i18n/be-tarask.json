@@ -3,6 +3,7 @@
 		"authors": [
 			"EugeneZelenko",
 			"Jim-by",
+			"Nieszczarda2",
 			"Renessaince",
 			"Vlad5250",
 			"Wizardist"
@@ -94,6 +95,8 @@
 	"securepoll-subpage-edit": "Рэдагаваць",
 	"securepoll-subpage-dump": "Дамп",
 	"securepoll-subpage-tally": "Падлік",
+	"securepoll-subpage-unarchive": "Разархіваваць",
+	"securepoll-unarchive-title": "Разархіваваць $1",
 	"securepoll-tally-title": "Падлік: $1",
 	"securepoll-tally-not-finished": "Прабачце, Вы ня можаце падлічваць галасы да сканчэньня галасаваньня.",
 	"securepoll-tally-upload-submit": "Падлічыць",

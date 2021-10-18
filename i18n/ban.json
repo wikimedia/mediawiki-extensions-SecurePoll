@@ -1,8 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"Carma Citrawati",
 			"Chinamoonroll"
 		]
 	},
-	"securepoll-language-label": "Pilih basa:"
+	"securepoll-language-label": "Pilih basa:",
+	"securepoll-entry-archived": "cingakin pemilu sané kaarsipang",
+	"securepoll-unarchive-title": "wangdé ngarsipang$1",
+	"securepoll-already-unarchived-error": "pamilihan puniki nénten kaarsipang"
 }

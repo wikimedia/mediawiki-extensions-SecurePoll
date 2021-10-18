@@ -1,9 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Akoonaba"
+			"Akakiiri",
+			"Akoonaba",
+			"Amoramah"
 		]
 	},
 	"securepoll-archive-not-finished": "Gaafara, fu wanyaŋɛ la losiseko mba'asɛ ma'a",
-	"securepoll-archive-error": "Gu kataɛ ba'asɛ losekɔ. Maa le nŋe"
+	"securepoll-archive-in-progress": "Votigɔ la nanku gu wa",
+	"securepoll-archive-error": "Gu kataɛ ba'asɛ losekɔ. Maa le nŋe",
+	"securepoll-already-archived-error": "Losego kuna pugum nyɛ nyuurɔ mɛ"
 }

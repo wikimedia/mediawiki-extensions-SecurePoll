@@ -1,6 +1,24 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Abbaty",
+			"Em-em",
+			"Omar Ali",
+			"Salihu aliyu"
+		]
 	},
-	"securepoll-header-reason": "Dalili"
+	"securepoll-header-reason": "Dalili",
+	"securepoll-subpage-archive": "rubun bayanai",
+	"securepoll-archive-title": "Dakin bayanai $1",
+	"securepoll-archive-private": "Yi hakuri, shugabannin zabene kawai zasu iya ajiye/rashin ajiye zabuka",
+	"securepoll-archive-not-finished": "Yi hakuri, zaben da aka gama ne kawai zaka iya ajiyewa.",
+	"securepoll-archive-in-progress": "Zaben a halin yanzu an ajiyeshi",
+	"securepoll-archive-error": "Ya kasa ajiye wannan zaben. Sake gwadawa",
+	"securepoll-already-archived-error": "Wannan zaben an riga an ajiye shi.",
+	"securepoll-entry-archived": "duba zabukan da aka ajiye",
+	"securepoll-archived-title": "Ajiyayyen zabe",
+	"securepoll-subpage-unarchive": "wanda ba'a ajiye ba",
+	"securepoll-unarchive-title": "Ba'a ajiye ba $1",
+	"securepoll-unarchive-in-progress": "Zabe ayanzu ba'a cimma shi ba.",
+	"securepoll-already-unarchived-error": "Wannan zaben ba'a ajiye shi ba"
 }

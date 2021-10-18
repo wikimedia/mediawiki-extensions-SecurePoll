@@ -6,6 +6,7 @@
 			"Korrawit",
 			"Octahedron80",
 			"Passawuth",
+			"Thas Tayapongsak",
 			"Watcharakorn",
 			"Woraponboonkerd"
 		]
@@ -94,6 +95,8 @@
 	"securepoll-subpage-list": "รายการ",
 	"securepoll-subpage-dump": "รวบรวม",
 	"securepoll-subpage-tally": "ผลการนับคะแนน",
+	"securepoll-subpage-archive": "เก็บถาวร",
+	"securepoll-archive-title": "เก็บถาวร $1",
 	"securepoll-tally-title": "ผลการนับคะแนน: $1",
 	"securepoll-tally-not-finished": "ขออภัย คุณไม่สามารถนับคะแนนเลือกตั้งได้จนกว่าการลงคะแนนจะเสร็จสิ้น",
 	"securepoll-tally-upload-submit": "สร้างผลการนับคะแนน",

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"JSantos",
 			"Joao Xavier",
 			"Malafaya",
 			"Wyvernoid"
@@ -14,6 +15,7 @@
 	"securepoll-blocked": "Pardonez, vu ne povas votar en ca elekto, nam vu duras esar blokusata pri redakto.",
 	"securepoll-not-in-group": "Nur membri de la grupo \"$1\" povas votar en ca elekto.",
 	"securepoll-header-voter-name": "Nomo",
+	"securepoll-header-ua": "Uzero-aganto",
 	"securepoll-strike-reason": "Motivo:",
 	"securepoll-header-reason": "Motivo",
 	"securepoll-header-admin": "Administrero",
@@ -26,8 +28,14 @@
 	"securepoll-subpage-archive": "Arkivo",
 	"securepoll-archive-title": "Arkivo $1",
 	"securepoll-archive-not-finished": "Pardonez, vu nur povas arkivar elekti kompletigita.",
+	"securepoll-archive-in-progress": "L'elekto nun esas prezervita.",
 	"securepoll-archive-error": "Ne povis arkivar elekto. Voluntez probar itere.",
 	"securepoll-already-archived-error": "Ca elekto ja arkivesis.",
+	"securepoll-archived-title": "Arkivita elekti",
+	"securepoll-subpage-unarchive": "Desarkivar",
+	"securepoll-unarchive-title": "Desarkivar $1",
+	"securepoll-unarchive-in-progress": "L'elekto nun desarkivesas",
+	"securepoll-already-unarchived-error": "Ca elekto ne arkivesis.",
 	"securepoll-create-label-property_admins": "Administreri:",
 	"securepoll-create-option-column_order-asc": "Acensanta",
 	"securepoll-create-option-column_order-desc": "Decensanta"

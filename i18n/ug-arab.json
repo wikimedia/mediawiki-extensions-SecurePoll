@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"AlimOmar",
 			"Sahran"
 		]
 	},
@@ -25,5 +26,6 @@
 	"securepoll-subpage-vote": "بىلەت",
 	"securepoll-subpage-translate": "تەرجىمە",
 	"securepoll-subpage-list": "تىزىم",
-	"securepoll-subpage-dump": "ئالماشتۇرۇپ ساقلاش"
+	"securepoll-subpage-dump": "ئالماشتۇرۇپ ساقلاش",
+	"securepoll-entry-archived": "ئارخىپ سايلىمى"
 }

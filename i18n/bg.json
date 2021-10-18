@@ -3,6 +3,7 @@
 		"authors": [
 			"DCLXVI",
 			"Kareyac",
+			"NikiTricky",
 			"Spiritia",
 			"StanProg",
 			"Ted Masters",
@@ -99,6 +100,8 @@
 	"securepoll-subpage-edit": "Редактиране",
 	"securepoll-subpage-dump": "Дъмп",
 	"securepoll-subpage-tally": "Преброяване",
+	"securepoll-subpage-archive": "Архивирай",
+	"securepoll-archive-title": "Архив $1",
 	"securepoll-tally-title": "Преброяване: $1",
 	"securepoll-tally-not-finished": "Не можете да се извърши преброяване на изборите преди да е приключило гласуването.",
 	"securepoll-tally-upload-submit": "Извършване на преброяването",
