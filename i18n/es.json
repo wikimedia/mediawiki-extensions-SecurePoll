@@ -24,7 +24,8 @@
 			"Tokvo",
 			"Translationista",
 			"Vivaelcelta",
-			"White Master King"
+			"White Master King",
+			"Whovian Biologist"
 		]
 	},
 	"securepoll": "SecurePoll",
@@ -300,7 +301,7 @@
 	"securepoll-stv-result-election-elected-header": "Elegidos",
 	"securepoll-stv-election-paramters": "Elección de escaños de $1 con candidatos de $2. Total de $3 votos",
 	"securepoll-stv-result-elected-list-unfilled-seat": "Esta plaza no se ha podido cubrir porque ningún candidato cumple los criterios. {{PLURAL:$1|El último candidato eliminado fue|Los últimos candidatos eliminados fueron}}: $1",
-	"securepoll-stv-result-election-eliminated-header": "Eliminado",
+	"securepoll-stv-result-election-eliminated-header": "Eliminado/no seleccionado",
 	"securepoll-stv-result-election-rounds-header": "Cuadro de rondas",
 	"securepoll-stv-result-election-round-number-table-heading": "Número redondo",
 	"securepoll-stv-result-election-tally-table-heading": "Contador",
