@@ -124,7 +124,7 @@ class FormStore extends MemoryStore {
 			];
 			$this->properties[$rId]['main-wiki'] = WikiMap::getCurrentWikiId();
 
-			$jumpUrl = SpecialPage::getTitleFor( 'SecurePoll' )->getFullUrl();
+			$jumpUrl = SpecialPage::getTitleFor( 'SecurePoll' )->getFullURL();
 			$this->properties[$rId]['jump-url'] = $jumpUrl;
 			if ( ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
 				// @phan-suppress-next-line PhanUndeclaredClassMethod

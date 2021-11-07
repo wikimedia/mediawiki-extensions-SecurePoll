@@ -130,7 +130,7 @@ class ApiStrikeVote extends ApiBase {
 		return 'csrf';
 	}
 
-	public function getAllowedParams() {
+	protected function getAllowedParams() {
 		return [
 			'option' => [
 				ApiBase::PARAM_TYPE => [

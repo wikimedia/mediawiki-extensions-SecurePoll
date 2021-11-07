@@ -109,17 +109,14 @@ class TranslatePage extends ActionPage {
 		$secondary = $request->getVal( 'secondary_lang' );
 		if ( $secondary !== null ) {
 			# Language selector submitted: redirect to the subpage
-			$out->redirect( $this->getTitle( $secondary )->getFullUrl() );
+			$out->redirect( $this->getTitle( $secondary )->getFullURL() );
 
 			return;
 		}
 
-		if ( isset( $params[1] ) ) {
-			$secondary = $params[1];
-		} else {
+		if ( !isset( $params[1] ) ) {
 			# No language selected, show the selector
 			$this->showLanguageSelector( $primary );
-
 			return;
 		}
 
@@ -130,7 +127,6 @@ class TranslatePage extends ActionPage {
 		if ( strval( $secondaryName ) === '' ) {
 			$out->addWikiMsg( 'securepoll-invalid-language', $secondary );
 			$this->showLanguageSelector( $primary );
-
 			return;
 		}
 
@@ -145,15 +141,14 @@ class TranslatePage extends ActionPage {
 			]
 		);
 
-		# If the request was posted, do the submit
+		# If the request was posted, do the submission
 		if ( $request->wasPosted() && $request->getVal( 'action' ) == 'submit' ) {
 			$this->doSubmit( $secondary );
-
 			return;
 		}
 
 		# Show the form
-		$action = $this->getTitle( $secondary )->getLocalUrl( 'action=submit' );
+		$action = $this->getTitle( $secondary )->getLocalURL( 'action=submit' );
 		$form = new \OOUI\FormLayout( [ 'method' => 'post', 'action' => $action ] );
 
 		$table = new \OOUI\Tag( 'table' );
@@ -236,7 +231,7 @@ class TranslatePage extends ActionPage {
 		ksort( $languages );
 
 		$form = new \OOUI\FormLayout( [
-			'action' => $this->getTitle( false )->getLocalUrl(),
+			'action' => $this->getTitle( false )->getLocalURL(),
 			'method' => 'get',
 			'items' => [ new \OOUI\FieldsetLayout( [ 'items' => [
 				new \OOUI\FieldLayout( new \OOUI\DropdownInputWidget( [
@@ -384,6 +379,6 @@ class TranslatePage extends ActionPage {
 				$lb->reuseConnection( $dbw );
 			}
 		}
-		$out->redirect( $this->getTitle( $secondary )->getFullUrl() );
+		$out->redirect( $this->getTitle( $secondary )->getFullURL() );
 	}
 }

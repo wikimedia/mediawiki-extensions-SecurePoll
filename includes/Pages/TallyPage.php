@@ -51,12 +51,9 @@ class TallyPage extends ActionPage {
 	public function execute( $params ) {
 		$out = $this->specialPage->getOutput();
 		$out->enableOOUI();
-		$user = $this->specialPage->getUser();
-		$request = $this->specialPage->getRequest();
 
 		if ( !count( $params ) ) {
 			$out->addWikiMsg( 'securepoll-too-few-params' );
-
 			return;
 		}
 
@@ -64,22 +61,22 @@ class TallyPage extends ActionPage {
 		$this->election = $this->context->getElection( $electionId );
 		if ( !$this->election ) {
 			$out->addWikiMsg( 'securepoll-invalid-election', $electionId );
-
 			return;
 		}
+
+		$user = $this->specialPage->getUser();
 		$this->initLanguage( $user, $this->election );
 		$out->setPageTitle(
 			$this->msg( 'securepoll-tally-title', $this->election->getMessage( 'title' ) )->text()
 		);
+
 		if ( !$this->election->isAdmin( $user ) ) {
 			$out->addWikiMsg( 'securepoll-need-admin' );
-
 			return;
 		}
 
 		if ( !$this->election->isFinished() ) {
 			$out->addWikiMsg( 'securepoll-tally-not-finished' );
-
 			return;
 		}
 
@@ -117,7 +114,7 @@ class TallyPage extends ActionPage {
 				'label' => $this->msg( 'securepoll-tally-result-error', $result )->text(),
 				'type' => 'error',
 			] );
-			$out->prependHtml( $message->toString() );
+			$out->prependHTML( $message->toString() );
 		}
 	}
 
@@ -173,7 +170,7 @@ class TallyPage extends ActionPage {
 				'label' => $this->msg( 'securepoll-tally-job-enqueued' )->text(),
 				'type' => 'warning',
 			] );
-			$out->addHtml( $message->toString() );
+			$out->addHTML( $message->toString() );
 		}
 	}
 

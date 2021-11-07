@@ -76,7 +76,7 @@ class ListPage extends ActionPage {
 			'securepoll_votes',
 			[ 'DISTINCT vote_voter' ],
 			[
-				'vote_election' => $this->election->getID()
+				'vote_election' => $this->election->getId()
 			],
 			__METHOD__
 		);
@@ -86,7 +86,7 @@ class ListPage extends ActionPage {
 			'securepoll_votes',
 			[ 'vote_id' ],
 			[
-				'vote_election' => $this->election->getID()
+				'vote_election' => $this->election->getId()
 			],
 			__METHOD__
 		);
@@ -96,7 +96,7 @@ class ListPage extends ActionPage {
 			'securepoll_votes',
 			[ 'vote_id' ],
 			[
-				'vote_election' => $this->election->getID(),
+				'vote_election' => $this->election->getId(),
 				'vote_current' => 0
 			],
 			__METHOD__
@@ -107,7 +107,7 @@ class ListPage extends ActionPage {
 			'securepoll_votes',
 			[ 'vote_id' ],
 			[
-				'vote_election' => $this->election->getID(),
+				'vote_election' => $this->election->getId(),
 				'vote_struck' => 1
 			],
 			__METHOD__

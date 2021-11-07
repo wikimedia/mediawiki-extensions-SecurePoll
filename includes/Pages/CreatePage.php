@@ -1055,9 +1055,8 @@ class CreatePage extends ActionPage {
 			],
 			__METHOD__
 		);
-		$id = $dbw->insertId();
 
-		return $id;
+		return $dbw->insertId();
 	}
 
 	/**

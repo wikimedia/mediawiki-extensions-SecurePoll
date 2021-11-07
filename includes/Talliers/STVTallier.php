@@ -263,7 +263,7 @@ class STVTallier extends Tallier {
 		$previouslyEliminated = [];
 
 		$tbody = new Tag( 'tbody' );
-		foreach ( $this->resultsLog['rounds'] as $i => $round ) {
+		foreach ( $this->resultsLog['rounds'] as $round ) {
 			$tr = new Tag( 'tr' );
 
 			// Round number
@@ -585,9 +585,9 @@ class STVTallier extends Tallier {
 
 		}
 
-		foreach ( $ballots as $k => $ballot ) {
+		foreach ( $ballots as $ballot ) {
 			$weight = 1;
-			foreach ( $ballot['rank'] as $rank => $candidate ) {
+			foreach ( $ballot['rank'] as $candidate ) {
 				if ( $weight > 0 ) {
 					$voteValue = $weight * $keepFactors[$candidate];
 					$voteTotals[$candidate]['earned'] += ( $voteValue * $ballot['count'] );
@@ -723,11 +723,7 @@ class STVTallier extends Tallier {
 		// Check if we can eliminate the lowest candidate
 		// using Hill's surplus-based short circuit elimination
 		$lastPlace = array_keys( array_filter( $ranking, static function ( $ranked ) use ( $lowest, $elected ) {
-			if ( abs( $ranked['total'] - $lowest ) < PHP_FLOAT_EPSILON &&
-			!in_array( key( $ranked ), $elected ) ) {
-				return true;
-			}
-			return false;
+			return abs( $ranked['total'] - $lowest ) < PHP_FLOAT_EPSILON && !in_array( key( $ranked ), $elected );
 		} ) );
 		if ( ( $lowest * count( $lastPlace ) ) + $surplus < $secondLowest ||
 			abs( $surplus - $prevSurplus ) < PHP_FLOAT_EPSILON ) {

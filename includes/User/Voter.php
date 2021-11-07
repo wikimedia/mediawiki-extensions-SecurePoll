@@ -185,11 +185,7 @@ class Voter {
 	 * @return mixed
 	 */
 	public function getProperty( $name, $default = false ) {
-		if ( isset( $this->properties[$name] ) ) {
-			return $this->properties[$name];
-		} else {
-			return $default;
-		}
+		return $this->properties[$name] ?? $default;
 	}
 
 	/**

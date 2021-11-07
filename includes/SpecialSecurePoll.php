@@ -42,8 +42,6 @@ class SpecialSecurePoll extends SpecialPage {
 	 * @param string|null $paramString parameter passed to the page or null
 	 */
 	public function execute( $paramString ) {
-		$extensionAssetsPath = $this->getConfig()->get( 'ExtensionAssetsPath' );
-
 		$out = $this->getOutput();
 
 		$this->setHeaders();
@@ -59,7 +57,6 @@ class SpecialSecurePoll extends SpecialPage {
 		$page = $this->getSubpage( $pageName );
 		if ( !$page ) {
 			$out->addWikiMsg( 'securepoll-invalid-page', $pageName );
-
 			return;
 		}
 
@@ -90,7 +87,7 @@ class SpecialSecurePoll extends SpecialPage {
 		$subtitle = '&lt; ' . Linker::linkKnown( $title, htmlspecialchars( $title->getText() ) );
 		$pipe = $this->msg( 'pipe-separator' )->text();
 		foreach ( $links as $link ) {
-			list( $title, $text ) = $link;
+			[ $title, $text ] = $link;
 			$subtitle .= $pipe . Linker::linkKnown( $title, htmlspecialchars( $text ) );
 		}
 		$this->getOutput()->setSubtitle( $subtitle );

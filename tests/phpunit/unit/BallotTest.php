@@ -16,15 +16,14 @@ use RequestContext;
 class BallotTest extends MediaWikiUnitTestCase {
 	private function getAbstractBallot( $election = null ) {
 		$election = $election ?? $this->createMock( Election::class );
-		$ballot = $this->getMockForAbstractClass(
+
+		return $this->getMockForAbstractClass(
 			Ballot::class,
 			[
 				$this->createMock( RequestContext::class ),
 				$election,
 			]
 		);
-
-		return $ballot;
 	}
 
 	public function testGetForm() {

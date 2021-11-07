@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extensions\SecurePoll;
 
-use HTML;
+use Html;
 use Linker;
 use MediaWiki\Extensions\SecurePoll\Pages\ActionPage;
 use MediaWiki\User\UserFactory;
@@ -174,21 +174,21 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 	/**
 	 * @inheritDoc
 	 */
-	public function getStartBody() {
+	protected function getStartBody() {
 		return $this->getNumRows() ? '<ul>' : '';
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getEndBody() {
+	protected function getEndBody() {
 		return $this->getNumRows() ? '</ul>' : '';
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getEmptyBody() {
+	protected function getEmptyBody() {
 		return Html::element( 'p', [], $this->msg( 'securepoll-log-empty' )->text() );
 	}
 }

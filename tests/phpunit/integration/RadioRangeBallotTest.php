@@ -27,10 +27,10 @@ class RadioRangeBallotTest extends MediaWikiIntegrationTestCase {
 		$this->question = $this->createMock( Question::class );
 		$this->question->method( 'getId' )->willReturn( 101 );
 		$this->question->method( 'getOptions' )->willReturn( $options );
-		$this->question->method( 'getProperty' )->will( $this->returnValueMap( [
+		$this->question->method( 'getProperty' )->willReturnMap( [
 			[ 'min-score', false, -1 ],
 			[ 'max-score', false, 1 ]
-		] ) );
+		] );
 
 		// Request values will get stubbed in tests
 		$this->context = new RequestContext;
@@ -38,9 +38,9 @@ class RadioRangeBallotTest extends MediaWikiIntegrationTestCase {
 		$this->status = new BallotStatus( $this->context );
 
 		$this->election = $this->createMock( Election::class );
-		$this->election->method( 'getProperty' )->will( $this->returnValueMap( [
+		$this->election->method( 'getProperty' )->willReturnMap( [
 			[ 'must-answer-all', false, true ],
-		] ) );
+		] );
 
 		$this->ballot = Ballot::factory(
 			$this->context,

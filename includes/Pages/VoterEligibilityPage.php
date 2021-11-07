@@ -223,7 +223,7 @@ class VoterEligibilityPage extends ActionPage {
 		if ( $this->specialPage->getConfig()->get( 'SecurePollUseNamespace' ) ) {
 			// Create a new context to bypass caching
 			$context = new Context;
-			$election = $context->getElection( $this->election->getID() );
+			$election = $context->getElection( $this->election->getId() );
 
 			list( $title, $content ) = SecurePollContentHandler::makeContentFromElection(
 				$election
@@ -248,7 +248,7 @@ class VoterEligibilityPage extends ActionPage {
 		$names = [];
 		foreach ( $wikis as $dbname ) {
 			$lb = $this->lbFactory->getMainLB( $dbname );
-			$dbr = $lb->getConnectionref( $db, [], $dbname );
+			$dbr = $lb->getConnectionRef( $db, [], $dbname );
 
 			$id = $dbr->selectField(
 				'securepoll_elections',
@@ -297,16 +297,7 @@ class VoterEligibilityPage extends ActionPage {
 	}
 
 	private function saveList( $property, $names, $comment ) {
-		$wikis = $this->election->getProperty( 'wikis' );
 		$localWiki = WikiMap::getCurrentWikiId();
-		if ( $wikis ) {
-			$wikis = explode( "\n", $wikis );
-			if ( !in_array( $localWiki, $wikis ) ) {
-				$wikis[] = $localWiki;
-			}
-		} else {
-			$wikis = [ $localWiki ];
-		}
 
 		$wikiNames = [ '*' => [] ];
 		foreach ( explode( "\n", $names ) as $name ) {
@@ -411,7 +402,7 @@ class VoterEligibilityPage extends ActionPage {
 		if ( $this->specialPage->getConfig()->get( 'SecurePollUseNamespace' ) ) {
 			// Create a new context to bypass caching
 			$context = new Context;
-			$election = $context->getElection( $this->election->getID() );
+			$election = $context->getElection( $this->election->getId() );
 
 			list( $title, $content ) = SecurePollContentHandler::makeContentFromElection(
 				$election
@@ -1225,16 +1216,6 @@ class VoterEligibilityPage extends ActionPage {
 		$wikis = $this->election->getProperty( 'wikis' );
 		if ( $wikis ) {
 			$wikis = explode( "\n", $wikis );
-			if ( !in_array( $localWiki, $wikis ) ) {
-				$wikis[] = $localWiki;
-			}
-		} else {
-			$wikis = [ $localWiki ];
-		}
-
-		$wikis = $this->election->getProperty( 'wikis' );
-		if ( $wikis ) {
-			$wikis = explode( "\n", $wikis );
 			$i = array_search( $localWiki, $wikis );
 			if ( $i !== false ) {
 				unset( $wikis[$i] );
@@ -1314,7 +1295,7 @@ class VoterEligibilityPage extends ActionPage {
 		if ( $this->specialPage->getConfig()->get( 'SecurePollUseNamespace' ) ) {
 			// Create a new context to bypass caching
 			$context = new Context;
-			$election = $context->getElection( $this->election->getID() );
+			$election = $context->getElection( $this->election->getId() );
 
 			list( $title, $content ) = SecurePollContentHandler::makeContentFromElection(
 				$election

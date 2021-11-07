@@ -34,7 +34,7 @@ class UnarchivePage extends ActionPage {
 		$out->returnToMain( false, SpecialPage::getTitleFor( 'SecurePoll' ) );
 
 		if ( !count( $params ) ) {
-			$out->prependHtml( ( new MessageWidget( [
+			$out->prependHTML( ( new MessageWidget( [
 				'label' => $this->msg( 'securepoll-too-few-params' )->text(),
 				'type' => 'error',
 			] ) ) );
@@ -44,7 +44,7 @@ class UnarchivePage extends ActionPage {
 		$electionId = intval( $params[0] );
 		$this->election = $this->context->getElection( $electionId );
 		if ( !$this->election ) {
-			$out->prependHtml( ( new MessageWidget( [
+			$out->prependHTML( ( new MessageWidget( [
 				'label' => $this->msg( 'securepoll-invalid-election', $electionId )->text(),
 				'type' => 'error',
 			] ) ) );
@@ -61,7 +61,7 @@ class UnarchivePage extends ActionPage {
 		$isAdmin = $this->election->isAdmin( $this->specialPage->getUser() );
 
 		if ( !$isAdmin ) {
-			$out->prependHtml( ( new MessageWidget( [
+			$out->prependHTML( ( new MessageWidget( [
 				'label' => $this->msg( 'securepoll-archive-private' )->text(),
 				'type' => 'error',
 			] ) ) );
@@ -69,7 +69,7 @@ class UnarchivePage extends ActionPage {
 		}
 
 		if ( !$this->election->isFinished() ) {
-			$out->prependHtml( ( new MessageWidget( [
+			$out->prependHTML( ( new MessageWidget( [
 				'label' => $this->msg( 'securepoll-archive-not-finished' )->text(),
 				'type' => 'error',
 			] ) ) );
@@ -81,7 +81,7 @@ class UnarchivePage extends ActionPage {
 			'securepoll_properties',
 			[ 'pr_value' ],
 			[
-				'pr_entity' => $this->election->getID(),
+				'pr_entity' => $this->election->getId(),
 				'pr_key' => 'is-archived',
 			],
 			__METHOD__
@@ -96,13 +96,13 @@ class UnarchivePage extends ActionPage {
 					[]
 				)
 			);
-			$out->prependHtml( ( new MessageWidget( [
+			$out->prependHTML( ( new MessageWidget( [
 				'label' => $this->msg( 'securepoll-unarchive-in-progress' )->text(),
 				'type' => 'success',
 			] ) ) );
 		} else {
 			// Not archived
-			$out->prependHtml( ( new MessageWidget( [
+			$out->prependHTML( ( new MessageWidget( [
 				'label' => $this->msg( 'securepoll-already-unarchived-error' )->text(),
 				'type' => 'error',
 			] ) ) );

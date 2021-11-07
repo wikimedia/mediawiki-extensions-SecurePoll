@@ -32,7 +32,7 @@ abstract class ElectionPager extends TablePager {
 		parent::__construct();
 	}
 
-	public function isFieldSortable( $field ) {
+	protected function isFieldSortable( $field ) {
 		return in_array(
 			$field,
 			[
@@ -49,7 +49,7 @@ abstract class ElectionPager extends TablePager {
 	 * @return string
 	 * @see TablePager::getRowClass()
 	 */
-	public function getRowClass( $row ) {
+	protected function getRowClass( $row ) {
 		return $row->el_end_date > wfTimestampNow()
 			? 'securepoll-election-open' : 'securepoll-election-closed';
 	}
@@ -88,7 +88,7 @@ abstract class ElectionPager extends TablePager {
 		return 'el_start_date';
 	}
 
-	public function getFieldNames() {
+	protected function getFieldNames() {
 		$names = [];
 		foreach ( self::FIELDS as $field ) {
 			if ( $field == 'links' ) {

@@ -296,11 +296,8 @@ class Context {
 		if ( !isset( $this->messagesLoaded[$lang][$id] ) ) {
 			$this->getMessages( $lang, [ $id ] );
 		}
-		if ( isset( $this->messageCache[$lang][$id][$key] ) ) {
-			return $this->messageCache[$lang][$id][$key];
-		} else {
-			return false;
-		}
+
+		return $this->messageCache[$lang][$id][$key] ?? false;
 	}
 
 	/**

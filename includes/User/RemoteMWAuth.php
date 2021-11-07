@@ -105,7 +105,7 @@ class RemoteMWAuth extends Auth {
 		$status = unserialize( $value );
 		$status->cleanCallback = false;
 
-		if ( !$status || !( $status instanceof Status ) ) {
+		if ( !( $status instanceof Status ) ) {
 			return Status::newFatal( 'securepoll-remote-parse-error' );
 		}
 		if ( !$status->isOK() ) {

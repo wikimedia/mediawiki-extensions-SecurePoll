@@ -34,9 +34,9 @@ class PreferentialBallotTest extends MediaWikiIntegrationTestCase {
 		$this->status = new BallotStatus( $this->context );
 
 		$this->election = $this->createMock( Election::class );
-		$this->election->method( 'getProperty' )->will( $this->returnValueMap( [
+		$this->election->method( 'getProperty' )->willReturnMap( [
 			[ 'must-rank-all', false, true ],
-		] ) );
+		] );
 
 		$this->ballot = Ballot::factory(
 			$this->context,
@@ -74,7 +74,6 @@ class PreferentialBallotTest extends MediaWikiIntegrationTestCase {
 			'Unranked required option' => [
 				[
 					'securepoll_q101_opt1' => 1,
-					'securepoll_q101_opt2' => 2,
 					'securepoll_q101_opt2' => '',
 				],
 				[

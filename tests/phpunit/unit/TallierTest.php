@@ -48,7 +48,7 @@ class TallierTest extends MediaWikiUnitTestCase {
 
 	public function testFactoryInvalidType() {
 		$this->expectException( MWException::class );
-		$tallier = Tallier::factory(
+		Tallier::factory(
 			$this->createMock( RequestContext::class ),
 			'invalid',
 			$this->createMock( ElectionTallier::class ),

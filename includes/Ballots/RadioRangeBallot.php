@@ -204,12 +204,12 @@ class RadioRangeBallot extends Ballot {
 	}
 
 	public function addSign( $question, $score ) {
-		list( $min, $max ) = $this->getMinMax( $question );
+		[ $min, ] = $this->getMinMax( $question );
 		if ( $min < 0 && $score > 0 ) {
 			return "+$score";
-		} else {
-			return $score;
 		}
+
+		return $score;
 	}
 
 	/**
@@ -219,7 +219,6 @@ class RadioRangeBallot extends Ballot {
 	 */
 	public function getQuestionForm( $question, $options ) {
 		$name = 'securepoll_q' . $question->getId();
-		list( $min, $max ) = $this->getMinMax( $question );
 		$labels = $this->getColumnLabels( $question );
 
 		$table = new \OOUI\Tag( 'table' );
@@ -292,17 +291,17 @@ class RadioRangeBallot extends Ballot {
 					);
 					$ok = false;
 					continue;
-				} else {
-					$score = intval( $score );
 				}
+
+				$score = intval( $score );
 			} elseif ( strval( $score ) === '' ) {
 				if ( $this->election->getProperty( 'must-answer-all' ) ) {
 					$status->sp_fatal( 'securepoll-unanswered-options', $id, false );
 					$ok = false;
 					continue;
-				} else {
-					$score = $defaultScore;
 				}
+
+				$score = $defaultScore;
 			} else {
 				$status->sp_fatal(
 					'securepoll-invalid-score',

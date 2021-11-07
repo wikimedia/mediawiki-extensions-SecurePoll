@@ -131,7 +131,7 @@ class SpecialSecurePollLog extends FormSpecialPage {
 		}
 
 		foreach ( $fields as $fieldname => $value ) {
-			$requestParam = $fields[$fieldname]['name'];
+			$requestParam = $value['name'];
 			if ( $request->getVal( $requestParam ) !== null ) {
 				$fields[$fieldname]['default'] = $request->getVal( $requestParam );
 			}

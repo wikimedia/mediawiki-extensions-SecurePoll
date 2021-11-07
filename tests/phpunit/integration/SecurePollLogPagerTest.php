@@ -25,6 +25,6 @@ class SecurePollLogPagerTest extends MediaWikiIntegrationTestCase {
 			[]
 		);
 		$conds = $pager->getQueryInfo()['conds'];
-		$this->assertSame( $conds, [] );
+		$this->assertSame( [], $conds );
 	}
 }

@@ -210,11 +210,6 @@ class PopulateVoterListJob extends Job {
 		$max = min( $min + 500, $this->params['maxUserId'] + 1 );
 		$next = $min;
 
-		/** @var Exception $exception */
-		$exception = null;
-
-		$dbwLocal = null;
-		$dbwElection = null;
 		$services = MediaWikiServices::getInstance();
 		$lbFactory = $services->getDBLoadBalancerFactory();
 		try {

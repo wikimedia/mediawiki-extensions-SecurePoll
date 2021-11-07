@@ -82,7 +82,7 @@ class ListPager extends TablePager {
 		];
 	}
 
-	public function isFieldSortable( $field ) {
+	protected function isFieldSortable( $field ) {
 		return in_array(
 			$field,
 			[
@@ -123,15 +123,6 @@ class ListPager extends TablePager {
 					return IPUtils::formatHex( $value );
 				}
 			case 'vote_ua':
-				if ( $this->election->endDate < wfTimestamp(
-						TS_MW,
-						time() - ( $securePollKeepPrivateInfoDays * 24 * 60 * 60 )
-					)
-				) {
-					return '';
-				} else {
-					return htmlspecialchars( $value );
-				}
 			case 'vote_xff':
 				if ( $this->election->endDate < wfTimestamp(
 						TS_MW,
@@ -161,7 +152,7 @@ class ListPager extends TablePager {
 
 				return Xml::element(
 					'a',
-					[ 'href' => $title->getLocalUrl() ],
+					[ 'href' => $title->getLocalURL() ],
 					$this->msg( 'securepoll-details-link' )->text()
 				);
 			case 'strike':
@@ -201,7 +192,7 @@ class ListPager extends TablePager {
 		return 'vote_id';
 	}
 
-	public function getFieldNames() {
+	protected function getFieldNames() {
 		$names = [];
 		if ( $this->isAdmin ) {
 			$fields = self::$adminFields;
@@ -220,7 +211,7 @@ class ListPager extends TablePager {
 		return $names;
 	}
 
-	public function getRowClass( $row ) {
+	protected function getRowClass( $row ) {
 		$classes = [];
 		if ( !$row->vote_current ) {
 			$classes[] = 'securepoll-old-vote';

@@ -24,9 +24,8 @@ class UpdateNotBlockedKey extends LoggedUpdateMaintenance {
 		$this->requireExtension( 'SecurePoll' );
 	}
 
-	public function doDBUpdates() {
+	protected function doDBUpdates() {
 		$updatedRows = 0;
-		$addedRows = 0;
 		$dbw = $this->getDB( DB_PRIMARY );
 		$res = $dbw->select(
 			'securepoll_properties',

@@ -107,7 +107,7 @@ class PurgePrivateVoteData extends Maintenance {
 			$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 
 			foreach ( $deleteSets as $deleteSet ) {
-				list( $minId, $maxId ) = $deleteSet;
+				[ $minId, $maxId ] = $deleteSet;
 				$dbw->update(
 					'securepoll_votes',
 					[ 'vote_ip' => '', 'vote_xff' => '', 'vote_ua' => '' ],

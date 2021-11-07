@@ -45,11 +45,11 @@ class TallyElection extends Maintenance {
 			$election = $context->getElection( reset( $electionIds ) );
 		} elseif ( $this->hasOption( 'name' ) ) {
 			$election = $context->getElectionByTitle( $this->getOption( 'name' ) );
-			if ( !$election->isFinished() ) {
-				$this->fatalError( "Cannot tally the election until after voting is complete" );
-			}
 			if ( !$election ) {
 				$this->fatalError( "The specified election does not exist." );
+			}
+			if ( !$election->isFinished() ) {
+				$this->fatalError( "Cannot tally the election until after voting is complete" );
 			}
 		} else {
 			$this->fatalError( 'Need to pass either --name or the dump file as an argument' );

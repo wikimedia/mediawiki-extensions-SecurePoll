@@ -237,11 +237,8 @@ class Entity {
 		if ( $this->properties === null ) {
 			$this->loadProperties();
 		}
-		if ( isset( $this->properties[$name] ) ) {
-			return $this->properties[$name];
-		} else {
-			return $default;
-		}
+
+		return $this->properties[$name] ?? $default;
 	}
 
 	/**
@@ -278,11 +275,7 @@ class Entity {
 				$s .= Xml::element( 'property', [ 'name' => $name ], $value ) . "\n";
 			}
 		}
-		if ( isset( $params['langs'] ) ) {
-			$langs = $params['langs'];
-		} else {
-			$langs = $this->context->languages;
-		}
+		$langs = $params['langs'] ?? $this->context->languages;
 		foreach ( $this->getMessageNames() as $name ) {
 			foreach ( $langs as $lang ) {
 				$value = $this->getRawMessage( $name, $lang );

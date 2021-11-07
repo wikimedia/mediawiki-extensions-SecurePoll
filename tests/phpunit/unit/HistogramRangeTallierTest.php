@@ -27,10 +27,10 @@ class HistogramRangeTallierTest extends MediaWikiUnitTestCase {
 		}, [ 100, 101 ] );
 		$question = $this->createMock( Question::class );
 		$question->method( 'getOptions' )->willReturn( $options );
-		$question->method( 'getProperty' )->will( $this->returnValueMap( [
+		$question->method( 'getProperty' )->willReturnMap( [
 			[ 'min-score', false, -1 ],
 			[ 'max-score', false, 1 ]
-		] ) );
+		] );
 
 		$this->tallier = Tallier::factory(
 			$this->createMock( RequestContext::class ),

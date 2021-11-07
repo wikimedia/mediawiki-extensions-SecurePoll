@@ -30,10 +30,9 @@ class LoginPage extends ActionPage {
 		$status = $auth->newRequestedSession( $this->election );
 		if ( !$status->isOK() ) {
 			$out->addWikiTextAsInterface( $status->getWikiText() );
-
 			return;
 		}
 		$votePage = SpecialPage::getTitleFor( 'SecurePoll', 'vote/' . $this->election->getId() );
-		$out->redirect( $votePage->getFullUrl() );
+		$out->redirect( $votePage->getFullURL() );
 	}
 }

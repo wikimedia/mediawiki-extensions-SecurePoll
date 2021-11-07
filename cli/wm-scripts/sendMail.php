@@ -121,8 +121,7 @@ class SendMail extends \Maintenance {
 				continue;
 			}
 			try {
-				$entry = MailingListEntry::newFromString( $line );
-				yield $entry;
+				yield MailingListEntry::newFromString( $line );
 			} catch ( InvalidArgumentException $e ) {
 				$this->error( "Skipping invalid entry in file $fileName line $lineNum" );
 			}

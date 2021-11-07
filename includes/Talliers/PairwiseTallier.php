@@ -130,11 +130,7 @@ abstract class PairwiseTallier extends Tallier {
 			);
 			# Rest of the matrix
 			foreach ( $rankedIds as $oid2 ) {
-				if ( isset( $matrix[$oid1][$oid2] ) ) {
-					$value = $matrix[$oid1][$oid2];
-				} else {
-					$value = '';
-				}
+				$value = $matrix[$oid1][$oid2] ?? '';
 				if ( is_array( $value ) ) {
 					$value = '(' . implode( ', ', $value ) . ')';
 				}
@@ -188,11 +184,7 @@ abstract class PairwiseTallier extends Tallier {
 
 			# Rest of the matrix
 			foreach ( $rankedIds as $oid2 ) {
-				if ( isset( $matrix[$oid1][$oid2] ) ) {
-					$value = $matrix[$oid1][$oid2];
-				} else {
-					$value = '';
-				}
+				$value = $matrix[$oid1][$oid2] ?? '';
 				if ( is_array( $value ) ) {
 					$value = '(' . implode( ', ', $value ) . ')';
 				}

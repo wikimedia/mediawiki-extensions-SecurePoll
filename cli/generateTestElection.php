@@ -121,8 +121,7 @@ class GenerateTestElection extends Maintenance {
 				$ballots = $this->generateSTVBallots( $dbw, $electionId, $stvParameters, $ballotsFile );
 				break;
 			default:
-			$this->fatalError( 'Election type not supported' );
-				break;
+				$this->fatalError( 'Election type not supported' );
 		}
 
 		$this->output( "\n" );

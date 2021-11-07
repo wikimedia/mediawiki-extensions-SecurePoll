@@ -212,18 +212,17 @@ class Election extends Entity {
 	 */
 	public function getVotesCount() {
 		$dbr = $this->context->getDB( DB_REPLICA );
-		$res = $dbr->selectField(
+
+		return $dbr->selectField(
 			'securepoll_votes',
 			[ 'COUNT(*)' ],
 			[
-				'vote_election' => $this->getID(),
+				'vote_election' => $this->getId(),
 				'vote_current' => 1,
 				'vote_struck' => 0,
 			],
 			__METHOD__
 		);
-
-		return $res;
 	}
 
 	/**
@@ -519,7 +518,7 @@ class Election extends Entity {
 			$s .= Xml::element( 'auth', [], 'local' ) . "\n" . Xml::element(
 					'property',
 					[ 'name' => 'jump-url' ],
-					$this->context->getSpecialTitle()->getCanonicalUrl()
+					$this->context->getSpecialTitle()->getCanonicalURL()
 				) . "\n" . Xml::element(
 					'property',
 					[ 'name' => 'jump-id' ],
