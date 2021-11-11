@@ -146,7 +146,7 @@
 	"securepoll-exhausted": "(用尽)",
 	"securepoll-htmlform-daterange-end-before-start": "提供的结束日期在开始日期之前。",
 	"securepoll-htmlform-radiorange-missing-message": "请指定$1列的值",
-	"securepoll-create-title": "{{int:securepoll}}:创建投票",
+	"securepoll-create-title": "{{int:securepoll}}：创建投票",
 	"securepoll-create-action": "创建投票",
 	"securepoll-create-created": "{{int:securepoll}}:投票已创建",
 	"securepoll-create-created-text": "您的投票已创建。",
