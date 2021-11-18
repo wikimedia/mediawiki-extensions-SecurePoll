@@ -67,7 +67,7 @@
 	"securepoll-header-strike": "Strike",
 	"securepoll-header-details": "Details",
 	"securepoll-vote-duplicate": "Duplicate",
-	"securepoll-vote-csrf": "CSRF",
+	"securepoll-vote-csrf": "Failed",
 	"securepoll-strike-button": "Strike",
 	"securepoll-unstrike-button": "Unstrike",
 	"securepoll-strike-reason": "Reason:",
