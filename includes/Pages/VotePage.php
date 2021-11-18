@@ -8,9 +8,11 @@ use MediaWiki\Extensions\SecurePoll\Entities\Election;
 use MediaWiki\Extensions\SecurePoll\Hooks\HookRunner;
 use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Extensions\SecurePoll\User\Auth;
+use MediaWiki\Extensions\SecurePoll\User\LocalAuth;
 use MediaWiki\Extensions\SecurePoll\User\RemoteMWAuth;
 use MediaWiki\Extensions\SecurePoll\User\Voter;
 use MediaWiki\Session\SessionManager;
+use MediaWiki\User\UserOptionsLookup;
 use MobileContext;
 use MWException;
 use Status;
@@ -35,20 +37,25 @@ class VotePage extends ActionPage {
 	private $loadBalancer;
 	/** @var HookRunner */
 	private $hookRunner;
+	/** @var UserOptionsLookup */
+	private $userOptionLookup;
 
 	/**
 	 * @param SpecialSecurePoll $specialPage
 	 * @param ILoadBalancer $loadBalancer
 	 * @param HookRunner $hookRunner
+	 * @param UserOptionsLookup $userOptionLookup
 	 */
 	public function __construct(
 		SpecialSecurePoll $specialPage,
 		ILoadBalancer $loadBalancer,
-		HookRunner $hookRunner
+		HookRunner $hookRunner,
+		UserOptionsLookup $userOptionLookup
 	) {
 		parent::__construct( $specialPage );
 		$this->loadBalancer = $loadBalancer;
 		$this->hookRunner = $hookRunner;
+		$this->userOptionLookup = $userOptionLookup;
 	}
 
 	/**
@@ -83,24 +90,21 @@ class VotePage extends ActionPage {
 		}
 
 		$this->auth = $this->election->getAuth();
-
-		// Get voter from session
 		$this->voter = $this->auth->getVoterFromSession( $this->election );
-
-		// If there's no session, try creating one.
-		// This will fail if the user is not authorized to vote in the election
 		if ( !$this->voter ) {
 			$status = $this->auth->newAutoSession( $this->election );
 			if ( $status->isOK() ) {
 				$this->voter = $status->value;
-			} else {
-				$out->addWikiTextAsInterface( $status->getWikiText() );
-
-				return;
 			}
 		}
+		$user = $this->specialPage->getUser();
 
-		$this->initLanguage( $this->voter, $this->election );
+		if ( $user->isAnon() ) {
+			$out->addWikiMsg( 'securepoll-not-logged-in' );
+			return;
+		}
+
+		$this->initLanguage( $user, $this->election );
 		$language = $this->getUserLang();
 		$this->specialPage->getContext()->setLanguage( $language );
 
@@ -140,14 +144,11 @@ class VotePage extends ActionPage {
 		$out->disallowUserJs();
 
 		// Show welcome
-		if ( $this->voter->isRemote() ) {
-			$out->addWikiMsg( 'securepoll-welcome', $this->voter->getName() );
+		if ( $this->election->authType !== 'local' ) {
+			$out->addWikiMsg( 'securepoll-welcome', $user->getName() );
 		}
-
-		// Show change notice
-		if ( $this->election->hasVoted( $this->voter ) && !$this->election->allowChange() ) {
+		if ( $this->voter && $this->election->hasVoted( $this->voter ) && !$this->election->allowChange() ) {
 			$out->addWikiMsg( 'securepoll-change-disallowed' );
-
 			return;
 		}
 
@@ -174,7 +175,7 @@ class VotePage extends ActionPage {
 		$out = $this->specialPage->getOutput();
 
 		// Show introduction
-		if ( $this->election->hasVoted( $this->voter ) && $this->election->allowChange() ) {
+		if ( $this->voter && $this->election->hasVoted( $this->voter ) && $this->election->allowChange() ) {
 			$out->addWikiMsg( 'securepoll-change-allowed' );
 		}
 		$out->addWikiTextAsInterface( $this->election->getMessage( 'intro' ) );
@@ -237,6 +238,11 @@ class VotePage extends ActionPage {
 				return;
 			}
 			$encrypted = $status->value;
+		}
+
+		if ( !$this->voter ) {
+			$user = $this->specialPage->getUser();
+			$this->voter = ( new LocalAuth( $this->context ) )->createVoter( $user, $this->election );
 		}
 
 		$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_PRIMARY );
