@@ -48,11 +48,7 @@ class LocalAuth extends Auth {
 			return $qualStatus;
 		}
 		$voter = $this->getVoter( $params );
-		if ( !$voter ) {
-			$status = new Status();
-			$status->setOK( false );
-			return $status;
-		}
+
 		return Status::newGood( $voter );
 	}
 
@@ -201,17 +197,5 @@ class LocalAuth extends Auth {
 		}
 
 		return $blockCount;
-	}
-
-	/**
-	 * Create a voter with the given parameters. Assumes the voter does not exist.
-	 * @param User $user
-	 * @param Election $election
-	 * @return Voter
-	 */
-	public function createVoter( User $user, Election $election ): Voter {
-		$params = $this->getUserParams( $user );
-		$params['electionId'] = $election->getId();
-		return $this->context->createVoter( $params );
 	}
 }
