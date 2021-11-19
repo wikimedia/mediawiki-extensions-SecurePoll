@@ -5,5 +5,7 @@
 		]
 	},
 	"securepoll-language-label": "Vaʹlljed ǩiõl:",
-	"securepoll-votereligibility-label-names": "Õõʹnninõõm"
+	"securepoll-votereligibility-label-names": "Õõʹnninõõm",
+	"securepoll-votereligibility-edit-action": "Ruõkk liist",
+	"securepoll-votereligibility-saved": "{{int:securepoll}}: Ruõkkum"
 }
