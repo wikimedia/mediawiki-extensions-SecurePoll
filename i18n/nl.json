@@ -5,6 +5,7 @@
 			"Hansmuller",
 			"Krinkle",
 			"Lolsimon",
+			"Mainframe98",
 			"McDutchie",
 			"Mwpnl",
 			"NthnH",
@@ -117,6 +118,8 @@
 	"securepoll-subpage-dump": "Dumpen",
 	"securepoll-subpage-tally": "Telling",
 	"securepoll-subpage-log": "Logboeken",
+	"securepoll-subpage-archive": "Archiveren",
+	"securepoll-archive-title": "$1 archiveren",
 	"securepoll-tally-title": "Telling: $1",
 	"securepoll-tally-not-finished": "U kunt geen telling uitvoeren totdat de stemming is afgelopen.",
 	"securepoll-tally-form-file-help": "Als je een versleutelde dump hebt geüpload, wordt de inhoud ervan geteld. Anders worden de resultaten in de database geteld. OPMERKING: Het uploaden van een verkiezing met meer dan 100 stemmen geeft mogelijk geen resultaten en leidt tot een time-out.",
@@ -237,9 +240,11 @@
 	"securepoll-votereligibility-cleared-comment": "$1 gewist.",
 	"right-securepoll-create-poll": "Peilingen aanmaken",
 	"action-securepoll-create-poll": "peilingen aan te maken en logs te bekijken",
+	"securepolllog-form-action-option-both": "Beide",
 	"securepoll-stv-droop-default-value": "Selecteer een optie",
 	"securepoll-stv-droop-choice-rank": "Voorkeur $1",
 	"securepoll-stv-invalid-rank-order": "Voorkeuren moeten geselecteerd worden in opeenvolgende volgorde. Kies alstublieft een optie uit voor: $1",
 	"securepoll-stv-invalid-input-empty": "Vul alstublieft deze voorkeur in",
-	"securepoll-stv-invalid-input-duplicate": "Selecteer een andere optie voor deze voorkeur alstublieft"
+	"securepoll-stv-invalid-input-duplicate": "Selecteer een andere optie voor deze voorkeur alstublieft",
+	"securepoll-stv-result-election-result-table-heading": "Resultaat"
 }
