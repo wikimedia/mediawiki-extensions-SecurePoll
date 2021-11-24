@@ -3,23 +3,30 @@
 		"authors": [
 			"Joao Xavier",
 			"Malafaya",
-			"Wyvernoid"
+			"Wyvernoid",
+			"JSantos"
 		]
 	},
 	"securepoll": "SekuraVoto",
 	"securepoll-desc": "Extensilo por elekti e voti",
+	"securepoll-submit": "Sendez voto",
 	"securepoll-unranked-options": "Kelka temi selektebla ne klasifikesis.\nVu mustas rangizar omna temi, de 1 til 999.",
 	"securepoll-api-no-user": "Nula uzero trovesis kun l'identigo (ID) informita.",
 	"securepoll-too-new": "Pardonez, vu ne povas votar. Nur konti enrejistrita ante $1, $3, povos votar en ica elekto, e vu enrejistris ye $2, $4.",
 	"securepoll-blocked": "Pardonez, vu ne povas votar en ca elekto, nam vu duras esar blokusata pri redakto.",
 	"securepoll-not-in-group": "Nur membri de la grupo \"$1\" povas votar en ca elekto.",
 	"securepoll-header-voter-name": "Nomo",
+	"securepoll-header-ua": "Uzero-aganto",
 	"securepoll-strike-reason": "Motivo:",
 	"securepoll-header-reason": "Motivo",
+	"securepoll-header-admin": "Administrero",
 	"securepoll-invalid-language": "Nevalida linguala kodexo \"$1\"",
 	"securepoll-language-label": "Selektez linguo:",
 	"securepoll-header-title": "Nomo",
 	"securepoll-header-start-date": "Dato dil komenco",
 	"securepoll-subpage-list": "Listo",
-	"securepoll-subpage-edit": "Redaktar"
+	"securepoll-subpage-edit": "Redaktar",
+	"securepoll-create-label-property_admins": "Administreri:",
+	"securepoll-create-option-column_order-asc": "Acensanta",
+	"securepoll-create-option-column_order-desc": "Decensanta"
 }

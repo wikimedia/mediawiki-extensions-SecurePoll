@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Dhallin"
+		]
+	},
+	"apihelp-strikevote-summary": "Tillåter administratörer att slå eller avbryta en omröstning.",
+	"apihelp-strikevote-param-option": "Vilken åtgärd att vidta: slå till eller slå av en omröstning.",
+	"apihelp-strikevote-paramvalue-option-strike": "Slå en röst (ta bort den från räkningen).",
+	"apihelp-strikevote-paramvalue-option-unstrike": "Slå till en omröstning (återställ den till räkningen).",
+	"apihelp-strikevote-param-voteid": "ID för röstningen som ska slås eller oslås.",
+	"apihelp-strikevote-param-reason": "Anledningen till att rösten slogs eller avslogs.",
+	"apihelp-strikevote-example-strike": "Strejkröst <kbd>1</kbd>, ange orsaken <kbd>duplication</kbd>.",
+	"apihelp-strikevote-example-unstrike": "Avslå röst <kbd></kbd>, ange orsaken <kbd>mistake</kbd>",
+	"apierror-securepoll-mustbeloggedin-strikevote": "Du måste vara inloggad för att slå eller avbryta en röst.",
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> är inte ett giltigt röst-id."
+}

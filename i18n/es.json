@@ -24,7 +24,10 @@
 			"Tokvo",
 			"Translationista",
 			"Vivaelcelta",
-			"White Master King"
+			"White Master King",
+			"Avengium",
+			"Jakeukalane",
+			"Whovian Biologist"
 		]
 	},
 	"securepoll": "SecurePoll",
@@ -223,7 +226,7 @@
 	"securepoll-edit-edited-text": "Se ha editado tu encuesta.",
 	"securepoll-votereligibility-title": "Configuración de elegibilidad de los votantes",
 	"securepoll-votereligibility-redirect": "La elegibilidad de los votantes debe configurarse en $1",
-	"securepoll-votereligibility-redirect-otherwiki": "el wiki principal",
+	"securepoll-votereligibility-redirect-otherwiki": "la wiki principal",
 	"securepoll-votereligibility-basic": "Opciones básicas",
 	"securepoll-votereligibility-basic-info": "Las opciones básicas se marcan cuando el usuario intenta votar.",
 	"securepoll-votereligibility-invalid-list": "La lista de elegibilidad de votantes dada no es conocida.",
@@ -260,7 +263,7 @@
 	"securepoll-votereligibility-action": "Guardar configuración",
 	"securepoll-votereligibility-fail-nothing-to-process": "Se solicitó el relleno automático de {{int:securepoll-votereligibility-voter}}, pero todos los filtros están vacíos.",
 	"securepoll-votereligibility-edit-title": "Edición de la lista de votantes: $1",
-	"securepoll-votereligibility-edit-header": "Escriba los nombres de usuario de la lista en el siguiente campo de texto, uno por línea. Un usuario de un wiki puede ser identificado por anexando el nombre con el carácter \"@ \" seguido por el nombre del proyecto; por ejemplo, Usuario:Ejemplo en la Wikipedia en inglés podría ser especificado como \"Ejemplo@enwiki\".\n\nLos nombres de usuario son considerados cuando se envíe este formulario, y los usuarios que no existen serán ignorados. Los nombres de usuario inválidos son también ignorados.",
+	"securepoll-votereligibility-edit-header": "Escriba los nombres de usuario de la lista en el siguiente campo de texto, uno por línea. Un usuario de una wiki puede ser identificado por anexando el nombre con el carácter \"@ \" seguido por el nombre del proyecto; por ejemplo, Usuario:Ejemplo en la Wikipedia en inglés podría ser especificado como \"Ejemplo@enwiki\".\n\nLos nombres de usuario son considerados cuando se envíe este formulario, y los usuarios que no existen serán ignorados. Los nombres de usuario inválidos son también ignorados.",
 	"securepoll-votereligibility-edit-action": "Guardar la lista",
 	"securepoll-votereligibility-saved": "{{int:securepoll}}: guardada",
 	"securepoll-votereligibility-saved-text": "Se han guardado tus cambios.",
@@ -300,7 +303,7 @@
 	"securepoll-stv-result-election-elected-header": "Elegidos",
 	"securepoll-stv-election-paramters": "Elección de escaños de $1 con candidatos de $2. Total de $3 votos",
 	"securepoll-stv-result-elected-list-unfilled-seat": "Esta plaza no se ha podido cubrir porque ningún candidato cumple los criterios. {{PLURAL:$1|El último candidato eliminado fue|Los últimos candidatos eliminados fueron}}: $1",
-	"securepoll-stv-result-election-eliminated-header": "Eliminado",
+	"securepoll-stv-result-election-eliminated-header": "Eliminado/no seleccionado",
 	"securepoll-stv-result-election-rounds-header": "Cuadro de rondas",
 	"securepoll-stv-result-election-round-number-table-heading": "Número redondo",
 	"securepoll-stv-result-election-tally-table-heading": "Contador",

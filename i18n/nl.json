@@ -13,11 +13,13 @@
 			"Ronja Addams-Moring",
 			"SPQRobin",
 			"Siebrand",
-			"Sjoerddebruin"
+			"Sjoerddebruin",
+			"Krinkle",
+			"Mainframe98"
 		]
 	},
 	"securepoll": "VeiligStemmen",
-	"securepoll-desc": "Uitbreiding voor stemmingen en enquêtes",
+	"securepoll-desc": "Stemmingen en enquêtes",
 	"securepoll-invalid-page": "Ongeldige subpagina \"<nowiki>$1</nowiki>\"",
 	"securepoll-need-admin": "U moet een stemmingenbeheerder zijn om deze handeling te mogen uitvoeren.",
 	"securepoll-too-few-params": "Onvoldoende subpaginaparameters (ongeldige koppeling).",
@@ -236,9 +238,11 @@
 	"securepoll-votereligibility-cleared-comment": "$1 gewist.",
 	"right-securepoll-create-poll": "Peilingen aanmaken",
 	"action-securepoll-create-poll": "peilingen aan te maken en logs te bekijken",
+	"securepolllog-form-action-option-both": "Beide",
 	"securepoll-stv-droop-default-value": "Selecteer een optie",
 	"securepoll-stv-droop-choice-rank": "Voorkeur $1",
 	"securepoll-stv-invalid-rank-order": "Voorkeuren moeten geselecteerd worden in opeenvolgende volgorde. Kies alstublieft een optie uit voor: $1",
 	"securepoll-stv-invalid-input-empty": "Vul alstublieft deze voorkeur in",
-	"securepoll-stv-invalid-input-duplicate": "Selecteer een andere optie voor deze voorkeur alstublieft"
+	"securepoll-stv-invalid-input-duplicate": "Selecteer een andere optie voor deze voorkeur alstublieft",
+	"securepoll-stv-result-election-result-table-heading": "Resultaat"
 }

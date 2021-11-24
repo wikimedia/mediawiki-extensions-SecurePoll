@@ -16,7 +16,8 @@
 			"Pietrodn",
 			"Ricordisamoa",
 			"Stefano-c",
-			"Vituzzu"
+			"Vituzzu",
+			"Ajeje Brazorf"
 		]
 	},
 	"securepoll": "SecurePoll",
@@ -102,7 +103,7 @@
 	"securepoll-translate-redirect": "I messaggi per questa elezione devono essere configurati su $1",
 	"securepoll-translate-redirect-otherwiki": "il wiki principale",
 	"securepoll-translate-label-comment": "Motivo:",
-	"securepoll-invalid-language": "Codice lingua non valido: \"$1\"",
+	"securepoll-invalid-language": "Codice lingua non valido \"$1\"",
 	"securepoll-submit-translate": "Aggiorna",
 	"securepoll-language-label": "Scegli lingua:",
 	"securepoll-submit-select-lang": "Traduci",
