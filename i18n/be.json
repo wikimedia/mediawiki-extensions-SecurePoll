@@ -3,6 +3,7 @@
 		"authors": [
 			"Artsiom91",
 			"Kareyac",
+			"ZlyiLev",
 			"Тест"
 		]
 	},
@@ -11,6 +12,8 @@
 	"securepoll-header-reason": "Прычына",
 	"securepoll-header-admin": "Адміністратар",
 	"securepoll-translate-label-comment": "Прычына:",
+	"securepoll-submit-select-lang": "Перакласці",
+	"securepoll-subpage-translate": "Перакласці",
 	"securepoll-create-title": "{{int:securepoll}}: Стварыць апытанне",
 	"securepoll-create-created": "{{int:securepoll}}: Апытанне створана",
 	"securepoll-create-label-comment": "Прычына",
