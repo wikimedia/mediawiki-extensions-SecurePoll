@@ -74,6 +74,7 @@
 	"securepoll-header-strike": "Poisto",
 	"securepoll-header-details": "Tiedot",
 	"securepoll-vote-duplicate": "Kaksoiskappale",
+	"securepoll-vote-csrf": "Epäonnistui",
 	"securepoll-strike-button": "Poisto",
 	"securepoll-unstrike-button": "Palautus",
 	"securepoll-strike-reason": "Syy",

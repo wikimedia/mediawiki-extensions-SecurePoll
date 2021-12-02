@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Abijeet Patro",
 			"Sau6402",
 			"Sfic",
 			"Shyam",
@@ -63,6 +64,7 @@
 	"securepoll-header-cookie-dup": "दोहरा",
 	"securepoll-header-strike": "मोहर लगाएँ",
 	"securepoll-header-details": "विवरण",
+	"securepoll-vote-csrf": "विफल हुआ",
 	"securepoll-strike-button": "मोहर लगाएँ",
 	"securepoll-unstrike-button": "मोहर हटाएँ",
 	"securepoll-strike-reason": "कारण:",

@@ -70,6 +70,7 @@
 	"securepoll-header-strike": "מחיקה",
 	"securepoll-header-details": "פרטים",
 	"securepoll-vote-duplicate": "כפולה",
+	"securepoll-vote-csrf": "זה לא עבד",
 	"securepoll-strike-button": "מחיקה",
 	"securepoll-unstrike-button": "ביטול מחיקה",
 	"securepoll-strike-reason": "סיבה:",
