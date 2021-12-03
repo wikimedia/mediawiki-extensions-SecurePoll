@@ -69,7 +69,7 @@
 	"securepoll-header-cookie-dup": "Duplikat",
 	"securepoll-header-strike": "Streichen",
 	"securepoll-header-details": "Details",
-	"securepoll-vote-duplicate": "Duplikat",
+	"securepoll-vote-duplicate": "Duplikat Cookies",
 	"securepoll-vote-csrf": "Fehlgeschlagen",
 	"securepoll-strike-button": "Streichen",
 	"securepoll-unstrike-button": "Streichung zurücknehmen",

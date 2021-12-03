@@ -79,6 +79,7 @@
 	"securepoll-header-strike": "Annulla",
 	"securepoll-header-details": "Dettagli",
 	"securepoll-vote-duplicate": "Duplicato",
+	"securepoll-vote-csrf": "Non riuscito",
 	"securepoll-strike-button": "Annulla questo voto",
 	"securepoll-unstrike-button": "Elimina annullamento",
 	"securepoll-strike-reason": "Motivo:",
