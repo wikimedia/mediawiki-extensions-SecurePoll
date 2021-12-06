@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Gazeb"
+			"Gazeb",
+			"Gramo6"
 		]
 	},
 	"securepoll": "Безпечне голосованя",
@@ -52,7 +53,7 @@
 	"securepoll-header-voter-name": "Мено",
 	"securepoll-header-voter-domain": "Домена",
 	"securepoll-header-ua": "Переглядач кліента",
-	"securepoll-header-cookie-dup": "Дуп.",
+	"securepoll-header-cookie-dup": "Дупліковати",
 	"securepoll-header-strike": "Перечаркнути",
 	"securepoll-header-details": "Детайлы:",
 	"securepoll-strike-button": "Перечаркнути",

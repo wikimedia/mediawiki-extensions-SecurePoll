@@ -59,6 +59,7 @@
 	"securepoll-header-cookie-dup": "Bgd",
 	"securepoll-header-strike": "Buang",
 	"securepoll-header-details": "Lanjut",
+	"securepoll-vote-csrf": "Gagal",
 	"securepoll-strike-button": "Buang",
 	"securepoll-unstrike-button": "Kembalikan",
 	"securepoll-strike-reason": "Alasan:",
