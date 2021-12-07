@@ -13,7 +13,8 @@
 		"MediaWiki": ">= 1.36.0"
 	},
 	"AvailableRights": [
-		"securepoll-create-poll"
+		"securepoll-create-poll",
+		"securepoll-view-voter-pii"
 	],
 	"ContentHandlers": {
 		"SecurePoll": "\\MediaWiki\\Extensions\\SecurePoll\\SecurePollContentHandler"
