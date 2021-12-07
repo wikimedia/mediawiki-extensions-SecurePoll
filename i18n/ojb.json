@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Aandeginini"
+		]
+	},
+	"securepoll-subpage-log": "Gikinoo'amaadii-mazina'igan",
+	"securepoll-create-user-not-in-electionadmin-group": "\"$1\" gaawiin {{GENDER:$1|dibendaagozi}} biinjwebinigewi-giizhigad-ogimaa indoodem.",
+	"securepolllog-form-type-option-voter": "Biinjwebinige giizisoo-mazina'igan",
+	"securepolllog-form-type-option-admin": "Ogimaa giizisoo-mazina'igan",
+	"securepolllog-form-target-label": "mizhodam (wiin-aabaji'-izhinikaazowin):"
+}

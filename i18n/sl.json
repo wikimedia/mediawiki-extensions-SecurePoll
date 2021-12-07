@@ -88,6 +88,7 @@
 	"securepoll-subpage-vote": "Glasuj",
 	"securepoll-subpage-translate": "Prevedi",
 	"securepoll-subpage-list": "Seznam",
+	"securepoll-subpage-edit": "Uredi",
 	"securepoll-subpage-dump": "Odloži",
 	"securepoll-subpage-tally": "Evidentiraj",
 	"securepoll-tally-title": "Evidenca: $1",
@@ -105,5 +106,7 @@
 	"securepoll-spoilt": "(Neveljavno)",
 	"securepoll-exhausted": "(Izkoriščeno)",
 	"securepoll-create-label-comment": "Razlog",
-	"securepoll-votereligibility-label-comment": "Razlog"
+	"securepoll-votereligibility-label-comment": "Razlog",
+	"securepoll-votereligibility-saved": "{{int:securepoll}}: shranjeno",
+	"securepoll-votereligibility-saved-text": "Vaše spremembe so shranjene."
 }

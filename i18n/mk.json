@@ -209,7 +209,7 @@
 	"securepoll-votereligibility-label-central_block_threshold": "Праг на централно блокирање",
 	"securepoll-votereligibility-label-not_bot": "Мора да не е означен како бот",
 	"securepoll-votereligibility-lists": "Гласачки списоци",
-	"securepoll-votereligibility-lists-info": "Подобните гласачи можат да се наведуваат и конкретно. Има три списоци:\n* ''{{int:securepoll-votereligibility-voter}}'' е список на гласачи на кои им е дозволено да гласаат ако исто така ги задоволуваат основните услови. Овој список честопати се пополнува автоматски.\n* ''{{int:securepoll-votereligibility-include}}'' е список на гласачи на кои им е дозволено да гласаат без оглед на основните услови и без повикување на списокот на подобни.\n* ''{{int:securepoll-votereligibility-exclude}}'' е список на гласачи на кои не им е дозволено да гласаат, без оглед на било какви други списоци.",
+	"securepoll-votereligibility-lists-info": "Подобните гласачи можат да се наведуваат и конкретно. Има три списоци:\n* ''{{int:securepoll-votereligibility-voter}}'' е список на гласачи на кои им е дозволено да гласаат ако исто така ги задоволуваат основните услови. Овој список честопати се пополнува автоматски.\n* ''{{int:securepoll-votereligibility-include}}'' е список на гласачи на кои им е дозволено да гласаат без оглед на основните услови и без повикување на списокот на подобни.\n* ''{{int:securepoll-votereligibility-exclude}}'' е список на гласачи на кои не им е дозволено да гласаат, без оглед на какви било други списоци.",
 	"securepoll-votereligibility-voter": "Список на подобни",
 	"securepoll-votereligibility-include": "Список на безусловни",
 	"securepoll-votereligibility-exclude": "Список на исклучени",

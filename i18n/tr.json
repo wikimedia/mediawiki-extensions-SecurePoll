@@ -12,7 +12,11 @@
 			"SaldırganSincap",
 			"Sayginer",
 			"Suelnur",
-			"Vito Genovese"
+			"Vito Genovese",
+			"Hedda",
+			"Justinianus",
+			"Melissadilara",
+			"Mim.saitkilic"
 		]
 	},
 	"securepoll": "GüvenliOylama",
@@ -68,6 +72,7 @@
 	"securepoll-header-date": "Tarih",
 	"securepoll-header-voter-name": "Ad",
 	"securepoll-header-voter-domain": "Etki alanı",
+	"securepoll-header-ip": "IP",
 	"securepoll-header-ua": "Kullanıcı temsilcisi",
 	"securepoll-header-cookie-dup": "Kopya",
 	"securepoll-header-strike": "Üstünü çiz",

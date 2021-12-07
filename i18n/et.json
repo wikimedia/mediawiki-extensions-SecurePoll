@@ -93,6 +93,7 @@
 	"securepoll-subpage-votereligibility": "Hääleõigus",
 	"securepoll-subpage-dump": "Tõmmis",
 	"securepoll-subpage-tally": "Arvestus",
+	"securepoll-subpage-log": "Logid",
 	"securepoll-tally-title": "Arvestus: $1",
 	"securepoll-tally-not-finished": "Enne valimise lõppu ei saa hääli üle lugeda.",
 	"securepoll-tally-upload-submit": "Loe üle",

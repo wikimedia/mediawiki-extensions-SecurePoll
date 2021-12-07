@@ -2,9 +2,23 @@
 	"@metadata": {
 		"authors": [
 			"Nayvik",
-			"VASANTH S.N."
+			"VASANTH S.N.",
+			"Gopala Krishna A"
 		]
 	},
+	"securepoll": "ಸೆಕ್ಯೂರ್‌ಪೋಲ್",
+	"securepoll-desc": "ಚುನಾವಣೆಗಳು ಮತ್ತು ಸಮೀಕ್ಷೆಗಳಿಗೆ ವಿಸ್ತರಣೆ",
+	"securepoll-invalid-page": "ಅಮಾನ್ಯ ಉಪಪುಟ \"<nowiki> $1</nowiki> \"",
+	"securepoll-need-admin": "ಈ ಕ್ರಿಯೆಯನ್ನು ನಿರ್ವಹಿಸಲು ನೀವು ಚುನಾವಣಾ ನಿರ್ವಾಹಕರಾಗಿರಬೇಕು.",
+	"securepoll-too-few-params": "ಸಾಕಷ್ಟು ಉಪಪುಟಗಳ ನಿಯತಾಂಕಗಳಿಲ್ಲ (ಅಮಾನ್ಯ ಲಿಂಕ್).",
+	"securepoll-invalid-election": "\" $1 \" ಮಾನ್ಯ ಚುನಾವಣಾ ID ಅಲ್ಲ.",
+	"securepoll-finished-no-edit": "ಈ ಚುನಾವಣೆ ಮುಗಿದಿದೆ ಮತ್ತು ನೀವು ಅದನ್ನು ಇನ್ನು ಮುಂದೆ ಸಂಪಾದಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ.",
+	"securepoll-welcome": "<strong>{{GENDER:$1| ಸ್ವಾಗತ}} $1 !</strong>",
+	"securepoll-not-started": "ಈ ಚುನಾವಣೆ ಇನ್ನೂ ಪ್ರಾರಂಭವಾಗಿಲ್ಲ.\nಇದು $2 ರಿಂದ $3 ಪ್ರಾರಂಭವಾಗಲಿದೆ.",
+	"securepoll-already-started": "ಈ ಚುನಾವಣೆ ಈಗಾಗಲೇ ಪ್ರಾರಂಭವಾಗಿದೆ.\nಇದು $2 ರಂದು $3 ಕ್ಕೆ ಪ್ರಾರಂಭವಾಗಿದೆ.",
+	"securepoll-finished": "ಈ ಚುನಾವಣೆ ಮುಗಿದಿದೆ. ನೀವು ಇನ್ನು ಮುಂದೆ ಮತ ಚಲಾಯಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ.",
+	"securepoll-not-qualified": "ಈ ಚುನಾವಣೆಯಲ್ಲಿ ಮತ ಚಲಾಯಿಸಲು ನಿಮಗೆ ಅರ್ಹತೆ ಇಲ್ಲ: $1",
+	"securepoll-change-disallowed": "ಈ ಚುನಾವಣೆಯಲ್ಲಿ ನೀವು ಮೊದಲು ಮತ ಚಲಾಯಿಸಿದ್ದೀರಿ.\nಕ್ಷಮಿಸಿ, ನೀವು ಮತ್ತೆ ಮತ ಚಲಾಯಿಸದಿರಬಹುದು.",
 	"securepoll-header-timestamp": "ಸಮಯ",
 	"securepoll-header-voter-name": "ಹೆಸರು",
 	"securepoll-header-voter-domain": "ಕ್ಷೇತ್ರ:",

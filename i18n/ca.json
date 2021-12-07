@@ -14,7 +14,8 @@
 			"SMP",
 			"Solde",
 			"Ssola",
-			"Vriullop"
+			"Vriullop",
+			"Jmarchn"
 		]
 	},
 	"securepoll": "Vot segur",
@@ -23,7 +24,7 @@
 	"securepoll-need-admin": "Heu de ser administrador electoral per a realitzar aquesta acció.",
 	"securepoll-too-few-params": "No hi ha prou paràmetres de subpàgina (enllaç no vàlid).",
 	"securepoll-invalid-election": "«$1» no és un identificador d'elecció vàlid.",
-	"securepoll-welcome": "<strong>Benvingut $1!</strong>",
+	"securepoll-welcome": "<strong>{{GENDER:$1|Benvingut|Benvinguda}} $1!</strong>",
 	"securepoll-not-started": "Aquesta elecció encara no ha començat.\nEstà programada per a que comenci el $2 a $3.",
 	"securepoll-finished": "Aquesta elecció s'ha acabat, ja no podeu votar més.",
 	"securepoll-not-qualified": "No esteu qualificat per votar en aquesta elecció: $1",
@@ -84,7 +85,7 @@
 	"securepoll-header-admin": "Administrador",
 	"securepoll-cookie-dup-list": "Usuaris amb galetes duplicades",
 	"securepoll-dump-title": "Abocament: $1",
-	"securepoll-dump-not-finished": "Els registres encriptats de l'elecció només estaran disponibles després de la seva conclusió, a $1 del $2",
+	"securepoll-dump-not-finished": "Els registres de l'elecció només estaran disponibles després de la seva conclusió, a $1 del $2",
 	"securepoll-dump-no-urandom": "No es pot obrir /dev/urandom.\nPer mantenir la privadesa dels votants, els registres encriptats de l'elecció es fan públics només quan poden ser barrejats amb un generador segur de nombres aleatoris.",
 	"securepoll-urandom-not-supported": "Aquest servidor no suporta la generació criptogràfica de nombres aleatoris.\nPer mantenir la privadesa del votant, els registres d'elecció encriptats només són públicament disponibles quan es poden emetre amb un flux segur de nombres aleatoris.",
 	"securepoll-translate-title": "Traducció: $1",
