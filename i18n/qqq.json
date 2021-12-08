@@ -23,7 +23,8 @@
 			"Shirayuki",
 			"Siebrand",
 			"Umherirrender",
-			"아라"
+			"아라",
+			"Ajeje Brazorf"
 		]
 	},
 	"securepoll": "Used in the following messages:\n* {{msg-mw|Securepoll-create-title}}\n* {{msg-mw|Securepoll-create-created}}\n* {{msg-mw|Securepoll-edit-title}}\n* {{msg-mw|Securepoll-edit-edited}}\n* {{msg-mw|Securepoll-votereligibility-saved}}\n* {{msg-mw|Securepoll-votereligibility-cleared}}",
@@ -308,11 +309,11 @@
 	"securepoll-stv-result-election-round-number-table-heading": "Header for a single round in the STV election",
 	"securepoll-stv-result-election-tally-table-heading": "Header for a single round in the STV election",
 	"securepoll-stv-result-election-result-table-heading": "Header for a single round in the STV election",
-	"securepoll-stv-result-candidate-elected": "Denote if candidate is elected using b tags",
-	"securepoll-stv-result-candidate": "Candidate name",
-	"securepoll-stv-result-votes-gain": "Description of votes moving for a round in the STV election",
-	"securepoll-stv-result-votes-surplus": "Description of votes moving for a round in the STV election",
-	"securepoll-stv-result-votes-no-change": "Description of votes moving for a round in the STV election",
+	"securepoll-stv-result-candidate-elected": "{{optional}}\nDenote if candidate is elected using b tags",
+	"securepoll-stv-result-candidate": "{{optional}}\nCandidate name",
+	"securepoll-stv-result-votes-gain": "{{optional}}\nDescription of votes moving for a round in the STV election",
+	"securepoll-stv-result-votes-surplus": "{{optional}}\nDescription of votes moving for a round in the STV election",
+	"securepoll-stv-result-votes-no-change": "{{notranslate}}\nDescription of votes moving for a round in the STV election",
 	"securepoll-stv-votes-transferred": "Describes votes moving in this round in the STV election",
 	"securepoll-stv-result-round-quota": "Header for a detail in the summary of a single round in the STV election",
 	"securepoll-stv-result-round-elected": "Header for a detail in the summary of a single round in the STV election",
