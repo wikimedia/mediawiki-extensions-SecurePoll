@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Keo010122",
 			"Max20091",
 			"Minh Nguyen",
 			"Nguyễn Mạnh An",
@@ -62,6 +63,7 @@
 	"securepoll-header-cookie-dup": "Trùng",
 	"securepoll-header-strike": "Gạch bỏ",
 	"securepoll-header-details": "Chi tiết",
+	"securepoll-vote-csrf": "Thất bại",
 	"securepoll-strike-button": "Gạch bỏ",
 	"securepoll-unstrike-button": "Phục hồi",
 	"securepoll-strike-reason": "Lý do:",
