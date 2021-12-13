@@ -16,7 +16,13 @@
 			"PhiLiP",
 			"Skjackey tse",
 			"SolidBlock",
-			"飞舞回堂前"
+			"飞舞回堂前",
+			"GuoPC",
+			"Hmgrmb",
+			"Interestinghe",
+			"Shizhao",
+			"Xiplus",
+			"Zhang8569"
 		]
 	},
 	"securepoll": "安全投票",
@@ -67,6 +73,7 @@
 	"securepoll-list-title": "投票列表：$1",
 	"securepoll-list-private": "对不起，查看此选举的投票者列表仅限于选举管理员。",
 	"securepoll-header-timestamp": "时间",
+	"securepoll-header-date": "日期",
 	"securepoll-header-voter-name": "名称",
 	"securepoll-header-voter-domain": "域名",
 	"securepoll-header-ua": "用户代理",
@@ -135,7 +142,7 @@
 	"securepoll-exhausted": "(用尽)",
 	"securepoll-htmlform-daterange-end-before-start": "提供的结束日期在开始日期之前。",
 	"securepoll-htmlform-radiorange-missing-message": "请指定$1列的值",
-	"securepoll-create-title": "{{int:securepoll}}:创建投票",
+	"securepoll-create-title": "{{int:securepoll}}：创建投票",
 	"securepoll-create-action": "创建投票",
 	"securepoll-create-created": "{{int:securepoll}}:投票已创建",
 	"securepoll-create-created-text": "您的投票已创建。",
@@ -246,7 +253,7 @@
 	"securepoll-votereligibility-cleared-comment": "$1已清除。",
 	"right-securepoll-create-poll": "创建投票",
 	"action-securepoll-create-poll": "创建投票",
-	"securepoll-ns-readonly": "{{ns:SecurePoll}}名字空间是只读的",
+	"securepoll-ns-readonly": "{{ns:SecurePoll}}命名空间是只读的",
 	"securepoll-voter-stats": "在所有有效投票者中，$1位{{PLURAL:$1|投票者}}已投票。",
 	"securepoll-vote-stats": "总共投出$1张{{PLURAL:$1|票}}。其中$2张{{PLURAL:$2|已}}丢弃，因为投票者再次投票，并且$3张{{PLURAL:$3|已}}投出。"
 }

@@ -3,7 +3,8 @@
 		"authors": [
 			"Aushulz",
 			"Melos",
-			"Sarvaturi"
+			"Sarvaturi",
+			"Ajeje Brazorf"
 		]
 	},
 	"securepoll-welcome": "<strong>{{GENDER:$1|Bimminutu|Bimminuta|Bimminutu/a}} $1!</strong>",
@@ -12,11 +13,32 @@
 	"securepoll-header-voter-name": "Nomu",
 	"securepoll-header-voter-domain": "Dominiu",
 	"securepoll-header-ua": "Agente utenti",
+	"securepoll-header-details": "Dittagghî",
 	"securepoll-strike-button": "Annulla stu votu",
 	"securepoll-unstrike-button": "Elimina annullamentu",
 	"securepoll-strike-reason": "Mutivu:",
 	"securepoll-strike-cancel": "Annulla",
+	"securepoll-details-link": "Dittagghî",
 	"securepoll-header-action": "Azzioni",
 	"securepoll-header-reason": "Mutivu",
-	"securepoll-header-title": "Nomu"
+	"securepoll-translate-title": "Traduci: $1",
+	"securepoll-translate-redirect-otherwiki": "lu wiki principali",
+	"securepoll-invalid-language": "Còdici dâ lingua nun vàliddu \"$1\"",
+	"securepoll-submit-translate": "Aggiorna",
+	"securepoll-submit-select-lang": "Traduci",
+	"securepoll-header-title": "Nomu",
+	"securepoll-subpage-translate": "Traduci",
+	"securepoll-subpage-edit": "Cancia",
+	"securepoll-create-option-wiki-this_wiki": "Stu wiki",
+	"securepoll-create-option-wiki-all_wikis": "Tutti li wiki",
+	"securepoll-create-label-property_admins": "Amministratura:",
+	"securepoll-create-label-comment": "Mutivu",
+	"securepoll-edit-redirect-otherwiki": "lu wiki principali",
+	"securepoll-votereligibility-redirect-otherwiki": "lu wiki principali",
+	"securepoll-votereligibility-label-edit": "Cancia elencu",
+	"securepoll-votereligibility-label-names": "Nomi utenti",
+	"securepoll-votereligibility-label-comment": "Mutivu",
+	"securepoll-votereligibility-edit-action": "Sarva elencu",
+	"securepoll-votereligibility-saved": "{{int:securepoll}}: Sarvatu",
+	"securepoll-votereligibility-saved-text": "Li tò canciamenti foru sarvati."
 }

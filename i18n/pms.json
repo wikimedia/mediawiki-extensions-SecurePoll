@@ -37,7 +37,7 @@
 	"securepoll-unanswered-options": "A dev dé n'arspòsta për minca chestion.",
 	"securepoll-remote-auth-error": "Eror an lesend le anformassion ëd tò cont dal server.",
 	"securepoll-remote-parse-error": "Eror an antërpretand l'arspòsta d'autorisassion dal server.",
-	"securepoll-api-invalid-params": "Paràmetr pa vàlid.",
+	"securepoll-api-invalid-params": "Paràmeter nen bon.",
 	"securepoll-api-no-user": "Pa gnun utent trovà con l'ID fornì.",
 	"securepoll-api-token-mismatch": "Ij token ëd sicurëssa a corispondo pa, it peule pa intré.",
 	"securepoll-not-logged-in": "A dev intré ant ël sistema për voté an costa elession",

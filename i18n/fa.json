@@ -17,7 +17,10 @@
 			"Reza1615",
 			"Sahim",
 			"Wayiran",
-			"ZxxZxxZ"
+			"ZxxZxxZ",
+			"Jeeputer",
+			"Reza koulivand",
+			"Sunfyre"
 		]
 	},
 	"securepoll": "نظرسنجی امن",
@@ -68,6 +71,7 @@
 	"securepoll-list-title": "فهرست آرا: $1",
 	"securepoll-list-private": "متاسفیم، دیدن فهرست رأی‌دهندگان در این انتخابات به مدیران انتخابات محدود شده‌است.",
 	"securepoll-header-timestamp": "زمان",
+	"securepoll-header-date": "تاریخ",
 	"securepoll-header-voter-name": "نام",
 	"securepoll-header-voter-domain": "دامنه",
 	"securepoll-header-ip": "IP",
@@ -121,7 +125,7 @@
 	"securepoll-subpage-votereligibility": "شرایط رأی‌دهندگان",
 	"securepoll-subpage-dump": "روگرفت",
 	"securepoll-subpage-tally": "چوب‌خط",
-	"securepoll-tally-title": "چوب‌خط: $1",
+	"securepoll-tally-title": "شمارش: $1",
 	"securepoll-tally-not-finished": "متأسفانه نمی‌توانید رأی‌ها را پیش از تکمیل انتخابات چوب‌خط بزنید.",
 	"securepoll-can-decrypt": "رکورد انتخاباتی رمزگذاری شده‌است، ولی کلید رمزگشایی موجود است.\nمی‌توانید یا نتایج حاضر در پایگاه داده را چوب‌خط بزنید، یا از یک پروندهٔ بارگذاری‌شده نتایج رمزگذاری‌شده را چوب‌خط بزنید.",
 	"securepoll-tally-no-key": "نمی‌توانید این انتخابات را چوب‌خط بزنید، چون آرا رمزگذاری شده‌اند و کلید رمزگشایی در دسترس نیست.",

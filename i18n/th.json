@@ -7,7 +7,8 @@
 			"Octahedron80",
 			"Passawuth",
 			"Watcharakorn",
-			"Woraponboonkerd"
+			"Woraponboonkerd",
+			"Thas Tayapongsak"
 		]
 	},
 	"securepoll": "การลงคะแนนลับ",
@@ -16,7 +17,7 @@
 	"securepoll-need-admin": "คุณต้องเป็นผู้ดูแลระบบการเลือกตั้งในการกระทำสิ่งนี้",
 	"securepoll-too-few-params": "พารามิเตอร์ของหน้าย่อยไม่เพียงพอ (ไม่มีลิงก์ดังกล่าว)",
 	"securepoll-invalid-election": "\"$1\" ไม่ใช่ไอดีลงคะแนนที่ถูกต้อง",
-	"securepoll-welcome": "<strong>ยินดีต้อนรับ $1!</strong>",
+	"securepoll-welcome": "<strong>{{GENDER:$1|ยินดีต้อนรับ}} $1!</strong>",
 	"securepoll-not-started": "การลงคะแนนครั้งนี้ยังไม่เริ่มเปิดลงคะแนน\nการลงคะแนนจะเริ่มในวันที่ $2 เวลา $3",
 	"securepoll-finished": "การเลือกตั้งเสร็จสิ้นแล้ว คุณไม่สามารถลงคะแนนได้อีก",
 	"securepoll-not-qualified": "คุณไม่มีสิทธิ์ในการลงคะแนนในการเลือกตั้งดังนี้: $1",

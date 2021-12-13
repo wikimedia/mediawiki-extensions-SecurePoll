@@ -6,7 +6,9 @@
 			"StanProg",
 			"Ted Masters",
 			"Turin",
-			"Vlad5250"
+			"Vlad5250",
+			"Kareyac",
+			"NikiTricky"
 		]
 	},
 	"securepoll": "Защитено гласуване",
@@ -55,6 +57,7 @@
 	"securepoll-in-exclude-list": "За съжаление, не сте упълномощени да участвате в това гласуване.",
 	"securepoll-list-title": "Списък на гласовете: $1",
 	"securepoll-header-timestamp": "Време",
+	"securepoll-header-date": "Дата",
 	"securepoll-header-voter-name": "Име",
 	"securepoll-header-voter-domain": "Домейн",
 	"securepoll-header-ua": "Браузър",

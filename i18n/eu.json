@@ -24,7 +24,7 @@
 	"securepoll-change-disallowed": "Hauteskundean jada bozkatu duzu.\nBarkatu, baina ezin duzu berriro bozkatu.",
 	"securepoll-change-allowed": "<strong>Oharra: Bozketa honetan aurretik bozkatu duzu.</strong>\nZure botoa alda dezakezu azpiko inprimakia bidaliz.\nKontuan izan ezazu hori egiten baduzu zure jatorrizko botoa ezabatuko dela.",
 	"securepoll-submit": "Eman botoa",
-	"securepoll-gpg-receipt": "Milesker bozkatzeagatik.\n\nNahi baduzu, ondorengo agiria gorde dezakezu zure bozkaren frogabide bezala:\n\n<pre>$1</pre>",
+	"securepoll-gpg-receipt": "Milesker bozkatzeagatik.\n\nNahi baduzu, ondorengo agiria gorde dezakezu zure botoaren frogabidetzat:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "Eskerrik asko, zure botoa gorde da.",
 	"securepoll-return": "$1-(e)ra itzuli",
 	"securepoll-encrypt-error": "Ezin izan da zure boto erregistroa enkriptatu.\nZure botoa ez da erregistratu!\n\n$1",

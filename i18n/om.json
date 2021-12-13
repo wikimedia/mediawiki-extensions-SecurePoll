@@ -1,11 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Tumsaa"
+			"Tumsaa",
+			"Ahrada2016",
+			"Maammee"
 		]
 	},
-	"securepoll-create-label-election_title": "Gosa filannoo:",
-	"securepoll-create-label-election_type": "Gosa filannoo",
+	"securepoll-create-label-election_title": "Mataduree Gaafannoo:",
+	"securepoll-create-label-election_type": "Gosa gaafannoo:",
 	"securepoll-create-label-election_crypt": "Icciteessuu(encryption):",
 	"securepoll-create-questions-row-legend": "Gaaffii",
 	"securepoll-create-label-questions-add": "Gaaffii kan biraa galchi",

@@ -7,7 +7,7 @@
 			"Vlad5250"
 		]
 	},
-	"securepoll": "БезбедноГласање",
+	"securepoll": "Безбедно гласање",
 	"securepoll-desc": "Додаток за избори и анкети",
 	"securepoll-invalid-page": "Неважечка потстраница „<nowiki>$1</nowiki>“",
 	"securepoll-need-admin": "Треба да бидете изборен администратор за да можете да го сторите тоа.",
@@ -55,6 +55,7 @@
 	"securepoll-list-title": "Наведи гласови: $1",
 	"securepoll-list-private": "За жал, списокот на гласачи за овие избори можат да го видам само администраторите на изборите.",
 	"securepoll-header-timestamp": "Време",
+	"securepoll-header-date": "Датум",
 	"securepoll-header-voter-name": "Име",
 	"securepoll-header-voter-domain": "Домен",
 	"securepoll-header-ip": "IP",

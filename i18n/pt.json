@@ -13,7 +13,8 @@
 			"SandroHc",
 			"Vitorvicentevalente",
 			"Waldir",
-			"Waldyrious"
+			"Waldyrious",
+			"Kareyac"
 		]
 	},
 	"securepoll": "Votação segura",
@@ -64,6 +65,7 @@
 	"securepoll-list-title": "Listar votos: $1",
 	"securepoll-list-private": "Desculpe, só os administradores de eleições podem ver a lista de votantes nesta eleição.",
 	"securepoll-header-timestamp": "Hora",
+	"securepoll-header-date": "Data",
 	"securepoll-header-voter-name": "Nome",
 	"securepoll-header-voter-domain": "Domínio",
 	"securepoll-header-ua": "Agente de utilizador",

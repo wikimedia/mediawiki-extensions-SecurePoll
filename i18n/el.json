@@ -12,7 +12,9 @@
 			"Omnipaedista",
 			"Protnet",
 			"ZaDiak",
-			"Απεργός"
+			"Απεργός",
+			"NikosLikomitros",
+			"Norhorn"
 		]
 	},
 	"securepoll": "Ασφαλής δημοσκόπηση",
@@ -60,6 +62,7 @@
 	"securepoll-not-in-list": "Λυπούμαστε, αλλά δεν βρίσκεστε στην προκαθορισμένη λίστα χρηστών που επιτρέπεται να ψηφίσουν στις εκλογές αυτές.",
 	"securepoll-list-title": "Λίστα ψήφων: $1",
 	"securepoll-header-timestamp": "Ώρα",
+	"securepoll-header-date": "Ημερομηνία",
 	"securepoll-header-voter-name": "Όνομα",
 	"securepoll-header-voter-domain": "Περιοχή",
 	"securepoll-header-ua": "Αντιπρόσωπος χρήστη",

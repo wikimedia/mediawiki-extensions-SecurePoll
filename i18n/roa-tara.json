@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Joetaras"
+			"Joetaras",
+			"Casadelproverbio"
 		]
 	},
 	"securepoll": "SondaggeSecure",
@@ -120,6 +121,9 @@
 	"securepoll-create-label-election_title": "Titole d'u sondagge:",
 	"securepoll-create-label-wiki": "Pe uicchi:",
 	"securepoll-create-option-wiki-this_wiki": "Sta uicchi",
+	"securepoll-create-option-wiki-all_wikis": "Tutte le uicchi",
+	"securepoll-create-option-wiki-other_wiki": "Otre uicchi specifece",
+	"securepoll-create-label-election_primarylang": "Lènga prengepàle:",
 	"securepoll-votereligibility-label-names": "Nome de l'utinde",
 	"securepoll-votereligibility-label-comment": "Mutive",
 	"securepoll-votereligibility-action": "Reggistre 'a configurazione",

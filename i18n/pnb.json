@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Khalid Mahmood"
+			"Khalid Mahmood",
+			"Abbas dhothar"
 		]
 	},
 	"securepoll": "سیکیورپول",
 	"securepoll-desc": "چنوتی تے سروے لئی ایکسٹنشن",
-	"securepoll-invalid-page": "ناںمنیا جان والا نکا صفہ \"<nowiki>$1</nowiki>\"",
+	"securepoll-invalid-page": "نا منیا جان والا نکا صفحہ \"<nowiki>$1</nowiki>\"",
 	"securepoll-need-admin": "اے کم کرن لئی تواڈا الیکشن ایدمنسٹریٹر ہونا چائیدا اے۔",
 	"securepoll-too-few-params": "کافی نکے صفیاں دے پیرامیٹر نئیں (جوڑ کم نئیں کردا)",
 	"securepoll-invalid-election": "\"$1\" کوئی پکی چنوتی آئی ڈی نئیں اے۔",
@@ -49,6 +50,7 @@
 	"securepoll-not-in-list": "معاف کرنا تسیں اوناں ورتن والیاں دی لسٹ چ نئیں او جناں نوں ایس چنوتی ج ووٹ پان دی اجازت اے۔",
 	"securepoll-list-title": "ووٹ لسٹ: $1",
 	"securepoll-header-timestamp": "ویلہ",
+	"securepoll-header-date": "تریخ",
 	"securepoll-header-voter-name": "ناں",
 	"securepoll-header-voter-domain": "ڈومین",
 	"securepoll-header-ua": "ورتن آلا اجنٹ",
@@ -98,7 +100,7 @@
 	"securepoll-tally-upload-legend": "لکی بولی دا ٹعیر چڑھاؤ",
 	"securepoll-tally-upload-submit": "گنتی بناؤ",
 	"securepoll-tally-error": "ووٹ رکارڈ سمجن چ غلطی، گنتی نئيں دتی جاسکدی۔",
-	"securepoll-no-upload": "کوئی فائل نئیں چرھائی کئی، نتارے نئیں کنے جاسکدے",
+	"securepoll-no-upload": "کوئی فائل نئیں چرھائی کئی، نتارے نئیں گنے جاسکدے",
 	"securepoll-dump-corrupt": "ڈمپ فائل خراب اے تے چلائی نئیں جاسکدی۔",
 	"securepoll-tally-upload-error": "ڈمپ فائل دی کنتی کردیاں ہویاں غلطی: $1",
 	"securepoll-pairwise-victories": "پیروائز وکٹری میٹرکس",
@@ -107,5 +109,6 @@
 	"securepoll-average-score": "ایورج سکور",
 	"securepoll-round": "راؤنڈ $1",
 	"securepoll-spoilt": "(سپویلٹ)",
-	"securepoll-exhausted": "(مک چکیا)"
+	"securepoll-exhausted": "(مک چکیا)",
+	"securepoll-create-label-election_primarylang": "بنیادی بولی:"
 }

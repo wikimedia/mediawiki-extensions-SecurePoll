@@ -25,7 +25,7 @@
 	"securepoll-thanks": "Matur nuwun, swara panjenengan wis dicathet.",
 	"securepoll-return": "Bali menyang $1",
 	"securepoll-encrypt-error": "Gagal nyandi cathetan swanten (vote) panjenengan.\nSwanten panjenengan dèrèng kacathet!\n\n$1",
-	"securepoll-no-gpg-home": "Boten saged damel GPG ''home directory''",
+	"securepoll-no-gpg-home": "Ora bisa nggawé pérangan pendhapa GPG.",
 	"securepoll-secret-gpg-error": "Gagal nglampahaken GPG.\nGinakaken $wgSecurePollShowErrorDetail=true; ing LocalSettings.php kanggé nampilaken princén langkung pepak.",
 	"securepoll-full-gpg-error": "Malasah ngayahi GPG:\n\nPeréntah:$1\n\nMasalah:\n<pre>$2</pre>",
 	"securepoll-gpg-config-error": "Salah ngatur kunci GPG.",

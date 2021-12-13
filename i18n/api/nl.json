@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bas dehaan"
+		]
+	},
+	"apihelp-strikevote-summary": "Staat het doorhalen en herstellen van stemmen door beheerders toe.",
+	"apihelp-strikevote-param-option": "Welke actie te ondernemen: stem doorhalen of doorhalen ongedaanmaken",
+	"apihelp-strikevote-paramvalue-option-strike": "Stem doorhalen (verwijder het uit de telling).",
+	"apihelp-strikevote-paramvalue-option-unstrike": "Stem herstellen (voeg het toe aan de telling).",
+	"apihelp-strikevote-param-voteid": "Het ID van de stem die doorgehaald of hersteld moet worden.",
+	"apihelp-strikevote-param-reason": "De reden voor doorhalen of herstellen van de stem.",
+	"apihelp-strikevote-example-strike": "Doorhalen stem <kbd>1</kbd>, gegeven reden <kbd>duplicatie</kbd>",
+	"apihelp-strikevote-example-unstrike": "Herstellen stem <kbd>1</kbd>, gegeven rden <kbd>foutje</kbd>",
+	"apierror-securepoll-mustbeloggedin-strikevote": "Je moet ingelogd zijn om een stem te kunnen doorhalen of herstellen.",
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> is geen geldig stem ID."
+}

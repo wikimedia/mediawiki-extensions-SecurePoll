@@ -58,6 +58,7 @@
 	"securepoll-list-title": "Popis glasova: $1",
 	"securepoll-list-private": "Žao nam je, pregled popisa glasača na ovim izborima ograničen je na administratore izbora.",
 	"securepoll-header-timestamp": "Vrijeme",
+	"securepoll-header-date": "Datum",
 	"securepoll-header-voter-name": "Ime",
 	"securepoll-header-voter-domain": "Domena",
 	"securepoll-header-ua": "Suradnički posrednik",

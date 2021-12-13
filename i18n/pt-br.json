@@ -16,7 +16,12 @@
 			"Luckas",
 			"MetalBrasil",
 			"Mordecool",
-			"Opraco"
+			"Opraco",
+			"Eduardo Addad de Oliveira",
+			"Eduardoaddad",
+			"Juan90264",
+			"Mariagarbin",
+			"Svjatysberega"
 		]
 	},
 	"securepoll": "Votação segura",
@@ -67,6 +72,7 @@
 	"securepoll-list-title": "Lista de votos: $1",
 	"securepoll-list-private": "Desculpe, a visualização da lista de eleitores nessa eleição é restrita a administradores.",
 	"securepoll-header-timestamp": "Tempo",
+	"securepoll-header-date": "Data",
 	"securepoll-header-voter-name": "Nome",
 	"securepoll-header-voter-domain": "Domínio",
 	"securepoll-header-ip": "IP",
