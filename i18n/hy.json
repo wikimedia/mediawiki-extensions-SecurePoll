@@ -4,6 +4,7 @@
 			"Kareyac"
 		]
 	},
+	"securepoll-vote-csrf": "Ձախողվեց",
 	"securepoll-header-action": "Գործողություն",
 	"securepoll-header-reason": "Պատճառ",
 	"securepoll-header-admin": "Ադմին",

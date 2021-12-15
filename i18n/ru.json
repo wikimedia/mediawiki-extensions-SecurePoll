@@ -90,7 +90,7 @@
 	"securepoll-header-strike": "Вычёркивание",
 	"securepoll-header-details": "Подробности",
 	"securepoll-vote-duplicate": "Дублировать",
-	"securepoll-vote-csrf": "CSRF",
+	"securepoll-vote-csrf": "Не удалось",
 	"securepoll-strike-button": "Вычеркнуть",
 	"securepoll-unstrike-button": "Снять вычёркивание",
 	"securepoll-strike-reason": "Причина:",
