@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Seipinne"
+			"Seipinne",
+			"Yupik"
 		]
 	},
+	"securepoll-header-voter-name": "Nommâ",
 	"securepoll-header-admin": "Haldâšeijee",
+	"securepoll-header-title": "Nommâ",
 	"securepoll-create-label-property_admins": "Haldâšeijeeh:"
 }
