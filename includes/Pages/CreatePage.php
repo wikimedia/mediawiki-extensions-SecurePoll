@@ -14,6 +14,7 @@ use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Extensions\SecurePoll\Store\FormStore;
 use MediaWiki\Extensions\SecurePoll\Talliers\Tallier;
 use MediaWiki\Languages\LanguageNameUtils;
+use MediaWiki\Page\WikiPageFactory;
 use MediaWiki\User\UserGroupManager;
 use Message;
 use MWException;
@@ -26,7 +27,6 @@ use WikiMap;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\ILoadBalancer;
 use Wikimedia\Rdbms\LBFactory;
-use WikiPage;
 
 /**
  * Special:SecurePoll subpage for creating or editing a poll
@@ -41,22 +41,28 @@ class CreatePage extends ActionPage {
 	/** @var LanguageNameUtils */
 	private $languageNameUtils;
 
+	/** @var WikiPageFactory */
+	private $wikiPageFactory;
+
 	/**
 	 * @param SpecialSecurePoll $specialPage
 	 * @param LBFactory $lbFactory
 	 * @param UserGroupManager $userGroupManager
 	 * @param LanguageNameUtils $languageNameUtils
+	 * @param WikiPageFactory $wikiPageFactory
 	 */
 	public function __construct(
 		SpecialSecurePoll $specialPage,
 		LBFactory $lbFactory,
 		UserGroupManager $userGroupManager,
-		LanguageNameUtils $languageNameUtils
+		LanguageNameUtils $languageNameUtils,
+		WikiPageFactory $wikiPageFactory
 	) {
 		parent::__construct( $specialPage );
 		$this->lbFactory = $lbFactory;
 		$this->userGroupManager = $userGroupManager;
 		$this->languageNameUtils = $languageNameUtils;
+		$this->wikiPageFactory = $wikiPageFactory;
 	}
 
 	/**
@@ -863,7 +869,7 @@ class CreatePage extends ActionPage {
 			list( $title, $content ) = SecurePollContentHandler::makeContentFromElection(
 				$election
 			);
-			$wp = WikiPage::factory( $title );
+			$wp = $this->wikiPageFactory->newFromTitle( $title );
 			$wp->doUserEditContent(
 				$content,
 				$this->specialPage->getUser(),
@@ -874,7 +880,7 @@ class CreatePage extends ActionPage {
 				$election,
 				'msg/' . $election->getLanguage()
 			);
-			$wp = WikiPage::factory( $title );
+			$wp = $this->wikiPageFactory->newFromTitle( $title );
 			$wp->doUserEditContent(
 				$content,
 				$this->specialPage->getUser(),
