@@ -14,6 +14,7 @@ use MediaWiki\Extensions\SecurePoll\Jobs\PopulateVoterListJob;
 use MediaWiki\Extensions\SecurePoll\SecurePollContentHandler;
 use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Linker\LinkRenderer;
+use MediaWiki\Page\WikiPageFactory;
 use MediaWiki\User\UserGroupManager;
 use Message;
 use MWException;
@@ -25,7 +26,6 @@ use WikiMap;
 use Wikimedia\Rdbms\DBConnectionError;
 use Wikimedia\Rdbms\ILoadBalancer;
 use Wikimedia\Rdbms\LBFactory;
-use WikiPage;
 
 /**
  * Special:SecurePoll subpage for managing the voter list for a poll
@@ -50,25 +50,31 @@ class VoterEligibilityPage extends ActionPage {
 	/** @var UserGroupManager */
 	private $userGroupManager;
 
+	/** @var WikiPageFactory */
+	private $wikiPageFactory;
+
 	/**
 	 * @param SpecialSecurePoll $specialPage
 	 * @param LBFactory $lbFactory
 	 * @param LinkRenderer $linkRenderer
 	 * @param TitleFactory $titleFactory
 	 * @param UserGroupManager $userGroupManager
+	 * @param WikiPageFactory $wikiPageFactory
 	 */
 	public function __construct(
 		SpecialSecurePoll $specialPage,
 		LBFactory $lbFactory,
 		LinkRenderer $linkRenderer,
 		TitleFactory $titleFactory,
-		UserGroupManager $userGroupManager
+		UserGroupManager $userGroupManager,
+		WikiPageFactory $wikiPageFactory
 	) {
 		parent::__construct( $specialPage );
 		$this->lbFactory = $lbFactory;
 		$this->linkRenderer = $linkRenderer;
 		$this->titleFactory = $titleFactory;
 		$this->userGroupManager = $userGroupManager;
+		$this->wikiPageFactory = $wikiPageFactory;
 	}
 
 	/**
@@ -222,7 +228,7 @@ class VoterEligibilityPage extends ActionPage {
 			list( $title, $content ) = SecurePollContentHandler::makeContentFromElection(
 				$election
 			);
-			$wp = WikiPage::factory( $title );
+			$wp = $this->wikiPageFactory->newFromTitle( $title );
 			$wp->doUserEditContent( $content, $this->specialPage->getUser(), $comment );
 		}
 	}
@@ -410,7 +416,7 @@ class VoterEligibilityPage extends ActionPage {
 			list( $title, $content ) = SecurePollContentHandler::makeContentFromElection(
 				$election
 			);
-			$wp = WikiPage::factory( $title );
+			$wp = $this->wikiPageFactory->newFromTitle( $title );
 			$wp->doUserEditContent( $content, $this->specialPage->getUser(), $comment );
 
 			$json = FormatJson::encode(
@@ -419,7 +425,7 @@ class VoterEligibilityPage extends ActionPage {
 				FormatJson::ALL_OK
 			);
 			$title = $this->titleFactory->makeTitle( NS_SECUREPOLL, $list );
-			$wp = WikiPage::factory( $title );
+			$wp = $this->wikiPageFactory->newFromTitle( $title );
 			$wp->doUserEditContent(
 				SecurePollContentHandler::makeContent( $json, $title, 'SecurePoll' ),
 				$this->specialPage->getUser(),
@@ -1313,7 +1319,7 @@ class VoterEligibilityPage extends ActionPage {
 			list( $title, $content ) = SecurePollContentHandler::makeContentFromElection(
 				$election
 			);
-			$wp = WikiPage::factory( $title );
+			$wp = $this->wikiPageFactory->newFromTitle( $title );
 			$wp->doUserEditContent(
 				$content,
 				$this->specialPage->getUser(),
@@ -1321,7 +1327,7 @@ class VoterEligibilityPage extends ActionPage {
 			);
 
 			$title = $this->titleFactory->makeTitle( NS_SECUREPOLL, "{$election->getId()}/list/$property" );
-			$wp = WikiPage::factory( $title );
+			$wp = $this->wikiPageFactory->newFromTitle( $title );
 			$wp->doUserEditContent(
 				SecurePollContentHandler::makeContent( '[]', $title, 'SecurePoll' ),
 				$this->specialPage->getUser(),

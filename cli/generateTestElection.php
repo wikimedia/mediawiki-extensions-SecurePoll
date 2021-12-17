@@ -175,13 +175,15 @@ class GenerateTestElection extends Maintenance {
 	private function generateSTVElection( $name, $admins, $candidateCount, $seatCount ) {
 		// To avoid re-writing the insertion logic,
 		// get the processInput() function from the CreatePage
+		$services = MediaWikiServices::getInstance();
 		$createPage = new CreatePage(
 			new SpecialSecurePoll(
-				MediaWikiServices::getInstance()->getService( 'SecurePoll.ActionPageFactory' )
+				$services->getService( 'SecurePoll.ActionPageFactory' )
 			),
-			MediaWikiServices::getInstance()->getDBLoadBalancerFactory(),
-			MediaWikiServices::getInstance()->getUserGroupManager(),
-			MediaWikiServices::getInstance()->getLanguageNameUtils()
+			$services->getDBLoadBalancerFactory(),
+			$services->getUserGroupManager(),
+			$services->getLanguageNameUtils(),
+			$services->getWikiPageFactory()
 		);
 		if ( !$name ) {
 			$name = 'STV @' . time();

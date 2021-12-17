@@ -44,7 +44,8 @@ class ActionPageFactory {
 			'services' => [
 				'DBLoadBalancerFactory',
 				'UserGroupManager',
-				'LanguageNameUtils'
+				'LanguageNameUtils',
+				'WikiPageFactory',
 			],
 		],
 		'edit' => [
@@ -52,7 +53,8 @@ class ActionPageFactory {
 			'services' => [
 				'DBLoadBalancerFactory',
 				'UserGroupManager',
-				'LanguageNameUtils'
+				'LanguageNameUtils',
+				'WikiPageFactory',
 			],
 		],
 		'details' => [
@@ -114,6 +116,7 @@ class ActionPageFactory {
 				'LinkRenderer',
 				'TitleFactory',
 				'UserGroupManager',
+				'WikiPageFactory',
 			]
 		],
 	];
