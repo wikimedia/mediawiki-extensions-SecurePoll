@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"BadDog",
+			"Kizule",
 			"Milicevic01",
 			"Rancher",
 			"Милан Јелисавчић",
@@ -61,7 +62,7 @@
 	"securepoll-header-xff": "XFF",
 	"securepoll-header-ua": "Кориснички агент",
 	"securepoll-header-token-match": "CSRF",
-	"securepoll-header-cookie-dup": "Дуп",
+	"securepoll-header-cookie-dup": "Дупликат",
 	"securepoll-header-strike": "Прецртавање",
 	"securepoll-header-details": "Детаљи",
 	"securepoll-strike-button": "Прецртај",
