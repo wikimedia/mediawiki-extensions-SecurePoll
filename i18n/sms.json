@@ -4,11 +4,14 @@
 			"Yupik"
 		]
 	},
+	"securepoll-header-voter-name": "Nõmm",
 	"securepoll-translate-title": "Jåårǥlââʹtt: $1",
 	"securepoll-language-label": "Vaʹlljed ǩiõl:",
 	"securepoll-submit-select-lang": "Jåårǥlââʹtt",
+	"securepoll-header-title": "Nõmm",
 	"securepoll-subpage-translate": "Jåårǥlââʹtt",
 	"securepoll-subpage-edit": "Muuʹtt",
+	"securepoll-votereligibility-label-edit": "Muuʹtt liist",
 	"securepoll-votereligibility-label-names": "Õõʹnninõõm",
 	"securepoll-votereligibility-edit-action": "Ruõkk liist",
 	"securepoll-votereligibility-saved": "{{int:securepoll}}: Ruõkkum"
