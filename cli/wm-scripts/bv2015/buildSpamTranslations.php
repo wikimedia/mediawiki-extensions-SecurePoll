@@ -1,7 +1,7 @@
 <?php
 
 require_once '/srv/mediawiki/multiversion/MWVersion.php';
-require_once getMediaWiki( 'maintenance/commandLine.inc', 'metawiki' );
+require_once getMediaWiki( 'maintenance/CommandLineInc.php', 'metawiki' );
 
 $wgDebugLogFile = '/dev/stderr';
 
