@@ -12,6 +12,7 @@ use MediaWiki\MediaWikiServices;
 use MWExceptionHandler;
 use RuntimeException;
 use SpecialPage;
+use WikiMap;
 use Wikimedia\Rdbms\IDatabase;
 
 /**
@@ -43,7 +44,7 @@ class PopulateVoterListJob extends Job {
 		// First, fetch the current config and calculate a hash of it for
 		// detecting changes
 		$params = [
-			'electionWiki' => wfWikiID(),
+			'electionWiki' => WikiMap::getCurrentWikiId(),
 			'electionId' => $election->getId(),
 			'list_populate' => '0',
 			'need-list' => '',
@@ -95,11 +96,11 @@ class PopulateVoterListJob extends Job {
 		$wikis = $election->getProperty( 'wikis' );
 		if ( $wikis ) {
 			$wikis = explode( "\n", $wikis );
-			if ( !in_array( wfWikiID(), $wikis ) ) {
-				$wikis[] = wfWikiID();
+			if ( !in_array( WikiMap::getCurrentWikiId(), $wikis ) ) {
+				$wikis[] = WikiMap::getCurrentWikiId();
 			}
 		} else {
-			$wikis = [ wfWikiID() ];
+			$wikis = [ WikiMap::getCurrentWikiId() ];
 		}
 
 		// Find the max user_id for each wiki, both to know when we're done

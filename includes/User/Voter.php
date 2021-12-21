@@ -4,6 +4,7 @@ namespace MediaWiki\Extensions\SecurePoll\User;
 
 use MediaWiki\Extensions\SecurePoll\Context;
 use stdClass;
+use WikiMap;
 
 /**
  * Class representing a voter. A voter is associated with one election only. Voter
@@ -223,7 +224,7 @@ class Voter {
 	}
 
 	public function doCookieCheck() {
-		$cookieName = wfWikiID() . '_securepoll_check';
+		$cookieName = WikiMap::getCurrentWikiId() . '_securepoll_check';
 		if ( isset( $_COOKIE[$cookieName] ) ) {
 			$otherVoterId = intval( $_COOKIE[$cookieName] );
 			if ( $otherVoterId != $this->getId() ) {

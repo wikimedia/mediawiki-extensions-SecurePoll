@@ -10,6 +10,7 @@ use MediaWiki\MediaWikiServices;
 use RequestContext;
 use Status;
 use User;
+use WikiMap;
 
 /**
  * Authorization class for locally created accounts.
@@ -68,7 +69,7 @@ class LocalAuth extends Auth {
 			'domain' => preg_replace( '!.*/(.*)$!', '$1', $wgServer ),
 			'url' => $user->getUserPage()->getCanonicalURL(),
 			'properties' => [
-				'wiki' => wfWikiID(),
+				'wiki' => WikiMap::getCurrentWikiId(),
 				'blocked' => (bool)$block,
 				'isSitewideBlocked' => $block ? $block->isSitewide() : null,
 				'central-block-count' => $this->getCentralBlockCount( $user ),
@@ -104,7 +105,7 @@ class LocalAuth extends Auth {
 			'domain' => preg_replace( '!.*/(.*)$!', '$1', $wgServer ),
 			'url' => $user->getUserPage()->getCanonicalURL(),
 			'properties' => [
-				'wiki' => wfWikiID(),
+				'wiki' => WikiMap::getCurrentWikiId(),
 				'blocked' => (bool)$block,
 				'isSitewideBlocked' => $block ? $block->isSitewide() : null,
 				'central-block-count' => 0,

@@ -47,7 +47,7 @@ while ( true ) {
 	}
 	spReportProgress( $numUsers, $totalUsers );
 }
-echo wfWikiID() . " qualified \t$numQualified\n";
+echo WikiMap::getCurrentWikiId() . " qualified \t$numQualified\n";
 
 /**
  * @param array $users

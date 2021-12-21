@@ -7,7 +7,7 @@ $fname = 'voterList.php';
 $listName = 'board-vote-2013';
 
 if ( !$wgCentralAuthDatabase ) {
-	echo wfWikiID() . ": CentralAuth not active, skipping\n";
+	echo WikiMap::getCurrentWikiId() . ": CentralAuth not active, skipping\n";
 	exit( 0 );
 }
 
@@ -42,7 +42,7 @@ while ( true ) {
 		$numQualified += count( $insertBatch );
 	}
 }
-echo wfWikiID() . " qualified \t$numQualified\n";
+echo WikiMap::getCurrentWikiId() . " qualified \t$numQualified\n";
 
 /**
  * @param array $users
@@ -56,7 +56,7 @@ function spGetQualifiedUsers( $users ) {
 	# Check local attachment
 	$res = $dbc->select( 'localuser', [ 'lu_name' ],
 		[
-			'lu_wiki' => wfWikiID(),
+			'lu_wiki' => WikiMap::getCurrentWikiId(),
 			'lu_name' => array_values( $users )
 		], __METHOD__ );
 
@@ -79,7 +79,7 @@ function spGetQualifiedUsers( $users ) {
 	$attached = array_diff( $attached, $nonLocalUsers );
 
 	# Check all global accounts
-	$localWiki = wfWikiID();
+	$localWiki = WikiMap::getCurrentWikiId();
 	if ( $attached ) {
 		$res = $dbc->select( 'localuser',
 			[ 'lu_name', 'lu_wiki' ],

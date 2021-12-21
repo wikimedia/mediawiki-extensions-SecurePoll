@@ -89,4 +89,4 @@ for ( $userId = 1; $userId <= $maxUser; $userId++ ) {
 	}
 }
 
-echo wfWikiID() . ": $numUsers users added\n";
+echo WikiMap::getCurrentWikiId() . ": $numUsers users added\n";
