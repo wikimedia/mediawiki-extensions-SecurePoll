@@ -9,6 +9,7 @@
 			"R4356th",
 			"WikiAbuHuraira",
 			"Wikitanvir",
+			"Yahya",
 			"আফতাবুজ্জামান"
 		]
 	},
@@ -70,11 +71,11 @@
 	"securepoll-header-xff": "এক্সএফএফ",
 	"securepoll-header-ua": "ব্যবহারকারী এজেন্ট",
 	"securepoll-header-token-match": "সিএসআরএফ",
-	"securepoll-header-cookie-dup": "ডাপ",
+	"securepoll-header-cookie-dup": "প্রতিলিপি",
 	"securepoll-header-strike": "বাতিল",
 	"securepoll-header-details": "বিস্তারিত",
 	"securepoll-vote-duplicate": "সদৃশ",
-	"securepoll-vote-csrf": "সিএসআরএফ",
+	"securepoll-vote-csrf": "ব্যর্থ",
 	"securepoll-strike-button": "স্ট্রাইক",
 	"securepoll-unstrike-button": "আনস্ট্রাইক",
 	"securepoll-strike-reason": "কারণ:",
