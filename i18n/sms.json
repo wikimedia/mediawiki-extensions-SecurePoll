@@ -14,5 +14,6 @@
 	"securepoll-votereligibility-label-edit": "Muuʹtt liist",
 	"securepoll-votereligibility-label-names": "Õõʹnninõõm",
 	"securepoll-votereligibility-edit-action": "Ruõkk liist",
-	"securepoll-votereligibility-saved": "{{int:securepoll}}: Ruõkkum"
+	"securepoll-votereligibility-saved": "{{int:securepoll}}: Ruõkkum",
+	"securepoll-stv-result-election-result-table-heading": "Puåđõs"
 }

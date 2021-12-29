@@ -10,7 +10,8 @@
 			"Kenrick95",
 			"Presidenvolksraad",
 			"PutriAmalia1991",
-			"Rex"
+			"Rex",
+			"Daud I.F. Argana"
 		]
 	},
 	"securepoll": "SecurePoll",
@@ -127,7 +128,7 @@
 	"securepoll-tally-upload-submit": "Melakukan penghitungan",
 	"securepoll-tally-gpg-decrypt-key": "Kunci dekripsi GPG",
 	"securepoll-tally-error": "Terjadi kesalahan dalam meng-interpretasikan catatan pemungutan suara, tidak dapat melakukan penghitungan.",
-	"securepoll-tally-job-enqueued": "Pemilihan ini saat ini sedang (kembali) dihitung. Silakan periksa kembali nanti untuk melihat hasilnya.",
+	"securepoll-tally-job-enqueued": "Pemilihan ini sedang dihitung (ulang). Silakan periksa kembali nanti untuk melihat hasilnya.",
 	"securepoll-no-upload": "Tidak ada berkas yang dimuatkan, tidak dapat melakukan penghitungan hasil.",
 	"securepoll-dump-corrupt": "Berkas dump terkorupsi dan tidak dapat diproses.",
 	"securepoll-tally-upload-error": "Kesalahan pada saat menjumlah berkas dump: $1",
@@ -284,9 +285,9 @@
 	"securepoll-stv-invalid-input-empty": "Silakan isi preferensi ini",
 	"securepoll-stv-invalid-input-duplicate": "Silakan pilih opsi yang berbeda untuk preferensi ini",
 	"securepoll-stv-result-election-elected-header": "Dipilih",
-	"securepoll-stv-election-paramters": "Pemilihan untuk $1 kursi dengan $2 calon. Total $3 suara.",
-	"securepoll-stv-result-elected-list-unfilled-seat": "Kursi ini tidak dapat diisi karena tidak ada calon yang memenuhi kriteria. Calon yang tersingkir terakhir adalah: $1",
-	"securepoll-stv-result-election-eliminated-header": "Tersingkir",
+	"securepoll-stv-election-paramters": "Pemilihan untuk $1 {{PLURAL:$1|kursi}} dengan $2 {{PLURAL:$2|calon}}. Total $3 {{PLURAL:$3|suara}}.",
+	"securepoll-stv-result-elected-list-unfilled-seat": "Kursi ini tidak dapat diisi karena tidak ada calon yang memenuhi kriteria. {{PLURAL:$1|Calon}} yang tersingkir terakhir adalah: $1",
+	"securepoll-stv-result-election-eliminated-header": "Tersingkir/Tidak dipilih",
 	"securepoll-stv-result-election-rounds-header": "Forum diskusi",
 	"securepoll-stv-result-election-round-number-table-heading": "Angka Bulat",
 	"securepoll-stv-result-election-tally-table-heading": "Penghitungan suara",
