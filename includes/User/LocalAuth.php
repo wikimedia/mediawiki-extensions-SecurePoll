@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extensions\SecurePoll\User;
 
-use CentralAuthUser;
 use ExtensionRegistry;
+use MediaWiki\Extension\CentralAuth\User\CentralAuthUser;
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
 use MediaWiki\Extensions\SecurePoll\Hooks\HookRunner;
 use MediaWiki\MediaWikiServices;

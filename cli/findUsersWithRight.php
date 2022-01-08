@@ -3,9 +3,9 @@
 namespace MediaWiki\Extensions\SecurePoll;
 
 use CentralAuthServices;
-use CentralAuthUser;
 use ExtensionRegistry;
 use Maintenance;
+use MediaWiki\Extension\CentralAuth\User\CentralAuthUser;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserIdentityValue;
 use WikiMap;
