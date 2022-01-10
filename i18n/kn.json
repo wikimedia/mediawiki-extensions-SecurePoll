@@ -3,7 +3,8 @@
 		"authors": [
 			"Nayvik",
 			"VASANTH S.N.",
-			"Gopala Krishna A"
+			"Gopala Krishna A",
+			"ಮಲ್ನಾಡಾಚ್ ಕೊಂಕ್ಣೊ"
 		]
 	},
 	"securepoll": "ಸೆಕ್ಯೂರ್‌ಪೋಲ್",
@@ -32,6 +33,7 @@
 	"securepoll-submit-select-lang": "ಭಾಷಾಂತರಿಸಿ",
 	"securepoll-header-title": "ಹೆಸರು",
 	"securepoll-header-start-date": "ಆರಂಭದ ದಿನಾಂಕ",
+	"securepoll-header-end-date": "ಮುಕ್ತಾಯದ ದಿನಾಂಕ",
 	"securepoll-subpage-vote": "ಮತ ಕೊಡಿ",
 	"securepoll-subpage-translate": "ಭಾಷಾಂತರಿಸಿ",
 	"securepoll-subpage-list": "ಪಟ್ಟಿ"
