@@ -273,6 +273,8 @@
 	"securepoll-votereligibility-cleared-comment": "Text used as the edit summary when clearing a list on Special:SecurePoll/votereligibility. $1 is a list name.",
 	"right-securepoll-create-poll": "{{doc-right|securepoll-create-poll}}",
 	"action-securepoll-create-poll": "{{Doc-action|securepoll-create-poll}}",
+	"right-securepoll-view-voter-pii": "{{doc-right|securepoll-view-voter-pii}}",
+	"action-securepoll-view-voter-pii": "{{Doc-action|securepoll-view-voter-pii}}",
 	"securepoll-ns-readonly": "Error message to inform the user that the SecurePoll namespace cannot be edited.",
 	"securepoll-voter-stats": "Explanation of the unique number of voters who participated in the election; shown above the vote list.",
 	"securepoll-vote-stats": "Explanation of the total number of votes cast, as well as the number that were excluded because the voter had voted again, and the number that have been struck by an election admin; shown above the vote list.",

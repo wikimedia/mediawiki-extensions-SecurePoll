@@ -250,6 +250,8 @@
 	"securepoll-votereligibility-cleared-comment": "$1 cleared.",
 	"right-securepoll-create-poll": "Create polls",
 	"action-securepoll-create-poll": "create polls and view logs",
+	"right-securepoll-view-voter-pii": "Access personally-identifying information about voters",
+	"action-securepoll-view-voter-pii": "access personally-identifying information about voters",
 	"securepoll-ns-readonly": "The {{ns:SecurePoll}} namespace is read-only",
 	"securepoll-voter-stats": "Out of all eligible voters, $1 {{PLURAL:$1|voter has|voters have}} voted.",
 	"securepoll-vote-stats": "A total of $1 {{PLURAL:$1|vote has|votes have}} been cast. Of these, $2 {{PLURAL:$2|is|are}} thrown away because the voter has voted again, and $3 {{PLURAL:$3|is|are}} struck.",
