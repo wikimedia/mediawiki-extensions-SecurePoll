@@ -29,6 +29,8 @@
 	"securepoll-header-title": "Nomu",
 	"securepoll-subpage-translate": "Traduci",
 	"securepoll-subpage-edit": "Cancia",
+	"securepoll-subpage-archive": "Archivia",
+	"securepoll-archive-title": "Archiviu $1",
 	"securepoll-create-option-wiki-this_wiki": "Stu wiki",
 	"securepoll-create-option-wiki-all_wikis": "Tutti li wiki",
 	"securepoll-create-label-property_admins": "Amministratura:",
