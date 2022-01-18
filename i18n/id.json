@@ -10,7 +10,8 @@
 			"Presidenvolksraad",
 			"Rex",
 			"David Wadie Fisher-Freberg",
-			"PutriAmalia1991"
+			"PutriAmalia1991",
+			"Daud I.F. Argana"
 		]
 	},
 	"securepoll": "SecurePoll",
@@ -250,6 +251,8 @@
 	"securepoll-votereligibility-cleared-comment": "$1 telah dibersihkan.",
 	"right-securepoll-create-poll": "Buat jajak pendapat",
 	"action-securepoll-create-poll": "buat jajak pendapat dan lihat log",
+	"right-securepoll-view-voter-pii": "Mengakses informasi pribadi yang mengidentifikasi pemilih",
+	"action-securepoll-view-voter-pii": "mengakses informasi pribadi yang mengidentifikasi pemilih",
 	"securepoll-ns-readonly": "Ruang nama {{ns:SecurePoll}} bersifat hanya-baca",
 	"securepoll-voter-stats": "Dari semua pemilih yang memenuhi syarat, $1 {{PLURAL:$1| pemilih telah|pemilih telah}} memilih.",
 	"securepoll-vote-stats": "Total $1 {{PLURAL:$1|suara}} telah diberikan. Dari jumlah tersebut, $2 {{PLURAL:$2|suara}} dibuang karena pemilih telah memilih dua kali, dan $3 {{PLURAL:$3|suara}} dinyatakan tidak sah.",
