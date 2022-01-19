@@ -34,8 +34,12 @@ class HTMLFormRadioRangeColumnLabels extends HTMLFormField {
 	}
 
 	public function validate( $value, $alldata ) {
-		$p = parent::validate( $value, $alldata );
+		// Don't bother to validate the value of HTMLFormCloner template.
+		if ( strpos( $this->mName, 'HTMLFormFieldCloner' ) ) {
+			return true;
+		}
 
+		$p = parent::validate( $value, $alldata );
 		if ( $p !== true ) {
 			return $p;
 		}
