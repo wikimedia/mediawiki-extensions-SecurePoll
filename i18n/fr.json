@@ -23,7 +23,8 @@
 			"Wladek92",
 			"Wyz",
 			"Yann",
-			"Əric"
+			"Əric",
+			"DreZhsh"
 		]
 	},
 	"securepoll": "Sondage sécurisé",
@@ -269,6 +270,8 @@
 	"securepoll-votereligibility-cleared-comment": "$1 effacée.",
 	"right-securepoll-create-poll": "Créer des sondages",
 	"action-securepoll-create-poll": "créer des sondages et afficher les journaux",
+	"right-securepoll-view-voter-pii": "Accéder aux informations identifiées par personne concernant les votants",
+	"action-securepoll-view-voter-pii": "accéder aux informations identifiées par personne concernant les votants",
 	"securepoll-ns-readonly": "L’espace de noms {{ns:SecurePoll}} est en lecture seule",
 	"securepoll-voter-stats": "Parmi tous les électeurs admis, $1 d’entre eux {{PLURAL:$1|a|ont}} voté.",
 	"securepoll-vote-stats": "Un total de $1 {{PLURAL:$1|vote|votes}} a été enregistré. Parmi ceux-ci, $2 {{PLURAL:$2|est rejeté|sont rejetés}} parce que le votant a voté plusieurs fois, et $3 {{PLURAL:$3|est biffé|sont biffés}}.",
