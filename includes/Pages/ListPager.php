@@ -17,15 +17,17 @@ class ListPager extends TablePager {
 	public $listPage, $isAdmin, $election;
 
 	public static $publicFields = [
-		'vote_timestamp' => 'securepoll-header-date',
+		// See T298434
+		'vote_id' => 'securepoll-header-date',
 		'vote_voter_name' => 'securepoll-header-voter-name',
 		'vote_voter_domain' => 'securepoll-header-voter-domain',
 	];
 
 	public static $adminFields = [
+		// See T298434
 		'details' => 'securepoll-header-details',
 		'strike' => 'securepoll-header-strike',
-		'vote_timestamp' => 'securepoll-header-timestamp',
+		'vote_id' => 'securepoll-header-timestamp',
 		'vote_voter_name' => 'securepoll-header-voter-name',
 		'vote_voter_domain' => 'securepoll-header-voter-domain',
 		'vote_token_match' => 'securepoll-header-token-match',
@@ -78,7 +80,7 @@ class ListPager extends TablePager {
 			[
 				'vote_voter_name',
 				'vote_voter_domain',
-				'vote_timestamp',
+				'vote_id',
 				'vote_ip'
 			]
 		);
@@ -100,10 +102,12 @@ class ListPager extends TablePager {
 
 		switch ( $name ) {
 			case 'vote_timestamp':
+				return 'Should be impossible (T298434)';
+			case 'vote_id':
 				if ( $this->isAdmin ) {
-					return $this->getLanguage()->timeanddate( $value );
+					return htmlspecialchars( $this->getLanguage()->timeanddate( $this->mCurrentRow->vote_timestamp ) );
 				} else {
-					return $this->getLanguage()->date( $value );
+					return htmlspecialchars( $this->getLanguage()->date( $this->mCurrentRow->vote_timestamp ) );
 				}
 			case 'vote_ip':
 				if ( $this->election->endDate < wfTimestamp(
@@ -188,7 +192,8 @@ class ListPager extends TablePager {
 	}
 
 	public function getDefaultSort() {
-		return 'vote_timestamp';
+		// See T298434
+		return 'vote_id';
 	}
 
 	public function getFieldNames() {
