@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"BaRaN6161 TURK",
+			"Can",
 			"Emperyan",
 			"Hedda",
 			"Joseph",
@@ -78,7 +79,8 @@
 	"securepoll-header-cookie-dup": "Kopya",
 	"securepoll-header-strike": "Üstünü çiz",
 	"securepoll-header-details": "Ayrıntılar",
-	"securepoll-vote-duplicate": "Kopya",
+	"securepoll-vote-duplicate": "Çift çerezler",
+	"securepoll-vote-csrf": "Başarısız",
 	"securepoll-strike-button": "Üstünü çiz",
 	"securepoll-unstrike-button": "Üstünü çizme",
 	"securepoll-strike-reason": "Sebep:",
