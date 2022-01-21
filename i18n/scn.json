@@ -8,6 +8,7 @@
 		]
 	},
 	"securepoll-welcome": "<strong>{{GENDER:$1|Bimminutu|Bimminuta|Bimminutu/a}} $1!</strong>",
+	"securepoll-submit": "Manna lu votu",
 	"securepoll-list-title": "Elencu voti: $1",
 	"securepoll-header-timestamp": "Tempu",
 	"securepoll-header-voter-name": "Nomu",
