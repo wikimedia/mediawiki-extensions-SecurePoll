@@ -58,7 +58,7 @@
 	"securepoll-unranked-options": "部分选项尚未评级。所有选项均应评级，且分数应在1到999之间。",
 	"securepoll-invalid-score": "分数必须介于$1和$2之间。",
 	"securepoll-unanswered-options": "您必须回答每一个问题。",
-	"securepoll-remote-auth-error": "从服务器提取您的账户信息时出错。",
+	"securepoll-remote-auth-error": "从服务器提取您的账号信息时出错。",
 	"securepoll-remote-parse-error": "解释服务器的身份验证回应时出错。",
 	"securepoll-api-invalid-params": "参数无效。",
 	"securepoll-api-no-user": "无法找到指定ID的用户。",
