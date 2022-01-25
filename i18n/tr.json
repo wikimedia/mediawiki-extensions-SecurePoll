@@ -124,6 +124,8 @@
 	"securepoll-subpage-tally": "Sayım",
 	"securepoll-subpage-log": "Günlükler",
 	"securepoll-subpage-archive": "Arşiv",
+	"securepoll-archive-in-progress": "Seçim şu anda arşivlenmektedir.",
+	"securepoll-already-unarchived-error": "Bu seçim arşivlenmemiştir.",
 	"securepoll-tally-title": "Sayım: $1",
 	"securepoll-tally-not-finished": "Üzgünüz, seçim tamamlanmadan oyları sayamazsınız.",
 	"securepoll-tally-form-file-help": "Şifrelenmiş bir döküm yüklediyseniz, içeriği kaydedilecektir. Aksi takdirde veri tabanındaki sonuçlar sayılacaktır. NOT: 100'den fazla oy içeren bir seçim yüklemek herhangi bir sonuç vermeyebilir ve zaman aşımına neden olabilir.",
