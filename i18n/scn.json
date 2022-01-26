@@ -8,6 +8,7 @@
 		]
 	},
 	"securepoll-welcome": "<strong>{{GENDER:$1|Bimminutu|Bimminuta|Bimminutu/a}} $1!</strong>",
+	"securepoll-submit": "Manna lu votu",
 	"securepoll-list-title": "Elencu voti: $1",
 	"securepoll-header-timestamp": "Tempu",
 	"securepoll-header-voter-name": "Nomu",
@@ -28,6 +29,7 @@
 	"securepoll-submit-select-lang": "Traduci",
 	"securepoll-header-title": "Nomu",
 	"securepoll-subpage-translate": "Traduci",
+	"securepoll-subpage-list": "Elencu",
 	"securepoll-subpage-edit": "Cancia",
 	"securepoll-create-option-wiki-this_wiki": "Stu wiki",
 	"securepoll-create-option-wiki-all_wikis": "Tutti li wiki",
