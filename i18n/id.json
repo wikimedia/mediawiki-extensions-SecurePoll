@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"ANukuma",
 			"Aldnonymous",
 			"Bennylin",
 			"Daud I.F. Argana",
@@ -300,15 +301,15 @@
 	"securepoll-stv-invalid-input-empty": "Silakan isi preferensi ini",
 	"securepoll-stv-invalid-input-duplicate": "Silakan pilih opsi yang berbeda untuk preferensi ini",
 	"securepoll-stv-help-text": "Tabel di bawah menjelaskan perhitungan yang terjadi untuk memperoleh hasil di atas. Pada setiap babak perhitungan, para kandidat yang menerima lebih banyak suara dari kuota dinyatakan terpilih. Suara surplus di atas kuota mereka didistribusikan kepada para kandidat yang tersisa. Jika tidak ada yang mencapai kuota, kandidat dengan peringkat terendah dieliminasi dan suaranya didistribusikan kepada para kandidat yang tersisa. Untuk memahami ini dengan lebih baik, silakan baca to [https://web.archive.org/web/20210225045400/https://prfound.org/resources/reference/reference-meek-rule/ tautan ini].",
-	"securepoll-stv-result-election-elected-header": "Dipilih",
+	"securepoll-stv-result-election-elected-header": "Terpilih",
 	"securepoll-stv-election-paramters": "Pemilihan untuk $1 {{PLURAL:$1|kursi}} dengan $2 {{PLURAL:$2|calon}}. Total $3 {{PLURAL:$3|suara}}.",
 	"securepoll-stv-result-elected-list-unfilled-seat": "Kursi ini tidak dapat diisi karena tidak ada calon yang memenuhi kriteria. {{PLURAL:$1|Calon}} yang tersingkir terakhir adalah: $1",
 	"securepoll-stv-result-election-eliminated-header": "Tersingkir/Tidak dipilih",
 	"securepoll-stv-result-election-rounds-header": "Forum diskusi",
 	"securepoll-stv-result-election-round-number-table-heading": "Angka Bulat",
-	"securepoll-stv-result-election-tally-table-heading": "Penghitungan suara",
+	"securepoll-stv-result-election-tally-table-heading": "Turus",
 	"securepoll-stv-result-election-result-table-heading": "Hasil",
-	"securepoll-stv-votes-transferred": "pemindahan ke",
+	"securepoll-stv-votes-transferred": "Memindahkan suara",
 	"securepoll-stv-result-round-quota": "Kuota: $1",
 	"securepoll-stv-result-round-elected": "Terpilih: $1",
 	"securepoll-stv-result-round-eliminated": "Tersingkir: $1",
