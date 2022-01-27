@@ -5,7 +5,6 @@ namespace MediaWiki\Extensions\SecurePoll\Jobs;
 use ActorMigration;
 use Exception;
 use Job;
-use JobQueueGroup;
 use JobSpecification;
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
 use MediaWiki\MediaWikiServices;
@@ -39,7 +38,8 @@ class PopulateVoterListJob extends Job {
 		];
 
 		$dbw = $election->context->getDB();
-		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+		$services = MediaWikiServices::getInstance();
+		$lbFactory = $services->getDBLoadBalancerFactory();
 
 		// First, fetch the current config and calculate a hash of it for
 		// detecting changes
@@ -174,11 +174,12 @@ class PopulateVoterListJob extends Job {
 			__METHOD__
 		);
 
+		$jobQueueGroupFactory = $services->getJobQueueGroupFactory();
 		foreach ( $wikis as $wiki ) {
 			$params['maxUserId'] = $maxIds[$wiki];
 			$params['thisWiki'] = $wiki;
 
-			$jobQueueGroup = JobQueueGroup::singleton( $wiki );
+			$jobQueueGroup = $jobQueueGroupFactory->makeJobQueueGroup( $wiki );
 
 			// If possible, delay the job execution in case the user
 			// immediately re-edits.
@@ -214,7 +215,8 @@ class PopulateVoterListJob extends Job {
 
 		$dbwLocal = null;
 		$dbwElection = null;
-		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+		$services = MediaWikiServices::getInstance();
+		$lbFactory = $services->getDBLoadBalancerFactory();
 		try {
 			// Check if the job key changed, and abort if so.
 			$dbwElection = wfGetDB( DB_PRIMARY, [], $this->params['electionWiki'] );
@@ -459,7 +461,7 @@ class PopulateVoterListJob extends Job {
 			$params['nextUserId'] = $next;
 			unset( $params['jobReleaseTimestamp'] );
 
-			JobQueueGroup::singleton()->push(
+			$services->getJobQueueGroup()->push(
 				new JobSpecification(
 					'securePollPopulateVoterList', $params, [], $this->title
 				)
