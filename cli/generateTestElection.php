@@ -195,7 +195,7 @@ class GenerateTestElection extends Maintenance {
 			'election_title' => $name,
 			'election_primaryLang' => 'en',
 			'election_startdate' => ( new DateTime )->modify( '-1 days' )->format( 'Y-m-d' ),
-			'election_duration' => '1',
+			'election_enddate' => ( new DateTime )->format( 'Y-m-d' ),
 			'return-url' => '',
 			'election_type' => 'stv+droop-quota',
 			'election_crypt' => 'none',

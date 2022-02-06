@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extensions\SecurePoll\Store;
 
-use DateInterval;
 use DateTime;
 use DateTimeZone;
 use ExtensionRegistry;
@@ -67,11 +66,13 @@ class FormStore extends MemoryStore {
 		$crypt = $formData['election_crypt'];
 
 		$date = new DateTime(
-			"{$formData['election_startdate']}T00:00:00Z", new DateTimeZone( 'GMT' )
+			$formData['election_startdate'], new DateTimeZone( 'GMT' )
 		);
 		$startDate = $date->format( 'YmdHis' );
 
-		$date->add( new DateInterval( "P{$formData['election_duration']}D" ) );
+		$date = new DateTime(
+			$formData['election_enddate'], new DateTimeZone( 'GMT' )
+		);
 		$endDate = $date->format( 'YmdHis' );
 
 		$this->lang = $formData['election_primaryLang'];

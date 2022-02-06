@@ -169,6 +169,7 @@
 	"securepoll-create-option-wiki-other_wiki": "Інша конкретна вікі",
 	"securepoll-create-label-election_primarylang": "Основна мова:",
 	"securepoll-create-label-election_startdate": "Дата початку виборів:",
+	"securepoll-create-label-election_enddate": "Дата завершення виборів:",
 	"securepoll-create-label-election_duration": "Тривалість виборів (днів):",
 	"securepoll-create-label-election_disallow-change": "Заборонити виборцям змінювати свої голоси",
 	"securepoll-create-label-election_return-url": "URL-адреса повернення:",
