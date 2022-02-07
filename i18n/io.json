@@ -20,6 +20,7 @@
 	"securepoll-strike-reason": "Motivo:",
 	"securepoll-header-reason": "Motivo",
 	"securepoll-header-admin": "Administrero",
+	"securepoll-translate-label-comment": "Motivo:",
 	"securepoll-invalid-language": "Nevalida linguala kodexo \"$1\"",
 	"securepoll-language-label": "Selektez linguo:",
 	"securepoll-header-title": "Nomo",
@@ -39,5 +40,7 @@
 	"securepoll-already-unarchived-error": "Ca elekto ne arkivesis.",
 	"securepoll-create-label-property_admins": "Administreri:",
 	"securepoll-create-option-column_order-asc": "Acensanta",
-	"securepoll-create-option-column_order-desc": "Decensanta"
+	"securepoll-create-option-column_order-desc": "Decensanta",
+	"securepoll-create-label-comment": "Motivo",
+	"securepoll-votereligibility-label-comment": "Motivo"
 }
