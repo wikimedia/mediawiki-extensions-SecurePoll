@@ -3,6 +3,7 @@
 namespace MediaWiki\Extensions\SecurePoll\Pages;
 
 use Html;
+use IndexPager;
 use MediaWiki\Linker\LinkRenderer;
 use Wikimedia\Rdbms\ILoadBalancer;
 
@@ -34,6 +35,7 @@ class ArchivedPager extends ElectionPager {
 		LinkRenderer $linkRenderer,
 		ILoadBalancer $loadBalancer
 	) {
+		$this->mDefaultDirection = IndexPager::DIR_DESCENDING;
 		parent::__construct();
 		$this->page = $specialPage;
 		$this->linkRenderer = $linkRenderer;
