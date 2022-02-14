@@ -74,7 +74,7 @@
 	"securepoll-header-voter-name": "名前",
 	"securepoll-header-voter-domain": "ドメイン",
 	"securepoll-header-ua": "ユーザーエージェント",
-	"securepoll-header-cookie-dup": "複製",
+	"securepoll-header-cookie-dup": "重複",
 	"securepoll-header-strike": "抹消",
 	"securepoll-header-details": "詳細",
 	"securepoll-vote-duplicate": "重複",
