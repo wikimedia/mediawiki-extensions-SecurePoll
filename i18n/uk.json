@@ -253,6 +253,8 @@
 	"securepoll-votereligibility-cleared-comment": "$1 очищено.",
 	"right-securepoll-create-poll": "Створення опитувань",
 	"action-securepoll-create-poll": "створення опитувань і перегляд журналів",
+	"right-securepoll-view-voter-pii": "Отримання особисто-ідентифіковної інформації про виборців",
+	"action-securepoll-view-voter-pii": "отримання особисто-ідентифіковної інформації про виборців",
 	"securepoll-ns-readonly": "Простір назв {{ns:SecurePoll}} — лише для читання",
 	"securepoll-voter-stats": "Із усіх виборців із правом голосу, {{PLURAL:$1|проголосував $1 виборець|проголосували $1 виборці|проголосувало $1 виборців}}.",
 	"securepoll-vote-stats": "Загалом віддано {{PLURAL:$1|$1 голос|$1 голоси|$1 голосів}}. З них $2 {{PLURAL:$2|не враховано}}, оскільки виборці, що віддали ці голоси, проголосували повторно, і $3 {{PLURAL:$3|відхилено}}.",
