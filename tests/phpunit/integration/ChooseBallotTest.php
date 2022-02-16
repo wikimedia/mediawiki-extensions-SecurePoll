@@ -11,6 +11,7 @@ use MediaWiki\Extensions\SecurePoll\Entities\Election;
 use MediaWiki\Extensions\SecurePoll\Entities\Option;
 use MediaWiki\Extensions\SecurePoll\Entities\Question;
 use MediaWikiIntegrationTestCase;
+use RequestContext;
 
 /**
  * @covers \MediaWiki\Extensions\SecurePoll\Ballots\ChooseBallot
@@ -96,8 +97,11 @@ class ChooseBallotTest extends MediaWikiIntegrationTestCase {
 	 * @covers \MediaWiki\Extensions\SecurePoll\Ballots\ApprovalBallot::submitQuestion
 	 */
 	public function testSubmitQuestion( $votes, $expected ) {
-		// Manually set request values
-		$this->setRequest( new FauxRequest( $votes ) );
+		$this->ballot->initRequest(
+			new FauxRequest( $votes ),
+			new RequestContext,
+			$this->getServiceContainer()->getLanguageFactory()->getLanguage( 'en' )
+		);
 
 		// submitQuestion returns the record if successful or otherwise writes to the status
 		$result = $this->ballot->submitQuestion( $this->question, $this->status );

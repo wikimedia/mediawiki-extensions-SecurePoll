@@ -3,7 +3,6 @@
 namespace MediaWiki\Extensions\SecurePoll\Ballots;
 
 use MediaWiki\Extensions\SecurePoll\Entities\Question;
-use RequestContext;
 
 /**
  * Ballot for preferential voting
@@ -39,12 +38,11 @@ class PreferentialBallot extends Ballot {
 	public function getQuestionForm( $question, $options ) {
 		$name = 'securepoll_q' . $question->getId();
 		$fieldset = new \OOUI\FieldsetLayout();
-		$request = RequestContext::getMain()->getRequest();
 		foreach ( $options as $option ) {
 			$optionHTML = $option->parseMessageInline( 'text' );
 			$optionId = $option->getId();
 			$inputId = "{$name}_opt{$optionId}";
-			$oldValue = $request->getVal( $inputId, '' );
+			$oldValue = $this->getRequest()->getVal( $inputId, '' );
 
 			$widget = new \OOUI\NumberInputWidget( [
 				'name' => $inputId,
@@ -84,7 +82,7 @@ class PreferentialBallot extends Ballot {
 		$ok = true;
 		foreach ( $options as $option ) {
 			$id = 'securepoll_q' . $question->getId() . '_opt' . $option->getId();
-			$rank = RequestContext::getMain()->getRequest()->getVal( $id );
+			$rank = $this->getRequest()->getVal( $id );
 
 			if ( is_numeric( $rank ) ) {
 				if ( $rank <= 0 || $rank >= 1000 ) {

@@ -3,7 +3,6 @@
 namespace MediaWiki\Extensions\SecurePoll\Ballots;
 
 use MediaWiki\Extensions\SecurePoll\Entities\Question;
-use RequestContext;
 
 /**
  * Checkbox approval voting.
@@ -25,8 +24,6 @@ class ApprovalBallot extends Ballot {
 			'classes' => [ 'securepoll-option-approval ' ]
 		] );
 
-		$request = RequestContext::getMain()->getRequest();
-
 		foreach ( $options as $option ) {
 			$optionHTML = $option->parseMessageInline( 'text' );
 			$optionId = $option->getId();
@@ -35,7 +32,7 @@ class ApprovalBallot extends Ballot {
 			$fieldset->addItems( [
 				new \OOUI\FieldLayout( new \OOUI\CheckboxInputWidget( [
 					'name' => $inputId,
-					'selected' => $request->getBool( $inputId ),
+					'selected' => $this->getRequest()->getBool( $inputId ),
 					'value' => 1
 				] ), [
 					'label' => new \OOUI\HtmlSnippet( $optionHTML ),
@@ -55,10 +52,9 @@ class ApprovalBallot extends Ballot {
 	public function submitQuestion( $question, $status ) {
 		$options = $question->getOptions();
 		$record = '';
-		$request = RequestContext::getMain()->getRequest();
 		foreach ( $options as $option ) {
 			$id = 'securepoll_q' . $question->getId() . '_opt' . $option->getId();
-			$checked = $request->getBool( $id );
+			$checked = $this->getRequest()->getBool( $id );
 			$record .= $this->packRecord( $question, $option, $checked );
 		}
 

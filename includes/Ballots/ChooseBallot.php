@@ -3,7 +3,6 @@
 namespace MediaWiki\Extensions\SecurePoll\Ballots;
 
 use MediaWiki\Extensions\SecurePoll\Entities\Question;
-use RequestContext;
 
 /**
  * A ballot class which asks the user to choose one answer only from the
@@ -67,7 +66,7 @@ class ChooseBallot extends Ballot {
 	 * @return string
 	 */
 	public function submitQuestion( $question, $status ) {
-		$result = RequestContext::getMain()->getRequest()->getInt( 'securepoll_q' . $question->getId() );
+		$result = $this->getRequest()->getInt( 'securepoll_q' . $question->getId() );
 		if ( !$result ) {
 			$status->fatal( 'securepoll-unanswered-questions' );
 		} else {

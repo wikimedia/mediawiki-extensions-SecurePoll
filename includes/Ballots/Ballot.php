@@ -2,12 +2,15 @@
 
 namespace MediaWiki\Extensions\SecurePoll\Ballots;
 
+use Language;
 use MediaWiki\Extensions\SecurePoll\Context;
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
 use MediaWiki\Extensions\SecurePoll\Entities\Entity;
 use MediaWiki\Extensions\SecurePoll\Entities\Question;
+use MessageLocalizer;
 use MWException;
 use Status;
+use WebRequest;
 
 /**
  * Parent class for ballot forms. This is the UI component of a voting method.
@@ -25,6 +28,12 @@ abstract class Ballot {
 	public $usedErrorIds;
 	/** @var BallotStatus|null */
 	public $prevStatus;
+	/** @var WebRequest|null */
+	private $request;
+	/** @var MessageLocalizer|null */
+	private $messageLocalizer;
+	/** @var Language|null */
+	private $userLang;
 
 	/** @var string[] */
 	public static $ballotTypes = [
@@ -95,6 +104,73 @@ abstract class Ballot {
 	 */
 	public function getMessageNames( Entity $entity = null ) {
 		return [];
+	}
+
+	/**
+	 * Get the request if it has been set, otherwise throw an exception.
+	 *
+	 * @return WebRequest
+	 */
+	protected function getRequest(): WebRequest {
+		if ( !$this->request ) {
+			throw new MWException(
+				'Ballot::initRequest() must be called before Ballot::getRequest()' );
+		}
+		return $this->request;
+	}
+
+	/**
+	 * Get the MessageLocalizer if it has been set, otherwise throw an exception
+	 *
+	 * @return MessageLocalizer
+	 */
+	private function getMessageLocalizer(): MessageLocalizer {
+		if ( !$this->messageLocalizer ) {
+			throw new MWException(
+				'Ballot::initRequest() must be called before Ballot::getMessageLocalizer()' );
+		}
+		return $this->messageLocalizer;
+	}
+
+	/**
+	 * Get a MediaWiki message. setMessageLocalizer() must have been called.
+	 *
+	 * This can be used instead of SecurePoll's native message system if the
+	 * message does not vary depending on the election, and if there are no
+	 * security concerns with allowing people who are not admins of the election
+	 * to set the text.
+	 *
+	 * @param string $key
+	 * @param mixed ...$params
+	 * @return \Message
+	 */
+	protected function msg( $key, ...$params ) {
+		return $this->getMessageLocalizer()->msg( $key, ...$params );
+	}
+
+	/**
+	 * Get the user language, or throw an exception if it has not been set.
+	 * @return Language
+	 */
+	protected function getUserLang(): Language {
+		return $this->userLang;
+	}
+
+	/**
+	 * Set request dependencies
+	 *
+	 * @param WebRequest $request
+	 * @param MessageLocalizer $localizer
+	 * @param Language $userLang
+	 */
+	public function initRequest(
+		WebRequest $request,
+		MessageLocalizer $localizer,
+		Language $userLang
+	) {
+		$this->request = $request;
+		$this->messageLocalizer = $localizer;
+		$this->userLang = $userLang;
 	}
 
 	/**
