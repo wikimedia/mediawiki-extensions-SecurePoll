@@ -10,7 +10,7 @@ use MediaWikiIntegrationTestCase;
 
 /**
  * @group SpecialPage
- * @covers MediaWiki\Extensions\SecurePoll\ActionPageFactory
+ * @covers \MediaWiki\Extensions\SecurePoll\ActionPageFactory
  */
 class ActionPageFactoryTest extends MediaWikiIntegrationTestCase {
 	protected function getFactory() {

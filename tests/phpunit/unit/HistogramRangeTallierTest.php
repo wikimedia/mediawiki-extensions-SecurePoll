@@ -12,12 +12,10 @@ use RequestContext;
 
 /**
  * @group SecurePoll
- * @covers MediaWiki\Extensions\SecurePoll\Talliers\HistogramRangeTallier
+ * @covers \MediaWiki\Extensions\SecurePoll\Talliers\HistogramRangeTallier
  */
 class HistogramRangeTallierTest extends MediaWikiUnitTestCase {
 	protected function setUp(): void {
-		parent::setUp();
-
 		// Tallier constructor requires getOptions to return iterable
 		$options = array_map( function ( $id ) {
 			$option = $this->createMock( Option::class );

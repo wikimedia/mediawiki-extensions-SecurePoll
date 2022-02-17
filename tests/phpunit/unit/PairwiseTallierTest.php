@@ -14,8 +14,6 @@ use RequestContext;
  */
 class PairwiseTallierTest extends MediaWikiUnitTestCase {
 	protected function setUp(): void {
-		parent::setUp();
-
 		$options = array_map( function ( $id, $message ) {
 			$option = $this->createMock( Option::class );
 			$option->method( 'getId' )

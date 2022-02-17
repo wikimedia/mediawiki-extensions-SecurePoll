@@ -11,7 +11,7 @@ use MediaWikiUnitTestCase;
 use RequestContext;
 
 /**
- * @covers MediaWiki\Extensions\SecurePoll\Ballots\Ballot
+ * @covers \MediaWiki\Extensions\SecurePoll\Ballots\Ballot
  */
 class BallotTest extends MediaWikiUnitTestCase {
 	private function getAbstractBallot( $election = null ) {

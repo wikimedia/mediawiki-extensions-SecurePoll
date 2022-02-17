@@ -9,7 +9,7 @@ use SpecialPageTestBase;
 
 /**
  * @group SpecialPage
- * @covers MediaWiki\Extensions\SecurePoll\SpecialSecurePollLog
+ * @covers \MediaWiki\Extensions\SecurePoll\SpecialSecurePollLog
  */
 class SpecialSecurePollLogTest extends SpecialPageTestBase {
 	/**

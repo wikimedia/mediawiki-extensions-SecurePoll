@@ -1,23 +1,34 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Test\Unit;
+namespace MediaWiki\Extensions\SecurePoll\Test\Integration;
 
+use FauxRequest;
 use MediaWiki\Extensions\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extensions\SecurePoll\Ballots\BallotStatus;
 use MediaWiki\Extensions\SecurePoll\Ballots\ChooseBallot;
+use MediaWiki\Extensions\SecurePoll\Context;
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
 use MediaWiki\Extensions\SecurePoll\Entities\Option;
 use MediaWiki\Extensions\SecurePoll\Entities\Question;
-use MediaWikiUnitTestCase;
-use RequestContext;
+use MediaWikiIntegrationTestCase;
 
 /**
- * @covers MediaWiki\Extensions\SecurePoll\Ballots\ChooseBallot
+ * @covers \MediaWiki\Extensions\SecurePoll\Ballots\ChooseBallot
  */
-class ChooseBallotTest extends MediaWikiUnitTestCase {
-	protected function setUp(): void {
-		parent::setUp();
+class ChooseBallotTest extends MediaWikiIntegrationTestCase {
+	/** @var Question */
+	private $question;
 
+	/** @var Context */
+	private $context;
+
+	/** @var Ballot */
+	private $ballot;
+
+	/** @var BallotStatus */
+	private $status;
+
+	protected function setUp(): void {
 		$options = array_map( function ( $id ) {
 			$option = $this->createMock( Option::class );
 			$option->method( 'getId' )
@@ -29,7 +40,7 @@ class ChooseBallotTest extends MediaWikiUnitTestCase {
 		$this->question->method( 'getOptions' )->willReturn( $options );
 
 		// Request values will get stubbed in tests
-		$this->context = new RequestContext;
+		$this->context = new Context;
 
 		$this->status = new BallotStatus( $this->context );
 
@@ -86,9 +97,7 @@ class ChooseBallotTest extends MediaWikiUnitTestCase {
 	 */
 	public function testSubmitQuestion( $votes, $expected ) {
 		// Manually set request values
-		foreach ( $votes as $option => $answer ) {
-			$this->context::getMain()->getRequest()->setVal( $option, $answer );
-		}
+		$this->setRequest( new FauxRequest( $votes ) );
 
 		// submitQuestion returns the record if successful or otherwise writes to the status
 		$result = $this->ballot->submitQuestion( $this->question, $this->status );
@@ -96,10 +105,5 @@ class ChooseBallotTest extends MediaWikiUnitTestCase {
 			$result = $this->status->getErrorsArray();
 		}
 		$this->assertEquals( $result, $expected );
-
-		// Unset values when done
-		foreach ( $votes as $option => $answer ) {
-			$this->context::getMain()->getRequest()->unsetVal( $option );
-		}
 	}
 }

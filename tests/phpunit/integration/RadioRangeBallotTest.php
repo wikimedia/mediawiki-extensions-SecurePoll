@@ -1,23 +1,37 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Test\Unit;
+namespace MediaWiki\Extensions\SecurePoll\Test\Integration;
 
+use FauxRequest;
 use MediaWiki\Extensions\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extensions\SecurePoll\Ballots\BallotStatus;
 use MediaWiki\Extensions\SecurePoll\Ballots\RadioRangeBallot;
+use MediaWiki\Extensions\SecurePoll\Context;
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
 use MediaWiki\Extensions\SecurePoll\Entities\Option;
 use MediaWiki\Extensions\SecurePoll\Entities\Question;
 use MediaWikiIntegrationTestCase;
-use RequestContext;
 
 /**
- * @covers MediaWiki\Extensions\SecurePoll\Ballots\RadioRangeBallot
+ * @covers \MediaWiki\Extensions\SecurePoll\Ballots\RadioRangeBallot
  */
 class RadioRangeBallotTest extends MediaWikiIntegrationTestCase {
-	protected function setUp(): void {
-		parent::setUp();
+	/** @var Question */
+	private $question;
 
+	/** @var Context */
+	private $context;
+
+	/** @var BallotStatus */
+	private $status;
+
+	/** @var Election */
+	private $election;
+
+	/** @var Ballot */
+	private $ballot;
+
+	protected function setUp(): void {
 		$options = array_map( function ( $id ) {
 			$option = $this->createMock( Option::class );
 			$option->method( 'getId' )
@@ -32,8 +46,7 @@ class RadioRangeBallotTest extends MediaWikiIntegrationTestCase {
 			[ 'max-score', false, 1 ]
 		] );
 
-		// Request values will get stubbed in tests
-		$this->context = new RequestContext;
+		$this->context = new Context;
 
 		$this->status = new BallotStatus( $this->context );
 
@@ -112,9 +125,7 @@ class RadioRangeBallotTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testSubmitQuestion( $votes, $expected ) {
 		// Manually set request values
-		foreach ( $votes as $option => $answer ) {
-			$this->context::getMain()->getRequest()->setVal( $option, $answer );
-		}
+		$this->setRequest( new FauxRequest( $votes ) );
 
 		// submitQuestion returns the record if successful or otherwise writes to the status
 		$result = $this->ballot->submitQuestion( $this->question, $this->status );
@@ -123,10 +134,5 @@ class RadioRangeBallotTest extends MediaWikiIntegrationTestCase {
 		}
 
 		$this->assertEquals( $result, $expected );
-
-		// Unset values when done
-		foreach ( $votes as $option => $answer ) {
-			$this->context::getMain()->getRequest()->unsetVal( $option );
-		}
 	}
 }

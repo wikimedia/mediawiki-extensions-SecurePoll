@@ -8,7 +8,7 @@ use MediaWiki\User\UserFactory;
 use MediaWikiIntegrationTestCase;
 
 /**
- * @covers MediaWiki\Extensions\SecurePoll\SecurePollLogPager
+ * @covers \MediaWiki\Extensions\SecurePoll\SecurePollLogPager
  */
 class SecurePollLogPagerTest extends MediaWikiIntegrationTestCase {
 	public function testGetQueryInfoNoFilters() {

@@ -15,12 +15,10 @@ use Wikimedia\TestingAccessWrapper;
 
 /**
  * @group SecurePoll
- * @covers MediaWiki\Extensions\SecurePoll\Talliers\STVTallier
+ * @covers \MediaWiki\Extensions\SecurePoll\Talliers\STVTallier
  */
 class STVTallierTest extends MediaWikiUnitTestCase {
 	protected function setUp(): void {
-		parent::setUp();
-
 		// Tallier constructor requires getOptions to return iterable
 		$options = array_map( function ( $id, $message ) {
 			$option = $this->createMock( Option::class );

@@ -12,7 +12,7 @@ use MWException;
 use RequestContext;
 
 /**
- * @covers MediaWiki\Extensions\SecurePoll\Talliers\Tallier
+ * @covers \MediaWiki\Extensions\SecurePoll\Talliers\Tallier
  */
 class TallierTest extends MediaWikiUnitTestCase {
 	private function getAbstractTallier() {

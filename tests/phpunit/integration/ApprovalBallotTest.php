@@ -1,23 +1,31 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Test\Unit;
+namespace MediaWiki\Extensions\SecurePoll\Test\Integration;
 
+use FauxRequest;
 use MediaWiki\Extensions\SecurePoll\Ballots\ApprovalBallot;
 use MediaWiki\Extensions\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extensions\SecurePoll\Ballots\BallotStatus;
+use MediaWiki\Extensions\SecurePoll\Context;
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
 use MediaWiki\Extensions\SecurePoll\Entities\Option;
 use MediaWiki\Extensions\SecurePoll\Entities\Question;
-use MediaWikiUnitTestCase;
-use RequestContext;
+use MediaWikiIntegrationTestCase;
 
 /**
- * @covers MediaWiki\Extensions\SecurePoll\Ballots\ApprovalBallot
+ * @covers \MediaWiki\Extensions\SecurePoll\Ballots\ApprovalBallot
  */
-class ApprovalBallotTest extends MediaWikiUnitTestCase {
-	protected function setUp(): void {
-		parent::setUp();
+class ApprovalBallotTest extends MediaWikiIntegrationTestCase {
+	/** @var Question */
+	private $question;
 
+	/** @var Context */
+	private $context;
+
+	/** @var Ballot */
+	private $ballot;
+
+	protected function setUp(): void {
 		$options = array_map( function ( $id ) {
 			$option = $this->createMock( Option::class );
 			$option->method( 'getId' )
@@ -27,8 +35,7 @@ class ApprovalBallotTest extends MediaWikiUnitTestCase {
 		$this->question = $this->createMock( Question::class );
 		$this->question->method( 'getOptions' )->willReturn( $options );
 
-		// Request values will get stubbed in tests
-		$this->context = new RequestContext;
+		$this->context = new Context;
 
 		$this->ballot = Ballot::factory(
 			$this->context,
@@ -73,15 +80,11 @@ class ApprovalBallotTest extends MediaWikiUnitTestCase {
 	 */
 	public function testSubmitQuestion( $votes, $expected ) {
 		// Manually set request values
-		foreach ( $votes as $option => $answer ) {
-			$this->context::getMain()->getRequest()->setVal( $option, $answer );
-		}
+		$this->setRequest( new FauxRequest( $votes ) );
 
-		$this->assertEquals( $this->ballot->submitQuestion( $this->question, BallotStatus::class ), $expected );
-
-		// Unset values when done
-		foreach ( $votes as $option => $answer ) {
-			$this->context::getMain()->getRequest()->unsetVal( $option );
-		}
+		$this->assertEquals(
+			$this->ballot->submitQuestion( $this->question, new BallotStatus( $this->context ) ),
+			$expected
+		);
 	}
 }
