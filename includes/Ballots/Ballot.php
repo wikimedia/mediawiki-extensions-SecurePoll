@@ -36,7 +36,7 @@ abstract class Ballot {
 	private $userLang;
 
 	/** @var string[] */
-	public static $ballotTypes = [
+	public const BALLOT_TYPES = [
 		'approval' => ApprovalBallot::class,
 		'preferential' => PreferentialBallot::class,
 		'choose' => ChooseBallot::class,
@@ -189,7 +189,7 @@ abstract class Ballot {
 			$record .= $this->submitQuestion( $question, $status );
 		}
 		if ( $status->isOK() ) {
-			$status->value = $record . "\n";
+			$status->value = $record;
 		}
 
 		return $status;
@@ -243,10 +243,10 @@ abstract class Ballot {
 	 * @throws MWException
 	 */
 	public static function factory( $context, $type, $election ) {
-		if ( !isset( self::$ballotTypes[$type] ) ) {
+		if ( !isset( self::BALLOT_TYPES[$type] ) ) {
 			throw new MWException( "Invalid ballot type: $type" );
 		}
-		$class = self::$ballotTypes[$type];
+		$class = self::BALLOT_TYPES[$type];
 
 		return new $class( $context, $election );
 	}
@@ -335,57 +335,5 @@ abstract class Ballot {
 	 */
 	public function formatStatus( $status ) {
 		return $status->sp_getHTML( $this->usedErrorIds );
-	}
-
-	/**
-	 * Get the way the voter cast their vote previously, if we're allowed
-	 * to show that information.
-	 * @return array|false on failure or if cast ballots are hidden, or the output
-	 *     of unpackRecord().
-	 */
-	public function getCurrentVote() {
-		// FIXME: getOption doesn't exist
-		// @phan-suppress-next-line PhanUndeclaredMethod
-		if ( !$this->election->getOption( 'show-change' ) ) {
-			return false;
-		}
-
-		$auth = $this->election->getAuth();
-
-		# Get voter from session
-		$voter = $auth->getVoterFromSession( $this->election );
-		# If there's no session, try creating one.
-		# This will fail if the user is not authorized to vote in the election
-		if ( !$voter ) {
-			$status = $auth->newAutoSession( $this->election );
-			if ( $status->isOK() ) {
-				$voter = $status->value;
-			} else {
-				return false;
-			}
-		}
-
-		$store = $this->context->getStore();
-		$status = $store->callbackValidVotes(
-		// FIXME: Where is info property defined?
-		// @phan-suppress-next-line PhanUndeclaredProperty
-			$this->election->info['id'],
-			[
-				$this,
-				'getCurrentVoteCallback'
-			],
-			$voter->getId()
-		);
-		if ( !$status->isOK() ) {
-			return false;
-		}
-
-		return isset( $this->currentVote ) ? $this->unpackRecord( $this->currentVote ) : false;
-	}
-
-	public function getCurrentVoteCallback( $store, $record ) {
-		$this->currentVote = $record;
-
-		return Status::newGood();
 	}
 }

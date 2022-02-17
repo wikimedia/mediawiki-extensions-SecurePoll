@@ -2,12 +2,14 @@
 
 namespace MediaWiki\Extensions\SecurePoll\Talliers;
 
+use Html;
 use MediaWiki\Extensions\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extensions\SecurePoll\Context;
 use MediaWiki\Extensions\SecurePoll\Crypt\Crypt;
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
 use MediaWiki\Extensions\SecurePoll\Entities\Question;
 use MediaWiki\Extensions\SecurePoll\Store\Store;
+use MediaWiki\Extensions\SecurePoll\VoteRecord;
 use MediaWiki\Logger\LoggerFactory;
 use MWException;
 use Status;
@@ -33,6 +35,8 @@ class ElectionTallier {
 	public $questions;
 	/** @var Tallier[] */
 	public $talliers = [];
+	/** @var string[] */
+	public $comments = [];
 
 	/**
 	 * Constructor.
@@ -124,8 +128,13 @@ class ElectionTallier {
 			}
 			$record = $status->value;
 		}
-		$record = rtrim( $record );
-		$scores = $this->ballot->unpackRecord( $record );
+		$status = VoteRecord::readBlob( $record );
+		if ( !$status->isOK() ) {
+			return $status;
+		}
+		/** @var VoteRecord $voteRecord */
+		$voteRecord = $status->value;
+		$scores = $this->ballot->unpackRecord( $voteRecord->getBallotData() );
 
 		# Add the record to the underlying question-specific tallier objects
 		foreach ( $this->election->getQuestions() as $question ) {
@@ -136,6 +145,10 @@ class ElectionTallier {
 			if ( !$this->talliers[$qid]->addVote( $scores[$qid] ) ) {
 				return Status::newFatal( 'securepoll-tally-error' );
 			}
+		}
+
+		if ( $voteRecord->getComment() !== '' ) {
+			$this->comments[] = $voteRecord->getComment();
 		}
 
 		return Status::newGood();
@@ -155,6 +168,9 @@ class ElectionTallier {
 		foreach ( $this->election->getQuestions() as $question ) {
 			$data['results'][ $question->getId() ] = $this->talliers[ $question->getId() ]->getJSONResult();
 		}
+		if ( $this->comments ) {
+			$data['comments'] = $this->comments;
+		}
 		return $data;
 	}
 
@@ -167,6 +183,11 @@ class ElectionTallier {
 		$this->setupTalliers();
 		foreach ( $data['results'] as $questionid => $questiondata ) {
 			$this->talliers[$questionid]->loadJSONResult( $questiondata );
+		}
+		foreach ( ( $data['comments'] ?? [] ) as $comment ) {
+			if ( is_string( $comment ) ) {
+				$this->comments[] = $comment;
+			}
 		}
 	}
 
@@ -185,6 +206,20 @@ class ElectionTallier {
 			$s .= $tallier->getHtmlResult();
 		}
 
+		if ( count( $this->comments ) ) {
+			$s .= Html::element( 'h2', [],
+				wfMessage( 'securepoll-tally-comments' )->text() ) . "\n";
+			$first = true;
+			foreach ( $this->comments as $comment ) {
+				if ( $first ) {
+					$first = false;
+				} else {
+					$s .= "<hr/>\n";
+				}
+				$s .= nl2br( htmlspecialchars( $comment ) ) . "\n";
+			}
+		}
+
 		return $s;
 	}
 
@@ -201,6 +236,19 @@ class ElectionTallier {
 			}
 			$tallier = $this->talliers[$question->getId()];
 			$s .= $tallier->getTextResult();
+		}
+
+		if ( count( $this->comments ) ) {
+			$s .= "\n\n" . wfMessage( 'securepoll-tally-comments' )->text() . "\n\n";
+			$first = true;
+			foreach ( $this->comments as $comment ) {
+				if ( $first ) {
+					$first = false;
+				} else {
+					$s .= "\n" . str_repeat( '-', 80 ) . "\n";
+				}
+				$s .= $comment;
+			}
 		}
 
 		return $s;

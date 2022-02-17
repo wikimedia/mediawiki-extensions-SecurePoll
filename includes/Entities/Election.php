@@ -145,6 +145,7 @@ class Election extends Entity {
 			'jump-text',
 			'return-text',
 			'unqualified-error',
+			'comment-prompt'
 		];
 	}
 

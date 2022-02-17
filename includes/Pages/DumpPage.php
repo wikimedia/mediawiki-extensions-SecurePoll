@@ -77,7 +77,7 @@ class DumpPage extends ActionPage {
 		if ( !$this->headersSent ) {
 			$this->sendHeaders();
 		}
-		echo "<vote>" . htmlspecialchars( $row->vote_record ) . "</vote>\n";
+		echo "<vote>\n" . htmlspecialchars( rtrim( $row->vote_record ) ) . "\n</vote>\n";
 	}
 
 	public function sendHeaders() {

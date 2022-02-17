@@ -2,53 +2,21 @@
 
 namespace MediaWiki\Extensions\SecurePoll\Ballots;
 
-use OOUI;
-
 /**
  * A ballot used specifically for the Wikimedia Referendum on the personal image filter.
- * Allows voters to send comments in with their ballot
+ * Allows voters to send comments in with their ballot.
+ *
+ * Now deprecated in favour of the comment feature in VotePage.
  */
 class RadioRangeCommentBallot extends RadioRangeBallot {
 	public function getForm( $prevStatus = false ) {
-		$form = parent::getForm( $prevStatus );
-
-		$fieldSet = new \OOUI\FieldsetLayout( [
-			'label' => new \OOUI\HtmlSnippet( $this->election->parseMessage( 'comments' ) ),
-			'items' => [
-				new OOUI\MultilineTextInputWidget( [
-					'name' => 'securepoll_comments_native',
-					'value' => '',
-					'rows' => 10,
-				] ),
-				new OOUI\MultilineTextInputWidget( [
-					'name' => 'securepoll_comments_en',
-					'value' => '',
-					'rows' => 10,
-				] )
-			]
-		] );
-		$form[] = $fieldSet;
-		return $form;
+		// @phan-suppress-previous-line PhanPluginNeverReturnMethod
+		throw new \MWException( 'This ballot type has been archived and can no longer be used for voting.' );
 	}
 
 	public function submitForm() {
-		$status = parent::submitForm();
-
-		if ( !$status->isGood() ) {
-			return $status;
-		}
-
-		$commentNative = $this->getRequest()->getText( 'securepoll_comments_native' );
-		$commentEnglish = $this->getRequest()->getText( 'securepoll_comments_en' );
-
-		$record = rtrim( $status->value );
-
-		$record .= '/' . strlen( $commentNative ) . '/' . $commentNative;
-		$record .= '--/' . strlen( $commentEnglish ) . '/' . $commentEnglish;
-
-		$status->value = $record;
-
-		return $status;
+		// @phan-suppress-previous-line PhanPluginNeverReturnMethod
+		throw new \MWException( 'This ballot type has been archived and can no longer be used for voting.' );
 	}
 
 	/**

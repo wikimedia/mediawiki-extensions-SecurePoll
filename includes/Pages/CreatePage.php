@@ -7,7 +7,6 @@ use DateTimeZone;
 use HTMLForm;
 use LanguageCode;
 use Linker;
-use MediaWiki\Extensions\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extensions\SecurePoll\Context;
 use MediaWiki\Extensions\SecurePoll\Crypt\Crypt;
 use MediaWiki\Extensions\SecurePoll\Entities\Entity;
@@ -301,6 +300,24 @@ class CreatePage extends ActionPage {
 			],
 		];
 
+		$formItems['request-comment'] = [
+			'label-message' => 'securepoll-create-label-request-comment',
+			'type' => 'check',
+			'disabled' => $isRunning
+		];
+
+		$formItems['comment-prompt'] = [
+			'label-message' => 'securepoll-create-label-comment-prompt',
+			'type' => 'textarea',
+			'rows' => 2,
+			'disabled' => $isRunning,
+			'hide-if' => [
+				'!==',
+				'request-comment',
+				'1'
+			]
+		];
+
 		$questionFields = [
 			'id' => [
 				'type' => 'hidden',
@@ -351,13 +368,8 @@ class CreatePage extends ActionPage {
 			],
 		];
 
-		// Remove STV from options if flag is not set
-		if ( !$this->specialPage->getConfig()->get( 'SecurePollSingleTransferableVoteEnabled' ) ) {
-			unset( Ballot::$ballotTypes['stv'] );
-		}
-
 		$tallyTypes = [];
-		foreach ( Ballot::$ballotTypes as $ballotType => $ballotClass ) {
+		foreach ( $this->context->getBallotTypesForVote() as $ballotType => $ballotClass ) {
 			$types = [];
 			foreach (
 				call_user_func_array( [ $ballotClass, 'getTallyTypes' ], [] ) as $tallyType
@@ -578,8 +590,9 @@ class CreatePage extends ActionPage {
 		try {
 			$context = new Context;
 			$userId = $this->specialPage->getUser()->getId();
-			$store = new FormStore( $formData, $userId );
+			$store = new FormStore;
 			$context->setStore( $store );
+			$store->setFormData( $context, $formData, $userId );
 			$election = $context->getElection( $store->eId );
 
 			if ( $this->election && $store->eId !== (int)$this->election->getId() ) {
@@ -975,6 +988,8 @@ class CreatePage extends ActionPage {
 			'disallow-change' => isset( $p['disallow-change'] ) ? (bool)$p['disallow-change'] : null,
 			'voter-privacy' => isset( $p['voter-privacy'] ) ? (bool)$p['voter-privacy'] : null,
 			'property_admins' => '',
+			'request-comment' => isset( $p['request-comment'] ) ? (bool)$p['request-comment'] : null,
+			'comment-prompt' => $m['comment-prompt'] ?? null,
 			'questions' => [],
 			'comment' => '',
 		];
@@ -986,7 +1001,7 @@ class CreatePage extends ActionPage {
 
 		$classes = [];
 		$tallyTypes = [];
-		foreach ( Ballot::$ballotTypes as $class ) {
+		foreach ( $this->context->getBallotTypesForVote() as $class ) {
 			$classes[] = $class;
 			foreach ( call_user_func_array( [ $class, 'getTallyTypes' ], [] ) as $type ) {
 				$tallyTypes[$type] = true;

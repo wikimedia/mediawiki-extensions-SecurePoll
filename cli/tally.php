@@ -15,6 +15,7 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 require_once "$IP/maintenance/Maintenance.php";
 
 use MediaWiki\Extensions\SecurePoll\Context;
+use MediaWiki\Extensions\SecurePoll\Talliers\ElectionTallier;
 use MediaWiki\MediaWikiServices;
 
 class TallyElection extends Maintenance {
@@ -60,6 +61,7 @@ class TallyElection extends Maintenance {
 		if ( !$status->isOK() ) {
 			$this->fatalError( 'Tally error: ' . $status->getWikiText() );
 		}
+		/** @var ElectionTallier $tallier */
 		$tallier = $status->value;
 
 		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );

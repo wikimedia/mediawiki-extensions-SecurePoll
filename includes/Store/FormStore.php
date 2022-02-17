@@ -5,7 +5,7 @@ namespace MediaWiki\Extensions\SecurePoll\Store;
 use DateTime;
 use DateTimeZone;
 use ExtensionRegistry;
-use MediaWiki\Extensions\SecurePoll\Ballots\Ballot;
+use MediaWiki\Extensions\SecurePoll\Context;
 use MediaWiki\Extensions\SecurePoll\Crypt\Crypt;
 use MediaWiki\Extensions\SecurePoll\Pages\StatusException;
 use MediaWiki\Extensions\SecurePoll\Talliers\Tallier;
@@ -31,7 +31,12 @@ class FormStore extends MemoryStore {
 	/** @var string */
 	private $lang;
 
-	public function __construct( $formData, $userId ) {
+	/**
+	 * @param Context $context
+	 * @param array $formData
+	 * @param int $userId
+	 */
+	public function setFormData( $context, $formData, $userId ) {
 		global $wgSecurePollCreateWikiGroupDir, $wgSecurePollCreateWikiGroups,
 			$wgSecurePollCreateRemoteScriptPath;
 
@@ -63,6 +68,14 @@ class FormStore extends MemoryStore {
 
 		// Create the entry for the election
 		list( $ballot, $tally ) = explode( '+', $formData['election_type'] );
+		$ballotTypes = $context->getBallotTypesForVote();
+		if ( !isset( $ballotTypes[$ballot] ) ) {
+			// This should not be reachable by normal user input since the
+			// ballot type is already validated.
+			throw new \MWException( 'Invalid ballot type' );
+		}
+		$ballotClass = $ballotTypes[$ballot];
+
 		$crypt = $formData['election_crypt'];
 
 		$date = new DateTime(
@@ -99,9 +112,11 @@ class FormStore extends MemoryStore {
 			'return-url' => $formData['return-url'],
 			'disallow-change' => $formData['disallow-change'] ? 1 : 0,
 			'voter-privacy' => $formData['voter-privacy'] ? 1 : 0,
+			'request-comment' => $formData['request-comment'] ? 1 : 0
 		];
 		$this->messages[$this->lang][$eId] = [
 			'title' => $formData['election_title'],
+			'comment-prompt' => $formData['comment-prompt']
 		];
 
 		$admins = $this->getAdminsList( $formData['property_admins'] );
@@ -145,7 +160,7 @@ class FormStore extends MemoryStore {
 		$this->processFormData(
 			$eId,
 			$formData,
-			Ballot::$ballotTypes[$ballot],
+			$ballotClass,
 			'election'
 		);
 		$this->processFormData(
@@ -183,7 +198,7 @@ class FormStore extends MemoryStore {
 			$this->processFormData(
 				$qId,
 				$question,
-				Ballot::$ballotTypes[$ballot],
+				$ballotClass,
 				'question'
 			);
 			$this->processFormData(
@@ -221,7 +236,7 @@ class FormStore extends MemoryStore {
 				$this->processFormData(
 					$oId,
 					$option,
-					Ballot::$ballotTypes[$ballot],
+					$ballotClass,
 					'option'
 				);
 				$this->processFormData(

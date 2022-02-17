@@ -11,6 +11,7 @@ use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Extensions\SecurePoll\User\Auth;
 use MediaWiki\Extensions\SecurePoll\User\RemoteMWAuth;
 use MediaWiki\Extensions\SecurePoll\User\Voter;
+use MediaWiki\Extensions\SecurePoll\VoteRecord;
 use MediaWiki\Session\SessionManager;
 use MobileContext;
 use MWException;
@@ -187,6 +188,31 @@ class VotePage extends ActionPage {
 			'items' => $this->getBallot()->getForm( $status )
 		] );
 
+		// Show comments section
+		if ( $this->election->getProperty( 'request-comment' ) ) {
+			$form->addItems( [
+				new \OOUI\FieldsetLayout( [
+					'label' => $this->msg( 'securepoll-header-comments' ),
+					'items' => [
+						new \OOUI\FieldLayout(
+							new \OOUI\MultilineTextInputWidget( [
+								'name' => 'securepoll_comment',
+								'rows' => 3,
+								// vote_record is a BLOB, so this can't be infinity
+								'maxLength' => 10000,
+							] ),
+							[
+								'label' => new \OOUI\HtmlSnippet(
+									$this->election->parseMessage( 'comment-prompt' )
+								),
+								'align' => 'top'
+							]
+						)
+					]
+				] )
+			] );
+		}
+
 		$form->addItems( [
 			new \OOUI\FieldLayout(
 				new \OOUI\ButtonInputWidget( [
@@ -227,7 +253,11 @@ class VotePage extends ActionPage {
 		if ( !$status->isOK() ) {
 			$this->showForm( $status );
 		} else {
-			$this->logVote( $status->value );
+			$voteRecord = VoteRecord::newFromBallotData(
+				$status->value,
+				$this->specialPage->getRequest()->getText( 'securepoll_comment' )
+			);
+			$this->logVote( $voteRecord->getBlob() );
 		}
 	}
 
