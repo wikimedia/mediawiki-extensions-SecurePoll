@@ -2,6 +2,8 @@
 
 namespace MediaWiki\Extensions\SecurePoll\Pages;
 
+use DateTime;
+use DateTimeZone;
 use HTMLForm;
 use LanguageCode;
 use Linker;
@@ -212,21 +214,21 @@ class CreatePage extends ActionPage {
 
 		$formItems['election_startdate'] = [
 			'label-message' => 'securepoll-create-label-election_startdate',
-			'type' => 'date',
+			'type' => 'datetime',
 			'required' => true,
-			'min' => $isRunning ? '' : gmdate( 'M-d-Y' ),
+			'min' => $isRunning ? '' : gmdate( 'Y-m-d H:i:s' ),
 			'disabled' => $isRunning,
 		];
 
-		$days = [];
-		for ( $i = 1; $i <= 28; $i++ ) {
-			$days[$i] = $i;
-		}
-		$formItems['election_duration'] = [
-			'type' => 'select',
-			'label-message' => 'securepoll-create-label-election_duration',
+		$formItems['election_enddate'] = [
+			'label-message' => 'securepoll-create-label-election_enddate',
+			'type' => 'datetime',
 			'required' => true,
-			'options' => $days,
+			'min' => $isRunning ? '' : gmdate( 'Y-m-d H:i:s' ),
+			'validation-callback' => [
+				$this,
+				'checkElectionEndDate'
+			],
 			'disabled' => $isRunning,
 		];
 
@@ -954,7 +956,6 @@ class CreatePage extends ActionPage {
 
 		$startDate = new MWTimestamp( $data['startDate'] );
 		$endDate = new MWTimestamp( $data['endDate'] );
-		$duration = $endDate->diff( $startDate )->format( '%a' );
 
 		$ballot = $data['ballot'];
 		$tally = $data['tally'];
@@ -965,8 +966,8 @@ class CreatePage extends ActionPage {
 			'election_title' => $data['title'],
 			'property_wiki' => $p['wikis-val'] ?? null,
 			'election_primaryLang' => $data['lang'],
-			'election_startdate' => $startDate->format( 'Y-m-d' ),
-			'election_duration' => $duration,
+			'election_startdate' => $startDate->format( 'Y-m-d\TH:i:s.0\Z' ),
+			'election_enddate' => $endDate->format( 'Y-m-d\TH:i:s.0\Z' ),
 			'return-url' => $p['return-url'] ?? null,
 			'jump-text' => $m['jump-text'] ?? null,
 			'election_type' => "{$ballot}+{$tally}",
@@ -1267,6 +1268,17 @@ class CreatePage extends ActionPage {
 				'securepoll-create-user-not-in-electionadmin-group',
 				$value
 			)->parse();
+		}
+
+		return true;
+	}
+
+	public function checkElectionEndDate( $value, $formData ) {
+		$startDate = new DateTime( $formData['election_startdate'], new DateTimeZone( 'GMT' ) );
+		$endDate = new DateTime( $value, new DateTimeZone( 'GMT' ) );
+
+		if ( $startDate >= $endDate ) {
+			return $this->msg( 'securepoll-htmlform-daterange-end-before-start' )->parseAsBlock();
 		}
 
 		return true;
