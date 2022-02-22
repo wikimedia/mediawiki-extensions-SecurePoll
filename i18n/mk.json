@@ -158,6 +158,7 @@
 	"securepoll-create-option-wiki-other_wiki": "Друго поединечно вики",
 	"securepoll-create-label-election_primarylang": "Главен јазик:",
 	"securepoll-create-label-election_startdate": "Почеток на изборите:",
+	"securepoll-create-label-election_enddate": "Крај на изборите:",
 	"securepoll-create-label-election_duration": "Траење на изборите (денови):",
 	"securepoll-create-label-election_disallow-change": "Спречи ја можноста за промена на дадениот глас",
 	"securepoll-create-label-election_return-url": "Повратна URL:",

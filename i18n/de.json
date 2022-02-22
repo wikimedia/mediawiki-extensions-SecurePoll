@@ -158,6 +158,7 @@
 	"securepoll-create-option-wiki-other_wiki": "Anderes bestimmtes Wiki",
 	"securepoll-create-label-election_primarylang": "Hauptsprache:",
 	"securepoll-create-label-election_startdate": "Startdatum der Abstimmung:",
+	"securepoll-create-label-election_enddate": "Enddatum der Abstimmung:",
 	"securepoll-create-label-election_duration": "Abstimmungsdauer (Tage):",
 	"securepoll-create-label-election_disallow-change": "Wähler davon abhalten, ihre Stimmen abzuändern",
 	"securepoll-create-label-election_return-url": "Zurück-zu-URL:",
