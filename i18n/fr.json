@@ -180,6 +180,7 @@
 	"securepoll-create-option-wiki-other_wiki": "Autre wiki spécifique",
 	"securepoll-create-label-election_primarylang": "Langue principale :",
 	"securepoll-create-label-election_startdate": "Date de début du scrutin :",
+	"securepoll-create-label-election_enddate": "Date de fin du scrutin :",
 	"securepoll-create-label-election_duration": "Durée du scrutin (jours) :",
 	"securepoll-create-label-election_disallow-change": "Empêcher les électeurs de modifier leur vote",
 	"securepoll-create-label-election_return-url": "URL de retour :",

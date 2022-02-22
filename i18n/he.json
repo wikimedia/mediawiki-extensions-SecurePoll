@@ -160,6 +160,7 @@
 	"securepoll-create-option-wiki-other_wiki": "אתר ויקי מסוים אחר",
 	"securepoll-create-label-election_primarylang": "שפה עיקרית:",
 	"securepoll-create-label-election_startdate": "תאריך תחילת הבחירות:",
+	"securepoll-create-label-election_enddate": "תאריך סיום הבחירות:",
 	"securepoll-create-label-election_duration": "משך הבחירות (בימים):",
 	"securepoll-create-label-election_disallow-change": "לא לאפשר למצביעים לשנות את ההצבעות",
 	"securepoll-create-label-election_return-url": "כתובת לחזרה:",
