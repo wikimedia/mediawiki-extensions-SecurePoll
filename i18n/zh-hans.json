@@ -24,7 +24,8 @@
 			"Xiplus",
 			"Interestinghe",
 			"Tranve",
-			"Stang"
+			"Stang",
+			"Winston Sung"
 		]
 	},
 	"securepoll": "安全投票",
@@ -255,7 +256,7 @@
 	"securepoll-votereligibility-edit-header": "在下方的字段输入用户名列表，每行一个。特定wiki上的用户可能会识别为用户名加“@”再加项目名；例如中文维基百科的User:Example会识别为“Example@zhwiki”。\n\n此表单提交后会查询其中的用户名，不存在和无效的用户会被默认忽略。",
 	"securepoll-votereligibility-edit-action": "保存列表",
 	"securepoll-votereligibility-saved": "{{int:securepoll}}:已保存",
-	"securepoll-votereligibility-saved-text": "您的更改已保存。",
+	"securepoll-votereligibility-saved-text": "已保存您的更改。",
 	"securepoll-votereligibility-clear-title": "投票者列表移除：$1",
 	"securepoll-votereligibility-cleared": "{{int:securepoll}}:已清空",
 	"securepoll-votereligibility-cleared-text": "$1已清空并不会用于投票。",
