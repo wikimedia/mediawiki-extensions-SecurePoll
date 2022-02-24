@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Kwisha",
-			"Stephenwanjau"
+			"Stephenwanjau",
+			"Wangombe"
 		]
 	},
 	"securepoll-finished": "Uchaguzi umekwisha, hauwezi kupiga kura sasa.",
@@ -37,5 +38,6 @@
 	"securepoll-subpage-list": "Orodha",
 	"securepoll-ranks": "Mpangilio wa mwisho",
 	"securepoll-average-score": "Alama ya wastani",
-	"securepoll-spoilt": "(Zimeharibika)"
+	"securepoll-spoilt": "(Zimeharibika)",
+	"securepoll-create-label-election_enddate": "Tarehe ya mwisho ya uchaguzi"
 }
