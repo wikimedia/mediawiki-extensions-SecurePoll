@@ -4,6 +4,7 @@ namespace MediaWiki\Extensions\SecurePoll\Pages;
 
 use ExtensionRegistry;
 use HTMLForm;
+use MediaWiki\Extensions\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
 use MediaWiki\Extensions\SecurePoll\Hooks\HookRunner;
 use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
@@ -183,7 +184,7 @@ class VotePage extends ActionPage {
 		$form = new \OOUI\FormLayout( [
 			'action' => $this->getTitle()->getLocalURL( "action=vote" ),
 			'method' => 'post',
-			'items' => $this->election->getBallot()->getForm( $status )
+			'items' => $this->getBallot()->getForm( $status )
 		] );
 
 		$form->addItems( [
@@ -203,11 +204,25 @@ class VotePage extends ActionPage {
 	}
 
 	/**
+	 * Get the Ballot for this election, with injected request dependencies.
+	 * @return Ballot
+	 */
+	private function getBallot() {
+		$ballot = $this->election->getBallot();
+		$ballot->initRequest(
+			$this->specialPage->getRequest(),
+			$this->specialPage,
+			$this->getUserLang()
+		);
+		return $ballot;
+	}
+
+	/**
 	 * Submit the voting form. If successful, adds a record to the database.
 	 * Shows an error message on failure.
 	 */
 	public function doSubmit() {
-		$ballot = $this->election->getBallot();
+		$ballot = $this->getBallot();
 		$status = $ballot->submitForm();
 		if ( !$status->isOK() ) {
 			$this->showForm( $status );

@@ -8,7 +8,6 @@ use MediaWiki\Extensions\SecurePoll\Entities\Question;
 use MediaWiki\Extensions\SecurePoll\HtmlForm\HTMLFormRadioRangeColumnLabels;
 use MediaWiki\Extensions\SecurePoll\Pages\CreatePage;
 use MWException;
-use RequestContext;
 use Sanitizer;
 
 /**
@@ -173,7 +172,7 @@ class RadioRangeBallot extends Ballot {
 			}
 		} else {
 			foreach ( $scores as $score ) {
-				$labels[$score] = RequestContext::getMain()->getLanguage()->formatNum( $score );
+				$labels[$score] = $this->getUserLang()->formatNum( $score );
 			}
 		}
 
@@ -241,7 +240,7 @@ class RadioRangeBallot extends Ballot {
 			$optionHTML = $option->parseMessageInline( 'text' );
 			$optionId = $option->getId();
 			$inputId = "{$name}_opt{$optionId}";
-			$oldValue = RequestContext::getMain()->getRequest()->getVal( $inputId, $defaultScore );
+			$oldValue = $this->getRequest()->getVal( $inputId, $defaultScore );
 
 			$tr = ( new \OOUI\Tag( 'tr' ) )->addClasses( [ 'securepoll-ballot-row' ] );
 			$tr->appendContent(
@@ -278,7 +277,7 @@ class RadioRangeBallot extends Ballot {
 		$defaultScore = $question->getProperty( 'default-score' );
 		foreach ( $options as $option ) {
 			$id = 'securepoll_q' . $question->getId() . '_opt' . $option->getId();
-			$score = RequestContext::getMain()->getRequest()->getVal( $id );
+			$score = $this->getRequest()->getVal( $id );
 
 			if ( is_numeric( $score ) ) {
 				if ( $score < $min || $score > $max ) {
@@ -286,8 +285,8 @@ class RadioRangeBallot extends Ballot {
 						'securepoll-invalid-score',
 						$id,
 						false,
-						RequestContext::getMain()->getLanguage()->formatNum( $min ),
-						RequestContext::getMain()->getLanguage()->formatNum( $max )
+						$this->getUserLang()->formatNum( $min ),
+						$this->getUserLang()->formatNum( $max )
 					);
 					$ok = false;
 					continue;
@@ -307,8 +306,8 @@ class RadioRangeBallot extends Ballot {
 					'securepoll-invalid-score',
 					$id,
 					false,
-					RequestContext::getMain()->getLanguage()->formatNum( $min ),
-					RequestContext::getMain()->getLanguage()->formatNum( $max )
+					$this->getUserLang()->formatNum( $min ),
+					$this->getUserLang()->formatNum( $max )
 				);
 				$ok = false;
 				continue;
@@ -322,6 +321,8 @@ class RadioRangeBallot extends Ballot {
 		}
 		if ( $ok ) {
 			return $record;
+		} else {
+			return '';
 		}
 	}
 
@@ -343,26 +344,25 @@ class RadioRangeBallot extends Ballot {
 				$m,
 				0,
 				$offset
-			)
-			) {
+			) ) {
 				wfDebug( __METHOD__ . ": regex doesn't match\n" );
-
 				return false;
 			}
+
 			$qid = intval( base_convert( $m[1], 16, 10 ) );
 			$oid = intval( base_convert( $m[2], 16, 10 ) );
 			$score = intval( $m[3] );
 			if ( !isset( $questions[$qid] ) ) {
 				wfDebug( __METHOD__ . ": invalid question ID\n" );
-
 				return false;
 			}
+
 			list( $min, $max ) = $this->getMinMax( $questions[$qid] );
 			if ( $score < $min || $score > $max ) {
 				wfDebug( __METHOD__ . ": score out of range\n" );
-
 				return false;
 			}
+
 			$scores[$qid][$oid] = $score;
 		}
 

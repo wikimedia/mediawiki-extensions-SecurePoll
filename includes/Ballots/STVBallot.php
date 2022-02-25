@@ -6,7 +6,6 @@ use MediaWiki\Extensions\SecurePoll\Entities\Question;
 use MediaWiki\Extensions\SecurePoll\Pages\CreatePage;
 use OOUI\DropdownInputWidget;
 use OOUI\FieldsetLayout;
-use RequestContext;
 
 /**
  * A STVBallot class,
@@ -49,12 +48,12 @@ class STVBallot extends Ballot {
 	public function getQuestionForm( $question, $options ): FieldsetLayout {
 		$name = 'securepoll_q' . $question->getId();
 		$fieldset = new \OOUI\FieldsetLayout();
-		$request = RequestContext::getMain()->getRequest();
+		$request = $this->getRequest();
 
 		$allOptions = [
 			[
 				'data' => 0,
-				'label' => RequestContext::getMain()->msg( 'securepoll-stv-droop-default-value' )->text(),
+				'label' => $this->msg( 'securepoll-stv-droop-default-value' )->text(),
 			]
 		];
 		foreach ( $options as $option ) {
@@ -75,7 +74,7 @@ class STVBallot extends Ballot {
 				$widget,
 				[
 					'classes' => [ 'securepoll-option-preferential' ],
-					'label' => RequestContext::getMain()->msg( 'securepoll-stv-droop-choice-rank', $i + 1 ),
+					'label' => $this->msg( 'securepoll-stv-droop-choice-rank', $i + 1 ),
 					'errors' => isset( $this->prevErrorIds[$inputId] ) ? [
 						$this->prevStatus->sp_getMessageText( $inputId )
 						] : null,
@@ -99,7 +98,7 @@ class STVBallot extends Ballot {
 		$rankedChoices = [];
 		foreach ( $options as $rank => $option ) {
 			$id = 'securepoll_q' . $question->getId() . '_opt' . $rank;
-			$rankedChoices[] = RequestContext::getMain()->getRequest()->getVal( $id );
+			$rankedChoices[] = $this->getRequest()->getVal( $id );
 		}
 
 		// Remove trailing blank options
@@ -125,7 +124,7 @@ class STVBallot extends Ballot {
 			$emptyRanks = [];
 			foreach ( $rankedChoices as $i => $choice ) {
 				if ( $choice === '0' ) {
-					$emptyRanks[] = RequestContext::getMain()->msg( 'securepoll-stv-droop-choice-rank', $i + 1 );
+					$emptyRanks[] = $this->msg( 'securepoll-stv-droop-choice-rank', $i + 1 );
 					$status->sp_fatal(
 						'securepoll-stv-invalid-input-empty',
 						'securepoll_q' . $question->getId() . '_opt' . $i,
@@ -146,7 +145,7 @@ class STVBallot extends Ballot {
 			$duplicateChoices = [];
 			foreach ( $duplicateChoiceIds as $id ) {
 				if ( $rankedChoices[ $id ] !== '0' ) {
-					$duplicateChoices[] = RequestContext::getMain()->msg(
+					$duplicateChoices[] = $this->msg(
 						'securepoll-stv-droop-choice-rank', $id + 1
 					);
 					$status->sp_fatal(

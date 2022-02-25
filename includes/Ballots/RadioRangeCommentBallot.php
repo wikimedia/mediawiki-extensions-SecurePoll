@@ -38,11 +38,8 @@ class RadioRangeCommentBallot extends RadioRangeBallot {
 			return $status;
 		}
 
-		// Load comments
-		global $wgRequest;
-
-		$commentNative = $wgRequest->getText( 'securepoll_comments_native' );
-		$commentEnglish = $wgRequest->getText( 'securepoll_comments_en' );
+		$commentNative = $this->getRequest()->getText( 'securepoll_comments_native' );
+		$commentEnglish = $this->getRequest()->getText( 'securepoll_comments_en' );
 
 		$record = rtrim( $status->value );
 
