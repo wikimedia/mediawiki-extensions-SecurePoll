@@ -92,7 +92,8 @@ class DumpElection extends Maintenance {
 			fwrite( $election->cbdata['outFile'], $election->cbdata['header'] );
 			$election->cbdata['header'] = false;
 		}
-		fwrite( $election->cbdata['outFile'], "<vote>" . $row->vote_record . "</vote>\n" );
+		fwrite( $election->cbdata['outFile'],
+			"<vote>\n" . rtrim( $row->vote_record ) . "\n</vote>\n" );
 	}
 }
 

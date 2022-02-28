@@ -91,8 +91,9 @@ CREATE TABLE /*_*/securepoll_votes (
 	-- 1 if struck, 0 if not struck
 	vote_struck tinyint not null,
 
-	-- The voting record, produced and interpreted by the ballot type
-	-- May be encrypted
+	-- The voting record. Previously this was the fixed-length record produced
+	-- by the ballot type, now it may be wrapped in a JSON object.
+	-- May be encrypted.
 	vote_record blob not null,
 
 	-- The IP address, in hexadecimal form (IPUtils::toHex())

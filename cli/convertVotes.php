@@ -11,6 +11,7 @@ use MediaWiki\Extensions\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extensions\SecurePoll\Context;
 use MediaWiki\Extensions\SecurePoll\Crypt\Crypt;
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
+use MediaWiki\Extensions\SecurePoll\VoteRecord;
 
 class ConvertVotes extends Maintenance {
 	/**
@@ -129,7 +130,13 @@ class ConvertVotes extends Maintenance {
 			}
 			$record = $status->value;
 		}
-		$record = rtrim( $record );
+		$status = VoteRecord::readBlob( $record );
+		if ( !$status->isOK() ) {
+			return $status;
+		}
+		/** @var VoteRecord $voteRecord */
+		$voteRecord = $status->value;
+		$record = $voteRecord->getBallotData();
 		$record = $this->ballot->convertRecord( $record );
 		if ( $record === false ) {
 			$this->fatalError( 'Error: missing question in vote record' );

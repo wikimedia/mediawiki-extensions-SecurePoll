@@ -5,6 +5,7 @@ namespace MediaWiki\Extensions\SecurePoll\Jobs;
 use Job;
 use MediaWiki\Extensions\SecurePoll\Context;
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
+use MediaWiki\Extensions\SecurePoll\Talliers\ElectionTallier;
 use MWException;
 use Throwable;
 use Wikimedia\Rdbms\IDatabase;
@@ -83,6 +84,7 @@ class TallyElectionJob extends Job {
 		}
 
 		$tallier = $status->value;
+		'@phan-var ElectionTallier $tallier'; /** @var ElectionTallier $tallier */
 		$result = json_encode( $tallier->getJSONResult() );
 		$time = time();
 

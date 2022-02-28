@@ -74,6 +74,9 @@ class Context {
 	/** @var Random|null The Random instance */
 	public $random;
 
+	/** @var string[] */
+	private $ballotTypesForVote;
+
 	/**
 	 * Create a new Context with an XML file as the storage backend.
 	 * Returns false if there was a problem with the file, like a parse error.
@@ -360,6 +363,38 @@ class Context {
 	 */
 	public function newBallot( $type, $election ) {
 		return Ballot::factory( $this, $type, $election );
+	}
+
+	/**
+	 * Get a map of ballot type names to classes. Include all the ballot
+	 * types that may be found in the securepoll_votes table.
+	 *
+	 * @return string[]
+	 */
+	public function getBallotTypesForTally() {
+		return Ballot::BALLOT_TYPES;
+	}
+
+	/**
+	 * Get a map of ballot type names to classes, for all ballot types which
+	 * are valid for new votes and election creation.
+	 *
+	 * @return string[]
+	 */
+	public function getBallotTypesForVote() {
+		if ( $this->ballotTypesForVote === null ) {
+			$types = $this->getBallotTypesForTally();
+
+			// Archived (T300087)
+			unset( $types['radio-range-comment' ] );
+
+			// Remove STV from options if flag is not set
+			if ( !RequestContext::getMain()->getConfig()->get( 'SecurePollSingleTransferableVoteEnabled' ) ) {
+				unset( $types['stv'] );
+			}
+			$this->ballotTypesForVote = $types;
+		}
+		return $this->ballotTypesForVote;
 	}
 
 	/**

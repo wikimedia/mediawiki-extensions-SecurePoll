@@ -94,6 +94,7 @@ class Auth {
 			$status = $this->autoLogin( $election );
 			if ( $status->isOK() ) {
 				$otherVoter = $status->value;
+				'@phan-var Voter $otherVoter'; /** @var Voter $otherVoter */
 				if ( $otherVoter->getId() != $voterId ) {
 					$otherVoter->addCookieDup( $voterId );
 					$session['securepoll_voter'][$election->getId()] = $otherVoter->getId();
@@ -159,6 +160,7 @@ class Auth {
 		$status = $this->autoLogin( $election );
 		if ( $status->isGood() ) {
 			$voter = $status->value;
+			'@phan-var Voter $voter'; /** @var Voter $voter */
 			$session = SessionManager::getGlobalSession();
 			$session['securepoll_voter'][$election->getId()] = $voter->getId();
 			$voter->doCookieCheck();
@@ -183,6 +185,7 @@ class Auth {
 
 		# Do cookie dup flagging
 		$voter = $status->value;
+		'@phan-var Voter $voter'; /** @var Voter $voter */
 		if ( isset( $session['securepoll_voter'][$election->getId()] ) ) {
 			$otherVoterId = $session['securepoll_voter'][$election->getId()];
 			if ( $voter->getId() != $otherVoterId ) {

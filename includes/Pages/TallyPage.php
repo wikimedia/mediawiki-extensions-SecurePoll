@@ -10,6 +10,7 @@ use MediaWiki\Extensions\SecurePoll\Context;
 use MediaWiki\Extensions\SecurePoll\Entities\Election;
 use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Extensions\SecurePoll\Store\MemoryStore;
+use MediaWiki\Extensions\SecurePoll\Talliers\ElectionTallier;
 use OOUI\MessageWidget;
 use OOUIHTMLForm;
 use Status;
@@ -326,6 +327,7 @@ class TallyPage extends ActionPage {
 			return [ [ 'securepoll-tally-upload-error', $status->getMessage() ] ];
 		}
 		$tallier = $status->value;
+		'@phan-var ElectionTallier $tallier'; /** @var ElectionTallier $tallier */
 		$out->addHTML( $tallier->getHtmlResult() );
 		return true;
 	}
