@@ -34,6 +34,7 @@
 	"securepoll-not-qualified": "Non sei qualificato per votare in questa elezione: $1",
 	"securepoll-change-disallowed": "Hai già votato in questa elezione.\nNon è possibile votare nuovamente.",
 	"securepoll-change-allowed": "<strong>Nota: hai già votato in questa elezione.</strong>\nÈ possibile modificare il voto compilando il modulo seguente.\nSi noti che così facendo il voto originale verrà scartato.",
+	"securepoll-header-comments": "Commenti",
 	"securepoll-submit": "Invia il voto",
 	"securepoll-gpg-receipt": "Grazie per aver votato.\n\nÈ possibile mantenere la seguente ricevuta come prova della votazione:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "Grazie, il tuo voto è stato registrato.",
