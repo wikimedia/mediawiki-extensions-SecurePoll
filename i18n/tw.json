@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Akosua Brago",
+			"Robertjamal12",
 			"Rsaawah"
 		]
 	},
@@ -9,6 +10,6 @@
 	"securepoll-invalid-record": "Abatoɔ ntwerɛtohɔ a enni mu",
 	"securepoll-ballot-type-archived": "Saa ntonto s3so yi rentumi nto aba 3sane s3 3de 3sei",
 	"securepoll-create-label-election_enddate": "Abatoɔ Awieeɛ Da:",
-	"securepoll-create-label-request-comment": "Ser3 twer3 ka ntonto no how as3m",
+	"securepoll-create-label-request-comment": "Request free text comments at the end of the ballot",
 	"securepoll-create-label-comment-prompt": "Hy3 atwer3 ka biribi fa ho:"
 }
