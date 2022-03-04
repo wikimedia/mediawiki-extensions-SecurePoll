@@ -152,7 +152,7 @@ class STVBallotTest extends MediaWikiIntegrationTestCase {
 		if ( count( $this->status->getErrorsArray() ) ) {
 			$result = $this->status->getErrorsArray();
 		}
-		$this->assertEquals( $result, $expected );
+		$this->assertEquals( $expected, $result );
 	}
 
 	/**
@@ -160,6 +160,6 @@ class STVBallotTest extends MediaWikiIntegrationTestCase {
 	 * @covers \MediaWiki\Extensions\SecurePoll\Ballots\ApprovalBallot::unpackRecord
 	 */
 	public function testUnpackRecord( $record, $expected ) {
-		$this->assertEquals( $this->ballot->unpackRecord( $record ), $expected );
+		$this->assertEquals( $expected, $this->ballot->unpackRecord( $record ) );
 	}
 }
