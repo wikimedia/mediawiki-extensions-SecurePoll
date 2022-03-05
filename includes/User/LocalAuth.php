@@ -200,5 +200,3 @@ class LocalAuth extends Auth {
 		return $blockCount;
 	}
 }
-
-class_alias( LocalAuth::class, 'MediaWiki\Extensions\SecurePoll\User\LocalAuth' );

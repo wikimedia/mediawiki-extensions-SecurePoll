@@ -57,8 +57,7 @@
 		"UpdateNotBlockedKey": "cli/updateNotBlockedKey.php"
 	},
 	"AutoloadNamespaces": {
-		"MediaWiki\\Extension\\SecurePoll\\": "includes/",
-		"MediaWiki\\Extensions\\SecurePoll\\": "includes/"
+		"MediaWiki\\Extension\\SecurePoll\\": "includes/"
 	},
 	"ResourceModules": {
 		"ext.securepoll.htmlform": {

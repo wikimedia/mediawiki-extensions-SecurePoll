@@ -31,8 +31,3 @@ interface SecurePoll_GetUserParamsHook {
 		array &$params
 	);
 }
-
-class_alias(
-	SecurePoll_GetUserParamsHook::class,
-	'MediaWiki\Extensions\SecurePoll\Hooks\SecurePoll_GetUserParamsHook'
-);
