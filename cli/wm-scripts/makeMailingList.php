@@ -1,15 +1,15 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll;
+namespace MediaWiki\Extension\SecurePoll;
 
 use CentralAuthServices;
 use Exception;
 use ExtensionRegistry;
 use Generator;
 use Maintenance;
-use MediaWiki\Extensions\SecurePoll\Entities\Election;
-use MediaWiki\Extensions\SecurePoll\Store\DBStore;
-use MediaWiki\Extensions\SecurePoll\User\LocalAuth;
+use MediaWiki\Extension\SecurePoll\Entities\Election;
+use MediaWiki\Extension\SecurePoll\Store\DBStore;
+use MediaWiki\Extension\SecurePoll\User\LocalAuth;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserFactory;

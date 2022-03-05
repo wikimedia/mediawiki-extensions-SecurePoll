@@ -1,10 +1,10 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\User;
+namespace MediaWiki\Extension\SecurePoll\User;
 
 use Http;
 use InvalidArgumentException;
-use MediaWiki\Extensions\SecurePoll\Entities\Election;
+use MediaWiki\Extension\SecurePoll\Entities\Election;
 use Status;
 
 /**

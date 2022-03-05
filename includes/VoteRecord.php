@@ -1,6 +1,6 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll;
+namespace MediaWiki\Extension\SecurePoll;
 
 use MWException;
 use Status;

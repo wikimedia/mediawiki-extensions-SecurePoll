@@ -1,9 +1,9 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Hooks;
+namespace MediaWiki\Extension\SecurePoll\Hooks;
 
-use MediaWiki\Extensions\SecurePoll\Pages\VotePage;
-use MediaWiki\Extensions\SecurePoll\User\LocalAuth;
+use MediaWiki\Extension\SecurePoll\Pages\VotePage;
+use MediaWiki\Extension\SecurePoll\User\LocalAuth;
 use MediaWiki\HookContainer\HookContainer;
 use User;
 

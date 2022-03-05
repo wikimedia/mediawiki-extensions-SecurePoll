@@ -11,7 +11,7 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 }
 require_once "$IP/maintenance/Maintenance.php";
 
-use MediaWiki\Extensions\SecurePoll\Context;
+use MediaWiki\Extension\SecurePoll\Context;
 
 class DumpElection extends Maintenance {
 

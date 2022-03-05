@@ -1,21 +1,21 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Test\Unit;
+namespace MediaWiki\Extension\SecurePoll\Test\Unit;
 
 use DirectoryIterator;
 use Generator;
-use MediaWiki\Extensions\SecurePoll\Entities\Option;
-use MediaWiki\Extensions\SecurePoll\Entities\Question;
-use MediaWiki\Extensions\SecurePoll\Talliers\ElectionTallier;
-use MediaWiki\Extensions\SecurePoll\Talliers\STVTallier;
-use MediaWiki\Extensions\SecurePoll\Talliers\Tallier;
+use MediaWiki\Extension\SecurePoll\Entities\Option;
+use MediaWiki\Extension\SecurePoll\Entities\Question;
+use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
+use MediaWiki\Extension\SecurePoll\Talliers\STVTallier;
+use MediaWiki\Extension\SecurePoll\Talliers\Tallier;
 use MediaWikiUnitTestCase;
 use RequestContext;
 use Wikimedia\TestingAccessWrapper;
 
 /**
  * @group SecurePoll
- * @covers \MediaWiki\Extensions\SecurePoll\Talliers\STVTallier
+ * @covers \MediaWiki\Extension\SecurePoll\Talliers\STVTallier
  */
 class STVTallierTest extends MediaWikiUnitTestCase {
 	protected function setUp(): void {
@@ -104,7 +104,7 @@ class STVTallierTest extends MediaWikiUnitTestCase {
 
 	/**
 	 * @dataProvider resultsFromTally
-	 * @covers \MediaWiki\Extensions\SecurePoll\Talliers\STVTallier::addVote
+	 * @covers \MediaWiki\Extension\SecurePoll\Talliers\STVTallier::addVote
 	 */
 	public function testAddVote( $electionResults, $expected ) {
 		foreach ( $electionResults as $record ) {
@@ -117,7 +117,7 @@ class STVTallierTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @covers \MediaWiki\Extensions\SecurePoll\Talliers\STVTallier::calculateDroopQuota
+	 * @covers \MediaWiki\Extension\SecurePoll\Talliers\STVTallier::calculateDroopQuota
 	 */
 	public function testCalculateDroopQuota() {
 		$actual = TestingAccessWrapper::newFromObject( $this->tallier )->calculateDroopQuota( 57, 2 );

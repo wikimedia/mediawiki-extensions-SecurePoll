@@ -1,10 +1,10 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Talliers;
+namespace MediaWiki\Extension\SecurePoll\Talliers;
 
-use MediaWiki\Extensions\SecurePoll\Ballots\Ballot;
-use MediaWiki\Extensions\SecurePoll\Crypt\Crypt;
-use MediaWiki\Extensions\SecurePoll\Store\Store;
+use MediaWiki\Extension\SecurePoll\Ballots\Ballot;
+use MediaWiki\Extension\SecurePoll\Crypt\Crypt;
+use MediaWiki\Extension\SecurePoll\Store\Store;
 use Status;
 
 /**

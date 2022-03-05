@@ -1,20 +1,20 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Test\Integration;
+namespace MediaWiki\Extension\SecurePoll\Test\Integration;
 
 use FauxRequest;
-use MediaWiki\Extensions\SecurePoll\Ballots\Ballot;
-use MediaWiki\Extensions\SecurePoll\Ballots\BallotStatus;
-use MediaWiki\Extensions\SecurePoll\Ballots\RadioRangeBallot;
-use MediaWiki\Extensions\SecurePoll\Context;
-use MediaWiki\Extensions\SecurePoll\Entities\Election;
-use MediaWiki\Extensions\SecurePoll\Entities\Option;
-use MediaWiki\Extensions\SecurePoll\Entities\Question;
+use MediaWiki\Extension\SecurePoll\Ballots\Ballot;
+use MediaWiki\Extension\SecurePoll\Ballots\BallotStatus;
+use MediaWiki\Extension\SecurePoll\Ballots\RadioRangeBallot;
+use MediaWiki\Extension\SecurePoll\Context;
+use MediaWiki\Extension\SecurePoll\Entities\Election;
+use MediaWiki\Extension\SecurePoll\Entities\Option;
+use MediaWiki\Extension\SecurePoll\Entities\Question;
 use MediaWikiIntegrationTestCase;
 use RequestContext;
 
 /**
- * @covers \MediaWiki\Extensions\SecurePoll\Ballots\RadioRangeBallot
+ * @covers \MediaWiki\Extension\SecurePoll\Ballots\RadioRangeBallot
  */
 class RadioRangeBallotTest extends MediaWikiIntegrationTestCase {
 	/** @var Question */
@@ -122,7 +122,7 @@ class RadioRangeBallotTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @dataProvider votesFromRequestContext
-	 * @covers \MediaWiki\Extensions\SecurePoll\Ballots\ApprovalBallot::submitQuestion
+	 * @covers \MediaWiki\Extension\SecurePoll\Ballots\ApprovalBallot::submitQuestion
 	 */
 	public function testSubmitQuestion( $votes, $expected ) {
 		$this->ballot->initRequest(

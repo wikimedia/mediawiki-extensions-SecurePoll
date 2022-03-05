@@ -1,8 +1,8 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Pages;
+namespace MediaWiki\Extension\SecurePoll\Pages;
 
-use MediaWiki\Extensions\SecurePoll\User\Voter;
+use MediaWiki\Extension\SecurePoll\User\Voter;
 use Title;
 use Wikimedia\IPUtils;
 use Xml;

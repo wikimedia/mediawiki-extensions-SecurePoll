@@ -1,6 +1,6 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\HookHandler;
+namespace MediaWiki\Extension\SecurePoll\HookHandler;
 
 use MediaWiki\Session\SessionManager;
 use MediaWiki\User\Hook\UserLogoutHook;

@@ -1,10 +1,10 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Pages;
+namespace MediaWiki\Extension\SecurePoll\Pages;
 
 use JobQueueGroup;
 use JobSpecification;
-use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
+use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 use OOUI\MessageWidget;
 use SpecialPage;
 

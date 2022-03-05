@@ -1,10 +1,10 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll;
+namespace MediaWiki\Extension\SecurePoll;
 
 use FormSpecialPage;
 use HTMLForm;
-use MediaWiki\Extensions\SecurePoll\Pages\ActionPage;
+use MediaWiki\Extension\SecurePoll\Pages\ActionPage;
 use MediaWiki\User\UserFactory;
 
 class SpecialSecurePollLog extends FormSpecialPage {

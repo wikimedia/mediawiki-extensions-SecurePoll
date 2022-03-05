@@ -1,19 +1,19 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Pages;
+namespace MediaWiki\Extension\SecurePoll\Pages;
 
 use DateTime;
 use DateTimeZone;
 use HTMLForm;
 use LanguageCode;
 use Linker;
-use MediaWiki\Extensions\SecurePoll\Context;
-use MediaWiki\Extensions\SecurePoll\Crypt\Crypt;
-use MediaWiki\Extensions\SecurePoll\Entities\Entity;
-use MediaWiki\Extensions\SecurePoll\SecurePollContentHandler;
-use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
-use MediaWiki\Extensions\SecurePoll\Store\FormStore;
-use MediaWiki\Extensions\SecurePoll\Talliers\Tallier;
+use MediaWiki\Extension\SecurePoll\Context;
+use MediaWiki\Extension\SecurePoll\Crypt\Crypt;
+use MediaWiki\Extension\SecurePoll\Entities\Entity;
+use MediaWiki\Extension\SecurePoll\SecurePollContentHandler;
+use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
+use MediaWiki\Extension\SecurePoll\Store\FormStore;
+use MediaWiki\Extension\SecurePoll\Talliers\Tallier;
 use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\Page\WikiPageFactory;
 use MediaWiki\User\UserGroupManager;

@@ -1,6 +1,6 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Pages;
+namespace MediaWiki\Extension\SecurePoll\Pages;
 
 use DateTime;
 use DateTimeZone;
@@ -9,10 +9,10 @@ use Exception;
 use FormatJson;
 use HTMLForm;
 use Linker;
-use MediaWiki\Extensions\SecurePoll\Context;
-use MediaWiki\Extensions\SecurePoll\Jobs\PopulateVoterListJob;
-use MediaWiki\Extensions\SecurePoll\SecurePollContentHandler;
-use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
+use MediaWiki\Extension\SecurePoll\Context;
+use MediaWiki\Extension\SecurePoll\Jobs\PopulateVoterListJob;
+use MediaWiki\Extension\SecurePoll\SecurePollContentHandler;
+use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Page\WikiPageFactory;
 use MediaWiki\User\UserGroupManager;

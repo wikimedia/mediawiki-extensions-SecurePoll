@@ -1,9 +1,9 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Crypt;
+namespace MediaWiki\Extension\SecurePoll\Crypt;
 
-use MediaWiki\Extensions\SecurePoll\Context;
-use MediaWiki\Extensions\SecurePoll\Entities\Election;
+use MediaWiki\Extension\SecurePoll\Context;
+use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MWException;
 use Status;
 use Wikimedia\Rdbms\IDatabase;

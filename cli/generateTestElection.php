@@ -1,8 +1,8 @@
 <?php
 
-use MediaWiki\Extensions\SecurePoll\Ballots\STVBallot;
-use MediaWiki\Extensions\SecurePoll\Pages\CreatePage;
-use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
+use MediaWiki\Extension\SecurePoll\Ballots\STVBallot;
+use MediaWiki\Extension\SecurePoll\Pages\CreatePage;
+use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 use MediaWiki\MediaWikiServices;
 
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
@@ -12,7 +12,7 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 }
 require_once "$IP/maintenance/Maintenance.php";
 
-use MediaWiki\Extensions\SecurePoll\Context;
+use MediaWiki\Extension\SecurePoll\Context;
 
 class GenerateTestElection extends Maintenance {
 

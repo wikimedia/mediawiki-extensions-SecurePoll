@@ -1,22 +1,22 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll;
+namespace MediaWiki\Extension\SecurePoll;
 
-use MediaWiki\Extensions\SecurePoll\Pages\ActionPage;
-use MediaWiki\Extensions\SecurePoll\Pages\ArchivedPage;
-use MediaWiki\Extensions\SecurePoll\Pages\ArchivePage;
-use MediaWiki\Extensions\SecurePoll\Pages\CreatePage;
-use MediaWiki\Extensions\SecurePoll\Pages\DetailsPage;
-use MediaWiki\Extensions\SecurePoll\Pages\DumpPage;
-use MediaWiki\Extensions\SecurePoll\Pages\EntryPage;
-use MediaWiki\Extensions\SecurePoll\Pages\ListPage;
-use MediaWiki\Extensions\SecurePoll\Pages\LoginPage;
-use MediaWiki\Extensions\SecurePoll\Pages\MessageDumpPage;
-use MediaWiki\Extensions\SecurePoll\Pages\TallyPage;
-use MediaWiki\Extensions\SecurePoll\Pages\TranslatePage;
-use MediaWiki\Extensions\SecurePoll\Pages\UnarchivePage;
-use MediaWiki\Extensions\SecurePoll\Pages\VotePage;
-use MediaWiki\Extensions\SecurePoll\Pages\VoterEligibilityPage;
+use MediaWiki\Extension\SecurePoll\Pages\ActionPage;
+use MediaWiki\Extension\SecurePoll\Pages\ArchivedPage;
+use MediaWiki\Extension\SecurePoll\Pages\ArchivePage;
+use MediaWiki\Extension\SecurePoll\Pages\CreatePage;
+use MediaWiki\Extension\SecurePoll\Pages\DetailsPage;
+use MediaWiki\Extension\SecurePoll\Pages\DumpPage;
+use MediaWiki\Extension\SecurePoll\Pages\EntryPage;
+use MediaWiki\Extension\SecurePoll\Pages\ListPage;
+use MediaWiki\Extension\SecurePoll\Pages\LoginPage;
+use MediaWiki\Extension\SecurePoll\Pages\MessageDumpPage;
+use MediaWiki\Extension\SecurePoll\Pages\TallyPage;
+use MediaWiki\Extension\SecurePoll\Pages\TranslatePage;
+use MediaWiki\Extension\SecurePoll\Pages\UnarchivePage;
+use MediaWiki\Extension\SecurePoll\Pages\VotePage;
+use MediaWiki\Extension\SecurePoll\Pages\VoterEligibilityPage;
 use MediaWiki\Languages\LanguageFallback;
 use MediaWiki\User\UserOptionsLookup;
 use Wikimedia\ObjectFactory;

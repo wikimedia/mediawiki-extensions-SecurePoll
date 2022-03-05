@@ -1,18 +1,18 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Test\Unit;
+namespace MediaWiki\Extension\SecurePoll\Test\Unit;
 
-use MediaWiki\Extensions\SecurePoll\Entities\Option;
-use MediaWiki\Extensions\SecurePoll\Entities\Question;
-use MediaWiki\Extensions\SecurePoll\Talliers\ElectionTallier;
-use MediaWiki\Extensions\SecurePoll\Talliers\PluralityTallier;
-use MediaWiki\Extensions\SecurePoll\Talliers\Tallier;
+use MediaWiki\Extension\SecurePoll\Entities\Option;
+use MediaWiki\Extension\SecurePoll\Entities\Question;
+use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
+use MediaWiki\Extension\SecurePoll\Talliers\PluralityTallier;
+use MediaWiki\Extension\SecurePoll\Talliers\Tallier;
 use MediaWikiUnitTestCase;
 use MWException;
 use RequestContext;
 
 /**
- * @covers \MediaWiki\Extensions\SecurePoll\Talliers\Tallier
+ * @covers \MediaWiki\Extension\SecurePoll\Talliers\Tallier
  */
 class TallierTest extends MediaWikiUnitTestCase {
 	private function getAbstractTallier() {

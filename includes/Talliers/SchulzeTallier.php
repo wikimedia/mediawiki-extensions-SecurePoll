@@ -1,6 +1,6 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Talliers;
+namespace MediaWiki\Extension\SecurePoll\Talliers;
 
 /**
  * This is the basic Schulze method with no tie-breaking. The algorithm in this

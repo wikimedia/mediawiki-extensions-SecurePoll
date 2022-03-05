@@ -1,12 +1,12 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Ballots;
+namespace MediaWiki\Extension\SecurePoll\Ballots;
 
 use Exception;
-use MediaWiki\Extensions\SecurePoll\Entities\Entity;
-use MediaWiki\Extensions\SecurePoll\Entities\Question;
-use MediaWiki\Extensions\SecurePoll\HtmlForm\HTMLFormRadioRangeColumnLabels;
-use MediaWiki\Extensions\SecurePoll\Pages\CreatePage;
+use MediaWiki\Extension\SecurePoll\Entities\Entity;
+use MediaWiki\Extension\SecurePoll\Entities\Question;
+use MediaWiki\Extension\SecurePoll\HtmlForm\HTMLFormRadioRangeColumnLabels;
+use MediaWiki\Extension\SecurePoll\Pages\CreatePage;
 use MWException;
 use Sanitizer;
 

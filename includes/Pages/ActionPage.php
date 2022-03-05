@@ -1,13 +1,13 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Pages;
+namespace MediaWiki\Extension\SecurePoll\Pages;
 
 use Language;
-use MediaWiki\Extensions\SecurePoll\Context;
-use MediaWiki\Extensions\SecurePoll\Entities\Election;
-use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
-use MediaWiki\Extensions\SecurePoll\User\Auth;
-use MediaWiki\Extensions\SecurePoll\User\Voter;
+use MediaWiki\Extension\SecurePoll\Context;
+use MediaWiki\Extension\SecurePoll\Entities\Election;
+use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
+use MediaWiki\Extension\SecurePoll\User\Auth;
+use MediaWiki\Extension\SecurePoll\User\Voter;
 use MediaWiki\Languages\LanguageFallback;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserOptionsLookup;

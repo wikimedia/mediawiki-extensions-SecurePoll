@@ -14,8 +14,8 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 }
 require_once "$IP/maintenance/Maintenance.php";
 
-use MediaWiki\Extensions\SecurePoll\Context;
-use MediaWiki\Extensions\SecurePoll\Talliers\ElectionTallier;
+use MediaWiki\Extension\SecurePoll\Context;
+use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
 use MediaWiki\MediaWikiServices;
 
 class TallyElection extends Maintenance {

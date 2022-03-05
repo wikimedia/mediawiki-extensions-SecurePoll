@@ -1,11 +1,11 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\User;
+namespace MediaWiki\Extension\SecurePoll\User;
 
 use ExtensionRegistry;
 use MediaWiki\Extension\CentralAuth\User\CentralAuthUser;
-use MediaWiki\Extensions\SecurePoll\Entities\Election;
-use MediaWiki\Extensions\SecurePoll\Hooks\HookRunner;
+use MediaWiki\Extension\SecurePoll\Entities\Election;
+use MediaWiki\Extension\SecurePoll\Hooks\HookRunner;
 use MediaWiki\MediaWikiServices;
 use RequestContext;
 use Status;
@@ -200,3 +200,5 @@ class LocalAuth extends Auth {
 		return $blockCount;
 	}
 }
+
+class_alias( LocalAuth::class, 'MediaWiki\Extensions\SecurePoll\User\LocalAuth' );

@@ -1,9 +1,9 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Jobs;
+namespace MediaWiki\Extension\SecurePoll\Jobs;
 
 use Job;
-use MediaWiki\Extensions\SecurePoll\Context;
+use MediaWiki\Extension\SecurePoll\Context;
 
 /**
  * Log whenever an admin looks at Special:SecurePoll/list/{id}

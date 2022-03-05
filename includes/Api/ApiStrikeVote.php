@@ -24,12 +24,12 @@
  * @file
  */
 
-namespace MediaWiki\Extensions\SecurePoll\Api;
+namespace MediaWiki\Extension\SecurePoll\Api;
 
 use ApiBase;
 use ApiMain;
-use MediaWiki\Extensions\SecurePoll\ActionPageFactory;
-use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
+use MediaWiki\Extension\SecurePoll\ActionPageFactory;
+use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 
 /**
  * API module to facilitate striking/unstriking SecurePoll votes.

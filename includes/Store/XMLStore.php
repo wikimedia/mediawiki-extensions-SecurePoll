@@ -1,6 +1,6 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Store;
+namespace MediaWiki\Extension\SecurePoll\Store;
 
 use Status;
 use XMLReader;

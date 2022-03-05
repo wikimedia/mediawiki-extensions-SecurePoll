@@ -1,15 +1,15 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Test\Integration;
+namespace MediaWiki\Extension\SecurePoll\Test\Integration;
 
-use MediaWiki\Extensions\SecurePoll\SpecialSecurePollLog;
+use MediaWiki\Extension\SecurePoll\SpecialSecurePollLog;
 use MediaWiki\User\UserFactory;
 use PermissionsError;
 use SpecialPageTestBase;
 
 /**
  * @group SpecialPage
- * @covers \MediaWiki\Extensions\SecurePoll\SpecialSecurePollLog
+ * @covers \MediaWiki\Extension\SecurePoll\SpecialSecurePollLog
  */
 class SpecialSecurePollLogTest extends SpecialPageTestBase {
 	/**

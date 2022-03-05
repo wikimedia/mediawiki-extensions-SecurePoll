@@ -1,8 +1,8 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Ballots;
+namespace MediaWiki\Extension\SecurePoll\Ballots;
 
-use MediaWiki\Extensions\SecurePoll\Context;
+use MediaWiki\Extension\SecurePoll\Context;
 use Status;
 
 class BallotStatus extends Status {

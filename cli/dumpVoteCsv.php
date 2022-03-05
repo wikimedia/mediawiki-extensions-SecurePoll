@@ -1,7 +1,7 @@
 <?php
 
-use MediaWiki\Extensions\SecurePoll\Context;
-use MediaWiki\Extensions\SecurePoll\Talliers\CommentDumper;
+use MediaWiki\Extension\SecurePoll\Context;
+use MediaWiki\Extension\SecurePoll\Talliers\CommentDumper;
 
 /**
  * Dump all votes from an election from a dump file or local database.

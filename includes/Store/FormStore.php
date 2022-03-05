@@ -1,14 +1,14 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Store;
+namespace MediaWiki\Extension\SecurePoll\Store;
 
 use DateTime;
 use DateTimeZone;
 use ExtensionRegistry;
-use MediaWiki\Extensions\SecurePoll\Context;
-use MediaWiki\Extensions\SecurePoll\Crypt\Crypt;
-use MediaWiki\Extensions\SecurePoll\Pages\StatusException;
-use MediaWiki\Extensions\SecurePoll\Talliers\Tallier;
+use MediaWiki\Extension\SecurePoll\Context;
+use MediaWiki\Extension\SecurePoll\Crypt\Crypt;
+use MediaWiki\Extension\SecurePoll\Pages\StatusException;
+use MediaWiki\Extension\SecurePoll\Talliers\Tallier;
 use MobileContext;
 use SpecialPage;
 use WikiMap;

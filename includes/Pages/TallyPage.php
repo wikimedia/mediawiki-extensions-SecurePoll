@@ -1,16 +1,16 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Pages;
+namespace MediaWiki\Extension\SecurePoll\Pages;
 
 use Exception;
 use HTMLForm;
 use JobQueueGroup;
 use JobSpecification;
-use MediaWiki\Extensions\SecurePoll\Context;
-use MediaWiki\Extensions\SecurePoll\Entities\Election;
-use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
-use MediaWiki\Extensions\SecurePoll\Store\MemoryStore;
-use MediaWiki\Extensions\SecurePoll\Talliers\ElectionTallier;
+use MediaWiki\Extension\SecurePoll\Context;
+use MediaWiki\Extension\SecurePoll\Entities\Election;
+use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
+use MediaWiki\Extension\SecurePoll\Store\MemoryStore;
+use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
 use OOUI\MessageWidget;
 use OOUIHTMLForm;
 use Status;

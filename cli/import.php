@@ -7,9 +7,9 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 }
 require_once "$IP/maintenance/Maintenance.php";
 
-use MediaWiki\Extensions\SecurePoll\Context;
-use MediaWiki\Extensions\SecurePoll\Store\Store;
-use MediaWiki\Extensions\SecurePoll\Store\XMLStore;
+use MediaWiki\Extension\SecurePoll\Context;
+use MediaWiki\Extension\SecurePoll\Store\Store;
+use MediaWiki\Extension\SecurePoll\Store\XMLStore;
 
 class ImportElectionConfiguration extends Maintenance {
 

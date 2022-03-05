@@ -1,13 +1,13 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Pages;
+namespace MediaWiki\Extension\SecurePoll\Pages;
 
 use CommentStoreComment;
 use Exception;
 use Linker;
-use MediaWiki\Extensions\SecurePoll\Context;
-use MediaWiki\Extensions\SecurePoll\SecurePollContentHandler;
-use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
+use MediaWiki\Extension\SecurePoll\Context;
+use MediaWiki\Extension\SecurePoll\SecurePollContentHandler;
+use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\SlotRecord;

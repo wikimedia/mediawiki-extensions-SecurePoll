@@ -1,6 +1,6 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Ballots;
+namespace MediaWiki\Extension\SecurePoll\Ballots;
 
 /**
  * A ballot used specifically for the Wikimedia Referendum on the personal image filter.

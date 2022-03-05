@@ -1,16 +1,16 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Test\Integration;
+namespace MediaWiki\Extension\SecurePoll\Test\Integration;
 
-use MediaWiki\Extensions\SecurePoll\ActionPageFactory;
-use MediaWiki\Extensions\SecurePoll\Pages\ActionPage;
-use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
+use MediaWiki\Extension\SecurePoll\ActionPageFactory;
+use MediaWiki\Extension\SecurePoll\Pages\ActionPage;
+use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 use MediaWiki\MediaWikiServices;
 use MediaWikiIntegrationTestCase;
 
 /**
  * @group SpecialPage
- * @covers \MediaWiki\Extensions\SecurePoll\ActionPageFactory
+ * @covers \MediaWiki\Extension\SecurePoll\ActionPageFactory
  */
 class ActionPageFactoryTest extends MediaWikiIntegrationTestCase {
 	protected function getFactory() {
@@ -27,7 +27,7 @@ class ActionPageFactoryTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers \MediaWiki\Extensions\SecurePoll\ActionPageFactory::getNames
+	 * @covers \MediaWiki\Extension\SecurePoll\ActionPageFactory::getNames
 	 */
 	public function testGetNames() {
 		$factory = $this->getFactory();
@@ -37,7 +37,7 @@ class ActionPageFactoryTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers \MediaWiki\Extensions\SecurePoll\ActionPageFactory::getPage
+	 * @covers \MediaWiki\Extension\SecurePoll\ActionPageFactory::getPage
 	 */
 	public function testMakingValidPages() {
 		$specialPage = $this->getSpecialPage();
@@ -50,7 +50,7 @@ class ActionPageFactoryTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers \MediaWiki\Extensions\SecurePoll\ActionPageFactory::getPage
+	 * @covers \MediaWiki\Extension\SecurePoll\ActionPageFactory::getPage
 	 */
 	public function testMakingInvalidPages() {
 		$specialPage = $this->getSpecialPage();

@@ -1,18 +1,18 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Test\Unit;
+namespace MediaWiki\Extension\SecurePoll\Test\Unit;
 
-use MediaWiki\Extensions\SecurePoll\Entities\Option;
-use MediaWiki\Extensions\SecurePoll\Entities\Question;
-use MediaWiki\Extensions\SecurePoll\Talliers\ElectionTallier;
-use MediaWiki\Extensions\SecurePoll\Talliers\PluralityTallier;
-use MediaWiki\Extensions\SecurePoll\Talliers\Tallier;
+use MediaWiki\Extension\SecurePoll\Entities\Option;
+use MediaWiki\Extension\SecurePoll\Entities\Question;
+use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
+use MediaWiki\Extension\SecurePoll\Talliers\PluralityTallier;
+use MediaWiki\Extension\SecurePoll\Talliers\Tallier;
 use MediaWikiUnitTestCase;
 use RequestContext;
 
 /**
  * @group SecurePoll
- * @covers \MediaWiki\Extensions\SecurePoll\Talliers\PluralityTallier
+ * @covers \MediaWiki\Extension\SecurePoll\Talliers\PluralityTallier
  */
 class PluralityTallierTest extends MediaWikiUnitTestCase {
 	protected function setUp(): void {
@@ -78,7 +78,7 @@ class PluralityTallierTest extends MediaWikiUnitTestCase {
 
 	/**
 	 * @dataProvider resultsFromTally
-	 * @covers \MediaWiki\Extensions\SecurePoll\Talliers\PluralityTallier::finishTally
+	 * @covers \MediaWiki\Extension\SecurePoll\Talliers\PluralityTallier::finishTally
 	 */
 	public function testPluralityTally( $electionResults, $expected ) {
 		foreach ( $electionResults as $record ) {

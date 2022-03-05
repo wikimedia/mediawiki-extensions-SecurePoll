@@ -1,8 +1,8 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\User;
+namespace MediaWiki\Extension\SecurePoll\User;
 
-use MediaWiki\Extensions\SecurePoll\Context;
+use MediaWiki\Extension\SecurePoll\Context;
 use stdClass;
 use WikiMap;
 

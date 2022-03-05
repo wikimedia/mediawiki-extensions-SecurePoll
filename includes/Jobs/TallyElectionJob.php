@@ -1,11 +1,11 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Jobs;
+namespace MediaWiki\Extension\SecurePoll\Jobs;
 
 use Job;
-use MediaWiki\Extensions\SecurePoll\Context;
-use MediaWiki\Extensions\SecurePoll\Entities\Election;
-use MediaWiki\Extensions\SecurePoll\Talliers\ElectionTallier;
+use MediaWiki\Extension\SecurePoll\Context;
+use MediaWiki\Extension\SecurePoll\Entities\Election;
+use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
 use MWException;
 use Throwable;
 use Wikimedia\Rdbms\IDatabase;

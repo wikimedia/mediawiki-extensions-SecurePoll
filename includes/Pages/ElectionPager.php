@@ -1,8 +1,8 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Pages;
+namespace MediaWiki\Extension\SecurePoll\Pages;
 
-use MediaWiki\Extensions\SecurePoll\Entities\Election;
+use MediaWiki\Extension\SecurePoll\Entities\Election;
 use stdClass;
 use TablePager;
 

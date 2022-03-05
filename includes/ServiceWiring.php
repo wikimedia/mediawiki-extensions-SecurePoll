@@ -1,8 +1,8 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll;
+namespace MediaWiki\Extension\SecurePoll;
 
-use MediaWiki\Extensions\SecurePoll\Hooks\HookRunner;
+use MediaWiki\Extension\SecurePoll\Hooks\HookRunner;
 use MediaWiki\MediaWikiServices;
 
 return [

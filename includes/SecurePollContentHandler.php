@@ -1,11 +1,11 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll;
+namespace MediaWiki\Extension\SecurePoll;
 
 use ContentHandler;
 use FormatJson;
 use JsonContentHandler;
-use MediaWiki\Extensions\SecurePoll\Entities\Election;
+use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MWException;
 use Title;
 

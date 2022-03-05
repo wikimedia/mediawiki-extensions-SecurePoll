@@ -1,17 +1,17 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Test\Unit;
+namespace MediaWiki\Extension\SecurePoll\Test\Unit;
 
-use MediaWiki\Extensions\SecurePoll\Ballots\Ballot;
-use MediaWiki\Extensions\SecurePoll\Ballots\BallotStatus;
-use MediaWiki\Extensions\SecurePoll\Entities\Election;
-use MediaWiki\Extensions\SecurePoll\Entities\Option;
-use MediaWiki\Extensions\SecurePoll\Entities\Question;
+use MediaWiki\Extension\SecurePoll\Ballots\Ballot;
+use MediaWiki\Extension\SecurePoll\Ballots\BallotStatus;
+use MediaWiki\Extension\SecurePoll\Entities\Election;
+use MediaWiki\Extension\SecurePoll\Entities\Option;
+use MediaWiki\Extension\SecurePoll\Entities\Question;
 use MediaWikiUnitTestCase;
 use RequestContext;
 
 /**
- * @covers \MediaWiki\Extensions\SecurePoll\Ballots\Ballot
+ * @covers \MediaWiki\Extension\SecurePoll\Ballots\Ballot
  */
 class BallotTest extends MediaWikiUnitTestCase {
 	private function getAbstractBallot( $election = null ) {

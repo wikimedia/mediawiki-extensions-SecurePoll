@@ -1,6 +1,6 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\HtmlForm;
+namespace MediaWiki\Extension\SecurePoll\HtmlForm;
 
 use HTMLFormField;
 use OOUI;

@@ -1,8 +1,8 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Hooks;
+namespace MediaWiki\Extension\SecurePoll\Hooks;
 
-use MediaWiki\Extensions\SecurePoll\User\LocalAuth;
+use MediaWiki\Extension\SecurePoll\User\LocalAuth;
 use User;
 
 // phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
@@ -31,3 +31,8 @@ interface SecurePoll_GetUserParamsHook {
 		array &$params
 	);
 }
+
+class_alias(
+	SecurePoll_GetUserParamsHook::class,
+	'MediaWiki\Extensions\SecurePoll\Hooks\SecurePoll_GetUserParamsHook'
+);

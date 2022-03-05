@@ -11,8 +11,8 @@ chdir( $IP );
 
 require "$IP/includes/WebStart.php";
 
-use MediaWiki\Extensions\SecurePoll\Context;
-use MediaWiki\Extensions\SecurePoll\User\RemoteMWAuth;
+use MediaWiki\Extension\SecurePoll\Context;
+use MediaWiki\Extension\SecurePoll\User\RemoteMWAuth;
 
 /**
  * @param string $val To echo

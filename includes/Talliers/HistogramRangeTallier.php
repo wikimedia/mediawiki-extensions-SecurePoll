@@ -1,6 +1,6 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Talliers;
+namespace MediaWiki\Extension\SecurePoll\Talliers;
 
 use MWException;
 use Xml;

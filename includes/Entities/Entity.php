@@ -1,8 +1,8 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Entities;
+namespace MediaWiki\Extension\SecurePoll\Entities;
 
-use MediaWiki\Extensions\SecurePoll\Context;
+use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\MediaWikiServices;
 use SpecialPage;
 use Xml;

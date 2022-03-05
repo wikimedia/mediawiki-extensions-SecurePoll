@@ -1,16 +1,16 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Test\Unit;
+namespace MediaWiki\Extension\SecurePoll\Test\Unit;
 
-use MediaWiki\Extensions\SecurePoll\Entities\Option;
-use MediaWiki\Extensions\SecurePoll\Entities\Question;
-use MediaWiki\Extensions\SecurePoll\Talliers\ElectionTallier;
-use MediaWiki\Extensions\SecurePoll\Talliers\PairwiseTallier;
+use MediaWiki\Extension\SecurePoll\Entities\Option;
+use MediaWiki\Extension\SecurePoll\Entities\Question;
+use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
+use MediaWiki\Extension\SecurePoll\Talliers\PairwiseTallier;
 use MediaWikiUnitTestCase;
 use RequestContext;
 
 /**
- * @covers \MediaWiki\Extensions\SecurePoll\Talliers\PairwiseTallier
+ * @covers \MediaWiki\Extension\SecurePoll\Talliers\PairwiseTallier
  */
 class PairwiseTallierTest extends MediaWikiUnitTestCase {
 	protected function setUp(): void {
@@ -35,7 +35,7 @@ class PairwiseTallierTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @covers \MediaWiki\Extensions\SecurePoll\Talliers\PairwiseTallier::factory
+	 * @covers \MediaWiki\Extension\SecurePoll\Talliers\PairwiseTallier::factory
 	 */
 	public function testFactory() {
 		$this->assertInstanceOf( PairwiseTallier::class, $this->tallier );
@@ -43,7 +43,7 @@ class PairwiseTallierTest extends MediaWikiUnitTestCase {
 
 	/**
 	 * @dataProvider tallyResults
-	 * @covers \MediaWiki\Extensions\SecurePoll\Talliers\PairwiseTallier::convertMatrixToHtml
+	 * @covers \MediaWiki\Extension\SecurePoll\Talliers\PairwiseTallier::convertMatrixToHtml
 	 */
 	public function testConvertMatrixToHtml( $electionResults, $expected ) {
 		$this->tallier->victories = $victories = $electionResults['victories'];
@@ -53,7 +53,7 @@ class PairwiseTallierTest extends MediaWikiUnitTestCase {
 
 	/**
 	 * @dataProvider tallyResults
-	 * @covers \MediaWiki\Extensions\SecurePoll\Talliers\PairwiseTallier::convertMatrixToText
+	 * @covers \MediaWiki\Extension\SecurePoll\Talliers\PairwiseTallier::convertMatrixToText
 	 */
 	public function testConvertMatrixToText( $electionResults, $expected ) {
 		$this->tallier->victories = $victories = $electionResults['victories'];

@@ -1,18 +1,18 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Test\Unit;
+namespace MediaWiki\Extension\SecurePoll\Test\Unit;
 
-use MediaWiki\Extensions\SecurePoll\Entities\Option;
-use MediaWiki\Extensions\SecurePoll\Entities\Question;
-use MediaWiki\Extensions\SecurePoll\Talliers\ElectionTallier;
-use MediaWiki\Extensions\SecurePoll\Talliers\HistogramRangeTallier;
-use MediaWiki\Extensions\SecurePoll\Talliers\Tallier;
+use MediaWiki\Extension\SecurePoll\Entities\Option;
+use MediaWiki\Extension\SecurePoll\Entities\Question;
+use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
+use MediaWiki\Extension\SecurePoll\Talliers\HistogramRangeTallier;
+use MediaWiki\Extension\SecurePoll\Talliers\Tallier;
 use MediaWikiUnitTestCase;
 use RequestContext;
 
 /**
  * @group SecurePoll
- * @covers \MediaWiki\Extensions\SecurePoll\Talliers\HistogramRangeTallier
+ * @covers \MediaWiki\Extension\SecurePoll\Talliers\HistogramRangeTallier
  */
 class HistogramRangeTallierTest extends MediaWikiUnitTestCase {
 	protected function setUp(): void {
@@ -86,7 +86,7 @@ class HistogramRangeTallierTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @covers \MediaWiki\Extensions\SecurePoll\Talliers\HistogramRangeTallier::factory
+	 * @covers \MediaWiki\Extension\SecurePoll\Talliers\HistogramRangeTallier::factory
 	 */
 	public function testFactory() {
 		$this->assertInstanceOf( HistogramRangeTallier::class, $this->tallier );
@@ -94,7 +94,7 @@ class HistogramRangeTallierTest extends MediaWikiUnitTestCase {
 
 	/**
 	 * @dataProvider resultsFromTally
-	 * @covers \MediaWiki\Extensions\SecurePoll\Talliers\HistogramRangeTallier::finishTally
+	 * @covers \MediaWiki\Extension\SecurePoll\Talliers\HistogramRangeTallier::finishTally
 	 */
 	public function testHistogramRangeTally( $electionResults, $expected ) {
 		foreach ( $electionResults as $record ) {

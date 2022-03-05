@@ -1,18 +1,18 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Test\Unit;
+namespace MediaWiki\Extension\SecurePoll\Test\Unit;
 
-use MediaWiki\Extensions\SecurePoll\Entities\Option;
-use MediaWiki\Extensions\SecurePoll\Entities\Question;
-use MediaWiki\Extensions\SecurePoll\Talliers\ElectionTallier;
-use MediaWiki\Extensions\SecurePoll\Talliers\SchulzeTallier;
-use MediaWiki\Extensions\SecurePoll\Talliers\Tallier;
+use MediaWiki\Extension\SecurePoll\Entities\Option;
+use MediaWiki\Extension\SecurePoll\Entities\Question;
+use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
+use MediaWiki\Extension\SecurePoll\Talliers\SchulzeTallier;
+use MediaWiki\Extension\SecurePoll\Talliers\Tallier;
 use MediaWikiUnitTestCase;
 use RequestContext;
 
 /**
  * @group SecurePoll
- * @covers \MediaWiki\Extensions\SecurePoll\Talliers\SchulzeTallier
+ * @covers \MediaWiki\Extension\SecurePoll\Talliers\SchulzeTallier
  */
 class SchulzeTallierTest extends MediaWikiUnitTestCase {
 	protected function setUp(): void {
@@ -117,7 +117,7 @@ class SchulzeTallierTest extends MediaWikiUnitTestCase {
 
 	/**
 	 * @dataProvider resultsFromTally
-	 * @covers \MediaWiki\Extensions\SecurePoll\Talliers\SchulzeTallier::finishTally
+	 * @covers \MediaWiki\Extension\SecurePoll\Talliers\SchulzeTallier::finishTally
 	 */
 	public function testSchulzeTally( $electionResults, $expected ) {
 		foreach ( $electionResults as $record ) {

@@ -1,6 +1,6 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Crypt;
+namespace MediaWiki\Extension\SecurePoll\Crypt;
 
 use MWException;
 use Status;

@@ -1,17 +1,17 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Pages;
+namespace MediaWiki\Extension\SecurePoll\Pages;
 
 use ExtensionRegistry;
 use HTMLForm;
-use MediaWiki\Extensions\SecurePoll\Ballots\Ballot;
-use MediaWiki\Extensions\SecurePoll\Entities\Election;
-use MediaWiki\Extensions\SecurePoll\Hooks\HookRunner;
-use MediaWiki\Extensions\SecurePoll\SpecialSecurePoll;
-use MediaWiki\Extensions\SecurePoll\User\Auth;
-use MediaWiki\Extensions\SecurePoll\User\RemoteMWAuth;
-use MediaWiki\Extensions\SecurePoll\User\Voter;
-use MediaWiki\Extensions\SecurePoll\VoteRecord;
+use MediaWiki\Extension\SecurePoll\Ballots\Ballot;
+use MediaWiki\Extension\SecurePoll\Entities\Election;
+use MediaWiki\Extension\SecurePoll\Hooks\HookRunner;
+use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
+use MediaWiki\Extension\SecurePoll\User\Auth;
+use MediaWiki\Extension\SecurePoll\User\RemoteMWAuth;
+use MediaWiki\Extension\SecurePoll\User\Voter;
+use MediaWiki\Extension\SecurePoll\VoteRecord;
 use MediaWiki\Session\SessionManager;
 use MobileContext;
 use MWException;

@@ -1,10 +1,10 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll;
+namespace MediaWiki\Extension\SecurePoll;
 
 use Linker;
-use MediaWiki\Extensions\SecurePoll\Pages\ActionPage;
-use MediaWiki\Extensions\SecurePoll\Pages\EntryPage;
+use MediaWiki\Extension\SecurePoll\Pages\ActionPage;
+use MediaWiki\Extension\SecurePoll\Pages\EntryPage;
 use SpecialPage;
 
 /**

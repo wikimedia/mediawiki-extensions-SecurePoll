@@ -1,14 +1,14 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Test\Integration;
+namespace MediaWiki\Extension\SecurePoll\Test\Integration;
 
-use MediaWiki\Extensions\SecurePoll\Context;
-use MediaWiki\Extensions\SecurePoll\SecurePollLogPager;
+use MediaWiki\Extension\SecurePoll\Context;
+use MediaWiki\Extension\SecurePoll\SecurePollLogPager;
 use MediaWiki\User\UserFactory;
 use MediaWikiIntegrationTestCase;
 
 /**
- * @covers \MediaWiki\Extensions\SecurePoll\SecurePollLogPager
+ * @covers \MediaWiki\Extension\SecurePoll\SecurePollLogPager
  */
 class SecurePollLogPagerTest extends MediaWikiIntegrationTestCase {
 	public function testGetQueryInfoNoFilters() {

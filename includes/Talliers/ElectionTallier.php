@@ -1,15 +1,15 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Talliers;
+namespace MediaWiki\Extension\SecurePoll\Talliers;
 
 use Html;
-use MediaWiki\Extensions\SecurePoll\Ballots\Ballot;
-use MediaWiki\Extensions\SecurePoll\Context;
-use MediaWiki\Extensions\SecurePoll\Crypt\Crypt;
-use MediaWiki\Extensions\SecurePoll\Entities\Election;
-use MediaWiki\Extensions\SecurePoll\Entities\Question;
-use MediaWiki\Extensions\SecurePoll\Store\Store;
-use MediaWiki\Extensions\SecurePoll\VoteRecord;
+use MediaWiki\Extension\SecurePoll\Ballots\Ballot;
+use MediaWiki\Extension\SecurePoll\Context;
+use MediaWiki\Extension\SecurePoll\Crypt\Crypt;
+use MediaWiki\Extension\SecurePoll\Entities\Election;
+use MediaWiki\Extension\SecurePoll\Entities\Question;
+use MediaWiki\Extension\SecurePoll\Store\Store;
+use MediaWiki\Extension\SecurePoll\VoteRecord;
 use MediaWiki\Logger\LoggerFactory;
 use MWException;
 use Status;

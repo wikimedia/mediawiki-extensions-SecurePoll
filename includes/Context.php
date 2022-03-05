@@ -1,21 +1,21 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll;
+namespace MediaWiki\Extension\SecurePoll;
 
-use MediaWiki\Extensions\SecurePoll\Ballots\Ballot;
-use MediaWiki\Extensions\SecurePoll\Crypt\Crypt;
-use MediaWiki\Extensions\SecurePoll\Crypt\GpgCrypt;
-use MediaWiki\Extensions\SecurePoll\Crypt\Random;
-use MediaWiki\Extensions\SecurePoll\Entities\Election;
-use MediaWiki\Extensions\SecurePoll\Entities\Option;
-use MediaWiki\Extensions\SecurePoll\Entities\Question;
-use MediaWiki\Extensions\SecurePoll\Store\DBStore;
-use MediaWiki\Extensions\SecurePoll\Store\Store;
-use MediaWiki\Extensions\SecurePoll\Store\XMLStore;
-use MediaWiki\Extensions\SecurePoll\Talliers\ElectionTallier;
-use MediaWiki\Extensions\SecurePoll\Talliers\Tallier;
-use MediaWiki\Extensions\SecurePoll\User\Auth;
-use MediaWiki\Extensions\SecurePoll\User\Voter;
+use MediaWiki\Extension\SecurePoll\Ballots\Ballot;
+use MediaWiki\Extension\SecurePoll\Crypt\Crypt;
+use MediaWiki\Extension\SecurePoll\Crypt\GpgCrypt;
+use MediaWiki\Extension\SecurePoll\Crypt\Random;
+use MediaWiki\Extension\SecurePoll\Entities\Election;
+use MediaWiki\Extension\SecurePoll\Entities\Option;
+use MediaWiki\Extension\SecurePoll\Entities\Question;
+use MediaWiki\Extension\SecurePoll\Store\DBStore;
+use MediaWiki\Extension\SecurePoll\Store\Store;
+use MediaWiki\Extension\SecurePoll\Store\XMLStore;
+use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
+use MediaWiki\Extension\SecurePoll\Talliers\Tallier;
+use MediaWiki\Extension\SecurePoll\User\Auth;
+use MediaWiki\Extension\SecurePoll\User\Voter;
 use MediaWiki\MediaWikiServices;
 use ParserOptions;
 use RequestContext;

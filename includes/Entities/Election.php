@@ -1,13 +1,13 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Entities;
+namespace MediaWiki\Extension\SecurePoll\Entities;
 
-use MediaWiki\Extensions\SecurePoll\Ballots\Ballot;
-use MediaWiki\Extensions\SecurePoll\Context;
-use MediaWiki\Extensions\SecurePoll\Crypt\Crypt;
-use MediaWiki\Extensions\SecurePoll\Talliers\ElectionTallier;
-use MediaWiki\Extensions\SecurePoll\User\Auth;
-use MediaWiki\Extensions\SecurePoll\User\Voter;
+use MediaWiki\Extension\SecurePoll\Ballots\Ballot;
+use MediaWiki\Extension\SecurePoll\Context;
+use MediaWiki\Extension\SecurePoll\Crypt\Crypt;
+use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
+use MediaWiki\Extension\SecurePoll\User\Auth;
+use MediaWiki\Extension\SecurePoll\User\Voter;
 use MediaWiki\MediaWikiServices;
 use MWException;
 use Status;

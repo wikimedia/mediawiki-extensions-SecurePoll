@@ -1,12 +1,12 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Jobs;
+namespace MediaWiki\Extension\SecurePoll\Jobs;
 
 use ActorMigration;
 use Exception;
 use Job;
 use JobSpecification;
-use MediaWiki\Extensions\SecurePoll\Entities\Election;
+use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\MediaWikiServices;
 use MWExceptionHandler;
 use RuntimeException;

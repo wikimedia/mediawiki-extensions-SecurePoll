@@ -1,20 +1,20 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Test\Integration;
+namespace MediaWiki\Extension\SecurePoll\Test\Integration;
 
 use FauxRequest;
-use MediaWiki\Extensions\SecurePoll\Ballots\Ballot;
-use MediaWiki\Extensions\SecurePoll\Ballots\BallotStatus;
-use MediaWiki\Extensions\SecurePoll\Ballots\STVBallot;
-use MediaWiki\Extensions\SecurePoll\Context;
-use MediaWiki\Extensions\SecurePoll\Entities\Election;
-use MediaWiki\Extensions\SecurePoll\Entities\Option;
-use MediaWiki\Extensions\SecurePoll\Entities\Question;
+use MediaWiki\Extension\SecurePoll\Ballots\Ballot;
+use MediaWiki\Extension\SecurePoll\Ballots\BallotStatus;
+use MediaWiki\Extension\SecurePoll\Ballots\STVBallot;
+use MediaWiki\Extension\SecurePoll\Context;
+use MediaWiki\Extension\SecurePoll\Entities\Election;
+use MediaWiki\Extension\SecurePoll\Entities\Option;
+use MediaWiki\Extension\SecurePoll\Entities\Question;
 use MediaWikiIntegrationTestCase;
 use RequestContext;
 
 /**
- * @covers \MediaWiki\Extensions\SecurePoll\Ballots\STVBallot
+ * @covers \MediaWiki\Extension\SecurePoll\Ballots\STVBallot
  */
 class STVBallotTest extends MediaWikiIntegrationTestCase {
 	/** @var Question */
@@ -138,7 +138,7 @@ class STVBallotTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @dataProvider votesFromRequestContext
-	 * @covers \MediaWiki\Extensions\SecurePoll\Ballots\ApprovalBallot::submitQuestion
+	 * @covers \MediaWiki\Extension\SecurePoll\Ballots\ApprovalBallot::submitQuestion
 	 */
 	public function testSubmitQuestion( $votes, $expected ) {
 		$this->ballot->initRequest(
@@ -157,7 +157,7 @@ class STVBallotTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @dataProvider packedRecords
-	 * @covers \MediaWiki\Extensions\SecurePoll\Ballots\ApprovalBallot::unpackRecord
+	 * @covers \MediaWiki\Extension\SecurePoll\Ballots\ApprovalBallot::unpackRecord
 	 */
 	public function testUnpackRecord( $record, $expected ) {
 		$this->assertEquals( $this->ballot->unpackRecord( $record ), $expected );

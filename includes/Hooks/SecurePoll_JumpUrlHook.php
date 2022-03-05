@@ -1,8 +1,8 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Hooks;
+namespace MediaWiki\Extension\SecurePoll\Hooks;
 
-use MediaWiki\Extensions\SecurePoll\Pages\VotePage;
+use MediaWiki\Extension\SecurePoll\Pages\VotePage;
 
 // phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
 // phpcs:disable Squiz.Classes.ValidClassName.NotCamelCaps

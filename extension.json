@@ -17,26 +17,26 @@
 		"securepoll-view-voter-pii"
 	],
 	"ContentHandlers": {
-		"SecurePoll": "\\MediaWiki\\Extensions\\SecurePoll\\SecurePollContentHandler"
+		"SecurePoll": "\\MediaWiki\\Extension\\SecurePoll\\SecurePollContentHandler"
 	},
 	"SpecialPages": {
 		"SecurePoll": {
-			"class": "\\MediaWiki\\Extensions\\SecurePoll\\SpecialSecurePoll",
+			"class": "\\MediaWiki\\Extension\\SecurePoll\\SpecialSecurePoll",
 			"services": [
 				"SecurePoll.ActionPageFactory"
 			]
 		}
 	},
 	"JobClasses": {
-		"securePollPopulateVoterList": "\\MediaWiki\\Extensions\\SecurePoll\\Jobs\\PopulateVoterListJob",
-		"securePollTallyElection": "\\MediaWiki\\Extensions\\SecurePoll\\Jobs\\TallyElectionJob",
-		"securePollLogAdminAction": "\\MediaWiki\\Extensions\\SecurePoll\\Jobs\\LogAdminActionJob",
-		"securePollArchiveElection": "\\MediaWiki\\Extensions\\SecurePoll\\Jobs\\ArchiveElectionJob",
-		"securePollUnarchiveElection": "\\MediaWiki\\Extensions\\SecurePoll\\Jobs\\UnarchiveElectionJob"
+		"securePollPopulateVoterList": "\\MediaWiki\\Extension\\SecurePoll\\Jobs\\PopulateVoterListJob",
+		"securePollTallyElection": "\\MediaWiki\\Extension\\SecurePoll\\Jobs\\TallyElectionJob",
+		"securePollLogAdminAction": "\\MediaWiki\\Extension\\SecurePoll\\Jobs\\LogAdminActionJob",
+		"securePollArchiveElection": "\\MediaWiki\\Extension\\SecurePoll\\Jobs\\ArchiveElectionJob",
+		"securePollUnarchiveElection": "\\MediaWiki\\Extension\\SecurePoll\\Jobs\\UnarchiveElectionJob"
 	},
 	"APIModules": {
 		"strikevote": {
-			"class": "\\MediaWiki\\Extensions\\SecurePoll\\Api\\ApiStrikeVote",
+			"class": "\\MediaWiki\\Extension\\SecurePoll\\Api\\ApiStrikeVote",
 			"services": [
 				"SecurePoll.ActionPageFactory"
 			]
@@ -57,6 +57,7 @@
 		"UpdateNotBlockedKey": "cli/updateNotBlockedKey.php"
 	},
 	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\SecurePoll\\": "includes/",
 		"MediaWiki\\Extensions\\SecurePoll\\": "includes/"
 	},
 	"ResourceModules": {
@@ -101,14 +102,14 @@
 	},
 	"HookHandlers": {
 		"install": {
-			"class": "\\MediaWiki\\Extensions\\SecurePoll\\HookHandler\\InstallHandler"
+			"class": "\\MediaWiki\\Extension\\SecurePoll\\HookHandler\\InstallHandler"
 		},
 		"setup": {
-			"class": "\\MediaWiki\\Extensions\\SecurePoll\\HookHandler\\SetupHandler",
+			"class": "\\MediaWiki\\Extension\\SecurePoll\\HookHandler\\SetupHandler",
 			"services": [ "MainConfig" ]
 		},
 		"logout": {
-			"class": "\\MediaWiki\\Extensions\\SecurePoll\\HookHandler\\LogoutHandler"
+			"class": "\\MediaWiki\\Extension\\SecurePoll\\HookHandler\\LogoutHandler"
 		}
 	},
 	"ServiceWiringFiles": [

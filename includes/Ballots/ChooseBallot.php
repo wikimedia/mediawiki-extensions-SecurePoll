@@ -1,8 +1,8 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Ballots;
+namespace MediaWiki\Extension\SecurePoll\Ballots;
 
-use MediaWiki\Extensions\SecurePoll\Entities\Question;
+use MediaWiki\Extension\SecurePoll\Entities\Question;
 
 /**
  * A ballot class which asks the user to choose one answer only from the

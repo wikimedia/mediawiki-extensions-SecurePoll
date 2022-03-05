@@ -1,9 +1,9 @@
 <?php
 
-namespace MediaWiki\Extensions\SecurePoll\Ballots;
+namespace MediaWiki\Extension\SecurePoll\Ballots;
 
-use MediaWiki\Extensions\SecurePoll\Entities\Question;
-use MediaWiki\Extensions\SecurePoll\Pages\CreatePage;
+use MediaWiki\Extension\SecurePoll\Entities\Question;
+use MediaWiki\Extension\SecurePoll\Pages\CreatePage;
 use OOUI\DropdownInputWidget;
 use OOUI\FieldsetLayout;
 
