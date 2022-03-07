@@ -5,6 +5,7 @@
 			"Yupik"
 		]
 	},
+	"securepoll-header-comments": "Kommenteh",
 	"securepoll-header-timestamp": "Äigi",
 	"securepoll-header-voter-name": "Nommâ",
 	"securepoll-strike-reason": "Suijâ:",
@@ -12,6 +13,7 @@
 	"securepoll-header-admin": "Haldâšeijee",
 	"securepoll-translate-label-comment": "Suijâ:",
 	"securepoll-header-title": "Nommâ",
+	"securepoll-create-option-wiki-all_wikis": "Puoh wikih",
 	"securepoll-create-label-property_admins": "Haldâšeijeeh:",
 	"securepoll-create-label-comment": "Suijâ",
 	"securepoll-votereligibility-label-comment": "Suijâ"

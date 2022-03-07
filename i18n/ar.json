@@ -3,6 +3,7 @@
 		"authors": [
 			"Abanima",
 			"Aiman titi",
+			"FiberAhmed",
 			"Kuwaity26",
 			"Meno25",
 			"Mervat (WMF)",
@@ -27,6 +28,7 @@
 	"securepoll-not-qualified": "أنت غير مؤهل للتصويت في هذه الانتخابات: $1",
 	"securepoll-change-disallowed": "لقد قمت بالتصويت في هذه الانتخابات من قبل.\nعذرا، لا يمكنك التصويت مرة أخرى.",
 	"securepoll-change-allowed": "<strong>ملاحظة: لقد قمت بالتصويت في هذه الانتخابات من قبل</strong>\nيمكنك تغيير صوتك باستخدام النموذج بالأسفل.\nلاحظ انه اذا قمت بذلك، سيتم اهمال تصويتك السابق.",
+	"securepoll-header-comments": "التعليقات",
 	"securepoll-submit": "أرسل صوتك",
 	"securepoll-gpg-receipt": "شكرا لتصويتك\n\nلو اردت، يمكنك الاحتفاظ بالايصال التالي كدليل على تصويتك:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "شكرا لك، تم تسجيل تصويتك.",

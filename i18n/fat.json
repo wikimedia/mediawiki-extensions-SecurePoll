@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ebenoffen1"
+		]
+	},
+	"securepoll-header-comments": "Nkasaho",
+	"securepoll-invalid-record": "Abatow abakɔsɛm a onndzi mu.",
+	"securepoll-ballot-type-archived": "Woesie dɛm abatow kwan yi wonnkotum dze edzi dwuma bio.",
+	"securepoll-tally-comments": "Abatownyi ho nkasaho",
+	"securepoll-create-label-request-comment": "Bisa abatow no n'ekyir nkasaho a innkotua ho hwee",
+	"securepoll-create-label-comment-prompt": "Hyɛ akyerɛw no ma wɔnkasa ho:"
+}
