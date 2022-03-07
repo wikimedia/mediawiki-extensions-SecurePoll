@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Extension\SecurePoll;
 
-use CentralAuthServices;
 use ExtensionRegistry;
 use Maintenance;
+use MediaWiki\Extension\CentralAuth\CentralAuthServices;
 use MediaWiki\Extension\CentralAuth\User\CentralAuthUser;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserIdentityValue;

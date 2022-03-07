@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\SecurePoll;
 
-use CentralAuthServices;
 use Maintenance;
+use MediaWiki\Extension\CentralAuth\CentralAuthServices;
 use MediaWiki\MediaWikiServices;
 use WikiMap;
 use Wikimedia\Rdbms\IDatabase;
