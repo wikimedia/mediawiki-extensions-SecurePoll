@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\SecurePoll;
 
-use CentralAuthServices;
+use MediaWiki\Extension\CentralAuth\CentralAuthServices;
 use Wikimedia\Rdbms\IDatabase;
 
 if ( getenv( 'MW_INSTALL_PATH' ) ) {

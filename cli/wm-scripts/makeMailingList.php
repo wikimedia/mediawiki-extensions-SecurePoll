@@ -2,11 +2,11 @@
 
 namespace MediaWiki\Extension\SecurePoll;
 
-use CentralAuthServices;
 use Exception;
 use ExtensionRegistry;
 use Generator;
 use Maintenance;
+use MediaWiki\Extension\CentralAuth\CentralAuthServices;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Store\DBStore;
 use MediaWiki\Extension\SecurePoll\User\LocalAuth;
