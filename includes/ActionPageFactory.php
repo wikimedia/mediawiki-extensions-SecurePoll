@@ -19,7 +19,7 @@ use MediaWiki\Extension\SecurePoll\Pages\VotePage;
 use MediaWiki\Extension\SecurePoll\Pages\VoterEligibilityPage;
 use MediaWiki\Languages\LanguageFallback;
 use MediaWiki\User\UserOptionsLookup;
-use Wikimedia\ObjectFactory;
+use Wikimedia\ObjectFactory\ObjectFactory;
 
 class ActionPageFactory {
 	/**
