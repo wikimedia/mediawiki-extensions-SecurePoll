@@ -137,6 +137,6 @@ class RadioRangeBallotTest extends MediaWikiIntegrationTestCase {
 			$result = $this->status->getErrorsArray();
 		}
 
-		$this->assertEquals( $result, $expected );
+		$this->assertEquals( $expected, $result );
 	}
 }

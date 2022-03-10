@@ -127,6 +127,6 @@ class PreferentialBallotTest extends MediaWikiIntegrationTestCase {
 		if ( count( $this->status->getErrorsArray() ) ) {
 			$result = $this->status->getErrorsArray();
 		}
-		$this->assertEquals( $result, $expected );
+		$this->assertEquals( $expected, $result );
 	}
 }
