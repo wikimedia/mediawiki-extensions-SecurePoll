@@ -163,6 +163,7 @@
 	"securepoll-create-option-wiki-other_wiki": "기타 특정 위키",
 	"securepoll-create-label-election_primarylang": "주 언어:",
 	"securepoll-create-label-election_startdate": "선거 시작일:",
+	"securepoll-create-label-election_enddate": "선거 종료일:",
 	"securepoll-create-label-election_duration": "선거 기간 (일):",
 	"securepoll-create-label-election_disallow-change": "투표자가 투표를 변경하지 못하도록 막기",
 	"securepoll-create-label-election_return-url": "돌아갈 주소:",
