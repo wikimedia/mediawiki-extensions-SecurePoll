@@ -198,7 +198,7 @@
 	"securepoll-create-label-must_answer_all": "Obliger toutes les options à avoir une réponse.",
 	"securepoll-create-label-voter_privacy": "Désactiver les fonctionnalités de transparence (par ex. la liste des votants) pour protéger la confidentialité des électeurs.",
 	"securepoll-create-label-request-comment": "Demander des commentaires en texte libre à la fin du bulletin de vote",
-	"securepoll-create-label-comment-prompt": "Texte d’invite pour des commentaires :",
+	"securepoll-create-label-comment-prompt": "Texte d’invite pour les commentaires :",
 	"securepoll-create-label-gpg_encrypt_key": "Clé de chiffrement GPG",
 	"securepoll-create-label-gpg_sign_key": "Clé de signature GPG",
 	"securepoll-create-label-questions": "== Questions ==",
