@@ -9,7 +9,8 @@
 			"Ankan",
 			"MdsShakil",
 			"R4356th",
-			"WikiAbuHuraira"
+			"WikiAbuHuraira",
+			"Yahya"
 		]
 	},
 	"securepoll": "সিকিউরপোল",
@@ -36,8 +37,8 @@
 	"securepoll-gpg-config-error": "জিপিজি চাবিগুলো ভুলভাবে কনফিগার করা হয়েছে।",
 	"securepoll-gpg-parse-error": "জিপিজি আউটপুট বিশ্লেষণ করার সময় ত্রুটি দেখা দিয়েছে।",
 	"securepoll-no-decryption-key": "কোনো ডিক্রিপশন চাবি ঠিক করা হয়নি।\nডিক্রিপ্ট করা সম্ভব নয়।",
-	"securepoll-jump": "ভোটিং সার্ভারে যাও",
-	"securepoll-bad-ballot-submission": "আপনার ভোট ঠিক নয়: $1",
+	"securepoll-jump": "ভোট প্রদানের সার্ভারে চলুন",
+	"securepoll-bad-ballot-submission": "আপনার ভোট বৈধ নয়: $1",
 	"securepoll-unanswered-questions": "আপনাকে অবশ্যই সব প্রশ্নের উত্তর দিতে হবে।",
 	"securepoll-invalid-rank": "অবৈধ র‍্যাঙ্ক। আপনাকে অবশ্যই প্রার্থীদেরকে ১ থেকে ৯৯৯-এর মধ্যে র‍্যাঙ্কিং করতে হবে।",
 	"securepoll-unranked-options": "কিছু অপশন র‍্যাঙ্ক করা হয়নি।\nআপনাকে অবশ্যই সকল অপশন ১ থেকে ৯৯৯-এর মধ্যে র‍্যাঙ্কিং করতে হবে।",
@@ -70,8 +71,8 @@
 	"securepoll-header-cookie-dup": "ডাপ",
 	"securepoll-header-strike": "বাতিল",
 	"securepoll-header-details": "বিস্তারিত",
-	"securepoll-strike-button": "স্ট্রাইক",
-	"securepoll-unstrike-button": "আনস্ট্রাইক",
+	"securepoll-strike-button": "বাতিল করুন",
+	"securepoll-unstrike-button": "বাতিল বাদ করুন",
 	"securepoll-strike-reason": "কারণ:",
 	"securepoll-strike-cancel": "বাতিল",
 	"securepoll-strike-error": "স্ট্রাইক/আনস্ট্রাইক করার সময় ত্রুটি দেখা দিয়েছে: $1",
@@ -83,7 +84,7 @@
 	"securepoll-header-voter-type": "ভোটারের ধরন",
 	"securepoll-header-url": "ইউআরএল",
 	"securepoll-voter-properties": "ভোটারের তথ্যাদি",
-	"securepoll-strike-log": "স্ট্রাইক লগ",
+	"securepoll-strike-log": "বাতিলের লগ",
 	"securepoll-header-action": "কার্য",
 	"securepoll-header-reason": "কারণ",
 	"securepoll-header-admin": "প্রশাসক",
@@ -171,5 +172,7 @@
 	"securepoll-votereligibility-saved": "{{int:securepoll}}: সংরক্ষিত",
 	"securepoll-votereligibility-saved-text": "আপনার পরিবর্তনসমূহ সংরক্ষিত হয়েছে।",
 	"securepoll-votereligibility-cleared-comment": "$1 পরিষ্কার হয়েছে।",
+	"right-securepoll-create-poll": "জরিপ তৈরি",
+	"action-securepoll-view-voter-pii": "ভোটারদের ব্যক্তিগতভাবে সনাক্তকরণ তথ্যের প্রবেশযোগ্যতা",
 	"securepoll-voter-stats": "সব যোগ্য ভোটদানকারীর মধ্যে, $1 জন {{PLURAL:$1|ভোটার}} ভোট দিয়েছেন।"
 }
