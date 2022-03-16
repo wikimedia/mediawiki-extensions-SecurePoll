@@ -11,6 +11,7 @@ use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Entities\Option;
 use MediaWiki\Extension\SecurePoll\Entities\Question;
 use MediaWikiIntegrationTestCase;
+use OOUI\FieldsetLayout;
 use RequestContext;
 
 /**
@@ -29,8 +30,11 @@ class STVBallotTest extends MediaWikiIntegrationTestCase {
 	/** @var Ballot */
 	private $ballot;
 
+	/** @var array */
+	private $options;
+
 	protected function setUp(): void {
-		$options = array_map( function ( $id ) {
+		$this->options = array_map( function ( $id ) {
 			$option = $this->createMock( Option::class );
 			$option->method( 'getId' )
 				->willReturn( $id );
@@ -38,7 +42,7 @@ class STVBallotTest extends MediaWikiIntegrationTestCase {
 		}, [ 1, 2, 3, 4 ] );
 		$this->question = $this->createMock( Question::class );
 		$this->question->method( 'getId' )->willReturn( 101 );
-		$this->question->method( 'getOptions' )->willReturn( $options );
+		$this->question->method( 'getOptions' )->willReturn( $this->options );
 
 		$this->context = new Context;
 
@@ -161,5 +165,37 @@ class STVBallotTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testUnpackRecord( $record, $expected ) {
 		$this->assertEquals( $expected, $this->ballot->unpackRecord( $record ) );
+	}
+
+	/**
+	 * @covers \MediaWiki\Extension\SecurePoll\Ballots\STVBallot::getQuestionForm
+	 * @dataProvider votesFromRequestContext
+	 */
+	public function testGetQuestionForm( $votes ): void {
+		$stvBallot = new STVBallot( $this->context, $this->createMock( Election::class ) );
+		$stvBallot->initRequest(
+			new FauxRequest( $votes ),
+			new RequestContext,
+			$this->getServiceContainer()->getLanguageFactory()->getLanguage( 'en' )
+		);
+		$questionForm = $stvBallot->getQuestionForm( $this->question, $this->options );
+
+		// Make sure that $questionForm returns a 'fieldset' as the tag name
+		// since it's a FieldSetLayout which overrides Element::$tagName.
+		$this->assertSame( 'fieldset', $questionForm->getTagName() );
+		$this->assertInstanceOf( FieldsetLayout::class, $questionForm );
+
+		// TODO: Test the structure of the form below.
+		//       The main part to assert is the limit seats feature.
+	}
+
+	/**
+	 * @covers \MediaWiki\Extension\SecurePoll\Ballots\STVBallot::getCreateDescriptors
+	 */
+	public function testGetCreateDescriptorsWithLimitSeat(): void {
+		$descriptors = STVBallot::getCreateDescriptors();
+
+		// Assert that the limit-seats question is added to the STVBallot form.
+		$this->assertArrayHasKey( 'limit-seats', $descriptors['question'] );
 	}
 }

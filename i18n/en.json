@@ -199,6 +199,7 @@
 	"securepoll-create-label-options-delete": "Delete option",
 	"securepoll-create-label-option-name": "Option name:",
 	"securepoll-create-label-seat_count": "Number of seats:",
+	"securepoll-create-label-limit-seats_input": "Limit input to number of seats",
 	"securepoll-create-option-election_type-approval+plurality": "Approval vote",
 	"securepoll-create-option-election_type-preferential+schulze": "Schulze vote",
 	"securepoll-create-option-election_type-choose+plurality": "Plurality",

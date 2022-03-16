@@ -12,6 +12,13 @@ use OOUI\FieldsetLayout;
  * Currently work in progress see T282015.
  */
 class STVBallot extends Ballot {
+
+	/** @var bool */
+	private $seatsLimit = false;
+
+	/** @var int */
+	private $numberOfSeats = 1;
+
 	/**
 	 * Get a list of names of tallying methods, which may be used to produce a
 	 * result from this ballot type.
@@ -36,6 +43,12 @@ class STVBallot extends Ballot {
 				],
 				'SecurePoll_type' => 'property',
 			],
+			'limit-seats' => [
+				'label-message' => 'securepoll-create-label-limit-seats_input',
+				'type' => 'check',
+				'hidelabel' => true,
+				'SecurePoll_type' => 'property',
+			],
 		];
 		return $description;
 	}
@@ -49,6 +62,8 @@ class STVBallot extends Ballot {
 		$name = 'securepoll_q' . $question->getId();
 		$fieldset = new \OOUI\FieldsetLayout();
 		$request = $this->getRequest();
+		$this->seatsLimit = $question->getProperty( 'limit-seats' );
+		$this->numberOfSeats = $question->getProperty( 'min-seats' );
 
 		$allOptions = [
 			[
@@ -62,7 +77,11 @@ class STVBallot extends Ballot {
 				'label' => $option->parseMessageInline( 'text' ),
 			];
 		}
-		for ( $i = 0; $i < count( $options ); $i++ ) {
+		$numberOfOptions = count( $options );
+		for ( $i = 0; $i < $numberOfOptions; $i++ ) {
+			if ( $this->numberOfSeatsReached( $i ) ) {
+				break;
+			}
 			$inputId = "{$name}_opt{$i}";
 			$widget = new DropdownInputWidget( [
 				'infusable' => true,
@@ -224,5 +243,17 @@ class STVBallot extends Ballot {
 	public function convertScores( $scores, $options = [] ) {
 		// TODO: Implement convertScores() method.
 		return [];
+	}
+
+	/**
+	 *
+	 * @param int $count
+	 * @return bool
+	 */
+	private function numberOfSeatsReached( $count ) {
+		if ( $this->seatsLimit && $count >= $this->numberOfSeats ) {
+			return true;
+		}
+		return false;
 	}
 }

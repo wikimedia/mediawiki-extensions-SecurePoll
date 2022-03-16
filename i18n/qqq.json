@@ -222,6 +222,7 @@
 	"securepoll-create-label-options-delete": "Label for button on Special:SecurePoll/create.",
 	"securepoll-create-label-option-name": "Label for form field on Special:SecurePoll/create.",
 	"securepoll-create-label-seat_count": "Label for button on Special:SecurePoll/create.",
+	"securepoll-create-label-limit-seats_input": "Label for form field on Special:SecurePoll/create.",
 	"securepoll-create-option-election_type-approval+plurality": "Label for form option on Special:SecurePoll/create.\n\nSee [[:w:en:Approval_vote|Approval vote]].",
 	"securepoll-create-option-election_type-preferential+schulze": "Label for form option on Special:SecurePoll/create.\n\nThe [[:w:en:Schulze_method|Schulze method]].",
 	"securepoll-create-option-election_type-choose+plurality": "Label for form option on Special:SecurePoll/create.",
