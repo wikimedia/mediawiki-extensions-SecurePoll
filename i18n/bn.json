@@ -176,6 +176,7 @@
 	"securepoll-votereligibility-saved-text": "আপনার পরিবর্তনসমূহ সংরক্ষিত হয়েছে।",
 	"securepoll-votereligibility-cleared-comment": "$1 পরিষ্কার হয়েছে।",
 	"right-securepoll-create-poll": "জরিপ তৈরি",
+	"action-securepoll-view-voter-pii": "ভোটারদের ব্যক্তিগতভাবে সনাক্তকরণ তথ্য দেখার",
 	"securepoll-voter-stats": "সব যোগ্য ভোটদানকারীর মধ্যে, $1 জন {{PLURAL:$1|ভোটার}} ভোট দিয়েছেন।",
 	"securepolllog": "সিকিউরপোল লগ",
 	"securepolllog-form-type-option-voter": "ভোটার লগ",
