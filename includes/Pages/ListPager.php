@@ -179,7 +179,7 @@ class ListPager extends TablePager {
 
 				return $this->msg(
 					$msg,
-					[ $value ]
+					[ wfEscapeWikitext( $value ), $value ]
 				)->parse();
 
 			default:
