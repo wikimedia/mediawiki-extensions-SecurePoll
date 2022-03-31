@@ -16,7 +16,8 @@
 			"Tamaki Wakita",
 			"Tsuzuki",
 			"ネイ",
-			"青子守歌"
+			"青子守歌",
+			"Yamagata Yusuke"
 		]
 	},
 	"securepoll": "暗号投票",
@@ -79,7 +80,7 @@
 	"securepoll-header-cookie-dup": "重複",
 	"securepoll-header-strike": "抹消",
 	"securepoll-header-details": "詳細",
-	"securepoll-vote-duplicate": "重複",
+	"securepoll-vote-duplicate": "重複したクッキー",
 	"securepoll-strike-button": "抹消",
 	"securepoll-unstrike-button": "抹消撤回",
 	"securepoll-strike-reason": "理由:",
