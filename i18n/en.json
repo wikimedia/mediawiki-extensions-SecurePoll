@@ -77,7 +77,7 @@
 	"securepoll-strike-error": "Error performing strike/unstrike: $1",
 	"securepoll-strike-token-mismatch": "Session data lost",
 	"securepoll-details-link": "Details",
-	"securepoll-voter-name-local": "[[User:$1|$1]]",
+	"securepoll-voter-name-local": "[[User:$2|$1]]",
 	"securepoll-voter-name-remote": "$1",
 	"securepoll-details-title": "Vote details: #$1",
 	"securepoll-invalid-vote": "\"$1\" is not a valid vote ID",
