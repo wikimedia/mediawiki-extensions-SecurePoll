@@ -30,6 +30,7 @@ use ApiBase;
 use ApiMain;
 use MediaWiki\Extension\SecurePoll\ActionPageFactory;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
+use Wikimedia\ParamValidator\ParamValidator;
 
 /**
  * API module to facilitate striking/unstriking SecurePoll votes.
@@ -133,20 +134,20 @@ class ApiStrikeVote extends ApiBase {
 	protected function getAllowedParams() {
 		return [
 			'option' => [
-				ApiBase::PARAM_TYPE => [
+				ParamValidator::PARAM_TYPE => [
 					'strike',
 					'unstrike'
 				],
-				ApiBase::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_REQUIRED => true,
 				ApiBase::PARAM_HELP_MSG_PER_VALUE => [],
 			],
 			'reason' => [
-				ApiBase::PARAM_TYPE => 'string',
-				ApiBase::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_REQUIRED => true,
 			],
 			'voteid' => [
-				ApiBase::PARAM_TYPE => 'integer',
-				ApiBase::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_TYPE => 'integer',
+				ParamValidator::PARAM_REQUIRED => true,
 			],
 		];
 	}
