@@ -27,7 +27,11 @@
 			"White Master King",
 			"Avengium",
 			"Jakeukalane",
-			"Whovian Biologist"
+			"Whovian Biologist",
+			"Chopan050",
+			"DDPAT",
+			"DiegoAmbrocio",
+			"Ice bulldog"
 		]
 	},
 	"securepoll": "SecurePoll",
@@ -294,11 +298,11 @@
 	"securepoll-log-action-type-2": "$1, $2 visto los datos de los votantes para la elección <em>$3</em>.",
 	"securepoll-log-empty": "No se han encontrado entradas de registro.",
 	"securepoll-stv-droop-default-value": "Seleccione una opción",
-	"securepoll-stv-droop-choice-rank": "Preferencia $1",
-	"securepoll-stv-invalid-rank-empty": "Se debe clasificar al menos una opción",
+	"securepoll-stv-droop-choice-rank": "Referencia $1",
+	"securepoll-stv-invalid-rank-empty": "Al menos una opción debe estar clasificada",
 	"securepoll-stv-invalid-rank-order": "Las preferencias deben seleccionarse en orden secuencial. Por favor, elija una opción para: $1",
 	"securepoll-stv-invalid-rank-duplicate": "Las opciones no se pueden seleccionar varias veces en la clasificación. Cambie la opción de: $1",
-	"securepoll-stv-invalid-input-empty": "Por favor llene esta preferencia",
+	"securepoll-stv-invalid-input-empty": "Rellene esta preferencia",
 	"securepoll-stv-invalid-input-duplicate": "Complacer seleccionar una opción diferente para esta preferencia",
 	"securepoll-stv-result-election-elected-header": "Elegidos",
 	"securepoll-stv-election-paramters": "Elección de escaños de $1 con candidatos de $2. Total de $3 votos",
