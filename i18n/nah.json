@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Akapochtli"
+			"Akapochtli",
+			"Languaeditor"
 		]
 	},
-	"securepoll-translate-title": "Tictlahtolcuepaz: $1",
-	"securepoll-submit-select-lang": "Tictlahtolcuepaz",
-	"securepoll-subpage-translate": "Tictlahtolcuepaz"
+	"securepoll-translate-title": "Xitlahtolkwapa: $1",
+	"securepoll-submit-select-lang": "Xitlahtolkwapa",
+	"securepoll-subpage-translate": "Xitlahtolkwapa"
 }
