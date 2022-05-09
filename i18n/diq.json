@@ -9,7 +9,7 @@
 			"Xoser"
 		]
 	},
-	"securepoll": "Rey dayena bawer biyaye",
+	"securepoll": "Reyo bawerbiyaye",
 	"securepoll-desc": "Seba weçinıtışan u anketan dergkerdış",
 	"securepoll-invalid-page": "Pela nêvêrdiya bınêne \"<nowiki>$1</nowiki>\"",
 	"securepoll-need-admin": "qey no kari şıma gani serkaribi",
@@ -89,9 +89,9 @@
 	"securepoll-submit-translate": "Rocane ke",
 	"securepoll-language-label": "Zıwan weçine:",
 	"securepoll-submit-select-lang": "Bıçarne",
-	"securepoll-entry-text": "Binê de listeyê anketan estê.",
+	"securepoll-entry-text": "Cêr de lista anketan esta.",
 	"securepoll-header-title": "name",
-	"securepoll-header-start-date": "tarixê destpêkerdışi",
+	"securepoll-header-start-date": "Tarixê destpêkerdışi",
 	"securepoll-header-end-date": "Tarixê qediyayışi",
 	"securepoll-subpage-vote": "rey bıd.",
 	"securepoll-subpage-translate": "Bıçarne",
