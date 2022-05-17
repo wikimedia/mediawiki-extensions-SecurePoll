@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Cekli829",
+			"Serkanland",
 			"Vago",
 			"Vugar 1981",
 			"Wertuose"
@@ -35,7 +36,7 @@
 	"securepoll-strike-log": "İşarələmə gündəliyi",
 	"securepoll-header-action": "Fəaliyyət",
 	"securepoll-header-reason": "Səbəb",
-	"securepoll-header-admin": "İdarəçi",
+	"securepoll-header-admin": "İnzibatçı",
 	"securepoll-dump-title": "Tullantı: $1",
 	"securepoll-translate-title": "Tərcümə et: $1",
 	"securepoll-invalid-language": "\"$1\" yanlış dil kodu",
