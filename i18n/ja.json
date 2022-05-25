@@ -15,7 +15,9 @@
 			"Tamaki Wakita",
 			"Tsuzuki",
 			"ネイ",
-			"青子守歌"
+			"青子守歌",
+			"MirukuPC",
+			"Yamagata Yusuke"
 		]
 	},
 	"securepoll": "暗号投票",
@@ -252,7 +254,7 @@
 	"securepoll-votereligibility-cleared-text": "$1は消去され、投票で使用されることはありません。",
 	"securepoll-votereligibility-cleared-comment": "$1は消去されました。",
 	"right-securepoll-create-poll": "投票所を作成",
-	"action-securepoll-create-poll": "投票を作成し、ログを表示する。",
+	"action-securepoll-create-poll": "投票所の作成と記録の閲覧",
 	"securepoll-ns-readonly": "{{ns:SecurePoll}} 名前空間は、読み取り専用です",
 	"securepoll-voter-stats": "全有権者のうち、$1人の{{PLURAL:$1|有権者}}が投票しました。",
 	"securepoll-vote-stats": "合計で$1{{PLURAL:$1|票}}が投じられました。そのうち、$2{{PLURAL:$2|票}}は、投票者が再投票したため除外され、$3{{PLURAL:$3|票}}は取り消しとなりました。",
