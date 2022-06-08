@@ -173,11 +173,9 @@ class ListPage extends ActionPage {
 
 		$dbw->startAtomic( __METHOD__ );
 		// Add it to the strike log
-		$strikeId = $dbw->nextSequenceValue( 'securepoll_strike_st_id' );
 		$dbw->insert(
 			'securepoll_strike',
 			[
-				'st_id' => $strikeId,
 				'st_vote' => $voteId,
 				'st_timestamp' => wfTimestampNow(),
 				'st_action' => $action,

@@ -104,9 +104,7 @@ class Voter {
 	 */
 	public static function createVoter( $context, $params ) {
 		$db = $context->getDB();
-		$id = $db->nextSequenceValue( 'voters_voter_id' );
 		$row = [
-			'voter_id' => $id,
 			'voter_election' => $params['electionId'],
 			'voter_name' => $params['name'],
 			'voter_type' => $params['type'],

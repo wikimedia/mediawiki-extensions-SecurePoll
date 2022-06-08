@@ -307,11 +307,9 @@ class VotePage extends ActionPage {
 		$token = SessionManager::getGlobalSession()->getToken();
 		$tokenMatch = $token->match( $request->getVal( 'edit_token' ) );
 
-		$voteId = $dbw->nextSequenceValue( 'securepoll_votes_vote_id' );
 		$dbw->insert(
 			'securepoll_votes',
 			[
-				'vote_id' => $voteId,
 				'vote_election' => $this->election->getId(),
 				'vote_voter' => $this->voter->getId(),
 				'vote_voter_name' => $this->voter->getName(),
