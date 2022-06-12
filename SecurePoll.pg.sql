@@ -63,7 +63,7 @@ CREATE TABLE securepoll_votes (
   vote_ip           TEXT NOT NULL,
   vote_xff          TEXT NOT NULL,
   vote_ua           TEXT NOT NULL,
-  vote_timestamp    TEXT NOT NULL,
+  vote_timestamp    TIMESTAMPTZ NOT NULL,
   vote_current      SMALLINT NOT NULL,
   vote_token_match  SMALLINT NOT NULL,
   vote_cookie_dup   SMALLINT NOT NULL

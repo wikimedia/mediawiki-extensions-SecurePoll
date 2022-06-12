@@ -39,10 +39,10 @@ CREATE TABLE /*_*/securepoll_elections (
 	el_primary_lang varbinary(32) not null,
 
 	-- Start date, in 14-char MW format
-	el_start_date varbinary(14),
+	el_start_date binary(14),
 
 	-- End date, in 14-char MW format
-	el_end_date varbinary(14),
+	el_end_date binary(14),
 
 	-- User authorization type, see Auth.php
 	el_auth_type varbinary(32) not null
@@ -106,7 +106,7 @@ CREATE TABLE /*_*/securepoll_votes (
 	vote_ua varbinary(255) not null,
 
 	-- MW-format timestamp when the vote was cast
-	vote_timestamp varbinary(14) not null,
+	vote_timestamp binary(14) not null,
 
 	-- 1 if the vote is current, 0 if old
 	-- Only one vote with a given voter will have vote_current=1
@@ -141,7 +141,7 @@ CREATE TABLE /*_*/securepoll_strike (
 	st_vote int not null,
 
 	-- Time at which the action occurred
-	st_timestamp varbinary(14) not null,
+	st_timestamp binary(14) not null,
 
 	-- "strike" or "unstrike"
 	st_action varbinary(32) not null,
@@ -168,7 +168,7 @@ CREATE TABLE /*_*/securepoll_cookie_match (
 	-- securepoll_voters.voter_id
 	cm_voter_2 int not null,
 	-- Timestamp at which the match was logged
-	cm_timestamp varbinary(14) not null
+	cm_timestamp binary(14) not null
 ) /*$wgDBTableOptions*/;
 CREATE INDEX /*i*/spcookie_match_voter_1 ON /*_*/securepoll_cookie_match
 	(cm_voter_1, cm_timestamp);
