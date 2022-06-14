@@ -54,3 +54,96 @@ CREATE TABLE /*_*/securepoll_log (
   INDEX spl_timestamp (spl_timestamp),
   PRIMARY KEY(spl_id)
 ) /*$wgDBTableOptions*/;
+
+
+CREATE TABLE /*_*/securepoll_msgs (
+  msg_entity INT NOT NULL,
+  msg_lang VARBINARY(32) NOT NULL,
+  msg_key VARBINARY(32) NOT NULL,
+  msg_text MEDIUMTEXT NOT NULL,
+  UNIQUE INDEX spmsg_entity (msg_entity, msg_lang, msg_key)
+) /*$wgDBTableOptions*/;
+
+
+CREATE TABLE /*_*/securepoll_elections (
+  el_entity INT NOT NULL,
+  el_title VARCHAR(255) NOT NULL,
+  el_owner INT NOT NULL,
+  el_ballot VARCHAR(32) NOT NULL,
+  el_tally VARCHAR(32) NOT NULL,
+  el_primary_lang VARBINARY(32) NOT NULL,
+  el_start_date BINARY(14) DEFAULT NULL,
+  el_end_date BINARY(14) DEFAULT NULL,
+  el_auth_type VARBINARY(32) NOT NULL,
+  UNIQUE INDEX spel_title (el_title),
+  PRIMARY KEY(el_entity)
+) /*$wgDBTableOptions*/;
+
+
+CREATE TABLE /*_*/securepoll_voters (
+  voter_id INT AUTO_INCREMENT NOT NULL,
+  voter_election INT NOT NULL,
+  voter_name VARBINARY(255) NOT NULL,
+  voter_type VARBINARY(32) NOT NULL,
+  voter_domain VARBINARY(255) NOT NULL,
+  voter_url BLOB DEFAULT NULL,
+  voter_properties BLOB DEFAULT NULL,
+  INDEX spvoter_elec_name_domain (
+    voter_election, voter_name, voter_domain
+  ),
+  PRIMARY KEY(voter_id)
+) /*$wgDBTableOptions*/;
+
+
+CREATE TABLE /*_*/securepoll_votes (
+  vote_id INT AUTO_INCREMENT NOT NULL,
+  vote_election INT NOT NULL,
+  vote_voter INT NOT NULL,
+  vote_voter_name VARBINARY(255) NOT NULL,
+  vote_voter_domain VARBINARY(32) NOT NULL,
+  vote_struck TINYINT NOT NULL,
+  vote_record BLOB NOT NULL,
+  vote_ip VARBINARY(35) NOT NULL,
+  vote_xff VARBINARY(255) NOT NULL,
+  vote_ua VARBINARY(255) NOT NULL,
+  vote_timestamp BINARY(14) NOT NULL,
+  vote_current TINYINT NOT NULL,
+  vote_token_match TINYINT NOT NULL,
+  vote_cookie_dup TINYINT NOT NULL,
+  INDEX spvote_timestamp (vote_election, vote_timestamp),
+  INDEX spvote_voter_name (
+    vote_election, vote_voter_name, vote_timestamp
+  ),
+  INDEX spvote_voter_domain (
+    vote_election, vote_voter_domain,
+    vote_timestamp
+  ),
+  INDEX spvote_ip (
+    vote_election, vote_ip, vote_timestamp
+  ),
+  PRIMARY KEY(vote_id)
+) /*$wgDBTableOptions*/;
+
+
+CREATE TABLE /*_*/securepoll_strike (
+  st_id INT AUTO_INCREMENT NOT NULL,
+  st_vote INT NOT NULL,
+  st_timestamp BINARY(14) NOT NULL,
+  st_action VARBINARY(32) NOT NULL,
+  st_reason VARCHAR(255) NOT NULL,
+  st_user INT NOT NULL,
+  INDEX spstrike_vote (st_vote, st_timestamp),
+  PRIMARY KEY(st_id)
+) /*$wgDBTableOptions*/;
+
+
+CREATE TABLE /*_*/securepoll_cookie_match (
+  cm_id INT AUTO_INCREMENT NOT NULL,
+  cm_election INT NOT NULL,
+  cm_voter_1 INT NOT NULL,
+  cm_voter_2 INT NOT NULL,
+  cm_timestamp BINARY(14) NOT NULL,
+  INDEX spcookie_match_voter_1 (cm_voter_1, cm_timestamp),
+  INDEX spcookie_match_voter_2 (cm_voter_2, cm_timestamp),
+  PRIMARY KEY(cm_id)
+) /*$wgDBTableOptions*/;
