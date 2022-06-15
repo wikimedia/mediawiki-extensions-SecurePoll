@@ -256,7 +256,7 @@
 	"securepoll-votereligibility-cleared-text": "$1 تمیز شد و در این نظرخواهی استفاده نخواهد شد.",
 	"securepoll-votereligibility-cleared-comment": "$1 پاک شد.",
 	"right-securepoll-create-poll": "ایجاد نظرسنجی",
-	"action-securepoll-create-poll": "نظرسنجی ایجاد کنید",
+	"action-securepoll-create-poll": "نظرسنجی ایجاد کنید و سیاهه‌ها را ببینید",
 	"securepoll-ns-readonly": "فضای نام {{ns:SecurePoll}} فقط-خواندنی است",
 	"securepoll-voter-stats": "از بین تمام واجدان شرایط، $1 نفر رأی {{PLURAL:$1|داده‌است|داده‌اند}}.",
 	"securepoll-vote-stats": "در کل $1 رأی به صندوق {{PLURAL:$1|ریخته شده‌است|ریخته شده‌اند}}. از این بین، $2 رأی نادیده گرفته {{PLURAL:$2|شده‌است|شده‌اند}} چون کاربر دوباره رأی جدیدی داده‌است، و $3 رأی هم خط {{PLURAL:$3|خورده‌است|خورده‌اند}}.",

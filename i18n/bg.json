@@ -7,7 +7,8 @@
 			"StanProg",
 			"Ted Masters",
 			"Turin",
-			"Vlad5250"
+			"Vlad5250",
+			"NikiTricky"
 		]
 	},
 	"securepoll": "Защитено гласуване",
@@ -169,6 +170,6 @@
 	"securepoll-votereligibility-cleared": "{{int:securepoll}}: Премахнато",
 	"securepoll-votereligibility-cleared-comment": "$1 е изчистен.",
 	"right-securepoll-create-poll": "Създаване на анкети",
-	"action-securepoll-create-poll": "създаване на анкети",
+	"action-securepoll-create-poll": "създаване на анкети и преглед на дневници",
 	"securepoll-ns-readonly": "Именното пространство {{ns:SecurePoll}} е само за четене"
 }
