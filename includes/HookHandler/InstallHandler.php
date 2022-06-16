@@ -41,6 +41,6 @@ class InstallHandler implements LoadExtensionSchemaUpdatesHook {
 				break;
 		}
 
-		$updater->addPostDatabaseUpdateMaintenance( 'UpdateNotBlockedKey' );
+		$updater->addPostDatabaseUpdateMaintenance( \UpdateNotBlockedKey::class );
 	}
 }
