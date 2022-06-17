@@ -279,6 +279,7 @@ class GenerateTestElection extends Maintenance {
 			}
 
 			if ( !$endOfBallots ) {
+				// @phan-suppress-next-line PhanTypeMismatchArgumentNullableInternal
 				$entity = explode( ' ', $entity );
 				$ballotCount = array_shift( $entity );
 

@@ -12,6 +12,7 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 require_once "$IP/maintenance/Maintenance.php";
 
 use MediaWiki\Extension\SecurePoll\Context;
+use MediaWiki\Extension\SecurePoll\Entities\Election;
 
 class DumpElection extends Maintenance {
 
@@ -30,6 +31,9 @@ class DumpElection extends Maintenance {
 		$this->requireExtension( 'SecurePoll' );
 	}
 
+	/**
+	 * @suppress PhanUndeclaredProperty cbdata is unknown to Election
+	 */
 	public function execute() {
 		$context = new Context;
 
@@ -87,6 +91,11 @@ class DumpElection extends Maintenance {
 		fwrite( $outFile, "</election>\n</SecurePoll>\n" );
 	}
 
+	/**
+	 * @suppress PhanUndeclaredProperty cbdata is unknown to Election
+	 * @param Election $election
+	 * @param \stdClass $row
+	 */
 	public function dumpVote( $election, $row ) {
 		if ( $election->cbdata['header'] ) {
 			fwrite( $election->cbdata['outFile'], $election->cbdata['header'] );

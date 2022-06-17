@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Extension\SecurePoll\Context;
+use MediaWiki\Extension\SecurePoll\Store\MemoryStore;
 use MediaWiki\Extension\SecurePoll\Talliers\CommentDumper;
 
 /**
@@ -33,7 +34,14 @@ class DumpVoteCsv extends Maintenance {
 			if ( !$context ) {
 				$this->fatalError( "Unable to parse XML file \"{$dump}\"" );
 			}
-			$electionIds = $context->getStore()->getAllElectionIds();
+			$store = $context->getStore();
+			if ( !$store instanceof MemoryStore ) {
+				$class = get_class( $store );
+				throw new Exception(
+					"Expected instance of MemoryStore, got $class instead"
+				);
+			}
+			$electionIds = $store->getAllElectionIds();
 			if ( !count( $electionIds ) ) {
 				$this->fatalError( "No elections found in XML file \"{$dump}\"" );
 			}
