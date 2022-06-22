@@ -43,7 +43,7 @@
 	"securepoll-invalid-rank": "הדירוג אינו תקין. יש לתת למועמדים דירוג בין 1 ל־999.",
 	"securepoll-unranked-options": "כמה מהאפשרויות לא דורגו.\nיש לקבוע לכל האפשרויות דירוג בין 1 ל־999.",
 	"securepoll-invalid-score": "הדירוג חייב להיות מספר בין $1 ל־$2.",
-	"securepoll-unanswered-options": "יש להשיב לכל שאלה.",
+	"securepoll-unanswered-options": "יש להגיב לכל אחת מהשאלות.",
 	"securepoll-remote-auth-error": "שגיאה בקבלת פרטי החשבון שלך מהשרת.",
 	"securepoll-remote-parse-error": "שגיאה בפענוח התשובה על מידע הכניסה מהשרת.",
 	"securepoll-api-invalid-params": "פרמטרים בלתי־תקינים.",
