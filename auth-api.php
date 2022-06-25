@@ -49,5 +49,6 @@ if ( $token2 !== $token ) {
 }
 $context = new Context;
 $auth = $context->newAuth( 'local' );
+'@phan-var \MediaWiki\Extension\SecurePoll\User\LocalAuth $auth';
 $status = Status::newGood( $auth->getUserParams( $user ) );
 out( serialize( $status ) );

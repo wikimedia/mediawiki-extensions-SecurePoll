@@ -219,7 +219,7 @@ class STVBallot extends Ballot {
 	/**
 	 * @param array $scores
 	 * @param array $options
-	 * @return string|array
+	 * @return string|string[]|false
 	 */
 	public function convertScores( $scores, $options = [] ) {
 		// TODO: Implement convertScores() method.

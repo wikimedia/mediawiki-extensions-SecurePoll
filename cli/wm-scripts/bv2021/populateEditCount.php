@@ -36,7 +36,7 @@ for ( $userId = 1; $userId <= $maxUser; $userId++ ) {
 		->select( [ 'actor_id', 'actor_name', 'actor_user' ] )
 		->from( 'actor' )
 		->where( [ 'actor_user' => $userId ] )
-		->caller( __METHOD__ )
+		->caller( $fname )
 		->fetchRow();
 	if ( !$row ) {
 		continue;

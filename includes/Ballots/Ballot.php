@@ -218,7 +218,7 @@ abstract class Ballot {
 	 * Convert a record to a string of some kind
 	 * @param string $record
 	 * @param array $options
-	 * @return array
+	 * @return string[]|false
 	 */
 	public function convertRecord( $record, $options = [] ) {
 		$scores = $this->unpackRecord( $record );
@@ -230,7 +230,7 @@ abstract class Ballot {
 	 * Convert a score array to a string of some kind
 	 * @param array $scores
 	 * @param array $options
-	 * @return string|array
+	 * @return string|string[]|false
 	 */
 	abstract public function convertScores( $scores, $options = [] );
 

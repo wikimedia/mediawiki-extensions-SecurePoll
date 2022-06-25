@@ -11,6 +11,7 @@ use MediaWiki\Extension\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Crypt\Crypt;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
+use MediaWiki\Extension\SecurePoll\Store\MemoryStore;
 use MediaWiki\Extension\SecurePoll\VoteRecord;
 
 class ConvertVotes extends Maintenance {
@@ -25,7 +26,7 @@ class ConvertVotes extends Maintenance {
 	private $election;
 
 	/**
-	 * @var array
+	 * @var string[][]
 	 */
 	private $votes;
 
@@ -65,7 +66,14 @@ class ConvertVotes extends Maintenance {
 		if ( !$this->context ) {
 			$this->fatalError( "Unable to parse XML file \"$fileName\"" );
 		}
-		$electionIds = $this->context->getStore()->getAllElectionIds();
+		$store = $this->context->getStore();
+		if ( !$store instanceof MemoryStore ) {
+			$class = get_class( $store );
+			throw new Exception(
+				"Expected instance of MemoryStore, got $class instead"
+			);
+		}
+		$electionIds = $store->getAllElectionIds();
 		if ( !count( $electionIds ) ) {
 			$this->fatalError( "No elections found in XML file \"$fileName\"" );
 		}
@@ -115,6 +123,7 @@ class ConvertVotes extends Maintenance {
 			foreach ( $names as $i => $name ) {
 				$s .= ( $i + 1 ) . '. ' . $name . "\n";
 			}
+			// @phan-suppress-next-line PhanTypeInvalidDimOffset False positive
 			$votes = $this->votes[$question->getId()];
 			sort( $votes );
 			$s .= implode( "\n", $votes ) . "\n";
