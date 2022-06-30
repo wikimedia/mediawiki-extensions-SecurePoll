@@ -131,7 +131,6 @@ class CreatePage extends ActionPage {
 			'mediawiki.widgets.TagMultiselectWidget.styles',
 			'ext.securepoll',
 		] );
-		$out->setPageTitle( $this->msg( 'securepoll-create-title' ) );
 
 		$election = $this->election;
 		$isRunning = $election && $election->isStarted() && !$election->isFinished();
