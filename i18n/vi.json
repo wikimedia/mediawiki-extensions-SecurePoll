@@ -6,7 +6,8 @@
 			"Minh Nguyen",
 			"Nguyễn Mạnh An",
 			"Trần Nguyễn Minh Huy",
-			"Vinhtantran"
+			"Vinhtantran",
+			"NguoiDungKhongDinhDanh"
 		]
 	},
 	"securepoll": "Bỏ phiếu an toàn",
@@ -231,6 +232,7 @@
 	"securepoll-ns-readonly": "Chỉ đọc được không gian tên {{ns:SecurePoll}}",
 	"securepoll-voter-stats": "Trong số cử tri đủ tư cách, $1 cử tri đã bỏ phiếu.",
 	"securepoll-vote-stats": "Tổng cộng đã nhận $1 lá phiếu. Trong số này, $2 lá phiếu bị bác bỏ vì cử tri đã bỏ phiếu hơn một lần, và $3 lá phiếu bị gạch bỏ.",
+	"securepoll-stv-droop-choice-rank": "Tùy chọn $1",
 	"securepoll-stv-result-election-eliminated-header": "Đã loại bỏ",
 	"securepoll-stv-result-election-result-table-heading": "Kết quả",
 	"securepoll-stv-result-round-eliminated": "Đã loại bỏ: $1"
