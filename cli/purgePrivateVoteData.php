@@ -77,7 +77,9 @@ class PurgePrivateVoteData extends Maintenance {
 		if ( count( $electionsToPurge ) > 0 ) {
 			$conds = [ 'vote_election' => $electionsToPurge ];
 			// In case a partial purge ran previously
-			$conds[] = "( vote_ip != '' OR vote_xff != '' OR vote_ua != '' )";
+			$conds[] = 'vote_ip != ' . $dbr->addQuotes( '' ) .
+				' OR vote_xff != ' . $dbr->addQuotes( '' ) .
+				' OR vote_ua != ' . $dbr->addQuotes( '' );
 			$minVoteId = 0;
 			do {
 				$vRes = $dbr->select( 'securepoll_votes',
