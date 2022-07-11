@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\SecurePoll;
 
-use Linker;
 use MediaWiki\Extension\SecurePoll\Pages\ActionPage;
 use MediaWiki\Extension\SecurePoll\Pages\EntryPage;
 use SpecialPage;
@@ -84,11 +83,13 @@ class SpecialSecurePoll extends SpecialPage {
 	 */
 	public function setSubtitle( ...$links ) {
 		$title = $this->getPageTitle();
-		$subtitle = '&lt; ' . Linker::linkKnown( $title, htmlspecialchars( $title->getText() ) );
+		$linkRenderer = $this->getLinkRenderer();
+
+		$subtitle = '&lt; ' . $linkRenderer->makeKnownLink( $title, $title->getText() );
 		$pipe = $this->msg( 'pipe-separator' )->text();
 		foreach ( $links as $link ) {
 			[ $title, $text ] = $link;
-			$subtitle .= $pipe . Linker::linkKnown( $title, htmlspecialchars( $text ) );
+			$subtitle .= $pipe . $linkRenderer->makeKnownLink( $title, $text );
 		}
 		$this->getOutput()->setSubtitle( $subtitle );
 	}
