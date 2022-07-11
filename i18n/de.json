@@ -198,6 +198,7 @@
 	"securepoll-create-label-options-delete": "Option löschen",
 	"securepoll-create-label-option-name": "Name der Option:",
 	"securepoll-create-label-seat_count": "Anzahl der Sitze:",
+	"securepoll-create-label-limit-seats_input": "Eingabe auf die Anzahl der Sitze beschränken",
 	"securepoll-create-option-election_type-approval+plurality": "Genehmigungsabstimmung",
 	"securepoll-create-option-election_type-preferential+schulze": "Schulze-Abstimmung",
 	"securepoll-create-option-election_type-choose+plurality": "Mehrheit",

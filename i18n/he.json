@@ -199,6 +199,7 @@
 	"securepoll-create-label-options-delete": "מחיקת אפשרות",
 	"securepoll-create-label-option-name": "שם האפשרות:",
 	"securepoll-create-label-seat_count": "מספר המושבים:",
+	"securepoll-create-label-limit-seats_input": "להגביל את הקלט למספר המושבים",
 	"securepoll-create-option-election_type-approval+plurality": "הצבעת תמיכה",
 	"securepoll-create-option-election_type-preferential+schulze": "הצבעת שולצה",
 	"securepoll-create-option-election_type-choose+plurality": "רוב יחסי",

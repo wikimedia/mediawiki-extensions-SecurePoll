@@ -209,6 +209,7 @@
 	"securepoll-create-label-options-delete": "Видалити варіант",
 	"securepoll-create-label-option-name": "Назва варіанта:",
 	"securepoll-create-label-seat_count": "Кількість місць:",
+	"securepoll-create-label-limit-seats_input": "Обмежити ввід до числа місць",
 	"securepoll-create-option-election_type-approval+plurality": "Голосування схвалення",
 	"securepoll-create-option-election_type-preferential+schulze": "Голосування методом Шульце",
 	"securepoll-create-option-election_type-choose+plurality": "Множинність",

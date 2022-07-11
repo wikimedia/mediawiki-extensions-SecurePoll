@@ -197,6 +197,7 @@
 	"securepoll-create-label-options-delete": "Избриши ја можноста",
 	"securepoll-create-label-option-name": "Назив на можноста:",
 	"securepoll-create-label-seat_count": "Број на седишта:",
+	"securepoll-create-label-limit-seats_input": "Ограничи го вносот на бројот на седишта",
 	"securepoll-create-option-election_type-approval+plurality": "Одобрително гласање",
 	"securepoll-create-option-election_type-preferential+schulze": "Шулцево гласање",
 	"securepoll-create-option-election_type-choose+plurality": "Мнозинство",
