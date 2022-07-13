@@ -16,28 +16,11 @@ class InstallHandler implements LoadExtensionSchemaUpdatesHook {
 
 		switch ( $type ) {
 			case 'mysql':
+			case 'sqlite':
 				$updater->addExtensionTable( 'securepoll_msgs', "$base/SecurePoll.sql" );
-				$updater->modifyExtensionField(
-					'securepoll_votes',
-					'vote_ip',
-					"$base/patches/patch-vote_ip-extend.sql"
-				);
-				$updater->addExtensionIndex(
-					'securepoll_options',
-					'spop_election',
-					"$base/patches/patch-op_election-index.sql"
-				);
-				$updater->addExtensionField(
-					'securepoll_elections',
-					'el_owner',
-					"$base/patches/patch-el_owner.sql"
-				);
 				break;
 			case 'postgres':
 				$updater->addExtensionTable( 'securepoll_msgs', "$base/SecurePoll.pg.sql" );
-				break;
-			case 'sqlite':
-				$updater->addExtensionTable( 'securepoll_msgs', "$base/SecurePoll.sql" );
 				break;
 		}
 
