@@ -194,5 +194,383 @@
 			{ "name": "spl_timestamp", "columns": [ "spl_timestamp" ], "unique": false }
 		],
 		"pk": [ "spl_id" ]
+	},
+	{
+		"name": "securepoll_msgs",
+		"comment": "i18n text associated with an entity",
+		"columns": [
+			{
+				"name": "msg_entity",
+				"comment": "securepoll_entity.en_id",
+				"type": "integer",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "msg_lang",
+				"comment": "Language code",
+				"type": "binary",
+				"options": { "notnull": true, "length": 32 }
+			},
+			{
+				"name": "msg_key",
+				"comment": "Message key",
+				"type": "binary",
+				"options": { "notnull": true, "length": 32 }
+			},
+			{
+				"name": "msg_text",
+				"comment": "Message text, UTF-8 encoded",
+				"type": "text",
+				"options": { "notnull": true, "length": 16777215 }
+			}
+		],
+		"indexes": [
+			{
+				"name": "spmsg_entity",
+				"columns": [ "msg_entity", "msg_lang", "msg_key" ],
+				"unique": true
+			}
+		],
+		"pk": []
+	},
+	{
+		"name": "securepoll_elections",
+		"comment": "List of elections (or polls, surveys, etc)",
+		"columns": [
+			{
+				"name": "el_entity",
+				"comment": "securepoll_entity.en_id",
+				"type": "integer",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "el_title",
+				"comment": "Election title. Only used for the election list on the entry page",
+				"type": "string",
+				"options": { "notnull": true, "length": 255 }
+			},
+			{
+				"name": "el_owner",
+				"comment": "Owner user.user_id",
+				"type": "integer",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "el_ballot",
+				"comment": "Ballot type, see Ballot.php",
+				"type": "string",
+				"options": { "notnull": true, "length": 32 }
+			},
+			{
+				"name": "el_tally",
+				"comment": "Tally type, see Tally.php",
+				"type": "string",
+				"options": { "notnull": true, "length": 32 }
+			},
+			{
+				"name": "el_primary_lang",
+				"comment": "Primary (administrative) language. This is the primary source for translations",
+				"type": "binary",
+				"options": { "notnull": true, "length": 32 }
+			},
+			{
+				"name": "el_start_date",
+				"comment": "Start date, in 14-char MW format",
+				"type": "mwtimestamp",
+				"options": { "notnull": false }
+			},
+			{
+				"name": "el_end_date",
+				"comment": "End date, in 14-char MW format",
+				"type": "mwtimestamp",
+				"options": { "notnull": false }
+			},
+			{
+				"name": "el_auth_type",
+				"comment": "User authorization type, see Auth.php",
+				"type": "binary",
+				"options": { "notnull": true, "length": 32 }
+			}
+		],
+		"indexes": [
+			{
+				"name": "spel_title",
+				"columns": [ "el_title" ],
+				"unique": true
+			}
+		],
+		"pk": [ "el_entity" ]
+	},
+	{
+		"name": "securepoll_voters",
+		"comment": "Voter list, independent for each election. See Voter.php",
+		"columns": [
+			{
+				"name": "voter_id",
+				"comment": "Primary key",
+				"type": "integer",
+				"options": { "autoincrement": true, "notnull": true }
+			},
+			{
+				"name": "voter_election",
+				"comment": "securepoll_elections.el_id",
+				"type": "integer",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "voter_name",
+				"comment": "The voter's name, as it appears on the remote site",
+				"type": "binary",
+				"options": { "notnull": true, "length": 255 }
+			},
+			{
+				"name": "voter_type",
+				"comment": "The auth type that created this voter",
+				"type": "binary",
+				"options": { "notnull": true, "length": 32 }
+			},
+			{
+				"name": "voter_domain",
+				"comment": "The voter's domain, should be fully-qualified",
+				"type": "binary",
+				"options": { "notnull": true, "length": 255 }
+			},
+			{
+				"name": "voter_url",
+				"comment": "A URL uniquely identifying the voter",
+				"type": "blob",
+				"options": { "notnull": false, "length": 65530 }
+			},
+			{
+				"name": "voter_properties",
+				"comment": "serialized properties blob",
+				"type": "blob",
+				"options": { "notnull": false, "length": 65530 }
+			}
+		],
+		"indexes": [
+			{
+				"name": "spvoter_elec_name_domain",
+				"columns": [ "voter_election", "voter_name", "voter_domain" ],
+				"unique": false
+			}
+		],
+		"pk": [ "voter_id" ]
+	},
+	{
+		"name": "securepoll_votes",
+		"comment": "Votes that have been cast. Contains a blob with answers to all questions",
+		"columns": [
+			{
+				"name": "vote_id",
+				"type": "integer",
+				"options": { "autoincrement": true, "notnull": true }
+			},
+			{
+				"name": "vote_election",
+				"comment": "securepoll_elections.el_id",
+				"type": "integer",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "vote_voter",
+				"comment": "securepoll_voters.voter_id",
+				"type": "integer",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "vote_voter_name",
+				"comment": "securepoll_voters.voter_name. Denormalized fields from the user table for efficient sorting",
+				"type": "binary",
+				"options": { "notnull": true, "length": 255 }
+			},
+			{
+				"name": "vote_voter_domain",
+				"comment": "securepoll_voters.voter_domain. Denormalized fields from the user table for efficient sorting",
+				"type": "binary",
+				"options": { "notnull": true, "length": 32 }
+			},
+			{
+				"name": "vote_struck",
+				"comment": "1 if struck, 0 if not struck. Denormalized field from the strike table",
+				"type": "mwtinyint",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "vote_record",
+				"comment": "The voting record. Previously this was the fixed-length record produced by the ballot type, now it may be wrapped in a JSON object. May be encrypted.",
+				"type": "blob",
+				"options": { "notnull": true, "length": 65530 }
+			},
+			{
+				"name": "vote_ip",
+				"comment": "The IP address, in hexadecimal form (IPUtils::toHex())",
+				"type": "binary",
+				"options": { "notnull": true, "length": 35 }
+			},
+			{
+				"name": "vote_xff",
+				"comment": "The X-Forwarded-For header",
+				"type": "binary",
+				"options": { "notnull": true, "length": 255 }
+			},
+			{
+				"name": "vote_ua",
+				"comment": "The User-Agent header",
+				"type": "binary",
+				"options": { "notnull": true, "length": 255 }
+			},
+			{
+				"name": "vote_timestamp",
+				"comment": "MW-format timestamp when the vote was cast",
+				"type": "mwtimestamp",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "vote_current",
+				"comment": "1 if the vote is current, 0 if old. Only one vote with a given voter will have vote_current=1",
+				"type": "mwtinyint",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "vote_token_match",
+				"comment": "1 if the CSRF token matched (good), 0 for a potential hack",
+				"type": "mwtinyint",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "vote_cookie_dup",
+				"comment": "1 if the vote is flagged as being made by a potential sockpuppet. Details in securepoll_cookie_match",
+				"type": "mwtinyint",
+				"options": { "notnull": true }
+			}
+		],
+		"indexes": [
+			{
+				"name": "spvote_timestamp",
+				"comment": "For list subpage, sorted by timestamp",
+				"columns": [ "vote_election", "vote_timestamp" ],
+				"unique": false
+			},
+			{
+				"name": "spvote_voter_name",
+				"comment": "For list subpage, sorted by name",
+				"columns": [ "vote_election", "vote_voter_name", "vote_timestamp" ],
+				"unique": false
+			},
+			{
+				"name": "spvote_voter_domain",
+				"comment": "For list subpage, sorted by domain",
+				"columns": [ "vote_election", "vote_voter_domain", "vote_timestamp" ],
+				"unique": false
+			},
+			{
+				"name": "spvote_ip",
+				"comment": "For list subpage, sorted by IP",
+				"columns": [ "vote_election", "vote_ip", "vote_timestamp" ],
+				"unique": false
+			}
+		],
+		"pk": [ "vote_id" ]
+	},
+	{
+		"name": "securepoll_strike",
+		"comment": "Log of admin strike actions",
+		"columns": [
+			{
+				"name": "st_id",
+				"comment": "Primary key",
+				"type": "integer",
+				"options": { "autoincrement": true, "notnull": true }
+			},
+			{
+				"name": "st_vote",
+				"comment": "securepoll_votes.vote_id",
+				"type": "integer",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "st_timestamp",
+				"comment": "Time at which the action occurred",
+				"type": "mwtimestamp",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "st_action",
+				"comment": "'strike' or 'unstrike'",
+				"type": "binary",
+				"options": { "notnull": true, "length": 32 }
+			},
+			{
+				"name": "st_reason",
+				"comment": "Explanatory reason",
+				"type": "string",
+				"options": { "notnull": true, "length": 255 }
+			},
+			{
+				"name": "st_user",
+				"comment": "user.user_id who did the action",
+				"type": "integer",
+				"options": { "notnull": true }
+			}
+		],
+		"indexes": [
+			{
+				"name": "spstrike_vote",
+				"comment": "For details subpage (strike log)",
+				"columns": [ "st_vote", "st_timestamp" ],
+				"unique": false
+			}
+		],
+		"pk": [ "st_id" ]
+	},
+	{
+		"name": "securepoll_cookie_match",
+		"comment": "Suspicious cookie match logs",
+		"columns": [
+			{
+				"name": "cm_id",
+				"comment": "Primary key",
+				"type": "integer",
+				"options": { "autoincrement": true, "notnull": true }
+			},
+			{
+				"name": "cm_election",
+				"comment": "securepoll_elections.el_id",
+				"type": "integer",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "cm_voter_1",
+				"comment": "securepoll_voters.voter_id",
+				"type": "integer",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "cm_voter_2",
+				"comment": "securepoll_voters.voter_id",
+				"type": "integer",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "cm_timestamp",
+				"comment": "Timestamp at which the match was logged",
+				"type": "mwtimestamp",
+				"options": { "notnull": true }
+			}
+		],
+		"indexes": [
+			{
+				"name": "spcookie_match_voter_1",
+				"columns": [ "cm_voter_1", "cm_timestamp" ],
+				"unique": false
+			},
+			{
+				"name": "spcookie_match_voter_2",
+				"columns": [ "cm_voter_2", "cm_timestamp" ],
+				"unique": false
+			}
+		],
+		"pk": [ "cm_id" ]
 	}
 ]

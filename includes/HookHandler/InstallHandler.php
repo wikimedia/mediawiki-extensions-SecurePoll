@@ -16,7 +16,6 @@ class InstallHandler implements LoadExtensionSchemaUpdatesHook {
 
 		switch ( $type ) {
 			case 'mysql':
-				$updater->addExtensionTable( 'securepoll_msgs', "$base/SecurePoll.sql" );
 				// 1.39
 				$updater->modifyExtensionField(
 					'securepoll_elections',
@@ -39,16 +38,24 @@ class InstallHandler implements LoadExtensionSchemaUpdatesHook {
 					"$base/sql/$type/patch-securepoll_cookie_match-timestamp.sql"
 				);
 				break;
-			case 'sqlite':
-				$updater->addExtensionTable( 'securepoll_msgs', "$base/SecurePoll.sql" );
-				break;
 			case 'postgres':
-				$updater->addExtensionTable( 'securepoll_msgs', "$base/SecurePoll.pg.sql" );
 				// 1.39
 				$updater->addExtensionUpdate( [
 					'changeField',
 					'securepoll_votes', 'vote_timestamp', 'TIMESTAMPTZ', 'th_timestamp::timestamp with time zone'
 				] );
+				$updater->addExtensionUpdate( [ 'dropFkey', 'securepoll_msgs', 'msg_entity' ] );
+				$updater->addExtensionUpdate( [ 'dropFkey', 'securepoll_elections', 'msg_entel_entityity' ] );
+				$updater->addExtensionUpdate( [ 'dropFkey', 'securepoll_voters', 'voter_election' ] );
+				$updater->addExtensionUpdate( [ 'dropFkey', 'securepoll_votes', 'vote_election' ] );
+				$updater->addExtensionUpdate( [ 'dropFkey', 'securepoll_votes', 'vote_voter' ] );
+				$updater->addExtensionUpdate( [ 'dropFkey', 'securepoll_strike', 'st_vote' ] );
+				$updater->addExtensionUpdate( [ 'dropFkey', 'securepoll_cookie_match', 'cm_election' ] );
+				$updater->addExtensionUpdate( [ 'dropFkey', 'securepoll_cookie_match', 'cm_voter_1' ] );
+				$updater->addExtensionUpdate( [ 'dropFkey', 'securepoll_cookie_match', 'cm_voter_2' ] );
+				$updater->dropExtensionIndex(
+					'securepoll_msgs', 'securepoll_msgs_pkey', "$base/patch-securepoll_msgs-drop-pk.sql"
+				);
 				break;
 		}
 
