@@ -14,7 +14,8 @@ use MediaWiki\MediaWikiServices;
 
 require __DIR__ . '/../../cli.inc';
 
-$lb = MediaWikiServices::getInstance()->getDBLoadBalancer();
+$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+$lb = $lbFactory->getMainLB();
 $dbr = $lb->getConnection( DB_REPLICA );
 $dbw = $lb->getConnection( DB_PRIMARY );
 
@@ -83,6 +84,9 @@ for ( $userId = 1; $userId <= $maxUser; $userId++ ) {
 			$fname
 		);
 		$numUsers++;
+		if ( $numUsers % 500 === 0 ) {
+			$lbFactory->waitForReplication();
+		}
 	}
 }
 
