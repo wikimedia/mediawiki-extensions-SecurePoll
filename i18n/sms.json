@@ -4,6 +4,7 @@
 			"Yupik"
 		]
 	},
+	"securepoll-header-comments": "Kommeeʹnt",
 	"securepoll-header-voter-name": "Nõmm",
 	"securepoll-vote-csrf": "Ij oʹnnstam",
 	"securepoll-header-url": "URL",
