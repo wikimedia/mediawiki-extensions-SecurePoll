@@ -202,6 +202,7 @@
 	"securepoll-create-label-options-delete": "حذف گزینه",
 	"securepoll-create-label-option-name": "نام گزینه:",
 	"securepoll-create-label-seat_count": "تعداد صندلی‌ها:",
+	"securepoll-create-label-limit-seats_input": "محدود کردن ورودی به تعداد کرسی‌ها",
 	"securepoll-create-option-election_type-approval+plurality": "رأی‌گیری موافقتی",
 	"securepoll-create-option-election_type-preferential+schulze": "رأی‌گیری شولتسه",
 	"securepoll-create-option-election_type-choose+plurality": "اکثریت نسبی",
