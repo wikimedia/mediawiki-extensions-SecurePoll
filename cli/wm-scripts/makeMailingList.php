@@ -14,7 +14,7 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserFactory;
 use MediaWiki\User\UserOptionsLookup;
 use MediaWiki\WikiMap\WikiMap;
-use Monolog\Logger;
+use Psr\Log\LoggerInterface;
 use RuntimeException;
 use User;
 use Wikimedia\Rdbms\ILBFactory;
@@ -56,7 +56,7 @@ class MakeMailingList extends Maintenance {
 	/** @var UserOptionsLookup */
 	private $userOptionsLookup;
 
-	/** @var Logger */
+	/** @var LoggerInterface */
 	private $logger;
 
 	/** @var int */
