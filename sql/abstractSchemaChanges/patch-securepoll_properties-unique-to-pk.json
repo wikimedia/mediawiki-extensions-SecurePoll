@@ -1,0 +1,60 @@
+{
+	"comment": "Convert unique index to primary key (T312280)",
+	"before": {
+		"name": "securepoll_properties",
+		"comment": "key/value pairs (properties) associated with an entity",
+		"columns": [
+			{
+				"name": "pr_entity",
+				"comment": "securepoll_entity.en_id",
+				"type": "integer",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "pr_key",
+				"comment": "Property key",
+				"type": "binary",
+				"options": { "length": 32, "notnull": true }
+			},
+			{
+				"name": "pr_value",
+				"comment": "Property value",
+				"type": "blob",
+				"options": { "length": 16777215, "notnull": true }
+			}
+		],
+		"indexes": [
+			{
+				"name": "sppr_entity",
+				"columns": [ "pr_entity", "pr_key" ],
+				"unique": true
+			}
+		]
+	},
+	"after": {
+		"name": "securepoll_properties",
+		"comment": "key/value pairs (properties) associated with an entity",
+		"columns": [
+			{
+				"name": "pr_entity",
+				"comment": "securepoll_entity.en_id",
+				"type": "integer",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "pr_key",
+				"comment": "Property key",
+				"type": "binary",
+				"options": { "length": 32, "notnull": true }
+			},
+			{
+				"name": "pr_value",
+				"comment": "Property value",
+				"type": "blob",
+				"options": { "length": 16777215, "notnull": true }
+			}
+		],
+		"indexes": [],
+		"pk": [ "pr_entity", "pr_key" ]
+	}
+}

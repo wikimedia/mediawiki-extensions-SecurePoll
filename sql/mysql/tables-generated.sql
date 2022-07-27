@@ -13,7 +13,7 @@ CREATE TABLE /*_*/securepoll_properties (
   pr_entity INT NOT NULL,
   pr_key VARBINARY(32) NOT NULL,
   pr_value MEDIUMBLOB NOT NULL,
-  UNIQUE INDEX sppr_entity (pr_entity, pr_key)
+  PRIMARY KEY(pr_entity, pr_key)
 ) /*$wgDBTableOptions*/;
 
 

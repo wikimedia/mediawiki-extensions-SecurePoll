@@ -42,13 +42,8 @@
 				"options": { "length": 16777215, "notnull": true }
 			}
 		],
-		"indexes": [
-			{
-				"name": "sppr_entity",
-				"columns": [ "pr_entity", "pr_key" ],
-				"unique": true
-			}
-		]
+		"indexes": [],
+		"pk": [ "pr_entity", "pr_key" ]
 	},
 	{
 		"name": "securepoll_questions",
