@@ -6,6 +6,7 @@
 	},
 	"securepoll-header-comments": "Kommeeʹnt",
 	"securepoll-submit": "Ruõkk jiõn",
+	"securepoll-unanswered-questions": "Ton õõlǥak puk kõõččmõõžžid vaʹstteed.",
 	"securepoll-not-logged-in": "Ton õõlǥak leeʹd sizz ǩeeʹrjtõõttâm, jõs haaʹlääk jiõnsted täin vaalin.",
 	"securepoll-header-voter-name": "Nõmm",
 	"securepoll-vote-csrf": "Ij oʹnnstam",
