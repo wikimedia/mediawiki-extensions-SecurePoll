@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Bada Kaji",
 			"Bhawani Gautam",
 			"NehalDaveND",
 			"RajeshPandey",
@@ -100,6 +101,7 @@
 	"securepoll-ranks": "अन्तिम र्‌याङ्किङ्ग",
 	"securepoll-average-score": "औसत स्कोर",
 	"securepoll-round": "चरण $1",
+	"securepoll-create-label-property_admins": "प्रबन्धकहरू:",
 	"securepoll-votereligibility-label-names": "प्रयोगकर्ता नाम",
 	"securepoll-votereligibility-label-comment": "कारण"
 }
