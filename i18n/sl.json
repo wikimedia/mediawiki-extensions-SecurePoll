@@ -106,6 +106,7 @@
 	"securepoll-spoilt": "(Neveljavno)",
 	"securepoll-exhausted": "(Izkoriščeno)",
 	"securepoll-create-label-comment": "Razlog",
+	"securepoll-votereligibility-label-names": "Uporabniška imena",
 	"securepoll-votereligibility-label-comment": "Razlog",
 	"securepoll-votereligibility-saved": "{{int:securepoll}}: shranjeno",
 	"securepoll-votereligibility-saved-text": "Vaše spremembe so shranjene.",
