@@ -108,5 +108,6 @@
 	"securepoll-create-label-comment": "Razlog",
 	"securepoll-votereligibility-label-comment": "Razlog",
 	"securepoll-votereligibility-saved": "{{int:securepoll}}: shranjeno",
-	"securepoll-votereligibility-saved-text": "Vaše spremembe so shranjene."
+	"securepoll-votereligibility-saved-text": "Vaše spremembe so shranjene.",
+	"securepoll-stv-invalid-input-duplicate": "Prosimo, pri tej nastavitvi izberite drugo možnost"
 }
