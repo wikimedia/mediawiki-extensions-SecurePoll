@@ -3,6 +3,7 @@
 		"authors": [
 			"Assele",
 			"Haqmar",
+			"Kareyac",
 			"Айсар",
 			"Ләйсән",
 			"Рустам Нурыев"
@@ -100,5 +101,6 @@
 	"securepoll-pairwise-victories": "Парлы еңеүҙәр матрицаһы",
 	"securepoll-strength-matrix": "Юл көсө матрицаһы",
 	"securepoll-ranks": "Һуңғы тәртип",
-	"securepoll-average-score": "Уртаса баһа"
+	"securepoll-average-score": "Уртаса баһа",
+	"securepoll-create-label-property_admins": "Хакимдар:"
 }
