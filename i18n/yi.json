@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"פוילישער"
+			"פוילישער",
+			"Pacha Tchernof"
 		]
 	},
 	"securepoll": "זיכערע שטימונג",
@@ -81,5 +82,6 @@
 	"securepoll-tally-not-finished": "אנטשולדיגט, איר קענען נישט רעכענען די וואַלן ביז נאָך די אָפּשטימונג האט געקאנטשעט.",
 	"securepoll-average-score": "דורכשניטלעכע פונקטן",
 	"securepoll-round": "רונדע $1",
-	"securepoll-spoilt": "(אומגילטיק)"
+	"securepoll-spoilt": "(אומגילטיק)",
+	"securepoll-votereligibility-saved": "{{int:securepoll}}: אויפֿגעהיטן"
 }
