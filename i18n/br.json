@@ -3,7 +3,8 @@
 		"authors": [
 			"Fohanno",
 			"Fulup",
-			"Y-M D"
+			"Y-M D",
+			"Huñvreüs"
 		]
 	},
 	"securepoll": "Mouezhiadeg suraet",
@@ -12,7 +13,7 @@
 	"securepoll-need-admin": "Ret eo deoc'h bezañ unan eus merourien an dilennadeg evit gellout seveniñ an ober-mañ.",
 	"securepoll-too-few-params": "Diouer a arventennoù ispajenn (liamm fall)",
 	"securepoll-invalid-election": "N'eo ket \"$1\" un ID mouezhiañ degemeret.",
-	"securepoll-welcome": "<strong>Degemer mat $1!</strong>",
+	"securepoll-welcome": "<strong>{{GENDER:$1|Degemer mat}} $1!</strong>",
 	"securepoll-not-started": "N'eo ket kroget ar vouezhiadeg evit c'hoazh.\nEmañ da gregiñ d'an $2 da $3.",
 	"securepoll-finished": "Serr eo ar vouezhiadeg-mañ, n'hallit ket votiñ ken.",
 	"securepoll-not-qualified": "N'hallit ket kemer perzh er votadeg-mañ : $1",
@@ -134,5 +135,5 @@
 	"securepoll-votereligibility-saved": "{{int:securepoll}} : Enrollet",
 	"securepoll-votereligibility-saved-text": "Enrollet eo bet ho kemmoù.",
 	"right-securepoll-create-poll": "Krouiñ sontadegoù",
-	"action-securepoll-create-poll": "krouiñ sontadegoù"
+	"action-securepoll-create-poll": "krouiñ sontadegoù ha gwelout marilhoù"
 }
