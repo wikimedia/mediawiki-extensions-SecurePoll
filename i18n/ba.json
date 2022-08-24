@@ -5,7 +5,8 @@
 			"Haqmar",
 			"Айсар",
 			"Ләйсән",
-			"Рустам Нурыев"
+			"Рустам Нурыев",
+			"Kareyac"
 		]
 	},
 	"securepoll": "Хәүефһеҙ тауыш биреү",
@@ -100,5 +101,6 @@
 	"securepoll-pairwise-victories": "Парлы еңеүҙәр матрицаһы",
 	"securepoll-strength-matrix": "Юл көсө матрицаһы",
 	"securepoll-ranks": "Һуңғы тәртип",
-	"securepoll-average-score": "Уртаса баһа"
+	"securepoll-average-score": "Уртаса баһа",
+	"securepoll-create-label-property_admins": "Хакимдар:"
 }
