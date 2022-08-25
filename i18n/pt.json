@@ -205,6 +205,7 @@
 	"securepoll-create-label-options-delete": "Eliminar opção",
 	"securepoll-create-label-option-name": "Nome da opção:",
 	"securepoll-create-label-seat_count": "Número de lugares:",
+	"securepoll-create-label-limit-seats_input": "Limitar a entrada ao número de lugares",
 	"securepoll-create-option-election_type-approval+plurality": "Voto de aprovação",
 	"securepoll-create-option-election_type-preferential+schulze": "Método de Schulze",
 	"securepoll-create-option-election_type-choose+plurality": "Pluralidade",
