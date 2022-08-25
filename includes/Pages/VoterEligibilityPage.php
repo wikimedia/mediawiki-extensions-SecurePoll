@@ -167,11 +167,13 @@ class VoterEligibilityPage extends ActionPage {
 
 			if ( $dbname === $localWiki ) {
 				$lb = $this->lbFactory->getMainLB();
-				$dbw = $lb->getConnectionRef( ILoadBalancer::DB_PRIMARY );
+				$dbw = $lb->getConnectionRef( ILoadBalancer::DB_PRIMARY,
+					[], false, ILoadBalancer::CONN_TRX_AUTOCOMMIT );
 			} else {
 				unset( $dbw );
 				$lb = $this->lbFactory->getMainLB( $dbname );
-				$dbw = $lb->getConnectionRef( ILoadBalancer::DB_PRIMARY, [], $dbname );
+				$dbw = $lb->getConnectionRef( ILoadBalancer::DB_PRIMARY,
+					[], $dbname, ILoadBalancer::CONN_TRX_AUTOCOMMIT );
 
 				try {
 					// Connect to the DB and check if the LB is in read-only mode
@@ -332,12 +334,13 @@ class VoterEligibilityPage extends ActionPage {
 		foreach ( $wikis as $dbname ) {
 			if ( $dbname === $localWiki ) {
 				$lb = $this->lbFactory->getMainLB( $dbname );
-				$dbw = $lb->getConnectionRef( ILoadBalancer::DB_PRIMARY );
+				$dbw = $lb->getConnectionRef( ILoadBalancer::DB_PRIMARY
+					[], false, ILoadBalancer::CONN_TRX_AUTOCOMMIT );
 			} else {
 				unset( $dbw );
 				$lb = $this->lbFactory->getMainLB( $dbname );
-				$dbw = $lb->getConnectionRef( ILoadBalancer::DB_PRIMARY, [], $dbname );
-
+				$dbw = $lb->getConnectionRef( ILoadBalancer::DB_PRIMARY,
+					[], $dbname, ILoadBalancer::CONN_TRX_AUTOCOMMIT );
 				try {
 					// Connect to the DB and check if the LB is in read-only mode
 					if ( $dbw->isReadOnly() ) {
@@ -1230,12 +1233,14 @@ class VoterEligibilityPage extends ActionPage {
 
 			if ( $dbname === $localWiki ) {
 				$lb = $this->lbFactory->getMainLB();
-				$dbw = $lb->getConnectionRef( ILoadBalancer::DB_PRIMARY );
+				$dbw = $lb->getConnectionRef( ILoadBalancer::DB_PRIMARY,
+					[], false, ILoadBalancer::CONN_TRX_AUTOCOMMIT );
 			} else {
 
 				unset( $dbw );
 				$lb = $this->lbFactory->getMainLB( $dbname );
-				$dbw = $lb->getConnectionRef( ILoadBalancer::DB_PRIMARY, [], $dbname );
+				$dbw = $lb->getConnectionRef( ILoadBalancer::DB_PRIMARY,
+					[], $dbname, ILoadBalancer::CONN_TRX_AUTOCOMMIT );
 			}
 
 			$dbw->startAtomic( __METHOD__ );
