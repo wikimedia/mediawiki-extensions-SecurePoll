@@ -2,8 +2,12 @@
 
 namespace MediaWiki\Extension\SecurePoll;
 
+use Exception;
 use Generator;
+use Html;
 use InvalidArgumentException;
+use MailAddress;
+use Maintenance;
 use MediaWiki\Languages\LanguageFactory;
 use MediaWiki\Languages\LanguageFallback;
 use MediaWiki\MediaWikiServices;
@@ -11,7 +15,10 @@ use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Revision\SlotRecord;
 use Parser;
 use ParserOptions;
+use TextContent;
 use Title;
+use UserMailer;
+use WikiMap;
 
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
@@ -25,7 +32,7 @@ require __DIR__ . '/includes/MailingListEntry.php';
  * For documentation please see
  * https://wikitech.wikimedia.org/wiki/SecurePoll#Email_spam
  */
-class SendMail extends \Maintenance {
+class SendMail extends Maintenance {
 	/** @var Parser */
 	private $parser;
 
@@ -70,12 +77,12 @@ class SendMail extends \Maintenance {
 		/** @var MailingListEntry $entry */
 		foreach ( $this->getEntries() as $i => $entry ) {
 			$message = $this->getMessage( $entry );
-			$sender = new \MailAddress(
+			$sender = new MailAddress(
 				$this->getOption( 'sender' ),
 				$message['sender'] ?? null
 			);
-			\UserMailer::send(
-				new \MailAddress( $entry->email, $entry->userName ),
+			UserMailer::send(
+				new MailAddress( $entry->email, $entry->userName ),
 				$sender,
 				$message['subject'],
 				[
@@ -193,11 +200,11 @@ class SendMail extends \Maintenance {
 		if ( !isset( $this->textCache[$pdbk] ) ) {
 			$revision = $this->revisionLookup->getRevisionByTitle( $title );
 			if ( !$revision ) {
-				throw new \Exception( "Unable to load revision for title {$title}" );
+				throw new Exception( "Unable to load revision for title {$title}" );
 			}
 			$content = $revision->getContent( SlotRecord::MAIN );
-			if ( !( $content instanceof \TextContent ) ) {
-				throw new \Exception( "Page {$title} is not text" );
+			if ( !( $content instanceof TextContent ) ) {
+				throw new Exception( "Page {$title} is not text" );
 			}
 			$this->textCache[$pdbk] = $content->getText();
 		}
@@ -210,7 +217,7 @@ class SendMail extends \Maintenance {
 	 * @return string
 	 */
 	private function replaceVariables( MailingListEntry $entry, $text ) {
-		$wikiRef = \WikiMap::getWiki( $entry->wiki );
+		$wikiRef = WikiMap::getWiki( $entry->wiki );
 		if ( !$wikiRef ) {
 			$this->fatalError( "Invalid wiki: {$entry->wiki}" );
 		}
@@ -259,7 +266,7 @@ class SendMail extends \Maintenance {
 		$lang = $this->languageFactory->getLanguage( $langCode );
 		$parserOptions->setUserLang( $lang );
 		$out = $this->parser->parse( $body, $title, $parserOptions );
-		$html = \Html::rawElement(
+		$html = Html::rawElement(
 			'div',
 			[
 				'dir' => $lang->getDir(),

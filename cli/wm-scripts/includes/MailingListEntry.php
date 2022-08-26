@@ -2,6 +2,8 @@
 
 namespace MediaWiki\Extension\SecurePoll;
 
+use InvalidArgumentException;
+
 class MailingListEntry {
 	/** @var string */
 	public $wiki;
@@ -19,7 +21,7 @@ class MailingListEntry {
 	public static function newFromString( $str ) {
 		$fields = explode( "\t", rtrim( $str, "\n" ) );
 		if ( count( $fields ) !== 6 ) {
-			throw new \InvalidArgumentException( 'Invalid mailing list entry' );
+			throw new InvalidArgumentException( 'Invalid mailing list entry' );
 		}
 		$entry = new self;
 		$entry->wiki = $fields[0];
