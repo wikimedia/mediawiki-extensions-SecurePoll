@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\SecurePoll;
 
+use Maintenance;
 use MediaWiki\Extension\CentralAuth\CentralAuthServices;
 use Wikimedia\Rdbms\IDatabase;
 
@@ -12,7 +13,7 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 }
 require_once "$IP/maintenance/Maintenance.php";
 
-class ImportGlobalVoterList extends \Maintenance {
+class ImportGlobalVoterList extends Maintenance {
 	/** @var IDatabase */
 	private $dbcr;
 	/** @var IDatabase */
