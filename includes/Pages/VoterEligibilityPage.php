@@ -334,7 +334,7 @@ class VoterEligibilityPage extends ActionPage {
 		foreach ( $wikis as $dbname ) {
 			if ( $dbname === $localWiki ) {
 				$lb = $this->lbFactory->getMainLB( $dbname );
-				$dbw = $lb->getConnectionRef( ILoadBalancer::DB_PRIMARY
+				$dbw = $lb->getConnectionRef( ILoadBalancer::DB_PRIMARY,
 					[], false, ILoadBalancer::CONN_TRX_AUTOCOMMIT );
 			} else {
 				unset( $dbw );
