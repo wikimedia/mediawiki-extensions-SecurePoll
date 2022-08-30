@@ -28,7 +28,7 @@
 	"securepoll-submit": "שליחת ההצבעה",
 	"securepoll-gpg-receipt": "תודה על ההצבעה.\n\nאם זה רצונך, באפשרותך לשמור את הקבלה הבאה כהוכחה להצבעתך:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "תודה, הצבעתך נרשמה.",
-	"securepoll-return": "בחזרה ל{{GRAMMAR:תחילית|$1}}",
+	"securepoll-return": "לחזור לדף $1",
 	"securepoll-encrypt-error": "הצפנת רשומת ההצבעה שלך לא הצליחה.\nהצבעתך לא נרשמה!\n\n$1",
 	"securepoll-no-gpg-home": "לא ניתן ליצור את תיקיית הבית של GPG.",
 	"securepoll-secret-gpg-error": "שגיאה בהרצת GPG.\nיש להגדיר את <code dir=\"ltr\">$wgSecurePollShowErrorDetail=true;</code> בקובץ LocalSettings.php להצגת פרטים נוספים.",
