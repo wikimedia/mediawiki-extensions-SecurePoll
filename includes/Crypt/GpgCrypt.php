@@ -323,8 +323,8 @@ class GpgCrypt extends Crypt {
 		}
 
 		$this->deleteDir( $this->homeDir );
-		$this->homeDir = false;
-		$this->recipient = false;
+		$this->homeDir = null;
+		$this->recipient = null;
 	}
 
 	private function deleteDir( $dirname ) {

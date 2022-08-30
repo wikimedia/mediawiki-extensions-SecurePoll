@@ -523,7 +523,7 @@ class Election extends Entity {
 				) . "\n" . Xml::element(
 					'property',
 					[ 'name' => 'jump-id' ],
-					$this->getId()
+					(string)$this->getId()
 				) . "\n";
 		} else {
 			$s .= Xml::element( 'auth', [], $this->authType ) . "\n";

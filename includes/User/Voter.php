@@ -228,7 +228,7 @@ class Voter {
 				}
 			}
 		} else {
-			setcookie( $cookieName, $this->getId(), time() + 86400 * 30 );
+			setcookie( $cookieName, (string)$this->getId(), time() + 86400 * 30 );
 		}
 	}
 

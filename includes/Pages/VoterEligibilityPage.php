@@ -455,7 +455,7 @@ class VoterEligibilityPage extends ActionPage {
 
 		$date = $this->election->getProperty( 'max-registration', '' );
 		if ( $date !== '' ) {
-			$date = gmdate( 'Y-m-d', wfTimestamp( TS_UNIX, $date ) );
+			$date = gmdate( 'Y-m-d', (int)wfTimestamp( TS_UNIX, $date ) );
 		} else {
 			$date = gmdate( 'Y-m-d', strtotime( 'yesterday' ) );
 		}
@@ -613,7 +613,7 @@ class VoterEligibilityPage extends ActionPage {
 
 				$date = $this->election->getProperty( 'list_edits-before-date', '' );
 				if ( $date !== '' ) {
-					$date = gmdate( 'Y-m-d', wfTimestamp( TS_UNIX, $date ) );
+					$date = gmdate( 'Y-m-d', (int)wfTimestamp( TS_UNIX, $date ) );
 				} else {
 					$date = gmdate( 'Y-m-d', strtotime( 'yesterday' ) );
 				}
@@ -679,7 +679,7 @@ class VoterEligibilityPage extends ActionPage {
 				if ( $editCountStartDate !== '' ) {
 					$editCountStartDate = gmdate(
 						'Y-m-d',
-						wfTimestamp( TS_UNIX, $editCountStartDate )
+						(int)wfTimestamp( TS_UNIX, $editCountStartDate )
 					);
 				}
 
@@ -711,7 +711,7 @@ class VoterEligibilityPage extends ActionPage {
 				} else {
 					$editCountEndDate = gmdate(
 						'Y-m-d',
-						wfTimestamp( TS_UNIX, $editCountEndDate )
+						(int)wfTimestamp( TS_UNIX, $editCountEndDate )
 					);
 				}
 
@@ -865,7 +865,7 @@ class VoterEligibilityPage extends ActionPage {
 	 * would be hidden by JS are required but not filled.
 	 *
 	 * @internal For use by the HTMLFormField
-	 * @param int $value
+	 * @param string $value
 	 * @return bool|string true on success, string on error
 	 */
 	public function checkRequired( $value ) {
@@ -918,7 +918,7 @@ class VoterEligibilityPage extends ActionPage {
 			return $exists;
 		}
 
-		return $this->checkMin( $value, 1 );
+		return $this->checkMin( (int)$value, 1 );
 	}
 
 	/**
@@ -940,7 +940,7 @@ class VoterEligibilityPage extends ActionPage {
 			return $exists;
 		}
 
-		return $this->checkMin( $value, 1 );
+		return $this->checkMin( (int)$value, 1 );
 	}
 
 	/**
@@ -962,7 +962,7 @@ class VoterEligibilityPage extends ActionPage {
 			return $exists;
 		}
 
-		return $this->checkMin( $value, 1 );
+		return $this->checkMin( (int)$value, 1 );
 	}
 
 	/**

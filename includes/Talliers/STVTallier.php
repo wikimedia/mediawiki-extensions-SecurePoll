@@ -734,7 +734,7 @@ class STVTallier extends Tallier {
 
 	/**
 	 * Given a candidate id, return the candidate name
-	 * @param string $id
+	 * @param int $id
 	 * @return string
 	 */
 	private function getCandidateName( $id ) {

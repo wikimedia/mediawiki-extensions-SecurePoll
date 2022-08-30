@@ -289,7 +289,7 @@ class GenerateTestElection extends Maintenance {
 					if ( (int)$choice === 0 ) {
 						break;
 					}
-					$choiceId = $options[ $choice - 1 ]->getId();
+					$choiceId = $options[ (int)$choice - 1 ]->getId();
 					$record .= $baseBallot->packRecord( $question, $choiceId, $rank );
 				}
 
