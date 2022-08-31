@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Olve Utne"
+		]
+	},
+	"securepoll-header-comments": "Målgedime",
+	"securepoll-create-label-property_admins": "Háldadiejje:",
+	"securepolllog-form-type-option-admin": "Háldadäjjelåggå",
+	"securepolllog-form-action-option-addadmin": "Háldadäjje lä laseduvvum"
+}
