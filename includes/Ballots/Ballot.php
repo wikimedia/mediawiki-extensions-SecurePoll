@@ -22,7 +22,7 @@ abstract class Ballot {
 	public $context;
 	/** @var string|null */
 	public $currentVote;
-	/** @var int[]|null */
+	/** @var true[]|null */
 	public $prevErrorIds;
 	/** @var true[]|null */
 	public $usedErrorIds;

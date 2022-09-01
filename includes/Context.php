@@ -221,8 +221,8 @@ class Context {
 
 	/**
 	 * Create a voter object from the database
-	 * @param string $id
-	 * @return Voter or false if the ID is not valid
+	 * @param int $id
+	 * @return Voter|false false if the ID is not valid
 	 */
 	public function getVoter( $id ) {
 		return Voter::newFromId( $this, $id );
@@ -293,7 +293,7 @@ class Context {
 	 * @param string $lang Language code
 	 * @param string|int $id Entity ID
 	 * @param string $key Message key
-	 * @return bool
+	 * @return string|false
 	 */
 	public function getMessage( $lang, $id, $key ) {
 		if ( !isset( $this->messagesLoaded[$lang][$id] ) ) {

@@ -41,7 +41,7 @@ class StrikePager extends TablePager {
 	public function formatValue( $name, $value ) {
 		switch ( $name ) {
 			case 'st_user':
-				return Linker::userLink( $value, $this->mCurrentRow->user_name );
+				return Linker::userLink( (int)$value, $this->mCurrentRow->user_name );
 			case 'st_timestamp':
 				return $this->getLanguage()->timeanddate( $value );
 			default:

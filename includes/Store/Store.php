@@ -45,7 +45,7 @@ interface Store {
 	/**
 	 * Get the type of one or more SecurePoll entities.
 	 * @param int $id
-	 * @return string
+	 * @return string|false
 	 */
 	public function getEntityType( $id );
 

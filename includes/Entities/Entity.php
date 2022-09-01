@@ -143,7 +143,7 @@ class Entity {
 	 *
 	 * @param string $name
 	 * @param string $language
-	 * @return bool
+	 * @return string|false
 	 */
 	public function getRawMessage( $name, $language ) {
 		if ( empty( $this->messagesLoaded[$language] ) ) {
@@ -268,7 +268,7 @@ class Entity {
 	 * @return string
 	 */
 	public function getConfXmlEntityStuff( $params = [] ) {
-		$s = Xml::element( 'id', [], $this->getId() ) . "\n";
+		$s = Xml::element( 'id', [], (string)$this->getId() ) . "\n";
 		$excludedNames = $this->getPropertyDumpExclusion( $params );
 		foreach ( $this->getAllProperties() as $name => $value ) {
 			if ( !in_array( $name, $excludedNames ) ) {

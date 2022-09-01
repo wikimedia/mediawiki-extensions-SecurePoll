@@ -87,7 +87,7 @@ class STVBallot extends Ballot {
 				'infusable' => true,
 				'name' => $inputId,
 				'options' => $allOptions,
-				'value' => $request->getVal( $inputId, 0 ),
+				'value' => $request->getVal( $inputId, '0' ),
 			] );
 			$fieldset->appendContent( new \OOUI\FieldLayout(
 				$widget,

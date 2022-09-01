@@ -97,7 +97,7 @@ class MainElectionsPager extends ElectionPager {
 	}
 
 	public function getLinks() {
-		$id = $this->mCurrentRow->el_entity;
+		$id = (int)$this->mCurrentRow->el_entity;
 
 		$s = '';
 		$sep = $this->msg( 'pipe-separator' )->text();
@@ -140,7 +140,7 @@ class MainElectionsPager extends ElectionPager {
 
 	/**
 	 * Generate the link to the logs on SecurePollLog for an election
-	 * @param string $id
+	 * @param int $id
 	 * @return string
 	 */
 	public function getLogLink( $id ) {

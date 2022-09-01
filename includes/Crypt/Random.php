@@ -46,7 +46,7 @@ class Random {
 	 * @return int
 	 */
 	public function getInt( $maxp1 ) {
-		$numBytes = ceil( strlen( base_convert( $maxp1, 10, 16 ) ) / 2 );
+		$numBytes = ceil( strlen( base_convert( (string)$maxp1, 10, 16 ) ) / 2 );
 		if ( $numBytes == 0 ) {
 			return 0;
 		}
