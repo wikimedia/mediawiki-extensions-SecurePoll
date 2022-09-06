@@ -4,6 +4,7 @@
 			"Yupik"
 		]
 	},
+	"securepoll-welcome": "<strong>{{GENDER:$1|Tiõrvpueʹttem}} $1!</strong>",
 	"securepoll-submit": "Ruõkk jiõn",
 	"securepoll-unanswered-questions": "Ton õõlǥak puk kõõččmõõžžid vaʹstteed.",
 	"securepoll-api-invalid-params": "Vââǥǥlaž paramettar.",

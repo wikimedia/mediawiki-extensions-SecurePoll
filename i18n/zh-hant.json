@@ -262,6 +262,8 @@
 	"securepoll-votereligibility-cleared-comment": "已清空$1。",
 	"right-securepoll-create-poll": "建立投票",
 	"action-securepoll-create-poll": "建立投票並查看日誌",
+	"right-securepoll-view-voter-pii": "存取關於投票者的個人識別資訊",
+	"action-securepoll-view-voter-pii": "存取關於投票者的個人識別資訊",
 	"securepoll-ns-readonly": "{{ns:SecurePoll}} 命名空間為唯讀",
 	"securepoll-voter-stats": "所有具資格的投票者裡，已有 $1 {{PLURAL:$1|位|位}}投過票。.",
 	"securepoll-vote-stats": "總計投出 $1 張{{PLURAL:$1|票|票}}。其中有 $2 {{PLURAL:$2|張|張}}票不被記入出於投票者重複投票緣故，並且有 $3 {{PLURAL:$3|張|張}}票作廢。",
@@ -291,6 +293,16 @@
 	"securepoll-stv-invalid-input-duplicate": "請為此偏好序選擇其他選項",
 	"securepoll-stv-help-text": "以下的列表描述了用於達成以上結果的計算。在每一輪計算中，獲得過於指標數量票數的候選人將會被宣布被選拔。他們高於指標的多餘票數將會被重新分配到剩餘的候選人中。如果沒人達成指標，排名最低的候選人將會被淘汰，他的票將會被重新分配到剩餘的候選人中。為了更好的理解，請參考[https://web.archive.org/web/20210225045400/https://prfound.org/resources/reference/reference-meek-rule/ this link]。",
 	"securepoll-stv-result-election-elected-header": "當選",
+	"securepoll-stv-election-paramters": "$2 名{{PLURAL:$2|候選人}}的$1{{PLURAL:$1|席位}}選舉。總計 $3 {{PLURAL:$3|票}}。",
+	"securepoll-stv-result-elected-list-unfilled-seat": "因為沒有候選人符合標準，此席位無法填補。最後被淘汰的{{PLURAL:$1|候選人}}是：$1",
 	"securepoll-stv-result-election-eliminated-header": "已被淘汰或未當選",
-	"securepoll-stv-result-election-result-table-heading": "結果"
+	"securepoll-stv-result-election-rounds-header": "回合表格",
+	"securepoll-stv-result-election-round-number-table-heading": "回合數",
+	"securepoll-stv-result-election-tally-table-heading": "計票",
+	"securepoll-stv-result-election-result-table-heading": "結果",
+	"securepoll-stv-votes-transferred": "轉移投票",
+	"securepoll-stv-result-round-quota": "名額：$1",
+	"securepoll-stv-result-round-elected": "當選：$1",
+	"securepoll-stv-result-round-eliminated": "淘汰：$1",
+	"securepoll-stv-result-round-keep-factor": "（維持因素：$1）"
 }
