@@ -7,7 +7,8 @@
 			"पर्वत सुबेदी",
 			"राम प्रसाद जोशी",
 			"सरोज कुमार ढकाल",
-			"Bada Kaji"
+			"Bada Kaji",
+			"बडा काजी"
 		]
 	},
 	"securepoll": "सुरक्षित चुनाव",
@@ -103,5 +104,6 @@
 	"securepoll-round": "चरण $1",
 	"securepoll-create-label-property_admins": "प्रबन्धकहरू:",
 	"securepoll-votereligibility-label-names": "प्रयोगकर्ता नाम",
-	"securepoll-votereligibility-label-comment": "कारण"
+	"securepoll-votereligibility-label-comment": "कारण",
+	"securepolllog-form-date-label": "मिति देखि (र पहिले):"
 }
