@@ -2,14 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Khalid Mahmood",
-			"Abbas dhothar"
+			"Abbas dhothar",
+			"Bgo eiu"
 		]
 	},
 	"securepoll": "سیکیورپول",
 	"securepoll-desc": "چنوتی تے سروے لئی ایکسٹنشن",
 	"securepoll-invalid-page": "نا منیا جان والا نکا صفحہ \"<nowiki>$1</nowiki>\"",
 	"securepoll-need-admin": "اے کم کرن لئی تواڈا الیکشن ایدمنسٹریٹر ہونا چائیدا اے۔",
-	"securepoll-too-few-params": "کافی نکے صفیاں دے پیرامیٹر نئیں (جوڑ کم نئیں کردا)",
+	"securepoll-too-few-params": "کافی نکے صفحیاں دے پیرامیٹر نئیں (جوڑ کم نئیں کردا)",
 	"securepoll-invalid-election": "\"$1\" کوئی پکی چنوتی آئی ڈی نئیں اے۔",
 	"securepoll-welcome": "<strong>جی آیاں نوں $1!</strong>",
 	"securepoll-not-started": "اے چنوتی ہلے شروع نئیں ہوئی۔\nاے $2 نوں $3 بجے شروغ ہووے گی۔",
