@@ -25,7 +25,8 @@
 			"Xiplus",
 			"Yuyu",
 			"飞舞回堂前",
-			"LuciferianThomas"
+			"LuciferianThomas",
+			"SunAfterRain"
 		]
 	},
 	"securepoll": "安全投票",
@@ -287,7 +288,7 @@
 	"right-securepoll-view-voter-pii": "存取關於投票者的個人識別資訊",
 	"action-securepoll-view-voter-pii": "存取關於投票者的個人識別資訊",
 	"securepoll-ns-readonly": "{{ns:SecurePoll}} 命名空間為唯讀",
-	"securepoll-voter-stats": "所有具資格的投票者裡，已有 $1 {{PLURAL:$1|位|位}}投過票。",
+	"securepoll-voter-stats": "在所有符合資格的投票者中，已有$1{{PLURAL:$1|位|位}}投過票。",
 	"securepoll-vote-stats": "共收到 $1 張{{PLURAL:$1|票|票}}，其中有 $2 {{PLURAL:$2|張|張}}票因投票者再次投票而作廢，並且有 $3 {{PLURAL:$3|張|張}}票作廢。",
 	"securepolllog": "安全投票日誌",
 	"securepolllog-form-type-option-all": "所有安全投票日誌",
