@@ -25,6 +25,7 @@
 			"Tranve",
 			"Winston Sung",
 			"Xiplus",
+			"Yfdyh000",
 			"Zhang8569",
 			"飞舞回堂前"
 		]
@@ -55,6 +56,7 @@
 	"securepoll-gpg-config-error": "GPG密钥配置错误。",
 	"securepoll-gpg-parse-error": "解释GPG输出时出错。",
 	"securepoll-no-decryption-key": "解密密钥未配置。\n无法解密。",
+	"securepoll-invalid-record": "投票记录无效。",
 	"securepoll-jump": "前往投票服务器",
 	"securepoll-bad-ballot-submission": "您的投票无效：$1",
 	"securepoll-ballot-see-error": "查看此警告",
@@ -283,8 +285,8 @@
 	"right-securepoll-view-voter-pii": "访问投票者的个人可识别信息",
 	"action-securepoll-view-voter-pii": "访问投票者的个人可识别信息",
 	"securepoll-ns-readonly": "{{ns:SecurePoll}}命名空间是只读的",
-	"securepoll-voter-stats": "在所有符合资格的投票者中，已有$1{{PLURAL:$1|位|位}}投过票。",
-	"securepoll-vote-stats": "共收到$1张{{PLURAL:$1|票}}。其中有$2{{PLURAL:$2|张}}因投票者再次投票而不被记入，且有$3{{PLURAL:$3|张}}已被作废。",
+	"securepoll-voter-stats": "所有符合资格的投票者中，$1名投票者已投票。",
+	"securepoll-vote-stats": "共计收到$1次{{PLURAL:$1|投票}}。其中$2{{PLURAL:$2|票}}因属投票者再次投票而不记入，$3{{PLURAL:$3|票}}已作废。",
 	"securepolllog": "安全投票日志",
 	"securepolllog-form-type-option-all": "所有安全投票日志",
 	"securepolllog-form-type-option-voter": "投票日志",
