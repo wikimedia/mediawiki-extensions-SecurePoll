@@ -192,6 +192,7 @@
 	"securepoll-create-label-must_rank_all": "要求评分所有选项。",
 	"securepoll-create-label-must_answer_all": "要求回答所有选项。",
 	"securepoll-create-label-voter_privacy": "禁用透明性功能（例如投票者列表）以保护投票者的隐私",
+	"securepoll-create-label-request-comment": "允许在投票后添加附言",
 	"securepoll-create-label-gpg_encrypt_key": "GPG加密密钥",
 	"securepoll-create-label-gpg_sign_key": "GPG签名密钥",
 	"securepoll-create-label-questions": "== 问题 ==",
