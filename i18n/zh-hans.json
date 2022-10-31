@@ -26,7 +26,8 @@
 			"Tranve",
 			"Stang",
 			"Winston Sung",
-			"Diskdance"
+			"Diskdance",
+			"Yfdyh000"
 		]
 	},
 	"securepoll": "安全投票",
@@ -260,6 +261,6 @@
 	"right-securepoll-view-voter-pii": "访问投票者的个人可识别信息",
 	"action-securepoll-view-voter-pii": "访问投票者的个人可识别信息",
 	"securepoll-ns-readonly": "{{ns:SecurePoll}}命名空间是只读的",
-	"securepoll-voter-stats": "在所有符合资格的投票者中，已有$1{{PLURAL:$1|位|位}}投过票。",
-	"securepoll-vote-stats": "共收到$1张{{PLURAL:$1|票}}。其中有$2{{PLURAL:$2|张}}因投票者再次投票而不被记入，且有$3{{PLURAL:$3|张}}已被作废。"
+	"securepoll-voter-stats": "所有符合资格的投票者中，$1名投票者已投票。",
+	"securepoll-vote-stats": "共计收到$1次{{PLURAL:$1|投票}}。其中$2{{PLURAL:$2|票}}因属投票者再次投票而不记入，$3{{PLURAL:$3|票}}已作废。"
 }
