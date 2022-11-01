@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"apihelp-strikevote-summary": "Permitte al administratores de annullar o de restaurar un voto.",
+	"apihelp-strikevote-param-option": "Qual action prender: annullar o restaurar un voto.",
+	"apihelp-strikevote-paramvalue-option-strike": "Annullar un voto (remover lo del contage).",
+	"apihelp-strikevote-paramvalue-option-unstrike": "Restaurar un voto (re-adder lo al contage).",
+	"apihelp-strikevote-param-voteid": "Le ID del voto a annullar o restaurar.",
+	"apihelp-strikevote-param-reason": "Le motivo pro annullar o restaurar le voto.",
+	"apihelp-strikevote-example-strike": "Annullar le voto <kbd>1</kbd>, dante le motivo <kbd>duplication</kbd>.",
+	"apihelp-strikevote-example-unstrike": "Restaurar le voto <kbd>1</kbd>, dante le motivo <kbd>mistake</kbd> (error).",
+	"apierror-securepoll-mustbeloggedin-strikevote": "Tu debe aperir session pro annullar o restaurar un voto.",
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> non es un ID de voto valide."
+}
