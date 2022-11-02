@@ -24,7 +24,8 @@
 			"Wladek92",
 			"Wyz",
 			"Yann",
-			"Əric"
+			"Əric",
+			"McDutchie"
 		]
 	},
 	"securepoll": "Sondage sécurisé",
@@ -137,7 +138,7 @@
 	"securepoll-subpage-dump": "Vidage",
 	"securepoll-subpage-tally": "Dépouillement",
 	"securepoll-subpage-log": "Journaux",
-	"securepoll-subpage-archive": "Archive",
+	"securepoll-subpage-archive": "Archiver",
 	"securepoll-archive-title": "Archive $1",
 	"securepoll-archive-private": "Désolé, seuls les administrateurs des élections peuvent archiver ou désarchiver des scrutins.",
 	"securepoll-archive-not-finished": "Désolé, vous ne pouvez archiver que des scrutins terminés.",

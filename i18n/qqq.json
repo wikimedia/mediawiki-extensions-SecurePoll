@@ -24,7 +24,8 @@
 			"Shirayuki",
 			"Siebrand",
 			"Umherirrender",
-			"아라"
+			"아라",
+			"McDutchie"
 		]
 	},
 	"securepoll": "Used in the following messages:\n* {{msg-mw|Securepoll-create-title}}\n* {{msg-mw|Securepoll-create-created}}\n* {{msg-mw|Securepoll-edit-title}}\n* {{msg-mw|Securepoll-edit-edited}}\n* {{msg-mw|Securepoll-votereligibility-saved}}\n* {{msg-mw|Securepoll-votereligibility-cleared}}",
@@ -322,7 +323,7 @@
 	"securepoll-stv-invalid-rank-duplicate": "Used as an error message.",
 	"securepoll-stv-invalid-input-empty": "Used as an error message.",
 	"securepoll-stv-invalid-input-duplicate": "Used as an error message.",
-	"securepoll-stv-help-text": "Description of the methodology used in tallying via Meek's method to help with table comprehension",
+	"securepoll-stv-help-text": "Description of the methodology used in tallying via Meek's method to help with table comprehension.\n\n{{doc-singularthey}}",
 	"securepoll-stv-result-election-elected-header": "Header for list of elected candidates in the STV election",
 	"securepoll-stv-election-paramters": "Summary of the election parameters",
 	"securepoll-stv-result-elected-list-unfilled-seat": "Explanation for why a seat in the STV election is empty",
