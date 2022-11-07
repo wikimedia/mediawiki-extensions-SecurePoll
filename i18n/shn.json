@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"S4b1nuz E.656",
 			"Saimawnkham",
 			"Saosukham"
 		]
 	},
-	"securepoll-language-label": "လိူၵ်ႈ ၽႃႇသႃႇၵႂၢမ်းː",
-	"securepoll-create-label-election_primarylang": "ၽႃႇသႃႇၵႂၢမ်း ပိူင်လူင်ː"
+	"securepoll-language-label": "လိူၵ်ႈ ၽႃႇသႃႇၵႂၢမ်း:",
+	"securepoll-create-label-election_primarylang": "ၽႃႇသႃႇၵႂၢမ်း ပိူင်လူင်:"
 }
