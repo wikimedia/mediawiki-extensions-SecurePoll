@@ -5,6 +5,9 @@
 		"wikimedia/jquery",
 		"wikimedia/mediawiki"
 	],
+	"globals": {
+		"QUnit": "readonly"
+	},
 	"rules": {
 		"no-jquery/no-global-selector": "off"
 	}
