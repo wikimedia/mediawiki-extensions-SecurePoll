@@ -333,14 +333,13 @@ class FormStore extends MemoryStore {
 	 * @return array
 	 */
 	public static function getWikiList() {
-		global $wgConf;
+		global $wgConf, $wgSecurePollExcludedWikis;
 
 		$wikiNames = [];
 		foreach ( $wgConf->getLocalDatabases() as $dbname ) {
 
-			// TODO: Implement this properly and get rid of this hack
 			// SecurePoll is not installed on these
-			if ( $dbname == 'labtestwiki' || $dbname == 'labswiki' || $dbname == 'loginwiki' ) {
+			if ( in_array( $dbname, $wgSecurePollExcludedWikis ) ) {
 				continue;
 			}
 
