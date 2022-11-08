@@ -154,6 +154,10 @@
 			"value": "/../",
 			"description": "Directory containing files defining groups of wikis that can participate in an election. File names are defined in SecurePollCreateWikiGroups."
 		},
+		"SecurePollExcludedWikis": {
+			"value": [],
+			"description": "List of wikis to be excluded from SecurePoll processes"
+		},
 		"SecurePollCreateWikiGroups": {
 			"value": [],
 			"description": "Array of $fileName => $messageKey for defining groups of wikis that can participate in an election, and the groups' labels in the Create form. Files should be stored in SecurePollCreateWikiGroupDir with the suffix .dblist, and contain a list of participating wikis. The suffix should be omitted from the file names given here."
