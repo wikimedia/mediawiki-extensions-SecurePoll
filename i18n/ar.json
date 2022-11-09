@@ -12,7 +12,8 @@
 			"OsamaK",
 			"Ravan",
 			"Shipmaster",
-			"ديفيد"
+			"ديفيد",
+			"أَحمد"
 		]
 	},
 	"securepoll": "استطلاع رأي آمن",
@@ -291,8 +292,8 @@
 	"securepoll-stv-invalid-input-empty": "يرجى ملء هذا التفضيل",
 	"securepoll-stv-invalid-input-duplicate": "الرجاء تحديد خيار مختلف لهذا التفضيل",
 	"securepoll-stv-result-election-elected-header": "منَتخَب",
-	"securepoll-stv-election-paramters": "الانتخابات لـ $1 مثاعد بعدد $2 مرشّحاً. مجموع الأصوات $3",
-	"securepoll-stv-result-elected-list-unfilled-seat": "لم يتسنّ شغل هذا المقعد لعدم وجود مرشحين يستوفون المعايير. آخر المرشحين المستبعدين هم: $1",
+	"securepoll-stv-election-paramters": "الانتخابات لـ $1 {{PLURAL:$1|seat|seats}} بعدد $2 {{PLURAL:$2|candidate|candidates}}. مجموع الأصوات $3 {{PLURAL:$3|vote|votes}}.",
+	"securepoll-stv-result-elected-list-unfilled-seat": "لم يتسنّ شغل هذا المقعد لعدم وجود مرشحين يستوفون المعايير. آخر المرشحين المستبعدين هم {{PLURAL:$1|candidate was|candidates were}}: $1",
 	"securepoll-stv-result-election-eliminated-header": "المستبعدون",
 	"securepoll-stv-result-election-rounds-header": "نقاش طاولة مستديرة",
 	"securepoll-stv-result-election-round-number-table-heading": "رقم الجولة",
