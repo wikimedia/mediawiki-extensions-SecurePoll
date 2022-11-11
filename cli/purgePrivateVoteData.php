@@ -82,6 +82,7 @@ class PurgePrivateVoteData extends Maintenance {
 				' OR vote_ua != ' . $dbr->addQuotes( '' );
 			$minVoteId = 0;
 			do {
+				// @phan-suppress-next-line SecurityCheck-SQLInjection
 				$vRes = $dbr->select( 'securepoll_votes',
 					[ 'vote_id' ],
 					array_merge( $conds, [ 'vote_id >= ' . $dbr->addQuotes( $minVoteId ) ] ),
@@ -110,6 +111,7 @@ class PurgePrivateVoteData extends Maintenance {
 
 			foreach ( $deleteSets as $deleteSet ) {
 				[ $minId, $maxId ] = $deleteSet;
+				// @phan-suppress-next-line SecurityCheck-SQLInjection
 				$dbw->update(
 					'securepoll_votes',
 					[ 'vote_ip' => '', 'vote_xff' => '', 'vote_ua' => '' ],

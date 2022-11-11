@@ -94,13 +94,7 @@ class HistogramRangeTallier extends Tallier {
 	 */
 	public function getHtmlResult() {
 		$ballot = $this->election->getBallot();
-		if ( !is_callable(
-			[
-				$ballot,
-				'getColumnLabels'
-			]
-		)
-		) {
+		if ( !method_exists( $ballot, 'getColumnLabels' ) ) {
 			throw new MWException( __METHOD__ . ': ballot type not supported by this tallier' );
 		}
 		$optionLabels = [];
