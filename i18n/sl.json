@@ -127,5 +127,6 @@
 	"securepoll-votereligibility-saved": "{{int:securepoll}}: shranjeno",
 	"securepoll-votereligibility-saved-text": "Vaše spremembe so shranjene.",
 	"securepoll-votereligibility-cleared": "{{int:securepoll}}: Počiščeno",
+	"securepolllog-election-does-not-exist": "Teh volitev ni bilo mogoče najti",
 	"securepoll-stv-invalid-input-duplicate": "Prosimo, pri tej nastavitvi izberite drugo možnost"
 }
