@@ -92,8 +92,8 @@ class ActionPageFactory {
 		'translate' => [
 			'class' => TranslatePage::class,
 			'services' => [
-				'DBLoadBalancerFactory',
 				'LanguageNameUtils',
+				'SecurePoll.TranslationRepo'
 			],
 		],
 		'unarchive' => [

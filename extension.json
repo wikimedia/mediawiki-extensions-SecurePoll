@@ -42,6 +42,16 @@
 			]
 		}
 	},
+	"RestRoutes": [
+		{
+			"path": "/securepoll/set_translation/{entityid}/{language}",
+			"method": "POST",
+			"class": "\\MediaWiki\\Extension\\SecurePoll\\Rest\\SetTranslationHandler",
+			"services": [
+				"SecurePoll.TranslationRepo"
+			]
+		}
+	],
 	"MessagesDirs": {
 		"SecurePoll": [
 			"i18n",
@@ -69,7 +79,8 @@
 				"page.create.js",
 				"page.list.js",
 				"page.vote.js",
-				"TranslationParser.js"
+				"TranslationParser.js",
+				"TranslationFlattener.js"
 			],
 			"dependencies": [
 				"oojs-ui-core",
@@ -137,7 +148,9 @@
 		"remoteExtPath": "SecurePoll",
 		"scripts": [
 			"modules/ext.securepoll.htmlform/TranslationParser.js",
-			"tests/qunit/TranslationParser.test.js"
+			"modules/ext.securepoll.htmlform/TranslationFlattener.js",
+			"tests/qunit/TranslationParser.test.js",
+			"tests/qunit/TranslationFlattener.test.js"
 		],
 		"dependencies": [
 			"ext.securepoll.htmlform"

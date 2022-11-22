@@ -22,6 +22,13 @@ return [
 		return new HookRunner(
 			$services->getHookContainer()
 		);
+	},
+	'SecurePoll.TranslationRepo' => static function ( MediaWikiServices $services ) {
+		return new TranslationRepo(
+			$services->getDBLoadBalancerFactory(),
+			$services->getWikiPageFactory(),
+			$services->getMainConfig()
+		);
 	}
 ];
 
