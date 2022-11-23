@@ -8,6 +8,7 @@
 	"securepoll-desc": "چونڊن ۽ سرويز لاءِ وڌاءُ",
 	"securepoll-invalid-page": "ناقابلِڪار ماتحت-صفحو \"<nowiki>$1</nowiki>\"",
 	"securepoll-invalid-election": "$1 ڪا ڪارگر چونڊ انٽٽي ناھي.",
+	"securepoll-header-comments": "تبصرا",
 	"securepoll-return": "$1 ڏانھن واپس ٿيو",
 	"securepoll-invalid-vote": "$1 ڪا ڪارگر ووٽ انٽٽي ناھي.",
 	"securepoll-header-id": "آئڊي",
