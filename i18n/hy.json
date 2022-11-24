@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kareyac"
+			"Kareyac",
+			"Սերգեյ Սաֆարյան"
 		]
 	},
 	"securepoll-vote-csrf": "Ձախողվեց",
@@ -11,5 +12,6 @@
 	"securepoll-subpage-list": "Ցանկ",
 	"securepoll-create-option-wiki-all_wikis": "Բոլոր վիքիներ",
 	"securepoll-create-label-property_admins": "Ադմիններ՝",
+	"securepoll-create-label-questions-option": "=== Ընտրանքներ ===",
 	"securepoll-create-label-comment": "Պատճառ"
 }
