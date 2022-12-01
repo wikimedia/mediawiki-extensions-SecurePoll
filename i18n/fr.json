@@ -266,7 +266,7 @@
 	"securepoll-votereligibility-label-notinuse": "Cette liste n’est pas utilisée",
 	"securepoll-votereligibility-label-processing": "Cette liste est en cours de construction ($1 % d’achèvement)",
 	"securepoll-votereligibility-label-edit": "Modifier la liste",
-	"securepoll-votereligibility-label-clear": "Enlever la liste",
+	"securepoll-votereligibility-label-clear": "Retirer la liste",
 	"securepoll-votereligibility-label-populate": "Remplir la liste automatiquement",
 	"securepoll-votereligibility-label-edits_before": "Nécessite un nombre minimal de modifications avant une date",
 	"securepoll-votereligibility-label-edits_before_count": "Nombre minimal de modifications",
