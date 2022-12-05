@@ -51,6 +51,7 @@
 	"securepoll-not-in-list": "Sa ei ole sellel hääletusel osalema volitatud kasutajate nimekirjas.",
 	"securepoll-list-title": "Häälte loend: $1",
 	"securepoll-header-timestamp": "Aeg",
+	"securepoll-header-date": "Kuupäev",
 	"securepoll-header-voter-name": "Nimi",
 	"securepoll-header-voter-domain": "Domeen",
 	"securepoll-header-ua": "Kasutajaagent",
@@ -120,6 +121,7 @@
 	"securepoll-create-option-column_order-desc": "Laskuv",
 	"securepoll-create-option-election_crypt-none": "Krüpteerimata",
 	"securepoll-create-label-comment": "Põhjus",
+	"securepoll-edit-redirect": "See hääletus peab olema ette valmistatud kohas $1.",
 	"securepoll-votereligibility-label-min_edits": "Vähim muudatuste arv:",
 	"securepoll-votereligibility-label-max_registration": "Registreerus varem kui:",
 	"securepoll-votereligibility-label-not_blocked": "Ei tohi olla blokeeritud",
@@ -127,5 +129,7 @@
 	"securepoll-votereligibility-label-not_bot": "Ei tohi olla märgitud robotiks",
 	"securepoll-votereligibility-lists": "Hääletajate nimekirjad",
 	"securepoll-votereligibility-label-names": "Kasutajanimed",
-	"securepoll-votereligibility-label-comment": "Põhjus"
+	"securepoll-votereligibility-label-comment": "Põhjus",
+	"securepoll-voter-stats": "Kõigist hääleõiguslikest kasutajatest $1 on {{PLURAL:$1|hääle}} andnud.",
+	"securepoll-vote-stats": "Kokku on antud $1 {{PLURAL:$1|hääl|häält}}. Neist $2 {{PLURAL:$2|on}} kõrvale jäetud, kuna kasutaja hääletas uuesti, ja $3 {{PLURAL:$3|on}} kehtetuks loetud."
 }
