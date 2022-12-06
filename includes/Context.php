@@ -222,10 +222,11 @@ class Context {
 	/**
 	 * Create a voter object from the database
 	 * @param int $id
+	 * @param int $index DB_PRIMARY or DB_REPLICA
 	 * @return Voter|false false if the ID is not valid
 	 */
-	public function getVoter( $id ) {
-		return Voter::newFromId( $this, $id );
+	public function getVoter( $id, $index = DB_PRIMARY ) {
+		return Voter::newFromId( $this, $id, $index );
 	}
 
 	/**

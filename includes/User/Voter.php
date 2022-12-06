@@ -60,10 +60,11 @@ class Voter {
 	 * Create a voter object from the database
 	 * @param Context $context
 	 * @param int $id
+	 * @param int $index DB_PRIMARY or DB_REPLICA
 	 * @return Voter|bool false if the ID is not valid
 	 */
-	public static function newFromId( $context, $id ) {
-		$db = $context->getDB();
+	public static function newFromId( $context, $id, $index = DB_PRIMARY ) {
+		$db = $context->getDB( $index );
 		$row = $db->selectRow( 'securepoll_voters', '*', [ 'voter_id' => $id ], __METHOD__ );
 		if ( !$row ) {
 			return false;

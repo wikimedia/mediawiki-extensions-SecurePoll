@@ -103,8 +103,8 @@ class Auth {
 				}
 			}
 
-			# Sanity check election ID
-			$voter = $this->context->getVoter( $voterId );
+			# Check election ID explicitly on DB_PRIMARY
+			$voter = $this->context->getVoter( $voterId, DB_PRIMARY );
 			if ( !$voter || $voter->getElectionId() != $election->getId() ) {
 				return false;
 			} else {

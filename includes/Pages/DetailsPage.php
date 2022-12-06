@@ -146,7 +146,7 @@ class DetailsPage extends ActionPage {
 			);
 			$out->addHTML( '<table class="mw-datatable TablePager">' );
 			foreach ( $res as $row ) {
-				$voter = $this->context->getVoter( $row->voter );
+				$voter = $this->context->getVoter( $row->voter, DB_REPLICA );
 				$out->addHTML(
 					'<tr>' . '<td>' . htmlspecialchars(
 						$lang->timeanddate( $row->cm_timestamp )
