@@ -98,11 +98,6 @@ class ListPager extends TablePager {
 		$config = $this->listPage->specialPage->getConfig();
 		$securePollKeepPrivateInfoDays = $config->get( 'SecurePollKeepPrivateInfoDays' );
 
-		$voter = Voter::newFromId(
-			$this->listPage->context,
-			$this->mCurrentRow->vote_voter
-		);
-
 		switch ( $name ) {
 			case 'vote_timestamp':
 				return 'Should be impossible (T298434)';
@@ -174,8 +169,12 @@ class ListPager extends TablePager {
 					'data-voteId' => $voteId,
 				] );
 			case 'vote_voter_name':
-				$msg = $voter->isRemote(
-				) ? 'securepoll-voter-name-remote' : 'securepoll-voter-name-local';
+				$msg = Voter::newFromId(
+					$this->listPage->context,
+					$this->mCurrentRow->vote_voter
+				)->isRemote()
+					? 'securepoll-voter-name-remote'
+					: 'securepoll-voter-name-local';
 
 				return $this->msg(
 					$msg,
