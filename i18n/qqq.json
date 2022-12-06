@@ -380,5 +380,6 @@
 	"securepoll-vote-result-not-checked-option-label": "Label to show the option on which the vote has not been checked.\n\nParameters:\n* $1 - option",
 	"securepoll-vote-result-checked-option-label": "Label to show option which has been checked\n\nParameters:\n* $1- option",
 	"securepoll-vote-result-comment": "Label to show comment on vote\n\nParameters:\n* $1 - comment",
-	"securepoll-vote-result-error-label": "Label with error information during unpacking record"
+	"securepoll-vote-result-error-label": "Label with error information during unpacking record",
+	"securepoll-vote-stv-clear-btn-label": "Label for button to clear all selected candidates"
 }

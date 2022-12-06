@@ -355,5 +355,6 @@
 	"securepoll-vote-result-not-checked-option-label": "$1: not checked",
 	"securepoll-vote-result-checked-option-label": "$1: checked",
 	"securepoll-vote-result-comment": "Comment: $1",
-	"securepoll-vote-result-error-label": "Your votes could not be unpacked correctly. Please contact an election administrator"
+	"securepoll-vote-result-error-label": "Your votes could not be unpacked correctly. Please contact an election administrator",
+	"securepoll-vote-stv-clear-btn-label": "Clear all candidates"
 }

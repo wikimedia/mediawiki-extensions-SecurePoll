@@ -158,6 +158,8 @@ class VotePage extends ActionPage {
 			return;
 		}
 
+		$out->addJsConfigVars( 'SecurePollType', $this->election->getTallyType() );
+
 		// Show/submit the form
 		if ( $this->specialPage->getRequest()->wasPosted() ) {
 			$this->doSubmit();
@@ -224,8 +226,10 @@ class VotePage extends ActionPage {
 					'label' => $this->msg( 'securepoll-submit' )->text(),
 					'flags' => [ 'primary', 'progressive' ],
 					'type' => 'submit',
-				] )
-			),
+					'classes' => [ 'submit-vote-button' ],
+					'infusable' => true
+				]
+			) ),
 			new \OOUI\HiddenInputWidget( [
 				'name' => 'edit_token',
 				'value' => SessionManager::getGlobalSession()->getToken()->toString(),

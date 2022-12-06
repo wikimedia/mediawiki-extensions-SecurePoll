@@ -212,3 +212,76 @@ ul.securepoll-vote-result-no-vote {
 	float: right;
 	margin-top: -25px;
 }
+
+.client-js .securepoll-option-stv-dropdown {
+	display: none;
+}
+
+.client-nojs .securepoll-option-stv-combobox {
+	display: none;
+}
+
+/** Add styling for STV-Election Form */
+.securepoll-question-layout {
+	margin: 7px;
+	max-width: 50em;
+}
+
+.securepoll-question-layout > .oo-ui-draggableGroupElement > .oo-ui-tagItemWidget {
+	display: table;
+	border-radius: 7px;
+	min-width: 150px;
+	max-width: 200px;
+	padding: 1px;
+	margin: 4px;
+}
+
+.securepoll-question-layout .item-position-index-label {
+	height: 21px;
+	width: 22px;
+	text-align: center;
+	vertical-align: text-bottom;
+
+	/** border */
+	border-radius: 100% 100%;
+	border-width: 1px;
+	border-style: solid;
+	margin: 1px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.securepoll-question-layout .item-name-label {
+	padding-left: 10px;
+	margin-right: 25px;
+	max-width: 200px;
+	text-align: center;
+	vertical-align: text-bottom;
+
+	/** break long words */
+	overflow: hidden;
+}
+
+.securepoll-question-layout .item-delete-buton {
+	padding-top: 6px;
+	margin-right: 3px;
+	float: right;
+}
+
+.securepoll-question-layout .item-draggable-icon {
+	padding-top: 2px;
+	margin-top: 3px;
+	margin-left: 3px;
+	vertical-align: text-bottom;
+	position: sticky;
+}
+
+/** Limits layout */
+.securepoll-question-layout > .limits-layout {
+	float: right;
+	margin-right: 8px;
+}
+
+.securepoll-question-layout > .limits-layout > .limit-label {
+	margin-top: 2px;
+}
