@@ -51,6 +51,7 @@
 	"securepoll-not-in-list": "Sa ei ole sellel hääletusel osalema volitatud kasutajate nimekirjas.",
 	"securepoll-list-title": "Häälte loend: $1",
 	"securepoll-header-timestamp": "Aeg",
+	"securepoll-header-date": "Kuupäev",
 	"securepoll-header-voter-name": "Nimi",
 	"securepoll-header-voter-domain": "Domeen",
 	"securepoll-header-ua": "Kasutajaagent",
@@ -94,6 +95,8 @@
 	"securepoll-subpage-dump": "Tõmmis",
 	"securepoll-subpage-tally": "Arvestus",
 	"securepoll-subpage-log": "Logid",
+	"securepoll-entry-archived": "Vaata arhiivitud hääletusi",
+	"securepoll-archived-title": "Arhiivitud hääletused",
 	"securepoll-tally-title": "Arvestus: $1",
 	"securepoll-tally-not-finished": "Enne valimise lõppu ei saa hääli üle lugeda.",
 	"securepoll-tally-upload-submit": "Loe üle",
@@ -115,6 +118,7 @@
 	"securepoll-create-option-column_order-desc": "Laskuv",
 	"securepoll-create-option-election_crypt-none": "Krüpteerimata",
 	"securepoll-create-label-comment": "Põhjus",
+	"securepoll-edit-redirect": "See hääletus peab olema ette valmistatud kohas $1.",
 	"securepoll-votereligibility-label-min_edits": "Vähim muudatuste arv:",
 	"securepoll-votereligibility-label-max_registration": "Registreerus varem kui:",
 	"securepoll-votereligibility-label-not_centrally_blocked": "Ei tohi olla blokeeritud liiga paljudes seotud vikides",
@@ -122,6 +126,8 @@
 	"securepoll-votereligibility-lists": "Hääletajate nimekirjad",
 	"securepoll-votereligibility-label-names": "Kasutajanimed",
 	"securepoll-votereligibility-label-comment": "Põhjus",
+	"securepoll-voter-stats": "Kõigist hääleõiguslikest kasutajatest $1 on {{PLURAL:$1|hääle}} andnud.",
+	"securepoll-vote-stats": "Kokku on antud $1 {{PLURAL:$1|hääl|häält}}. Neist $2 {{PLURAL:$2|on}} kõrvale jäetud, kuna kasutaja hääletas uuesti, ja $3 {{PLURAL:$3|on}} kehtetuks loetud.",
 	"securepoll-stv-droop-default-value": "Tee valik",
 	"securepoll-stv-droop-choice-rank": "$1. eelistus"
 }
