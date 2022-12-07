@@ -87,8 +87,8 @@ class ApprovalBallotTest extends MediaWikiIntegrationTestCase {
 		);
 
 		$this->assertEquals(
-			$this->ballot->submitQuestion( $this->question, new BallotStatus( $this->context ) ),
-			$expected
+			$expected,
+			$this->ballot->submitQuestion( $this->question, new BallotStatus( $this->context ) )
 		);
 	}
 }
