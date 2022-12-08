@@ -224,14 +224,8 @@
 				"options": { "notnull": true, "length": 16777215 }
 			}
 		],
-		"indexes": [
-			{
-				"name": "spmsg_entity",
-				"columns": [ "msg_entity", "msg_lang", "msg_key" ],
-				"unique": true
-			}
-		],
-		"pk": []
+		"indexes": [],
+		"pk": [ "msg_entity", "msg_lang", "msg_key" ]
 	},
 	{
 		"name": "securepoll_elections",

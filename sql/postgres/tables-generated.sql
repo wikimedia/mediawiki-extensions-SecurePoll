@@ -62,11 +62,12 @@ CREATE INDEX spl_timestamp ON securepoll_log (spl_timestamp);
 
 
 CREATE TABLE securepoll_msgs (
-  msg_entity INT NOT NULL, msg_lang TEXT NOT NULL,
-  msg_key TEXT NOT NULL, msg_text TEXT NOT NULL
+  msg_entity INT NOT NULL,
+  msg_lang TEXT NOT NULL,
+  msg_key TEXT NOT NULL,
+  msg_text TEXT NOT NULL,
+  PRIMARY KEY(msg_entity, msg_lang, msg_key)
 );
-
-CREATE UNIQUE INDEX spmsg_entity ON securepoll_msgs (msg_entity, msg_lang, msg_key);
 
 
 CREATE TABLE securepoll_elections (

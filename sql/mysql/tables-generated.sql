@@ -61,7 +61,7 @@ CREATE TABLE /*_*/securepoll_msgs (
   msg_lang VARBINARY(32) NOT NULL,
   msg_key VARBINARY(32) NOT NULL,
   msg_text MEDIUMTEXT NOT NULL,
-  UNIQUE INDEX spmsg_entity (msg_entity, msg_lang, msg_key)
+  PRIMARY KEY(msg_entity, msg_lang, msg_key)
 ) /*$wgDBTableOptions*/;
 
 

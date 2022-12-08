@@ -1,0 +1,72 @@
+{
+	"comment": "Convert unique index to primary key (T312268)",
+	"before": {
+		"name": "securepoll_msgs",
+		"comment": "i18n text associated with an entity",
+		"columns": [
+			{
+				"name": "msg_entity",
+				"comment": "securepoll_entity.en_id",
+				"type": "integer",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "msg_lang",
+				"comment": "Language code",
+				"type": "binary",
+				"options": { "notnull": true, "length": 32 }
+			},
+			{
+				"name": "msg_key",
+				"comment": "Message key",
+				"type": "binary",
+				"options": { "notnull": true, "length": 32 }
+			},
+			{
+				"name": "msg_text",
+				"comment": "Message text, UTF-8 encoded",
+				"type": "text",
+				"options": { "notnull": true, "length": 16777215 }
+			}
+		],
+		"indexes": [
+			{
+				"name": "spmsg_entity",
+				"columns": [ "msg_entity", "msg_lang", "msg_key" ],
+				"unique": true
+			}
+		]
+	},
+	"after": {
+		"name": "securepoll_msgs",
+		"comment": "i18n text associated with an entity",
+		"columns": [
+			{
+				"name": "msg_entity",
+				"comment": "securepoll_entity.en_id",
+				"type": "integer",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "msg_lang",
+				"comment": "Language code",
+				"type": "binary",
+				"options": { "notnull": true, "length": 32 }
+			},
+			{
+				"name": "msg_key",
+				"comment": "Message key",
+				"type": "binary",
+				"options": { "notnull": true, "length": 32 }
+			},
+			{
+				"name": "msg_text",
+				"comment": "Message text, UTF-8 encoded",
+				"type": "text",
+				"options": { "notnull": true, "length": 16777215 }
+			}
+		],
+		"indexes": [],
+		"pk": [ "msg_entity", "msg_lang", "msg_key" ]
+	}
+}
