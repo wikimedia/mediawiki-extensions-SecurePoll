@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Extension\SecurePoll\User;
 
-use Http;
 use InvalidArgumentException;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
+use MediaWiki\MediaWikiServices;
 use Status;
 
 /**
@@ -96,7 +96,7 @@ class RemoteMWAuth extends Auth {
 			'timeout' => 20
 		];
 
-		$value = Http::get( $url, $curlParams, __METHOD__ );
+		$value = MediaWikiServices::getInstance()->getHttpRequestFactory()->get( $url, $curlParams, __METHOD__ );
 
 		if ( !$value ) {
 			return Status::newFatal( 'securepoll-remote-auth-error' );
