@@ -94,7 +94,7 @@
 	"securepoll-strike-token-mismatch": "Perte des données de session",
 	"securepoll-details-link": "Détails",
 	"securepoll-details-title": "Détails du vote : nº $1",
-	"securepoll-invalid-vote": "« $1 » n’est pas un ID de vote valide",
+	"securepoll-invalid-vote": "« $1 » n’est pas un identifiant de vote valide",
 	"securepoll-header-id": "Identifiant",
 	"securepoll-header-voter-type": "Type de votant",
 	"securepoll-header-url": "URL",

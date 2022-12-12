@@ -122,6 +122,7 @@
 	"securepoll-edit-title": "{{int:securepoll}}: Uredi glasovanje",
 	"securepoll-edit-edited": "{{int:securepoll}}: Glasovanje urejeno",
 	"securepoll-edit-edited-text": "Vaše glasovanje je bilo urejeno.",
+	"securepoll-votereligibility-title": "Konfiguracija upravičenosti glasovalcev",
 	"securepoll-votereligibility-redirect": "Pravico do glasovanja za to glasovanje je treba konfigurirati v $1",
 	"securepoll-votereligibility-redirect-otherwiki": "glavnem vikiju",
 	"securepoll-votereligibility-invalid-list": "Navedeni seznam upravičencev do glasovanja ni znan.",
