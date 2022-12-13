@@ -25,6 +25,22 @@
 	width: 100%;
 }
 
+.securepoll-trans-table tr {
+	vertical-align: top;
+}
+
+.securepoll-trans-table .trans-id {
+	width: 10%;
+}
+
+.securepoll-trans-table .trans-origin {
+	width: 45%;
+}
+
+.securepoll-trans-table .trans-lang {
+	width: 45%;
+}
+
 .securepoll-error-box {
 	font-size: larger;
 	border: 2px solid;
@@ -153,4 +169,8 @@ tr.securepoll-spoilt {
 
 .previously-elected {
 	color: #72777d;
+}
+
+#sp-translation-selection {
+	margin-top: 16px;
 }

@@ -47,7 +47,7 @@ class SetTranslationHandler extends SimpleHandler {
 
 		$this->translationRepo->setTranslation(
 			$election,
-			$body,
+			$body['data'],
 			$language,
 			$user,
 			''
