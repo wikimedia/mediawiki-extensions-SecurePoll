@@ -26,7 +26,8 @@
 			"Yuyu",
 			"飞舞回堂前",
 			"LuciferianThomas",
-			"SunAfterRain"
+			"SunAfterRain",
+			"捍粵者"
 		]
 	},
 	"securepoll": "安全投票",
@@ -35,7 +36,7 @@
 	"securepoll-need-admin": "您必須是選舉管理員才可進行此操作。",
 	"securepoll-too-few-params": "子頁面參數不足 (連結無效)。",
 	"securepoll-invalid-election": "\"$1\" 不是有效的選舉 ID。",
-	"securepoll-finished-no-edit": "此選舉已結束，您無法再進行編輯。",
+	"securepoll-finished-no-edit": "選舉已結束，您無法再編輯。",
 	"securepoll-welcome": "<strong>{{GENDER:$1|歡迎}} $1！</strong>",
 	"securepoll-not-started": "選舉尚未開始。\n此選舉計畫於 $2 $3 開始。",
 	"securepoll-already-started": "此選舉已開始。\n起始於 $2 $3",
@@ -309,7 +310,7 @@
 	"securepoll-log-empty": "未找到日誌記錄。",
 	"securepoll-stv-droop-default-value": "選擇選項",
 	"securepoll-stv-droop-choice-rank": "第 $1 偏好",
-	"securepoll-stv-invalid-rank-empty": "必須至少對一個選項進行排序",
+	"securepoll-stv-invalid-rank-empty": "必須至少排序一項選項",
 	"securepoll-stv-invalid-rank-order": "必須按順序選取偏好項。請選擇一個選項：$1",
 	"securepoll-stv-invalid-rank-duplicate": "不能在排名中多次選擇同一選項。請變更選項：$1",
 	"securepoll-stv-invalid-input-empty": "請填寫此偏好項",
