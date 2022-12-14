@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kimberli Mäkäräinen (WMNO)"
+			"Kimberli Mäkäräinen (WMNO)",
+			"Yupik"
 		]
 	},
+	"securepoll-thanks": "Giitu, du jietna lea registrerejuvvon.",
 	"securepoll-translate-title": "Jorgal: $1",
 	"securepoll-submit-select-lang": "Jorgal",
 	"securepoll-subpage-translate": "Jorgal"
