@@ -183,7 +183,7 @@ abstract class Ballot {
 	public function submitForm() {
 		$questions = $this->election->getQuestions();
 		$record = '';
-		$status = new BallotStatus( $this->context );
+		$status = new BallotStatus();
 
 		foreach ( $questions as $question ) {
 			$record .= $this->submitQuestion( $question, $status );
@@ -303,9 +303,12 @@ abstract class Ballot {
 		return $itemArray;
 	}
 
+	/**
+	 * @param bool|BallotStatus $status
+	 */
 	public function setErrorStatus( $status ) {
 		if ( $status ) {
-			$this->prevErrorIds = $status->sp_getIds();
+			$this->prevErrorIds = $status->getIds();
 			$this->prevStatus = $status;
 		} else {
 			$this->prevErrorIds = [];
@@ -321,7 +324,7 @@ abstract class Ballot {
 
 		return new \OOUI\IconWidget( [
 			'icon' => 'alert',
-			'title' => $this->prevStatus->sp_getMessageText( $id ),
+			'title' => $this->prevStatus->spGetMessageText( $id ),
 			'id' => "$id-location",
 			'classes' => [ 'securepoll-error-location' ],
 			'flags' => 'warning',
@@ -334,6 +337,6 @@ abstract class Ballot {
 	 * @return string
 	 */
 	public function formatStatus( $status ) {
-		return $status->sp_getHTML( $this->usedErrorIds );
+		return $status->spGetHTML( $this->usedErrorIds );
 	}
 }

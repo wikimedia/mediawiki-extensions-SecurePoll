@@ -2,20 +2,16 @@
 
 namespace MediaWiki\Extension\SecurePoll\Ballots;
 
-use MediaWiki\Extension\SecurePoll\Context;
+use OOUI\ButtonWidget;
+use OOUI\HtmlSnippet;
+use OOUI\Tag;
 use Status;
 
 class BallotStatus extends Status {
-	/** @var Context */
-	public $sp_context;
 	/** @var true[] */
-	public $sp_ids = [];
+	public $ids = [];
 
-	public function __construct( $context ) {
-		$this->sp_context = $context;
-	}
-
-	public function sp_fatal( $message, $id, $localized, ...$params ) {
+	public function spFatal( $message, $id, $localized, ...$params ) {
 		$this->errors[] = [
 			'type' => 'error',
 			'securepoll-id' => $id,
@@ -23,15 +19,15 @@ class BallotStatus extends Status {
 			'params' => $params,
 			'localized' => $localized
 		];
-		$this->sp_ids[$id] = true;
+		$this->ids[$id] = true;
 		$this->ok = false;
 	}
 
-	public function sp_getIds() {
-		return $this->sp_ids;
+	public function getIds() {
+		return $this->ids;
 	}
 
-	public function sp_getHTML( $usedIds ) {
+	public function spGetHTML( $usedIds ) {
 		if ( !$this->errors ) {
 			return '';
 		}
@@ -42,12 +38,12 @@ class BallotStatus extends Status {
 				if ( isset( $error['securepoll-id'] ) ) {
 					$id = $error['securepoll-id'];
 					if ( isset( $usedIds[$id] ) ) {
-						$error = new \OOUI\Tag( 'li' );
+						$error = new Tag( 'li' );
 						$error->appendContent(
-							new \OOUI\HtmlSnippet( htmlspecialchars( $text ) )
+							new HtmlSnippet( htmlspecialchars( $text ) )
 						);
 						$error->appendContent(
-							new \OOUI\ButtonWidget( [
+							new ButtonWidget( [
 								'icon' => 'downTriangle',
 								'label' => wfMessage( 'securepoll-ballot-see-error' )->text(),
 								'href' => '#' . urlencode( "$id-location" ),
@@ -65,7 +61,7 @@ class BallotStatus extends Status {
 		return $s;
 	}
 
-	public function sp_getMessageText( $id ) {
+	public function spGetMessageText( $id ) {
 		foreach ( $this->errors as $error ) {
 			if ( !isset( $error['securepoll-id'] ) || $error['securepoll-id'] !== $id ) {
 				continue;

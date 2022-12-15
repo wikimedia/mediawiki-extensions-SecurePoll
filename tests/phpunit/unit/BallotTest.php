@@ -28,7 +28,7 @@ class BallotTest extends MediaWikiUnitTestCase {
 
 	public function testGetForm() {
 		$prevStatus = $this->createMock( BallotStatus::class );
-		$prevStatus->method( 'sp_getHTML' )->willReturn( '' );
+		$prevStatus->method( 'spGetHTML' )->willReturn( '' );
 
 		$option = $this->createMock( Option::class );
 

@@ -281,7 +281,7 @@ class RadioRangeBallot extends Ballot {
 
 			if ( is_numeric( $score ) ) {
 				if ( $score < $min || $score > $max ) {
-					$status->sp_fatal(
+					$status->spFatal(
 						'securepoll-invalid-score',
 						$id,
 						false,
@@ -295,14 +295,14 @@ class RadioRangeBallot extends Ballot {
 				$score = intval( $score );
 			} elseif ( strval( $score ) === '' ) {
 				if ( $this->election->getProperty( 'must-answer-all' ) ) {
-					$status->sp_fatal( 'securepoll-unanswered-options', $id, false );
+					$status->spFatal( 'securepoll-unanswered-options', $id, false );
 					$ok = false;
 					continue;
 				}
 
 				$score = $defaultScore;
 			} else {
-				$status->sp_fatal(
+				$status->spFatal(
 					'securepoll-invalid-score',
 					$id,
 					false,

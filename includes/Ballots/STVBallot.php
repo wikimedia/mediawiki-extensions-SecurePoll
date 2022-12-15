@@ -95,7 +95,7 @@ class STVBallot extends Ballot {
 					'classes' => [ 'securepoll-option-preferential' ],
 					'label' => $this->msg( 'securepoll-stv-droop-choice-rank', $i + 1 ),
 					'errors' => isset( $this->prevErrorIds[$inputId] ) ? [
-						$this->prevStatus->sp_getMessageText( $inputId )
+						$this->prevStatus->spGetMessageText( $inputId )
 						] : null,
 					'align' => 'top',
 				]
@@ -144,7 +144,7 @@ class STVBallot extends Ballot {
 			foreach ( $rankedChoices as $i => $choice ) {
 				if ( $choice === '0' ) {
 					$emptyRanks[] = $this->msg( 'securepoll-stv-droop-choice-rank', $i + 1 );
-					$status->sp_fatal(
+					$status->spFatal(
 						'securepoll-stv-invalid-input-empty',
 						'securepoll_q' . $question->getId() . '_opt' . $i,
 						true
@@ -167,7 +167,7 @@ class STVBallot extends Ballot {
 					$duplicateChoices[] = $this->msg(
 						'securepoll-stv-droop-choice-rank', $id + 1
 					);
-					$status->sp_fatal(
+					$status->spFatal(
 						'securepoll-stv-invalid-input-duplicate',
 						'securepoll_q' . $question->getId() . '_opt' . $id,
 						true
