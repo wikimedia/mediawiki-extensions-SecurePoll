@@ -11,18 +11,12 @@
 	<rule ref="MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName">
 		<exclude-pattern>*/includes/ballots/BallotStatus.php</exclude-pattern>
 	</rule>
-	<rule ref="MediaWiki.NamingConventions.ValidGlobalName">
-		<properties>
-			<property name="ignoreList" type="array" value="$spDebianVoteDir,$spDebianVoteDir,$users,$spConf,$specialWikis" />
-		</properties>
-	</rule>
 	<rule ref="MediaWiki.NamingConventions.PrefixedGlobalFunctions">
 		<properties>
-			<property name="ignoreList" type="array" value="spGetRandom,spGenerateTest,getLanguage,runChecks,spFatal,spDeleteElection,spDumpVote,spImportDump,spInsertEntity,spImportConfiguration,spInsertMessages,spUpdateMessages,spGetQualifiedUsers,spGetEditCounts,spIsQualified,getDefaultLang,spReportProgress,spGetMetaTranslations,spFormatEntityMessages,spRunTest,spRunDebianVote,doInsert,out" />
+			<property name="ignoreList" type="array" value="out" />
 		</properties>
 	</rule>
 	<rule ref="MediaWiki.Usage.DeprecatedGlobalVariables.Deprecated$wgTitle">
-		<exclude-pattern>*/cli/*.php</exclude-pattern>
 		<exclude-pattern>*/includes/entities/Entity.php</exclude-pattern>
 	</rule>
 	<file>.</file>
