@@ -11,6 +11,8 @@
  *   - and have made at least 20 edits between 3 July 2022 and 3 January 2023.
  */
 
+use Flow\DbFactory;
+use Flow\Model\UUID;
 use MediaWiki\MediaWikiServices;
 
 require __DIR__ . '/../../cli.inc';
@@ -27,16 +29,33 @@ $maxUser = (int)$dbr->newSelectQueryBuilder()
 	->caller( $fname )
 	->fetchField();
 
+$flowInstalled = ExtensionRegistry::getInstance()->isLoaded( 'Flow' );
+
 // $beforeTime is exclusive, so specify the start of the day AFTER the last day
 // of edits that should count toward the "edits before" eligibility requirement.
-$beforeTime = $dbr->addQuotes( '20230104000000' );
-$beforeEditsToCount = 300;
+const BEFORE_TIME = '20230104000000';
+$beforeTime = $dbr->addQuotes( BEFORE_TIME );
+const BEFORE_EDITS_TO_COUNT = 300;
 
 // $betweenEndTime is exclusive, so specify the start of the day AFTER the last day
 // of edits that should count toward the "edits between" eligibility requirement.
-$betweenStartTime = $dbr->addQuotes( '20220703000000' );
-$betweenEndTime = $dbr->addQuotes( '20230104000000' );
-$betweenEditsToCount = 20;
+const BETWEEN_START = '20220703000000';
+$betweenStartTime = $dbr->addQuotes( BETWEEN_START );
+const BETWEEN_END = '20230104000000';
+$betweenEndTime = $dbr->addQuotes( BETWEEN_END );
+const BETWEEN_EDITS_TO_COUNT = 20;
+
+if ( $flowInstalled ) {
+	global $wgFlowDefaultWikiDb, $wgFlowCluster;
+	$flowDbr = ( new DbFactory( $wgFlowDefaultWikiDb, $wgFlowCluster ) )->getLB()->getConnection( DB_REPLICA );
+
+	$wikiId = WikiMap::getCurrentWikiId();
+
+	$flowBeforeTime = $dbr->addQuotes( UUID::getComparisonUUID( BEFORE_TIME )->getBinary() );
+
+	$flowBetweenStartTime = $dbr->addQuotes( UUID::getComparisonUUID( BETWEEN_START )->getBinary() );
+	$flowBetweenEndTime = $dbr->addQuotes( UUID::getComparisonUUID( BETWEEN_END )->getBinary() );
+}
 
 $numUsers = 0;
 
@@ -59,7 +78,7 @@ for ( $userId = 1; $userId <= $maxUser; $userId++ ) {
 			'rev_actor' => $actorId,
 			'rev_timestamp < ' . $beforeTime,
 		] )
-		->limit( $beforeEditsToCount )
+		->limit( BEFORE_EDITS_TO_COUNT )
 		->caller( $fname )
 		->fetchRowCount();
 
@@ -71,11 +90,50 @@ for ( $userId = 1; $userId <= $maxUser; $userId++ ) {
 			'rev_timestamp >= ' . $betweenStartTime,
 			'rev_timestamp < ' . $betweenEndTime,
 		] )
-		->limit( $betweenEditsToCount )
+		->limit( BETWEEN_EDITS_TO_COUNT )
 		->caller( $fname )
 		->fetchRowCount();
 
-	if ( $longEdits != 0 || $shortEdits != 0 ) {
+	if ( $flowInstalled ) {
+		// Only check for Flow edits if we've not counted enough timed edits already..
+		if ( $longEdits < BEFORE_EDITS_TO_COUNT ) {
+			// @phan-suppress-next-line PhanPossiblyUndeclaredGlobalVariable
+			$longEdits += (int)$flowDbr->newSelectQueryBuilder()
+				->select( '*' )
+				->from( 'flow_revision' )
+				->where( [
+					'rev_user_id' => $userId,
+					'rev_user_ip' => null,
+					'rev_user_wiki' => $wikiId,
+					// @phan-suppress-next-line PhanPossiblyUndeclaredGlobalVariable
+					'rev_id < ' . $flowBeforeTime,
+				] )
+				->limit( BEFORE_EDITS_TO_COUNT )
+				->caller( $fname )
+				->fetchRowCount();
+		}
+
+		if ( $shortEdits < BETWEEN_EDITS_TO_COUNT ) {
+			// @phan-suppress-next-line PhanPossiblyUndeclaredGlobalVariable
+			$shortEdits += (int)$flowDbr->newSelectQueryBuilder()
+				->select( '*' )
+				->from( 'flow_revision' )
+				->where( [
+					'rev_user_id' => $userId,
+					'rev_user_ip' => null,
+					'rev_user_wiki' => $wikiId,
+					// @phan-suppress-next-line PhanPossiblyUndeclaredGlobalVariable
+					'rev_id >= ' . $flowBetweenStartTime,
+					// @phan-suppress-next-line PhanPossiblyUndeclaredGlobalVariable
+					'rev_id < ' . $flowBetweenEndTime,
+				] )
+				->limit( BETWEEN_EDITS_TO_COUNT )
+				->caller( $fname )
+				->fetchRowCount();
+		}
+	}
+
+	if ( $longEdits !== 0 || $shortEdits !== 0 ) {
 		$dbw->insert( 'ucoc2023_edits',
 			[
 				'bv_user' => $userId,
