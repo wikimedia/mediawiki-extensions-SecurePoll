@@ -7,6 +7,7 @@
 	"securepoll-welcome": "<strong>{{GENDER:$1|Tiõrvpueʹttem}} $1!</strong>",
 	"securepoll-header-comments": "Kommeeʹnt",
 	"securepoll-submit": "Ruõkk jiõn",
+	"securepoll-thanks": "Späʹsseb, tuu jiõnn lij rekisterõsttum.",
 	"securepoll-unanswered-questions": "Ton õõlǥak puk kõõččmõõžžid vaʹstteed.",
 	"securepoll-api-invalid-params": "Vââǥǥlaž paramettar.",
 	"securepoll-not-logged-in": "Ton õõlǥak leeʹd sizz ǩeeʹrjtõõttâm, jõs haaʹlääk jiõnsted täin vaalin.",
