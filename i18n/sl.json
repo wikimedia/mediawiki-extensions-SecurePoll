@@ -56,6 +56,7 @@
 	"securepoll-header-cookie-dup": "Dvojnik",
 	"securepoll-header-strike": "Prečrtaj",
 	"securepoll-header-details": "Podrobnosti",
+	"securepoll-vote-csrf": "Neuspešno",
 	"securepoll-strike-button": "Prečrtaj",
 	"securepoll-unstrike-button": "Odčrtaj",
 	"securepoll-strike-reason": "Razlog:",
