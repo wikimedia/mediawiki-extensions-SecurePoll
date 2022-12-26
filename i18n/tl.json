@@ -4,7 +4,8 @@
 			"AnakngAraw",
 			"Emem.calist",
 			"Jojit fb",
-			"Sky Harbor"
+			"Sky Harbor",
+			"Chlod"
 		]
 	},
 	"securepoll": "SecurePoll",
@@ -15,6 +16,7 @@
 	"securepoll-invalid-election": "Ang \"$1\" ay hindi isang tanggap na ID ng halalan.",
 	"securepoll-welcome": "<strong>Maligayang pagdating, $1!</strong>",
 	"securepoll-not-started": "Hindi pa nagsisimula ang halalang ito.\nNakatakdang magsimula ito sa $2 sa $3.",
+	"securepoll-already-started": "Nagsimula na ang halalan na ito.\nNagsimula ito noong $2 sa $3",
 	"securepoll-finished": "Natapos na ang halalang ito, hindi ka na makaboboto.",
 	"securepoll-not-qualified": "Hindi ka pa karapat-dapat na bumoto sa halalang ito: $1",
 	"securepoll-change-disallowed": "Bumoto ka na dati sa halalang ito.\nPaumanhin, hindi ka na maaaring bumoto uli.",
