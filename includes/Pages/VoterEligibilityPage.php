@@ -813,11 +813,11 @@ class VoterEligibilityPage extends ActionPage {
 			$this->specialPage->getContext(),
 			'securepoll-votereligibility'
 		);
-		$form->addHeaderText(
+		$form->addHeaderHtml(
 			$this->msg( 'securepoll-votereligibility-basic-info' )->parseAsBlock(),
 			'basic'
 		);
-		$form->addHeaderText(
+		$form->addHeaderHtml(
 			$this->msg( 'securepoll-votereligibility-lists-info' )->parseAsBlock(),
 			'lists'
 		);
@@ -1174,7 +1174,7 @@ class VoterEligibilityPage extends ActionPage {
 		$form = new HTMLForm(
 			$formItems, $this->specialPage->getContext(), 'securepoll-votereligibility'
 		);
-		$form->addHeaderText(
+		$form->addHeaderHtml(
 			$this->msg( 'securepoll-votereligibility-edit-header' )->parseAsBlock()
 		);
 		$form->setDisplayFormat( 'div' );
