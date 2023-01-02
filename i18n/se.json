@@ -9,5 +9,6 @@
 	"securepoll-translate-title": "Jorgal: $1",
 	"securepoll-submit-select-lang": "Jorgal",
 	"securepoll-subpage-translate": "Jorgal",
-	"securepoll-votereligibility-label-clear": "Sihko listtu"
+	"securepoll-votereligibility-label-clear": "Sihko listtu",
+	"securepoll-votereligibility-saved": "{{int:securepoll}}: Vurkejuvvon"
 }
