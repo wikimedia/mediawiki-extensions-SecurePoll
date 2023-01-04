@@ -10,11 +10,11 @@ CREATE TABLE securepoll_entity (
 
 
 CREATE TABLE securepoll_properties (
-  pr_entity INT NOT NULL, pr_key TEXT NOT NULL,
-  pr_value TEXT NOT NULL
+  pr_entity INT NOT NULL,
+  pr_key TEXT NOT NULL,
+  pr_value TEXT NOT NULL,
+  PRIMARY KEY(pr_entity, pr_key)
 );
-
-CREATE UNIQUE INDEX sppr_entity ON securepoll_properties (pr_entity, pr_key);
 
 
 CREATE TABLE securepoll_questions (

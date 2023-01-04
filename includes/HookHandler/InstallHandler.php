@@ -63,6 +63,9 @@ class InstallHandler implements LoadExtensionSchemaUpdatesHook {
 		$updater->dropExtensionIndex(
 			'securepoll_msgs', 'spmsg_entity', "$base/sql/$type/patch-securepoll_msgs-unique-to-pk.sql"
 		);
+		$updater->dropExtensionIndex(
+			'securepoll_properties', 'sppr_entity', "$base/sql/$type/patch-securepoll_properties-unique-to-pk.sql"
+		);
 
 		$updater->addPostDatabaseUpdateMaintenance( \UpdateNotBlockedKey::class );
 	}

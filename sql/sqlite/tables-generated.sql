@@ -9,11 +9,11 @@ CREATE TABLE /*_*/securepoll_entity (
 
 
 CREATE TABLE /*_*/securepoll_properties (
-  pr_entity INTEGER NOT NULL, pr_key BLOB NOT NULL,
-  pr_value BLOB NOT NULL
+  pr_entity INTEGER NOT NULL,
+  pr_key BLOB NOT NULL,
+  pr_value BLOB NOT NULL,
+  PRIMARY KEY(pr_entity, pr_key)
 );
-
-CREATE UNIQUE INDEX sppr_entity ON /*_*/securepoll_properties (pr_entity, pr_key);
 
 
 CREATE TABLE /*_*/securepoll_questions (
