@@ -129,6 +129,7 @@
 	"securepoll-votereligibility-invalid-list": "Navedeni seznam upravičencev do glasovanja ni znan.",
 	"securepoll-votereligibility-list-is-processing": "Navedeni seznam upravičencev do glasovanja se samodejno napolni in ga zdaj ni mogoče urejati.",
 	"securepoll-votereligibility-label-notinuse": "Ta seznam ni v uporabi",
+	"securepoll-votereligibility-label-edit": "Uredi seznam",
 	"securepoll-votereligibility-label-names": "Uporabniška imena",
 	"securepoll-votereligibility-label-comment": "Razlog",
 	"securepoll-votereligibility-saved": "{{int:securepoll}}: shranjeno",

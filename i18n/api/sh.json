@@ -7,5 +7,9 @@
 	"apihelp-strikevote-summary": "Administratorima omogućuje poništavanje ili obnavljanje glasanja.",
 	"apihelp-strikevote-param-option": "Koju radnju poduzeti: poništavanje ili obnavljanje.",
 	"apihelp-strikevote-paramvalue-option-strike": "Poništi glas (ukloni ga iz brojanja glasova).",
-	"apihelp-strikevote-paramvalue-option-unstrike": "Obnovi glas (vrati ga na brojanje glasova)."
+	"apihelp-strikevote-paramvalue-option-unstrike": "Obnovi glas (vrati ga na brojanje glasova).",
+	"apihelp-strikevote-param-voteid": "Naznaka glasa za poništavanje/obnavljanje.",
+	"apihelp-strikevote-param-reason": "Razlog za poništavanje/obnavljanje glasa.",
+	"apihelp-strikevote-example-strike": "Poništi glas <kbd>1</kbd>, navodeći razlog <kbd>dupliciranje</kbd>.",
+	"apihelp-strikevote-example-unstrike": "Obnovi glas <kbd>1</kbd>, navodeći razlog <kbd>greška</kbd>."
 }
