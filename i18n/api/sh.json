@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Vlad5250"
+		]
+	},
+	"apihelp-strikevote-summary": "Administratorima omogućuje poništavanje ili obnavljanje glasanja.",
+	"apihelp-strikevote-param-option": "Koju radnju poduzeti: poništavanje ili obnavljanje.",
+	"apihelp-strikevote-paramvalue-option-strike": "Poništi glas (ukloni ga iz brojanja glasova).",
+	"apihelp-strikevote-paramvalue-option-unstrike": "Obnovi glas (vrati ga na brojanje glasova)."
+}
