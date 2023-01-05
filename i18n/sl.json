@@ -118,6 +118,7 @@
 	"securepoll-create-title": "{{int:securepoll}}: Ustvari glasovanje",
 	"securepoll-create-created": "{{int:securepoll}}: Glasovanje ustvarjeno",
 	"securepoll-create-created-text": "Vaše glasovanje je ustvarjeno.",
+	"securepoll-create-label-election_title": "Naslov ankete:",
 	"securepoll-create-label-property_admins": "Administratorji:",
 	"securepoll-create-label-comment": "Razlog",
 	"securepoll-edit-title": "{{int:securepoll}}: Uredi glasovanje",
@@ -135,6 +136,8 @@
 	"securepoll-votereligibility-saved": "{{int:securepoll}}: shranjeno",
 	"securepoll-votereligibility-saved-text": "Vaše spremembe so shranjene.",
 	"securepoll-votereligibility-cleared": "{{int:securepoll}}: Počiščeno",
+	"securepolllog-form-electionname-label": "Volitve (naslov):",
 	"securepolllog-election-does-not-exist": "Teh volitev ni bilo mogoče najti",
-	"securepoll-stv-invalid-input-duplicate": "Prosimo, pri tej nastavitvi izberite drugo možnost"
+	"securepoll-stv-invalid-input-duplicate": "Prosimo, pri tej nastavitvi izberite drugo možnost",
+	"securepoll-stv-result-election-rounds-header": "Okrogla miza"
 }
