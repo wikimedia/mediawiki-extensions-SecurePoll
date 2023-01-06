@@ -10,6 +10,7 @@
  *   - and have made at least 20 edits between 5 January 2022 and 5 July 2022.
  */
 
+use Flow\Container;
 use Flow\DbFactory;
 use Flow\Model\UUID;
 use MediaWiki\MediaWikiServices;
@@ -47,8 +48,9 @@ $betweenEditsToCount = 20;
 $wikiId = WikiMap::getCurrentWikiId();
 
 if ( $flowInstalled ) {
-	global $wgFlowDefaultWikiDb, $wgFlowCluster;
-	$flowDbr = ( new DbFactory( $wgFlowDefaultWikiDb, $wgFlowCluster ) )->getLB()->getConnection( DB_REPLICA );
+	/** @var DbFactory $dbFactory */
+	$dbFactory = Container::get( 'db.factory' );
+	$flowDbr = $dbFactory->getDB( DB_REPLICA );
 
 	$flowBeforeTime = $dbr->addQuotes( UUID::getComparisonUUID( BEFORE_TIME )->getBinary() );
 
