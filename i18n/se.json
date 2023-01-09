@@ -5,6 +5,7 @@
 			"Yupik"
 		]
 	},
+	"securepoll-welcome": "<strong>{{GENDER:$1|Bures boahtin}}, $1!</strong>",
 	"securepoll-thanks": "Giitu, du jietna lea registrerejuvvon.",
 	"securepoll-translate-title": "Jorgal: $1",
 	"securepoll-submit-select-lang": "Jorgal",
