@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"apihelp-strikevote-summary": "Administratorjem omogoča, da izločijo ali sprejmejo glas.",
+	"apihelp-strikevote-param-option": "Katero dejanje naj se izvede: izločitev ali sprejetje glasu.",
+	"apihelp-strikevote-paramvalue-option-strike": "Izloči glas (odstrani ga iz štetja).",
+	"apihelp-strikevote-paramvalue-option-unstrike": "Sprejmi glas (upoštevaj ga pri štetju)",
+	"apihelp-strikevote-param-voteid": "ID glasu, ki naj se izloči ali sprejme.",
+	"apihelp-strikevote-param-reason": "Razlog za izločitev ali sprejetje glasu.",
+	"apihelp-strikevote-example-strike": "Izloči glas <kbd>1</kbd> z razlogom <kbd>podvojitev</kbd>.",
+	"apihelp-strikevote-example-unstrike": "Sprejmite glas <kbd>1</kbd> z razlogom <kbd>napaka</kbd>.",
+	"apierror-securepoll-mustbeloggedin-strikevote": "Če želite izločiti ali sprejeti glas, morate biti prijavljeni.",
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> ni veljaven ID glasu."
+}
