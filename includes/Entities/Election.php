@@ -43,10 +43,11 @@ use Xml;
  *          need-group
  *              The name of an MW group voters need to be in
  *          need-list
- *              The name of a SecurePoll list voters need to be in
+ *              The name of a SecurePoll list voters need to be in. If used with
+ *              need-central-list, voters must be in both lists.
  *          need-central-list
  *              The name of a list in the CentralAuth database which is linked
- *              to globaluser.gu_id
+ *              to globaluser.gu_id. If used with need-list, voters must be in both lists.
  *          include-list
  *              The name of a SecurePoll list of voters who can vote regardless of the above
  *          exclude-list
