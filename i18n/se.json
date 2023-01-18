@@ -6,10 +6,25 @@
 		]
 	},
 	"securepoll-welcome": "<strong>{{GENDER:$1|Bures boahtin}}, $1!</strong>",
+	"securepoll-finished": "Jienasteapmi lea nohkan; don it sáhte šat jienastit.",
 	"securepoll-thanks": "Giitu, du jietna lea registrerejuvvon.",
+	"securepoll-unanswered-questions": "Don fertet vástidit buot gažaldagaide.",
+	"securepoll-unanswered-options": "Don fertet vástidit buot gažaldagaide.",
+	"securepoll-header-voter-name": "Namma",
 	"securepoll-translate-title": "Jorgal: $1",
 	"securepoll-submit-select-lang": "Jorgal",
+	"securepoll-header-title": "Namma",
+	"securepoll-header-start-date": "Jienasteapmi álgá",
+	"securepoll-header-end-date": "Jienasteapmi nohká",
 	"securepoll-subpage-translate": "Jorgal",
+	"securepoll-already-archived-error": "Dát válga lea juo arkiverejuvvon.",
+	"securepoll-entry-archived": "Čájet arkiverejuvvon válggaid",
+	"securepoll-archived-title": "Arkiverejuvvon válggat",
+	"securepoll-already-unarchived-error": "Dát válga ii leat arkiverejuvvon.",
+	"securepoll-htmlform-daterange-end-before-start": "Jienasteapmi ii sáhte nohkat ovdalko dat álgá.",
+	"securepoll-create-label-questions-add": "Lasit nuppi gažaldaga",
+	"securepoll-create-label-options-add": "Lasit nuppi molssaeavttu",
 	"securepoll-votereligibility-label-clear": "Sihko listtu",
-	"securepoll-votereligibility-saved": "{{int:securepoll}}: Vurkejuvvon"
+	"securepoll-votereligibility-saved": "{{int:securepoll}}: Vurkejuvvon",
+	"securepoll-voter-stats": "Buot jietnavuoigadahtton olbmuin $1 {{PLURAL:$1|lea|leat}} jienastan."
 }

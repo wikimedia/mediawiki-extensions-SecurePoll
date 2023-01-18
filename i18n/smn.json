@@ -5,8 +5,11 @@
 			"Yupik"
 		]
 	},
+	"securepoll-finished": "Jienâstem lii nuuhâm, te tun jieh pyevti innig jienâstiđ.",
 	"securepoll-header-comments": "Kommenteh",
 	"securepoll-thanks": "Takkâ, tuu jienâ lii registeristum.",
+	"securepoll-unanswered-questions": "Tun koolgah västidiđ puoh koččâmuššáid.",
+	"securepoll-unanswered-options": "Tun koolgah västidiđ puoh koččâmuššáid.",
 	"securepoll-header-timestamp": "Äigi",
 	"securepoll-header-voter-name": "Nommâ",
 	"securepoll-strike-reason": "Suijâ:",
@@ -16,9 +19,17 @@
 	"securepoll-translate-label-comment": "Suijâ:",
 	"securepoll-submit-select-lang": "Jurgâl",
 	"securepoll-header-title": "Nommâ",
+	"securepoll-header-start-date": "Jienâstem álgá",
+	"securepoll-header-end-date": "Jienâstem nohá",
 	"securepoll-subpage-translate": "Jurgâl",
+	"securepoll-entry-archived": "Čääiti Arkkâdâhân pieijum vaaljâid",
+	"securepoll-archived-title": "Arkkâdâhân pieijum vaaljah",
+	"securepoll-htmlform-daterange-end-before-start": "Jienâstem ij pyevti nuuhâđ ovdil ko tot álgá.",
 	"securepoll-create-option-wiki-all_wikis": "Puoh wikih",
 	"securepoll-create-label-property_admins": "Haldâšeijeeh:",
+	"securepoll-create-label-questions-add": "Lasseet nube koččâmuš",
+	"securepoll-create-label-options-add": "Lasseet nube muulsâiävtu",
 	"securepoll-create-label-comment": "Suijâ",
-	"securepoll-votereligibility-label-comment": "Suijâ"
+	"securepoll-votereligibility-label-comment": "Suijâ",
+	"securepoll-voter-stats": "Puoh jienâvuoigâdvuođâlijn $1 {{PLURAL:$1|lii|láá}} jienâstâm."
 }
