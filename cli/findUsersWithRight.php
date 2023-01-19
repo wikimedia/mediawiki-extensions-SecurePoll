@@ -41,6 +41,9 @@ class FindUsersWithRight extends Maintenance {
 	/** @var int */
 	private $numUnattached = 0;
 
+	/** @var bool */
+	private $centralAuthLoaded = false;
+
 	public function __construct() {
 		parent::__construct();
 		$this->addDescription( "Find users with a specified user right, " .
@@ -62,6 +65,9 @@ class FindUsersWithRight extends Maintenance {
 		if ( !$this->localList && !$this->centralList ) {
 			$this->fatalError( 'Either --local-list or --central-list must be specified.' );
 		}
+
+		$this->centralAuthLoaded = ExtensionRegistry::getInstance()->isLoaded( 'CentralAuth' );
+
 		$this->doLocalGroups();
 		$this->doCentralGroups();
 		echo "Found {$this->numFound} users, added {$this->numAdded} unique users to the list.\n";
@@ -96,7 +102,7 @@ class FindUsersWithRight extends Maintenance {
 
 		$this->numFound += $res->numRows();
 
-		if ( $this->centralList ) {
+		if ( $this->centralList && $this->centralAuthLoaded ) {
 			$centralIdLookup = $services->getCentralIdLookup();
 			$caDbManager = CentralAuthServices::getDatabaseManager();
 			$dbcw = $caDbManager->getCentralDB( DB_PRIMARY );
@@ -121,7 +127,7 @@ class FindUsersWithRight extends Maintenance {
 	}
 
 	private function doCentralGroups() {
-		if ( !ExtensionRegistry::getInstance()->isLoaded( 'CentralAuth' ) ) {
+		if ( !$this->centralAuthLoaded ) {
 			return;
 		}
 		$services = MediaWikiServices::getInstance();
