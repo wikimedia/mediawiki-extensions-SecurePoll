@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Patriot Kur"
+			"Patriot Kur",
+			"Patriot Kor"
 		]
 	},
-	"securepoll-strike-cancel": "Ləğv karde"
+	"securepoll-strike-cancel": "Ləğv karde",
+	"securepoll-submit-translate": "Bıxovın"
 }

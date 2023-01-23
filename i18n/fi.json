@@ -12,7 +12,12 @@
 			"Silvonen",
 			"Str4nd",
 			"Valtlait",
-			"ZeiP"
+			"ZeiP",
+			"Joquliina",
+			"MITO",
+			"Rönttönen",
+			"Valtlai",
+			"Yupik"
 		]
 	},
 	"securepoll": "Turvattu äänestys",
@@ -135,5 +140,6 @@
 	"securepoll-votereligibility-label-names": "Käyttäjänimet",
 	"securepoll-votereligibility-label-comment": "Syy",
 	"securepoll-votereligibility-edit-action": "Tallenna lista",
-	"securepoll-votereligibility-saved": "{{int:securepoll}}: Tallennettu"
+	"securepoll-votereligibility-saved": "{{int:securepoll}}: Tallennettu",
+	"securepoll-voter-stats": "Kaikista äänioikeutetuista $1 {{PLURAL:$1|on äänestänyt}}."
 }

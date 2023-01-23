@@ -21,7 +21,8 @@
 			"Eduardoaddad",
 			"Juan90264",
 			"Mariagarbin",
-			"Svjatysberega"
+			"Svjatysberega",
+			"Fúlvio"
 		]
 	},
 	"securepoll": "Votação segura",
@@ -30,7 +31,7 @@
 	"securepoll-need-admin": "Você precisa ser um administrador de eleição para realizar esta ação.",
 	"securepoll-too-few-params": "Parâmetros de subpágina insuficientes (link inválido).",
 	"securepoll-invalid-election": "\"$1\" não é um ID de eleição válido.",
-	"securepoll-welcome": "<strong>¡{{GENDER:$1|Bem vindo|Bem vinda|Bem vindo(a)}}, $1!</strong>",
+	"securepoll-welcome": "<strong>{{GENDER:$1|Bem vindo|Bem vinda|Bem vindo(a)}}, $1!</strong>",
 	"securepoll-not-started": "Esta eleição ainda não começou.\nEla está programada para se iniciar em $2, às $3.",
 	"securepoll-already-started": "Esta eleição já começou.\nComeçou em $2 às $3",
 	"securepoll-finished": "Esta eleição terminou, você não pode mais votar.",
@@ -259,6 +260,8 @@
 	"securepoll-votereligibility-cleared-comment": "$1 limpo.",
 	"right-securepoll-create-poll": "Criar enquetes",
 	"action-securepoll-create-poll": "criar enquetes",
+	"right-securepoll-view-voter-pii": "Acessar informações de identificação pessoal sobre os eleitores",
+	"action-securepoll-view-voter-pii": "acessar informações de identificação pessoal sobre os eleitores",
 	"securepoll-ns-readonly": "O domínio {{ns:SecurePoll}} é somente leitura",
 	"securepoll-voter-stats": "De todos eleitores em potencial, $1 {{PLURAL:$1|eleitor votou|eleitores votaram}}.",
 	"securepoll-vote-stats": "Um total de $1 {{PLURAL:$1|voto foi registrado|votos foram registrados}}. Desses, $2 {{PLURAL:$2|foi descartado|foram descartados}} porque o eleitor votou mais de uma vez e $3 {{PLURAL:$3|foi suprimido|foram suprimidos}}."
