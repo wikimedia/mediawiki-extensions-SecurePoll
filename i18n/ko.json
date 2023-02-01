@@ -125,6 +125,7 @@
 	"securepoll-archive-not-finished": "죄송합니다. 완료된 선거만 보관할 수 있습니다.",
 	"securepoll-archive-error": "선거를 보존하지 못했습니다. 다시 시도해 주십시오.",
 	"securepoll-already-archived-error": "이 선거는 이미 보관되어 있습니다.",
+	"securepoll-entry-archived": "보존된 투표 보기",
 	"securepoll-archived-title": "보관된 선거",
 	"securepoll-subpage-unarchive": "보관 취소",
 	"securepoll-unarchive-title": "$1 보관 취소",
