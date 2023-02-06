@@ -95,5 +95,6 @@
 	"securepoll-create-option-column_order-asc": "Acensanta",
 	"securepoll-create-option-column_order-desc": "Decensanta",
 	"securepoll-create-label-comment": "Motivo",
+	"securepoll-votereligibility-label-names": "Nomi dil uzeri",
 	"securepoll-votereligibility-label-comment": "Motivo"
 }
