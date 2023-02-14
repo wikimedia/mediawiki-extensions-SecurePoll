@@ -274,11 +274,15 @@ class STVTallier extends Tallier {
 			);
 
 			// Sort rankings before listing them
-			uasort( $round['rankings'], static function ( $a, $b ) {
-				if ( $a['total'] == $b['total'] ) {
-					return 0;
+			uksort( $round['rankings'], static function ( $aKey, $bKey ) use ( $round ) {
+				$a = $round['rankings'][$aKey];
+				$b = $round['rankings'][$bKey];
+				if ( $a['total'] === $b['total'] ) {
+					// ascending sort
+					return $aKey <=> $bKey;
 				}
-				return ( $a['total'] > $b['total'] ) ? -1 : 1;
+				// descending sort
+				return $b['total'] <=> $a['total'];
 			} );
 
 			$tally = ( new Tag( 'ol' ) )->addClasses( [ 'round-summary-tally-list' ] );
@@ -681,13 +685,17 @@ class STVTallier extends Tallier {
 	 */
 	private function declareEliminated( $ranking, $surplus, $eliminated, $elected, $prevSurplus ) {
 		// Make sure it's ordered by vote totals
-		uasort(
+		uksort(
 			$ranking,
-			static function ( $a, $b ) {
-				if ( $a['total'] == $b['total'] ) {
-					return 0;
+			static function ( $aKey, $bKey ) use ( $ranking ) {
+				$a = $ranking[$aKey];
+				$b = $ranking[$bKey];
+				if ( $a['total'] === $b['total'] ) {
+					// ascending sort
+					return $aKey <=> $bKey;
 				}
-				return ( $a['total'] > $b['total'] ) ? -1 : 1;
+				// descending sort
+				return $b['total'] <=> $a['total'];
 			}
 		);
 
