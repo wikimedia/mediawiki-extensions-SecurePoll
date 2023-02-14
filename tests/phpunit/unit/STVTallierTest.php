@@ -137,11 +137,6 @@ class STVTallierTest extends MediaWikiUnitTestCase {
 	 * @dataProvider finishTallyResults
 	 */
 	public function testFinishTally( $electionResults, $expected ) {
-		// FIXME:
-		if ( PHP_VERSION_ID >= 80000 ) {
-			$this->markTestSkipped( 'T323056: test broken on PHP >= 8.0' );
-		}
-
 		$this->wrappedRevStore->__set( 'seats', $electionResults['seats'] );
 		$this->wrappedRevStore->__set( 'candidates', $electionResults['candidates'] );
 		$this->tallier->rankedVotes = $electionResults['rankedVotes'];
