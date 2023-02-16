@@ -63,6 +63,7 @@
 
 .securepoll-ballot-table {
 	border-collapse: collapse;
+	border-bottom: thin #999 solid;
 }
 
 .securepoll-ballot-table th {
