@@ -359,5 +359,14 @@
 	"securepoll-translation-import-dialog-title": "Title for translations dialog",
 	"securepoll-translation-import-action-import": "Label for action import in translation dialog",
 	"securepoll-translation-import-action-done": "Label for action done in translation dialog",
-	"securepoll-translation-error-no-page-title": "Used as an error message"
+	"securepoll-translation-error-no-page-title": "Used as an error message",
+	"securepoll-vote-result-intro-label": "Header for vote summary after action vote",
+	"securepoll-vote-result-question-label": "Label for showing question text\n\nParameters:\n* $1 - question text",
+	"securepoll-vote-result-rated-option-label": "Label to show voting result for one option:\n\nParameters:\n* $1- option\n* $2 - rating result",
+	"securepoll-vote-result-not-voted-option-label": "Label to show option which was not voted\n\nParameters:\n* $1- option",
+	"securepoll-vote-result-voted-option-label": "Label to show voting result with custom label:\n\nParameters:\n * $1 - option\n * $2 - rating result",
+	"securepoll-vote-result-not-checked-option-label": "Label to show option which was not voted\n\nParameters:\n* $1- option",
+	"securepoll-vote-result-checked-option-label": "Label to show option which was checked\n\nParameters:\n* $1- option",
+	"securepoll-vote-result-comment": "Label to show comment on vote\n\nParameters:\n* $1 - comment",
+	"securepoll-vote-result-error-label": "Label with error information during unpacking record"
 }

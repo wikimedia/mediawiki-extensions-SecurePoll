@@ -174,3 +174,37 @@ tr.securepoll-spoilt {
 #sp-translation-selection {
 	margin-top: 16px;
 }
+
+h2.securepoll-vote-result-heading {
+	padding-bottom: 2em;
+}
+
+.securepoll-vote-result-question-cnt {
+	background-color: #f2f2f2;
+	padding: 1em;
+	margin: 2em 0;
+}
+
+p.securepoll-vote-result-question {
+	font-weight: bold;
+	padding-bottom: 1em;
+}
+
+.securepoll-vote-result-option li {
+	margin-bottom: 0.5em;
+}
+
+.securepoll-vote-result-comment {
+	background-color: #f2f2f2;
+	padding: 1em;
+}
+
+ul.securepoll-vote-result-options li:first-child:nth-last-child( 1 ) {
+	list-style-type: none;
+	list-style-image: none;
+}
+
+ul.securepoll-vote-result-no-vote {
+	margin-left: 0;
+	margin-top: 0.6em;
+}

@@ -13,9 +13,11 @@ use MediaWiki\Extension\SecurePoll\User\Auth;
 use MediaWiki\Extension\SecurePoll\User\RemoteMWAuth;
 use MediaWiki\Extension\SecurePoll\User\Voter;
 use MediaWiki\Extension\SecurePoll\VoteRecord;
+use MediaWiki\Html\Html;
 use MediaWiki\Session\SessionManager;
 use MediaWiki\WikiMap\WikiMap;
 use MobileContext;
+use OOUI\MessageWidget;
 use Status;
 use Title;
 use Wikimedia\IPUtils;
@@ -329,12 +331,16 @@ class VotePage extends ActionPage {
 		$voteId = $dbw->insertId();
 		$dbw->endAtomic( __METHOD__ );
 
+		$votingData = $this->getVoteDataFromRecord( $record );
+		$languageCode = $this->specialPage->getContext()->getLanguage()->getCode();
+		$summary = $this->getSummaryOfVotes( $votingData, $languageCode );
+		$out->addHtml( $summary );
+
 		if ( $crypt ) {
 			$receipt = sprintf( "SPID: %10d\n%s", $voteId, $encrypted );
 			$out->addWikiMsg( 'securepoll-gpg-receipt', $receipt );
-		} else {
-			$out->addWikiMsg( 'securepoll-thanks' );
 		}
+
 		$returnUrl = $this->election->getProperty( 'return-url' );
 		$returnText = $this->election->getMessage( 'return-text' );
 		if ( $returnUrl ) {
@@ -344,6 +350,180 @@ class VotePage extends ActionPage {
 			$link = "[$returnUrl $returnText]";
 			$out->addWikiMsg( 'securepoll-return', $link );
 		}
+	}
+
+	/**
+	 * Get summary of voting in user readable version
+	 *
+	 * @param array $votingData
+	 * @param string $languageCode
+	 * @return string
+	 */
+	public function getSummaryOfVotes( $votingData, $languageCode ) {
+		$data = [];
+		$data = $votingData['votes'];
+		$comment = $votingData['comment'];
+
+		/**
+		 * if record cannot be unpacked correctly, show error
+		 */
+		if ( !$data ) {
+			return new MessageWidget( [
+				'type' => 'error',
+				'label' => $this->msg( 'securepoll-vote-result-error-label' )
+			] );
+		}
+
+		$summary = new MessageWidget( [
+			'type' => 'success',
+			'label' => $this->msg( 'securepoll-thanks' )
+		] );
+
+		$summary .= Html::element( 'h2', [ 'class' => 'securepoll-vote-result-heading' ],
+			$this->msg( 'securepoll-vote-result-intro-label' ) );
+
+		foreach ( $data as $questionIndex => $votes ) {
+			$questionMsg = $this->getQuestionMessage( $languageCode, $questionIndex );
+			$optionsMsgs = $this->getOptionMessages( $languageCode, $votes );
+			if ( !isset( $questionMsg[$questionIndex]['text'] ) ) {
+				continue;
+			}
+			$questionText = $questionMsg[$questionIndex]['text'];
+			$html = Html::openElement( 'div', [ 'class' => 'securepoll-vote-result-question-cnt' ] );
+			$html .= Html::element(
+				'p', [ 'class' => 'securepoll-vote-result-question' ],
+				$this->msg( 'securepoll-vote-result-question-label', $questionText )
+			);
+
+			$listType = 'ul';
+			$votedItems = [];
+			if ( $this->election->getTallyType() === 'droop-quota' ) {
+				$listType = 'ol';
+				foreach ( $optionsMsgs as $option ) {
+					$votedItems[] = Html::rawElement( 'li', [], $option['text'] );
+				}
+			} else {
+				$notVotedItems = [];
+				foreach ( $optionsMsgs as $optionIndex => $option ) {
+					$optionText = $optionsMsgs[$optionIndex]['text'];
+					$count = $optionIndex;
+					if ( isset( $votes[ $optionIndex ] ) ) {
+						$count = $votes[ $optionIndex ];
+					}
+
+					if ( $this->election->getTallyType() === 'plurality' ||
+						$this->election->getTallyType() === 'histogram-range' ) {
+						if ( isset( $questionMsg[$questionIndex]['column' . $count ] ) ) {
+							$columnLabel = $questionMsg[$questionIndex]['column' . $count ];
+							$votedItems[] = Html::element( 'li', [],
+								$this->msg( 'securepoll-vote-result-voted-option-label', $optionText, $columnLabel )
+							);
+							continue;
+						}
+						if ( is_int( $count ) && $count > 0 ) {
+							$positiveCount = '+' . $count;
+							if ( isset( $questionMsg[$questionIndex]['column' . $positiveCount ] ) ) {
+								$columnLabel = $questionMsg[$questionIndex]['column' . $positiveCount ];
+								$votedItems[] = Html::element( 'li', [],
+									$this->msg( 'securepoll-vote-result-voted-option-label', $optionText, $columnLabel )
+								);
+								continue;
+							}
+						}
+					}
+
+					if ( $this->election->getTallyType() === 'schulze' && $count === 1000 ) {
+						$notVotedItems[] = Html::element( 'li', [],
+							$this->msg( 'securepoll-vote-result-not-voted-option-label', $optionText )
+						);
+						continue;
+					}
+
+					if ( $count === 0 ) {
+						$notVotedItems[] = Html::element( 'li', [],
+							$this->msg( 'securepoll-vote-result-not-checked-option-label', $optionText )
+						);
+						continue;
+					}
+					if ( $this->election->getTallyType() === 'plurality' ) {
+						$votedItems[] = Html::element( 'li', [],
+							$this->msg( 'securepoll-vote-result-checked-option-label', $optionText )
+						);
+						continue;
+					}
+					$votedItems[] = Html::element( 'li', [],
+						$this->msg( 'securepoll-vote-result-rated-option-label', $optionText, $count )
+					);
+				}
+
+				if ( $notVotedItems !== [] ) {
+					$votedItems[] = Html::rawElement( 'ul', [ 'class' => 'securepoll-vote-result-no-vote' ],
+						implode( "\n", $notVotedItems )
+					);
+				}
+			}
+
+			$html .= Html::rawElement( $listType, [ 'class' => 'securepoll-vote-result-options' ],
+				implode( "\n", $votedItems )
+			);
+			$html .= Html::closeElement( 'div' );
+			$summary .= $html;
+		}
+
+		if ( $comment !== '' ) {
+			$summary .= Html::element( 'div', [ 'class' => 'securepoll-vote-result-comment' ],
+				$this->msg( 'securepoll-vote-result-comment', $comment )->plain()
+			);
+		}
+		return $summary;
+	}
+
+	/**
+	 * @param string $record
+	 * @return array
+	 */
+	public function getVoteDataFromRecord( $record ) {
+		$blob = VoteRecord::readBlob( $record );
+		$ballotData = $blob->value->getBallotData();
+		$data = [];
+		$data['votes'] = $this->getBallot()->unpackRecord( $ballotData );
+		$data['comment'] = $blob->value->getComment();
+		return $data;
+	}
+
+	/**
+	 * @param string $languageCode
+	 * @param int $questionIndex
+	 * @return string[][]
+	 */
+	private function getQuestionMessage( $languageCode, $questionIndex ) {
+		$questionMsg = $this->context->getMessages( $languageCode, [ $questionIndex ] );
+		if ( empty( $questionMsg ) ) {
+			$fallbackLangCode = $this->election->getLanguage();
+			$questionMsg = $this->context->getMessages( $fallbackLangCode, [ $questionIndex ] );
+		}
+		return $questionMsg;
+	}
+
+	/**
+	 * @param string $languageCode
+	 * @param array $votes
+	 * @return string[][]
+	 */
+	private function getOptionMessages( $languageCode, $votes ) {
+		$optionsMsgs = $this->context->getMessages( $languageCode, $votes );
+		if ( empty( $optionsMsgs ) || count( $votes ) !== count( $optionsMsgs ) ) {
+			$languageCode = $this->election->getLanguage();
+			$optionsMsgs = $this->context->getMessages( $languageCode, $votes );
+		}
+		if ( empty( $optionsMsgs ) || count( $votes ) !== count( $optionsMsgs ) ) {
+			$msgsKeys = [];
+			foreach ( $votes as $questionKey => $item ) {
+				$msgsKeys[] = $questionKey;
+			}
+			$optionsMsgs = $this->context->getMessages( $languageCode, $msgsKeys );
+		}
+		return $optionsMsgs;
 	}
 
 	/**
