@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Afalau",
 			"Lloffiwr"
 		]
 	},
@@ -65,7 +66,7 @@
 	"securepoll-invalid-vote": "Nid yw \"$1\" yn ID dilys ar gyfer y bleidlais",
 	"securepoll-header-voter-type": "Math y pleidleisiwr",
 	"securepoll-voter-properties": "Priodweddau'r pleidleisiwr",
-	"securepoll-strike-log": "Lòg annilysu",
+	"securepoll-strike-log": "Log annilysu",
 	"securepoll-header-action": "Gweithred",
 	"securepoll-header-reason": "Rheswm",
 	"securepoll-header-admin": "Gweinyddwr",
