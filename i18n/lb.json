@@ -3,7 +3,8 @@
 		"authors": [
 			"Les Meloures",
 			"Robby",
-			"Soued031"
+			"Soued031",
+			"Volvox"
 		]
 	},
 	"securepoll": "Securiséiert Ëmfro",
@@ -13,7 +14,7 @@
 	"securepoll-too-few-params": "Net genuch Ënnersäite-Parameter (net valabele Link).",
 	"securepoll-invalid-election": "\"$1\" ass keng ID déi fir d'Wale gëlteg ass.",
 	"securepoll-welcome": "<strong>{{GENDER:$1|Wëllkomm}} $1!</strong>",
-	"securepoll-not-started": "Dës Walen hunn nach net ugefaang.\nSi fänke viraussiichtlech den $2 ëm $3 un.",
+	"securepoll-not-started": "Dës Walen hunn nach net ugefaangen.\nSi fänke viraussiichtlech den $2 um $3 un.",
 	"securepoll-finished": "Dës Wale sinn eriwwer, Dir kënnt net méi ofstëmmen.",
 	"securepoll-not-qualified": "Dir sidd net qualifizéiert fir bei dëse Walen ofzestëmmen: $1",
 	"securepoll-change-disallowed": "Dir hutt bei dëse Wale virdru schonn ofgestëmmt.\nPardon, mä Dir däerft net nach eng Kéier ofstëmmen.",
@@ -38,7 +39,7 @@
 	"securepoll-unanswered-options": "Dir musst op all Fro eng Äntwert ginn.",
 	"securepoll-remote-auth-error": "Feeler beim Ofruf vun Äre Benotzerkontinformatioune vum Server.",
 	"securepoll-remote-parse-error": "Feeler beim Interpretéiere vun der Autorisatioun déi de Server geschéckt huet.",
-	"securepoll-api-invalid-params": "Parameter déi net valabel sinn.",
+	"securepoll-api-invalid-params": "Parameteren, déi net valabel sinn.",
 	"securepoll-api-no-user": "Et gouf kee Benotzer mat der ID fonnt déi ugi war.",
 	"securepoll-api-token-mismatch": "Falsche Sécerheeets-Token, Aloggen ass net méiglech.",
 	"securepoll-not-logged-in": "Dir musst Iech alogge fir bei dëse Walen ofstëmmen ze kënnen",
