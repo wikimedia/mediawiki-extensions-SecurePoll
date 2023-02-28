@@ -43,11 +43,8 @@
 
 .securepoll-error-box {
 	font-size: larger;
-	border: 2px solid;
 	padding: 0.5em 1em;
 	margin-bottom: 2em;
-	color: #000;
-	border-color: #f00;
 	background-color: #fff2f2;
 }
 
@@ -82,6 +79,12 @@
 	border-bottom: thin #999 solid;
 }
 
+.securepoll-ballot-table td.securepoll-ballot-optlabel { /* High specificity */
+	text-align: left;
+	border: 0;
+	border-bottom: thin #fff solid;
+}
+
 .securepoll-ballot-table th {
 	font-weight: bold;
 	text-align: center;
@@ -95,10 +98,6 @@
 	border-right: thin #999 solid;
 	border-bottom: thin #bbb dotted;
 	padding: 0 1.5em;
-}
-
-.securepoll-ballot-table td.securepoll-ballot-optlabel { /* High specificity */
-	text-align: left;
 }
 
 .securepoll-ballot-row:hover {
@@ -207,4 +206,9 @@ ul.securepoll-vote-result-options li:first-child:nth-last-child( 1 ) {
 ul.securepoll-vote-result-no-vote {
 	margin-left: 0;
 	margin-top: 0.6em;
+}
+
+.highlight-warnings-button {
+	float: right;
+	margin-top: -25px;
 }

@@ -324,11 +324,11 @@ abstract class Ballot {
 		$this->usedErrorIds[$id] = true;
 
 		return new \OOUI\IconWidget( [
-			'icon' => 'alert',
+			'icon' => 'error',
 			'title' => $this->prevStatus->spGetMessageText( $id ),
 			'id' => "$id-location",
 			'classes' => [ 'securepoll-error-location' ],
-			'flags' => 'warning',
+			'flags' => 'error',
 		 ] );
 	}
 

@@ -91,7 +91,8 @@
 				"translation/dialog/ImportDialog.js",
 				"translation/pages/SelectSourcePage.js",
 				"translation/pages/ImportPage.js",
-				"translation/pages/ResultPage.js"
+				"translation/pages/ResultPage.js",
+				"page.vote.highlightWarnings.js"
 			],
 			"dependencies": [
 				"oojs-ui",
@@ -117,7 +118,9 @@
 				"securepoll-translation-result-import-pages-text",
 				"securepoll-translation-result-description",
 				"securepoll-translation-import-start",
-				"securepoll-translation-select-import-source"
+				"securepoll-translation-select-import-source",
+				"securepoll-ballot-show-warnings",
+				"securepoll-ballot-show-all"
 			]
 		},
 		"ext.securepoll": {
@@ -177,7 +180,8 @@
 		"remoteExtPath": "SecurePoll",
 		"scripts": [
 			"tests/qunit/TranslationParser.test.js",
-			"tests/qunit/TranslationFlattener.test.js"
+			"tests/qunit/TranslationFlattener.test.js",
+			"tests/qunit/highlightWarnings.test.js"
 		],
 		"dependencies": [
 			"ext.securepoll.htmlform"
