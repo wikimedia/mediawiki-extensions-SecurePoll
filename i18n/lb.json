@@ -3,7 +3,8 @@
 		"authors": [
 			"Les Meloures",
 			"Robby",
-			"Soued031"
+			"Soued031",
+			"Volvox"
 		]
 	},
 	"securepoll": "Securiséiert Ëmfro",
@@ -41,7 +42,7 @@
 	"securepoll-unanswered-options": "Dir musst op all Fro eng Äntwert ginn.",
 	"securepoll-remote-auth-error": "Feeler beim Ofruf vun Äre Benotzerkontinformatioune vum Server.",
 	"securepoll-remote-parse-error": "Feeler beim Interpretéiere vun der Autorisatioun déi de Server geschéckt huet.",
-	"securepoll-api-invalid-params": "Parameter déi net valabel sinn.",
+	"securepoll-api-invalid-params": "Parameteren, déi net valabel sinn.",
 	"securepoll-api-no-user": "Et gouf kee Benotzer mat der ID fonnt déi ugi war.",
 	"securepoll-api-token-mismatch": "Falsche Sécerheeets-Token, Aloggen ass net méiglech.",
 	"securepoll-not-logged-in": "Dir musst Iech alogge fir bei dëse Walen ofstëmmen ze kënnen",
