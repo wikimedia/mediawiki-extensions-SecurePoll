@@ -8,20 +8,21 @@
 			"Metalhead64",
 			"Pill",
 			"Umherirrender",
-			"Jcornelius"
+			"Jcornelius",
+			"Brettchenweber"
 		]
 	},
 	"securepoll": "SecurePoll",
 	"securepoll-desc": "Ermöglicht sichere Wahlen, Abstimmungen und Umfragen",
 	"securepoll-invalid-page": "Ungültige Unterseite „<nowiki>$1</nowiki>“",
-	"securepoll-need-admin": "Du musst ein Wahl-Administrator sein, um diese Aktion durchzuführen.",
+	"securepoll-need-admin": "Du musst Wahl-Administrator sein, um diese Aktion durchzuführen.",
 	"securepoll-too-few-params": "Nicht genügend Unterseitenparameter (ungültiger Link).",
 	"securepoll-invalid-election": "„$1“ ist keine gültige Abstimmungskennung.",
 	"securepoll-welcome": "<strong>{{GENDER:$1|Willkommen}} $1!</strong>",
 	"securepoll-not-started": "Die Wahl hat noch nicht begonnen.\nDer Wahlbeginn ist für den $2 um $3 Uhr geplant.",
 	"securepoll-already-started": "Diese Abstimmung hat bereits begonnen.\nDer Wahlbeginn war am $2 um $3.",
 	"securepoll-finished": "Diese Wahl ist beendet, du kannst nicht mehr abstimmen.",
-	"securepoll-not-qualified": "Du bist nicht wahlberechtigt bei dieser Wahl abzustimmen: $1",
+	"securepoll-not-qualified": "Du bist für diese Wahl nicht wahlberechtigt: $1",
 	"securepoll-change-disallowed": "Du hast bei dieser Wahl bereits einmal abgestimmt.\nEs tut uns leid, du darfst nicht erneut abstimmen.",
 	"securepoll-change-allowed": "<strong>Hinweis: Du hast bei dieser Wahl bereits abgestimmt.</strong>\nDu kannst deine Stimme ändern, indem du das untere Formular abschickst.\nWenn du dies tust, wird deine ursprüngliche Stimme überschrieben.",
 	"securepoll-submit": "Stimme abgeben",
@@ -243,5 +244,5 @@
 	"action-securepoll-view-voter-pii": "Zugang zu personenbezogenen Informationen über Wähler",
 	"securepoll-ns-readonly": "Der Namensraum „{{ns:SecurePoll}}“ ist schreibgeschützt",
 	"securepoll-voter-stats": "Von allen berechtigten Benutzern {{PLURAL:$1|hat ein|haben $1}} Benutzer abgestimmt.",
-	"securepoll-vote-stats": "Insgesamt {{PLURAL:$1|wurde eine Stimme|wurden $1 Stimmen}} abgegeben. Von diesen {{PLURAL:$2|wurde eine|wurden $2}} verworfen, da die abstimmenden Benutzer erneut abgestimmt haben und {{PLURAL:$3|eine wurde|$3 wurden}} gestrichen."
+	"securepoll-vote-stats": "Insgesamt {{PLURAL:$1|wurde eine Stimme|wurden $1 Stimmen}} abgegeben. Von diesen {{PLURAL:$2|wurde eine|wurden $2}} verworfen, da die abstimmenden Benutzer erneut abgestimmt haben, und {{PLURAL:$3|eine wurde|$3 wurden}} gestrichen."
 }
