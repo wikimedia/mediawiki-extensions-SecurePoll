@@ -10,7 +10,7 @@
 	"version": "3.0.0",
 	"type": "other",
 	"requires": {
-		"MediaWiki": ">= 1.38.0"
+		"MediaWiki": ">= 1.40.0"
 	},
 	"AvailableRights": [
 		"securepoll-create-poll",
@@ -105,7 +105,9 @@
 		},
 		"setup": {
 			"class": "\\MediaWiki\\Extension\\SecurePoll\\HookHandler\\SetupHandler",
-			"services": [ "MainConfig" ]
+			"services": [
+				"MainConfig"
+			]
 		},
 		"logout": {
 			"class": "\\MediaWiki\\Extension\\SecurePoll\\HookHandler\\LogoutHandler"
