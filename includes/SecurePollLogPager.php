@@ -152,23 +152,20 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 		// TODO: this is double escaped
 		$electionTitle = htmlspecialchars( $election->title );
 
-		$messageParams = [
-			$timestamp,
-			$userLink,
-			$electionTitle,
-		];
+		$message = $this->msg(
+			'securepoll-log-action-type-' . $row->spl_type, $timestamp );
+
+		$message->Rawparams( $userLink );
+		$message->Rawparams( $electionTitle );
 
 		if ( $row->spl_target ) {
 			$target = $this->userFactory->newFromId( $row->spl_target );
-			$messageParams[] = Linker::userLink( $target->getId(), $target->getName() );
+			$targetLink = Linker::userLink( $target->getId(), $target->getName() );
+
+			$message->RawParams( $targetLink );
 		}
 
-		$message = $this->msg(
-			'securepoll-log-action-type-' . $row->spl_type,
-			$messageParams
-		)->text();
-
-		return Html::element( 'li', [], $message );
+		return Html::RawElement( 'li', [], $message->parse() );
 	}
 
 	/**
