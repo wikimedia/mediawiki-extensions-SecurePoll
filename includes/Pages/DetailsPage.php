@@ -135,9 +135,9 @@ class DetailsPage extends ActionPage {
 		// Show cookie dups
 		$cmTable = $db->tableName( 'securepoll_cookie_match' );
 		$voterId = intval( $row->voter_id );
-		$sql = "(SELECT cm_voter_2 as voter, cm_timestamp FROM $cmTable WHERE cm_voter_1=$voterId)" .
+		$sql = "SELECT cm_voter_2 as voter, cm_timestamp FROM $cmTable WHERE cm_voter_1=$voterId" .
 			" UNION " .
-			"(SELECT cm_voter_1 as voter, cm_timestamp FROM $cmTable WHERE cm_voter_2=$voterId)";
+			"SELECT cm_voter_1 as voter, cm_timestamp FROM $cmTable WHERE cm_voter_2=$voterId";
 		$res = $db->query( $sql, __METHOD__ );
 		if ( $res->numRows() ) {
 			$lang = $this->specialPage->getLanguage();
