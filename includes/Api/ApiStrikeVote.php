@@ -67,7 +67,7 @@ class ApiStrikeVote extends ApiBase {
 		// FIXME: thoughts on whether error checks should go here or in strike()?
 		// if not logged in: fail
 		$user = $this->getUser();
-		if ( !$user->isRegistered() ) {
+		if ( !$user->isNamed() ) {
 			$this->dieWithError(
 				'apierror-securepoll-mustbeloggedin-strikevote',
 				'notloggedin'

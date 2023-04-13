@@ -39,7 +39,7 @@ class LocalAuth extends Auth {
 	 */
 	public function autoLogin( $election ) {
 		$user = RequestContext::getMain()->getUser();
-		if ( $user->isAnon() ) {
+		if ( !$user->isNamed() ) {
 			return Status::newFatal( 'securepoll-not-logged-in' );
 		}
 		$params = $this->getUserParams( $user );
