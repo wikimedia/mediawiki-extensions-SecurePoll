@@ -121,7 +121,7 @@ abstract class PairwiseTallier extends Tallier {
 		$abbrevs = $this->getOptionAbbreviations();
 		$rowLabels = $this->getRowLabels( 'html' );
 
-		$s = "<table class=\"securepoll-results\">";
+		$s = "<table class=\"securepoll-table securepoll-results\">";
 
 		# Corner box
 		$s .= "<tr>\n<th>&#160;</th>\n";

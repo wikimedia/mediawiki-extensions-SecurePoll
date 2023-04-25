@@ -85,7 +85,7 @@ class PairwiseTallierTest extends MediaWikiUnitTestCase {
 
 				],
 				[
-					'html' => "<table class=\"securepoll-results\"><tr>\n" .
+					'html' => "<table class=\"securepoll-table securepoll-results\"><tr>\n" .
 						"<th>&#160;</th>\n" .
 						"<th>A</th>\n" .
 						"<th>B</th>\n" .

@@ -65,7 +65,7 @@ class PluralityTallier extends Tallier {
 	 */
 	public function getHtmlResult() {
 		// Show the results
-		$s = "<table class=\"securepoll-results\">\n";
+		$s = "<table class=\"securepoll-table securepoll-results\">\n";
 
 		foreach ( $this->tally as $oid => $rank ) {
 			$option = $this->optionsById[$oid];
