@@ -13,11 +13,11 @@ use MediaWiki\Extension\SecurePoll\User\RemoteMWAuth;
 use MediaWiki\Extension\SecurePoll\User\Voter;
 use MediaWiki\Extension\SecurePoll\VoteRecord;
 use MediaWiki\Session\SessionManager;
+use MediaWiki\WikiMap\WikiMap;
 use MobileContext;
 use MWException;
 use Status;
 use Title;
-use WikiMap;
 use Wikimedia\IPUtils;
 use Wikimedia\Rdbms\ILoadBalancer;
 

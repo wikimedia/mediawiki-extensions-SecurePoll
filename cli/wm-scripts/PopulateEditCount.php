@@ -8,7 +8,7 @@ use Flow\DbFactory;
 use Flow\Model\UUID;
 use Maintenance;
 use MediaWiki\MediaWikiServices;
-use WikiMap;
+use MediaWiki\WikiMap\WikiMap;
 
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );

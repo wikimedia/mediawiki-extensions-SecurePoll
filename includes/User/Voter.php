@@ -3,8 +3,8 @@
 namespace MediaWiki\Extension\SecurePoll\User;
 
 use MediaWiki\Extension\SecurePoll\Context;
+use MediaWiki\WikiMap\WikiMap;
 use stdClass;
-use WikiMap;
 
 /**
  * Class representing a voter. A voter is associated with one election only. Voter

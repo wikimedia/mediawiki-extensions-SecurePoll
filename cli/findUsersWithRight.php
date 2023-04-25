@@ -8,7 +8,7 @@ use MediaWiki\Extension\CentralAuth\CentralAuthServices;
 use MediaWiki\Extension\CentralAuth\User\CentralAuthUser;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserIdentityValue;
-use WikiMap;
+use MediaWiki\WikiMap\WikiMap;
 use Wikimedia\Rdbms\IDatabase;
 
 if ( getenv( 'MW_INSTALL_PATH' ) ) {

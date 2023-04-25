@@ -13,12 +13,12 @@ use MediaWiki\Languages\LanguageFallback;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Revision\SlotRecord;
+use MediaWiki\WikiMap\WikiMap;
 use Parser;
 use ParserOptions;
 use TextContent;
 use Title;
 use UserMailer;
-use WikiMap;
 
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );

@@ -8,9 +8,9 @@ use Exception;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Page\WikiPageFactory;
 use MediaWiki\Revision\SlotRecord;
+use MediaWiki\WikiMap\WikiMap;
 use MWExceptionHandler;
 use User;
-use WikiMap;
 use Wikimedia\Rdbms\ILoadBalancer;
 use Wikimedia\Rdbms\LBFactory;
 

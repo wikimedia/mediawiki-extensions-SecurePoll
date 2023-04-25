@@ -5,7 +5,7 @@ namespace MediaWiki\Extension\SecurePoll;
 use Maintenance;
 use MediaWiki\Extension\CentralAuth\CentralAuthServices;
 use MediaWiki\MediaWikiServices;
-use WikiMap;
+use MediaWiki\WikiMap\WikiMap;
 use Wikimedia\Rdbms\IDatabase;
 
 if ( getenv( 'MW_INSTALL_PATH' ) ) {

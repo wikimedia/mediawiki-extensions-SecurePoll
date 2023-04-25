@@ -7,10 +7,10 @@ use MediaWiki\Extension\CentralAuth\User\CentralAuthUser;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Hooks\HookRunner;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\WikiMap\WikiMap;
 use RequestContext;
 use Status;
 use User;
-use WikiMap;
 
 /**
  * Authorization class for locally created accounts.
