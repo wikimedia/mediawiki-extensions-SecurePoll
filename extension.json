@@ -68,7 +68,8 @@
 				"page.log.js",
 				"page.create.js",
 				"page.list.js",
-				"page.vote.js"
+				"page.vote.js",
+				"TranslationParser.js"
 			],
 			"dependencies": [
 				"oojs-ui-core",
@@ -133,6 +134,17 @@
 			"conditional": true
 		}
 	],
+	"QUnitTestModule": {
+		"localBasePath": "",
+		"remoteExtPath": "SecurePoll",
+		"scripts": [
+			"modules/ext.securepoll.htmlform/TranslationParser.js",
+			"tests/qunit/TranslationParser.test.js"
+		],
+		"dependencies": [
+			"ext.securepoll.htmlform"
+		]
+	},
 	"config": {
 		"SecurePollGPGCommand": {
 			"value": "gpg"

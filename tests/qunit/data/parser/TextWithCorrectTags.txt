@@ -1,0 +1,59 @@
+<languages/>
+{{Board_Elections_2021_Nav}}
+<!-- ###SecurePoll-START:election/intro -->
+<translate>
+<!--T:1-->
+This page coordinates translation of the testing elections pages. The election committee will try its best to find many translators to reduce their individual workload. If you have any problems or questions about translation, please leave a message on [[Talk:Wikimedia Foundation elections/Test/Translation]].
+
+== Voting guide == <!--T:2-->
+
+<!--T:7-->
+* Candidates need to be ranked without skipping numbers in-between. Skipping numbers will result in an error. For example:
+*: Preference one: Dog
+*: Preference two: ''(blank)''
+*: Preference three: Cat
+* This is not allowed. Preference three cannot be added without adding preference two.
+
+<!--T:8-->
+* You cannot rank the same candidate multiple times. Ranking the same candidate multiple times will result in an error. For example:
+*: Preference one: Dog
+*: Preference two: Dog
+*: Preference three: Cat
+* This is not allowed. Candidate "Dog" was ranked twice.
+
+<!--T:9-->
+* You are allowed to change your vote during the election. This will overwrite your previous vote. You can do this as many times as you like.
+</translate>
+<!-- ###SecurePoll-STOP -->
+
+* candidates: <!-- ###SecurePoll-START:question/text --><translate><!--T:36-->Board candidates</translate><!-- ###SecurePoll-STOP -->
+== Candidate names ==
+* <!-- ###SecurePoll-START:option/text --><translate><!--T:11-->Gael Ghaziani</translate><!-- ###SecurePoll-STOP -->
+* <!-- ###SecurePoll-START:option/text --><translate><!--T:12-->Perry Paripovich</translate><!-- ###SecurePoll-STOP -->
+* <!-- ###SecurePoll-START:option/text --><translate><!--T:13-->Brenda Burbidge</translate><!-- ###SecurePoll-STOP -->
+* <!-- ###SecurePoll-START:option/text --><translate><!--T:14-->Lyndsie Lingefelt</translate><!-- ###SecurePoll-STOP -->
+* <!-- ###SecurePoll-START:option/text --><translate><!--T:15-->Ramon Rendel</translate><!-- ###SecurePoll-STOP -->
+* <!-- ###SecurePoll-START:option/text --><translate><!--T:16-->Blaine Bayer</translate><!-- ###SecurePoll-STOP -->
+* <!-- ###SecurePoll-START:option/text --><translate><!--T:17-->Kelsie Kriener</translate><!-- ###SecurePoll-STOP -->
+* <!-- ###SecurePoll-START:option/text --><translate><!--T:18-->Cheryl Chulla</translate><!-- ###SecurePoll-STOP -->
+* <!-- ###SecurePoll-START:option/text --><translate><!--T:19-->Darnell Dieudonne</translate><!-- ###SecurePoll-STOP -->
+* <!-- ###SecurePoll-START:option/text --><translate><!--T:20-->Dacian Damerell</translate><!-- ###SecurePoll-STOP -->
+* <!-- ###SecurePoll-START:option/text --><translate><!--T:21-->Crawford Curtner</translate><!-- ###SecurePoll-STOP -->
+* <!-- ###SecurePoll-START:option/text --><translate><!--T:22-->Saxton Shyu</translate><!-- ###SecurePoll-STOP -->
+* <!-- ###SecurePoll-START:option/text --><translate><!--T:23-->Raleigh Rinaldi</translate><!-- ###SecurePoll-STOP -->
+* <!-- ###SecurePoll-START:option/text --><translate><!--T:24-->Franklyn Fader</translate><!-- ###SecurePoll-STOP -->
+* <!-- ###SecurePoll-START:option/text --><translate><!--T:25-->Haden Holje</translate><!-- ###SecurePoll-STOP -->
+* <!-- ###SecurePoll-START:option/text --><translate><!--T:26-->Braxton Brusco</translate><!-- ###SecurePoll-STOP -->
+* <!-- ###SecurePoll-START:option/text --><translate><!--T:28-->Kipp Krauser</translate><!-- ###SecurePoll-STOP -->
+* <!-- ###SecurePoll-START:option/text --><translate><!--T:29-->Irwin Icenhour</translate><!-- ###SecurePoll-STOP -->
+* <!-- ###SecurePoll-START:option/text --><translate><!--T:30-->Caine Cotelesse</translate><!-- ###SecurePoll-STOP -->
+
+== Other material ==
+* title: <!-- ###SecurePoll-START:election/title --><translate><!--T:31-->Test Elections 100</translate><!-- ###SecurePoll-STOP -->
+* jumptext: <!-- ###SecurePoll-START:election/jumptext --><translate><!--T:32-->The vote will be conducted on a central wiki. Please click the button below to be transferred.</translate><!-- ###SecurePoll-STOP -->
+* returntext: <!-- ###SecurePoll-START:election/returntext --><translate><!--T:33-->Test elections 100 portal</translate><!-- ###SecurePoll-STOP -->
+* unqualifiederror:<!-- ###SecurePoll-START:election/unqualifiederror --> <translate><!--T:34-->We apologize, but you do not appear to be on the eligible voter list. Please visit the voter help page] for more information on voter eligibility and information on how to be added to the voter list if you are eligible.</translate><!-- ###SecurePoll-STOP -->
+* board elections title: <!-- ###SecurePoll-START:election/elections-title --><translate><!--T:35-->Test Elections 100</translate><!-- ###SecurePoll-STOP -->
+
+[[Category:Test elections 100{{#translation:}}]]
+[[Category:Translation{{#translation:}}]]
