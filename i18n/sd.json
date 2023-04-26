@@ -17,6 +17,8 @@
 	"securepoll-header-start-date": "شروع ٿيڻ جي تاريخ",
 	"securepoll-header-end-date": "پڄاڻيءَ جي تاريخ",
 	"securepoll-subpage-list": "فھرست",
+	"securepoll-subpage-archive": "آرڪائيو ڪريو",
+	"securepoll-archive-title": "$1 کي آرڪائيو ڪريو",
 	"securepoll-entry-archived": "آرڪائيوٿيل چونڊون ڏسو",
 	"securepoll-archived-title": "آرڪائيوٿيل چونڊون",
 	"securepoll-no-upload": "ڪوبہ فائيل نہ چاڙھيو ويو، نتيجا نٿا ڏئي سگهجن.",
@@ -24,5 +26,6 @@
 	"securepoll-create-label-election_jump-text": "متن ڏانھن وڃو:",
 	"securepoll-create-label-questions-question": "سوال جو متن:",
 	"securepoll-votereligibility-label-min_edits": "گھٽ-۾-گھٽ سنوارون:",
-	"securepoll-votereligibility-label-edits_startdate": "تي يا کانپوءِ سنوارون:"
+	"securepoll-votereligibility-label-edits_startdate": "تي يا کانپوءِ سنوارون:",
+	"securepoll-votereligibility-saved": "{{int:securepoll}}: سانڍيل"
 }
