@@ -1,0 +1,13 @@
+{
+	"trans_81_intro": "This page coordinates translation of the testing elections pages. The election committee will try its best to find many translators to reduce their individual workload. If you have any problems or questions about translation, please leave a message on [[Talk:Wikimedia Foundation elections/Test/Translation]].\n== Voting guide == \n* Candidates need to be ranked without skipping numbers in-between. Skipping numbers will result in an error. For example:\n*: Preference one: Dog\n*: Preference two: ''(blank)''\n*: Preference three: Cat\n* This is not allowed. Preference three cannot be added without adding preference two.\n* You cannot rank the same candidate multiple times. Ranking the same candidate multiple times will result in an error. For example:\n*: Preference one: Dog\n*: Preference two: Dog\n*: Preference three: Cat\n* This is not allowed. Candidate \"Dog\" was ranked twice.\n* You are allowed to change your vote during the election. This will overwrite your previous vote. You can do this as many times as you like.\n",
+	"trans_81_title": "Test Elections 100",
+	"trans_81_jump-text": "The vote will be conducted on a central wiki. Please click the button below to be transferred.",
+	"trans_81_return-text": "Test elections 100 portal",
+	"trans_81_unqualified-error": " We apologize, but you do not appear to be on the eligible voter list. Please visit the voter help page] for more information on voter eligibility and information on how to be added to the voter list if you are eligible.",
+	"trans_82_text": "Board candidates",
+	"trans_83_text": "Favourite season",
+	"trans_84_text": "Spring",
+	"trans_85_text": "Summer",
+	"trans_86_text": "Autumn",
+	"trans_87_text": "Winter"
+}

@@ -1,0 +1,115 @@
+{
+	"type": "election",
+	"intro": "This page coordinates translation of the testing elections pages. The election committee will try its best to find many translators to reduce their individual workload. If you have any problems or questions about translation, please leave a message on [[Talk:Wikimedia Foundation elections/Test/Translation]].\n== Voting guide == \n* Candidates need to be ranked without skipping numbers in-between. Skipping numbers will result in an error. For example:\n*: Preference one: Dog\n*: Preference two: ''(blank)''\n*: Preference three: Cat\n* This is not allowed. Preference three cannot be added without adding preference two.\n* You cannot rank the same candidate multiple times. Ranking the same candidate multiple times will result in an error. For example:\n*: Preference one: Dog\n*: Preference two: Dog\n*: Preference three: Cat\n* This is not allowed. Candidate \"Dog\" was ranked twice.\n* You are allowed to change your vote during the election. This will overwrite your previous vote. You can do this as many times as you like.\n",
+	"title": "Test Elections 100",
+	"jump-text": "The vote will be conducted on a central wiki. Please click the button below to be transferred.",
+	"return-text": "Test elections 100 portal",
+	"unqualified-error": " We apologize, but you do not appear to be on the eligible voter list. Please visit the voter help page] for more information on voter eligibility and information on how to be added to the voter list if you are eligible.",
+	"elections-title": "Test Elections 100",
+	"questions": [
+		{
+			"type": "question",
+			"text": "Board candidates",
+			"options": [
+				{
+					"type": "option",
+					"text": "Gael Ghaziani"
+				},
+				{
+					"type": "option",
+					"text": "Perry Paripovich"
+				},
+				{
+					"type": "option",
+					"text": "Brenda Burbidge"
+				},
+				{
+					"type": "option",
+					"text": "Lyndsie Lingefelt"
+				},
+				{
+					"type": "option",
+					"text": "Ramon Rendel"
+				},
+				{
+					"type": "option",
+					"text": "Blaine Bayer"
+				},
+				{
+					"type": "option",
+					"text": "Kelsie Kriener"
+				},
+				{
+					"type": "option",
+					"text": "Cheryl Chulla"
+				},
+				{
+					"type": "option",
+					"text": "Darnell Dieudonne"
+				},
+				{
+					"type": "option",
+					"text": "Dacian Damerell"
+				},
+				{
+					"type": "option",
+					"text": "Crawford Curtner"
+				},
+				{
+					"type": "option",
+					"text": "Saxton Shyu"
+				},
+				{
+					"type": "option",
+					"text": "Raleigh Rinaldi"
+				},
+				{
+					"type": "option",
+					"text": "Franklyn Fader"
+				},
+				{
+					"type": "option",
+					"text": "Haden Holje"
+				},
+				{
+					"type": "option",
+					"text": "Braxton Brusco"
+				},
+				{
+					"type": "option",
+					"text": "Kipp Krauser"
+				},
+				{
+					"type": "option",
+					"text": "Irwin Icenhour"
+				},
+				{
+					"type": "option",
+					"text": "Caine Cotelesse"
+				}
+			]
+		},
+		{
+			"type": "question",
+			"text": "Favourite season",
+			"options": [
+				{
+					"type": "option",
+					"text": "Spring"
+				},
+				{
+					"type": "option",
+					"text": "Summer"
+				},
+				{
+					"type": "option",
+					"text": "Autumn"
+				},
+				{
+					"type": "option",
+					"text": "Winter"
+				}
+			]
+		}
+	]
+}

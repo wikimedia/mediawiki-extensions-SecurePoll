@@ -2,49 +2,42 @@
 
 namespace MediaWiki\Extension\SecurePoll\Pages;
 
-use CommentStoreComment;
-use Exception;
 use Linker;
-use MediaWiki\Extension\SecurePoll\Context;
-use MediaWiki\Extension\SecurePoll\SecurePollContentHandler;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
+use MediaWiki\Extension\SecurePoll\TranslationRepo;
 use MediaWiki\Languages\LanguageNameUtils;
-use MediaWiki\MediaWikiServices;
-use MediaWiki\Revision\SlotRecord;
 use Message;
 use MWException;
-use MWExceptionHandler;
 use Title;
 use WikiMap;
-use Wikimedia\Rdbms\ILoadBalancer;
-use Wikimedia\Rdbms\LBFactory;
 
 /**
  * A SecurePoll subpage for translating election messages.
  */
 class TranslatePage extends ActionPage {
+
 	/** @var bool|null */
 	public $isAdmin;
-
-	/** @var LBFactory */
-	private $lbFactory;
 
 	/** @var LanguageNameUtils */
 	private $languageNameUtils;
 
+	/** @var TranslationRepo */
+	private $translationRepo;
+
 	/**
 	 * @param SpecialSecurePoll $specialPage
-	 * @param LBFactory $lbFactory
 	 * @param LanguageNameUtils $languageNameUtils
+	 * @param TranslationRepo $translationRepo
 	 */
 	public function __construct(
 		SpecialSecurePoll $specialPage,
-		LBFactory $lbFactory,
-		LanguageNameUtils $languageNameUtils
+		LanguageNameUtils $languageNameUtils,
+		TranslationRepo $translationRepo
 	) {
 		parent::__construct( $specialPage );
-		$this->lbFactory = $lbFactory;
 		$this->languageNameUtils = $languageNameUtils;
+		$this->translationRepo = $translationRepo;
 	}
 
 	/**
@@ -260,125 +253,23 @@ class TranslatePage extends ActionPage {
 	 */
 	public function doSubmit( $secondary ) {
 		$out = $this->specialPage->getOutput();
-		$request = $this->specialPage->getRequest();
 
 		if ( !$this->isAdmin ) {
 			$out->addWikiMsg( 'securepoll-need-admin' );
-
 			return;
 		}
 
-		$entities = array_merge( [ $this->election ], $this->election->getDescendants() );
-		$replaceBatch = [];
-		$jumpReplaceBatch = [];
-		foreach ( $entities as $entity ) {
-			foreach ( $entity->getMessageNames() as $messageName ) {
-				$controlName = 'trans_' . $entity->getId() . '_' . $messageName;
-				$value = $request->getText( $controlName );
-				if ( $value !== '' ) {
-					$replaceBatch[] = [
-						'msg_entity' => $entity->getId(),
-						'msg_lang' => $secondary,
-						'msg_key' => $messageName,
-						'msg_text' => $value
-					];
+		$request = $this->specialPage->getRequest();
+		$data = $request->getValues();
 
-					// Jump wikis don't have subentities
-					if ( $entity === $this->election ) {
-						$jumpReplaceBatch[] = [
-							'msg_entity' => $entity->getId(),
-							'msg_lang' => $secondary,
-							'msg_key' => $messageName,
-							'msg_text' => $value
-						];
-					}
-				}
-			}
-		}
-		if ( $replaceBatch ) {
-			$wikis = $this->election->getProperty( 'wikis' );
-			if ( $wikis ) {
-				$wikis = explode( "\n", $wikis );
-			} else {
-				$wikis = [];
-			}
+		$this->translationRepo->setTranslation(
+			$this->election,
+			$data,
+			$secondary,
+			$this->specialPage->getContext()->getUser(),
+			$this->specialPage->getContext()->getRequest()->getText( 'comment' )
+		);
 
-			// First, the main wiki
-			$dbw = $this->lbFactory->getMainLB()->getConnectionRef( ILoadBalancer::DB_PRIMARY );
-			$dbw->replace(
-				'securepoll_msgs',
-				[
-					[
-						'msg_entity',
-						'msg_lang',
-						'msg_key'
-					]
-				],
-				$replaceBatch,
-				__METHOD__
-			);
-
-			if ( $this->specialPage->getConfig()->get( 'SecurePollUseNamespace' ) ) {
-				// Create a new context to bypass caching
-				$context = new Context;
-				$election = $context->getElection( $this->election->getId() );
-
-				list( $title, $content ) = SecurePollContentHandler::makeContentFromElection(
-					$election,
-					"msg/$secondary"
-				);
-
-				$page = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
-				$updater = $page->newPageUpdater( $this->specialPage->getUser() );
-				$updater->setContent( SlotRecord::MAIN, $content );
-				$updater->saveRevision(
-					CommentStoreComment::newUnsavedComment( trim( $request->getText( 'comment' ) ) )
-				);
-			}
-
-			// Then each jump-wiki
-			foreach ( $wikis as $dbname ) {
-				if ( $dbname === WikiMap::getCurrentWikiId() ) {
-					continue;
-				}
-
-				$lb = $this->lbFactory->getMainLB( $dbname );
-				$dbw = $lb->getConnection( ILoadBalancer::DB_PRIMARY, [], $dbname );
-				try {
-					$id = $dbw->selectField(
-						'securepoll_elections',
-						'el_entity',
-						[
-							'el_title' => $this->election->title
-						],
-						__METHOD__
-					);
-					if ( $id ) {
-						foreach ( $jumpReplaceBatch as &$row ) {
-							$row['msg_entity'] = $id;
-						}
-						unset( $row );
-
-						$dbw->replace(
-							'securepoll_msgs',
-							[
-								[
-									'msg_entity',
-									'msg_lang',
-									'msg_key'
-								]
-							],
-							$jumpReplaceBatch,
-							__METHOD__
-						);
-					}
-				} catch ( Exception $ex ) {
-					// Log the exception, but don't abort the updating of the rest of the jump-wikis
-					MWExceptionHandler::logException( $ex );
-				}
-				$lb->reuseConnection( $dbw );
-			}
-		}
 		$out->redirect( $this->getTitle( $secondary )->getFullURL() );
 	}
 }
