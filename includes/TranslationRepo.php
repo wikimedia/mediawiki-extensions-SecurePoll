@@ -58,19 +58,21 @@ class TranslationRepo {
 		foreach ( $entities as $entity ) {
 			foreach ( $entity->getMessageNames() as $messageName ) {
 				$controlName = 'trans_' . $entity->getId() . '_' . $messageName;
-				$value = $data[ $controlName ];
-				if ( $value !== '' ) {
-					$replace = [
-						'msg_entity' => $entity->getId(),
-						'msg_lang' => $language,
-						'msg_key' => $messageName,
-						'msg_text' => $value
-					];
-					$replaceBatch[] = $replace;
+				if ( isset( $data[ $controlName ] ) ) {
+					$value = $data[ $controlName ];
+					if ( $value !== '' ) {
+						$replace = [
+							'msg_entity' => $entity->getId(),
+							'msg_lang' => $language,
+							'msg_key' => $messageName,
+							'msg_text' => $value
+						];
+						$replaceBatch[] = $replace;
 
-					// Jump wikis don't have subentities
-					if ( $entity === $election ) {
-						$jumpReplaceBatch[] = $replace;
+						// Jump wikis don't have subentities
+						if ( $entity === $election ) {
+							$jumpReplaceBatch[] = $replace;
+						}
 					}
 				}
 			}

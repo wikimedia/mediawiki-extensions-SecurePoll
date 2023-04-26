@@ -6,6 +6,7 @@ use Linker;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Extension\SecurePoll\TranslationRepo;
 use MediaWiki\Languages\LanguageNameUtils;
+use MediaWiki\MediaWikiServices;
 use Message;
 use MWException;
 use Title;
@@ -110,6 +111,11 @@ class TranslatePage extends ActionPage {
 		if ( !isset( $params[1] ) ) {
 			# No language selected, show the selector
 			$this->showLanguageSelector( $primary );
+			$sourceConfig = MediaWikiServices::getInstance()->getMainConfig()
+			->get( 'SecurePollTranslationImportSourceUrl' );
+			$out->addJsConfigVars( 'SecurePollTranslationImportSourceUrl', $sourceConfig );
+
+			$out->addModules( 'ext.securepoll.htmlform' );
 			return;
 		}
 
@@ -160,16 +166,18 @@ class TranslatePage extends ActionPage {
 			$entityName = $entity->getType() . '(' . $entity->getId() . ')';
 			foreach ( $entity->getMessageNames() as $messageName ) {
 				$tbody->appendContent( ( new \OOUI\Tag( 'tr' ) )->appendContent(
-					( new \OOUI\Tag( 'td' ) )->appendContent( "$entityName/$messageName" ),
-					( new \OOUI\Tag( 'td' ) )->appendContent( new \OOUI\HtmlSnippet(
+					( new \OOUI\Tag( 'td' ) )->addClasses( [ 'trans-id' ] )
+							->appendContent( "$entityName/$messageName" ),
+					( new \OOUI\Tag( 'td' ) )->addClasses( [ 'trans-origin' ] )->appendContent( new \OOUI\HtmlSnippet(
 						nl2br( htmlspecialchars( $entity->getRawMessage( $messageName, $primary ) ) )
 					) ),
-					( new \OOUI\Tag( 'td' ) )->appendContent( new \OOUI\MultilineTextInputWidget( [
-						'name' => 'trans_' . $entity->getId() . '_' . $messageName,
-						'value' => $entity->getRawMessage( $messageName, $secondary ),
-						'classes' => [ 'securepoll-translate-box' ],
-						'readonly' => !$this->isAdmin,
-						'rows' => 2,
+					( new \OOUI\Tag( 'td' ) )->addClasses( [ 'trans-lang' ] )->appendContent(
+						new \OOUI\MultilineTextInputWidget( [
+							'name' => 'trans_' . $entity->getId() . '_' . $messageName,
+							'value' => $entity->getRawMessage( $messageName, $secondary ),
+							'classes' => [ 'securepoll-translate-box' ],
+							'readonly' => !$this->isAdmin,
+							'autosize' => true
 					] ) )
 				) );
 			}
@@ -223,27 +231,53 @@ class TranslatePage extends ActionPage {
 		$languages = $this->languageNameUtils->getLanguageNames();
 		ksort( $languages );
 
+		$apiEndpoint = $this->specialPage->getConfig()->get( 'SecurePollTranslationImportSourceUrl' );
+
 		$form = new \OOUI\FormLayout( [
 			'action' => $this->getTitle( false )->getLocalURL(),
 			'method' => 'get',
 			'items' => [ new \OOUI\FieldsetLayout( [ 'items' => [
-				new \OOUI\FieldLayout( new \OOUI\DropdownInputWidget( [
-					'name' => 'secondary_lang',
-					'value' => $selectedCode,
-					'options' => array_map( static function ( $code, $name ) {
-						return [
-							'label' => "$code - $name",
-							'data' => $code,
-						];
-					}, array_keys( $languages ), $languages )
-				] ) ),
-				new \OOUI\FieldLayout( new \OOUI\ButtonInputWidget( [
-					'label' => $this->msg( 'securepoll-submit-select-lang' )->text(),
-					'flags' => [ 'primary', 'progressive' ],
-					'type' => 'submit',
-				] ) ),
+				new \OOUI\HorizontalLayout( [
+					'id' => 'sp-translation-selection',
+					'items' => [
+						new \OOUI\DropdownInputWidget( [
+							'name' => 'secondary_lang',
+							'value' => $selectedCode,
+							'options' => array_map( static function ( $code, $name ) {
+								return [
+									'label' => "$code - $name",
+									'data' => $code,
+								];
+							}, array_keys( $languages ), $languages )
+						] ),
+						new \OOUI\ButtonInputWidget( [
+							'label' => $this->msg( 'securepoll-submit-select-lang' )->text(),
+							'flags' => [ 'primary' ],
+							'type' => 'submit',
+						] )
+					]
+				] )
 			] ] ) ]
 		] );
+
+		if ( !empty( $apiEndpoint ) ) {
+			$form->addItems( [
+				new \OOUI\FieldLayout(
+					new \OOUI\LabelWidget( [
+						'label' => $this->msg( 'securepoll-subpage-translate-info', $apiEndpoint )->text()
+					] )
+				),
+				new \OOUI\FieldLayout(
+					new \OOUI\ButtonInputWidget( [
+						'id' => 'import-trans-btn',
+						'infusable' => true,
+						'label' => $this->msg( 'securepoll-translate-import-button-label' )->text(),
+						'flags' => [ 'primary', 'progressive' ],
+						'disabled' => !$this->isAdmin
+					] )
+				)
+			], 0 );
+		}
 		$this->specialPage->getOutput()->addHTML( $form );
 	}
 

@@ -80,17 +80,38 @@
 				"page.list.js",
 				"page.vote.js",
 				"TranslationParser.js",
-				"TranslationFlattener.js"
+				"TranslationFlattener.js",
+				"TranslationImporter.js",
+				"translation/dialog/ImportDialog.js",
+				"translation/pages/SelectSourcePage.js",
+				"translation/pages/ImportPage.js",
+				"translation/pages/ResultPage.js"
 			],
 			"dependencies": [
-				"oojs-ui-core",
+				"oojs-ui",
 				"mediawiki.widgets.UserInputWidget",
 				"jquery.spinner"
 			],
 			"messages": [
 				"securepoll-strike-button",
 				"securepoll-strike-reason",
-				"securepoll-unstrike-button"
+				"securepoll-unstrike-button",
+				"securepoll-translation-importer-no-content",
+				"securepoll-translation-importer-update-start",
+				"securepoll-translation-importer-update-parsed-content",
+				"securepoll-translation-importer-no-selected-language",
+				"cancel",
+				"securepoll-translation-import-dialog-title",
+				"securepoll-translation-import-action-import",
+				"securepoll-translation-import-action-done",
+				"securepoll-translation-error-no-page-title",
+				"securepoll-translation-result-error-title",
+				"securepoll-translation-result-error-text",
+				"securepoll-translation-result-import-pages-title",
+				"securepoll-translation-result-import-pages-text",
+				"securepoll-translation-result-description",
+				"securepoll-translation-import-start",
+				"securepoll-translation-select-import-source"
 			]
 		},
 		"ext.securepoll": {
@@ -200,6 +221,10 @@
 		"SecurePollSingleTransferableVoteEnabled": {
 			"value": false,
 			"description": "Enable or disable Single Transferable Vote on secure poll."
+		},
+		"SecurePollTranslationImportSourceUrl": {
+			"value": "",
+			"description": "Source url pointing to api endpoint where pages for import should come from"
 		}
 	},
 	"manifest_version": 2
