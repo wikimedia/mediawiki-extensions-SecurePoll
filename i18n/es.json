@@ -335,5 +335,13 @@
 	"securepoll-stv-result-round-quota": "Cuota: $1",
 	"securepoll-stv-result-round-elected": "Elegido: $1",
 	"securepoll-stv-result-round-eliminated": "Eliminado: $1",
-	"securepoll-stv-result-round-keep-factor": "(factor de conservación: $1)"
+	"securepoll-stv-result-round-keep-factor": "(factor de conservación: $1)",
+	"securepoll-subpage-translate-info": "Es posible importar traducciones de $1, traducir manualmente o editar las traducciones existentes.",
+	"securepoll-translate-import-button-label": "Importar traducciones",
+	"securepoll-translation-result-error-title": "Errores",
+	"securepoll-translation-result-import-pages-title": "Páginas",
+	"securepoll-translation-result-import-pages-text": "Páginas importadas",
+	"securepoll-translation-import-dialog-title": "Importar traducciones",
+	"securepoll-translation-import-action-import": "Importar",
+	"securepoll-translation-import-action-done": "Hecho"
 }

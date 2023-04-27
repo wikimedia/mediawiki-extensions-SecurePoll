@@ -157,5 +157,6 @@
 	"securepoll-votereligibility-saved-text": "Ваше измене су сачуване.",
 	"securepolllog-form-action-label": "Врста радње:",
 	"securepoll-stv-droop-default-value": "Изаберите опцију",
-	"securepoll-stv-result-election-result-table-heading": "Резултат"
+	"securepoll-stv-result-election-result-table-heading": "Резултат",
+	"securepoll-translation-import-action-done": "Готово"
 }

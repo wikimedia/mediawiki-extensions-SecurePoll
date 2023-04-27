@@ -315,5 +315,22 @@
 	"securepoll-stv-result-round-quota": "Kvota: $1",
 	"securepoll-stv-result-round-elected": "Izvoljeni: $1",
 	"securepoll-stv-result-round-eliminated": "Izločeni: $1",
-	"securepoll-stv-result-round-keep-factor": "(faktor ohranitve: $1)"
+	"securepoll-stv-result-round-keep-factor": "(faktor ohranitve: $1)",
+	"securepoll-subpage-translate-info": "Prevode lahko uvozite iz $1, prevajate ročno ali urejate obstoječe prevode.",
+	"securepoll-translate-import-button-label": "Uvozi prevode",
+	"securepoll-translation-importer-no-content": "Vseebina strani je prazna",
+	"securepoll-translation-importer-update-start": "Začetna stran $1 za uvoz",
+	"securepoll-translation-importer-update-parsed-content": "Vsebina strani je bila razčlenjena v pripravi za prihranek $1",
+	"securepoll-translation-importer-no-selected-language": "Ni jezika za uvoz",
+	"securepoll-translation-result-error-title": "Napake",
+	"securepoll-translation-result-error-text": "Na teh straneh je prišlo do napake",
+	"securepoll-translation-result-import-pages-title": "Strani",
+	"securepoll-translation-result-import-pages-text": "Uvožene strani",
+	"securepoll-translation-result-description": "Uvoženi prevodi iz",
+	"securepoll-translation-import-start": "Začnetek uvoza",
+	"securepoll-translation-select-import-source": "Izberite stran iz $1",
+	"securepoll-translation-import-dialog-title": "Uvoz prevodov",
+	"securepoll-translation-import-action-import": "Uvozi",
+	"securepoll-translation-import-action-done": "Opravljeno",
+	"securepoll-translation-error-no-page-title": "Ni najdenega naslova strani"
 }

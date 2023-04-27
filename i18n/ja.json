@@ -298,5 +298,8 @@
 	"securepoll-stv-result-round-quota": "クオータ制：$1",
 	"securepoll-stv-result-round-elected": "選出されました：$1",
 	"securepoll-stv-result-round-eliminated": "除外されました：$1",
-	"securepoll-stv-result-round-keep-factor": "(キープ要素：$1)"
+	"securepoll-stv-result-round-keep-factor": "(キープ要素：$1)",
+	"securepoll-translation-result-error-title": "エラー",
+	"securepoll-translation-import-action-import": "インポート",
+	"securepoll-translation-import-action-done": "完了"
 }
