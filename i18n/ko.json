@@ -306,5 +306,15 @@
 	"securepoll-stv-result-round-quota": "할당량: $1",
 	"securepoll-stv-result-round-elected": "선출됨: $1",
 	"securepoll-stv-result-round-eliminated": "탈락함: $1",
-	"securepoll-stv-result-round-keep-factor": "(유지 계수: $1)"
+	"securepoll-stv-result-round-keep-factor": "(유지 계수: $1)",
+	"securepoll-translate-import-button-label": "번역 가져오기",
+	"securepoll-translation-importer-no-selected-language": "가져올 언어가 없습니다",
+	"securepoll-translation-result-error-title": "오류",
+	"securepoll-translation-result-error-text": "해당 문서에 오류가 발생했습니다",
+	"securepoll-translation-result-import-pages-title": "페이지",
+	"securepoll-translation-import-start": "가져오기 시작",
+	"securepoll-translation-import-dialog-title": "번역 가져오기",
+	"securepoll-translation-import-action-import": "가져오기",
+	"securepoll-translation-import-action-done": "완료",
+	"securepoll-translation-error-no-page-title": "문서 제목이 없습니다"
 }

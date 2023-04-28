@@ -303,5 +303,22 @@
 	"securepoll-stv-result-round-quota": "Quota: $1",
 	"securepoll-stv-result-round-elected": "Eligite: $1",
 	"securepoll-stv-result-round-eliminated": "Eliminate: $1",
-	"securepoll-stv-result-round-keep-factor": "(factor de conservation: $1)"
+	"securepoll-stv-result-round-keep-factor": "(factor de conservation: $1)",
+	"securepoll-subpage-translate-info": "Tu pote importar traductiones de $1, traducer manualmente o modificar traductiones existente.",
+	"securepoll-translate-import-button-label": "Importar traductiones",
+	"securepoll-translation-importer-no-content": "Le contento del pagina es vacue",
+	"securepoll-translation-importer-update-start": "Pagina de initio $1 a importar",
+	"securepoll-translation-importer-update-parsed-content": "Contento del pagina processate in preparation pro salveguardar $1",
+	"securepoll-translation-importer-no-selected-language": "Necun lingua a importar",
+	"securepoll-translation-result-error-title": "Errores",
+	"securepoll-translation-result-error-text": "Errores ha occurrite sur ille paginas",
+	"securepoll-translation-result-import-pages-title": "Paginas",
+	"securepoll-translation-result-import-pages-text": "Paginas importate",
+	"securepoll-translation-result-description": "Traductiones importate de",
+	"securepoll-translation-import-start": "Comenciar a importar",
+	"securepoll-translation-select-import-source": "Seliger pagina desde $1",
+	"securepoll-translation-import-dialog-title": "Importar traductiones",
+	"securepoll-translation-import-action-import": "Importar",
+	"securepoll-translation-import-action-done": "Facite",
+	"securepoll-translation-error-no-page-title": "Necun titulo de pagina trovate"
 }

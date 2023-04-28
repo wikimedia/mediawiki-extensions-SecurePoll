@@ -310,5 +310,22 @@
 	"securepoll-stv-result-round-quota": "Квота: $1",
 	"securepoll-stv-result-round-elected": "Избрани: $1",
 	"securepoll-stv-result-round-eliminated": "Испаднати: $1",
-	"securepoll-stv-result-round-keep-factor": "(коефициент на задршка: $1)"
+	"securepoll-stv-result-round-keep-factor": "(коефициент на задршка: $1)",
+	"securepoll-subpage-translate-info": "Можете да увезувате преводи од $1, да преведувате рачној или да менувате постоечки преводи.",
+	"securepoll-translate-import-button-label": "Увези преводи",
+	"securepoll-translation-importer-no-content": "Страницата е празна",
+	"securepoll-translation-importer-update-start": "Почетна страница $1 за увоз",
+	"securepoll-translation-importer-update-parsed-content": "Содржина на страницата расчленева во подготовка за зачувувањето на $1",
+	"securepoll-translation-importer-no-selected-language": "Нема јазик за увоз",
+	"securepoll-translation-result-error-title": "Грешки",
+	"securepoll-translation-result-error-text": "Се појавија грешки на тие страници",
+	"securepoll-translation-result-import-pages-title": "Страници",
+	"securepoll-translation-result-import-pages-text": "Увезени страници",
+	"securepoll-translation-result-description": "Увезени преводи од",
+	"securepoll-translation-import-start": "Почни со увоз",
+	"securepoll-translation-select-import-source": "Избереете страница од $1",
+	"securepoll-translation-import-dialog-title": "Увези преводи",
+	"securepoll-translation-import-action-import": "Увези",
+	"securepoll-translation-import-action-done": "Готово",
+	"securepoll-translation-error-no-page-title": "Не најдов наслов на страница"
 }

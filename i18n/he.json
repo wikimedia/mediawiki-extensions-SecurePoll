@@ -312,5 +312,22 @@
 	"securepoll-stv-result-round-quota": "מִכסה: $1",
 	"securepoll-stv-result-round-elected": "נבחר: $1",
 	"securepoll-stv-result-round-eliminated": "נופה: $1",
-	"securepoll-stv-result-round-keep-factor": "(גורם שימור: $1)"
+	"securepoll-stv-result-round-keep-factor": "(גורם שימור: $1)",
+	"securepoll-subpage-translate-info": "באפשרותך לייבא תרגומים מ־$1 , לתרגם ידנית או לערוך תרגומים קיימים.",
+	"securepoll-translate-import-button-label": "יבוא תרגומים",
+	"securepoll-translation-importer-no-content": "תוכן הדף ריק",
+	"securepoll-translation-importer-update-start": "דף התחלה $1 ליבוא",
+	"securepoll-translation-importer-update-parsed-content": "תוכן הדף מפוענח לקראת שמירה $1",
+	"securepoll-translation-importer-no-selected-language": "אין שפה לייבא",
+	"securepoll-translation-result-error-title": "שגיאות",
+	"securepoll-translation-result-error-text": "אירעו שגיאות בדפים האלה",
+	"securepoll-translation-result-import-pages-title": "דפים",
+	"securepoll-translation-result-import-pages-text": "דפים מיובאים",
+	"securepoll-translation-result-description": "תרגומים מיובאים מ־",
+	"securepoll-translation-import-start": "להתחיל לייבא",
+	"securepoll-translation-select-import-source": "בחירת דף מתוך $1",
+	"securepoll-translation-import-dialog-title": "יבוא תרגומים",
+	"securepoll-translation-import-action-import": "יבוא",
+	"securepoll-translation-import-action-done": "בוצע",
+	"securepoll-translation-error-no-page-title": "לא נמצאה כותרת דף"
 }
