@@ -8,10 +8,10 @@ use Job;
 use JobSpecification;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\WikiMap\WikiMap;
 use MWExceptionHandler;
 use RuntimeException;
 use SpecialPage;
-use WikiMap;
 use Wikimedia\Rdbms\IDatabase;
 
 /**
