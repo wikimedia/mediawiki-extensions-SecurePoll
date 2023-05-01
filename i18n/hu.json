@@ -151,5 +151,12 @@
 	"securepoll-votereligibility-label-clear": "Lista eltávolítása",
 	"securepoll-votereligibility-label-populate": "Lista automatikus feltöltése",
 	"securepoll-votereligibility-label-names": "Felhasználónevek",
-	"securepolllog-form-date-label": "Ettől a dátumtól (és korábbról):"
+	"securepolllog-form-date-label": "Ettől a dátumtól (és korábbról):",
+	"securepoll-translate-import-button-label": "Fordítások importálása",
+	"securepoll-translation-result-error-title": "Hibák",
+	"securepoll-translation-result-import-pages-title": "Lapok",
+	"securepoll-translation-import-start": "Importálás megkezdése",
+	"securepoll-translation-import-dialog-title": "Importált fordítások",
+	"securepoll-translation-import-action-import": "Importálás",
+	"securepoll-translation-import-action-done": "Kész"
 }
