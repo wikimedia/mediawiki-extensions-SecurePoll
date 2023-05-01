@@ -22,5 +22,6 @@
 	"securepoll-create-label-election_jump-text": "متن ڏانھن وڃو:",
 	"securepoll-create-label-questions-question": "سوال جو متن:",
 	"securepoll-votereligibility-label-min_edits": "گھٽ-۾-گھٽ سنوارون:",
-	"securepoll-votereligibility-label-edits_startdate": "تي يا کانپوءِ سنوارون:"
+	"securepoll-votereligibility-label-edits_startdate": "تي يا کانپوءِ سنوارون:",
+	"securepoll-votereligibility-saved": "{{int:securepoll}}: سانڍيل"
 }
