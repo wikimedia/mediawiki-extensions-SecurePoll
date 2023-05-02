@@ -158,6 +158,8 @@
 	"securepolllog-form-action-label": "Врста радње:",
 	"securepoll-stv-droop-default-value": "Изаберите опцију",
 	"securepoll-stv-result-election-result-table-heading": "Резултат",
+	"securepoll-translation-result-error-title": "Грешке",
+	"securepoll-translation-result-import-pages-title": "Странице",
 	"securepoll-translation-result-import-pages-text": "Увезене странице",
 	"securepoll-translation-import-action-done": "Готово"
 }
