@@ -322,7 +322,7 @@
 	"securepoll-subpage-translate-info": "You can import translations from $1, translate manually or edit existing translations.",
 	"securepoll-translate-import-button-label": "Import translations",
 	"securepoll-translation-importer-no-content": "Page content is empty",
-	"securepoll-translation-importer-update-start": "Start page $1 to import",
+	"securepoll-translation-importer-update-start": "Importing page $1",
 	"securepoll-translation-importer-update-parsed-content": "Page content parsed in preparation for saving $1",
 	"securepoll-translation-importer-no-selected-language": "No language to import",
 	"securepoll-translation-result-error-title": "Errors",
