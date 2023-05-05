@@ -319,7 +319,7 @@
 	"securepoll-subpage-translate-info": "Prevode lahko uvozite iz $1, prevajate ročno ali urejate obstoječe prevode.",
 	"securepoll-translate-import-button-label": "Uvozi prevode",
 	"securepoll-translation-importer-no-content": "Vseebina strani je prazna",
-	"securepoll-translation-importer-update-start": "Začetna stran $1 za uvoz",
+	"securepoll-translation-importer-update-start": "Uvažanje strani $1",
 	"securepoll-translation-importer-update-parsed-content": "Vsebina strani je bila razčlenjena v pripravi za prihranek $1",
 	"securepoll-translation-importer-no-selected-language": "Ni jezika za uvoz",
 	"securepoll-translation-result-error-title": "Napake",

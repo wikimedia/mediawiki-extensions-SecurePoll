@@ -161,6 +161,7 @@
 	"securepoll-translation-result-error-title": "Грешке",
 	"securepoll-translation-result-import-pages-title": "Странице",
 	"securepoll-translation-result-import-pages-text": "Увезене странице",
+	"securepoll-translation-import-action-import": "Увези",
 	"securepoll-translation-import-action-done": "Готово",
 	"securepoll-translation-error-no-page-title": "Наслов странице није пронађен"
 }

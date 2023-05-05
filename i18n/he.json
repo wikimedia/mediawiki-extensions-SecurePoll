@@ -316,7 +316,7 @@
 	"securepoll-subpage-translate-info": "באפשרותך לייבא תרגומים מ־$1 , לתרגם ידנית או לערוך תרגומים קיימים.",
 	"securepoll-translate-import-button-label": "יבוא תרגומים",
 	"securepoll-translation-importer-no-content": "תוכן הדף ריק",
-	"securepoll-translation-importer-update-start": "דף התחלה $1 ליבוא",
+	"securepoll-translation-importer-update-start": "יבוא הדף $1",
 	"securepoll-translation-importer-update-parsed-content": "תוכן הדף מפוענח לקראת שמירה $1",
 	"securepoll-translation-importer-no-selected-language": "אין שפה לייבא",
 	"securepoll-translation-result-error-title": "שגיאות",

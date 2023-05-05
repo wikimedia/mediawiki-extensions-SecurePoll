@@ -315,7 +315,7 @@
 	"securepoll-subpage-translate-info": "Du kannst Übersetzungen aus $1 importieren, manuell übersetzen oder vorhandene Übersetzungen bearbeiten.",
 	"securepoll-translate-import-button-label": "Übersetzungen importieren",
 	"securepoll-translation-importer-no-content": "Der Seiteninhalt ist leer",
-	"securepoll-translation-importer-update-start": "Startseite $1 zum Importieren",
+	"securepoll-translation-importer-update-start": "Importieren der Seite $1",
 	"securepoll-translation-importer-update-parsed-content": "Seiteninhalt geparst als Vorbereitung zum Speichern in $1",
 	"securepoll-translation-importer-no-selected-language": "Keine Sprache zum Importieren",
 	"securepoll-translation-result-error-title": "Fehler",

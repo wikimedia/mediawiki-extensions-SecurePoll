@@ -201,6 +201,8 @@
 	"securepoll-stv-result-election-result-table-heading": "ফলাফল",
 	"securepoll-stv-result-round-quota": "কোটা: $1",
 	"securepoll-stv-result-round-elected": "নির্বাচিত: $1",
+	"securepoll-subpage-translate-info": "আপনি $1 থেকে অনুবাদ আমদানি করতে পারেন, হাতদ্বারা অনুবাদ করতে পারেন বা বিদ্যমান অনুবাদগুলি সম্পাদনা করতে পারেন।",
+	"securepoll-translate-import-button-label": "অনুবাদ আমদানি করুন",
 	"securepoll-translation-result-import-pages-text": "আমদানিকৃত পাতা",
 	"securepoll-translation-import-dialog-title": "অনুবাদ আমদানি করুন",
 	"securepoll-translation-import-action-done": "সম্পন্ন"

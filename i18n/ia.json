@@ -307,7 +307,7 @@
 	"securepoll-subpage-translate-info": "Tu pote importar traductiones de $1, traducer manualmente o modificar traductiones existente.",
 	"securepoll-translate-import-button-label": "Importar traductiones",
 	"securepoll-translation-importer-no-content": "Le contento del pagina es vacue",
-	"securepoll-translation-importer-update-start": "Pagina de initio $1 a importar",
+	"securepoll-translation-importer-update-start": "Importa pagina $1",
 	"securepoll-translation-importer-update-parsed-content": "Contento del pagina processate in preparation pro salveguardar $1",
 	"securepoll-translation-importer-no-selected-language": "Necun lingua a importar",
 	"securepoll-translation-result-error-title": "Errores",
