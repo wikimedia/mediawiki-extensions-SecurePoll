@@ -18,6 +18,7 @@
 	"securepoll-need-admin": "Du må være valgadministrator for å kunne utføre dette.",
 	"securepoll-too-few-params": "Ikke mange nok undersideparametre (ugyldig lenke).",
 	"securepoll-invalid-election": "\"$1\" er ikke en gyldig valg-id.",
+	"securepoll-finished-no-edit": "Dette valget er over, og du kan ikke lenger redigere det.",
 	"securepoll-welcome": "<strong>{{GENDER:$1|Velkommen}}, $1!</strong>",
 	"securepoll-not-started": "Dette valget har enda ikke startet.\nDet starter etter planen $2 kl. $3.",
 	"securepoll-already-started": "Denne avstemningen har allerede startet.\nDen ble startet $2 kl. $3",
