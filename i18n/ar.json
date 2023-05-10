@@ -3,6 +3,7 @@
 		"authors": [
 			"Abanima",
 			"Aiman titi",
+			"Alshamiri1",
 			"FiberAhmed",
 			"Kuwaity26",
 			"Meno25",
@@ -303,5 +304,21 @@
 	"securepoll-stv-result-round-quota": "الكوتا: $1",
 	"securepoll-stv-result-round-elected": "المنتخبون: $1",
 	"securepoll-stv-result-round-eliminated": "المستبعدون: $1",
-	"securepoll-stv-result-round-keep-factor": "(معامل الاحتفاظ: $1)"
+	"securepoll-stv-result-round-keep-factor": "(معامل الاحتفاظ: $1)",
+	"securepoll-subpage-translate-info": "يمكنك استيراد الترجمات من $1 أو الترجمة يدويًا أو تحرير الترجمات الحالية.",
+	"securepoll-translate-import-button-label": "استيراد الترجمات",
+	"securepoll-translation-importer-no-content": "محتوى الصفحة فارغ",
+	"securepoll-translation-importer-update-start": "استيراد الصفحة $1",
+	"securepoll-translation-importer-update-parsed-content": "تم تحليل محتوى الصفحة استعدادًا لتوفير $1",
+	"securepoll-translation-importer-no-selected-language": "لا توجد لغة للاستيراد",
+	"securepoll-translation-result-error-title": "أخطاء",
+	"securepoll-translation-result-error-text": "حدثت أخطاء في تلك الصفحات",
+	"securepoll-translation-result-import-pages-title": "الصفحات",
+	"securepoll-translation-result-import-pages-text": "الصفحات المستوردة",
+	"securepoll-translation-result-description": "ترجمات مستوردة من",
+	"securepoll-translation-import-start": "ابدأ الاستيراد",
+	"securepoll-translation-select-import-source": "حدد الصفحة من $1",
+	"securepoll-translation-import-dialog-title": "استيراد الترجمات",
+	"securepoll-translation-import-action-import": "استيراد",
+	"securepoll-translation-error-no-page-title": "لم يتم العثور على عنوان الصفحة"
 }
