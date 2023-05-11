@@ -209,5 +209,7 @@
 	"securepoll-stv-droop-choice-rank": "Astellung $1",
 	"securepoll-stv-result-election-elected-header": "Gewielt",
 	"securepoll-stv-result-election-result-table-heading": "Resultat",
-	"securepoll-stv-result-round-elected": "Gewielt: $1"
+	"securepoll-stv-result-round-elected": "Gewielt: $1",
+	"securepoll-translation-result-error-title": "Feeler",
+	"securepoll-translation-result-import-pages-title": "Säiten"
 }
