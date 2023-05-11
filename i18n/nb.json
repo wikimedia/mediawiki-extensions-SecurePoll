@@ -18,6 +18,7 @@
 	"securepoll-need-admin": "Du må være valgadministrator for å kunne utføre dette.",
 	"securepoll-too-few-params": "Ikke mange nok undersideparametre (ugyldig lenke).",
 	"securepoll-invalid-election": "\"$1\" er ikke en gyldig valg-id.",
+	"securepoll-finished-no-edit": "Dette valget er over, og du kan ikke lenger redigere det.",
 	"securepoll-welcome": "<strong>{{GENDER:$1|Velkommen}}, $1!</strong>",
 	"securepoll-not-started": "Dette valget har enda ikke startet.\nDet starter etter planen $2 kl. $3.",
 	"securepoll-already-started": "Denne avstemningen har allerede startet.\nDen ble startet $2 kl. $3",
@@ -61,6 +62,7 @@
 	"securepoll-list-title": "Vis stemmer: $1",
 	"securepoll-list-private": "Beklager, visning av hvem som har stemt i dette valget er begrenset til valgadministratorer.",
 	"securepoll-header-timestamp": "Tid",
+	"securepoll-header-date": "Dato",
 	"securepoll-header-voter-name": "Navn",
 	"securepoll-header-voter-domain": "Domene",
 	"securepoll-header-ua": "Brukeragent",
@@ -233,5 +235,6 @@
 	"action-securepoll-create-poll": "opprette avstemninger",
 	"securepoll-ns-readonly": "{{ns:SecurePoll}}-navnerommet er skrivebeskyttet",
 	"securepoll-voter-stats": "Blant alle stemmeberettigede har $1 {{PLURAL:$1|stemt}}.",
-	"securepoll-vote-stats": "Totalt $1 {{PLURAL:$1|stemme|stemmer}} har blitt avlagt. Av disse har $2 {{PLURAL:$2|blitt}} forkastet fordi den stemmeberettigede har stemt på nytt, og $3 {{PLURAL:$3|har}} blitt strøket."
+	"securepoll-vote-stats": "Totalt $1 {{PLURAL:$1|stemme|stemmer}} har blitt avlagt. Av disse har $2 {{PLURAL:$2|blitt}} forkastet fordi den stemmeberettigede har stemt på nytt, og $3 {{PLURAL:$3|har}} blitt strøket.",
+	"securepolllog-form-action-option-both": "Begge"
 }
