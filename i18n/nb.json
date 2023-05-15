@@ -60,6 +60,7 @@
 	"securepoll-list-title": "Vis stemmer: $1",
 	"securepoll-list-private": "Beklager, visning av hvem som har stemt i dette valget er begrenset til valgadministratorer.",
 	"securepoll-header-timestamp": "Tid",
+	"securepoll-header-date": "Dato",
 	"securepoll-header-voter-name": "Navn",
 	"securepoll-header-voter-domain": "Domene",
 	"securepoll-header-ua": "Brukeragent",
