@@ -4,8 +4,13 @@
 			"Saraiki"
 		]
 	},
+	"securepoll-translation-importer-no-content": "ورقہ مواد خالی ہے",
 	"securepoll-translation-result-error-title": "خرابیاں",
 	"securepoll-translation-result-import-pages-title": "ورقے",
 	"securepoll-translation-result-import-pages-text": "درآمد تھئے ورقے",
-	"securepoll-translation-import-action-done": "تھی ڳیا"
+	"securepoll-translation-import-start": "امپورٹ کرݨ شروع کرو",
+	"securepoll-translation-import-dialog-title": "ترجمے امپورٹ کرو",
+	"securepoll-translation-import-action-import": "اندر گھن آؤ",
+	"securepoll-translation-import-action-done": "تھی ڳیا",
+	"securepoll-translation-error-no-page-title": "کوئی ورقہ عنوان کائنی لبھا"
 }

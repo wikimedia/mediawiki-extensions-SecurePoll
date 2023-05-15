@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Adriendelucca",
 			"Fohanno",
 			"Fulup",
 			"Huñvreüs",
@@ -135,5 +136,12 @@
 	"securepoll-votereligibility-saved": "{{int:securepoll}} : Enrollet",
 	"securepoll-votereligibility-saved-text": "Enrollet eo bet ho kemmoù.",
 	"right-securepoll-create-poll": "Krouiñ sontadegoù",
-	"action-securepoll-create-poll": "krouiñ sontadegoù ha gwelout marilhoù"
+	"action-securepoll-create-poll": "krouiñ sontadegoù ha gwelout marilhoù",
+	"securepoll-translation-importer-no-selected-language": "Yezh ebet da enporzhiañ",
+	"securepoll-translation-result-error-title": "Fazioù",
+	"securepoll-translation-result-import-pages-title": "Pajennoù",
+	"securepoll-translation-result-import-pages-text": "Pajennoù enporzhiet",
+	"securepoll-translation-import-dialog-title": "Enporzhiañ an troidigezhioù",
+	"securepoll-translation-import-action-import": "Enporzhiañ",
+	"securepoll-translation-import-action-done": "Graet"
 }
