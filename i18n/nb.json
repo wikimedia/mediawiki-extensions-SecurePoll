@@ -62,6 +62,7 @@
 	"securepoll-list-title": "Vis stemmer: $1",
 	"securepoll-list-private": "Beklager, visning av hvem som har stemt i dette valget er begrenset til valgadministratorer.",
 	"securepoll-header-timestamp": "Tid",
+	"securepoll-header-date": "Dato",
 	"securepoll-header-voter-name": "Navn",
 	"securepoll-header-voter-domain": "Domene",
 	"securepoll-header-ua": "Brukeragent",
@@ -234,5 +235,6 @@
 	"action-securepoll-create-poll": "opprette avstemninger",
 	"securepoll-ns-readonly": "{{ns:SecurePoll}}-navnerommet er skrivebeskyttet",
 	"securepoll-voter-stats": "Blant alle stemmeberettigede har $1 {{PLURAL:$1|stemt}}.",
-	"securepoll-vote-stats": "Totalt $1 {{PLURAL:$1|stemme|stemmer}} har blitt avlagt. Av disse har $2 {{PLURAL:$2|blitt}} forkastet fordi den stemmeberettigede har stemt på nytt, og $3 {{PLURAL:$3|har}} blitt strøket."
+	"securepoll-vote-stats": "Totalt $1 {{PLURAL:$1|stemme|stemmer}} har blitt avlagt. Av disse har $2 {{PLURAL:$2|blitt}} forkastet fordi den stemmeberettigede har stemt på nytt, og $3 {{PLURAL:$3|har}} blitt strøket.",
+	"securepolllog-form-action-option-both": "Begge"
 }
