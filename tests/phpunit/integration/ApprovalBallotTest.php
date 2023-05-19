@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\SecurePoll\Test\Integration;
 
-use FauxRequest;
 use MediaWiki\Extension\SecurePoll\Ballots\ApprovalBallot;
 use MediaWiki\Extension\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extension\SecurePoll\Ballots\BallotStatus;
@@ -10,6 +9,7 @@ use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Entities\Option;
 use MediaWiki\Extension\SecurePoll\Entities\Question;
+use MediaWiki\Request\FauxRequest;
 use MediaWikiIntegrationTestCase;
 use RequestContext;
 
