@@ -11,10 +11,10 @@ use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Extension\SecurePoll\Store\MemoryStore;
 use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
+use MediaWiki\Request\WebRequestUpload;
 use OOUI\MessageWidget;
 use OOUIHTMLForm;
 use Status;
-use WebRequestUpload;
 use Wikimedia\Rdbms\ILoadBalancer;
 
 /**
