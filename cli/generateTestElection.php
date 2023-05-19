@@ -32,7 +32,7 @@ class GenerateTestElection extends Maintenance {
 		$startTime = time();
 
 		// Check if the election already exists
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = $this->getDB( DB_PRIMARY );
 		$dbw->begin( __METHOD__ );
 		$electionName = $this->getOption( 'name' );
 		$electionId = $dbw->selectField(
@@ -65,7 +65,7 @@ class GenerateTestElection extends Maintenance {
 		$electionAdmins = explode( '|', $this->getOption( 'admins' ) );
 		$userGroupManager = MediaWikiServices::getInstance()->getUserGroupManager();
 		foreach ( $electionAdmins as $admin ) {
-			$user = User::newFromName( $admin );
+			$user = $this->getServiceContainer()->getUserFactory()->newFromName( $admin );
 			if (
 				!$user ||
 				!in_array(
@@ -181,7 +181,8 @@ class GenerateTestElection extends Maintenance {
 			$services->getDBLoadBalancerFactory(),
 			$services->getUserGroupManager(),
 			$services->getLanguageNameUtils(),
-			$services->getWikiPageFactory()
+			$services->getWikiPageFactory(),
+			$services->getUserFactory()
 		);
 		if ( !$name ) {
 			$name = 'STV @' . time();

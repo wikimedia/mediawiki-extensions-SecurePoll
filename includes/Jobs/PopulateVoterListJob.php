@@ -214,14 +214,14 @@ class PopulateVoterListJob extends Job {
 		$lbFactory = $services->getDBLoadBalancerFactory();
 		try {
 			// Check if the job key changed, and abort if so.
-			$dbwElection = wfGetDB( DB_PRIMARY, [], $this->params['electionWiki'] );
-			$dbwLocal = wfGetDB( DB_PRIMARY );
+			$dbwElection = $lbFactory->getPrimaryDatabase( $this->params['electionWiki'] );
+			$dbwLocal = $lbFactory->getPrimaryDatabase();
 			$jobKey = self::fetchJobKey( $dbwElection, $this->params['electionId'] );
 			if ( $jobKey !== $this->params['jobKey'] ) {
 				return true;
 			}
 
-			$dbr = wfGetDB( DB_REPLICA );
+			$dbr = $lbFactory->getReplicaDatabase();
 
 			$actorQuery = ActorMigration::newMigration()->getJoin( 'rev_user' );
 			$field = $actorQuery['fields']['rev_user'];

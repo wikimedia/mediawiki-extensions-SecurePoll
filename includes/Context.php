@@ -24,7 +24,7 @@ use RequestContext;
 use SpecialPage;
 use stdClass;
 use Title;
-use Wikimedia\Rdbms\Database;
+use Wikimedia\Rdbms\IDatabase;
 
 /**
  * This object contains caches and various items of processing context for
@@ -310,7 +310,7 @@ class Context {
 	 * Get a database object, or throw an exception if the current store object
 	 * does not support database operations.
 	 * @param int $index DB_PRIMARY or DB_REPLICA
-	 * @return Database
+	 * @return IDatabase
 	 */
 	public function getDB( $index = DB_PRIMARY ) {
 		return $this->getStore()->getDB( $index );

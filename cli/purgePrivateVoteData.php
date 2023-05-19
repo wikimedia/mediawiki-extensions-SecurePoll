@@ -53,7 +53,7 @@ class PurgePrivateVoteData extends Maintenance {
 
 		$electionsToPurge = [];
 		$deleteSets = [];
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = $this->getDB( DB_REPLICA );
 
 		if ( !$dbr->tableExists( 'securepoll_elections' ) ) {
 			$this->output( "`securepoll_elections` table does not exist. Nothing to do.\n" );
@@ -106,7 +106,7 @@ class PurgePrivateVoteData extends Maintenance {
 				$minVoteId = $setMax;
 			} while ( $vRes->numRows() == $this->getBatchSize() );
 
-			$dbw = wfGetDB( DB_PRIMARY );
+			$dbw = $this->getDB( DB_PRIMARY );
 			$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 
 			foreach ( $deleteSets as $deleteSet ) {

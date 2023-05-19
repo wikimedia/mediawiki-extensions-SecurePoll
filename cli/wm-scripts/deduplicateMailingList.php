@@ -64,14 +64,15 @@ class DeduplicateMailingList extends Maintenance {
 	 * @return Generator|iterable<MailingListEntry>
 	 */
 	private function readEntries() {
-		$numArgs = count( $this->mArgs );
+		$args = $this->getArgs();
+		$numArgs = count( $args );
 		if ( !$numArgs ) {
 			$this->error( "Reading from stdin..." );
 			foreach ( $this->readEntriesFromFile( STDIN, 'stdin' ) as $entry ) {
 				yield $entry;
 			}
 		} else {
-			for ( $fileIndex = 0; $fileIndex < count( $this->mArgs ); $fileIndex++ ) {
+			for ( $fileIndex = 0; $fileIndex < count( $args ); $fileIndex++ ) {
 				$fileName = $this->getArg( $fileIndex );
 				$file = fopen( $fileName, 'r' );
 				if ( !$file ) {

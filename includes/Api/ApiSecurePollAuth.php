@@ -22,10 +22,12 @@
 namespace MediaWiki\Extension\SecurePoll\Api;
 
 use ApiBase;
+use ApiMain;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\User\LocalAuth;
 use MediaWiki\Extension\SecurePoll\User\RemoteMWAuth;
-use User;
+use MediaWiki\User\UserFactory;
+use Wikimedia\ParamValidator\ParamValidator;
 
 /**
  * API module to authenticate jump-wiki user.
@@ -33,10 +35,22 @@ use User;
  * @ingroup API
  */
 class ApiSecurePollAuth extends ApiBase {
+	/** @var UserFactory */
+	private $userFactory;
+
+	public function __construct(
+		ApiMain $mainModule,
+		$moduleName,
+		UserFactory $userFactory
+	) {
+		parent::__construct( $mainModule, $moduleName );
+		$this->userFactory = $userFactory;
+	}
+
 	public function execute() {
 		$params = $this->extractRequestParams();
 
-		$user = User::newFromId( $params['id'] );
+		$user = $this->userFactory->newFromId( $params['id'] );
 		if ( !$user->isRegistered() ) {
 			$this->dieWithError(
 				'securepoll-api-no-user'
@@ -59,12 +73,12 @@ class ApiSecurePollAuth extends ApiBase {
 	public function getAllowedParams() {
 		return [
 			'token' => [
-				ApiBase::PARAM_TYPE => 'string',
-				ApiBase::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_REQUIRED => true,
 			],
 			'id' => [
-				ApiBase::PARAM_TYPE => 'integer',
-				ApiBase::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_TYPE => 'integer',
+				ParamValidator::PARAM_REQUIRED => true,
 			],
 		];
 	}

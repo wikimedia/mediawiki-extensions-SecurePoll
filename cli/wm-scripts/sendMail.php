@@ -100,7 +100,8 @@ class SendMail extends Maintenance {
 	 * @return Generator
 	 */
 	private function getEntries() {
-		foreach ( $this->mArgs as $fileName ) {
+		foreach ( $this->getArgs() as $fileName ) {
+			// @phan-suppress-next-line SecurityCheck-PathTraversal
 			$file = fopen( $fileName, 'r' );
 			if ( !$file ) {
 				$this->fatalError( "Unable to open input file $fileName" );

@@ -46,6 +46,7 @@ class ActionPageFactory {
 				'UserGroupManager',
 				'LanguageNameUtils',
 				'WikiPageFactory',
+				'UserFactory',
 			],
 		],
 		'edit' => [
@@ -55,6 +56,7 @@ class ActionPageFactory {
 				'UserGroupManager',
 				'LanguageNameUtils',
 				'WikiPageFactory',
+				'UserFactory',
 			],
 		],
 		'details' => [

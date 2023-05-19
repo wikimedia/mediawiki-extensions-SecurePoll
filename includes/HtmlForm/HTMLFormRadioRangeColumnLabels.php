@@ -44,8 +44,8 @@ class HTMLFormRadioRangeColumnLabels extends HTMLFormField {
 			return $p;
 		}
 
-		$min = $this->getNearestFieldByName( $alldata, 'min-score' );
-		$max = $this->getNearestFieldByName( $alldata, 'max-score' );
+		$min = (string)$this->getNearestFieldValue( $alldata, 'min-score' );
+		$max = (string)$this->getNearestFieldValue( $alldata, 'max-score' );
 		if ( !preg_match( '/^-?\d+$/', $min ) || !preg_match( '/^-?\d+$/', $max ) ) {
 			return true;
 		}
