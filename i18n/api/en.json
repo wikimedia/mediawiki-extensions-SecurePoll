@@ -14,7 +14,7 @@
 	"apihelp-strikevote-example-unstrike": "Unstrike vote <kbd>1</kbd>, giving the reason <kbd>mistake</kbd>.",
 	"apierror-securepoll-mustbeloggedin-strikevote": "You must be logged in to strike or unstrike a vote.",
 	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> is not a valid vote id.",
-	"apihelp-securepollauth-summary": "Allows remote wiki to authenticate users before granting access to jump election.",
+	"apihelp-securepollauth-summary": "Allows a remote wiki to authenticate users before granting access to vote in the election.",
 	"apihelp-securepollauth-param-token": "A token based on the user's login token.",
 	"apihelp-securepollauth-param-id": "The ID of the user who intends to vote.",
 	"apihelp-securepollauth-example-auth": "Authenticate user with ID <kbd>1</kbd>, and login token <kbd>123ABC</kbd>."
