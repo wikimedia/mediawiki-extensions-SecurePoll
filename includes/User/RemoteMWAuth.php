@@ -42,7 +42,7 @@ class RemoteMWAuth extends Auth {
 		$params = [];
 		foreach ( $urlParamNames as $name ) {
 			$value = $wgRequest->getVal( $name );
-			if ( !preg_match( '/^[\w.-]*$/', $value ) ) {
+			if ( !preg_match( '/^[\w.-]*$/', (string)$value ) ) {
 				throw new InvalidArgumentException( "Invalid parameter: $name" );
 			}
 			$params[$name] = $value;

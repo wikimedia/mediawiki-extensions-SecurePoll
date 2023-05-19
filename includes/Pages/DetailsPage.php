@@ -127,7 +127,7 @@ class DetailsPage extends ActionPage {
 			$out->addHTML(
 				'<td class="securepoll-detail-header">' . htmlspecialchars(
 					$name
-				) . "</td>\n" . '<td>' . htmlspecialchars( $value ) . "</td></tr>\n"
+				) . "</td>\n" . '<td>' . htmlspecialchars( (string)$value ) . "</td></tr>\n"
 			);
 		}
 		$out->addHTML( '</table>' );
