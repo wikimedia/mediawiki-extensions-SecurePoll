@@ -64,7 +64,7 @@ class TranslationRepoTest extends MediaWikiIntegrationTestCase {
 		$translationRepo->setTranslation( $election, $data, $language, $mockUser, $comment );
 	}
 
-	public function provideSetTranslationsTestData() {
+	public static function provideSetTranslationsTestData() {
 		return [
 			'default' => [
 				// data to be set with translation parser

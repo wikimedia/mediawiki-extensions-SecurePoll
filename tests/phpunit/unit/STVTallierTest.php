@@ -124,7 +124,7 @@ class STVTallierTest extends MediaWikiUnitTestCase {
 		$this->assertSame( 19.000001000000001, $actual );
 	}
 
-	public function finishTallyResults(): Generator {
+	public static function finishTallyResults(): Generator {
 		$fixtures = new DirectoryIterator( __DIR__ . '/fixtures' );
 		foreach ( $fixtures as $fixture ) {
 			if ( $fixture->isFile() && $fixture->isReadable() && $fixture->getExtension() === 'php' ) {
