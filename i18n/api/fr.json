@@ -2,17 +2,22 @@
 	"@metadata": {
 		"authors": [
 			"Thibaut120094",
+			"Verdy p",
 			"Wladek92"
 		]
 	},
-	"apihelp-strikevote-summary": "Permet aux administrateurs d'annuler ou de réintégrer un vote.",
-	"apihelp-strikevote-param-option": "Quelle action prendre: annuler ou reintégrer un vote.",
-	"apihelp-strikevote-paramvalue-option-strike": "Annuler un vote (supprimer du comptage).",
-	"apihelp-strikevote-paramvalue-option-unstrike": "Réintégrer un vote (le remettre dans le comptage).",
-	"apihelp-strikevote-param-voteid": "L'ID du vote devant être supprimé ou reintégré.",
-	"apihelp-strikevote-param-reason": "La raison de l'annulation ou la reintégration du vote.",
-	"apihelp-strikevote-example-strike": "Annuler le vote <kbd>1</kbd>, en donnant la raison <kbd>duplication</kbd>.",
-	"apihelp-strikevote-example-unstrike": "Réintégrer le vote <kbd>1</kbd>, en donnant la raison  <kbd>erreur</kbd>.",
-	"apierror-securepoll-mustbeloggedin-strikevote": "Vous devez être connecté pour signer ou annuler un vote.",
-	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> n’est pas un identifiant de vote valide."
+	"apihelp-strikevote-summary": "Permet aux administrateurs d’annuler ou de réintégrer un vote.",
+	"apihelp-strikevote-param-option": "Quelle action prendre : annuler ou réintégrer un vote.",
+	"apihelp-strikevote-paramvalue-option-strike": "Annuler un vote (le supprimer du décompte).",
+	"apihelp-strikevote-paramvalue-option-unstrike": "Réintégrer un vote (le remettre dans le décompte).",
+	"apihelp-strikevote-param-voteid": "L’identifiant du vote à annuler ou réintégrer.",
+	"apihelp-strikevote-param-reason": "Le motif pour l’annulation ou la réintégration du vote.",
+	"apihelp-strikevote-example-strike": "Annuler le vote <kbd>1</kbd>, en donnant le motif <kbd>dédoublement</kbd>.",
+	"apihelp-strikevote-example-unstrike": "Réintégrer le vote <kbd>1</kbd>, en donnant le motif <kbd>erreur</kbd>.",
+	"apierror-securepoll-mustbeloggedin-strikevote": "Vous devez être connecté(e) pour annuler ou réintégrer un vote.",
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> n’est pas un identifiant de vote valide.",
+	"apihelp-securepollauth-summary": "Permet au wiki distant d’authentifier les utilisateurs avant d’accorder l’accès à l’élection du saut.",
+	"apihelp-securepollauth-param-token": "Un jeton basé sur le jeton de connexion de l’utilisateur.",
+	"apihelp-securepollauth-param-id": "L’identifiant de l’utilisateur qui a l’intention de voter.",
+	"apihelp-securepollauth-example-auth": "Authentifier l’utilisateur avec l’identifiant <kbd>1</kbd> et le jeton de connexion <kbd>123ABC</kbd>."
 }

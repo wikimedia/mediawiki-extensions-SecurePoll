@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"BaRaN6161 TURK",
-			"Hedda"
+			"Hedda",
+			"MrSchipunov"
 		]
 	},
 	"apihelp-strikevote-summary": "Hizmetlilerin oy kullanmasına veya greve gitmesine izin verir.",
@@ -14,5 +15,6 @@
 	"apihelp-strikevote-example-strike": "Grev oy <kbd>1</kbd>, <kbd>duplication</kbd> nedenini vererek.",
 	"apihelp-strikevote-example-unstrike": "<kbd>1</kbd> seçimini iptal ederek <kbd>mistake</kbd> sebebini vererek.",
 	"apierror-securepoll-mustbeloggedin-strikevote": "Oy kullanmak veya grevden çıkmak için giriş yapmış olmalısınız.",
-	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> geçerli bir oylama kimliği değil."
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> geçerli bir oylama kimliği değil.",
+	"apihelp-securepollauth-param-id": "Oy vermeye niyetlenen kullanıcının ID'si."
 }

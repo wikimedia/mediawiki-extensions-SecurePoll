@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Alshamiri1",
 			"ديفيد"
 		]
 	},
@@ -13,5 +14,9 @@
 	"apihelp-strikevote-example-strike": "إبطال صوت <kbd>1</kbd>; مع إعطاء السبب <kbd>duplication</kbd>.",
 	"apihelp-strikevote-example-unstrike": "إبطال صوت <kbd>1</kbd>; مع إعطاء السبب <kbd>mistake</kbd>.",
 	"apierror-securepoll-mustbeloggedin-strikevote": "يجب أن تكون مسجلا لاحتساب أو إلغاء صوت.",
-	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> ليس معرف صوت صالحا."
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> ليس معرف صوت صالحا.",
+	"apihelp-securepollauth-summary": "يسمح لـ wiki عن بعد بمصادقة المستخدمين قبل منح الوصول للانتخابات السريعة.",
+	"apihelp-securepollauth-param-token": "رمز يعتمد على رمز تسجيل دخول المستخدم.",
+	"apihelp-securepollauth-param-id": "معرّف المستخدم الذي ينوي التصويت.",
+	"apihelp-securepollauth-example-auth": "قم بمصادقة المستخدم بالمعرف <kbd>1</kbd> ، ورمز تسجيل الدخول <kbd>123ABC</kbd> ."
 }

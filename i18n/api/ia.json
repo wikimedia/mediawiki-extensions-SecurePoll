@@ -13,5 +13,9 @@
 	"apihelp-strikevote-example-strike": "Annullar le voto <kbd>1</kbd>, dante le motivo <kbd>duplication</kbd>.",
 	"apihelp-strikevote-example-unstrike": "Restaurar le voto <kbd>1</kbd>, dante le motivo <kbd>mistake</kbd> (error).",
 	"apierror-securepoll-mustbeloggedin-strikevote": "Tu debe aperir session pro annullar o restaurar un voto.",
-	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> non es un ID de voto valide."
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> non es un ID de voto valide.",
+	"apihelp-securepollauth-summary": "Permitte que le wiki distante authentica usatores ante de conceder accesso pro ir al election.",
+	"apihelp-securepollauth-param-token": "Un token basate sur le token de session del usator.",
+	"apihelp-securepollauth-param-id": "Le identificator del usator qui intende votar.",
+	"apihelp-securepollauth-example-auth": "Authenticar usator con identificator <kbd>1</kbd>, e token de session <kbd>123ABC</kbd>."
 }

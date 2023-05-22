@@ -14,5 +14,9 @@
 	"apihelp-strikevote-example-strike": "Поништи го гласот <kbd>1</kbd>, давајќи ја причината <kbd>дуплирање</kbd>.",
 	"apihelp-strikevote-example-unstrike": "Поврати го гласот <kbd>1</kbd>, давајќи ја причината <kbd>грешка</kbd>.",
 	"apierror-securepoll-mustbeloggedin-strikevote": "Мора да сте најавени за да поништите или повратите глас.",
-	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> не претставува важечка гласовна назнака."
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> не претставува важечка гласовна назнака.",
+	"apihelp-securepollauth-summary": "Овозможува далечинско вики да заверува корисници пред да им даде пристап за прескокнување на избори.",
+	"apihelp-securepollauth-param-token": "Шифра на основа на корисничката најавна шифра.",
+	"apihelp-securepollauth-param-id": "Назнаката на корисникот што сака да гласа.",
+	"apihelp-securepollauth-example-auth": "Завери го корисникот со назнака <kbd>1</kbd> и најавна шифра <kbd>123ABC</kbd>."
 }

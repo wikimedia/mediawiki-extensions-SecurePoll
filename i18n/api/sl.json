@@ -13,5 +13,9 @@
 	"apihelp-strikevote-example-strike": "Izloči glas <kbd>1</kbd> z razlogom <kbd>podvojitev</kbd>.",
 	"apihelp-strikevote-example-unstrike": "Sprejmite glas <kbd>1</kbd> z razlogom <kbd>napaka</kbd>.",
 	"apierror-securepoll-mustbeloggedin-strikevote": "Če želite izločiti ali sprejeti glas, morate biti prijavljeni.",
-	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> ni veljaven ID glasu."
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> ni veljaven ID glasu.",
+	"apihelp-securepollauth-summary": "Omogoča oddaljenemu vikiju avtentikacijo uporabnikov preden odobritvijo dostopa do preskočnih volitev.",
+	"apihelp-securepollauth-param-token": "Žeton na podlagi uporabnikovega prijavnega žetona.",
+	"apihelp-securepollauth-param-id": "ID uporabnika, ki namerava glasovati.",
+	"apihelp-securepollauth-example-auth": "Avtentikacija uporabnika z ID-jem <kbd>1</kbd> in prijavnim žetonom <kbd>123ABC</kbd>."
 }

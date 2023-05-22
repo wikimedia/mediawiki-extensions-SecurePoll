@@ -13,5 +13,9 @@
 	"apihelp-strikevote-example-strike": "Streicht die Stimme <kbd>1</kbd> mit der Begründung <kbd>Duplikat</kbd>.",
 	"apihelp-strikevote-example-unstrike": "Nimmt die Streichung der Stimme <kbd>1</kbd> zurück, mit dem Grund <kbd>Versehen</kbd>.",
 	"apierror-securepoll-mustbeloggedin-strikevote": "Du musst angemeldet sein, um eine Stimme auszustreichen oder die Streichung zurückzunehmen.",
-	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> ist keine gültige Abstimmungskennung."
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> ist keine gültige Abstimmungskennung.",
+	"apihelp-securepollauth-summary": "Ermöglicht Remote-Wiki die Authentifizierung von Benutzern, bevor Zugriff auf die Sprungwahl gewährt wird.",
+	"apihelp-securepollauth-param-token": "Ein Token, das auf dem Anmeldetoken des Benutzers basiert.",
+	"apihelp-securepollauth-param-id": "Die ID des Benutzers, der abstimmen möchte.",
+	"apihelp-securepollauth-example-auth": "Authentifizieren des Benutzers mit der ID <kbd>1</kbd> und dem Anmeldetoken <kbd>123ABC</kbd> ."
 }
