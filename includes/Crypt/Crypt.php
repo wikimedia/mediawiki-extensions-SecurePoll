@@ -42,7 +42,7 @@ abstract class Crypt {
 	 */
 	abstract public function canDecrypt();
 
-	/** @var (string|false)[] */
+	/** @var (class-string|false)[] */
 	public static $cryptTypes = [
 		'none' => false,
 		'gpg' => GpgCrypt::class,
@@ -54,7 +54,7 @@ abstract class Crypt {
 	 * @param Context $context
 	 * @param string $type
 	 * @param Election $election
-	 * @return bool|GpgCrypt
+	 * @return self|false False when encryption type is set to "none"
 	 */
 	public static function factory( $context, $type, $election ) {
 		if ( !isset( self::$cryptTypes[$type] ) ) {

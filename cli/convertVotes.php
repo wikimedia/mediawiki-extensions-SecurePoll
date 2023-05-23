@@ -31,7 +31,7 @@ class ConvertVotes extends Maintenance {
 	private $votes;
 
 	/**
-	 * @var Crypt|bool
+	 * @var Crypt|false
 	 */
 	private $crypt;
 
