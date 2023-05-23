@@ -6,6 +6,7 @@ use ExtensionRegistry;
 use HTMLForm;
 use MediaWiki\Extension\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
+use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
 use MediaWiki\Extension\SecurePoll\Hooks\HookRunner;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Extension\SecurePoll\User\Auth;
@@ -15,7 +16,6 @@ use MediaWiki\Extension\SecurePoll\VoteRecord;
 use MediaWiki\Session\SessionManager;
 use MediaWiki\WikiMap\WikiMap;
 use MobileContext;
-use MWException;
 use Status;
 use Title;
 use Wikimedia\IPUtils;
@@ -367,12 +367,12 @@ class VotePage extends ActionPage {
 			}
 		}
 		if ( !$url ) {
-			throw new MWException( 'Configuration error: no jump-url' );
+			throw new InvalidDataException( 'Configuration error: no jump-url' );
 		}
 
 		$id = $this->election->getProperty( 'jump-id' );
 		if ( !$id ) {
-			throw new MWException( 'Configuration error: no jump-id' );
+			throw new InvalidDataException( 'Configuration error: no jump-id' );
 		}
 		$url .= "/login/$id";
 

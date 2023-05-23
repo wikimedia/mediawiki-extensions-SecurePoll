@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\SecurePoll;
 
-use Exception;
 use Generator;
 use Html;
 use InvalidArgumentException;
@@ -16,6 +15,7 @@ use MediaWiki\Revision\SlotRecord;
 use MediaWiki\WikiMap\WikiMap;
 use Parser;
 use ParserOptions;
+use RuntimeException;
 use TextContent;
 use Title;
 use UserMailer;
@@ -201,11 +201,11 @@ class SendMail extends Maintenance {
 		if ( !isset( $this->textCache[$pdbk] ) ) {
 			$revision = $this->revisionLookup->getRevisionByTitle( $title );
 			if ( !$revision ) {
-				throw new Exception( "Unable to load revision for title {$title}" );
+				throw new RuntimeException( "Unable to load revision for title {$title}" );
 			}
 			$content = $revision->getContent( SlotRecord::MAIN );
 			if ( !( $content instanceof TextContent ) ) {
-				throw new Exception( "Page {$title} is not text" );
+				throw new RuntimeException( "Page {$title} is not text" );
 			}
 			$this->textCache[$pdbk] = $content->getText();
 		}

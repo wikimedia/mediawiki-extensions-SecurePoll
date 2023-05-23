@@ -5,8 +5,8 @@ namespace MediaWiki\Extension\SecurePoll\Jobs;
 use Job;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
+use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
 use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
-use MWException;
 use Throwable;
 use Wikimedia\Rdbms\IDatabase;
 
@@ -146,8 +146,8 @@ class TallyElectionJob extends Job {
 			if ( $crypt ) {
 				$crypt->cleanupDbForTallyJob( $this->electionId, $this->dbw );
 			}
-		} catch ( MWException $e ) {
-			// Election::getCrypt() throws MWException if an election has the "encrypt-type"
+		} catch ( InvalidDataException $e ) {
+			// Election::getCrypt() throws InvalidDataException if an election has the "encrypt-type"
 			// property set but the corresponding class cannot be instantiated.
 			//
 			// Swallow this exception for the following reasons:

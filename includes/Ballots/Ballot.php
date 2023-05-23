@@ -2,13 +2,14 @@
 
 namespace MediaWiki\Extension\SecurePoll\Ballots;
 
+use InvalidArgumentException;
 use Language;
+use LogicException;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Entities\Entity;
 use MediaWiki\Extension\SecurePoll\Entities\Question;
 use MessageLocalizer;
-use MWException;
 use Status;
 use WebRequest;
 
@@ -51,7 +52,7 @@ abstract class Ballot {
 	 * @return array
 	 */
 	public static function getTallyTypes() {
-		throw new MWException( "Subclass must override ::getTallyTypes()" );
+		throw new LogicException( "Subclass must override ::getTallyTypes()" );
 	}
 
 	/**
@@ -113,7 +114,7 @@ abstract class Ballot {
 	 */
 	protected function getRequest(): WebRequest {
 		if ( !$this->request ) {
-			throw new MWException(
+			throw new LogicException(
 				'Ballot::initRequest() must be called before Ballot::getRequest()' );
 		}
 		return $this->request;
@@ -126,7 +127,7 @@ abstract class Ballot {
 	 */
 	private function getMessageLocalizer(): MessageLocalizer {
 		if ( !$this->messageLocalizer ) {
-			throw new MWException(
+			throw new LogicException(
 				'Ballot::initRequest() must be called before Ballot::getMessageLocalizer()' );
 		}
 		return $this->messageLocalizer;
@@ -240,11 +241,11 @@ abstract class Ballot {
 	 * @param string $type
 	 * @param Election $election
 	 * @return Ballot
-	 * @throws MWException
+	 * @throws InvalidArgumentException
 	 */
 	public static function factory( $context, $type, $election ) {
 		if ( !isset( self::BALLOT_TYPES[$type] ) ) {
-			throw new MWException( "Invalid ballot type: $type" );
+			throw new InvalidArgumentException( "Invalid ballot type: $type" );
 		}
 		$class = self::BALLOT_TYPES[$type];
 

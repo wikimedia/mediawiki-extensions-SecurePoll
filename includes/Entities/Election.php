@@ -2,14 +2,15 @@
 
 namespace MediaWiki\Extension\SecurePoll\Entities;
 
+use InvalidArgumentException;
 use MediaWiki\Extension\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Crypt\Crypt;
+use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
 use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
 use MediaWiki\Extension\SecurePoll\User\Auth;
 use MediaWiki\Extension\SecurePoll\User\Voter;
 use MediaWiki\MediaWikiServices;
-use MWException;
 use Status;
 use User;
 use Wikimedia\Rdbms\IDatabase;
@@ -432,16 +433,20 @@ class Election extends Entity {
 	 * Get the cryptography module for this election, or false if none is
 	 * defined.
 	 * @return Crypt|bool
-	 * @throws MWException
+	 * @throws InvalidDataException
 	 */
 	public function getCrypt() {
 		$type = $this->getProperty( 'encrypt-type' );
 		if ( $type === false || $type === 'none' ) {
 			return false;
 		}
-		$crypt = $this->context->newCrypt( $type, $this );
+		try {
+			$crypt = $this->context->newCrypt( $type, $this );
+		} catch ( InvalidArgumentException $e ) {
+			$crypt = false;
+		}
 		if ( !$crypt ) {
-			throw new MWException( 'Invalid encryption type' );
+			throw new InvalidDataException( 'Invalid encryption type' );
 		}
 
 		return $crypt;

@@ -2,12 +2,12 @@
 
 namespace MediaWiki\Extension\SecurePoll\Ballots;
 
-use Exception;
+use InvalidArgumentException;
 use MediaWiki\Extension\SecurePoll\Entities\Entity;
 use MediaWiki\Extension\SecurePoll\Entities\Question;
+use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
 use MediaWiki\Extension\SecurePoll\HtmlForm\HTMLFormRadioRangeColumnLabels;
 use MediaWiki\Extension\SecurePoll\Pages\CreatePage;
-use MWException;
 use Sanitizer;
 
 /**
@@ -105,13 +105,13 @@ class RadioRangeBallot extends Ballot {
 	/**
 	 * @param Question $question
 	 * @return array
-	 * @throws MWException
+	 * @throws InvalidDataException
 	 */
 	public function getMinMax( $question ) {
 		$min = intval( $question->getProperty( 'min-score' ) );
 		$max = intval( $question->getProperty( 'max-score' ) );
 		if ( $max <= $min ) {
-			throw new MWException( __METHOD__ . ': min/max not configured' );
+			throw new InvalidDataException( __METHOD__ . ': min/max not configured' );
 		}
 
 		return [
@@ -123,7 +123,7 @@ class RadioRangeBallot extends Ballot {
 	/**
 	 * @param Question $question
 	 * @return int
-	 * @throws MWException
+	 * @throws InvalidDataException
 	 */
 	public function getColumnDirection( $question ) {
 		$order = $question->getProperty( 'column-order' );
@@ -134,7 +134,7 @@ class RadioRangeBallot extends Ballot {
 		} elseif ( preg_match( '/^desc/i', $order ) ) {
 			return -1;
 		} else {
-			throw new MWException( __METHOD__ . ': column-order configured incorrectly' );
+			throw new InvalidDataException( __METHOD__ . ': column-order configured incorrectly' );
 		}
 	}
 
@@ -189,8 +189,8 @@ class RadioRangeBallot extends Ballot {
 		$msgs = [];
 		if ( !$entity instanceof Question ) {
 			$class = get_class( $entity );
-			throw new Exception(
-				"Expecting instance of SecurePoll_Question, got $class instead"
+			throw new InvalidArgumentException(
+				"Expecting instance of Question, got $class instead"
 			);
 		}
 		list( $min, $max ) = $this->getMinMax( $entity );

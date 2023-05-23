@@ -4,10 +4,10 @@ namespace MediaWiki\Extension\SecurePoll\Crypt;
 
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
+use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Shell\Shell;
 use MWCryptRand;
-use MWException;
 use Status;
 use Wikimedia\Rdbms\IDatabase;
 
@@ -257,7 +257,7 @@ class GpgCrypt extends Crypt {
 		# Fetch the keys
 		$encryptKey = strval( $this->election->getProperty( 'gpg-encrypt-key' ) );
 		if ( $encryptKey === '' ) {
-			throw new MWException( 'GPG keys are configured incorrectly' );
+			throw new InvalidDataException( 'GPG keys are configured incorrectly' );
 		}
 
 		# Import the encryption key

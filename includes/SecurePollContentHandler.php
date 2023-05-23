@@ -6,7 +6,7 @@ use ContentHandler;
 use FormatJson;
 use JsonContentHandler;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
-use MWException;
+use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
 use Title;
 
 /**
@@ -149,7 +149,7 @@ class SecurePollContentHandler extends JsonContentHandler {
 				$data['questions'][] = $q;
 			}
 		} else {
-			throw new MWException( __METHOD__ . ': Unsupported subpage format' );
+			throw new InvalidDataException( __METHOD__ . ': Unsupported subpage format' );
 		}
 
 		return $data;
