@@ -20,14 +20,8 @@ class RadioRangeBallotTest extends MediaWikiIntegrationTestCase {
 	/** @var Question */
 	private $question;
 
-	/** @var Context */
-	private $context;
-
 	/** @var BallotStatus */
 	private $status;
-
-	/** @var Election */
-	private $election;
 
 	/** @var Ballot */
 	private $ballot;
@@ -47,19 +41,17 @@ class RadioRangeBallotTest extends MediaWikiIntegrationTestCase {
 			[ 'max-score', false, 1 ]
 		] );
 
-		$this->context = new Context;
+		$this->status = new BallotStatus();
 
-		$this->status = new BallotStatus( $this->context );
-
-		$this->election = $this->createMock( Election::class );
-		$this->election->method( 'getProperty' )->willReturnMap( [
+		$election = $this->createMock( Election::class );
+		$election->method( 'getProperty' )->willReturnMap( [
 			[ 'must-answer-all', false, true ],
 		] );
 
 		$this->ballot = Ballot::factory(
-			$this->context,
+			new Context(),
 			'radio-range',
-			$this->election
+			$election
 		);
 	}
 

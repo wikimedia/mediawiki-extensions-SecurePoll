@@ -46,7 +46,7 @@ class STVBallotTest extends MediaWikiIntegrationTestCase {
 
 		$this->context = new Context;
 
-		$this->status = new BallotStatus( $this->context );
+		$this->status = new BallotStatus();
 
 		$this->ballot = Ballot::factory(
 			$this->context,

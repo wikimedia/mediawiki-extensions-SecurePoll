@@ -28,15 +28,12 @@ class TranslationRepoTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testSetTranslation( $data, $language, $comment, $wikis, $expectedReplaceCalls ) {
 		$services = MediaWikiServices::getInstance();
-		$mockDB = $this->getMockDB();
-		$mockDB->method( 'selectField' )->will( $this->returnValue( 7894 ) );
+		$mockDB = $this->createMock( IDatabase::class );
+		$mockDB->method( 'selectField' )->willReturn( 7894 );
 		$mockDB->expects( $this->exactly( $expectedReplaceCalls ) )->method( 'replace' );
 
-		$mockLB = $this->getMockLoadBalancer( $mockDB );
-		$mockLBFactory = $this->getMockLBFactory( $mockLB );
-
 		$translationRepo = new TranslationRepo(
-			$mockLBFactory,
+			$this->getMockLBFactory( $mockDB ),
 			$services->getWikiPageFactory(),
 			$services->getMainConfig()
 		);
@@ -44,22 +41,21 @@ class TranslationRepoTest extends MediaWikiIntegrationTestCase {
 		$mockUser = $this->createMock( User::class );
 
 		$election = $this->createMock( Election::class );
-		$election->method( 'getDescendants' )
-		->will( $this->returnCallback( static function () {
+		$election->method( 'getDescendants' )->willReturnCallback( static function () {
 			return [];
-		} ) );
+		} );
 
-		$election->method( 'getProperty' )->will( $this->returnValue( $wikis ) );
+		$election->method( 'getProperty' )->willReturn( $wikis );
 
-		$election->method( 'getMessageNames' )->will( $this->returnCallback( static function () {
+		$election->method( 'getMessageNames' )->willReturnCallback( static function () {
 			return [
 				'intro',
 				'title'
 			];
-		} ) );
-		$election->method( 'getId' )->will( $this->returnCallback( static function () {
+		} );
+		$election->method( 'getId' )->willReturnCallback( static function () {
 			return 7894;
-		} ) );
+		} );
 
 		$translationRepo->setTranslation( $election, $data, $language, $mockUser, $comment );
 	}
@@ -96,29 +92,14 @@ class TranslationRepoTest extends MediaWikiIntegrationTestCase {
 			];
 	}
 
-	private function getMockDB() {
-		$mockDB = $this->createMock( IDatabase::class );
-		return $mockDB;
-	}
+	private function getMockLBFactory( IDatabase $mockDB ): LBFactory {
+		$loadBalancer = $this->createMock( LoadBalancer::class );
+		$loadBalancer->method( $this->logicalOr( 'getConnection', 'getConnectionRef' ) )
+			->willReturn( $mockDB );
 
-	private function getMockLoadBalancer( $mockDB ) {
-		$mockLB = $this->getMockBuilder( LoadBalancer::class )
-		->disableOriginalConstructor()
-		->getMock();
-
-		$mockLB->method( 'getConnectionRef' )
-			->will( $this->returnValue( $mockDB ) );
-		$mockLB->method( 'getConnection' )
-			->will( $this->returnValue( $mockDB ) );
-		return $mockLB;
-	}
-
-	private function getMockLBFactory( $loadBalancer ) {
-		$mock = $this->getMockBuilder( LBFactory::class )
-			->disableOriginalConstructor()
-			->getMock();
+		$mock = $this->createMock( LBFactory::class );
 		$mock->method( 'getMainLB' )
-			->will( $this->returnValue( $loadBalancer ) );
+			->willReturn( $loadBalancer );
 		return $mock;
 	}
 }

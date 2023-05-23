@@ -20,9 +20,6 @@ class ApprovalBallotTest extends MediaWikiIntegrationTestCase {
 	/** @var Question */
 	private $question;
 
-	/** @var Context */
-	private $context;
-
 	/** @var Ballot */
 	private $ballot;
 
@@ -36,10 +33,8 @@ class ApprovalBallotTest extends MediaWikiIntegrationTestCase {
 		$this->question = $this->createMock( Question::class );
 		$this->question->method( 'getOptions' )->willReturn( $options );
 
-		$this->context = new Context;
-
 		$this->ballot = Ballot::factory(
-			$this->context,
+			new Context(),
 			'approval',
 			$this->createMock( Election::class )
 		);
@@ -88,7 +83,7 @@ class ApprovalBallotTest extends MediaWikiIntegrationTestCase {
 
 		$this->assertEquals(
 			$expected,
-			$this->ballot->submitQuestion( $this->question, new BallotStatus( $this->context ) )
+			$this->ballot->submitQuestion( $this->question, new BallotStatus() )
 		);
 	}
 }
