@@ -107,7 +107,7 @@ abstract class PopulateEditCount extends Maintenance {
 				continue;
 			}
 
-			$longEdits = (int)$dbr->newSelectQueryBuilder()
+			$longEdits = $dbr->newSelectQueryBuilder()
 				->select( '*' )
 				->from( 'revision' )
 				->where( [
@@ -118,7 +118,7 @@ abstract class PopulateEditCount extends Maintenance {
 				->caller( __METHOD__ )
 				->fetchRowCount();
 
-			$shortEdits = (int)$dbr->newSelectQueryBuilder()
+			$shortEdits = $dbr->newSelectQueryBuilder()
 				->select( '*' )
 				->from( 'revision' )
 				->where( [
@@ -134,7 +134,7 @@ abstract class PopulateEditCount extends Maintenance {
 				// Only check for Flow edits if we've not counted enough timed edits already..
 				if ( $longEdits < $this->beforeEditsToCount ) {
 					// @phan-suppress-next-line PhanPossiblyUndeclaredVariable
-					$longEdits += (int)$flowDbr->newSelectQueryBuilder()
+					$longEdits += $flowDbr->newSelectQueryBuilder()
 						->select( '*' )
 						->from( 'flow_revision' )
 						->where( [
@@ -151,7 +151,7 @@ abstract class PopulateEditCount extends Maintenance {
 
 				if ( $shortEdits < $this->betweenEditsToCount ) {
 					// @phan-suppress-next-line PhanPossiblyUndeclaredVariable
-					$shortEdits += (int)$flowDbr->newSelectQueryBuilder()
+					$shortEdits += $flowDbr->newSelectQueryBuilder()
 						->select( '*' )
 						->from( 'flow_revision' )
 						->where( [

@@ -200,8 +200,7 @@ class CreatePage extends ActionPage {
 			];
 		}
 
-		$languages = $this->languageNameUtils
-			->getLanguageNames( LanguageNameUtils::AUTONYMS, LanguageNameUtils::DEFINED );
+		$languages = $this->languageNameUtils->getLanguageNames();
 		ksort( $languages );
 		$options = [];
 		foreach ( $languages as $code => $name ) {

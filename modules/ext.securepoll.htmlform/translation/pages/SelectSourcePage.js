@@ -26,9 +26,7 @@ OO.inheritClass( SelectSourcePage, OO.ui.PageLayout );
 
 // get page title given from user
 SelectSourcePage.prototype.getPageTitle = function () {
-	var value = this.titleInput.getValue();
-	var pageTitle = mw.Title.newFromText( value );
-	return pageTitle;
+	return mw.Title.newFromText( this.titleInput.getValue() );
 };
 
 module.exports = SelectSourcePage;

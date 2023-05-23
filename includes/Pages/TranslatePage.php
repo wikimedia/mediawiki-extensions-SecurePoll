@@ -123,7 +123,7 @@ class TranslatePage extends ActionPage {
 		$inLanguage = $this->specialPage->getLanguage()->getCode();
 		$primaryName = $this->languageNameUtils->getLanguageName( $primary, $inLanguage );
 		$secondaryName = $this->languageNameUtils->getLanguageName( $secondary, $inLanguage );
-		if ( strval( $secondaryName ) === '' ) {
+		if ( $secondaryName === '' ) {
 			$out->addWikiMsg( 'securepoll-invalid-language', $secondary );
 			$this->showLanguageSelector( $primary );
 			return;

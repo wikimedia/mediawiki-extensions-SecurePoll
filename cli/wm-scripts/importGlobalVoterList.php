@@ -27,9 +27,7 @@ class ImportGlobalVoterList extends Maintenance {
 		$this->addOption( 'list-name',
 			'The securepoll list name',
 			true, true );
-		$this->addOption( 'delete',
-			'Delete the list if it exists',
-			false, false );
+		$this->addOption( 'delete', 'Delete the list if it exists' );
 		$this->addArg( 'input-file', 'The file with one username per line' );
 		$this->setBatchSize( 100 );
 	}

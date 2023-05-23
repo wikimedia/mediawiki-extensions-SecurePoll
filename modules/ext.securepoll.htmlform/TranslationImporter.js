@@ -158,9 +158,8 @@ TranslationImporter.prototype.saveContent = function ( content, language ) {
  * @return {string} url for rest endpoint
  */
 TranslationImporter.prototype.makeUrl = function ( language ) {
-	var url = mw.util.wikiScript( 'rest' ) + '/securepoll/set_translation/' +
+	return mw.util.wikiScript( 'rest' ) + '/securepoll/set_translation/' +
 		this.electionId + '/' + language;
-	return url;
 };
 
 module.exports = TranslationImporter;
