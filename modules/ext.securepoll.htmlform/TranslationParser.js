@@ -225,7 +225,7 @@ TranslationParser.prototype.getOptionsForQuestion = function ( lines, lineNumber
  * Check, if string contains start tag
  *
  * @param {string} content
- * @return {boolean}
+ * @return {Array|null}
  */
 TranslationParser.prototype.hasStartTag = function ( content ) {
 	return content.match( /<!--( )?###SecurePoll-START:[\w-/_]*( )?-->/ );
@@ -235,7 +235,7 @@ TranslationParser.prototype.hasStartTag = function ( content ) {
  * Check, if string contains end tag
  *
  * @param {string} content
- * @return {boolean}
+ * @return {Array|null}
  */
 TranslationParser.prototype.hasEndTag = function ( content ) {
 	return content.match( /<!--( )?###SecurePoll-STOP( )?-->/ );

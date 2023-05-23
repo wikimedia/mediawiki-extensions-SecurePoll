@@ -147,7 +147,7 @@ class Context {
 	/**
 	 * Get the type of a particular entity
 	 * @param int $id
-	 * @return string
+	 * @return string|false
 	 */
 	public function getEntityType( $id ) {
 		return $this->getStore()->getEntityType( $id );
@@ -176,7 +176,7 @@ class Context {
 	 * Get an election object from the store, with a given name. Returns false
 	 * if there is no such election.
 	 * @param string $name
-	 * @return Election|bool
+	 * @return Election|false
 	 */
 	public function getElectionByTitle( $name ) {
 		$info = $this->getStore()->getElectionInfoByTitle( [ $name ] );
@@ -431,7 +431,7 @@ class Context {
 	 * @param mixed $var
 	 * @param bool $return True to return the text instead of echoing
 	 * @param int $level Recursion level, leave this as zero when calling.
-	 * @return mixed|string
+	 * @return string|void
 	 */
 	public function varDump( $var, $return = false, $level = 0 ) {
 		$tab = '    ';
