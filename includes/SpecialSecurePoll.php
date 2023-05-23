@@ -38,20 +38,19 @@ class SpecialSecurePoll extends SpecialPage {
 	/**
 	 * Show the special page
 	 *
-	 * @param string|null $paramString parameter passed to the page or null
+	 * @param string|null $subPage parameter passed to the page or null
 	 */
-	public function execute( $paramString ) {
+	public function execute( $subPage ) {
 		$out = $this->getOutput();
 
 		$this->setHeaders();
 
 		$out->addModuleStyles( 'ext.securepoll.special' );
 
-		$paramString = strval( $paramString );
-		if ( $paramString === '' ) {
-			$paramString = 'entry';
+		if ( $subPage === null || $subPage === '' ) {
+			$subPage = 'entry';
 		}
-		$params = explode( '/', $paramString );
+		$params = explode( '/', $subPage );
 		$pageName = array_shift( $params );
 		$page = $this->getSubpage( $pageName );
 		if ( !$page ) {

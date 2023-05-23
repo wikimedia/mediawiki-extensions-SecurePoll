@@ -66,7 +66,7 @@ class StrikePager extends TablePager {
 		return $this->detailsPage->getTitle();
 	}
 
-	protected function isFieldSortable( $name ) {
-		return $name == 'st_timestamp';
+	protected function isFieldSortable( $field ) {
+		return $field === 'st_timestamp';
 	}
 }
