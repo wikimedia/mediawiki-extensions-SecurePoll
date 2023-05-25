@@ -15,5 +15,6 @@
 	"apihelp-strikevote-example-strike": "이유를 <kbd>duplication</kbd>로 지정하여 투표 <kbd>1</kbd>을 제거합니다.",
 	"apihelp-strikevote-example-unstrike": "이유를 <kbd>mistake</kbd>로 지정하여 투표 <kbd>1</kbd>의 제거를 취소합니다.",
 	"apierror-securepoll-mustbeloggedin-strikevote": "투표를 제거하거나 제거를 취소하려면 로그인해야 합니다.",
-	"apierror-securepoll-badvoteid": "<kbd>$1</kbd>은(는) 유효한 투표 ID가 아닙니다."
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd>은(는) 유효한 투표 ID가 아닙니다.",
+	"apihelp-securepollauth-param-token": "사용자의 로그인 토큰을 기반으로 하는 토큰입니다."
 }
