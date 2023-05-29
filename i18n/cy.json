@@ -6,7 +6,7 @@
 		]
 	},
 	"securepoll": "Etholiad diogel",
-	"securepoll-desc": "Estyniad ar gyfer etholiadau ac arolygon",
+	"securepoll-desc": "Ychwanegyn ar gyfer etholiadau ac arolygon",
 	"securepoll-invalid-page": "Isdudalen annilys \"<nowiki>$1</nowiki>\"",
 	"securepoll-need-admin": "Mae'n rhaid bod yn weinyddwr etholiad i wneud y weithred hon.",
 	"securepoll-too-few-params": "Dim digon o baramedrau isdudalen (cywllt annilys).",
