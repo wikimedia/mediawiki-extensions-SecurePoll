@@ -8,7 +8,8 @@
 			"Moon0319",
 			"Roy17",
 			"Shinjiman",
-			"Waihorace"
+			"Waihorace",
+			"捍粵者"
 		]
 	},
 	"securepoll": "安全投票",
@@ -65,7 +66,7 @@
 	"securepoll-strike-button": "刪除綫",
 	"securepoll-unstrike-button": "反刪除綫",
 	"securepoll-strike-reason": "原因:",
-	"securepoll-strike-error": "進行刪除／反刪除時出錯: $1",
+	"securepoll-strike-error": "刪除／反刪除時出錯: $1",
 	"securepoll-strike-token-mismatch": "部份資料唔見左",
 	"securepoll-details-link": "細節",
 	"securepoll-details-title": "投票細節: #$1",
