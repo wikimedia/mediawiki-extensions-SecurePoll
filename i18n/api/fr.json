@@ -16,7 +16,7 @@
 	"apihelp-strikevote-example-unstrike": "Réintégrer le vote <kbd>1</kbd>, en donnant le motif <kbd>erreur</kbd>.",
 	"apierror-securepoll-mustbeloggedin-strikevote": "Vous devez être connecté(e) pour annuler ou réintégrer un vote.",
 	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> n’est pas un identifiant de vote valide.",
-	"apihelp-securepollauth-summary": "Permet au wiki distant d’authentifier les utilisateurs avant d’accorder l’accès à l’élection du saut.",
+	"apihelp-securepollauth-summary": "Autorise un wiki distant à authentifier les utilisateurs avant d’accorder l’accès et leur permettre de voter à l’élection.",
 	"apihelp-securepollauth-param-token": "Un jeton basé sur le jeton de connexion de l’utilisateur.",
 	"apihelp-securepollauth-param-id": "L’identifiant de l’utilisateur qui a l’intention de voter.",
 	"apihelp-securepollauth-example-auth": "Authentifier l’utilisateur avec l’identifiant <kbd>1</kbd> et le jeton de connexion <kbd>123ABC</kbd>."

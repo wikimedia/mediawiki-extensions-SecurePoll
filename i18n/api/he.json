@@ -15,7 +15,7 @@
 	"apihelp-strikevote-example-unstrike": "לבטל את המחיקה של הקול <kbd>1</kbd>, עם הסיבה <kbd>mistake</kbd>.",
 	"apierror-securepoll-mustbeloggedin-strikevote": "חובה להיכנס לחשבון כדי למחוק קול או לבטל את מחיקתו.",
 	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> הוא לא מזהה קול תקין.",
-	"apihelp-securepollauth-summary": "מאפשרת לוויקי מרוחק לאמת משתמשים לפני מתן אפשרות לעבור לבחירות.",
+	"apihelp-securepollauth-summary": "מאפשרת לוויקי מרוחק לאמת משתמשים לפני מתן זכות להצביע בבחירות.",
 	"apihelp-securepollauth-param-token": "אסימון שמבוסס על אסימון הכניסה של המשתמש.",
 	"apihelp-securepollauth-param-id": "מזהה המשתמש שמתכוון להצביע.",
 	"apihelp-securepollauth-example-auth": "אימות משתמש עם מזהה <kbd>1</kbd> , ואסימון כניסה <kbd>123ABC</kbd>."
