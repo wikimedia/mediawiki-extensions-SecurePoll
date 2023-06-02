@@ -8,10 +8,10 @@ use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Crypt\Crypt;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Entities\Question;
+use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
 use MediaWiki\Extension\SecurePoll\Store\Store;
 use MediaWiki\Extension\SecurePoll\VoteRecord;
 use MediaWiki\Logger\LoggerFactory;
-use MWException;
 use Status;
 
 /**
@@ -50,7 +50,7 @@ class ElectionTallier {
 
 	/**
 	 * Set up a Tallier of the appropriate type for every question
-	 * @throws MWException
+	 * @throws InvalidDataException
 	 */
 	protected function setupTalliers() {
 		$questions = $this->election->getQuestions();
@@ -59,7 +59,7 @@ class ElectionTallier {
 		foreach ( $questions as $question ) {
 			$tallier = $this->context->newTallier( $tallyType, $this, $question );
 			if ( !$tallier ) {
-				throw new MWException( 'Invalid tally type' );
+				throw new InvalidDataException( 'Invalid tally type' );
 			}
 			$this->talliers[$question->getId()] = $tallier;
 		}

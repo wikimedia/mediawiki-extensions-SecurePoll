@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\SecurePoll\Talliers;
 
-use MWException;
+use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
 use Xml;
 
 class HistogramRangeTallier extends Tallier {
@@ -24,7 +24,7 @@ class HistogramRangeTallier extends Tallier {
 		$this->minScore = intval( $question->getProperty( 'min-score' ) );
 		$this->maxScore = intval( $question->getProperty( 'max-score' ) );
 		if ( $this->minScore >= $this->maxScore ) {
-			throw new MWException( __METHOD__ . ': min-score/max-score configured incorrectly' );
+			throw new InvalidDataException( __METHOD__ . ': min-score/max-score configured incorrectly' );
 		}
 
 		foreach ( $question->getOptions() as $option ) {
@@ -90,12 +90,12 @@ class HistogramRangeTallier extends Tallier {
 
 	/**
 	 * @inheritDoc
-	 * @throws MWException
+	 * @throws InvalidDataException
 	 */
 	public function getHtmlResult() {
 		$ballot = $this->election->getBallot();
 		if ( !method_exists( $ballot, 'getColumnLabels' ) ) {
-			throw new MWException( __METHOD__ . ': ballot type not supported by this tallier' );
+			throw new InvalidDataException( __METHOD__ . ': ballot type not supported by this tallier' );
 		}
 		$optionLabels = [];
 		foreach ( $this->question->getOptions() as $option ) {

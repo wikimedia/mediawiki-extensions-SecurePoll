@@ -4,13 +4,13 @@ namespace MediaWiki\Extension\SecurePoll;
 
 use CommentStoreComment;
 use Config;
-use Exception;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Page\WikiPageFactory;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\WikiMap\WikiMap;
 use MWExceptionHandler;
 use User;
+use Wikimedia\Rdbms\DBError;
 use Wikimedia\Rdbms\ILoadBalancer;
 use Wikimedia\Rdbms\LBFactory;
 
@@ -157,7 +157,7 @@ class TranslationRepo {
 							__METHOD__
 						);
 					}
-				} catch ( Exception $ex ) {
+				} catch ( DBError $ex ) {
 					// Log the exception, but don't abort the updating of the rest of the jump-wikis
 					MWExceptionHandler::logException( $ex );
 				}

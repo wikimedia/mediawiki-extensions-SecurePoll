@@ -2,13 +2,13 @@
 
 namespace MediaWiki\Extension\SecurePoll\Test\Unit;
 
+use InvalidArgumentException;
 use MediaWiki\Extension\SecurePoll\Entities\Option;
 use MediaWiki\Extension\SecurePoll\Entities\Question;
 use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
 use MediaWiki\Extension\SecurePoll\Talliers\PluralityTallier;
 use MediaWiki\Extension\SecurePoll\Talliers\Tallier;
 use MediaWikiUnitTestCase;
-use MWException;
 use RequestContext;
 
 /**
@@ -47,7 +47,7 @@ class TallierTest extends MediaWikiUnitTestCase {
 	}
 
 	public function testFactoryInvalidType() {
-		$this->expectException( MWException::class );
+		$this->expectException( InvalidArgumentException::class );
 		Tallier::factory(
 			$this->createMock( RequestContext::class ),
 			'invalid',

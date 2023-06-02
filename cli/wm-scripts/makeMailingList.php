@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\SecurePoll;
 
-use Exception;
 use ExtensionRegistry;
 use Generator;
 use Maintenance;
@@ -16,6 +15,7 @@ use MediaWiki\User\UserFactory;
 use MediaWiki\User\UserOptionsLookup;
 use MediaWiki\WikiMap\WikiMap;
 use Monolog\Logger;
+use RuntimeException;
 use User;
 use Wikimedia\Rdbms\ILBFactory;
 use Wikimedia\Rdbms\ILoadBalancer;
@@ -281,7 +281,7 @@ class MakeMailingList extends Maintenance {
 				'https://meta.wikimedia.org/wiki/Wikimedia_Foundation_nomail_list?action=raw'
 			);
 			if ( !$raw ) {
-				throw new Exception( "Unable to fetch Wikimedia nomail list" );
+				throw new RuntimeException( "Unable to fetch Wikimedia nomail list" );
 			}
 			if ( preg_match( '/(?<=<pre>).*(?=<\/pre>)/s', $raw, $matches ) ) {
 				$this->nomailUsers = array_fill_keys(

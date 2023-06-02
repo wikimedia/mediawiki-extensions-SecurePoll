@@ -10,6 +10,7 @@ use Linker;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Crypt\Crypt;
 use MediaWiki\Extension\SecurePoll\Entities\Entity;
+use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
 use MediaWiki\Extension\SecurePoll\SecurePollContentHandler;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Extension\SecurePoll\Store\FormStore;
@@ -20,7 +21,6 @@ use MediaWiki\User\UserFactory;
 use MediaWiki\User\UserGroupManager;
 use MediaWiki\WikiMap\WikiMap;
 use Message;
-use MWException;
 use MWTimestamp;
 use PermissionsError;
 use SpecialPage;
@@ -75,7 +75,7 @@ class CreatePage extends ActionPage {
 	/**
 	 * Execute the subpage.
 	 * @param array $params Array of subpage parameters.
-	 * @throws MWException
+	 * @throws InvalidDataException
 	 * @throws PermissionsError
 	 */
 	public function execute( $params ) {
@@ -104,7 +104,7 @@ class CreatePage extends ActionPage {
 			if ( $jumpUrl ) {
 				$jumpId = $this->election->getProperty( 'jump-id' );
 				if ( !$jumpId ) {
-					throw new MWException( 'Configuration error: no jump-id' );
+					throw new InvalidDataException( 'Configuration error: no jump-id' );
 				}
 				$jumpUrl .= "/edit/$jumpId";
 				if ( count( $params ) > 1 ) {

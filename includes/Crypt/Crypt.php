@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Extension\SecurePoll\Crypt;
 
+use InvalidArgumentException;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
-use MWException;
 use Status;
 use Wikimedia\Rdbms\IDatabase;
 
@@ -58,7 +58,7 @@ abstract class Crypt {
 	 */
 	public static function factory( $context, $type, $election ) {
 		if ( !isset( self::$cryptTypes[$type] ) ) {
-			throw new MWException( "Invalid crypt type: $type" );
+			throw new InvalidArgumentException( "Invalid crypt type: $type" );
 		}
 		$class = self::$cryptTypes[$type];
 

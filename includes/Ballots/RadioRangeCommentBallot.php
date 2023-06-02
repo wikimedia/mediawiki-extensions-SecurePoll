@@ -2,6 +2,8 @@
 
 namespace MediaWiki\Extension\SecurePoll\Ballots;
 
+use LogicException;
+
 /**
  * A ballot used specifically for the Wikimedia Referendum on the personal image filter.
  * Allows voters to send comments in with their ballot.
@@ -11,12 +13,12 @@ namespace MediaWiki\Extension\SecurePoll\Ballots;
 class RadioRangeCommentBallot extends RadioRangeBallot {
 	public function getForm( $prevStatus = false ) {
 		// @phan-suppress-previous-line PhanPluginNeverReturnMethod
-		throw new \MWException( 'This ballot type has been archived and can no longer be used for voting.' );
+		throw new LogicException( 'This ballot type has been archived and can no longer be used for voting.' );
 	}
 
 	public function submitForm() {
 		// @phan-suppress-previous-line PhanPluginNeverReturnMethod
-		throw new \MWException( 'This ballot type has been archived and can no longer be used for voting.' );
+		throw new LogicException( 'This ballot type has been archived and can no longer be used for voting.' );
 	}
 
 	/**

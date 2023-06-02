@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\SecurePoll;
 
-use MWException;
+use RuntimeException;
 use Status;
 
 /**
@@ -137,7 +137,7 @@ class VoteRecord {
 			JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_INVALID_UTF8_SUBSTITUTE
 		);
 		if ( !$json ) {
-			throw new MWException( 'JSON encoding of vote record failed' );
+			throw new RuntimeException( 'JSON encoding of vote record failed' );
 		}
 		return $json;
 	}

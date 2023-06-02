@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\SecurePoll\Crypt;
 
-use MWException;
+use RuntimeException;
 use Status;
 
 class Random {
@@ -52,7 +52,7 @@ class Random {
 		}
 		$data = fread( $this->urandom, $numBytes );
 		if ( strlen( $data ) != $numBytes ) {
-			throw new MWException( __METHOD__ . ': not enough bytes' );
+			throw new RuntimeException( __METHOD__ . ': not enough bytes' );
 		}
 		$x = 0;
 		for ( $i = 0; $i < $numBytes; $i++ ) {

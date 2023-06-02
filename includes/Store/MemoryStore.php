@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\SecurePoll\Store;
 
+use LogicException;
 use MediaWiki\Logger\LoggerFactory;
-use MWException;
 use Status;
 
 /**
@@ -86,7 +86,7 @@ class MemoryStore implements Store {
 
 	public function decodeElectionRow( $row ) {
 		// @phan-suppress-previous-line PhanPluginNeverReturnMethod LSP violation
-		throw new MWException(
+		throw new LogicException(
 			'Internal error: attempt to use decodeElectionRow() with ' .
 			'a storage class that doesn\'t support it.'
 		);
@@ -94,7 +94,7 @@ class MemoryStore implements Store {
 
 	public function getDB( $index = DB_PRIMARY ) {
 		// @phan-suppress-previous-line PhanPluginNeverReturnMethod LSP violation
-		throw new MWException(
+		throw new LogicException(
 			'Internal error: attempt to use getDB() when the database is disabled.'
 		);
 	}

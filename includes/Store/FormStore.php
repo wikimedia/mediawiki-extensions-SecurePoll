@@ -72,7 +72,7 @@ class FormStore extends MemoryStore {
 		if ( !isset( $ballotTypes[$ballot] ) ) {
 			// This should not be reachable by normal user input since the
 			// ballot type is already validated.
-			throw new \MWException( 'Invalid ballot type' );
+			throw new \RuntimeException( 'Invalid ballot type' );
 		}
 		$ballotClass = $ballotTypes[$ballot];
 

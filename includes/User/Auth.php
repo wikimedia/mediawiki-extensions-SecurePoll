@@ -2,10 +2,10 @@
 
 namespace MediaWiki\Extension\SecurePoll\User;
 
+use InvalidArgumentException;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Session\SessionManager;
-use MWException;
 use Status;
 
 /**
@@ -28,11 +28,11 @@ class Auth {
 	 * @param Context $context
 	 * @param string $type
 	 * @return LocalAuth|RemoteMWAuth
-	 * @throws MWException
+	 * @throws InvalidArgumentException
 	 */
 	public static function factory( $context, $type ) {
 		if ( !isset( self::$authTypes[$type] ) ) {
-			throw new MWException( "Invalid authentication type: $type" );
+			throw new InvalidArgumentException( "Invalid authentication type: $type" );
 		}
 		$class = self::$authTypes[$type];
 

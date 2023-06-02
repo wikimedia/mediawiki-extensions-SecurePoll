@@ -2,10 +2,10 @@
 
 namespace MediaWiki\Extension\SecurePoll\Talliers;
 
+use InvalidArgumentException;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Entities\Question;
-use MWException;
 use Xml;
 
 /**
@@ -80,11 +80,11 @@ abstract class Tallier {
 	 * @param ElectionTallier $electionTallier
 	 * @param Question $question
 	 * @return Tallier
-	 * @throws MWException
+	 * @throws InvalidArgumentException
 	 */
 	public static function factory( $context, $type, $electionTallier, $question ) {
 		if ( !isset( self::$tallierTypes[$type] ) ) {
-			throw new MWException( "Invalid tallier type: $type" );
+			throw new InvalidArgumentException( "Invalid tallier type: $type" );
 		}
 		$class = self::$tallierTypes[$type];
 

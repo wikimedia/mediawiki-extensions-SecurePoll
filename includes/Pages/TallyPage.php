@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\SecurePoll\Pages;
 
-use Exception;
 use HTMLForm;
 use JobQueueGroup;
 use JobSpecification;
@@ -14,6 +13,7 @@ use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
 use MediaWiki\Request\WebRequestUpload;
 use OOUI\MessageWidget;
 use OOUIHTMLForm;
+use RuntimeException;
 use Status;
 use Wikimedia\Rdbms\ILoadBalancer;
 
@@ -313,7 +313,7 @@ class TallyPage extends ActionPage {
 		$store = $context->getStore();
 		if ( !$store instanceof MemoryStore ) {
 			$class = get_class( $store );
-			throw new Exception(
+			throw new RuntimeException(
 				"Expected instance of MemoryStore, got $class instead"
 			);
 		}

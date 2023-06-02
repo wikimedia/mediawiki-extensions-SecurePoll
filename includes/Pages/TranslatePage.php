@@ -3,13 +3,13 @@
 namespace MediaWiki\Extension\SecurePoll\Pages;
 
 use Linker;
+use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Extension\SecurePoll\TranslationRepo;
 use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\WikiMap\WikiMap;
 use Message;
-use MWException;
 use Title;
 
 /**
@@ -75,7 +75,7 @@ class TranslatePage extends ActionPage {
 		if ( $jumpUrl ) {
 			$jumpId = $this->election->getProperty( 'jump-id' );
 			if ( !$jumpId ) {
-				throw new MWException( 'Configuration error: no jump-id' );
+				throw new InvalidDataException( 'Configuration error: no jump-id' );
 			}
 			$jumpUrl .= "/edit/$jumpId";
 			if ( count( $params ) > 1 ) {

@@ -43,7 +43,7 @@ class TallyElection extends Maintenance {
 			$store = $context->getStore();
 			if ( !$store instanceof MemoryStore ) {
 				$class = get_class( $store );
-				throw new Exception(
+				throw new RuntimeException(
 					"Expected instance of MemoryStore, got $class instead"
 				);
 			}
