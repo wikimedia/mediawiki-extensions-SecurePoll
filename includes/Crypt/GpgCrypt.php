@@ -373,7 +373,7 @@ class GpgCrypt extends Crypt {
 			],
 			$params
 		);
-		$command = Shell::command( $params )->restrict( Shell::RESTRICT_NONE )->includeStderr();
+		$command = Shell::command( $params )->disableSandbox()->includeStderr();
 
 		$result = $command->execute();
 

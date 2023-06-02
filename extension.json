@@ -35,7 +35,12 @@
 		"securePollUnarchiveElection": "\\MediaWiki\\Extension\\SecurePoll\\Jobs\\UnarchiveElectionJob"
 	},
 	"APIModules": {
-		"securepollauth": "\\MediaWiki\\Extension\\SecurePoll\\Api\\ApiSecurePollAuth",
+		"securepollauth": {
+			"class": "\\MediaWiki\\Extension\\SecurePoll\\Api\\ApiSecurePollAuth",
+			"services": [
+				"UserFactory"
+			]
+		},
 		"strikevote": {
 			"class": "\\MediaWiki\\Extension\\SecurePoll\\Api\\ApiStrikeVote",
 			"services": [

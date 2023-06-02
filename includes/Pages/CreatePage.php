@@ -16,6 +16,7 @@ use MediaWiki\Extension\SecurePoll\Store\FormStore;
 use MediaWiki\Extension\SecurePoll\Talliers\Tallier;
 use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\Page\WikiPageFactory;
+use MediaWiki\User\UserFactory;
 use MediaWiki\User\UserGroupManager;
 use MediaWiki\WikiMap\WikiMap;
 use Message;
@@ -24,7 +25,6 @@ use MWTimestamp;
 use PermissionsError;
 use SpecialPage;
 use Status;
-use User;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\ILoadBalancer;
 use Wikimedia\Rdbms\LBFactory;
@@ -45,25 +45,31 @@ class CreatePage extends ActionPage {
 	/** @var WikiPageFactory */
 	private $wikiPageFactory;
 
+	/** @var UserFactory */
+	private $userFactory;
+
 	/**
 	 * @param SpecialSecurePoll $specialPage
 	 * @param LBFactory $lbFactory
 	 * @param UserGroupManager $userGroupManager
 	 * @param LanguageNameUtils $languageNameUtils
 	 * @param WikiPageFactory $wikiPageFactory
+	 * @param UserFactory $userFactory
 	 */
 	public function __construct(
 		SpecialSecurePoll $specialPage,
 		LBFactory $lbFactory,
 		UserGroupManager $userGroupManager,
 		LanguageNameUtils $languageNameUtils,
-		WikiPageFactory $wikiPageFactory
+		WikiPageFactory $wikiPageFactory,
+		UserFactory $userFactory
 	) {
 		parent::__construct( $specialPage );
 		$this->lbFactory = $lbFactory;
 		$this->userGroupManager = $userGroupManager;
 		$this->languageNameUtils = $languageNameUtils;
 		$this->wikiPageFactory = $wikiPageFactory;
+		$this->userFactory = $userFactory;
 	}
 
 	/**
@@ -945,7 +951,7 @@ class CreatePage extends ActionPage {
 					'securepoll_log',
 					$fields + [
 						'spl_type' => $action,
-						'spl_target' => User::newFromName( $admin )->getId(),
+						'spl_target' => $this->userFactory->newFromName( $admin )->getId(),
 					],
 					__METHOD__
 				);
@@ -1277,7 +1283,7 @@ class CreatePage extends ActionPage {
 	 * @return bool|string true on success, string on error
 	 */
 	public function checkIfInElectionAdminUserGroup( $value, $alldata, HTMLForm $containingForm ) {
-		$user = User::newFromName( $value );
+		$user = $this->userFactory->newFromName( $value );
 		if ( !$user || !in_array( 'electionadmin', $this->userGroupManager->getUserEffectiveGroups( $user ) ) ) {
 			return $this->msg(
 				'securepoll-create-user-not-in-electionadmin-group',

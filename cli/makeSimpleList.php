@@ -13,8 +13,6 @@
  *                      to be resumed.
  */
 
-use MediaWiki\MediaWikiServices;
-
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
@@ -47,8 +45,8 @@ class MakeSimpleList extends Maintenance {
 	}
 
 	public function execute() {
-		$dbr = wfGetDB( DB_REPLICA );
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbr = $this->getDB( DB_REPLICA );
+		$dbw = $this->getDB( DB_PRIMARY );
 		$before = $this->hasOption( 'before' )
 			? $dbr->timestamp( strtotime( $this->getOption( 'before' ) ) ) : false;
 		$minEdits = $this->getOption( 'edits', false );
@@ -79,7 +77,7 @@ class MakeSimpleList extends Maintenance {
 
 		$beforeQ = $before !== false ? $dbr->addQuotes( $before ) : false;
 
-		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+		$lbFactory = $this->getServiceContainer()->getDBLoadBalancerFactory();
 
 		while ( true ) {
 			echo "user_id > $startBatch\n";
