@@ -159,7 +159,7 @@ class Entity {
 	 * a placeholder string is returned.
 	 *
 	 * @param string $name
-	 * @return bool|string
+	 * @return string
 	 */
 	public function getMessage( $name ) {
 		foreach ( $this->context->languages as $language ) {

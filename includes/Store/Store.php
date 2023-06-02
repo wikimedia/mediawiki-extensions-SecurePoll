@@ -2,7 +2,9 @@
 
 namespace MediaWiki\Extension\SecurePoll\Store;
 
+use Status;
 use stdClass;
+use Wikimedia\Rdbms\IDatabase;
 
 /**
  * This is an abstraction of the persistence layer, to allow XML dumps to be
@@ -32,6 +34,7 @@ interface Store {
 	 * Get a list of languages that the given entity IDs have messages for.
 	 * Returns an array of language codes.
 	 * @param int[] $ids
+	 * @return string[]
 	 */
 	public function getLangList( $ids );
 
@@ -39,6 +42,7 @@ interface Store {
 	 * Get an array of properties for a given set of IDs. Returns a 2-d array
 	 * mapping IDs and property keys to values.
 	 * @param int[] $ids
+	 * @return string[][]
 	 */
 	public function getProperties( $ids );
 
@@ -54,12 +58,14 @@ interface Store {
 	 * is stored in the securepoll_elections row in the DB. Returns a 2-d
 	 * array mapping ID to associative array of properties.
 	 * @param int[] $ids
+	 * @return array[]
 	 */
 	public function getElectionInfo( $ids );
 
 	/**
 	 * Get election information for a given set of names.
 	 * @param array $names
+	 * @return array[]
 	 */
 	public function getElectionInfoByTitle( $names );
 
@@ -67,12 +73,14 @@ interface Store {
 	 * Convert a row from the securepoll_elections table into an associative
 	 * array suitable for return by getElectionInfo().
 	 * @param stdClass $row
+	 * @return array
 	 */
 	public function decodeElectionRow( $row );
 
 	/**
 	 * Get a database connection object.
 	 * @param int $index DB_PRIMARY or DB_REPLICA
+	 * @return IDatabase
 	 */
 	public function getDB( $index = DB_PRIMARY );
 
@@ -88,6 +96,7 @@ interface Store {
 	 * Get an associative array of information about all questions in a given
 	 * election.
 	 * @param int $electionId
+	 * @return array[]
 	 */
 	public function getQuestionInfo( $electionId );
 
@@ -96,6 +105,7 @@ interface Store {
 	 * @param int $electionId
 	 * @param callable $callback
 	 * @param int|null $voterId Optional, only used by some implementations
+	 * @return Status
 	 */
 	public function callbackValidVotes( $electionId, $callback, $voterId = null );
 }

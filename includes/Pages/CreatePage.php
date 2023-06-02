@@ -1315,7 +1315,7 @@ class CreatePage extends ActionPage {
 	 *
 	 * @internal For use by the HTMLFormField
 	 * @param string $value
-	 * @return bool|string true on success, string on error
+	 * @return true|Message true on success, Message on error
 	 */
 	public static function checkRequired( $value ) {
 		if ( $value === '' ) {

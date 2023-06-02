@@ -155,7 +155,6 @@ class ElectionTallier {
 	}
 
 	/**
-	 * @inheritDoc
 	 * Get a simple array structure representing results for this tally. Should
 	 * only be called after execute().
 	 * @return array
@@ -175,7 +174,6 @@ class ElectionTallier {
 	}
 
 	/**
-	 * @inheritDoc
 	 * Restores results from getJSONResult
 	 * @param array{results:array} $data
 	 */
@@ -192,9 +190,9 @@ class ElectionTallier {
 	}
 
 	/**
-	 * @inheritDoc
 	 * Get HTML formatted results for this tally. Should only be called after
 	 * execute().
+	 * @return string
 	 */
 	public function getHtmlResult() {
 		$s = '';
@@ -224,9 +222,9 @@ class ElectionTallier {
 	}
 
 	/**
-	 * @inheritDoc
 	 * Get text formatted results for this tally. Should only be called after
 	 * execute().
+	 * @return string
 	 */
 	public function getTextResult() {
 		$s = '';
