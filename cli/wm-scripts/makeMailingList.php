@@ -201,7 +201,7 @@ class MakeMailingList extends Maintenance {
 		if ( !ExtensionRegistry::getInstance()->isLoaded( 'CentralAuth' ) ) {
 			return;
 		}
-		$dbcr = CentralAuthServices::getDatabaseManager()->getCentralDB( DB_REPLICA );
+		$dbcr = CentralAuthServices::getDatabaseManager()->getCentralReplicaDB();
 		$dbr = $this->localLoadBalancer->getConnection( DB_REPLICA );
 
 		$offsetId = 0;

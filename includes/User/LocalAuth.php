@@ -161,7 +161,7 @@ class LocalAuth extends Auth {
 		$caDbManager = MediaWikiServices::getInstance()->getService(
 			'CentralAuth.CentralAuthDatabaseManager'
 		);
-		$dbc = $caDbManager->getCentralDB( DB_REPLICA );
+		$dbc = $caDbManager->getCentralReplicaDB();
 		$res = $dbc->select(
 			'securepoll_lists',
 			[ 'li_name' ],
