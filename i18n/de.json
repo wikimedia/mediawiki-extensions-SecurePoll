@@ -28,7 +28,7 @@
 	"securepoll-change-allowed": "<strong>Hinweis: Du hast bei dieser Wahl bereits abgestimmt.</strong>\nDu kannst deine Stimme ändern, indem du das untere Formular abschickst.\nWenn du dies tust, wird deine ursprüngliche Stimme überschrieben.",
 	"securepoll-header-comments": "Kommentare",
 	"securepoll-submit": "Stimme abgeben",
-	"securepoll-gpg-receipt": "Vielen Dank für deine Stimme!\n\nEs folgt eine Bestätigung als Nachweis für deine Stimmabgabe:\n\n<pre>$1</pre>",
+	"securepoll-gpg-receipt": "Wenn du möchtest, kannst du die folgende Quittung als Nachweis deiner Stimmabgabe aufbewahren:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "Vielen Dank, deine Stimme wurde gespeichert.",
 	"securepoll-return": "Zurück zu $1",
 	"securepoll-encrypt-error": "Beim Verschlüsseln deiner Stimme ist ein Fehler aufgetreten.\nDeine Stimme wurde nicht gespeichert!\n\n$1",
@@ -328,5 +328,13 @@
 	"securepoll-translation-import-dialog-title": "Übersetzungen importieren",
 	"securepoll-translation-import-action-import": "Importieren",
 	"securepoll-translation-import-action-done": "Fertig",
-	"securepoll-translation-error-no-page-title": "Kein Seitentitel gefunden"
+	"securepoll-translation-error-no-page-title": "Kein Seitentitel gefunden",
+	"securepoll-vote-result-intro-label": "Zusammenfassung deiner Abstimmung",
+	"securepoll-vote-result-question-label": "Frage: $1",
+	"securepoll-vote-result-rated-option-label": "$1: $2 bewertet",
+	"securepoll-vote-result-not-voted-option-label": "$1: nicht abgestimmt",
+	"securepoll-vote-result-not-checked-option-label": "$1: nicht überprüft",
+	"securepoll-vote-result-checked-option-label": "$1: überprüft",
+	"securepoll-vote-result-comment": "Kommentar: $1",
+	"securepoll-vote-result-error-label": "Deine Stimmen konnten nicht korrekt entpackt werden. Bitte wende dich an einen Wahlleiter"
 }

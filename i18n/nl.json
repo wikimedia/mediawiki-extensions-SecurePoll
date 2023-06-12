@@ -34,7 +34,7 @@
 	"securepoll-change-allowed": "<strong>Opmerking: u hebt al gestemd in deze stemming.</strong>\nU kunt uw stem wijzigen met het onderstaande formulier. Dan wordt uw eerdere stem verwijderd.",
 	"securepoll-header-comments": "Opmerkingen",
 	"securepoll-submit": "Stem opslaan",
-	"securepoll-gpg-receipt": "Dank u voor uw stem.\n\nU kunt de onderstaande gegevens bewaren als bewijs van uw deelname aan deze stemming:\n\n<pre>$1</pre>",
+	"securepoll-gpg-receipt": "Als u wilt, kunt u als bewijs van uw stem de onderstaande gegevens bewaren:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "Dank u wel. Uw stem is ontvangen en opgeslagen.",
 	"securepoll-return": "terug naar $1",
 	"securepoll-encrypt-error": "Het coderen van uw stem is mislukt.\nUw stem is niet opgeslagen!\n\n$1",

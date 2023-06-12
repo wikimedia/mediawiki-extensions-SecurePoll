@@ -33,7 +33,7 @@
 	"securepoll-change-disallowed": "이미 투표하였습니다.\n죄송하지만 다시 투표할 수 없습니다.",
 	"securepoll-change-allowed": "<strong>참고: 이전에 투표한 적이 있습니다.</strong>\n아래 양식을 이용해 투표를 바꿀 수 있습니다.\n그렇게 할 경우 이전의 투표는 무효 처리될 것입니다.",
 	"securepoll-submit": "투표하기",
-	"securepoll-gpg-receipt": "투표해 주셔서 감사합니다.\n\n원한다면 투표에 대한 증거로 다음 투표증을 보관할 수 있습니다:\n\n<pre>$1</pre>",
+	"securepoll-gpg-receipt": "원한다면 투표에 대한 증거로 다음 투표증을 보관할 수 있습니다:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "감사합니다. 투표가 기록되었습니다.",
 	"securepoll-return": "$1 문서로 돌아갑니다",
 	"securepoll-encrypt-error": "투표를 암호화하는 데 실패했습니다.\n투표가 기록되지 않았습니다!\n\n$1",
@@ -316,5 +316,8 @@
 	"securepoll-translation-import-dialog-title": "번역 가져오기",
 	"securepoll-translation-import-action-import": "가져오기",
 	"securepoll-translation-import-action-done": "완료",
-	"securepoll-translation-error-no-page-title": "문서 제목이 없습니다"
+	"securepoll-translation-error-no-page-title": "문서 제목이 없습니다",
+	"securepoll-vote-result-intro-label": "투표 요약",
+	"securepoll-vote-result-question-label": "질문: $1",
+	"securepoll-vote-result-comment": "의견: $1"
 }

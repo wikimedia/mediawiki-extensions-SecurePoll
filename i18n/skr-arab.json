@@ -12,5 +12,7 @@
 	"securepoll-translation-import-dialog-title": "ترجمے امپورٹ کرو",
 	"securepoll-translation-import-action-import": "اندر گھن آؤ",
 	"securepoll-translation-import-action-done": "تھی ڳیا",
-	"securepoll-translation-error-no-page-title": "کوئی ورقہ عنوان کائنی لبھا"
+	"securepoll-translation-error-no-page-title": "کوئی ورقہ عنوان کائنی لبھا",
+	"securepoll-vote-result-question-label": "سوال: $1",
+	"securepoll-vote-result-comment": "تبصرہ: $1"
 }

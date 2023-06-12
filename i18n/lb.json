@@ -22,7 +22,7 @@
 	"securepoll-change-allowed": "<strong>Hiweis: Dir hutt bei dëse Wale schonn ofgestëmmt</strong>\nDir kënnt Är Stëmm änneren, andeems Dir de Formulaire heiënnendrënner fortschéckt.\nWann Dir dat maacht, gëtt Är vireg Stëmm iwwerschriwwen.",
 	"securepoll-header-comments": "Bemierkungen",
 	"securepoll-submit": "Stëmm ofginn",
-	"securepoll-gpg-receipt": "Merci datt Dir Iech un de Wale bedeelegt huet.\n\nWann Dir wëllt, kënnt Dir dës Confirmatioun vun Ärem Vote behalen:\n\n<pre>$1</pre>",
+	"securepoll-gpg-receipt": "Wann Dir wëllt, kënnt Dir dës Confirmatioun vun Ärem Vott behalen:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "Merci, Är Stëmm gouf gespäichert.",
 	"securepoll-return": "Zréck op $1",
 	"securepoll-encrypt-error": "Bei der Verschlëselung vun Ärer Stëmm ass a Feeler geschitt.\nÄr Stëmm gouf net gespäichert!\n\n$1",
@@ -211,5 +211,8 @@
 	"securepoll-stv-result-election-result-table-heading": "Resultat",
 	"securepoll-stv-result-round-elected": "Gewielt: $1",
 	"securepoll-translation-result-error-title": "Feeler",
-	"securepoll-translation-result-import-pages-title": "Säiten"
+	"securepoll-translation-result-import-pages-title": "Säiten",
+	"securepoll-vote-result-intro-label": "Resumé vun Ärem Vott",
+	"securepoll-vote-result-question-label": "Fro: $1",
+	"securepoll-vote-result-comment": "Bemierkung: $1"
 }

@@ -20,7 +20,7 @@
 	"securepoll-change-allowed": "<strong>Nota: Tu ha ja votate in iste election.</strong>\nTu pote cambiar tu voto per submitter le formulario in basso.\nNota que si tu face isto, le voto original essera cancellate.",
 	"securepoll-header-comments": "Commentos",
 	"securepoll-submit": "Submitter voto",
-	"securepoll-gpg-receipt": "Gratias pro votar.\n\nSi tu vole, tu pote retener le sequente recepta como prova de tu voto:\n\n<pre>$1</pre>",
+	"securepoll-gpg-receipt": "Si tu vole, tu pote retener le sequente recepta como prova de tu voto:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "Gratias, tu voto ha essite registrate.",
 	"securepoll-return": "Retornar a $1",
 	"securepoll-encrypt-error": "Impossibile cryptar le registro de tu voto.\nTu voto non ha essite registrate!\n\n$1",
@@ -320,5 +320,13 @@
 	"securepoll-translation-import-dialog-title": "Importar traductiones",
 	"securepoll-translation-import-action-import": "Importar",
 	"securepoll-translation-import-action-done": "Facite",
-	"securepoll-translation-error-no-page-title": "Necun titulo de pagina trovate"
+	"securepoll-translation-error-no-page-title": "Necun titulo de pagina trovate",
+	"securepoll-vote-result-intro-label": "Summario de tu voto",
+	"securepoll-vote-result-question-label": "Question: $1",
+	"securepoll-vote-result-rated-option-label": "$1: evalutate como $2",
+	"securepoll-vote-result-not-voted-option-label": "$1: non votate",
+	"securepoll-vote-result-not-checked-option-label": "$1: non verificate",
+	"securepoll-vote-result-checked-option-label": "$1: verificate",
+	"securepoll-vote-result-comment": "Commento: $1",
+	"securepoll-vote-result-error-label": "Tu votos non poteva esser disimballate correctemente. Per favor contacta un administrator del election."
 }

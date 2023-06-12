@@ -27,7 +27,7 @@
 	"securepoll-change-allowed": "<strong>הערה: כבר הצבעת בבחירות האלו בעבר.</strong>\nבאפשרותך לשנות את הצבעתך באמצעות שליחת הטופס להלן.\nנא לשים לב לכך שהפעולה הזאת תגרום לכך שהצבעתך המקורית תיזרק.",
 	"securepoll-header-comments": "הערות",
 	"securepoll-submit": "שליחת ההצבעה",
-	"securepoll-gpg-receipt": "תודה על ההצבעה.\n\nאם זה רצונך, באפשרותך לשמור את הקבלה הבאה כהוכחה להצבעתך:\n\n<pre>$1</pre>",
+	"securepoll-gpg-receipt": "אם זה רצונך, באפשרותך לשמור את הקבלה הבאה כהוכחה להצבעתך:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "תודה, הצבעתך נרשמה.",
 	"securepoll-return": "לחזור לדף $1",
 	"securepoll-encrypt-error": "הצפנת רשומת ההצבעה שלך לא הצליחה.\nהצבעתך לא נרשמה!\n\n$1",
@@ -329,5 +329,13 @@
 	"securepoll-translation-import-dialog-title": "יבוא תרגומים",
 	"securepoll-translation-import-action-import": "יבוא",
 	"securepoll-translation-import-action-done": "בוצע",
-	"securepoll-translation-error-no-page-title": "לא נמצאה כותרת דף"
+	"securepoll-translation-error-no-page-title": "לא נמצאה כותרת דף",
+	"securepoll-vote-result-intro-label": "סיכום ההצבעה שלך",
+	"securepoll-vote-result-question-label": "שאלה: $1",
+	"securepoll-vote-result-rated-option-label": "$1: ניתן הדירוג $2",
+	"securepoll-vote-result-not-voted-option-label": "$1: אין הצבעה",
+	"securepoll-vote-result-not-checked-option-label": "$1: לא סומנה",
+	"securepoll-vote-result-checked-option-label": "$1: סומנה",
+	"securepoll-vote-result-comment": "הערה: $1",
+	"securepoll-vote-result-error-label": "לא היה אפשר לפרוק את ההצבעות שלך כראוי. נא לפנות למנהל בחירות"
 }

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"AProdromou",
 			"Assassingr",
 			"Badseed",
 			"Consta",
@@ -30,7 +31,7 @@
 	"securepoll-change-disallowed": "Έχετε ψηφίσει προηγουμένως σε αυτή την ψηφοφορία.\nΛυπούμαστε, δεν μπορείτε να ψηφίσετε ξανά.",
 	"securepoll-change-allowed": "<strong>Σημείωση: Έχετε ψηφίσει προηγουμένως σε αυτή την ψηφοφορία.</strong>\nΜπορείτε να αλλάξετε την ψήφο σας αποστέλλοντας την φόρμα παρακάτω.\nΛάβετε υπόψη ότι αν κάνετε αυτό, η αρχική ψήφος σας θα ακυρωθεί.",
 	"securepoll-submit": "Καταχώρηση ψήφου",
-	"securepoll-gpg-receipt": "Ευχαριστούμε που ψηφίσατε.\n\nΑν επιθυμείτε, μπορείτε να διατηρήσετε την παρακάτω απόδειξη ως πειστήριο της ψήφου σας:\n\n<pre>$1</pre>",
+	"securepoll-gpg-receipt": "Αν επιθυμείτε, μπορείτε να διατηρήσετε την παρακάτω απόδειξη ως απόδειξη της ψήφου σας:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "Ευχαριστούμε, η ψήφος σας καταγράφηκε.",
 	"securepoll-return": "Επιστροφή στη σελίδα $1",
 	"securepoll-encrypt-error": "Αποτυχία κρυπτογράφησης της εγγραφής ψήφου σας.\nΗ ψήφος σας δεν έχει καταγραφεί!\n\n$1",
@@ -116,5 +117,7 @@
 	"securepoll-round": "Γύρος $1",
 	"securepoll-spoilt": "(Άκυρα)",
 	"securepoll-exhausted": "(Εξαντλημένα)",
-	"securepoll-create-title": "{{int:securepoll}}: Δημιουργία δημοσκόπησης"
+	"securepoll-create-title": "{{int:securepoll}}: Δημιουργία δημοσκόπησης",
+	"securepoll-vote-result-intro-label": "Περίληψη της ψήφου σας",
+	"securepoll-vote-result-comment": "Σχόλιο: $1."
 }

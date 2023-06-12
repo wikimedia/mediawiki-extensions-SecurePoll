@@ -70,7 +70,6 @@
 	"securepoll-details-title": "ხმის მიცემის დეტალები: #$1",
 	"securepoll-invalid-vote": "\"$1\" არ წარმოადგენს ხმის მიცემისთვის დასაშვებ იდენტიფიკატორს",
 	"securepoll-header-voter-type": "ხმის მიმცემის ტიპი",
-	"securepoll-header-url": "URL",
 	"securepoll-voter-properties": "ამომრჩეველთა თვისებები",
 	"securepoll-strike-log": "ამოშლების ჟურნალი",
 	"securepoll-header-action": "მოქმედება",
