@@ -432,24 +432,16 @@ class Election extends Entity {
 	/**
 	 * Get the cryptography module for this election, or false if none is
 	 * defined.
-	 * @return Crypt|bool
+	 * @return Crypt|false
 	 * @throws InvalidDataException
 	 */
 	public function getCrypt() {
-		$type = $this->getProperty( 'encrypt-type' );
-		if ( $type === false || $type === 'none' ) {
-			return false;
-		}
+		$type = $this->getProperty( 'encrypt-type', 'none' );
 		try {
-			$crypt = $this->context->newCrypt( $type, $this );
+			return $this->context->newCrypt( $type, $this );
 		} catch ( InvalidArgumentException $e ) {
-			$crypt = false;
-		}
-		if ( !$crypt ) {
 			throw new InvalidDataException( 'Invalid encryption type' );
 		}
-
-		return $crypt;
 	}
 
 	/**

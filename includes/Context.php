@@ -4,7 +4,6 @@ namespace MediaWiki\Extension\SecurePoll;
 
 use MediaWiki\Extension\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extension\SecurePoll\Crypt\Crypt;
-use MediaWiki\Extension\SecurePoll\Crypt\GpgCrypt;
 use MediaWiki\Extension\SecurePoll\Crypt\Random;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Entities\Option;
@@ -343,7 +342,7 @@ class Context {
 	/**
 	 * @param string $type
 	 * @param Election $election
-	 * @return bool|GpgCrypt
+	 * @return Crypt|false False when encryption type is set to "none"
 	 */
 	public function newCrypt( $type, $election ) {
 		return Crypt::factory( $this, $type, $election );

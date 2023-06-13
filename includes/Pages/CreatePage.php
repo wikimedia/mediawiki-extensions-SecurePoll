@@ -1144,7 +1144,7 @@ class CreatePage extends ActionPage {
 	 * @param array &$outItems Array to insert the descriptors into
 	 * @param string $field Owning field name, for hide-if
 	 * @param string|array $types Type value(s) in the field, for hide-if
-	 * @param string|false $class Class with the ::getCreateDescriptors static method
+	 * @param class-string|false $class Class with the ::getCreateDescriptors static method
 	 * @param string|null $category If given, ::getCreateDescriptors is
 	 *    expected to return an array with subarrays for different categories
 	 *    of descriptors, and this selects which subarray to process.
@@ -1214,7 +1214,7 @@ class CreatePage extends ActionPage {
 	 *
 	 * @param array &$formData Form data array
 	 * @param array $data Input data array
-	 * @param string|false $class Class with the ::getCreateDescriptors static method
+	 * @param class-string|false $class Class with the ::getCreateDescriptors static method
 	 * @param string|null $category If given, ::getCreateDescriptors is
 	 *    expected to return an array with subarrays for different categories
 	 *    of descriptors, and this selects which subarray to process.

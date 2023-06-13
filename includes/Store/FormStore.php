@@ -264,7 +264,7 @@ class FormStore extends MemoryStore {
 	 *
 	 * @param int $id
 	 * @param array $formData Form data array
-	 * @param string|false $class Class with the ::getCreateDescriptors static method
+	 * @param class-string|false $class Class with the ::getCreateDescriptors static method
 	 * @param string|null $category If given, ::getCreateDescriptors is
 	 *    expected to return an array with subarrays for different categories
 	 *    of descriptors, and this selects which subarray to process.
