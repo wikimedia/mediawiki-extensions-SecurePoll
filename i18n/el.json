@@ -119,5 +119,5 @@
 	"securepoll-exhausted": "(Εξαντλημένα)",
 	"securepoll-create-title": "{{int:securepoll}}: Δημιουργία δημοσκόπησης",
 	"securepoll-vote-result-intro-label": "Περίληψη της ψήφου σας",
-	"securepoll-vote-result-comment": "Σχόλιο: $1."
+	"securepoll-vote-result-comment": "Σχόλιο: $1"
 }

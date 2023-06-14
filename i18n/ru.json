@@ -303,5 +303,7 @@
 	"securepoll-stv-result-round-quota": "Квота: $1",
 	"securepoll-stv-result-round-elected": "Избран: $1",
 	"securepoll-stv-result-round-eliminated": "Исключенный: $1",
-	"securepoll-stv-result-round-keep-factor": "(коэффициент сохранения: $1)"
+	"securepoll-stv-result-round-keep-factor": "(коэффициент сохранения: $1)",
+	"securepoll-vote-result-question-label": "Вопрос: $1",
+	"securepoll-vote-result-comment": "Комментарий: $1"
 }
