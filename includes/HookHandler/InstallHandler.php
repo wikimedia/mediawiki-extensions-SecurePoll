@@ -54,7 +54,7 @@ class InstallHandler implements LoadExtensionSchemaUpdatesHook {
 				$updater->addExtensionUpdate( [ 'dropFkey', 'securepoll_cookie_match', 'cm_voter_1' ] );
 				$updater->addExtensionUpdate( [ 'dropFkey', 'securepoll_cookie_match', 'cm_voter_2' ] );
 				$updater->dropExtensionIndex(
-					'securepoll_msgs', 'securepoll_msgs_pkey', "$base/patch-securepoll_msgs-drop-pk.sql"
+					'securepoll_msgs', 'securepoll_msgs_pkey', "$base/sql/$type/patch-securepoll_msgs-drop-pk.sql"
 				);
 				break;
 		}
