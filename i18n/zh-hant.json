@@ -329,5 +329,6 @@
 	"securepoll-stv-result-round-quota": "名額：$1",
 	"securepoll-stv-result-round-elected": "當選：$1",
 	"securepoll-stv-result-round-eliminated": "淘汰：$1",
-	"securepoll-stv-result-round-keep-factor": "（維持因素：$1）"
+	"securepoll-stv-result-round-keep-factor": "（維持因素：$1）",
+	"securepoll-vote-result-question-label": "問題：$1"
 }

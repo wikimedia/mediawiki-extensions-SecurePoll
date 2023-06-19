@@ -46,7 +46,7 @@
 	"securepoll-change-allowed": "<strong>注意：您曾在此选举中投过票。</strong>\n您可以使用下面的表单更改您的投票。\n请注意，如您更改投票，原先的选票将作废。",
 	"securepoll-header-comments": "意见",
 	"securepoll-submit": "提交投票",
-	"securepoll-gpg-receipt": "感谢您的投票。\n\n您可以保留下面的回执作为您的投票证明：\n\n<pre>$1</pre>",
+	"securepoll-gpg-receipt": "您可以保留下面的回执作为您的投票证明：\n\n<pre>$1</pre>",
 	"securepoll-thanks": "谢谢您，已记录您的投票。",
 	"securepoll-return": "返回$1",
 	"securepoll-encrypt-error": "投票记录加密失败。\n未记录您的投票！\n\n$1",

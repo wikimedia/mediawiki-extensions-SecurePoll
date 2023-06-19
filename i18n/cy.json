@@ -18,7 +18,7 @@
 	"securepoll-change-disallowed": "Yr ydych eisoes wedi bwrw'ch pleidlais.\nNi allwch bleidleisio eto.",
 	"securepoll-change-allowed": "<strong>Nodyn: Rydych eisoes wedi pleidleisio yn yr etholiad hwn.</strong>\nGallwch newid eich pleidlais drwy ddefnyddio'r ffurflen isod.\nSylwch y bydd eich pleidlais gwreiddiol yn cael ei ddiddymu pan gaiff yr un newydd ei derbyn.",
 	"securepoll-submit": "Bwrw'r bleidlais",
-	"securepoll-gpg-receipt": "Diolch am bleidleisio.\n\nOs dymunwch, gallwch gadw'r derbynneb sy'n dilyn yn brawf o'ch pleidlais:\n\n<pre>$1</pre>",
+	"securepoll-gpg-receipt": "Os dymunwch, gallwch gadw'r derbynneb sy'n dilyn yn brawf o'ch pleidlais:\n\n\n<pre>$1</pre>",
 	"securepoll-thanks": "Diolch, mae eich pleidlais wedi cael ei gofnodi.",
 	"securepoll-return": "Yn ôl i $1",
 	"securepoll-encrypt-error": "Wedi methu amgryptio'r cofnod o'ch pleidlais.\nNi gofnodwyd eich pleidlais!\n\n$1",
@@ -102,5 +102,8 @@
 	"securepoll-average-score": "Cyfartaledd y sgôr",
 	"securepoll-round": "Rownd $1",
 	"securepoll-spoilt": "(A Ddifethwyd)",
-	"securepoll-exhausted": "(Wedi dihysbyddu)"
+	"securepoll-exhausted": "(Wedi dihysbyddu)",
+	"securepoll-vote-result-intro-label": "Crynodeb o'ch pleidlais",
+	"securepoll-vote-result-question-label": "Cwestiwn: $1",
+	"securepoll-vote-result-comment": "Sylw: $1"
 }

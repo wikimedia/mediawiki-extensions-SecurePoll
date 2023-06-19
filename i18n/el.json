@@ -9,11 +9,14 @@
 			"Evropi",
 			"Geraki",
 			"Glavkos",
+			"MnLsVt",
 			"NikosLikomitros",
 			"Nikosgranturismogt",
 			"Norhorn",
 			"Omnipaedista",
+			"P20kios",
 			"Protnet",
+			"Spyridon Eftychios Kokotos",
 			"ZaDiak",
 			"Απεργός"
 		]
@@ -119,5 +122,11 @@
 	"securepoll-exhausted": "(Εξαντλημένα)",
 	"securepoll-create-title": "{{int:securepoll}}: Δημιουργία δημοσκόπησης",
 	"securepoll-vote-result-intro-label": "Περίληψη της ψήφου σας",
-	"securepoll-vote-result-comment": "Σχόλιο: $1"
+	"securepoll-vote-result-question-label": "Ερώτηση: $1",
+	"securepoll-vote-result-rated-option-label": "$1: αξιολογήθηκε με $2",
+	"securepoll-vote-result-not-voted-option-label": "$1: δεν έχει ψηφιστεί",
+	"securepoll-vote-result-not-checked-option-label": "$1: δεν έχει ελεγχθεί",
+	"securepoll-vote-result-checked-option-label": "$1: ελέγχθηκε",
+	"securepoll-vote-result-comment": "Σχόλιο: $1",
+	"securepoll-vote-result-error-label": "Η αποσυσκευασία των ψήφων σας δεν πραγματοποιήθηκε με επιτυχία. Παρακαλώ επικοινωνήστε με έναν διαχειριστή εκλογών"
 }

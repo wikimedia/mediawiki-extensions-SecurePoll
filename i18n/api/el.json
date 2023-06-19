@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Spyridon Eftychios Kokotos"
+		]
+	},
+	"apihelp-securepollauth-summary": "Επιτρέπει σε ένα απομακρυσμένο wiki να επαληθεύει την ταυτότητα των χρηστών πριν παραχωρήσει πρόσβαση για την ψηφοφορία στις εκλογές."
+}

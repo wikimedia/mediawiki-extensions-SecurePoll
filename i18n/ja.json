@@ -301,5 +301,7 @@
 	"securepoll-stv-result-round-keep-factor": "(キープ要素：$1)",
 	"securepoll-translation-result-error-title": "エラー",
 	"securepoll-translation-import-action-import": "インポート",
-	"securepoll-translation-import-action-done": "完了"
+	"securepoll-translation-import-action-done": "完了",
+	"securepoll-vote-result-question-label": "質問: $1",
+	"securepoll-vote-result-comment": "コメント: $1"
 }

@@ -118,5 +118,6 @@
 	"securepoll-exhausted": "(समाप्त)",
 	"securepoll-translation-result-import-pages-title": "पृष्ठ",
 	"securepoll-translation-import-action-import": "आयात करें",
-	"securepoll-translation-import-action-done": "पूर्ण हुआ"
+	"securepoll-translation-import-action-done": "पूर्ण हुआ",
+	"securepoll-vote-result-comment": "टिप्पणी: $1"
 }

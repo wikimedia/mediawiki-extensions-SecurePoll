@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Asma",
 			"BaRaN6161 TURK",
 			"Can",
 			"Emperyan",
@@ -299,5 +300,11 @@
 	"securepoll-stv-result-round-quota": "Kota: $1",
 	"securepoll-stv-result-round-elected": "Seçilen: $1",
 	"securepoll-stv-result-round-eliminated": "Elenen: $1",
-	"securepoll-stv-result-round-keep-factor": "(tutuş faktörü: $1)"
+	"securepoll-stv-result-round-keep-factor": "(tutuş faktörü: $1)",
+	"securepoll-vote-result-intro-label": "Oyununuzun özeti",
+	"securepoll-vote-result-question-label": "Soru: $1",
+	"securepoll-vote-result-not-voted-option-label": "$1 : oylanmadı",
+	"securepoll-vote-result-not-checked-option-label": "$1 : kontrol edilmedi",
+	"securepoll-vote-result-checked-option-label": "$1 : kontrol edildi",
+	"securepoll-vote-result-comment": "Yorum: $1"
 }

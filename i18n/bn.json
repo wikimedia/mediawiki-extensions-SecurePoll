@@ -30,7 +30,7 @@
 	"securepoll-change-allowed": "<strong>পুনশ্চ: আপনি এই নির্বাচনে আগেও ভোট প্রদান করেছেন।</strong>\nআপনি নিচের ফর্মটি পূরণ করে জমা দেওয়ার মাধ্যমে আপনার পরিবর্তন করতে পারেন।\nখেয়াল করুন যে, এটা করলে আপনার মূল ভোটটি পরিবর্তিত হয়ে যাবে।",
 	"securepoll-header-comments": "মন্তব্য",
 	"securepoll-submit": "ভোট প্রদান করুন",
-	"securepoll-gpg-receipt": "ভোট দেওয়ার জন্য ধন্যবাদ।\n\nআপনি চাইলে, ভোটের প্রমাণ সরূপ এই রসিদটি সংরক্ষণ করতে পারেন:\n\n<pre>$1</pre>",
+	"securepoll-gpg-receipt": "আপনি চাইলে, ভোটের প্রমাণস্বরূপ এই রসিদটি সংরক্ষণ করতে পারেন:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "ধন্যবাদ, আপনার ভোট সংরক্ষণ করা হয়েছে।",
 	"securepoll-return": "$1-এ ফেরত যান",
 	"securepoll-encrypt-error": "আপনার ভোটের রেকর্ড এনক্রিপ্ট করা ব্যর্থ হয়েছে।\nআপনার ভোট সংরক্ষণ করা হয়নি!\n\n$1",
@@ -205,5 +205,8 @@
 	"securepoll-translate-import-button-label": "অনুবাদ আমদানি করুন",
 	"securepoll-translation-result-import-pages-text": "আমদানিকৃত পাতা",
 	"securepoll-translation-import-dialog-title": "অনুবাদ আমদানি করুন",
-	"securepoll-translation-import-action-done": "সম্পন্ন"
+	"securepoll-translation-import-action-done": "সম্পন্ন",
+	"securepoll-vote-result-intro-label": "আপনার ভোটের সারাংশ",
+	"securepoll-vote-result-question-label": "প্রশ্ন: $1",
+	"securepoll-vote-result-comment": "মন্তব্য: $1"
 }
