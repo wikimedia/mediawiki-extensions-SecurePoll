@@ -15,6 +15,9 @@
 	"securepoll-translation-error-no-page-title": "کوئی ورقہ عنوان کائنی لبھا",
 	"securepoll-vote-result-intro-label": "تہاݙے ووٹ دا خلاصہ",
 	"securepoll-vote-result-question-label": "سوال: $1",
+	"securepoll-vote-result-rated-option-label": "$1: $2 ریٹ تھیا",
+	"securepoll-vote-result-not-voted-option-label": "$1: ووٹ کائنی تھیا",
+	"securepoll-vote-result-not-checked-option-label": "$1: پڑتال کائنی تھیا",
 	"securepoll-vote-result-checked-option-label": "$1: پڑتال تھئی",
 	"securepoll-vote-result-comment": "تبصرہ: $1"
 }
