@@ -106,14 +106,11 @@ class STVTallierTest extends MediaWikiUnitTestCase {
 	 * @dataProvider resultsFromTally
 	 * @covers \MediaWiki\Extension\SecurePoll\Talliers\STVTallier::addVote
 	 */
-	public function testAddVote( $electionResults, $expected ) {
+	public function testAddVote( array $electionResults, array $expected ) {
 		foreach ( $electionResults as $record ) {
 			$this->tallier->addVote( $record );
 		}
-		$this->assertArrayEquals(
-			$this->tallier->rankedVotes,
-			$expected['rankedVotes']
-		);
+		$this->assertSame( $expected['rankedVotes'], $this->tallier->rankedVotes );
 	}
 
 	/**
@@ -136,14 +133,14 @@ class STVTallierTest extends MediaWikiUnitTestCase {
 	/**
 	 * @dataProvider finishTallyResults
 	 */
-	public function testFinishTally( $electionResults, $expected ) {
+	public function testFinishTally( array $electionResults, array $expected ) {
 		$this->wrappedRevStore->__set( 'seats', $electionResults['seats'] );
 		$this->wrappedRevStore->__set( 'candidates', $electionResults['candidates'] );
 		$this->tallier->rankedVotes = $electionResults['rankedVotes'];
 		$this->tallier->finishTally();
-		$this->assertArrayEquals( $expected, $this->tallier->resultsLog );
-		$this->assertArrayEquals( $expected[ 'rounds'], $this->tallier->resultsLog['rounds'] );
-		$expectedRounds = count( $expected[ 'rounds'] );
-		$this->assertCount( $expectedRounds, $this->tallier->resultsLog['rounds'] );
+		$this->assertSame( $expected['elected'], $this->tallier->resultsLog['elected'] );
+		$this->assertSame( $expected['eliminated'], $this->tallier->resultsLog['eliminated'] );
+		$this->assertSameSize( $expected['rounds'], $this->tallier->resultsLog['rounds'] );
+		$this->assertEquals( $expected['rounds'], $this->tallier->resultsLog['rounds'] );
 	}
 }
