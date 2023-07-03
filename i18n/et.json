@@ -19,7 +19,7 @@
 	"securepoll-change-disallowed": "Oled oma hääle juba andnud.\nTeist korda hääletada ei saa.",
 	"securepoll-change-allowed": "<strong>Märkus: Oled oma hääle juba andnud.</strong>\nVõid allpool oma antud häält muuta.\nKui seda teed, siis sinu eelmine hääl tühistub.",
 	"securepoll-submit": "Hääleta",
-	"securepoll-gpg-receipt": "Täname hääletamast.\n\nSoovi korral võid talletada järgmise kinnituse antud hääle kohta:\n\n<pre>$1</pre>",
+	"securepoll-gpg-receipt": "Soovi korral võid talletada järgmise kinnituse antud hääle kohta:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "Täname, sinu hääl on talletatud.",
 	"securepoll-return": "Naase leheküljele $1",
 	"securepoll-encrypt-error": "Sinu antud hääle andmeid ei õnnestunud krüptida.\nSinu häält pole talletatud!\n\n$1",
