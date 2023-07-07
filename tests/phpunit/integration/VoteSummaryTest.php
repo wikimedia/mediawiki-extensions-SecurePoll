@@ -70,7 +70,7 @@ class VoteSummaryTest extends MediaWikiIntegrationTestCase {
 				'approval',
 				"<div aria-live='polite' class='oo-ui-widget oo-ui-widget-enabled oo-ui-labelElement " .
 				"oo-ui-flaggedElement-success oo-ui-iconElement oo-ui-messageWidget-block oo-ui-messageWidget'>" .
-				"<span class='oo-ui-iconElement-icon oo-ui-icon-check oo-ui-image-success'></span>" .
+				"<span class='oo-ui-iconElement-icon oo-ui-icon-success oo-ui-image-success'></span>" .
 				"<span class='oo-ui-labelElement-label'>Thank you, your vote has been recorded.</span></div>" .
 				"<h2 class=\"securepoll-vote-result-heading\">Summary of your vote</h2>" .
 				"<div class=\"securepoll-vote-result-question-cnt\">" .
@@ -99,7 +99,7 @@ class VoteSummaryTest extends MediaWikiIntegrationTestCase {
 				'schulze',
 				"<div aria-live='polite' class='oo-ui-widget oo-ui-widget-enabled oo-ui-labelElement " .
 				"oo-ui-flaggedElement-success oo-ui-iconElement oo-ui-messageWidget-block oo-ui-messageWidget'>" .
-				"<span class='oo-ui-iconElement-icon oo-ui-icon-check oo-ui-image-success'></span>" .
+				"<span class='oo-ui-iconElement-icon oo-ui-icon-success oo-ui-image-success'></span>" .
 				"<span class='oo-ui-labelElement-label'>Thank you, your vote has been recorded.</span></div>" .
 				"<h2 class=\"securepoll-vote-result-heading\">Summary of your vote</h2>" .
 				"<div class=\"securepoll-vote-result-question-cnt\">" .
@@ -127,7 +127,7 @@ class VoteSummaryTest extends MediaWikiIntegrationTestCase {
 				'3way',
 				"<div aria-live='polite' class='oo-ui-widget oo-ui-widget-enabled oo-ui-labelElement " .
 				"oo-ui-flaggedElement-success oo-ui-iconElement oo-ui-messageWidget-block oo-ui-messageWidget'>" .
-				"<span class='oo-ui-iconElement-icon oo-ui-icon-check oo-ui-image-success'></span>" .
+				"<span class='oo-ui-iconElement-icon oo-ui-icon-success oo-ui-image-success'></span>" .
 				"<span class='oo-ui-labelElement-label'>Thank you, your vote has been recorded.</span></div>" .
 				"<h2 class=\"securepoll-vote-result-heading\">Summary of your vote</h2>" .
 				"<div class=\"securepoll-vote-result-question-cnt\">" .
