@@ -20,9 +20,6 @@ class ChooseBallotTest extends MediaWikiIntegrationTestCase {
 	/** @var Question */
 	private $question;
 
-	/** @var Context */
-	private $context;
-
 	/** @var Ballot */
 	private $ballot;
 
@@ -41,12 +38,10 @@ class ChooseBallotTest extends MediaWikiIntegrationTestCase {
 		$this->question->method( 'getOptions' )->willReturn( $options );
 
 		// Request values will get stubbed in tests
-		$this->context = new Context;
-
-		$this->status = new BallotStatus( $this->context );
+		$this->status = new BallotStatus();
 
 		$this->ballot = Ballot::factory(
-			$this->context,
+			new Context(),
 			'choose',
 			$this->createMock( Election::class )
 		);
