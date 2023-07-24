@@ -7,5 +7,6 @@
 	"securepoll-translate-title": "$1 которулууда",
 	"securepoll-submit-select-lang": "Которуу",
 	"securepoll-subpage-translate": "Которуу",
-	"securepoll-subpage-archive": "Архивдештирүү"
+	"securepoll-subpage-archive": "Архивдештирүү",
+	"securepoll-votereligibility-saved": "{{int:securepoll}}: сакталды"
 }
