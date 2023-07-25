@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Winston Sung"
+		]
+	},
+	"apihelp-strikevote-summary": "Administratorima omogućuje precrtavanje ili obnavljanje glasanja.",
+	"apihelp-strikevote-param-option": "Koju radnju poduzeti: precrtavanje ili obnavljanje.",
+	"apihelp-strikevote-paramvalue-option-strike": "Precrtaj glas (ukloni ga iz brojanja glasova).",
+	"apihelp-strikevote-paramvalue-option-unstrike": "Obnovi glas (vrati ga na brojanje glasova).",
+	"apihelp-strikevote-param-voteid": "Naznaka glasa za precrtavanje/obnavljanje.",
+	"apihelp-strikevote-param-reason": "Razlog za precrtavanje/obnavljanje glasa.",
+	"apihelp-strikevote-example-strike": "Precrtaj glas <kbd>1</kbd>, navodeći razlog <kbd>dupliciranje</kbd>.",
+	"apihelp-strikevote-example-unstrike": "Obnovi glas <kbd>1</kbd>, navodeći razlog <kbd>greška</kbd>.",
+	"apierror-securepoll-mustbeloggedin-strikevote": "Morate biti prijavljeni da biste precrtali ili obnovili glasovanje.",
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> ne predstavlja važeću glasačku naznaku."
+}

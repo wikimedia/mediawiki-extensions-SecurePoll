@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Winston Sung"
+		]
+	},
+	"securepoll-strike-reason": "理由：",
+	"securepoll-header-reason": "理由：",
+	"securepolllog-form-date-label": "从箇歇往前："
+}
