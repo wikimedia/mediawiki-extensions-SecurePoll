@@ -50,16 +50,15 @@ class SpecialSecurePollLog extends FormSpecialPage {
 	 * @inheritDoc
 	 */
 	protected function getFormFields() {
-		$prefix = $this->getMessagePrefix();
 		$fields = [];
 
 		$fields['type'] = [
 			'name' => 'type',
 			'type' => 'select',
 			'options-messages' => [
-				$prefix . '-form-type-option-all' => 'all',
-				$prefix . '-form-type-option-voter' => 'voter',
-				$prefix . '-form-type-option-admin' => 'admin',
+				'securepolllog-form-type-option-all' => 'all',
+				'securepolllog-form-type-option-voter' => 'voter',
+				'securepolllog-form-type-option-admin' => 'admin',
 			],
 			'default' => 'all',
 		];
@@ -67,7 +66,7 @@ class SpecialSecurePollLog extends FormSpecialPage {
 		$fields['electionName'] = [
 			'name' => 'election_name',
 			'type' => 'text',
-			'label-message' => $prefix . '-form-electionname-label',
+			'label-message' => 'securepolllog-form-electionname-label',
 			'default' => '',
 			'validation-callback' => [
 				$this,
@@ -78,7 +77,7 @@ class SpecialSecurePollLog extends FormSpecialPage {
 		$fields['performer'] = [
 			'name' => 'performer',
 			'type' => 'user',
-			'label-message' => $prefix . '-form-performer-label',
+			'label-message' => 'securepolllog-form-performer-label',
 			'exists' => true,
 			'default' => '',
 		];
@@ -86,7 +85,7 @@ class SpecialSecurePollLog extends FormSpecialPage {
 		$fields['target'] = [
 			'name' => 'target',
 			'type' => 'user',
-			'label-message' => $prefix . '-form-target-label',
+			'label-message' => 'securepolllog-form-target-label',
 			'exists' => true,
 			'default' => '',
 		];
@@ -94,7 +93,7 @@ class SpecialSecurePollLog extends FormSpecialPage {
 		$fields['date'] = [
 			'name' => 'date',
 			'type' => 'date',
-			'label-message' => $prefix . '-form-date-label',
+			'label-message' => 'securepolllog-form-date-label',
 			'default' => '',
 			'max' => gmdate( 'M-d-Y' ),
 		];
@@ -103,7 +102,7 @@ class SpecialSecurePollLog extends FormSpecialPage {
 			'name' => 'actions',
 			'type' => 'radio',
 			'cssclass' => 'securepolllog-actions-radio',
-			'label-message' => $prefix . '-form-action-label',
+			'label-message' => 'securepolllog-form-action-label',
 			'options-messages' => [
 				'securepolllog-form-action-option-addadmin' => ActionPage::LOG_TYPE_ADDADMIN,
 				'securepolllog-form-action-option-removeadmin' => ActionPage::LOG_TYPE_REMOVEADMIN,
