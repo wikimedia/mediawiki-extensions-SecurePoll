@@ -566,7 +566,7 @@ class CreatePage extends ActionPage {
 			$originalFormData = $this->getFormDataFromElection();
 		}
 
-		$dbw = $this->lbFactory->getMainLB()->getConnectionRef( ILoadBalancer::DB_PRIMARY );
+		$dbw = $this->lbFactory->getMainLB()->getConnection( ILoadBalancer::DB_PRIMARY );
 		$dbw->startAtomic( __METHOD__ );
 		foreach ( $fields as $pr_key => $pr_value ) {
 			$dbw->update(
@@ -606,7 +606,7 @@ class CreatePage extends ActionPage {
 
 			// Get a connection in autocommit mode so that it is possible to do
 			// explicit transactions on it (T287859)
-			$dbw = $this->lbFactory->getMainLB()->getConnectionRef( ILoadBalancer::DB_PRIMARY,
+			$dbw = $this->lbFactory->getMainLB()->getConnection( ILoadBalancer::DB_PRIMARY,
 				[], false, ILoadBalancer::CONN_TRX_AUTOCOMMIT );
 
 			// Check for duplicate titles on the local wiki
@@ -937,7 +937,7 @@ class CreatePage extends ActionPage {
 			self::LOG_TYPE_REMOVEADMIN => array_diff( $oldAdmins, $newAdmins ),
 		];
 
-		$dbw = $this->lbFactory->getMainLB()->getConnectionRef( ILoadBalancer::DB_PRIMARY );
+		$dbw = $this->lbFactory->getMainLB()->getConnection( ILoadBalancer::DB_PRIMARY );
 		$fields = [
 			'spl_timestamp' => $dbw->timestamp( time() ),
 			'spl_election_id' => $electionId,

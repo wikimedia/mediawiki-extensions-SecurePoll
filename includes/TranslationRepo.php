@@ -88,7 +88,7 @@ class TranslationRepo {
 			}
 
 			// First, the main wiki
-			$dbw = $this->lbFactory->getMainLB()->getConnectionRef( ILoadBalancer::DB_PRIMARY );
+			$dbw = $this->lbFactory->getMainLB()->getConnection( ILoadBalancer::DB_PRIMARY );
 
 			$dbw->replace(
 				'securepoll_msgs',

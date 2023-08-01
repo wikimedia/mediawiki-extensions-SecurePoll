@@ -47,7 +47,7 @@ class ArchivedPager extends ElectionPager {
 	 * @return array
 	 */
 	public function getQueryInfo() {
-		$subquery = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_REPLICA )->buildSelectSubquery(
+		$subquery = $this->loadBalancer->getConnection( ILoadBalancer::DB_REPLICA )->buildSelectSubquery(
 			'securepoll_properties',
 			'pr_entity',
 			[ 'pr_key' => 'is-archived' ],

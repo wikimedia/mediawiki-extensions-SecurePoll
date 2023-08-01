@@ -168,12 +168,12 @@ class VoterEligibilityPage extends ActionPage {
 
 			if ( $dbname === $localWiki ) {
 				$lb = $this->lbFactory->getMainLB();
-				$dbw = $lb->getConnectionRef( ILoadBalancer::DB_PRIMARY,
+				$dbw = $lb->getConnection( ILoadBalancer::DB_PRIMARY,
 					[], false, ILoadBalancer::CONN_TRX_AUTOCOMMIT );
 			} else {
 				unset( $dbw );
 				$lb = $this->lbFactory->getMainLB( $dbname );
-				$dbw = $lb->getConnectionRef( ILoadBalancer::DB_PRIMARY,
+				$dbw = $lb->getConnection( ILoadBalancer::DB_PRIMARY,
 					[], $dbname, ILoadBalancer::CONN_TRX_AUTOCOMMIT );
 
 				try {
@@ -251,7 +251,7 @@ class VoterEligibilityPage extends ActionPage {
 		$names = [];
 		foreach ( $wikis as $dbname ) {
 			$lb = $this->lbFactory->getMainLB( $dbname );
-			$dbr = $lb->getConnectionRef( $db, [], $dbname );
+			$dbr = $lb->getConnection( $db, [], $dbname );
 
 			$id = $dbr->selectField(
 				'securepoll_elections',
@@ -335,12 +335,12 @@ class VoterEligibilityPage extends ActionPage {
 		foreach ( $wikis as $dbname ) {
 			if ( $dbname === $localWiki ) {
 				$lb = $this->lbFactory->getMainLB( $dbname );
-				$dbw = $lb->getConnectionRef( ILoadBalancer::DB_PRIMARY,
+				$dbw = $lb->getConnection( ILoadBalancer::DB_PRIMARY,
 					[], false, ILoadBalancer::CONN_TRX_AUTOCOMMIT );
 			} else {
 				unset( $dbw );
 				$lb = $this->lbFactory->getMainLB( $dbname );
-				$dbw = $lb->getConnectionRef( ILoadBalancer::DB_PRIMARY,
+				$dbw = $lb->getConnection( ILoadBalancer::DB_PRIMARY,
 					[], $dbname, ILoadBalancer::CONN_TRX_AUTOCOMMIT );
 				try {
 					// Connect to the DB and check if the LB is in read-only mode
@@ -1238,13 +1238,13 @@ class VoterEligibilityPage extends ActionPage {
 
 			if ( $dbname === $localWiki ) {
 				$lb = $this->lbFactory->getMainLB();
-				$dbw = $lb->getConnectionRef( ILoadBalancer::DB_PRIMARY,
+				$dbw = $lb->getConnection( ILoadBalancer::DB_PRIMARY,
 					[], false, ILoadBalancer::CONN_TRX_AUTOCOMMIT );
 			} else {
 
 				unset( $dbw );
 				$lb = $this->lbFactory->getMainLB( $dbname );
-				$dbw = $lb->getConnectionRef( ILoadBalancer::DB_PRIMARY,
+				$dbw = $lb->getConnection( ILoadBalancer::DB_PRIMARY,
 					[], $dbname, ILoadBalancer::CONN_TRX_AUTOCOMMIT );
 			}
 

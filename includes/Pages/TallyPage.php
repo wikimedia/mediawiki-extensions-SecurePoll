@@ -94,7 +94,7 @@ class TallyPage extends ActionPage {
 	 * Show any errors from the most recent tally attempt
 	 */
 	private function showTallyError(): void {
-		$dbr = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_REPLICA );
+		$dbr = $this->loadBalancer->getConnection( ILoadBalancer::DB_REPLICA );
 		$out = $this->specialPage->getOutput();
 
 		$result = $dbr->selectField(
@@ -129,7 +129,7 @@ class TallyPage extends ActionPage {
 			return $this->tallyEnqueued;
 		}
 
-		$dbr = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_REPLICA );
+		$dbr = $this->loadBalancer->getConnection( ILoadBalancer::DB_REPLICA );
 		$result = $dbr->selectField(
 			'securepoll_properties',
 			[
@@ -150,7 +150,7 @@ class TallyPage extends ActionPage {
 	 * Show messages indicating the status of tallying if relevant
 	 */
 	private function showTallyStatus(): void {
-		$dbr = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_REPLICA );
+		$dbr = $this->loadBalancer->getConnection( ILoadBalancer::DB_REPLICA );
 		$out = $this->specialPage->getOutput();
 
 		$result = $dbr->selectField(
@@ -179,7 +179,7 @@ class TallyPage extends ActionPage {
 	 * Show the tally result if one has previously been calculated
 	 */
 	private function showTallyResult(): void {
-		$dbr = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_REPLICA );
+		$dbr = $this->loadBalancer->getConnection( ILoadBalancer::DB_REPLICA );
 		$out = $this->specialPage->getOutput();
 
 		$tallier = $this->election->getTallyFromDb( $dbr );
@@ -339,7 +339,7 @@ class TallyPage extends ActionPage {
 	 */
 	private function submitJob( Election $election, array $data ): bool {
 		$electionId = $election->getId();
-		$dbw = $this->loadBalancer->getConnectionRef( ILoadBalancer::DB_PRIMARY );
+		$dbw = $this->loadBalancer->getConnection( ILoadBalancer::DB_PRIMARY );
 
 		$crypt = $election->getCrypt();
 		if ( $crypt ) {

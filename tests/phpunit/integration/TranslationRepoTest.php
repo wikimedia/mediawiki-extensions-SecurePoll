@@ -94,7 +94,7 @@ class TranslationRepoTest extends MediaWikiIntegrationTestCase {
 
 	private function getMockLBFactory( IDatabase $mockDB ): LBFactory {
 		$loadBalancer = $this->createMock( LoadBalancer::class );
-		$loadBalancer->method( $this->logicalOr( 'getConnection', 'getConnectionRef' ) )
+		$loadBalancer->method( 'getConnection' )
 			->willReturn( $mockDB );
 
 		$mock = $this->createMock( LBFactory::class );

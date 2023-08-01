@@ -108,7 +108,7 @@ class PopulateVoterListJob extends Job {
 		$maxIds = [];
 		$total = 0;
 		foreach ( $wikis as $wiki ) {
-			$dbr = $lbFactory->getMainLB( $wiki )->getConnectionRef( DB_REPLICA, [], $wiki );
+			$dbr = $lbFactory->getMainLB( $wiki )->getConnection( DB_REPLICA, [], $wiki );
 			$max = $dbr->selectField( 'user', 'MAX(user_id)', [], __METHOD__ );
 			if ( !$max ) {
 				$max = 0;
