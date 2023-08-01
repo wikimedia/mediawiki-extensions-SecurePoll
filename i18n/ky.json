@@ -4,9 +4,15 @@
 			"Bosogo"
 		]
 	},
+	"securepoll-strike-reason": "Себеп:",
+	"securepoll-header-reason": "Себеп",
 	"securepoll-translate-title": "$1 которулууда",
+	"securepoll-translate-label-comment": "Себеп:",
 	"securepoll-submit-select-lang": "Которуу",
 	"securepoll-subpage-translate": "Которуу",
+	"securepoll-subpage-list": "Тизме",
 	"securepoll-subpage-archive": "Архивдештирүү",
+	"securepoll-create-label-comment": "Себеп",
+	"securepoll-votereligibility-label-comment": "Себеп",
 	"securepoll-votereligibility-saved": "{{int:securepoll}}: сакталды"
 }
