@@ -73,7 +73,7 @@ class TallyElection extends Maintenance {
 		$tallier = $status->value;
 		'@phan-var ElectionTallier $tallier';
 
-		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_PRIMARY );
+		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->getPrimaryDatabase();
 		$dbw->replace(
 			'securepoll_properties',
 			[
