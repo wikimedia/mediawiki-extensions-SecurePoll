@@ -4,12 +4,17 @@
 			"Bosogo"
 		]
 	},
+	"securepoll-welcome": "<strong>{{GENDER:$1|Кош келиңиз}} $1 !</strong>",
 	"securepoll-strike-reason": "Себеп:",
 	"securepoll-header-reason": "Себеп",
+	"securepoll-header-admin": "Администратор",
 	"securepoll-translate-title": "$1 которулууда",
+	"securepoll-submit-translate": "Жаңылоо",
 	"securepoll-submit-select-lang": "Которуу",
 	"securepoll-subpage-translate": "Которуу",
 	"securepoll-subpage-list": "Тизме",
+	"securepoll-subpage-edit": "Түзөтүү",
+	"securepoll-create-label-property_admins": "Администраторлор:",
 	"securepoll-create-label-comment": "Себеп",
 	"securepoll-votereligibility-label-comment": "Себеп",
 	"securepoll-votereligibility-saved": "{{int:securepoll}}: сакталды"
