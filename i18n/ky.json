@@ -14,9 +14,11 @@
 	"securepoll-submit-select-lang": "Которуу",
 	"securepoll-subpage-translate": "Которуу",
 	"securepoll-subpage-list": "Тизме",
+	"securepoll-subpage-edit": "Түзөтүү",
 	"securepoll-subpage-archive": "Архивдештирүү",
 	"securepoll-create-label-property_admins": "Администраторлор:",
 	"securepoll-create-label-comment": "Себеп",
+	"securepoll-votereligibility-label-names": "Колдонуучулардын ысымдары",
 	"securepoll-votereligibility-label-comment": "Себеп",
 	"securepoll-votereligibility-saved": "{{int:securepoll}}: сакталды"
 }
