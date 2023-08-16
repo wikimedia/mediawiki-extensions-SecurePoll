@@ -7,7 +7,7 @@
 			"Wyvernoid"
 		]
 	},
-	"securepoll": "SekuraVoto",
+	"securepoll": "Sekura Votado",
 	"securepoll-desc": "Extensilo por elekti e voti",
 	"securepoll-invalid-page": "Nevalida subpagino \"<nowiki>$1</nowiki>\"",
 	"securepoll-need-admin": "Vu mustas esar administrero di elekto por facar to.",
@@ -95,5 +95,9 @@
 	"securepoll-create-option-column_order-asc": "Acensanta",
 	"securepoll-create-option-column_order-desc": "Decensanta",
 	"securepoll-create-label-comment": "Motivo",
-	"securepoll-votereligibility-label-comment": "Motivo"
+	"securepoll-edit-title": "{{int:securepoll}}: Modifikar votado",
+	"securepoll-edit-edited": "{{int:securepoll}}: Votado modifikita",
+	"securepoll-votereligibility-label-comment": "Motivo",
+	"securepoll-votereligibility-saved": "{{int:securepoll}}: Konservita",
+	"securepoll-votereligibility-cleared": "{{int:securepoll}}: Efacita"
 }
