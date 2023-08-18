@@ -48,7 +48,7 @@
 	"securepoll-submit": "遞交選票",
 	"securepoll-gpg-receipt": "您可以保留以下收據作為您的投票證明：\n\n<pre>$1</pre>",
 	"securepoll-thanks": "感謝您，已記錄您的投票。",
-	"securepoll-return": "返回 $1",
+	"securepoll-return": "返回「$1」",
 	"securepoll-encrypt-error": "投票記錄加密失敗，\n未記錄您的投票！\n\n$1",
 	"securepoll-no-gpg-home": "無法建立 GPG 家目錄。",
 	"securepoll-secret-gpg-error": "執行 GPG 發生錯誤。\n在 LocalSettings.php 中使用 $wgSecurePollShowErrorDetail=true; 以顯示更多詳細資料。",
