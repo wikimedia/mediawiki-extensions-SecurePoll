@@ -15,11 +15,11 @@ use MediaWiki\Extension\SecurePoll\User\Voter;
 use MediaWiki\Extension\SecurePoll\VoteRecord;
 use MediaWiki\Html\Html;
 use MediaWiki\Session\SessionManager;
+use MediaWiki\Title\Title;
 use MediaWiki\WikiMap\WikiMap;
 use MobileContext;
 use OOUI\MessageWidget;
 use Status;
-use Title;
 use Wikimedia\IPUtils;
 use Wikimedia\Rdbms\ILoadBalancer;
 

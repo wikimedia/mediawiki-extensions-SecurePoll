@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\SecurePoll\Pages;
 
 use MediaWiki\Extension\SecurePoll\User\Voter;
-use Title;
+use MediaWiki\Title\Title;
 use Wikimedia\IPUtils;
 use Xml;
 

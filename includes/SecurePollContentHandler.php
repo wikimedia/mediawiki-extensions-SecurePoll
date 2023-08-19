@@ -7,7 +7,7 @@ use FormatJson;
 use JsonContentHandler;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
-use Title;
+use MediaWiki\Title\Title;
 
 /**
  * SecurePoll Content Handler

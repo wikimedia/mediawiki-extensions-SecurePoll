@@ -4,8 +4,8 @@ namespace MediaWiki\Extension\SecurePoll\Pages;
 
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Linker\LinkRenderer;
+use MediaWiki\Title\Title;
 use SpecialPage;
-use Title;
 use Wikimedia\Rdbms\ILoadBalancer;
 
 /**

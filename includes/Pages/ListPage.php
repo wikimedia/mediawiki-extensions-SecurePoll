@@ -6,8 +6,8 @@ use JobQueueGroup;
 use JobSpecification;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
+use MediaWiki\Title\Title;
 use Status;
-use Title;
 
 /**
  * SecurePoll subpage to show a list of votes for a given election.
