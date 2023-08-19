@@ -12,12 +12,12 @@ use MediaWiki\Languages\LanguageFallback;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Revision\SlotRecord;
+use MediaWiki\Title\Title;
 use MediaWiki\WikiMap\WikiMap;
 use Parser;
 use ParserOptions;
 use RuntimeException;
 use TextContent;
-use Title;
 use UserMailer;
 
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
