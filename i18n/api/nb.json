@@ -13,5 +13,9 @@
 	"apihelp-strikevote-example-strike": "Stryk stemme nr. <kbd>1</kbd>, med årsak <kbd>duplication</kbd>.",
 	"apihelp-strikevote-example-unstrike": "Fjern stryking av stemme nr. <kbd>1</kbd>, med årsak <kbd>mistake</kbd>.",
 	"apierror-securepoll-mustbeloggedin-strikevote": "Du må være logget inn for å stryke eller fjerne stryking av en stemme.",
-	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> er ikke en gyldig stemme-ID."
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> er ikke en gyldig stemme-ID.",
+	"apihelp-securepollauth-summary": "Gjør det mulig for en ekstern wiki å autentisere brukere før de får tilgang til å stemme i valget.",
+	"apihelp-securepollauth-param-token": "En nøkkel basert på brukerens innloggingsnøkkel.",
+	"apihelp-securepollauth-param-id": "ID-en til brukeren som har tenkt til å stemme.",
+	"apihelp-securepollauth-example-auth": "Autentiser brukeren med ID <kbd>1</kbd> og innloggingsnøkkel <kbd>123ABC</kbd>."
 }
