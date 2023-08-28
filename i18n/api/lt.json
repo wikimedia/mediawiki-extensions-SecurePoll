@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nokeoo"
+		]
+	},
+	"apihelp-strikevote-summary": "Leidžia administratoriams pašalinti arba vėl įtraukti balsą.",
+	"apihelp-strikevote-param-option": "Kokį veiksmą atlikti: pašalinti arba vėl įtraukti balsą.",
+	"apihelp-strikevote-paramvalue-option-strike": "Pašalinti balsą iš balsavimo skaičiavimo.",
+	"apihelp-strikevote-paramvalue-option-unstrike": "Grąžinti balsą į balsavimo skaičiavimą.",
+	"apihelp-strikevote-param-voteid": "Šalinamo ar grąžinamo balso ID.",
+	"apihelp-strikevote-param-reason": "Balso šalinimo ar grąžinamo priežastis.",
+	"apihelp-strikevote-example-strike": "Pašalinti balsą <kbd>1</kbd>, pateikiant priežastį <kbd>duplication</kbd>.",
+	"apihelp-strikevote-example-unstrike": "Grąžinti balsą <kbd>1</kbd>, pateikiant priežastį <kbd>mistake</kbd>.",
+	"apierror-securepoll-mustbeloggedin-strikevote": "Turite būti prisijungę, kad galėtumėte pašalinti arba vėl grąžinti balsą.",
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> nėra galimas balso id.",
+	"apihelp-securepollauth-summary": "Leidžia nuotoliniam viki autentifikuoti naudotojus prieš suteikiant prieigą balsuoti rinkimuose.",
+	"apihelp-securepollauth-param-token": "Raktas, naudotojo prisijungimo rakto pagrindu.",
+	"apihelp-securepollauth-param-id": "Naudotojo, kuris ketina balsuoti, ID.",
+	"apihelp-securepollauth-example-auth": "Autentifikuoti naudotoją, kurio ID <kbd>1</kbd> ir prisijungimo raktas <kbd>123ABC</kbd>."
+}
