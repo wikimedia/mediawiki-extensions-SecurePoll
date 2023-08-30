@@ -82,7 +82,7 @@
 	"securepoll-details-link": "פרטים",
 	"securepoll-details-title": "פרטי הקול: #$1",
 	"securepoll-invalid-vote": "\"$1\" אינו מזהה קול תקין",
-	"securepoll-header-id": "מספר",
+	"securepoll-header-id": "מזהה",
 	"securepoll-header-voter-type": "סוג המצביע",
 	"securepoll-voter-properties": "מאפייני המצביע",
 	"securepoll-strike-log": "יומן מחיקת הצבעות",
