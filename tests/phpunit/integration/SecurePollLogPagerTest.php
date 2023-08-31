@@ -9,6 +9,7 @@ use MediaWikiIntegrationTestCase;
 
 /**
  * @covers \MediaWiki\Extension\SecurePoll\SecurePollLogPager
+ * @group Database
  */
 class SecurePollLogPagerTest extends MediaWikiIntegrationTestCase {
 	public function testGetQueryInfoNoFilters() {

@@ -26,6 +26,9 @@ class SpecialSecurePollLogTest extends SpecialPageTestBase {
 	}
 
 	public function testUserWrongPermissions() {
+		// The CentralAuth handler for UserGetRights would access the DB. Disable it, together with
+		// all other hook handlers, since they're irrelevant here.
+		$this->clearHook( 'UserGetRights' );
 		$this->setService( 'UserGroupManager', $this->createMock( UserGroupManager::class ) );
 		$this->expectException( PermissionsError::class );
 		$this->executeSpecialPage( '', null, null, $this->mockRegisteredNullAuthority() );
