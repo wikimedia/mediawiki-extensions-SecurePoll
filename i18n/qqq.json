@@ -24,7 +24,9 @@
 			"아라",
 			"Ajeje Brazorf",
 			"BaRaN6161 TURK",
-			"Robby"
+			"Robby",
+			"Eleassar",
+			"McDutchie"
 		]
 	},
 	"securepoll": "Used in the following messages:\n* {{msg-mw|Securepoll-create-title}}\n* {{msg-mw|Securepoll-create-created}}\n* {{msg-mw|Securepoll-edit-title}}\n* {{msg-mw|Securepoll-edit-edited}}\n* {{msg-mw|Securepoll-votereligibility-saved}}\n* {{msg-mw|Securepoll-votereligibility-cleared}}",
@@ -97,7 +99,7 @@
 	"securepoll-voter-name-remote": "{{notranslate}}\nParameters:\n* $1 - username\nSee also:\n* {{msg-mw|Securepoll-voter-name-local}} - for local user",
 	"securepoll-details-title": "Used as page title. Parameters:\n* $1 - vote ID; identifies a single vote of a single voter",
 	"securepoll-invalid-vote": "The vote ID identifies a specific voting process. Parameters:\n* $1 - vote ID",
-	"securepoll-header-id": "{{optional}}\n{{Identical|ID}}",
+	"securepoll-header-id": "{{Identical|ID}}",
 	"securepoll-header-voter-type": "Used as section header.",
 	"securepoll-header-url": "{{optional}}\n{{Identical|URL}}",
 	"securepoll-voter-properties": "Used as section header.",
@@ -116,7 +118,7 @@
 	"securepoll-translate-redirect-otherwiki": "Used with {{msg-mw|securepoll-translate-redirect}} when no name is available for the target wiki.",
 	"securepoll-translate-label-comment": "Label for the \"edit summary\" field on Special:SecurePoll/translate.\n{{Identical|Reason}}",
 	"securepoll-invalid-language": "Parameters:\n* $1 - language code",
-	"securepoll-header-trans-id": "{{optional}}\n{{Identical|ID}}",
+	"securepoll-header-trans-id": "{{Identical|ID}}",
 	"securepoll-submit-translate": "{{Identical|Update}}",
 	"securepoll-language-label": "{{Identical|Select language}}",
 	"securepoll-submit-select-lang": "{{Identical|Translate}}",
