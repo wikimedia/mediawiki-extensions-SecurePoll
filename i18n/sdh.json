@@ -1,14 +1,43 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kurdbuddha"
+			"Kurdbuddha",
+			"TerranBoy"
 		]
 	},
+	"securepoll-header-timestamp": "کات",
+	"securepoll-header-date": "ڕێکەفت",
 	"securepoll-header-voter-name": "ناو",
+	"securepoll-header-details": "وردەکاریەیل",
+	"securepoll-strike-reason": "هووکار:",
+	"securepoll-details-link": "وردەکاریەیل",
+	"securepoll-header-action": "کردار",
+	"securepoll-header-reason": "هووکار",
+	"securepoll-header-admin": "وەڕێەوبەر",
+	"securepoll-translate-title": "هەڵگەردانن: $1",
+	"securepoll-submit-translate": "وەڕووژکردن",
 	"securepoll-submit-select-lang": "ھەڵگەردانن",
 	"securepoll-header-title": "ناو",
 	"securepoll-subpage-list": "پێرست",
+	"securepoll-subpage-edit": "دەسکاری",
+	"securepoll-create-label-wiki": "ئەڕا ویکی:",
+	"securepoll-create-option-wiki-this_wiki": "ئەی ویکیە",
 	"securepoll-create-option-wiki-all_wikis": "گشت ویکیەیل",
+	"securepoll-create-label-property_admins": "وەڕێەوبەرەیل:",
 	"securepoll-create-label-questions": "== پرسیارەیل ==",
-	"securepoll-create-questions-row-legend": "پرسیار"
+	"securepoll-create-questions-row-legend": "پرسیار",
+	"securepoll-create-label-questions-question": "مەتن پرسیار:",
+	"securepoll-create-label-questions-add": "ئزافەکردن پرسیارێگ تر",
+	"securepoll-create-label-questions-delete": "سڕینەوەێ پرسیار",
+	"securepoll-create-label-questions-option": "== هەڵوژاننەگان ==",
+	"securepoll-create-label-options-option": "دەق هەڵوژانن:",
+	"securepoll-create-label-options-add": "ئزافەکردن هەڵوژاننێگ تر",
+	"securepoll-create-label-options-delete": "سڕینەوەێ هەڵوژانن",
+	"securepoll-create-label-option-name": "ناو هەڵوژانن:",
+	"securepoll-create-label-comment": "هووکار",
+	"securepoll-edit-redirect-otherwiki": "ویکیە سەرەکیەگە",
+	"securepoll-votereligibility-redirect-otherwiki": "ویکیە سەرەکیەگە",
+	"securepoll-votereligibility-basic": "هەڵوژاننەگان سەرەتایی",
+	"securepoll-votereligibility-label-edit": "دەسکاریکردن پێرست",
+	"securepoll-votereligibility-label-comment": "هووکار"
 }
