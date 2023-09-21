@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"KCVelaga"
+			"KCVelaga",
+			"Amire80"
 		]
 	},
 	"apihelp-strikevote-summary": "నిర్వాహకులకు స్ట్రైక్ లేదా అన్ స్ట్రైక్ చేయడానికి అనుమతిస్తుంది.",
-	"apihelp-strikevote-param-option": "ఏ చర్య తీసుకోవాలి: ఓటును  స్ట్రైక్ లేదా ఆన్ స్ట్రైక్ చేయండి.",
+	"apihelp-strikevote-param-option": "ఏ చర్య తీసుకోవాలి: ఓటును స్ట్రైక్ లేదా ఆన్ స్ట్రైక్ చేయండి.",
 	"apihelp-strikevote-paramvalue-option-strike": "ఓటు స్ట్రైక్ చేయండి (గణన నుండి తీసివేయండి).",
 	"apihelp-strikevote-paramvalue-option-unstrike": "ఓటును అన్ స్ట్రైక్ చేయండి (దాన్ని గణనకు పునరుద్ధరించండి).",
 	"apihelp-strikevote-param-voteid": "స్ట్రైక్ లేదా ఆన్ స్ట్రైక్ చేయవల్సిన వోట్ ID.",
