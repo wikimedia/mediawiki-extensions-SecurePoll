@@ -3,12 +3,13 @@
 namespace MediaWiki\Extension\SecurePoll\Pages;
 
 use Exception;
+use MediaWiki\Status\Status;
 
 class StatusException extends Exception {
-	/** @var \Status */
+	/** @var Status */
 	public $status;
 
-	public function __construct( ...$args ) {
-		$this->status = call_user_func_array( 'Status::newFatal', $args );
+	public function __construct( $message, ...$parameters ) {
+		$this->status = Status::newFatal( $message, ...$parameters );
 	}
 }
