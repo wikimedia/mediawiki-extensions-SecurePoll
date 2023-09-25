@@ -5,6 +5,7 @@
 		]
 	},
 	"securepoll-welcome": "<strong>{{GENDER:$1|Кош келиңиз}} $1 !</strong>",
+	"securepoll-header-timestamp": "Убакыт",
 	"securepoll-strike-reason": "Себеп:",
 	"securepoll-header-reason": "Себеп",
 	"securepoll-header-admin": "Администратор",
