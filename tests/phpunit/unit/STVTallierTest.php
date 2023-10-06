@@ -18,6 +18,11 @@ use Wikimedia\TestingAccessWrapper;
  * @covers \MediaWiki\Extension\SecurePoll\Talliers\STVTallier
  */
 class STVTallierTest extends MediaWikiUnitTestCase {
+	/** @var Tallier */
+	private $tallier;
+	/** @var Tallier */
+	private $wrappedRevStore;
+
 	protected function setUp(): void {
 		// Tallier constructor requires getOptions to return iterable
 		$options = array_map( function ( $id, $message ) {

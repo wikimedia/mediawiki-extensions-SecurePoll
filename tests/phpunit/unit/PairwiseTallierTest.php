@@ -13,6 +13,9 @@ use RequestContext;
  * @covers \MediaWiki\Extension\SecurePoll\Talliers\PairwiseTallier
  */
 class PairwiseTallierTest extends MediaWikiUnitTestCase {
+	/** @var Tallier */
+	private $tallier;
+
 	protected function setUp(): void {
 		$options = array_map( function ( $id, $message ) {
 			$option = $this->createMock( Option::class );

@@ -15,6 +15,9 @@ use RequestContext;
  * @covers \MediaWiki\Extension\SecurePoll\Talliers\HistogramRangeTallier
  */
 class HistogramRangeTallierTest extends MediaWikiUnitTestCase {
+	/** @var Tallier */
+	private $tallier;
+
 	protected function setUp(): void {
 		// Tallier constructor requires getOptions to return iterable
 		$options = array_map( function ( $id ) {
