@@ -86,7 +86,7 @@ class SpecialSecurePoll extends SpecialPage {
 		$linkRenderer = $this->getLinkRenderer();
 
 		$subtitle = '&lt; ' . $linkRenderer->makeKnownLink( $title, $title->getText() );
-		$pipe = $this->msg( 'pipe-separator' )->text();
+		$pipe = $this->msg( 'pipe-separator' )->escaped();
 		foreach ( $links as $link ) {
 			[ $title, $text ] = $link;
 			$subtitle .= $pipe . $linkRenderer->makeKnownLink( $title, $text );
