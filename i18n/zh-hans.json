@@ -25,6 +25,7 @@
 			"Tranve",
 			"Winston Sung",
 			"Xiplus",
+			"Xyb",
 			"Yfdyh000",
 			"Zhang8569",
 			"飞舞回堂前"
@@ -286,7 +287,7 @@
 	"right-securepoll-view-voter-pii": "访问投票者的个人可识别信息",
 	"action-securepoll-view-voter-pii": "访问投票者的个人可识别信息",
 	"securepoll-ns-readonly": "{{ns:SecurePoll}}命名空间是只读的",
-	"securepoll-voter-stats": "所有符合资格的投票者中，$1名投票者已投票。",
+	"securepoll-voter-stats": "所有符合资格的投票者中，$1名{{PLURAL:$1|投票者}}已投票。",
 	"securepoll-vote-stats": "共计收到$1次{{PLURAL:$1|投票}}。其中$2{{PLURAL:$2|票}}因属投票者再次投票而不记入，$3{{PLURAL:$3|票}}已作废。",
 	"securepolllog": "安全投票日志",
 	"securepolllog-form-type-option-all": "所有安全投票日志",
