@@ -58,7 +58,7 @@
 	"securepoll-header-voter-name": "Nome",
 	"securepoll-header-voter-domain": "Dominio",
 	"securepoll-header-ua": "Axente de usuario",
-	"securepoll-header-cookie-dup": "Dupl.",
+	"securepoll-header-cookie-dup": "Duplicado",
 	"securepoll-header-strike": "Riscar",
 	"securepoll-header-details": "Detalles",
 	"securepoll-strike-button": "Riscar",
@@ -224,7 +224,7 @@
 	"securepoll-votereligibility-cleared-text": "O $1 foi eliminado e non será usado na enquisa.",
 	"securepoll-votereligibility-cleared-comment": "$1 eliminado.",
 	"right-securepoll-create-poll": "Crear enquisas",
-	"action-securepoll-create-poll": "crear enquisas",
+	"action-securepoll-create-poll": "crear enquisas e ver rexistros",
 	"securepoll-ns-readonly": "O espazo de nomes {{ns:SecurePoll}} só é de lectura",
 	"securepoll-voter-stats": "Entre os votantes posibles, $1 {{PLURAL:$1|votante votou|votantes votaron}}.",
 	"securepoll-vote-stats": "Un total de $1 {{PLURAL:$1|voto foi enviado|votos foron enviados}}. Deses, $2 {{PLURAL:$2|foi eliminado|foron eliminados}} porque o votante xa votara, e $3 {{PLURAL:$3|está suprimido|están suprimidos}}."
