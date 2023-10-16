@@ -17,7 +17,8 @@
 			"Tamaki Wakita",
 			"Tsuzuki",
 			"MirukuPC",
-			"Yamagata Yusuke"
+			"Yamagata Yusuke",
+			"春春眠眠"
 		]
 	},
 	"securepoll": "暗号投票",
@@ -84,6 +85,7 @@
 	"securepoll-details-link": "詳細",
 	"securepoll-details-title": "票の詳細: #$1",
 	"securepoll-invalid-vote": "「$1」は有効な票IDではありません",
+	"securepoll-header-id": "ID",
 	"securepoll-header-voter-type": "投票者の種類",
 	"securepoll-voter-properties": "投票者情報",
 	"securepoll-strike-log": "抹消記録",
@@ -101,6 +103,7 @@
 	"securepoll-translate-redirect-otherwiki": "メインのウィキ",
 	"securepoll-translate-label-comment": "理由:",
 	"securepoll-invalid-language": "「$1」は無効な言語コードです",
+	"securepoll-header-trans-id": "ID",
 	"securepoll-submit-translate": "更新",
 	"securepoll-language-label": "言語を選択:",
 	"securepoll-submit-select-lang": "翻訳",
