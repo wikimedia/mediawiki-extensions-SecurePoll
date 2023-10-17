@@ -17,7 +17,8 @@
 			"Tsuzuki",
 			"Yamagata Yusuke",
 			"ネイ",
-			"青子守歌"
+			"青子守歌",
+			"春春眠眠"
 		]
 	},
 	"securepoll": "暗号投票",
@@ -81,6 +82,7 @@
 	"securepoll-header-strike": "抹消",
 	"securepoll-header-details": "詳細",
 	"securepoll-vote-duplicate": "重複したクッキー",
+	"securepoll-vote-csrf": "失敗しました",
 	"securepoll-strike-button": "抹消",
 	"securepoll-unstrike-button": "抹消撤回",
 	"securepoll-strike-reason": "理由:",
@@ -89,6 +91,7 @@
 	"securepoll-details-link": "詳細",
 	"securepoll-details-title": "票の詳細: #$1",
 	"securepoll-invalid-vote": "「$1」は有効な票IDではありません",
+	"securepoll-header-id": "ID",
 	"securepoll-header-voter-type": "投票者の種類",
 	"securepoll-voter-properties": "投票者情報",
 	"securepoll-strike-log": "抹消記録",
@@ -106,6 +109,7 @@
 	"securepoll-translate-redirect-otherwiki": "メインのウィキ",
 	"securepoll-translate-label-comment": "理由:",
 	"securepoll-invalid-language": "「$1」は無効な言語コードです",
+	"securepoll-header-trans-id": "ID",
 	"securepoll-submit-translate": "更新",
 	"securepoll-language-label": "言語を選択:",
 	"securepoll-submit-select-lang": "翻訳",
@@ -122,6 +126,7 @@
 	"securepoll-subpage-dump": "ダンプ",
 	"securepoll-subpage-tally": "集計",
 	"securepoll-subpage-log": "ログ",
+	"securepoll-subpage-archive": "アーカイブ",
 	"securepoll-tally-title": "集計: $1",
 	"securepoll-tally-not-finished": "申し訳ありませんが、投票が終了するまで票の集計はできません。",
 	"securepoll-tally-form-file-help": "暗号化されたダンプをアップロードした場合は、その内容が集計されます。それ以外の場合は、データベースの結果が集計されます。注：100票以上の選挙をアップロードすると、結果が得られずにタイムアウトになることがあります。",
