@@ -498,7 +498,7 @@ class VotePage extends ActionPage {
 	 */
 	private function getQuestionMessage( $languageCode, $questionIndex ) {
 		$questionMsg = $this->context->getMessages( $languageCode, [ $questionIndex ] );
-		if ( empty( $questionMsg ) ) {
+		if ( !$questionMsg ) {
 			$fallbackLangCode = $this->election->getLanguage();
 			$questionMsg = $this->context->getMessages( $fallbackLangCode, [ $questionIndex ] );
 		}
@@ -512,11 +512,11 @@ class VotePage extends ActionPage {
 	 */
 	private function getOptionMessages( $languageCode, $votes ) {
 		$optionsMsgs = $this->context->getMessages( $languageCode, $votes );
-		if ( empty( $optionsMsgs ) || count( $votes ) !== count( $optionsMsgs ) ) {
+		if ( !$optionsMsgs || count( $votes ) !== count( $optionsMsgs ) ) {
 			$languageCode = $this->election->getLanguage();
 			$optionsMsgs = $this->context->getMessages( $languageCode, $votes );
 		}
-		if ( empty( $optionsMsgs ) || count( $votes ) !== count( $optionsMsgs ) ) {
+		if ( !$optionsMsgs || count( $votes ) !== count( $optionsMsgs ) ) {
 			$msgsKeys = [];
 			foreach ( $votes as $questionKey => $item ) {
 				$msgsKeys[] = $questionKey;
