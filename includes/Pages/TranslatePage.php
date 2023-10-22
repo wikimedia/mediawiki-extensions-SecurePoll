@@ -260,7 +260,7 @@ class TranslatePage extends ActionPage {
 			] ] ) ]
 		] );
 
-		if ( !empty( $apiEndpoint ) ) {
+		if ( $apiEndpoint !== '' ) {
 			$form->addItems( [
 				new \OOUI\FieldLayout(
 					new \OOUI\LabelWidget( [
