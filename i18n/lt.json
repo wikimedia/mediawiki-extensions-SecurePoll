@@ -285,5 +285,11 @@
 	"securepoll-stv-invalid-rank-duplicate": "Parinktys negali būti pasirinktos kelis kartus reitinge. Pakeiskite parinktį: $1",
 	"securepoll-stv-invalid-input-empty": "Užpildykite šią parinktį",
 	"securepoll-stv-invalid-input-duplicate": "Pasirinkite kitą šios nuostatos parinktį",
-	"securepoll-stv-result-election-elected-header": "Išrinkta"
+	"securepoll-stv-result-election-elected-header": "Išrinkta",
+	"securepoll-stv-result-election-tally-table-heading": "Suskaičiuota",
+	"securepoll-stv-result-election-result-table-heading": "Rezultatas",
+	"securepoll-stv-votes-transferred": "Balsų perdavimas",
+	"securepoll-stv-result-round-quota": "Kvota: $1",
+	"securepoll-stv-result-round-elected": "Išrinkta: $1",
+	"securepoll-stv-result-round-eliminated": "Pašalinta: $1"
 }
