@@ -75,7 +75,7 @@
 	"securepoll-header-date": "تاریخ",
 	"securepoll-header-voter-name": "نام",
 	"securepoll-header-voter-domain": "دامنه",
-	"securepoll-header-ip": "IP",
+	"securepoll-header-ip": "آی‌پی",
 	"securepoll-header-xff": "اکس‌اف‌اف",
 	"securepoll-header-ua": "مرورگر کاربر",
 	"securepoll-header-token-match": "سی‌اس‌آراف",
@@ -259,6 +259,8 @@
 	"securepoll-votereligibility-cleared-comment": "$1 پاک شد.",
 	"right-securepoll-create-poll": "ایجاد نظرسنجی",
 	"action-securepoll-create-poll": "نظرسنجی ایجاد کنید",
+	"right-securepoll-view-voter-pii": "دسترسی به اطلاعات شناسایی شخصی رأی‌دهندگان",
+	"action-securepoll-view-voter-pii": "دسترسی به اطلاعات شناسایی شخصی رأی‌دهندگان",
 	"securepoll-ns-readonly": "فضای نام {{ns:SecurePoll}} فقط-خواندنی است",
 	"securepoll-voter-stats": "از بین تمام واجدان شرایط، $1 نفر رأی {{PLURAL:$1|داده‌است|داده‌اند}}.",
 	"securepoll-vote-stats": "در کل $1 رأی به صندوق {{PLURAL:$1|ریخته شده‌است|ریخته شده‌اند}}. از این بین، $2 رأی نادیده گرفته {{PLURAL:$2|شده‌است|شده‌اند}} چون کاربر دوباره رأی جدیدی داده‌است، و $3 رأی هم خط {{PLURAL:$3|خورده‌است|خورده‌اند}}."
