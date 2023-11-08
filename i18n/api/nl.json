@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bas dehaan"
+			"Bas dehaan",
+			"McDutchie"
 		]
 	},
 	"apihelp-strikevote-summary": "Staat het doorhalen en herstellen van stemmen door beheerders toe.",
-	"apihelp-strikevote-param-option": "Welke actie te ondernemen: stem doorhalen of doorhalen ongedaanmaken",
+	"apihelp-strikevote-param-option": "Welke handeling te verrichten: een stem doorhalen of weer geldig maken.",
 	"apihelp-strikevote-paramvalue-option-strike": "Stem doorhalen (verwijder het uit de telling).",
 	"apihelp-strikevote-paramvalue-option-unstrike": "Stem herstellen (voeg het toe aan de telling).",
 	"apihelp-strikevote-param-voteid": "Het ID van de stem die doorgehaald of hersteld moet worden.",

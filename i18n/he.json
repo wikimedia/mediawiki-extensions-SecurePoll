@@ -328,7 +328,7 @@
 	"securepoll-translation-select-import-source": "בחירת דף מתוך $1",
 	"securepoll-translation-import-dialog-title": "יבוא תרגומים",
 	"securepoll-translation-import-action-import": "יבוא",
-	"securepoll-translation-import-action-done": "בוצע",
+	"securepoll-translation-import-action-done": "סיום",
 	"securepoll-translation-error-no-page-title": "לא נמצאה כותרת דף",
 	"securepoll-vote-result-intro-label": "סיכום ההצבעה שלך",
 	"securepoll-vote-result-question-label": "שאלה: $1",
