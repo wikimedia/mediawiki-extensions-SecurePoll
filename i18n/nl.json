@@ -21,7 +21,7 @@
 	"securepoll": "VeiligStemmen",
 	"securepoll-desc": "Stemmingen en enquêtes",
 	"securepoll-invalid-page": "Ongeldige subpagina \"<nowiki>$1</nowiki>\"",
-	"securepoll-need-admin": "U moet een stemmingenbeheerder zijn om deze handeling te mogen uitvoeren.",
+	"securepoll-need-admin": "U moet een stemmingenbeheerder zijn om deze handeling te verrichten.",
 	"securepoll-too-few-params": "Onvoldoende subpaginaparameters (ongeldige koppeling).",
 	"securepoll-invalid-election": "\"$1\" is geen geldig stemmingsnummer.",
 	"securepoll-welcome": "<strong>{{GENDER:$1|Welkom}} $1!</strong>",
