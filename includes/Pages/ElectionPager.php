@@ -54,11 +54,16 @@ abstract class ElectionPager extends TablePager {
 			? 'securepoll-election-open' : 'securepoll-election-closed';
 	}
 
+	/**
+	 * @param string $name
+	 * @param string $value
+	 * @return string HTML
+	 */
 	public function formatValue( $name, $value ) {
 		switch ( $name ) {
 			case 'el_start_date':
 			case 'el_end_date':
-				return $this->getLanguage()->timeanddate( $value );
+				return htmlspecialchars( $this->getLanguage()->timeanddate( $value ) );
 			case 'links':
 				return $this->getLinks();
 			default:
@@ -80,7 +85,7 @@ abstract class ElectionPager extends TablePager {
 
 	/**
 	 * Return html for election-specific links
-	 * @return string
+	 * @return string HTML
 	 */
 	abstract public function getLinks();
 
