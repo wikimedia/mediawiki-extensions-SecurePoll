@@ -96,11 +96,14 @@ class MainElectionsPager extends ElectionPager {
 		];
 	}
 
+	/**
+	 * @return string HTML
+	 */
 	public function getLinks() {
 		$id = (int)$this->mCurrentRow->el_entity;
 
 		$s = '';
-		$sep = $this->msg( 'pipe-separator' )->text();
+		$sep = $this->msg( 'pipe-separator' )->escaped();
 		foreach ( $this->subpages as $subpage => $props ) {
 			// Message keys used here:
 			// securepoll-subpage-vote, securepoll-subpage-translate,
@@ -125,7 +128,7 @@ class MainElectionsPager extends ElectionPager {
 					$s .= $this->linkRenderer->makeKnownLink( $title, $linkText );
 				}
 			} else {
-				$s .= Html::rawElement(
+				$s .= Html::element(
 					'span',
 					[
 						'class' => 'securepoll-link-disabled',
@@ -141,7 +144,7 @@ class MainElectionsPager extends ElectionPager {
 	/**
 	 * Generate the link to the logs on SecurePollLog for an election
 	 * @param int $id
-	 * @return string
+	 * @return string HTML
 	 */
 	public function getLogLink( $id ) {
 		$services = MediaWikiServices::getInstance();
