@@ -63,11 +63,14 @@ class ArchivedPager extends ElectionPager {
 		];
 	}
 
+	/**
+	 * @return string HTML
+	 */
 	public function getLinks() {
 		$id = $this->mCurrentRow->el_entity;
 
 		$s = '';
-		$sep = $this->msg( 'pipe-separator' )->text();
+		$sep = $this->msg( 'pipe-separator' )->escaped();
 		foreach ( $this->subpages as $subpage => $props ) {
 			// Message keys used here:
 			// securepoll-subpage-unarchive
@@ -89,7 +92,7 @@ class ArchivedPager extends ElectionPager {
 					$s .= $this->linkRenderer->makeKnownLink( $title, $linkText );
 				}
 			} else {
-				$s .= Html::rawElement(
+				$s .= Html::element(
 					'span',
 					[
 						'class' => 'securepoll-link-disabled',
