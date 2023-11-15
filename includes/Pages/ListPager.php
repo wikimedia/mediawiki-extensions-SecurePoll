@@ -94,6 +94,11 @@ class ListPager extends TablePager {
 		);
 	}
 
+	/**
+	 * @param string $name
+	 * @param string $value
+	 * @return string HTML
+	 */
 	public function formatValue( $name, $value ) {
 		$config = $this->listPage->specialPage->getConfig();
 		$securePollKeepPrivateInfoDays = $config->get( 'SecurePollKeepPrivateInfoDays' );
@@ -120,7 +125,7 @@ class ListPager extends TablePager {
 				) {
 					return '';
 				} else {
-					return IPUtils::formatHex( $value );
+					return htmlspecialchars( IPUtils::formatHex( $value ) );
 				}
 			case 'vote_ua':
 			case 'vote_xff':
