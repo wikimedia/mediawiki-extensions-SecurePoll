@@ -87,6 +87,7 @@ class STVBallot extends Ballot {
 				'infusable' => true,
 				'name' => $inputId,
 				'options' => $allOptions,
+				'classes' => [ 'securepoll-stvballot-option-dropdown' ],
 				'value' => $request->getVal( $inputId, '0' ),
 			] );
 			$fieldset->appendContent( new \OOUI\FieldLayout(

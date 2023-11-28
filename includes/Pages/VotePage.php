@@ -62,6 +62,7 @@ class VotePage extends ActionPage {
 	public function execute( $params ) {
 		$out = $this->specialPage->getOutput();
 		$out->enableOOUI();
+		$out->addJsConfigVars( 'SecurePollSubPage', 'vote' );
 		$out->addModules( 'ext.securepoll.htmlform' );
 		$out->addModuleStyles( [
 			'oojs-ui.styles.icons-alerts',

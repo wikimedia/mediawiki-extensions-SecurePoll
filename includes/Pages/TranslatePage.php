@@ -115,6 +115,7 @@ class TranslatePage extends ActionPage {
 			->get( 'SecurePollTranslationImportSourceUrl' );
 			$out->addJsConfigVars( 'SecurePollTranslationImportSourceUrl', $sourceConfig );
 
+			$out->addJsConfigVars( 'SecurePollSubPage', 'translate' );
 			$out->addModules( 'ext.securepoll.htmlform' );
 			return;
 		}

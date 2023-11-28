@@ -243,7 +243,13 @@ ImportDialog.prototype.getElectionId = function () {
 };
 
 $( function () {
-	var importBtn = OO.ui.infuse( $( '#import-trans-btn' ) );
+	var sourceUrl = mw.config.get( 'SecurePollTranslationImportSourceUrl' );
+	var $translationButton = $( '#import-trans-btn' );
+
+	if ( $translationButton.length < 1 ) {
+		return;
+	}
+	var importBtn = OO.ui.infuse( $translationButton );
 
 	function openDialog() {
 		var windowManager = new OO.ui.WindowManager();
@@ -251,7 +257,7 @@ $( function () {
 
 		var dialog = new ImportDialog( {
 			id: 'securepoll-import-translations',
-			source: mw.config.get( 'SecurePollTranslationImportSourceUrl' )
+			source: sourceUrl
 		} );
 		windowManager.addWindows( [ dialog ] );
 		windowManager.openWindow( dialog );

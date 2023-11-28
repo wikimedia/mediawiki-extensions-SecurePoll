@@ -149,6 +149,7 @@ class ListPage extends ActionPage {
 		$out->addParserOutputContent( $pager->getBodyOutput() );
 		$out->addHTML( $pager->getNavigationBar() );
 		if ( $isAdmin ) {
+			$out->addJsConfigVars( 'SecurePollSubPage', 'list' );
 			$out->addModules( 'ext.securepoll.htmlform' );
 		}
 	}

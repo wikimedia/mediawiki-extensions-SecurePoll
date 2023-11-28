@@ -132,6 +132,7 @@ class CreatePage extends ActionPage {
 			}
 		}
 
+		$out->addJsConfigVars( 'SecurePollSubPage', 'create' );
 		$out->addModules( 'ext.securepoll.htmlform' );
 		$out->addModuleStyles( [
 			'mediawiki.widgets.TagMultiselectWidget.styles',
