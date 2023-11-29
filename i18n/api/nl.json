@@ -5,14 +5,18 @@
 			"McDutchie"
 		]
 	},
-	"apihelp-strikevote-summary": "Staat het doorhalen en herstellen van stemmen door beheerders toe.",
+	"apihelp-strikevote-summary": "Hiermee kunnen moderatoren stemmen doorhalen en herstellen.",
 	"apihelp-strikevote-param-option": "Welke handeling te verrichten: een stem doorhalen of weer geldig maken.",
-	"apihelp-strikevote-paramvalue-option-strike": "Stem doorhalen (verwijder het uit de telling).",
-	"apihelp-strikevote-paramvalue-option-unstrike": "Stem herstellen (voeg het toe aan de telling).",
-	"apihelp-strikevote-param-voteid": "Het ID van de stem die doorgehaald of hersteld moet worden.",
+	"apihelp-strikevote-paramvalue-option-strike": "Stem doorhalen (uit de telling verwijderen).",
+	"apihelp-strikevote-paramvalue-option-unstrike": "Stem herstellen (weer in de telling meenemen).",
+	"apihelp-strikevote-param-voteid": "De ID van de door te halen of te herstellen stem.",
 	"apihelp-strikevote-param-reason": "De reden voor doorhalen of herstellen van de stem.",
-	"apihelp-strikevote-example-strike": "Doorhalen stem <kbd>1</kbd>, gegeven reden <kbd>duplicatie</kbd>",
-	"apihelp-strikevote-example-unstrike": "Herstellen stem <kbd>1</kbd>, gegeven rden <kbd>foutje</kbd>",
-	"apierror-securepoll-mustbeloggedin-strikevote": "Je moet ingelogd zijn om een stem te kunnen doorhalen of herstellen.",
-	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> is geen geldig stem ID."
+	"apihelp-strikevote-example-strike": "De stem <kbd>1</kbd> doorhalen met opgave van de reden <kbd>duplication</kbd>.",
+	"apihelp-strikevote-example-unstrike": "De stem <kbd>1</kbd> herstellen met opgave van de reden <kbd>mistake</kbd>.",
+	"apierror-securepoll-mustbeloggedin-strikevote": "U moet aangemeld zijn om een stem te kunnen doorhalen of herstellen.",
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> is geen geldige stem-ID.",
+	"apihelp-securepollauth-summary": "Hiermee kan een externe wiki gebruikers authenticeren voordat toegang wordt verleend tot het stemmen bij de verkiezingen.",
+	"apihelp-securepollauth-param-token": "Een op het sessietoken van de gebruiker gebaseerd token.",
+	"apihelp-securepollauth-param-id": "De ID van de gebruiker die wil stemmen.",
+	"apihelp-securepollauth-example-auth": "Authenticeer de gebruiker met ID <kbd>1</kbd> en sessietoken <kbd>123ABC</kbd>."
 }
