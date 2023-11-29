@@ -10,7 +10,7 @@ use MediaWiki\Extension\SecurePoll\User\Auth;
 use MediaWiki\Extension\SecurePoll\User\Voter;
 use MediaWiki\Languages\LanguageFallback;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\User\UserOptionsLookup;
+use MediaWiki\User\Options\UserOptionsLookup;
 use Message;
 use MessageLocalizer;
 use MessageSpecifier;
