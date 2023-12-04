@@ -2,9 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Patriot Kur",
-			"Patriot Kor"
+			"Patriot Kor",
+			"Гусейн"
 		]
 	},
 	"securepoll-strike-cancel": "Ləğv karde",
+	"securepoll-header-admin": "Mudir",
 	"securepoll-submit-translate": "Bıxovın"
 }
