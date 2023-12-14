@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"محک"
+		]
+	},
+	"securepoll-welcome": "<strong>$1 {{GENDER:$1|خش بمونی}}!</strong>"
+}
