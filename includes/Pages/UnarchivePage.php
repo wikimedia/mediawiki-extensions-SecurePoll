@@ -5,8 +5,8 @@ namespace MediaWiki\Extension\SecurePoll\Pages;
 use JobQueueGroup;
 use JobSpecification;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
+use MediaWiki\SpecialPage\SpecialPage;
 use OOUI\MessageWidget;
-use SpecialPage;
 
 /**
  * SecurePoll subpage for archiving past elections

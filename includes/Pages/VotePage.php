@@ -15,11 +15,12 @@ use MediaWiki\Extension\SecurePoll\User\Voter;
 use MediaWiki\Extension\SecurePoll\VoteRecord;
 use MediaWiki\Html\Html;
 use MediaWiki\Session\SessionManager;
+use MediaWiki\Status\Status;
 use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use MediaWiki\WikiMap\WikiMap;
 use MobileContext;
 use OOUI\MessageWidget;
-use Status;
 use Wikimedia\IPUtils;
 use Wikimedia\Rdbms\ILoadBalancer;
 
@@ -31,7 +32,7 @@ class VotePage extends ActionPage {
 	public $election;
 	/** @var Auth|null */
 	public $auth;
-	/** @var \User|null */
+	/** @var User|null */
 	public $user;
 	/** @var Voter|null */
 	public $voter;

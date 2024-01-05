@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\SecurePoll\Pages;
 
-use Linker;
-use TablePager;
+use MediaWiki\Linker\Linker;
+use MediaWiki\Pager\TablePager;
 
 /**
  * Pager for the strike log. See TablePager documentation.

@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\SecurePoll\Hooks;
 
 use MediaWiki\Extension\SecurePoll\User\LocalAuth;
-use User;
+use MediaWiki\User\User;
 
 // phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
 // phpcs:disable Squiz.Classes.ValidClassName.NotCamelCaps

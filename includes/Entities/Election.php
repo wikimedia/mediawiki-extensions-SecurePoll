@@ -11,8 +11,8 @@ use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
 use MediaWiki\Extension\SecurePoll\User\Auth;
 use MediaWiki\Extension\SecurePoll\User\Voter;
 use MediaWiki\MediaWikiServices;
-use Status;
-use User;
+use MediaWiki\Status\Status;
+use MediaWiki\User\User;
 use Wikimedia\Rdbms\IDatabase;
 use Xml;
 

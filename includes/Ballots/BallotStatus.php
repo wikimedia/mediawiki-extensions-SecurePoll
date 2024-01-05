@@ -2,10 +2,10 @@
 
 namespace MediaWiki\Extension\SecurePoll\Ballots;
 
+use MediaWiki\Status\Status;
 use OOUI\ButtonWidget;
 use OOUI\HtmlSnippet;
 use OOUI\Tag;
-use Status;
 
 class BallotStatus extends Status {
 	/** @var true[] */

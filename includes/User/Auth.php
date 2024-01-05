@@ -6,7 +6,7 @@ use InvalidArgumentException;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Session\SessionManager;
-use Status;
+use MediaWiki\Status\Status;
 
 /**
  * Class for handling guest logins and sessions. Creates Voter objects.

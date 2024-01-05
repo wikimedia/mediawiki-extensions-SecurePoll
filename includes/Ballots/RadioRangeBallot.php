@@ -8,7 +8,7 @@ use MediaWiki\Extension\SecurePoll\Entities\Question;
 use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
 use MediaWiki\Extension\SecurePoll\HtmlForm\HTMLFormRadioRangeColumnLabels;
 use MediaWiki\Extension\SecurePoll\Pages\CreatePage;
-use Sanitizer;
+use MediaWiki\Parser\Sanitizer;
 
 /**
  * A ballot form for range voting where the number of allowed responses is small,

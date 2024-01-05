@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\SecurePoll;
 
+use MediaWiki\Status\Status;
 use RuntimeException;
-use Status;
 
 /**
  * Helper class for interpreting decrypted vote_record field values in a

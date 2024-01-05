@@ -3,8 +3,8 @@
 namespace MediaWiki\Extension\SecurePoll\Pages;
 
 use MediaWiki\Extension\SecurePoll\Entities\Election;
+use MediaWiki\Pager\TablePager;
 use stdClass;
-use TablePager;
 
 /**
  * Parent class for election pagers:

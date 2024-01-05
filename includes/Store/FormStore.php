@@ -9,9 +9,9 @@ use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Crypt\Crypt;
 use MediaWiki\Extension\SecurePoll\Pages\StatusException;
 use MediaWiki\Extension\SecurePoll\Talliers\Tallier;
+use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\WikiMap\WikiMap;
 use MobileContext;
-use SpecialPage;
 
 /**
  * Store for loading the form data.

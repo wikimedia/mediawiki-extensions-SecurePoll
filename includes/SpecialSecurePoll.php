@@ -4,7 +4,7 @@ namespace MediaWiki\Extension\SecurePoll;
 
 use MediaWiki\Extension\SecurePoll\Pages\ActionPage;
 use MediaWiki\Extension\SecurePoll\Pages\EntryPage;
-use SpecialPage;
+use MediaWiki\SpecialPage\SpecialPage;
 
 /**
  * The page that's initially called by MediaWiki when navigating to

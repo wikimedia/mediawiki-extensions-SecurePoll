@@ -5,7 +5,7 @@ namespace MediaWiki\Extension\SecurePoll\User;
 use InvalidArgumentException;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\MediaWikiServices;
-use Status;
+use MediaWiki\Status\Status;
 
 /**
  * Class for guest login from one MW instance running SecurePoll to another.

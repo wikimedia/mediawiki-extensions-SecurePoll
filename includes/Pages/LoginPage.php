@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\SecurePoll\Pages;
 
-use SpecialPage;
+use MediaWiki\SpecialPage\SpecialPage;
 
 /**
  * A simple SecurePoll subpage which handles guest logins from a remote website,

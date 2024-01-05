@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\SecurePoll\Talliers;
 
-use Html;
 use MediaWiki\Extension\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Crypt\Crypt;
@@ -11,8 +10,9 @@ use MediaWiki\Extension\SecurePoll\Entities\Question;
 use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
 use MediaWiki\Extension\SecurePoll\Store\Store;
 use MediaWiki\Extension\SecurePoll\VoteRecord;
+use MediaWiki\Html\Html;
 use MediaWiki\Logger\LoggerFactory;
-use Status;
+use MediaWiki\Status\Status;
 
 /**
  * A helper class for tallying a whole election (with multiple questions).

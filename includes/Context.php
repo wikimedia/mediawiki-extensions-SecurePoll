@@ -18,10 +18,10 @@ use MediaWiki\Extension\SecurePoll\User\LocalAuth;
 use MediaWiki\Extension\SecurePoll\User\RemoteMWAuth;
 use MediaWiki\Extension\SecurePoll\User\Voter;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
 use ParserOptions;
 use RequestContext;
-use SpecialPage;
 use stdClass;
 use Wikimedia\Rdbms\IDatabase;
 

@@ -7,8 +7,8 @@ use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Shell\Shell;
+use MediaWiki\Status\Status;
 use MWCryptRand;
-use Status;
 use Wikimedia\Rdbms\IDatabase;
 
 /**

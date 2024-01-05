@@ -4,11 +4,11 @@ namespace MediaWiki\Extension\SecurePoll\Talliers;
 
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Question;
+use MediaWiki\ResourceLoader\OOUIModule;
 use OOUI\Element;
 use OOUI\Tag;
 use OOUI\Theme;
 use RequestContext;
-use ResourceLoaderOOUIModule;
 
 /**
  * A STVTallier class,
@@ -461,7 +461,7 @@ class STVTallier extends Tallier {
 		$skinName = strtolower( RequestContext::getMain()->getSkin()->getSkinName() );
 		$dir = RequestContext::getMain()->getLanguage()->getDir();
 		// @phan-suppress-next-line PhanCompatibleAccessMethodOnTraitDefinition XXX FIXME
-		$themes = ResourceLoaderOOUIModule::getSkinThemeMap();
+		$themes = OOUIModule::getSkinThemeMap();
 		$theme = $themes[$skinName] ?? $themes['default'];
 		// For example, 'OOUI\WikimediaUITheme'.
 		$themeClass = "OOUI\\{$theme}Theme";

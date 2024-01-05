@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\SecurePoll\Crypt;
 
+use MediaWiki\Status\Status;
 use RuntimeException;
-use Status;
 
 class Random {
 	/** @var resource|null */

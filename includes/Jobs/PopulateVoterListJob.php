@@ -2,16 +2,16 @@
 
 namespace MediaWiki\Extension\SecurePoll\Jobs;
 
-use ActorMigration;
 use Exception;
 use Job;
 use JobSpecification;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\SpecialPage\SpecialPage;
+use MediaWiki\User\ActorMigration;
 use MediaWiki\WikiMap\WikiMap;
 use MWExceptionHandler;
 use RuntimeException;
-use SpecialPage;
 use Wikimedia\Rdbms\IDatabase;
 
 /**

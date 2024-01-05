@@ -5,7 +5,7 @@ namespace MediaWiki\Extension\SecurePoll\Pages;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\User\Voter;
 use MediaWiki\MediaWikiServices;
-use TablePager;
+use MediaWiki\Pager\TablePager;
 use Wikimedia\IPUtils;
 use Xml;
 

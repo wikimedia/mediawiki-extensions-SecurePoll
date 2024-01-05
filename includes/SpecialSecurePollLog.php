@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Extension\SecurePoll;
 
-use FormSpecialPage;
 use HTMLForm;
 use MediaWiki\Extension\SecurePoll\Pages\ActionPage;
+use MediaWiki\SpecialPage\FormSpecialPage;
 use MediaWiki\User\UserFactory;
 
 class SpecialSecurePollLog extends FormSpecialPage {

@@ -1,5 +1,8 @@
 <?php
 
+use MediaWiki\User\ActorMigration;
+use MediaWiki\User\User;
+
 /**
  * Generate a list of users with some number of edits before some date.
  *

@@ -4,7 +4,7 @@ namespace MediaWiki\Extension\SecurePoll\Store;
 
 use LogicException;
 use MediaWiki\Logger\LoggerFactory;
-use Status;
+use MediaWiki\Status\Status;
 
 /**
  * Storage class that stores all data in local memory. The memory must be

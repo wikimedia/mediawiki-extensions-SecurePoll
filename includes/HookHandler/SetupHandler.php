@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\SecurePoll\HookHandler;
 
-use Config;
+use MediaWiki\Config\Config;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePollLog;
 use MediaWiki\Hook\CanonicalNamespacesHook;
 use MediaWiki\Permissions\Hook\TitleQuickPermissionsHook;

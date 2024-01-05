@@ -5,7 +5,7 @@ namespace MediaWiki\Extension\SecurePoll\Talliers;
 use MediaWiki\Extension\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extension\SecurePoll\Crypt\Crypt;
 use MediaWiki\Extension\SecurePoll\Store\Store;
-use Status;
+use MediaWiki\Status\Status;
 
 /**
  * A class that dumps the comments from an election

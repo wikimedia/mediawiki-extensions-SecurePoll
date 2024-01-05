@@ -3,10 +3,10 @@
 namespace MediaWiki\Extension\SecurePoll;
 
 use Generator;
-use Html;
 use InvalidArgumentException;
 use MailAddress;
 use Maintenance;
+use MediaWiki\Html\Html;
 use MediaWiki\Languages\LanguageFactory;
 use MediaWiki\Languages\LanguageFallback;
 use MediaWiki\MediaWikiServices;

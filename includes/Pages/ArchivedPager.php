@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Extension\SecurePoll\Pages;
 
-use Html;
-use IndexPager;
+use MediaWiki\Html\Html;
 use MediaWiki\Linker\LinkRenderer;
+use MediaWiki\Pager\IndexPager;
 use Wikimedia\Rdbms\ILoadBalancer;
 
 /**

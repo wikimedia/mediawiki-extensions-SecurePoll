@@ -2,11 +2,11 @@
 
 namespace MediaWiki\Extension\SecurePoll;
 
-use Html;
-use Linker;
 use MediaWiki\Extension\SecurePoll\Pages\ActionPage;
+use MediaWiki\Html\Html;
+use MediaWiki\Linker\Linker;
+use MediaWiki\Pager\ReverseChronologicalPager;
 use MediaWiki\User\UserFactory;
-use ReverseChronologicalPager;
 
 class SecurePollLogPager extends ReverseChronologicalPager {
 	/** @var Context */

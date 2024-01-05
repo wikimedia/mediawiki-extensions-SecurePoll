@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\SecurePoll\Store;
 
-use Status;
+use MediaWiki\Status\Status;
 use stdClass;
 use Wikimedia\Rdbms\IDatabase;
 

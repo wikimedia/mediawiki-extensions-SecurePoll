@@ -9,9 +9,9 @@ use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Entities\Entity;
 use MediaWiki\Extension\SecurePoll\Entities\Question;
+use MediaWiki\Request\WebRequest;
+use MediaWiki\Status\Status;
 use MessageLocalizer;
-use Status;
-use WebRequest;
 
 /**
  * Parent class for ballot forms. This is the UI component of a voting method.

@@ -2,14 +2,14 @@
 
 namespace MediaWiki\Extension\SecurePoll;
 
-use CommentStoreComment;
-use Config;
+use MediaWiki\CommentStore\CommentStoreComment;
+use MediaWiki\Config\Config;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Page\WikiPageFactory;
 use MediaWiki\Revision\SlotRecord;
+use MediaWiki\User\User;
 use MediaWiki\WikiMap\WikiMap;
 use MWExceptionHandler;
-use User;
 use Wikimedia\Rdbms\DBError;
 use Wikimedia\Rdbms\ILoadBalancer;
 use Wikimedia\Rdbms\LBFactory;

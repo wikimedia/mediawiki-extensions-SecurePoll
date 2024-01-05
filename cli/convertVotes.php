@@ -13,6 +13,7 @@ use MediaWiki\Extension\SecurePoll\Crypt\Crypt;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Store\MemoryStore;
 use MediaWiki\Extension\SecurePoll\VoteRecord;
+use MediaWiki\Status\Status;
 
 class ConvertVotes extends Maintenance {
 	/**

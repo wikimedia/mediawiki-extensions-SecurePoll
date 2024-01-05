@@ -4,7 +4,7 @@ namespace MediaWiki\Extension\SecurePoll\Entities;
 
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\MediaWikiServices;
-use SpecialPage;
+use MediaWiki\SpecialPage\SpecialPage;
 use Xml;
 
 /**

@@ -11,10 +11,10 @@ use MediaWiki\Extension\SecurePoll\User\Voter;
 use MediaWiki\Languages\LanguageFallback;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\Options\UserOptionsLookup;
+use MediaWiki\User\User;
 use Message;
 use MessageLocalizer;
 use MessageSpecifier;
-use User;
 
 /**
  * Parent class for Special:SecurePoll subpages.
