@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\SecurePoll;
 use Maintenance;
 use MediaWiki\Extension\CentralAuth\CentralAuthServices;
 use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\IReadableDatabase;
 
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
@@ -14,7 +15,7 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 require_once "$IP/maintenance/Maintenance.php";
 
 class ImportGlobalVoterList extends Maintenance {
-	/** @var IDatabase */
+	/** @var IReadableDatabase */
 	private $dbcr;
 	/** @var IDatabase */
 	private $dbcw;
@@ -34,8 +35,8 @@ class ImportGlobalVoterList extends Maintenance {
 
 	public function execute() {
 		$caDbManager = CentralAuthServices::getDatabaseManager();
-		$this->dbcr = $caDbManager->getCentralDB( DB_REPLICA );
-		$this->dbcw = $caDbManager->getCentralDB( DB_PRIMARY );
+		$this->dbcr = $caDbManager->getCentralReplicaDB();
+		$this->dbcw = $caDbManager->getCentralPrimaryDB();
 
 		$this->listName = $this->getOption( 'list-name' );
 		if ( $this->hasOption( 'delete' ) ) {

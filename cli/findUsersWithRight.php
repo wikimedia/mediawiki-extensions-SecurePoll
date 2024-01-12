@@ -105,7 +105,7 @@ class FindUsersWithRight extends Maintenance {
 		if ( $this->centralList && $this->centralAuthLoaded ) {
 			$centralIdLookup = $services->getCentralIdLookup();
 			$caDbManager = CentralAuthServices::getDatabaseManager();
-			$dbcw = $caDbManager->getCentralDB( DB_PRIMARY );
+			$dbcw = $caDbManager->getCentralPrimaryDB();
 
 			foreach ( $res as $row ) {
 				$user = new UserIdentityValue( (int)$row->user_id, $row->user_name );
@@ -132,7 +132,7 @@ class FindUsersWithRight extends Maintenance {
 		}
 		$services = MediaWikiServices::getInstance();
 		$caDbManager = CentralAuthServices::getDatabaseManager();
-		$dbcr = $caDbManager->getCentralDB( DB_REPLICA );
+		$dbcr = $caDbManager->getCentralReplicaDB();
 
 		// Get a list of users, ignoring restrictions and expiry
 		$res = $dbcr->newSelectQueryBuilder()
@@ -168,7 +168,7 @@ class FindUsersWithRight extends Maintenance {
 			}
 		}
 		if ( $centralIds && $this->centralList ) {
-			$dbcw = $caDbManager->getCentralDB( DB_PRIMARY );
+			$dbcw = $caDbManager->getCentralPrimaryDB();
 			foreach ( $centralIds as $id ) {
 				$this->addToList( $dbcw, $this->centralList, $id );
 			}
