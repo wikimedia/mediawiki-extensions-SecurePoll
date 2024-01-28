@@ -157,7 +157,7 @@
 	"securepoll-round": "Ronda $1",
 	"securepoll-spoilt": "(Danificadas)",
 	"securepoll-exhausted": "(Esgotadas)",
-	"securepoll-htmlform-daterange-end-before-start": "A data de término fornecida é anterior à de início.",
+	"securepoll-htmlform-daterange-end-before-start": "A data de fim fornecida é anterior à de início.",
 	"securepoll-htmlform-radiorange-missing-message": "Especifique um valor para a coluna $1, por favor",
 	"securepoll-create-title": "{{int:securepoll}}: Criar sondagem",
 	"securepoll-create-action": "Criar sondagem",
