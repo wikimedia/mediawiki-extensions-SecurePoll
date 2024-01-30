@@ -13,6 +13,7 @@ use MediaWiki\Extension\SecurePoll\User\Auth;
 use MediaWiki\Extension\SecurePoll\User\RemoteMWAuth;
 use MediaWiki\Extension\SecurePoll\User\Voter;
 use MediaWiki\Extension\SecurePoll\VoteRecord;
+use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Html\Html;
 use MediaWiki\Session\SessionManager;
 use MediaWiki\Status\Status;
@@ -44,16 +45,16 @@ class VotePage extends ActionPage {
 	/**
 	 * @param SpecialSecurePoll $specialPage
 	 * @param ILoadBalancer $loadBalancer
-	 * @param HookRunner $hookRunner
+	 * @param HookContainer $hookContainer
 	 */
 	public function __construct(
 		SpecialSecurePoll $specialPage,
 		ILoadBalancer $loadBalancer,
-		HookRunner $hookRunner
+		HookContainer $hookContainer
 	) {
 		parent::__construct( $specialPage );
 		$this->loadBalancer = $loadBalancer;
-		$this->hookRunner = $hookRunner;
+		$this->hookRunner = new HookRunner( $hookContainer );
 	}
 
 	/**

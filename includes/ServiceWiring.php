@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\SecurePoll;
 
-use MediaWiki\Extension\SecurePoll\Hooks\HookRunner;
 use MediaWiki\MediaWikiServices;
 
 // PHP unit does not understand code coverage for this file
@@ -16,11 +15,6 @@ return [
 			$services->getObjectFactory(),
 			$services->getUserOptionsLookup(),
 			$services->getLanguageFallback()
-		);
-	},
-	'SecurePoll.HookRunner' => static function ( MediaWikiServices $services ) {
-		return new HookRunner(
-			$services->getHookContainer()
 		);
 	},
 	'SecurePoll.TranslationRepo' => static function ( MediaWikiServices $services ) {
