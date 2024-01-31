@@ -10,14 +10,14 @@ use MediaWiki\MediaWikiServices;
 // @codeCoverageIgnoreStart
 
 return [
-	'SecurePoll.ActionPageFactory' => static function ( MediaWikiServices $services ) {
+	'SecurePoll.ActionPageFactory' => static function ( MediaWikiServices $services ): ActionPageFactory {
 		return new ActionPageFactory(
 			$services->getObjectFactory(),
 			$services->getUserOptionsLookup(),
 			$services->getLanguageFallback()
 		);
 	},
-	'SecurePoll.TranslationRepo' => static function ( MediaWikiServices $services ) {
+	'SecurePoll.TranslationRepo' => static function ( MediaWikiServices $services ): TranslationRepo {
 		return new TranslationRepo(
 			$services->getDBLoadBalancerFactory(),
 			$services->getWikiPageFactory(),
