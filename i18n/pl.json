@@ -8,7 +8,8 @@
 			"Nadzik",
 			"Renessaince",
 			"Saper",
-			"Sp5uhe"
+			"Sp5uhe",
+			"Msz2001"
 		]
 	},
 	"securepoll": "Bezpieczne głosowanie",
@@ -69,7 +70,7 @@
 	"securepoll-header-cookie-dup": "Podwójny",
 	"securepoll-header-strike": "Skreślony",
 	"securepoll-header-details": "Szczegóły",
-	"securepoll-vote-duplicate": "Duplikuj",
+	"securepoll-vote-duplicate": "Dupl. cookies",
 	"securepoll-strike-button": "Skreśl",
 	"securepoll-unstrike-button": "Usuń skreślenie",
 	"securepoll-strike-reason": "Powód",
