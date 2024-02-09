@@ -102,7 +102,6 @@ TranslationImporter.prototype.getPageContent = function ( page, pageId ) {
 };
 
 /**
- *
  * @param {string} update information about import progress
  */
 TranslationImporter.prototype.update = function ( update ) {
@@ -153,7 +152,6 @@ TranslationImporter.prototype.saveContent = function ( content, language ) {
 };
 
 /**
- *
  * @param {string} language
  * @return {string} url for rest endpoint
  */
