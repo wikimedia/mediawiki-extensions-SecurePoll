@@ -27,7 +27,8 @@
 			"飞舞回堂前",
 			"LuciferianThomas",
 			"SunAfterRain",
-			"捍粵者"
+			"捍粵者",
+			"H78c67c"
 		]
 	},
 	"securepoll": "安全投票",
@@ -274,7 +275,7 @@
 	"securepoll-votereligibility-label-include_groups": "包含這些群組中的使用者，不論編輯次數或其他群組",
 	"securepoll-votereligibility-label-names": "使用者名稱",
 	"securepoll-votereligibility-label-comment": "原因",
-	"securepoll-votereligibility-action": "儲存設定",
+	"securepoll-votereligibility-action": "儲存組態設定",
 	"securepoll-votereligibility-fail-nothing-to-process": "已請求自動產生 {{int:securepoll-votereligibility-voter}}，但未填寫條件。",
 	"securepoll-votereligibility-edit-title": "選民清單編輯：$1",
 	"securepoll-votereligibility-edit-header": "於下方文字欄位輸入使用者名稱清單，一筆一行。於指定wiki上的使用者可在名稱後方加上 '@' 並接著專案名稱以辨識。例如：User:Example於中文維基百科可以使用 \"Example@zhwiki\" 表示。\n\n使用者名稱將在表單送出後查詢，若使用者不存在則會直接略過。 無效的使用者也會直接略過。",
