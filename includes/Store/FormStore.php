@@ -66,6 +66,8 @@ class FormStore extends MemoryStore {
 
 		$this->remoteWikis = array_diff( $wikis, [ WikiMap::getCurrentWikiId() ] );
 
+		$cryptTypes = Crypt::getCryptTypes();
+
 		// Create the entry for the election
 		[ $ballot, $tally ] = explode( '+', $formData['election_type'] );
 		$ballotTypes = $context->getBallotTypesForVote();
@@ -172,7 +174,7 @@ class FormStore extends MemoryStore {
 		$this->processFormData(
 			$eId,
 			$formData,
-			Crypt::$cryptTypes[$crypt],
+			$cryptTypes[$crypt],
 			'election'
 		);
 
@@ -210,7 +212,7 @@ class FormStore extends MemoryStore {
 			$this->processFormData(
 				$qId,
 				$question,
-				Crypt::$cryptTypes[$crypt],
+				$cryptTypes[$crypt],
 				'question'
 			);
 
@@ -248,7 +250,7 @@ class FormStore extends MemoryStore {
 				$this->processFormData(
 					$oId,
 					$option,
-					Crypt::$cryptTypes[$crypt],
+					$cryptTypes[$crypt],
 					'option'
 				);
 

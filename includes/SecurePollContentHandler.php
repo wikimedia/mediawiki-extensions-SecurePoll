@@ -39,11 +39,7 @@ class SecurePollContentHandler extends JsonContentHandler {
 		if ( $subpage === '' ) {
 			$properties = $election->getAllProperties();
 			if ( $useExclusion ) {
-				$excludedNames = array_flip( $election->getPropertyDumpExclusion() ) + [
-					'gpg-encrypt-key' => true,
-					'gpg-sign-key' => true,
-					'gpg-decrypt-key' => true,
-				];
+				$excludedNames = array_flip( $election->getPropertyDumpExclusion() );
 
 				foreach ( $properties as $k => $v ) {
 					if ( isset( $excludedNames[$k] ) ) {

@@ -72,7 +72,7 @@ class PurgeDecryptionKeys extends Maintenance {
 			],
 			[
 				'el_end_date < ' . $dbr->addQuotes( $dbr->timestamp( $before ) ),
-				'pr_key' => 'gpg-decrypt-key',
+				'pr_key' => [ 'gpg-decrypt-key', 'openssl-decrypt-key' ],
 			],
 			__METHOD__,
 			[],
@@ -116,7 +116,7 @@ class PurgeDecryptionKeys extends Maintenance {
 					->deleteFrom( 'securepoll_properties' )
 					->where( [
 						'pr_entity' => $electionID,
-						'pr_key' => 'gpg-decrypt-key'
+						'pr_key' => [ 'gpg-decrypt-key', 'openssl-decrypt-key' ],
 					] )
 					->caller( __METHOD__ )
 					->execute();

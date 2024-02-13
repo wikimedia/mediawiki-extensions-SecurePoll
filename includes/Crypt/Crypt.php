@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\SecurePoll\Crypt;
 use InvalidArgumentException;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
+use MediaWiki\Shell\Shell;
 use MediaWiki\Status\Status;
 use Wikimedia\Rdbms\IDatabase;
 
@@ -42,25 +43,41 @@ abstract class Crypt {
 	 */
 	abstract public function canDecrypt();
 
-	/** @var (class-string|false)[] */
-	public static $cryptTypes = [
-		'none' => false,
-		'gpg' => GpgCrypt::class,
-	];
+	/**
+	 * Returns a list of supported Crypt subclasses for encrypting votes.
+	 *
+	 * @return (class-string|false)[]
+	 */
+	public static function getCryptTypes() {
+		$cryptTypes = [
+			'none' => false
+		];
+
+		if ( !Shell::isDisabled() ) {
+			$cryptTypes['gpg'] = GpgCrypt::class;
+		}
+
+		if ( extension_loaded( 'openssl' ) ) {
+			$cryptTypes['openssl'] = OpenSslCrypt::class;
+		}
+
+		return $cryptTypes;
+	}
 
 	/**
-	 * Create an encryption object of the given type. Currently only "gpg" is
-	 * implemented.
+	 * Create an encryption object of the given type.
 	 * @param Context $context
 	 * @param string $type
 	 * @param Election $election
 	 * @return self|false False when encryption type is set to "none"
 	 */
 	public static function factory( $context, $type, $election ) {
-		if ( !isset( self::$cryptTypes[$type] ) ) {
+		$cryptTypes = self::getCryptTypes();
+
+		if ( !isset( $cryptTypes[$type] ) ) {
 			throw new InvalidArgumentException( "Invalid crypt type: $type" );
 		}
-		$class = self::$cryptTypes[$type];
+		$class = $cryptTypes[$type];
 
 		return $class ? new $class( $context, $election ) : false;
 	}

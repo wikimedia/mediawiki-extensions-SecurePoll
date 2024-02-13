@@ -81,6 +81,12 @@ use Xml;
  *          gpg-sign-key
  *          gpg-decrypt-key
  *
+ *      OpenSslCrypt
+ *          openssl-encrypt-key
+ *          openssl-sign-key
+ *          openssl-decrypt-key
+ *          openssl-verify-key
+ *
  *      VotePage
  *          jump-url
  *          jump-id
@@ -544,7 +550,10 @@ class Election extends Entity {
 			return [
 				'gpg-encrypt-key',
 				'gpg-sign-key',
-				'gpg-decrypt-key'
+				'gpg-decrypt-key',
+				'openssl-encrypt-key',
+				'openssl-sign-key',
+				'openssl-decrypt-key'
 			];
 		} else {
 			return [];

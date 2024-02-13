@@ -263,7 +263,8 @@ class CreatePage extends ActionPage {
 			'disabled' => $isRunning,
 		];
 
-		if ( count( Crypt::$cryptTypes ) > 1 ) {
+		$cryptTypes = Crypt::getCryptTypes();
+		if ( count( $cryptTypes ) > 1 ) {
 			$formItems['election_crypt'] = [
 				'label-message' => 'securepoll-create-label-election_crypt',
 				'type' => 'radio',
@@ -272,10 +273,10 @@ class CreatePage extends ActionPage {
 				'disabled' => $isRunning,
 			];
 		} else {
-			reset( Crypt::$cryptTypes );
+			reset( $cryptTypes );
 			$formItems['election_crypt'] = [
 				'type' => 'hidden',
-				'default' => key( Crypt::$cryptTypes ),
+				'default' => key( $cryptTypes ),
 				'options-messages' => [],
 				// dummy, ignored
 			];
@@ -443,7 +444,7 @@ class CreatePage extends ActionPage {
 			);
 		}
 
-		foreach ( Crypt::$cryptTypes as $type => $class ) {
+		foreach ( Crypt::getCryptTypes() as $type => $class ) {
 			$formItems['election_crypt']['options-messages']["securepoll-create-option-election_crypt-$type"]
 				= $type;
 			if ( $class !== false ) {
@@ -1044,7 +1045,7 @@ class CreatePage extends ActionPage {
 				$classes[] = $class;
 			}
 		}
-		foreach ( Crypt::$cryptTypes as $class ) {
+		foreach ( Crypt::getCryptTypes() as $class ) {
 			if ( $class !== false ) {
 				$classes[] = $class;
 			}
