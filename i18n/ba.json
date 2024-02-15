@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Assele",
+			"Bashkorttan",
 			"Haqmar",
 			"Kareyac",
 			"Айсар",
@@ -69,7 +70,7 @@
 	"securepoll-invalid-vote": "\"$1\" — тауыш биреүҙең рөхсәт ителмәгән идентификаторы",
 	"securepoll-header-voter-type": "Тауыш биреүсе төрө",
 	"securepoll-voter-properties": "Һайлаусы үҙенсәлектәре",
-	"securepoll-strike-log": "Һыҙыу яҙмалары журналы",
+	"securepoll-strike-log": "Өҫтөн һыҙыу журналы",
 	"securepoll-header-action": "Ғәмәл",
 	"securepoll-header-reason": "Сәбәп",
 	"securepoll-header-admin": "Хаким",
