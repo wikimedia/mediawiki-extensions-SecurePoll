@@ -55,12 +55,7 @@ class ListPage extends ActionPage {
 		}
 		$this->initLanguage( $this->specialPage->getUser(), $this->election );
 
-		$out->setPageTitle(
-			$this->msg(
-				'securepoll-list-title',
-				$this->election->getMessage( 'title' )
-			)->text()
-		);
+		$out->setPageTitleMsg( $this->msg( 'securepoll-list-title', $this->election->getMessage( 'title' ) ) );
 
 		$isAdmin = $this->election->isAdmin( $this->specialPage->getUser() );
 

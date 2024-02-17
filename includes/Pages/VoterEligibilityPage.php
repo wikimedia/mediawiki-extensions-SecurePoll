@@ -435,7 +435,7 @@ class VoterEligibilityPage extends ActionPage {
 			'mediawiki.widgets.TagMultiselectWidget.styles',
 			'ext.securepoll',
 		] );
-		$out->setPageTitle( $this->msg( 'securepoll-votereligibility-title' ) );
+		$out->setPageTitleMsg( $this->msg( 'securepoll-votereligibility-title' ) );
 
 		$formItems = [];
 
@@ -833,7 +833,7 @@ class VoterEligibilityPage extends ActionPage {
 		$result = $form->show();
 
 		if ( $result === true || ( $result instanceof Status && $result->isGood() ) ) {
-			$out->setPageTitle( $this->msg( 'securepoll-votereligibility-saved' ) );
+			$out->setPageTitleMsg( $this->msg( 'securepoll-votereligibility-saved' ) );
 			$out->addWikiMsg( 'securepoll-votereligibility-saved-text' );
 			$out->returnToMain( false, SpecialPage::getTitleFor( 'SecurePoll' ) );
 		}
@@ -1157,7 +1157,7 @@ class VoterEligibilityPage extends ActionPage {
 		}
 
 		$out->addModuleStyles( 'ext.securepoll' );
-		$out->setPageTitle( $this->msg( 'securepoll-votereligibility-edit-title', $name ) );
+		$out->setPageTitleMsg( $this->msg( 'securepoll-votereligibility-edit-title', $name ) );
 
 		$formItems = [];
 
@@ -1194,7 +1194,7 @@ class VoterEligibilityPage extends ActionPage {
 		$result = $form->show();
 
 		if ( $result === true || ( $result instanceof Status && $result->isGood() ) ) {
-			$out->setPageTitle( $this->msg( 'securepoll-votereligibility-saved' ) );
+			$out->setPageTitleMsg( $this->msg( 'securepoll-votereligibility-saved' ) );
 			$out->addWikiMsg( 'securepoll-votereligibility-saved-text' );
 			$out->returnToMain(
 				false,
@@ -1219,7 +1219,7 @@ class VoterEligibilityPage extends ActionPage {
 		$name = $this->msg( "securepoll-votereligibility-$which" )->text();
 
 		$out = $this->specialPage->getOutput();
-		$out->setPageTitle( $this->msg( 'securepoll-votereligibility-clear-title', $name ) );
+		$out->setPageTitleMsg( $this->msg( 'securepoll-votereligibility-clear-title', $name ) );
 
 		$wikis = $this->election->getProperty( 'wikis' );
 		if ( $wikis ) {
@@ -1326,7 +1326,7 @@ class VoterEligibilityPage extends ActionPage {
 			);
 		}
 
-		$out->setPageTitle( $this->msg( 'securepoll-votereligibility-cleared' ) );
+		$out->setPageTitleMsg( $this->msg( 'securepoll-votereligibility-cleared' ) );
 		$out->addWikiMsg( 'securepoll-votereligibility-cleared-text', $name );
 		$out->returnToMain(
 			false,

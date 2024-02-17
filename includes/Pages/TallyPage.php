@@ -67,9 +67,7 @@ class TallyPage extends ActionPage {
 
 		$user = $this->specialPage->getUser();
 		$this->initLanguage( $user, $this->election );
-		$out->setPageTitle(
-			$this->msg( 'securepoll-tally-title', $this->election->getMessage( 'title' ) )->text()
-		);
+		$out->setPageTitleMsg( $this->msg( 'securepoll-tally-title', $this->election->getMessage( 'title' ) ) );
 
 		if ( !$this->election->isAdmin( $user ) ) {
 			$out->addWikiMsg( 'securepoll-need-admin' );

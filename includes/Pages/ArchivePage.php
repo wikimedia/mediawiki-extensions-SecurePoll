@@ -49,12 +49,7 @@ class ArchivePage extends ActionPage {
 			return;
 		}
 
-		$out->setPageTitle(
-			$this->msg(
-				'securepoll-archive-title',
-				$this->election->getMessage( 'title' )
-			)->text()
-		);
+		$out->setPageTitleMsg( $this->msg( 'securepoll-archive-title', $this->election->getMessage( 'title' ) ) );
 
 		$isAdmin = $this->election->isAdmin( $this->specialPage->getUser() );
 

@@ -38,11 +38,7 @@ class ArchivedPage extends ActionPage {
 		$out = $this->specialPage->getOutput();
 		$out->enableOOUI();
 
-		$out->setPageTitle(
-			$this->msg(
-				'securepoll-archived-title'
-			)->text()
-		);
+		$out->setPageTitleMsg( $this->msg( 'securepoll-archived-title' ) );
 
 		$pager = new ArchivedPager( $this, $this->linkRenderer, $this->loadBalancer );
 		$out->addWikiMsg( 'securepoll-entry-text' );

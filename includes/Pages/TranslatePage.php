@@ -64,12 +64,7 @@ class TranslatePage extends ActionPage {
 			return;
 		}
 		$this->initLanguage( $this->specialPage->getUser(), $this->election );
-		$out->setPageTitle(
-			$this->msg(
-				'securepoll-translate-title',
-				$this->election->getMessage( 'title' )
-			)->text()
-		);
+		$out->setPageTitleMsg( $this->msg( 'securepoll-translate-title', $this->election->getMessage( 'title' ) ) );
 
 		$jumpUrl = $this->election->getProperty( 'jump-url' );
 		if ( $jumpUrl ) {

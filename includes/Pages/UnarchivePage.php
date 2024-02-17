@@ -51,12 +51,7 @@ class UnarchivePage extends ActionPage {
 			return;
 		}
 
-		$out->setPageTitle(
-			$this->msg(
-				'securepoll-unarchive-title',
-				$this->election->getMessage( 'title' )
-			)->text()
-		);
+		$out->setPageTitleMsg( $this->msg( 'securepoll-unarchive-title', $this->election->getMessage( 'title' ) ) );
 
 		$isAdmin = $this->election->isAdmin( $this->specialPage->getUser() );
 

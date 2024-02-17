@@ -79,12 +79,7 @@ class DetailsPage extends ActionPage {
 			return;
 		}
 		// Show vote properties
-		$out->setPageTitle(
-			$this->msg(
-				'securepoll-details-title',
-				$this->voteId
-			)->text()
-		);
+		$out->setPageTitleMsg( $this->msg( 'securepoll-details-title', $this->voteId ) );
 
 		$out->addHTML(
 			'<table class="mw-datatable TablePager">' . $this->detailEntry(

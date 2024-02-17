@@ -82,7 +82,7 @@ class CreatePage extends ActionPage {
 		$out = $this->specialPage->getOutput();
 
 		if ( $params ) {
-			$out->setPageTitle( $this->msg( 'securepoll-edit-title' ) );
+			$out->setPageTitleMsg( $this->msg( 'securepoll-edit-title' ) );
 			$electionId = intval( $params[0] );
 			$this->election = $this->context->getElection( $electionId );
 			if ( !$this->election ) {
@@ -126,7 +126,7 @@ class CreatePage extends ActionPage {
 				return;
 			}
 		} else {
-			$out->setPageTitle( $this->msg( 'securepoll-create-title' ) );
+			$out->setPageTitleMsg( $this->msg( 'securepoll-create-title' ) );
 			if ( !$this->specialPage->getUser()->isAllowed( 'securepoll-create-poll' ) ) {
 				throw new PermissionsError( 'securepoll-create-poll' );
 			}
@@ -540,10 +540,10 @@ class CreatePage extends ActionPage {
 		$result = $form->tryAuthorizedSubmit();
 		if ( $result === true || ( $result instanceof Status && $result->isGood() ) ) {
 			if ( $this->election ) {
-				$out->setPageTitle( $this->msg( 'securepoll-edit-edited' ) );
+				$out->setPageTitleMsg( $this->msg( 'securepoll-edit-edited' ) );
 				$out->addWikiMsg( 'securepoll-edit-edited-text' );
 			} else {
-				$out->setPageTitle( $this->msg( 'securepoll-create-created' ) );
+				$out->setPageTitleMsg( $this->msg( 'securepoll-create-created' ) );
 				$out->addWikiMsg( 'securepoll-create-created-text' );
 			}
 			$out->returnToMain( false, SpecialPage::getTitleFor( 'SecurePoll' ) );

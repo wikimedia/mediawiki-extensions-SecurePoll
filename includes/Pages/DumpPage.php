@@ -31,12 +31,7 @@ class DumpPage extends ActionPage {
 		}
 		$this->initLanguage( $this->specialPage->getUser(), $this->election );
 
-		$out->setPageTitle(
-			$this->msg(
-				'securepoll-dump-title',
-				$this->election->getMessage( 'title' )
-			)->text()
-		);
+		$out->setPageTitleMsg( $this->msg( 'securepoll-dump-title', $this->election->getMessage( 'title' ) ) );
 
 		if ( !$this->election->isFinished() ) {
 			$out->addWikiMsg(
