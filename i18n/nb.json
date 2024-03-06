@@ -28,7 +28,7 @@
 	"securepoll-change-allowed": "<strong>Bemerk: Du har allerede stemt i dette valget.</strong>\nDu kan endre stemmen din ved å sende inn skjemaet nedenfor.\nBemerk at dersom du gjør dette vil den opprinnelige stemmen din bli forkastet.",
 	"securepoll-header-comments": "Kommentarer",
 	"securepoll-submit": "Avgi stemme",
-	"securepoll-gpg-receipt": "Takk for at du avga stemme.\n\nDersom du ønsker det kan du ta vare på følgende kvittering som bevis på din stemme:\n\n<pre>$1</pre>",
+	"securepoll-gpg-receipt": "Hvis du vil kan du ta vare på denne kvitteringen på at du har stemt:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "Takk, stemmen din har blitt registrert.",
 	"securepoll-return": "Tilbake til $1",
 	"securepoll-encrypt-error": "Klarte ikke å kryptere din stemme.\nStemmen har ikke blitt registrert!\n\n$1",

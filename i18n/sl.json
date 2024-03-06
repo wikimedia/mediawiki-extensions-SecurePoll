@@ -41,7 +41,7 @@
 	"securepoll-unranked-options": "Nekatere možnosti niso bile uvrščene.\nVsem možnostim morate določiti uvrstitev med 1 in 999.",
 	"securepoll-invalid-score": "Ocena mora biti število med $1 in $2.",
 	"securepoll-unanswered-options": "Odgovoriti morate na vsako vprašanje.",
-	"securepoll-remote-auth-error": "Napaka pri pridobivanju informacij o vašem računu s strežnika.",
+	"securepoll-remote-auth-error": "Napaka pri pridobivanju informacij o vašem računu iz strežnika.",
 	"securepoll-remote-parse-error": "Napaka pri tolmačenju pooblastitvenega odgovora strežnika.",
 	"securepoll-api-invalid-params": "Neveljavni parametri.",
 	"securepoll-api-no-user": "Najden ni bil noben uporabnik z navedenim ID-jem.",

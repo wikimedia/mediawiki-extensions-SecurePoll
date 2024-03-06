@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Spacebirdy",
-			"Sveinn í Felli"
+			"Sveinn í Felli",
+			"Stefán Örvar Sigmundsson"
 		]
 	},
 	"securepoll-welcome": "<strong>{{GENDER:$1|Velkominn|Velkomin|Velkomin(n)}}, $1!</strong>",
@@ -11,7 +12,7 @@
 	"securepoll-header-timestamp": "Tími",
 	"securepoll-header-voter-name": "Nafn",
 	"securepoll-header-voter-domain": "Lén",
-	"securepoll-header-ua": "Aðgangsbúnaður",
+	"securepoll-header-ua": "Notandaútsendari:",
 	"securepoll-header-details": "Nánar",
 	"securepoll-strike-reason": "Ástæða:",
 	"securepoll-details-link": "Nánar",
