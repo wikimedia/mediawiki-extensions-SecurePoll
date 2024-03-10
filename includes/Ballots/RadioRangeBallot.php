@@ -144,7 +144,7 @@ class RadioRangeBallot extends Ballot {
 	 */
 	public function getScoresLeftToRight( $question ) {
 		$incr = $this->getColumnDirection( $question );
-		list( $min, $max ) = $this->getMinMax( $question );
+		[ $min, $max ] = $this->getMinMax( $question );
 		if ( $incr > 0 ) {
 			$left = $min;
 			$right = $max;
@@ -193,7 +193,7 @@ class RadioRangeBallot extends Ballot {
 				"Expecting instance of Question, got $class instead"
 			);
 		}
-		list( $min, $max ) = $this->getMinMax( $entity );
+		[ $min, $max ] = $this->getMinMax( $entity );
 		for ( $score = $min; $score <= $max; $score++ ) {
 			$signedScore = $this->addSign( $entity, $score );
 			$msgs[] = "column$signedScore";
@@ -273,7 +273,7 @@ class RadioRangeBallot extends Ballot {
 		$options = $question->getOptions();
 		$record = '';
 		$ok = true;
-		list( $min, $max ) = $this->getMinMax( $question );
+		[ $min, $max ] = $this->getMinMax( $question );
 		$defaultScore = $question->getProperty( 'default-score' );
 		foreach ( $options as $option ) {
 			$id = 'securepoll_q' . $question->getId() . '_opt' . $option->getId();
@@ -357,7 +357,7 @@ class RadioRangeBallot extends Ballot {
 				return false;
 			}
 
-			list( $min, $max ) = $this->getMinMax( $questions[$qid] );
+			[ $min, $max ] = $this->getMinMax( $questions[$qid] );
 			if ( $score < $min || $score > $max ) {
 				wfDebug( __METHOD__ . ": score out of range\n" );
 				return false;

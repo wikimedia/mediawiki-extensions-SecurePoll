@@ -54,7 +54,7 @@ class RemoteMWAuth extends Auth {
 		// Get the site and language from $wgConf, if necessary.
 		if ( !isset( $params['site'] ) || !isset( $params['lang'] ) ) {
 			// @phan-suppress-next-line PhanTypeMismatchArgumentNullable
-			list( $site, $lang ) = $wgConf->siteFromDB( $params['wiki'] );
+			[ $site, $lang ] = $wgConf->siteFromDB( $params['wiki'] );
 			if ( !isset( $params['site'] ) ) {
 				$params['site'] = $site;
 				$vars['$site'] = $site;

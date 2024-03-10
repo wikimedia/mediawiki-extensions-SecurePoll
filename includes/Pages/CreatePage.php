@@ -887,7 +887,7 @@ class CreatePage extends ActionPage {
 
 			$election = $context->getElection( $eId );
 
-			list( $title, $content ) = SecurePollContentHandler::makeContentFromElection(
+			[ $title, $content ] = SecurePollContentHandler::makeContentFromElection(
 				$election
 			);
 			$wp = $this->wikiPageFactory->newFromTitle( $title );
@@ -897,7 +897,7 @@ class CreatePage extends ActionPage {
 				$formData['comment']
 			);
 
-			list( $title, $content ) = SecurePollContentHandler::makeContentFromElection(
+			[ $title, $content ] = SecurePollContentHandler::makeContentFromElection(
 				$election,
 				'msg/' . $election->getLanguage()
 			);

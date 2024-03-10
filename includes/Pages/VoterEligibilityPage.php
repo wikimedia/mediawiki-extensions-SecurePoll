@@ -228,7 +228,7 @@ class VoterEligibilityPage extends ActionPage {
 			$context = new Context;
 			$election = $context->getElection( $this->election->getId() );
 
-			list( $title, $content ) = SecurePollContentHandler::makeContentFromElection(
+			[ $title, $content ] = SecurePollContentHandler::makeContentFromElection(
 				$election
 			);
 			$wp = $this->wikiPageFactory->newFromTitle( $title );
@@ -408,7 +408,7 @@ class VoterEligibilityPage extends ActionPage {
 			$context = new Context;
 			$election = $context->getElection( $this->election->getId() );
 
-			list( $title, $content ) = SecurePollContentHandler::makeContentFromElection(
+			[ $title, $content ] = SecurePollContentHandler::makeContentFromElection(
 				$election
 			);
 			$wp = $this->wikiPageFactory->newFromTitle( $title );
@@ -1307,7 +1307,7 @@ class VoterEligibilityPage extends ActionPage {
 			$context = new Context;
 			$election = $context->getElection( $this->election->getId() );
 
-			list( $title, $content ) = SecurePollContentHandler::makeContentFromElection(
+			[ $title, $content ] = SecurePollContentHandler::makeContentFromElection(
 				$election
 			);
 			$wp = $this->wikiPageFactory->newFromTitle( $title );

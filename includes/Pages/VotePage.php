@@ -224,7 +224,8 @@ class VotePage extends ActionPage {
 					'label' => $this->msg( 'securepoll-submit' )->text(),
 					'flags' => [ 'primary', 'progressive' ],
 					'type' => 'submit',
-			] ) ),
+				] )
+			),
 			new \OOUI\HiddenInputWidget( [
 				'name' => 'edit_token',
 				'value' => SessionManager::getGlobalSession()->getToken()->toString(),

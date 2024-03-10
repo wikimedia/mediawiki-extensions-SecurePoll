@@ -59,7 +59,7 @@ class RadioRangeCommentBallot extends RadioRangeBallot {
 
 				return false;
 			}
-			list( $min, $max ) = $this->getMinMax( $questions[$qid] );
+			[ $min, $max ] = $this->getMinMax( $questions[$qid] );
 			if ( $score < $min || $score > $max ) {
 				wfDebug( __METHOD__ . ": score out of range\n" );
 

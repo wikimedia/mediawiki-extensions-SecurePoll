@@ -67,7 +67,7 @@ class FormStore extends MemoryStore {
 		$this->remoteWikis = array_diff( $wikis, [ WikiMap::getCurrentWikiId() ] );
 
 		// Create the entry for the election
-		list( $ballot, $tally ) = explode( '+', $formData['election_type'] );
+		[ $ballot, $tally ] = explode( '+', $formData['election_type'] );
 		$ballotTypes = $context->getBallotTypesForVote();
 		if ( !isset( $ballotTypes[$ballot] ) ) {
 			// This should not be reachable by normal user input since the

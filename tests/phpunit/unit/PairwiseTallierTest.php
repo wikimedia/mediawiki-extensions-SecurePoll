@@ -24,7 +24,7 @@ class PairwiseTallierTest extends MediaWikiUnitTestCase {
 			$option->method( 'getMessage' )
 				->willReturn( $message );
 			return $option;
-		}, [ 1, 2 ], [ "A" , "B" ] );
+		}, [ 1, 2 ], [ "A", "B" ] );
 		$question = $this->createMock( Question::class );
 		$question->method( 'getOptions' )->willReturn( $options );
 		$this->tallier = $this->getMockForAbstractClass(

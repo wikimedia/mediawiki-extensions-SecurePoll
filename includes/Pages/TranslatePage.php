@@ -174,8 +174,9 @@ class TranslatePage extends ActionPage {
 							'classes' => [ 'securepoll-translate-box' ],
 							'readonly' => !$this->isAdmin,
 							'autosize' => true
-					] ) )
-				) );
+						] )
+					) )
+				);
 			}
 		}
 

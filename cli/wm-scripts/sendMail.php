@@ -292,5 +292,5 @@ class SendMail extends Maintenance {
 	}
 }
 
-$maintClass = SendMail::CLASS;
+$maintClass = SendMail::class;
 require_once RUN_MAINTENANCE_IF_MAIN;

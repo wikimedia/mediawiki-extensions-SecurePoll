@@ -12,20 +12,20 @@ use OOUI\MessageWidget;
  * SecurePoll subpage for archiving past elections
  */
 class ArchivePage extends ActionPage {
-		/** @var JobQueueGroup */
-		private $jobQueueGroup;
+	/** @var JobQueueGroup */
+	private $jobQueueGroup;
 
-		/**
-		 * @param SpecialSecurePoll $specialPage
-		 * @param JobQueueGroup $jobQueueGroup
-		 */
-		public function __construct(
-			SpecialSecurePoll $specialPage,
-			JobQueueGroup $jobQueueGroup
-		) {
-			parent::__construct( $specialPage );
-			$this->jobQueueGroup = $jobQueueGroup;
-		}
+	/**
+	 * @param SpecialSecurePoll $specialPage
+	 * @param JobQueueGroup $jobQueueGroup
+	 */
+	public function __construct(
+		SpecialSecurePoll $specialPage,
+		JobQueueGroup $jobQueueGroup
+	) {
+		parent::__construct( $specialPage );
+		$this->jobQueueGroup = $jobQueueGroup;
+	}
 
 	/**
 	 * Execute the subpage.

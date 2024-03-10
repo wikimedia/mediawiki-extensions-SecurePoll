@@ -726,7 +726,7 @@ class STVTallier extends Tallier {
 		}
 
 		// Get the lowest ranking candidates
-		list( $secondLowest, $lowest ) = array_slice( $voteTotals, -2 );
+		[ $secondLowest, $lowest ] = array_slice( $voteTotals, -2 );
 
 		// Check if we can eliminate the lowest candidate
 		// using Hill's surplus-based short circuit elimination
