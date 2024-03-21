@@ -364,7 +364,6 @@ class VotePage extends ActionPage {
 	 * @return string
 	 */
 	public function getSummaryOfVotes( $votingData, $languageCode ) {
-		$data = [];
 		$data = $votingData['votes'];
 		$comment = $votingData['comment'];
 
