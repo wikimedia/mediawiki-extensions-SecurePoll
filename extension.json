@@ -176,8 +176,6 @@
 		"localBasePath": "",
 		"remoteExtPath": "SecurePoll",
 		"scripts": [
-			"modules/ext.securepoll.htmlform/TranslationParser.js",
-			"modules/ext.securepoll.htmlform/TranslationFlattener.js",
 			"tests/qunit/TranslationParser.test.js",
 			"tests/qunit/TranslationFlattener.test.js"
 		],

@@ -1,10 +1,10 @@
 ( function () {
+	var TranslationParser = require( 'ext.securepoll.htmlform/TranslationParser.js' );
 
 	QUnit.module( 'ext.securepoll.translationParser.test' );
 
 	QUnit.test( 'Parser test with correct tags', function ( assert ) {
 		var done = assert.async();
-		// eslint-disable-next-line no-undef
 		var translationParser = new TranslationParser();
 
 		var getOrigin = $.get( '../extensions/SecurePoll/tests/qunit/data/parser/TextWithCorrectTags.txt' );
@@ -20,7 +20,6 @@
 
 	QUnit.test( 'Parser test with some missing end tags', function ( assert ) {
 		var done = assert.async();
-		// eslint-disable-next-line no-undef
 		var translationParser = new TranslationParser();
 
 		var getOrigin = $.get( '../extensions/SecurePoll/tests/qunit/data/parser/TextWithSomeMissingEndTag.txt' );
@@ -36,7 +35,6 @@
 
 	QUnit.test( 'Parser test with no end tags', function ( assert ) {
 		var done = assert.async();
-		// eslint-disable-next-line no-undef
 		var translationParser = new TranslationParser();
 
 		var getOrigin = $.get( '../extensions/SecurePoll/tests/qunit/data/parser/TextWithNoEndTags.txt' );
@@ -52,7 +50,6 @@
 
 	QUnit.test( 'Parser test with multiple questions', function ( assert ) {
 		var done = assert.async();
-		// eslint-disable-next-line no-undef
 		var translationParser = new TranslationParser();
 
 		var getOrigin = $.get( '../extensions/SecurePoll/tests/qunit/data/parser/TextWithMultipleQuestions.txt' );

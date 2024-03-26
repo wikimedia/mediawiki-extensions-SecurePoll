@@ -1,10 +1,10 @@
 ( function () {
+	var TranslationFlattener = require( 'ext.securepoll.htmlform/TranslationFlattener.js' );
 
 	QUnit.module( 'ext.securepoll.translationFlattener.test' );
 
 	QUnit.test( 'Flatten parser test', function ( assert ) {
 		var done = assert.async();
-		// eslint-disable-next-line no-undef
 		var translationFlattener = new TranslationFlattener();
 
 		var getOrigin = $.get( '../extensions/SecurePoll/tests/qunit/data/flattener/JSONWithMultipleQuestions.json' );
@@ -20,7 +20,6 @@
 
 	QUnit.test( 'Flatten parser test with wrong data', function ( assert ) {
 		var done = assert.async();
-		// eslint-disable-next-line no-undef
 		var translationFlattener = new TranslationFlattener();
 
 		var getOrigin = $.get( '../extensions/SecurePoll/tests/qunit/data/flattener/JSONWithWrongData.json' );
