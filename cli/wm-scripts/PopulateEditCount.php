@@ -93,9 +93,25 @@ abstract class PopulateEditCount extends Maintenance {
 			);
 		}
 
+		$maxEditCountUserId = (int)$dbr->newSelectQueryBuilder()
+			->select( 'MAX(bv_user)' )
+			->from( $this->table )
+			->caller( __METHOD__ )
+			->fetchField();
+
+		if ( $maxEditCountUserId === $maxUser ) {
+			$this->output(
+				WikiMap::getCurrentWikiId() .
+				": 0 users added; edit count already calculated for all users\n"
+			);
+			return;
+		}
+
 		$numUsers = 0;
 
-		for ( $userId = 1; $userId <= $maxUser; $userId++ ) {
+		// $maxEditCountUserId will be 0 if no rows have already been inserted.
+		// We want to start at at least 1, or the user id after the last row inserted.
+		for ( $userId = $maxEditCountUserId + 1; $userId <= $maxUser; $userId++ ) {
 			// Find actor ID
 			$actorId = (int)$dbr->newSelectQueryBuilder()
 				->select( 'actor_id' )
