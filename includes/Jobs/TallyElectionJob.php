@@ -88,28 +88,21 @@ class TallyElectionJob extends Job {
 		$result = json_encode( $tallier->getJSONResult() );
 		$time = time();
 
-		$this->dbw->replace(
-			'securepoll_properties',
-			[
-				[
-					'pr_entity',
-					'pr_key'
-				],
-			],
-			[
-				[
-					'pr_entity' => $this->electionId,
-					'pr_key' => 'tally-result',
-					'pr_value' => $result,
-				],
-				[
-					'pr_entity' => $this->electionId,
-					'pr_key' => 'tally-result-time',
-					'pr_value' => $time,
-				],
-			],
-			__METHOD__
-		);
+		$this->dbw->newReplaceQueryBuilder()
+			->replaceInto( 'securepoll_properties' )
+			->uniqueIndexFields( [ 'pr_entity', 'pr_key' ] )
+			->row( [
+				'pr_entity' => $this->electionId,
+				'pr_key' => 'tally-result',
+				'pr_value' => $result,
+			] )
+			->row( [
+				'pr_entity' => $this->electionId,
+				'pr_key' => 'tally-result-time',
+				'pr_value' => $time,
+			] )
+			->caller( __METHOD__ )
+			->execute();
 
 		return true;
 	}

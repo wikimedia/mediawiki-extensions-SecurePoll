@@ -362,21 +362,16 @@ class VoterEligibilityPage extends ActionPage {
 				__METHOD__
 			);
 			if ( $id ) {
-				$dbw->replace(
-					'securepoll_properties',
-					[
-						[
-							'pr_entity',
-							'pr_key'
-						]
-					],
-					[
+				$dbw->newReplaceQueryBuilder()
+					->replaceInto( 'securepoll_properties' )
+					->uniqueIndexFields( [ 'pr_entity', 'pr_key' ] )
+					->row( [
 						'pr_entity' => $id,
 						'pr_key' => $property,
 						'pr_value' => $list,
-					],
-					__METHOD__
-				);
+					] )
+					->caller( __METHOD__ )
+					->execute();
 
 				if ( isset( $wikiNames[$dbname] ) ) {
 					$queryNames = array_merge( $wikiNames['*'], $wikiNames[$dbname] );
