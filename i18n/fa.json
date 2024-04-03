@@ -88,7 +88,7 @@
 	"securepoll-header-cookie-dup": "تکراری",
 	"securepoll-header-strike": "خط‌زدن",
 	"securepoll-header-details": "جزئیات",
-	"securepoll-vote-duplicate": "کوکی ها را کپی کنید",
+	"securepoll-vote-duplicate": "کوکی‌ها را کپی کنید",
 	"securepoll-vote-csrf": "ناموفق بود",
 	"securepoll-strike-button": "خط‌زدن",
 	"securepoll-unstrike-button": "از خط‌خوردگی به در آوردن",
