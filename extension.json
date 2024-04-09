@@ -245,6 +245,10 @@
 		"SecurePollTranslationImportSourceUrl": {
 			"value": "",
 			"description": "Source url pointing to api endpoint where pages for import should come from"
+		},
+		"SecurePollMostActiveWikisThreshold": {
+			"value": 10,
+			"description": "Consider only wikis where the user has more than X% of their edits as most active wikis"
 		}
 	},
 	"manifest_version": 2

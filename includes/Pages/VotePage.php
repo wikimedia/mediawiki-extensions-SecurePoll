@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\SecurePoll\Pages;
 
 use ExtensionRegistry;
+use MediaWiki\Extension\CentralAuth\User\CentralAuthUser;
 use MediaWiki\Extension\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
@@ -48,6 +49,8 @@ class VotePage extends ActionPage {
 	private $loadBalancer;
 	/** @var HookRunner */
 	private $hookRunner;
+	/** @var string */
+	private $mostActiveWikiFormField;
 
 	/**
 	 * @param SpecialSecurePoll $specialPage
@@ -167,6 +170,8 @@ class VotePage extends ActionPage {
 
 		$out->addJsConfigVars( 'SecurePollType', $this->election->getTallyType() );
 
+		$this->mostActiveWikiFormField = "securepoll_e{$electionId}_most_active_wiki";
+
 		// Show/submit the form
 		if ( $this->specialPage->getRequest()->wasPosted() ) {
 			$this->doSubmit();
@@ -226,6 +231,15 @@ class VotePage extends ActionPage {
 				] )
 			] );
 		}
+
+		// Add most active wiki dropdown
+		$form->addItems( [ new \OOUI\FieldLayout(
+			$this->createMostActiveWikiDropdownWidget(),
+			[
+				'label' => $this->msg( 'securepoll-vote-most-active-wiki-dropdown-label' )->text(),
+				'align' => 'top',
+			]
+		) ] );
 
 		$form->addItems( [
 			new FieldLayout(
@@ -323,6 +337,7 @@ class VotePage extends ActionPage {
 
 		$token = SessionManager::getGlobalSession()->getToken();
 		$tokenMatch = $token->match( $request->getVal( 'edit_token' ) );
+		$mostActiveWikiDomain = $request->getVal( $this->mostActiveWikiFormField );
 
 		$dbw->newInsertQueryBuilder()
 			->insertInto( 'securepoll_votes' )
@@ -330,7 +345,7 @@ class VotePage extends ActionPage {
 				'vote_election' => $this->election->getId(),
 				'vote_voter' => $this->voter->getId(),
 				'vote_voter_name' => $this->voter->getName(),
-				'vote_voter_domain' => $this->voter->getDomain(),
+				'vote_voter_domain' => $mostActiveWikiDomain,
 				'vote_record' => $encrypted,
 				'vote_ip' => IPUtils::toHex( $request->getIP() ),
 				'vote_xff' => $xff,
@@ -588,5 +603,94 @@ class VotePage extends ActionPage {
 			)->prepareForm();
 
 		$out->addHTML( $htmlForm->getHTML( false ) );
+	}
+
+	/**
+	 * Show a dropdown of the most active wikis the user has edits on.
+	 * Filtered by percentage of edits on each wiki, with a threshold configured in SecurePollMostActiveWikisThreshold.
+	 * This is used to log the domain of the wiki.
+	 *
+	 * @return \OOUI\DropdownInputWidget
+	 */
+	public function createMostActiveWikiDropdownWidget() {
+		$options = $this->populateUsersActiveWikiOptions();
+
+		$defaultDomain = $this->voter->getDomain();
+		// First remove value from options if it exists
+		$options = array_filter( $options, static function ( $option ) use ( $defaultDomain ) {
+			return $option['data'] !== $defaultDomain;
+		} );
+		// Then insert default value on top
+		array_unshift( $options, [
+			'label' => $defaultDomain,
+			'data' => $defaultDomain
+		] );
+
+		return new \OOUI\DropdownInputWidget( [
+			'infusable' => true,
+			'name' => $this->mostActiveWikiFormField,
+			'required' => true,
+			'value' => $defaultDomain,
+			'options' => $options,
+		] );
+	}
+
+	/**
+	 * Populate the dropdown with the most active wikis the user has edits on,
+	 * based on Central Auth extension.
+	 *
+	 * @return array
+	 */
+	private function populateUsersActiveWikiOptions() {
+		global $wgConf;
+
+		if ( !ExtensionRegistry::getInstance()->isLoaded( 'CentralAuth' ) ) {
+			return [];
+		}
+
+		$user = $this->specialPage->getUser();
+		$centralUser = CentralAuthUser::getInstanceByName( $user->getName() );
+		$wikiInfos = $centralUser->queryAttached();
+
+		// Find and add corresponding domain
+		$wikiInfos = array_map( static function ( $info ) use ( $wgConf ) {
+			$info['domain'] = $wgConf->get( 'wgServer', $info['wiki'] );
+
+			return $info;
+		}, $wikiInfos );
+
+		// Ensure data integrity
+		$wikiInfos = array_filter( $wikiInfos, static function ( $info ) {
+			return !empty( $info['wiki'] ) && !empty( $info['editCount'] ) && !empty( $info['domain'] );
+		} );
+
+		$mostActiveWikisThreshold = 0;
+		$config = $this->specialPage->getConfig();
+		if ( $config->has( 'SecurePollMostActiveWikisThreshold' ) ) {
+			$mostActiveWikisThreshold = $config->get( 'SecurePollMostActiveWikisThreshold' );
+		}
+
+		// Filter out wikis with less than $mostActiveWikisThreshold percentage edits
+		$allEdits = array_sum( array_column( $wikiInfos, 'editCount' ) );
+		$wikiInfos = array_filter( $wikiInfos, static function ( $info ) use ( $allEdits, $mostActiveWikisThreshold ) {
+			return $info['editCount'] / $allEdits * 100 >= $mostActiveWikisThreshold;
+		} );
+
+		// Sort by edit count
+		usort( $wikiInfos, static function ( $a, $b ) {
+			return $b['editCount'] - $a['editCount'];
+		} );
+
+		return array_map( function ( $info ) {
+			return [
+				'label' => $this->msg(
+					'securepoll-vote-most-active-wiki-dropdown-option-text',
+					$info['wiki'],
+					$info['domain'],
+					$info['editCount']
+				)->text(),
+				'data' => $info['domain'],
+			];
+		}, $wikiInfos );
 	}
 }
