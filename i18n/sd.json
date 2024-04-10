@@ -12,6 +12,7 @@
 	"securepoll-submit": "ووٽ اماڻيو",
 	"securepoll-return": "$1 ڏانھن واپس ٿيو",
 	"securepoll-header-voter-name": "نالو",
+	"securepoll-header-voter-domain": "ڊومين",
 	"securepoll-details-title": "ووٽ جا تفصيل: #$1",
 	"securepoll-invalid-vote": "$1 ڪا ڪارگر ووٽ انٽٽي ناھي.",
 	"securepoll-header-id": "آئڊي",
