@@ -139,14 +139,14 @@ class GpgCrypt extends Crypt {
 			return;
 		}
 
-		$dbw->delete(
-			'securepoll_properties',
-			[
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'securepoll_properties' )
+			->where( [
 				'pr_entity' => $electionId,
 				'pr_key' => [ 'gpg-decrypt-key', 'delete-gpg-decrypt-key' ],
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	public static function checkEncryptKey( $key ) {

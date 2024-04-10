@@ -34,14 +34,14 @@ class UnarchiveElectionJob extends Job {
 			__METHOD__
 		);
 		if ( $isArchived ) {
-			$dbw->delete(
-				'securepoll_properties',
-				[
+			$dbw->newDeleteQueryBuilder()
+				->deleteFrom( 'securepoll_properties' )
+				->where( [
 					'pr_entity' => $electionId,
 					'pr_key' => 'is-archived',
-				],
-				__METHOD__
-			);
+				] )
+				->caller( __METHOD__ )
+				->execute();
 		}
 		return true;
 	}

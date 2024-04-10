@@ -56,10 +56,11 @@ class MakeGlobalVoterList extends Maintenance {
 		$this->longMinEdits = $this->getOption( 'long-min-edits' );
 		$this->editCountTable = $this->getOption( 'edit-count-table' );
 
-		$dbcw->delete(
-			'securepoll_lists',
-			[ 'li_name' => $listName ],
-			__METHOD__ );
+		$dbcw->newDeleteQueryBuilder()
+			->deleteFrom( 'securepoll_lists' )
+			->where( [ 'li_name' => $listName ] )
+			->caller( __METHOD__ )
+			->execute();
 
 		$totalUsers = $dbcr->newSelectQueryBuilder()
 			->select( 'MAX(gu_id)' )

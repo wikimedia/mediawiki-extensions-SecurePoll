@@ -253,7 +253,11 @@ EOT
 
 		# Delete existing messages
 		$dbw = $this->getDB( DB_PRIMARY );
-		$dbw->delete( 'securepoll_msgs', [ 'msg_entity' => $entityIds ], __METHOD__ );
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'securepoll_msgs' )
+			->where( [ 'msg_entity' => $entityIds ] )
+			->caller( __METHOD__ )
+			->execute();
 
 		# Insert new messages
 		$this->insertMessages( $store, $entityIds );

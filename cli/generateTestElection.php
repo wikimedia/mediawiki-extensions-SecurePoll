@@ -142,10 +142,11 @@ class GenerateTestElection extends Maintenance {
 	}
 
 	private function deleteVotes( $dbw, $electionId ) {
-		$dbw->delete(
-			'securepoll_votes',
-			[ 'vote_election' => $electionId ]
-		);
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'securepoll_votes' )
+			->where( [ 'vote_election' => $electionId ] )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	private function writeBallots( $dbw, $electionId, $ballots ) {

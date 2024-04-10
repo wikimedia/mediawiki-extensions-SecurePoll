@@ -67,7 +67,11 @@ class MakeSimpleList extends Maintenance {
 		if ( $listExists ) {
 			if ( $this->hasOption( 'replace' ) ) {
 				$this->output( "Deleting existing list...\n" );
-				$dbw->delete( 'securepoll_lists', [ 'li_name' => $listName ], __METHOD__ );
+				$dbw->newDeleteQueryBuilder()
+					->deleteFrom( 'securepoll_lists' )
+					->where( [ 'li_name' => $listName ] )
+					->caller( __METHOD__ )
+					->execute();
 			} elseif ( $this->hasOption( 'ignore-existing' ) ) {
 				$insertOptions[] = 'IGNORE';
 			} else {

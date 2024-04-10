@@ -119,27 +119,27 @@ class TallyElectionJob extends Job {
 	 * tallying errors and/or results.
 	 */
 	private function preRun() {
-		$this->dbw->delete(
-			'securepoll_properties',
-			[
+		$this->dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'securepoll_properties' )
+			->where( [
 				'pr_entity' => $this->electionId,
 				'pr_key' => [
 					'tally-error',
 				],
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	private function postRun() {
-		$this->dbw->delete(
-			'securepoll_properties',
-			[
+		$this->dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'securepoll_properties' )
+			->where( [
 				'pr_entity' => $this->electionId,
 				'pr_key' => 'tally-job-enqueued',
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->execute();
 
 		try {
 			$crypt = $this->election->getCrypt();

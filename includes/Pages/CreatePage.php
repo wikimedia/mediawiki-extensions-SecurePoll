@@ -752,11 +752,31 @@ class CreatePage extends ActionPage {
 				array_diff( $oIds, $store->oIds )
 			);
 			if ( $deleteIds ) {
-				$dbw->delete( 'securepoll_msgs', [ 'msg_entity' => $deleteIds ], __METHOD__ );
-				$dbw->delete( 'securepoll_properties', [ 'pr_entity' => $deleteIds ], __METHOD__ );
-				$dbw->delete( 'securepoll_questions', [ 'qu_entity' => $deleteIds ], __METHOD__ );
-				$dbw->delete( 'securepoll_options', [ 'op_entity' => $deleteIds ], __METHOD__ );
-				$dbw->delete( 'securepoll_entity', [ 'en_id' => $deleteIds ], __METHOD__ );
+				$dbw->newDeleteQueryBuilder()
+					->deleteFrom( 'securepoll_msgs' )
+					->where( [ 'msg_entity' => $deleteIds ] )
+					->caller( __METHOD__ )
+					->execute();
+				$dbw->newDeleteQueryBuilder()
+					->deleteFrom( 'securepoll_properties' )
+					->where( [ 'pr_entity' => $deleteIds ] )
+					->caller( __METHOD__ )
+					->execute();
+				$dbw->newDeleteQueryBuilder()
+					->deleteFrom( 'securepoll_questions' )
+					->where( [ 'qu_entity' => $deleteIds ] )
+					->caller( __METHOD__ )
+					->execute();
+				$dbw->newDeleteQueryBuilder()
+					->deleteFrom( 'securepoll_options' )
+					->where( [ 'op_entity' => $deleteIds ] )
+					->caller( __METHOD__ )
+					->execute();
+				$dbw->newDeleteQueryBuilder()
+					->deleteFrom( 'securepoll_entity' )
+					->where( [ 'en_id' => $deleteIds ] )
+					->caller( __METHOD__ )
+					->execute();
 			}
 		}
 		self::savePropertiesAndMessages( $dbw, $eId, $election );

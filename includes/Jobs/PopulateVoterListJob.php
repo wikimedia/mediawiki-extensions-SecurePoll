@@ -407,15 +407,15 @@ class PopulateVoterListJob extends Job {
 
 			$jobKey = self::fetchJobKey( $dbwElection, $this->params['electionId'] );
 			if ( $jobKey === $this->params['jobKey'] ) {
-				$dbwLocal->delete(
-					'securepoll_lists',
-					[
+				$dbwLocal->newDeleteQueryBuilder()
+					->deleteFrom( 'securepoll_lists' )
+					->where( [
 						'li_name' => $this->params['need-list'],
-						"li_member >= $min",
-						"li_member < $max",
-					],
-					__METHOD__
-				);
+						$dbwLocal->expr( 'li_member', '>=', $min ),
+						$dbwLocal->expr( 'li_member', '<', $max ),
+					] )
+					->caller( __METHOD__ )
+					->execute();
 				$dbwLocal->insert( 'securepoll_lists', $ins, __METHOD__ );
 
 				$count = $dbwElection->selectField(

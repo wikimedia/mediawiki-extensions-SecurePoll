@@ -205,14 +205,14 @@ class VoterEligibilityPage extends ActionPage {
 					];
 				}
 
-				$dbw->delete(
-					'securepoll_properties',
-					[
+				$dbw->newDeleteQueryBuilder()
+					->deleteFrom( 'securepoll_properties' )
+					->where( [
 						'pr_entity' => $id,
 						'pr_key' => array_merge( $delete, array_keys( $properties ) ),
-					],
-					__METHOD__
-				);
+					] )
+					->caller( __METHOD__ )
+					->execute();
 
 				if ( $ins ) {
 					$dbw->insert( 'securepoll_properties', $ins, __METHOD__ );
@@ -384,7 +384,11 @@ class VoterEligibilityPage extends ActionPage {
 					$queryNames = $wikiNames['*'];
 				}
 
-				$dbw->delete( 'securepoll_lists', [ 'li_name' => $list ], __METHOD__ );
+				$dbw->newDeleteQueryBuilder()
+					->deleteFrom( 'securepoll_lists' )
+					->where( [ 'li_name' => $list ] )
+					->caller( __METHOD__ )
+					->execute();
 				if ( $queryNames ) {
 					$dbw->insertSelect(
 						'securepoll_lists',
@@ -1269,21 +1273,25 @@ class VoterEligibilityPage extends ActionPage {
 					__METHOD__
 				);
 				if ( $list ) {
-					$dbw->delete( 'securepoll_lists', [ 'li_name' => $list ], __METHOD__ );
-					$dbw->delete(
-						'securepoll_properties',
-						[
+					$dbw->newDeleteQueryBuilder()
+						->deleteFrom( 'securepoll_lists' )
+						->where( [ 'li_name' => $list ] )
+						->caller( __METHOD__ )
+						->execute();
+					$dbw->newDeleteQueryBuilder()
+						->deleteFrom( 'securepoll_properties' )
+						->where( [
 							'pr_entity' => $id,
 							'pr_key' => $property
-						],
-						__METHOD__
-					);
+						] )
+						->caller( __METHOD__ )
+						->execute();
 				}
 
 				if ( $which === 'voter' ) {
-					$dbw->delete(
-						'securepoll_properties',
-						[
+					$dbw->newDeleteQueryBuilder()
+						->deleteFrom( 'securepoll_properties' )
+						->where( [
 							'pr_entity' => $id,
 							'pr_key' => [
 								'list_populate',
@@ -1292,9 +1300,9 @@ class VoterEligibilityPage extends ActionPage {
 								'list_complete-count',
 								'list_job-key',
 							],
-						],
-						__METHOD__
-					);
+						] )
+						->caller( __METHOD__ )
+						->execute();
 				}
 			}
 

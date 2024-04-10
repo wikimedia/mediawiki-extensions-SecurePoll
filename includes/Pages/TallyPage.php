@@ -377,14 +377,14 @@ class TallyPage extends ActionPage {
 		);
 
 		// Delete error to prevent showing old errors while job is queueing
-		$dbw->delete(
-			'securepoll_properties',
-			[
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'securepoll_properties' )
+			->where( [
 				'pr_entity' => $electionId,
 				'pr_key' => 'tally-error',
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->execute();
 
 		// Redirect (using HTTP 303 See Other) the UA to the current URL so that the user does not
 		// inadvertently resubmit the form while trying to determine if the tallier has finished.

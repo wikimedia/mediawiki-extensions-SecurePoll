@@ -112,14 +112,14 @@ class PurgeDecryptionKeys extends Maintenance {
 
 		foreach ( $electionIDChunks as $electionIDs ) {
 			foreach ( $electionIDs as $electionID ) {
-				$dbw->delete(
-					'securepoll_properties',
-					[
+				$dbw->newDeleteQueryBuilder()
+					->deleteFrom( 'securepoll_properties' )
+					->where( [
 						'pr_entity' => $electionID,
 						'pr_key' => 'gpg-decrypt-key'
-					],
-					__METHOD__
-				);
+					] )
+					->caller( __METHOD__ )
+					->execute();
 			}
 		}
 

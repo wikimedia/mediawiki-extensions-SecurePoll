@@ -41,7 +41,11 @@ class ImportGlobalVoterList extends Maintenance {
 		$this->listName = $this->getOption( 'list-name' );
 		if ( $this->hasOption( 'delete' ) ) {
 			print "Removing any existing members of list \"{$this->listName}\"\n";
-			$this->dbcw->delete( 'securepoll_lists', [ 'li_name' => $this->listName ] );
+			$this->dbcw->newDeleteQueryBuilder()
+				->deleteFrom( 'securepoll_lists' )
+				->where( [ 'li_name' => $this->listName ] )
+				->caller( __METHOD__ )
+				->execute();
 		}
 
 		$batch = [];

@@ -64,18 +64,42 @@ class DeletePoll extends Maintenance {
 		$entityIds = array_merge( $optionIds, $questionIds, [ $electionId ] );
 
 		# Delete the messages and properties
-		$dbw->delete( 'securepoll_msgs', [ 'msg_entity' => $entityIds ] );
-		$dbw->delete( 'securepoll_properties', [ 'pr_entity' => $entityIds ] );
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'securepoll_msgs' )
+			->where( [ 'msg_entity' => $entityIds ] )
+			->caller( __METHOD__ )
+			->execute();
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'securepoll_properties' )
+			->where( [ 'pr_entity' => $entityIds ] )
+			->caller( __METHOD__ )
+			->execute();
 
 		# Delete the entities
 		if ( $optionIds ) {
-			$dbw->delete( 'securepoll_options', [ 'op_entity' => $optionIds ], __METHOD__ );
+			$dbw->newDeleteQueryBuilder()
+				->deleteFrom( 'securepoll_options' )
+				->where( [ 'op_entity' => $optionIds ] )
+				->caller( __METHOD__ )
+				->execute();
 		}
 		if ( $questionIds ) {
-			$dbw->delete( 'securepoll_questions', [ 'qu_entity' => $questionIds ], __METHOD__ );
+			$dbw->newDeleteQueryBuilder()
+				->deleteFrom( 'securepoll_questions' )
+				->where( [ 'qu_entity' => $questionIds ] )
+				->caller( __METHOD__ )
+				->execute();
 		}
-		$dbw->delete( 'securepoll_elections', [ 'el_entity' => $electionId ], __METHOD__ );
-		$dbw->delete( 'securepoll_entity', [ 'en_id' => $entityIds ], __METHOD__ );
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'securepoll_elections' )
+			->where( [ 'el_entity' => $electionId ] )
+			->caller( __METHOD__ )
+			->execute();
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'securepoll_entity' )
+			->where( [ 'en_id' => $entityIds ] )
+			->caller( __METHOD__ )
+			->execute();
 	}
 }
 $maintClass = DeletePoll::class;
