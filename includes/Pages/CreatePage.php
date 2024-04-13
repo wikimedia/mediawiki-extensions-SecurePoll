@@ -719,18 +719,22 @@ class CreatePage extends ActionPage {
 			$qIds = [];
 			$oIds = [];
 			$fields['el_entity'] = $eId;
-			$dbw->insert( 'securepoll_elections', $fields, __METHOD__ );
+			$dbw->newInsertQueryBuilder()
+				->insertInto( 'securepoll_elections' )
+				->row( $fields )
+				->caller( __METHOD__ )
+				->execute();
 
 			// Enable sitewide block by default on new elections
-			$dbw->insert(
-				'securepoll_properties',
-				[
+			$dbw->newInsertQueryBuilder()
+				->insertInto( 'securepoll_properties' )
+				->row( [
 					'pr_entity' => $eId,
 					'pr_key' => 'not-sitewide-blocked',
 					'pr_value' => 1,
-				],
-				__METHOD__
-			);
+				] )
+				->caller( __METHOD__ )
+				->execute();
 		} else {
 			$eId = $election->getId();
 			$dbw->newUpdateQueryBuilder()
@@ -972,14 +976,14 @@ class CreatePage extends ActionPage {
 
 		foreach ( array_keys( $actions ) as $action ) {
 			foreach ( $actions[$action] as $admin ) {
-				$dbw->insert(
-					'securepoll_log',
-					$fields + [
+				$dbw->newInsertQueryBuilder()
+					->insertInto( 'securepoll_log' )
+					->row( $fields + [
 						'spl_type' => $action,
 						'spl_target' => $this->userFactory->newFromName( $admin )->getId(),
-					],
-					__METHOD__
-				);
+					] )
+					->caller( __METHOD__ )
+					->execute();
 			}
 		}
 	}
@@ -1095,13 +1099,13 @@ class CreatePage extends ActionPage {
 	 * @return int
 	 */
 	private static function insertEntity( $dbw, $type ) {
-		$dbw->insert(
-			'securepoll_entity',
-			[
+		$dbw->newInsertQueryBuilder()
+			->insertInto( 'securepoll_entity' )
+			->row( [
 				'en_type' => $type,
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->execute();
 
 		return $dbw->insertId();
 	}

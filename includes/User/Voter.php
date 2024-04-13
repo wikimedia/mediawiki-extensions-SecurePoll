@@ -113,7 +113,11 @@ class Voter {
 			'voter_url' => $params['url'],
 			'voter_properties' => self::encodeProperties( $params['properties'] )
 		];
-		$db->insert( 'securepoll_voters', $row, __METHOD__ );
+		$db->newInsertQueryBuilder()
+			->insertInto( 'securepoll_voters' )
+			->row( $row )
+			->caller( __METHOD__ )
+			->execute();
 		$params['id'] = $db->insertId();
 
 		return new self( $context, $params );
@@ -240,16 +244,16 @@ class Voter {
 	public function addCookieDup( $voterId ) {
 		$dbw = $this->context->getDB();
 		# Insert the log record
-		$dbw->insert(
-			'securepoll_cookie_match',
-			[
+		$dbw->newInsertQueryBuilder()
+			->insertInto( 'securepoll_cookie_match' )
+			->row( [
 				'cm_election' => $this->getElectionId(),
 				'cm_voter_1' => $this->getId(),
 				'cm_voter_2' => $voterId,
 				'cm_timestamp' => wfTimestampNow()
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->execute();
 
 		# Update the denormalized fields
 		$dbw->newUpdateQueryBuilder()

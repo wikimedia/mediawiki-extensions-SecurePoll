@@ -193,10 +193,11 @@ class FindUsersWithRight extends Maintenance {
 			->caller( __METHOD__ )
 			->fetchField();
 		if ( !$alreadyAdded ) {
-			$db->insert(
-				'securepoll_lists',
-				$insertRow,
-				__METHOD__ );
+			$db->newInsertQueryBuilder()
+				->insertInto( 'securepoll_lists' )
+				->row( $insertRow )
+				->caller( __METHOD__ )
+				->execute();
 			$this->numAdded += $db->affectedRows();
 		}
 	}

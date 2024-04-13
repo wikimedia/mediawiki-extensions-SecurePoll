@@ -106,16 +106,16 @@ class GpgCrypt extends Crypt {
 				] )
 				->caller( __METHOD__ )
 				->execute();
-			$dbw->insert(
-				'securepoll_properties',
-				[
+			$dbw->newInsertQueryBuilder()
+				->insertInto( 'securepoll_properties' )
+				->ignore()
+				->row( [
 					'pr_entity' => $electionId,
 					'pr_key' => 'delete-gpg-decrypt-key',
 					'pr_value' => 1,
-				],
-				__METHOD__,
-				[ 'IGNORE' ]
-			);
+				] )
+				->caller( __METHOD__ )
+				->execute();
 		}
 	}
 

@@ -151,8 +151,9 @@ class GenerateTestElection extends Maintenance {
 
 	private function writeBallots( $dbw, $electionId, $ballots ) {
 		foreach ( $ballots as $ballot ) {
-			$dbw->insert( 'securepoll_votes',
-				[
+			$dbw->newInsertQueryBuilder()
+				->insertInto( 'securepoll_votes' )
+				->row( [
 					'vote_election' => $electionId,
 					'vote_voter' => 1,
 					'vote_voter_name' => 'Admin',
@@ -166,9 +167,9 @@ class GenerateTestElection extends Maintenance {
 					'vote_current' => 1,
 					'vote_token_match' => 1,
 					'vote_cookie_dup' => 0
-				],
-				__METHOD__
-			);
+				] )
+				->caller( __METHOD__ )
+				->execute();
 		}
 	}
 

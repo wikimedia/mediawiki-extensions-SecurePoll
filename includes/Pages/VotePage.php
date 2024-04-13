@@ -313,9 +313,9 @@ class VotePage extends ActionPage {
 		$token = SessionManager::getGlobalSession()->getToken();
 		$tokenMatch = $token->match( $request->getVal( 'edit_token' ) );
 
-		$dbw->insert(
-			'securepoll_votes',
-			[
+		$dbw->newInsertQueryBuilder()
+			->insertInto( 'securepoll_votes' )
+			->row( [
 				'vote_election' => $this->election->getId(),
 				'vote_voter' => $this->voter->getId(),
 				'vote_voter_name' => $this->voter->getName(),
@@ -329,9 +329,9 @@ class VotePage extends ActionPage {
 				'vote_token_match' => $tokenMatch ? 1 : 0,
 				'vote_struck' => 0,
 				'vote_cookie_dup' => 0,
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->execute();
 		$voteId = $dbw->insertId();
 		$dbw->endAtomic( __METHOD__ );
 

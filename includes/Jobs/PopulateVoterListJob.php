@@ -409,7 +409,13 @@ class PopulateVoterListJob extends Job {
 					] )
 					->caller( __METHOD__ )
 					->execute();
-				$dbwLocal->insert( 'securepoll_lists', $ins, __METHOD__ );
+				if ( $ins ) {
+					$dbwLocal->newInsertQueryBuilder()
+						->insertInto( 'securepoll_lists' )
+						->rows( $ins )
+						->caller( __METHOD__ )
+						->execute();
+				}
 
 				$count = $dbwElection->selectField(
 					'securepoll_properties',

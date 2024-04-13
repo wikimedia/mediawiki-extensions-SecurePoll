@@ -111,11 +111,11 @@ class ImportGlobalVoterList extends Maintenance {
 			return;
 		}
 
-		$this->dbcw->insert(
-			'securepoll_lists',
-			$insertBatch,
-			__METHOD__
-		);
+		$this->dbcw->newInsertQueryBuilder()
+			->insertInto( 'securepoll_lists' )
+			->rows( $insertBatch )
+			->caller( __METHOD__ )
+			->execute();
 	}
 }
 

@@ -186,14 +186,15 @@ abstract class PopulateEditCount extends Maintenance {
 			}
 
 			if ( $longEdits !== 0 || $shortEdits !== 0 ) {
-				$dbw->insert( $this->table,
-					[
+				$dbw->newInsertQueryBuilder()
+					->insertInto( $this->table )
+					->row( [
 						'bv_user' => $userId,
 						'bv_long_edits' => $longEdits,
 						'bv_short_edits' => $shortEdits
-					],
-					__METHOD__
-				);
+					] )
+					->caller( __METHOD__ )
+					->execute();
 				$numUsers++;
 				if ( $numUsers % 500 === 0 ) {
 					$lbFactory->waitForReplication();

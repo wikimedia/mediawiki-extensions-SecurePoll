@@ -24,7 +24,11 @@ class LogAdminActionJob extends Job {
 		$dbw = $context->getDB( DB_PRIMARY );
 		$fields = $this->params['fields'];
 		$fields['spl_timestamp'] = $dbw->timestamp( time() );
-		$dbw->insert( 'securepoll_log', $fields, __METHOD__ );
+		$dbw->newInsertQueryBuilder()
+			->insertInto( 'securepoll_log' )
+			->row( $fields )
+			->caller( __METHOD__ )
+			->execute();
 		return true;
 	}
 }

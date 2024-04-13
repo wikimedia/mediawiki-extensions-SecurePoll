@@ -34,15 +34,15 @@ class ArchiveElectionJob extends Job {
 			__METHOD__
 		);
 		if ( !$isArchived ) {
-			$dbw->insert(
-				'securepoll_properties',
-				[
+			$dbw->newInsertQueryBuilder()
+				->insertInto( 'securepoll_properties' )
+				->row( [
 					'pr_entity' => $electionId,
 					'pr_key' => 'is-archived',
 					'pr_value' => 1,
-				],
-				__METHOD__
-			);
+				] )
+				->caller( __METHOD__ )
+				->execute();
 		}
 		return true;
 	}

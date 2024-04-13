@@ -140,7 +140,12 @@ class MakeSimpleList extends Maintenance {
 				}
 			}
 			if ( $insertBatch ) {
-				$dbw->insert( 'securepoll_lists', $insertBatch, __METHOD__, $insertOptions );
+				$dbw->newInsertQueryBuilder()
+					->insertInto( 'securepoll_lists' )
+					->rows( $insertBatch )
+					->options( $insertOptions )
+					->caller( __METHOD__ )
+					->execute();
 				$lbFactory->waitForReplication();
 			}
 		}

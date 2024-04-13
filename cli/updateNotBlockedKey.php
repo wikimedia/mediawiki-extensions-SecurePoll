@@ -49,7 +49,12 @@ class UpdateNotBlockedKey extends LoggedUpdateMaintenance {
 				'pr_key' => 'not-sitewide-blocked',
 				'pr_value' => 1,
 			];
-			$dbw->insert( 'securepoll_properties', $row, __METHOD__, [ 'IGNORE' ] );
+			$dbw->newInsertQueryBuilder()
+				->insertInto( 'securepoll_properties' )
+				->ignore()
+				->row( $row )
+				->caller( __METHOD__ )
+				->execute();
 		}
 		$this->output( "$updatedRows row(s) updated\nDone\n" );
 		return true;

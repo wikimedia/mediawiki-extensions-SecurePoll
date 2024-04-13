@@ -215,7 +215,11 @@ class VoterEligibilityPage extends ActionPage {
 					->execute();
 
 				if ( $ins ) {
-					$dbw->insert( 'securepoll_properties', $ins, __METHOD__ );
+					$dbw->newInsertQueryBuilder()
+						->insertInto( 'securepoll_properties' )
+						->rows( $ins )
+						->caller( __METHOD__ )
+						->execute();
 				}
 			}
 

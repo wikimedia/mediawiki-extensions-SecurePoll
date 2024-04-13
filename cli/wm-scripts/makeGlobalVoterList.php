@@ -101,7 +101,11 @@ class MakeGlobalVoterList extends Maintenance {
 				];
 			}
 			if ( $insertBatch ) {
-				$dbcw->insert( 'securepoll_lists', $insertBatch, __METHOD__ );
+				$dbcw->newInsertQueryBuilder()
+					->insertInto( 'securepoll_lists' )
+					->rows( $insertBatch )
+					->caller( __METHOD__ )
+					->execute();
 				$numQualified += count( $insertBatch );
 			}
 			$this->reportProgress( $numUsers, $totalUsers );

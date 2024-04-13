@@ -169,17 +169,17 @@ class ListPage extends ActionPage {
 
 		$dbw->startAtomic( __METHOD__ );
 		// Add it to the strike log
-		$dbw->insert(
-			'securepoll_strike',
-			[
+		$dbw->newInsertQueryBuilder()
+			->insertInto( 'securepoll_strike' )
+			->row( [
 				'st_vote' => $voteId,
 				'st_timestamp' => wfTimestampNow(),
 				'st_action' => $action,
 				'st_reason' => $reason,
 				'st_user' => $this->specialPage->getUser()->getId()
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->execute();
 		// Update the status cache
 		$dbw->newUpdateQueryBuilder()
 			->update( 'securepoll_votes' )

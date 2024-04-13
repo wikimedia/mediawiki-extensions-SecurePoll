@@ -161,14 +161,14 @@ class TallyElectionJob extends Job {
 	private function markAsFailed( string $message, string $fname ) {
 		$this->setLastError( $message );
 
-		$this->dbw->insert(
-			'securepoll_properties',
-			[
+		$this->dbw->newInsertQueryBuilder()
+			->insertInto( 'securepoll_properties' )
+			->row( [
 				'pr_entity' => $this->electionId,
 				'pr_key' => 'tally-error',
 				'pr_value' => $message
-			],
-			$fname
-		);
+			] )
+			->caller( $fname )
+			->execute();
 	}
 }

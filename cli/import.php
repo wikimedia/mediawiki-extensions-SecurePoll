@@ -125,13 +125,14 @@ EOT
 	 */
 	private function insertEntity( $type, $id ) {
 		$dbw = $this->getDB( DB_PRIMARY );
-		$dbw->insert( 'securepoll_entity',
-			[
+		$dbw->newInsertQueryBuilder()
+			->insertInto( 'securepoll_entity' )
+			->row( [
 				'en_id' => $id,
 				'en_type' => $type,
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	/**
@@ -145,8 +146,9 @@ EOT
 
 		# Election
 		$this->insertEntity( 'election', $electionInfo['id'] );
-		$dbw->insert( 'securepoll_elections',
-			[
+		$dbw->newInsertQueryBuilder()
+			->insertInto( 'securepoll_elections' )
+			->row( [
 				'el_entity' => $electionInfo['id'],
 				'el_title' => $electionInfo['title'],
 				'el_ballot' => $electionInfo['ballot'],
@@ -155,8 +157,9 @@ EOT
 				'el_start_date' => $dbw->timestamp( $electionInfo['startDate'] ),
 				'el_end_date' => $dbw->timestamp( $electionInfo['endDate'] ),
 				'el_auth_type' => $electionInfo['auth']
-			],
-			__METHOD__ );
+			] )
+			->caller( __METHOD__ )
+			->execute();
 		$sourceIds[] = $electionInfo['id'];
 
 		if ( isset( $electionInfo['questions'] ) ) {
@@ -164,13 +167,15 @@ EOT
 			$index = 1;
 			foreach ( $electionInfo['questions'] as $questionInfo ) {
 				$this->insertEntity( 'question', $questionInfo['id'] );
-				$dbw->insert( 'securepoll_questions',
-					[
+				$dbw->newInsertQueryBuilder()
+					->insertInto( 'securepoll_questions' )
+					->row( [
 						'qu_entity' => $questionInfo['id'],
 						'qu_election' => $electionInfo['id'],
 						'qu_index' => $index++,
-					],
-					__METHOD__ );
+					] )
+					->caller( __METHOD__ )
+					->execute();
 				$sourceIds[] = $questionInfo['id'];
 
 				# Options
@@ -184,7 +189,13 @@ EOT
 					];
 					$sourceIds[] = $optionInfo['id'];
 				}
-				$dbw->insert( 'securepoll_options', $insertBatch, __METHOD__ );
+				if ( $insertBatch ) {
+					$dbw->newInsertQueryBuilder()
+						->insertInto( 'securepoll_options' )
+						->rows( $insertBatch )
+						->caller( __METHOD__ )
+						->execute();
+				}
 			}
 		}
 
@@ -204,7 +215,11 @@ EOT
 			}
 		}
 		if ( $insertBatch ) {
-			$dbw->insert( 'securepoll_properties', $insertBatch, __METHOD__ );
+			$dbw->newInsertQueryBuilder()
+				->insertInto( 'securepoll_properties' )
+				->rows( $insertBatch )
+				->caller( __METHOD__ )
+				->execute();
 		}
 		return true;
 	}
@@ -231,7 +246,11 @@ EOT
 		}
 		if ( $insertBatch ) {
 			$dbw = $this->getDB( DB_PRIMARY );
-			$dbw->insert( 'securepoll_msgs', $insertBatch, __METHOD__ );
+			$dbw->newInsertQueryBuilder()
+				->insertInto( 'securepoll_msgs' )
+				->rows( $insertBatch )
+				->caller( __METHOD__ )
+				->execute();
 		}
 	}
 
