@@ -37,12 +37,12 @@ class UpdateNotBlockedKey extends LoggedUpdateMaintenance {
 		$this->output( "$rowCount row(s) selected\n" );
 		foreach ( $res as $row ) {
 			// No need to split updates into batches since this table is very small
-			$dbw->update(
-				'securepoll_properties',
-				[ 'pr_key' => 'not-partial-blocked' ],
-				[ 'pr_key' => 'not-blocked', 'pr_entity' => $row->pr_entity ],
-				  __METHOD__
-			);
+			$dbw->newUpdateQueryBuilder()
+				->update( 'securepoll_properties' )
+				->set( [ 'pr_key' => 'not-partial-blocked' ] )
+				->where( [ 'pr_key' => 'not-blocked', 'pr_entity' => $row->pr_entity ] )
+				->caller( __METHOD__ )
+				->execute();
 			$updatedRows++;
 			$row = [
 				'pr_entity' => $row->pr_entity,

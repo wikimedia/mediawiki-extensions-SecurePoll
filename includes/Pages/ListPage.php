@@ -181,12 +181,12 @@ class ListPage extends ActionPage {
 			__METHOD__
 		);
 		// Update the status cache
-		$dbw->update(
-			'securepoll_votes',
-			[ 'vote_struck' => intval( $action == 'strike' ) ],
-			[ 'vote_id' => $voteId ],
-			__METHOD__
-		);
+		$dbw->newUpdateQueryBuilder()
+			->update( 'securepoll_votes' )
+			->set( [ 'vote_struck' => intval( $action == 'strike' ) ] )
+			->where( [ 'vote_id' => $voteId ] )
+			->caller( __METHOD__ )
+			->execute();
 		$dbw->endAtomic( __METHOD__ );
 
 		return Status::newGood();

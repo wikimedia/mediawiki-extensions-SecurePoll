@@ -252,18 +252,18 @@ class Voter {
 		);
 
 		# Update the denormalized fields
-		$dbw->update(
-			'securepoll_votes',
-			[ 'vote_cookie_dup' => 1 ],
-			[
+		$dbw->newUpdateQueryBuilder()
+			->update( 'securepoll_votes' )
+			->set( [ 'vote_cookie_dup' => 1 ] )
+			->where( [
 				'vote_election' => $this->getElectionId(),
 				'vote_voter' => [
 					$this->getId(),
 					$voterId
 				]
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 }

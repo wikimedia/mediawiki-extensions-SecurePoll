@@ -310,17 +310,17 @@ class GenerateTestElection extends Maintenance {
 			$option = $options[$i];
 			$optionId = $option->getId();
 
-			$dbw->update(
-				'securepoll_msgs',
-				[
+			$dbw->newUpdateQueryBuilder()
+				->update( 'securepoll_msgs' )
+				->set( [
 					'msg_entity' => $optionId,
 					'msg_text' => $candidate
-				],
-				[
+				] )
+				->where( [
 					'msg_entity' => $optionId
-				],
-				__METHOD__
-			);
+				] )
+				->caller( __METHOD__ )
+				->execute();
 		}
 
 		return $formattedBallots;
