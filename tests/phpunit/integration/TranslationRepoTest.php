@@ -10,6 +10,7 @@ use MediaWikiIntegrationTestCase;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\LBFactory;
 use Wikimedia\Rdbms\LoadBalancer;
+use Wikimedia\Rdbms\ReplaceQueryBuilder;
 
 /**
  * @covers \MediaWiki\Extension\SecurePoll\TranslationRepo
@@ -28,9 +29,16 @@ class TranslationRepoTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testSetTranslation( $data, $language, $comment, $wikis, $expectedReplaceCalls ) {
 		$services = MediaWikiServices::getInstance();
+		$rqb = $this->createMock( ReplaceQueryBuilder::class );
+		$rqb->method( 'replaceInto' )->willReturn( $rqb );
+		$rqb->method( 'uniqueIndexFields' )->willReturn( $rqb );
+		$rqb->method( 'rows' )->willReturn( $rqb );
+		$rqb->method( 'caller' )->willReturn( $rqb );
 		$mockDB = $this->createMock( IDatabase::class );
 		$mockDB->method( 'selectField' )->willReturn( 7894 );
-		$mockDB->expects( $this->exactly( $expectedReplaceCalls ) )->method( 'replace' );
+		$mockDB->expects( $this->exactly( $expectedReplaceCalls ) )
+			->method( 'newReplaceQueryBuilder' )
+			->willReturn( $rqb );
 
 		$translationRepo = new TranslationRepo(
 			$this->getMockLBFactory( $mockDB ),

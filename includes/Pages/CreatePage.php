@@ -793,16 +793,16 @@ class CreatePage extends ActionPage {
 			if ( !in_array( $qId, $qIds ) ) {
 				$qId = self::insertEntity( $dbw, 'question' );
 			}
-			$dbw->replace(
-				'securepoll_questions',
-				'qu_entity',
-				[
+			$dbw->newReplaceQueryBuilder()
+				->replaceInto( 'securepoll_questions' )
+				->uniqueIndexFields( 'qu_entity' )
+				->row( [
 					'qu_entity' => $qId,
 					'qu_election' => $eId,
 					'qu_index' => ++$qIndex,
-				],
-				__METHOD__
-			);
+				] )
+				->caller( __METHOD__ )
+				->execute();
 			self::savePropertiesAndMessages( $dbw, $qId, $question );
 
 			foreach ( $question->getOptions() as $option ) {
@@ -810,16 +810,16 @@ class CreatePage extends ActionPage {
 				if ( !in_array( $oId, $oIds ) ) {
 					$oId = self::insertEntity( $dbw, 'option' );
 				}
-				$dbw->replace(
-					'securepoll_options',
-					'op_entity',
-					[
+				$dbw->newReplaceQueryBuilder()
+					->replaceInto( 'securepoll_options' )
+					->uniqueIndexFields( 'op_entity' )
+					->row( [
 						'op_entity' => $oId,
 						'op_election' => $eId,
 						'op_question' => $qId,
-					],
-					__METHOD__
-				);
+					] )
+					->caller( __METHOD__ )
+					->execute();
 				self::savePropertiesAndMessages( $dbw, $oId, $option );
 			}
 		}
@@ -859,10 +859,10 @@ class CreatePage extends ActionPage {
 				}
 
 				// Insert it! We don't have to care about questions or options here.
-				$dbw->replace(
-					'securepoll_elections',
-					'el_entity',
-					[
+				$dbw->newReplaceQueryBuilder()
+					->replaceInto( 'securepoll_elections' )
+					->uniqueIndexFields( 'el_entity' )
+					->row( [
 						'el_entity' => $rId,
 						'el_title' => $election->title,
 						'el_ballot' => $election->ballotType,
@@ -872,9 +872,9 @@ class CreatePage extends ActionPage {
 						'el_end_date' => $dbw->timestamp( $election->getEndDate() ),
 						'el_auth_type' => $election->authType,
 						'el_owner' => $election->owner,
-					],
-					__METHOD__
-				);
+					] )
+					->caller( __METHOD__ )
+					->execute();
 				self::savePropertiesAndMessages( $dbw, $rId, $election );
 
 				// Fix jump-id
@@ -1122,17 +1122,14 @@ class CreatePage extends ActionPage {
 				'pr_value' => $value,
 			];
 		}
-		$dbw->replace(
-			'securepoll_properties',
-			[
-				[
-					'pr_entity',
-					'pr_key'
-				]
-			],
-			$properties,
-			__METHOD__
-		);
+		if ( $properties ) {
+			$dbw->newReplaceQueryBuilder()
+				->replaceInto( 'securepoll_properties' )
+				->uniqueIndexFields( [ 'pr_entity', 'pr_key' ] )
+				->rows( $properties )
+				->caller( __METHOD__ )
+				->execute();
+		}
 
 		$messages = [];
 		$langs = $entity->getLangList();
@@ -1149,18 +1146,14 @@ class CreatePage extends ActionPage {
 				}
 			}
 		}
-		$dbw->replace(
-			'securepoll_msgs',
-			[
-				[
-					'msg_entity',
-					'msg_lang',
-					'msg_key'
-				]
-			],
-			$messages,
-			__METHOD__
-		);
+		if ( $messages ) {
+			$dbw->newReplaceQueryBuilder()
+				->replaceInto( 'securepoll_msgs' )
+				->uniqueIndexFields( [ 'msg_entity', 'msg_lang', 'msg_key' ] )
+				->rows( $messages )
+				->caller( __METHOD__ )
+				->execute();
+		}
 	}
 
 	/**

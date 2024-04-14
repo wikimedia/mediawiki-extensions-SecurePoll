@@ -90,18 +90,12 @@ class TranslationRepo {
 			// First, the main wiki
 			$dbw = $this->lbFactory->getMainLB()->getConnection( ILoadBalancer::DB_PRIMARY );
 
-			$dbw->replace(
-				'securepoll_msgs',
-				[
-					[
-						'msg_entity',
-						'msg_lang',
-						'msg_key'
-					]
-				],
-				$replaceBatch,
-				__METHOD__
-			);
+			$dbw->newReplaceQueryBuilder()
+				->replaceInto( 'securepoll_msgs' )
+				->uniqueIndexFields( [ 'msg_entity', 'msg_lang', 'msg_key' ] )
+				->rows( $replaceBatch )
+				->caller( __METHOD__ )
+				->execute();
 
 			if ( $this->useNamespace ) {
 				// Create a new context to bypass caching
@@ -138,24 +132,18 @@ class TranslationRepo {
 						],
 						__METHOD__
 					);
-					if ( $id ) {
+					if ( $id && $jumpReplaceBatch ) {
 						foreach ( $jumpReplaceBatch as &$row ) {
 							$row['msg_entity'] = $id;
 						}
 						unset( $row );
 
-						$dbw->replace(
-							'securepoll_msgs',
-							[
-								[
-									'msg_entity',
-									'msg_lang',
-									'msg_key'
-								]
-							],
-							$jumpReplaceBatch,
-							__METHOD__
-						);
+						$dbw->newReplaceQueryBuilder()
+							->replaceInto( 'securepoll_msgs' )
+							->uniqueIndexFields( [ 'msg_entity', 'msg_lang', 'msg_key' ] )
+							->rows( $jumpReplaceBatch )
+							->caller( __METHOD__ )
+							->execute();
 					}
 				} catch ( DBError $ex ) {
 					// Log the exception, but don't abort the updating of the rest of the jump-wikis

@@ -146,33 +146,26 @@ class PopulateVoterListJob extends Job {
 
 		// Record the new job key (which will cause any outdated jobs to
 		// abort) and the progress figures.
-		$dbw->replace(
-			'securepoll_properties',
-			[
-				[
-					'pr_entity',
-					'pr_key'
-				]
-			],
-			[
-				[
-					'pr_entity' => $election->getId(),
-					'pr_key' => 'list_job-key',
-					'pr_value' => $params['jobKey'],
-				],
-				[
-					'pr_entity' => $election->getId(),
-					'pr_key' => 'list_total-count',
-					'pr_value' => $total,
-				],
-				[
-					'pr_entity' => $election->getId(),
-					'pr_key' => 'list_complete-count',
-					'pr_value' => 0,
-				],
-			],
-			__METHOD__
-		);
+		$dbw->newReplaceQueryBuilder()
+			->replaceInto( 'securepoll_properties' )
+			->uniqueIndexFields( [ 'pr_entity', 'pr_key' ] )
+			->row( [
+				'pr_entity' => $election->getId(),
+				'pr_key' => 'list_job-key',
+				'pr_value' => $params['jobKey'],
+			] )
+			->row( [
+				'pr_entity' => $election->getId(),
+				'pr_key' => 'list_total-count',
+				'pr_value' => $total,
+			] )
+			->row( [
+				'pr_entity' => $election->getId(),
+				'pr_key' => 'list_complete-count',
+				'pr_value' => 0,
+			] )
+			->caller( __METHOD__ )
+			->execute();
 
 		$jobQueueGroupFactory = $services->getJobQueueGroupFactory();
 		foreach ( $wikis as $wiki ) {
