@@ -294,15 +294,15 @@ class VotePage extends ActionPage {
 		$dbw->startAtomic( __METHOD__ );
 
 		// Mark previous votes as old
-		$dbw->update(
-			'securepoll_votes',
-			[ 'vote_current' => 0 ],
-			[
+		$dbw->newUpdateQueryBuilder()
+			->update( 'securepoll_votes' )
+			->set( [ 'vote_current' => 0 ] )
+			->where( [
 				'vote_election' => $this->election->getId(),
 				'vote_voter' => $this->voter->getId(),
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->execute();
 
 		// Add vote to log
 		$xff = '';

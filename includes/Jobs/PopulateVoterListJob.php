@@ -427,17 +427,17 @@ class PopulateVoterListJob extends Job {
 					],
 					__METHOD__
 				);
-				$dbwElection->update(
-					'securepoll_properties',
-					[
+				$dbwElection->newUpdateQueryBuilder()
+					->update( 'securepoll_properties' )
+					->set( [
 						'pr_value' => $count + $max - $min,
-					],
-					[
+					] )
+					->where( [
 						'pr_entity' => $this->params['electionId'],
 						'pr_key' => 'list_complete-count',
-					],
-					__METHOD__
-				);
+					] )
+					->caller( __METHOD__ )
+					->execute();
 			}
 
 			$dbwLocal->endAtomic( __METHOD__ );

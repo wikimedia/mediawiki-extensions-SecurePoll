@@ -110,16 +110,17 @@ class PurgePrivateVoteData extends Maintenance {
 
 			foreach ( $deleteSets as $deleteSet ) {
 				[ $minId, $maxId ] = $deleteSet;
-				$dbw->update(
-					'securepoll_votes',
-					[ 'vote_ip' => '', 'vote_xff' => '', 'vote_ua' => '' ],
-					array_merge( $conds,
-						[ 'vote_id >= ' . $dbr->addQuotes( $minId ),
-							'vote_id < ' . $dbr->addQuotes( $maxId ) ]
-					),
-					__METHOD__,
-					[ 'LIMIT' => $this->getBatchSize() ]
-				);
+				$dbw->newUpdateQueryBuilder()
+					->update( 'securepoll_votes' )
+					->set( [ 'vote_ip' => '', 'vote_xff' => '', 'vote_ua' => '' ] )
+					->where( $conds )
+					->andWhere( [
+						$dbw->expr( 'vote_id', '>=', $minId ),
+						$dbw->expr( 'vote_id', '<', $maxId ),
+					] )
+					->options( [ 'LIMIT' => $this->getBatchSize() ] )
+					->caller( __METHOD__ )
+					->execute();
 				$this->output( "Purged data from " . $dbw->affectedRows() . " votes\n" );
 
 				$lbFactory->waitForReplication();

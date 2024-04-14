@@ -570,15 +570,15 @@ class CreatePage extends ActionPage {
 		$dbw = $this->lbFactory->getMainLB()->getConnection( ILoadBalancer::DB_PRIMARY );
 		$dbw->startAtomic( __METHOD__ );
 		foreach ( $fields as $pr_key => $pr_value ) {
-			$dbw->update(
-				'securepoll_properties',
-				[ 'pr_value' => $pr_value ],
-				[
+			$dbw->newUpdateQueryBuilder()
+				->update( 'securepoll_properties' )
+				->set( [ 'pr_value' => $pr_value ] )
+				->where( [
 					'pr_entity' => $this->election->getId(),
 					'pr_key' => $pr_key
-				],
-				__METHOD__
-			);
+				] )
+				->caller( __METHOD__ )
+				->execute();
 		}
 		$dbw->endAtomic( __METHOD__ );
 
@@ -733,7 +733,12 @@ class CreatePage extends ActionPage {
 			);
 		} else {
 			$eId = $election->getId();
-			$dbw->update( 'securepoll_elections', $fields, [ 'el_entity' => $eId ], __METHOD__ );
+			$dbw->newUpdateQueryBuilder()
+				->update( 'securepoll_elections' )
+				->set( $fields )
+				->where( [ 'el_entity' => $eId ] )
+				->caller( __METHOD__ )
+				->execute();
 
 			// Delete any questions or options that weren't included in the
 			// form submission.
@@ -873,15 +878,15 @@ class CreatePage extends ActionPage {
 				self::savePropertiesAndMessages( $dbw, $rId, $election );
 
 				// Fix jump-id
-				$dbw->update(
-					'securepoll_properties',
-					[ 'pr_value' => $eId ],
-					[
+				$dbw->newUpdateQueryBuilder()
+					->update( 'securepoll_properties' )
+					->set( [ 'pr_value' => $eId ] )
+					->where( [
 						'pr_entity' => $rId,
 						'pr_key' => 'jump-id'
-					],
-					__METHOD__
-				);
+					] )
+					->caller( __METHOD__ )
+					->execute();
 				$dbw->endAtomic( __METHOD__ );
 				$lb->reuseConnection( $dbw );
 			}
