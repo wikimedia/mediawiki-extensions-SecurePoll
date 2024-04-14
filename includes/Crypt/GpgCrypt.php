@@ -90,26 +90,22 @@ class GpgCrypt extends Crypt {
 	): void {
 		// Add private key to DB if it was entered in the form
 		if ( isset( $data['gpg-decrypt-key'] ) ) {
-			$dbw->upsert(
-				'securepoll_properties',
-				[
+			$dbw->newInsertQueryBuilder()
+				->insertInto( 'securepoll_properties' )
+				->row( [
 					'pr_entity' => $electionId,
 					'pr_key' => 'gpg-decrypt-key',
 					'pr_value' => $data['gpg-decrypt-key'],
-				],
-				[
-					[
-						'pr_entity',
-						'pr_key'
-					],
-				],
-				[
+				] )
+				->onDuplicateKeyUpdate()
+				->uniqueIndexFields( [ 'pr_entity', 'pr_key' ] )
+				->set( [
 					'pr_entity' => $electionId,
 					'pr_key' => 'gpg-decrypt-key',
 					'pr_value' => $data['gpg-decrypt-key'],
-				],
-				__METHOD__
-			);
+				] )
+				->caller( __METHOD__ )
+				->execute();
 			$dbw->insert(
 				'securepoll_properties',
 				[

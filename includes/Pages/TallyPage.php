@@ -347,25 +347,21 @@ class TallyPage extends ActionPage {
 
 		// Record that the election is being tallied. The job will
 		// delete this on completion.
-		$dbw->upsert(
-			'securepoll_properties',
-			[
+		$dbw->newInsertQueryBuilder()
+			->insertInto( 'securepoll_properties' )
+			->row( [
 				'pr_entity' => $electionId,
 				'pr_key' => 'tally-job-enqueued',
 				'pr_value' => 1,
-			],
-			[
-				[
-					'pr_entity',
-					'pr_key'
-				],
-			],
-			[
+			] )
+			->onDuplicateKeyUpdate()
+			->uniqueIndexFields( [ 'pr_entity', 'pr_key' ] )
+			->set( [
 				'pr_entity' => $electionId,
 				'pr_key' => 'tally-job-enqueued',
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->execute();
 
 		$this->jobQueueGroup->push(
 			new JobSpecification(
