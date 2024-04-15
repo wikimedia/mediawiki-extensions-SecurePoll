@@ -118,7 +118,6 @@ class PurgePrivateVoteData extends Maintenance {
 						$dbw->expr( 'vote_id', '>=', $minId ),
 						$dbw->expr( 'vote_id', '<', $maxId ),
 					] )
-					->options( [ 'LIMIT' => $this->getBatchSize() ] )
 					->caller( __METHOD__ )
 					->execute();
 				$this->output( "Purged data from " . $dbw->affectedRows() . " votes\n" );
