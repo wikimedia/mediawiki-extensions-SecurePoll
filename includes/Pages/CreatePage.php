@@ -662,8 +662,6 @@ class CreatePage extends ActionPage {
 						__METHOD__
 					);
 
-					$lb->reuseConnection( $rdbw );
-
 					if ( $id && $id !== $rId ) {
 						throw new StatusException(
 							'securepoll-create-duplicate-title',
@@ -892,7 +890,6 @@ class CreatePage extends ActionPage {
 					->caller( __METHOD__ )
 					->execute();
 				$dbw->endAtomic( __METHOD__ );
-				$lb->reuseConnection( $dbw );
 			}
 		}
 
