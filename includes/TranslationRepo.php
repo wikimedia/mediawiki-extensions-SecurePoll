@@ -149,7 +149,6 @@ class TranslationRepo {
 					// Log the exception, but don't abort the updating of the rest of the jump-wikis
 					MWExceptionHandler::logException( $ex );
 				}
-				$lb->reuseConnection( $dbw );
 			}
 		}
 	}
