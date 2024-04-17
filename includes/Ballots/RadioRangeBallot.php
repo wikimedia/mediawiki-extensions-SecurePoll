@@ -242,11 +242,10 @@ class RadioRangeBallot extends Ballot {
 			$inputId = "{$name}_opt{$optionId}";
 			$oldValue = $this->getRequest()->getVal( $inputId, $defaultScore );
 
-			$tr = ( new \OOUI\Tag( 'tr' ) )->addClasses( [ 'securepoll-ballot-row' ] );
+			$tr = ( new \OOUI\Tag( 'tr' ) )->addClasses( [ 'securepoll-ballot-row', $inputId ] );
 			$tr->appendContent(
 				( new \OOUI\Tag( 'td' ) )
-					->addClasses( [ 'securepoll-ballot-optlabel' ] )
-					->appendContent( new \OOUI\HtmlSnippet( $this->errorLocationIndicator( $inputId ) . $optionHTML ) )
+					->appendContent( new \OOUI\HtmlSnippet( $optionHTML ) )
 			);
 			foreach ( $labels as $score => $label ) {
 				$tr->appendContent( ( new \OOUI\Tag( 'td' ) )->appendContent(
@@ -258,10 +257,17 @@ class RadioRangeBallot extends Ballot {
 					] )
 				) );
 			}
+			$tr->appendContent(
+				( new \OOUI\Tag( 'td' ) )
+					->addClasses( [ 'securepoll-ballot-optlabel' ] )
+					->appendContent( new \OOUI\HtmlSnippet( $this->errorLocationIndicator( $inputId ) . "" ) )
+			);
 			$tbody->appendContent( $tr );
 		}
-
-		return new \OOUI\FieldsetLayout( [ 'items' => [ new \OOUI\Element( [ 'content' => [ $table ] ] ) ] ] );
+		return new \OOUI\FieldsetLayout( [
+			'items' => [ new \OOUI\Element( [ 'content' => [ $table ] ] ) ],
+			'classes' => [ $name ]
+		] );
 	}
 
 	/**

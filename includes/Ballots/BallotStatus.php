@@ -3,9 +3,8 @@
 namespace MediaWiki\Extension\SecurePoll\Ballots;
 
 use MediaWiki\Status\Status;
-use OOUI\ButtonWidget;
-use OOUI\HtmlSnippet;
-use OOUI\Tag;
+use OOUI\ButtonInputWidget;
+use OOUI\MessageWidget;
 
 class BallotStatus extends Status {
 	/** @var true[] */
@@ -31,33 +30,44 @@ class BallotStatus extends Status {
 		if ( !$this->errors ) {
 			return '';
 		}
-		$s = '<ul class="securepoll-error-box">';
+		$s = '<ul>';
+		$usedIds = [];
+		$text = '';
 		foreach ( $this->errors as $error ) {
 			if ( !isset( $error['localized'] ) || !$error['localized'] ) {
 				$text = wfMessage( $error['message'], $error['params'] )->text();
 				if ( isset( $error['securepoll-id'] ) ) {
 					$id = $error['securepoll-id'];
-					if ( isset( $usedIds[$id] ) ) {
-						$error = new Tag( 'li' );
-						$error->appendContent(
-							new HtmlSnippet( htmlspecialchars( $text ) )
-						);
-						$error->appendContent(
-							new ButtonWidget( [
-								'icon' => 'downTriangle',
-								'label' => wfMessage( 'securepoll-ballot-see-error' )->text(),
-								'href' => '#' . urlencode( "$id-location" ),
-							] )
-						);
-						$s .= $error;
-						continue;
+					if ( !isset( $usedIds[$id] ) ) {
+						$name = explode( '_', urlencode( "$id" ) );
+						$usedIds[ $name[0] . '_' . $name[1] ][] = urlencode( "$id" );
 					}
+				} elseif ( !isset( $error['securepoll-id'] ) ) {
+					$s .= new MessageWidget( [
+						'type' => 'error',
+						'label' => htmlspecialchars( $text )
+					] ) . "\n";
 				}
-				$s .= '<li>' . htmlspecialchars( $text ) . "</li>\n";
 			}
 		}
-		$s .= "</ul>\n";
 
+		if ( count( $usedIds ) > 0 ) {
+			$error = new MessageWidget( [
+				'type' => 'error',
+				'label' => htmlspecialchars( $text )
+			] );
+			$buttonWidget = new ButtonInputWidget( [
+				'label' => wfMessage( 'securepoll-ballot-show-warnings' )->text(),
+				'classes' => [ 'highlight-warnings-button' ],
+				'infusable' => true,
+				'data' => json_encode( $usedIds ),
+				'showErrors' => false
+			] );
+			$error->appendContent( $buttonWidget );
+			$s .= $error . "<br>";
+		}
+
+		$s .= "</ul>\n";
 		return $s;
 	}
 
