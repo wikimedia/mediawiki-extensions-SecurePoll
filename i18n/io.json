@@ -23,7 +23,6 @@
 	"securepoll-invalid-record": "Nevalida registro di votado.",
 	"securepoll-jump": "Irar al servero di votado",
 	"securepoll-bad-ballot-submission": "Vua voto esis nevalida: $1",
-	"securepoll-ballot-see-error": "Videz l'avizo",
 	"securepoll-unanswered-questions": "Vu mustos respondar omna questioni.",
 	"securepoll-invalid-rank": "Nevalida rangizo. Vu mustos rangizar kandidati inter 1 e 999.",
 	"securepoll-unranked-options": "Kelka temi selektebla ne klasifikesis.\nVu mustas rangizar omna temi, de 1 til 999.",

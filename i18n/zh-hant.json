@@ -61,7 +61,6 @@
 	"securepoll-jump": "前往投票伺服器",
 	"securepoll-ballot-type-archived": "此選票類型已存檔，不能再用於投票。",
 	"securepoll-bad-ballot-submission": "您的投票無效︰$1",
-	"securepoll-ballot-see-error": "查看此警告",
 	"securepoll-unanswered-questions": "您必須回答所有問題。",
 	"securepoll-invalid-rank": "無效的評分。 您給予候選人的評分必須介於 1 到 999 之間。",
 	"securepoll-unranked-options": "部分選項尚未評分。所有選項均需要評分，且分數應介於 1 到 999 之間。",

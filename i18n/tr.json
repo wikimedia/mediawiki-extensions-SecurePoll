@@ -48,7 +48,6 @@
 	"securepoll-no-decryption-key": "Hiç deşifre anahtarı ayarlanmamış.\nDeşifrelenemiyor.",
 	"securepoll-jump": "Oylama sunucusuna git",
 	"securepoll-bad-ballot-submission": "Oyunuz geçersiz: $1",
-	"securepoll-ballot-see-error": "Bu uyarıyı bakın",
 	"securepoll-unanswered-questions": "Tüm sorulara cevap vermelisiniz.",
 	"securepoll-invalid-rank": "Geçersiz derece. Adaylara 1 ile 999 arasında bir derece vermelisiniz.",
 	"securepoll-unranked-options": "Bazı seçenekler derecelendirilmemiş.\nTüm seçeneklere 1 ile 999 arasında bir derece vermelisiniz.",

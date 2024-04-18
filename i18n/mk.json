@@ -37,7 +37,6 @@
 	"securepoll-jump": "Оди на опслужувачот за гласање",
 	"securepoll-ballot-type-archived": "Овој вид гласачки ливчиња е архивиран и повеќе не може да се користи за гласање.",
 	"securepoll-bad-ballot-submission": "Вашиот глас е неважечки: $1",
-	"securepoll-ballot-see-error": "Погл. предупредувањево",
 	"securepoll-unanswered-questions": "Морате да одговорите на сите прашања.",
 	"securepoll-invalid-rank": "Погрешен ранг. Кандидадите морате да ги рангирате со бројка помеѓу 1 и 999.",
 	"securepoll-unranked-options": "Некои избори не беа рангирани.\nНа сите избори мора да им доделите ранг помеѓу 1 и 999.",

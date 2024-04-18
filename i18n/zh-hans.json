@@ -60,7 +60,6 @@
 	"securepoll-invalid-record": "投票记录无效。",
 	"securepoll-jump": "前往投票服务器",
 	"securepoll-bad-ballot-submission": "您的投票无效：$1",
-	"securepoll-ballot-see-error": "查看此警告",
 	"securepoll-unanswered-questions": "您必须回答所有问题。",
 	"securepoll-invalid-rank": "评级无效。给候选人的评分必须在1到999之间。",
 	"securepoll-unranked-options": "部分选项尚未评级。所有选项均应评级，且分数应在1到999之间。",

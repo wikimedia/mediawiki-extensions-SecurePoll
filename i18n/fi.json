@@ -46,7 +46,6 @@
 	"securepoll-no-decryption-key": "Salauksen purkuavainta ei ole asetettu.\nSalausta ei voi purkaa.",
 	"securepoll-jump": "Siirry äänestyspalvelimelle.",
 	"securepoll-bad-ballot-submission": "Äänesi oli epäkelpo: $1",
-	"securepoll-ballot-see-error": "Katso tämä varoitus",
 	"securepoll-unanswered-questions": "Sinun täytyy vastata kaikkiin kysymyksiin.",
 	"securepoll-invalid-rank": "Virheellinen sijanumero. Ehdokkaille antamasi sijanumeron on sijaittava välillä 1 ja 999.",
 	"securepoll-unranked-options": "Joitain vaihtoehtoja ei asetettu paremmuusjärjestykseen. Jokaiselle vaihtoehdolle pitää tarjota sijoitus väliltä 1 ja 999.",

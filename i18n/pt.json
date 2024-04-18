@@ -47,7 +47,6 @@
 	"securepoll-jump": "Ir para o servidor de votação",
 	"securepoll-ballot-type-archived": "Este tipo de voto foi arquivado e já não pode ser usado para votar.",
 	"securepoll-bad-ballot-submission": "O seu voto foi inválido: $1",
-	"securepoll-ballot-see-error": "Ver este aviso",
 	"securepoll-unanswered-questions": "Tem de responder a todas as perguntas.",
 	"securepoll-invalid-rank": "Classificação inválida. Deve atribuir aos candidatos uma classificação entre 1 e 999.",
 	"securepoll-unranked-options": "Algumas opções não foram classificadas.\nDeve atribuir a todas as opções uma classificação entre 1 e 999.",

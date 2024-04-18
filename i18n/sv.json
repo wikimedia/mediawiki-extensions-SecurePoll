@@ -45,7 +45,6 @@
 	"securepoll-no-decryption-key": "Ingen dekrypteringsnyckel är konfigurerad.\nKan inte dekryptera.",
 	"securepoll-jump": "Gå till röstnings-servern.",
 	"securepoll-bad-ballot-submission": "Din röst var ogiltig: $1",
-	"securepoll-ballot-see-error": "Se denna varning",
 	"securepoll-unanswered-questions": "Du måste svara på alla frågor.",
 	"securepoll-invalid-rank": "Ogiltig rangordning. Du måste rangordna kandidater mellan 1 och 999.",
 	"securepoll-unranked-options": "Något eller några valmöjligheter rangordnades inte.\nDu måste rangordna alla valmöjligheter mellan 1 och 999.",

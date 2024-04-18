@@ -47,7 +47,6 @@
 	"securepoll-jump": "Перейти на сервер голосувань",
 	"securepoll-ballot-type-archived": "Цей тип бюлетеня заархівовано, його не можна більше використовувати для голосування.",
 	"securepoll-bad-ballot-submission": "Ваш голос не дійсний: $1",
-	"securepoll-ballot-see-error": "Переглянути це попередження",
 	"securepoll-unanswered-questions": "Ви повинні відповісти на всі запитання.",
 	"securepoll-invalid-rank": "Неправильне місце. Ви повинні вказати для кандидата місце від 1 до 999.",
 	"securepoll-unranked-options": "Для деяких записів не зазначені місця.\nВам слід вказати місця від 1 до 999 для кожного запису.",

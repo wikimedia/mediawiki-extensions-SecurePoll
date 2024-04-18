@@ -64,7 +64,6 @@
 	"securepoll-invalid-record": "Registro de votación inválido.",
 	"securepoll-jump": "Ir al servidor de votación",
 	"securepoll-bad-ballot-submission": "Tu voto fue inválido: $1",
-	"securepoll-ballot-see-error": "Ver esta advertencia",
 	"securepoll-unanswered-questions": "Debes responder todas las preguntas.",
 	"securepoll-invalid-rank": "Clasificación no válida. Debes clasificar a los candidatos con un número entre 1 y 999.",
 	"securepoll-unranked-options": "Algunas opciones no fueron clasificadas.\nDebes clasificar a todas las opciones con un número entre 1 y 999.",

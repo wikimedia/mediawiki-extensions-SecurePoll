@@ -55,7 +55,6 @@
 	"securepoll-jump": "Ir para o servidor de votação",
 	"securepoll-ballot-type-archived": "Este tipo de cédula foi arquivado e não pode ser mais usado para votação.",
 	"securepoll-bad-ballot-submission": "Seu voto foi inválido: $1",
-	"securepoll-ballot-see-error": "Veja este aviso",
 	"securepoll-unanswered-questions": "Você deve responder todas as questões.",
 	"securepoll-invalid-rank": "Nota inválida. Você deve classificar os candidatos com notas entre 1 e 999.",
 	"securepoll-unranked-options": "Algumas opções não foram classificadas.\nVocê deve classificar todas as opções com uma nota entre 1 e 999.",

@@ -39,7 +39,6 @@
 	"securepoll-no-decryption-key": "Klucz odszyfrowujący nie został skonfigurowany.\nOdszyfrowanie nie jest możliwe.",
 	"securepoll-jump": "Przejdź do serwera obsługującego głosowanie",
 	"securepoll-bad-ballot-submission": "Twój głos był nieważny – $1",
-	"securepoll-ballot-see-error": "Zobacz błąd",
 	"securepoll-unanswered-questions": "Musisz odpowiedzieć na wszystkie pytania.",
 	"securepoll-invalid-rank": "Błąd w rankingu kandydatów. Musisz przypisać kandydatom rangę z przedziału od 1 do 999.",
 	"securepoll-unranked-options": "Niektóre pola nie otrzymały rangi.\nKażde pole musi mieć przypisaną rangę z przedziału od 1 do 999.",

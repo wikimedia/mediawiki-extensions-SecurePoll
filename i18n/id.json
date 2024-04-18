@@ -42,7 +42,6 @@
 	"securepoll-no-decryption-key": "Kunci dekripsi belum dikonfigurasikan.\nTidak dapat melakukan dekripsi.",
 	"securepoll-jump": "Pergi ke server pemungutan suara",
 	"securepoll-bad-ballot-submission": "Suara Anda tidak sah: $1",
-	"securepoll-ballot-see-error": "Lihat peringatan ini",
 	"securepoll-unanswered-questions": "Anda harus menjawab semua pertanyaan.",
 	"securepoll-invalid-rank": "Peringkat tidak sah. Anda harus memberi peringkat kandidat antara 1 dan 99.",
 	"securepoll-unranked-options": "Beberapa pilihan tidak diberi peringkat.\nAnda harus memberi peringkat antara 1 dan 99 untuk semua pilihan.",

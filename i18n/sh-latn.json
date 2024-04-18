@@ -34,7 +34,6 @@
 	"securepoll-jump": "Idi na server za glasanje",
 	"securepoll-ballot-type-archived": "Ova vrsta glasačkog listića je arhivirana i više se ne može koristiti za glasovanje.",
 	"securepoll-bad-ballot-submission": "Vaš glas nije valjan: $1",
-	"securepoll-ballot-see-error": "Pogl. upozorenje",
 	"securepoll-unanswered-questions": "Morate odgovoriti na sva pitanja.",
 	"securepoll-invalid-rank": "Nevažeći rang. Kandidate morate rangirati s brojem između 1 i 999.",
 	"securepoll-unranked-options": "Neke opcije nisu rangirane.\nMorate dati svim opcijama rang između 1 i 999.",

@@ -48,7 +48,6 @@
 	"securepoll-jump": "اذهب إلى خادم التصويت",
 	"securepoll-ballot-type-archived": "ان نوع هذا الاقتراع قد تم ارشفته ولم يعد يستخدم في التصويت",
 	"securepoll-bad-ballot-submission": "تصويتك ليس صحيحا: $1",
-	"securepoll-ballot-see-error": "اطلّع على هذا التحذير",
 	"securepoll-unanswered-questions": "يجب أن تجيب على كل الأسئلة.",
 	"securepoll-invalid-rank": "رتبة غير مقبولة. يجب أن تعطي المرشحين رتبة بين 1 و 999.",
 	"securepoll-unranked-options": "لم يتم اعطاء رتبة لبعض الخيارات.\nيجب أن تعطي كل الخيارات رتبة ما بين 1 و 999.",

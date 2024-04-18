@@ -35,7 +35,6 @@
 	"securepoll-jump": "Pojdi na glasovalni strežnik",
 	"securepoll-ballot-type-archived": "Ta vrsta glasovnice je bila arhivirana in je ni več mogoče uporabljati za glasovanje.",
 	"securepoll-bad-ballot-submission": "Vaš glas je bil neveljaven: $1",
-	"securepoll-ballot-see-error": "Prikaži to opozorilo",
 	"securepoll-unanswered-questions": "Odgovoriti morate na vsa vprašanja.",
 	"securepoll-invalid-rank": "Neveljavna uvrstitev. Kandidatom morate določiti uvrstitev med 1 in 999.",
 	"securepoll-unranked-options": "Nekatere možnosti niso bile uvrščene.\nVsem možnostim morate določiti uvrstitev med 1 in 999.",

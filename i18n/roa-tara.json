@@ -32,7 +32,6 @@
 	"securepoll-invalid-record": "Reggistrazione d'a votazione invalide.",
 	"securepoll-jump": "Vèje a 'u server de le vote",
 	"securepoll-bad-ballot-submission": "'U vote tune ere invalide: $1",
-	"securepoll-ballot-see-error": "'Ndruche stu avvise",
 	"securepoll-unanswered-questions": "Tu a responnere a tutte le domande.",
 	"securepoll-invalid-rank": "Poziione invalide. Tu a dà candidate e posiziune 'mbrà l'1 e 'u 999.",
 	"securepoll-unranked-options": "Quacche opzione non ge tenève 'a posizione.<br />\nTu a dà a tutte le opziune 'na posizione 'mbrà 1 e 999.",

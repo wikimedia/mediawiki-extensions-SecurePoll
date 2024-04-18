@@ -36,7 +36,6 @@
 	"securepoll-jump": "వోటింగ్ సర్వరుకు వెళ్ళుము",
 	"securepoll-ballot-type-archived": "ఈ బ్యాలట్ రకాన్ని ఆర్కైవు చేసాం. ఇకపై దాన్ని వాడే వీలు లేదు.",
 	"securepoll-bad-ballot-submission": "మీ వోటు చెల్లదు: $1",
-	"securepoll-ballot-see-error": "ఈ హెచ్చరిక చూడండి",
 	"securepoll-unanswered-questions": "మీరు అన్ని ప్రశ్నలకి సమాధానము ఇవ్వవలెను.",
 	"securepoll-invalid-rank": "చెల్లని ర్యాంకు. అభ్యర్ధులకి రాంకులను 1 - 999 మధ్య ఇవ్వాలి.",
 	"securepoll-unranked-options": "కొన్ని వికల్పాలకి మీరు ర్యాంకులు ఇవ్వలేదు.\nమీరు తప్పనిసరిగా అన్ని వికల్పాలకీ 1 మరియు 999 మధ్యలో ఒక ర్యాంకుని ఇవ్వాలి.",

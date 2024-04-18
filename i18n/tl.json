@@ -37,7 +37,6 @@
 	"securepoll-invalid-record": "Di-wastong talaan ng pagboboto.",
 	"securepoll-jump": "Pumunta sa serbidor ng pagboto",
 	"securepoll-bad-ballot-submission": "Hindi tinanggap ang boto mo: $1",
-	"securepoll-ballot-see-error": "Tingnan ang babalang ito",
 	"securepoll-unanswered-questions": "Dapat mong sagutin ang lahat ng mga katanungan.",
 	"securepoll-invalid-rank": "Hindi wastong ranggo. Kailangan mong magbigay sa mga kandidato ng isang ranggo sa pagitan ng 1 at 999.",
 	"securepoll-unranked-options": "Ang ilang mga opsyon ay hindi niraranggo. \nIkaw ay dapat magbigay ng lahat ng mga mapagpipilian ng isang ranggo sa pagitan ng 1 at 999.",

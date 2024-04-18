@@ -50,7 +50,6 @@
 	"securepoll-invalid-record": "無効投票記録",
 	"securepoll-jump": "投票サーバーに移動",
 	"securepoll-bad-ballot-submission": "あなたの投票は無効でした: $1",
-	"securepoll-ballot-see-error": "この警告を見る",
 	"securepoll-unanswered-questions": "すべての質問に答えなくてはなりません。",
 	"securepoll-invalid-rank": "順位が無効です。各候補に対しては1から999の間で順位を付けなければなりません。",
 	"securepoll-unranked-options": "順位が付けられていない選択肢があります。すべての選択肢に1から999の間で順位を付けなければなりません。",

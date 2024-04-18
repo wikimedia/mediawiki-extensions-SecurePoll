@@ -48,7 +48,6 @@
 	"securepoll-jump": "Naar de stemserver gaan",
 	"securepoll-ballot-type-archived": "Dit type stembriefje is gearchiveerd en kan niet meer worden gebruikt om te stemmen.",
 	"securepoll-bad-ballot-submission": "Uw stem is ongeldig: $1",
-	"securepoll-ballot-see-error": "Zie deze waarschuwing",
 	"securepoll-unanswered-questions": "U moet alle vragen beantwoorden.",
 	"securepoll-invalid-rank": "Ongeldige rang.\nU moet de kandidaten een rang geven tussen 1 en 999.",
 	"securepoll-unranked-options": "Sommige stemmogelijkheden hebben geen rang.\nU moet alle mogelijkheden een rang geven tussen 1 en 999.",

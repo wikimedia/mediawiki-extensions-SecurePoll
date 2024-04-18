@@ -58,7 +58,6 @@
 	"securepoll-jump": "Aller au serveur de vote",
 	"securepoll-ballot-type-archived": "Ce type de bulletin de vote a été archivé et ne peut plus être utilisé pour voter.",
 	"securepoll-bad-ballot-submission": "Votre vote n’était pas valide : $1",
-	"securepoll-ballot-see-error": "Afficher cet avertissement",
 	"securepoll-unanswered-questions": "Vous devez répondre à toutes les questions.",
 	"securepoll-invalid-rank": "Rang incorrect. Vous devez donner aux candidats un rang entre 1 et 999.",
 	"securepoll-unranked-options": "Certaines options n’ont reçu aucun rang.\nVous devez donner un rang entre 1 et 999 (inclus) à chacune des options.",

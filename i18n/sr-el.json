@@ -33,7 +33,6 @@
 	"securepoll-no-decryption-key": "Nije postavljen ključ za dešifrovanje.\nNe mogu da dešifrujem.",
 	"securepoll-jump": "Idi na server za glasanje",
 	"securepoll-bad-ballot-submission": "Vaš glas je neispravan: $1",
-	"securepoll-ballot-see-error": "Pogledajte ovo upozorenje",
 	"securepoll-unanswered-questions": "Morate da odgovorite na sva pitanja.",
 	"securepoll-invalid-rank": "Neispravan rang. Kandidate morate da rangirate s brojem između 1 i 999.",
 	"securepoll-unranked-options": "Neki izbori nisu rangirani.\nSvim izborima morate dodeliti rang između 1 i 999.",

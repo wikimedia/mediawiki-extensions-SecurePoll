@@ -57,7 +57,6 @@
 	"securepoll-no-decryption-key": "Не настроен ключ расшифровки.\nНевозможно расшифровать.",
 	"securepoll-jump": "Перейти на сервер голосований",
 	"securepoll-bad-ballot-submission": "Ваш голос недействителен: $1",
-	"securepoll-ballot-see-error": "См. это предупреждение",
 	"securepoll-unanswered-questions": "Вы должны ответить на все вопросы.",
 	"securepoll-invalid-rank": "Недействительный ранг. Вы должны указать для кандидата ранг от 1 до 999.",
 	"securepoll-unranked-options": "Некоторые записи не проранжированы.\nВам необходимо указать ранг от 1 до 999 для всех записей.",

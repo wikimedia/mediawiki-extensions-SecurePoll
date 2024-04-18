@@ -36,7 +36,6 @@
 	"securepoll-no-decryption-key": "Ingen dekrypteringsnøgle opsat.\nKan ikke dekryptere.",
 	"securepoll-jump": "Gå til stemmeserveren",
 	"securepoll-bad-ballot-submission": "Din stemme var ugyldig: $1",
-	"securepoll-ballot-see-error": "Se denne advarsel",
 	"securepoll-unanswered-questions": "Du skal besvare alle spørgsmålene.",
 	"securepoll-invalid-rank": "Ugyldig rang. Du skal give kandidaterne en rang mellem 1 og 999.",
 	"securepoll-unranked-options": "Nogle muligheder blev ikke rangordnet.\nDu skal give alle muligheder en rangordning mellem 1 og 999.",

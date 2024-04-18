@@ -39,7 +39,6 @@
 	"securepoll-jump": "Eiti į balsavimo serverį",
 	"securepoll-ballot-type-archived": "Šio tipo biuleteniai buvo suarchyvuoti ir jų nebegalima naudoti balsuojant.",
 	"securepoll-bad-ballot-submission": "Jūsų balsas netinkamas: $1",
-	"securepoll-ballot-see-error": "Žiūrėkite šį įspėjimą",
 	"securepoll-unanswered-questions": "Turite atsakyti į visus klausimus.",
 	"securepoll-invalid-rank": "Neteisingas įvertinimas. Kandidatų įvertinimas turi būti tarp 1 ir 999.",
 	"securepoll-unranked-options": "Kai kurios parinktys nebuvo įvertintos.\nVisoms parinktims turite skirti įvertinimą tarp 1 ir 999.",
