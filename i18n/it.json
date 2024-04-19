@@ -48,6 +48,8 @@
 	"securepoll-no-decryption-key": "Nessuna chiave di decrittazione è configurata.\nImpossibile decifrare.",
 	"securepoll-jump": "Vai al server della votazione",
 	"securepoll-bad-ballot-submission": "Il tuo voto non era valido: $1",
+	"securepoll-ballot-show-warnings": "Mostra solo avvisi",
+	"securepoll-ballot-show-all": "Mostra tutto",
 	"securepoll-unanswered-questions": "È necessario rispondere a tutte le domande.",
 	"securepoll-invalid-rank": "Voto non valido. Devi dare ai candidati un voto compreso tra 1 e 999.",
 	"securepoll-unranked-options": "Alcune voci sono prive di voto.\nDevi assegnare a ciascuna voce un voto compreso tra 1 e 999.",

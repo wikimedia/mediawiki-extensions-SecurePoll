@@ -42,6 +42,7 @@
 	"securepoll-no-decryption-key": "কোনো ডিক্রিপশন চাবি ঠিক করা হয়নি।\nডিক্রিপ্ট করা সম্ভব নয়।",
 	"securepoll-jump": "ভোট প্রদানের সার্ভারে চলুন",
 	"securepoll-bad-ballot-submission": "আপনার ভোট বৈধ নয়: $1",
+	"securepoll-ballot-show-all": "সব দেখান",
 	"securepoll-unanswered-questions": "আপনাকে অবশ্যই সব প্রশ্নের উত্তর দিতে হবে।",
 	"securepoll-invalid-rank": "অবৈধ র‍্যাঙ্ক। আপনাকে অবশ্যই প্রার্থীদেরকে ১ থেকে ৯৯৯-এর মধ্যে র‍্যাঙ্কিং করতে হবে।",
 	"securepoll-unranked-options": "কিছু অপশন র‍্যাঙ্ক করা হয়নি।\nআপনাকে অবশ্যই সকল অপশন ১ থেকে ৯৯৯-এর মধ্যে র‍্যাঙ্কিং করতে হবে।",
