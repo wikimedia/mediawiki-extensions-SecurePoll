@@ -33,6 +33,7 @@
 	"securepoll-no-decryption-key": "N'eus bet spisaet alc'hwez disrinegañ ebet.\nDibosupl disrinegañ.",
 	"securepoll-jump": "Mont d'ar servijer mouezhiañ",
 	"securepoll-bad-ballot-submission": "Direizh eo ho vot : $1",
+	"securepoll-ballot-show-all": "Diskouez pep tra",
 	"securepoll-unanswered-questions": "Ret eo deoc'h respont d'an holl c'houlennoù.",
 	"securepoll-invalid-rank": "Renk direizh. Rankout a rit renkañ an emstriverien etre 1 ha 999.",
 	"securepoll-unranked-options": "Dibarzhioù zo n'int ket bet urzhiet.\nRet deoc'h renkañ pep dibarzh etre 1 ha 999.",

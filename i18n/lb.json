@@ -35,6 +35,7 @@
 	"securepoll-jump": "Op den Ofstëmmungs-Server goen",
 	"securepoll-ballot-type-archived": "Dëse Stëmmziedel-Typ gouf archivéiert a  kann net méi benotzt gi fir ofzestëmmen.",
 	"securepoll-bad-ballot-submission": "Är Stëmm ass net valabel: $1",
+	"securepoll-ballot-show-warnings": "Nëmme Warnunge weisen",
 	"securepoll-unanswered-questions": "Dir musst all Froe beäntwerten",
 	"securepoll-invalid-rank": "Ongëltegt Classement. Dir musst de Kandidaten e Classement tëscht 1 an 999 ginn.",
 	"securepoll-unranked-options": "E puer Optioune krute kee Klassement.\nDir musst allen optiounen e Classement tëscht 1 an 999 ginn.",
