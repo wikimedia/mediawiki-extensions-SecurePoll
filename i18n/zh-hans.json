@@ -28,7 +28,8 @@
 			"Xyb",
 			"Yfdyh000",
 			"Zhang8569",
-			"飞舞回堂前"
+			"飞舞回堂前",
+			"沈澄心"
 		]
 	},
 	"securepoll": "安全投票",
@@ -101,6 +102,7 @@
 	"securepoll-details-link": "详情",
 	"securepoll-details-title": "投票详情：#$1",
 	"securepoll-invalid-vote": "“$1”不是有效的投票ID",
+	"securepoll-header-id": "ID",
 	"securepoll-header-voter-type": "投票者类型",
 	"securepoll-voter-properties": "投票者属性",
 	"securepoll-strike-log": "投票作废日志",
@@ -118,6 +120,7 @@
 	"securepoll-translate-redirect-otherwiki": "主wiki",
 	"securepoll-translate-label-comment": "原因：",
 	"securepoll-invalid-language": "无效的语言代码“$1”",
+	"securepoll-header-trans-id": "ID",
 	"securepoll-submit-translate": "更新",
 	"securepoll-language-label": "选择语言：",
 	"securepoll-submit-select-lang": "翻译",
@@ -160,6 +163,7 @@
 	"securepoll-tally-upload-error": "对转储文件点票时出现错误：$1",
 	"securepoll-tally-result-error": "计数失败，错误：$1",
 	"securepoll-tally-result": "<h2>之前的结果</h2><p>$1</p><p>（$2时的结果）</p>",
+	"securepoll-tally-comments": "投票者评论",
 	"securepoll-pairwise-victories": "成对胜利矩阵",
 	"securepoll-strength-matrix": "路径强度矩阵",
 	"securepoll-ranks": "最终排名",
@@ -326,5 +330,19 @@
 	"securepoll-stv-result-round-quota": "配额：$1",
 	"securepoll-stv-result-round-elected": "当选：$1",
 	"securepoll-stv-result-round-eliminated": "淘汰：$1",
-	"securepoll-stv-result-round-keep-factor": "（保留系数：$1）"
+	"securepoll-stv-result-round-keep-factor": "（保留系数：$1）",
+	"securepoll-translate-import-button-label": "导入翻译",
+	"securepoll-translation-importer-no-content": "页面内容为空",
+	"securepoll-translation-importer-update-start": "正在导入页面$1",
+	"securepoll-translation-importer-no-selected-language": "没有可导入的语言",
+	"securepoll-translation-result-error-title": "错误",
+	"securepoll-translation-result-error-text": "这些页面发生错误",
+	"securepoll-translation-result-import-pages-title": "页面",
+	"securepoll-translation-result-import-pages-text": "已导入页面",
+	"securepoll-translation-result-description": "导入翻译自",
+	"securepoll-translation-import-start": "开始导入",
+	"securepoll-translation-select-import-source": "从$1选择页面",
+	"securepoll-translation-import-dialog-title": "导入翻译",
+	"securepoll-translation-import-action-import": "导入",
+	"securepoll-translation-import-action-done": "完成"
 }
