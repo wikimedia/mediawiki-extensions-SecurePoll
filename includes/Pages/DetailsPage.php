@@ -128,12 +128,32 @@ class DetailsPage extends ActionPage {
 		$out->addHTML( '</table>' );
 
 		// Show cookie dups
-		$cmTable = $db->tableName( 'securepoll_cookie_match' );
 		$voterId = intval( $row->voter_id );
-		$sql = "SELECT cm_voter_2 as voter, cm_timestamp FROM $cmTable WHERE cm_voter_1=$voterId" .
-			" UNION " .
-			"SELECT cm_voter_1 as voter, cm_timestamp FROM $cmTable WHERE cm_voter_2=$voterId";
-		$res = $db->query( $sql, __METHOD__ );
+		$res = $db->newUnionQueryBuilder()
+			->add(
+				$db->newSelectQueryBuilder()
+					->select( [
+						'voter' => 'cm_voter_2',
+						'cm_timestamp',
+					] )
+					->from( 'securepoll_cookie_match' )
+					->where( [
+						'cm_voter_1' => $voterId,
+					] )
+			)
+			->add(
+				$db->newSelectQueryBuilder()
+					->select( [
+						'voter' => 'cm_voter_1',
+						'cm_timestamp',
+					] )
+					->from( 'securepoll_cookie_match' )
+					->where( [
+						'cm_voter_2' => $voterId,
+					] )
+			)
+			->caller( __METHOD__ )
+			->fetchResultSet();
 		if ( $res->numRows() ) {
 			$lang = $this->specialPage->getLanguage();
 			$out->addHTML(
