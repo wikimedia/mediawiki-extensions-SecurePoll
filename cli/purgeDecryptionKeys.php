@@ -60,26 +60,20 @@ class PurgeDecryptionKeys extends Maintenance {
 		}
 
 		$before = $this->getOption( 'before', 0 );
-		$res = $dbr->select(
-			[
-				'securepoll_elections',
-				'securepoll_properties',
-			],
-			[
+		$res = $dbr->newSelectQueryBuilder()
+			->select( [
 				'el_entity',
 				'el_title',
 				'el_end_date',
-			],
-			[
-				'el_end_date < ' . $dbr->addQuotes( $dbr->timestamp( $before ) ),
+			] )
+			->from( 'securepoll_elections' )
+			->leftJoin( 'securepoll_properties', null, 'el_entity=pr_entity' )
+			->where( [
+				$dbr->expr( 'el_end_date', '<', $dbr->timestamp( $before ) ),
 				'pr_key' => [ 'gpg-decrypt-key', 'openssl-decrypt-key' ],
-			],
-			__METHOD__,
-			[],
-			[
-				'securepoll_properties' => [ 'LEFT JOIN', 'el_entity=pr_entity' ],
-			]
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
 		if ( $res->count() === 0 ) {
 			$this->output( "No elections that have ended have decryption keys to purge. Nothing to do.\n" );

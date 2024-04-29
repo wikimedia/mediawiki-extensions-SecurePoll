@@ -27,12 +27,12 @@ class UpdateNotBlockedKey extends LoggedUpdateMaintenance {
 	protected function doDBUpdates() {
 		$updatedRows = 0;
 		$dbw = $this->getDB( DB_PRIMARY );
-		$res = $dbw->select(
-			'securepoll_properties',
-			'pr_entity',
-			[ 'pr_key' => 'not-blocked' ],
-			__METHOD__
-		);
+		$res = $dbw->newSelectQueryBuilder()
+			->select( 'pr_entity' )
+			->from( 'securepoll_properties' )
+			->where( [ 'pr_key' => 'not-blocked' ] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 		$rowCount = $res->numRows();
 		$this->output( "$rowCount row(s) selected\n" );
 		foreach ( $res as $row ) {

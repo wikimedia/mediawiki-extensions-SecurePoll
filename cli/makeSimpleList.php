@@ -58,12 +58,12 @@ class MakeSimpleList extends Maintenance {
 		$startBatch = $this->getOption( 'start-from', 0 );
 		$insertOptions = [];
 
-		$listExists = $dbr->selectField(
-			'securepoll_lists',
-			'1',
-			[ 'li_name' => $listName ],
-			__METHOD__
-		);
+		$listExists = $dbr->newSelectQueryBuilder()
+			->select( '1' )
+			->from( 'securepoll_lists' )
+			->where( [ 'li_name' => $listName ] )
+			->caller( __METHOD__ )
+			->fetchField();
 		if ( $listExists ) {
 			if ( $this->hasOption( 'replace' ) ) {
 				$this->output( "Deleting existing list...\n" );
@@ -82,20 +82,16 @@ class MakeSimpleList extends Maintenance {
 		$userQuery = User::getQueryInfo();
 		$userQuery['fields'] = [ 'user_id' ];
 
-		$beforeQ = $before !== false ? $dbr->addQuotes( $before ) : false;
-
 		$lbFactory = $this->getServiceContainer()->getDBLoadBalancerFactory();
 
 		while ( true ) {
 			echo "user_id > $startBatch\n";
-			$res = $dbr->select(
-				$userQuery['tables'],
-				$userQuery['fields'],
-				[ 'user_id > ' . $dbr->addQuotes( $startBatch ) ],
-				__METHOD__,
-				[ 'LIMIT' => $this->getBatchSize() ],
-				$userQuery['joins']
-			);
+			$res = $dbr->newSelectQueryBuilder()
+				->queryInfo( $userQuery )
+				->where( $dbr->expr( 'user_id', '>', $startBatch ) )
+				->limit( $this->getBatchSize() )
+				->caller( __METHOD__ )
+				->fetchResultSet();
 
 			if ( !$res->numRows() ) {
 				break;
@@ -118,21 +114,26 @@ class MakeSimpleList extends Maintenance {
 				foreach ( $revWhere['orconds'] as $key => $cond ) {
 					$conds = [ $cond ];
 					if ( $before !== false ) {
-						$conds[] = ( $key === 'actor' ? 'revactor_timestamp' : 'rev_timestamp' )
-							. ' < ' . $beforeQ;
+						$conds[] = $dbr->expr(
+							$key === 'actor' ? 'revactor_timestamp' : 'rev_timestamp',
+							'<',
+							$before
+						);
 					}
 					if ( $this->hasOption( 'mainspace-only' ) ) {
 						$conds['page_namespace'] = 0;
 					}
 
-					$edits = $dbr->selectRowCount(
-						[ 'revision', 'page' ] + $revWhere['tables'],
-						'1',
-						$conds,
-						__METHOD__,
-						[ 'LIMIT' => $minEdits ],
-						$revWhere['joins'] + [ 'page' => [ 'INNER JOIN', 'rev_page = page_id' ] ]
-					);
+					$edits = $dbr->newSelectQueryBuilder()
+						->select( '1' )
+						->from( 'revision' )
+						->join( 'page', null, 'rev_page = page_id' )
+						->tables( $revWhere['tables'] )
+						->where( $conds )
+						->limit( $minEdits )
+						->joinConds( $revWhere['joins'] )
+						->caller( __METHOD__ )
+						->fetchRowCount();
 				}
 
 				if ( $edits >= $minEdits ) {

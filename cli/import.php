@@ -72,13 +72,13 @@ EOT
 			$elections = $store->getElectionInfo( [ $id ] );
 			$electionInfo = reset( $elections );
 
-			$existingId = $dbw->selectField(
-				'securepoll_elections',
-				'el_entity',
-				[ 'el_title' => $electionInfo['title'] ],
-				__METHOD__,
-				[ 'FOR UPDATE' ]
-			);
+			$existingId = $dbw->newSelectQueryBuilder()
+				->select( 'el_entity' )
+				->from( 'securepoll_elections' )
+				->where( [ 'el_title' => $electionInfo['title'] ] )
+				->forUpdate()
+				->caller( __METHOD__ )
+				->fetchField();
 
 			if ( $existingId !== false ) {
 				if ( $this->hasOption( 'replace' ) ) {

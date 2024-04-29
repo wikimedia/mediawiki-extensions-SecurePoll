@@ -36,14 +36,14 @@ class GenerateTestElection extends Maintenance {
 		$dbw = $this->getDB( DB_PRIMARY );
 		$dbw->begin( __METHOD__ );
 		$electionName = $this->getOption( 'name' );
-		$electionId = $dbw->selectField(
-			'securepoll_elections',
-			'el_entity',
-			[
+		$electionId = $dbw->newSelectQueryBuilder()
+			->select( 'el_entity' )
+			->from( 'securepoll_elections' )
+			->where( [
 				'el_title' => $electionName
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchField();
 
 		if ( $electionId ) {
 			if ( $this->hasOption( 'reset' ) ) {

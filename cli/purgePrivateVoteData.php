@@ -60,13 +60,14 @@ class PurgePrivateVoteData extends Maintenance {
 			return;
 		}
 
-		$elResult = $dbr->select( 'securepoll_elections',
-			[ 'el_entity', 'el_title', 'el_end_date' ],
-			"el_end_date < " . $dbr->addQuotes(
+		$elResult = $dbr->newSelectQueryBuilder()
+			->select( [ 'el_entity', 'el_title', 'el_end_date' ] )
+			->from( 'securepoll_elections' )
+			->where( $dbr->expr( 'el_end_date', '<',
 				$dbr->timestamp( time() - ( $this->purgeDays * 24 * 60 * 60 ) )
-			),
-			__METHOD__
-		);
+			) )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
 		foreach ( $elResult as $row ) {
 			$electionsToPurge[] = $row->el_entity;
@@ -77,17 +78,20 @@ class PurgePrivateVoteData extends Maintenance {
 		if ( count( $electionsToPurge ) > 0 ) {
 			$conds = [ 'vote_election' => $electionsToPurge ];
 			// In case a partial purge ran previously
-			$conds[] = 'vote_ip != ' . $dbr->addQuotes( '' ) .
-				' OR vote_xff != ' . $dbr->addQuotes( '' ) .
-				' OR vote_ua != ' . $dbr->addQuotes( '' );
+			$conds[] = $dbr->expr( 'vote_ip', '!=', '' )
+				->or( 'vote_xff', '!=', '' )
+				->or( 'vote_ua', '!=', '' );
 			$minVoteId = 0;
 			do {
-				$vRes = $dbr->select( 'securepoll_votes',
-					[ 'vote_id' ],
-					array_merge( $conds, [ 'vote_id >= ' . $dbr->addQuotes( $minVoteId ) ] ),
-					__METHOD__,
-					[ 'ORDER BY' => 'vote_id ASC', 'LIMIT' => $this->getBatchSize() ]
-				);
+				$vRes = $dbr->newSelectQueryBuilder()
+					->select( 'vote_id' )
+					->from( 'securepoll_votes' )
+					->where( $conds )
+					->andWhere( $dbr->expr( 'vote_id', '>=', $minVoteId ) )
+					->orderBy( 'vote_id' )
+					->limit( $this->getBatchSize() )
+					->caller( __METHOD__ )
+					->fetchResultSet();
 
 				if ( $vRes->numRows() === 0 ) {
 					break;

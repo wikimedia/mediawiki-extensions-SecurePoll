@@ -21,13 +21,13 @@ class DeletePoll extends Maintenance {
 
 		$dbw = $this->getDB( DB_PRIMARY );
 
-		$type = $dbw->selectField(
-			'securepoll_entity',
-			'en_type',
-			[ 'en_id' => $electionId ],
-			__METHOD__,
-			[ 'FOR UPDATE' ]
-		);
+		$type = $dbw->newSelectQueryBuilder()
+			->select( 'en_type' )
+			->from( 'securepoll_entity' )
+			->where( [ 'en_id' => $electionId ] )
+			->forUpdate()
+			->caller( __METHOD__ )
+			->fetchField();
 
 		if ( !$type ) {
 			$this->fatalError( "The specified id does not exist.\n" );
@@ -37,29 +37,21 @@ class DeletePoll extends Maintenance {
 		}
 
 		# Get a list of entity IDs and lock them
-		$res = $dbw->select(
-			'securepoll_questions',
-			[ 'qu_entity' ],
-			[ 'qu_election' => $electionId ],
-			__METHOD__,
-			[ 'FOR UPDATE' ]
-		);
-		$questionIds = [];
-		foreach ( $res as $row ) {
-			$questionIds[] = $row->qu_entity;
-		}
+		$questionIds = $dbw->newSelectQueryBuilder()
+			->select( 'qu_entity' )
+			->from( 'securepoll_questions' )
+			->where( [ 'qu_election' => $electionId ] )
+			->forUpdate()
+			->caller( __METHOD__ )
+			->fetchFieldValues();
 
-		$res = $dbw->select(
-			'securepoll_options',
-			[ 'op_entity' ],
-			[ 'op_election' => $electionId ],
-			__METHOD__,
-			[ 'FOR UPDATE' ]
-		);
-		$optionIds = [];
-		foreach ( $res as $row ) {
-			$optionIds[] = $row->op_entity;
-		}
+		$optionIds = $dbw->newSelectQueryBuilder()
+			->select( 'op_entity' )
+			->from( 'securepoll_options' )
+			->where( [ 'op_election' => $electionId ] )
+			->forUpdate()
+			->caller( __METHOD__ )
+			->fetchFieldValues();
 
 		$entityIds = array_merge( $optionIds, $questionIds, [ $electionId ] );
 
