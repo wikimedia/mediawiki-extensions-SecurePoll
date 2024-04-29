@@ -28,7 +28,8 @@
 			"Zhang8569",
 			"飞舞回堂前",
 			"Yfdyh000",
-			"Xyb"
+			"Xyb",
+			"沈澄心"
 		]
 	},
 	"securepoll": "安全投票",
@@ -101,6 +102,7 @@
 	"securepoll-details-link": "详情",
 	"securepoll-details-title": "投票详情：#$1",
 	"securepoll-invalid-vote": "“$1”不是有效的投票ID",
+	"securepoll-header-id": "ID",
 	"securepoll-header-voter-type": "投票者类型",
 	"securepoll-voter-properties": "投票者属性",
 	"securepoll-strike-log": "投票作废日志",
@@ -118,6 +120,7 @@
 	"securepoll-translate-redirect-otherwiki": "主wiki",
 	"securepoll-translate-label-comment": "原因：",
 	"securepoll-invalid-language": "无效的语言代码“$1”",
+	"securepoll-header-trans-id": "ID",
 	"securepoll-submit-translate": "更新",
 	"securepoll-language-label": "选择语言：",
 	"securepoll-submit-select-lang": "翻译",
@@ -160,6 +163,7 @@
 	"securepoll-tally-upload-error": "对转储文件点票时出现错误：$1",
 	"securepoll-tally-result-error": "计数失败，错误：$1",
 	"securepoll-tally-result": "<h2>之前的结果</h2><p>$1</p><p>（$2时的结果）</p>",
+	"securepoll-tally-comments": "投票者评论",
 	"securepoll-pairwise-victories": "成对胜利矩阵",
 	"securepoll-strength-matrix": "路径强度矩阵",
 	"securepoll-ranks": "最终排名",
