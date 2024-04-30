@@ -94,11 +94,15 @@
 }
 
 .securepoll-ballot-table td {
-	text-align: center;
 	border-left: thin #999 solid;
 	border-right: thin #999 solid;
 	border-bottom: thin #bbb dotted;
 	padding: 0 1.5em;
+}
+
+.securepoll-ballot-table td + td {
+	/* Center the radio buttons, but not the text in the first column */
+	text-align: center;
 }
 
 .securepoll-ballot-row:hover {
