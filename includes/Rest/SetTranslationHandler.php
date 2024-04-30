@@ -8,7 +8,6 @@ use MediaWiki\Extension\SecurePoll\TranslationRepo;
 use MediaWiki\Rest\HttpException;
 use MediaWiki\Rest\Response;
 use MediaWiki\Rest\SimpleHandler;
-use MediaWiki\Rest\Validator\JsonBodyValidator;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class SetTranslationHandler extends SimpleHandler {
@@ -73,16 +72,4 @@ class SetTranslationHandler extends SimpleHandler {
 			]
 		];
 	}
-
-	/**
-	 * @param string $contentType
-	 * @return JsonBodyValidator
-	 */
-	public function getBodyValidator( $contentType ) {
-		if ( $contentType === 'application/json' ) {
-			return new JsonBodyValidator( [] );
-		}
-		throw new HttpException( 'Content must be of type application/json', 415 );
-	}
-
 }
