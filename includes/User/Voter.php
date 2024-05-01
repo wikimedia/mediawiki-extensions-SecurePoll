@@ -65,7 +65,12 @@ class Voter {
 	 */
 	public static function newFromId( $context, $id, $index = DB_PRIMARY ) {
 		$db = $context->getDB( $index );
-		$row = $db->selectRow( 'securepoll_voters', '*', [ 'voter_id' => $id ], __METHOD__ );
+		$row = $db->newSelectQueryBuilder()
+			->select( '*' )
+			->from( 'securepoll_voters' )
+			->where( [ 'voter_id' => $id ] )
+			->caller( __METHOD__ )
+			->fetchRow();
 		if ( !$row ) {
 			return false;
 		}

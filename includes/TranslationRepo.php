@@ -124,14 +124,14 @@ class TranslationRepo {
 				$lb = $this->lbFactory->getMainLB( $dbname );
 				$dbw = $lb->getConnection( ILoadBalancer::DB_PRIMARY, [], $dbname );
 				try {
-					$id = $dbw->selectField(
-						'securepoll_elections',
-						'el_entity',
-						[
+					$id = $dbw->newSelectQueryBuilder()
+						->select( 'el_entity' )
+						->from( 'securepoll_elections' )
+						->where( [
 							'el_title' => $election->title
-						],
-						__METHOD__
-					);
+						] )
+						->caller( __METHOD__ )
+						->fetchField();
 					if ( $id && $jumpReplaceBatch ) {
 						foreach ( $jumpReplaceBatch as &$row ) {
 							$row['msg_entity'] = $id;

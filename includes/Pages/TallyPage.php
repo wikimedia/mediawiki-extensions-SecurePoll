@@ -95,18 +95,17 @@ class TallyPage extends ActionPage {
 		$dbr = $this->loadBalancer->getConnection( ILoadBalancer::DB_REPLICA );
 		$out = $this->specialPage->getOutput();
 
-		$result = $dbr->selectField(
-			'securepoll_properties',
-			[
-				'pr_value',
-			],
-			[
+		$result = $dbr->newSelectQueryBuilder()
+			->select( 'pr_value' )
+			->from( 'securepoll_properties' )
+			->where( [
 				'pr_entity' => $this->election->getId(),
 				'pr_key' => [
 					'tally-error',
 				],
-			]
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchField();
 
 		if ( $result ) {
 			$message = new MessageWidget( [
@@ -128,18 +127,17 @@ class TallyPage extends ActionPage {
 		}
 
 		$dbr = $this->loadBalancer->getConnection( ILoadBalancer::DB_REPLICA );
-		$result = $dbr->selectField(
-			'securepoll_properties',
-			[
-				'pr_value',
-			],
-			[
+		$result = $dbr->newSelectQueryBuilder()
+			->select( 'pr_value' )
+			->from( 'securepoll_properties' )
+			->where( [
 				'pr_entity' => $this->election->getId(),
 				'pr_key' => [
 					'tally-job-enqueued',
 				],
-			]
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchField();
 		$this->tallyEnqueued = (bool)$result;
 		return $this->tallyEnqueued;
 	}
@@ -151,18 +149,17 @@ class TallyPage extends ActionPage {
 		$dbr = $this->loadBalancer->getConnection( ILoadBalancer::DB_REPLICA );
 		$out = $this->specialPage->getOutput();
 
-		$result = $dbr->selectField(
-			'securepoll_properties',
-			[
-				'pr_value',
-			],
-			[
+		$result = $dbr->newSelectQueryBuilder()
+			->select( 'pr_value' )
+			->from( 'securepoll_properties' )
+			->where( [
 				'pr_entity' => $this->election->getId(),
 				'pr_key' => [
 					'tally-job-enqueued',
 				],
-			]
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchField();
 
 		if ( $result ) {
 			$message = new MessageWidget( [
@@ -186,18 +183,17 @@ class TallyPage extends ActionPage {
 			return;
 		}
 
-		$time = $dbr->selectField(
-			'securepoll_properties',
-			[
-				'pr_value',
-			],
-			[
+		$time = $dbr->newSelectQueryBuilder()
+			->select( 'pr_value' )
+			->from( 'securepoll_properties' )
+			->where( [
 				'pr_entity' => $this->election->getId(),
 				'pr_key' => [
 					'tally-result-time',
 				],
-			]
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchField();
 
 		$out->addHTML(
 			$out->msg( 'securepoll-tally-result' )

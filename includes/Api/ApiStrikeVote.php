@@ -79,19 +79,13 @@ class ApiStrikeVote extends ApiBase {
 		$page = new SpecialSecurePoll( $this->actionPageFactory );
 		$context = $page->sp_context;
 		$db = $context->getDB();
-		$table = $db->tableName( 'securepoll_elections' );
-		$row = $db->selectRow(
-			[
-				'securepoll_votes',
-				'securepoll_elections'
-			],
-			"$table.*",
-			[
-				'vote_id' => $voteid,
-				'vote_election=el_entity'
-			],
-			__METHOD__
-		);
+		$row = $db->newSelectQueryBuilder()
+			->select( 'elections.*' )
+			->from( 'securepoll_votes' )
+			->join( 'securepoll_elections', 'elections', 'vote_election=el_entity' )
+			->where( [ 'vote_id' => $voteid ] )
+			->caller( __METHOD__ )
+			->fetchRow();
 
 		// if no vote: fail
 		if ( !$row ) {

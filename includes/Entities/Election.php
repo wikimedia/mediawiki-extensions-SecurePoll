@@ -221,16 +221,16 @@ class Election extends Entity {
 	public function getVotesCount() {
 		$dbr = $this->context->getDB( DB_REPLICA );
 
-		return $dbr->selectField(
-			'securepoll_votes',
-			[ 'COUNT(*)' ],
-			[
+		return $dbr->newSelectQueryBuilder()
+			->select( 'COUNT(*)' )
+			->from( 'securepoll_votes' )
+			->where( [
 				'vote_election' => $this->getId(),
 				'vote_current' => 1,
 				'vote_struck' => 0,
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchField();
 	}
 
 	/**
@@ -376,15 +376,15 @@ class Election extends Entity {
 	 */
 	public function hasVoted( $voter ) {
 		$db = $this->context->getDB();
-		$row = $db->selectRow(
-			'securepoll_votes',
-			[ "1" ],
-			[
+		$row = $db->newSelectQueryBuilder()
+			->select( '1' )
+			->from( 'securepoll_votes' )
+			->where( [
 				'vote_election' => $this->getId(),
 				'vote_voter' => $voter->getId(),
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchRow();
 
 		return $row !== false;
 	}
@@ -470,16 +470,16 @@ class Election extends Entity {
 			return $status;
 		}
 		$db = $this->context->getDB();
-		$res = $db->select(
-			'securepoll_votes',
-			[ '*' ],
-			[
+		$res = $db->newSelectQueryBuilder()
+			->select( '*' )
+			->from( 'securepoll_votes' )
+			->where( [
 				'vote_election' => $this->getId(),
 				'vote_current' => 1,
 				'vote_struck' => 0
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 		if ( $res->numRows() ) {
 			$order = $random->shuffle( range( 0, $res->numRows() - 1 ) );
 			foreach ( $order as $i ) {
@@ -584,19 +584,17 @@ class Election extends Entity {
 	 * @return ElectionTallier|bool
 	 */
 	public function getTallyFromDb( $dbr ) {
-		$result = $dbr->selectField(
-			'securepoll_properties',
-			[
-				'pr_value',
-			],
-			[
+		$result = $dbr->newSelectQueryBuilder()
+			->select( 'pr_value' )
+			->from( 'securepoll_properties' )
+			->where( [
 				'pr_entity' => $this->getId(),
 				'pr_key' => [
 					'tally-result',
 				],
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchField();
 		if ( !$result ) {
 			return false;
 		}

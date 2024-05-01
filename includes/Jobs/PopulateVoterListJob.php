@@ -54,18 +54,18 @@ class PopulateVoterListJob extends Job {
 			'list_include-groups' => '',
 		];
 
-		$res = $dbw->select(
-			'securepoll_properties',
-			[
+		$res = $dbw->newSelectQueryBuilder()
+			->select( [
 				'pr_key',
 				'pr_value'
-			],
-			[
+			] )
+			->from( 'securepoll_properties' )
+			->where( [
 				'pr_entity' => $election->getId(),
 				'pr_key' => $props,
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 		foreach ( $res as $row ) {
 			$params[$row->pr_key] = $row->pr_value;
 		}
@@ -109,7 +109,11 @@ class PopulateVoterListJob extends Job {
 		$total = 0;
 		foreach ( $wikis as $wiki ) {
 			$dbr = $lbFactory->getMainLB( $wiki )->getConnection( DB_REPLICA, [], $wiki );
-			$max = $dbr->selectField( 'user', 'MAX(user_id)', [], __METHOD__ );
+			$max = $dbr->newSelectQueryBuilder()
+				->select( 'MAX(user_id)' )
+				->from( 'user' )
+				->caller( __METHOD__ )
+				->fetchField();
 			if ( !$max ) {
 				$max = 0;
 			}
@@ -224,33 +228,21 @@ class PopulateVoterListJob extends Job {
 
 			// Criterion 1: $NUM edits before $DATE
 			if ( $this->params['list_edits-before'] ) {
-				$timestamp = $dbr->addQuotes(
-					$dbr->timestamp( $this->params['list_edits-before-date'] )
-				);
+				$timestamp = $dbr->timestamp( $this->params['list_edits-before-date'] );
 
-				$res = $dbr->select(
-					[ 'revision' ] + $actorQuery['tables'],
-					[ 'rev_user' => $field ],
-					[
-						"$field >= $min",
-						"$field < $max",
-						"rev_timestamp < $timestamp",
-					],
-					__METHOD__,
-					[
-						'GROUP BY' => $field,
-						'HAVING' => [
-							'COUNT(*) >= ' . $dbr->addQuotes(
-								$this->params['list_edits-before-count']
-							),
-						]
-					]
-				);
-
-				$list = [];
-				foreach ( $res as $row ) {
-					$list[] = $row->rev_user;
-				}
+				$list = $dbr->newSelectQueryBuilder()
+					->select( $field )
+					->from( 'revision' )
+					->tables( $actorQuery['tables'] )
+					->where( [
+						$dbr->expr( $field, '>=', $min ),
+						$dbr->expr( $field, '<', $max ),
+						$dbr->expr( 'rev_timestamp', '<', $timestamp ),
+					] )
+					->groupBy( $field )
+					->having( 'COUNT(*) >= ' . $dbr->addQuotes( $this->params['list_edits-before-count'] ) )
+					->caller( __METHOD__ )
+					->fetchFieldValues();
 
 				// @phan-suppress-next-line PhanSuspiciousValueComparison Same as in next if
 				if ( $users === null ) {
@@ -262,36 +254,23 @@ class PopulateVoterListJob extends Job {
 
 			// Criterion 2: $NUM edits bewteen $DATE1 and $DATE2
 			if ( $this->params['list_edits-between'] ) {
-				$timestamp1 = $dbr->addQuotes(
-					$dbr->timestamp( $this->params['list_edits-startdate'] )
-				);
-				$timestamp2 = $dbr->addQuotes(
-					$dbr->timestamp( $this->params['list_edits-enddate'] )
-				);
+				$timestamp1 = $dbr->timestamp( $this->params['list_edits-startdate'] );
+				$timestamp2 = $dbr->timestamp( $this->params['list_edits-enddate'] );
 
-				$res = $dbr->select(
-					[ 'revision' ] + $actorQuery['tables'],
-					[ 'rev_user' => $field ],
-					[
-						"$field >= $min",
-						"$field < $max",
-						"rev_timestamp >= $timestamp1",
-						"rev_timestamp < $timestamp2",
-					],
-					__METHOD__,
-					[
-						'GROUP BY' => $field,
-						'HAVING' => [
-							'COUNT(*) >= ' . $dbr->addQuotes(
-								$this->params['list_edits-between-count']
-							),
-						]
-					]
-				);
-				$list = [];
-				foreach ( $res as $row ) {
-					$list[] = $row->rev_user;
-				}
+				$list = $dbr->newSelectQueryBuilder()
+					->select( $field )
+					->from( 'revision' )
+					->tables( $actorQuery['tables'] )
+					->where( [
+						$dbr->expr( $field, '>=', $min ),
+						$dbr->expr( $field, '<', $max ),
+						$dbr->expr( 'rev_timestamp', '>=', $timestamp1 ),
+						$dbr->expr( 'rev_timestamp', '<', $timestamp2 ),
+					] )
+					->groupBy( $field )
+					->having( 'COUNT(*) >= ' . $dbr->addQuotes( $this->params['list_edits-between-count'] ) )
+					->caller( __METHOD__ )
+					->fetchFieldValues();
 
 				if ( $users === null ) {
 					$users = $list;
@@ -303,38 +282,23 @@ class PopulateVoterListJob extends Job {
 			// Criterion 3: Not in a listed group
 			global $wgDisableUserGroupExpiry;
 			if ( $this->params['list_exclude-groups'] ) {
-				$res = $dbr->select(
-					[
-						'user',
-						'user_groups'
-					],
-					'user_id',
-					[
-						"user_id >= $min",
-						"user_id < $max",
-						'ug_user IS NULL',
-					],
-					__METHOD__,
-					[],
-					[
-						'user_groups' => [
-							'LEFT OUTER JOIN',
-							[
-								'ug_user = user_id',
-								'ug_group' => $this->params['list_exclude-groups'],
-								( !isset( $wgDisableUserGroupExpiry ) || $wgDisableUserGroupExpiry )
-									? '1'
-									: 'ug_expiry IS NULL OR ug_expiry >= ' . $dbr->addQuotes(
-										$dbr->timestamp()
-									),
-							]
-						],
-					]
-				);
-				$list = [];
-				foreach ( $res as $row ) {
-					$list[] = $row->user_id;
-				}
+				$list = $dbr->newSelectQueryBuilder()
+					->select( 'user_id' )
+					->from( 'user' )
+					->leftJoin( 'user_groups', null, [
+						'ug_user = user_id',
+						'ug_group' => $this->params['list_exclude-groups'],
+						( !isset( $wgDisableUserGroupExpiry ) || $wgDisableUserGroupExpiry )
+							? '1'
+							: $dbr->expr( 'ug_expiry', '=', null )->or( 'ug_expiry', '>=', $dbr->timestamp() ),
+					] )
+					->where( [
+						$dbr->expr( 'user_id', '>=', $min ),
+						$dbr->expr( 'user_id', '<', $max ),
+						'ug_user' => null,
+					] )
+					->caller( __METHOD__ )
+					->fetchFieldValues();
 
 				if ( $users === null ) {
 					$users = $list;
@@ -345,25 +309,19 @@ class PopulateVoterListJob extends Job {
 
 			// Criterion 4: In a listed group (overrides 1-3)
 			if ( $this->params['list_include-groups'] ) {
-				$res = $dbr->select(
-					'user_groups',
-					'ug_user',
-					[
-						"ug_user >= $min",
-						"ug_user < $max",
+				$list = $dbr->newSelectQueryBuilder()
+					->select( 'ug_user' )
+					->from( 'user_groups' )
+					->where( [
+						$dbr->expr( 'ug_user', '>=', $min ),
+						$dbr->expr( 'ug_user', '<', $max ),
 						'ug_group' => $this->params['list_include-groups'],
 						( !isset( $wgDisableUserGroupExpiry ) || $wgDisableUserGroupExpiry )
 							? '1'
-							: 'ug_expiry IS NULL OR ug_expiry >= ' . $dbr->addQuotes(
-								$dbr->timestamp()
-							),
-					],
-					__METHOD__
-				);
-				$list = [];
-				foreach ( $res as $row ) {
-					$list[] = $row->ug_user;
-				}
+							: $dbr->expr( 'ug_expiry', '=', null )->or( 'ug_expiry', '>=', $dbr->timestamp() ),
+					] )
+					->caller( __METHOD__ )
+					->fetchFieldValues();
 
 				if ( $users === null ) {
 					$users = $list;
@@ -417,15 +375,15 @@ class PopulateVoterListJob extends Job {
 						->execute();
 				}
 
-				$count = $dbwElection->selectField(
-					'securepoll_properties',
-					'pr_value',
-					[
+				$count = $dbwElection->newSelectQueryBuilder()
+					->select( 'pr_value' )
+					->from( 'securepoll_properties' )
+					->where( [
 						'pr_entity' => $this->params['electionId'],
 						'pr_key' => 'list_complete-count',
-					],
-					__METHOD__
-				);
+					] )
+					->caller( __METHOD__ )
+					->fetchField();
 				$dbwElection->newUpdateQueryBuilder()
 					->update( 'securepoll_properties' )
 					->set( [
@@ -466,14 +424,14 @@ class PopulateVoterListJob extends Job {
 	}
 
 	private static function fetchJobKey( IDatabase $db, $electionId ) {
-		return $db->selectField(
-			'securepoll_properties',
-			'pr_value',
-			[
+		return $db->newSelectQueryBuilder()
+			->select( 'pr_value' )
+			->from( 'securepoll_properties' )
+			->where( [
 				'pr_entity' => $electionId,
 				'pr_key' => 'list_job-key',
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchField();
 	}
 }

@@ -24,15 +24,15 @@ class UnarchiveElectionJob extends Job {
 		$context = new Context();
 		$dbw = $context->getDB( DB_PRIMARY );
 
-		$isArchived = $dbw->selectField(
-			'securepoll_properties',
-			[ 'pr_value' ],
-			[
+		$isArchived = $dbw->newSelectQueryBuilder()
+			->select( 'pr_value' )
+			->from( 'securepoll_properties' )
+			->where( [
 				'pr_entity' => $electionId,
 				'pr_key' => 'is-archived',
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchField();
 		if ( $isArchived ) {
 			$dbw->newDeleteQueryBuilder()
 				->deleteFrom( 'securepoll_properties' )
