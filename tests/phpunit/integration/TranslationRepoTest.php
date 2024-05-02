@@ -11,6 +11,7 @@ use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\LBFactory;
 use Wikimedia\Rdbms\LoadBalancer;
 use Wikimedia\Rdbms\ReplaceQueryBuilder;
+use Wikimedia\Rdbms\SelectQueryBuilder;
 
 /**
  * @covers \MediaWiki\Extension\SecurePoll\TranslationRepo
@@ -34,8 +35,11 @@ class TranslationRepoTest extends MediaWikiIntegrationTestCase {
 		$rqb->method( 'uniqueIndexFields' )->willReturn( $rqb );
 		$rqb->method( 'rows' )->willReturn( $rqb );
 		$rqb->method( 'caller' )->willReturn( $rqb );
+		$sqb = $this->createMock( SelectQueryBuilder::class );
+		$sqb->method( $this->logicalOr( 'select', 'from', 'where', 'caller' ) )->willReturnSelf();
+		$sqb->method( 'fetchField' )->willReturn( 7894 );
 		$mockDB = $this->createMock( IDatabase::class );
-		$mockDB->method( 'selectField' )->willReturn( 7894 );
+		$mockDB->method( 'newSelectQueryBuilder' )->willReturn( $sqb );
 		$mockDB->expects( $this->exactly( $expectedReplaceCalls ) )
 			->method( 'newReplaceQueryBuilder' )
 			->willReturn( $rqb );

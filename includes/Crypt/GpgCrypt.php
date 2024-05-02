@@ -120,15 +120,15 @@ class GpgCrypt extends Crypt {
 	}
 
 	public function cleanupDbForTallyJob( int $electionId, IDatabase $dbw ): void {
-		$result = $dbw->select(
-			'securepoll_properties',
-			[ 'pr_entity' ],
-			[
+		$result = $dbw->newSelectQueryBuilder()
+			->select( 'pr_entity' )
+			->from( 'securepoll_properties' )
+			->where( [
 				'pr_entity' => $electionId,
 				'pr_key' => 'delete-gpg-decrypt-key',
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
 		// Only delete key if it was added for this job
 		if ( !$result->numRows() ) {

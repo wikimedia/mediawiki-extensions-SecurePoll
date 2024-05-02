@@ -612,12 +612,12 @@ class CreatePage extends ActionPage {
 				[], false, ILoadBalancer::CONN_TRX_AUTOCOMMIT );
 
 			// Check for duplicate titles on the local wiki
-			$id = $dbw->selectField(
-				'securepoll_elections',
-				'el_entity',
-				[ 'el_title' => $election->title ],
-				__METHOD__
-			);
+			$id = $dbw->newSelectQueryBuilder()
+				->select( 'el_entity' )
+				->from( 'securepoll_elections' )
+				->where( [ 'el_title' => $election->title ] )
+				->caller( __METHOD__ )
+				->fetchField();
 			if ( $id && (int)$id !== $election->getId() ) {
 				throw new StatusException(
 					'securepoll-create-duplicate-title',
@@ -638,30 +638,27 @@ class CreatePage extends ActionPage {
 						ILoadBalancer::CONN_TRX_AUTOCOMMIT );
 
 					// Find an existing dummy election, if any
-					$rId = $rdbw->selectField(
-						[
-							'p1' => 'securepoll_properties',
-							'p2' => 'securepoll_properties'
-						],
-						'p1.pr_entity',
-						[
-							'p1.pr_entity = p2.pr_entity',
+					$rId = $rdbw->newSelectQueryBuilder()
+						->select( 'p1.pr_entity' )
+						->from( 'securepoll_properties', 'p1' )
+						->join( 'securepoll_properties', 'p2', 'p1.pr_entity = p2.pr_entity' )
+						->where( [
 							'p1.pr_key' => 'jump-id',
 							'p1.pr_value' => $election->getId(),
 							'p2.pr_key' => 'main-wiki',
 							'p2.pr_value' => WikiMap::getCurrentWikiId(),
-						],
-						__METHOD__
-					);
+						] )
+						->caller( __METHOD__ )
+						->fetchField();
 					// Test for duplicate title
-					$id = $rdbw->selectField(
-						'securepoll_elections',
-						'el_entity',
-						[
+					$id = $rdbw->newSelectQueryBuilder()
+						->select( 'el_entity' )
+						->from( 'securepoll_elections' )
+						->where( [
 							'el_title' => $formData['election_title']
-						],
-						__METHOD__
-					);
+						] )
+						->caller( __METHOD__ )
+						->fetchField();
 
 					if ( $id && $id !== $rId ) {
 						throw new StatusException(
@@ -686,15 +683,15 @@ class CreatePage extends ActionPage {
 		// Ok, begin the actual work
 		$dbw->startAtomic( __METHOD__ );
 		if ( $election->getId() > 0 ) {
-			$id = $dbw->selectField(
-				'securepoll_elections',
-				'el_entity',
-				[
+			$id = $dbw->newSelectQueryBuilder()
+				->select( 'el_entity' )
+				->from( 'securepoll_elections' )
+				->where( [
 					'el_entity' => $election->getId()
-				],
-				__METHOD__,
-				[ 'FOR UPDATE' ]
-			);
+				] )
+				->forUpdate()
+				->caller( __METHOD__ )
+				->fetchField();
 			if ( !$id ) {
 				$dbw->endAtomic( __METHOD__ );
 
@@ -745,16 +742,18 @@ class CreatePage extends ActionPage {
 
 			// Delete any questions or options that weren't included in the
 			// form submission.
-			$qIds = [];
-			$res = $dbw->select( 'securepoll_questions', 'qu_entity', [ 'qu_election' => $eId ], __METHOD__ );
-			foreach ( $res as $row ) {
-				$qIds[] = $row->qu_entity;
-			}
-			$oIds = [];
-			$res = $dbw->select( 'securepoll_options', 'op_entity', [ 'op_election' => $eId ], __METHOD__ );
-			foreach ( $res as $row ) {
-				$oIds[] = $row->op_entity;
-			}
+			$qIds = $dbw->newSelectQueryBuilder()
+				->select( 'qu_entity' )
+				->from( 'securepoll_questions' )
+				->where( [ 'qu_election' => $eId ] )
+				->caller( __METHOD__ )
+				->fetchFieldValues();
+			$oIds = $dbw->newSelectQueryBuilder()
+				->select( 'op_entity' )
+				->from( 'securepoll_options' )
+				->where( [ 'op_election' => $eId ] )
+				->caller( __METHOD__ )
+				->fetchFieldValues();
 			$deleteIds = array_merge(
 				array_diff( $qIds, $store->qIds ),
 				array_diff( $oIds, $store->oIds )
@@ -842,21 +841,18 @@ class CreatePage extends ActionPage {
 					ILoadBalancer::CONN_TRX_AUTOCOMMIT );
 				$dbw->startAtomic( __METHOD__ );
 				// Find an existing dummy election, if any
-				$rId = $dbw->selectField(
-					[
-						'p1' => 'securepoll_properties',
-						'p2' => 'securepoll_properties'
-					],
-					'p1.pr_entity',
-					[
-						'p1.pr_entity = p2.pr_entity',
+				$rId = $dbw->newSelectQueryBuilder()
+					->select( 'p1.pr_entity' )
+					->from( 'securepoll_properties', 'p1' )
+					->join( 'securepoll_properties', 'p2', 'p1.pr_entity = p2.pr_entity' )
+					->where( [
 						'p1.pr_key' => 'jump-id',
 						'p1.pr_value' => $eId,
 						'p2.pr_key' => 'main-wiki',
 						'p2.pr_value' => WikiMap::getCurrentWikiId(),
-					],
-					__METHOD__
-				);
+					] )
+					->caller( __METHOD__ )
+					->fetchField();
 				if ( !$rId ) {
 					$rId = self::insertEntity( $dbw, 'election' );
 				}

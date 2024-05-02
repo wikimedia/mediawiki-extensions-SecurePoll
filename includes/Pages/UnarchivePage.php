@@ -72,15 +72,15 @@ class UnarchivePage extends ActionPage {
 		}
 
 		$dbr = $this->election->context->getDB( DB_REPLICA );
-		$isArchived = $dbr->selectField(
-			'securepoll_properties',
-			[ 'pr_value' ],
-			[
+		$isArchived = $dbr->newSelectQueryBuilder()
+			->select( 'pr_value' )
+			->from( 'securepoll_properties' )
+			->where( [
 				'pr_entity' => $this->election->getId(),
 				'pr_key' => 'is-archived',
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchField();
 
 		if ( $isArchived ) {
 			// If a row exists, it's archived; unarchive it

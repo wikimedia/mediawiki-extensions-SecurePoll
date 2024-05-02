@@ -67,46 +67,47 @@ class ListPage extends ActionPage {
 
 		$dbr = $this->election->context->getDB( DB_REPLICA );
 
-		$res = $dbr->select(
-			'securepoll_votes',
-			[ 'DISTINCT vote_voter' ],
-			[
+		$res = $dbr->newSelectQueryBuilder()
+			->select( 'vote_voter' )
+			->distinct()
+			->from( 'securepoll_votes' )
+			->where( [
 				'vote_election' => $this->election->getId()
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 		$distinct_voters = $res->numRows();
 
-		$res = $dbr->select(
-			'securepoll_votes',
-			[ 'vote_id' ],
-			[
+		$res = $dbr->newSelectQueryBuilder()
+			->select( 'vote_id' )
+			->from( 'securepoll_votes' )
+			->where( [
 				'vote_election' => $this->election->getId()
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 		$all_votes = $res->numRows();
 
-		$res = $dbr->select(
-			'securepoll_votes',
-			[ 'vote_id' ],
-			[
+		$res = $dbr->newSelectQueryBuilder()
+			->select( 'vote_id' )
+			->from( 'securepoll_votes' )
+			->where( [
 				'vote_election' => $this->election->getId(),
 				'vote_current' => 0
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 		$not_current_votes = $res->numRows();
 
-		$res = $dbr->select(
-			'securepoll_votes',
-			[ 'vote_id' ],
-			[
+		$res = $dbr->newSelectQueryBuilder()
+			->select( 'vote_id' )
+			->from( 'securepoll_votes' )
+			->where( [
 				'vote_election' => $this->election->getId(),
 				'vote_struck' => 1
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 		$struck_votes = $res->numRows();
 
 		$out->addHTML(

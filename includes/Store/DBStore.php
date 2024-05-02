@@ -34,15 +34,15 @@ class DBStore implements Store {
 
 	public function getMessages( $lang, $ids ) {
 		$db = $this->getDB( DB_REPLICA );
-		$res = $db->select(
-			'securepoll_msgs',
-			'*',
-			[
+		$res = $db->newSelectQueryBuilder()
+			->select( '*' )
+			->from( 'securepoll_msgs' )
+			->where( [
 				'msg_entity' => $ids,
 				'msg_lang' => $lang
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 		$messages = [];
 		foreach ( $res as $row ) {
 			$messages[$row->msg_entity][$row->msg_key] = $row->msg_text;
@@ -53,14 +53,15 @@ class DBStore implements Store {
 
 	public function getLangList( $ids ) {
 		$db = $this->getDB( DB_REPLICA );
-		$res = $db->select(
-			'securepoll_msgs',
-			'DISTINCT msg_lang',
-			[
+		$res = $db->newSelectQueryBuilder()
+			->select( 'msg_lang' )
+			->distinct()
+			->from( 'securepoll_msgs' )
+			->where( [
 				'msg_entity' => $ids
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 		$langs = [];
 		foreach ( $res as $row ) {
 			$langs[] = $row->msg_lang;
@@ -71,12 +72,12 @@ class DBStore implements Store {
 
 	public function getProperties( $ids ) {
 		$db = $this->getDB( DB_REPLICA );
-		$res = $db->select(
-			'securepoll_properties',
-			'*',
-			[ 'pr_entity' => $ids ],
-			__METHOD__
-		);
+		$res = $db->newSelectQueryBuilder()
+			->select( '*' )
+			->from( 'securepoll_properties' )
+			->where( [ 'pr_entity' => $ids ] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 		$properties = [];
 		foreach ( $res as $row ) {
 			$properties[$row->pr_entity][$row->pr_key] = $row->pr_value;
@@ -88,12 +89,12 @@ class DBStore implements Store {
 	public function getElectionInfo( $ids ) {
 		$ids = (array)$ids;
 		$db = $this->getDB( DB_REPLICA );
-		$res = $db->select(
-			'securepoll_elections',
-			'*',
-			[ 'el_entity' => $ids ],
-			__METHOD__
-		);
+		$res = $db->newSelectQueryBuilder()
+			->select( '*' )
+			->from( 'securepoll_elections' )
+			->where( [ 'el_entity' => $ids ] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 		$infos = [];
 		foreach ( $res as $row ) {
 			$infos[$row->el_entity] = $this->decodeElectionRow( $row );
@@ -105,12 +106,12 @@ class DBStore implements Store {
 	public function getElectionInfoByTitle( $names ) {
 		$names = (array)$names;
 		$db = $this->getDB( DB_REPLICA );
-		$res = $db->select(
-			'securepoll_elections',
-			'*',
-			[ 'el_title' => $names ],
-			__METHOD__
-		);
+		$res = $db->newSelectQueryBuilder()
+			->select( '*' )
+			->from( 'securepoll_elections' )
+			->where( [ 'el_title' => $names ] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 		$infos = [];
 		foreach ( $res as $row ) {
 			$infos[$row->el_title] = $this->decodeElectionRow( $row );
@@ -158,19 +159,16 @@ class DBStore implements Store {
 
 	public function getQuestionInfo( $electionId ) {
 		$db = $this->getDB( DB_REPLICA );
-		$res = $db->select(
-			[
-				'securepoll_questions',
-				'securepoll_options'
-			],
-			'*',
-			[
+		$res = $db->newSelectQueryBuilder()
+			->select( '*' )
+			->from( 'securepoll_questions' )
+			->join( 'securepoll_options', null, 'op_question=qu_entity' )
+			->where( [
 				'qu_election' => $electionId,
-				'op_question=qu_entity'
-			],
-			__METHOD__,
-			[ 'ORDER BY' => 'qu_index, qu_entity' ]
-		);
+			] )
+			->orderBy( [ 'qu_index', 'qu_entity' ] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
 		$questions = [];
 		$options = [];
@@ -214,12 +212,12 @@ class DBStore implements Store {
 		if ( $voterId !== null ) {
 			$where['vote_voter'] = $voterId;
 		}
-		$res = $dbr->select(
-			'securepoll_votes',
-			'*',
-			$where,
-			__METHOD__
-		);
+		$res = $dbr->newSelectQueryBuilder()
+			->select( '*' )
+			->from( 'securepoll_votes' )
+			->where( $where )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
 		foreach ( $res as $row ) {
 			$status = call_user_func( $callback, $this, $row->vote_record );
@@ -233,12 +231,12 @@ class DBStore implements Store {
 
 	public function getEntityType( $id ) {
 		$db = $this->getDB( DB_REPLICA );
-		$res = $db->selectRow(
-			'securepoll_entity',
-			'*',
-			[ 'en_id' => $id ],
-			__METHOD__
-		);
+		$res = $db->newSelectQueryBuilder()
+			->select( '*' )
+			->from( 'securepoll_entity' )
+			->where( [ 'en_id' => $id ] )
+			->caller( __METHOD__ )
+			->fetchRow();
 
 		return $res ? $res->en_type : false;
 	}

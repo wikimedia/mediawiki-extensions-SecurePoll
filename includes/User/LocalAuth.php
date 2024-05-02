@@ -131,18 +131,12 @@ class LocalAuth extends Auth {
 	 */
 	public function getLists( $user ) {
 		$dbr = $this->context->getDB();
-		$res = $dbr->select(
-			'securepoll_lists',
-			[ 'li_name' ],
-			[ 'li_member' => $user->getId() ],
-			__METHOD__
-		);
-		$lists = [];
-		foreach ( $res as $row ) {
-			$lists[] = $row->li_name;
-		}
-
-		return $lists;
+		return $dbr->newSelectQueryBuilder()
+			->select( 'li_name' )
+			->from( 'securepoll_lists' )
+			->where( [ 'li_member' => $user->getId() ] )
+			->caller( __METHOD__ )
+			->fetchFieldValues();
 	}
 
 	/**
@@ -162,18 +156,12 @@ class LocalAuth extends Auth {
 			'CentralAuth.CentralAuthDatabaseManager'
 		);
 		$dbc = $caDbManager->getCentralReplicaDB();
-		$res = $dbc->select(
-			'securepoll_lists',
-			[ 'li_name' ],
-			[ 'li_member' => $centralUser->getId() ],
-			__METHOD__
-		);
-		$lists = [];
-		foreach ( $res as $row ) {
-			$lists[] = $row->li_name;
-		}
-
-		return $lists;
+		return $dbc->newSelectQueryBuilder()
+			->select( 'li_name' )
+			->from( 'securepoll_lists' )
+			->where( [ 'li_member' => $centralUser->getId() ] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 	}
 
 	/**

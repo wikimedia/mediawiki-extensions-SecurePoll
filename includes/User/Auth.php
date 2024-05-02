@@ -129,18 +129,18 @@ class Auth {
 		# Otherwise a race condition could lead to duplicate users for a single remote user,
 		# and thus to duplicate votes.
 		$dbw->startAtomic( __METHOD__ );
-		$row = $dbw->selectRow(
-			'securepoll_voters',
-			'*',
-			[
+		$row = $dbw->newSelectQueryBuilder()
+			->select( '*' )
+			->from( 'securepoll_voters' )
+			->where( [
 				'voter_name' => $params['name'],
 				'voter_election' => $params['electionId'],
 				'voter_domain' => $params['domain'],
 				'voter_url' => $params['url']
-			],
-			__METHOD__,
-			[ 'FOR UPDATE' ]
-		);
+			] )
+			->forUpdate()
+			->caller( __METHOD__ )
+			->fetchRow();
 		if ( $row ) {
 			$user = $this->context->newVoterFromRow( $row );
 		} else {

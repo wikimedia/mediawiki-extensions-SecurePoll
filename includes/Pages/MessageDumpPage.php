@@ -36,12 +36,12 @@ class MessageDumpPage extends ActionPage {
 			$ids[] = $entity->getId();
 		}
 
-		$res = $dbr->select(
-			'securepoll_msgs',
-			'*',
-			[ 'msg_entity' => $ids ],
-			__METHOD__
-		);
+		$res = $dbr->newSelectQueryBuilder()
+			->select( '*' )
+			->from( 'securepoll_msgs' )
+			->where( [ 'msg_entity' => $ids ] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
 		if ( !$res->numRows() ) {
 			return;

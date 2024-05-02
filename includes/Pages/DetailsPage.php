@@ -30,20 +30,14 @@ class DetailsPage extends ActionPage {
 		$this->voteId = intval( $params[0] );
 
 		$db = $this->context->getDB();
-		$row = $db->selectRow(
-			[
-				'securepoll_votes',
-				'securepoll_elections',
-				'securepoll_voters'
-			],
-			'*',
-			[
-				'vote_id' => $this->voteId,
-				'vote_election=el_entity',
-				'vote_voter=voter_id',
-			],
-			__METHOD__
-		);
+		$row = $db->newSelectQueryBuilder()
+			->select( '*' )
+			->from( 'securepoll_votes' )
+			->join( 'securepoll_elections', null, 'vote_election=el_entity' )
+			->join( 'securepoll_voters', null, 'vote_voter=voter_id' )
+			->where( [ 'vote_id' => $this->voteId ] )
+			->caller( __METHOD__ )
+			->fetchRow();
 		if ( !$row ) {
 			$out->addWikiMsg( 'securepoll-invalid-vote', $this->voteId );
 

@@ -189,12 +189,12 @@ class VoterEligibilityPage extends ActionPage {
 
 			$dbw->startAtomic( __METHOD__ );
 
-			$id = $dbw->selectField(
-				'securepoll_elections',
-				'el_entity',
-				[ 'el_title' => $this->election->title ],
-				__METHOD__
-			);
+			$id = $dbw->newSelectQueryBuilder()
+				->select( 'el_entity' )
+				->from( 'securepoll_elections' )
+				->where( [ 'el_title' => $this->election->title ] )
+				->caller( __METHOD__ )
+				->fetchField();
 			if ( $id ) {
 				$ins = [];
 				foreach ( $properties as $key => $value ) {
@@ -257,43 +257,40 @@ class VoterEligibilityPage extends ActionPage {
 			$lb = $this->lbFactory->getMainLB( $dbname );
 			$dbr = $lb->getConnection( $db, [], $dbname );
 
-			$id = $dbr->selectField(
-				'securepoll_elections',
-				'el_entity',
-				[
+			$id = $dbr->newSelectQueryBuilder()
+				->select( 'el_entity' )
+				->from( 'securepoll_elections' )
+				->where( [
 					'el_title' => $this->election->title
-				],
-				__METHOD__
-			);
+				] )
+				->caller( __METHOD__ )
+				->fetchField();
 			if ( !$id ) {
 				// WTF?
 				continue;
 			}
-			$list = $dbr->selectField(
-				'securepoll_properties',
-				'pr_value',
-				[
+			$list = $dbr->newSelectQueryBuilder()
+				->select( 'pr_value' )
+				->from( 'securepoll_properties' )
+				->where( [
 					'pr_entity' => $id,
 					'pr_key' => $property,
-				],
-				__METHOD__
-			);
+				] )
+				->caller( __METHOD__ )
+				->fetchField();
 			if ( !$list ) {
 				continue;
 			}
 
-			$res = $dbr->select(
-				[
-					'securepoll_lists',
-					'user'
-				],
-				[ 'user_name' ],
-				[
+			$res = $dbr->newSelectQueryBuilder()
+				->select( 'user_name' )
+				->from( 'securepoll_lists' )
+				->join( 'user', null, 'user_id=li_member' )
+				->where( [
 					'li_name' => $list,
-					'user_id=li_member',
-				],
-				__METHOD__
-			);
+				] )
+				->caller( __METHOD__ )
+				->fetchResultSet();
 			foreach ( $res as $row ) {
 				$names[] = str_replace( '_', ' ', $row->user_name ) . "@$dbname";
 			}
@@ -359,12 +356,12 @@ class VoterEligibilityPage extends ActionPage {
 
 			$dbw->startAtomic( __METHOD__ );
 
-			$id = $dbw->selectField(
-				'securepoll_elections',
-				'el_entity',
-				[ 'el_title' => $this->election->title ],
-				__METHOD__
-			);
+			$id = $dbw->newSelectQueryBuilder()
+				->select( 'el_entity' )
+				->from( 'securepoll_elections' )
+				->where( [ 'el_title' => $this->election->title ] )
+				->caller( __METHOD__ )
+				->fetchField();
 			if ( $id ) {
 				$dbw->newReplaceQueryBuilder()
 					->replaceInto( 'securepoll_properties' )
@@ -1253,24 +1250,24 @@ class VoterEligibilityPage extends ActionPage {
 
 			$dbw->startAtomic( __METHOD__ );
 
-			$id = $dbw->selectField(
-				'securepoll_elections',
-				'el_entity',
-				[
+			$id = $dbw->newSelectQueryBuilder()
+				->select( 'el_entity' )
+				->from( 'securepoll_elections' )
+				->where( [
 					'el_title' => $this->election->title
-				],
-				__METHOD__
-			);
+				] )
+				->caller( __METHOD__ )
+				->fetchField();
 			if ( $id ) {
-				$list = $dbw->selectField(
-					'securepoll_properties',
-					'pr_value',
-					[
+				$list = $dbw->newSelectQueryBuilder()
+					->select( 'pr_value' )
+					->from( 'securepoll_properties' )
+					->where( [
 						'pr_entity' => $id,
 						'pr_key' => $property,
-					],
-					__METHOD__
-				);
+					] )
+					->caller( __METHOD__ )
+					->fetchField();
 				if ( $list ) {
 					$dbw->newDeleteQueryBuilder()
 						->deleteFrom( 'securepoll_lists' )
