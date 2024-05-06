@@ -130,7 +130,7 @@ class OpenSslCrypt extends Crypt {
 			OPENSSL_PKCS1_OAEP_PADDING
 		);
 
-		if ( $result === false ) {
+		if ( !$result ) {
 			return $this->getErrorStatus( 'openssl_public_encrypt' );
 		}
 
@@ -153,7 +153,7 @@ class OpenSslCrypt extends Crypt {
 		$jwt = $this->jwtEncode( $header ) . '.' . $this->jwtEncode( $claims );
 		$this->clearErrors();
 		$result = openssl_sign( $jwt, $sig, $this->signKey, $hashAlg );
-		if ( $result === false ) {
+		if ( !$result ) {
 			return $this->getErrorStatus( 'openssl_sign' );
 		}
 
@@ -266,7 +266,7 @@ class OpenSslCrypt extends Crypt {
 			OPENSSL_PKCS1_OAEP_PADDING
 		);
 
-		if ( $result === false ) {
+		if ( !$result ) {
 			return $this->getErrorStatus( 'openssl_private_decrypt' );
 		}
 
