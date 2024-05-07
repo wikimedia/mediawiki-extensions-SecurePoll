@@ -31,10 +31,7 @@ class TranslationRepoTest extends MediaWikiIntegrationTestCase {
 	public function testSetTranslation( $data, $language, $comment, $wikis, $expectedReplaceCalls ) {
 		$services = MediaWikiServices::getInstance();
 		$rqb = $this->createMock( ReplaceQueryBuilder::class );
-		$rqb->method( 'replaceInto' )->willReturn( $rqb );
-		$rqb->method( 'uniqueIndexFields' )->willReturn( $rqb );
-		$rqb->method( 'rows' )->willReturn( $rqb );
-		$rqb->method( 'caller' )->willReturn( $rqb );
+		$rqb->method( $this->logicalOr( 'replaceInto', 'uniqueIndexFields', 'rows', 'caller' ) )->willReturnSelf();
 		$sqb = $this->createMock( SelectQueryBuilder::class );
 		$sqb->method( $this->logicalOr( 'select', 'from', 'where', 'caller' ) )->willReturnSelf();
 		$sqb->method( 'fetchField' )->willReturn( 7894 );
