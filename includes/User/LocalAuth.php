@@ -161,7 +161,7 @@ class LocalAuth extends Auth {
 			->from( 'securepoll_lists' )
 			->where( [ 'li_member' => $centralUser->getId() ] )
 			->caller( __METHOD__ )
-			->fetchResultSet();
+			->fetchFieldValues();
 	}
 
 	/**
