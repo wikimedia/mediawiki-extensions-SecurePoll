@@ -204,20 +204,19 @@ class DBStore implements Store {
 
 	public function callbackValidVotes( $electionId, $callback, $voterId = null ) {
 		$dbr = $this->getDB( DB_REPLICA );
-		$where = [
-			'vote_election' => $electionId,
-			'vote_current' => 1,
-			'vote_struck' => 0
-		];
-		if ( $voterId !== null ) {
-			$where['vote_voter'] = $voterId;
-		}
-		$res = $dbr->newSelectQueryBuilder()
+		$queryBuilder = $dbr->newSelectQueryBuilder()
 			->select( '*' )
 			->from( 'securepoll_votes' )
-			->where( $where )
-			->caller( __METHOD__ )
-			->fetchResultSet();
+			->where( [
+				'vote_election' => $electionId,
+				'vote_current' => 1,
+				'vote_struck' => 0
+			] )
+			->caller( __METHOD__ );
+		if ( $voterId !== null ) {
+			$queryBuilder->andWhere( [ 'vote_voter' => $voterId ] );
+		}
+		$res = $queryBuilder->fetchResultSet();
 
 		foreach ( $res as $row ) {
 			$status = call_user_func( $callback, $this, $row->vote_record );
