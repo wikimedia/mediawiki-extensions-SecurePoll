@@ -100,9 +100,7 @@ class TallyPage extends ActionPage {
 			->from( 'securepoll_properties' )
 			->where( [
 				'pr_entity' => $this->election->getId(),
-				'pr_key' => [
-					'tally-error',
-				],
+				'pr_key' => 'tally-error',
 			] )
 			->caller( __METHOD__ )
 			->fetchField();
@@ -132,9 +130,7 @@ class TallyPage extends ActionPage {
 			->from( 'securepoll_properties' )
 			->where( [
 				'pr_entity' => $this->election->getId(),
-				'pr_key' => [
-					'tally-job-enqueued',
-				],
+				'pr_key' => 'tally-job-enqueued',
 			] )
 			->caller( __METHOD__ )
 			->fetchField();
@@ -154,9 +150,7 @@ class TallyPage extends ActionPage {
 			->from( 'securepoll_properties' )
 			->where( [
 				'pr_entity' => $this->election->getId(),
-				'pr_key' => [
-					'tally-job-enqueued',
-				],
+				'pr_key' => 'tally-job-enqueued',
 			] )
 			->caller( __METHOD__ )
 			->fetchField();
@@ -188,9 +182,7 @@ class TallyPage extends ActionPage {
 			->from( 'securepoll_properties' )
 			->where( [
 				'pr_entity' => $this->election->getId(),
-				'pr_key' => [
-					'tally-result-time',
-				],
+				'pr_key' => 'tally-result-time',
 			] )
 			->caller( __METHOD__ )
 			->fetchField();

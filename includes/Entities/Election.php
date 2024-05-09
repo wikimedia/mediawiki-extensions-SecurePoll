@@ -589,9 +589,7 @@ class Election extends Entity {
 			->from( 'securepoll_properties' )
 			->where( [
 				'pr_entity' => $this->getId(),
-				'pr_key' => [
-					'tally-result',
-				],
+				'pr_key' => 'tally-result',
 			] )
 			->caller( __METHOD__ )
 			->fetchField();

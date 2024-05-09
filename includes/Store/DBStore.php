@@ -175,8 +175,7 @@ class DBStore implements Store {
 		$questionId = false;
 		$electionId = false;
 		foreach ( $res as $row ) {
-			if ( $questionId === false ) {
-			} elseif ( $questionId !== $row->qu_entity ) {
+			if ( $questionId !== false && $questionId !== $row->qu_entity ) {
 				$questions[] = [
 					'id' => $questionId,
 					'election' => $electionId,
