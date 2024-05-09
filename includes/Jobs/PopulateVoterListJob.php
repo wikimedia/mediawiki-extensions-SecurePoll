@@ -280,7 +280,6 @@ class PopulateVoterListJob extends Job {
 			}
 
 			// Criterion 3: Not in a listed group
-			global $wgDisableUserGroupExpiry;
 			if ( $this->params['list_exclude-groups'] ) {
 				$list = $dbr->newSelectQueryBuilder()
 					->select( 'user_id' )
@@ -288,9 +287,7 @@ class PopulateVoterListJob extends Job {
 					->leftJoin( 'user_groups', null, [
 						'ug_user = user_id',
 						'ug_group' => $this->params['list_exclude-groups'],
-						( !isset( $wgDisableUserGroupExpiry ) || $wgDisableUserGroupExpiry )
-							? '1'
-							: $dbr->expr( 'ug_expiry', '=', null )->or( 'ug_expiry', '>=', $dbr->timestamp() ),
+						$dbr->expr( 'ug_expiry', '=', null )->or( 'ug_expiry', '>=', $dbr->timestamp() ),
 					] )
 					->where( [
 						$dbr->expr( 'user_id', '>=', $min ),
@@ -316,9 +313,7 @@ class PopulateVoterListJob extends Job {
 						$dbr->expr( 'ug_user', '>=', $min ),
 						$dbr->expr( 'ug_user', '<', $max ),
 						'ug_group' => $this->params['list_include-groups'],
-						( !isset( $wgDisableUserGroupExpiry ) || $wgDisableUserGroupExpiry )
-							? '1'
-							: $dbr->expr( 'ug_expiry', '=', null )->or( 'ug_expiry', '>=', $dbr->timestamp() ),
+						$dbr->expr( 'ug_expiry', '=', null )->or( 'ug_expiry', '>=', $dbr->timestamp() ),
 					] )
 					->caller( __METHOD__ )
 					->fetchFieldValues();
