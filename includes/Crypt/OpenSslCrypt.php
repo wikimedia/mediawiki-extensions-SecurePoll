@@ -511,7 +511,9 @@ class OpenSslCrypt extends Crypt {
 				'type' => 'textarea',
 				'SecurePoll_type' => 'property',
 				'rows' => 5,
-				'validation-callback' => [ self::class, 'checkPublicKey' ],
+				'validation-callback' => static function ( string $key ) {
+					return self::checkPublicKey( $key );
+				},
 			]
 		];
 
@@ -549,7 +551,9 @@ class OpenSslCrypt extends Crypt {
 				'type' => 'textarea',
 				'required' => true,
 				'rows' => 5,
-				'validation-callback' => [ self::class, 'checkPrivateKey' ],
+				'validation-callback' => static function ( string $key ) {
+					return self::checkPrivateKey( $key );
+				},
 			],
 			'openssl-verify-key' => [
 				'label-message' => 'securepoll-tally-openssl-verify-key',
