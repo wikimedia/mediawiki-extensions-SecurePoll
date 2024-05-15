@@ -138,7 +138,7 @@
 	"securepoll-tally-result": "<h2>Resultatos precedente</h2><p>$1</p><p>(Resultatos de $2)</p>",
 	"securepoll-tally-comments": "Commentos de votantes",
 	"securepoll-pairwise-victories": "Matrice de vincimento in pares",
-	"securepoll-strength-matrix": "Matrice de fortia de cammino",
+	"securepoll-strength-matrix": "Matrice de fortia de percurso",
 	"securepoll-ranks": "Rango final",
 	"securepoll-average-score": "Score medie",
 	"securepoll-round": "Ronda $1",
