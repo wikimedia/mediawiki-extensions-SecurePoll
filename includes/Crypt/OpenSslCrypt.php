@@ -533,7 +533,7 @@ class OpenSslCrypt extends Crypt {
 					'SecurePoll_type' => 'property',
 					'rows' => 5,
 					'validation-callback' => static function ( string $key ) {
-						return self::checkPublicKey( $key, true );
+						return self::checkPrivateKey( $key );
 					},
 				]
 			];
