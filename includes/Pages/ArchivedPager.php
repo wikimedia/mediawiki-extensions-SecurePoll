@@ -47,18 +47,17 @@ class ArchivedPager extends ElectionPager {
 	 * @return array
 	 */
 	public function getQueryInfo() {
-		$subquery = $this->loadBalancer->getConnection( ILoadBalancer::DB_REPLICA )->buildSelectSubquery(
-			'securepoll_properties',
-			'pr_entity',
-			[ 'pr_key' => 'is-archived' ],
-			__METHOD__
-		);
+		$subquery = $this->loadBalancer->getConnection( ILoadBalancer::DB_REPLICA )->newSelectQueryBuilder()
+			->select( 'pr_entity' )
+			->from( 'securepoll_properties' )
+			->where( [ 'pr_key' => 'is-archived' ] )
+			->caller( __METHOD__ );
 
 		return [
 			'tables' => 'securepoll_elections',
 			'fields' => '*',
 			'conds' => [
-				'el_entity IN ' . $subquery,
+				'el_entity IN (' . $subquery->getSQL() . ')',
 			],
 		];
 	}
