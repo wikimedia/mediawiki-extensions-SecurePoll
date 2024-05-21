@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  * Tied elimination mid-election
  * https://www.mediawiki.org/wiki/Anti-Harassment_Tools/SecurePoll_Improvements/Test_Results/20_4_5120_824772467
  */

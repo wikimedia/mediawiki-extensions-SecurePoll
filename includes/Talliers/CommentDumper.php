@@ -35,7 +35,7 @@ class CommentDumper extends ElectionTallier {
 	}
 
 	/**
-	 * Add a record. This is the callback function for SecurePoll_Store::callbackValidVotes().
+	 * Add a record. This is the callback function for Store::callbackValidVotes().
 	 * On error, the Status object returned here will be passed through back to
 	 * the caller of callbackValidVotes().
 	 *
