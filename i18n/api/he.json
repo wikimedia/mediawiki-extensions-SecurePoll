@@ -18,5 +18,5 @@
 	"apihelp-securepollauth-summary": "מאפשרת לוויקי מרוחק לאמת משתמשים לפני מתן זכות להצביע בבחירות.",
 	"apihelp-securepollauth-param-token": "אסימון שמבוסס על אסימון הכניסה של המשתמש.",
 	"apihelp-securepollauth-param-id": "מזהה המשתמש שמתכוון להצביע.",
-	"apihelp-securepollauth-example-auth": "אימות משתמש עם מזהה <kbd>1</kbd> , ואסימון כניסה <kbd>123ABC</kbd>."
+	"apihelp-securepollauth-example-auth": "אימות משתמש עם מזהה <kbd>1</kbd>, ואסימון כניסה <kbd>123ABC</kbd>."
 }
