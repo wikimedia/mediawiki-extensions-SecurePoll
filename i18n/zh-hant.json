@@ -28,7 +28,8 @@
 			"Xiplus",
 			"Yuyu",
 			"捍粵者",
-			"飞舞回堂前"
+			"飞舞回堂前",
+			"魔琴"
 		]
 	},
 	"securepoll": "安全投票",
@@ -352,7 +353,7 @@
 	"securepoll-vote-result-question-label": "問題：$1",
 	"securepoll-vote-result-rated-option-label": "$1：評比為$2",
 	"securepoll-vote-result-not-voted-option-label": "$1：未投票",
-	"securepoll-vote-result-not-checked-option-label": "$1：未檢查",
+	"securepoll-vote-result-not-checked-option-label": "$1：未選擇",
 	"securepoll-vote-result-checked-option-label": "$1：已檢查",
 	"securepoll-vote-result-comment": "評論：$1",
 	"securepoll-vote-result-error-label": "您的投票無法正確取出。請聯繫選舉管理員"

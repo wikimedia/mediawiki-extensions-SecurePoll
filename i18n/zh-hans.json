@@ -29,7 +29,9 @@
 			"Yfdyh000",
 			"Zhang8569",
 			"飞舞回堂前",
-			"沈澄心"
+			"沈澄心",
+			"LittlePaw365",
+			"魔琴"
 		]
 	},
 	"securepoll": "安全投票",
@@ -308,7 +310,7 @@
 	"securepolllog-form-action-option-both": "二者",
 	"securepolllog-form-electionname-label": "选举（标题）：",
 	"securepolllog-election-does-not-exist": "未找到选举",
-	"securepolllog-form-date-label": "起始日期（及更早）：",
+	"securepolllog-form-date-label": "截止日期：",
 	"securepoll-log-action-type-0": "$1 $2将$4加入到选举<em>$3</em>的投票管理员。",
 	"securepoll-log-action-type-1": "$1, $2从选举<em>$3</em>的投票管理员中移除了$4。",
 	"securepoll-log-action-type-2": "$1, $2查看了选举<em>$3</em>的投票数据。",
@@ -352,5 +354,6 @@
 	"securepoll-translation-error-no-page-title": "未找到页面标题",
 	"securepoll-vote-result-intro-label": "您的投票摘要",
 	"securepoll-vote-result-question-label": "问题：$1",
+	"securepoll-vote-result-not-checked-option-label": "$1：未选择",
 	"securepoll-vote-result-comment": "评论：$1"
 }
