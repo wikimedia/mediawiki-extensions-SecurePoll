@@ -217,7 +217,7 @@ class MakeMailingList extends Maintenance {
 				->where( [
 					'lu_wiki' => WikiMap::getCurrentWikiId(),
 					'li_name' => $centralList,
-					'gu_id > ' . $dbcr->addQuotes( $offsetId ),
+					$dbcr->expr( 'gu_id', '>', $offsetId ),
 				] )
 				->orderBy( 'gu_id' )
 				->limit( $this->getBatchSize() )
@@ -234,7 +234,7 @@ class MakeMailingList extends Maintenance {
 					->queryInfo( User::getQueryInfo() )
 					->where( [
 						'user_name' => $names,
-						'user_editcount > 0'
+						$dbr->expr( 'user_editcount', '>', 0 ),
 					] )
 					->caller( __METHOD__ )
 					->fetchResultSet();
@@ -257,7 +257,7 @@ class MakeMailingList extends Maintenance {
 		do {
 			$res = $dbr->newSelectQueryBuilder()
 				->queryInfo( User::getQueryInfo() )
-				->where( 'user_id > ' . $dbr->addQuotes( $offsetId ) )
+				->where( $dbr->expr( 'user_id', '>', $offsetId ) )
 				->orderBy( 'user_id' )
 				->limit( $this->getBatchSize() )
 				->caller( __METHOD__ )

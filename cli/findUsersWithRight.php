@@ -94,7 +94,7 @@ class FindUsersWithRight extends Maintenance {
 			->where( [
 				'ug_group' => $groups,
 				// Expiry condition similar to UsersPager::getQueryInfo()
-				'ug_expiry IS NULL OR ug_expiry>=' . $dbr->addQuotes( $dbr->timestamp() )
+				$dbr->expr( 'ug_expiry', '=', null )->or( 'ug_expiry', '>=', $dbr->timestamp() ),
 			] )
 			->distinct()
 			->caller( __METHOD__ )

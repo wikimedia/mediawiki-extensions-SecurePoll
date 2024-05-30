@@ -75,7 +75,7 @@ class MakeGlobalVoterList extends Maintenance {
 			$res = $dbcr->newSelectQueryBuilder()
 				->select( [ 'gu_id', 'gu_name' ] )
 				->from( 'globaluser' )
-				->where( 'gu_name > ' . $dbcr->addQuotes( $userName ) )
+				->where( $dbcr->expr( 'gu_name', '>', $userName ) )
 				->limit( $this->getBatchSize() )
 				->orderBy( 'gu_name' )
 				->caller( __METHOD__ )
