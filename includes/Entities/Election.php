@@ -13,8 +13,8 @@ use MediaWiki\Extension\SecurePoll\User\Voter;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Status\Status;
 use MediaWiki\User\User;
+use MediaWiki\Xml\Xml;
 use Wikimedia\Rdbms\IDatabase;
-use Xml;
 
 /**
  * Class representing an *election*. The term is intended to include straw polls,

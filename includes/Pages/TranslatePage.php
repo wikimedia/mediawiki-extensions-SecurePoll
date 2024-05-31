@@ -8,9 +8,9 @@ use MediaWiki\Extension\SecurePoll\TranslationRepo;
 use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\Linker\Linker;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Message\Message;
 use MediaWiki\Title\Title;
 use MediaWiki\WikiMap\WikiMap;
-use Message;
 
 /**
  * A SecurePoll subpage for translating election messages.

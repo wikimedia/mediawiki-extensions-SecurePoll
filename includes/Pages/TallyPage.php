@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\SecurePoll\Pages;
 
-use HTMLForm;
 use JobQueueGroup;
 use JobSpecification;
 use MediaWiki\Extension\SecurePoll\Context;
@@ -10,6 +9,7 @@ use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Extension\SecurePoll\Store\MemoryStore;
 use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
+use MediaWiki\HTMLForm\HTMLForm;
 use MediaWiki\Request\WebRequestUpload;
 use MediaWiki\Status\Status;
 use OOUI\MessageWidget;

@@ -6,8 +6,8 @@ use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\User\Voter;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Pager\TablePager;
+use MediaWiki\Xml\Xml;
 use Wikimedia\IPUtils;
-use Xml;
 
 /**
  * A TablePager for showing a list of votes in a given election.

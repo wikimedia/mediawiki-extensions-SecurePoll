@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\SecurePoll\Talliers;
 
-use Xml;
+use MediaWiki\Xml\Xml;
 
 /**
  * Generic functionality for Condorcet-style pairwise methods.

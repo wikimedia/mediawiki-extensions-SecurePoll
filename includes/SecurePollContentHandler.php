@@ -3,10 +3,10 @@
 namespace MediaWiki\Extension\SecurePoll;
 
 use ContentHandler;
-use FormatJson;
-use JsonContentHandler;
+use MediaWiki\Content\JsonContentHandler;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
+use MediaWiki\Json\FormatJson;
 use MediaWiki\Title\Title;
 
 /**

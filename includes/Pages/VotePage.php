@@ -3,7 +3,6 @@
 namespace MediaWiki\Extension\SecurePoll\Pages;
 
 use ExtensionRegistry;
-use HTMLForm;
 use MediaWiki\Extension\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
@@ -15,6 +14,7 @@ use MediaWiki\Extension\SecurePoll\User\Voter;
 use MediaWiki\Extension\SecurePoll\VoteRecord;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Html\Html;
+use MediaWiki\HTMLForm\HTMLForm;
 use MediaWiki\Session\SessionManager;
 use MediaWiki\Status\Status;
 use MediaWiki\Title\Title;

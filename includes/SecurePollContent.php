@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\SecurePoll;
 
-use JsonContent;
+use MediaWiki\Content\JsonContent;
 
 /**
  * SecurePoll Content Model

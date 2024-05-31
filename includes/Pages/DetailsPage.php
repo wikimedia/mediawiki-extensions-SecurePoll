@@ -4,8 +4,8 @@ namespace MediaWiki\Extension\SecurePoll\Pages;
 
 use MediaWiki\Extension\SecurePoll\User\Voter;
 use MediaWiki\Title\Title;
+use MediaWiki\Xml\Xml;
 use Wikimedia\IPUtils;
-use Xml;
 
 /**
  * Special:SecurePoll subpage for showing the details of a given vote to an administrator.

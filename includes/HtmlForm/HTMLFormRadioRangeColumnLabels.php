@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\SecurePoll\HtmlForm;
 
-use HTMLFormField;
+use MediaWiki\HTMLForm\HTMLFormField;
 use OOUI;
 
 /**

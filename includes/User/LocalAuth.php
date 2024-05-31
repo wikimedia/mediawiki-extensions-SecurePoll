@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\SecurePoll\User;
 
 use ExtensionRegistry;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\CentralAuth\User\CentralAuthUser;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Hooks\HookRunner;
@@ -10,7 +11,6 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Status\Status;
 use MediaWiki\User\User;
 use MediaWiki\WikiMap\WikiMap;
-use RequestContext;
 
 /**
  * Authorization class for locally created accounts.

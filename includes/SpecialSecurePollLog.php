@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\SecurePoll;
 
-use HTMLForm;
 use MediaWiki\Extension\SecurePoll\Pages\ActionPage;
+use MediaWiki\HTMLForm\HTMLForm;
 use MediaWiki\SpecialPage\FormSpecialPage;
 use MediaWiki\User\UserFactory;
 

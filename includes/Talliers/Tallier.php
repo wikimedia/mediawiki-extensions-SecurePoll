@@ -6,7 +6,7 @@ use InvalidArgumentException;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Entities\Question;
-use Xml;
+use MediaWiki\Xml\Xml;
 
 /**
  * Base class for objects which tally individual questions.

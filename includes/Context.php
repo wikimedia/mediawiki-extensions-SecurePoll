@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\SecurePoll;
 
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extension\SecurePoll\Crypt\Crypt;
 use MediaWiki\Extension\SecurePoll\Crypt\Random;
@@ -21,7 +22,6 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
 use ParserOptions;
-use RequestContext;
 use stdClass;
 use Wikimedia\Rdbms\IDatabase;
 

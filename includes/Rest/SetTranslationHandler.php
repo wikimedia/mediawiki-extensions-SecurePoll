@@ -2,13 +2,13 @@
 
 namespace MediaWiki\Extension\SecurePoll\Rest;
 
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\TranslationRepo;
 use MediaWiki\Rest\HttpException;
 use MediaWiki\Rest\Response;
 use MediaWiki\Rest\SimpleHandler;
 use MediaWiki\Rest\Validator\JsonBodyValidator;
-use RequestContext;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class SetTranslationHandler extends SimpleHandler {

@@ -4,8 +4,9 @@ namespace MediaWiki\Extension\SecurePoll\Entities;
 
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Parser\Parser;
 use MediaWiki\SpecialPage\SpecialPage;
-use Xml;
+use MediaWiki\Xml\Xml;
 
 /**
  * There are three types of entity: elections, questions and options. The
@@ -198,7 +199,7 @@ class Entity {
 
 		$html = $out->getText( [ 'unwrap' => true ] );
 		if ( !$block ) {
-			$html = \Parser::stripOuterParagraph( $html );
+			$html = Parser::stripOuterParagraph( $html );
 		}
 		return $html;
 	}

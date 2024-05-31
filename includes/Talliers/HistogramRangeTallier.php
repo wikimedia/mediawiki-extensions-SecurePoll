@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\SecurePoll\Talliers;
 
 use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
-use Xml;
+use MediaWiki\Xml\Xml;
 
 class HistogramRangeTallier extends Tallier {
 	/** @var array */
