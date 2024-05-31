@@ -21,7 +21,14 @@ use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use MediaWiki\WikiMap\WikiMap;
 use MobileContext;
+use OOUI\ButtonInputWidget;
+use OOUI\FieldLayout;
+use OOUI\FieldsetLayout;
+use OOUI\FormLayout;
+use OOUI\HiddenInputWidget;
+use OOUI\HtmlSnippet;
 use OOUI\MessageWidget;
+use OOUI\MultilineTextInputWidget;
 use Wikimedia\IPUtils;
 use Wikimedia\Rdbms\ILoadBalancer;
 
@@ -189,7 +196,7 @@ class VotePage extends ActionPage {
 		$out->addWikiTextAsInterface( $this->election->getMessage( 'intro' ) );
 
 		// Show form
-		$form = new \OOUI\FormLayout( [
+		$form = new FormLayout( [
 			'action' => $this->getTitle()->getLocalURL( "action=vote" ),
 			'method' => 'post',
 			'items' => $this->getBallot()->getForm( $status )
@@ -198,18 +205,18 @@ class VotePage extends ActionPage {
 		// Show comments section
 		if ( $this->election->getProperty( 'request-comment' ) ) {
 			$form->addItems( [
-				new \OOUI\FieldsetLayout( [
+				new FieldsetLayout( [
 					'label' => $this->msg( 'securepoll-header-comments' ),
 					'items' => [
-						new \OOUI\FieldLayout(
-							new \OOUI\MultilineTextInputWidget( [
+						new FieldLayout(
+							new MultilineTextInputWidget( [
 								'name' => 'securepoll_comment',
 								'rows' => 3,
 								// vote_record is a BLOB, so this can't be infinity
 								'maxLength' => 10000,
 							] ),
 							[
-								'label' => new \OOUI\HtmlSnippet(
+								'label' => new HtmlSnippet(
 									$this->election->parseMessage( 'comment-prompt' )
 								),
 								'align' => 'top'
@@ -221,8 +228,8 @@ class VotePage extends ActionPage {
 		}
 
 		$form->addItems( [
-			new \OOUI\FieldLayout(
-				new \OOUI\ButtonInputWidget( [
+			new FieldLayout(
+				new ButtonInputWidget( [
 					'label' => $this->msg( 'securepoll-submit' )->text(),
 					'flags' => [ 'primary', 'progressive' ],
 					'type' => 'submit',
@@ -230,7 +237,7 @@ class VotePage extends ActionPage {
 					'infusable' => true
 				]
 			) ),
-			new \OOUI\HiddenInputWidget( [
+			new HiddenInputWidget( [
 				'name' => 'edit_token',
 				'value' => SessionManager::getGlobalSession()->getToken()->toString(),
 			] )

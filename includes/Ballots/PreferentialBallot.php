@@ -3,6 +3,11 @@
 namespace MediaWiki\Extension\SecurePoll\Ballots;
 
 use MediaWiki\Extension\SecurePoll\Entities\Question;
+use OOUI\FieldsetLayout;
+use OOUI\HorizontalLayout;
+use OOUI\HtmlSnippet;
+use OOUI\LabelWidget;
+use OOUI\NumberInputWidget;
 
 /**
  * Ballot for preferential voting
@@ -33,18 +38,18 @@ class PreferentialBallot extends Ballot {
 	/**
 	 * @param Question $question
 	 * @param array $options
-	 * @return \OOUI\FieldsetLayout
+	 * @return FieldsetLayout
 	 */
 	public function getQuestionForm( $question, $options ) {
 		$name = 'securepoll_q' . $question->getId();
-		$fieldset = new \OOUI\FieldsetLayout();
+		$fieldset = new FieldsetLayout();
 		foreach ( $options as $option ) {
 			$optionHTML = $option->parseMessageInline( 'text' );
 			$optionId = $option->getId();
 			$inputId = "{$name}_opt{$optionId}";
 			$oldValue = $this->getRequest()->getVal( $inputId, '' );
 
-			$widget = new \OOUI\NumberInputWidget( [
+			$widget = new NumberInputWidget( [
 				'name' => $inputId,
 				'default' => $oldValue,
 				'min' => 1,
@@ -52,12 +57,12 @@ class PreferentialBallot extends Ballot {
 				'required' => $this->election->getProperty( 'must-rank-all' ),
 			] );
 
-			$label = new \OOUI\LabelWidget( [
-				'label' => new \OOUI\HtmlSnippet( $this->errorLocationIndicator( $inputId ) . $optionHTML ),
+			$label = new LabelWidget( [
+				'label' => new HtmlSnippet( $this->errorLocationIndicator( $inputId ) . $optionHTML ),
 				'input' => $widget,
 			] );
 
-			$fieldset->appendContent( new \OOUI\HorizontalLayout(
+			$fieldset->appendContent( new HorizontalLayout(
 				[
 					'classes' => [ 'securepoll-option-preferential' ],
 					'items' => [

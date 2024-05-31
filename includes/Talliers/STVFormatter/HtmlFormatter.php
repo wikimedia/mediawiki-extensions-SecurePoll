@@ -4,6 +4,8 @@ namespace MediaWiki\Extension\SecurePoll\Talliers\STVFormatter;
 
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Output\OutputPage;
+use OOUI\HtmlSnippet;
+use OOUI\PanelLayout;
 use OOUI\Tag;
 
 class HtmlFormatter implements STVFormatter {
@@ -59,7 +61,7 @@ class HtmlFormatter implements STVFormatter {
 
 	public function formatPreamble( array $elected, array $eliminated ) {
 		// Generate overview of elected candidates
-		$electionSummary = new \OOUI\PanelLayout( [
+		$electionSummary = new PanelLayout( [
 			'expanded' => false,
 			'content' => [],
 		] );
@@ -143,7 +145,7 @@ class HtmlFormatter implements STVFormatter {
 	}
 
 	public function formatRoundsPreamble() {
-		$electionRounds = new \OOUI\PanelLayout( [
+		$electionRounds = new PanelLayout( [
 			'expanded' => false,
 			'content' => [],
 		] );
@@ -157,7 +159,7 @@ class HtmlFormatter implements STVFormatter {
 		// Help text
 		$electionRounds->appendContent(
 			( new Tag( 'p' ) )->appendContent(
-				new \OOUI\HtmlSnippet( wfMessage( 'securepoll-stv-help-text' )->parse() )
+				new HtmlSnippet( wfMessage( 'securepoll-stv-help-text' )->parse() )
 			)
 		);
 		return $electionRounds;

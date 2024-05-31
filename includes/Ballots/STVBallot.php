@@ -6,6 +6,7 @@ use MediaWiki\Extension\SecurePoll\Entities\Question;
 use MediaWiki\Extension\SecurePoll\Pages\CreatePage;
 use OOUI\ComboBoxInputWidget;
 use OOUI\DropdownInputWidget;
+use OOUI\FieldLayout;
 use OOUI\FieldsetLayout;
 
 /**
@@ -61,7 +62,7 @@ class STVBallot extends Ballot {
 	 */
 	public function getQuestionForm( $question, $options ): FieldsetLayout {
 		$name = 'securepoll_q' . $question->getId();
-		$fieldset = new \OOUI\FieldsetLayout();
+		$fieldset = new FieldsetLayout();
 		$request = $this->getRequest();
 		$this->seatsLimit = $question->getProperty( 'limit-seats' );
 		$this->numberOfSeats = $question->getProperty( 'min-seats' );
@@ -101,7 +102,7 @@ class STVBallot extends Ballot {
 				'classes' => [ 'securepoll-stvballot-option-dropdown' ],
 				'value' => $request->getVal( $inputId, '0' ),
 			] );
-			$fieldset->appendContent( new \OOUI\FieldLayout(
+			$fieldset->appendContent( new FieldLayout(
 				$widget,
 				[
 					'classes' => [ 'securepoll-option-preferential', 'securepoll-option-stv-dropdown' ],

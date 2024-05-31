@@ -7,6 +7,7 @@ use MediaWiki\Extension\SecurePoll\User\Voter;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Pager\TablePager;
 use MediaWiki\Xml\Xml;
+use OOUI\ButtonWidget;
 use Wikimedia\IPUtils;
 
 /**
@@ -166,7 +167,7 @@ class ListPager extends TablePager {
 				}
 				$id = 'securepoll-popup-' . $voteId;
 
-				return ( new \OOUI\ButtonWidget( [
+				return ( new ButtonWidget( [
 					'id' => $id,
 					'label' => $label,
 				] ) )->setAttributes( [

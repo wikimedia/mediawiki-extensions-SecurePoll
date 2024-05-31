@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\SecurePoll\HookHandler;
 
 use MediaWiki\Installer\Hook\LoadExtensionSchemaUpdatesHook;
+use UpdateNotBlockedKey;
 
 class InstallHandler implements LoadExtensionSchemaUpdatesHook {
 	/**
@@ -67,6 +68,6 @@ class InstallHandler implements LoadExtensionSchemaUpdatesHook {
 			'securepoll_properties', 'sppr_entity', "$base/sql/$type/patch-securepoll_properties-unique-to-pk.sql"
 		);
 
-		$updater->addPostDatabaseUpdateMaintenance( \UpdateNotBlockedKey::class );
+		$updater->addPostDatabaseUpdateMaintenance( UpdateNotBlockedKey::class );
 	}
 }
