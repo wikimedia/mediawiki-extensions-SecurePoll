@@ -56,13 +56,13 @@
 .securepoll-table {
 	margin: 1em 1em 1em 0;
 	background: #f9f9f9;
-	border: thin #aaa solid;
+	border: thin #a2a9b1 solid;
 	border-collapse: collapse;
 }
 
 .securepoll-table th,
 .securepoll-table td {
-	border: thin #aaa solid;
+	border: thin #a2a9b1 solid;
 	padding: 0.4em;
 }
 
@@ -120,7 +120,7 @@
 }
 
 .securepoll-election-closed {
-	color: #aaa;
+	color: #a2a9b1;
 }
 
 .securepoll-results th {
@@ -131,7 +131,7 @@
 tr.securepoll-exhausted th,
 tr.securepoll-exhausted td {
 	font-style: italic;
-	border-top: 1px solid #aaa;
+	border-top: 1px solid #a2a9b1;
 }
 
 tr.securepoll-spoilt {
