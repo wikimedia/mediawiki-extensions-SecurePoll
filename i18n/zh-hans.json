@@ -30,7 +30,8 @@
 			"Zhang8569",
 			"飞舞回堂前",
 			"沈澄心",
-			"LittlePaw365"
+			"LittlePaw365",
+			"魔琴"
 		]
 	},
 	"securepoll": "安全投票",
@@ -353,5 +354,6 @@
 	"securepoll-translation-error-no-page-title": "未找到页面标题",
 	"securepoll-vote-result-intro-label": "您的投票摘要",
 	"securepoll-vote-result-question-label": "问题：$1",
+	"securepoll-vote-result-not-checked-option-label": "$1：未选择",
 	"securepoll-vote-result-comment": "评论：$1"
 }
