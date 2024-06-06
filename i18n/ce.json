@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Sasan700",
-			"Умар"
+			"Умар",
+			"Исмаил Садуев"
 		]
 	},
 	"securepoll": "Кхерамза кхажтасар",
@@ -52,7 +53,7 @@
 	"securepoll-subpage-vote": "Кхажтасар",
 	"securepoll-subpage-translate": "Гоч",
 	"securepoll-subpage-list": "МогӀам",
-	"securepoll-subpage-edit": "Нисйе",
+	"securepoll-subpage-edit": "Нисйан",
 	"securepoll-subpage-votereligibility": "Кхажтаса бакъо",
 	"securepoll-subpage-dump": "Дамп",
 	"securepoll-subpage-tally": "Ларар",
