@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\SecurePoll\Ballots;
 
 use MediaWiki\Extension\SecurePoll\Entities\Question;
 use MediaWiki\Extension\SecurePoll\Pages\CreatePage;
+use OOUI\ComboBoxInputWidget;
 use OOUI\DropdownInputWidget;
 use OOUI\FieldsetLayout;
 
@@ -64,19 +65,29 @@ class STVBallot extends Ballot {
 		$request = $this->getRequest();
 		$this->seatsLimit = $question->getProperty( 'limit-seats' );
 		$this->numberOfSeats = $question->getProperty( 'min-seats' );
-
-		$allOptions = [
-			[
-				'data' => 0,
-				'label' => $this->msg( 'securepoll-stv-droop-default-value' )->text(),
-			]
+		$data = [
+			'maxSeats' => $this->seatsLimit ? $this->numberOfSeats : count( $options ),
+			'selectedItems' => []
 		];
-		foreach ( $options as $option ) {
+
+		$allOptions = [];
+		foreach ( $options as $key => $option ) {
+			// pick already selected items
+			$selectedVal = $request->getVal( $name . "_opt" . $key );
+			if ( $selectedVal ) {
+				$data[ 'selectedItems' ][] = [
+					'option' => $name . "_opt" . $key,
+					'itemKey' => $key
+				];
+			}
+
 			$allOptions[] = [
-				'data' => $option->getId(),
-				'label' => $option->parseMessageInline( 'text' ),
+				'data' => $option->parseMessageInline( 'text' ),
+				'disable' => true,
+				'select' => true
 			];
 		}
+
 		$numberOfOptions = count( $options );
 		for ( $i = 0; $i < $numberOfOptions; $i++ ) {
 			if ( $this->numberOfSeatsReached( $i ) ) {
@@ -93,7 +104,7 @@ class STVBallot extends Ballot {
 			$fieldset->appendContent( new \OOUI\FieldLayout(
 				$widget,
 				[
-					'classes' => [ 'securepoll-option-preferential' ],
+					'classes' => [ 'securepoll-option-preferential', 'securepoll-option-stv-dropdown' ],
 					'label' => $this->msg( 'securepoll-stv-droop-choice-rank', $i + 1 ),
 					'errors' => isset( $this->prevErrorIds[$inputId] ) ? [
 						$this->prevStatus->spGetMessageText( $inputId )
@@ -103,6 +114,29 @@ class STVBallot extends Ballot {
 			) );
 		}
 
+		$widget = new ComboBoxInputWidget( [
+			'infusable' => true,
+			'classes' => [ "securepoll_q{$question->getId()}" ],
+			'tagName' => $name,
+			'options' => $allOptions,
+			'autocomplete' => false,
+			'data' => $data,
+			'menu' => [
+				'filterFromInput' => true
+			]
+		] );
+
+		$fieldset->appendContent( new \OOUI\FieldLayout(
+			$widget,
+			[
+				'infusable' => true,
+				'classes' => [ "securepoll-option-preferential", 'securepoll-option-stv-combobox' ],
+				'errors' => isset( $this->prevErrorIds[ $name ] ) ? [
+					$this->prevStatus->spgetMessageText( $name )
+					] : null,
+				'align' => 'top'
+			]
+		) );
 		return $fieldset;
 	}
 
