@@ -98,7 +98,7 @@
 	"securepoll-cookie-dup-list": "Cookie duplicate users",
 	"securepoll-dump-title": "Dump: $1",
 	"securepoll-dump-not-finished": "Election records are only available after the finish date on $1 at $2",
-	"securepoll-dump-no-urandom": "Cannot open /dev/urandom. \nTo maintain voter privacy, encrypted election records are only publically available when they can be shuffled with a secure random number stream.",
+	"securepoll-dump-no-urandom": "Cannot open /dev/urandom. To maintain voter privacy, encrypted election records are only publically available when they can be shuffled with a secure random number stream.",
 	"securepoll-dump-private": "Sorry, viewing the encrypted record dump for this election is restricted to election administrators.",
 	"securepoll-urandom-not-supported": "This server does not support cryptographic random number generation.\nTo maintain voter privacy, encrypted election records are only publically available when they can be shuffled with a secure random number stream.",
 	"securepoll-translate-title": "Translate: $1",
