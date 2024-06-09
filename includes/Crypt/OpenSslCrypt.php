@@ -8,6 +8,7 @@ use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Status\Status;
 use Message;
+use OpenSSLAsymmetricKey;
 use RuntimeException;
 use Wikimedia\Rdbms\IDatabase;
 
@@ -42,16 +43,16 @@ class OpenSslCrypt extends Crypt {
 	/** @var Election|null */
 	private $election;
 
-	/** @var \OpenSSLAsymmetricKey|resource|null */
+	/** @var OpenSSLAsymmetricKey|resource|null */
 	private $encryptKey = null;
 
-	/** @var \OpenSSLAsymmetricKey|resource|null */
+	/** @var OpenSSLAsymmetricKey|resource|null */
 	private $signKey = null;
 
-	/** @var \OpenSSLAsymmetricKey|resource|null */
+	/** @var OpenSSLAsymmetricKey|resource|null */
 	private $decryptKey = null;
 
-	/** @var \OpenSSLAsymmetricKey|resource|null */
+	/** @var OpenSSLAsymmetricKey|resource|null */
 	private $verifyKey = null;
 
 	/**
@@ -603,7 +604,7 @@ class OpenSslCrypt extends Crypt {
 	/**
 	 * Internal validation routine for public or private keys
 	 *
-	 * @param \OpenSSLAsymmetricKey|resource|false $key
+	 * @param OpenSSLAsymmetricKey|resource|false $key
 	 * @return Message|true
 	 */
 	private static function checkKeyInternal( $key ) {

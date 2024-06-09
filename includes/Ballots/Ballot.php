@@ -9,9 +9,14 @@ use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Entities\Entity;
 use MediaWiki\Extension\SecurePoll\Entities\Question;
+use MediaWiki\Message\Message;
 use MediaWiki\Request\WebRequest;
 use MediaWiki\Status\Status;
 use MessageLocalizer;
+use OOUI\Element;
+use OOUI\FieldsetLayout;
+use OOUI\HtmlSnippet;
+use OOUI\IconWidget;
 
 /**
  * Parent class for ballot forms. This is the UI component of a voting method.
@@ -92,7 +97,7 @@ abstract class Ballot {
 	 * Get the HTML form segment for a single question
 	 * @param Question $question
 	 * @param array $options Array of options, in the order they should be displayed
-	 * @return \OOUI\FieldsetLayout
+	 * @return FieldsetLayout
 	 */
 	abstract public function getQuestionForm( $question, $options );
 
@@ -143,7 +148,7 @@ abstract class Ballot {
 	 *
 	 * @param string $key
 	 * @param mixed ...$params
-	 * @return \Message
+	 * @return Message
 	 */
 	protected function msg( $key, ...$params ) {
 		return $this->getMessageLocalizer()->msg( $key, ...$params );
@@ -266,7 +271,7 @@ abstract class Ballot {
 	 * Get the HTML for this ballot. <form> tags should not be included,
 	 * they will be added by the VotePage.
 	 * @param bool|BallotStatus $prevStatus
-	 * @return \OOUI\Element[]
+	 * @return Element[]
 	 */
 	public function getForm( $prevStatus = false ) {
 		$questions = $this->election->getQuestions();
@@ -288,13 +293,13 @@ abstract class Ballot {
 					$options
 			);
 			$questionForm->setLabel(
-				new \OOUI\HtmlSnippet( $question->parseMessage( 'text' ) )
+				new HtmlSnippet( $question->parseMessage( 'text' ) )
 			);
 			$itemArray[] = $questionForm;
 		}
 		if ( $prevStatus ) {
-			$formStatus = new \OOUI\Element( [
-				'content' => new \OOUI\HTMLSnippet(
+			$formStatus = new Element( [
+				'content' => new HTMLSnippet(
 					$this->formatStatus( $prevStatus )
 				),
 			] );
@@ -323,7 +328,7 @@ abstract class Ballot {
 		}
 		$this->usedErrorIds[$id] = true;
 
-		return new \OOUI\IconWidget( [
+		return new IconWidget( [
 			'icon' => 'error',
 			'title' => $this->prevStatus->spGetMessageText( $id ),
 			'id' => "$id-location",

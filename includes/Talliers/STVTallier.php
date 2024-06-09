@@ -6,6 +6,7 @@ use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Question;
 use MediaWiki\Extension\SecurePoll\Talliers\STVFormatter\HtmlFormatter;
 use MediaWiki\Extension\SecurePoll\Talliers\STVFormatter\WikitextFormatter;
+use OOUI\StackLayout;
 
 /**
  * A STVTallier class,
@@ -114,7 +115,7 @@ class STVTallier extends Tallier {
 		);
 		$htmlRounds = $htmlFormatter->formatRoundsPreamble();
 		$htmlRounds->appendContent( $htmlFormatter->formatRound() );
-		return new \OOUI\StackLayout( [
+		return new StackLayout( [
 			'items' => [
 				$htmlPreamble,
 				$htmlRounds,

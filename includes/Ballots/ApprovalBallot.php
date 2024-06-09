@@ -3,6 +3,10 @@
 namespace MediaWiki\Extension\SecurePoll\Ballots;
 
 use MediaWiki\Extension\SecurePoll\Entities\Question;
+use OOUI\CheckboxInputWidget;
+use OOUI\FieldLayout;
+use OOUI\FieldsetLayout;
+use OOUI\HtmlSnippet;
 
 /**
  * Checkbox approval voting.
@@ -15,12 +19,12 @@ class ApprovalBallot extends Ballot {
 	/**
 	 * @param Question $question
 	 * @param array $options
-	 * @return \OOUI\FieldsetLayout
+	 * @return FieldsetLayout
 	 */
 	public function getQuestionForm( $question, $options ) {
 		$name = 'securepoll_q' . $question->getId();
 
-		$fieldset = new \OOUI\FieldsetLayout( [
+		$fieldset = new FieldsetLayout( [
 			'classes' => [ 'securepoll-option-approval ' ]
 		] );
 
@@ -30,12 +34,12 @@ class ApprovalBallot extends Ballot {
 			$inputId = "{$name}_opt{$optionId}";
 
 			$fieldset->addItems( [
-				new \OOUI\FieldLayout( new \OOUI\CheckboxInputWidget( [
+				new FieldLayout( new CheckboxInputWidget( [
 					'name' => $inputId,
 					'selected' => $this->getRequest()->getBool( $inputId ),
 					'value' => 1
 				] ), [
-					'label' => new \OOUI\HtmlSnippet( $optionHTML ),
+					'label' => new HtmlSnippet( $optionHTML ),
 					'align' => 'inline'
 				] )
 			] );

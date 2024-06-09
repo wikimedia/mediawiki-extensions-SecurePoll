@@ -9,6 +9,11 @@ use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
 use MediaWiki\Extension\SecurePoll\HtmlForm\HTMLFormRadioRangeColumnLabels;
 use MediaWiki\Extension\SecurePoll\Pages\CreatePage;
 use MediaWiki\Parser\Sanitizer;
+use OOUI\Element;
+use OOUI\FieldsetLayout;
+use OOUI\HtmlSnippet;
+use OOUI\RadioInputWidget;
+use OOUI\Tag;
 
 /**
  * A ballot form for range voting where the number of allowed responses is small,
@@ -214,24 +219,24 @@ class RadioRangeBallot extends Ballot {
 	/**
 	 * @param Question $question
 	 * @param array $options
-	 * @return \OOUI\FieldsetLayout
+	 * @return FieldsetLayout
 	 */
 	public function getQuestionForm( $question, $options ) {
 		$name = 'securepoll_q' . $question->getId();
 		$labels = $this->getColumnLabels( $question );
 
-		$table = new \OOUI\Tag( 'table' );
+		$table = new Tag( 'table' );
 		$table->addClasses( [ 'securepoll-ballot-table' ] );
 
-		$thead = new \OOUI\Tag( 'thead' );
+		$thead = new Tag( 'thead' );
 		$table->appendContent( $thead );
-		$tr = new \OOUI\Tag( 'tr' );
-		$tr->appendContent( new \OOUI\Tag( 'th' ) );
+		$tr = new Tag( 'tr' );
+		$tr->appendContent( new Tag( 'th' ) );
 		foreach ( $labels as $lab ) {
-			$tr->appendContent( ( new \OOUI\Tag( 'th' ) )->appendContent( $lab ) );
+			$tr->appendContent( ( new Tag( 'th' ) )->appendContent( $lab ) );
 		}
 		$thead->appendContent( $tr );
-		$tbody = new \OOUI\Tag( 'tbody' );
+		$tbody = new Tag( 'tbody' );
 		$table->appendContent( $tbody );
 
 		$defaultScore = $question->getProperty( 'default-score' );
@@ -242,14 +247,14 @@ class RadioRangeBallot extends Ballot {
 			$inputId = "{$name}_opt{$optionId}";
 			$oldValue = $this->getRequest()->getVal( $inputId, $defaultScore );
 
-			$tr = ( new \OOUI\Tag( 'tr' ) )->addClasses( [ 'securepoll-ballot-row', $inputId ] );
+			$tr = ( new Tag( 'tr' ) )->addClasses( [ 'securepoll-ballot-row', $inputId ] );
 			$tr->appendContent(
-				( new \OOUI\Tag( 'td' ) )
-					->appendContent( new \OOUI\HtmlSnippet( $optionHTML ) )
+				( new Tag( 'td' ) )
+					->appendContent( new HtmlSnippet( $optionHTML ) )
 			);
 			foreach ( $labels as $score => $label ) {
-				$tr->appendContent( ( new \OOUI\Tag( 'td' ) )->appendContent(
-					new \OOUI\RadioInputWidget( [
+				$tr->appendContent( ( new Tag( 'td' ) )->appendContent(
+					new RadioInputWidget( [
 						'name' => $inputId,
 						'value' => $score,
 						'selected' => !strcmp( $oldValue, $score ),
@@ -258,14 +263,14 @@ class RadioRangeBallot extends Ballot {
 				) );
 			}
 			$tr->appendContent(
-				( new \OOUI\Tag( 'td' ) )
+				( new Tag( 'td' ) )
 					->addClasses( [ 'securepoll-ballot-optlabel' ] )
-					->appendContent( new \OOUI\HtmlSnippet( $this->errorLocationIndicator( $inputId ) . "" ) )
+					->appendContent( new HtmlSnippet( $this->errorLocationIndicator( $inputId ) . "" ) )
 			);
 			$tbody->appendContent( $tr );
 		}
-		return new \OOUI\FieldsetLayout( [
-			'items' => [ new \OOUI\Element( [ 'content' => [ $table ] ] ) ],
+		return new FieldsetLayout( [
+			'items' => [ new Element( [ 'content' => [ $table ] ] ) ],
 			'classes' => [ $name ]
 		] );
 	}

@@ -3,6 +3,10 @@
 namespace MediaWiki\Extension\SecurePoll\Ballots;
 
 use MediaWiki\Extension\SecurePoll\Entities\Question;
+use OOUI\FieldLayout;
+use OOUI\FieldsetLayout;
+use OOUI\HtmlSnippet;
+use OOUI\RadioInputWidget;
 
 /**
  * A ballot class which asks the user to choose one answer only from the
@@ -35,23 +39,23 @@ class ChooseBallot extends Ballot {
 	 * Get the HTML form segment for a single question
 	 * @param Question $question
 	 * @param array $options Array of options, in the order they should be displayed
-	 * @return \OOUI\FieldsetLayout
+	 * @return FieldsetLayout
 	 */
 	public function getQuestionForm( $question, $options ) {
 		$name = 'securepoll_q' . $question->getId();
-		$fieldset = new \OOUI\FieldsetLayout();
+		$fieldset = new FieldsetLayout();
 		foreach ( $options as $option ) {
 			$optionHTML = $option->parseMessageInline( 'text' );
 			$optionId = $option->getId();
 
 			$fieldset->appendContent( [
-				new \OOUI\FieldLayout( new \OOUI\RadioInputWidget( [
+				new FieldLayout( new RadioInputWidget( [
 					'name' => $name,
 					'value' => $optionId,
 					'required' => true,
 					] ), [
 						'classes' => [ 'securepoll-option-choose' ],
-						'label' => new \OOUI\HtmlSnippet( $optionHTML ),
+						'label' => new HtmlSnippet( $optionHTML ),
 						'align' => 'inline'
 					] )
 			] );

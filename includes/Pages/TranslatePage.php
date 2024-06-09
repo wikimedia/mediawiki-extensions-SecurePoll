@@ -11,6 +11,18 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
 use MediaWiki\Title\Title;
 use MediaWiki\WikiMap\WikiMap;
+use OOUI\ButtonInputWidget;
+use OOUI\DropdownInputWidget;
+use OOUI\Element;
+use OOUI\FieldLayout;
+use OOUI\FieldsetLayout;
+use OOUI\FormLayout;
+use OOUI\HorizontalLayout;
+use OOUI\HtmlSnippet;
+use OOUI\LabelWidget;
+use OOUI\MultilineTextInputWidget;
+use OOUI\Tag;
+use OOUI\TextInputWidget;
 
 /**
  * A SecurePoll subpage for translating election messages.
@@ -144,31 +156,31 @@ class TranslatePage extends ActionPage {
 
 		# Show the form
 		$action = $this->getTitle( $secondary )->getLocalURL( 'action=submit' );
-		$form = new \OOUI\FormLayout( [ 'method' => 'post', 'action' => $action ] );
+		$form = new FormLayout( [ 'method' => 'post', 'action' => $action ] );
 
-		$table = new \OOUI\Tag( 'table' );
+		$table = new Tag( 'table' );
 		$table->addClasses( [ 'mw-datatable', 'TablePager', 'securepoll-trans-table' ] )->appendContent(
-			( new \OOUI\Tag( 'thead' ) )->appendContent( ( new \OOUI\Tag( 'tr' ) )->appendContent(
-				( new \OOUI\Tag( 'th' ) )->appendContent( $this->msg( 'securepoll-header-trans-id' ) ),
-				( new \OOUI\Tag( 'th' ) )->appendContent( $primaryName ),
-				( new \OOUI\Tag( 'th' ) )->appendContent( $secondaryName )
+			( new Tag( 'thead' ) )->appendContent( ( new Tag( 'tr' ) )->appendContent(
+				( new Tag( 'th' ) )->appendContent( $this->msg( 'securepoll-header-trans-id' ) ),
+				( new Tag( 'th' ) )->appendContent( $primaryName ),
+				( new Tag( 'th' ) )->appendContent( $secondaryName )
 			) )
 		);
-		$tbody = new \OOUI\Tag( 'tbody' );
+		$tbody = new Tag( 'tbody' );
 		$table->appendContent( $tbody );
 
 		$entities = array_merge( [ $this->election ], $this->election->getDescendants() );
 		foreach ( $entities as $entity ) {
 			$entityName = $entity->getType() . '(' . $entity->getId() . ')';
 			foreach ( $entity->getMessageNames() as $messageName ) {
-				$tbody->appendContent( ( new \OOUI\Tag( 'tr' ) )->appendContent(
-					( new \OOUI\Tag( 'td' ) )->addClasses( [ 'trans-id' ] )
+				$tbody->appendContent( ( new Tag( 'tr' ) )->appendContent(
+					( new Tag( 'td' ) )->addClasses( [ 'trans-id' ] )
 							->appendContent( "$entityName/$messageName" ),
-					( new \OOUI\Tag( 'td' ) )->addClasses( [ 'trans-origin' ] )->appendContent( new \OOUI\HtmlSnippet(
+					( new Tag( 'td' ) )->addClasses( [ 'trans-origin' ] )->appendContent( new HtmlSnippet(
 						nl2br( htmlspecialchars( $entity->getRawMessage( $messageName, $primary ) ) )
 					) ),
-					( new \OOUI\Tag( 'td' ) )->addClasses( [ 'trans-lang' ] )->appendContent(
-						new \OOUI\MultilineTextInputWidget( [
+					( new Tag( 'td' ) )->addClasses( [ 'trans-lang' ] )->appendContent(
+						new MultilineTextInputWidget( [
 							'name' => 'trans_' . $entity->getId() . '_' . $messageName,
 							'value' => $entity->getRawMessage( $messageName, $secondary ),
 							'classes' => [ 'securepoll-translate-box' ],
@@ -180,12 +192,12 @@ class TranslatePage extends ActionPage {
 			}
 		}
 
-		$fields = new \OOUI\FieldsetLayout();
+		$fields = new FieldsetLayout();
 
-		$fields->addItems( [ new \OOUI\Element( [ 'content' => [ $table ] ] ) ] );
+		$fields->addItems( [ new Element( [ 'content' => [ $table ] ] ) ] );
 
 		if ( $this->isAdmin && $this->specialPage->getConfig()->get( 'SecurePollUseNamespace' ) ) {
-			$fields->addItems( [ new \OOUI\FieldLayout( new \OOUI\TextInputWidget( [
+			$fields->addItems( [ new FieldLayout( new TextInputWidget( [
 				'name' => 'comment',
 				'maxlength' => 250,
 			] ), [
@@ -194,7 +206,7 @@ class TranslatePage extends ActionPage {
 			] ) ] );
 		}
 
-		$fields->addItems( [ new \OOUI\FieldLayout( new \OOUI\ButtonInputWidget( [
+		$fields->addItems( [ new FieldLayout( new ButtonInputWidget( [
 			'label' => $this->msg( 'securepoll-submit-translate' )->text(),
 			'flags' => [ 'primary', 'progressive' ],
 			'type' => 'submit',
@@ -230,14 +242,14 @@ class TranslatePage extends ActionPage {
 
 		$apiEndpoint = $this->specialPage->getConfig()->get( 'SecurePollTranslationImportSourceUrl' );
 
-		$form = new \OOUI\FormLayout( [
+		$form = new FormLayout( [
 			'action' => $this->getTitle( false )->getLocalURL(),
 			'method' => 'get',
-			'items' => [ new \OOUI\FieldsetLayout( [ 'items' => [
-				new \OOUI\HorizontalLayout( [
+			'items' => [ new FieldsetLayout( [ 'items' => [
+				new HorizontalLayout( [
 					'id' => 'sp-translation-selection',
 					'items' => [
-						new \OOUI\DropdownInputWidget( [
+						new DropdownInputWidget( [
 							'name' => 'secondary_lang',
 							'value' => $selectedCode,
 							'options' => array_map( static function ( $code, $name ) {
@@ -247,7 +259,7 @@ class TranslatePage extends ActionPage {
 								];
 							}, array_keys( $languages ), $languages )
 						] ),
-						new \OOUI\ButtonInputWidget( [
+						new ButtonInputWidget( [
 							'label' => $this->msg( 'securepoll-submit-select-lang' )->text(),
 							'flags' => [ 'primary' ],
 							'type' => 'submit',
@@ -259,13 +271,13 @@ class TranslatePage extends ActionPage {
 
 		if ( $apiEndpoint !== '' ) {
 			$form->addItems( [
-				new \OOUI\FieldLayout(
-					new \OOUI\LabelWidget( [
+				new FieldLayout(
+					new LabelWidget( [
 						'label' => $this->msg( 'securepoll-subpage-translate-info', $apiEndpoint )->text()
 					] )
 				),
-				new \OOUI\FieldLayout(
-					new \OOUI\ButtonInputWidget( [
+				new FieldLayout(
+					new ButtonInputWidget( [
 						'id' => 'import-trans-btn',
 						'infusable' => true,
 						'label' => $this->msg( 'securepoll-translate-import-button-label' )->text(),
