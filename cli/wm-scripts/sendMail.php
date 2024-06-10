@@ -6,18 +6,18 @@ use Generator;
 use InvalidArgumentException;
 use MailAddress;
 use Maintenance;
+use MediaWiki\Content\TextContent;
 use MediaWiki\Html\Html;
 use MediaWiki\Languages\LanguageFactory;
 use MediaWiki\Languages\LanguageFallback;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Parser\Parser;
 use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Title\Title;
 use MediaWiki\WikiMap\WikiMap;
-use Parser;
 use ParserOptions;
 use RuntimeException;
-use TextContent;
 use UserMailer;
 
 if ( getenv( 'MW_INSTALL_PATH' ) ) {

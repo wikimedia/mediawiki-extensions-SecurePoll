@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\SecurePoll\Test\Integration;
 
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extension\SecurePoll\Ballots\BallotStatus;
 use MediaWiki\Extension\SecurePoll\Ballots\STVBallot;
@@ -12,7 +13,6 @@ use MediaWiki\Extension\SecurePoll\Entities\Question;
 use MediaWiki\Request\FauxRequest;
 use MediaWikiIntegrationTestCase;
 use OOUI\FieldsetLayout;
-use RequestContext;
 
 /**
  * @covers \MediaWiki\Extension\SecurePoll\Ballots\STVBallot

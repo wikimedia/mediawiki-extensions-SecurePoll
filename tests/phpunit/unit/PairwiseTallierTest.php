@@ -2,12 +2,12 @@
 
 namespace MediaWiki\Extension\SecurePoll\Test\Unit;
 
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\SecurePoll\Entities\Option;
 use MediaWiki\Extension\SecurePoll\Entities\Question;
 use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
 use MediaWiki\Extension\SecurePoll\Talliers\PairwiseTallier;
 use MediaWikiUnitTestCase;
-use RequestContext;
 
 /**
  * @covers \MediaWiki\Extension\SecurePoll\Talliers\PairwiseTallier

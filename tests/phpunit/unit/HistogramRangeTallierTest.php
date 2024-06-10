@@ -2,13 +2,13 @@
 
 namespace MediaWiki\Extension\SecurePoll\Test\Unit;
 
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\SecurePoll\Entities\Option;
 use MediaWiki\Extension\SecurePoll\Entities\Question;
 use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
 use MediaWiki\Extension\SecurePoll\Talliers\HistogramRangeTallier;
 use MediaWiki\Extension\SecurePoll\Talliers\Tallier;
 use MediaWikiUnitTestCase;
-use RequestContext;
 
 /**
  * @group SecurePoll

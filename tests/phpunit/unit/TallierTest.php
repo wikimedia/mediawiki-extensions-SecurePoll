@@ -3,13 +3,13 @@
 namespace MediaWiki\Extension\SecurePoll\Test\Unit;
 
 use InvalidArgumentException;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\SecurePoll\Entities\Option;
 use MediaWiki\Extension\SecurePoll\Entities\Question;
 use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
 use MediaWiki\Extension\SecurePoll\Talliers\PluralityTallier;
 use MediaWiki\Extension\SecurePoll\Talliers\Tallier;
 use MediaWikiUnitTestCase;
-use RequestContext;
 
 /**
  * @covers \MediaWiki\Extension\SecurePoll\Talliers\Tallier
