@@ -136,5 +136,6 @@
 	"securepoll-translation-import-action-done": "Iawn",
 	"securepoll-vote-result-intro-label": "Crynodeb o'ch pleidlais",
 	"securepoll-vote-result-question-label": "Cwestiwn: $1",
-	"securepoll-vote-result-comment": "Sylw: $1"
+	"securepoll-vote-result-comment": "Sylw: $1",
+	"securepoll-vote-stv-clear-btn-label": "Clirio pob ymgeisydd"
 }

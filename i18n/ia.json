@@ -91,7 +91,7 @@
 	"securepoll-cookie-dup-list": "Usatores con cookie duplice",
 	"securepoll-dump-title": "Extracto: $1",
 	"securepoll-dump-not-finished": "Le registro del election essera disponibile post le data de fin: le $1 a $2",
-	"securepoll-dump-no-urandom": "Impossibile aperir /dev/urandom.\nPro assecurar le confidentialitate del votantes, le datos cryptate del election es solmente disponibile al publico si illos pote esser miscite con un fluxo de numeros aleatori secur.",
+	"securepoll-dump-no-urandom": "Impossibile aperir /dev/urandom. Pro assecurar le confidentialitate del votantes, le datos cryptate del election es solmente disponibile al publico si illos pote esser miscite con un fluxo de numeros aleatori secur.",
 	"securepoll-dump-private": "Solo le administratores del election es autorisate a vider le datos cryptate del registro.",
 	"securepoll-urandom-not-supported": "Iste servitor non supporta le generation de numeros aleatori cryptographic.\nPro assecurar le confidentialitate del votantes, le datos cryptate del election es solmente disponibile al publico si illos pote esser miscite con un fluxo de numeros aleatori secur.",
 	"securepoll-translate-title": "Traducer: $1",
@@ -340,5 +340,6 @@
 	"securepoll-vote-result-not-checked-option-label": "$1: non verificate",
 	"securepoll-vote-result-checked-option-label": "$1: verificate",
 	"securepoll-vote-result-comment": "Commento: $1",
-	"securepoll-vote-result-error-label": "Tu votos non poteva esser disimballate correctemente. Per favor contacta un administrator del election."
+	"securepoll-vote-result-error-label": "Tu votos non poteva esser disimballate correctemente. Per favor contacta un administrator del election.",
+	"securepoll-vote-stv-clear-btn-label": "Rader tote le candidatos"
 }

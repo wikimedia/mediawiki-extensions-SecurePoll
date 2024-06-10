@@ -99,7 +99,7 @@
 	"securepoll-cookie-dup-list": "Benutzer, die doppelt abgestimmt haben",
 	"securepoll-dump-title": "Auszug: $1",
 	"securepoll-dump-not-finished": "Abstimmungsaufzeichnungen sind nur nach dem Endtermin am $1 um $2 Uhr verfügbar",
-	"securepoll-dump-no-urandom": "/dev/urandom kann nicht geöffnet werden.\nUm den Wählerdatenschutz zu wahren, sind verschlüsselte Abstimmungsaufzeichnungen nur öffentlich verfügbar, wenn sie mit einem sicheren Zufallszahlenstrom gemischt werden können.",
+	"securepoll-dump-no-urandom": "/dev/urandom kann nicht geöffnet werden. Um den Wählerdatenschutz zu wahren, sind verschlüsselte Abstimmungsaufzeichnungen nur öffentlich verfügbar, wenn sie mit einem sicheren Zufallszahlenstrom gemischt werden können.",
 	"securepoll-dump-private": "Leider ist die Betrachtung des verschlüsselten Aufzeichnungsauszugs für diese Abstimmung auf Abstimmungsadministratoren beschränkt.",
 	"securepoll-urandom-not-supported": "Dieser Server unterstützt keine kryptographische Zufallszahlenerzeugung.\nZur Sicherstellung des Wahlgeheimnisses sind verschlüsselte Wahlaufzeichnungen nur öffentlich verfügbar, sofern sie mit einer sicheren Zufallszahlenreihenfolge vermischt werden konnten.",
 	"securepoll-translate-title": "Übersetzen: $1",
@@ -348,5 +348,6 @@
 	"securepoll-vote-result-not-checked-option-label": "$1: nicht überprüft",
 	"securepoll-vote-result-checked-option-label": "$1: überprüft",
 	"securepoll-vote-result-comment": "Kommentar: $1",
-	"securepoll-vote-result-error-label": "Deine Stimmen konnten nicht korrekt entpackt werden. Bitte wende dich an einen Wahlleiter"
+	"securepoll-vote-result-error-label": "Deine Stimmen konnten nicht korrekt entpackt werden. Bitte wende dich an einen Wahlleiter",
+	"securepoll-vote-stv-clear-btn-label": "Alle Kandidaten löschen"
 }
