@@ -4,13 +4,13 @@ namespace MediaWiki\Extension\SecurePoll\Test\Unit;
 
 use DirectoryIterator;
 use Generator;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\SecurePoll\Entities\Option;
 use MediaWiki\Extension\SecurePoll\Entities\Question;
 use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
 use MediaWiki\Extension\SecurePoll\Talliers\STVTallier;
 use MediaWiki\Extension\SecurePoll\Talliers\Tallier;
 use MediaWikiUnitTestCase;
-use RequestContext;
 use Wikimedia\TestingAccessWrapper;
 
 /**

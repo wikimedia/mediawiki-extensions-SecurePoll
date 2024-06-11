@@ -2,13 +2,13 @@
 
 namespace MediaWiki\Extension\SecurePoll\Test\Unit;
 
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extension\SecurePoll\Ballots\BallotStatus;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Entities\Option;
 use MediaWiki\Extension\SecurePoll\Entities\Question;
 use MediaWikiUnitTestCase;
-use RequestContext;
 
 /**
  * @covers \MediaWiki\Extension\SecurePoll\Ballots\Ballot
