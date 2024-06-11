@@ -120,7 +120,7 @@
 	"securepoll-cookie-dup-list": "Cookie重复的用户",
 	"securepoll-dump-title": "转储：$1",
 	"securepoll-dump-not-finished": "选举记录在截止日期$1 $2后才可获得",
-	"securepoll-dump-no-urandom": "无法打开/dev/urandom。\n为了保证投票者的隐私，加密投票记录只有在被安全随机数流打乱后才可公开。",
+	"securepoll-dump-no-urandom": "无法打开/dev/urandom。为了保证投票者的隐私，加密投票记录只有在被安全随机数流打乱后才可公开。",
 	"securepoll-dump-private": "对不起，只有选举管理员可以查看此选举的加密记录转储。",
 	"securepoll-urandom-not-supported": "本服务器并不支持密文随机数生成。\n为了保证投票者的隐私，加密投票记录只有在被安全随机数流打乱后才可公开。",
 	"securepoll-translate-title": "翻译：$1",
