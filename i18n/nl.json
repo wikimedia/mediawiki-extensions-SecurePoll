@@ -105,7 +105,7 @@
 	"securepoll-cookie-dup-list": "Gebruikers met dubbele cookies",
 	"securepoll-dump-title": "Dump: $1",
 	"securepoll-dump-not-finished": "De verkiezingsgegevens zijn pas beschikbaar na de einddatum op $1 om $2",
-	"securepoll-dump-no-urandom": "Het was niet mogelijk om /dev/urandom te openen.\nOm de privacy van de stemmers te beschermen, zijn de stemmingsgegevens pas beschikbaar als ze willekeurig gesorteerd kunnen worden met behulp van een willekeurige nummerreeks.",
+	"securepoll-dump-no-urandom": "Het was niet mogelijk om /dev/urandom te openen. Om de privacy van de stemmers te beschermen, zijn de stemmingsgegevens pas beschikbaar als ze willekeurig gesorteerd kunnen worden met behulp van een willekeurige nummerreeks.",
 	"securepoll-dump-private": "Sorry, het bekijken van de versleutelde recorddump voor deze verkiezing is beperkt tot verkiezingsbeheerders.",
 	"securepoll-urandom-not-supported": "Deze server biedt geen ondersteuning voor het versleuteld aanmaken van willekeurige getallen.\nOm de anonimiteit van stemmers te handhaven, zijn de versleutelde stemresultaten pas beschikbaar als ze zijn herordend via een veilige reeks van willekeurige getallen.",
 	"securepoll-translate-title": "Vertalen: $1",
