@@ -21,7 +21,7 @@ function DraggableGroupWidget( config ) {
 	DraggableGroupWidget.parent.call( this, config );
 
 	// Mixin constructors
-	OO.ui.mixin.DraggableGroupElement.call( this, $.extend( {}, config, {
+	OO.ui.mixin.DraggableGroupElement.call( this, Object.assign( {}, config, {
 		$group: this.$element
 	} ) );
 
