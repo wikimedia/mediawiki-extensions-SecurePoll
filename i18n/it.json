@@ -99,7 +99,7 @@
 	"securepoll-cookie-dup-list": "Utenti doppi per cookie",
 	"securepoll-dump-title": "File di dump: $1",
 	"securepoll-dump-not-finished": "Le registrazioni dell'elezione sono disponibili solo dopo la data di conclusione: $1 alle $2",
-	"securepoll-dump-no-urandom": "Impossibile aprire /dev/urandom. \nPer proteggere la riservatezza dei votanti, le registrazioni criptate dell'elezione sono disponibili pubblicamente solo quando potranno essere mescolate con un flusso sicuro di numeri casuali.",
+	"securepoll-dump-no-urandom": "Impossibile aprire /dev/urandom. Per proteggere la riservatezza dei votanti, le registrazioni criptate dell'elezione sono disponibili pubblicamente solo quando potranno essere mescolate con un flusso sicuro di numeri casuali.",
 	"securepoll-dump-private": "Spiacenti, la visualizzazione del record crittografato di dump per questa elezione è limitato agli amministratori dell'elezione.",
 	"securepoll-urandom-not-supported": "Questo server non supporta la generazione di numeri casuali per la crittografia.\nAl fine di garantire la privacy dei votanti, la procedura di votazione cifrata è pubblicamente utilizzabile quando è disponibile un generatore di numeri casuali per la crittografia del flusso di dati.",
 	"securepoll-translate-title": "Traduci: $1",
