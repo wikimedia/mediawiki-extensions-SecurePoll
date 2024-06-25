@@ -12,7 +12,7 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 require_once "$IP/maintenance/Maintenance.php";
 
 use MediaWiki\Extension\SecurePoll\Context;
-use MediaWiki\Extension\SecurePoll\Entities\Election;
+use MediaWiki\Extension\SecurePoll\DumpElection as DumpElectionHelper;
 
 class DumpElection extends Maintenance {
 
@@ -27,13 +27,14 @@ class DumpElection extends Maintenance {
 		$this->addOption( 'all-langs', 'Include messages for all languages instead of just the primary' );
 		$this->addOption( 'jump', 'Produce a configuration dump suitable for setting up a jump wiki' );
 		$this->addOption( 'private', 'Include encryption keys' );
+		$this->addOption(
+			'blt',
+			'Output in blt format for tallying in third-party applications. This includes vote records.'
+		);
 
 		$this->requireExtension( 'SecurePoll' );
 	}
 
-	/**
-	 * @suppress PhanUndeclaredProperty cbdata is unknown to Election
-	 */
 	public function execute() {
 		$context = new Context;
 
@@ -48,6 +49,12 @@ class DumpElection extends Maintenance {
 			$this->fatalError( "There is no election called \"$name\"" );
 		}
 
+		if ( $this->hasOption( 'all-langs' ) ) {
+			$langs = $election->getLangList();
+		} else {
+			$langs = [ $election->getLanguage() ];
+		}
+
 		$fileName = $this->getOption( 'o', '-' );
 
 		if ( $fileName === '-' ) {
@@ -60,49 +67,21 @@ class DumpElection extends Maintenance {
 			$this->fatalError( "Unable to open $fileName for writing" );
 		}
 
-		if ( $this->hasOption( 'all-langs' ) ) {
-			$langs = $election->getLangList();
-		} else {
-			$langs = [ $election->getLanguage() ];
-		}
-		$confXml = $election->getConfXml( [
-			'jump' => $this->getOption( 'jump', false ),
-			'langs' => $langs,
-			'private' => $this->hasOption( 'private' )
-		] );
-
-		$cbdata = [
-			'header' => "<SecurePoll>\n<election>\n$confXml",
-			'outFile' => $outFile
-		];
-		$election->cbdata = $cbdata;
-
-		# Write vote records
-		if ( $this->hasOption( 'votes' ) ) {
-			$status = $election->dumpVotesToCallback( [ $this, 'dumpVote' ] );
-			if ( !$status->isOK() ) {
-				$this->fatalError( $status->getWikiText() );
+		try {
+			if ( $this->hasOption( 'blt' ) ) {
+				$dump = DumpElectionHelper::createBLTDump( $election );
+			} else {
+				$dump = DumpElectionHelper::createXMLDump( $election, [
+					'jump' => $this->getOption( 'jump', false ),
+					'langs' => $langs,
+					'private' => $this->hasOption( 'private' )
+				], $this->hasOption( 'votes' ) );
 			}
-		}
-		if ( $election->cbdata['header'] ) {
-			fwrite( $outFile, $election->cbdata['header'] );
+		} catch ( Exception $e ) {
+			$this->fatalError( $e->getMessage() );
 		}
 
-		fwrite( $outFile, "</election>\n</SecurePoll>\n" );
-	}
-
-	/**
-	 * @suppress PhanUndeclaredProperty cbdata is unknown to Election
-	 * @param Election $election
-	 * @param \stdClass $row
-	 */
-	public function dumpVote( $election, $row ) {
-		if ( $election->cbdata['header'] ) {
-			fwrite( $election->cbdata['outFile'], $election->cbdata['header'] );
-			$election->cbdata['header'] = false;
-		}
-		fwrite( $election->cbdata['outFile'],
-			"<vote>\n" . rtrim( $row->vote_record ) . "\n</vote>\n" );
+		fwrite( $outFile, $dump );
 	}
 }
 
