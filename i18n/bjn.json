@@ -9,7 +9,13 @@
 	"securepoll-invalid-page": "Sublaman kada sah \"<nowiki>$1</nowiki>\"",
 	"securepoll-need-admin": "Pian musti jadi pambakal pamilihan supaya kawa manggawi ini.",
 	"securepoll-too-few-params": "Parameter sublaman kada langkap (tautan kada sah).",
+	"securepoll-invalid-election": "ID pamilihan kada sah: \"$1\"",
+	"securepoll-finished-no-edit": "Pamilihan ini sudah tuntung, Pian kada kawa mambabak laman ini pulang.",
+	"securepoll-welcome": "<strong>{{GENDER:$1|Salamat datang}} $1!</strong>",
+	"securepoll-not-started": "Panjatuan suara ini balum dimulai wan hanyar pacangan mulai di $3, $2.",
 	"securepoll-gpg-receipt": "Amun Pian handak, Pian kawa manyimpan bukti panarimaan suara Pian di bawah ini:<pre>$1</pre>",
 	"securepoll-thanks": "Tarima kasih, suara Pian sudah dicatat.",
+	"securepoll-ballot-show-all": "Tampaiakan samunyaan",
+	"securepoll-unanswered-questions": "Pian musti manjawab samunyaan patakunan.",
 	"securepolllog-form-date-label": "Tumatan tanggal (wan sabalumnya):"
 }
