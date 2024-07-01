@@ -75,7 +75,7 @@
 	"securepoll-cookie-dup-list": "Sama küpsisega kasutajad",
 	"securepoll-dump-title": "Tõmmis: $1",
 	"securepoll-dump-not-finished": "Valimiskirje on saadaval alles pärast lõppkuupäeva $1, kell $2",
-	"securepoll-dump-no-urandom": "Toimingut /dev/urandom ei saa avada.\nHääletaja privaatsuse säilitamiseks on krüptitud valimiskirjed avalikult saadaval vaid siis, kui neid on võimalik turvalise juhusliku numbrivooga segi ajada.",
+	"securepoll-dump-no-urandom": "Faili /dev/urandom ei saa avada. Hääletaja privaatsuse säilitamiseks on krüptitud valimiskirjed avalikult saadaval vaid siis, kui neid on võimalik turvalise juhusliku numbrivooga segi ajada.",
 	"securepoll-urandom-not-supported": "See server ei toeta juhusliku krüptograafilise numbri tekitamist. Hääletaja privaatsuse säilitamiseks on krüptitud valimiskirjed avalikult saadaval vaid siis, kui neid on võimalik turvalise juhusliku numbrivooga segi ajada.",
 	"securepoll-translate-title": "Tõlkimine: $1",
 	"securepoll-translate-label-comment": "Põhjus:",
