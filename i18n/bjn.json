@@ -4,5 +4,16 @@
 			"Ezagren"
 		]
 	},
+	"securepoll": "SecurePoll",
+	"securepoll-desc": "Pangaya gasan panjatuan suara wan survei",
+	"securepoll-invalid-page": "Sublaman kada sah \"<nowiki>$1</nowiki>\"",
+	"securepoll-need-admin": "Pian musti jadi pambakal pamilihan supaya kawa manggawi ini.",
+	"securepoll-too-few-params": "Parameter sublaman kada langkap (tautan kada sah).",
+	"securepoll-invalid-election": "ID pamilihan kada sah: \"$1\"",
+	"securepoll-finished-no-edit": "Pamilihan ini sudah tuntung, Pian kada kawa mambabak laman ini pulang.",
+	"securepoll-welcome": "<strong>{{GENDER:$1|Salamat datang}} $1!</strong>",
+	"securepoll-not-started": "Panjatuan suara ini balum dimulai wan hanyar pacangan mulai di $3, $2.",
+	"securepoll-thanks": "Tarima kasih, suara Pian sudah dicatat.",
+	"securepoll-unanswered-questions": "Pian musti manjawab samunyaan patakunan.",
 	"securepolllog-form-date-label": "Tumatan tanggal (wan sabalumnya):"
 }

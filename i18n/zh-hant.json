@@ -28,7 +28,8 @@
 			"LuciferianThomas",
 			"SunAfterRain",
 			"捍粵者",
-			"H78c67c"
+			"H78c67c",
+			"魔琴"
 		]
 	},
 	"securepoll": "安全投票",
@@ -102,6 +103,7 @@
 	"securepoll-details-link": "詳細資料",
 	"securepoll-details-title": "投票詳細資料︰#$1",
 	"securepoll-invalid-vote": "\"$1\" 不是有效的投票 ID",
+	"securepoll-header-id": "ID",
 	"securepoll-header-voter-type": "選民類型",
 	"securepoll-voter-properties": "選民屬性",
 	"securepoll-strike-log": "作廢日誌",
@@ -119,6 +121,7 @@
 	"securepoll-translate-redirect-otherwiki": "主 wiki",
 	"securepoll-translate-label-comment": "原因：",
 	"securepoll-invalid-language": "無效的語言代碼 \"$1\"",
+	"securepoll-header-trans-id": "ID",
 	"securepoll-submit-translate": "更新",
 	"securepoll-language-label": "請選擇語言：",
 	"securepoll-submit-select-lang": "翻譯",
@@ -198,7 +201,7 @@
 	"securepoll-create-label-request-comment": "請求在投票後的自由正文評論",
 	"securepoll-create-label-comment-prompt": "評論提示文字：",
 	"securepoll-create-label-gpg_encrypt_key": "GPG 加密金鑰",
-	"securepoll-create-label-gpg_sign_key": "GPG 簽名金鑰",
+	"securepoll-create-label-gpg_sign_key": "GPG 簽署金鑰",
 	"securepoll-create-label-questions": "== 問題 ==",
 	"securepoll-create-questions-row-legend": "問題",
 	"securepoll-create-label-questions-question": "問題內容：",
