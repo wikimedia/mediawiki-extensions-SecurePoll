@@ -35,6 +35,8 @@
 	"securepoll-full-gpg-error": "GPG icra edərkən xəta:\n\nƏmr: $1 \n\nXəta:\n<pre>$2</pre>",
 	"securepoll-gpg-config-error": "GPG açarları səhv konfiqurasiya edilib.",
 	"securepoll-gpg-parse-error": "GPG çıxışını şərh edərkən xəta baş verdi.",
+	"securepoll-secret-openssl-error": "Kriptoqrafiya əməliyyatını icra etməkdə xəta. \nDaha ətraflı baxmaq üçün LocalSettings.php-də $wgSecurePollShowErrorDetail=true istifadə edin.",
+	"securepoll-full-openssl-error": "Kriptoqrafiya əməliyyatını icra etməkdə xəta: <pre>$1</pre>",
 	"securepoll-no-decryption-key": "Şifrə açma açarı konfiqurasiya edilməyib.\nŞifrəni açmaq mümkün deyil.",
 	"securepoll-invalid-record": "Etibarsız səsvermə qeydi.",
 	"securepoll-jump": "Seçki serverinə gedin.",
