@@ -13,5 +13,9 @@
 	"apihelp-strikevote-example-strike": "作廢投票 <kbd>1</kbd>，原因為 <kbd>duplication</kbd>。",
 	"apihelp-strikevote-example-unstrike": "取消作廢投票 <kbd>1</kbd>，原因為 <kbd>mistake</kbd>。",
 	"apierror-securepoll-mustbeloggedin-strikevote": "您必須要登入才能作廢或取消作廢投票。",
-	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> 不是有效的投票 ID。"
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> 不是有效的投票 ID。",
+	"apihelp-securepollauth-summary": "允許遠端 wiki 在授予選舉投票權限之前，對使用者進行驗證。",
+	"apihelp-securepollauth-param-token": "基於使用者登入權杖的權杖。",
+	"apihelp-securepollauth-param-id": "欲投票的使用者 ID。",
+	"apihelp-securepollauth-example-auth": "驗證 ID 為 <kbd>1</kbd> ，登入權杖為 <kbd>123ABC</kbd> 的使用者。"
 }
