@@ -67,12 +67,12 @@ abstract class PopulateEditCount extends Maintenance {
 
 		// $beforeTime is exclusive, so specify the start of the day AFTER the last day
 		// of edits that should count toward the "edits before" eligibility requirement.
-		$beforeTime = $dbr->addQuotes( $this->beforeTime );
+		$beforeTime = $this->beforeTime;
 
 		// $betweenEndTime is exclusive, so specify the start of the day AFTER the last day
 		// of edits that should count toward the "edits between" eligibility requirement.
-		$betweenStartTime = $dbr->addQuotes( $this->betweenStart );
-		$betweenEndTime = $dbr->addQuotes( $this->betweenEnd );
+		$betweenStartTime = $this->betweenStart;
+		$betweenEndTime = $this->betweenEnd;
 
 		if ( $flowInstalled ) {
 			/** @var DbFactory $dbFactory */
@@ -81,16 +81,10 @@ abstract class PopulateEditCount extends Maintenance {
 
 			$wikiId = WikiMap::getCurrentWikiId();
 
-			$flowBeforeTime = $dbr->addQuotes(
-				UUID::getComparisonUUID( $this->beforeTime )->getBinary()
-			);
+			$flowBeforeTime = UUID::getComparisonUUID( $this->beforeTime )->getBinary();
 
-			$flowBetweenStartTime = $dbr->addQuotes(
-				UUID::getComparisonUUID( $this->betweenStart )->getBinary()
-			);
-			$flowBetweenEndTime = $dbr->addQuotes(
-				UUID::getComparisonUUID( $this->betweenEnd )->getBinary()
-			);
+			$flowBetweenStartTime = UUID::getComparisonUUID( $this->betweenStart )->getBinary();
+			$flowBetweenEndTime = UUID::getComparisonUUID( $this->betweenEnd )->getBinary();
 		}
 
 		$maxEditCountUserId = (int)$dbr->newSelectQueryBuilder()
@@ -128,7 +122,7 @@ abstract class PopulateEditCount extends Maintenance {
 				->from( 'revision' )
 				->where( [
 					'rev_actor' => $actorId,
-					'rev_timestamp < ' . $beforeTime,
+					$dbr->expr( 'rev_timestamp', '<', $beforeTime ),
 				] )
 				->limit( $this->beforeEditsToCount )
 				->caller( __METHOD__ )
@@ -139,8 +133,8 @@ abstract class PopulateEditCount extends Maintenance {
 				->from( 'revision' )
 				->where( [
 					'rev_actor' => $actorId,
-					'rev_timestamp >= ' . $betweenStartTime,
-					'rev_timestamp < ' . $betweenEndTime,
+					$dbr->expr( 'rev_timestamp', '>=', $betweenStartTime ),
+					$dbr->expr( 'rev_timestamp', '<', $betweenEndTime ),
 				] )
 				->limit( $this->betweenEditsToCount )
 				->caller( __METHOD__ )
@@ -158,7 +152,7 @@ abstract class PopulateEditCount extends Maintenance {
 							'rev_user_ip' => null,
 							'rev_user_wiki' => $wikiId,
 							// @phan-suppress-next-line PhanPossiblyUndeclaredVariable
-							'rev_id < ' . $flowBeforeTime,
+							$flowDbr->expr( 'rev_id', '<', $flowBeforeTime ),
 						] )
 						->limit( $this->beforeEditsToCount )
 						->caller( __METHOD__ )
@@ -175,9 +169,9 @@ abstract class PopulateEditCount extends Maintenance {
 							'rev_user_ip' => null,
 							'rev_user_wiki' => $wikiId,
 							// @phan-suppress-next-line PhanPossiblyUndeclaredVariable
-							'rev_id >= ' . $flowBetweenStartTime,
+							$flowDbr->expr( 'rev_id', '>=', $flowBetweenStartTime ),
 							// @phan-suppress-next-line PhanPossiblyUndeclaredVariable
-							'rev_id < ' . $flowBetweenEndTime,
+							$flowDbr->expr( 'rev_id', '<', $flowBetweenEndTime ),
 						] )
 						->limit( $this->betweenEditsToCount )
 						->caller( __METHOD__ )
