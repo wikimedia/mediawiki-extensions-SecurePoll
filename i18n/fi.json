@@ -17,7 +17,8 @@
 			"Valtlait",
 			"ZeiP",
 			"Valtlai",
-			"Yupik"
+			"Yupik",
+			"Samoasambia"
 		]
 	},
 	"securepoll": "Turvattu äänestys",
@@ -104,7 +105,7 @@
 	"securepoll-submit-translate": "Päivitä",
 	"securepoll-language-label": "Valitse kieli",
 	"securepoll-submit-select-lang": "Käännä",
-	"securepoll-entry-text": "Alla on lista kyselyistä.",
+	"securepoll-entry-text": "Alla on luettelo äänestyksistä.",
 	"securepoll-header-title": "Nimi",
 	"securepoll-header-start-date": "Alkamispäivä",
 	"securepoll-header-end-date": "Päättymispäivä",
