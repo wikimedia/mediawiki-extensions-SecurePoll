@@ -82,8 +82,6 @@ class MakeSimpleList extends Maintenance {
 		$userQuery = User::getQueryInfo();
 		$userQuery['fields'] = [ 'user_id' ];
 
-		$lbFactory = $this->getServiceContainer()->getDBLoadBalancerFactory();
-
 		while ( true ) {
 			echo "user_id > $startBatch\n";
 			$res = $dbr->newSelectQueryBuilder()
@@ -147,7 +145,7 @@ class MakeSimpleList extends Maintenance {
 					->options( $insertOptions )
 					->caller( __METHOD__ )
 					->execute();
-				$lbFactory->waitForReplication();
+				$this->waitForReplication();
 			}
 		}
 	}

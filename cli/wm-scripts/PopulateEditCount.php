@@ -191,7 +191,7 @@ abstract class PopulateEditCount extends Maintenance {
 					->execute();
 				$numUsers++;
 				if ( $numUsers % 500 === 0 ) {
-					$lbFactory->waitForReplication();
+					$this->waitForReplication();
 				}
 			}
 		}
