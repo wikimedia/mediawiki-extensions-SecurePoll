@@ -349,5 +349,7 @@
 	"securepoll-vote-result-checked-option-label": "$1: überprüft",
 	"securepoll-vote-result-comment": "Kommentar: $1",
 	"securepoll-vote-result-error-label": "Deine Stimmen konnten nicht korrekt entpackt werden. Bitte wende dich an einen Wahlleiter",
-	"securepoll-vote-stv-clear-btn-label": "Alle Kandidaten löschen"
+	"securepoll-vote-stv-clear-btn-label": "Alle Kandidaten löschen",
+	"securepoll-vote-most-active-wiki-dropdown-label": "Wähle dein aktivstes Wiki",
+	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1 ($2, $3 {{PLURAL:$3|Bearbeitung|Bearbeitungen}})"
 }
