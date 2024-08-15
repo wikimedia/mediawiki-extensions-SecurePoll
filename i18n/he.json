@@ -348,5 +348,7 @@
 	"securepoll-vote-result-checked-option-label": "$1: סומנה",
 	"securepoll-vote-result-comment": "הערה: $1",
 	"securepoll-vote-result-error-label": "לא היה אפשר לפרוק את ההצבעות שלך כראוי. נא לפנות למנהל בחירות",
-	"securepoll-vote-stv-clear-btn-label": "ניקוי כל המועמדים"
+	"securepoll-vote-stv-clear-btn-label": "ניקוי כל המועמדים",
+	"securepoll-vote-most-active-wiki-dropdown-label": "נא לבחור את הוויקי הפעיל ביותר שלך",
+	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1 (בכתובת $2, עם {{PLURAL:$3|עריכה אחת|$3 עריכות}})"
 }
