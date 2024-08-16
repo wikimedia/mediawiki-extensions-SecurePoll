@@ -344,5 +344,7 @@
 	"securepoll-vote-result-checked-option-label": "$1: проверено",
 	"securepoll-vote-result-comment": "Коментар: $1",
 	"securepoll-vote-result-error-label": "Не можев правилно да ги отпакувам вашите гласови. Обратете се кај изборен администратор",
-	"securepoll-vote-stv-clear-btn-label": "Исчисти ги сите кандидати"
+	"securepoll-vote-stv-clear-btn-label": "Исчисти ги сите кандидати",
+	"securepoll-vote-most-active-wiki-dropdown-label": "Изберете го викито на кое сте најактивни",
+	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1 ($2, $3 {{PLURAL:$3|уредување|уредувања}})"
 }
