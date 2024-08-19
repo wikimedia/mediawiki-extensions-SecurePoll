@@ -7,6 +7,7 @@
 			"Envlh",
 			"Florian COLLIN",
 			"Gomoko",
+			"Goombiis",
 			"IAlex",
 			"Jean-Frédéric",
 			"JenyxGym",
@@ -361,5 +362,6 @@
 	"securepoll-vote-result-not-checked-option-label": "$1 : non coché",
 	"securepoll-vote-result-checked-option-label": "$1 : coché",
 	"securepoll-vote-result-comment": "Commentaire : $1",
-	"securepoll-vote-result-error-label": "Vos votes n’ont pas pu être déballés correctement. Veuillez contacter un administrateur de l’élection."
+	"securepoll-vote-result-error-label": "Vos votes n’ont pas pu être déballés correctement. Veuillez contacter un administrateur de l’élection.",
+	"securepoll-vote-most-active-wiki-dropdown-label": "Choisissez votre wiki le plus actif"
 }
