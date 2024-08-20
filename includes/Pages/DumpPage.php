@@ -2,16 +2,21 @@
 
 namespace MediaWiki\Extension\SecurePoll\Pages;
 
+use Exception;
+use InvalidArgumentException;
+use MediaWiki\Extension\SecurePoll\DumpElection;
+
 /**
  * Special:SecurePoll subpage for exporting encrypted election records.
  */
 class DumpPage extends ActionPage {
-	/** @var bool|null */
-	public $headersSent;
 
 	/**
 	 * Execute the subpage.
+	 *
 	 * @param array $params Array of subpage parameters.
+	 *
+	 * @throws InvalidArgumentException
 	 */
 	public function execute( $params ) {
 		$out = $this->specialPage->getOutput();
@@ -23,6 +28,8 @@ class DumpPage extends ActionPage {
 		}
 
 		$electionId = intval( $params[0] );
+		$format = $this->getFormatFromRequest();
+
 		$this->election = $this->context->getElection( $electionId );
 		if ( !$this->election ) {
 			$out->addWikiMsg( 'securepoll-invalid-election', $electionId );
@@ -50,39 +57,54 @@ class DumpPage extends ActionPage {
 			return;
 		}
 
-		$this->headersSent = false;
-		$status = $this->election->dumpVotesToCallback(
-			[
-				$this,
-				'dumpVote'
-			]
-		);
-		if ( !$status->isOK() && !$this->headersSent ) {
-			$out->addWikiTextAsInterface( $status->getWikiText() );
+		try {
+			if ( $format === "blt" ) {
+				$dump = DumpElection::createBLTDump( $this->election );
+			} else {
+				$dump = DumpElection::createXMLDump( $this->election );
+			}
+		} catch ( Exception $e ) {
+			$out->addWikiTextAsInterface( $e->getMessage() );
 
 			return;
 		}
-		if ( !$this->headersSent ) {
-			$this->sendHeaders();
-		}
-		echo "</election>\n</SecurePoll>\n";
-	}
 
-	public function dumpVote( $election, $row ) {
-		if ( !$this->headersSent ) {
-			$this->sendHeaders();
-		}
-		echo "<vote>\n" . htmlspecialchars( rtrim( $row->vote_record ) ) . "\n</vote>\n";
+		$this->sendHeaders();
+		echo $dump;
 	}
 
 	public function sendHeaders() {
-		$this->headersSent = true;
 		$this->specialPage->getOutput()->disable();
 		header( 'Content-Type: application/vnd.mediawiki.securepoll' );
 		$electionId = $this->election->getId();
 		$filename = urlencode( "$electionId-" . wfTimestampNow() . '.securepoll' );
 		header( "Content-Disposition: attachment; filename=$filename" );
-		echo "<SecurePoll>\n<election>\n" . $this->election->getConfXml();
 		$this->context->setLanguages( [ $this->election->getLanguage() ] );
+	}
+
+	/**
+	 * Valid formats are
+	 * - xml
+	 * - blt
+	 *
+	 * Default is xml
+	 *
+	 * @return string
+	 * @throws InvalidArgumentException
+	 */
+	private function getFormatFromRequest(): string {
+		$request = $this->specialPage->getRequest();
+		$queryParams = $request->getQueryValues();
+
+		if ( empty( $queryParams['format'] ) ) {
+			return "xml";
+		}
+
+		$format = $queryParams['format'];
+		if ( $format !== "xml" && $format !== "blt" ) {
+			throw new InvalidArgumentException( "Invalid format" );
+		}
+
+		return $format;
 	}
 }
