@@ -34,7 +34,7 @@ class GenerateTestElection extends Maintenance {
 
 		// Check if the election already exists
 		$dbw = $this->getDB( DB_PRIMARY );
-		$dbw->begin( __METHOD__ );
+		$this->beginTransaction( $dbw, __METHOD__ );
 		$electionName = $this->getOption( 'name' );
 		$electionId = $dbw->newSelectQueryBuilder()
 			->select( 'el_entity' )
@@ -127,7 +127,7 @@ class GenerateTestElection extends Maintenance {
 		$this->output( "\n" );
 		$this->output( 'Inserting ballots' );
 		$this->writeBallots( $dbw, $electionId, $ballots );
-		$dbw->commit( __METHOD__ );
+		$this->commitTransaction( $dbw, __METHOD__ );
 
 		$this->output( "\n" );
 		$this->output( 'Finished! You can tally your election at ' .
