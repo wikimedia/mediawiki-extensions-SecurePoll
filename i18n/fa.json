@@ -354,5 +354,7 @@
 	"securepoll-vote-result-not-checked-option-label": "$1: بررسی‌نشده",
 	"securepoll-vote-result-checked-option-label": "$1: بررسی‌شده",
 	"securepoll-vote-result-comment": "توضیح: $1",
-	"securepoll-vote-result-error-label": "ناتوان در باز کردن آرای شما به‌شکل صحیح. لطفاً با یکی از مدیران انتخابات تماس بگیرید"
+	"securepoll-vote-result-error-label": "ناتوان در باز کردن آرای شما به‌شکل صحیح. لطفاً با یکی از مدیران انتخابات تماس بگیرید",
+	"securepoll-vote-most-active-wiki-dropdown-label": "فعال‌ترین ویکی خود را انتخاب کنید",
+	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1 ($2، $3 {{PLURAL:$3|ویرایش}})"
 }
