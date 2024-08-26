@@ -79,6 +79,42 @@ class STVBallotTest extends MediaWikiIntegrationTestCase {
 					]
 				]
 			],
+			'Not sequentially ranked' => [
+				[
+					'securepoll_q101_opt0' => 1,
+					'securepoll_q101_opt1' => 3,
+					'securepoll_q101_opt2' => 0,
+					'securepoll_q101_opt3' => 2,
+				],
+				[
+					[
+						'securepoll-stv-invalid-input-empty',
+					],
+					[
+						'securepoll-stv-invalid-rank-order',
+						'Preference 3'
+					]
+				]
+			],
+			'Duplicate ranks' => [
+				[
+					'securepoll_q101_opt0' => 1,
+					'securepoll_q101_opt1' => 1,
+					'securepoll_q101_opt2' => 1,
+				],
+				[
+					[
+						'securepoll-stv-invalid-input-duplicate'
+					],
+					[
+						'securepoll-stv-invalid-input-duplicate'
+					],
+					[
+						'securepoll-stv-invalid-rank-duplicate',
+						'Preference 2, Preference 3'
+					]
+				]
+			]
 		];
 	}
 

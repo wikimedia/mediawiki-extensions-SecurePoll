@@ -3,9 +3,6 @@ if ( mw.config.get( 'wgCanonicalSpecialPageName' ) === 'SecurePoll' ) {
 	if ( subPage === 'vote' ) {
 		require( './page.vote.js' );
 		require( './page.vote.highlightWarnings.js' );
-		if ( mw.config.get( 'SecurePollType' ) === 'droop-quota' ) {
-			require( './page.vote.stv.js' );
-		}
 	} else if ( subPage === 'translate' ) {
 		require( './translation/dialog/ImportDialog.js' );
 	} else if ( subPage === 'list' ) {

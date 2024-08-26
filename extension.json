@@ -92,21 +92,12 @@
 				"translation/pages/SelectSourcePage.js",
 				"translation/pages/ImportPage.js",
 				"translation/pages/ResultPage.js",
-				"page.vote.highlightWarnings.js",
-				"page.vote.stv.js",
-				"stv.vote/STVQuestionLayout.js",
-				"stv.vote/DraggableGroupWidget.js",
-				"stv.vote/DraggableItemWidget.js"
+				"page.vote.highlightWarnings.js"
 			],
 			"dependencies": [
 				"oojs-ui",
 				"mediawiki.widgets.UserInputWidget",
-				"jquery.spinner",
-				"oojs-ui-widgets",
-				"mediawiki.widgets",
-				"oojs-ui-windows",
-				"oojs-ui.styles.icons-layout",
-				"oojs-ui.styles.icons-interactions"
+				"jquery.spinner"
 			],
 			"messages": [
 				"securepoll-strike-button",
@@ -129,8 +120,7 @@
 				"securepoll-translation-import-start",
 				"securepoll-translation-select-import-source",
 				"securepoll-ballot-show-warnings",
-				"securepoll-ballot-show-all",
-				"securepoll-vote-stv-clear-btn-label"
+				"securepoll-ballot-show-all"
 			]
 		},
 		"ext.securepoll": {
@@ -191,8 +181,7 @@
 		"scripts": [
 			"tests/qunit/TranslationParser.test.js",
 			"tests/qunit/TranslationFlattener.test.js",
-			"tests/qunit/highlightWarnings.test.js",
-			"tests/qunit/STVDragAndDropForm.test.js"
+			"tests/qunit/highlightWarnings.test.js"
 		],
 		"dependencies": [
 			"ext.securepoll.htmlform"
