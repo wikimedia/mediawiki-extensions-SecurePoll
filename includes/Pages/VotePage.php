@@ -424,14 +424,16 @@ class VotePage extends ActionPage {
 				$this->msg( 'securepoll-vote-result-question-label', $questionText )
 			);
 
-			$listType = 'ul';
-			$votedItems = [];
 			if ( $this->election->getTallyType() === 'droop-quota' ) {
-				$listType = 'ol';
-				foreach ( $optionsMsgs as $option ) {
-					$votedItems[] = Html::rawElement( 'li', [], $option['text'] );
+				$votedItems = [];
+				foreach ( $votes as $vote ) {
+					$votedItems[] = Html::rawElement( 'li', [], $optionsMsgs[$vote]['text'] );
 				}
+				$html .= Html::rawElement( 'ol', [ 'class' => 'securepoll-vote-result-options' ],
+					implode( "\n", $votedItems )
+				);
 			} else {
+				$votedItems = [];
 				$notVotedItems = [];
 				foreach ( $optionsMsgs as $optionIndex => $option ) {
 					$optionText = $optionsMsgs[$optionIndex]['text'];
@@ -490,11 +492,10 @@ class VotePage extends ActionPage {
 						implode( "\n", $notVotedItems )
 					);
 				}
+				$html .= Html::rawElement( 'ul', [ 'class' => 'securepoll-vote-result-options' ],
+					implode( "\n", $votedItems )
+				);
 			}
-
-			$html .= Html::rawElement( $listType, [ 'class' => 'securepoll-vote-result-options' ],
-				implode( "\n", $votedItems )
-			);
 			$html .= Html::closeElement( 'div' );
 			$summary .= $html;
 		}
