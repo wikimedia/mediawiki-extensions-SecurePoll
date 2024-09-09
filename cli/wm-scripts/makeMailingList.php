@@ -293,6 +293,13 @@ class MakeMailingList extends Maintenance {
 					true
 				);
 			}
+
+			if ( $this->nomailUsers === null || count( $this->nomailUsers ) === 0 ) {
+				throw new RuntimeException(
+					"No users were fetched from the Wikimedia nomail list; this is likely an error! " .
+					"Please check the formatting of the page and try again."
+				);
+			}
 		}
 		return isset( $this->nomailUsers[$user->getName()] );
 	}
