@@ -53,7 +53,7 @@ class PurgePrivateVoteData extends Maintenance {
 		$deleteSets = [];
 		$dbr = $this->getDB( DB_REPLICA );
 
-		if ( !$dbr->tableExists( 'securepoll_elections' ) ) {
+		if ( !$dbr->tableExists( 'securepoll_elections', __METHOD__ ) ) {
 			$this->output( "`securepoll_elections` table does not exist. Nothing to do.\n" );
 			return;
 		}

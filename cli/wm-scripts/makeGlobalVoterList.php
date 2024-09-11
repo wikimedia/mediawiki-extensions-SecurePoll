@@ -143,7 +143,7 @@ class MakeGlobalVoterList extends Maintenance {
 			}
 			$lb = $lbFactory->getMainLB( $wiki );
 			$db = $lb->getMaintenanceConnectionRef( DB_REPLICA, [], $wiki );
-			if ( !$db->tableExists( $this->editCountTable ) ) {
+			if ( !$db->tableExists( $this->editCountTable, __METHOD__ ) ) {
 				print "WARNING: Skipping wiki $wiki: table {$this->editCountTable} does not exist\n";
 				continue;
 			}
