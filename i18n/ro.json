@@ -17,7 +17,7 @@
 	"securepoll-need-admin": "Trebuie să fiți un administrator de alegeri pentru a efectua această acțiune.",
 	"securepoll-too-few-params": "Insuficienți parametri pentru subpagină (legătură invalidă).",
 	"securepoll-invalid-election": "„$1” nu este un ID valid de alegeri.",
-	"securepoll-welcome": "<strong>{{GENDER:$1|Bun venit}} $1!</strong>",
+	"securepoll-welcome": "<strong>{{GENDER:$1|Bun-venit}}, $1!</strong>",
 	"securepoll-not-started": "Aceste alegeri nu au început încă.\nSunt programate să pornească pe $2 la $3.",
 	"securepoll-finished": "Alegerile s-au sfârșit, nu mai puteți vota.",
 	"securepoll-not-qualified": "Nu sunteți eligibil să votați în cadrul acestor alegeri: $1",
