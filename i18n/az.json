@@ -275,6 +275,7 @@
 	"action-securepoll-view-voter-pii": "seçicilər haqqında şəxsi məlumatlara daxil olmaq",
 	"securepoll-ns-readonly": "{{ns:SecurePoll}} ad fəzası yalnız oxumaq üçündür",
 	"securepoll-voter-stats": "Bütün seçicilər arasından cəmi $1 {{PLURAL:$1|nəfər}} səs verib.",
+	"securepoll-vote-stats": "Ümumilikdə $1 {{PLURAL:$1|səs}} verilib. {{PLURAL:$2|Bunlardan}} $2 ədədi etibarsızdır çünki seçici ikinci dəfə səs verib. $3 ədədi isə seçki inzibatçısı tərəfindən ləğv edilib.",
 	"securepolllog": "SecurePoll Jurnalı",
 	"securepolllog-form-type-option-all": "Bütün SecurePoll jurnalları",
 	"securepolllog-form-type-option-voter": "Seçici jurnalı",
@@ -298,5 +299,19 @@
 	"securepoll-stv-invalid-rank-order": "Nizamlamalar ardıcıllıqla seçilməlidir. Zəhmət olmasa, $1 üçün birini seçin",
 	"securepoll-stv-invalid-rank-duplicate": "Seçimlər sıralamada bir neçə dəfə ola bilməz. Zəhmət olmasa, $1 üçün seçimi dəyişdirin",
 	"securepoll-stv-invalid-input-empty": "Zəhmət olmasa bu sıralamanı doldurun",
-	"securepoll-stv-result-election-elected-header": "Seçilmişlər"
+	"securepoll-stv-invalid-input-duplicate": "Zəhmət olmasa, bu seçim üçün fərqli variant seçin",
+	"securepoll-stv-help-text": "Aşağıdakı cədvəl yuxarıdakı nəticəni hesablamaq üçün edilən hesablamaları təsvir edir. Hər bir hesablama mərhələsində kvotadan daha çox səs toplayan namizəd(lər) seçilmiş elan edilir. Onların kvotadan artıq səsləri qalan namizədlərə yenidən bölüşdürülür. Heç kim kvotaya çatmayıbsa, ən aşağı yer tutan namizəd sıradan çıxarılır və onun səsləri qalan namizədlərə yenidən paylanır. Bunu daha yaxşı başa düşmək üçün [https://web.archive.org/web/20210225045400/https://prfound.org/resources/reference/reference-meek-rule/ bu linkə] nəzər yetirin.",
+	"securepoll-stv-result-election-elected-header": "Seçilmişlər",
+	"securepoll-stv-election-paramters": "$1 {{PLURAL:$1|mandat}} üçün $2 {{PLURAL:$2|namizəd}} arasında seçki. Ümumilikdə $3 {{PLURAL:$3|səs}}.",
+	"securepoll-stv-result-elected-list-unfilled-seat": "Heç bir namizəd kriteriyalara cavab vermədiyi üçün bu mandat doldurula bilmədi. Sonuncu ləğv edilən {{PLURAL:$1|namizəd|namizədlər}}: $1",
+	"securepoll-stv-result-election-eliminated-header": "Diskvalifikasiya edilən/Seçilməmiş",
+	"securepoll-stv-result-election-rounds-header": "Mərhələ cədvəli",
+	"securepoll-stv-result-election-round-number-table-heading": "Mərhələ nömrəsi",
+	"securepoll-stv-result-election-tally-table-heading": "Hesablama",
+	"securepoll-stv-result-election-result-table-heading": "Nəticə",
+	"securepoll-stv-votes-transferred": "Səslərin ötürülməsi",
+	"securepoll-stv-result-round-quota": "Kvota: $1",
+	"securepoll-stv-result-round-elected": "Seçilən: $1",
+	"securepoll-stv-result-round-eliminated": "Diskvalifikasiya edilən: $1",
+	"securepoll-stv-result-round-keep-factor": "(saxlama faktoru: $1)"
 }
