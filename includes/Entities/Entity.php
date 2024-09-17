@@ -183,6 +183,7 @@ class Entity {
 	 * @return string
 	 */
 	public function parseMessage( $name, $block = true ) {
+		// phpcs:ignore MediaWiki.Usage.DeprecatedGlobalVariables.Deprecated$wgTitle
 		global $wgTitle;
 		$parserOptions = $this->context->getParserOptions();
 		if ( $wgTitle ) {
