@@ -71,7 +71,8 @@ class ListPage extends ActionPage {
 			'securepoll_votes',
 			[ 'DISTINCT vote_voter' ],
 			[
-				'vote_election' => $this->election->getId()
+				'vote_election' => $this->election->getId(),
+				'vote_struck' => 0
 			],
 			__METHOD__
 		);
