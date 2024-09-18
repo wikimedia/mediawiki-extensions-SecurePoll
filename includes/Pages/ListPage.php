@@ -72,7 +72,8 @@ class ListPage extends ActionPage {
 			->distinct()
 			->from( 'securepoll_votes' )
 			->where( [
-				'vote_election' => $this->election->getId()
+				'vote_election' => $this->election->getId(),
+				'vote_struck' => 0
 			] )
 			->caller( __METHOD__ )
 			->fetchResultSet();
