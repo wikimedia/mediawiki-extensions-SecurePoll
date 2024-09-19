@@ -1,17 +1,22 @@
 {
 	"@metadata": {
 		"authors": [
-			"Biŋhai"
+			"Biŋhai",
+			"Midleading"
 		]
 	},
 	"securepoll": "Douzbiuq Ancienz",
 	"securepoll-desc": "senjgij caez gyahung douzbiuq",
 	"securepoll-invalid-page": "bienj fouzyauq \"<nowiki>$1</nowiki>\"",
-	"securepoll-welcome": "<strong>Vanhyingz $1!</strong>",
+	"securepoll-welcome": "<strong>{{GENDER:$1|Vanhyingz}} $1!</strong>",
 	"securepoll-return": "baema $1",
+	"securepoll-header-voter-name": "Mingz",
 	"securepoll-header-admin": "guenjleixguenj",
 	"securepoll-submit-translate": "swnggaep",
+	"securepoll-submit-select-lang": "Fanhoiz",
 	"securepoll-header-title": "Mingz",
 	"securepoll-subpage-vote": "Douzbiuq",
-	"securepoll-subpage-list": "Biuj"
+	"securepoll-subpage-translate": "Fanhoiz",
+	"securepoll-subpage-list": "Biuj",
+	"securepoll-subpage-edit": "Gaij"
 }
