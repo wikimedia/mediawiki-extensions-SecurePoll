@@ -278,7 +278,9 @@ class MakeMailingList extends Maintenance {
 		if ( $this->nomailUsers === null ) {
 			$services = MediaWikiServices::getInstance();
 			$raw = $services->getHttpRequestFactory()->get(
-				'https://meta.wikimedia.org/wiki/Wikimedia_Foundation_nomail_list?action=raw'
+				'https://meta.wikimedia.org/wiki/Wikimedia_Foundation_nomail_list?action=raw',
+				[],
+				__METHOD__
 			);
 			if ( !$raw ) {
 				throw new RuntimeException( "Unable to fetch Wikimedia nomail list" );
