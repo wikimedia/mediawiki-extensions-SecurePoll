@@ -50,7 +50,7 @@ class PurgeDecryptionKeys extends Maintenance {
 		$dbr = $this->getDB( DB_REPLICA );
 
 		foreach ( [ 'securepoll_elections', 'securepoll_properties' ] as $table ) {
-			if ( !$dbr->tableExists( $table ) ) {
+			if ( !$dbr->tableExists( $table, __METHOD__ ) ) {
 				$this->output(
 					"`{$table}` table does not exist. Nothing to do.\n"
 				);
