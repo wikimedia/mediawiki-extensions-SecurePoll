@@ -8,9 +8,6 @@
 	<rule ref="MediaWiki.Files.ClassMatchesFilename.NotMatch">
 		<exclude-pattern>*/cli/*.php</exclude-pattern>
 	</rule>
-	<rule ref="MediaWiki.Usage.DeprecatedGlobalVariables.Deprecated$wgTitle">
-		<exclude-pattern>*/includes/entities/Entity.php</exclude-pattern>
-	</rule>
 	<file>.</file>
 	<arg name="extensions" value="php"/>
 	<arg name="encoding" value="UTF-8"/>
