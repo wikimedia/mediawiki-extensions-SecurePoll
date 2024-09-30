@@ -93,6 +93,9 @@
 	"securepoll-dump-not-finished": "Le registro del election essera disponibile post le data de fin: le $1 a $2",
 	"securepoll-dump-no-urandom": "Impossibile aperir /dev/urandom. Pro assecurar le confidentialitate del votantes, le datos cryptate del election es solmente disponibile al publico si illos pote esser miscite con un fluxo de numeros aleatori secur.",
 	"securepoll-dump-private": "Solo le administratores del election es autorisate a vider le datos cryptate del registro.",
+	"securepoll-dump-blt-error-not-stv": "Impossibile crear le instantaneo BLT. Le election non es del typo Voto unic transferibile.",
+	"securepoll-dump-blt-error-multiple-questions": "Impossibile crear le instantaneo BLT. Le election ha plus de un question.",
+	"securepoll-dump-blt-error-no-votes": "Impossibile crear le instantaneo BLT. Le election non ha votos.",
 	"securepoll-urandom-not-supported": "Iste servitor non supporta le generation de numeros aleatori cryptographic.\nPro assecurar le confidentialitate del votantes, le datos cryptate del election es solmente disponibile al publico si illos pote esser miscite con un fluxo de numeros aleatori secur.",
 	"securepoll-translate-title": "Traducer: $1",
 	"securepoll-translate-redirect": "Le messages pro iste election debe esser configurate in $1",
@@ -341,5 +344,7 @@
 	"securepoll-vote-result-checked-option-label": "$1: verificate",
 	"securepoll-vote-result-comment": "Commento: $1",
 	"securepoll-vote-result-error-label": "Tu votos non poteva esser disimballate correctemente. Per favor contacta un administrator del election.",
-	"securepoll-vote-stv-clear-btn-label": "Rader tote le candidatos"
+	"securepoll-vote-stv-clear-btn-label": "Rader tote le candidatos",
+	"securepoll-vote-most-active-wiki-dropdown-label": "Elige tu wiki le plus active",
+	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1 ($2, $3 modification{{PLURAL:$3||es}})"
 }
