@@ -67,7 +67,7 @@ EOT
 		$dbw = $this->getDB( DB_PRIMARY );
 
 		# Start the configuration transaction
-		$dbw->begin( __METHOD__ );
+		$this->beginTransaction( $dbw, __METHOD__ );
 		foreach ( $electionIds as $id ) {
 			$elections = $store->getElectionInfo( [ $id ] );
 			$electionInfo = reset( $elections );
@@ -100,11 +100,11 @@ EOT
 				$success = $this->importConfiguration( $store, $electionInfo );
 			}
 			if ( !$success ) {
-				$dbw->rollback( __METHOD__ );
+				$this->rollbackTransaction( $dbw, __METHOD__ );
 				$this->fatalError( "Faied!\n" );
 			}
 		}
-		$dbw->commit( __METHOD__ );
+		$this->commitTransaction( $dbw, __METHOD__ );
 		$this->output( "Finished!\n" );
 	}
 
