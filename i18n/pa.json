@@ -5,8 +5,11 @@
 		]
 	},
 	"securepoll-translate-title": "\"$1\" ਤਰਜਮਾ ਕਰੋ",
+	"securepoll-translate-redirect-otherwiki": "ਮੁੱਢਲੀ ਵਿਕੀ",
 	"securepoll-submit-select-lang": "ਤਰਜਮਾ ਕਰੋ",
 	"securepoll-subpage-translate": "ਤਰਜਮਾ ਕਰੋ",
+	"securepoll-edit-redirect-otherwiki": "ਮੁੱਢਲੀ ਵਿਕੀ",
+	"securepoll-votereligibility-redirect-otherwiki": "ਮੁੱਢਲੀ ਵਿਕੀ",
 	"securepoll-translate-import-button-label": "ਤਰਜਮੇ ਦਰਾਮਦ ਕਰੋ",
 	"securepoll-translation-result-description": "ਤੋਂ ਦਰਾਮਤ ਕੀਤੇ ਤਰਜਮੇ",
 	"securepoll-translation-import-dialog-title": "ਤਰਜਮੇ ਦਰਾਮਦ ਕਰੋ"
