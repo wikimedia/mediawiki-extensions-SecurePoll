@@ -361,5 +361,8 @@
 	"securepoll-vote-result-error-label": "Your votes could not be unpacked correctly. Please contact an election administrator",
 	"securepoll-vote-stv-clear-btn-label": "Clear all candidates",
 	"securepoll-vote-most-active-wiki-dropdown-label": "Choose your most active wiki",
-	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1 ($2, $3 {{PLURAL:$3|edit|edits}})"
+	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1 ($2, $3 {{PLURAL:$3|edit|edits}})",
+	"group-electionadmin": "Election administrators",
+	"group-electionadmin-member": "{{GENDER:$1|election administrator}}",
+	"grouppage-electionadmin": "{{ns:project}}:Election administrators"
 }

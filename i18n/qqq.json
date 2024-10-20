@@ -386,5 +386,8 @@
 	"securepoll-vote-result-error-label": "Label with error information during unpacking record",
 	"securepoll-vote-stv-clear-btn-label": "Label for button to clear all selected candidates",
 	"securepoll-vote-most-active-wiki-dropdown-label": "Label for most active wiki dropdown",
-	"securepoll-vote-most-active-wiki-dropdown-option-text": "Text for option in most active wiki dropdown. Parameters:\n* $1: wiki\n* $2: domain\n* $3: edit count"
+	"securepoll-vote-most-active-wiki-dropdown-option-text": "Text for option in most active wiki dropdown. Parameters:\n* $1: wiki\n* $2: domain\n* $3: edit count",
+	"group-electionadmin": "{{doc-group|electionadmin}}",
+	"group-electionadmin-member": "{{doc-group|electionadmin|member}}",
+	"grouppage-electionadmin": "{{doc-group|electionadmin|page}}"
 }
