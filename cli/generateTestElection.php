@@ -4,6 +4,7 @@ use MediaWiki\Extension\SecurePoll\Ballots\STVBallot;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Pages\CreatePage;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
+use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\SpecialPage\SpecialPage;
 

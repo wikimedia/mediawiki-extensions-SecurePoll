@@ -19,9 +19,9 @@ use MediaWiki\Extension\SecurePoll\User\LocalAuth;
 use MediaWiki\Extension\SecurePoll\User\RemoteMWAuth;
 use MediaWiki\Extension\SecurePoll\User\Voter;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Parser\ParserOptions;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
-use ParserOptions;
 use stdClass;
 use Wikimedia\Rdbms\IDatabase;
 

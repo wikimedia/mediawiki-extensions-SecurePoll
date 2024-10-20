@@ -21,8 +21,8 @@
 
 namespace MediaWiki\Extension\SecurePoll\Api;
 
-use ApiBase;
-use ApiMain;
+use MediaWiki\Api\ApiBase;
+use MediaWiki\Api\ApiMain;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\User\LocalAuth;
 use MediaWiki\Extension\SecurePoll\User\RemoteMWAuth;

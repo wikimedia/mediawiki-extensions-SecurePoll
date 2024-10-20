@@ -13,6 +13,7 @@
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Store\MemoryStore;
 use MediaWiki\Extension\SecurePoll\Talliers\CommentDumper;
+use MediaWiki\Maintenance\Maintenance;
 
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );

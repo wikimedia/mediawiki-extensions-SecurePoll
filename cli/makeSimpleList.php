@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\User\ActorMigration;
 use MediaWiki\User\User;
 

@@ -10,6 +10,7 @@ require_once "$IP/maintenance/Maintenance.php";
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Store\Store;
 use MediaWiki\Extension\SecurePoll\Store\XMLStore;
+use MediaWiki\Maintenance\Maintenance;
 
 class ImportElectionConfiguration extends Maintenance {
 

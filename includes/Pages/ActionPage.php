@@ -2,19 +2,19 @@
 
 namespace MediaWiki\Extension\SecurePoll\Pages;
 
-use Language;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Extension\SecurePoll\User\Auth;
 use MediaWiki\Extension\SecurePoll\User\Voter;
+use MediaWiki\Language\Language;
 use MediaWiki\Languages\LanguageFallback;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
 use MediaWiki\User\Options\UserOptionsLookup;
 use MediaWiki\User\User;
 use MessageLocalizer;
-use MessageSpecifier;
+use Wikimedia\Message\MessageSpecifier;
 
 /**
  * Parent class for Special:SecurePoll subpages.

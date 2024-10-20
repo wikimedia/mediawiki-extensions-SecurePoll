@@ -4,7 +4,7 @@ namespace MediaWiki\Extension\SecurePoll;
 
 use Generator;
 use InvalidArgumentException;
-use Maintenance;
+use MediaWiki\Maintenance\Maintenance;
 
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );

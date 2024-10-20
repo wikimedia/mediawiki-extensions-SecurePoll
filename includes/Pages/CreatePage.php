@@ -4,7 +4,6 @@ namespace MediaWiki\Extension\SecurePoll\Pages;
 
 use DateTime;
 use DateTimeZone;
-use LanguageCode;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Crypt\Crypt;
 use MediaWiki\Extension\SecurePoll\Entities\Entity;
@@ -14,6 +13,7 @@ use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Extension\SecurePoll\Store\FormStore;
 use MediaWiki\Extension\SecurePoll\Talliers\Tallier;
 use MediaWiki\HTMLForm\HTMLForm;
+use MediaWiki\Language\LanguageCode;
 use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\Linker\Linker;
 use MediaWiki\Message\Message;

@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\SecurePoll;
 
-use ContentHandler;
+use MediaWiki\Content\ContentHandler;
 use MediaWiki\Content\JsonContentHandler;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;

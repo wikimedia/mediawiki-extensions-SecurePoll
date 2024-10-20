@@ -34,6 +34,8 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 }
 require_once "$IP/maintenance/Maintenance.php";
 
+use MediaWiki\Maintenance\Maintenance;
+
 class PurgeDecryptionKeys extends Maintenance {
 	public function __construct() {
 		parent::__construct();

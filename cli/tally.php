@@ -17,6 +17,7 @@ require_once "$IP/maintenance/Maintenance.php";
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Store\MemoryStore;
 use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
+use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\MediaWikiServices;
 
 class TallyElection extends Maintenance {

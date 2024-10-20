@@ -2,12 +2,12 @@
 
 namespace MediaWiki\Extension\SecurePoll;
 
-use ExtensionRegistry;
 use Flow\Container;
 use Flow\DbFactory;
 use Flow\Model\UUID;
-use Maintenance;
+use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\WikiMap\WikiMap;
 
 if ( getenv( 'MW_INSTALL_PATH' ) ) {

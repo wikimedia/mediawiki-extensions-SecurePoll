@@ -3,12 +3,12 @@
 namespace MediaWiki\Extension\SecurePoll\Ballots;
 
 use InvalidArgumentException;
-use Language;
 use LogicException;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Entities\Entity;
 use MediaWiki\Extension\SecurePoll\Entities\Question;
+use MediaWiki\Language\Language;
 use MediaWiki\Message\Message;
 use MediaWiki\Request\WebRequest;
 use MediaWiki\Status\Status;

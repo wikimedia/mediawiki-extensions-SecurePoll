@@ -14,6 +14,8 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 }
 require_once "$IP/maintenance/Maintenance.php";
 
+use MediaWiki\Maintenance\LoggedUpdateMaintenance;
+
 class UpdateNotBlockedKey extends LoggedUpdateMaintenance {
 	public function __construct() {
 		parent::__construct();

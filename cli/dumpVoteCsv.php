@@ -3,6 +3,7 @@
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Store\MemoryStore;
 use MediaWiki\Extension\SecurePoll\Talliers\CommentDumper;
+use MediaWiki\Maintenance\Maintenance;
 
 /**
  * Dump all votes from an election from a dump file or local database.

@@ -4,11 +4,11 @@ namespace MediaWiki\Extension\SecurePoll\Store;
 
 use DateTime;
 use DateTimeZone;
-use ExtensionRegistry;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Crypt\Crypt;
 use MediaWiki\Extension\SecurePoll\Pages\StatusException;
 use MediaWiki\Extension\SecurePoll\Talliers\Tallier;
+use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\WikiMap\WikiMap;
 use MobileContext;

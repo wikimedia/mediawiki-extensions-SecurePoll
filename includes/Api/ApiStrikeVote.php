@@ -26,8 +26,8 @@
 
 namespace MediaWiki\Extension\SecurePoll\Api;
 
-use ApiBase;
-use ApiMain;
+use MediaWiki\Api\ApiBase;
+use MediaWiki\Api\ApiMain;
 use MediaWiki\Extension\SecurePoll\ActionPageFactory;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 use Wikimedia\ParamValidator\ParamValidator;

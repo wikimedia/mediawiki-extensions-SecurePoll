@@ -31,6 +31,8 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 }
 require_once "$IP/maintenance/Maintenance.php";
 
+use MediaWiki\Maintenance\Maintenance;
+
 class PurgePrivateVoteData extends Maintenance {
 
 	/** @var int|null */

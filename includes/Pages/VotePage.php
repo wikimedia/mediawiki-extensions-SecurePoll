@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\SecurePoll\Pages;
 
-use ExtensionRegistry;
 use MediaWiki\Extension\CentralAuth\User\CentralAuthUser;
 use MediaWiki\Extension\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
@@ -16,6 +15,7 @@ use MediaWiki\Extension\SecurePoll\VoteRecord;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Html\Html;
 use MediaWiki\HTMLForm\HTMLForm;
+use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Session\SessionManager;
 use MediaWiki\Status\Status;
 use MediaWiki\Title\Title;
