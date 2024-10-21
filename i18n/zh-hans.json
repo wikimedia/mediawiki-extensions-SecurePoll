@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Anakmalaysia",
+			"Anterdc99",
 			"Arthur2e5",
 			"Bencmq",
 			"Biŋhai",
@@ -61,6 +62,7 @@
 	"securepoll-gpg-parse-error": "解释GPG输出时出错。",
 	"securepoll-secret-openssl-error": "执行加密操作时出错。\n在 LocalSettings.php 中使用 $wgSecurePollShowErrorDetail=true; 以查看更多细节。",
 	"securepoll-full-openssl-error": "执行加密操作时出错：\n<pre>$1</pre>",
+	"securepoll-openssl-invalid-key": "所提供的其中一个密钥无效。加密密钥必须是至少2048位的RSA公钥，解密或签名密钥必须是至少2048位的RSA私钥。",
 	"securepoll-no-decryption-key": "解密密钥未配置。\n无法解密。",
 	"securepoll-wrong-decryption-key": "配置的解密密钥不正确。\n无法解密。",
 	"securepoll-no-verification-key": "未配置验证密钥。\n无法验证投票记录。",
@@ -122,6 +124,9 @@
 	"securepoll-dump-not-finished": "选举记录在截止日期$1 $2后才可获得",
 	"securepoll-dump-no-urandom": "无法打开/dev/urandom。为了保证投票者的隐私，加密投票记录只有在被安全随机数流打乱后才可公开。",
 	"securepoll-dump-private": "对不起，只有选举管理员可以查看此选举的加密记录转储。",
+	"securepoll-dump-blt-error-not-stv": "无法创建blt转储。选举不是可转移单票类型",
+	"securepoll-dump-blt-error-multiple-questions": "无法创建blt转储。选举有不止一个问题",
+	"securepoll-dump-blt-error-no-votes": "无法创建blt转储。选举没有选票",
 	"securepoll-urandom-not-supported": "本服务器并不支持密文随机数生成。\n为了保证投票者的隐私，加密投票记录只有在被安全随机数流打乱后才可公开。",
 	"securepoll-translate-title": "翻译：$1",
 	"securepoll-translate-redirect": "此选举的信息需要在$1配置",
@@ -242,7 +247,7 @@
 	"securepoll-create-option-election_type-stv+droop-quota": "带有Droop配额的单次可转让投票",
 	"securepoll-create-option-election_crypt-none": "没有加密",
 	"securepoll-create-label-comment": "原因",
-	"securepoll-create-user-not-in-electionadmin-group": "$1\" 不是选举管理员组的{{GENDER:$1|成员}}。",
+	"securepoll-create-user-not-in-electionadmin-group": "“$1”不是选举管理员组的{{GENDER:$1|成员}}。",
 	"securepoll-create-fail-bad-id": "提交的选举ID不匹配正在编辑的选举",
 	"securepoll-create-fail-id-missing": "正在编辑的选举已不存在",
 	"securepoll-create-fail-bad-dblist": "指定的wiki或wiki列表无效",
@@ -363,6 +368,13 @@
 	"securepoll-translation-error-no-page-title": "未找到页面标题",
 	"securepoll-vote-result-intro-label": "您的投票摘要",
 	"securepoll-vote-result-question-label": "问题：$1",
+	"securepoll-vote-result-rated-option-label": "$1：评比为$2",
+	"securepoll-vote-result-not-voted-option-label": "$1：未投票",
 	"securepoll-vote-result-not-checked-option-label": "$1：未选择",
-	"securepoll-vote-result-comment": "评论：$1"
+	"securepoll-vote-result-checked-option-label": "$1：已检查",
+	"securepoll-vote-result-comment": "评论：$1",
+	"securepoll-vote-result-error-label": "您的投票无法正确取出。请联系选举管理员",
+	"securepoll-vote-stv-clear-btn-label": "清除全部候选人",
+	"securepoll-vote-most-active-wiki-dropdown-label": "选择您最活跃的wiki",
+	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1（$2，$3{{PLURAL:$3|次编辑}}）"
 }
