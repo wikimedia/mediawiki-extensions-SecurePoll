@@ -31,7 +31,8 @@
 			"飞舞回堂前",
 			"沈澄心",
 			"LittlePaw365",
-			"魔琴"
+			"魔琴",
+			"Anterdc99"
 		]
 	},
 	"securepoll": "安全投票",
@@ -233,7 +234,7 @@
 	"securepoll-create-option-election_type-stv+droop-quota": "带有Droop配额的单次可转让投票",
 	"securepoll-create-option-election_crypt-none": "没有加密",
 	"securepoll-create-label-comment": "原因",
-	"securepoll-create-user-not-in-electionadmin-group": "$1\" 不是选举管理员组的{{GENDER:$1|成员}}。",
+	"securepoll-create-user-not-in-electionadmin-group": "“$1”不是选举管理员组的{{GENDER:$1|成员}}。",
 	"securepoll-create-fail-bad-id": "提交的选举ID不匹配正在编辑的选举",
 	"securepoll-create-fail-id-missing": "正在编辑的选举已不存在",
 	"securepoll-create-fail-bad-dblist": "指定的wiki或wiki列表无效",
@@ -354,6 +355,10 @@
 	"securepoll-translation-error-no-page-title": "未找到页面标题",
 	"securepoll-vote-result-intro-label": "您的投票摘要",
 	"securepoll-vote-result-question-label": "问题：$1",
+	"securepoll-vote-result-rated-option-label": "$1：评比为$2",
+	"securepoll-vote-result-not-voted-option-label": "$1：未投票",
 	"securepoll-vote-result-not-checked-option-label": "$1：未选择",
-	"securepoll-vote-result-comment": "评论：$1"
+	"securepoll-vote-result-checked-option-label": "$1：已检查",
+	"securepoll-vote-result-comment": "评论：$1",
+	"securepoll-vote-result-error-label": "您的投票无法正确取出。请联系选举管理员"
 }
