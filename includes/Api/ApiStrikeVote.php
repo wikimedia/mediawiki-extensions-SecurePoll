@@ -38,17 +38,11 @@ use Wikimedia\ParamValidator\ParamValidator;
  * @ingroup API
  */
 class ApiStrikeVote extends ApiBase {
-	/** @var ActionPageFactory */
-	private $actionPageFactory;
+	private ActionPageFactory $actionPageFactory;
 
-	/**
-	 * @param ApiMain $apiMain
-	 * @param string $moduleName
-	 * @param ActionPageFactory $actionPageFactory
-	 */
 	public function __construct(
 		ApiMain $apiMain,
-		$moduleName,
+		string $moduleName,
 		ActionPageFactory $actionPageFactory
 	) {
 		parent::__construct( $apiMain, $moduleName );
