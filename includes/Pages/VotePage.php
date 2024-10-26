@@ -446,7 +446,7 @@ class VotePage extends ActionPage {
 						$this->election->getTallyType() === 'histogram-range' ) {
 						if ( isset( $questionMsg[$questionIndex]['column' . $count ] ) ) {
 							$columnLabel = $questionMsg[$questionIndex]['column' . $count ];
-							$votedItems[] = Html::element( 'li', [],
+							$votedItems[] = Html::rawElement( 'li', [],
 								$this->msg( 'securepoll-vote-result-voted-option-label', $optionText, $columnLabel )
 							);
 							continue;
@@ -455,7 +455,7 @@ class VotePage extends ActionPage {
 							$positiveCount = '+' . $count;
 							if ( isset( $questionMsg[$questionIndex]['column' . $positiveCount ] ) ) {
 								$columnLabel = $questionMsg[$questionIndex]['column' . $positiveCount ];
-								$votedItems[] = Html::element( 'li', [],
+								$votedItems[] = Html::rawElement( 'li', [],
 									$this->msg( 'securepoll-vote-result-voted-option-label', $optionText, $columnLabel )
 								);
 								continue;
@@ -464,25 +464,25 @@ class VotePage extends ActionPage {
 					}
 
 					if ( $this->election->getTallyType() === 'schulze' && $count === 1000 ) {
-						$notVotedItems[] = Html::element( 'li', [],
+						$notVotedItems[] = Html::rawElement( 'li', [],
 							$this->msg( 'securepoll-vote-result-not-voted-option-label', $optionText )
 						);
 						continue;
 					}
 
 					if ( $count === 0 ) {
-						$notVotedItems[] = Html::element( 'li', [],
+						$notVotedItems[] = Html::rawElement( 'li', [],
 							$this->msg( 'securepoll-vote-result-not-checked-option-label', $optionText )
 						);
 						continue;
 					}
 					if ( $this->election->getTallyType() === 'plurality' ) {
-						$votedItems[] = Html::element( 'li', [],
+						$votedItems[] = Html::rawElement( 'li', [],
 							$this->msg( 'securepoll-vote-result-checked-option-label', $optionText )
 						);
 						continue;
 					}
-					$votedItems[] = Html::element( 'li', [],
+					$votedItems[] = Html::rawElement( 'li', [],
 						$this->msg( 'securepoll-vote-result-rated-option-label', $optionText, $count )
 					);
 				}
