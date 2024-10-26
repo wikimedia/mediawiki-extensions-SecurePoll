@@ -115,7 +115,7 @@ class Context {
 	 * @return Store
 	 */
 	public function getStore() {
-		if ( !isset( $this->store ) ) {
+		if ( $this->store === null ) {
 			$this->store = new DBStore(
 				MediaWikiServices::getInstance()->getDBLoadBalancer(),
 				false
