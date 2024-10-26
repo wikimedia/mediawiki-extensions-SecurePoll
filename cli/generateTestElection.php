@@ -24,7 +24,7 @@ class GenerateTestElection extends Maintenance {
 		$this->addOption( 'name', 'Name of the election' );
 		$this->addOption( 'election', 'Type of election', true );
 		$this->addOption( 'ballots', 'File with ballots', true );
-		$this->addOption( 'admins', 'pipe delimited list of electionadmins', true );
+		$this->addOption( 'admins', 'pipe delimited list of election admins', true );
 		$this->addOption( 'reset', 'Delete votes if an election already exists' );
 
 		$this->requireExtension( 'SecurePoll' );
@@ -63,19 +63,12 @@ class GenerateTestElection extends Maintenance {
 			$this->fatalError( "The specified file \"{$fileName}\" does not exist\n" );
 		}
 
-		// Check all users psased in admins param are members of electionadmin
+		// Check all users passed in admins param have permission to edit polls
 		$electionAdmins = explode( '|', $this->getOption( 'admins' ) );
-		$userGroupManager = MediaWikiServices::getInstance()->getUserGroupManager();
 		foreach ( $electionAdmins as $admin ) {
 			$user = $this->getServiceContainer()->getUserFactory()->newFromName( $admin );
-			if (
-				!$user ||
-				!in_array(
-					'electionadmin',
-					$userGroupManager->getUserEffectiveGroups( $user )
-				)
-			) {
-				$this->fatalError( $admin . ' is not a member of electionadmin' );
+			if ( !$user || !$user->isAllowed( 'securepoll-edit-poll' ) ) {
+				$this->fatalError( $admin . ' does not have securepoll-edit-poll right' );
 			}
 		}
 
@@ -183,7 +176,6 @@ class GenerateTestElection extends Maintenance {
 				$services->getService( 'SecurePoll.ActionPageFactory' )
 			),
 			$services->getDBLoadBalancerFactory(),
-			$services->getUserGroupManager(),
 			$services->getLanguageNameUtils(),
 			$services->getWikiPageFactory(),
 			$services->getUserFactory()

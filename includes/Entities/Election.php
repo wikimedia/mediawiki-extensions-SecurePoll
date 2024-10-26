@@ -10,9 +10,8 @@ use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
 use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
 use MediaWiki\Extension\SecurePoll\User\Auth;
 use MediaWiki\Extension\SecurePoll\User\Voter;
-use MediaWiki\MediaWikiServices;
+use MediaWiki\Permissions\Authority;
 use MediaWiki\Status\Status;
-use MediaWiki\User\User;
 use MediaWiki\Xml\Xml;
 use Wikimedia\Rdbms\IDatabase;
 
@@ -358,15 +357,14 @@ class Election extends Entity {
 
 	/**
 	 * Returns true if the user is an admin of the current election.
-	 * @param User $user
+	 * @param Authority $authority
 	 * @return bool
 	 */
-	public function isAdmin( $user ) {
+	public function isAdmin( Authority $authority ) {
 		$admins = array_map( 'trim', explode( '|', $this->getProperty( 'admins' ) ) );
 
-		$userGroupManager = MediaWikiServices::getInstance()->getUserGroupManager();
-		return in_array( $user->getName(), $admins )
-			&& in_array( 'electionadmin', $userGroupManager->getUserEffectiveGroups( $user ) );
+		return in_array( $authority->getUser()->getName(), $admins )
+			&& $authority->isAllowed( 'securepoll-edit-poll' );
 	}
 
 	/**

@@ -43,7 +43,6 @@ class ActionPageFactory {
 			'class' => CreatePage::class,
 			'services' => [
 				'DBLoadBalancerFactory',
-				'UserGroupManager',
 				'LanguageNameUtils',
 				'WikiPageFactory',
 				'UserFactory',
@@ -53,7 +52,6 @@ class ActionPageFactory {
 			'class' => CreatePage::class,
 			'services' => [
 				'DBLoadBalancerFactory',
-				'UserGroupManager',
 				'LanguageNameUtils',
 				'WikiPageFactory',
 				'UserFactory',
