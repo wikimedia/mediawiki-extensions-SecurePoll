@@ -237,14 +237,16 @@ class VotePage extends ActionPage {
 			] );
 		}
 
-		// Add most active wiki dropdown
-		$form->addItems( [ new FieldLayout(
-			$this->createMostActiveWikiDropdownWidget(),
-			[
-				'label' => $this->msg( 'securepoll-vote-most-active-wiki-dropdown-label' )->text(),
-				'align' => 'top',
-			]
-		) ] );
+		if ( $this->election->getProperty( 'prompt-active-wiki', true ) ) {
+			// Add most active wiki dropdown
+			$form->addItems( [ new FieldLayout(
+				$this->createMostActiveWikiDropdownWidget(),
+				[
+					'label' => $this->msg( 'securepoll-vote-most-active-wiki-dropdown-label' )->text(),
+					'align' => 'top',
+				]
+			) ] );
+		}
 
 		$form->addItems( [
 			new FieldLayout(
@@ -341,7 +343,7 @@ class VotePage extends ActionPage {
 
 		$token = SessionManager::getGlobalSession()->getToken();
 		$tokenMatch = $token->match( $request->getVal( 'edit_token' ) );
-		$mostActiveWikiDomain = $request->getVal( $this->mostActiveWikiFormField );
+		$mostActiveWikiDomain = $request->getVal( $this->mostActiveWikiFormField ) ?? '';
 
 		$dbw->newInsertQueryBuilder()
 			->insertInto( 'securepoll_votes' )

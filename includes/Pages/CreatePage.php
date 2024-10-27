@@ -313,6 +313,12 @@ class CreatePage extends ActionPage {
 			'disabled' => $isRunning
 		];
 
+		$formItems['prompt-active-wiki'] = [
+			'label-message' => 'securepoll-create-label-prompt-active-wiki',
+			'type' => 'check',
+			'disabled' => $isRunning
+		];
+
 		$formItems['comment-prompt'] = [
 			'label-message' => 'securepoll-create-label-comment-prompt',
 			'type' => 'textarea',
@@ -1018,6 +1024,7 @@ class CreatePage extends ActionPage {
 			'voter-privacy' => isset( $p['voter-privacy'] ) ? (bool)$p['voter-privacy'] : null,
 			'property_admins' => '',
 			'request-comment' => isset( $p['request-comment'] ) ? (bool)$p['request-comment'] : null,
+			'prompt-active-wiki' => isset( $p['prompt-active-wiki'] ) ? (bool)$p['prompt-active-wiki'] : null,
 			'comment-prompt' => $m['comment-prompt'] ?? null,
 			'questions' => [],
 			'comment' => '',

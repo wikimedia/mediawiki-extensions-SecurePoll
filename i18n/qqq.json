@@ -215,6 +215,7 @@
 	"securepoll-create-label-must_answer_all": "Label for form field on Special:SecurePoll/create.",
 	"securepoll-create-label-voter_privacy": "Label for form field on Special:SecurePoll/create.",
 	"securepoll-create-label-request-comment": "Label for form field on Special:SecurePoll/create.",
+	"securepoll-create-label-prompt-active-wiki": "Label for form field on Special:SecurePoll/create.",
 	"securepoll-create-label-comment-prompt": "Label for form field on Special:SecurePoll/create.",
 	"securepoll-create-label-gpg_encrypt_key": "Label for form field on Special:SecurePoll/create.",
 	"securepoll-create-label-gpg_sign_key": "Label for form field on Special:SecurePoll/create.",
