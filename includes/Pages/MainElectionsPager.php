@@ -4,7 +4,6 @@ namespace MediaWiki\Extension\SecurePoll\Pages;
 
 use MediaWiki\Html\Html;
 use MediaWiki\Linker\LinkRenderer;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Pager\IndexPager;
 use MediaWiki\SpecialPage\SpecialPage;
 use Wikimedia\Rdbms\ILoadBalancer;
@@ -164,9 +163,7 @@ class MainElectionsPager extends ElectionPager {
 	 * @return string HTML
 	 */
 	public function getLogLink( $id ) {
-		$services = MediaWikiServices::getInstance();
-		$linkRenderer = $services->getLinkRenderer();
-		return $linkRenderer->makeLink(
+		return $this->linkRenderer->makeLink(
 			SpecialPage::getTitleValueFor( 'SecurePollLog' ),
 			$this->msg( 'securepoll-subpage-log' )->text(),
 			[],
