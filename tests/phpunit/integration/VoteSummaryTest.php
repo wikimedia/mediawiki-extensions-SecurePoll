@@ -36,7 +36,9 @@ class VoteSummaryTest extends MediaWikiIntegrationTestCase {
 	 * @covers \MediaWiki\Extension\SecurePoll\Pages\VotePage::getSummaryOfVotes
 	 */
 	public function testSummaryOfVotes( $data, $langCode, $tallyType, $expected ) {
-		$this->context = Context::newFromXmlFile( dirname( __DIR__ ) . '/../../test/' . $tallyType . '-test.xml' );
+		// Give grep a chance to find these:
+		// 3way-test.xml, approval-test.xml, radio-range.xml, schulze-test.xml
+		$this->context = Context::newFromXmlFile( dirname( __DIR__ ) . '/data/' . $tallyType . '-test.xml' );
 		$store = $this->context->getStore();
 
 		$electionIds = $store->getAllElectionIds();
