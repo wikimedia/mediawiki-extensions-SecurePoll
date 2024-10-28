@@ -143,6 +143,7 @@
 	"securepoll-header-title": "{{Identical|Name}}",
 	"securepoll-header-start-date": "{{Identical|Start date}}",
 	"securepoll-header-end-date": "{{Identical|End date}}",
+	"securepoll-header-links": "Label for the \"Links\" column in Special:SecurePoll",
 	"securepoll-subpage-vote": "Link text to a sub page in the SecurePoll extension where users can vote.\n{{Identical|Vote}}",
 	"securepoll-subpage-translate": "Link text to a sub page in the SecurePoll extension where users can translate poll related texts.\n{{Identical|Translate}}",
 	"securepoll-subpage-list": "Link text to a sub page in the SecurePoll extension where users can list poll information.\n{{Identical|List}}",
