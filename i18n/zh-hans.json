@@ -31,7 +31,9 @@
 			"Xyb",
 			"沈澄心",
 			"LittlePaw365",
-			"魔琴"
+			"魔琴",
+			"Anterdc99",
+			"SunAfterRain"
 		]
 	},
 	"securepoll": "安全投票",
@@ -231,9 +233,9 @@
 	"securepoll-create-option-election_type-radio-range-comment+plurality": "带评论的计分投票（简单多数）",
 	"securepoll-create-option-election_type-radio-range-comment+histogram-range": "带评论的计分投票（直方图计分）",
 	"securepoll-create-option-election_type-stv+droop-quota": "带有Droop配额的单次可转让投票",
-	"securepoll-create-option-election_crypt-none": "没有加密",
+	"securepoll-create-option-election_crypt-none": "不加密",
 	"securepoll-create-label-comment": "原因",
-	"securepoll-create-user-not-in-electionadmin-group": "$1\" 不是选举管理员组的{{GENDER:$1|成员}}。",
+	"securepoll-create-user-not-in-electionadmin-group": "“$1”不是选举管理员组的{{GENDER:$1|成员}}。",
 	"securepoll-create-fail-bad-id": "提交的选举ID不匹配正在编辑的选举",
 	"securepoll-create-fail-id-missing": "正在编辑的选举已不存在",
 	"securepoll-create-fail-bad-dblist": "指定的wiki或wiki列表无效",
