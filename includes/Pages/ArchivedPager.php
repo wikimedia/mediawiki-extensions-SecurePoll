@@ -65,7 +65,7 @@ class ArchivedPager extends ElectionPager {
 	/**
 	 * @return string HTML
 	 */
-	public function getLinks() {
+	public function getLinks(): string {
 		$id = $this->mCurrentRow->el_entity;
 
 		$s = '';

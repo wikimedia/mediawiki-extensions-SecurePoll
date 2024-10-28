@@ -87,7 +87,7 @@ abstract class ElectionPager extends TablePager {
 	 * Return html for election-specific links
 	 * @return string HTML
 	 */
-	abstract public function getLinks();
+	abstract public function getLinks(): string;
 
 	public function getDefaultSort() {
 		return 'el_start_date';
