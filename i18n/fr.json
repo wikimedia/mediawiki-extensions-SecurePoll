@@ -112,7 +112,7 @@
 	"securepoll-cookie-dup-list": "Utilisateurs avec un cookie en doublon",
 	"securepoll-dump-title": "Vidage : $1",
 	"securepoll-dump-not-finished": "Les données chiffrées ne sont disponibles qu’après la clôture de l’élection le $1 à $2",
-	"securepoll-dump-no-urandom": "Impossible d’ouvrir /dev/urandom.\nPour maintenir la confidentialité des votants, les données chiffrées ne sont disponibles que si elles peuvent être brassées à l’aide d’une suite de nombres aléatoires.",
+	"securepoll-dump-no-urandom": "Impossible d’ouvrir /dev/urandom. Pour préserver la confidentialité des électeurs, les enregistrements électoraux chiffrés ne sont accessibles au public que lorsqu’ils peuvent être mélangés avec un flux de nombres aléatoires sécurisé.",
 	"securepoll-dump-private": "Désolé, l’affichage du contenu de l’enregistrement chiffré pour cette élection est restreint aux administrateurs de l’élection.",
 	"securepoll-urandom-not-supported": "Ce serveur ne prend pas en charge la génération cryptographique de nombres aléatoires.\nPour assurer la confidentialité des votants, les données chiffrées ne sont publiées que si elles peuvent être brouillées avec un flux de nombres aléatoires.",
 	"securepoll-translate-title": "Traduire : $1",
