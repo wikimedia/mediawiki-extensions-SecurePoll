@@ -25,7 +25,7 @@ abstract class ElectionPager extends TablePager {
 		'el_title',
 		'el_start_date',
 		'el_end_date',
-		'links'
+		'el_links'
 	];
 
 	public function __construct() {
@@ -64,7 +64,7 @@ abstract class ElectionPager extends TablePager {
 			case 'el_start_date':
 			case 'el_end_date':
 				return htmlspecialchars( $this->getLanguage()->timeanddate( $value ) );
-			case 'links':
+			case 'el_links':
 				return $this->getLinks();
 			default:
 				return htmlspecialchars( $value );
@@ -101,7 +101,7 @@ abstract class ElectionPager extends TablePager {
 			} else {
 				// Give grep a chance to find the usages:
 				// securepoll-header-title, securepoll-header-start-date,
-				// securepoll-header-end-date
+				// securepoll-header-end-date, securepoll-header-links
 				$msgName = 'securepoll-header-' . strtr(
 						$field,
 						[
