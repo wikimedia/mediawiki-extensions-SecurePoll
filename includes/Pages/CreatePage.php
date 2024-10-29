@@ -493,7 +493,7 @@ class CreatePage extends ActionPage {
 			'disabled' => $isRunning,
 		];
 
-		if ( $this->specialPage->getConfig()->get( 'SecurePollUseNamespace' ) ) {
+		if ( Context::isNamespacedLoggingEnabled() ) {
 			$formItems['comment'] = [
 				'type' => 'text',
 				'label-message' => 'securepoll-create-label-comment',
@@ -903,7 +903,7 @@ class CreatePage extends ActionPage {
 	 * Record this election to the SecurePoll namespace, if so configured.
 	 */
 	private function recordElectionToNamespace( Election $election, int $electionId, array $formData ) {
-		if ( $this->specialPage->getConfig()->get( 'SecurePollUseNamespace' ) ) {
+		if ( Context::isNamespacedLoggingEnabled() ) {
 			[ $title, $content ] = SecurePollContentHandler::makeContentFromElection(
 				$election,
 				$electionId

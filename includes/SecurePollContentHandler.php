@@ -188,10 +188,7 @@ class SecurePollContentHandler extends JsonContentHandler {
 
 		$json = FormatJson::encode( $data, false, FormatJson::ALL_OK );
 
-		$title = Title::makeTitle(
-			NS_SECUREPOLL,
-			$electionId . ( $subpage === '' ? '' : "/$subpage" )
-		);
+		$title = self::getTitleForPage( $electionId . ( $subpage === '' ? '' : "/$subpage" ) );
 
 		return [
 			$title,
@@ -199,12 +196,17 @@ class SecurePollContentHandler extends JsonContentHandler {
 		];
 	}
 
+	private static function getTitleForPage( string $pageName ): Title {
+		$config = MediaWikiServices::getInstance()->getMainConfig();
+		if ( $config->get( 'SecurePollUseNamespace' ) ) {
+			return Title::makeTitle( NS_SECUREPOLL, $pageName );
+		}
+		return Title::makeTitle( NS_MEDIAWIKI, 'SecurePoll/' . $pageName );
+	}
+
 	/** @inheritDoc */
 	public function canBeUsedOn( Title $title ) {
-		$config = MediaWikiServices::getInstance()->getMainConfig();
-
-		return $config->get( 'SecurePollUseNamespace' ) &&
-			$title->getNamespace() === NS_SECUREPOLL;
+		return Context::isSecurePollPage( $title );
 	}
 
 	/** @inheritDoc */

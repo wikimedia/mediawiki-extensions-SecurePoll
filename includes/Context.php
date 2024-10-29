@@ -136,6 +136,29 @@ class Context {
 	}
 
 	/**
+	 * Returns whether logging election configurations to on-wiki pages is enabled.
+	 */
+	public static function isNamespacedLoggingEnabled(): bool {
+		$config = MediaWikiServices::getInstance()->getMainConfig();
+		return $config->get( 'SecurePollUseNamespace' ) || $config->get( 'SecurePollUseMediaWikiNamespace' );
+	}
+
+	/**
+	 * Returns whether the given title is a SecurePoll configuration page.
+	 */
+	public static function isSecurePollPage( Title $title ): bool {
+		$config = MediaWikiServices::getInstance()->getMainConfig();
+		if ( $config->get( 'SecurePollUseNamespace' ) && $title->getNamespace() === NS_SECUREPOLL ) {
+			return true;
+		}
+		if ( $config->get( 'SecurePollUseMediaWikiNamespace' ) && $title->getNamespace() === NS_MEDIAWIKI &&
+			$title->getRootText() === 'SecurePoll' ) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
 	 * Set the store object. Overrides any previous store class.
 	 * @param Store $store
 	 */

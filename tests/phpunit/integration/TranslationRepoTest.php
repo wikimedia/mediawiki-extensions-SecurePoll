@@ -29,6 +29,7 @@ class TranslationRepoTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testSetTranslation( $data, $language, $comment, $wikis, $expectedReplaceCalls ) {
 		$this->overrideConfigValue( 'SecurePollUseNamespace', false );
+		$this->overrideConfigValue( 'SecurePollUseMediaWikiNamespace', false );
 
 		$services = $this->getServiceContainer();
 		$rqb = $this->createMock( ReplaceQueryBuilder::class );

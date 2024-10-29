@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\SecurePoll\Pages;
 
+use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Extension\SecurePoll\TranslationRepo;
@@ -192,7 +193,7 @@ class TranslatePage extends ActionPage {
 
 		$fields->addItems( [ new Element( [ 'content' => [ $table ] ] ) ] );
 
-		if ( $this->isAdmin && $this->specialPage->getConfig()->get( 'SecurePollUseNamespace' ) ) {
+		if ( $this->isAdmin && Context::isNamespacedLoggingEnabled() ) {
 			$fields->addItems( [ new FieldLayout( new TextInputWidget( [
 				'name' => 'comment',
 				'maxlength' => 250,

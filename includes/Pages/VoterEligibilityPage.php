@@ -214,7 +214,7 @@ class VoterEligibilityPage extends ActionPage {
 		}
 
 		// Record this election to the SecurePoll namespace, if so configured.
-		if ( $this->specialPage->getConfig()->get( 'SecurePollUseNamespace' ) ) {
+		if ( Context::isNamespacedLoggingEnabled() ) {
 			// Create a new context to bypass caching
 			$context = new Context;
 			$election = $context->getElection( $this->election->getId() );
@@ -411,7 +411,7 @@ class VoterEligibilityPage extends ActionPage {
 		}
 
 		// Record this election to the SecurePoll namespace, if so configured.
-		if ( $this->specialPage->getConfig()->get( 'SecurePollUseNamespace' ) ) {
+		if ( Context::isNamespacedLoggingEnabled() ) {
 			// Create a new context to bypass caching
 			$context = new Context;
 			$election = $context->getElection( $this->election->getId() );
@@ -1198,7 +1198,7 @@ class VoterEligibilityPage extends ActionPage {
 			'default' => implode( "\n", $this->fetchList( $property ) ),
 		];
 
-		if ( $this->specialPage->getConfig()->get( 'SecurePollUseNamespace' ) ) {
+		if ( Context::isNamespacedLoggingEnabled() ) {
 			$formItems['comment'] = [
 				'type' => 'text',
 				'label-message' => 'securepoll-votereligibility-label-comment',
@@ -1331,7 +1331,7 @@ class VoterEligibilityPage extends ActionPage {
 		}
 
 		// Record this election to the SecurePoll namespace, if so configured.
-		if ( $this->specialPage->getConfig()->get( 'SecurePollUseNamespace' ) ) {
+		if ( Context::isNamespacedLoggingEnabled() ) {
 			// Create a new context to bypass caching
 			$context = new Context;
 			$election = $context->getElection( $this->election->getId() );

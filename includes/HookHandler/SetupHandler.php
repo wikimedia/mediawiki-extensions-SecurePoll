@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\SecurePoll\HookHandler;
 
 use MediaWiki\Config\Config;
+use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePollLog;
 use MediaWiki\Hook\CanonicalNamespacesHook;
 use MediaWiki\Permissions\Hook\TitleQuickPermissionsHook;
@@ -55,10 +56,8 @@ class SetupHandler implements
 	public function onTitleQuickPermissions(
 		$title, $user, $action, &$errors, $doExpensiveQueries, $short
 	) {
-		if ( $this->config->get( 'SecurePollUseNamespace' ) && $title->getNamespace() === NS_SECUREPOLL &&
-			$action !== 'read'
-		) {
-			$errors[] = [ 'securepoll-ns-readonly' ];
+		if ( $action !== 'view' && Context::isSecurePollPage( $title ) ) {
+			$errors[] = [ 'securepoll-page-readonly' ];
 
 			return false;
 		}

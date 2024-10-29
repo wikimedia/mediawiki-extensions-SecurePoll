@@ -20,8 +20,7 @@ return [
 	'SecurePoll.TranslationRepo' => static function ( MediaWikiServices $services ): TranslationRepo {
 		return new TranslationRepo(
 			$services->getDBLoadBalancerFactory(),
-			$services->getWikiPageFactory(),
-			$services->getMainConfig()
+			$services->getWikiPageFactory()
 		);
 	}
 ];
