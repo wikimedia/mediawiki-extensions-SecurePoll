@@ -12,8 +12,7 @@ use Wikimedia\Rdbms\ILoadBalancer;
  * Pager for an election list. See TablePager documentation.
  */
 class MainElectionsPager extends ElectionPager {
-	/** @var array[] */
-	private $subpages = [
+	private array $subpages = [
 		'vote' => [
 			'public' => true,
 			'visible-after-start' => true,
@@ -66,10 +65,8 @@ class MainElectionsPager extends ElectionPager {
 			'visible-after-close' => true,
 		]
 	];
-	/** @var LinkRenderer */
-	private $linkRenderer;
-	/** @var ILoadBalancer */
-	private $loadBalancer;
+	private LinkRenderer $linkRenderer;
+	private ILoadBalancer $loadBalancer;
 
 	public function __construct(
 		EntryPage $specialPage,
@@ -102,7 +99,7 @@ class MainElectionsPager extends ElectionPager {
 	/**
 	 * @return string HTML
 	 */
-	public function getLinks() {
+	public function getLinks(): string {
 		$id = (int)$this->mCurrentRow->el_entity;
 
 		$s = '';
@@ -159,10 +156,9 @@ class MainElectionsPager extends ElectionPager {
 
 	/**
 	 * Generate the link to the logs on SecurePollLog for an election
-	 * @param int $id
 	 * @return string HTML
 	 */
-	public function getLogLink( $id ) {
+	public function getLogLink( int $id ): string {
 		return $this->linkRenderer->makeLink(
 			SpecialPage::getTitleValueFor( 'SecurePollLog' ),
 			$this->msg( 'securepoll-subpage-log' )->text(),
