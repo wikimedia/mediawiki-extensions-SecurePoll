@@ -436,7 +436,7 @@ class VotePage extends ActionPage {
 				$votedItems = [];
 				$notVotedItems = [];
 				foreach ( $optionsMsgs as $optionIndex => $option ) {
-					$optionText = $optionsMsgs[$optionIndex]['text'];
+					$optionText = $option['text'] ?? '';
 					$count = $optionIndex;
 					if ( isset( $votes[ $optionIndex ] ) ) {
 						$count = $votes[ $optionIndex ];
