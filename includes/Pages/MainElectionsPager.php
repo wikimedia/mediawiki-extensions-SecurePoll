@@ -100,10 +100,9 @@ class MainElectionsPager extends ElectionPager {
 	 * @return string HTML
 	 */
 	public function getLinks(): string {
-		$id = (int)$this->mCurrentRow->el_entity;
-
-		$s = '';
-		$sep = $this->msg( 'pipe-separator' )->escaped();
+		$pollId = (int)$this->mCurrentRow->el_entity;
+		$html = '';
+		$separator = $this->msg( 'pipe-separator' )->escaped();
 		foreach ( $this->subpages as $subpage => $props ) {
 			// Message keys used here:
 			// securepoll-subpage-vote, securepoll-subpage-translate,
@@ -118,40 +117,40 @@ class MainElectionsPager extends ElectionPager {
 				$linkText = $this->msg( "securepoll-subpage-dump" )->text() . ' (BLT)';
 			}
 
-			if ( $s !== '' ) {
-				$s .= $sep;
+			if ( $html !== '' ) {
+				$html .= $separator;
 			}
-			if (
+
+			$needsHyperlink =
 				( $this->isAdmin || $props['public'] ) &&
-				( !$this->election->isStarted() ||
+				(
+					!$this->election->isStarted() ||
 					( $this->election->isStarted() && $this->election->isFinished() ) ||
-					$props['visible-after-start'] ) &&
-				( !$this->election->isFinished() || $props['visible-after-close'] )
-			) {
+					$props['visible-after-start']
+				) &&
+				( !$this->election->isFinished() || $props['visible-after-close'] );
+			if ( $needsHyperlink ) {
 				if ( isset( $props['link'] ) ) {
-					$s .= $this->{$props['link']}( $id );
+					$html .= $this->{$props['link']}( $pollId );
 				} else {
 					if ( $subpage === "dump-blt" ) {
-						$title = $this->page->specialPage->getPageTitle( "dump/$id" );
-						$s .= $this->linkRenderer->makeKnownLink( $title, $linkText, [], [ 'format' => 'blt' ] );
-
+						$title = $this->page->specialPage->getPageTitle( "dump/$pollId" );
+						$html .= $this->linkRenderer->makeKnownLink( $title, $linkText, [], [ 'format' => 'blt' ] );
 					} else {
-						$title = $this->page->specialPage->getPageTitle( "$subpage/$id" );
-						$s .= $this->linkRenderer->makeKnownLink( $title, $linkText );
+						$title = $this->page->specialPage->getPageTitle( "$subpage/$pollId" );
+						$html .= $this->linkRenderer->makeKnownLink( $title, $linkText );
 					}
 				}
 			} else {
-				$s .= Html::element(
+				$html .= Html::element(
 					'span',
-					[
-						'class' => 'securepoll-link-disabled',
-					],
+					[ 'class' => 'securepoll-link-disabled' ],
 					$linkText
 				);
 			}
 		}
 
-		return $s;
+		return $html;
 	}
 
 	/**
