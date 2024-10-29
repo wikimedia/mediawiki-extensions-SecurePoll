@@ -23,6 +23,7 @@ use MediaWiki\User\User;
 use MediaWiki\WikiMap\WikiMap;
 use MobileContext;
 use OOUI\ButtonInputWidget;
+use OOUI\DropdownInputWidget;
 use OOUI\FieldLayout;
 use OOUI\FieldsetLayout;
 use OOUI\FormLayout;
@@ -39,16 +40,20 @@ use Wikimedia\Rdbms\ILoadBalancer;
 class VotePage extends ActionPage {
 	/** @var Election|null */
 	public $election;
+
 	/** @var Auth|null */
 	public $auth;
+
 	/** @var User|null */
 	public $user;
+
 	/** @var Voter|null */
 	public $voter;
-	/** @var ILoadBalancer */
-	private $loadBalancer;
-	/** @var HookRunner */
-	private $hookRunner;
+
+	private ILoadBalancer $loadBalancer;
+
+	private HookRunner $hookRunner;
+
 	/** @var string */
 	private $mostActiveWikiFormField;
 
@@ -194,7 +199,7 @@ class VotePage extends ActionPage {
 	public function showForm( $status = false ) {
 		$out = $this->specialPage->getOutput();
 
-		// Show introduction
+		// Show the introduction
 		if ( $this->election->hasVoted( $this->voter ) && $this->election->allowChange() ) {
 			$out->addWikiMsg( 'securepoll-change-allowed' );
 		}
@@ -207,7 +212,7 @@ class VotePage extends ActionPage {
 			'items' => $this->getBallot()->getForm( $status )
 		] );
 
-		// Show comments section
+		// Show the comments section
 		if ( $this->election->getProperty( 'request-comment' ) ) {
 			$form->addItems( [
 				new FieldsetLayout( [
@@ -233,7 +238,7 @@ class VotePage extends ActionPage {
 		}
 
 		// Add most active wiki dropdown
-		$form->addItems( [ new \OOUI\FieldLayout(
+		$form->addItems( [ new FieldLayout(
 			$this->createMostActiveWikiDropdownWidget(),
 			[
 				'label' => $this->msg( 'securepoll-vote-most-active-wiki-dropdown-label' )->text(),
@@ -275,7 +280,7 @@ class VotePage extends ActionPage {
 	}
 
 	/**
-	 * Submit the voting form. If successful, adds a record to the database.
+	 * Submit the voting form. If successful, a record is added to the database.
 	 * Shows an error message on failure.
 	 */
 	public function doSubmit() {
@@ -329,7 +334,6 @@ class VotePage extends ActionPage {
 			->caller( __METHOD__ )
 			->execute();
 
-		// Add vote to log
 		$xff = '';
 		if ( !empty( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
 			$xff = $_SERVER['HTTP_X_FORWARDED_FOR'];
@@ -372,9 +376,9 @@ class VotePage extends ActionPage {
 		}
 
 		$returnUrl = $this->election->getProperty( 'return-url' );
-		$returnText = $this->election->getMessage( 'return-text' );
 		if ( $returnUrl ) {
-			if ( strval( $returnText ) === '' ) {
+			$returnText = $this->election->getMessage( 'return-text' );
+			if ( $returnText === '' ) {
 				$returnText = $returnUrl;
 			}
 			$link = "[$returnUrl $returnText]";
@@ -383,7 +387,7 @@ class VotePage extends ActionPage {
 	}
 
 	/**
-	 * Get summary of voting in user readable version
+	 * Get a user-readable summary of voting
 	 *
 	 * @param array $votingData
 	 * @param string $languageCode
@@ -391,11 +395,8 @@ class VotePage extends ActionPage {
 	 */
 	public function getSummaryOfVotes( $votingData, $languageCode ) {
 		$data = $votingData['votes'];
-		$comment = $votingData['comment'];
 
-		/**
-		 * if record cannot be unpacked correctly, show error
-		 */
+		// if record cannot be unpacked correctly, show error
 		if ( !$data ) {
 			return new MessageWidget( [
 				'type' => 'error',
@@ -424,8 +425,8 @@ class VotePage extends ActionPage {
 				$this->msg( 'securepoll-vote-result-question-label', $questionText )
 			);
 
+			$votedItems = [];
 			if ( $this->election->getTallyType() === 'droop-quota' ) {
-				$votedItems = [];
 				foreach ( $votes as $vote ) {
 					$votedItems[] = Html::rawElement( 'li', [], $optionsMsgs[$vote]['text'] );
 				}
@@ -433,14 +434,10 @@ class VotePage extends ActionPage {
 					implode( "\n", $votedItems )
 				);
 			} else {
-				$votedItems = [];
 				$notVotedItems = [];
 				foreach ( $optionsMsgs as $optionIndex => $option ) {
 					$optionText = $option['text'] ?? '';
-					$count = $optionIndex;
-					if ( isset( $votes[ $optionIndex ] ) ) {
-						$count = $votes[ $optionIndex ];
-					}
+					$count = $votes[$optionIndex] ?? $optionIndex;
 
 					if ( $this->election->getTallyType() === 'plurality' ||
 						$this->election->getTallyType() === 'histogram-range' ) {
@@ -500,6 +497,7 @@ class VotePage extends ActionPage {
 			$summary .= $html;
 		}
 
+		$comment = $votingData['comment'];
 		if ( $comment !== '' ) {
 			$summary .= Html::element( 'div', [ 'class' => 'securepoll-vote-result-comment' ],
 				$this->msg( 'securepoll-vote-result-comment', $comment )->plain()
@@ -515,10 +513,10 @@ class VotePage extends ActionPage {
 	public function getVoteDataFromRecord( $record ) {
 		$blob = VoteRecord::readBlob( $record );
 		$ballotData = $blob->value->getBallotData();
-		$data = [];
-		$data['votes'] = $this->getBallot()->unpackRecord( $ballotData );
-		$data['comment'] = $blob->value->getComment();
-		return $data;
+		return [
+			'votes' => $this->getBallot()->unpackRecord( $ballotData ),
+			'comment' => $blob->value->getComment(),
+		];
 	}
 
 	/**
@@ -611,7 +609,7 @@ class VotePage extends ActionPage {
 	 * Filtered by percentage of edits on each wiki, with a threshold configured in SecurePollMostActiveWikisThreshold.
 	 * This is used to log the domain of the wiki.
 	 *
-	 * @return \OOUI\DropdownInputWidget
+	 * @return DropdownInputWidget
 	 */
 	public function createMostActiveWikiDropdownWidget() {
 		$options = $this->populateUsersActiveWikiOptions();
@@ -627,7 +625,7 @@ class VotePage extends ActionPage {
 			'data' => $defaultDomain
 		] );
 
-		return new \OOUI\DropdownInputWidget( [
+		return new DropdownInputWidget( [
 			'infusable' => true,
 			'name' => $this->mostActiveWikiFormField,
 			'required' => true,
@@ -653,7 +651,7 @@ class VotePage extends ActionPage {
 		$centralUser = CentralAuthUser::getInstanceByName( $user->getName() );
 		$wikiInfos = $centralUser->queryAttached();
 
-		// Find and add corresponding domain
+		// Find and add the corresponding domain
 		$wikiInfos = array_map( static function ( $info ) use ( $wgConf ) {
 			$info['domain'] = $wgConf->get( 'wgServer', $info['wiki'] );
 
