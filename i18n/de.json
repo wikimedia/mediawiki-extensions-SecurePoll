@@ -119,6 +119,7 @@
 	"securepoll-header-title": "Name",
 	"securepoll-header-start-date": "Beginn",
 	"securepoll-header-end-date": "Ende",
+	"securepoll-header-links": "Links",
 	"securepoll-subpage-vote": "Abstimmen",
 	"securepoll-subpage-translate": "Übersetzen",
 	"securepoll-subpage-list": "Liste",
@@ -197,7 +198,7 @@
 	"securepoll-create-label-openssl_sign_key": "Signaturschlüssel",
 	"securepoll-create-label-questions": "== Fragen ==",
 	"securepoll-create-questions-row-legend": "Frage",
-	"securepoll-create-label-questions-question": "Fragetext:",
+	"securepoll-create-label-questions-question": "Fragetext (akzeptiert grundlegenden Wikitext):",
 	"securepoll-create-label-questions-add": "Eine weitere Frage hinzufügen",
 	"securepoll-create-label-questions-delete": "Frage löschen",
 	"securepoll-create-label-min_score": "Minimales Ergebnis:",
@@ -208,7 +209,7 @@
 	"securepoll-create-option-column_order-desc": "Absteigend",
 	"securepoll-create-label-column_label_msgs": "Benutzerdefinierte Nachrichten für die Spaltenüberschriften verwenden",
 	"securepoll-create-label-questions-option": "=== Optionen ===",
-	"securepoll-create-label-options-option": "Text der Option:",
+	"securepoll-create-label-options-option": "Text der Option (akzeptiert grundlegenden Wikitext):",
 	"securepoll-create-label-options-add": "Eine weitere Option hinzufügen",
 	"securepoll-create-label-options-delete": "Option löschen",
 	"securepoll-create-label-option-name": "Name der Option:",
@@ -354,5 +355,8 @@
 	"securepoll-vote-result-error-label": "Deine Stimmen konnten nicht korrekt entpackt werden. Bitte wende dich an einen Wahlleiter",
 	"securepoll-vote-stv-clear-btn-label": "Alle Kandidaten löschen",
 	"securepoll-vote-most-active-wiki-dropdown-label": "Wähle dein aktivstes Wiki",
-	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1 ($2, $3 {{PLURAL:$3|Bearbeitung|Bearbeitungen}})"
+	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1 ($2, $3 {{PLURAL:$3|Bearbeitung|Bearbeitungen}})",
+	"group-electionadmin": "Wahlleiter",
+	"group-electionadmin-member": "{{GENDER:$1|Wahlleiter|Wahlleiterin}}",
+	"grouppage-electionadmin": "{{ns:project}}:Wahlleiter"
 }

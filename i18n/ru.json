@@ -128,6 +128,7 @@
 	"securepoll-header-title": "Имя",
 	"securepoll-header-start-date": "Дата начала",
 	"securepoll-header-end-date": "Дата окончания",
+	"securepoll-header-links": "Ссылки",
 	"securepoll-subpage-vote": "Голосование",
 	"securepoll-subpage-translate": "Перевод",
 	"securepoll-subpage-list": "Список",
@@ -307,5 +308,6 @@
 	"securepoll-stv-result-round-eliminated": "Исключенный: $1",
 	"securepoll-stv-result-round-keep-factor": "(коэффициент сохранения: $1)",
 	"securepoll-vote-result-question-label": "Вопрос: $1",
-	"securepoll-vote-result-comment": "Комментарий: $1"
+	"securepoll-vote-result-comment": "Комментарий: $1",
+	"group-electionadmin": "Администраторы выборов"
 }
