@@ -108,7 +108,7 @@ abstract class Ballot {
 	 * @return array
 	 * @see Election::getMessageNames()
 	 */
-	public function getMessageNames( Entity $entity = null ) {
+	public function getMessageNames( ?Entity $entity = null ) {
 		return [];
 	}
 

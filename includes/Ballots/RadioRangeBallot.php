@@ -184,7 +184,7 @@ class RadioRangeBallot extends Ballot {
 		return $labels;
 	}
 
-	public function getMessageNames( Entity $entity = null ) {
+	public function getMessageNames( ?Entity $entity = null ) {
 		if ( $entity === null || $entity->getType() !== 'question' ) {
 			return [];
 		}
