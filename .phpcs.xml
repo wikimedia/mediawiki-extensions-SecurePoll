@@ -4,7 +4,6 @@
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationPrivate" />
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationProtected" />
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic" />
-		<exclude name="MediaWiki.Usage.NullableType.ExplicitNullableTypes" />
 	</rule>
 	<rule ref="MediaWiki.Files.ClassMatchesFilename.NotMatch">
 		<exclude-pattern>*/cli/*.php</exclude-pattern>
