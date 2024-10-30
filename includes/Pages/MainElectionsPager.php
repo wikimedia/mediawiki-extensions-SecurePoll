@@ -103,6 +103,12 @@ class MainElectionsPager extends ElectionPager {
 		$pollId = (int)$this->mCurrentRow->el_entity;
 		$html = '';
 		$separator = $this->msg( 'pipe-separator' )->escaped();
+
+		// Only show "Logs" link if the page Special:SecurePollLog is enabled
+		if ( !$this->getConfig()->get( 'SecurePollUseLogging' ) ) {
+			unset( $this->subpages['log'] );
+		}
+
 		foreach ( $this->subpages as $subpage => $props ) {
 			// Message keys used here:
 			// securepoll-subpage-vote, securepoll-subpage-translate,
