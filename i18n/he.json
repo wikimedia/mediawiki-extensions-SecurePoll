@@ -197,7 +197,7 @@
 	"securepoll-create-label-openssl_sign_key": "מפתח חתימה",
 	"securepoll-create-label-questions": "== שאלות ==",
 	"securepoll-create-questions-row-legend": "שאלה",
-	"securepoll-create-label-questions-question": "טקסט השאלה:",
+	"securepoll-create-label-questions-question": "טקסט השאלה (אפשר לכלול קוד ויקי בסיסי):",
 	"securepoll-create-label-questions-add": "להוסיף שאלה אחרת",
 	"securepoll-create-label-questions-delete": "למחוק שאלה",
 	"securepoll-create-label-min_score": "דירוג מינימלי:",
@@ -208,7 +208,7 @@
 	"securepoll-create-option-column_order-desc": "יורד",
 	"securepoll-create-label-column_label_msgs": "להשתמש בהודעות מוטעמות לתוויות של עמודות",
 	"securepoll-create-label-questions-option": "=== אפשרויות ===",
-	"securepoll-create-label-options-option": "טקסט האפשרות:",
+	"securepoll-create-label-options-option": "טקסט האפשרות (אפשר לכלול קוד ויקי בסיסי):",
 	"securepoll-create-label-options-add": "הוספת אפשרות",
 	"securepoll-create-label-options-delete": "מחיקת אפשרות",
 	"securepoll-create-label-option-name": "שם האפשרות:",
@@ -354,5 +354,8 @@
 	"securepoll-vote-result-error-label": "לא היה אפשר לפרוק את ההצבעות שלך כראוי. נא לפנות למנהל בחירות",
 	"securepoll-vote-stv-clear-btn-label": "ניקוי כל המועמדים",
 	"securepoll-vote-most-active-wiki-dropdown-label": "נא לבחור את הוויקי הפעיל ביותר שלך",
-	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1 (בכתובת $2, עם {{PLURAL:$3|עריכה אחת|$3 עריכות}})"
+	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1 (בכתובת $2, עם {{PLURAL:$3|עריכה אחת|$3 עריכות}})",
+	"group-electionadmin": "מנהלי בחירות",
+	"group-electionadmin-member": "{{GENDER:$1|מנהל|מנהלת}} בחירות",
+	"grouppage-electionadmin": "{{ns:project}}:מנהלי בחירות"
 }

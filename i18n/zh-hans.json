@@ -222,7 +222,7 @@
 	"securepoll-create-label-openssl_sign_key": "签名密钥",
 	"securepoll-create-label-questions": "== 问题 ==",
 	"securepoll-create-questions-row-legend": "问题",
-	"securepoll-create-label-questions-question": "问题文本：",
+	"securepoll-create-label-questions-question": "问题文本（接受简单的wikitext）：",
 	"securepoll-create-label-questions-add": "加入其他问题",
 	"securepoll-create-label-questions-delete": "删除问题",
 	"securepoll-create-label-min_score": "最低分：",
@@ -233,7 +233,7 @@
 	"securepoll-create-option-column_order-desc": "降序",
 	"securepoll-create-label-column_label_msgs": "使用列的自定义消息标签",
 	"securepoll-create-label-questions-option": "=== 选项 ===",
-	"securepoll-create-label-options-option": "选项文本：",
+	"securepoll-create-label-options-option": "选项文本（接受简单的wikitext）：",
 	"securepoll-create-label-options-add": "加入其他选项",
 	"securepoll-create-label-options-delete": "删除选项",
 	"securepoll-create-label-option-name": "选项名：",
@@ -379,5 +379,8 @@
 	"securepoll-vote-result-error-label": "您的投票无法正确取出。请联系选举管理员",
 	"securepoll-vote-stv-clear-btn-label": "清除全部候选人",
 	"securepoll-vote-most-active-wiki-dropdown-label": "选择您最活跃的wiki",
-	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1（$2，$3{{PLURAL:$3|次编辑}}）"
+	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1（$2，$3{{PLURAL:$3|次编辑}}）",
+	"group-electionadmin": "选举管理员",
+	"group-electionadmin-member": "{{GENDER:$1|选举管理员}}",
+	"grouppage-electionadmin": "{{ns:project}}:选举管理员"
 }

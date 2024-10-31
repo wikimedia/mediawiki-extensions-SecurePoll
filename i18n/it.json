@@ -174,7 +174,7 @@
 	"securepoll-create-label-gpg_sign_key": "Chiave di firma GPG",
 	"securepoll-create-label-questions": "== Domande ==",
 	"securepoll-create-questions-row-legend": "Domanda",
-	"securepoll-create-label-questions-question": "Testo della domanda:",
+	"securepoll-create-label-questions-question": "Testo della domanda (accetta wikitesto di base):",
 	"securepoll-create-label-questions-add": "Aggiungi un'altra domanda",
 	"securepoll-create-label-questions-delete": "Cancella domanda",
 	"securepoll-create-label-min_score": "Punteggio minimo:",
@@ -185,7 +185,7 @@
 	"securepoll-create-option-column_order-desc": "Decrescente",
 	"securepoll-create-label-column_label_msgs": "Utilizza messaggi personalizzati per le etichette di colonna",
 	"securepoll-create-label-questions-option": "=== Opzioni ===",
-	"securepoll-create-label-options-option": "Testo dell'opzione:",
+	"securepoll-create-label-options-option": "Testo dell'opzione (accetta wikitesto di base):",
 	"securepoll-create-label-options-add": "Aggiungi un'altra opzione",
 	"securepoll-create-label-options-delete": "Cancella opzione",
 	"securepoll-create-label-option-name": "Nome dell'opzione:",
@@ -301,5 +301,8 @@
 	"securepoll-stv-result-round-eliminated": "Eliminato: $1",
 	"securepoll-stv-result-round-keep-factor": "(fattore di mantenimento: $1 )",
 	"securepoll-vote-result-question-label": "Domanda: $1",
-	"securepoll-vote-result-comment": "Commento: $1"
+	"securepoll-vote-result-comment": "Commento: $1",
+	"group-electionadmin": "Amministratori delle elezioni",
+	"group-electionadmin-member": "{{GENDER:$1|amministratore|amministratrice|amministratore/trice}} delle elezioni",
+	"grouppage-electionadmin": "{{ns:project}}:Amministratori delle elezioni"
 }

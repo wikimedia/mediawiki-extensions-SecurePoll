@@ -193,7 +193,7 @@
 	"securepoll-create-label-openssl_sign_key": "Потписен клуч",
 	"securepoll-create-label-questions": "== Прашања ==",
 	"securepoll-create-questions-row-legend": "Прашање",
-	"securepoll-create-label-questions-question": "Текст на прашањето",
+	"securepoll-create-label-questions-question": "Текст на прашањето (прифаќа основен викитекст):",
 	"securepoll-create-label-questions-add": "Додај друго прашање",
 	"securepoll-create-label-questions-delete": "Избриши го прашањето",
 	"securepoll-create-label-min_score": "Мин. бодови:",
@@ -204,7 +204,7 @@
 	"securepoll-create-option-column_order-desc": "Надолно",
 	"securepoll-create-label-column_label_msgs": "Користи свој текст во залгавијата на столбовите",
 	"securepoll-create-label-questions-option": "=== Можности ===",
-	"securepoll-create-label-options-option": "Текст на можноста",
+	"securepoll-create-label-options-option": "Текст на можноста (прифаќа основен викитекст):",
 	"securepoll-create-label-options-add": "Додај друга можност",
 	"securepoll-create-label-options-delete": "Избриши ја можноста",
 	"securepoll-create-label-option-name": "Назив на можноста:",
@@ -350,5 +350,8 @@
 	"securepoll-vote-result-error-label": "Не можев правилно да ги отпакувам вашите гласови. Обратете се кај изборен администратор",
 	"securepoll-vote-stv-clear-btn-label": "Исчисти ги сите кандидати",
 	"securepoll-vote-most-active-wiki-dropdown-label": "Изберете го викито на кое сте најактивни",
-	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1 ($2, $3 {{PLURAL:$3|уредување|уредувања}})"
+	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1 ($2, $3 {{PLURAL:$3|уредување|уредувања}})",
+	"group-electionadmin": "Изборни администратори",
+	"group-electionadmin-member": "{{GENDER:$1|изборен администратор}}",
+	"grouppage-electionadmin": "{{ns:project}}:Изборни администратори"
 }
