@@ -12,7 +12,7 @@
 	},
 	"securepoll": "SecurePoll",
 	"securepoll-desc": "Seçkilər və sorğular üçün uzantı",
-	"securepoll-invalid-page": "Yanlış alt səhifə \"<nowiki>$1</nowiki>\"",
+	"securepoll-invalid-page": "Yanlış \"<nowiki>$1</nowiki>\" alt səhifəsi",
 	"securepoll-need-admin": "Bu əməliyyatı yerinə yetirmək üçün siz seçki idarəçisi olmalısınız.",
 	"securepoll-too-few-params": "Kifayət qədər alt səhifə parametrləri yoxdur (etibarsız keçid).",
 	"securepoll-invalid-election": "\"$1\" etibarlı seçki identifikatoru deyil.",
