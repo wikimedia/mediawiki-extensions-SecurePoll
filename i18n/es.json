@@ -31,7 +31,10 @@
 			"Translationista",
 			"Vivaelcelta",
 			"White Master King",
-			"Whovian Biologist"
+			"Whovian Biologist",
+			"Eulalio",
+			"Galahad",
+			"No se"
 		]
 	},
 	"securepoll": "SecurePoll",
@@ -90,10 +93,7 @@
 	"securepoll-header-date": "Fecha",
 	"securepoll-header-voter-name": "Nombre",
 	"securepoll-header-voter-domain": "Dominio",
-	"securepoll-header-ip": "IP",
-	"securepoll-header-xff": "XFF",
 	"securepoll-header-ua": "Agente de usuario",
-	"securepoll-header-token-match": "CSRF",
 	"securepoll-header-cookie-dup": "Duplicada",
 	"securepoll-header-strike": "Invalidar",
 	"securepoll-header-details": "Detalles",
@@ -109,7 +109,6 @@
 	"securepoll-invalid-vote": "«$1» no es un identificador de voto válido",
 	"securepoll-header-id": "ID",
 	"securepoll-header-voter-type": "Tipo de votante",
-	"securepoll-header-url": "URL",
 	"securepoll-voter-properties": "Propiedades de votante",
 	"securepoll-strike-log": "Registro de votos invalidados",
 	"securepoll-header-action": "Acción",
@@ -233,7 +232,6 @@
 	"securepoll-create-option-election_type-radio-range-comment+histogram-range": "Gama de votación (histograma) con comentario",
 	"securepoll-create-option-election_type-stv+droop-quota": "Voto único transferible con cuota Droop",
 	"securepoll-create-option-election_crypt-none": "Sin cifrado",
-	"securepoll-create-option-election_crypt-gpg": "GPG",
 	"securepoll-create-label-comment": "Motivo",
 	"securepoll-create-user-not-in-electionadmin-group": "\"$1\" no es un {{GENDER:$1|miembro}} del grupo electionadmin.",
 	"securepoll-create-fail-bad-id": "El identificador de elección enviado no coincide con la elección que está siendo editada",

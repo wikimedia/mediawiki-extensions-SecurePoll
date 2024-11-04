@@ -25,7 +25,9 @@
 			"Wyz",
 			"Yann",
 			"Əric",
-			"McDutchie"
+			"McDutchie",
+			"Goombiis",
+			"SleaY"
 		]
 	},
 	"securepoll": "Sondage sécurisé",
@@ -85,10 +87,7 @@
 	"securepoll-header-date": "Date",
 	"securepoll-header-voter-name": "Nom",
 	"securepoll-header-voter-domain": "Domaine",
-	"securepoll-header-ip": "IP",
-	"securepoll-header-xff": "XFF",
 	"securepoll-header-ua": "Agent utilisateur",
-	"securepoll-header-token-match": "CSRF",
 	"securepoll-header-cookie-dup": "Doublon",
 	"securepoll-header-strike": "Biffer",
 	"securepoll-header-details": "Détails",
@@ -104,7 +103,6 @@
 	"securepoll-invalid-vote": "« $1 » n’est pas un identifiant de vote valide",
 	"securepoll-header-id": "Identifiant",
 	"securepoll-header-voter-type": "Type de votant",
-	"securepoll-header-url": "URL",
 	"securepoll-voter-properties": "Propriétés du votant",
 	"securepoll-strike-log": "Journal des biffages",
 	"securepoll-header-action": "Action",
@@ -230,7 +228,6 @@
 	"securepoll-create-option-election_type-radio-range-comment+histogram-range": "Gamme des votes (plage d’histogramme) avec commentaire",
 	"securepoll-create-option-election_type-stv+droop-quota": "Vote unique transférable avec le quota Droop",
 	"securepoll-create-option-election_crypt-none": "Aucun chiffrement",
-	"securepoll-create-option-election_crypt-gpg": "GPG",
 	"securepoll-create-label-comment": "Motif",
 	"securepoll-create-user-not-in-electionadmin-group": "« $1 » n’est pas {{GENDER:$1|membre}} du groupe electionadmin.",
 	"securepoll-create-fail-bad-id": "L’ID d’élection soumis ne correspond pas à l’élection en cours de modification",

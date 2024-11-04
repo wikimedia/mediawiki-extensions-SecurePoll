@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Siebrand"
+			"Siebrand",
+			"McDutchie"
 		]
 	},
 	"securepoll-need-admin": "Je moet een stemmingenbeheerder zijn om deze handeling te mogen uitvoeren.",

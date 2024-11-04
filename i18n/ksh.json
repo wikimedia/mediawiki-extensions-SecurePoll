@@ -56,7 +56,6 @@
 	"securepoll-header-ip": "<i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"Internet Protocol\">IP</i>-Adräß",
 	"securepoll-header-xff": "<i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"X-Forwarded-For\">XFF</i>",
 	"securepoll-header-ua": "Däm Metmaacher singe Brauser",
-	"securepoll-header-token-match": "<i lang=\"en\">CSRF</i>",
 	"securepoll-header-cookie-dup": "Dubbelt Afjeshtemmp",
 	"securepoll-header-strike": "Ußshtrieshe?",
 	"securepoll-header-details": "Einzelheite",
