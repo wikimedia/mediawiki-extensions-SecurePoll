@@ -76,31 +76,26 @@ class DetailsPage extends ActionPage {
 		$out->setPageTitleMsg( $this->msg( 'securepoll-details-title', $this->voteId ) );
 
 		$out->addHTML(
-			'<table class="mw-datatable TablePager">' . $this->detailEntry(
-				'securepoll-header-id',
-				$row->vote_id
-			) . $this->detailEntry(
-				'securepoll-header-timestamp',
-				$row->vote_timestamp
-			) . $this->detailEntry(
-				'securepoll-header-voter-name',
-				$row->voter_name
-			) . $this->detailEntry(
-				'securepoll-header-voter-type',
-				$row->voter_type
-			) . $this->detailEntry(
-				'securepoll-header-voter-domain',
-				$row->voter_domain
-			) . $this->detailEntry( 'securepoll-header-url', $row->voter_url ) . $this->detailEntry(
-				'securepoll-header-ip',
-				$vote_ip
-			) . $this->detailEntry( 'securepoll-header-xff', $vote_xff ) . $this->detailEntry(
-				'securepoll-header-ua',
-				$vote_ua
-			) . $this->detailEntry(
-				'securepoll-header-token-match',
-				$row->vote_token_match
-			) . '</table>'
+			'<table class="mw-datatable TablePager">' .
+			$this->detailEntry( 'securepoll-header-id', $row->vote_id ) .
+			$this->detailEntry( 'securepoll-header-timestamp', $row->vote_timestamp ) .
+			$this->detailEntry( 'securepoll-header-voter-name', $row->voter_name ) .
+			$this->detailEntry( 'securepoll-header-voter-type', $row->voter_type ) .
+			$this->detailEntry( 'securepoll-header-voter-domain', $row->voter_domain ) .
+			$this->detailEntry( 'securepoll-header-url', $row->voter_url )
+		);
+
+		if ( $this->specialPage->getAuthority()->isAllowed( 'securepoll-view-voter-pii' ) ) {
+			$out->addHTML(
+				$this->detailEntry( 'securepoll-header-ip', $vote_ip ) .
+				$this->detailEntry( 'securepoll-header-xff', $vote_xff ) .
+				$this->detailEntry( 'securepoll-header-ua', $vote_ua )
+			);
+		}
+
+		$out->addHTML(
+			$this->detailEntry( 'securepoll-header-token-match', $row->vote_token_match ) .
+			'</table>'
 		);
 
 		// Show voter properties
