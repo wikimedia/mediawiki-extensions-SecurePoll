@@ -190,6 +190,7 @@
 	"securepoll-create-label-must_answer_all": "Require that all options be answered",
 	"securepoll-create-label-voter_privacy": "Disable transparency features (e.g. voter list) to protect voter privacy",
 	"securepoll-create-label-request-comment": "Request free text comments at the end of the ballot",
+	"securepoll-create-label-prompt-active-wiki": "Prompt user to select their most active wiki",
 	"securepoll-create-label-comment-prompt": "Prompt text for comments:",
 	"securepoll-create-label-gpg_encrypt_key": "GPG encryption key",
 	"securepoll-create-label-gpg_sign_key": "GPG signing key",

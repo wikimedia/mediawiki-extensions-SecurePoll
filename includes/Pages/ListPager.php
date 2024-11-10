@@ -210,6 +210,10 @@ class ListPager extends TablePager {
 			$fields = self::$publicFields;
 		}
 
+		if ( !$this->election->getProperty( 'prompt-active-wiki' ) ) {
+			unset( $fields['vote_voter_domain'] );
+		}
+
 		foreach ( $fields as $field => $headerMessageName ) {
 			$names[$field] = $this->msg( $headerMessageName )->text();
 		}
