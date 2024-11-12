@@ -32,7 +32,8 @@
 			"Zhang8569",
 			"沈澄心",
 			"飞舞回堂前",
-			"魔琴"
+			"魔琴",
+			"SunAfterRain"
 		]
 	},
 	"securepoll": "安全投票",
@@ -245,7 +246,7 @@
 	"securepoll-create-option-election_type-radio-range-comment+plurality": "带评论的计分投票（简单多数）",
 	"securepoll-create-option-election_type-radio-range-comment+histogram-range": "带评论的计分投票（直方图计分）",
 	"securepoll-create-option-election_type-stv+droop-quota": "带有Droop配额的单次可转让投票",
-	"securepoll-create-option-election_crypt-none": "没有加密",
+	"securepoll-create-option-election_crypt-none": "不加密",
 	"securepoll-create-label-comment": "原因",
 	"securepoll-create-user-not-in-electionadmin-group": "“$1”不是选举管理员组的{{GENDER:$1|成员}}。",
 	"securepoll-create-fail-bad-id": "提交的选举ID不匹配正在编辑的选举",
@@ -354,6 +355,7 @@
 	"securepoll-translate-import-button-label": "导入翻译",
 	"securepoll-translation-importer-no-content": "页面内容为空",
 	"securepoll-translation-importer-update-start": "正在导入页面$1",
+	"securepoll-translation-importer-update-parsed-content": "准备解析储存于$1的页面内容",
 	"securepoll-translation-importer-no-selected-language": "没有可导入的语言",
 	"securepoll-translation-result-error-title": "错误",
 	"securepoll-translation-result-error-text": "这些页面发生错误",
@@ -371,7 +373,7 @@
 	"securepoll-vote-result-rated-option-label": "$1：评比为$2",
 	"securepoll-vote-result-not-voted-option-label": "$1：未投票",
 	"securepoll-vote-result-not-checked-option-label": "$1：未选择",
-	"securepoll-vote-result-checked-option-label": "$1：已检查",
+	"securepoll-vote-result-checked-option-label": "$1：已选取",
 	"securepoll-vote-result-comment": "评论：$1",
 	"securepoll-vote-result-error-label": "您的投票无法正确取出。请联系选举管理员",
 	"securepoll-vote-stv-clear-btn-label": "清除全部候选人",
