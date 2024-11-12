@@ -191,6 +191,7 @@
 	"securepoll-create-label-must_answer_all": "Alle Optionen müssen beantwortet werden",
 	"securepoll-create-label-voter_privacy": "Transparenzfunktionen deaktivieren (z.&nbsp;B. die Wählerliste), um die Privatsphäre der Wählerinnen und Wähler zu schützen",
 	"securepoll-create-label-request-comment": "Kommentare im Freitextformat am Ende des Stimmzettels anfordern",
+	"securepoll-create-label-prompt-active-wiki": "Aufforderung an den Benutzer, sein aktivstes Wiki auszuwählen",
 	"securepoll-create-label-comment-prompt": "Aufforderung zum Schreiben von Kommentaren",
 	"securepoll-create-label-gpg_encrypt_key": "GPG-Verschlüsselungsschlüssel",
 	"securepoll-create-label-gpg_sign_key": "GPG-Signaturschlüssel",

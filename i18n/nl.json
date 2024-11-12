@@ -197,6 +197,7 @@
 	"securepoll-create-label-must_answer_all": "Vereisen dat alle opties worden beantwoord",
 	"securepoll-create-label-voter_privacy": "Transparantiefuncties (bijv. kiezerslijst) uitschakelen om de privacy van kiezers te beschermen",
 	"securepoll-create-label-request-comment": "Onderaan het stembriefje om opmerkingen in vrije tekst vragen",
+	"securepoll-create-label-prompt-active-wiki": "De gebruiker vragen om diens meest actieve wiki te selecteren",
 	"securepoll-create-label-comment-prompt": "Vraagtekst voor opmerkingen:",
 	"securepoll-create-label-gpg_encrypt_key": "GPG-encryptiesleutel",
 	"securepoll-create-label-gpg_sign_key": "GPG-ondertekeningssleutel",

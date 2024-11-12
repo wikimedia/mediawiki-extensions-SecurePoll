@@ -189,6 +189,7 @@
 	"securepoll-create-label-must_answer_all": "Bütün variantların cavablandırılmasını tələb et",
 	"securepoll-create-label-voter_privacy": "Seçici məxfiliyini qorumaq üçün şəffaflıq xüsusiyyətlərini (məsələn, seçici siyahısı) söndür",
 	"securepoll-create-label-request-comment": "Səsvermənin sonunda istəyə bağlı mətn şərhləri tələb et",
+	"securepoll-create-label-prompt-active-wiki": "İstifadəçiyə ən aktiv vikisini seçməyi təklif edin",
 	"securepoll-create-label-comment-prompt": "Şərhlər üçün mətn:",
 	"securepoll-create-label-gpg_encrypt_key": "GPG şifrələmə açarı",
 	"securepoll-create-label-gpg_sign_key": "GPG imzalama açarı",

@@ -190,6 +190,7 @@
 	"securepoll-create-label-must_answer_all": "לדרוש תשובות לכל האפשרויות",
 	"securepoll-create-label-voter_privacy": "כיבוי אפשרויות שקיפות (למשל רשימת המצביעים) כדי להגן על פרטיות המצביעים",
 	"securepoll-create-label-request-comment": "לבקש הערות בטקסט חופשי בסוף טופס ההצבעה",
+	"securepoll-create-label-prompt-active-wiki": "לבקש מהמשתמש לבחור את הוויקי הפעיל ביותר שלו",
 	"securepoll-create-label-comment-prompt": "טקסט הנחיה להערות:",
 	"securepoll-create-label-gpg_encrypt_key": "מפתח הצפנה GPG",
 	"securepoll-create-label-gpg_sign_key": "מפתח חתימה GPG",
