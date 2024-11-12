@@ -181,20 +181,6 @@ class SecurePollContentHandler extends JsonContentHandler {
 		return $wgSecurePollUseNamespace && $title->getNamespace() == NS_SECUREPOLL;
 	}
 
-	public function getActionOverrides() {
-		// Disable write actions
-		return [
-			'delete' => false,
-			'edit' => false,
-			'info' => false,
-			'protect' => false,
-			'revert' => false,
-			'rollback' => false,
-			'submit' => false,
-			'unprotect' => false,
-		];
-	}
-
 	protected function getContentClass() {
 		return SecurePollContent::class;
 	}
