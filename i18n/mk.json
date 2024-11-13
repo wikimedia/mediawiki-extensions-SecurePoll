@@ -186,6 +186,7 @@
 	"securepoll-create-label-must_answer_all": "Барај да се одговорат сите можности",
 	"securepoll-create-label-voter_privacy": "Исклучи ги можностите за транспарентност (на пр. гласачки список) за да се заштити приватноста на гласачите",
 	"securepoll-create-label-request-comment": "Побарај коментари во слободен текст на крајот од гласачкото ливче",
+	"securepoll-create-label-prompt-active-wiki": "Побарај од корисникот да избере најактивно вики",
 	"securepoll-create-label-comment-prompt": "Поттикнувачки текст за коментари:",
 	"securepoll-create-label-gpg_encrypt_key": "GPG-шифрарник",
 	"securepoll-create-label-gpg_sign_key": "GPG-највник",
