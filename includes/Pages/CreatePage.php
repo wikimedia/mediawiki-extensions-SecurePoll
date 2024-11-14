@@ -8,6 +8,7 @@ use MediaWiki\Exception\PermissionsError;
 use MediaWiki\Extension\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Crypt\Crypt;
+use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Entities\Entity;
 use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
 use MediaWiki\Extension\SecurePoll\SecurePollContentHandler;
@@ -587,7 +588,7 @@ class CreatePage extends ActionPage {
 			$this->logAdminChanges( $originalFormData, $formData, $this->election->getId() );
 		}
 
-		$this->recordElectionToNamespace( $this->election->getId(), $formData );
+		$this->recordElectionToNamespace( $this->election, $this->election->getId(), $formData );
 
 		return Status::newGood( $this->election->getId() );
 	}
@@ -889,28 +890,19 @@ class CreatePage extends ActionPage {
 			}
 		}
 
-		$this->recordElectionToNamespace( $eId, $formData );
+		$this->recordElectionToNamespace( $election, $eId, $formData );
 
 		return Status::newGood( $eId );
 	}
 
 	/**
 	 * Record this election to the SecurePoll namespace, if so configured.
-	 *
-	 * @param int $eId election id
-	 * @param array $formData
 	 */
-	private function recordElectionToNamespace( $eId, $formData ) {
+	private function recordElectionToNamespace( Election $election, int $electionId, array $formData ) {
 		if ( $this->specialPage->getConfig()->get( 'SecurePollUseNamespace' ) ) {
-			// Create a new context to bypass caching.
-			$context = new Context;
-			// We may be inside a transaction, so force a primary DB connection (T209804)
-			$context->getStore()->setForcePrimary( true );
-
-			$election = $context->getElection( $eId );
-
 			[ $title, $content ] = SecurePollContentHandler::makeContentFromElection(
-				$election
+				$election,
+				$electionId
 			);
 			$wp = $this->wikiPageFactory->newFromTitle( $title );
 			$wp->doUserEditContent(
@@ -921,6 +913,7 @@ class CreatePage extends ActionPage {
 
 			[ $title, $content ] = SecurePollContentHandler::makeContentFromElection(
 				$election,
+				$electionId,
 				'msg/' . $election->getLanguage()
 			);
 			$wp = $this->wikiPageFactory->newFromTitle( $title );
