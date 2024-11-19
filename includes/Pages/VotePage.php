@@ -422,7 +422,7 @@ class VotePage extends ActionPage {
 			}
 			$questionText = $questionMsg[$questionIndex]['text'];
 			$html = Html::openElement( 'div', [ 'class' => 'securepoll-vote-result-question-cnt' ] );
-			$html .= Html::element(
+			$html .= Html::rawElement(
 				'p', [ 'class' => 'securepoll-vote-result-question' ],
 				$this->msg( 'securepoll-vote-result-question-label', $questionText )
 			);
