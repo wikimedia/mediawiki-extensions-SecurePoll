@@ -27,7 +27,8 @@
 			"Wladek92",
 			"Wyz",
 			"Yann",
-			"Əric"
+			"Əric",
+			"Mahabarata"
 		]
 	},
 	"securepoll": "Sondage sécurisé",
@@ -55,7 +56,12 @@
 	"securepoll-full-gpg-error": "Erreur lors de l’exécution de GPG :\n\nCommande : $1\n\nErreur :\n<pre>$2</pre>",
 	"securepoll-gpg-config-error": "Les clés de GPG ne sont pas correctement configurées.",
 	"securepoll-gpg-parse-error": "Erreur lors de l’interprétation de la sortie de GPG.",
+	"securepoll-secret-openssl-error": "Erreur lors de l'exécution d'une opération de cryptographie.\nUtilisez $wgSecurePollShowErrorDetail=true; dans LocalSettings.php pour afficher plus de détails.",
+	"securepoll-full-openssl-error": "Erreur lors de l'exécution d'une opération de cryptographie :\n<pre>$1</pre>",
+	"securepoll-openssl-invalid-key": "L'une des clés fournies n'était pas valide. Une clé de chiffrement doit être une clé publique RSA d'au moins 2 048 bits et une clé de déchiffrement ou de signature doit être une clé privée RSA d'au moins 2 048 bits.",
 	"securepoll-no-decryption-key": "Aucune clé de décryptage n’a été configurée.\nImpossible de déchiffrer.",
+	"securepoll-wrong-decryption-key": "La clé de déchiffrement configurée est incorrecte.\nImpossible de déchiffrer.",
+	"securepoll-no-verification-key": "Aucune clé de vérification n'est configurée.\nImpossible de valider les enregistrements de vote.",
 	"securepoll-invalid-record": "Enregistrement de vote non valide.",
 	"securepoll-jump": "Aller au serveur de vote",
 	"securepoll-ballot-type-archived": "Ce type de bulletin de vote a été archivé et ne peut plus être utilisé pour voter.",
@@ -114,6 +120,8 @@
 	"securepoll-dump-not-finished": "Les données chiffrées ne sont disponibles qu’après la clôture de l’élection le $1 à $2",
 	"securepoll-dump-no-urandom": "Impossible d’ouvrir /dev/urandom. Pour préserver la confidentialité des électeurs, les enregistrements électoraux chiffrés ne sont accessibles au public que lorsqu’ils peuvent être mélangés avec un flux de nombres aléatoires sécurisé.",
 	"securepoll-dump-private": "Désolé, l’affichage du contenu de l’enregistrement chiffré pour cette élection est restreint aux administrateurs de l’élection.",
+	"securepoll-dump-blt-error-multiple-questions": "Impossible de créer un fichier de vidage BLT. L'élection a plus d'une question",
+	"securepoll-dump-blt-error-no-votes": "Impossible de créer un fichier de vidage BLT. L'élection n'a pas de vote",
 	"securepoll-urandom-not-supported": "Ce serveur ne prend pas en charge la génération cryptographique de nombres aléatoires.\nPour assurer la confidentialité des votants, les données chiffrées ne sont publiées que si elles peuvent être brouillées avec un flux de nombres aléatoires.",
 	"securepoll-translate-title": "Traduire : $1",
 	"securepoll-translate-redirect": "Les messages pour cette élection doivent être configurés sur $1",
@@ -156,6 +164,8 @@
 	"securepoll-tally-form-file-label": "Téléverser un vidage chiffré (facultatif)",
 	"securepoll-tally-upload-submit": "Créer un dépouillement",
 	"securepoll-tally-gpg-decrypt-key": "Clé de déchiffrement GPG",
+	"securepoll-tally-openssl-decrypt-key": "Clé de décryptage",
+	"securepoll-tally-openssl-verify-key": "Clé de vérification",
 	"securepoll-tally-error": "Erreur lors de l’interprétation des enregistrements de vote, impossible de produire un dépouillement.",
 	"securepoll-tally-job-enqueued": "Ce scrutin est en cours de (re-)dépouillement. Veuillez revenir plus tard pour les résultats.",
 	"securepoll-no-upload": "Aucun fichier n’a été téléversé, impossible de dépouiller les résultats.",
@@ -201,6 +211,8 @@
 	"securepoll-create-label-comment-prompt": "Texte d’invite pour les commentaires :",
 	"securepoll-create-label-gpg_encrypt_key": "Clé de chiffrement GPG",
 	"securepoll-create-label-gpg_sign_key": "Clé de signature GPG",
+	"securepoll-create-label-openssl_encrypt_key": "Clé de cryptage",
+	"securepoll-create-label-openssl_sign_key": "Clé de signature",
 	"securepoll-create-label-questions": "== Questions ==",
 	"securepoll-create-questions-row-legend": "Question",
 	"securepoll-create-label-questions-question": "Libellé de la question :",
@@ -363,5 +375,7 @@
 	"securepoll-vote-result-checked-option-label": "$1 : coché",
 	"securepoll-vote-result-comment": "Commentaire : $1",
 	"securepoll-vote-result-error-label": "Vos votes n’ont pas pu être déballés correctement. Veuillez contacter un administrateur de l’élection.",
-	"securepoll-vote-most-active-wiki-dropdown-label": "Choisissez votre wiki le plus actif"
+	"securepoll-vote-stv-clear-btn-label": "Effacer tous les candidats",
+	"securepoll-vote-most-active-wiki-dropdown-label": "Choisissez votre wiki le plus actif",
+	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1 ($2, $3 modification{{PLURAL:$3||s}})"
 }
