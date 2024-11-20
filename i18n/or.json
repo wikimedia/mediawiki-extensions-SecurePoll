@@ -49,7 +49,7 @@
 	"securepoll-bot": "କ୍ଷମା କରିବେ, ସ୍ଵୟଂଚାଳିତ ଚିହ୍ନିତ ଖାତା ଥିବା ଲୋକେ ଏହି ନିର୍ବାଚନରେ ମତ ଦେଇପାରିବେ ନାହିଁ ।",
 	"securepoll-not-in-group": "କେବଳ \"$1\" ଗୋଠର ସଭ୍ୟଗଣ ଏହି ନିର୍ବାଚନରେ ମତ ଦେଇପାରିବେ ।",
 	"securepoll-not-in-list": "କ୍ଷମା କରିବେ, ଏହି ନିର୍ବାଚନ ପାଇଁ ମତଦାନଯୋଗ୍ୟ ତାଲିକାରେ ଆପଣ ନାହାନ୍ତି ।",
-	"securepoll-list-title": "ମତ ତାଲିକ: $1",
+	"securepoll-list-title": "ଭୋଟ ତାଲିକା: $1",
 	"securepoll-header-timestamp": "ସମୟ",
 	"securepoll-header-voter-name": "ନାମ",
 	"securepoll-header-voter-domain": "ଡୋମେନ",
