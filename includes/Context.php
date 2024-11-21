@@ -371,7 +371,7 @@ class Context {
 	 * Get a map of ballot type names to classes. Include all the ballot
 	 * types that may be found in the securepoll_votes table.
 	 *
-	 * @return string[]
+	 * @return array<string,class-string<Ballot>>
 	 */
 	public function getBallotTypesForTally() {
 		return Ballot::BALLOT_TYPES;
@@ -381,7 +381,7 @@ class Context {
 	 * Get a map of ballot type names to classes, for all ballot types which
 	 * are valid for new votes and election creation.
 	 *
-	 * @return string[]
+	 * @return array<string,class-string<Ballot>>
 	 */
 	public function getBallotTypesForVote() {
 		if ( $this->ballotTypesForVote === null ) {

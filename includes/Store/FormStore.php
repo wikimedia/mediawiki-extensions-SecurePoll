@@ -268,7 +268,7 @@ class FormStore extends MemoryStore {
 	 *
 	 * @param int $id
 	 * @param array $formData Form data array
-	 * @param class-string|false $class Class with the ::getCreateDescriptors static method
+	 * @param class-string<Ballot|Crypt|Tallier>|false $class
 	 * @param string|null $category If given, ::getCreateDescriptors is
 	 *    expected to return an array with subarrays for different categories
 	 *    of descriptors, and this selects which subarray to process.
@@ -278,13 +278,7 @@ class FormStore extends MemoryStore {
 			return;
 		}
 
-		$items = call_user_func_array(
-			[
-				$class,
-				'getCreateDescriptors'
-			],
-			[]
-		);
+		$items = $class::getCreateDescriptors();
 
 		if ( $category ) {
 			if ( !isset( $items[$category] ) ) {

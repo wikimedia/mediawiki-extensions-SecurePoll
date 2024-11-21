@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\SecurePoll\Pages;
 
 use DateTime;
 use DateTimeZone;
+use MediaWiki\Extension\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Crypt\Crypt;
 use MediaWiki\Extension\SecurePoll\Entities\Entity;
@@ -384,9 +385,7 @@ class CreatePage extends ActionPage {
 		$tallyTypes = [];
 		foreach ( $this->context->getBallotTypesForVote() as $ballotType => $ballotClass ) {
 			$types = [];
-			foreach (
-				call_user_func_array( [ $ballotClass, 'getTallyTypes' ], [] ) as $tallyType
-			) {
+			foreach ( $ballotClass::getTallyTypes() as $tallyType ) {
 				$type = "$ballotType+$tallyType";
 				$types[] = $type;
 				$tallyTypes[$tallyType][] = $type;
@@ -1039,7 +1038,7 @@ class CreatePage extends ActionPage {
 		$tallyTypes = [];
 		foreach ( $this->context->getBallotTypesForVote() as $class ) {
 			$classes[] = $class;
-			foreach ( call_user_func_array( [ $class, 'getTallyTypes' ], [] ) as $type ) {
+			foreach ( $class::getTallyTypes() as $type ) {
 				$tallyTypes[$type] = true;
 			}
 		}
@@ -1167,7 +1166,7 @@ class CreatePage extends ActionPage {
 	 * @param array &$outItems Array to insert the descriptors into
 	 * @param string $field Owning field name, for hide-if
 	 * @param string|array $types Type value(s) in the field, for hide-if
-	 * @param class-string|false $class Class with the ::getCreateDescriptors static method
+	 * @param class-string<Ballot|Crypt|Tallier>|false $class
 	 * @param string|null $category If given, ::getCreateDescriptors is
 	 *    expected to return an array with subarrays for different categories
 	 *    of descriptors, and this selects which subarray to process.
@@ -1182,13 +1181,7 @@ class CreatePage extends ActionPage {
 			return;
 		}
 
-		$items = call_user_func_array(
-			[
-				$class,
-				'getCreateDescriptors'
-			],
-			[]
-		);
+		$items = $class::getCreateDescriptors();
 
 		if ( !is_array( $types ) ) {
 			$types = [ $types ];
@@ -1237,7 +1230,7 @@ class CreatePage extends ActionPage {
 	 *
 	 * @param array &$formData Form data array
 	 * @param array $data Input data array
-	 * @param class-string|false $class Class with the ::getCreateDescriptors static method
+	 * @param class-string<Ballot|Crypt|Tallier>|false $class
 	 * @param string|null $category If given, ::getCreateDescriptors is
 	 *    expected to return an array with subarrays for different categories
 	 *    of descriptors, and this selects which subarray to process.
@@ -1247,13 +1240,7 @@ class CreatePage extends ActionPage {
 			return;
 		}
 
-		$items = call_user_func_array(
-			[
-				$class,
-				'getCreateDescriptors'
-			],
-			[]
-		);
+		$items = $class::getCreateDescriptors();
 
 		if ( $category ) {
 			if ( !isset( $items[$category] ) ) {

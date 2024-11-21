@@ -66,7 +66,7 @@ abstract class Tallier {
 	 */
 	abstract public function finishTally();
 
-	/** @var string[] */
+	/** @var array<string,class-string<Tallier>> */
 	public static $tallierTypes = [
 		'plurality' => PluralityTallier::class,
 		'schulze' => SchulzeTallier::class,
