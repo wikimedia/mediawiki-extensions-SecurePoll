@@ -46,7 +46,7 @@ abstract class Crypt {
 	/**
 	 * Returns a list of supported Crypt subclasses for encrypting votes.
 	 *
-	 * @return (class-string|false)[]
+	 * @return array<string,class-string<Crypt>|false>
 	 */
 	public static function getCryptTypes() {
 		$cryptTypes = [

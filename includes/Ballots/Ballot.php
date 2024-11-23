@@ -41,7 +41,7 @@ abstract class Ballot {
 	/** @var Language|null */
 	private $userLang;
 
-	/** @var string[] */
+	/** @var array<string,class-string<Ballot>> */
 	public const BALLOT_TYPES = [
 		'approval' => ApprovalBallot::class,
 		'preferential' => PreferentialBallot::class,
