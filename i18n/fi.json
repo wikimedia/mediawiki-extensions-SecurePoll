@@ -164,5 +164,8 @@
 	"securepoll-stv-droop-default-value": "Valitse vaihtoehto",
 	"securepoll-stv-droop-choice-rank": "$1. valinta",
 	"securepoll-stv-result-election-result-table-heading": "Tulos",
-	"securepoll-vote-most-active-wiki-dropdown-label": "Valitse wiki, jossa olet aktiivisin"
+	"securepoll-vote-most-active-wiki-dropdown-label": "Valitse wiki, jossa olet aktiivisin",
+	"group-electionadmin": "vaaliylläpitäjät",
+	"group-electionadmin-member": "{{GENDER:$1|vaaliylläpitäjä}}",
+	"grouppage-electionadmin": "{{ns:project}}:Vaaliylläpitäjät"
 }
