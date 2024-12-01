@@ -22,7 +22,6 @@ use MediaWiki\Page\WikiPageFactory;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Status\Status;
 use MediaWiki\User\UserFactory;
-use MediaWiki\User\UserGroupManager;
 use MediaWiki\Utils\MWTimestamp;
 use MediaWiki\WikiMap\WikiMap;
 use PermissionsError;
@@ -37,9 +36,6 @@ class CreatePage extends ActionPage {
 	/** @var LBFactory */
 	private $lbFactory;
 
-	/** @var UserGroupManager */
-	private $userGroupManager;
-
 	/** @var LanguageNameUtils */
 	private $languageNameUtils;
 
@@ -49,25 +45,15 @@ class CreatePage extends ActionPage {
 	/** @var UserFactory */
 	private $userFactory;
 
-	/**
-	 * @param SpecialSecurePoll $specialPage
-	 * @param LBFactory $lbFactory
-	 * @param UserGroupManager $userGroupManager
-	 * @param LanguageNameUtils $languageNameUtils
-	 * @param WikiPageFactory $wikiPageFactory
-	 * @param UserFactory $userFactory
-	 */
 	public function __construct(
 		SpecialSecurePoll $specialPage,
 		LBFactory $lbFactory,
-		UserGroupManager $userGroupManager,
 		LanguageNameUtils $languageNameUtils,
 		WikiPageFactory $wikiPageFactory,
 		UserFactory $userFactory
 	) {
 		parent::__construct( $specialPage );
 		$this->lbFactory = $lbFactory;
-		$this->userGroupManager = $userGroupManager;
 		$this->languageNameUtils = $languageNameUtils;
 		$this->wikiPageFactory = $wikiPageFactory;
 		$this->userFactory = $userFactory;
@@ -304,7 +290,7 @@ class CreatePage extends ActionPage {
 			'required' => true,
 			'validation-callback' => [
 				$this,
-				'checkIfInElectionAdminUserGroup'
+				'checkEditPollRight'
 			],
 		];
 
@@ -1285,18 +1271,18 @@ class CreatePage extends ActionPage {
 	}
 
 	/**
-	 * Check that the user is part of the electionadmin group
+	 * Check that the user has the securepoll-edit-poll right
 	 *
 	 * @param string $value Username
 	 * @param array $alldata All form data
 	 * @param HTMLForm $containingForm Containing HTMLForm
 	 * @return bool|string true on success, string on error
 	 */
-	public function checkIfInElectionAdminUserGroup( $value, $alldata, HTMLForm $containingForm ) {
+	public function checkEditPollRight( $value, $alldata, HTMLForm $containingForm ) {
 		$user = $this->userFactory->newFromName( $value );
-		if ( !$user || !in_array( 'electionadmin', $this->userGroupManager->getUserEffectiveGroups( $user ) ) ) {
+		if ( !$user || !$user->isAllowed( 'securepoll-edit-poll' ) ) {
 			return $this->msg(
-				'securepoll-create-user-not-in-electionadmin-group',
+				'securepoll-create-user-missing-edit-right',
 				$value
 			)->parse();
 		}
