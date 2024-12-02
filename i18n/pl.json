@@ -175,7 +175,6 @@
 	"securepoll-create-label-seat_count": "Liczba miejsc:",
 	"securepoll-create-option-election_crypt-none": "Bez szyfrowania",
 	"securepoll-create-label-comment": "Powód",
-	"securepoll-create-user-not-in-electionadmin-group": "\"$1\" nie jest {{GENDER:$1|członkiem}} grupy electionadmin.",
 	"securepoll-create-fail-bad-id": "Przesłany identyfikator wyborów nie pasuje do edytowanych wyborów",
 	"securepoll-create-fail-id-missing": "Edytowane wybory już nie istnieją",
 	"securepoll-create-fail-bad-dblist": "Określona wiki lub lista wiki jest nieprawidłowa",

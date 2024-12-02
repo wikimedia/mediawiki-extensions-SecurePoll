@@ -179,7 +179,6 @@
 	"securepoll-create-option-election_type-stv+droop-quota": "Single transferable vote pẹ̀lú Droop quota",
 	"securepoll-create-option-election_crypt-none": "àìsí àhámó",
 	"securepoll-create-label-comment": "Ìdí",
-	"securepoll-create-user-not-in-electionadmin-group": "\"$1\" kìíse ara {{GENDER:$1|member}} egbé electionadmin.",
 	"securepoll-create-fail-bad-id": "Idanimo ibo ti o fisile ko ba ti eto idibo yii mu",
 	"securepoll-create-fail-id-missing": "Idibo ti o nko ko wa mo",
 	"securepoll-create-fail-bad-dblist": "Wiki ti o yan ko fẹsẹmulẹ",

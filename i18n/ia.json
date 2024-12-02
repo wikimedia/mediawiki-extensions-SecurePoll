@@ -216,7 +216,6 @@
 	"securepoll-create-option-election_type-stv+droop-quota": "Voto unic transferibile con quota Droop",
 	"securepoll-create-option-election_crypt-none": "Sin cryptation",
 	"securepoll-create-label-comment": "Motivo",
-	"securepoll-create-user-not-in-electionadmin-group": "\"$1\" non es {{GENDER:$1|membro}} del gruppo elecetionadmin.",
 	"securepoll-create-fail-bad-id": "Le ID de election submittite non corresponde al election in curso de modification.",
 	"securepoll-create-fail-id-missing": "Le election in curso de modification non existe plus.",
 	"securepoll-create-fail-bad-dblist": "Le wiki o lista de wikis specificate non es valide.",

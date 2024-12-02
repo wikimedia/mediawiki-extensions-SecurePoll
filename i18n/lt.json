@@ -200,7 +200,6 @@
 	"securepoll-create-option-election_type-choose+plurality": "Daugiskaita",
 	"securepoll-create-option-election_crypt-none": "Nėra šifravimo",
 	"securepoll-create-label-comment": "Priežastis",
-	"securepoll-create-user-not-in-electionadmin-group": "„$1“ nėra rinkimų administratorių grupės {{GENDER:$1|narys|narė}}.",
 	"securepoll-create-fail-bad-id": "Pateiktas rinkimų ID nesutampa su redaguojamais rinkimais",
 	"securepoll-create-fail-id-missing": "Redaguojami rinkimai nebeegzistuoja",
 	"securepoll-create-fail-bad-dblist": "Nurodytas viki arba viki sąrašas negalimas",

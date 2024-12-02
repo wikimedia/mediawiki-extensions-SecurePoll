@@ -244,7 +244,6 @@
 	"securepoll-create-option-election_type-stv+droop-quota": "帶有Droop配額的單次可轉讓投票",
 	"securepoll-create-option-election_crypt-none": "未加密",
 	"securepoll-create-label-comment": "原因",
-	"securepoll-create-user-not-in-electionadmin-group": "「$1」不是選舉管理員群組的{{GENDER:$1|成員}}。",
 	"securepoll-create-fail-bad-id": "所提交選舉 ID 不符合被編輯的選舉",
 	"securepoll-create-fail-id-missing": "被編輯的選舉已不存在",
 	"securepoll-create-fail-bad-dblist": "指定的 wiki 或 wiki 清單無效",

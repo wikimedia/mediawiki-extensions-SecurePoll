@@ -188,7 +188,6 @@
 	"securepoll-create-option-election_type-stv+droop-quota": "Цхьана дехьадаккха йиш йолу кхаьжнаш тасаран система Друпан квотаца",
 	"securepoll-create-option-election_crypt-none": "Терахьца йаздина доцуш",
 	"securepoll-create-label-comment": "Бахьана",
-	"securepoll-create-user-not-in-electionadmin-group": "\"$1\" {{GENDER:$1|декъашхо вац|декъашхо йац}} «electionadmin» тобанан.",
 	"securepoll-create-fail-bad-id": "Билгалдаьккхина ID нийса ца догӀу хийцамаш бечу харжамашца",
 	"securepoll-create-fail-id-missing": "Хийцамаш беш болу харжамаш хӀинца боцуш бу",
 	"securepoll-create-fail-bad-dblist": "Билгалйаьккхина вики йа викимогӀа нийса йац",

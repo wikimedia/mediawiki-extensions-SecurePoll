@@ -228,7 +228,6 @@
 	"securepoll-create-option-election_crypt-none": "عدم رمزگذاری",
 	"securepoll-create-option-election_crypt-gpg": "جی‌پی‌جی",
 	"securepoll-create-label-comment": "دلیل",
-	"securepoll-create-user-not-in-electionadmin-group": "\"$1\" {{GENDER:$1|عضو}} گروه مدیر انتخابات نیست.",
 	"securepoll-create-fail-bad-id": "شناسهٔ انتخاباتی ارائه‌شده با انتخابات تحت ویرایش تطابق ندارد",
 	"securepoll-create-fail-id-missing": "انتخاباتی که ویرایش می‌کنید دیگر وجود ندارد",
 	"securepoll-create-fail-bad-dblist": "ویکی یا فهرست ویکی مشخص‌شده معتبر نیست",

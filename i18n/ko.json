@@ -209,7 +209,6 @@
 	"securepoll-create-option-election_type-stv+droop-quota": "Droop 할당량이 있는 단일 이양식 투표",
 	"securepoll-create-option-election_crypt-none": "암호화 없음",
 	"securepoll-create-label-comment": "이유",
-	"securepoll-create-user-not-in-electionadmin-group": "\" $1 \"은(는) 이 선거의 관리자 그룹의 {{GENDER:$1|구성원}}이 아닙니다.",
 	"securepoll-create-fail-bad-id": "제출된 선거 ID가 편집 중인 선거와 일치하지 않습니다.",
 	"securepoll-create-fail-id-missing": "수정 중인 선거가 더 이상 존재하지 않습니다.",
 	"securepoll-create-fail-bad-dblist": "지정된 Wiki 또는 Wiki 목록이 유효하지 않습니다",

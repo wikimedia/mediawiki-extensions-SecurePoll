@@ -202,7 +202,6 @@
 	"securepoll-create-option-election_type-stv+droop-quota": "ドループ式の単記移譲式投票",
 	"securepoll-create-option-election_crypt-none": "暗号化なし",
 	"securepoll-create-label-comment": "理由",
-	"securepoll-create-user-not-in-electionadmin-group": "\"$1\"は選挙管理グループの{{GENDER:$1|メンバー}} ではありません。",
 	"securepoll-create-fail-bad-id": "送信された選挙 ID が、編集中の選挙の ID と一致しません",
 	"securepoll-create-fail-id-missing": "編集中の選挙は存在しません",
 	"securepoll-create-fail-bad-dblist": "指定されたウィキまたはウィキリストが有効ではありません",

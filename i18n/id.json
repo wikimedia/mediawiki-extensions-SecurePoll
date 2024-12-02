@@ -205,7 +205,6 @@
 	"securepoll-create-option-election_type-stv+droop-quota": "Suara tunggal yang dapat ditransfer dengan kuota Droop",
 	"securepoll-create-option-election_crypt-none": "Tanpa enkripsi",
 	"securepoll-create-label-comment": "Alasan",
-	"securepoll-create-user-not-in-electionadmin-group": "\" $1 \" bukan merupakan {{GENDER:$1|anggota}} dari kelompok electionadmin.",
 	"securepoll-create-fail-bad-id": "ID pemilihan yang dikirimkan tidak cocok dengan pemilihan yang sedang disunting",
 	"securepoll-create-fail-id-missing": "Pemilihan yang sedang disunting sudah tidak ada lagi",
 	"securepoll-create-fail-bad-dblist": "Proyek wiki atau daftar wiki yang ditentukan tidak valid",

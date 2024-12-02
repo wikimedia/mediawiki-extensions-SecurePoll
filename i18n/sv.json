@@ -199,7 +199,6 @@
 	"securepoll-create-option-election_type-stv+droop-quota": "Enstaka överförbar röst med Droop-kvot",
 	"securepoll-create-option-election_crypt-none": "Ingen kryptering",
 	"securepoll-create-label-comment": "Anledning",
-	"securepoll-create-user-not-in-electionadmin-group": "\"$1\" är inte en {{GENDER:$1|member}} i valadministratörsgruppen.",
 	"securepoll-create-fail-bad-id": "Det inskickade ID:et för valet matchar inte valet som redigeras",
 	"securepoll-create-fail-id-missing": "Valet som redigeras existerar inte längre",
 	"securepoll-create-fail-bad-dblist": "Den angivna wikin eller wiki-listan är inte giltig",

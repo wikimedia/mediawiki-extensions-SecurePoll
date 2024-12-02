@@ -218,7 +218,6 @@
 	"securepoll-create-option-election_type-stv+droop-quota": "Одноразовий перехідний голос з квотою, що зменшується",
 	"securepoll-create-option-election_crypt-none": "Без шифрування",
 	"securepoll-create-label-comment": "Причина",
-	"securepoll-create-user-not-in-electionadmin-group": "«$1» не є {{GENDER:$1|членом|членкою}} групи «electionadmin».",
 	"securepoll-create-fail-bad-id": "Поданий ID виборів не відповідає виборам, які редагуються",
 	"securepoll-create-fail-id-missing": "Вибори, які редагувалися, більше не існують",
 	"securepoll-create-fail-bad-dblist": "Вказана вікі або список вікі є неприпустимими",

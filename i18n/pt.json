@@ -215,7 +215,6 @@
 	"securepoll-create-option-election_type-stv+droop-quota": "Voto único transferível com cota Droop",
 	"securepoll-create-option-election_crypt-none": "Sem encriptação",
 	"securepoll-create-label-comment": "Motivo",
-	"securepoll-create-user-not-in-electionadmin-group": "\"$1\" não é membro do grupo de administradores de eleições. {{GENDER:$1|}}.",
 	"securepoll-create-fail-bad-id": "O identificador de eleição enviado não coincide com a eleição que está a ser editada",
 	"securepoll-create-fail-id-missing": "A eleição que está a ser editada já não existe",
 	"securepoll-create-fail-bad-dblist": "A wiki ou lista de wikis especificadas não são válidas.",

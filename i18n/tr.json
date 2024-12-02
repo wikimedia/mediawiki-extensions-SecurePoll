@@ -199,7 +199,6 @@
 	"securepoll-create-option-election_type-stv+droop-quota": "Düşüş kotası ile tek devredilebilir oy",
 	"securepoll-create-option-election_crypt-none": "Şifreleme yok",
 	"securepoll-create-label-comment": "Sebep",
-	"securepoll-create-user-not-in-electionadmin-group": "\"$1\", seçim yöneticileri grubunun bir {{GENDER:$1|üyesi}} değildir.",
 	"securepoll-create-fail-bad-id": "Gönderilen seçim kimliği düzenlenmekte olan seçimle eşleşmiyor",
 	"securepoll-create-fail-id-missing": "Düzenlenen seçim artık mevcut değil",
 	"securepoll-create-fail-bad-dblist": "Belirtilen viki veya viki listesi geçerli değil",

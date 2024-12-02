@@ -222,7 +222,6 @@
 	"securepoll-create-option-election_type-stv+droop-quota": "صوت واحد قابل للتحويل مع حصة Droop",
 	"securepoll-create-option-election_crypt-none": "لا تشفير",
 	"securepoll-create-label-comment": "السبب",
-	"securepoll-create-user-not-in-electionadmin-group": "\"$1\" ليس {{GENDER:$1|عضوًا}} في لجنة إداريي الانتخابات.",
 	"securepoll-create-fail-bad-id": "معرِّف الانتخاب المقدم لا يتطابق مع الانتخاب قيد التحرير",
 	"securepoll-create-fail-id-missing": "الانتخاب قيد  التحرير لم يعد موجوداً",
 	"securepoll-create-fail-bad-dblist": "الويكي المحدد أو قائمة الويكيات غير صالحة",

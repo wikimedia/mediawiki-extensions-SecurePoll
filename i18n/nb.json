@@ -203,7 +203,6 @@
 	"securepoll-create-option-election_type-radio-range-comment+histogram-range": "Intervallstemming (histogramintervall) med kommentar",
 	"securepoll-create-option-election_crypt-none": "Ingen kryptering",
 	"securepoll-create-label-comment": "Årsak",
-	"securepoll-create-user-not-in-electionadmin-group": "«$1» er ikke {{GENDER:$1|medlem}} av gruppa electionadmin.",
 	"securepoll-create-fail-bad-id": "Den innsendte valg-ID-en matcher ikke valget som redigeres",
 	"securepoll-create-fail-id-missing": "Valget som redigeres finnes ikke lenger",
 	"securepoll-create-fail-bad-dblist": "Den gitte wikien eller wikilisten er ugyldig",

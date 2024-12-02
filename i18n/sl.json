@@ -203,7 +203,6 @@
 	"securepoll-create-option-election_type-stv+droop-quota": "En prenosljivi glas z Droopovo kvoto",
 	"securepoll-create-option-election_crypt-none": "Brez šifriranja",
 	"securepoll-create-label-comment": "Razlog",
-	"securepoll-create-user-not-in-electionadmin-group": "»$1« ni {{GENDER:$1|član|članica|član_ica}} skupine administratorjev glasovanja.",
 	"securepoll-create-fail-bad-id": "Predloženi ID volitev se ne ujema z urejanimi volitvami",
 	"securepoll-create-fail-id-missing": "Urejane volitve ne obstajajo več",
 	"securepoll-create-fail-bad-dblist": "Predloženi viki ali seznam vikijev ni veljaven",
