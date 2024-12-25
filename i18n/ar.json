@@ -83,7 +83,7 @@
 	"securepoll-header-strike": "اشطب",
 	"securepoll-header-details": "التفاصيل",
 	"securepoll-vote-duplicate": "مكرر",
-	"securepoll-vote-csrf": "سي إس آر إف",
+	"securepoll-vote-csrf": "فشل",
 	"securepoll-strike-button": "اشطب",
 	"securepoll-unstrike-button": "الغاء الشطب",
 	"securepoll-strike-reason": "السبب:",
