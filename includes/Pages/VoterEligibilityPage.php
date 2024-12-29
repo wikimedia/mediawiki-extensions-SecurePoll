@@ -513,13 +513,19 @@ class VoterEligibilityPage extends ActionPage {
 			'default' => $this->election->getProperty( 'not-bot', false ),
 		];
 
+		$userGroupOptions = [];
+		foreach ( $this->userGroupManager->listAllGroups() as $group ) {
+			$userGroupOptions[ 'group-' . $group ] = $group;
+		}
+
 		$formItems['allow-usergroups'] = [
 			'section' => 'basic',
 			'label-message' => 'securepoll-votereligibility-label-include_groups',
 			'allowArbitrary' => false,
-			'type' => 'tagmultiselect',
-			'allowedValues' => $this->userGroupManager->listAllGroups(),
-			'default' => implode( "\n", explode( '|', $this->election->getProperty( 'allow-usergroups', "" ) ) )
+			'type' => 'multiselect',
+			'dropdown' => true,
+			'options-messages' => $userGroupOptions,
+			'default' => explode( '|', $this->election->getProperty( 'allow-usergroups', "" ) )
 		];
 
 		foreach ( self::$lists as $list => $property ) {
@@ -1103,7 +1109,7 @@ class VoterEligibilityPage extends ActionPage {
 
 		foreach ( $multiselectProps as $prop ) {
 			if ( $formData[$prop] ) {
-				$properties[$prop] = implode( '|', explode( "\n", $formData[$prop] ) );
+				$properties[$prop] = implode( '|', $formData[$prop] );
 			} else {
 				$deleteProperties[] = $prop;
 			}
