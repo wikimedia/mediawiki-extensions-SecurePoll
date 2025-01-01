@@ -44,7 +44,7 @@
 	"securepoll-remote-auth-error": "Feeler beim Ofruf vun Äre Benotzerkontinformatioune vum Server.",
 	"securepoll-remote-parse-error": "Feeler beim Interpretéiere vun der Autorisatioun déi de Server geschéckt huet.",
 	"securepoll-api-invalid-params": "Parameteren, déi net valabel sinn.",
-	"securepoll-api-no-user": "Et gouf kee Benotzer mat der ID fonnt déi ugi war.",
+	"securepoll-api-no-user": "Et gouf kee Benotzer mat der ID fonnt, déi ugi gouf.",
 	"securepoll-api-token-mismatch": "Falsche Sécerheeets-Token, Aloggen ass net méiglech.",
 	"securepoll-not-logged-in": "Dir musst Iech alogge fir bei dëse Walen ofstëmmen ze kënnen",
 	"securepoll-too-few-edits": "Pardon, Dir däerft net ofstëmmen. Dir musst mindestens $1 {{PLURAL:$1|Ännerung|Ännerunge}} gemaach hunn, fir bei dëse Walen ofstëmmen ze kënnen, Dir hutt der $2 gemaach.",
