@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\SecurePoll\Pages;
 
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Linker\LinkRenderer;
+use MediaWiki\Title\Title;
 use Wikimedia\Rdbms\ILoadBalancer;
 
 /**
@@ -46,6 +47,9 @@ class ArchivedPage extends ActionPage {
 		$out->addHTML( $pager->getNavigationBar() );
 	}
 
+	/**
+	 * @return Title
+	 */
 	public function getTitle() {
 		return $this->specialPage->getPageTitle( 'archived' );
 	}

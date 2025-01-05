@@ -78,6 +78,11 @@ class ChooseBallot extends Ballot {
 		}
 	}
 
+	/**
+	 * @param int $qid
+	 * @param int $oid
+	 * @return string
+	 */
 	public function packRecord( $qid, $oid ) {
 		return sprintf( 'Q%08XA%08X', $qid, $oid );
 	}

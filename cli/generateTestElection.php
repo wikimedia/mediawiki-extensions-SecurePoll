@@ -7,6 +7,7 @@ use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\SpecialPage\SpecialPage;
+use Wikimedia\Rdbms\IDatabase;
 
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
@@ -135,6 +136,10 @@ class GenerateTestElection extends Maintenance {
 		$this->output( "\n" );
 	}
 
+	/**
+	 * @param IDatabase $dbw
+	 * @param int $electionId
+	 */
 	private function deleteVotes( $dbw, $electionId ) {
 		$dbw->newDeleteQueryBuilder()
 			->deleteFrom( 'securepoll_votes' )
@@ -143,6 +148,11 @@ class GenerateTestElection extends Maintenance {
 			->execute();
 	}
 
+	/**
+	 * @param IDatabase $dbw
+	 * @param int $electionId
+	 * @param array $ballots
+	 */
 	private function writeBallots( $dbw, $electionId, $ballots ) {
 		foreach ( $ballots as $ballot ) {
 			$dbw->newInsertQueryBuilder()
@@ -167,6 +177,13 @@ class GenerateTestElection extends Maintenance {
 		}
 	}
 
+	/**
+	 * @param string $name
+	 * @param string $admins
+	 * @param string $candidateCount
+	 * @param string $seatCount
+	 * @return int
+	 */
 	private function generateSTVElection( $name, $admins, $candidateCount, $seatCount ) {
 		// To avoid re-writing the insertion logic,
 		// get the processInput() function from the CreatePage
@@ -234,6 +251,13 @@ class GenerateTestElection extends Maintenance {
 		return $createPage->processInput( $formData, null )->getValue();
 	}
 
+	/**
+	 * @param IDatabase $dbw
+	 * @param int $electionId
+	 * @param string[] $stvParameters
+	 * @param string[] $ballots
+	 * @return array
+	 */
 	private function generateSTVBallots( $dbw, $electionId, $stvParameters, $ballots ) {
 		// Make sure the parameters match the election
 		$context = new Context;
@@ -275,7 +299,6 @@ class GenerateTestElection extends Maintenance {
 			}
 
 			if ( !$endOfBallots ) {
-				// @phan-suppress-next-line PhanTypeMismatchArgumentNullableInternal
 				$entity = explode( ' ', $entity );
 				$ballotCount = array_shift( $entity );
 

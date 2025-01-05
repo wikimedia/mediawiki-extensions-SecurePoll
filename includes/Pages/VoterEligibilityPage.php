@@ -149,6 +149,11 @@ class VoterEligibilityPage extends ActionPage {
 		}
 	}
 
+	/**
+	 * @param string[] $properties
+	 * @param array $delete
+	 * @param string $comment
+	 */
 	private function saveProperties( $properties, $delete, $comment ) {
 		$localWiki = WikiMap::getCurrentWikiId();
 		$wikis = $this->election->getProperty( 'wikis' );
@@ -240,6 +245,11 @@ class VoterEligibilityPage extends ActionPage {
 		}
 	}
 
+	/**
+	 * @param string $property
+	 * @param int $db
+	 * @return string[]
+	 */
 	private function fetchList( $property, $db = DB_REPLICA ) {
 		$wikis = $this->election->getProperty( 'wikis' );
 		$localWiki = WikiMap::getCurrentWikiId();
@@ -300,6 +310,11 @@ class VoterEligibilityPage extends ActionPage {
 		return $names;
 	}
 
+	/**
+	 * @param string $property
+	 * @param string $names
+	 * @param string $comment
+	 */
 	private function saveList( $property, $names, $comment ) {
 		$localWiki = WikiMap::getCurrentWikiId();
 
@@ -999,6 +1014,11 @@ class VoterEligibilityPage extends ActionPage {
 		return true;
 	}
 
+	/**
+	 * @param array $formData
+	 * @param HtmlForm $form
+	 * @return Status
+	 */
 	public function processConfig( $formData, $form ) {
 		static $props = [
 			'min-edits',

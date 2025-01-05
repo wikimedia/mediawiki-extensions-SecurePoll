@@ -12,6 +12,7 @@ use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Crypt\Crypt;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Store\MemoryStore;
+use MediaWiki\Extension\SecurePoll\Store\Store;
 use MediaWiki\Extension\SecurePoll\VoteRecord;
 use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\Status\Status;
@@ -133,6 +134,11 @@ class ConvertVotes extends Maintenance {
 		$this->output( $s );
 	}
 
+	/**
+	 * @param Store $store
+	 * @param string $record
+	 * @return Status
+	 */
 	private function convertVote( $store, $record ) {
 		if ( $this->crypt ) {
 			$status = $this->crypt->decrypt( $record );

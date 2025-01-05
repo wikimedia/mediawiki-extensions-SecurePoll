@@ -13,6 +13,7 @@ use MediaWiki\HTMLForm\HTMLForm;
 use MediaWiki\HTMLForm\OOUIHTMLForm;
 use MediaWiki\Request\WebRequestUpload;
 use MediaWiki\Status\Status;
+use MediaWiki\Title\Title;
 use OOUI\MessageWidget;
 use RuntimeException;
 use Wikimedia\Rdbms\ILoadBalancer;
@@ -395,6 +396,9 @@ class TallyPage extends ActionPage {
 		}
 	}
 
+	/**
+	 * @return Title
+	 */
 	public function getTitle() {
 		return $this->specialPage->getPageTitle( 'tally/' . $this->election->getId() );
 	}

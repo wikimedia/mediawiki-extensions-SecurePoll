@@ -145,6 +145,9 @@ class SchulzeTallier extends PairwiseTallier {
 		$this->ranks = $this->convertStrengthMatrixToRanks( $this->strengths );
 	}
 
+	/**
+	 * @return array|null
+	 */
 	public function getRanks() {
 		return $this->ranks;
 	}

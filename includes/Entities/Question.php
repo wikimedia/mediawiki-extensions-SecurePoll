@@ -45,10 +45,17 @@ class Question extends Entity {
 		return $this->options;
 	}
 
+	/**
+	 * @return array
+	 */
 	public function getOptions() {
 		return $this->options;
 	}
 
+	/**
+	 * @param array $params
+	 * @return string
+	 */
 	public function getConfXml( $params = [] ) {
 		$s = "<question>\n" . $this->getConfXmlEntityStuff( $params );
 		foreach ( $this->getOptions() as $option ) {

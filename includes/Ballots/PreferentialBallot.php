@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\SecurePoll\Ballots;
 
+use MediaWiki\Extension\SecurePoll\Entities\Option;
 use MediaWiki\Extension\SecurePoll\Entities\Question;
 use OOUI\FieldsetLayout;
 use OOUI\HorizontalLayout;
@@ -117,6 +118,12 @@ class PreferentialBallot extends Ballot {
 		}
 	}
 
+	/**
+	 * @param Question $question
+	 * @param Option $option
+	 * @param int $rank
+	 * @return string
+	 */
 	public function packRecord( $question, $option, $rank ) {
 		return sprintf(
 			'Q%08X-A%08X-R%08X--',

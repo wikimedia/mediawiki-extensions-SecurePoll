@@ -198,6 +198,12 @@ class STVBallot extends Ballot {
 		return $record;
 	}
 
+	/**
+	 * @param Question $question
+	 * @param string $choice
+	 * @param int $rank
+	 * @return string
+	 */
 	public function packRecord( $question, $choice, $rank ) {
 		return sprintf(
 			'Q%08X-C%08X-R%08X--',

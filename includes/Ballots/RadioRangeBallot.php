@@ -207,6 +207,11 @@ class RadioRangeBallot extends Ballot {
 		return $msgs;
 	}
 
+	/**
+	 * @param Question $question
+	 * @param int|string $score
+	 * @return string
+	 */
 	public function addSign( $question, $score ) {
 		[ $min, ] = $this->getMinMax( $question );
 		if ( $min < 0 && $score > 0 ) {
@@ -380,6 +385,7 @@ class RadioRangeBallot extends Ballot {
 		return $scores;
 	}
 
+	/** @inheritDoc */
 	public function convertScores( $scores, $params = [] ) {
 		$result = [];
 		foreach ( $this->election->getQuestions() as $question ) {

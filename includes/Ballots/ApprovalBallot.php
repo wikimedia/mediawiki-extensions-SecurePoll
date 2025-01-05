@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\SecurePoll\Ballots;
 
+use MediaWiki\Extension\SecurePoll\Entities\Option;
 use MediaWiki\Extension\SecurePoll\Entities\Question;
 use OOUI\CheckboxInputWidget;
 use OOUI\FieldLayout;
@@ -65,6 +66,12 @@ class ApprovalBallot extends Ballot {
 		return $record;
 	}
 
+	/**
+	 * @param Question $question
+	 * @param Option $option
+	 * @param bool $checked
+	 * @return string
+	 */
 	public function packRecord( $question, $option, $checked ) {
 		return sprintf(
 			'Q%08X-A%08X-%s--',

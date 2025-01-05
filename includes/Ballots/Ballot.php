@@ -322,6 +322,10 @@ abstract class Ballot {
 		$this->usedErrorIds = [];
 	}
 
+	/**
+	 * @param string $id
+	 * @return IconWidget|string
+	 */
 	public function errorLocationIndicator( $id ) {
 		if ( !isset( $this->prevErrorIds[$id] ) ) {
 			return '';

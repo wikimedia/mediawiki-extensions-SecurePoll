@@ -544,6 +544,10 @@ class CreatePage extends ActionPage {
 		}
 	}
 
+	/**
+	 * @param array $formData
+	 * @return Status
+	 */
 	public function processInputDuringElection( $formData ) {
 		// If editing a poll while it's running, only allow certain fields to be updated
 		// For now only property_admins and return-url can be edited
@@ -584,6 +588,11 @@ class CreatePage extends ActionPage {
 		return Status::newGood( $this->election->getId() );
 	}
 
+	/**
+	 * @param array $formData
+	 * @param HtmlForm|null $form
+	 * @return Status
+	 */
 	public function processInput( $formData, $form ) {
 		try {
 			$context = new Context;
@@ -1290,6 +1299,11 @@ class CreatePage extends ActionPage {
 		return true;
 	}
 
+	/**
+	 * @param string $value
+	 * @param array $formData
+	 * @return string|true
+	 */
 	public function checkElectionEndDate( $value, $formData ) {
 		$startDate = new DateTime( $formData['election_startdate'], new DateTimeZone( 'GMT' ) );
 		$endDate = new DateTime( $value, new DateTimeZone( 'GMT' ) );

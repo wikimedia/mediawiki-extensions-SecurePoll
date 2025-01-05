@@ -57,6 +57,9 @@ class ListPager extends TablePager {
 	 */
 	private $includeVoterPii;
 
+	/**
+	 * @param ListPage $listPage
+	 */
 	public function __construct( $listPage ) {
 		$this->listPage = $listPage;
 		$this->election = $listPage->election;

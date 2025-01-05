@@ -17,6 +17,10 @@ class StrikePager extends TablePager {
 	/** @var int */
 	public $voteId;
 
+	/**
+	 * @param DetailsPage $detailsPage
+	 * @param int $voteId
+	 */
 	public function __construct( $detailsPage, $voteId ) {
 		$this->detailsPage = $detailsPage;
 		$this->voteId = $voteId;

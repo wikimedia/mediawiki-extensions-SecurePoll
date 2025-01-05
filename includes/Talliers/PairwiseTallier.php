@@ -55,6 +55,9 @@ abstract class PairwiseTallier extends Tallier {
 		return true;
 	}
 
+	/**
+	 * @return array
+	 */
 	public function getOptionAbbreviations() {
 		if ( $this->abbrevs === null ) {
 			$abbrevs = [];
@@ -84,6 +87,10 @@ abstract class PairwiseTallier extends Tallier {
 		return $this->abbrevs;
 	}
 
+	/**
+	 * @param string $format
+	 * @return string[]
+	 */
 	public function getRowLabels( $format = 'html' ) {
 		if ( !isset( $this->rowLabels[$format] ) ) {
 			$rowLabels = [];
@@ -105,6 +112,11 @@ abstract class PairwiseTallier extends Tallier {
 		return $this->rowLabels[$format];
 	}
 
+	/**
+	 * @param array $matrix
+	 * @param int[] $rankedIds
+	 * @return string
+	 */
 	public function convertMatrixToHtml( $matrix, $rankedIds ) {
 		$abbrevs = $this->getOptionAbbreviations();
 		$rowLabels = $this->getRowLabels( 'html' );
@@ -143,6 +155,11 @@ abstract class PairwiseTallier extends Tallier {
 		return $s;
 	}
 
+	/**
+	 * @param array $matrix
+	 * @param int[] $rankedIds
+	 * @return string
+	 */
 	public function convertMatrixToText( $matrix, $rankedIds ) {
 		$abbrevs = $this->getOptionAbbreviations();
 		$minWidth = 15;

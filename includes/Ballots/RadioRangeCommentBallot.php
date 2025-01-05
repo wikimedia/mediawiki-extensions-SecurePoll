@@ -91,6 +91,11 @@ class RadioRangeCommentBallot extends RadioRangeBallot {
 		return $scores;
 	}
 
+	/**
+	 * @param string $record
+	 * @param int &$offset
+	 * @return string
+	 */
 	public function readComment( $record, &$offset ) {
 		$commentOffset = strpos( $record, '/', $offset + 1 );
 		$commentLength = intval(

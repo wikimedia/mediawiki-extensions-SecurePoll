@@ -111,6 +111,9 @@ class PluralityTallier extends Tallier {
 		return $s;
 	}
 
+	/**
+	 * @return array
+	 */
 	public function getRanks() {
 		$ranks = [];
 		$currentRank = 1;

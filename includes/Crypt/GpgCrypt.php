@@ -6,6 +6,7 @@ use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\Message\Message;
 use MediaWiki\Shell\Shell;
 use MediaWiki\Status\Status;
 use MWCryptRand;
@@ -145,6 +146,10 @@ class GpgCrypt extends Crypt {
 			->execute();
 	}
 
+	/**
+	 * @param string $key
+	 * @return Message|true
+	 */
 	public static function checkEncryptKey( $key ) {
 		if ( $key === '' ) {
 			return Status::newFatal( 'htmlform-required' )->getMessage();
@@ -159,6 +164,10 @@ class GpgCrypt extends Crypt {
 		return $status->isOK() ? true : $status->getMessage();
 	}
 
+	/**
+	 * @param mixed $key
+	 * @return Message|true
+	 */
 	public static function checkSignKey( $key ) {
 		if ( !strval( $key ) ) {
 			return true;

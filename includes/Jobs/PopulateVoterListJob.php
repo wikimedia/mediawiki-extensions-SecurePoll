@@ -7,6 +7,7 @@ use Job;
 use JobSpecification;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Page\PageReference;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\User\ActorMigration;
 use MediaWiki\WikiMap\WikiMap;
@@ -198,6 +199,10 @@ class PopulateVoterListJob extends Job {
 		$lbFactory->commitPrimaryChanges( __METHOD__ );
 	}
 
+	/**
+	 * @param PageReference $title
+	 * @param array $params
+	 */
 	public function __construct( $title, $params ) {
 		parent::__construct( 'securePollPopulateVoterList', $title, $params );
 	}
@@ -418,6 +423,11 @@ class PopulateVoterListJob extends Job {
 		return true;
 	}
 
+	/**
+	 * @param IDatabase $db
+	 * @param int $electionId
+	 * @return string
+	 */
 	private static function fetchJobKey( IDatabase $db, $electionId ) {
 		return $db->newSelectQueryBuilder()
 			->select( 'pr_value' )
