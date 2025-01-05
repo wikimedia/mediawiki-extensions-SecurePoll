@@ -1141,7 +1141,7 @@ class VoterEligibilityPage extends ActionPage {
 		return Status::newGood();
 	}
 
-	private function executeEdit( $which ) {
+	private function executeEdit( string $which ) {
 		$out = $this->specialPage->getOutput();
 
 		if ( !isset( self::$lists[$which] ) ) {
@@ -1212,7 +1212,7 @@ class VoterEligibilityPage extends ActionPage {
 		}
 	}
 
-	private function executeClear( $which ) {
+	private function executeClear( string $which ) {
 		$out = $this->specialPage->getOutput();
 		$localWiki = WikiMap::getCurrentWikiId();
 

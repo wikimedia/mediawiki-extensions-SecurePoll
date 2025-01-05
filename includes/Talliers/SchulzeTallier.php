@@ -82,7 +82,7 @@ class SchulzeTallier extends PairwiseTallier {
 		return $strengths;
 	}
 
-	private function convertStrengthMatrixToRanks( $strengths ) {
+	private function convertStrengthMatrixToRanks( array $strengths ): array {
 		$unusedIds = $this->optionIds;
 		$ranks = [];
 		$currentRank = 1;

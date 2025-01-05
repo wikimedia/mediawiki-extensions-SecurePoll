@@ -323,7 +323,7 @@ class GpgCrypt extends Crypt {
 		$this->recipient = null;
 	}
 
-	private function deleteDir( $dirname ) {
+	private function deleteDir( string $dirname ) {
 		$dir = opendir( $dirname );
 		if ( !$dir ) {
 			return;

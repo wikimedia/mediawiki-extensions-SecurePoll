@@ -59,7 +59,7 @@ class ImportGlobalVoterList extends Maintenance {
 		$this->processBatch( $batch );
 	}
 
-	private function getUsersToAdd() {
+	private function getUsersToAdd(): \Generator {
 		$fileName = $this->getArg( 0 );
 		$file = fopen( $fileName, 'r' );
 		if ( !$file ) {
@@ -78,7 +78,7 @@ class ImportGlobalVoterList extends Maintenance {
 		}
 	}
 
-	private function processBatch( $batch ) {
+	private function processBatch( array $batch ) {
 		if ( !$batch ) {
 			return;
 		}

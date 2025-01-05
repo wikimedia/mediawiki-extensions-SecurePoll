@@ -103,11 +103,11 @@ abstract class ActionPage implements MessageLocalizer {
 		}
 	}
 
-	public function setUserOptionsLookup( $userOptionsLookup ) {
+	public function setUserOptionsLookup( UserOptionsLookup $userOptionsLookup ) {
 		$this->userOptionsLookup = $userOptionsLookup;
 	}
 
-	public function setLanguageFallback( $languageFallback ) {
+	public function setLanguageFallback( LanguageFallback $languageFallback ) {
 		$this->languageFallback = $languageFallback;
 	}
 

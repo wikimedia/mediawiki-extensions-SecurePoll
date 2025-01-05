@@ -306,7 +306,7 @@ class MakeMailingList extends Maintenance {
 		return isset( $this->nomailUsers[$user->getName()] );
 	}
 
-	public function alreadyVoted( $user ) {
+	public function alreadyVoted( User $user ): bool {
 		if ( $this->votersByName === null ) {
 			$this->votersByName = [];
 			$db = $this->context->getDB();
@@ -343,7 +343,7 @@ class MakeMailingList extends Maintenance {
 		fwrite( $this->outFile, $entry->toString() );
 	}
 
-	private function debug( $msg ) {
+	private function debug( string $msg ) {
 		$this->logger->debug( $msg );
 	}
 }

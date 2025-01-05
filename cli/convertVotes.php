@@ -63,7 +63,7 @@ class ConvertVotes extends Maintenance {
 		}
 	}
 
-	private function convertFile( $fileName ) {
+	private function convertFile( string $fileName ) {
 		$this->context = Context::newFromXmlFile( $fileName );
 		if ( !$this->context ) {
 			$this->fatalError( "Unable to parse XML file \"$fileName\"" );
@@ -84,7 +84,7 @@ class ConvertVotes extends Maintenance {
 		$this->convert( $electionId );
 	}
 
-	private function convertLocalElection( $name ) {
+	private function convertLocalElection( string $name ) {
 		$this->context = new Context;
 		$this->election = $this->context->getElectionByTitle( $name );
 		if ( !$this->election ) {
@@ -93,7 +93,7 @@ class ConvertVotes extends Maintenance {
 		$this->convert( $this->election->getId() );
 	}
 
-	private function convert( $electionId ) {
+	private function convert( int $electionId ) {
 		$this->votes = [];
 		$this->crypt = $this->election->getCrypt();
 		$this->ballot = $this->election->getBallot();

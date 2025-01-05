@@ -18,7 +18,7 @@ class MailingListEntry {
 	/** @var string|int */
 	public $editCount;
 
-	public static function newFromString( $str ) {
+	public static function newFromString( string $str ): self {
 		$fields = explode( "\t", rtrim( $str, "\n" ) );
 		if ( count( $fields ) !== 6 ) {
 			throw new InvalidArgumentException( 'Invalid mailing list entry' );

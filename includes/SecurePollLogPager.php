@@ -93,7 +93,7 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 		return $this->mDefaultQuery;
 	}
 
-	private function getFilterConds() {
+	private function getFilterConds(): array {
 		$conds = [];
 
 		switch ( $this->type ) {

@@ -194,7 +194,7 @@ class DumpElection {
 		return array_values( $bltVoteRows );
 	}
 
-	private static function ensureDoubleQuoted( $string ) {
+	private static function ensureDoubleQuoted( string $string ): string {
 		if ( !$string ) {
 			return "";
 		}
