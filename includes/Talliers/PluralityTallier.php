@@ -57,6 +57,7 @@ class PluralityTallier extends Tallier {
 		$this->tally = $data;
 	}
 
+	/** @inheritDoc */
 	public function getJSONResult() {
 		return $this->tally;
 	}
@@ -80,6 +81,7 @@ class PluralityTallier extends Tallier {
 		return $s;
 	}
 
+	/** @inheritDoc */
 	public function getTextResult() {
 		// Calculate column width
 		$width = 10;

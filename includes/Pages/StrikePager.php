@@ -27,6 +27,7 @@ class StrikePager extends TablePager {
 		parent::__construct();
 	}
 
+	/** @inheritDoc */
 	public function getQueryInfo() {
 		return [
 			'tables' => [
@@ -58,10 +59,12 @@ class StrikePager extends TablePager {
 		}
 	}
 
+	/** @inheritDoc */
 	public function getDefaultSort() {
 		return 'st_timestamp';
 	}
 
+	/** @inheritDoc */
 	protected function getFieldNames() {
 		return [
 			'st_timestamp' => $this->msg( 'securepoll-header-timestamp' )->escaped(),
@@ -71,10 +74,12 @@ class StrikePager extends TablePager {
 		];
 	}
 
+	/** @inheritDoc */
 	public function getTitle() {
 		return $this->detailsPage->getTitle();
 	}
 
+	/** @inheritDoc */
 	protected function isFieldSortable( $field ) {
 		return $field === 'st_timestamp';
 	}

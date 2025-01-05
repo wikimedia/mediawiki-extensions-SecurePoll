@@ -18,6 +18,7 @@ abstract class PairwiseTallier extends Tallier {
 	/** @var array */
 	public $rowLabels = [];
 
+	/** @inheritDoc */
 	public function __construct( $context, $electionTallier, $question ) {
 		parent::__construct( $context, $electionTallier, $question );
 		$this->optionIds = [];

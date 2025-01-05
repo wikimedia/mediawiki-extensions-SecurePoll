@@ -9,6 +9,7 @@ use MediaWiki\SpecialPage\SpecialPage;
  * starts a session, and then redirects to the voting page.
  */
 class LoginPage extends ActionPage {
+	/** @inheritDoc */
 	public function execute( $params ) {
 		$out = $this->specialPage->getOutput();
 

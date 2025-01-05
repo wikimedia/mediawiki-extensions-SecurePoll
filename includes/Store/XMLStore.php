@@ -329,6 +329,7 @@ class XMLStore extends MemoryStore {
 		return $s;
 	}
 
+	/** @inheritDoc */
 	public function callbackValidVotes( $electionId, $callback, $voterId = null ) {
 		$this->voteCallback = $callback;
 		$this->voteElectionId = $electionId;

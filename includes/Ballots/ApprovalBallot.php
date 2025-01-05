@@ -13,6 +13,7 @@ use OOUI\HtmlSnippet;
  * Checkbox approval voting.
  */
 class ApprovalBallot extends Ballot {
+	/** @inheritDoc */
 	public static function getTallyTypes() {
 		return [ 'plurality' ];
 	}
@@ -81,6 +82,7 @@ class ApprovalBallot extends Ballot {
 		);
 	}
 
+	/** @inheritDoc */
 	public function unpackRecord( $record ) {
 		$scores = [];
 		$itemLength = 2 * 8 + 7;
@@ -106,6 +108,7 @@ class ApprovalBallot extends Ballot {
 		return $scores;
 	}
 
+	/** @inheritDoc */
 	public function convertScores( $scores, $params = [] ) {
 		$result = [];
 		foreach ( $this->election->getQuestions() as $question ) {

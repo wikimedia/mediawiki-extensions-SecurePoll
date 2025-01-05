@@ -37,6 +37,7 @@ class RadioRangeBallot extends Ballot {
 	/** @var int[]|null */
 	public $minMax;
 
+	/** @inheritDoc */
 	public static function getTallyTypes() {
 		return [
 			'plurality',
@@ -44,6 +45,7 @@ class RadioRangeBallot extends Ballot {
 		];
 	}
 
+	/** @inheritDoc */
 	public static function getCreateDescriptors() {
 		$ret = parent::getCreateDescriptors();
 		$ret['election'] += [
@@ -184,6 +186,7 @@ class RadioRangeBallot extends Ballot {
 		return $labels;
 	}
 
+	/** @inheritDoc */
 	public function getMessageNames( ?Entity $entity = null ) {
 		if ( $entity === null || $entity->getType() !== 'question' ) {
 			return [];

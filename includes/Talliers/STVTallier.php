@@ -90,11 +90,13 @@ class STVTallier extends Tallier {
 		return true;
 	}
 
+	/** @inheritDoc */
 	public function loadJSONResult( array $data ) {
 		$this->resultsLog = $data['resultsLog'];
 		$this->rankedVotes = $data['rankedVotes'];
 	}
 
+	/** @inheritDoc */
 	public function getJSONResult() {
 		return [
 			'resultsLog' => $this->resultsLog,
@@ -102,6 +104,7 @@ class STVTallier extends Tallier {
 		];
 	}
 
+	/** @inheritDoc */
 	public function getHtmlResult() {
 		$htmlFormatter = new HtmlFormatter(
 			$this->resultsLog,
@@ -126,6 +129,7 @@ class STVTallier extends Tallier {
 		] );
 	}
 
+	/** @inheritDoc */
 	public function getTextResult() {
 		$wikitextFormatter = new WikitextFormatter(
 			$this->resultsLog,

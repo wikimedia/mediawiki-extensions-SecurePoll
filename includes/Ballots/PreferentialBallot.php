@@ -18,10 +18,12 @@ use OOUI\NumberInputWidget;
  *     must-rank-all
  */
 class PreferentialBallot extends Ballot {
+	/** @inheritDoc */
 	public static function getTallyTypes() {
 		return [ 'schulze' ];
 	}
 
+	/** @inheritDoc */
 	public static function getCreateDescriptors() {
 		$ret = parent::getCreateDescriptors();
 		$ret['election'] += [
@@ -133,6 +135,7 @@ class PreferentialBallot extends Ballot {
 		);
 	}
 
+	/** @inheritDoc */
 	public function unpackRecord( $record ) {
 		$ranks = [];
 		$itemLength = 3 * 8 + 7;
@@ -158,6 +161,7 @@ class PreferentialBallot extends Ballot {
 		return $ranks;
 	}
 
+	/** @inheritDoc */
 	public function convertScores( $scores, $params = [] ) {
 		$result = [];
 		foreach ( $this->election->getQuestions() as $question ) {

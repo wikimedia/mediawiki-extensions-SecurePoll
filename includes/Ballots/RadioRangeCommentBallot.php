@@ -11,11 +11,13 @@ use LogicException;
  * Now deprecated in favour of the comment feature in VotePage.
  */
 class RadioRangeCommentBallot extends RadioRangeBallot {
+	/** @inheritDoc */
 	public function getForm( $prevStatus = false ) {
 		// @phan-suppress-previous-line PhanPluginNeverReturnMethod
 		throw new LogicException( 'This ballot type has been archived and can no longer be used for voting.' );
 	}
 
+	/** @inheritDoc */
 	public function submitForm() {
 		// @phan-suppress-previous-line PhanPluginNeverReturnMethod
 		throw new LogicException( 'This ballot type has been archived and can no longer be used for voting.' );

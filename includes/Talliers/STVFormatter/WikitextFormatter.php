@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\SecurePoll\Talliers\STVFormatter;
 
 class WikitextFormatter extends HtmlFormatter {
 
+	/** @inheritDoc */
 	public function formatPreamble( array $elected, array $eliminated ) {
 		// Generate overview of elected candidates
 		$electionSummary = "==" .

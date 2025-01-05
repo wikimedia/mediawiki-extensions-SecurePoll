@@ -80,6 +80,7 @@ class MainElectionsPager extends ElectionPager {
 		$this->loadBalancer = $loadBalancer;
 	}
 
+	/** @inheritDoc */
 	public function getQueryInfo() {
 		$subquery = $this->loadBalancer->getConnection( ILoadBalancer::DB_REPLICA )->newSelectQueryBuilder()
 			->select( 'pr_entity' )

@@ -9,6 +9,7 @@ use OOUI;
  * A table for the RadioRangeBallot message inputs.
  */
 class HTMLFormRadioRangeColumnLabels extends HTMLFormField {
+	/** @inheritDoc */
 	public function loadDataFromRequest( $request ) {
 		$values = $request->getArray( $this->mName );
 		if ( $values === null ) {
@@ -33,6 +34,7 @@ class HTMLFormRadioRangeColumnLabels extends HTMLFormField {
 		return $ret;
 	}
 
+	/** @inheritDoc */
 	public function validate( $value, $alldata ) {
 		// Don't bother to validate the value of HTMLFormCloner template.
 		if ( strpos( $this->mName, 'HTMLFormFieldCloner' ) ) {
@@ -63,6 +65,7 @@ class HTMLFormRadioRangeColumnLabels extends HTMLFormField {
 		return true;
 	}
 
+	/** @inheritDoc */
 	public function getInputHTML( $value ) {
 		$inputs = [];
 

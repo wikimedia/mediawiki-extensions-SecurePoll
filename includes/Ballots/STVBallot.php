@@ -31,6 +31,7 @@ class STVBallot extends Ballot {
 		];
 	}
 
+	/** @inheritDoc */
 	public static function getCreateDescriptors() {
 		$description = parent::getCreateDescriptors();
 		$description['question'] += [

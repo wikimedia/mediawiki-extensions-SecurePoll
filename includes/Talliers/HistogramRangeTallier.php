@@ -19,6 +19,7 @@ class HistogramRangeTallier extends Tallier {
 	/** @var int */
 	public $maxScore;
 
+	/** @inheritDoc */
 	public function __construct( $context, $electionTallier, $question ) {
 		parent::__construct( $context, $electionTallier, $question );
 		$this->minScore = intval( $question->getProperty( 'min-score' ) );

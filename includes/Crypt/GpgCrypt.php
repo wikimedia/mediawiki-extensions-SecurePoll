@@ -35,6 +35,7 @@ class GpgCrypt extends Crypt {
 	/** @var string|null */
 	public $homeDir;
 
+	/** @inheritDoc */
 	public static function getCreateDescriptors() {
 		global $wgSecurePollGpgSignKey;
 

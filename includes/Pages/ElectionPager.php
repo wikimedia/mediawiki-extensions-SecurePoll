@@ -32,6 +32,7 @@ abstract class ElectionPager extends TablePager {
 		parent::__construct();
 	}
 
+	/** @inheritDoc */
 	protected function isFieldSortable( $field ) {
 		return in_array(
 			$field,
@@ -71,6 +72,7 @@ abstract class ElectionPager extends TablePager {
 		}
 	}
 
+	/** @inheritDoc */
 	public function formatRow( $row ) {
 		$id = $row->el_entity;
 		$this->election = $this->page->context->getElection( $id );
@@ -89,10 +91,12 @@ abstract class ElectionPager extends TablePager {
 	 */
 	abstract public function getLinks(): string;
 
+	/** @inheritDoc */
 	public function getDefaultSort() {
 		return 'el_start_date';
 	}
 
+	/** @inheritDoc */
 	protected function getFieldNames() {
 		$names = [];
 		foreach ( self::FIELDS as $field ) {
@@ -116,6 +120,7 @@ abstract class ElectionPager extends TablePager {
 		return $names;
 	}
 
+	/** @inheritDoc */
 	public function getTitle() {
 		return $this->page->getTitle();
 	}

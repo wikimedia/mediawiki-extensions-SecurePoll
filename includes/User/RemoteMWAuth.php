@@ -10,6 +10,7 @@ use MediaWiki\Status\Status;
  * Class for guest login from one MW instance running SecurePoll to another.
  */
 class RemoteMWAuth extends Auth {
+	/** @inheritDoc */
 	public static function getCreateDescriptors() {
 		return [
 			'script-path' => [

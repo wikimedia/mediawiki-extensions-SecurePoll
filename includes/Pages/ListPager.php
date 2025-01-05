@@ -75,6 +75,7 @@ class ListPager extends TablePager {
 		parent::__construct();
 	}
 
+	/** @inheritDoc */
 	public function getQueryInfo() {
 		return [
 			'tables' => 'securepoll_votes',
@@ -86,6 +87,7 @@ class ListPager extends TablePager {
 		];
 	}
 
+	/** @inheritDoc */
 	protected function isFieldSortable( $field ) {
 		return in_array(
 			$field,
@@ -196,11 +198,13 @@ class ListPager extends TablePager {
 		}
 	}
 
+	/** @inheritDoc */
 	public function getDefaultSort() {
 		// See T298434
 		return 'vote_id';
 	}
 
+	/** @inheritDoc */
 	protected function getFieldNames() {
 		$names = [];
 		if ( $this->isAdmin ) {
@@ -224,6 +228,7 @@ class ListPager extends TablePager {
 		return $names;
 	}
 
+	/** @inheritDoc */
 	protected function getRowClass( $row ) {
 		$classes = [];
 		if ( !$row->vote_current ) {
@@ -236,6 +241,7 @@ class ListPager extends TablePager {
 		return implode( ' ', $classes );
 	}
 
+	/** @inheritDoc */
 	public function getTitle() {
 		return $this->listPage->getTitle();
 	}

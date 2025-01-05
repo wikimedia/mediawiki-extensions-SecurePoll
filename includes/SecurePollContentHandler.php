@@ -19,6 +19,7 @@ use MediaWiki\Title\Title;
  * @author Brad Jorsch <bjorsch@wikimedia.org>
  */
 class SecurePollContentHandler extends JsonContentHandler {
+	/** @inheritDoc */
 	public function __construct( $modelId = 'SecurePoll' ) {
 		parent::__construct( $modelId );
 	}
@@ -175,12 +176,14 @@ class SecurePollContentHandler extends JsonContentHandler {
 		];
 	}
 
+	/** @inheritDoc */
 	public function canBeUsedOn( Title $title ) {
 		global $wgSecurePollUseNamespace;
 
 		return $wgSecurePollUseNamespace && $title->getNamespace() == NS_SECUREPOLL;
 	}
 
+	/** @inheritDoc */
 	protected function getContentClass() {
 		return SecurePollContent::class;
 	}

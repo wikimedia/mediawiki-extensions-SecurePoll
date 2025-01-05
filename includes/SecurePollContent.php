@@ -14,6 +14,7 @@ use MediaWiki\Content\JsonContent;
  * @author Brad Jorsch <bjorsch@wikimedia.org>
  */
 class SecurePollContent extends JsonContent {
+	/** @inheritDoc */
 	public function __construct( $text, $modelId = 'SecurePoll' ) {
 		parent::__construct( $text, $modelId );
 	}

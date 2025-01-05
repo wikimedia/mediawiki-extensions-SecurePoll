@@ -62,6 +62,7 @@ class UpdateNotBlockedKey extends LoggedUpdateMaintenance {
 		return true;
 	}
 
+	/** @inheritDoc */
 	protected function getUpdateKey() {
 		return __CLASS__;
 	}

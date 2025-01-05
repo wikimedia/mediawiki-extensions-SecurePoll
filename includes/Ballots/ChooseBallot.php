@@ -22,6 +22,7 @@ class ChooseBallot extends Ballot {
 		return [ 'plurality' ];
 	}
 
+	/** @inheritDoc */
 	public static function getCreateDescriptors() {
 		$ret = parent::getCreateDescriptors();
 		$ret['option'] += [
@@ -87,6 +88,7 @@ class ChooseBallot extends Ballot {
 		return sprintf( 'Q%08XA%08X', $qid, $oid );
 	}
 
+	/** @inheritDoc */
 	public function unpackRecord( $record ) {
 		$result = [];
 		$record = trim( $record );
@@ -104,6 +106,7 @@ class ChooseBallot extends Ballot {
 		return $result;
 	}
 
+	/** @inheritDoc */
 	public function convertScores( $scores, $params = [] ) {
 		$s = '';
 		foreach ( $this->election->getQuestions() as $question ) {

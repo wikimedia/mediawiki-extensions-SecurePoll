@@ -39,6 +39,7 @@ class MemoryStore implements Store {
 		return $electionIds;
 	}
 
+	/** @inheritDoc */
 	public function getMessages( $lang, $ids ) {
 		if ( !isset( $this->messages[$lang] ) ) {
 			return [];
@@ -47,6 +48,7 @@ class MemoryStore implements Store {
 		return array_intersect_key( $this->messages[$lang], array_flip( $ids ) );
 	}
 
+	/** @inheritDoc */
 	public function getLangList( $ids ) {
 		$langs = [];
 		foreach ( $this->messages as $lang => $langMessages ) {
@@ -61,18 +63,21 @@ class MemoryStore implements Store {
 		return $langs;
 	}
 
+	/** @inheritDoc */
 	public function getProperties( $ids ) {
 		$ids = (array)$ids;
 
 		return array_intersect_key( $this->properties, array_flip( $ids ) );
 	}
 
+	/** @inheritDoc */
 	public function getElectionInfo( $ids ) {
 		$ids = (array)$ids;
 
 		return array_intersect_key( $this->entityInfo, array_flip( $ids ) );
 	}
 
+	/** @inheritDoc */
 	public function getElectionInfoByTitle( $names ) {
 		$names = (array)$names;
 		$ids = array_intersect_key( $this->idsByName, array_flip( $names ) );
@@ -80,10 +85,12 @@ class MemoryStore implements Store {
 		return array_intersect_key( $this->entityInfo, array_flip( $ids ) );
 	}
 
+	/** @inheritDoc */
 	public function getQuestionInfo( $electionId ) {
 		return $this->entityInfo[$electionId]['questions'];
 	}
 
+	/** @inheritDoc */
 	public function decodeElectionRow( $row ) {
 		// @phan-suppress-previous-line PhanPluginNeverReturnMethod LSP violation
 		throw new LogicException(
@@ -92,6 +99,7 @@ class MemoryStore implements Store {
 		);
 	}
 
+	/** @inheritDoc */
 	public function getDB( $index = DB_PRIMARY ) {
 		// @phan-suppress-previous-line PhanPluginNeverReturnMethod LSP violation
 		throw new LogicException(
@@ -99,9 +107,11 @@ class MemoryStore implements Store {
 		);
 	}
 
+	/** @inheritDoc */
 	public function setForcePrimary( $forcePrimary ) {
 	}
 
+	/** @inheritDoc */
 	public function callbackValidVotes( $electionId, $callback, $voterId = null ) {
 		if ( !isset( $this->votes[$electionId] ) ) {
 			return Status::newGood();
@@ -139,6 +149,7 @@ class MemoryStore implements Store {
 		return Status::newGood();
 	}
 
+	/** @inheritDoc */
 	public function getEntityType( $id ) {
 		return isset( $this->entityInfo[$id] ) ? $this->entityInfo[$id]['type'] : false;
 	}

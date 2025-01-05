@@ -59,6 +59,7 @@ class HtmlFormatter implements STVFormatter {
 		$this->candidates = $candidates;
 	}
 
+	/** @inheritDoc */
 	public function formatPreamble( array $elected, array $eliminated ) {
 		// Generate overview of elected candidates
 		$electionSummary = new PanelLayout( [
@@ -144,6 +145,7 @@ class HtmlFormatter implements STVFormatter {
 		return $electionSummary;
 	}
 
+	/** @inheritDoc */
 	public function formatRoundsPreamble() {
 		$electionRounds = new PanelLayout( [
 			'expanded' => false,
@@ -165,6 +167,7 @@ class HtmlFormatter implements STVFormatter {
 		return $electionRounds;
 	}
 
+	/** @inheritDoc */
 	public function formatRound() {
 		// Generate rounds table
 		$table = new Tag( 'table' );
