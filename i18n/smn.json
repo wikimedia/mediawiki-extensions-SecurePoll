@@ -33,5 +33,6 @@
 	"securepoll-create-label-options-add": "Lasseet nube muulsâiävtu",
 	"securepoll-create-label-comment": "Suijâ",
 	"securepoll-votereligibility-label-comment": "Suijâ",
+	"securepoll-votereligibility-edit-action": "Vuorkkii listo",
 	"securepoll-voter-stats": "Puoh jienâvuoigâdvuođâlijn $1 {{PLURAL:$1|lii|láá}} jienâstâm."
 }
