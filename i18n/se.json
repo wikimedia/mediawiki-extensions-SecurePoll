@@ -27,6 +27,7 @@
 	"securepoll-create-label-options-add": "Lasit nuppi molssaeavttu",
 	"securepoll-votereligibility-label-clear": "Sihko listtu",
 	"securepoll-votereligibility-label-names": "Geavaheaddjinamat",
+	"securepoll-votereligibility-edit-action": "Vurke listtu",
 	"securepoll-votereligibility-saved": "{{int:securepoll}}: Vurkejuvvon",
 	"securepoll-voter-stats": "Buot jietnavuoigadahtton olbmuin $1 {{PLURAL:$1|lea|leat}} jienastan."
 }
