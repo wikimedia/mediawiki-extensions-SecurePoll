@@ -71,6 +71,7 @@
 	},
 	"AutoloadClasses": {
 		"DeletePoll": "cli/delete.php",
+		"ImportElectionConfiguration": "cli/import.php",
 		"UpdateNotBlockedKey": "cli/updateNotBlockedKey.php"
 	},
 	"AutoloadNamespaces": {

@@ -157,7 +157,8 @@ EOT
 				'el_primary_lang' => $electionInfo['primaryLang'],
 				'el_start_date' => $dbw->timestamp( $electionInfo['startDate'] ),
 				'el_end_date' => $dbw->timestamp( $electionInfo['endDate'] ),
-				'el_auth_type' => $electionInfo['auth']
+				'el_auth_type' => $electionInfo['auth'],
+				'el_owner' => 0,
 			] )
 			->caller( __METHOD__ )
 			->execute();
