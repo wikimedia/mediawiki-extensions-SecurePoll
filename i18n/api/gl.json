@@ -1,17 +1,22 @@
 {
 	"@metadata": {
 		"authors": [
-			"Elisardojm"
+			"Elisardojm",
+			"Toliño"
 		]
 	},
 	"apihelp-strikevote-summary": "Permite ós administradores anular ou restaurar un voto.",
-	"apihelp-strikevote-param-option": "Qué acción tomar: anular ou restaurar un voto.",
+	"apihelp-strikevote-param-option": "Que acción tomar: anular ou restaurar un voto.",
 	"apihelp-strikevote-paramvalue-option-strike": "Anular un voto (eliminalo do reconto).",
-	"apihelp-strikevote-paramvalue-option-unstrike": "Restaurar un voto (restauralo no reconto).",
-	"apihelp-strikevote-param-voteid": "O identificador do voto para suprimir ou restaurar.",
-	"apihelp-strikevote-param-reason": "A razón pola que anular ou restaurar o voto.",
-	"apihelp-strikevote-example-strike": "Anular o voto <kbd>1</kbd>, co motivo <kbd>duplicado</kbd>.",
-	"apihelp-strikevote-example-unstrike": "Restaurar o voto <kbd>1</kbd>, co motivo <kbd>erro</kbd>.",
-	"apierror-securepoll-mustbeloggedin-strikevote": "Debe estar autenticado para riscar ou quitar o riscado dun voto.",
-	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> non é un identificador de voto válido."
+	"apihelp-strikevote-paramvalue-option-unstrike": "Restaurar un voto (incluílo no reconto).",
+	"apihelp-strikevote-param-voteid": "O identificador do voto a anular ou restaurar.",
+	"apihelp-strikevote-param-reason": "A razón para anular ou restaurar o voto.",
+	"apihelp-strikevote-example-strike": "Anular o voto <kbd>1</kbd>, co motivo <kbd>duplication</kbd>.",
+	"apihelp-strikevote-example-unstrike": "Restaurar o voto <kbd>1</kbd>, co motivo <kbd>mistake</kbd>.",
+	"apierror-securepoll-mustbeloggedin-strikevote": "Cómpre iniciar sesión para anular ou restaurar un voto.",
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> non é un identificador de voto válido.",
+	"apihelp-securepollauth-summary": "Permite que un wiki remoto autentique os usuarios antes de concederlles acceso para votar nas eleccións.",
+	"apihelp-securepollauth-param-token": "Un pase baseado no pase de inicio de sesión do usuario.",
+	"apihelp-securepollauth-param-id": "O identificador do usuario que pretende votar.",
+	"apihelp-securepollauth-example-auth": "Autenticar o usuario co identificador <kbd>1</kbd> e o pase de inicio de sesión <kbd>123ABC</kbd>."
 }
