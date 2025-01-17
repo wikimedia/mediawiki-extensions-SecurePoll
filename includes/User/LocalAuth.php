@@ -63,6 +63,8 @@ class LocalAuth extends Auth {
 
 		$services = MediaWikiServices::getInstance();
 		$block = $user->getBlock();
+		$blockCounts = $this->getCentralBlockCount( $user );
+
 		$params = [
 			'name' => $user->getName(),
 			'type' => 'local',
@@ -72,7 +74,8 @@ class LocalAuth extends Auth {
 				'wiki' => WikiMap::getCurrentWikiId(),
 				'blocked' => (bool)$block,
 				'isSitewideBlocked' => $block ? $block->isSitewide() : null,
-				'central-block-count' => $this->getCentralBlockCount( $user ),
+				'central-block-count' => $blockCounts['blockCount'],
+				'central-sitewide-block-count' => $blockCounts['sitewideBlockCount'],
 				'edit-count' => $user->getEditCount(),
 				'bot' => $user->isAllowed( 'bot' ),
 				'language' => $services->getUserOptionsLookup()->getOption( $user, 'language' ),
@@ -167,24 +170,34 @@ class LocalAuth extends Auth {
 	/**
 	 * Checks how many central wikis the user is blocked on
 	 * @param User $user
-	 * @return int the number of wikis the user is blocked on.
+	 * @return array the number of wikis the user is blocked on, both partial and sitewide
 	 */
 	public function getCentralBlockCount( $user ) {
 		if ( !ExtensionRegistry::getInstance()->isLoaded( 'CentralAuth' ) ) {
-			return 0;
+			return [
+				'blockCount' => 0,
+				'sitewideBlockCount' => 0,
+			];
 		}
 
 		$centralUser = CentralAuthUser::getInstanceByName( $user->getName() );
 
 		$attached = $centralUser->queryAttached();
 		$blockCount = 0;
+		$sitewideBlockCount = 0;
 
 		foreach ( $attached as $data ) {
 			if ( $data['blocked'] ) {
 				$blockCount++;
+				if ( $data['block-sitewide'] ) {
+					$sitewideBlockCount++;
+				}
 			}
 		}
 
-		return $blockCount;
+		return [
+			'blockCount' => $blockCount,
+			'sitewideBlockCount' => $sitewideBlockCount,
+		];
 	}
 }
