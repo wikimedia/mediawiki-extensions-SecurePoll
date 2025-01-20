@@ -18,7 +18,8 @@
 			"Sayginer",
 			"Suelnur",
 			"Vito Genovese",
-			"Asma"
+			"Asma",
+			"Wooze"
 		]
 	},
 	"securepoll": "GüvenliOylama",
@@ -74,7 +75,7 @@
 	"securepoll-header-timestamp": "Zaman",
 	"securepoll-header-date": "Tarih",
 	"securepoll-header-voter-name": "Ad",
-	"securepoll-header-voter-domain": "Etki alanı",
+	"securepoll-header-voter-domain": "Alan adı",
 	"securepoll-header-ua": "Kullanıcı temsilcisi",
 	"securepoll-header-cookie-dup": "Kopya",
 	"securepoll-header-strike": "Üstünü çiz",
