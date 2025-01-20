@@ -218,8 +218,6 @@ class GenerateTestElection extends Maintenance {
 			'shuffle-options' => false,
 			'must-rank-all' => false,
 			'must-answer-all' => false,
-			'gpg-encrypt-key' => null,
-			'gpg-sign-key' => null,
 			'questions' => [],
 			'comment' => null,
 		];
