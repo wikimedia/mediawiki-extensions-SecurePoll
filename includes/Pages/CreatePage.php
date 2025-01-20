@@ -608,8 +608,7 @@ class CreatePage extends ActionPage {
 
 			// Get a connection in autocommit mode so that it is possible to do
 			// explicit transactions on it (T287859)
-			$dbw = $this->lbFactory->getMainLB()->getConnection( ILoadBalancer::DB_PRIMARY,
-				[], false, ILoadBalancer::CONN_TRX_AUTOCOMMIT );
+			$dbw = $this->lbFactory->getAutoCommitPrimaryConnection();
 
 			// Check for duplicate titles on the local wiki
 			$id = $dbw->newSelectQueryBuilder()
@@ -631,11 +630,9 @@ class CreatePage extends ActionPage {
 			// matter in practice)
 			if ( $store->rId ) {
 				foreach ( $store->remoteWikis as $dbname ) {
-					$lb = $this->lbFactory->getMainLB( $dbname );
 					// Use autocommit mode so that we can share connections with
 					// the write code below
-					$rdbw = $lb->getConnection( DB_PRIMARY, [], $dbname,
-						ILoadBalancer::CONN_TRX_AUTOCOMMIT );
+					$rdbw = $this->lbFactory->getAutoCommitPrimaryConnection( $dbname );
 
 					// Find an existing dummy election, if any
 					$rId = $rdbw->newSelectQueryBuilder()
@@ -835,10 +832,8 @@ class CreatePage extends ActionPage {
 		if ( $store->rId ) {
 			$election = $context->getElection( $store->rId );
 			foreach ( $store->remoteWikis as $dbname ) {
-				$lb = $this->lbFactory->getMainLB( $dbname );
 				// As for the local wiki, request autocommit mode to get outer transaction scope
-				$dbw = $lb->getConnection( ILoadBalancer::DB_PRIMARY, [], $dbname,
-					ILoadBalancer::CONN_TRX_AUTOCOMMIT );
+				$dbw = $this->lbFactory->getAutoCommitPrimaryConnection( $dbname );
 				$dbw->startAtomic( __METHOD__ );
 				// Find an existing dummy election, if any
 				$rId = $dbw->newSelectQueryBuilder()

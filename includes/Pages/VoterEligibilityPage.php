@@ -24,7 +24,7 @@ use MediaWiki\User\UserGroupManager;
 use MediaWiki\WikiMap\WikiMap;
 use MWExceptionHandler;
 use Wikimedia\Rdbms\DBConnectionError;
-use Wikimedia\Rdbms\ILoadBalancer;
+use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\LBFactory;
 use Wikimedia\RequestTimeout\TimeoutException;
 
@@ -168,28 +168,10 @@ class VoterEligibilityPage extends ActionPage {
 			$wikis = [ $localWiki ];
 		}
 
-		$dbw = null;
 		foreach ( $wikis as $dbname ) {
-
-			if ( $dbname === $localWiki ) {
-				$lb = $this->lbFactory->getMainLB();
-				$dbw = $lb->getConnection( ILoadBalancer::DB_PRIMARY,
-					[], false, ILoadBalancer::CONN_TRX_AUTOCOMMIT );
-			} else {
-				unset( $dbw );
-				$lb = $this->lbFactory->getMainLB( $dbname );
-				$dbw = $lb->getConnection( ILoadBalancer::DB_PRIMARY,
-					[], $dbname, ILoadBalancer::CONN_TRX_AUTOCOMMIT );
-
-				try {
-					// Connect to the DB and check if the LB is in read-only mode
-					if ( $dbw->isReadOnly() ) {
-						continue;
-					}
-				} catch ( DBConnectionError $e ) {
-					MWExceptionHandler::logException( $e );
-					continue;
-				}
+			$dbw = $this->getAutoCommitPrimaryConnectionForWiki( $dbname );
+			if ( $dbw === null ) {
+				continue;
 			}
 
 			$dbw->startAtomic( __METHOD__ );
@@ -243,6 +225,33 @@ class VoterEligibilityPage extends ActionPage {
 			$wp = $this->wikiPageFactory->newFromTitle( $title );
 			$wp->doUserEditContent( $content, $this->specialPage->getUser(), $comment );
 		}
+	}
+
+	/**
+	 * Gets a primary autocommit connection for the given wiki. If this is not the local
+	 * wiki then it only returns a primary DB connection if the wiki is not in read only mode.
+	 *
+	 * @param string $dbname The DB name which we want to get the primary DB connection for
+	 * @return IDatabase|null A primary DB connection, or null only if the DB is in read-only mode
+	 *   and is not a local wiki
+	 */
+	private function getAutoCommitPrimaryConnectionForWiki( string $dbname ): ?IDatabase {
+		$dbw = $this->lbFactory->getAutoCommitPrimaryConnection( $dbname );
+
+		// If the wiki is not the current wiki then we need to check if the wiki is in read-only mode
+		// before we try to use the DB connection to perform updates.
+		if ( $dbname !== WikiMap::getCurrentWikiId() ) {
+			try {
+				if ( $dbw->isReadOnly() ) {
+					return null;
+				}
+			} catch ( DBConnectionError $e ) {
+				MWExceptionHandler::logException( $e );
+				return null;
+			}
+		}
+
+		return $dbw;
 	}
 
 	/**
@@ -347,26 +356,10 @@ class VoterEligibilityPage extends ActionPage {
 			$wikis = [ $localWiki ];
 		}
 
-		$dbw = null;
 		foreach ( $wikis as $dbname ) {
-			if ( $dbname === $localWiki ) {
-				$lb = $this->lbFactory->getMainLB();
-				$dbw = $lb->getConnection( ILoadBalancer::DB_PRIMARY,
-					[], false, ILoadBalancer::CONN_TRX_AUTOCOMMIT );
-			} else {
-				unset( $dbw );
-				$lb = $this->lbFactory->getMainLB( $dbname );
-				$dbw = $lb->getConnection( ILoadBalancer::DB_PRIMARY,
-					[], $dbname, ILoadBalancer::CONN_TRX_AUTOCOMMIT );
-				try {
-					// Connect to the DB and check if the LB is in read-only mode
-					if ( $dbw->isReadOnly() ) {
-						continue;
-					}
-				} catch ( DBConnectionError $e ) {
-					MWExceptionHandler::logException( $e );
-					continue;
-				}
+			$dbw = $this->getAutoCommitPrimaryConnectionForWiki( $dbname );
+			if ( $dbw === null ) {
+				continue;
 			}
 
 			$dbw->startAtomic( __METHOD__ );
@@ -1259,21 +1252,8 @@ class VoterEligibilityPage extends ActionPage {
 			$wikis = [ $localWiki ];
 		}
 
-		$dbw = null;
 		foreach ( $wikis as $dbname ) {
-
-			if ( $dbname === $localWiki ) {
-				$lb = $this->lbFactory->getMainLB();
-				$dbw = $lb->getConnection( ILoadBalancer::DB_PRIMARY,
-					[], false, ILoadBalancer::CONN_TRX_AUTOCOMMIT );
-			} else {
-
-				unset( $dbw );
-				$lb = $this->lbFactory->getMainLB( $dbname );
-				$dbw = $lb->getConnection( ILoadBalancer::DB_PRIMARY,
-					[], $dbname, ILoadBalancer::CONN_TRX_AUTOCOMMIT );
-			}
-
+			$dbw = $this->lbFactory->getAutoCommitPrimaryConnection( $dbname );
 			$dbw->startAtomic( __METHOD__ );
 
 			$id = $dbw->newSelectQueryBuilder()
