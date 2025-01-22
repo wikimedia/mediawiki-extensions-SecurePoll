@@ -198,7 +198,7 @@ class Entity {
 			$parserOptions
 		);
 
-		$html = $out->getText( [ 'unwrap' => true ] );
+		$html = $out->runOutputPipeline( $parserOptions, [ 'unwrap' => true ] )->getContentHolderText();
 		if ( !$block ) {
 			$html = Parser::stripOuterParagraph( $html );
 		}

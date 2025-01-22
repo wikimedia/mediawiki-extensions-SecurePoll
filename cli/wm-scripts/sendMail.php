@@ -273,11 +273,11 @@ class SendMail extends Maintenance {
 				'dir' => $lang->getDir(),
 				'lang' => $lang->getHtmlCode()
 			],
-			$out->getText( [
+			$out->runOutputPipeline( $parserOptions, [
 				'allowTOC' => false,
 				'enableSectionEditLinks' => false,
 				'unwrap' => true
-			] )
+			] )->getContentHolderText()
 		);
 
 		$message = [
