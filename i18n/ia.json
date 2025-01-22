@@ -111,6 +111,7 @@
 	"securepoll-header-title": "Nomine",
 	"securepoll-header-start-date": "Data de initio",
 	"securepoll-header-end-date": "Data de fin",
+	"securepoll-header-links": "Ligamines",
 	"securepoll-subpage-vote": "Votar",
 	"securepoll-subpage-translate": "Traducer",
 	"securepoll-subpage-list": "Listar",
@@ -182,6 +183,7 @@
 	"securepoll-create-label-must_answer_all": "Requirer que tote le optiones sia respondite",
 	"securepoll-create-label-voter_privacy": "Disactivar le functiones de transparentia (p.ex. le lista de votantes) pro proteger le vita private del votantes",
 	"securepoll-create-label-request-comment": "Requestar commentos in texto libere al fin del ballotta",
+	"securepoll-create-label-prompt-active-wiki": "Invitar le usator a seliger su wiki le plus active",
 	"securepoll-create-label-comment-prompt": "Texto que invita commentos:",
 	"securepoll-create-label-gpg_encrypt_key": "Clave de cryptation GPG",
 	"securepoll-create-label-gpg_sign_key": "Clave de signatura GPG",
@@ -216,6 +218,7 @@
 	"securepoll-create-option-election_type-stv+droop-quota": "Voto unic transferibile con quota Droop",
 	"securepoll-create-option-election_crypt-none": "Sin cryptation",
 	"securepoll-create-label-comment": "Motivo",
+	"securepoll-create-user-missing-edit-right": "“$1” non ha le permission de {{int:action-securepoll-edit-poll}}.",
 	"securepoll-create-fail-bad-id": "Le ID de election submittite non corresponde al election in curso de modification.",
 	"securepoll-create-fail-id-missing": "Le election in curso de modification non existe plus.",
 	"securepoll-create-fail-bad-dblist": "Le wiki o lista de wikis specificate non es valide.",
@@ -277,6 +280,8 @@
 	"action-securepoll-create-poll": "crear sondages e vider registros",
 	"right-securepoll-view-voter-pii": "Acceder a informationes que pote identificar votantes",
 	"action-securepoll-view-voter-pii": "acceder a informationes que pote identificar votantes",
+	"right-securepoll-edit-poll": "Modificar sondages",
+	"action-securepoll-edit-poll": "modificar sondages",
 	"securepoll-ns-readonly": "Le spatio de nomines {{ns:SecurePoll}} es de lectura sol",
 	"securepoll-voter-stats": "Inter tote le votantes eligibile, $1 votante{{PLURAL:$1||s}} ha votate.",
 	"securepoll-vote-stats": "Un total de $1 voto{{PLURAL:$1||s}} ha essite registrate. De istes, $2 es es rejectate perque le votante ha votate de novo, e $3 es annullate.",
@@ -345,5 +350,8 @@
 	"securepoll-vote-result-error-label": "Tu votos non poteva esser disimballate correctemente. Per favor contacta un administrator del election.",
 	"securepoll-vote-stv-clear-btn-label": "Rader tote le candidatos",
 	"securepoll-vote-most-active-wiki-dropdown-label": "Elige tu wiki le plus active",
-	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1 ($2, $3 modification{{PLURAL:$3||es}})"
+	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1 ($2, $3 modification{{PLURAL:$3||es}})",
+	"group-electionadmin": "Administratores electoral",
+	"group-electionadmin-member": "administrat{{GENDER:$1|or|rice}} electoral",
+	"grouppage-electionadmin": "{{ns:project}}:Administratores electoral"
 }
