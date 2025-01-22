@@ -297,7 +297,7 @@ class Election extends Entity {
 			$notAllowedSitewideBlocked = $this->getProperty( 'not-sitewide-blocked' );
 			$notPartialBlocked = $this->getProperty( 'not-partial-blocked' );
 			$isBlocked = !empty( $props['blocked'] );
-			$isSitewideBlocked = $props['isSitewideBlocked'];
+			$isSitewideBlocked = $props['isSitewideBlocked'] ?? false;
 			if ( $notAllowedSitewideBlocked && $isBlocked && $isSitewideBlocked ) {
 				$status->fatal( 'securepoll-blocked' );
 			} elseif ( $notPartialBlocked && $isBlocked && !$isSitewideBlocked ) {
@@ -306,7 +306,11 @@ class Election extends Entity {
 
 			// Centrally blocked on more than X projects
 			$notCentrallyBlocked = $this->getProperty( 'not-centrally-blocked' );
-			$centralBlockCount = $props['central-block-count'] ?? 0;
+			if ( $notPartialBlocked ) {
+				$centralBlockCount = $props['central-block-count'] ?? 0;
+			} else {
+				$centralBlockCount = $props['central-sitewide-block-count'] ?? 0;
+			}
 			$centralBlockThreshold = $this->getProperty( 'central-block-threshold', 1 );
 			if ( $notCentrallyBlocked && $centralBlockCount >= $centralBlockThreshold ) {
 				$status->fatal(
