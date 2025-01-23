@@ -5,7 +5,6 @@ namespace MediaWiki\Extension\SecurePoll\Crypt;
 use InvalidArgumentException;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
-use MediaWiki\Shell\Shell;
 use MediaWiki\Status\Status;
 use Wikimedia\Rdbms\IDatabase;
 
@@ -52,10 +51,6 @@ abstract class Crypt {
 		$cryptTypes = [
 			'none' => false
 		];
-
-		if ( !Shell::isDisabled() ) {
-			$cryptTypes['gpg'] = GpgCrypt::class;
-		}
 
 		if ( extension_loaded( 'openssl' ) ) {
 			$cryptTypes['openssl'] = OpenSslCrypt::class;

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Purge GPG decryption keys from SecurePoll elections that have ended.
+ * Purge GPG and SSL decryption keys from SecurePoll elections that have ended.
  *
  * Usage: php purgeDecryptionKeys.php
  *
@@ -72,6 +72,8 @@ class PurgeDecryptionKeys extends Maintenance {
 			->leftJoin( 'securepoll_properties', null, 'el_entity=pr_entity' )
 			->where( [
 				$dbr->expr( 'el_end_date', '<', $dbr->timestamp( $before ) ),
+				// GPG option removed in T380441, keeping the key `gpg-decrypt-key` in case we still have
+				// old data to delete
 				'pr_key' => [ 'gpg-decrypt-key', 'openssl-decrypt-key' ],
 			] )
 			->caller( __METHOD__ )

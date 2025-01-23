@@ -75,11 +75,6 @@ use Wikimedia\Rdbms\IDatabase;
  *          shuffle-questions
  *          shuffle-options
  *
- *      GpgCrypt
- *          gpg-encrypt-key
- *          gpg-sign-key
- *          gpg-decrypt-key
- *
  *      OpenSslCrypt
  *          openssl-encrypt-key
  *          openssl-sign-key

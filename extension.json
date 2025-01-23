@@ -190,9 +190,6 @@
 		]
 	},
 	"config": {
-		"SecurePollGPGCommand": {
-			"value": "gpg"
-		},
 		"SecurePollTempDir": {
 			"value": "/tmp"
 		},
@@ -221,9 +218,6 @@
 		"SecurePollUseNamespace": {
 			"value": false,
 			"description": "Make the SecurePoll namespace available, and record election details to pages in this namespace."
-		},
-		"SecurePollGpgSignKey": {
-			"value": null
 		},
 		"SecurePollUseLogging": {
 			"value": false,
