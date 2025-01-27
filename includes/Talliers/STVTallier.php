@@ -44,6 +44,13 @@ class STVTallier extends Tallier {
 	];
 
 	/**
+	 * The precision for all fixed-point arithmetic done while tallying. All
+	 * arithmetic done in this class must use bc math function paired with this
+	 * precision value (T361077).
+	 */
+	private const PRECISION = 10;
+
+	/**
 	 * Number of seats to be filled.
 	 * @var int
 	 */
@@ -151,12 +158,12 @@ class STVTallier extends Tallier {
 	 */
 	public function finishTally() {
 		// Instantiate first round for the iterator
-		$keepFactors = array_fill_keys( array_keys( $this->candidates ), 1 );
+		$keepFactors = array_fill_keys( array_keys( $this->candidates ), '1.0' );
 		$voteCount = $this->distributeVotes( $this->rankedVotes, $keepFactors );
-		$quota = $this->calculateDroopQuota( $voteCount['totalVotes'], $this->seats );
+		$quota = $this->calculateDroopQuota( $voteCount['totalVotes'], (string)$this->seats );
 		$round = [
 			'round' => 1,
-			'surplus' => 0,
+			'surplus' => '0',
 			'rankings' => $voteCount['ranking'],
 			'totalVotes' => $voteCount['totalVotes'],
 			'keepFactors' => $keepFactors,
@@ -183,7 +190,7 @@ class STVTallier extends Tallier {
 			'round' => $prevRound['round'] + 1,
 			'elected' => [],
 			'eliminated' => [],
-			'surplus' => 0,
+			'surplus' => '0.0',
 		];
 
 		$keepFactors =
@@ -198,7 +205,7 @@ class STVTallier extends Tallier {
 			);
 
 		$voteCount = $this->distributeVotes( $this->rankedVotes, $keepFactors, $prevRound['rankings'] );
-		$round['quota'] = $this->calculateDroopQuota( $voteCount['totalVotes'], $this->seats );
+		$round['quota'] = $this->calculateDroopQuota( $voteCount['totalVotes'], (string)$this->seats );
 		$round['rankings'] = $voteCount['ranking'];
 		$round['totalVotes'] = $voteCount['totalVotes'];
 
@@ -247,12 +254,12 @@ class STVTallier extends Tallier {
 	 */
 	private function distributeVotes( $ballots, $keepFactors, $prevDistribution = null ): array {
 		$voteTotals = [];
-		$totalVotes = 0;
+		$totalVotes = '0.0';
 		foreach ( $keepFactors as $candidate => $kf ) {
 			$voteTotals[$candidate] = [
-				'votes' => 0,
-				'earned' => 0,
-				'total' => 0,
+				'votes' => '0',
+				'earned' => '0',
+				'total' => '0',
 			];
 		}
 
@@ -260,25 +267,52 @@ class STVTallier extends Tallier {
 		if ( $prevDistribution ) {
 			foreach ( $prevDistribution as $candidate => $candidateVotes ) {
 				$voteTotals[$candidate]['votes'] = $candidateVotes['total'];
-				$voteTotals[$candidate]['earned'] -= $candidateVotes['total'];
-			}
 
+				// earned = earned - total
+				$voteTotals[$candidate]['earned'] = bcsub(
+					$voteTotals[$candidate]['earned'],
+					$candidateVotes['total'],
+					self::PRECISION
+				);
+			}
 		}
 
 		foreach ( $ballots as $ballot ) {
-			$weight = 1;
+			$weight = '1.0';
+
 			foreach ( $ballot['rank'] as $candidate ) {
-				if ( $weight > 0 ) {
-					$voteValue = $weight * $keepFactors[$candidate];
-					$voteTotals[$candidate]['earned'] += ( $voteValue * $ballot['count'] );
-					$voteTotals[$candidate]['total'] += ( $voteValue * $ballot['count'] );
-					$weight -= $voteValue;
-					$totalVotes += ( $voteValue * $ballot['count'] );
+				// weight > 0
+				if ( bccomp( $weight, '0.0', self::PRECISION ) === 1 ) {
+					// voteValue = weight * keepFactor
+					$voteValue = bcmul( $weight, $keepFactors[$candidate], self::PRECISION );
+
+					// earned = earned + (voteValue * ballotCount)
+					$voteTotals[$candidate]['earned'] = bcadd(
+						$voteTotals[$candidate]['earned'],
+						bcmul( $voteValue, (string)$ballot['count'], self::PRECISION ),
+						self::PRECISION
+					);
+
+					// total = total + (voteValue * ballotCount)
+					$voteTotals[$candidate]['total'] = bcadd(
+						$voteTotals[$candidate]['total'],
+						bcmul( $voteValue, (string)$ballot['count'], self::PRECISION ),
+						self::PRECISION
+					);
+
+					// weight = weight - voteValue
+					$weight = bcsub( $weight, $voteValue, self::PRECISION );
+
+					// totalVotes = totalVotes + (voteValue + ballotCount)
+					$totalVotes = bcadd(
+						$totalVotes,
+						bcmul( $voteValue, $ballot['count'], self::PRECISION ),
+						self::PRECISION
+					);
 				} else {
 					break;
 				}
 			}
-
 		}
 
 		return [
@@ -288,19 +322,24 @@ class STVTallier extends Tallier {
 	}
 
 	/**
-	 * @param int|float $votes
-	 * @param int $seats
-	 * @return float
+	 * @param string $votes
+	 * @param string $seats
+	 * @return string
 	 */
-	private function calculateDroopQuota( $votes, $seats ): float {
-		return ( $votes / ( (float)$seats + 1 ) ) + 0.000001;
+	private function calculateDroopQuota( $votes, $seats ): string {
+		// droopQuota = (votes / (seats + 1)) + 0.000001
+		return bcadd(
+			bcdiv( $votes, bcadd( $seats, '1.0', self::PRECISION ), self::PRECISION ),
+			'0.000001',
+			self::PRECISION
+		);
 	}
 
 	/**
 	 * Calculates keep factors of all elected candidate at every round
 	 * calculated as: current keepfactor multiplied by current quota divided by candidates current vote($voteTotals)
 	 * @param array $candidates
-	 * @param float $quota
+	 * @param string $quota
 	 * @param array $currentFactors
 	 * @param array $winners
 	 * @param array $eliminated
@@ -309,43 +348,54 @@ class STVTallier extends Tallier {
 	 */
 	private function calculateKeepFactors( $candidates, $quota, $currentFactors, $winners, $eliminated, $voteTotals ) {
 		$keepFactors = [];
+
 		foreach ( $candidates as $candidateId => $candidateName ) {
-			$keepFactors[$candidateId] = in_array( $candidateId, $eliminated ) ? 0 : 1;
+			$keepFactors[$candidateId] = in_array( $candidateId, $eliminated ) ? '0.0' : '1.0';
 		}
 
 		foreach ( $winners as $winner ) {
 			$voteCount = $voteTotals[$winner]['total'];
 			$prevKeepFactor = $currentFactors[$winner];
-			$keepFactors[$winner] = ( $prevKeepFactor * $quota ) / $voteCount;
+
+			// keepFactor = (prevKeepFactor * quota) / voteCount
+			$keepFactors[$winner] = bcdiv(
+				bcmul( $prevKeepFactor, $quota, self::PRECISION ),
+				$voteCount,
+				self::PRECISION
+			);
 		}
+
 		return $keepFactors;
 	}
 
 	/**
 	 * @param array $ranking
 	 * @param array $winners
-	 * @param float $quota
-	 * @return int|float
+	 * @param string $quota
+	 * @return string
 	 */
 	private function calculateSurplus( $ranking, $winners, $quota ) {
-		$voteSurplus = 0;
+		$voteSurplus = '0.0';
 		foreach ( $winners as $winner ) {
 			$voteTotal = $ranking[$winner]['total'];
-			$voteSurplus += $voteTotal - $quota;
+
+			// voteSurplus = (voteSurplus + voteTotal) - quota
+			$voteSurplus = bcsub( bcadd( $voteSurplus, $voteTotal, self::PRECISION ), $quota, self::PRECISION );
 		}
 		return $voteSurplus;
 	}
 
 	/**
 	 * @param array $ranking
-	 * @param float $quota
+	 * @param string $quota
 	 * @return array
 	 */
 	private function declareWinners( $ranking, $quota ) {
 		$winners = [];
 		foreach ( $ranking as $option => $votes ) {
-			if ( $votes['total'] >= $quota ) {
-				$winners[] = $option;
+			// voteTotal >= quota
+			if ( bccomp( $votes['total'], $quota, self::PRECISION ) >= 0 ) {
+				   $winners[] = $option;
 			}
 		}
 		return $winners;
@@ -353,10 +403,10 @@ class STVTallier extends Tallier {
 
 	/**
 	 * @param array $ranking
-	 * @param int|float $surplus
+	 * @param string $surplus
 	 * @param array $eliminated
 	 * @param array $elected
-	 * @param int|float $prevSurplus
+	 * @param string $prevSurplus
 	 * @return array
 	 */
 	private function declareEliminated( $ranking, $surplus, $eliminated, $elected, $prevSurplus ) {
@@ -366,12 +416,13 @@ class STVTallier extends Tallier {
 			static function ( $aKey, $bKey ) use ( $ranking ) {
 				$a = $ranking[$aKey];
 				$b = $ranking[$bKey];
-				if ( $a['total'] === $b['total'] ) {
-					// ascending sort
-					return $aKey <=> $bKey;
+				// $a['total'] === $b['total']
+				if ( bccomp( $a['total'], $b['total'], self::PRECISION ) === 0 ) {
+					// ascending sort ($aKey <=> $bKey)
+					return bccomp( $aKey, $bKey, self::PRECISION );
 				}
-				// descending sort
-				return $b['total'] <=> $a['total'];
+				// descending sort ($b['total'] <=> $a['total'])
+				return bccomp( $b['total'], $a['total'], self::PRECISION );
 			}
 		);
 
@@ -389,7 +440,14 @@ class STVTallier extends Tallier {
 				// First value is always unique
 				$voteTotals[] = $candidate['total'];
 			} elseif ( isset( $voteTotals[ count( $voteTotals ) - 1 ] ) ) {
-				if ( abs( $candidate['total'] - $voteTotals[ count( $voteTotals ) - 1 ] ) > PHP_FLOAT_EPSILON ) {
+				if (
+					// abs(candidateTotal - voteTotal[lastSeat]) > 0
+					bccomp( $this->bcabs( bcsub(
+						$candidate['total'],
+						$voteTotals[ count( $voteTotals ) - 1 ],
+						self::PRECISION
+					) ), '0.0', self::PRECISION ) === 1
+				) {
 					$voteTotals[] = $candidate['total'];
 				}
 			}
@@ -406,13 +464,37 @@ class STVTallier extends Tallier {
 
 		// Check if we can eliminate the lowest candidate
 		// using Hill's surplus-based short circuit elimination
-		$lastPlace = array_keys( array_filter( $ranking, static function ( $ranked ) use ( $lowest, $elected ) {
-			return abs( $ranked['total'] - $lowest ) < PHP_FLOAT_EPSILON && !in_array( key( $ranked ), $elected );
+		$bcabs = [ $this, 'bcabs' ];
+		$lastPlace = array_keys( array_filter( $ranking, static function ( $ranked ) use ( $bcabs, $lowest, $elected ) {
+			// abs(rankedTotal - lowest) <= 0
+			return bccomp( $bcabs( bcsub( $ranked['total'], $lowest, self::PRECISION ) ), '0.0', self::PRECISION ) <= 0
+				&& !in_array( key( $ranked ), $elected );
 		} ) );
-		if ( ( $lowest * count( $lastPlace ) ) + $surplus < $secondLowest ||
-			abs( $surplus - $prevSurplus ) < PHP_FLOAT_EPSILON ) {
+
+		if (
+			// (lowest * lastPlaceCount) + surplus < secondLowest
+			bccomp( bcadd( bcmul( $lowest, (string)count( $lastPlace ) ), $surplus ), $secondLowest ) === -1 ||
+			// abs(surplus - prevSurplus) <= 0
+			bccomp( $this->bcabs( bcsub( $surplus, $prevSurplus, self::PRECISION ) ), '0.0', self::PRECISION ) <= 0
+		) {
 			return $lastPlace;
 		}
+
 		return [];
+	}
+
+	/**
+	 * A custom fixed-point abs function since PHP doesn't provide one.
+	 *
+	 * @param string $number
+	 * @return string
+	 */
+	private function bcabs( $number ) {
+		// number < 0
+		if ( bccomp( $number, '0.0', self::PRECISION ) === -1 ) {
+			// number * -1
+			return bcmul( $number, '-1.0', self::PRECISION );
+		}
+		return $number;
 	}
 }

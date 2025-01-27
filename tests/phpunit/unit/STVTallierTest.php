@@ -123,7 +123,7 @@ class STVTallierTest extends MediaWikiUnitTestCase {
 	 */
 	public function testCalculateDroopQuota() {
 		$actual = TestingAccessWrapper::newFromObject( $this->tallier )->calculateDroopQuota( 57, 2 );
-		$this->assertSame( 19.000001000000001, $actual );
+		$this->assertSame( '19.0000010000', $actual );
 	}
 
 	public static function finishTallyResults(): Generator {
