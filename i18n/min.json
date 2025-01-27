@@ -21,11 +21,6 @@
 	"securepoll-thanks": "Tarimo kasih, suaro sanak alah disimpan.",
 	"securepoll-return": "Baliak ka $1",
 	"securepoll-encrypt-error": "Gagal mangekskripsi catatan suaro Sanak.\nSuaro Sanak alun tasimpan!\n\n$!",
-	"securepoll-no-gpg-home": "Indak bisa mambuek direktori GPG.",
-	"securepoll-secret-gpg-error": "Gagal mangeksekusi GPG.\nPakai $wgSecurePollShowErrorDetail=true; di LocalSettings.php untuk rincian nan labiah lanjuik.",
-	"securepoll-full-gpg-error": "Gagal mangeksekusi GPG:\n\nParintah: $1\n\nGagal:\n<pre>$2</pre>",
-	"securepoll-gpg-config-error": "Kunci-kunci GPG indak batua dikonfigurasi.",
-	"securepoll-gpg-parse-error": "Gagal manafsirkan kaluaran GPG.",
 	"securepoll-no-decryption-key": "Indak ado kunci dekripsi nan dikonfigurasi.\nIndak bisa dekripsi.",
 	"securepoll-jump": "Pai ka server pamiliahan",
 	"securepoll-bad-ballot-submission": "Suaro Sanak indak sah: $1"
