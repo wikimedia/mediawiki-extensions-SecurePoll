@@ -223,10 +223,6 @@
 			"value": false,
 			"description": "Whether to log admin actions to securepoll_log table."
 		},
-		"SecurePollSingleTransferableVoteEnabled": {
-			"value": false,
-			"description": "Enable or disable Single Transferable Vote on secure poll."
-		},
 		"SecurePollTranslationImportSourceUrl": {
 			"value": "",
 			"description": "Source url pointing to api endpoint where pages for import should come from"

@@ -390,10 +390,6 @@ class Context {
 			// Archived (T300087)
 			unset( $types['radio-range-comment' ] );
 
-			// Remove STV from options if flag is not set
-			if ( !RequestContext::getMain()->getConfig()->get( 'SecurePollSingleTransferableVoteEnabled' ) ) {
-				unset( $types['stv'] );
-			}
 			$this->ballotTypesForVote = $types;
 		}
 		return $this->ballotTypesForVote;
