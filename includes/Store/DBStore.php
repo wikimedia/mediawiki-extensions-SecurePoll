@@ -228,7 +228,7 @@ class DBStore implements Store {
 		$res = $queryBuilder->fetchResultSet();
 
 		foreach ( $res as $row ) {
-			$status = call_user_func( $callback, $this, $row->vote_record );
+			$status = $callback( $this, $row->vote_record );
 			if ( $status instanceof Status && !$status->isOK() ) {
 				return $status;
 			}

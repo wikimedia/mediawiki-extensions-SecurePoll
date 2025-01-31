@@ -481,7 +481,7 @@ class Election extends Entity {
 			$order = $random->shuffle( range( 0, $res->numRows() - 1 ) );
 			foreach ( $order as $i ) {
 				$res->seek( $i );
-				call_user_func( $callback, $this, $res->fetchObject() );
+				$callback( $this, $res->fetchObject() );
 			}
 		}
 		$random->close();
