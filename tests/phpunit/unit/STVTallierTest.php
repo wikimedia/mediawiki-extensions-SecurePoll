@@ -129,8 +129,8 @@ class STVTallierTest extends MediaWikiUnitTestCase {
 	public static function finishTallyResults(): Generator {
 		$fixtures = new DirectoryIterator( __DIR__ . '/fixtures' );
 		foreach ( $fixtures as $fixture ) {
-			if ( $fixture->isFile() && $fixture->isReadable() && $fixture->getExtension() === 'php' ) {
-				yield require $fixture->getPathname();
+			if ( $fixture->isFile() && $fixture->isReadable() && $fixture->getExtension() === 'json' ) {
+				yield json_decode( file_get_contents( $fixture->getPathname() ), true );
 			}
 		}
 	}
