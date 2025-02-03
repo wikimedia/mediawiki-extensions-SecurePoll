@@ -217,7 +217,7 @@ class ListPager extends TablePager {
 			$fields = self::$publicFields;
 		}
 
-		if ( !$this->election->getProperty( 'prompt-active-wiki' ) ) {
+		if ( !$this->election->getProperty( 'prompt-active-wiki', true ) ) {
 			unset( $fields['vote_voter_domain'] );
 		}
 
