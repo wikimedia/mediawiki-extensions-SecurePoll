@@ -128,7 +128,7 @@ class MemoryStore implements Store {
 		);
 
 		foreach ( $this->votes[$electionId] as $i => $vote ) {
-			$status = call_user_func( $callback, $this, $vote );
+			$status = $callback( $this, $vote );
 			if ( !$status->isOK() ) {
 				return $status;
 			}
