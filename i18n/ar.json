@@ -15,7 +15,8 @@
 			"Ravan",
 			"Shipmaster",
 			"أَحمد",
-			"ديفيد"
+			"ديفيد",
+			"XIDME"
 		]
 	},
 	"securepoll": "استطلاع رأي آمن",
@@ -145,7 +146,7 @@
 	"securepoll-already-archived-error": "تمت أرشفة هذه الانتخابات بالفعل.",
 	"securepoll-entry-archived": "عرض الانتخابات المؤرشفة",
 	"securepoll-archived-title": "الانتخابات المؤرشفة",
-	"securepoll-subpage-unarchive": "ألغ الأرشفة",
+	"securepoll-subpage-unarchive": "إلغاء الأرشفة",
 	"securepoll-unarchive-title": "إلغاء أرشفة $1",
 	"securepoll-unarchive-in-progress": "يتم حاليا إخراج الانتخابات من الأرشيف.",
 	"securepoll-already-unarchived-error": "لم يتم أرشفة هذه الانتخابات.",
