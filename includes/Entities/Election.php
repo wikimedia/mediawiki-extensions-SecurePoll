@@ -598,4 +598,28 @@ class Election extends Entity {
 		$tallier->loadJSONResult( json_decode( $result, true ) );
 		return $tallier;
 	}
+
+	/**
+	 * Gets the time that the tally completed. If a tally has not been done yet
+	 * then this function will return 'false'.
+	 *
+	 * @param IDatabase $dbr
+	 * @return int|bool
+	 */
+	public function getTallyResultTimeFromDb( $dbr ) {
+		$time = $dbr->newSelectQueryBuilder()
+			->select( 'pr_value' )
+			->from( 'securepoll_properties' )
+			->where( [
+				'pr_entity' => $this->getId(),
+				'pr_key' => 'tally-result-time',
+			] )
+			->caller( __METHOD__ )
+			->fetchField();
+		if ( !$time ) {
+			return false;
+		}
+
+		return (int)$time;
+	}
 }
