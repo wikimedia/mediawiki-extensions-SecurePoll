@@ -5,7 +5,6 @@ namespace MediaWiki\Extension\SecurePoll\Test\Integration;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\ResourceLoader\OOUIModule;
 use MediaWikiIntegrationTestCase;
 use OOUI\Theme;
@@ -144,7 +143,7 @@ class VoteSummaryTest extends MediaWikiIntegrationTestCase {
 	}
 
 	protected function getFactory() {
-		return MediaWikiServices::getInstance()->getService( 'SecurePoll.ActionPageFactory' );
+		return $this->getServiceContainer()->getService( 'SecurePoll.ActionPageFactory' );
 	}
 
 	protected function getSpecialPage() {

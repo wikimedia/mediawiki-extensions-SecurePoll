@@ -4,7 +4,6 @@ namespace MediaWiki\Extension\SecurePoll\Test\Integration;
 
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\TranslationRepo;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\User\User;
 use MediaWikiIntegrationTestCase;
 use Wikimedia\Rdbms\IDatabase;
@@ -29,7 +28,7 @@ class TranslationRepoTest extends MediaWikiIntegrationTestCase {
 	 * @covers \MediaWiki\Extension\SecurePoll\TranslationRepo::setTranslation
 	 */
 	public function testSetTranslation( $data, $language, $comment, $wikis, $expectedReplaceCalls ) {
-		$services = MediaWikiServices::getInstance();
+		$services = $this->getServiceContainer();
 		$rqb = $this->createMock( ReplaceQueryBuilder::class );
 		$rqb->method( $this->logicalOr( 'replaceInto', 'uniqueIndexFields', 'rows', 'caller' ) )->willReturnSelf();
 		$sqb = $this->createMock( SelectQueryBuilder::class );

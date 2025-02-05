@@ -7,7 +7,6 @@
 
 namespace MediaWiki\Extension\SecurePoll\Test\Integration;
 
-use MediaWiki\MediaWikiServices;
 use MediaWikiIntegrationTestCase;
 
 /**
@@ -22,7 +21,7 @@ class SecurePollServiceWiringTest extends MediaWikiIntegrationTestCase {
 	 * @dataProvider provideService
 	 */
 	public function testService( string $name ) {
-		MediaWikiServices::getInstance()->get( $name );
+		$this->getServiceContainer()->get( $name );
 		$this->addToAssertionCount( 1 );
 	}
 

@@ -5,7 +5,6 @@ namespace MediaWiki\Extension\SecurePoll\Test\Integration;
 use MediaWiki\Extension\SecurePoll\ActionPageFactory;
 use MediaWiki\Extension\SecurePoll\Pages\ActionPage;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
-use MediaWiki\MediaWikiServices;
 use MediaWikiIntegrationTestCase;
 
 /**
@@ -14,7 +13,7 @@ use MediaWikiIntegrationTestCase;
  */
 class ActionPageFactoryTest extends MediaWikiIntegrationTestCase {
 	protected function getFactory() {
-		return MediaWikiServices::getInstance()->getService( 'SecurePoll.ActionPageFactory' );
+		return $this->getServiceContainer()->getService( 'SecurePoll.ActionPageFactory' );
 	}
 
 	protected function getSpecialPage() {
