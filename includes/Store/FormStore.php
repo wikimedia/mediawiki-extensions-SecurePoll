@@ -8,6 +8,7 @@ use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Crypt\Crypt;
 use MediaWiki\Extension\SecurePoll\Pages\StatusException;
 use MediaWiki\Extension\SecurePoll\Talliers\Tallier;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\WikiMap\WikiMap;
@@ -38,9 +39,7 @@ class FormStore extends MemoryStore {
 	 * @param int $userId
 	 */
 	public function setFormData( $context, $formData, $userId ) {
-		global $wgSecurePollCreateWikiGroupDir, $wgSecurePollCreateWikiGroups,
-			$wgSecurePollCreateRemoteScriptPath;
-
+		$config = MediaWikiServices::getInstance()->getMainConfig();
 		$curId = 0;
 
 		$wikis = $formData['property_wiki'] ?? WikiMap::getCurrentWikiId();
@@ -51,9 +50,9 @@ class FormStore extends MemoryStore {
 			$wikis = false;
 
 			// HTMLForm already checked this, but let's do it again anyway.
-			if ( isset( $wgSecurePollCreateWikiGroups[$file] ) ) {
+			if ( isset( $config->get( 'SecurePollCreateWikiGroups' )[$file] ) ) {
 				$wikis = file_get_contents(
-					$wgSecurePollCreateWikiGroupDir . $file . '.dblist'
+					$config->get( 'SecurePollCreateWikiGroupDir' ) . $file . '.dblist'
 				);
 			}
 
@@ -127,7 +126,8 @@ class FormStore extends MemoryStore {
 		$this->properties[$eId]['admins'] = $admins;
 
 		if ( $this->remoteWikis ) {
-			$this->properties[$eId]['remote-mw-script-path'] = $wgSecurePollCreateRemoteScriptPath;
+			$this->properties[$eId]['remote-mw-script-path'] =
+				$config->get( 'SecurePollCreateRemoteScriptPath' );
 
 			$this->rId = $rId = --$curId;
 			$this->entityInfo[$rId] = [
@@ -331,13 +331,20 @@ class FormStore extends MemoryStore {
 	 * @return array
 	 */
 	public static function getWikiList() {
-		global $wgConf, $wgSecurePollExcludedWikis;
+		// This is a global exception we may want to let it pass.
+		// Even though $wgConf is an instance of MediaWiki\Config\SiteConfiguration,
+		// it’s not exposed as a service, so accessing it via
+		// `MediaWikiServices::getInstance()->getService( 'SiteConfiguration' )` is
+		// not possible.
+		global $wgConf;
+		$securePollExcludedWikis = MediaWikiServices::getInstance()
+			->getMainConfig()->get( 'SecurePollExcludedWikis' );
 
 		$wikiNames = [];
 		foreach ( $wgConf->getLocalDatabases() as $dbname ) {
 
 			// SecurePoll is not installed on these
-			if ( in_array( $dbname, $wgSecurePollExcludedWikis ) ) {
+			if ( in_array( $dbname, $securePollExcludedWikis ) ) {
 				continue;
 			}
 

@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\SecurePoll\Crypt;
 use JsonException;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Status\Status;
@@ -302,13 +303,12 @@ class OpenSslCrypt extends Crypt {
 	 * @return Status
 	 */
 	private function getErrorStatus( string $prefix, ?string $error = null ): Status {
-		global $wgSecurePollShowErrorDetail;
-
+		$config = MediaWikiServices::getInstance()->getMainConfig();
 		$error ??= openssl_error_string();
 		$this->cleanup();
 		wfDebug( "$prefix:$error" );
 
-		if ( $wgSecurePollShowErrorDetail ) {
+		if ( $config->get( 'SecurePollShowErrorDetail' ) ) {
 			return Status::newFatal( 'securepoll-full-openssl-error', "$prefix:$error" );
 		} else {
 			return Status::newFatal( 'securepoll-secret-openssl-error' );
@@ -502,7 +502,10 @@ class OpenSslCrypt extends Crypt {
 	 * @return array
 	 */
 	public static function getCreateDescriptors() {
-		global $wgSecurePollOpenSslSignKey;
+		$config = MediaWikiServices::getInstance()->getMainConfig();
+		$openSslSignKey = $config->has( 'SecurePollOpenSslSignKey' )
+			? $config->get( 'SecurePollOpenSslSignKey' )
+			: false;
 
 		$ret = parent::getCreateDescriptors();
 
@@ -518,11 +521,11 @@ class OpenSslCrypt extends Crypt {
 			]
 		];
 
-		if ( $wgSecurePollOpenSslSignKey ) {
+		if ( $openSslSignKey ) {
 			$ret['election'] += [
 				'openssl-sign-key' => [
 					'type' => 'api',
-					'default' => $wgSecurePollOpenSslSignKey,
+					'default' => $openSslSignKey,
 					'SecurePoll_type' => 'property',
 				]
 			];

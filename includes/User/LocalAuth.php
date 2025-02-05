@@ -6,6 +6,7 @@ use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\CentralAuth\User\CentralAuthUser;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Hooks\HookRunner;
+use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Status\Status;
@@ -21,6 +22,9 @@ class LocalAuth extends Auth {
 	/** @var HookRunner */
 	private $hookRunner;
 
+	/** @var MediaWikiServices */
+	private $services;
+
 	/**
 	 * @inheritDoc
 	 */
@@ -29,6 +33,7 @@ class LocalAuth extends Auth {
 		$this->hookRunner = new HookRunner(
 			MediaWikiServices::getInstance()->getHookContainer()
 		);
+		$this->services = MediaWikiServices::getInstance();
 	}
 
 	/**
@@ -59,16 +64,14 @@ class LocalAuth extends Auth {
 	 * @return array
 	 */
 	public function getUserParams( $user ) {
-		global $wgServer;
-
-		$services = MediaWikiServices::getInstance();
 		$block = $user->getBlock();
 		$blockCounts = $this->getCentralBlockCount( $user );
+		$server = $this->services->getMainConfig()->get( MainConfigNames::Server );
 
 		$params = [
 			'name' => $user->getName(),
 			'type' => 'local',
-			'domain' => preg_replace( '!.*/(.*)$!', '$1', $wgServer ),
+			'domain' => preg_replace( '!.*/(.*)$!', '$1', $server ),
 			'url' => $user->getUserPage()->getCanonicalURL(),
 			'properties' => [
 				'wiki' => WikiMap::getCurrentWikiId(),
@@ -78,8 +81,10 @@ class LocalAuth extends Auth {
 				'central-sitewide-block-count' => $blockCounts['sitewideBlockCount'],
 				'edit-count' => $user->getEditCount(),
 				'bot' => $user->isAllowed( 'bot' ),
-				'language' => $services->getUserOptionsLookup()->getOption( $user, 'language' ),
-				'groups' => $services->getUserGroupManager()->getUserGroups( $user ),
+				'language' => $this->services
+					->getUserOptionsLookup()->getOption( $user, 'language' ),
+				'groups' => $this->services
+					->getUserGroupManager()->getUserGroups( $user ),
 				'lists' => $this->getLists( $user ),
 				'central-lists' => $this->getCentralLists( $user ),
 				'registration' => $user->getRegistration(),
@@ -98,14 +103,12 @@ class LocalAuth extends Auth {
 	 * @return array
 	 */
 	public function getUserParamsFast( $user ) {
-		global $wgServer;
-
-		$services = MediaWikiServices::getInstance();
+		$server = $this->services->getMainConfig()->get( 'Server' );
 		$block = $user->getBlock();
 		$params = [
 			'name' => $user->getName(),
 			'type' => 'local',
-			'domain' => preg_replace( '!.*/(.*)$!', '$1', $wgServer ),
+			'domain' => preg_replace( '!.*/(.*)$!', '$1', $server ),
 			'url' => $user->getUserPage()->getCanonicalURL(),
 			'properties' => [
 				'wiki' => WikiMap::getCurrentWikiId(),
@@ -114,8 +117,10 @@ class LocalAuth extends Auth {
 				'central-block-count' => 0,
 				'edit-count' => $user->getEditCount(),
 				'bot' => $user->isAllowed( 'bot' ),
-				'language' => $services->getUserOptionsLookup()->getOption( $user, 'language' ),
-				'groups' => $services->getUserGroupManager()->getUserGroups( $user ),
+				'language' => $this->services
+					->getUserOptionsLookup()->getOption( $user, 'language' ),
+				'groups' => $this->services
+					->getUserGroupManager()->getUserGroups( $user ),
 				'lists' => $this->getLists( $user ),
 				'central-lists' => $this->getCentralLists( $user ),
 				'registration' => $user->getRegistration(),

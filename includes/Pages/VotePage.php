@@ -643,6 +643,11 @@ class VotePage extends ActionPage {
 	 * @return array
 	 */
 	private function populateUsersActiveWikiOptions() {
+		// This is a global exception we may want to let it pass.
+		// Even though $wgConf is an instance of MediaWiki\Config\SiteConfiguration,
+		// it’s not exposed as a service, so accessing it via
+		// `MediaWikiServices::getInstance()->getService( 'SiteConfiguration' )` is
+		// not possible.
 		global $wgConf;
 
 		if ( !ExtensionRegistry::getInstance()->isLoaded( 'CentralAuth' ) ) {

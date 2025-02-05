@@ -8,6 +8,7 @@ use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Store\DBStore;
 use MediaWiki\Extension\SecurePoll\User\LocalAuth;
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\MainConfigNames;
 use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Registration\ExtensionRegistry;
@@ -330,11 +331,9 @@ class MakeMailingList extends Maintenance {
 	 * @param User $user
 	 */
 	private function writeUser( $user ) {
-		global $wgSitename;
-
 		$entry = new MailingListEntry;
 		$entry->wiki = WikiMap::getCurrentWikiId();
-		$entry->siteName = $wgSitename;
+		$entry->siteName = $this->getConfig()->get( MainConfigNames::Sitename );
 		$entry->userName = $user->getName();
 		$entry->email = $user->getEmail();
 		$entry->language = $this->userOptionsLookup->getOption( $user, 'language' );

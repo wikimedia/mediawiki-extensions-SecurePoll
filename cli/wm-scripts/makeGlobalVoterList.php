@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\SecurePoll;
 
 use MediaWiki\Extension\CentralAuth\CentralAuthServices;
+use MediaWiki\MainConfigNames;
 use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\WikiMap\WikiMap;
@@ -118,7 +119,6 @@ class MakeGlobalVoterList extends Maintenance {
 	 * @return array
 	 */
 	private function getQualifiedUsers( $users ) {
-		global $wgLocalDatabases;
 		$caDbManager = CentralAuthServices::getDatabaseManager();
 		$dbcr = $caDbManager->getCentralReplicaDB();
 
@@ -137,8 +137,9 @@ class MakeGlobalVoterList extends Maintenance {
 		}
 
 		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+		$localDatabases = $this->getConfig()->get( MainConfigNames::LocalDatabases );
 		foreach ( $foreignUsers as $wiki => $wikiUsers ) {
-			if ( !in_array( $wiki, $wgLocalDatabases ) ) {
+			if ( !in_array( $wiki, $localDatabases ) ) {
 				continue;
 			}
 			$lb = $lbFactory->getMainLB( $wiki );

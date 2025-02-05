@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\SecurePoll\User;
 
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Status\Status;
@@ -28,7 +29,13 @@ class RemoteMWAuth extends Auth {
 	 * @return Status
 	 */
 	public function requestLogin( $election ) {
-		global $wgRequest, $wgConf;
+		// This is a global exception we may want to let it pass.
+		// Even though $wgConf is an instance of MediaWiki\Config\SiteConfiguration,
+		// it’s not exposed as a service, so accessing it via
+		// `MediaWikiServices::getInstance()->getService( 'SiteConfiguration' )` is
+		// not possible.
+		global $wgConf;
+		$request = RequestContext::getMain()->getRequest();
 
 		$urlParamNames = [
 			'id',
@@ -41,7 +48,7 @@ class RemoteMWAuth extends Auth {
 		$vars = [];
 		$params = [];
 		foreach ( $urlParamNames as $name ) {
-			$value = $wgRequest->getVal( $name );
+			$value = $request->getVal( $name );
 			if ( !preg_match( '/^[\w.-]*$/', (string)$value ) ) {
 				wfDebug( __METHOD__ . " Invalid parameter: $name" );
 				return Status::newFatal( 'securepoll-remote-auth-error' );

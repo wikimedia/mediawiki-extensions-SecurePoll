@@ -7,6 +7,7 @@ use MediaWiki\Content\JsonContentHandler;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
 use MediaWiki\Json\FormatJson;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 
 /**
@@ -178,9 +179,10 @@ class SecurePollContentHandler extends JsonContentHandler {
 
 	/** @inheritDoc */
 	public function canBeUsedOn( Title $title ) {
-		global $wgSecurePollUseNamespace;
+		$config = MediaWikiServices::getInstance()->getMainConfig();
 
-		return $wgSecurePollUseNamespace && $title->getNamespace() == NS_SECUREPOLL;
+		return $config->get( 'SecurePollUseNamespace' ) &&
+			$title->getNamespace() == NS_SECUREPOLL;
 	}
 
 	/** @inheritDoc */

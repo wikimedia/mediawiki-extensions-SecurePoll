@@ -18,6 +18,7 @@ use MediaWiki\Extension\SecurePoll\User\Auth;
 use MediaWiki\Extension\SecurePoll\User\LocalAuth;
 use MediaWiki\Extension\SecurePoll\User\RemoteMWAuth;
 use MediaWiki\Extension\SecurePoll\User\Voter;
+use MediaWiki\MainConfigNames;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\ParserOptions;
 use MediaWiki\SpecialPage\SpecialPage;
@@ -471,8 +472,9 @@ class Context {
 	 * @return string
 	 */
 	public function getResourceUrl( $resource ) {
-		global $wgExtensionAssetsPath;
+		$config = MediaWikiServices::getInstance()->getMainConfig();
+		$extensionAssetsPath = $config->get( MainConfigNames::ExtensionAssetsPath );
 
-		return "$wgExtensionAssetsPath/SecurePoll/resources/$resource";
+		return "$extensionAssetsPath/SecurePoll/resources/$resource";
 	}
 }

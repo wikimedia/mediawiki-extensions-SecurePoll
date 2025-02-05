@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\SecurePoll\Entities;
 
 use InvalidArgumentException;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Crypt\Crypt;
@@ -246,7 +247,7 @@ class Election extends Entity {
 	 * @return Status
 	 */
 	public function getQualifiedStatus( $params ) {
-		global $wgLang;
+		$lang = RequestContext::getMain()->getLanguage();
 		$props = $params['properties'];
 		$status = Status::newGood();
 
@@ -270,8 +271,8 @@ class Election extends Entity {
 			if ( $minEdits && $edits < $minEdits ) {
 				$status->fatal(
 					'securepoll-too-few-edits',
-					$wgLang->formatNum( $minEdits ),
-					$wgLang->formatNum( $edits )
+					$lang->formatNum( $minEdits ),
+					$lang->formatNum( $edits )
 				);
 			}
 
@@ -281,10 +282,10 @@ class Election extends Entity {
 			if ( $maxDate && $date > $maxDate ) {
 				$status->fatal(
 					'securepoll-too-new',
-					$wgLang->date( $maxDate ),
-					$wgLang->date( $date ),
-					$wgLang->time( $maxDate ),
-					$wgLang->time( $date )
+					$lang->date( $maxDate ),
+					$lang->date( $date ),
+					$lang->time( $maxDate ),
+					$lang->time( $date )
 				);
 			}
 
@@ -310,7 +311,7 @@ class Election extends Entity {
 			if ( $notCentrallyBlocked && $centralBlockCount >= $centralBlockThreshold ) {
 				$status->fatal(
 					'securepoll-blocked-centrally',
-					$wgLang->formatNum( $centralBlockThreshold )
+					$lang->formatNum( $centralBlockThreshold )
 				);
 			}
 
