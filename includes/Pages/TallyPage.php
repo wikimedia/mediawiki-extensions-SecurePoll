@@ -173,20 +173,11 @@ class TallyPage extends ActionPage {
 		$out = $this->specialPage->getOutput();
 
 		$tallier = $this->election->getTallyFromDb( $dbr );
-
 		if ( !$tallier ) {
 			return;
 		}
 
-		$time = $dbr->newSelectQueryBuilder()
-			->select( 'pr_value' )
-			->from( 'securepoll_properties' )
-			->where( [
-				'pr_entity' => $this->election->getId(),
-				'pr_key' => 'tally-result-time',
-			] )
-			->caller( __METHOD__ )
-			->fetchField();
+		$time = $this->election->getTallyResultTimeFromDb( $dbr );
 
 		$out->addHTML(
 			$out->msg( 'securepoll-tally-result' )

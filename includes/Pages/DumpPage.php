@@ -50,9 +50,16 @@ class DumpPage extends ActionPage {
 			return;
 		}
 
-		$isAdmin = $this->election->isAdmin( $this->specialPage->getUser() );
+		$isAdmin = $this->election->isAdmin( $this->specialPage->getAuthority() );
 		if ( $this->election->getProperty( 'voter-privacy' ) && !$isAdmin ) {
 			$out->addWikiMsg( 'securepoll-dump-private' );
+
+			return;
+		}
+
+		$dbr = $this->context->getDB( DB_REPLICA );
+		if ( !$isAdmin && !$this->election->getTallyResultTimeFromDb( $dbr ) ) {
+			$out->addWikiMsg( 'securepoll-dump-not-tallied' );
 
 			return;
 		}

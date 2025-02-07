@@ -95,6 +95,7 @@
 	"securepoll-dump-not-finished": "Election records are only available after the finish date on $1 at $2",
 	"securepoll-dump-no-urandom": "Cannot open /dev/urandom. To maintain voter privacy, encrypted election records are only publically available when they can be shuffled with a secure random number stream.",
 	"securepoll-dump-private": "Sorry, viewing the encrypted record dump for this election is restricted to election administrators.",
+	"securepoll-dump-not-tallied": "Election records are only available after the results have been tallied.",
 	"securepoll-dump-blt-error-not-stv": "Cannot create blt dump. Election is not an STV ballot type",
 	"securepoll-dump-blt-error-multiple-questions": "Cannot create blt dump. Election has more than one question",
 	"securepoll-dump-blt-error-no-votes": "Cannot create blt dump. Election has no votes",

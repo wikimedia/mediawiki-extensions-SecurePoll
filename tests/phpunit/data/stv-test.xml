@@ -1,0 +1,43 @@
+<SecurePoll>
+	<election>
+		<configuration>
+			<title>STV test</title>
+			<ballot>stv</ballot>
+			<tally>droop-quota</tally>
+			<primaryLang>en</primaryLang>
+			<startDate>2009-07-19T00:00:00Z</startDate>
+			<endDate>2019-08-10T00:00:00Z</endDate>
+			<id>70</id>
+			<property name="admins">Tim</property>
+			<message name="title" lang="en">STV test</message>
+			<message name="intro" lang="en">STV test intro</message>
+			<message name="jump-text" lang="en">STV test jump text</message>
+			<message name="return-text" lang="en">STV test return text</message>
+			<auth>local</auth>
+			<question>
+				<id>71</id>
+				<message name="text" lang="en">STV test question</message>
+				<option>
+					<id>72</id>
+					<message name="text" lang="en">1</message>
+				</option>
+				<option>
+					<id>73</id>
+					<message name="text" lang="en">2</message>
+				</option>
+				<option>
+					<id>77</id>
+					<message name="text" lang="en">3</message>
+				</option>
+				<option>
+					<id>75</id>
+					<message name="text" lang="en">4</message>
+				</option>
+				<option>
+					<id>75</id>
+					<message name="text" lang="en">5</message>
+				</option>
+			</question>
+		</configuration>
+	</election>
+</SecurePoll>
