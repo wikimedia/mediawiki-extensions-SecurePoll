@@ -94,6 +94,7 @@
 	"securepoll-dump-not-finished": "Seçki qeydləri yalnız $2, $1 bitmə tarixindən sonra əldə edilə bilər",
 	"securepoll-dump-no-urandom": "/dev/urandom açıla bilmir. Seçici məxfiliyini qorumaq üçün şifrələnmiş seçki qeydləri yalnız təhlükəsiz təsadüfi nömrə axını ilə qarışdırıla biləndə ictimaiyyətə açıla bilər.",
 	"securepoll-dump-private": "Təəssüf ki, bu seçki üçün şifrələnmiş qeydə baxmaq icazəsi yalnız seçki administratorlarındadır.",
+	"securepoll-dump-not-tallied": "Seçki qeydləri yalnız nəticələr hesablandıqdan sonra əldə edilə bilər.",
 	"securepoll-dump-blt-error-not-stv": "Blt dump yaratmaq mümkün deyil. Seçki STV seçki bülleteni növü deyil",
 	"securepoll-dump-blt-error-multiple-questions": "Blt dump yaratmaq mümkün deyil. Seçkinin birdən çox sualı var",
 	"securepoll-dump-blt-error-no-votes": "Blt dump yaratmaq mümkün deyil. Seçkidə səs yoxdur",

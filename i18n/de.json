@@ -96,6 +96,7 @@
 	"securepoll-dump-not-finished": "Abstimmungsaufzeichnungen sind nur nach dem Endtermin am $1 um $2 Uhr verfügbar",
 	"securepoll-dump-no-urandom": "/dev/urandom kann nicht geöffnet werden. Um den Wählerdatenschutz zu wahren, sind verschlüsselte Abstimmungsaufzeichnungen nur öffentlich verfügbar, wenn sie mit einem sicheren Zufallszahlenstrom gemischt werden können.",
 	"securepoll-dump-private": "Leider ist die Betrachtung des verschlüsselten Aufzeichnungsauszugs für diese Abstimmung auf Abstimmungsadministratoren beschränkt.",
+	"securepoll-dump-not-tallied": "Wahlunterlagen stehen erst nach der Auszählung der Wahlergebnisse zur Verfügung.",
 	"securepoll-dump-blt-error-not-stv": "BLT-Dump kann nicht erstellt werden. Die Wahl ist kein STV-Wahltyp",
 	"securepoll-dump-blt-error-multiple-questions": "BLT-Dump kann nicht erstellt werden. Die Wahl enthält mehr als eine Frage",
 	"securepoll-dump-blt-error-no-votes": "BLT-Dump kann nicht erstellt werden. Wahl hat keine Stimmen",
