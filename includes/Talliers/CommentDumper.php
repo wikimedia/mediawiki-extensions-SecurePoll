@@ -77,7 +77,7 @@ class CommentDumper extends ElectionTallier {
 			$output = array_merge( $output, $question );
 		}
 
-		fputcsv( $this->csvHandle, $output );
+		fputcsv( $this->csvHandle, $output, ',', '"', "\\" );
 
 		return Status::newGood();
 	}
