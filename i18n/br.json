@@ -75,7 +75,7 @@
 	"securepoll-header-admin": "Merour",
 	"securepoll-cookie-dup-list": "Implijerien dezho toupinoù bet kavet c'hoazh",
 	"securepoll-dump-title": "Enrolladenn : $1",
-	"securepoll-dump-not-finished": "N'hallor gwelet ar roadennoù enrineget nemet goude ma vo kloz an dilennadeg d'an $1 da $2",
+	"securepoll-dump-not-finished": "Ne c’haller kaout disoc’h an dilennad nemet goude an deiziad echuiñ d’an $1 da $2",
 	"securepoll-dump-no-urandom": "Dibosupl digeriñ /dev/urandom.\nA-benn mirout prevezded ar voterien n'haller tapout ar roadennoù enrineget nemet ma c'hallont bezañ strafuilhet gant ur ganer niveroù dargouezhek.",
 	"securepoll-urandom-not-supported": "N'eo ket skoret gant ar servijer-mañ ganadur enrineget dargouezhek an niveroù.\nA-benn mirout prevezded ar voterien ne vez embannet ar roadennoù enrineget nemet pa c'hallont bezañ strafuilhet gant ul lanvad niveroù dargouezhek.",
 	"securepoll-translate-title": "Treiñ : $1",
