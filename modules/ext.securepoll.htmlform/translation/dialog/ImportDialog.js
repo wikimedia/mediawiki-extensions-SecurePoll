@@ -36,7 +36,7 @@ ImportDialog.static.actions = [
 ];
 
 ImportDialog.prototype.getSetupProcess = function () {
-	return ImportDialog.parent.prototype.getSetupProcess.call( this )
+	return ImportDialog.super.prototype.getSetupProcess.call( this )
 		.next( function () {
 			// Prevent flickering, disable all actions before init is done
 			this.actions.setMode( 'INVALID' );
@@ -119,7 +119,7 @@ ImportDialog.prototype.switchPage = function ( name, data ) {
 };
 
 ImportDialog.prototype.getReadyProcess = function ( data ) {
-	return ImportDialog.parent.prototype.getReadyProcess.call(
+	return ImportDialog.super.prototype.getReadyProcess.call(
 		this, data
 	).next(
 		function () {
@@ -132,7 +132,7 @@ ImportDialog.prototype.getReadyProcess = function ( data ) {
 
 ImportDialog.prototype.getActionProcess = function ( action ) {
 	var page = this.booklet.getCurrentPage();
-	return ImportDialog.parent.prototype.getActionProcess.call(
+	return ImportDialog.super.prototype.getActionProcess.call(
 		this, action
 	).next(
 		function () {
