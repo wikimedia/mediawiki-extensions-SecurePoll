@@ -1,5 +1,5 @@
-var TranslationParser = require( './TranslationParser.js' );
-var TranslationFlattener = require( './TranslationFlattener.js' );
+const TranslationParser = require( './TranslationParser.js' );
+const TranslationFlattener = require( './TranslationFlattener.js' );
 
 function TranslationImporter( cfg ) {
 	this.source = cfg.source;
@@ -22,35 +22,35 @@ OO.mixinClass( TranslationImporter, OO.EventEmitter );
  * @return {jQuery.Promise} Promise that is resolved when all steps for import are done
  */
 TranslationImporter.prototype.startImportPage = function ( page, electionId ) {
-	var dfd = new $.Deferred();
-	var pageId = page.pageid;
+	const dfd = new $.Deferred();
+	const pageId = page.pageid;
 	this.sourceContent = '';
-	var language = this.getLanguage( page.title );
+	const language = this.getLanguage( page.title );
 
 	if ( language === '' ) {
 		dfd.resolve( mw.message( 'securepoll-translation-importer-no-selected-language' ).text(), '' );
 	}
 	this.electionId = electionId;
 
-	var me = this;
-	var dfdPageContent = this.getPageContent( page, pageId );
+	const me = this;
+	const dfdPageContent = this.getPageContent( page, pageId );
 
-	$.when( dfdPageContent ).done( function ( sourceContent ) {
+	$.when( dfdPageContent ).done( ( sourceContent ) => {
 		if ( sourceContent !== '' ) {
-			var parsedJson = me.parser.parseContent( sourceContent );
-			var flattenedJson = me.flattener.flattenData( parsedJson, me.electionId );
+			const parsedJson = me.parser.parseContent( sourceContent );
+			const flattenedJson = me.flattener.flattenData( parsedJson, me.electionId );
 			me.update( mw.message( 'securepoll-translation-importer-update-parsed-content', language ).text() );
 
-			var dfdSaveContent = me.saveContent( flattenedJson, language );
-			$.when( dfdSaveContent ).done( function () {
+			const dfdSaveContent = me.saveContent( flattenedJson, language );
+			$.when( dfdSaveContent ).done( () => {
 				dfd.resolve( 'saved', language );
-			} ).fail( function ( error ) {
+			} ).fail( ( error ) => {
 				dfd.resolve( error, language );
 			} );
 		} else {
 			dfd.resolve( mw.message( 'securepoll-translation-importer-no-content' ).text(), language );
 		}
-	} ).fail( function ( error ) {
+	} ).fail( ( error ) => {
 		dfd.resolve( error, language );
 	} );
 
@@ -65,9 +65,9 @@ TranslationImporter.prototype.startImportPage = function ( page, electionId ) {
  * @return {jQuery.Promise} Promise that is resolved when page content is received
  */
 TranslationImporter.prototype.getPageContent = function ( page, pageId ) {
-	var dfd = new $.Deferred();
+	const dfd = new $.Deferred();
 
-	var params = {
+	const params = {
 		action: 'query',
 		prop: 'revisions',
 		rvprop: 'content',
@@ -75,12 +75,12 @@ TranslationImporter.prototype.getPageContent = function ( page, pageId ) {
 	};
 	this.update( mw.message( 'securepoll-translation-importer-update-start', page.title ).text() );
 
-	mw.loader.using( 'mediawiki.ForeignApi' ).done( function () {
-		var mwApi = new mw.ForeignApi( this.source, { anonymous: true } );
+	mw.loader.using( 'mediawiki.ForeignApi' ).done( () => {
+		const mwApi = new mw.ForeignApi( this.source, { anonymous: true } );
 
-		var dfdResponse = mwApi.get( params );
-		dfdResponse.done( function ( resp ) {
-			var pageInfo = resp.query.pages[ pageId ];
+		const dfdResponse = mwApi.get( params );
+		dfdResponse.done( ( resp ) => {
+			const pageInfo = resp.query.pages[ pageId ];
 			if ( pageInfo.pageid !== pageId ) {
 				dfd.reject( resp );
 			}
@@ -90,13 +90,13 @@ TranslationImporter.prototype.getPageContent = function ( page, pageId ) {
 			if ( pageInfo.revisions[ 0 ][ '*' ].length === 0 ) {
 				dfd.reject( mw.message( 'securepoll-translation-importer-no-content' ).text() );
 			}
-			var sourceContent = pageInfo.revisions[ 0 ][ '*' ];
+			const sourceContent = pageInfo.revisions[ 0 ][ '*' ];
 
 			dfd.resolve( sourceContent );
-		} ).fail( function ( error ) {
+		} ).fail( ( error ) => {
 			dfd.reject( error );
 		} );
-	}.bind( this ) );
+	} );
 
 	return dfd.promise();
 };
@@ -115,7 +115,7 @@ TranslationImporter.prototype.update = function ( update ) {
  * @return {string} language from title
  */
 TranslationImporter.prototype.getLanguage = function ( title ) {
-	var titleArray = title.split( '/' );
+	const titleArray = title.split( '/' );
 	return titleArray[ titleArray.length - 1 ];
 };
 
@@ -127,7 +127,7 @@ TranslationImporter.prototype.getLanguage = function ( title ) {
  * @return {jQuery.Promise} Promise that is resolved when content is saved
  */
 TranslationImporter.prototype.saveContent = function ( content, language ) {
-	var dfd = $.Deferred();
+	const dfd = $.Deferred();
 
 	$.ajax( {
 		method: 'POST',
@@ -135,11 +135,11 @@ TranslationImporter.prototype.saveContent = function ( content, language ) {
 		data: JSON.stringify( { data: content } ),
 		contentType: 'application/json',
 		dataType: 'json'
-	} ).done( function ( response ) {
+	} ).done( ( response ) => {
 		if ( response.success === true ) {
 			dfd.resolve( response );
 		}
-	} ).fail( function ( jgXHR, type, status ) {
+	} ).fail( ( jgXHR, type, status ) => {
 		if ( type === 'error' ) {
 			dfd.reject( {
 				error: jgXHR.responseJSON || jgXHR.responseText

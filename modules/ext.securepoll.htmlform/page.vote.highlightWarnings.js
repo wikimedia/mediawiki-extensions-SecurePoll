@@ -1,7 +1,7 @@
 function highlightWarnings( $ ) {
 
 	function initializeButton() {
-		var $buttons = $( '.highlight-warnings-button' );
+		const $buttons = $( '.highlight-warnings-button' );
 		if ( $buttons.length < 1 ) {
 			return null;
 		}
@@ -28,17 +28,17 @@ function highlightWarnings( $ ) {
 			showAllFieldSets();
 		} else {
 			hideAllFieldSets();
-			for ( var key in warningRows ) {
+			for ( const key in warningRows ) {
 				if ( Object.prototype.hasOwnProperty.call( warningRows, key ) ) {
-					var question = key;
-					var options = warningRows[ key ];
-					var $targetFieldSet = $( 'body .' + question );
+					const question = key;
+					const options = warningRows[ key ];
+					const $targetFieldSet = $( 'body .' + question );
 					$targetFieldSet.prop( 'hidden', false );
-					var $rows = $targetFieldSet.find( '.securepoll-ballot-row' );
+					const $rows = $targetFieldSet.find( '.securepoll-ballot-row' );
 					$rows.prop( 'hidden', true );
-					for ( var i = 0; i < options.length; i++ ) {
-						var option = options[ i ];
-						var $targetRow = $targetFieldSet.find( '.' + option );
+					for ( let i = 0; i < options.length; i++ ) {
+						const option = options[ i ];
+						const $targetRow = $targetFieldSet.find( '.' + option );
 						$targetRow.prop( 'hidden', false );
 					}
 				}
@@ -48,7 +48,7 @@ function highlightWarnings( $ ) {
 
 	function showAllFieldSets() {
 		getFieldSets().prop( 'hidden', false );
-		var $rows = getFieldSets().find( '.securepoll-ballot-row' );
+		const $rows = getFieldSets().find( '.securepoll-ballot-row' );
 		$rows.prop( 'hidden', false );
 	}
 
@@ -57,15 +57,15 @@ function highlightWarnings( $ ) {
 	}
 
 	function init() {
-		var $button = initializeButton();
+		const $button = initializeButton();
 		if ( !$button ) {
 			return;
 		}
 
-		var warningRows = parseWarningRows( $button );
-		var isActive = true;
+		const warningRows = parseWarningRows( $button );
+		let isActive = true;
 
-		$button.on( 'click', function () {
+		$button.on( 'click', () => {
 			isActive = !isActive;
 			toggleFieldSets( isActive, warningRows );
 			toggleButtonState( $button, isActive );
@@ -73,7 +73,7 @@ function highlightWarnings( $ ) {
 	}
 
 	// eslint-disable-next-line no-jquery/no-ready-shorthand
-	$( document ).ready( function () {
+	$( document ).ready( () => {
 		if ( typeof QUnit === 'undefined' ) {
 			init();
 		}

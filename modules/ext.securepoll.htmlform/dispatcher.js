@@ -1,5 +1,5 @@
 if ( mw.config.get( 'wgCanonicalSpecialPageName' ) === 'SecurePoll' ) {
-	var subPage = mw.config.get( 'SecurePollSubPage' );
+	const subPage = mw.config.get( 'SecurePollSubPage' );
 	if ( subPage === 'vote' ) {
 		require( './page.vote.js' );
 		require( './page.vote.highlightWarnings.js' );

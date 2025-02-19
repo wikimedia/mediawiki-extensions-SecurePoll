@@ -1,9 +1,9 @@
 ( function () {
 	QUnit.module( 'ext.securepoll.highlightWarnings.test', QUnit.newMwEnvironment() );
 
-	var highlighting = require( 'ext.securepoll.htmlform/page.vote.highlightWarnings.js' );
-	QUnit.test( 'initializeButton returns correct button element', function ( assert ) {
-		var data = {
+	const highlighting = require( 'ext.securepoll.htmlform/page.vote.highlightWarnings.js' );
+	QUnit.test( 'initializeButton returns correct button element', ( assert ) => {
+		const data = {
 			_: 'OO.ui.ButtonInputWidget',
 			type: 'button',
 			label: 'Show only warnings',
@@ -18,44 +18,44 @@
 				'highlight-warnings-button'
 			]
 		};
-		var buttons = document.createElement( 'div' );
+		const buttons = document.createElement( 'div' );
 		buttons.setAttribute( 'data-ooui', JSON.stringify( data ) );
 		buttons.classList.add( 'highlight-warnings-button' );
 		buttons.setAttribute( 'data-ooui', JSON.stringify( data ) );
 		$( '#qunit-fixture' ).append( buttons );
 
-		var button = highlighting.initializeButton();
+		const button = highlighting.initializeButton();
 		assert.notStrictEqual( button, null, 'Button element should not be null' );
 
 		buttons.remove();
 	} );
 
-	QUnit.test( 'getFieldSets returns correct fieldsets', function ( assert ) {
-		var fieldset1 = document.createElement( 'fieldset' );
-		var fieldset2 = document.createElement( 'fieldset' );
-		var formLayout = document.createElement( 'fieldset' );
+	QUnit.test( 'getFieldSets returns correct fieldsets', ( assert ) => {
+		const fieldset1 = document.createElement( 'fieldset' );
+		const fieldset2 = document.createElement( 'fieldset' );
+		const formLayout = document.createElement( 'fieldset' );
 		formLayout.classList.add( 'oo-ui-formLayout' );
 		formLayout.append( fieldset1 );
 		formLayout.append( fieldset2 );
 		$( '#qunit-fixture' ).append( formLayout );
 
-		var fieldSets = highlighting.getFieldSets();
+		const fieldSets = highlighting.getFieldSets();
 		assert.strictEqual( fieldSets.length, 2, 'Should return two fieldsets' );
 
 		formLayout.remove();
 	} );
 
-	QUnit.test( 'showAllFieldSets shows all fieldsets and their rows', function ( assert ) {
-		var fieldset1 = document.createElement( 'fieldset' );
-		var fieldset2 = document.createElement( 'fieldset' );
-		var row1 = document.createElement( 'div' );
+	QUnit.test( 'showAllFieldSets shows all fieldsets and their rows', ( assert ) => {
+		const fieldset1 = document.createElement( 'fieldset' );
+		const fieldset2 = document.createElement( 'fieldset' );
+		const row1 = document.createElement( 'div' );
 		row1.classList.add( 'securepoll-ballot-row' );
-		var row2 = document.createElement( 'div' );
+		const row2 = document.createElement( 'div' );
 		row2.classList.add( 'securepoll-ballot-row' );
 		fieldset1.append( row1 );
 		fieldset2.append( row2 );
 
-		var formLayout = document.createElement( 'fieldset' );
+		const formLayout = document.createElement( 'fieldset' );
 		formLayout.classList.add( 'oo-ui-formLayout' );
 		formLayout.append( fieldset1 );
 		formLayout.append( fieldset2 );
@@ -73,17 +73,17 @@
 		formLayout.remove();
 	} );
 
-	QUnit.test( 'hideAllFieldSets hides all fieldsets', function ( assert ) {
-		var fieldset1 = document.createElement( 'fieldset' );
-		var fieldset2 = document.createElement( 'fieldset' );
-		var row1 = document.createElement( 'div' );
+	QUnit.test( 'hideAllFieldSets hides all fieldsets', ( assert ) => {
+		const fieldset1 = document.createElement( 'fieldset' );
+		const fieldset2 = document.createElement( 'fieldset' );
+		const row1 = document.createElement( 'div' );
 		row1.classList.add( 'securepoll-ballot-row' );
-		var row2 = document.createElement( 'div' );
+		const row2 = document.createElement( 'div' );
 		row2.classList.add( 'securepoll-ballot-row' );
 		fieldset1.append( row1 );
 		fieldset2.append( row2 );
 
-		var formLayout = document.createElement( 'fieldset' );
+		const formLayout = document.createElement( 'fieldset' );
 		formLayout.classList.add( 'oo-ui-formLayout' );
 		formLayout.append( fieldset1 );
 		formLayout.append( fieldset2 );

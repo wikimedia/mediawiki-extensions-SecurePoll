@@ -22,28 +22,28 @@ OO.initClass( TranslationFlattener );
  * @return {Object} Flattened messages in the same level
  */
 TranslationFlattener.prototype.flattenData = function ( data, id ) {
-	var flattenData = {};
-	var count = id;
+	const flattenData = {};
+	let count = id;
 
-	for ( var entry in data ) {
+	for ( const entry in data ) {
 		if ( this.keywords.indexOf( entry ) !== -1 ) {
 			flattenData[ 'trans_' + id + '_' + entry ] = data[ entry ];
 			continue;
 		}
 		if ( data[ entry ] instanceof Array && entry === 'questions' ) {
-			for ( var x in data[ entry ] ) {
+			for ( const x in data[ entry ] ) {
 				// keep counter in snych with question
 				count++;
-				var question = data[ entry ][ x ];
-				var questionKey = 'trans_' + count + '_text';
+				const question = data[ entry ][ x ];
+				const questionKey = 'trans_' + count + '_text';
 				flattenData[ questionKey ] = question.text;
 
 				if ( question.options ) {
-					for ( var y in question.options ) {
+					for ( const y in question.options ) {
 						// keep counter in snych with options
 						count++;
-						var option = data[ entry ][ x ].options[ y ];
-						var optionKey = 'trans_' + count + '_text';
+						const option = data[ entry ][ x ].options[ y ];
+						const optionKey = 'trans_' + count + '_text';
 						flattenData[ optionKey ] = option.text;
 					}
 				}

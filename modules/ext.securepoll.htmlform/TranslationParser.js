@@ -12,35 +12,35 @@ OO.initClass( TranslationParser );
  * @return {Object} Object which contains translatable content of an election
  */
 TranslationParser.prototype.parseContent = function ( content ) {
-	var parsedContent = {
+	const parsedContent = {
 		type: 'election'
 	};
-	var value = '';
-	var questionOptions = [];
+	let value = '';
+	let questionOptions = [];
 
 	content = content.replace( /<translate>/g, '' );
 	content = content.replace( /<\/translate>/g, '' );
 	content = content.replace( /<!--T:\d+-->/g, '' );
-	var lines = content.split( '\n' );
+	const lines = content.split( '\n' );
 
-	for ( var i = 0; i < lines.length; i++ ) {
-		var line = lines[ i ];
-		var startTagMatch = this.hasStartTag( line );
+	for ( let i = 0; i < lines.length; i++ ) {
+		let line = lines[ i ];
+		const startTagMatch = this.hasStartTag( line );
 		if ( !startTagMatch ) {
 			continue;
 		}
 		// get properties
-		var property = this.getPropertyKey( startTagMatch[ 0 ] );
+		const property = this.getPropertyKey( startTagMatch[ 0 ] );
 		if ( property === '' ) {
 			continue;
 		}
-		var properties = property.split( '/' );
-		var electionPart = properties[ 0 ];
-		var propertyKey = properties[ 1 ];
+		const properties = property.split( '/' );
+		const electionPart = properties[ 0 ];
+		const propertyKey = properties[ 1 ];
 		value = '';
 
 		line = line.slice( startTagMatch[ 0 ].length + startTagMatch.index, line.length );
-		var endTagMatch = this.hasEndTag( line );
+		let endTagMatch = this.hasEndTag( line );
 
 		if ( electionPart === 'election' ) {
 			if ( endTagMatch ) {
@@ -73,10 +73,10 @@ TranslationParser.prototype.parseContent = function ( content ) {
 			if ( line.length > 0 ) {
 				value += line + '\n';
 			}
-			for ( var x = i + 1; x < lines.length; x++ ) {
-				var contentLine = lines[ x ];
+			for ( let x = i + 1; x < lines.length; x++ ) {
+				let contentLine = lines[ x ];
 				endTagMatch = this.hasEndTag( contentLine );
-				var newStartTag = this.hasStartTag( contentLine );
+				const newStartTag = this.hasStartTag( contentLine );
 				if ( !endTagMatch || newStartTag ) {
 					if ( !newStartTag ) {
 						if ( contentLine.length !== 0 ) {
@@ -121,10 +121,10 @@ TranslationParser.prototype.parseContent = function ( content ) {
  * @return {string} contains text of property
  */
 TranslationParser.prototype.getValueContent = function ( value, lines, lineNumber ) {
-	for ( var x = lineNumber + 1; x < lines.length; x++ ) {
-		var contentLine = lines[ x ];
-		var endTagMatch = this.hasEndTag( contentLine );
-		var newStartTag = this.hasStartTag( contentLine );
+	for ( let x = lineNumber + 1; x < lines.length; x++ ) {
+		let contentLine = lines[ x ];
+		let endTagMatch = this.hasEndTag( contentLine );
+		const newStartTag = this.hasStartTag( contentLine );
 
 		if ( !endTagMatch || newStartTag ) {
 			if ( !newStartTag ) {
@@ -157,14 +157,14 @@ TranslationParser.prototype.getValueContent = function ( value, lines, lineNumbe
  * @return {Array} array with all options for a question
  */
 TranslationParser.prototype.getOptionsForQuestion = function ( lines, lineNumber ) {
-	var options = [];
-	var line = '';
-	var value = '';
-	var endTagMatch = null;
+	const options = [];
+	let line = '';
+	let value = '';
+	let endTagMatch = null;
 
-	for ( var i = lineNumber + 1; i < lines.length; i++ ) {
+	for ( let i = lineNumber + 1; i < lines.length; i++ ) {
 		line = lines[ i ];
-		var startTagMatch = this.hasStartTag( line );
+		const startTagMatch = this.hasStartTag( line );
 		if ( !startTagMatch ) {
 			endTagMatch = this.hasEndTag( line );
 			if ( endTagMatch ) {
@@ -189,12 +189,12 @@ TranslationParser.prototype.getOptionsForQuestion = function ( lines, lineNumber
 			value = '';
 		}
 
-		var property = this.getPropertyKey( startTagMatch[ 0 ] );
+		const property = this.getPropertyKey( startTagMatch[ 0 ] );
 		if ( property === '' ) {
 			continue;
 		}
-		var properties = property.split( '/' );
-		var electionPart = properties[ 0 ];
+		const properties = property.split( '/' );
+		const electionPart = properties[ 0 ];
 		if ( electionPart !== 'option' ) {
 			if ( electionPart === 'question' ) {
 				return options;
@@ -252,15 +252,15 @@ TranslationParser.prototype.hasEndTag = function ( content ) {
 TranslationParser.prototype.getPropertyKey = function ( tag ) {
 	tag = tag.replace( /\s+/g, '' );
 
-	var index = tag.indexOf( ':' );
+	const index = tag.indexOf( ':' );
 	if ( index < 0 ) {
 		this.errors.push( 'property index not found of ' + tag );
 		return '';
 	}
 
-	var propertyKey = tag.slice( index + 1, tag.length );
+	let propertyKey = tag.slice( index + 1, tag.length );
 
-	var matches = propertyKey.match( /-->/g );
+	const matches = propertyKey.match( /-->/g );
 	if ( !matches ) {
 		this.errors.push( 'property key end not found in ' + tag );
 		return '';

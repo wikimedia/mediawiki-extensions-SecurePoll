@@ -1,6 +1,6 @@
 // Ensure form fields are enabled/disabled according to selected log types
-$( function () {
-	var actionTypeWidget = OO.ui.infuse( $( '#mw-input-type' ) ),
+$( () => {
+	const actionTypeWidget = OO.ui.infuse( $( '#mw-input-type' ) ),
 		targetWidget = OO.ui.infuse( $( '#mw-input-target' ) ),
 		actionsWidget = OO.ui.infuse( $( '.securepolllog-actions-radio.mw-htmlform-field-HTMLRadioField' ) );
 

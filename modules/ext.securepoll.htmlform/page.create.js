@@ -1,10 +1,10 @@
 // Dynamically add inputs for column labels if they've been enabled
 // The number of labels is based on the min/max range in range voting
-mw.hook( 'htmlform.enhance' ).add( function ( $root ) {
-	var numRegex = /^[+-]?\d+$/;
+mw.hook( 'htmlform.enhance' ).add( ( $root ) => {
+	const numRegex = /^[+-]?\d+$/;
 
 	$root.find( '.securepoll-radiorange-messages' ).each( function () {
-		var $p, $i, $layout,
+		let $p, $i, $layout,
 			minInputWidget, maxInputWidget, $min, $max,
 			name, cells;
 
@@ -14,7 +14,7 @@ mw.hook( 'htmlform.enhance' ).add( function ( $root ) {
 		cells = {};
 
 		$i.find( 'div[data-securepoll-col-num]' ).each( function () {
-			var $t = $( this );
+			const $t = $( this );
 			cells[ $t.data( 'securepollColNum' ) ] = $t;
 		} );
 
@@ -27,7 +27,7 @@ mw.hook( 'htmlform.enhance' ).add( function ( $root ) {
 		}
 
 		function changeHandler() {
-			var i, min, max;
+			let i, min, max;
 
 			min = minInputWidget.getNumericValue();
 			max = maxInputWidget.getNumericValue();

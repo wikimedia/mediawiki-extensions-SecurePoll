@@ -1,5 +1,5 @@
 function StrikePopupWidget( config ) {
-	var content;
+	let content;
 	config = config || {};
 
 	this.strikeButton = new OO.ui.ButtonWidget( {
@@ -48,7 +48,7 @@ StrikePopupWidget.prototype.onStrikeClick = function () {
 };
 
 StrikePopupWidget.prototype.makeRequest = function ( action, voteid, reason ) {
-	var widget = this;
+	const widget = this;
 	new mw.Api().postWithToken( 'csrf', {
 		action: 'strikevote', // API action module
 		option: action, // 'strike' or 'unstrike'
@@ -56,8 +56,8 @@ StrikePopupWidget.prototype.makeRequest = function ( action, voteid, reason ) {
 		reason: reason
 	} )
 		.then(
-			function ( response ) {
-				var $row;
+			( response ) => {
+				let $row;
 				if ( response.strikevote.status === 'good' ) {
 					widget.toggle( false );
 				} else {
@@ -76,11 +76,11 @@ StrikePopupWidget.prototype.makeRequest = function ( action, voteid, reason ) {
 				}
 				widget.reasonInput.setValue( '' );
 			},
-			function ( code, response ) { // fail callback
+			( code, response ) => { // fail callback
 				widget.$result.text( response.error.info );
 			}
 		)
-		.always( function () {
+		.always( () => {
 			widget.$spinner.hide();
 			widget.strikeButton.setDisabled( false );
 		} );
@@ -89,7 +89,7 @@ StrikePopupWidget.prototype.makeRequest = function ( action, voteid, reason ) {
 };
 
 $( '.TablePager_col_strike > .oo-ui-buttonWidget a' ).on( 'click', function ( e ) {
-	var $widget = $( this ).parent(),
+	let $widget = $( this ).parent(),
 		popup = $widget.data( 'popup' );
 	e.preventDefault();
 

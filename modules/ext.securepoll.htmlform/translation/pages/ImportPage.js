@@ -1,4 +1,4 @@
-var TranslationImporter = require( './../../TranslationImporter.js' );
+const TranslationImporter = require( './../../TranslationImporter.js' );
 
 function ImportPage( name, cfg ) {
 	ImportPage.super.call( this, name, cfg );
@@ -34,7 +34,7 @@ ImportPage.prototype.setSourcePages = function ( pages ) {
 // handle import of each page and fires updates which page is currently processed
 // fires imported after all pages are processed and import is done
 ImportPage.prototype.startImport = function () {
-	var dfdImports = [];
+	const dfdImports = [];
 	this.progressBar = new OO.ui.ProgressBarWidget();
 	this.label = new OO.ui.LabelWidget( {
 		label: mw.message( 'securepoll-translation-import-start' ).text()
@@ -48,11 +48,11 @@ ImportPage.prototype.startImport = function () {
 			this.updateInfo( statelabel );
 		}
 	} );
-	var me = this;
-	me.sourcePages.forEach( function ( page ) {
-		var dfdContent = me.importer.startImportPage( page, me.electionId );
+	const me = this;
+	me.sourcePages.forEach( ( page ) => {
+		const dfdContent = me.importer.startImportPage( page, me.electionId );
 		dfdImports.push( dfdContent );
-		dfdContent.then( function ( state, language ) {
+		dfdContent.then( ( state, language ) => {
 			if ( state === 'saved' ) {
 				page.language = language;
 				me.results.pages.push( page );
@@ -64,7 +64,7 @@ ImportPage.prototype.startImport = function () {
 		} );
 	} );
 
-	$.when.apply( me, dfdImports ).then( function () {
+	$.when.apply( me, dfdImports ).then( () => {
 		me.emit( 'imported', me.results );
 	} );
 };
