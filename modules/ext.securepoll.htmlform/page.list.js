@@ -1,5 +1,4 @@
 function StrikePopupWidget( config ) {
-	let content;
 	config = config || {};
 
 	this.strikeButton = new OO.ui.ButtonWidget( {
@@ -10,7 +9,7 @@ function StrikePopupWidget( config ) {
 		placeholder: mw.msg( 'securepoll-strike-reason' )
 	} );
 
-	content = new OO.ui.ActionFieldLayout(
+	const content = new OO.ui.ActionFieldLayout(
 		this.reasonInput,
 		this.strikeButton,
 		{
@@ -57,14 +56,13 @@ StrikePopupWidget.prototype.makeRequest = function ( action, voteid, reason ) {
 	} )
 		.then(
 			( response ) => {
-				let $row;
 				if ( response.strikevote.status === 'good' ) {
 					widget.toggle( false );
 				} else {
 					widget.$result.text( response.error.info );
 				}
 
-				$row = $( '#securepoll-popup-' + voteid ).closest( 'tr' );
+				const $row = $( '#securepoll-popup-' + voteid ).closest( 'tr' );
 				if ( action === 'strike' ) {
 					widget.action = 'unstrike';
 					$row.addClass( 'securepoll-struck-vote' );
@@ -89,8 +87,8 @@ StrikePopupWidget.prototype.makeRequest = function ( action, voteid, reason ) {
 };
 
 $( '.TablePager_col_strike > .oo-ui-buttonWidget a' ).on( 'click', function ( e ) {
-	let $widget = $( this ).parent(),
-		popup = $widget.data( 'popup' );
+	const $widget = $( this ).parent();
+	let popup = $widget.data( 'popup' );
 	e.preventDefault();
 
 	if ( !popup ) {

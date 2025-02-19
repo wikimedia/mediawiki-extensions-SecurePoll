@@ -4,14 +4,12 @@ mw.hook( 'htmlform.enhance' ).add( ( $root ) => {
 	const numRegex = /^[+-]?\d+$/;
 
 	$root.find( '.securepoll-radiorange-messages' ).each( function () {
-		let $p, $i, $layout,
-			minInputWidget, maxInputWidget, $min, $max,
-			name, cells;
+		let minInputWidget, maxInputWidget;
 
-		$i = $( this );
-		$layout = $i.children( '.oo-ui-horizontalLayout' );
-		name = $i.data( 'securepollColName' );
-		cells = {};
+		const $i = $( this );
+		const $layout = $i.children( '.oo-ui-horizontalLayout' );
+		const name = $i.data( 'securepollColName' );
+		const cells = {};
 
 		$i.find( 'div[data-securepoll-col-num]' ).each( function () {
 			const $t = $( this );
@@ -27,17 +25,15 @@ mw.hook( 'htmlform.enhance' ).add( ( $root ) => {
 		}
 
 		function changeHandler() {
-			let i, min, max;
-
-			min = minInputWidget.getNumericValue();
-			max = maxInputWidget.getNumericValue();
+			let min = minInputWidget.getNumericValue();
+			let max = maxInputWidget.getNumericValue();
 			if ( !numRegex.test( min ) || !numRegex.test( max ) ) {
 				return;
 			}
 			min = +min;
 			max = +max;
 
-			for ( i = max; i >= min; i-- ) {
+			for ( let i = max; i >= min; i-- ) {
 				if ( !cells[ i ] ) {
 					cells[ i ] = ( new OO.ui.FieldLayout(
 						new OO.ui.TextInputWidget( {
@@ -55,9 +51,9 @@ mw.hook( 'htmlform.enhance' ).add( ( $root ) => {
 			cells[ max ].nextAll().detach();
 		}
 
-		for ( $p = $i.parent(); $p.length > 0; $p = $p.parent() ) {
-			$min = $p.find( '[name$="[min-score]"]' ).closest( '.oo-ui-numberInputWidget' );
-			$max = $p.find( '[name$="[max-score]"]' ).closest( '.oo-ui-numberInputWidget' );
+		for ( let $p = $i.parent(); $p.length > 0; $p = $p.parent() ) {
+			const $min = $p.find( '[name$="[min-score]"]' ).closest( '.oo-ui-numberInputWidget' );
+			const $max = $p.find( '[name$="[max-score]"]' ).closest( '.oo-ui-numberInputWidget' );
 			if ( $min.length > 0 && $max.length > 0 ) {
 				minInputWidget = OO.ui.infuse( $min );
 				maxInputWidget = OO.ui.infuse( $max );
