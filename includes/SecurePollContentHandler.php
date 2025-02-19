@@ -182,7 +182,7 @@ class SecurePollContentHandler extends JsonContentHandler {
 		$config = MediaWikiServices::getInstance()->getMainConfig();
 
 		return $config->get( 'SecurePollUseNamespace' ) &&
-			$title->getNamespace() == NS_SECUREPOLL;
+			$title->getNamespace() === NS_SECUREPOLL;
 	}
 
 	/** @inheritDoc */
