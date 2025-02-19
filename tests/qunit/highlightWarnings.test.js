@@ -25,7 +25,7 @@
 		$( '#qunit-fixture' ).append( buttons );
 
 		var button = highlighting.initializeButton();
-		assert.ok( button !== null, 'Button element should not be null' );
+		assert.notStrictEqual( button, null, 'Button element should not be null' );
 
 		buttons.remove();
 	} );
@@ -63,11 +63,11 @@
 
 		highlighting.showAllFieldSets();
 
-		assert.ok( !fieldset1.hidden, 'Fieldset 1 should be visible' );
-		assert.ok( !fieldset2.hidden, 'Fieldset 2 should be visible' );
-		assert.ok( !fieldset1.getElementsByClassName( 'securepoll-ballot-row' )[ 0 ].hidden,
+		assert.false( fieldset1.hidden, 'Fieldset 1 should be visible' );
+		assert.false( fieldset2.hidden, 'Fieldset 2 should be visible' );
+		assert.false( fieldset1.getElementsByClassName( 'securepoll-ballot-row' )[ 0 ].hidden,
 			'Rows in Fieldset 1 should be visible' );
-		assert.ok( !fieldset2.getElementsByClassName( 'securepoll-ballot-row' )[ 0 ].hidden,
+		assert.false( fieldset2.getElementsByClassName( 'securepoll-ballot-row' )[ 0 ].hidden,
 			'Rows in Fieldset 2 should be visible' );
 
 		formLayout.remove();
@@ -91,8 +91,8 @@
 
 		highlighting.hideAllFieldSets();
 
-		assert.ok( fieldset1.hidden, 'Fieldset 1 should be hidden' );
-		assert.ok( fieldset2.hidden, 'Fieldset 2 should be hidden' );
+		assert.true( fieldset1.hidden, 'Fieldset 1 should be hidden' );
+		assert.true( fieldset2.hidden, 'Fieldset 2 should be hidden' );
 
 		formLayout.remove();
 	} );
