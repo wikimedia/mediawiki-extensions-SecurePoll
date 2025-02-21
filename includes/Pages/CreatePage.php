@@ -301,6 +301,7 @@ class CreatePage extends ActionPage {
 			'type' => 'usersmultiselect',
 			'exists' => true,
 			'required' => true,
+			'default' => '',
 			'validation-callback' => [
 				$this,
 				'checkIfInElectionAdminUserGroup'
