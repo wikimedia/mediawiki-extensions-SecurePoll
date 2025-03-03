@@ -102,6 +102,7 @@
 	"securepoll-dump-not-finished": "De verkiezingsgegevens zijn pas beschikbaar na de einddatum op $1 om $2",
 	"securepoll-dump-no-urandom": "Het was niet mogelijk om /dev/urandom te openen. Om de privacy van de stemmers te beschermen, zijn de stemmingsgegevens pas beschikbaar als ze willekeurig gesorteerd kunnen worden met behulp van een willekeurige nummerreeks.",
 	"securepoll-dump-private": "Sorry, het bekijken van de versleutelde recorddump voor deze verkiezing is beperkt tot verkiezingsbeheerders.",
+	"securepoll-dump-not-tallied": "Verkiezingsgegevens zijn pas beschikbaar nadat de uitslagen zijn geteld.",
 	"securepoll-dump-blt-error-not-stv": "Kan geen blt-dump maken. De stemming is niet van het type Enkelvoudige overdraagbare stem.",
 	"securepoll-dump-blt-error-multiple-questions": "Kan geen blt-dump maken. De stemming bevat meer dan één vraag.",
 	"securepoll-dump-blt-error-no-votes": "Kan geen blt-dump maken. Er zijn geen stemmen uitgebracht.",
