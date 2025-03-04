@@ -63,10 +63,10 @@ class STVBallotTest extends MediaWikiIntegrationTestCase {
 		return [
 			'All valid inputs' => [
 				[
-					'securepoll_q101_opt0' => 2,
-					'securepoll_q101_opt1' => 4,
-					'securepoll_q101_opt2' => 1,
-					'securepoll_q101_opt3' => 3,
+					'securepoll_q0000101_opt0000000' => 2,
+					'securepoll_q0000101_opt0000001' => 4,
+					'securepoll_q0000101_opt0000002' => 1,
+					'securepoll_q0000101_opt0000003' => 3,
 				],
 				'Q00000065-C00000002-R00000000--Q00000065-C00000004-R00000001--' .
 				'Q00000065-C00000001-R00000002--Q00000065-C00000003-R00000003--'
@@ -81,10 +81,10 @@ class STVBallotTest extends MediaWikiIntegrationTestCase {
 			],
 			'Not sequentially ranked' => [
 				[
-					'securepoll_q101_opt0' => 1,
-					'securepoll_q101_opt1' => 3,
-					'securepoll_q101_opt2' => 0,
-					'securepoll_q101_opt3' => 2,
+					'securepoll_q0000101_opt0000000' => 1,
+					'securepoll_q0000101_opt0000001' => 3,
+					'securepoll_q0000101_opt0000002' => 0,
+					'securepoll_q0000101_opt0000003' => 2,
 				],
 				[
 					[
@@ -98,9 +98,9 @@ class STVBallotTest extends MediaWikiIntegrationTestCase {
 			],
 			'Duplicate ranks' => [
 				[
-					'securepoll_q101_opt0' => 1,
-					'securepoll_q101_opt1' => 1,
-					'securepoll_q101_opt2' => 1,
+					'securepoll_q0000101_opt0000000' => 1,
+					'securepoll_q0000101_opt0000001' => 1,
+					'securepoll_q0000101_opt0000002' => 1,
 				],
 				[
 					[

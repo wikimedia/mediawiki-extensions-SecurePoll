@@ -251,6 +251,7 @@ class VotePage extends ActionPage {
 		$form->addItems( [
 			new FieldLayout(
 				new ButtonInputWidget( [
+					'id' => 'submit-vote-button',
 					'label' => $this->msg( 'securepoll-submit' )->text(),
 					'flags' => [ 'primary', 'progressive' ],
 					'type' => 'submit',
