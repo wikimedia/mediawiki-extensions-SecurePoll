@@ -168,7 +168,8 @@ class DetailsPage extends ActionPage {
 		$out->addHTML( '<h2>' . $this->msg( 'securepoll-strike-log' )->escaped() . "</h2>\n" );
 		$pager = new StrikePager( $this, $this->voteId );
 		$out->addParserOutputContent(
-			$pager->getFullOutput()
+			$pager->getFullOutput(),
+			$this->context->getParserOptions()
 		);
 	}
 

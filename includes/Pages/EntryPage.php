@@ -40,7 +40,10 @@ class EntryPage extends ActionPage {
 		$pager = new MainElectionsPager( $this, $this->linkRenderer, $this->loadBalancer );
 		$out = $this->specialPage->getOutput();
 		$out->addWikiMsg( 'securepoll-entry-text' );
-		$out->addParserOutputContent( $pager->getBodyOutput() );
+		$out->addParserOutputContent(
+			$pager->getBodyOutput(),
+			$this->context->getParserOptions()
+		);
 		$out->addHTML( $pager->getNavigationBar() );
 
 		$links = [

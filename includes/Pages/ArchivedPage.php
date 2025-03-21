@@ -43,7 +43,10 @@ class ArchivedPage extends ActionPage {
 
 		$pager = new ArchivedPager( $this, $this->linkRenderer, $this->loadBalancer );
 		$out->addWikiMsg( 'securepoll-entry-text' );
-		$out->addParserOutputContent( $pager->getBodyOutput() );
+		$out->addParserOutputContent(
+			$pager->getBodyOutput(),
+			$this->context->getParserOptions()
+		);
 		$out->addHTML( $pager->getNavigationBar() );
 	}
 
