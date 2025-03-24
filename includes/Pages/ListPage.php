@@ -143,7 +143,10 @@ class ListPage extends ActionPage {
 		}
 
 		$out->addHTML( $pager->getLimitForm() . $pager->getNavigationBar() );
-		$out->addParserOutputContent( $pager->getBodyOutput() );
+		$out->addParserOutputContent(
+			$pager->getBodyOutput(),
+			$this->context->getParserOptions()
+		);
 		$out->addHTML( $pager->getNavigationBar() );
 		if ( $isAdmin ) {
 			$out->addJsConfigVars( 'SecurePollSubPage', 'list' );
