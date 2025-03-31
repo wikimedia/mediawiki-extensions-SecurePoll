@@ -89,6 +89,7 @@
 	"securepoll-translate-redirect-otherwiki": "d'Haaptwiki",
 	"securepoll-translate-label-comment": "Grond:",
 	"securepoll-invalid-language": "Net valabele Sproochecode \"$1\"",
+	"securepoll-header-trans-id": "ID",
 	"securepoll-submit-translate": "Aktualiséieren",
 	"securepoll-language-label": "Sprooch eraussichen:",
 	"securepoll-submit-select-lang": "Iwwersetzen",
