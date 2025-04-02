@@ -483,6 +483,7 @@ class OpenSslCrypt extends Crypt {
 		$this->clearErrors();
 	}
 
+	/** @inheritDoc */
 	public function canDecrypt() {
 		$decryptKey = strval( $this->election->getProperty( 'openssl-decrypt-key' ) );
 

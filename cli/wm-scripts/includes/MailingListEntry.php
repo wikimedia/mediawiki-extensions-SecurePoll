@@ -33,7 +33,7 @@ class MailingListEntry {
 		return $entry;
 	}
 
-	public function toString() {
+	public function toString(): string {
 		return implode( "\t",
 			[
 				$this->wiki,

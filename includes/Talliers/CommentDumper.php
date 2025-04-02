@@ -34,6 +34,7 @@ class CommentDumper extends ElectionTallier {
 		$this->skipEmptyComments = $skipEmptyComments;
 	}
 
+	/** @inheritDoc */
 	public function execute() {
 		$this->csvHandle = fopen( 'php://temp', 'r+' );
 		$this->countSoFar = 0;
