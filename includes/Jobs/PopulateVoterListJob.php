@@ -207,6 +207,7 @@ class PopulateVoterListJob extends Job {
 		parent::__construct( 'securePollPopulateVoterList', $title, $params );
 	}
 
+	/** @inheritDoc */
 	public function run() {
 		$min = (int)$this->params['nextUserId'];
 		$max = min( $min + 500, $this->params['maxUserId'] + 1 );

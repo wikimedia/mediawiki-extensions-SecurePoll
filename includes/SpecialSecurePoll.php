@@ -31,6 +31,7 @@ class SpecialSecurePoll extends SpecialPage {
 		$this->actionPageFactory = $actionPageFactory;
 	}
 
+	/** @inheritDoc */
 	public function doesWrites() {
 		return true;
 	}
