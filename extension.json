@@ -241,6 +241,10 @@
 		"SecurePollMostActiveWikisThreshold": {
 			"value": 10,
 			"description": "Consider only wikis where the user has more than X% of their edits as most active wikis"
+		},
+		"SecurePollEditOtherWikis": {
+			"value": false,
+			"description": "In a wiki farm, allows SecurePoll to create redirect polls at other wikis under certain conditions. Adds an option to Special:SecurePoll/create that controls this. If you are using a central votewiki, this should be enabled on your votewiki, and disabled on other wikis."
 		}
 	},
 	"manifest_version": 2
