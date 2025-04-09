@@ -55,7 +55,7 @@ class MainElectionsPager extends ElectionPager {
 			'visible-after-start' => false,
 			'visible-after-close' => true,
 		],
-		'tally' => [
+		'tallies' => [
 			'public' => false,
 			'visible-before-start' => false,
 			'visible-after-start' => false,
@@ -136,9 +136,8 @@ class MainElectionsPager extends ElectionPager {
 
 		foreach ( $this->subpages as $subpage => $props ) {
 			// Message keys used here:
-			// securepoll-subpage-vote, securepoll-subpage-translate,
-			// securepoll-subpage-list, securepoll-subpage-dump, securepoll-subpage-dump-blt
-			// securepoll-subpage-tally, securepoll-subpage-votereligibility
+			// securepoll-subpage-list, securepoll-subpage-dump,
+			// securepoll-subpage-dump-blt securepoll-subpage-votereligibility
 			// securepoll-subpage-log, securepoll-subpage-archive
 			$linkText = $this->msg( "securepoll-subpage-$subpage" )->text();
 			if ( $subpage === "dump" ) {

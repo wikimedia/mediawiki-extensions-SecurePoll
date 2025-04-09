@@ -70,6 +70,13 @@ interface Store {
 	public function getElectionInfoByTitle( $names );
 
 	/**
+	 * Get election information for a given set of tally ids.
+	 * @param array $ids
+	 * @return array[]
+	 */
+	public function getElectionInfoByTally( $ids );
+
+	/**
 	 * Convert a row from the securepoll_elections table into an associative
 	 * array suitable for return by getElectionInfo().
 	 * @param stdClass $row

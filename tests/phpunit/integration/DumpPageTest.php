@@ -53,7 +53,7 @@ class DumpPageTest extends SpecialPageTestBase {
 
 		// Return a valid tally time as that's how the special page determines
 		// if an election has been tallied.
-		$election->method( 'getTallyResultTimeFromDb' )->willReturn( 1 );
+		$election->method( 'isTallied' )->willReturn( true );
 
 		// Generate a BLT (ballot) dump using the dump subpage.
 		[ $output ] = $this->executeSpecialPage(
@@ -98,7 +98,7 @@ class DumpPageTest extends SpecialPageTestBase {
 
 		// Return a valid tally time as that's how the special page determines
 		// if an election has been tallied.
-		$election->method( 'getTallyResultTimeFromDb' )->willReturn( 1 );
+		$election->method( 'isTallied' )->willReturn( true );
 
 		// Generate an XML dump using the dump subpage.
 		[ $output ] = $this->executeSpecialPage(
@@ -204,7 +204,7 @@ class DumpPageTest extends SpecialPageTestBase {
 		$this->context->method( 'getElection' )->willReturn( $election );
 
 		// Don't return a tally time from the database.
-		$election->method( 'getTallyResultTimeFromDb' )->willReturn( false );
+		$election->method( 'isTallied' )->willReturn( false );
 
 		// Generate a BLT (ballot) dump using the dump subpage.
 		[ $output ] = $this->executeSpecialPage(
@@ -229,7 +229,7 @@ class DumpPageTest extends SpecialPageTestBase {
 		$this->context->method( 'getElection' )->willReturn( $election );
 
 		// Don't return a tally time from the database.
-		$election->method( 'getTallyResultTimeFromDb' )->willReturn( false );
+		$election->method( 'isTallied' )->willReturn( false );
 
 		// Generate a BLT (ballot) dump using the dump subpage.
 		[ $output ] = $this->executeSpecialPage(
@@ -301,7 +301,7 @@ class DumpPageTest extends SpecialPageTestBase {
 
 		/** @var MockObject&Election */
 		$election = $this->getMockBuilder( Election::class )
-			->onlyMethods( [ 'getTallyResultTimeFromDb', 'dumpVotesToCallback' ] )
+			->onlyMethods( [ 'isTallied', 'dumpVotesToCallback' ] )
 			->setConstructorArgs( [ $this->context, $info[$electionId] ] )
 			->getMock();
 

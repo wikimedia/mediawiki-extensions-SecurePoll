@@ -86,6 +86,15 @@ class MemoryStore implements Store {
 	}
 
 	/** @inheritDoc */
+	public function getElectionInfoByTally( $ids ) {
+		// @phan-suppress-previous-line PhanPluginNeverReturnMethod LSP violation
+		throw new LogicException(
+			'Internal error: attempt to use getElectionInfoByTally() with ' .
+			'a storage class that doesn\'t support it.'
+		);
+	}
+
+	/** @inheritDoc */
 	public function getQuestionInfo( $electionId ) {
 		return $this->entityInfo[$electionId]['questions'];
 	}
