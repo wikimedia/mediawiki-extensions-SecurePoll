@@ -7,5 +7,6 @@
 		]
 	},
 	"securepoll-welcome": "<strong>{{GENDER:$1|Hoş keldiñiz}} $1!</strong>",
+	"securepoll-htmlform-daterange-end-before-start": "Berilgen bitiş vaqtı başlanğıç vaqtından evel.",
 	"securepolllog-form-date-label": "Bu tarihtan (ve daa evelâ):"
 }
