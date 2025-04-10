@@ -167,8 +167,11 @@ class CreatePage extends ActionPage {
 			}
 		}
 
+		// Should we show or hide the "For Wiki:" drop-down list?
 		// If the only option is WikiMap::getCurrentWikiId() don't show it; otherwise...
-		if ( count( $wikiNames ) > 1 || count( $options ) > 1 ) {
+		$securePollEditOtherWikis = $this->specialPage->getConfig()->get( 'SecurePollEditOtherWikis' );
+		$otherWikisExist = count( $wikiNames ) > 1 || count( $options ) > 1;
+		if ( $securePollEditOtherWikis && $otherWikisExist ) {
 			$opts = [];
 			foreach ( $options as $msg => $value ) {
 				$opts[$this->msg( $msg )->plain()] = $value;
