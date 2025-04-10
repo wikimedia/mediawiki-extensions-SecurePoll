@@ -626,7 +626,7 @@ class CreatePage extends ActionPage {
 				);
 			}
 
-			// Check for duplicate titles on jump wikis too
+			// Check for duplicate titles on redirect poll wikis too
 			// (There's the possibility for a race here, but hopefully it won't
 			// matter in practice)
 			if ( $store->rId ) {
@@ -635,7 +635,7 @@ class CreatePage extends ActionPage {
 					// the write code below
 					$rdbw = $this->lbFactory->getAutoCommitPrimaryConnection( $dbname );
 
-					// Find an existing dummy election, if any
+					// Find an existing redirect poll, if any
 					$rId = $rdbw->newSelectQueryBuilder()
 						->select( 'p1.pr_entity' )
 						->from( 'securepoll_properties', 'p1' )
@@ -829,14 +829,14 @@ class CreatePage extends ActionPage {
 			$this->logAdminChanges( $originalFormData, $formData, $eId );
 		}
 
-		// Create the "redirect" polls on foreign wikis
+		// Create the redirect polls on foreign wikis
 		if ( $store->rId ) {
 			$election = $context->getElection( $store->rId );
 			foreach ( $store->remoteWikis as $dbname ) {
 				// As for the local wiki, request autocommit mode to get outer transaction scope
 				$dbw = $this->lbFactory->getAutoCommitPrimaryConnection( $dbname );
 				$dbw->startAtomic( __METHOD__ );
-				// Find an existing dummy election, if any
+				// Find an existing redirect poll, if any
 				$rId = $dbw->newSelectQueryBuilder()
 					->select( 'p1.pr_entity' )
 					->from( 'securepoll_properties', 'p1' )
