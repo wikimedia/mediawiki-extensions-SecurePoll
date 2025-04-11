@@ -26,7 +26,7 @@ class DumpElection extends Maintenance {
 		$this->addOption( 'by-id', 'Get election using its numerical ID, instead of its title' );
 		$this->addOption( 'votes', 'Include vote records' );
 		$this->addOption( 'all-langs', 'Include messages for all languages instead of just the primary' );
-		$this->addOption( 'jump', 'Produce a configuration dump suitable for setting up a jump wiki' );
+		$this->addOption( 'jump', 'Produce a configuration dump suitable for setting up a redirect poll' );
 		$this->addOption( 'private', 'Include encryption keys' );
 		$this->addOption(
 			'blt',
