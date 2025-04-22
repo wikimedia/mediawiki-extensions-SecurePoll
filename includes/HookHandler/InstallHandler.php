@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\SecurePoll\HookHandler;
 
 use MediaWiki\Installer\Hook\LoadExtensionSchemaUpdatesHook;
+use MigrateTallies;
 use UpdateNotBlockedKey;
 
 class InstallHandler implements LoadExtensionSchemaUpdatesHook {
@@ -69,5 +70,6 @@ class InstallHandler implements LoadExtensionSchemaUpdatesHook {
 		);
 
 		$updater->addPostDatabaseUpdateMaintenance( UpdateNotBlockedKey::class );
+		$updater->addPostDatabaseUpdateMaintenance( MigrateTallies::class );
 	}
 }
