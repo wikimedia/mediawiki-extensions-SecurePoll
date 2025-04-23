@@ -1,6 +1,6 @@
 function ResultPage( name, cfg ) {
 	ResultPage.super.call( this, name, cfg );
-	this.sourceWiki = cfg.sourceWiki;
+	this.sourceWiki = '';
 	this.sourceId = cfg.sourceId;
 
 	this.label = new OO.ui.LabelWidget( {
@@ -89,6 +89,11 @@ ResultPage.prototype.addSourceTitle = function ( title ) {
 	$link.attr( 'href', sourceUrl );
 	$link.text( sourceUrl );
 	this.label.$element.append( $link );
+};
+
+// update source API URL
+ResultPage.prototype.setSource = function ( sourceUrl ) {
+	this.sourceWiki = sourceUrl;
 };
 
 module.exports = ResultPage;

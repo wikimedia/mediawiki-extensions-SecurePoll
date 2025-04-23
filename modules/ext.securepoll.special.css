@@ -290,3 +290,7 @@ ul.securepoll-vote-result-no-vote {
 .securepoll-question-layout > .limits-layout > .limit-label {
 	margin-top: 2px;
 }
+
+.securepoll-import-label-spacing {
+	margin-top: 1em;
+}
