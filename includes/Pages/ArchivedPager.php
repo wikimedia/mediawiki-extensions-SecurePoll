@@ -55,6 +55,13 @@ class ArchivedPager extends ElectionPager {
 	/**
 	 * @return string HTML
 	 */
+	public function getStatus(): string {
+		return $this->msg( 'securepoll-status-archived' )->escaped();
+	}
+
+	/**
+	 * @return string HTML
+	 */
 	public function getLinks(): string {
 		$pollId = $this->mCurrentRow->el_entity;
 		$html = '';

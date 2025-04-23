@@ -25,6 +25,7 @@ abstract class ElectionPager extends TablePager {
 		'el_title',
 		'el_start_date',
 		'el_end_date',
+		'status',
 		'el_links'
 	];
 
@@ -39,7 +40,8 @@ abstract class ElectionPager extends TablePager {
 			[
 				'el_title',
 				'el_start_date',
-				'el_end_date'
+				'el_end_date',
+				'status',
 			]
 		);
 	}
@@ -67,6 +69,8 @@ abstract class ElectionPager extends TablePager {
 				return htmlspecialchars( $this->getLanguage()->timeanddate( $value ) );
 			case 'el_links':
 				return $this->getLinks();
+			case 'status':
+				return $this->getStatus();
 			default:
 				return htmlspecialchars( $value );
 		}
@@ -90,6 +94,12 @@ abstract class ElectionPager extends TablePager {
 	 * @return string HTML
 	 */
 	abstract public function getLinks(): string;
+
+	/**
+	 * Return escaped HTML for election-specific status
+	 * @return string HTML
+	 */
+	abstract public function getStatus(): string;
 
 	/** @inheritDoc */
 	public function getDefaultSort() {

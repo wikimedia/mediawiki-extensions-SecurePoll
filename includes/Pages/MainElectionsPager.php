@@ -100,6 +100,19 @@ class MainElectionsPager extends ElectionPager {
 	/**
 	 * @return string HTML
 	 */
+	public function getStatus(): string {
+		if ( $this->election->isFinished() ) {
+			return $this->msg( 'securepoll-status-completed' )->escaped();
+		} elseif ( $this->election->isStarted() ) {
+			return $this->msg( 'securepoll-status-in-progress' )->escaped();
+		} else {
+			return $this->msg( 'securepoll-status-not-started' )->escaped();
+		}
+	}
+
+	/**
+	 * @return string HTML
+	 */
 	public function getLinks(): string {
 		$pollId = (int)$this->mCurrentRow->el_entity;
 		$html = '';
