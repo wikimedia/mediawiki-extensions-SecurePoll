@@ -116,7 +116,7 @@ class HtmlFormatterTest extends MediaWikiIntegrationTestCase {
 		$expectedPreamble =
 			"<div class='oo-ui-layout oo-ui-panelLayout'><h2>Elected</h2><p>Election for 3 seats with 3 candidates. "
 			. "Total 2 votes.</p><ol class='election-summary-elected-list'><li><i>This seat could not "
-			. "be filled because no candidates fulfill the criteria. The last eliminated candidates were: 102"
+			. "be filled because no candidates fulfill the criteria. The last eliminated candidates were: User1"
 			. "</i></li><li>User2</li><li>User1</li></ol><h2>Eliminated/Not elected</h2>"
 			. "<ul><li>User1</li><li>User3</li></ul></div>";
 		$this->assertEquals( $expectedPreamble, $actualPreamble->toString() );

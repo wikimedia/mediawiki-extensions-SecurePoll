@@ -97,7 +97,10 @@ class HtmlFormatter implements STVFormatter {
 				);
 			} else {
 				$eliminated = $this->getLastEliminated( $this->resultsLog['rounds'] );
-				$formattedEliminated = implode( ', ', $eliminated );
+				$formattedEliminated = implode(
+					', ',
+					array_map( fn ( $id ) => $this->getCandidateName( (int)$id ), $eliminated )
+				);
 				$electedList->appendContent(
 					( new Tag( 'li' ) )->appendContent(
 						( new Tag( 'i' ) )->appendContent(
