@@ -15,6 +15,7 @@ use MediaWiki\Extension\SecurePoll\VoteRecord;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Html\Html;
 use MediaWiki\HTMLForm\HTMLForm;
+use MediaWiki\Parser\Sanitizer;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Session\SessionManager;
 use MediaWiki\Status\Status;
@@ -431,7 +432,15 @@ class VotePage extends ActionPage {
 			$votedItems = [];
 			if ( $this->election->getTallyType() === 'droop-quota' ) {
 				foreach ( $votes as $vote ) {
-					$votedItems[] = Html::rawElement( 'li', [], $optionsMsgs[$vote]['text'] );
+					// Manually implement Message->escape() to be consistent with the use of msg()
+					// in options implemented by other poll types.
+					// This is necessary to prevent XSS attacks because STV doesn't use any decorators for
+					// its option text displays and therefore doesn't use the msg() function which would
+					// have escaped the text as part of its operation.
+					$sanitizedText = Sanitizer::escapeCombiningChar(
+						htmlspecialchars( $optionsMsgs[$vote]['text'], ENT_QUOTES, 'UTF-8', false )
+					);
+					$votedItems[] = Html::rawElement( 'li', [], $sanitizedText );
 				}
 				$html .= Html::rawElement( 'ol', [ 'class' => 'securepoll-vote-result-options' ],
 					implode( "\n", $votedItems )
