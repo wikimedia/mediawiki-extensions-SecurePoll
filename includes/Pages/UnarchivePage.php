@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Extension\SecurePoll\Pages;
 
-use JobQueueGroup;
-use JobSpecification;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
+use MediaWiki\JobQueue\JobQueueGroup;
+use MediaWiki\JobQueue\JobSpecification;
 use MediaWiki\SpecialPage\SpecialPage;
 use OOUI\MessageWidget;
 

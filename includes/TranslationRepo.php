@@ -4,12 +4,12 @@ namespace MediaWiki\Extension\SecurePoll;
 
 use MediaWiki\CommentStore\CommentStoreComment;
 use MediaWiki\Config\Config;
+use MediaWiki\Exception\MWExceptionHandler;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Page\WikiPageFactory;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\User\User;
 use MediaWiki\WikiMap\WikiMap;
-use MWExceptionHandler;
 use Wikimedia\Rdbms\DBError;
 use Wikimedia\Rdbms\ILoadBalancer;
 use Wikimedia\Rdbms\LBFactory;

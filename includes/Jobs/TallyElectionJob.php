@@ -2,11 +2,11 @@
 
 namespace MediaWiki\Extension\SecurePoll\Jobs;
 
-use Job;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
 use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
+use MediaWiki\JobQueue\Job;
 use Throwable;
 use Wikimedia\Rdbms\IDatabase;
 
