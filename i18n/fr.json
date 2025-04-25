@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Bananax47",
 			"Crochet.david",
 			"Derugon",
 			"DreZhsh",
@@ -135,7 +136,12 @@
 	"securepoll-header-title": "Nom",
 	"securepoll-header-start-date": "Date de début",
 	"securepoll-header-end-date": "Date de fin",
+	"securepoll-header-status": "Statut",
 	"securepoll-header-links": "Liens",
+	"securepoll-status-not-started": "Pas commencée",
+	"securepoll-status-in-progress": "En cours",
+	"securepoll-status-completed": "Complétée",
+	"securepoll-status-archived": "Archivée",
 	"securepoll-subpage-vote": "Vote",
 	"securepoll-subpage-translate": "Traduire",
 	"securepoll-subpage-list": "Liste",
