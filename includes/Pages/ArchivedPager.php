@@ -16,6 +16,7 @@ class ArchivedPager extends ElectionPager {
 			'public' => false,
 			'visible-after-start' => false,
 			'visible-after-close' => true,
+			'token' => true
 		]
 	];
 	private LinkRenderer $linkRenderer;
@@ -84,11 +85,16 @@ class ArchivedPager extends ElectionPager {
 				) &&
 				( !$this->election->isFinished() || $props['visible-after-close'] );
 			if ( $needsHyperlink ) {
+				$queryParams = [];
+				if ( isset( $props['token'] ) && $props['token'] ) {
+					$queryParams[ 'token' ] = $this->page->specialPage->getContext()
+						->getCsrfTokenSet()->getToken();
+				}
 				if ( isset( $props['link'] ) ) {
 					$html .= $this->{$props['link']}( $pollId );
 				} else {
 					$title = $this->page->specialPage->getPageTitle( "$subpage/$pollId" );
-					$html .= $this->linkRenderer->makeKnownLink( $title, $linkText );
+					$html .= $this->linkRenderer->makeKnownLink( $title, $linkText, [], $queryParams );
 				}
 			} else {
 				$html .= Html::element(

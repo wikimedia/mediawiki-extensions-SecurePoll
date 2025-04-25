@@ -73,6 +73,7 @@ class MainElectionsPager extends ElectionPager {
 			'visible-before-start' => false,
 			'visible-after-start' => false,
 			'visible-after-close' => true,
+			'token' => true
 		]
 	];
 	private LinkRenderer $linkRenderer;
@@ -162,6 +163,11 @@ class MainElectionsPager extends ElectionPager {
 					( $isNotStarted && $props['visible-before-start'] )
 				);
 			if ( $needsHyperlink ) {
+				$queryParams = [];
+				if ( isset( $props['token'] ) && $props['token'] ) {
+					$queryParams[ 'token' ] = $this->page->specialPage->getContext()
+						->getCsrfTokenSet()->getToken();
+				}
 				if ( isset( $props['link'] ) ) {
 					$html .= $this->{$props['link']}( $pollId );
 				} else {
@@ -170,7 +176,7 @@ class MainElectionsPager extends ElectionPager {
 						$html .= $this->linkRenderer->makeKnownLink( $title, $linkText, [], [ 'format' => 'blt' ] );
 					} else {
 						$title = $this->page->specialPage->getPageTitle( "$subpage/$pollId" );
-						$html .= $this->linkRenderer->makeKnownLink( $title, $linkText );
+						$html .= $this->linkRenderer->makeKnownLink( $title, $linkText, [], $queryParams );
 					}
 				}
 			} else {
