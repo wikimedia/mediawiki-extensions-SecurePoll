@@ -69,6 +69,17 @@ class ArchivePage extends ActionPage {
 			return;
 		}
 
+		$token = $this->specialPage->getContext()->getCsrfTokenSet()->getToken();
+		$request = $this->specialPage->getRequest();
+		$tokenMatch = $token->match( $request->getVal( 'token' ) );
+		if ( !$tokenMatch ) {
+			$out->prependHTML( ( new MessageWidget( [
+				'label' => $this->msg( 'securepoll-archive-token-error' )->text(),
+				'type' => 'error',
+			] ) ) );
+			return;
+		}
+
 		// Already archived?
 		$dbr = $this->election->context->getDB( DB_REPLICA );
 		$isArchived = $dbr->newSelectQueryBuilder()
