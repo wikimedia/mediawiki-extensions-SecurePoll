@@ -3,15 +3,15 @@
 namespace MediaWiki\Extension\SecurePoll\Jobs;
 
 use Exception;
-use Job;
-use JobSpecification;
+use MediaWiki\Exception\MWExceptionHandler;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
+use MediaWiki\JobQueue\Job;
+use MediaWiki\JobQueue\JobSpecification;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\PageReference;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\User\ActorMigration;
 use MediaWiki\WikiMap\WikiMap;
-use MWExceptionHandler;
 use RuntimeException;
 use Wikimedia\Rdbms\IDatabase;
 

@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\SecurePoll\Jobs;
 
-use Job;
 use MediaWiki\Extension\SecurePoll\Context;
+use MediaWiki\JobQueue\Job;
 
 /**
  * Log whenever an admin looks at Special:SecurePoll/list/{id}
