@@ -53,7 +53,7 @@ class VoteSummaryTest extends MediaWikiIntegrationTestCase {
 		$this->assertEquals( $expected, $summary );
 	}
 
-	public function provideVotingData() {
+	public static function provideVotingData() {
 		return [
 			'approval-data' => [
 				[
