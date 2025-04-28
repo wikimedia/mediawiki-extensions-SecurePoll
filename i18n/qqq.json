@@ -308,6 +308,7 @@
 	"securepoll-votereligibility-cleared": "Title for clear confirmation page for [[Special:SecurePoll/votereligibility]].\n\nRefers to {{msg-mw|Securepoll}}.",
 	"securepoll-votereligibility-cleared-text": "Text for clear confirmation page for Special:SecurePoll/votereligibility. $1 is a list name.",
 	"securepoll-votereligibility-cleared-comment": "Text used as the edit summary when clearing a list on Special:SecurePoll/votereligibility. $1 is a list name.",
+	"securepoll-votereligibility-token-mismatch": "Used as an error.",
 	"right-securepoll-create-poll": "{{doc-right|securepoll-create-poll}}",
 	"action-securepoll-create-poll": "{{Doc-action|securepoll-create-poll}}",
 	"right-securepoll-view-voter-pii": "{{doc-right|securepoll-view-voter-pii}}",
