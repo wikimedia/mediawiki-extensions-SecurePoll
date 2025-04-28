@@ -61,15 +61,17 @@ class RemoteMWAuth extends Auth {
 
 		// Get the site and language from $wgConf, if necessary.
 		if ( !isset( $params['site'] ) || !isset( $params['lang'] ) ) {
-			// @phan-suppress-next-line PhanTypeMismatchArgumentNullable
-			[ $site, $lang ] = $wgConf->siteFromDB( $params['wiki'] );
-			if ( !isset( $params['site'] ) ) {
-				$params['site'] = $site;
-				$vars['$site'] = $site;
-			}
-			if ( !isset( $params['lang'] ) ) {
-				$params['lang'] = $lang;
-				$vars['$lang'] = $lang;
+			if ( isset( $params['wiki'] ) ) {
+				// @phan-suppress-next-line PhanTypeMismatchArgumentNullable
+				[ $site, $lang ] = $wgConf->siteFromDB( $params['wiki'] );
+				if ( !isset( $params['site'] ) ) {
+					$params['site'] = $site;
+					$vars['$site'] = $site;
+				}
+				if ( !isset( $params['lang'] ) ) {
+					$params['lang'] = $lang;
+					$vars['$lang'] = $lang;
+				}
 			}
 		}
 
@@ -81,7 +83,7 @@ class RemoteMWAuth extends Auth {
 			$suffixes[$params['site']]
 		) ? $suffixes[$params['site']] : $params['site'];
 
-		$server = $wgConf->get( 'wgServer', $params['wiki'], $suffix, $params );
+		$server = $wgConf->get( 'wgServer', $params['wiki'] ?? '', $suffix, $params );
 		$params['wgServer'] = $server;
 		$vars["\$wgServer"] = $server;
 
