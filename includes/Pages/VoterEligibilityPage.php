@@ -571,8 +571,19 @@ class VoterEligibilityPage extends ActionPage {
 			$prefix = 'votereligibility/' . $this->election->getId();
 			foreach ( $links as $action ) {
 				$title = SpecialPage::getTitleFor( 'SecurePoll', "$prefix/$action/$list" );
-				$link = $this->linkRenderer->makeLink( $title,
-					$this->msg( "securepoll-votereligibility-label-$action" )->text() );
+				$queryParams = [];
+
+				if ( $action === 'clear' ) {
+					$queryParams[ 'token' ] = $this->specialPage->getContext()
+						->getCsrfTokenSet()->getToken();
+				}
+
+				$link = $this->linkRenderer->makeLink(
+					$title,
+					$this->msg( "securepoll-votereligibility-label-$action" )->text(),
+					[],
+					$queryParams
+				);
 				$formItems[] = [
 					'section' => "lists/$list",
 					'type' => 'info',
@@ -1228,6 +1239,14 @@ class VoterEligibilityPage extends ActionPage {
 	private function executeClear( string $which ) {
 		$out = $this->specialPage->getOutput();
 		$localWiki = WikiMap::getCurrentWikiId();
+
+		$token = $this->specialPage->getContext()->getCsrfTokenSet()->getToken();
+		$request = $this->specialPage->getRequest();
+		$tokenMatch = $token->match( $request->getVal( 'token' ) );
+		if ( !$tokenMatch ) {
+			$out->addWikiMsg( 'securepoll-votereligibility-token-mismatch' );
+			return;
+		}
 
 		if ( !isset( self::$lists[$which] ) ) {
 			$out->addWikiMsg( 'securepoll-votereligibility-invalid-list' );
