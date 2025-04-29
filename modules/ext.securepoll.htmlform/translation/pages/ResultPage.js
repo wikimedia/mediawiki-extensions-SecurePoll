@@ -48,9 +48,11 @@ ResultPage.prototype.getPagesTab = function ( pages ) {
 	const $list = $( '<ul>' );
 	pages.forEach( ( page ) => {
 		let listEntry = '<li>';
+		const language = mw.html.escape( page.language );
+		const url = this.sourceId + '/' + language;
 		listEntry += '<span>' + page.language + '</span> ';
-		listEntry += ' <a href=' + this.sourceId + '/' + page.language + '> ' +
-			this.sourceId + '/' + page.language + ' </a>';
+		listEntry += ' <a href=' + url + '> ' +
+			url + ' </a>';
 		listEntry += '</li>';
 		$list.append( listEntry );
 	} );

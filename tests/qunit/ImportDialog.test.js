@@ -83,5 +83,36 @@
 				done();
 			} );
 		} );
+
+		QUnit.test( 'ResultPage escapes page title inputs', ( assert ) => {
+			dialog.pageTitle = mw.Title.newFromText( 'Foo' );
+			const xssTitle = " style='animation: oo-ui-pendingElement-stripes' onanimationstart='location=\"duckduckgo.com\"'";
+			dialog.switchPage( 'ResultPage', {
+				pages: [
+					{
+						pageid: 10,
+						ns: 0,
+						title: `Asdf/${ xssTitle }`,
+						language: " style='animation: oo-ui-pendingElement-stripes' onanimationstart='location=\"duckduckgo.com\"'"
+					}
+				],
+				errors: []
+			} );
+			assert.strictEqual(
+				dialog.booklet.getCurrentPageName(),
+				'ResultPage'
+			);
+			const $resultPageContent = dialog.booklet.getCurrentPage().$element;
+			const $importedPage = $resultPageContent.find( 'li' );
+			assert.strictEqual(
+				$importedPage.length,
+				1,
+				'Only 1 page expected from import'
+			);
+			assert.true(
+				$importedPage.text().includes( xssTitle ),
+				'Escaped page title should be returned'
+			);
+		} );
 	} );
 }() );

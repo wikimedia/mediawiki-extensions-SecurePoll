@@ -30,6 +30,16 @@ class SetTranslationHandler extends SimpleHandler {
 		$this->actionPageFactory = $actionPageFactory;
 	}
 
+	public static function factory(
+		TranslationRepo $translationRepo,
+		ActionPageFactory $actionPageFactory
+	): self {
+		return new self(
+			$translationRepo,
+			$actionPageFactory
+		);
+	}
+
 	/**
 	 * @inheritDoc
 	 */
