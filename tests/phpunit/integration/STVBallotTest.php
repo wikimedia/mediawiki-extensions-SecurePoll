@@ -59,7 +59,7 @@ class STVBallotTest extends MediaWikiIntegrationTestCase {
 		$this->assertInstanceOf( STVBallot::class, $this->ballot );
 	}
 
-	public static function votesFromRequestContext() {
+	public static function provideVotesFromRequestContext() {
 		return [
 			'All valid inputs' => [
 				[
@@ -118,7 +118,7 @@ class STVBallotTest extends MediaWikiIntegrationTestCase {
 		];
 	}
 
-	public static function packedRecords() {
+	public static function providePackedRecords() {
 		return [
 			'Valid record, all options ranked' => [
 				'Q00000065-C00000002-R00000000--Q00000065-C00000004-R00000001--' .
@@ -141,7 +141,7 @@ class STVBallotTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @dataProvider votesFromRequestContext
+	 * @dataProvider provideVotesFromRequestContext
 	 * @covers \MediaWiki\Extension\SecurePoll\Ballots\ApprovalBallot::submitQuestion
 	 */
 	public function testSubmitQuestion( $votes, $expected ) {
@@ -160,7 +160,7 @@ class STVBallotTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @dataProvider packedRecords
+	 * @dataProvider providePackedRecords
 	 * @covers \MediaWiki\Extension\SecurePoll\Ballots\ApprovalBallot::unpackRecord
 	 */
 	public function testUnpackRecord( $record, $expected ) {
@@ -169,7 +169,7 @@ class STVBallotTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @covers \MediaWiki\Extension\SecurePoll\Ballots\STVBallot::getQuestionForm
-	 * @dataProvider votesFromRequestContext
+	 * @dataProvider provideVotesFromRequestContext
 	 */
 	public function testGetQuestionForm( $votes ): void {
 		$stvBallot = new STVBallot( $this->context, $this->createMock( Election::class ) );

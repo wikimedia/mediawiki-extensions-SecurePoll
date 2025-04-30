@@ -59,7 +59,7 @@ class RadioRangeBallotTest extends MediaWikiIntegrationTestCase {
 		$this->assertInstanceOf( RadioRangeBallot::class, $this->ballot );
 	}
 
-	public static function votesFromRequestContext() {
+	public static function provideVotesFromRequestContext() {
 		return [
 			'Valid inputs' => [
 				[
@@ -113,7 +113,7 @@ class RadioRangeBallotTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @dataProvider votesFromRequestContext
+	 * @dataProvider provideVotesFromRequestContext
 	 * @covers \MediaWiki\Extension\SecurePoll\Ballots\ApprovalBallot::submitQuestion
 	 */
 	public function testSubmitQuestion( $votes, $expected ) {

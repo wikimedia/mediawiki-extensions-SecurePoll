@@ -37,7 +37,7 @@ class SchulzeTallierTest extends MediaWikiUnitTestCase {
 		);
 	}
 
-	public static function resultsFromTally() {
+	public static function provideTallyResults() {
 		return [
 			'Results contain no ties' => [
 				[
@@ -119,7 +119,7 @@ class SchulzeTallierTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @dataProvider resultsFromTally
+	 * @dataProvider provideTallyResults
 	 * @covers \MediaWiki\Extension\SecurePoll\Talliers\SchulzeTallier::finishTally
 	 */
 	public function testSchulzeTally( $electionResults, $expected ) {

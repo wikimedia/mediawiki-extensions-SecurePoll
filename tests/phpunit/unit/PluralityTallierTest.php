@@ -37,7 +37,7 @@ class PluralityTallierTest extends MediaWikiUnitTestCase {
 		);
 	}
 
-	public static function resultsFromTally() {
+	public static function provideTallyResults() {
 		return [
 			// No tie
 			[
@@ -80,7 +80,7 @@ class PluralityTallierTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @dataProvider resultsFromTally
+	 * @dataProvider provideTallyResults
 	 * @covers \MediaWiki\Extension\SecurePoll\Talliers\PluralityTallier::finishTally
 	 */
 	public function testPluralityTally( $electionResults, $expected ) {

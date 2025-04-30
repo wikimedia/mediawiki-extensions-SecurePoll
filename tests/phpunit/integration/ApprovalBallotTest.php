@@ -44,7 +44,7 @@ class ApprovalBallotTest extends MediaWikiIntegrationTestCase {
 		$this->assertInstanceOf( ApprovalBallot::class, $this->ballot );
 	}
 
-	public static function votesFromRequestContext() {
+	public static function provideVotesFromRequestContext() {
 		return [
 			'Request with all valid options' => [
 				[
@@ -71,7 +71,7 @@ class ApprovalBallotTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @dataProvider votesFromRequestContext
+	 * @dataProvider provideVotesFromRequestContext
 	 * @covers \MediaWiki\Extension\SecurePoll\Ballots\ApprovalBallot::submitQuestion
 	 */
 	public function testSubmitQuestion( $votes, $expected ) {

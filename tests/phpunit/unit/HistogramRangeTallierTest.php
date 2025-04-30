@@ -41,7 +41,7 @@ class HistogramRangeTallierTest extends MediaWikiUnitTestCase {
 		);
 	}
 
-	public static function resultsFromTally() {
+	public static function provideResultsFromTally() {
 		return [
 			[
 				[
@@ -96,7 +96,7 @@ class HistogramRangeTallierTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @dataProvider resultsFromTally
+	 * @dataProvider provideResultsFromTally
 	 * @covers \MediaWiki\Extension\SecurePoll\Talliers\HistogramRangeTallier::finishTally
 	 */
 	public function testHistogramRangeTally( $electionResults, $expected ) {

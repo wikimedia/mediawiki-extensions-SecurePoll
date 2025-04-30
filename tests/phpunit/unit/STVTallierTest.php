@@ -45,7 +45,7 @@ class STVTallierTest extends MediaWikiUnitTestCase {
 		$this->wrappedRevStore = TestingAccessWrapper::newFromObject( $this->tallier );
 	}
 
-	public static function resultsFromTally() {
+	public static function provideTallyResults() {
 		return [
 			'No edge cases' => [
 				[
@@ -108,7 +108,7 @@ class STVTallierTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @dataProvider resultsFromTally
+	 * @dataProvider provideTallyResults
 	 * @covers \MediaWiki\Extension\SecurePoll\Talliers\STVTallier::addVote
 	 */
 	public function testAddVote( array $electionResults, array $expected ) {
@@ -126,7 +126,7 @@ class STVTallierTest extends MediaWikiUnitTestCase {
 		$this->assertSame( '19.0000010000', $actual );
 	}
 
-	public static function finishTallyResults(): Generator {
+	public static function provideFinishTallyResults(): Generator {
 		$fixtures = new DirectoryIterator( __DIR__ . '/fixtures' );
 		foreach ( $fixtures as $fixture ) {
 			if ( $fixture->isFile() && $fixture->isReadable() && $fixture->getExtension() === 'json' ) {
@@ -136,7 +136,7 @@ class STVTallierTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @dataProvider finishTallyResults
+	 * @dataProvider provideFinishTallyResults
 	 */
 	public function testFinishTally( array $electionResults, array $expected ) {
 		$this->wrappedRevStore->__set( 'seats', $electionResults['seats'] );

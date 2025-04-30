@@ -45,7 +45,7 @@ class PairwiseTallierTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @dataProvider tallyResults
+	 * @dataProvider provideTallyResults
 	 * @covers \MediaWiki\Extension\SecurePoll\Talliers\PairwiseTallier::convertMatrixToHtml
 	 */
 	public function testConvertMatrixToHtml( $electionResults, $expected ) {
@@ -55,7 +55,7 @@ class PairwiseTallierTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @dataProvider tallyResults
+	 * @dataProvider provideTallyResults
 	 * @covers \MediaWiki\Extension\SecurePoll\Talliers\PairwiseTallier::convertMatrixToText
 	 */
 	public function testConvertMatrixToText( $electionResults, $expected ) {
@@ -64,7 +64,7 @@ class PairwiseTallierTest extends MediaWikiUnitTestCase {
 		$this->assertSame( $expected['text'], $this->tallier->convertMatrixToText( $victories, $rankIds ) );
 	}
 
-	public static function tallyResults() {
+	public static function provideTallyResults() {
 		return [
 			[
 				[
