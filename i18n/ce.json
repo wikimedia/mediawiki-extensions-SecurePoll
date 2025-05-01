@@ -280,5 +280,12 @@
 	"securepoll-translation-import-action-import": "Импорт",
 	"securepoll-translation-import-action-done": "Кийчча йу",
 	"securepoll-vote-result-question-label": "Хаттар: $1",
-	"securepoll-vote-result-comment": "Коммент: $1"
+	"securepoll-vote-result-not-voted-option-label": "$1: кхаж ца тесна",
+	"securepoll-vote-result-not-checked-option-label": "$1: теллина йац",
+	"securepoll-vote-result-checked-option-label": "$1: теллина",
+	"securepoll-vote-result-comment": "Коммент: $1",
+	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1 ($2, $3 {{PLURAL:$3|нисдар}})",
+	"group-electionadmin": "Харжамийн администраторш",
+	"group-electionadmin-member": "{{GENDER:$1|харжамийн администратор}}",
+	"grouppage-electionadmin": "{{ns:project}}:Харжамийн администраторш"
 }
