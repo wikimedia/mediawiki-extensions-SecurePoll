@@ -15,52 +15,62 @@ class MainElectionsPager extends ElectionPager {
 	private array $subpages = [
 		'vote' => [
 			'public' => true,
+			'visible-before-start' => true,
 			'visible-after-start' => true,
 			'visible-after-close' => false,
 		],
 		'translate' => [
 			'public' => true,
+			'visible-before-start' => true,
 			'visible-after-start' => true,
 			'visible-after-close' => true,
 		],
 		'list' => [
 			'public' => true,
+			'visible-before-start' => false,
 			'visible-after-start' => true,
 			'visible-after-close' => true,
 		],
 		'edit' => [
 			'public' => false,
+			'visible-before-start' => true,
 			'visible-after-start' => true,
 			'visible-after-close' => false,
 		],
 		'votereligibility' => [
 			'public' => false,
+			'visible-before-start' => true,
 			'visible-after-start' => true,
-			'visible-after-close' => true,
+			'visible-after-close' => false,
 		],
 		'dump' => [
 			'public' => false,
-			'visible-after-start' => true,
+			'visible-before-start' => false,
+			'visible-after-start' => false,
 			'visible-after-close' => true,
 		],
 		'dump-blt' => [
 			'public' => false,
-			'visible-after-start' => true,
+			'visible-before-start' => false,
+			'visible-after-start' => false,
 			'visible-after-close' => true,
 		],
 		'tally' => [
 			'public' => false,
-			'visible-after-start' => true,
+			'visible-before-start' => false,
+			'visible-after-start' => false,
 			'visible-after-close' => true,
 		],
 		'log' => [
 			'public' => false,
+			'visible-before-start' => true,
 			'visible-after-start' => true,
 			'visible-after-close' => true,
 			'link' => 'getLogLink'
 		],
 		'archive' => [
 			'public' => false,
+			'visible-before-start' => false,
 			'visible-after-start' => false,
 			'visible-after-close' => true,
 		]
@@ -141,14 +151,16 @@ class MainElectionsPager extends ElectionPager {
 				$html .= $separator;
 			}
 
+			$isNotStarted = !$this->election->isStarted() && !$this->election->isFinished();
+			$isStartedButNotFinished = $this->election->isStarted() && !$this->election->isFinished();
+			$isFinished = $this->election->isFinished();
 			$needsHyperlink =
 				( $this->isAdmin || $props['public'] ) &&
 				(
-					!$this->election->isStarted() ||
-					( $this->election->isStarted() && $this->election->isFinished() ) ||
-					$props['visible-after-start']
-				) &&
-				( !$this->election->isFinished() || $props['visible-after-close'] );
+					( $isFinished && $props['visible-after-close'] ) ||
+					( $isStartedButNotFinished && $props['visible-after-start'] ) ||
+					( $isNotStarted && $props['visible-before-start'] )
+				);
 			if ( $needsHyperlink ) {
 				if ( isset( $props['link'] ) ) {
 					$html .= $this->{$props['link']}( $pollId );
