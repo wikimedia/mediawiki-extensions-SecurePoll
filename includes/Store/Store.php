@@ -85,14 +85,6 @@ interface Store {
 	public function getDB( $index = DB_PRIMARY );
 
 	/**
-	 * Set a flag which, if true, forces subsequent calls to getDB() to return
-	 * a primary connection even if $index is DB_REPLICA.
-	 *
-	 * @param bool $forcePrimary
-	 */
-	public function setForcePrimary( $forcePrimary );
-
-	/**
 	 * Get an associative array of information about all questions in a given
 	 * election.
 	 * @param int $electionId

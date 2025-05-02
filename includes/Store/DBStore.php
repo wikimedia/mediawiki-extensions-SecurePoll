@@ -10,9 +10,6 @@ use Wikimedia\Rdbms\ILoadBalancer;
  */
 class DBStore implements Store {
 
-	/** @var bool */
-	private $forcePrimary = false;
-
 	/** @var ILoadBalancer */
 	private $loadBalancer;
 
@@ -154,15 +151,10 @@ class DBStore implements Store {
 	/** @inheritDoc */
 	public function getDB( $index = DB_PRIMARY ) {
 		return $this->loadBalancer->getConnection(
-			$this->forcePrimary ? DB_PRIMARY : $index,
+			$index,
 			[],
 			$this->wiki
 		);
-	}
-
-	/** @inheritDoc */
-	public function setForcePrimary( $forcePrimary ) {
-		$this->forcePrimary = $forcePrimary;
 	}
 
 	/** @inheritDoc */
