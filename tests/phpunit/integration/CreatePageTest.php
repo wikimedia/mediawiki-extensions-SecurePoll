@@ -3,8 +3,10 @@ namespace MediaWiki\Extension\SecurePoll\Test\Integration;
 
 use DOMElement;
 use MediaWiki\Config\SiteConfiguration;
+use MediaWiki\Content\JsonContent;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Request\FauxRequest;
+use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Site\HashSiteStore;
 use MediaWiki\Site\MediaWikiSite;
 use MediaWiki\WikiMap\WikiMap;
@@ -15,6 +17,7 @@ use Wikimedia\Parsoid\Utils\DOMUtils;
 /**
  * @group Database
  * @covers \MediaWiki\Extension\SecurePoll\Pages\CreatePage
+ * @covers \MediaWiki\Extension\SecurePoll\SecurePollContentHandler
  */
 class CreatePageTest extends SpecialPageTestBase {
 	protected function setUp(): void {
@@ -115,10 +118,15 @@ class CreatePageTest extends SpecialPageTestBase {
 
 	/**
 	 * @dataProvider provideValidParams
+	 * @param bool $useNamespace Whether to store election data in read-only log pages
+	 * @param array $params Election options
 	 */
-	public function testCreateElection( array $params ): void {
-		// Mock whether global elections should be permitted by configuration.
-		$this->overrideConfigValue( 'SecurePollEditOtherWikis', false );
+	public function testCreateElection( bool $useNamespace, array $params ): void {
+		$this->overrideConfigValues( [
+			'SecurePollUseNamespace' => $useNamespace,
+			// Mock whether global elections should be permitted by configuration.
+			'SecurePollEditOtherWikis' => false
+		] );
 
 		$performer = $this->getTestSysop()->getUser();
 
@@ -136,6 +144,53 @@ class CreatePageTest extends SpecialPageTestBase {
 		$this->assertStringContainsString( '(securepoll-create-created-text)', $html );
 		$this->assertSame( $params['wpelection_title'], $election->title );
 		$this->assertCount( 1, $questions );
+
+		$logPage = $this->getServiceContainer()
+			->getPageStore()
+			->getPageByName( NS_SECUREPOLL, (string)$election->getId() );
+
+		if ( $useNamespace ) {
+			$content = $this->getServiceContainer()
+				->getRevisionLookup()
+				->getKnownCurrentRevision( $logPage, $logPage->getLatest() )
+				->getContentOrThrow( SlotRecord::MAIN );
+
+			$parsedContentStatus = $content->getData();
+			$parsedContent = $parsedContentStatus->getValue();
+
+			$this->assertInstanceOf( JsonContent::class, $content );
+			$this->assertStatusGood( $parsedContentStatus );
+
+			$this->assertSame(
+				(int)$election->getId(),
+				$parsedContent->id,
+				'Election ID in log page should match stored election ID'
+			);
+
+			$this->assertCount( 1, $parsedContent->questions );
+			$this->assertCount( 1, $parsedContent->questions[0]->options );
+
+			foreach ( $election->getQuestions() as $i => $question ) {
+				$this->assertSame(
+					(int)$question->getId(),
+					$parsedContent->questions[$i]->id,
+					'Question IDs in log page should match stored question ID'
+				);
+				foreach ( $question->getOptions() as $j => $option ) {
+					$this->assertSame(
+						(int)$option->getId(),
+						$parsedContent->questions[$i]->options[$j]->id,
+						'Option IDs in log page should match stored option ID'
+					);
+				}
+			}
+
+		} else {
+			$this->assertNull(
+				$logPage,
+				'No log page should be created if $wgSecurePollUseNamespace = false'
+			);
+		}
 	}
 
 	public static function provideValidParams(): iterable {
@@ -155,11 +210,13 @@ class CreatePageTest extends SpecialPageTestBase {
 			'wpreturn-url' => '',
 		];
 
-		yield 'simple election' => [ $validParams ];
+		yield 'simple election' => [ false, $validParams ];
 		yield 'election with ignored wikis param' => [
+			false,
 			array_merge( $validParams, [
 				'wpproperty_wiki' => 'wiki_with_securepoll'
 			] )
 		];
+		yield 'simple election with logging to namespace enabled' => [ true, $validParams ];
 	}
 }

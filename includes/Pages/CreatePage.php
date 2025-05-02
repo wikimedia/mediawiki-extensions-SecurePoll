@@ -908,7 +908,7 @@ class CreatePage extends ActionPage {
 			$wp->doUserEditContent(
 				$content,
 				$this->specialPage->getUser(),
-				$formData['comment']
+				$formData['comment'] ?? ''
 			);
 
 			[ $title, $content ] = SecurePollContentHandler::makeContentFromElection(
@@ -920,7 +920,7 @@ class CreatePage extends ActionPage {
 			$wp->doUserEditContent(
 				$content,
 				$this->specialPage->getUser(),
-				$formData['comment']
+				$formData['comment'] ?? ''
 			);
 		}
 	}
