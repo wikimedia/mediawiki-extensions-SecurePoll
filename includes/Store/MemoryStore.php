@@ -108,10 +108,6 @@ class MemoryStore implements Store {
 	}
 
 	/** @inheritDoc */
-	public function setForcePrimary( $forcePrimary ) {
-	}
-
-	/** @inheritDoc */
 	public function callbackValidVotes( $electionId, $callback, $voterId = null ) {
 		if ( !isset( $this->votes[$electionId] ) ) {
 			return Status::newGood();
