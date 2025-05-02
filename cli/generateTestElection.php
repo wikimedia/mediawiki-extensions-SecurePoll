@@ -194,8 +194,8 @@ class GenerateTestElection extends Maintenance {
 			),
 			$services->getDBLoadBalancerFactory(),
 			$services->getLanguageNameUtils(),
-			$services->getWikiPageFactory(),
-			$services->getUserFactory()
+			$services->getUserFactory(),
+			$services->getPageUpdaterFactory()
 		);
 		if ( !$name ) {
 			$name = 'STV @' . time();

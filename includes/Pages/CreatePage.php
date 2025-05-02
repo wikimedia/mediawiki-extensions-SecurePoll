@@ -20,9 +20,10 @@ use MediaWiki\Language\LanguageCode;
 use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\Linker\Linker;
 use MediaWiki\Message\Message;
-use MediaWiki\Page\WikiPageFactory;
+use MediaWiki\Revision\SlotRecord;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Status\Status;
+use MediaWiki\Storage\PageUpdaterFactory;
 use MediaWiki\User\UserFactory;
 use MediaWiki\Utils\MWTimestamp;
 use MediaWiki\WikiMap\WikiMap;
@@ -40,24 +41,23 @@ class CreatePage extends ActionPage {
 	/** @var LanguageNameUtils */
 	private $languageNameUtils;
 
-	/** @var WikiPageFactory */
-	private $wikiPageFactory;
-
 	/** @var UserFactory */
 	private $userFactory;
+
+	private PageUpdaterFactory $pageUpdaterFactory;
 
 	public function __construct(
 		SpecialSecurePoll $specialPage,
 		LBFactory $lbFactory,
 		LanguageNameUtils $languageNameUtils,
-		WikiPageFactory $wikiPageFactory,
-		UserFactory $userFactory
+		UserFactory $userFactory,
+		PageUpdaterFactory $pageUpdaterFactory
 	) {
 		parent::__construct( $specialPage );
 		$this->lbFactory = $lbFactory;
 		$this->languageNameUtils = $languageNameUtils;
-		$this->wikiPageFactory = $wikiPageFactory;
 		$this->userFactory = $userFactory;
+		$this->pageUpdaterFactory = $pageUpdaterFactory;
 	}
 
 	/**
@@ -904,24 +904,21 @@ class CreatePage extends ActionPage {
 				$election,
 				$electionId
 			);
-			$wp = $this->wikiPageFactory->newFromTitle( $title );
-			$wp->doUserEditContent(
-				$content,
-				$this->specialPage->getUser(),
-				$formData['comment'] ?? ''
-			);
+
+			$performer = $this->specialPage->getAuthority();
+			$this->pageUpdaterFactory->newPageUpdater( $title, $performer->getUser() )
+				->setContent( SlotRecord::MAIN, $content )
+				->saveRevision( $formData['comment'] ?? '' );
 
 			[ $title, $content ] = SecurePollContentHandler::makeContentFromElection(
 				$election,
 				$electionId,
 				'msg/' . $election->getLanguage()
 			);
-			$wp = $this->wikiPageFactory->newFromTitle( $title );
-			$wp->doUserEditContent(
-				$content,
-				$this->specialPage->getUser(),
-				$formData['comment'] ?? ''
-			);
+
+			$this->pageUpdaterFactory->newPageUpdater( $title, $performer->getUser() )
+				->setContent( SlotRecord::MAIN, $content )
+				->saveRevision( $formData['comment'] ?? '' );
 		}
 	}
 
