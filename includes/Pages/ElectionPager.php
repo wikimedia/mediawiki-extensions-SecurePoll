@@ -26,7 +26,7 @@ abstract class ElectionPager extends TablePager {
 		'el_start_date',
 		'el_end_date',
 		'status',
-		'el_links'
+		'links'
 	];
 
 	public function __construct() {
@@ -66,10 +66,10 @@ abstract class ElectionPager extends TablePager {
 			case 'el_start_date':
 			case 'el_end_date':
 				return htmlspecialchars( $this->getLanguage()->timeanddate( $value ) );
-			case 'el_links':
-				return $this->getLinks();
 			case 'status':
 				return $this->getStatus();
+			case 'links':
+				return $this->getLinks();
 			default:
 				return htmlspecialchars( $value );
 		}
@@ -109,21 +109,17 @@ abstract class ElectionPager extends TablePager {
 	protected function getFieldNames() {
 		$names = [];
 		foreach ( self::FIELDS as $field ) {
-			if ( $field == 'links' ) {
-				$names[$field] = '';
-			} else {
-				// Give grep a chance to find the usages:
-				// securepoll-header-title, securepoll-header-start-date,
-				// securepoll-header-end-date, securepoll-header-links
-				$msgName = 'securepoll-header-' . strtr(
-						$field,
-						[
-							'el_' => '',
-							'_' => '-'
-						]
-					);
-				$names[$field] = $this->msg( $msgName )->text();
+			// Give grep a chance to find the usages:
+			// securepoll-header-title, securepoll-header-start-date,
+			// securepoll-header-end-date, securepoll-header-status
+			// securepoll-header-links
+			$fieldForMsg = $field;
+			if ( str_starts_with( $field, 'el_' ) ) {
+				$fieldForMsg = substr( $fieldForMsg, 3 );
 			}
+			$fieldForMsg = str_replace( '_', '-', $fieldForMsg );
+			$msgName = 'securepoll-header-' . $fieldForMsg;
+			$names[$field] = $this->msg( $msgName )->text();
 		}
 
 		return $names;
