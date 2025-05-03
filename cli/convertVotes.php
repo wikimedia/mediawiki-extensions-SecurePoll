@@ -100,7 +100,7 @@ class ConvertVotes extends Maintenance {
 		$this->ballot = $this->election->getBallot();
 
 		$status = $this->context->getStore()->callbackValidVotes(
-			$electionId, [ $this, 'convertVote' ] );
+			$electionId, fn ( $store, $record ) => $this->convertVote( $store, $record ) );
 
 		if ( $this->crypt ) {
 			// Delete temporary files
