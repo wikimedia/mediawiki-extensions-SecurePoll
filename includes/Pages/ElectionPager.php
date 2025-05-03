@@ -41,7 +41,6 @@ abstract class ElectionPager extends TablePager {
 				'el_title',
 				'el_start_date',
 				'el_end_date',
-				'status',
 			]
 		);
 	}
