@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\SecurePoll\Pages;
 
 use MediaWiki\Extension\SecurePoll\Entities\Election;
+use MediaWiki\Html\Html;
 use MediaWiki\Pager\TablePager;
 use stdClass;
 
@@ -65,7 +66,11 @@ abstract class ElectionPager extends TablePager {
 		switch ( $name ) {
 			case 'el_start_date':
 			case 'el_end_date':
-				return htmlspecialchars( $this->getLanguage()->timeanddate( $value ) );
+				return Html::element(
+					'time',
+					[ 'datetime' => wfTimestamp( TS_ISO_8601, $value ) ],
+					$this->getLanguage()->timeanddate( $value )
+				);
 			case 'status':
 				return $this->getStatus();
 			case 'links':
