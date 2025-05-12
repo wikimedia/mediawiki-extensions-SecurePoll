@@ -286,6 +286,7 @@
 	"securepoll-log-empty": "Журнал тӀехь дӀайаздарш ца карийна.",
 	"securepoll-stv-droop-default-value": "Вариант схьахаржа",
 	"securepoll-stv-droop-choice-rank": "Преференци $1.",
+	"securepoll-stv-invalid-input-empty": "Дехар до, хӀара хьалха дӀайазйе",
 	"securepoll-stv-result-election-elected-header": "Хаьржинарг",
 	"securepoll-stv-election-paramters": "$1 {{PLURAL:$1|меттиге}} харжамаш $2 {{PLURAL:$2|кандидат}}. Дерриге а $3 {{PLURAL:$3|кхаж}}.",
 	"securepoll-stv-result-elected-list-unfilled-seat": "ХӀара меттиг йуза йиш йац, хӀунда аьлча, цхьа а кандидат вац критерешца вогӀуш. {{PLURAL:$1|ТӀаьххьара дӀаваьккхинарг вара}}: $1.",

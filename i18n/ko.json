@@ -13,6 +13,7 @@
 			"Mhha",
 			"Priviet",
 			"Revi",
+			"YeBoy371",
 			"Ykhwong",
 			"Yknok29",
 			"아라"
@@ -317,5 +318,8 @@
 	"securepoll-translation-error-no-page-title": "문서 제목이 없습니다",
 	"securepoll-vote-result-intro-label": "투표 요약",
 	"securepoll-vote-result-question-label": "질문: $1",
-	"securepoll-vote-result-comment": "의견: $1"
+	"securepoll-vote-result-comment": "의견: $1",
+	"group-electionadmin": "선거 관리자",
+	"group-electionadmin-member": "{{GENDER:$1|선거 관리자}}",
+	"grouppage-electionadmin": "{{ns:project}}:선거 관리자"
 }
