@@ -19,10 +19,11 @@
 			"Suelnur",
 			"Vito Genovese",
 			"Asma",
-			"Wooze"
+			"Wooze",
+			"Leo"
 		]
 	},
-	"securepoll": "GüvenliOylama",
+	"securepoll": "SecurePoll",
 	"securepoll-desc": "Seçimler ve anketler için eklenti",
 	"securepoll-invalid-page": "Geçersiz alt sayfa \"<nowiki>$1</nowiki>\"",
 	"securepoll-need-admin": "Bu eylemi gerçekleştirebilmek için bir seçim yöneticisi olmanız gerekir.",
