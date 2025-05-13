@@ -72,4 +72,15 @@ class SetTranslationHandler extends SimpleHandler {
 			]
 		];
 	}
+
+	/** @inheritDoc */
+	public function getBodyParamSettings(): array {
+		return [
+			'data' => [
+				static::PARAM_SOURCE => 'body',
+				ParamValidator::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_TYPE => 'array'
+			]
+		];
+	}
 }

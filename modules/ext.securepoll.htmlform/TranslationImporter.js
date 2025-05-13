@@ -1,8 +1,8 @@
 const TranslationParser = require( './TranslationParser.js' );
 const TranslationFlattener = require( './TranslationFlattener.js' );
 
-function TranslationImporter( cfg ) {
-	this.source = cfg.source;
+function TranslationImporter() {
+	this.source = '';
 	this.parser = new TranslationParser();
 	this.flattener = new TranslationFlattener();
 
@@ -158,6 +158,15 @@ TranslationImporter.prototype.saveContent = function ( content, language ) {
 TranslationImporter.prototype.makeUrl = function ( language ) {
 	return mw.util.wikiScript( 'rest' ) + '/securepoll/set_translation/' +
 		this.electionId + '/' + language;
+};
+
+/**
+ * Set the source API URL
+ *
+ * @param {string} sourceUrl
+ */
+TranslationImporter.prototype.setSource = function ( sourceUrl ) {
+	this.source = sourceUrl;
 };
 
 module.exports = TranslationImporter;

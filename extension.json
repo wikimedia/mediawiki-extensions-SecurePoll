@@ -124,6 +124,7 @@
 				"securepoll-translation-import-action-import",
 				"securepoll-translation-import-action-done",
 				"securepoll-translation-error-no-page-title",
+				"securepoll-translation-error-invalid-source-api",
 				"securepoll-translation-result-error-title",
 				"securepoll-translation-result-error-text",
 				"securepoll-translation-result-import-pages-title",
@@ -131,6 +132,8 @@
 				"securepoll-translation-result-description",
 				"securepoll-translation-import-start",
 				"securepoll-translation-select-import-source",
+				"securepoll-translation-select-import-source-api",
+				"securepoll-translation-select-import-source-page",
 				"securepoll-ballot-show-warnings",
 				"securepoll-ballot-show-all",
 				"securepoll-vote-stv-clear-btn-label"
@@ -195,7 +198,9 @@
 			"tests/qunit/TranslationParser.test.js",
 			"tests/qunit/TranslationFlattener.test.js",
 			"tests/qunit/highlightWarnings.test.js",
-			"tests/qunit/STVDragAndDropForm.test.js"
+			"tests/qunit/STVDragAndDropForm.test.js",
+			"tests/qunit/ImportDialog.test.js",
+			"tests/qunit/SelectSourcePage.test.js"
 		],
 		"dependencies": [
 			"ext.securepoll.htmlform"
@@ -234,10 +239,6 @@
 		"SecurePollUseLogging": {
 			"value": false,
 			"description": "Whether to log admin actions to securepoll_log table."
-		},
-		"SecurePollTranslationImportSourceUrl": {
-			"value": "",
-			"description": "Source url pointing to api endpoint where pages for import should come from"
 		},
 		"SecurePollMostActiveWikisThreshold": {
 			"value": 10,

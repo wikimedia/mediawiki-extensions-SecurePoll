@@ -3,7 +3,6 @@ const TranslationImporter = require( './../../TranslationImporter.js' );
 function ImportPage( name, cfg ) {
 	ImportPage.super.call( this, name, cfg );
 	this.electionId = cfg.electionId;
-	this.source = cfg.source;
 	this.sourcePages = [];
 	this.results = {
 		pages: [],
@@ -18,9 +17,7 @@ function ImportPage( name, cfg ) {
 	// Mixin constructors
 	OO.EventEmitter.call( this );
 
-	this.importer = new TranslationImporter( {
-		source: this.source
-	} );
+	this.importer = new TranslationImporter();
 }
 
 OO.inheritClass( ImportPage, OO.ui.PageLayout );
@@ -72,6 +69,11 @@ ImportPage.prototype.startImport = function () {
 // update label
 ImportPage.prototype.updateInfo = function ( info ) {
 	this.label.setLabel( info );
+};
+
+// update source API URL
+ImportPage.prototype.setSource = function ( sourceUrl ) {
+	this.importer.setSource( sourceUrl );
 };
 
 module.exports = ImportPage;
