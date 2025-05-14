@@ -15,7 +15,8 @@
 			"Revi",
 			"Ykhwong",
 			"Yknok29",
-			"아라"
+			"아라",
+			"YeBoy371"
 		]
 	},
 	"securepoll": "비밀 투표",
@@ -107,7 +108,12 @@
 	"securepoll-header-title": "이름",
 	"securepoll-header-start-date": "시작일",
 	"securepoll-header-end-date": "종료일",
+	"securepoll-header-status": "상태",
 	"securepoll-header-links": "링크",
+	"securepoll-status-not-started": "시작되지 않음",
+	"securepoll-status-in-progress": "진행 중",
+	"securepoll-status-completed": "완료",
+	"securepoll-status-archived": "보존",
 	"securepoll-subpage-vote": "투표",
 	"securepoll-subpage-translate": "번역",
 	"securepoll-subpage-list": "목록",
@@ -312,5 +318,8 @@
 	"securepoll-translation-error-no-page-title": "문서 제목이 없습니다",
 	"securepoll-vote-result-intro-label": "투표 요약",
 	"securepoll-vote-result-question-label": "질문: $1",
-	"securepoll-vote-result-comment": "의견: $1"
+	"securepoll-vote-result-comment": "의견: $1",
+	"group-electionadmin": "선거 관리자",
+	"group-electionadmin-member": "{{GENDER:$1|선거 관리자}}",
+	"grouppage-electionadmin": "{{ns:project}}:선거 관리자"
 }
