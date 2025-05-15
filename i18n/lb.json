@@ -228,6 +228,7 @@
 	"securepoll-translation-import-action-import": "Importéieren",
 	"securepoll-translation-import-action-done": "Fäerdeg",
 	"securepoll-translation-error-no-page-title": "Kee Säitentitel fonnt",
+	"securepoll-translation-error-invalid-source-api": "Ongülteg API-Source",
 	"securepoll-vote-result-intro-label": "Resumé vun Ärem Vott",
 	"securepoll-vote-result-question-label": "Fro: $1",
 	"securepoll-vote-result-comment": "Bemierkung: $1",

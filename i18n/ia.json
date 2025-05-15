@@ -321,7 +321,7 @@
 	"securepoll-stv-result-round-elected": "Eligite: $1",
 	"securepoll-stv-result-round-eliminated": "Eliminate: $1",
 	"securepoll-stv-result-round-keep-factor": "(factor de conservation: $1)",
-	"securepoll-subpage-translate-info": "Tu pote importar traductiones de $1, traducer manualmente o modificar traductiones existente.",
+	"securepoll-subpage-translate-info": "Tu pote importar traductiones, traducer manualmente o modificar traductiones existente.",
 	"securepoll-translate-import-button-label": "Importar traductiones",
 	"securepoll-translation-importer-no-content": "Le contento del pagina es vacue",
 	"securepoll-translation-importer-update-start": "Importa pagina $1",
