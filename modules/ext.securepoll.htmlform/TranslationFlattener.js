@@ -26,7 +26,7 @@ TranslationFlattener.prototype.flattenData = function ( data, id ) {
 	let count = id;
 
 	for ( const entry in data ) {
-		if ( this.keywords.indexOf( entry ) !== -1 ) {
+		if ( this.keywords.includes( entry ) ) {
 			flattenData[ 'trans_' + id + '_' + entry ] = data[ entry ];
 			continue;
 		}
