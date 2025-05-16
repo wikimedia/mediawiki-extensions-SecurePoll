@@ -111,7 +111,7 @@ class CreatePageTest extends SpecialPageTestBase {
 		);
 	}
 
-	public function provideShowForm(): iterable {
+	public static function provideShowForm(): iterable {
 		yield 'creating global elections enabled' => [ true ];
 		yield 'creating global elections disabled' => [ false ];
 	}
