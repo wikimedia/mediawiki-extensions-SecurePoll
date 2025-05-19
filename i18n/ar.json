@@ -340,7 +340,7 @@
 	"securepoll-stv-result-round-elected": "المنتخبون: $1",
 	"securepoll-stv-result-round-eliminated": "المستبعدون: $1",
 	"securepoll-stv-result-round-keep-factor": "(معامل الاحتفاظ: $1)",
-	"securepoll-subpage-translate-info": "يمكنك استيراد الترجمات من $1 أو الترجمة يدويًا أو تحرير الترجمات الحالية.",
+	"securepoll-subpage-translate-info": "يمكنك استيراد الترجمات أو ترجمتها يدويًا أو تحرير الترجمات الموجودة.",
 	"securepoll-translate-import-button-label": "استيراد الترجمات",
 	"securepoll-translation-importer-no-content": "محتوى الصفحة فارغ",
 	"securepoll-translation-importer-update-start": "استيراد الصفحة $1",

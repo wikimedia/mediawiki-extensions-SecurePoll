@@ -328,7 +328,7 @@
 	"securepoll-stv-result-round-elected": "נבחר: $1",
 	"securepoll-stv-result-round-eliminated": "נופה: $1",
 	"securepoll-stv-result-round-keep-factor": "(גורם שימור: $1)",
-	"securepoll-subpage-translate-info": "באפשרותך לייבא תרגומים מ־$1, לתרגם ידנית או לערוך תרגומים קיימים.",
+	"securepoll-subpage-translate-info": "באפשרותך לייבא תרגומים, לתרגם ידנית או לערוך תרגומים קיימים.",
 	"securepoll-translate-import-button-label": "יבוא תרגומים",
 	"securepoll-translation-importer-no-content": "תוכן הדף ריק",
 	"securepoll-translation-importer-update-start": "יבוא הדף $1",
