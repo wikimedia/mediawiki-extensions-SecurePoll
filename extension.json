@@ -109,7 +109,8 @@
 				"mediawiki.widgets",
 				"oojs-ui-windows",
 				"oojs-ui.styles.icons-layout",
-				"oojs-ui.styles.icons-interactions"
+				"oojs-ui.styles.icons-interactions",
+				"mediawiki.ForeignApi.core"
 			],
 			"messages": [
 				"securepoll-strike-button",
