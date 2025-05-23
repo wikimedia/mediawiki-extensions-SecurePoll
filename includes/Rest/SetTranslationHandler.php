@@ -3,11 +3,15 @@
 namespace MediaWiki\Extension\SecurePoll\Rest;
 
 use MediaWiki\Context\RequestContext;
+use MediaWiki\Extension\SecurePoll\ActionPageFactory;
 use MediaWiki\Extension\SecurePoll\Context;
+use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Extension\SecurePoll\TranslationRepo;
 use MediaWiki\Rest\HttpException;
+use MediaWiki\Rest\LocalizedHttpException;
 use MediaWiki\Rest\Response;
 use MediaWiki\Rest\SimpleHandler;
+use Wikimedia\Message\MessageValue;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class SetTranslationHandler extends SimpleHandler {
@@ -15,11 +19,15 @@ class SetTranslationHandler extends SimpleHandler {
 	/** @var TranslationRepo */
 	private $translationRepo;
 
-	/**
-	 * @param TranslationRepo $translationRepo
-	 */
-	public function __construct( $translationRepo ) {
+	/** @var ActionPageFactory */
+	private $actionPageFactory;
+
+	public function __construct(
+		TranslationRepo $translationRepo,
+		ActionPageFactory $actionPageFactory
+	) {
 		$this->translationRepo = $translationRepo;
+		$this->actionPageFactory = $actionPageFactory;
 	}
 
 	/**
@@ -27,11 +35,24 @@ class SetTranslationHandler extends SimpleHandler {
 	 */
 	public function run( $params ): Response {
 		$request = $this->getRequest();
-
 		$electionId = (int)$request->getPathParam( 'entityid' );
 		$language = $request->getPathParam( 'language' );
-		$body = $this->getValidatedBody();
 
+		// Stub out a SecurePoll page to gain access to the election context
+		$page = new SpecialSecurePoll( $this->actionPageFactory );
+		$securepollContext = $page->sp_context;
+		$election = $securepollContext->getElection( $electionId );
+
+		// Only allow admins of the election to translate
+		$isAdmin = $election->isAdmin( $this->getAuthority() );
+		if ( !$isAdmin ) {
+			throw new LocalizedHttpException(
+				new MessageValue( 'securepoll-need-admin' ),
+				403
+			);
+		}
+
+		$body = $this->getValidatedBody();
 		if ( !$body ) {
 			throw new HttpException( 'No valid body' );
 		}

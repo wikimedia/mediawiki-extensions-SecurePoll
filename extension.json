@@ -55,7 +55,8 @@
 			"method": "POST",
 			"class": "\\MediaWiki\\Extension\\SecurePoll\\Rest\\SetTranslationHandler",
 			"services": [
-				"SecurePoll.TranslationRepo"
+				"SecurePoll.TranslationRepo",
+				"SecurePoll.ActionPageFactory"
 			]
 		}
 	],
