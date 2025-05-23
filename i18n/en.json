@@ -284,6 +284,7 @@
 	"securepoll-votereligibility-cleared": "{{int:securepoll}}: Cleared",
 	"securepoll-votereligibility-cleared-text": "The $1 has been cleared and will not be used by the poll.",
 	"securepoll-votereligibility-cleared-comment": "$1 cleared.",
+	"securepoll-votereligibility-token-mismatch": "There was a problem with your session and the voter eligibility list was not cleared. Please try again.",
 	"right-securepoll-create-poll": "Create polls",
 	"action-securepoll-create-poll": "create polls and view logs",
 	"right-securepoll-view-voter-pii": "Access personally-identifying information about voters",
