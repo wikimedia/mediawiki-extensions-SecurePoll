@@ -71,6 +71,17 @@ class UnarchivePage extends ActionPage {
 			return;
 		}
 
+		$token = $this->specialPage->getContext()->getCsrfTokenSet()->getToken();
+		$request = $this->specialPage->getRequest();
+		$tokenMatch = $token->match( $request->getVal( 'token' ) );
+		if ( !$tokenMatch ) {
+			$out->prependHTML( ( new MessageWidget( [
+				'label' => $this->msg( 'securepoll-unarchive-token-error' )->text(),
+				'type' => 'error',
+			] ) ) );
+			return;
+		}
+
 		$dbr = $this->election->context->getDB( DB_REPLICA );
 		$isArchived = $dbr->newSelectQueryBuilder()
 			->select( 'pr_value' )
