@@ -353,6 +353,7 @@
 	"securepoll-translation-result-description": "ترجمات مستوردة من",
 	"securepoll-translation-import-start": "ابدأ الاستيراد",
 	"securepoll-translation-select-import-source": "حدد الصفحة من $1",
+	"securepoll-translation-select-import-source-api": "قم بتوفير مصدر <a href=\"https://www.mediawiki.org/wiki/API:Main_page\" target=\"_blank\" rel=\"noopener noreferrer\">MediaWiki Action API</a> :",
 	"securepoll-translation-select-import-source-page": "قم بتوفير عنوان الصفحة من المصدر أعلاه:",
 	"securepoll-translation-import-dialog-title": "استيراد الترجمات",
 	"securepoll-translation-import-action-import": "استيراد",
