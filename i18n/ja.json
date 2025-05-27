@@ -19,7 +19,8 @@
 			"ネイ",
 			"春春眠眠",
 			"青子守歌",
-			"Waki285"
+			"Waki285",
+			"Omotecho"
 		]
 	},
 	"securepoll": "暗号投票",
@@ -142,7 +143,7 @@
 	"securepoll-archive-not-finished": "終了した選挙のみアーカイブできます。",
 	"securepoll-archive-in-progress": "選挙は現在アーカイブ中です。",
 	"securepoll-archive-error": "選挙をアーカイブできませんでした。もう一度お試しください。",
-	"securepoll-already-archived-error": "この選挙はすでにアーカイブされています。",
+	"securepoll-already-archived-error": "この選挙は既にアーカイブされています。",
 	"securepoll-entry-archived": "アーカイブされた選挙を見る",
 	"securepoll-archived-title": "アーカイブされた選挙",
 	"securepoll-subpage-unarchive": "アーカイブ解除",
@@ -237,7 +238,7 @@
 	"securepoll-create-fail-bad-id": "送信された選挙 ID が、編集中の選挙の ID と一致しません",
 	"securepoll-create-fail-id-missing": "編集中の選挙は存在しません",
 	"securepoll-create-fail-bad-dblist": "指定されたウィキまたはウィキリストが有効ではありません",
-	"securepoll-create-duplicate-title": "指定された投票タイトルは、すでに$1で使用されています",
+	"securepoll-create-duplicate-title": "指定された投票タイトルは、既に $1 で使用されています",
 	"securepoll-edit-title": "{{int:securepoll}}: 投票所の編集",
 	"securepoll-edit-redirect": "この選挙は、$1で設定する必要があります",
 	"securepoll-edit-redirect-otherwiki": "メインのウィキ",
