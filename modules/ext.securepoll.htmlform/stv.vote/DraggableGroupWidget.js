@@ -44,6 +44,7 @@ DraggableGroupWidget.prototype.clearAll = function () {
 	this.items.forEach( ( element ) => {
 		element.$element.remove();
 	} );
+
 	// This needs to keep the original reference so it doesn't get lost
 	// and submits the original order & choices before clearing all items.
 	this.items.splice( 0, this.items.length );

@@ -16,6 +16,7 @@ const DraggableItemWidget = require( './DraggableItemWidget.js' );
 function STVQuestionLayout( config ) {
 	config = config || {};
 
+	this.comboBox = config.comboBox;
 	this.boxMenu = config.comboBox.menu;
 	const data = config.comboBox.data || {};
 	this.voteDone = false;
@@ -42,21 +43,23 @@ function STVQuestionLayout( config ) {
 
 	this.draggableGroup.on( 'reorder', () => {
 		this.updateLimitsLayout();
+		this.checkMaxSeats();
 	} );
 
 	// Clear all candidates Button
-	const clearButton = new OO.ui.ButtonWidget( {
+	this.clearButton = new OO.ui.ButtonWidget( {
 		framed: false,
 		label: mw.message( 'securepoll-vote-stv-clear-btn-label' ).text(),
 		icon: 'trash'
 	} );
-	clearButton.on( 'click', () => {
+	this.clearButton.on( 'click', () => {
 		this.draggableGroup.clearAll();
 		// enable all candidates if selection was cleared
 		this.boxMenu.items.forEach( ( item ) => {
 			item.setDisabled( false );
 		} );
 		this.updateLimitsLayout();
+		this.checkMaxSeats();
 	} );
 
 	// BoxMenu Events
@@ -88,7 +91,7 @@ function STVQuestionLayout( config ) {
 
 	// Initialization
 	this.$element.prepend( this.limitsLayout.$element );
-	this.$element.append( this.draggableGroup.$element, clearButton.$element );
+	this.$element.append( this.draggableGroup.$element, this.clearButton.$element );
 }
 
 /* Setup */
@@ -123,6 +126,11 @@ STVQuestionLayout.prototype.updateLimitsLayout = function () {
 	// disable boxMenu if limit is reached
 	this.boxMenu.setDisabled( selectedItems === this.maxSeats );
 	this.emit( 'voteStatusUpdate' );
+};
+
+STVQuestionLayout.prototype.checkMaxSeats = function () {
+	const maxSeatsReached = this.draggableGroup.items.length >= this.maxSeats;
+	this.comboBox.setDisabled( maxSeatsReached );
 };
 
 module.exports = STVQuestionLayout;
