@@ -4,6 +4,11 @@
 	const STVDragAndDropForm = require( 'ext.securepoll.htmlform/page.vote.stv.js' );
 	const STVQuestionLayout = require( 'ext.securepoll.htmlform/stv.vote/STVQuestionLayout.js' );
 
+	const stvDragAndDropFormTemplate = mw.template.get(
+		'test.SecurePoll', 'DragAndDropForm.html' );
+	const stvDragAndDropFormTemplateReversed = mw.template.get(
+		'test.SecurePoll', 'DragAndDropFormReversed.html' );
+
 	function generateSTVQuestionLayout( config ) {
 		const voteDone = !!( config || {} ).voteDone;
 		const selectedItems = ( config || {} ).selectedItems || [];
@@ -271,6 +276,61 @@
 			false,
 			'Combo box should not be disabled'
 		);
+		done();
+	} );
+
+	QUnit.test( 'Form submission works', ( assert ) => {
+		const done = assert.async();
+
+		$( '#qunit-fixture' ).append( stvDragAndDropFormTemplate.render() );
+		STVDragAndDropForm.init();
+
+		const $comboBoxes = $( '.oo-ui-comboBoxInputWidget' );
+		const boxMenuA = $( $comboBoxes[ 0 ] ).data( 'oouiInfused' ).menu;
+		const boxMenuB = $( $comboBoxes[ 1 ] ).data( 'oouiInfused' ).menu;
+
+		boxMenuA.emit( 'choose', boxMenuA.items[ 0 ] );
+		boxMenuB.emit( 'choose', boxMenuB.items[ 1 ] );
+
+		const $form = $( 'form' );
+		$form.on( 'submit', ( e ) => {
+			// Prevent the form from submitting to the server.
+			e.preventDefault();
+		} );
+		$form.trigger( 'submit' );
+
+		const ranked = Array.from( $( 'select.oo-ui-inputWidget-input' ) )
+			.map( ( $select ) => $select.value );
+
+		assert.deepEqual( ranked, [ '104', '0', '0', '109', '0', '0' ] );
+
+		done();
+	} );
+
+	QUnit.test( 'Form submission works when shuffled (reversed)', ( assert ) => {
+		const done = assert.async();
+
+		$( '#qunit-fixture' ).append( stvDragAndDropFormTemplateReversed.render() );
+		STVDragAndDropForm.init();
+
+		const $comboBoxes = $( '.oo-ui-comboBoxInputWidget' );
+		const boxMenuB = $( $comboBoxes[ 0 ] ).data( 'oouiInfused' ).menu;
+		const boxMenuA = $( $comboBoxes[ 1 ] ).data( 'oouiInfused' ).menu;
+
+		boxMenuB.emit( 'choose', boxMenuB.items[ 0 ] );
+		boxMenuA.emit( 'choose', boxMenuA.items[ 1 ] );
+
+		const $form = $( 'form' );
+		$form.on( 'submit', ( e ) => {
+			// Prevent the form from submitting to the server.
+			e.preventDefault();
+		} );
+		$form.trigger( 'submit' );
+
+		const ranked = Array.from( $( 'select.oo-ui-inputWidget-input' ) )
+			.map( ( $select ) => $select.value );
+
+		assert.deepEqual( ranked, [ '108', '0', '0', '105', '0', '0' ] );
 
 		done();
 	} );

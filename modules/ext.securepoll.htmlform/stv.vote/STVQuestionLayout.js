@@ -40,6 +40,7 @@ function STVQuestionLayout( config ) {
 	this.draggableGroup.$element.addClass( 'stv-ranking-draggable-group' );
 	this.draggableGroup.$element.data( 'ranking', this.draggableGroup.items );
 	this.draggableGroup.$element.data( 'candidates', data.candidates );
+	this.draggableGroup.$element.data( 'questionId', data.questionId );
 
 	this.draggableGroup.on( 'reorder', () => {
 		this.updateLimitsLayout();

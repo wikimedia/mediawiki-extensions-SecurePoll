@@ -71,6 +71,7 @@ class STVBallot extends Ballot {
 		$this->numberOfSeats = $question->getProperty( 'min-seats' );
 
 		$data = [
+			'questionId' => (int)$question->getId(),
 			'maxSeats' => $this->seatsLimit ? $this->numberOfSeats : count( $options ),
 			'selectedItems' => []
 		];
