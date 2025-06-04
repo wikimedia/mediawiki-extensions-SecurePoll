@@ -37,6 +37,11 @@ function STVDragAndDropForm( $ ) {
 				comboBoxWidget = comboLayout.querySelector( '.oo-ui-comboBoxInputWidget' ),
 				comboBox = OO.ui.infuse( comboBoxWidget );
 
+			comboBox.setDir( 'auto' );
+			comboBox.getMenu().items.forEach( ( item ) => {
+				item.$element.prop( 'dir', 'auto' );
+			} );
+
 			const questionLayout = new STVQuestionLayout( {
 				comboBox: comboBox,
 				classes: [ 'securepoll-question-layout' ],

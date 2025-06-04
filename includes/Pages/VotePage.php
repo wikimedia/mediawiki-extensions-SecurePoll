@@ -440,7 +440,8 @@ class VotePage extends ActionPage {
 					$sanitizedText = Sanitizer::escapeCombiningChar(
 						htmlspecialchars( $optionsMsgs[$vote]['text'], ENT_QUOTES, 'UTF-8', false )
 					);
-					$votedItems[] = Html::rawElement( 'li', [], $sanitizedText );
+					$bidirectionalText = Html::rawElement( 'bdi', [], $sanitizedText );
+					$votedItems[] = Html::rawElement( 'li', [], $bidirectionalText );
 				}
 				$html .= Html::rawElement( 'ol', [ 'class' => 'securepoll-vote-result-options' ],
 					implode( "\n", $votedItems )
