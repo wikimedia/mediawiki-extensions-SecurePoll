@@ -127,7 +127,7 @@
 	"securepoll-entry-archived": "הצגת בחירות מאורכבות",
 	"securepoll-archived-title": "בחירות מאורכבות",
 	"securepoll-subpage-unarchive": "הוצאה מארכיון",
-	"securepoll-unarchive-title": "להוציא מהארכון את $1",
+	"securepoll-unarchive-title": "להוציא מהארכיון את $1",
 	"securepoll-unarchive-in-progress": "הבחירות מוצאות מהארכיון עכשיו.",
 	"securepoll-already-unarchived-error": "הבחירות האלו אינן מאורכבות.",
 	"securepoll-tally-title": "חישוב תוצאות: $1",
