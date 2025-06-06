@@ -8,10 +8,11 @@
 		const voteDone = !!( config || {} ).voteDone;
 		const selectedItems = ( config || {} ).selectedItems || [];
 		const options = ( config || {} ).options || [];
+		const maxSeats = ( config || {} ).maxSeats || options.length;
 		return new STVQuestionLayout( {
 			comboBox: new OO.ui.ComboBoxInputWidget( {
 				options: options,
-				data: { selectedItems: selectedItems }
+				data: { selectedItems: selectedItems, maxSeats: maxSeats }
 			} ),
 			voteDone: voteDone
 		} );
@@ -163,12 +164,7 @@
 			'Both candidates should be added'
 		);
 
-		// Simulate clicking "Clear" button
-		layout.draggableGroup.clearAll();
-		layout.boxMenu.items.forEach( ( item ) => {
-			item.setDisabled( false );
-		} );
-		layout.updateLimitsLayout();
+		layout.clearButton.emit( 'click' );
 
 		assert.strictEqual(
 			layout.draggableGroup.items.length,
@@ -183,6 +179,97 @@
 			layout.draggableGroup.items.length,
 			1,
 			'Candidate 2 should be added'
+		);
+
+		done();
+	} );
+
+	QUnit.test( 'Reaching the seat limit disables the combo box', ( assert ) => {
+		const done = assert.async();
+		const layout = generateSTVQuestionLayout( {
+			options: [
+				{ data: 'securepoll_q0000001_opt0000001', label: 'Candidate 1' },
+				{ data: 'securepoll_q0000001_opt0000002', label: 'Candidate 2' },
+				{ data: 'securepoll_q0000001_opt0000003', label: 'Candidate 3' }
+			],
+			maxSeats: 3
+		} );
+
+		layout.boxMenu.emit( 'choose', layout.boxMenu.items[ 0 ] );
+		layout.boxMenu.emit( 'choose', layout.boxMenu.items[ 1 ] );
+
+		assert.strictEqual(
+			layout.comboBox.isDisabled(),
+			false,
+			'Combo box should not be disabled'
+		);
+
+		layout.boxMenu.emit( 'choose', layout.boxMenu.items[ 2 ] );
+
+		assert.strictEqual(
+			layout.comboBox.isDisabled(),
+			true,
+			'Combo box should be disabled'
+		);
+
+		done();
+	} );
+
+	QUnit.test( 'Clearing votes enables the combo box if previously at the seat limit', ( assert ) => {
+		const done = assert.async();
+		const layout = generateSTVQuestionLayout( {
+			options: [
+				{ data: 'securepoll_q0000001_opt0000001', label: 'Candidate 1' },
+				{ data: 'securepoll_q0000001_opt0000002', label: 'Candidate 2' }
+			],
+			maxSeats: 2
+		} );
+
+		layout.boxMenu.emit( 'choose', layout.boxMenu.items[ 0 ] );
+		layout.boxMenu.emit( 'choose', layout.boxMenu.items[ 1 ] );
+
+		assert.strictEqual(
+			layout.comboBox.isDisabled(),
+			true,
+			'Combo box should be disabled'
+		);
+
+		layout.clearButton.emit( 'click' );
+
+		assert.strictEqual(
+			layout.comboBox.isDisabled(),
+			false,
+			'Combo box should not be disabled'
+		);
+
+		done();
+	} );
+
+	QUnit.test( 'Removing an individual vote enables the combo box if previously at the seat limit', ( assert ) => {
+		const done = assert.async();
+		const layout = generateSTVQuestionLayout( {
+			options: [
+				{ data: 'securepoll_q0000001_opt0000001', label: 'Candidate 1' },
+				{ data: 'securepoll_q0000001_opt0000002', label: 'Candidate 2' }
+			],
+			maxSeats: 2
+		} );
+
+		layout.boxMenu.emit( 'choose', layout.boxMenu.items[ 0 ] );
+		layout.boxMenu.emit( 'choose', layout.boxMenu.items[ 1 ] );
+
+		assert.strictEqual(
+			layout.comboBox.isDisabled(),
+			true,
+			'Combo box should be disabled'
+		);
+
+		layout.draggableGroup.onDeleteItem( 0 );
+
+		assert.strictEqual(
+			layout.comboBox.isDisabled(),
+			false,
+			'Combo box should not be disabled'
 		);
 
 		done();
