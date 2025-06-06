@@ -34,7 +34,7 @@ function DraggableItemWidget( config ) {
 		classes: [ 'item-draggable-icon' ]
 	} );
 	this.label = new OO.ui.LabelWidget( {
-		label: config.label,
+		label: new OO.ui.HtmlSnippet( $( '<bdi>' ).text( config.label ).get( 0 ).outerHTML ),
 		classes: [ 'item-name-label' ]
 	} );
 	this.position = new OO.ui.LabelWidget( {
