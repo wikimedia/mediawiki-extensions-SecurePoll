@@ -3,34 +3,23 @@
 
 	QUnit.module( 'ext.securepoll.translationFlattener.test' );
 
-	QUnit.test( 'Flatten parser test', ( assert ) => {
-		const done = assert.async();
+	function getTestData( fileName ) {
+		return $.get( `${ mw.config.get( 'wgExtensionAssetsPath' ) }/SecurePoll/tests/qunit/data/flattener/${ fileName }` );
+	}
+
+	QUnit.test.each( 'Flatten parser test', {
+		'with multiple questions': [ 'JSONWithMultipleQuestions.json', 'ExpectedDataWithMultipleQuestions.json' ],
+		'with wrong data': [ 'JSONWithWrongData.json', 'ExpectedDataWithWrongData.json' ]
+	}, async ( assert, [ inputFile, expectedFile ] ) => {
 		const translationFlattener = new TranslationFlattener();
 
-		const getOrigin = $.get( '../extensions/SecurePoll/tests/qunit/data/flattener/JSONWithMultipleQuestions.json' );
-		getOrigin.done( ( data ) => {
-			const flattenedContent = translationFlattener.flattenData( data, 81 );
-			const getExpected = $.get( '../extensions/SecurePoll/tests/qunit/data/flattener/ExpectedDataWithMultipleQuestions.json' );
-			getExpected.done( ( expectedContent ) => {
-				assert.deepEqual( flattenedContent, expectedContent, 'flattenedContent' );
-				done();
-			} );
-		} );
+		const [ data, expected ] = await Promise.all( [
+			getTestData( inputFile ),
+			getTestData( expectedFile )
+		] );
+
+		const flattenedContent = translationFlattener.flattenData( data, 81 );
+
+		assert.deepEqual( flattenedContent, expected, 'flattenedContent' );
 	} );
-
-	QUnit.test( 'Flatten parser test with wrong data', ( assert ) => {
-		const done = assert.async();
-		const translationFlattener = new TranslationFlattener();
-
-		const getOrigin = $.get( '../extensions/SecurePoll/tests/qunit/data/flattener/JSONWithWrongData.json' );
-		getOrigin.done( ( data ) => {
-			const flattenedContent = translationFlattener.flattenData( data, 81 );
-			const getExpected = $.get( '../extensions/SecurePoll/tests/qunit/data/flattener/ExpectedDataWithWrongData.json' );
-			getExpected.done( ( expectedContent ) => {
-				assert.deepEqual( flattenedContent, expectedContent, 'flattenedContent' );
-				done();
-			} );
-		} );
-	} );
-
 }() );
