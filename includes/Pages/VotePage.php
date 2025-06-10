@@ -410,7 +410,7 @@ class VotePage extends ActionPage {
 
 		$summary = new MessageWidget( [
 			'type' => 'success',
-			'label' => $this->msg( 'securepoll-thanks' )
+			'label' => new HtmlSnippet( $this->msg( 'securepoll-thanks' )->parse() ),
 		] );
 
 		$summary .= Html::element( 'h2', [ 'class' => 'securepoll-vote-result-heading' ],
