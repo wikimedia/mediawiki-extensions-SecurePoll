@@ -189,8 +189,6 @@
 	"securepoll-ranks": "Used as section header.",
 	"securepoll-average-score": "Used as section header.",
 	"securepoll-round": "Column header for tables on tallies which take place over multiple rounds.\n\nParameters:\n* $1 - Roman numeral (I, II, III, IV, ...)",
-	"securepoll-spoilt": "Row label for counting ballots which were spoilt, that is not correctly filled in or indecipherable.",
-	"securepoll-exhausted": "Row label for counting ballots which have been exhausted in a multi-round counting system",
 	"securepoll-htmlform-daterange-end-before-start": "Used as error message in HTML forms.",
 	"securepoll-htmlform-radiorange-missing-message": "Used as error message in HTML forms. Parameters:\n* $1 - Column number",
 	"securepoll-create-title": "Title for [[Special:SecurePoll/create]].\n\nRefers to {{msg-mw|Securepoll}}.\n{{Identical|Create poll}}",

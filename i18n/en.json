@@ -163,8 +163,6 @@
 	"securepoll-ranks": "Final ranking",
 	"securepoll-average-score": "Average score",
 	"securepoll-round": "Round $1",
-	"securepoll-spoilt": "(Spoilt)",
-	"securepoll-exhausted": "(Exhausted)",
 	"securepoll-htmlform-daterange-end-before-start": "The end date given is before the start date.",
 	"securepoll-htmlform-radiorange-missing-message": "Please specify a value for column $1",
 	"securepoll-create-title": "{{int:securepoll}}: Create poll",
