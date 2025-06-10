@@ -145,7 +145,7 @@
 			"styles": "ext.securepoll.css"
 		},
 		"ext.securepoll.special": {
-			"styles": "ext.securepoll.special.css"
+			"styles": "ext.securepoll.special.less"
 		}
 	},
 	"ResourceFileModulePaths": {
