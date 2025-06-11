@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ahmed-Najib-Biabani-Ibrahimkhel"
+			"Ahmed-Najib-Biabani-Ibrahimkhel",
+			"شاه زمان پټان"
 		]
 	},
 	"securepoll-invalid-page": "ناسم څېرمه مخ \"<nowiki>$1</nowiki>\"",
 	"securepoll-need-admin": "د دې کړنې د ترسره کولو لپاره تاسې ته پکار ده چې د ټاکنې يو پازوال اوسۍ.",
-	"securepoll-welcome": "<strong> $1 ښه راغلئ!</strong>",
+	"securepoll-welcome": "<strong> $1 ښه راغلاست!</strong>",
 	"securepoll-submit": "رايه سپارل",
 	"securepoll-thanks": "له تاسې نه مننه، ستاسې رايه ثبته شوه.",
 	"securepoll-return": "$1 ته ورستنېدل",
