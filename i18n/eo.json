@@ -101,8 +101,6 @@
 	"securepoll-ranks": "Fina rangigo",
 	"securepoll-average-score": "Averaĝa poentaro",
 	"securepoll-round": "Balota parto $1",
-	"securepoll-spoilt": "voĉdono ne valida",
-	"securepoll-exhausted": "(Finita)",
 	"securepoll-create-label-questions": "== Demandoj ==",
 	"securepoll-create-questions-row-legend": "Demando",
 	"securepoll-create-label-questions-question": "Teksto de demando:",

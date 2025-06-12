@@ -120,8 +120,6 @@
 	"securepoll-ranks": "อันดับอย่างเป็นทางการ",
 	"securepoll-average-score": "คะแนนเฉลี่ย",
 	"securepoll-round": "รอบ $1",
-	"securepoll-spoilt": "(บัตรเสีย)",
-	"securepoll-exhausted": "(ใช้สิทธิ์แล้ว)",
 	"securepoll-create-label-wiki": "สำหรับวิกิ:",
 	"securepoll-create-option-wiki-this_wiki": "วิกินี้",
 	"securepoll-create-option-wiki-all_wikis": "วิกิทั้งหมด",

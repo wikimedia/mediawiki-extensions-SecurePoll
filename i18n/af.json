@@ -80,7 +80,5 @@
 	"securepoll-strength-matrix": "Pad krag Matrix",
 	"securepoll-ranks": "Eindstand",
 	"securepoll-average-score": "Gemiddelde punt",
-	"securepoll-round": "Ronde $1",
-	"securepoll-spoilt": "(Bedorwe)",
-	"securepoll-exhausted": "(Uitgeput)"
+	"securepoll-round": "Ronde $1"
 }

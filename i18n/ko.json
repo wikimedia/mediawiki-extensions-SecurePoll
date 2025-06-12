@@ -151,8 +151,6 @@
 	"securepoll-ranks": "최종 순위",
 	"securepoll-average-score": "평균 점수",
 	"securepoll-round": "약 $1",
-	"securepoll-spoilt": "(투표권 무효)",
-	"securepoll-exhausted": "(투표권 만료)",
 	"securepoll-htmlform-daterange-end-before-start": "제시된 종료 일자가 시작 일자보다 이전입니다.",
 	"securepoll-htmlform-radiorange-missing-message": "$1 열에 대한 값을 지정하십시오",
 	"securepoll-create-title": "{{int:securepoll}}: 투표 생성",

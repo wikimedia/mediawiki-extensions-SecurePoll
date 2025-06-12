@@ -97,7 +97,5 @@
 	"securepoll-strength-matrix": "Párová matica sily",
 	"securepoll-ranks": "Finálne hodnotenie",
 	"securepoll-average-score": "Priemerné skóre",
-	"securepoll-round": "$1. kolo",
-	"securepoll-spoilt": "(neplatné)",
-	"securepoll-exhausted": "(vyčerpané)"
+	"securepoll-round": "$1. kolo"
 }

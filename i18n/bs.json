@@ -99,7 +99,5 @@
 	"securepoll-strength-matrix": "Matriks snage putanje",
 	"securepoll-ranks": "Konačni poredak",
 	"securepoll-average-score": "Prosječan rezultat",
-	"securepoll-round": "Runda $1",
-	"securepoll-spoilt": "(Nevaljano)",
-	"securepoll-exhausted": "(Iskorišteno)"
+	"securepoll-round": "Runda $1"
 }

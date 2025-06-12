@@ -156,8 +156,6 @@
 	"securepoll-ranks": "Classificação final",
 	"securepoll-average-score": "Pontuação média",
 	"securepoll-round": "Ronda $1",
-	"securepoll-spoilt": "(Danificadas)",
-	"securepoll-exhausted": "(Esgotadas)",
 	"securepoll-htmlform-daterange-end-before-start": "A data final fornecida é anterior a data de início.",
 	"securepoll-htmlform-radiorange-missing-message": "Por favor, especifique um valor para a coluna $1",
 	"securepoll-create-title": "{{int:securepoll}}: Criar votação",

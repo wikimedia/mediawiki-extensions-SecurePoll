@@ -164,8 +164,6 @@
 	"securepoll-ranks": "Schlussranking",
 	"securepoll-average-score": "Durchschnittliches Ergebnis",
 	"securepoll-round": "Runde $1",
-	"securepoll-spoilt": "(Ungültig)",
-	"securepoll-exhausted": "(Beendet)",
 	"securepoll-htmlform-daterange-end-before-start": "Das angegebene Enddatum liegt vor dem Startdatum.",
 	"securepoll-htmlform-radiorange-missing-message": "Bitte gib einen Wert für die Spalte $1 an",
 	"securepoll-create-title": "{{int:securepoll}}: Abstimmung erstellen",

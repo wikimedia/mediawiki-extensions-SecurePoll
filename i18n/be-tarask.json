@@ -103,7 +103,5 @@
 	"securepoll-strength-matrix": "Матрыца моцы шляхоў",
 	"securepoll-ranks": "Канчатковыя вынікі",
 	"securepoll-average-score": "Сярэдні вынік",
-	"securepoll-round": "$1 тур",
-	"securepoll-spoilt": "(забракаваныя)",
-	"securepoll-exhausted": "(вычарпаныя)"
+	"securepoll-round": "$1 тур"
 }

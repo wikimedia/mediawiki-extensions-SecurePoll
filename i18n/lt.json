@@ -138,8 +138,6 @@
 	"securepoll-ranks": "Galutinis įvertinimas",
 	"securepoll-average-score": "Vidutinis rezultatas",
 	"securepoll-round": "Turas $1",
-	"securepoll-spoilt": "(Sugadinta)",
-	"securepoll-exhausted": "(Išnaudota)",
 	"securepoll-htmlform-daterange-end-before-start": "Nurodyta pabaigos data yra ankstesnė už pradžios datą.",
 	"securepoll-htmlform-radiorange-missing-message": "Nurodykite $1 stulpelio reikšmę",
 	"securepoll-create-title": "{{int:securepoll}}: Sukurti apklausą",

@@ -100,8 +100,6 @@
 	"securepoll-ranks": "अन्तिमः क्रमः",
 	"securepoll-average-score": "माकिं गुणः",
 	"securepoll-round": "चक्रम् $1",
-	"securepoll-spoilt": "(दुष्टम्)",
-	"securepoll-exhausted": "(समाप्तम्)",
 	"securepoll-create-label-questions": "== प्रश्नाः ==",
 	"securepoll-create-questions-row-legend": "प्रश्नः",
 	"securepoll-create-label-questions-question": "प्रश्नपाठः :",

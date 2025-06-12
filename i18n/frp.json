@@ -97,7 +97,5 @@
 	"securepoll-strength-matrix": "Matrice de fôrce des chemins",
 	"securepoll-ranks": "Cllassement final",
 	"securepoll-average-score": "Mârca moyena",
-	"securepoll-round": "Tôrn $1",
-	"securepoll-spoilt": "(Blancs ou ben nuls)",
-	"securepoll-exhausted": "(Èpouesiê)"
+	"securepoll-round": "Tôrn $1"
 }

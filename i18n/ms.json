@@ -103,8 +103,6 @@
 	"securepoll-ranks": "Kedudukan akhir",
 	"securepoll-average-score": "Mata purataba",
 	"securepoll-round": "Pusingan $1",
-	"securepoll-spoilt": "(Rosak)",
-	"securepoll-exhausted": "(Lupus)",
 	"securepoll-create-label-comment": "Sebab",
 	"securepoll-edit-edited": "{{int:securepoll}}: Tinjauan disunting",
 	"securepolllog-form-target-label": "Sasaran (nama pengguna):",

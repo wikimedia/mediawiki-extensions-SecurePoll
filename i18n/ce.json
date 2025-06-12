@@ -158,8 +158,6 @@
 	"securepoll-ranks": "ТӀаьххьара рейтинг",
 	"securepoll-average-score": "Йуккъера мах хадор",
 	"securepoll-round": "$1 тур",
-	"securepoll-spoilt": "(Талхийнарш)",
-	"securepoll-exhausted": "(Чекхйаьлла)",
 	"securepoll-htmlform-daterange-end-before-start": "Йазйина йолу чекхйолу хан — долоран хенал хьалха йу.",
 	"securepoll-htmlform-radiorange-missing-message": "Дехар до, $1 бӀогӀаман маьӀна йазде",
 	"securepoll-create-title": "{{int:securepoll}}: Кхолла хаттар",

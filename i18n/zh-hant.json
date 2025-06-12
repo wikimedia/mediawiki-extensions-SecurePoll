@@ -175,8 +175,6 @@
 	"securepoll-ranks": "最終評分",
 	"securepoll-average-score": "平均分數",
 	"securepoll-round": "第 $1 回合",
-	"securepoll-spoilt": "(已作廢)",
-	"securepoll-exhausted": "(已用盡)",
 	"securepoll-htmlform-daterange-end-before-start": "指定的結束日期於開始日期之前。",
 	"securepoll-htmlform-radiorange-missing-message": "請指定欄位 $1 的數值",
 	"securepoll-create-title": "{{int:securepoll}}：建立投票",

@@ -141,8 +141,6 @@
 	"securepoll-ranks": "Lopullinen sijoitus",
 	"securepoll-average-score": "Keskiarvopisteet",
 	"securepoll-round": "Kierros $1",
-	"securepoll-spoilt": "(Väärin)",
-	"securepoll-exhausted": "(Ei käytetty)",
 	"securepoll-create-option-wiki-all_wikis": "Kaikki wikit",
 	"securepoll-create-label-election_crypt": "Salaus:",
 	"securepoll-create-label-questions": "== Kysymykset ==",

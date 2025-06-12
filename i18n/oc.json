@@ -99,8 +99,6 @@
 	"securepoll-ranks": "Classament final",
 	"securepoll-average-score": "Marca mejana",
 	"securepoll-round": "Torn $1",
-	"securepoll-spoilt": "(Blancs o nuls)",
-	"securepoll-exhausted": "(Agotat)",
 	"securepoll-create-label-election_primarylang": "Lenga principala :",
 	"securepoll-create-label-questions-add": "Apondre una autra question",
 	"securepoll-create-label-options-add": "Apondre una autra opcion",

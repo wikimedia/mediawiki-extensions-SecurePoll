@@ -136,8 +136,6 @@
 	"securepoll-ranks": "Slutgilltig rankning",
 	"securepoll-average-score": "Genomsnittligt betyg",
 	"securepoll-round": "Omgång $1",
-	"securepoll-spoilt": "(Ogiltig)",
-	"securepoll-exhausted": "(Uttömd)",
 	"securepoll-htmlform-daterange-end-before-start": "Slutdatumet är före startdatumet.",
 	"securepoll-htmlform-radiorange-missing-message": "Ange ett värde för kolumn $1",
 	"securepoll-create-title": "{{int:securepoll}}: Skapa enkät",

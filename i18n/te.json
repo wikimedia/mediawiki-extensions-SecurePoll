@@ -124,8 +124,6 @@
 	"securepoll-ranks": "అంతిమ మూల్యాంకనం",
 	"securepoll-average-score": "సగటు స్కోరు",
 	"securepoll-round": "రౌండ్ $1",
-	"securepoll-spoilt": "(చెడిపోయినది)",
-	"securepoll-exhausted": "(అలసిపోయింది)",
 	"securepoll-htmlform-daterange-end-before-start": "ఇవ్వబడ్డ ముగింపు తేదీ ప్రారంభ తేదీకి ముందు ఉంది.",
 	"securepoll-htmlform-radiorange-missing-message": "కాలమ్ $1 కొరకు దయచేసి ఒక విలువను పేర్కొనండి",
 	"securepoll-create-title": "{{int:securepoll}}: పోల్‌ను సృష్టించండి",

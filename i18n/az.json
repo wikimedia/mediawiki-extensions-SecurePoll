@@ -162,8 +162,6 @@
 	"securepoll-ranks": "Yekun reytinq",
 	"securepoll-average-score": "Orta xal",
 	"securepoll-round": "Mərhələ $1",
-	"securepoll-spoilt": "(Korlanmış)",
-	"securepoll-exhausted": "(Etibarsız)",
 	"securepoll-htmlform-daterange-end-before-start": "Verilən bitmə tarixi başlanğıc tarixindən əvvəldir.",
 	"securepoll-htmlform-radiorange-missing-message": "$1 sütunu üçün dəyər göstər",
 	"securepoll-create-title": "{{int:securepoll}}: Sorğu yarat",

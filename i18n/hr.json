@@ -105,8 +105,6 @@
 	"securepoll-ranks": "Završno rangiranje",
 	"securepoll-average-score": "Prosječni rezultat",
 	"securepoll-round": "Izborni krug $1",
-	"securepoll-spoilt": "(Nevrijedeće glasovanje)",
-	"securepoll-exhausted": "(Iscrpljen)",
 	"securepoll-edit-redirect": "Ovo glasovanje mora biti konfigurirano na $1",
 	"securepoll-edit-redirect-otherwiki": "glavnom wikiju"
 }

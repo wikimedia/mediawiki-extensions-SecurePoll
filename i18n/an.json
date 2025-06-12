@@ -94,7 +94,5 @@
 	"securepoll-strength-matrix": "Organizar por cantidat d'enqüestas",
 	"securepoll-ranks": "Rango final",
 	"securepoll-average-score": "Puntuación meya",
-	"securepoll-round": "Tongada $1",
-	"securepoll-spoilt": "(Nulos)",
-	"securepoll-exhausted": "(Emplegau)"
+	"securepoll-round": "Tongada $1"
 }

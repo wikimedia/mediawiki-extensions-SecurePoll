@@ -142,8 +142,6 @@
 	"securepoll-ranks": "Peringkat akhir",
 	"securepoll-average-score": "Nilai rerata",
 	"securepoll-round": "Ronde $1",
-	"securepoll-spoilt": "(Rusak)",
-	"securepoll-exhausted": "(Habis)",
 	"securepoll-htmlform-daterange-end-before-start": "Tanggal akhir yang diberikan adalah sebelum tanggal mulai.",
 	"securepoll-htmlform-radiorange-missing-message": "Harap tentukan nilai untuk kolom $1",
 	"securepoll-create-title": "{{int:securepoll}}: Buat jajak pendapat",

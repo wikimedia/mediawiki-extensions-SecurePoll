@@ -112,8 +112,6 @@
 	"securepoll-ranks": "Xếp hạng sau cùng",
 	"securepoll-average-score": "Điểm số trung bình",
 	"securepoll-round": "Vòng $1",
-	"securepoll-spoilt": "(Hỏng)",
-	"securepoll-exhausted": "(Quá hạn)",
 	"securepoll-htmlform-daterange-end-before-start": "Ngày kết thúc đưa ra nằm trước ngày bắt đầu.",
 	"securepoll-htmlform-radiorange-missing-message": "Hãy chỉ định một giá trị cho cột $1",
 	"securepoll-create-title": "{{int:securepoll}}: Tạo thăm dò",

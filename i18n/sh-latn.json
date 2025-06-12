@@ -117,8 +117,6 @@
 	"securepoll-ranks": "Konačni poredak",
 	"securepoll-average-score": "Prosječan rezultat",
 	"securepoll-round": "Runda $1",
-	"securepoll-spoilt": "(Nevaljano)",
-	"securepoll-exhausted": "(Iskorišteno)",
 	"securepoll-create-label-wiki": "Za viki:",
 	"securepoll-create-option-wiki-this_wiki": "Ovaj viki",
 	"securepoll-create-option-wiki-all_wikis": "Svi vikiji",

@@ -99,7 +99,5 @@
 	"securepoll-tally-upload-error": "Eroare în timpul efectuării numărătorii din fișierul dump: $1",
 	"securepoll-ranks": "Clasament final",
 	"securepoll-average-score": "Scor mediu",
-	"securepoll-round": "Runda $1",
-	"securepoll-spoilt": "(Anulate)",
-	"securepoll-exhausted": "(Epuizate)"
+	"securepoll-round": "Runda $1"
 }

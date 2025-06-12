@@ -95,7 +95,5 @@
 	"securepoll-strength-matrix": "Pfad Sterkimatrix",
 	"securepoll-ranks": "Schlussreihefolg",
 	"securepoll-average-score": "Durschnittlige Stand",
-	"securepoll-round": "Rundi $1",
-	"securepoll-spoilt": "(Uugiltig)",
-	"securepoll-exhausted": "(Fertig)"
+	"securepoll-round": "Rundi $1"
 }

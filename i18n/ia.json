@@ -156,8 +156,6 @@
 	"securepoll-ranks": "Rango final",
 	"securepoll-average-score": "Score medie",
 	"securepoll-round": "Ronda $1",
-	"securepoll-spoilt": "(Invalide)",
-	"securepoll-exhausted": "(Exhaurite)",
 	"securepoll-htmlform-daterange-end-before-start": "Le data de fin fornite es ante le data de initio.",
 	"securepoll-htmlform-radiorange-missing-message": "Per favor specifica un valor pro le columna $1",
 	"securepoll-create-title": "{{int:securepoll}}: Crear sondage",

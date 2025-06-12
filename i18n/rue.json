@@ -95,7 +95,5 @@
 	"securepoll-strength-matrix": "Матріця силы стежок",
 	"securepoll-ranks": "Конечный рейтінґ",
 	"securepoll-average-score": "Середнє оцінїня",
-	"securepoll-round": "$1. коло",
-	"securepoll-spoilt": "(Неплатне)",
-	"securepoll-exhausted": "(Вычерпаны)"
+	"securepoll-round": "$1. коло"
 }

@@ -116,8 +116,6 @@
 	"securepoll-ranks": "Ipò ìparí",
 	"securepoll-average-score": "Àpaapọ̀ ìsirò",
 	"securepoll-round": "Abala $1",
-	"securepoll-spoilt": "(bàjé)",
-	"securepoll-exhausted": "(tán)",
 	"securepoll-htmlform-daterange-end-before-start": "Ọjọ́ ìparí tí o pèsè yá ju ọjọ́ ìbẹ̀rẹ̀ lọ.",
 	"securepoll-htmlform-radiorange-missing-message": "Jọ̀wọ́ fi ìwọ̀n sí àlàfo $1",
 	"securepoll-create-title": "{{int:securepoll}}: Ṣ'ẹ̀dá ìbò",

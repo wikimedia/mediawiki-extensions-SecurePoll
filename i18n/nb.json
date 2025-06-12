@@ -140,8 +140,6 @@
 	"securepoll-ranks": "Endelig resultat",
 	"securepoll-average-score": "Gjennomsnittlig karakter",
 	"securepoll-round": "Runde $1",
-	"securepoll-spoilt": "(Ugyldig)",
-	"securepoll-exhausted": "(Oppbrukt)",
 	"securepoll-htmlform-daterange-end-before-start": "Sluttdatoen er før startdatoen.",
 	"securepoll-htmlform-radiorange-missing-message": "Oppgi en verdi for kolonne $1",
 	"securepoll-create-title": "{{int:securepoll}}: Opprett avstemning",

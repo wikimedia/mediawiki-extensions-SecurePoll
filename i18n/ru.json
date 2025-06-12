@@ -154,8 +154,6 @@
 	"securepoll-ranks": "Окончательное ранжирование",
 	"securepoll-average-score": "Средняя оценка",
 	"securepoll-round": "$1 тур",
-	"securepoll-spoilt": "(Испорченные)",
-	"securepoll-exhausted": "(Исчерпаны)",
 	"securepoll-htmlform-daterange-end-before-start": "Заданная дата окончания — раньше даты начала.",
 	"securepoll-htmlform-radiorange-missing-message": "Пожалуйста, укажите значение для столбца $1",
 	"securepoll-create-title": "{{int:securepoll}}: Создать опрос",

@@ -107,8 +107,6 @@
 	"securepoll-ranks": "Clasificación final",
 	"securepoll-average-score": "Puntuación media",
 	"securepoll-round": "Ronda $1",
-	"securepoll-spoilt": "(Nulos)",
-	"securepoll-exhausted": "(Agotaos)",
 	"securepoll-htmlform-daterange-end-before-start": "La fecha final dada ye anterior a la d'entamu.",
 	"securepoll-htmlform-radiorange-missing-message": "Especifica un valor pa la columna $1",
 	"securepoll-create-title": "{{int:securepoll}}: Crear encuesta",

@@ -168,8 +168,6 @@
 	"securepoll-ranks": "Definitieve rangschikking",
 	"securepoll-average-score": "Gemiddelde score",
 	"securepoll-round": "Ronde $1",
-	"securepoll-spoilt": "(Ongeldig)",
-	"securepoll-exhausted": "(Verlopen)",
 	"securepoll-htmlform-daterange-end-before-start": "De opgegeven einddatum ligt voor de begindatum.",
 	"securepoll-htmlform-radiorange-missing-message": "Geef een waarde op voor kolom $1",
 	"securepoll-create-title": "{{int:securepoll}}: Peiling aanmaken",

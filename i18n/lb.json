@@ -131,8 +131,6 @@
 	"securepoll-ranks": "Schlussclassement",
 	"securepoll-average-score": "Duerchschnëttleche Score",
 	"securepoll-round": "$1. Tour",
-	"securepoll-spoilt": "(Ongülteg)",
-	"securepoll-exhausted": "(Eriwwer)",
 	"securepoll-htmlform-radiorange-missing-message": "Gitt wgl. e Wäert fir d'Kolonn $1 un",
 	"securepoll-create-title": "{{int:securepoll}}: Ëmfro uleeën",
 	"securepoll-create-action": "Ëmfro uleeën",

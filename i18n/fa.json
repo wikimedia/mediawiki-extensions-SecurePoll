@@ -160,8 +160,6 @@
 	"securepoll-ranks": "رتبه‌بندی نهایی",
 	"securepoll-average-score": "میانگین امتیاز",
 	"securepoll-round": "دور $1",
-	"securepoll-spoilt": "(مخدوش)",
-	"securepoll-exhausted": "(بیرون‌افتاده)",
 	"securepoll-htmlform-daterange-end-before-start": "تاریخ پایان مشخص‌شده پیش از تاریخ آغاز است.",
 	"securepoll-htmlform-radiorange-missing-message": "لطفاً یک مقدار برای ستون $1 مشخص کنید",
 	"securepoll-create-title": "{{int:securepoll}}: ایجاد نظرسنجی",

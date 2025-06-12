@@ -106,8 +106,6 @@
 	"securepoll-ranks": "საბოლოო ადგილები",
 	"securepoll-average-score": "საშუალო შედეგი",
 	"securepoll-round": "$1 რაუნდი",
-	"securepoll-spoilt": "(არასწორი)",
-	"securepoll-exhausted": "(დასრულდა)",
 	"securepoll-create-title": "{{int:securepoll}}: გამოკითხვის შექმნა",
 	"securepoll-create-action": "გამოკითხვის შექმნა",
 	"securepoll-create-created": "{{int:securepoll}}: გამოკითხვა შექმნილია",

@@ -113,8 +113,6 @@
 	"securepoll-ranks": "Τελική κατάταξη",
 	"securepoll-average-score": "Μέσο σκορ",
 	"securepoll-round": "Γύρος $1",
-	"securepoll-spoilt": "(Άκυρα)",
-	"securepoll-exhausted": "(Εξαντλημένα)",
 	"securepoll-create-title": "{{int:securepoll}}: Δημιουργία δημοσκόπησης",
 	"securepoll-vote-result-intro-label": "Περίληψη της ψήφου σας",
 	"securepoll-vote-result-question-label": "Ερώτηση: $1",

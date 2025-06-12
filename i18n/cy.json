@@ -106,8 +106,6 @@
 	"securepoll-ranks": "Y drefn rhestrol terfynol",
 	"securepoll-average-score": "Cyfartaledd y sgôr",
 	"securepoll-round": "Rownd $1",
-	"securepoll-spoilt": "(A Ddifethwyd)",
-	"securepoll-exhausted": "(Wedi dihysbyddu)",
 	"securepoll-create-action": "Creu pôl",
 	"securepoll-create-label-questions": "== Cwestiynau ==",
 	"securepoll-create-questions-row-legend": "Cwestiwn",

@@ -136,8 +136,6 @@
 	"securepoll-ranks": "Končna uvrstitev",
 	"securepoll-average-score": "Povprečna ocena",
 	"securepoll-round": "Krog $1",
-	"securepoll-spoilt": "(Neveljavno)",
-	"securepoll-exhausted": "(Izkoriščeno)",
 	"securepoll-htmlform-daterange-end-before-start": "Predloženi končni datum je pred začetnim datumom.",
 	"securepoll-htmlform-radiorange-missing-message": "Določite vrednost za stolpec $1",
 	"securepoll-create-title": "{{int:securepoll}}: Ustvari glasovanje",

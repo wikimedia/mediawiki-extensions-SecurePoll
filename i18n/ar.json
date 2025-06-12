@@ -175,8 +175,6 @@
 	"securepoll-ranks": "الترتيب النهائي",
 	"securepoll-average-score": "نتيجة متوسطة",
 	"securepoll-round": "الجولة $1",
-	"securepoll-spoilt": "(محيرة)",
-	"securepoll-exhausted": "(منهك)",
 	"securepoll-htmlform-daterange-end-before-start": "تاريخ الانتهاء عندك قبل تاريخ الابتداء.",
 	"securepoll-htmlform-radiorange-missing-message": "يرجى تحديد قيمة العمود $1",
 	"securepoll-create-title": "{{int:securepoll}}: أنشئ تصويتاً",

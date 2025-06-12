@@ -95,7 +95,5 @@
 	"securepoll-strength-matrix": "Matris ëd fòrsa dël path",
 	"securepoll-ranks": "Votassion final",
 	"securepoll-average-score": "Pontegi medi",
-	"securepoll-round": "Vira nùmer $1",
-	"securepoll-spoilt": "(Darmagi)",
-	"securepoll-exhausted": "(Esaurì)"
+	"securepoll-round": "Vira nùmer $1"
 }

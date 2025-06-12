@@ -170,8 +170,6 @@
 	"securepoll-ranks": "Остаточний рейтинг",
 	"securepoll-average-score": "Середня оцінка",
 	"securepoll-round": "$1 тур",
-	"securepoll-spoilt": "(Зіпсовані)",
-	"securepoll-exhausted": "(Вичерпані)",
 	"securepoll-htmlform-daterange-end-before-start": "Задана дата закінчення — перед датою початку.",
 	"securepoll-htmlform-radiorange-missing-message": "Будь ласка, вкажіть значення для стовпця $1",
 	"securepoll-create-title": "{{int:securepoll}}: Створити опитування",

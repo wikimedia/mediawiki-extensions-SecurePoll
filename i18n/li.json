@@ -96,7 +96,5 @@
 	"securepoll-strength-matrix": "Padgestèrk matrix",
 	"securepoll-ranks": "Definitief ranksjikking",
 	"securepoll-average-score": "Gemiddeldje skore",
-	"securepoll-round": "Rönj $1",
-	"securepoll-spoilt": "(Óngeljig)",
-	"securepoll-exhausted": "(Verloupe)"
+	"securepoll-round": "Rönj $1"
 }

@@ -186,8 +186,6 @@
 	"securepoll-ranks": "Classement final",
 	"securepoll-average-score": "Pointage moyen",
 	"securepoll-round": "$1{{PLURAL:$1|er|e}} tour",
-	"securepoll-spoilt": "(Blancs ou nuls)",
-	"securepoll-exhausted": "(Épuisé)",
 	"securepoll-htmlform-daterange-end-before-start": "La date de fin fournie est antérieure à la date de début.",
 	"securepoll-htmlform-radiorange-missing-message": "Veuillez indiquer une valeur pour la colonne $1",
 	"securepoll-create-title": "{{int:securepoll}} : créer un sondage",

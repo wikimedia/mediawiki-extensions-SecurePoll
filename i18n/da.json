@@ -112,8 +112,6 @@
 	"securepoll-ranks": "Endeligt resultat",
 	"securepoll-average-score": "Gennemsnitlig karakter",
 	"securepoll-round": "Runde $1",
-	"securepoll-spoilt": "(Ugyldig)",
-	"securepoll-exhausted": "(Udtømt)",
 	"securepoll-create-option-wiki-this_wiki": "Denne wiki",
 	"securepoll-create-option-wiki-all_wikis": "Alle wikier",
 	"securepoll-create-label-election_primarylang": "Primært sprog:",

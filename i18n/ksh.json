@@ -108,8 +108,6 @@
 	"securepoll-ranks": "De Rangfollesch zom Afschloß",
 	"securepoll-average-score": "Dorschschnettlesche Treffer",
 	"securepoll-round": "Der $1-te Rötsch",
-	"securepoll-spoilt": "(onjöltesch)",
-	"securepoll-exhausted": "(aam Engk)",
 	"securepoll-htmlform-daterange-end-before-start": "Et Dattom vum Ängk es fröhjer wi et Dattom vum Bejenn.",
 	"securepoll-htmlform-radiorange-missing-message": "Jivv ene Wäät fö de Kolonn $1 aan.",
 	"securepoll-create-title": "{{int:securepoll}}: Affschemong aanlähje",

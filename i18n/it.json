@@ -142,8 +142,6 @@
 	"securepoll-ranks": "Classifica finale",
 	"securepoll-average-score": "Media dei punteggi",
 	"securepoll-round": "Turno numero $1.",
-	"securepoll-spoilt": "(imbarazzante)",
-	"securepoll-exhausted": "(Esaurito)",
 	"securepoll-htmlform-daterange-end-before-start": "La data di fine data è precedente alla data di inizio.",
 	"securepoll-htmlform-radiorange-missing-message": "Indica un valore per la colonna $1",
 	"securepoll-create-title": "{{int:securepoll}}: crea sondaggio",

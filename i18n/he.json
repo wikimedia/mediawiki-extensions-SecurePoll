@@ -163,8 +163,6 @@
 	"securepoll-ranks": "דירוג סופי",
 	"securepoll-average-score": "דירוג ממוצע",
 	"securepoll-round": "סיבוב $1",
-	"securepoll-spoilt": "(פסולות)",
-	"securepoll-exhausted": "(ממוצות)",
 	"securepoll-htmlform-daterange-end-before-start": "תאריך הסיום לפני תאריך התחילה.",
 	"securepoll-htmlform-radiorange-missing-message": "נא לציין ערך לעמודה $1",
 	"securepoll-create-title": "{{int:securepoll}}: יצירת מערכת בחירות",

@@ -98,7 +98,5 @@
 	"securepoll-strength-matrix": "Matrice de fortezza del percorso",
 	"securepoll-ranks": "Classifica final",
 	"securepoll-average-score": "Puntejo medio",
-	"securepoll-round": "Turno nùmaro $1.",
-	"securepoll-spoilt": "(visià)",
-	"securepoll-exhausted": "(exaurìo)"
+	"securepoll-round": "Turno nùmaro $1."
 }

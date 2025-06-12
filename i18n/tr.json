@@ -146,8 +146,6 @@
 	"securepoll-ranks": "Son sıralama",
 	"securepoll-average-score": "Ortalama skor",
 	"securepoll-round": "$1. tur",
-	"securepoll-spoilt": "(Bozuk)",
-	"securepoll-exhausted": "(Bitkin)",
 	"securepoll-htmlform-daterange-end-before-start": "Belirtilen bitiş tarihi başlangıç tarihinden önce.",
 	"securepoll-htmlform-radiorange-missing-message": "Lütfen $1 sütunu için bir değer belirtin",
 	"securepoll-create-title": "{{int:securepoll}}: Anket oluştur",

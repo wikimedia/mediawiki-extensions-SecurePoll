@@ -123,8 +123,6 @@
 	"securepoll-ranks": "Ranking końcowy",
 	"securepoll-average-score": "Wynik średni",
 	"securepoll-round": "$1 tura",
-	"securepoll-spoilt": "(nieważny)",
-	"securepoll-exhausted": "(wyczerpany)",
 	"securepoll-htmlform-daterange-end-before-start": "Data zakończenia jest przed datą rozpoczęcia",
 	"securepoll-htmlform-radiorange-missing-message": "Proszę podać wartości dla kolumny $1",
 	"securepoll-create-title": "{{int:securepoll}}: Utwórz ankietę",

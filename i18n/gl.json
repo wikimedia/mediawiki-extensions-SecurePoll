@@ -159,8 +159,6 @@
 	"securepoll-ranks": "Valoración final",
 	"securepoll-average-score": "Puntuación media",
 	"securepoll-round": "Rolda $1",
-	"securepoll-spoilt": "(Nulos)",
-	"securepoll-exhausted": "(Esgotados)",
 	"securepoll-htmlform-daterange-end-before-start": "A data de finalización é anterior á data de comezo.",
 	"securepoll-htmlform-radiorange-missing-message": "Por favor, especifica un valor para a columna $1",
 	"securepoll-create-title": "{{int:securepoll}}: Crear unha enquisa",

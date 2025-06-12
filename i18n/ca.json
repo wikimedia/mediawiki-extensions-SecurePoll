@@ -111,8 +111,6 @@
 	"securepoll-ranks": "Classificació final",
 	"securepoll-average-score": "Puntuació mitjana",
 	"securepoll-round": "Ronda $1",
-	"securepoll-spoilt": "(Nul)",
-	"securepoll-exhausted": "(Esgotat)",
 	"securepoll-create-action": "Crear enquesta",
 	"securepoll-create-label-property_admins": "Administradors:",
 	"securepoll-create-questions-row-legend": "Pregunta",

@@ -96,7 +96,5 @@
 	"securepoll-strength-matrix": "પાથ સ્ટ્રેંથ મેટ્રીક્સ",
 	"securepoll-ranks": "અંતિમ ક્રમ યાદી",
 	"securepoll-average-score": "સરેરાશ ગુણ",
-	"securepoll-round": "ચરણ $1",
-	"securepoll-spoilt": "(બગડી ગયેલ)",
-	"securepoll-exhausted": "(સમાપ્ત)"
+	"securepoll-round": "ચરણ $1"
 }

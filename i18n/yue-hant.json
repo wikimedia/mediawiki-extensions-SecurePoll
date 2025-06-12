@@ -94,7 +94,5 @@
 	"securepoll-strength-matrix": "實力矩陣嘅路徑",
 	"securepoll-ranks": "最後評分",
 	"securepoll-average-score": "平均分",
-	"securepoll-round": "第$1輪",
-	"securepoll-spoilt": "(廢票)",
-	"securepoll-exhausted": "(用盡)"
+	"securepoll-round": "第$1輪"
 }

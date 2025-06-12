@@ -173,8 +173,6 @@
 	"securepoll-ranks": "最終順位",
 	"securepoll-average-score": "平均点",
 	"securepoll-round": "第$1回",
-	"securepoll-spoilt": "(無効票)",
-	"securepoll-exhausted": "(白票)",
 	"securepoll-htmlform-daterange-end-before-start": "終了日が開始日の前になっています。",
 	"securepoll-htmlform-radiorange-missing-message": "列$1に値を指定してください",
 	"securepoll-create-title": "{{int:securepoll}}: 投票所の作成",

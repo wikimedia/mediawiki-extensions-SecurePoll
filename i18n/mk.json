@@ -159,8 +159,6 @@
 	"securepoll-ranks": "Конечно рангирање",
 	"securepoll-average-score": "Просечна оценка",
 	"securepoll-round": "Коло $1",
-	"securepoll-spoilt": "(Расипани)",
-	"securepoll-exhausted": "(Исцрпени)",
 	"securepoll-htmlform-daterange-end-before-start": "Укажаниот завршен датум е пред почетниот.",
 	"securepoll-htmlform-radiorange-missing-message": "Укажете вредност за столбот $1",
 	"securepoll-create-title": "{{int:securepoll}}: Создавање на анкета",
