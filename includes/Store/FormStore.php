@@ -115,7 +115,7 @@ class FormStore extends MemoryStore {
 			'disallow-change' => $formData['disallow-change'] ? 1 : 0,
 			'voter-privacy' => $formData['voter-privacy'] ? 1 : 0,
 			'request-comment' => $formData['request-comment'] ? 1 : 0,
-			'prompt-active-wiki' => $formData['prompt-active-wiki'] ? 1 : 0
+			'prompt-active-wiki' => (int)( $formData['prompt-active-wiki'] ?? false ),
 		];
 		$this->messages[$this->lang][$eId] = [
 			'title' => $formData['election_title'],
