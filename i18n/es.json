@@ -51,7 +51,7 @@
 	"securepoll-finished": "Esta elección ha concluido, no puedes votar más.",
 	"securepoll-not-qualified": "No cumples los requisitos para votar en esta elección: $1",
 	"securepoll-change-disallowed": "Ya votaste en esta elección.\nNo puedes votar de nuevo.",
-	"securepoll-change-allowed": "<strong>Nota: Ya votaste en esta elección.</strong>\nPuedes cambiar tu voto enviando el formulario de abajo.\nTen en cuanta que de hacerlo, tu voto original se descartará.",
+	"securepoll-change-allowed": "<strong>Nota: Ya votaste en esta elección.</strong>\nPuedes cambiar tu voto enviando el formulario de abajo.\nTen en cuenta que de hacerlo, tu voto original se descartará.",
 	"securepoll-header-comments": "Comentarios",
 	"securepoll-submit": "Enviar voto",
 	"securepoll-gpg-receipt": "Gracias por votar.\n\nSi deseas, puedes retener el siguiente comprobante como evidencia de tu voto:\n\n<pre>$1</pre>",
