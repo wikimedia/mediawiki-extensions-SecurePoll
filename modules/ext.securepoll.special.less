@@ -210,11 +210,13 @@ ul.securepoll-vote-result-no-vote {
 
 /** Add styling for STV-Election Form */
 .securepoll-question-layout {
+	position: relative;
 	margin: 7px;
-	max-width: 50em;
+	max-width: 80em;
+	width: fit-content;
 }
 
-.securepoll-question-layout > .oo-ui-draggableGroupElement > .oo-ui-tagItemWidget {
+.securepoll-question-layout .oo-ui-draggableGroupElement > .oo-ui-tagItemWidget {
 	display: flex;
 	align-items: center;
 	border-radius: 7px;
@@ -224,6 +226,28 @@ ul.securepoll-vote-result-no-vote {
 	max-width: fit-content;
 	padding: 1px;
 	margin: 4px;
+}
+
+.securepoll-question-layout .stv-ranking-panel-container {
+	display: flex;
+	gap: 16px;
+}
+
+.securepoll-question-layout .securepoll-question-stv-panel {
+	position: relative;
+	min-width: 400px;
+	flex: 1;
+}
+
+.securepoll-question-layout .stv-panel-header {
+	position: absolute;
+	top: -3em;
+	width: calc( 100% - 32px );
+	text-align: center;
+}
+
+.stv-ranking-draggable-group {
+	min-height: 140px;
 }
 
 .securepoll-question-layout .item-position-index-label {
@@ -246,6 +270,7 @@ ul.securepoll-vote-result-no-vote {
 	text-align: left;
 	text-wrap: auto;
 	vertical-align: text-bottom;
+	overflow-wrap: anywhere;
 }
 
 /* .oo-ui-tagItemWidget is selected for more specificity to override OOUI. */
@@ -265,8 +290,9 @@ ul.securepoll-vote-result-no-vote {
 
 /** Limits layout */
 .securepoll-question-layout > .limits-layout {
-	float: right;
-	margin: 0 8px;
+	position: absolute;
+	top: 16px;
+	right: 12px;
 }
 
 .securepoll-question-layout > .limits-layout > .limit-label {

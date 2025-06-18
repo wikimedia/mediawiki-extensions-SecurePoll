@@ -45,6 +45,8 @@
 	"securepoll-not-qualified": "Unused at this time. Parameters:\n* $1 - ...",
 	"securepoll-change-disallowed": "Used as error message.",
 	"securepoll-change-allowed": "Used as error message.",
+	"securepoll-stv-unranked-candidates": "Used as a header",
+	"securepoll-stv-ranked-candidates": "Used as a header",
 	"securepoll-header-comments": "Fieldset header for the comments text area on the vote page.",
 	"securepoll-submit": "{{Identical|Submit}}",
 	"securepoll-gpg-receipt": "Parameters:\n* $1 - the receipt. Format: \n<pre>\nSPID: (10-digit vote ID)\n(encrypted vote record)\n</pre>\nIf the election doesn't use encryption, the following message is used:\n* {{msg-mw|securepoll-thanks}}",

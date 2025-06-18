@@ -19,6 +19,8 @@
 	"securepoll-not-qualified": "You are not qualified to vote in this election: $1",
 	"securepoll-change-disallowed": "You have voted in this election before.\nSorry, you may not vote again.",
 	"securepoll-change-allowed": "<strong>Note: You have voted in this election before.</strong>\nYou may change your vote by submitting the form below.\nNote that if you do this, your original vote will be discarded.",
+	"securepoll-stv-unranked-candidates": "Not ranked",
+	"securepoll-stv-ranked-candidates": "Ranked",
 	"securepoll-header-comments": "Comments",
 	"securepoll-submit": "Submit vote",
 	"securepoll-gpg-receipt": "If you wish, you may retain the following receipt as evidence of your vote:\n\n<pre>$1</pre>",
