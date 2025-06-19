@@ -292,7 +292,7 @@ class CreatePage extends ActionPage {
 			'type' => 'usersmultiselect',
 			'exists' => true,
 			'required' => true,
-			'default' => '',
+			'default' => $this->specialPage->getUser()->getName(),
 			'validation-callback' => [
 				$this,
 				'checkEditPollRight'
