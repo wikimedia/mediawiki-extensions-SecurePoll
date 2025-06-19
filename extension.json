@@ -74,7 +74,8 @@
 		"ConvertVotes": "cli/convertVotes.php",
 		"DeletePoll": "cli/delete.php",
 		"ImportElectionConfiguration": "cli/import.php",
-		"UpdateNotBlockedKey": "cli/updateNotBlockedKey.php"
+		"UpdateNotBlockedKey": "cli/updateNotBlockedKey.php",
+		"MigrateTallies": "cli/migrateTallies.php"
 	},
 	"AutoloadNamespaces": {
 		"MediaWiki\\Extension\\SecurePoll\\": "includes/"
