@@ -519,6 +519,7 @@ class OpenSslCrypt extends Crypt {
 				'validation-callback' => static function ( string $key ) {
 					return self::checkPublicKey( $key );
 				},
+				'help-message' => 'securepoll-create-label-openssl_encrypt_key-help',
 			]
 		];
 
@@ -540,6 +541,7 @@ class OpenSslCrypt extends Crypt {
 					'validation-callback' => static function ( string $key ) {
 						return self::checkPrivateKey( $key );
 					},
+					'help-message' => 'securepoll-create-label-openssl_sign_key-help',
 				]
 			];
 		}
@@ -559,6 +561,7 @@ class OpenSslCrypt extends Crypt {
 				'validation-callback' => static function ( string $key ) {
 					return self::checkPrivateKey( $key );
 				},
+				'help-message' => 'securepoll-tally-openssl-decrypt-key-help',
 			],
 			'openssl-verify-key' => [
 				'label-message' => 'securepoll-tally-openssl-verify-key',
@@ -568,6 +571,7 @@ class OpenSslCrypt extends Crypt {
 				'validation-callback' => static function ( string $key ) use ( $verifyKeyRequired ) {
 					return self::checkPublicKey( $key, $verifyKeyRequired );
 				},
+				'help-message' => 'securepoll-tally-openssl-verify-key-help',
 			],
 		];
 	}
