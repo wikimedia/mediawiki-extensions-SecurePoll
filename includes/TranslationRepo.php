@@ -96,7 +96,6 @@ class TranslationRepo {
 
 				[ $title, $content ] = SecurePollContentHandler::makeContentFromElection(
 					$contextElection,
-					null,
 					"msg/$language"
 				);
 
