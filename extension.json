@@ -237,7 +237,7 @@
 		},
 		"SecurePollUseNamespace": {
 			"value": false,
-			"description": "Make the SecurePoll namespace available, and record election details to pages in this namespace as JSON. This namespace is a read-only record of changes to the poll and to the poll's messages in each language. It writes pages such as SecurePoll:1 and SecurePoll:1/msg/en. A \"reason\" box is added to the various Special:SecurePoll edit pages, and whatever is typed there ends up as the edit summary for that revision. You can click on the history tab to see who has made what changes, when, and what their reason was."
+			"description": "Make the SecurePoll namespace available, and record election details to pages in this namespace as JSON. This namespace is a read-only record of changes to the poll, changes to the poll's messages in each language, and changes to the voter eligibility lists. It writes pages such as SecurePoll:1, SecurePoll:1/msg/en, and SecurePoll:1/list/include-list. A \"reason\" box is added to the various Special:SecurePoll edit pages, and whatever is typed there ends up as the edit summary for that revision. You can click on the history tab to see who has made what changes, when, and what their reason was."
 		},
 		"SecurePollUseLogging": {
 			"value": false,
