@@ -60,6 +60,7 @@ class TranslatePage extends ActionPage {
 		$out = $this->specialPage->getOutput();
 		$request = $this->specialPage->getRequest();
 		$out->enableOOUI();
+		$out->addModuleStyles( 'mediawiki.pager.styles' );
 
 		if ( !count( $params ) ) {
 			$out->addWikiMsg( 'securepoll-too-few-params' );
