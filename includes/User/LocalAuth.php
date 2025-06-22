@@ -83,8 +83,9 @@ class LocalAuth extends Auth {
 				'bot' => $user->isAllowed( 'bot' ),
 				'language' => $this->services
 					->getUserOptionsLookup()->getOption( $user, 'language' ),
-				'groups' => $this->services
-					->getUserGroupManager()->getUserGroups( $user ),
+				'groups' => array_merge(
+					$this->services->getUserGroupManager()->getUserGroups( $user ),
+					$this->services->getUserGroupManager()->getUserImplicitGroups( $user ) ),
 				'lists' => $this->getLists( $user ),
 				'central-lists' => $this->getCentralLists( $user ),
 				'registration' => $user->getRegistration(),

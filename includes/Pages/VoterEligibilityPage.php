@@ -522,7 +522,11 @@ class VoterEligibilityPage extends ActionPage {
 		];
 
 		$userGroupOptions = [];
-		foreach ( $this->userGroupManager->listAllGroups() as $group ) {
+		$userGroups = array_merge( $this->userGroupManager->listAllGroups(),
+			$this->userGroupManager->listAllImplicitGroups() );
+		// Remove '*' (no group- message exists) and 'user' (have to be logged in to vote)
+		$userGroups = array_diff( $userGroups, [ '*', 'user' ] );
+		foreach ( $userGroups as $group ) {
 			$userGroupOptions[ 'group-' . $group ] = $group;
 		}
 
