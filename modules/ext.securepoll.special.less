@@ -215,17 +215,20 @@ ul.securepoll-vote-result-no-vote {
 }
 
 .securepoll-question-layout > .oo-ui-draggableGroupElement > .oo-ui-tagItemWidget {
-	display: table;
+	display: flex;
+	align-items: center;
 	border-radius: 7px;
+	height: unset;
 	min-width: 150px;
-	max-width: 200px;
+	min-height: 32px;
+	max-width: fit-content;
 	padding: 1px;
 	margin: 4px;
 }
 
 .securepoll-question-layout .item-position-index-label {
 	height: 21px;
-	width: 22px;
+	min-width: 22px;
 	text-align: center;
 	vertical-align: text-bottom;
 
@@ -239,25 +242,22 @@ ul.securepoll-vote-result-no-vote {
 }
 
 .securepoll-question-layout .item-name-label {
-	padding-left: 10px;
-	margin-right: 25px;
-	max-width: 200px;
-	text-align: center;
+	margin: 0 10px;
+	text-align: left;
+	text-wrap: auto;
 	vertical-align: text-bottom;
-
-	/** break long words */
-	overflow: hidden;
 }
 
-.securepoll-question-layout .item-delete-buton {
-	padding-top: 6px;
+/* .oo-ui-tagItemWidget is selected for more specificity to override OOUI. */
+.securepoll-question-layout .oo-ui-tagItemWidget > .item-delete-buton {
+	/* Vertically and horizontally center the button */
+	padding-top: 5px;
 	margin-right: 3px;
 	float: right;
 }
 
 .securepoll-question-layout .item-draggable-icon {
 	padding-top: 2px;
-	margin-top: 3px;
 	margin-left: 3px;
 	vertical-align: text-bottom;
 	position: sticky;
@@ -266,7 +266,7 @@ ul.securepoll-vote-result-no-vote {
 /** Limits layout */
 .securepoll-question-layout > .limits-layout {
 	float: right;
-	margin-right: 8px;
+	margin: 0 8px;
 }
 
 .securepoll-question-layout > .limits-layout > .limit-label {
