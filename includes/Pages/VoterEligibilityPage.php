@@ -525,14 +525,13 @@ class VoterEligibilityPage extends ActionPage {
 			$userGroupOptions[ 'group-' . $group ] = $group;
 		}
 
-		$formItems['allow-usergroups'] = [
+		$formItems['need-group'] = [
 			'section' => 'basic',
-			'label-message' => 'securepoll-votereligibility-label-include_groups',
-			'allowArbitrary' => false,
+			'label-message' => 'securepoll-votereligibility-label-need_group',
 			'type' => 'multiselect',
 			'dropdown' => true,
 			'options-messages' => $userGroupOptions,
-			'default' => explode( '|', $this->election->getProperty( 'allow-usergroups', "" ) )
+			'default' => explode( '|', $this->election->getProperty( 'need-group', "" ) )
 		];
 
 		foreach ( self::$lists as $list => $property ) {
@@ -821,6 +820,17 @@ class VoterEligibilityPage extends ActionPage {
 						''
 					],
 				];
+
+			} elseif ( $list === 'include' ) {
+				$formItems['allow-usergroups'] = [
+					'section' => "lists/$list",
+					'label-message' => 'securepoll-votereligibility-label-include_groups',
+					'allowArbitrary' => false,
+					'type' => 'multiselect',
+					'dropdown' => true,
+					'options-messages' => $userGroupOptions,
+					'default' => explode( '|', $this->election->getProperty( 'allow-usergroups', "" ) )
+				];
 			}
 		}
 
@@ -1047,7 +1057,8 @@ class VoterEligibilityPage extends ActionPage {
 			'list_include-groups',
 		];
 		static $multiselectProps = [
-			'allow-usergroups'
+			'allow-usergroups',
+			'need-group',
 		];
 
 		static $propPrereqs = [

@@ -43,7 +43,7 @@ use Wikimedia\Rdbms\IDatabase;
  *          not-bot
  *              True if voters need to not have the bot permission
  *          need-group
- *              The name of an MW group voters need to be in
+ *              The name of the MW group(s) voters need to be in
  *          need-list
  *              The name of a SecurePoll list voters need to be in. If used with
  *              need-central-list, voters must be in both lists.
@@ -325,10 +325,17 @@ class Election extends Entity {
 			}
 
 			// Groups
-			$needGroup = $this->getProperty( 'need-group' );
-			$groups = $props['groups'] ?? [];
-			if ( $needGroup && !in_array( $needGroup, $groups ) ) {
-				$status->fatal( 'securepoll-not-in-group', $needGroup );
+			if ( $this->getProperty( 'need-group' ) ) {
+				$neededGroups = explode( '|', $this->getProperty( 'need-group' ) );
+				$groups = $props['groups'] ?? [];
+				$lang = RequestContext::getMain()->getLanguage();
+				if ( !array_intersect( $neededGroups, $groups ) ) {
+					$groupNames = array_map(
+						static fn ( $group ) => wfMessage( 'group-' . $group ),
+						$neededGroups
+					);
+					$status->fatal( 'securepoll-not-in-group', $lang->commaList( $groupNames ) );
+				}
 			}
 
 			// Lists
