@@ -215,9 +215,14 @@ class VoterEligibilityPage extends ActionPage {
 
 		// Record this election to the SecurePoll namespace, if so configured.
 		if ( Context::isNamespacedLoggingEnabled() ) {
-			// Create a new context to bypass caching
-			$context = new Context;
-			$election = $context->getElection( $this->election->getId() );
+			$election = $this->context->getElection( $this->election->getId() );
+			$election->loadProperties();
+			// Explicitly overwrite the values that have been changed, since the loaded
+			// values could be out-of-date
+			$election->properties = array_merge( $election->properties, $properties );
+			foreach ( $delete as $key ) {
+				unset( $election->properties[$key] );
+			}
 
 			[ $title, $content ] = SecurePollContentHandler::makeContentFromElection(
 				$election
