@@ -360,6 +360,7 @@ class VoterEligibilityPage extends ActionPage {
 		} else {
 			$wikis = [ $localWiki ];
 		}
+		$userNamesForLog = [];
 
 		foreach ( $wikis as $dbname ) {
 			$dbw = $this->getAutoCommitPrimaryConnectionForWiki( $dbname );
@@ -409,6 +410,21 @@ class VoterEligibilityPage extends ActionPage {
 						[ 'user_name' => $queryNames ],
 						__METHOD__
 					);
+					if ( Context::isNamespacedLoggingEnabled() ) {
+						$names = $dbw->newSelectQueryBuilder()
+							->select( 'user_name' )
+							->from( 'securepoll_lists' )
+							->join( 'user', null, 'user_id=li_member' )
+							->where( [
+								'li_name' => $list,
+							] )
+							->caller( __METHOD__ )
+							->fetchFieldValues();
+						foreach ( $names as &$name ) {
+							$name .= "@{$dbname}";
+						}
+						$userNamesForLog = array_merge( $userNamesForLog, $names );
+					}
 				}
 			}
 
@@ -428,7 +444,7 @@ class VoterEligibilityPage extends ActionPage {
 			$wp->doUserEditContent( $content, $this->specialPage->getUser(), $comment );
 
 			$json = FormatJson::encode(
-				$this->fetchList( $property, DB_PRIMARY ),
+				$userNamesForLog,
 				false,
 				FormatJson::ALL_OK
 			);
