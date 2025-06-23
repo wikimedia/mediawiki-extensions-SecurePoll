@@ -462,12 +462,11 @@ class VoterEligibilityPage extends ActionPage {
 			'default' => $this->election->getProperty( 'min-edits', '' ),
 		];
 
-		$date = $this->election->getProperty( 'max-registration', '' );
-		if ( $date !== '' ) {
+		$date = $this->election->getProperty( 'max-registration', null );
+		if ( $date !== null ) {
 			$date = gmdate( 'Y-m-d', (int)wfTimestamp( TS_UNIX, $date ) );
-		} else {
-			$date = gmdate( 'Y-m-d', strtotime( 'yesterday' ) );
 		}
+
 		$formItems['max-registration'] = [
 			'section' => 'basic',
 			'label-message' => 'securepoll-votereligibility-label-max_registration',
