@@ -360,6 +360,7 @@ class VoterEligibilityPage extends ActionPage {
 		} else {
 			$wikis = [ $localWiki ];
 		}
+		$localWikiPropertiesChanged = [];
 		$userNamesForLog = [];
 
 		foreach ( $wikis as $dbname ) {
@@ -387,6 +388,9 @@ class VoterEligibilityPage extends ActionPage {
 					] )
 					->caller( __METHOD__ )
 					->execute();
+				if ( $dbname === $localWiki ) {
+					$localWikiPropertiesChanged[$property] = $list;
+				}
 
 				if ( isset( $wikiNames[$dbname] ) ) {
 					$queryNames = array_merge( $wikiNames['*'], $wikiNames[$dbname] );
@@ -433,9 +437,11 @@ class VoterEligibilityPage extends ActionPage {
 
 		// Record this election to the SecurePoll namespace, if so configured.
 		if ( Context::isNamespacedLoggingEnabled() ) {
-			// Create a new context to bypass caching
-			$context = new Context;
-			$election = $context->getElection( $this->election->getId() );
+			$election = $this->context->getElection( $this->election->getId() );
+			$election->loadProperties();
+			// Explicitly overwrite the values that have been changed, since the loaded
+			// values could be outdated
+			$election->properties = array_merge( $election->properties, $localWikiPropertiesChanged );
 
 			[ $title, $content ] = SecurePollContentHandler::makeContentFromElection(
 				$election
@@ -1308,6 +1314,7 @@ class VoterEligibilityPage extends ActionPage {
 		} else {
 			$wikis = [ $localWiki ];
 		}
+		$localWikiPropertiesDeleted = [];
 
 		foreach ( $wikis as $dbname ) {
 			$dbw = $this->lbFactory->getAutoCommitPrimaryConnection( $dbname );
@@ -1345,23 +1352,29 @@ class VoterEligibilityPage extends ActionPage {
 						] )
 						->caller( __METHOD__ )
 						->execute();
+					if ( $dbname === $localWiki ) {
+						$localWikiPropertiesDeleted[] = $property;
+					}
 				}
 
 				if ( $which === 'voter' ) {
+					$properties = [
+						'list_populate',
+						'list_job-key',
+						'list_total-count',
+						'list_complete-count',
+					];
 					$dbw->newDeleteQueryBuilder()
 						->deleteFrom( 'securepoll_properties' )
 						->where( [
 							'pr_entity' => $id,
-							'pr_key' => [
-								'list_populate',
-								'list_job-key',
-								'list_total-count',
-								'list_complete-count',
-								'list_job-key',
-							],
+							'pr_key' => $properties,
 						] )
 						->caller( __METHOD__ )
 						->execute();
+					if ( $dbname === $localWiki ) {
+						$localWikiPropertiesDeleted = array_merge( $localWikiPropertiesDeleted, $properties );
+					}
 				}
 			}
 
@@ -1370,9 +1383,13 @@ class VoterEligibilityPage extends ActionPage {
 
 		// Record this election to the SecurePoll namespace, if so configured.
 		if ( Context::isNamespacedLoggingEnabled() ) {
-			// Create a new context to bypass caching
-			$context = new Context;
-			$election = $context->getElection( $this->election->getId() );
+			$election = $this->context->getElection( $this->election->getId() );
+			$election->loadProperties();
+			// Explicitly unset properties that are being deleted, as the loaded
+			// values could be outdated
+			foreach ( $localWikiPropertiesDeleted as $propToDelete ) {
+				unset( $election->properties[$propToDelete] );
+			}
 
 			[ $title, $content ] = SecurePollContentHandler::makeContentFromElection(
 				$election
