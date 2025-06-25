@@ -123,9 +123,10 @@ class ListPage extends ActionPage {
 
 		$pager = new ListPager( $this );
 
-		// If an admin is viewing the votes, log it
+		// If someone that can see PII is viewing the votes (and the PII), log it
 		$securePollUseLogging = $this->specialPage->getConfig()->get( 'SecurePollUseLogging' );
-		if ( $isAdmin && $securePollUseLogging ) {
+		$canViewPii = $this->specialPage->getUser()->isAllowed( 'securepoll-view-voter-pii' );
+		if ( $isAdmin && $securePollUseLogging && $canViewPii ) {
 			$fields = [
 				'spl_election_id' => $electionId,
 				'spl_user' => $this->specialPage->getUser()->getId(),
