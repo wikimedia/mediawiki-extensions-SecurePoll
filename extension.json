@@ -205,6 +205,10 @@
 			"tests/qunit/ImportDialog.test.js",
 			"tests/qunit/SelectSourcePage.test.js"
 		],
+		"templates": {
+			"DragAndDropForm.html": "tests/qunit/data/html/DragAndDropForm.html",
+			"DragAndDropFormReversed.html": "tests/qunit/data/html/DragAndDropFormReversed.html"
+		},
 		"dependencies": [
 			"ext.securepoll.htmlform"
 		]
