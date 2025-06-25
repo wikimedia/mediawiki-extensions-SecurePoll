@@ -23,6 +23,7 @@ abstract class ActionPage implements MessageLocalizer {
 	public const LOG_TYPE_ADDADMIN = 0;
 	public const LOG_TYPE_REMOVEADMIN = 1;
 	public const LOG_TYPE_VIEWVOTES = 2;
+	public const LOG_TYPE_VIEWVOTEDETAILS = 3;
 
 	/** @var SpecialSecurePoll */
 	public $specialPage;

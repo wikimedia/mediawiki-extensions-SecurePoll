@@ -2,8 +2,12 @@
 
 namespace MediaWiki\Extension\SecurePoll\Pages;
 
+use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Extension\SecurePoll\User\Voter;
+use MediaWiki\JobQueue\JobQueueGroup;
+use MediaWiki\JobQueue\JobSpecification;
 use MediaWiki\Title\Title;
+use MediaWiki\User\UserFactory;
 use MediaWiki\Xml\Xml;
 use Wikimedia\IPUtils;
 
@@ -13,6 +17,23 @@ use Wikimedia\IPUtils;
 class DetailsPage extends ActionPage {
 	/** @var int|null */
 	public $voteId;
+
+	private JobQueueGroup $jobQueueGroup;
+	private UserFactory $userFactory;
+
+	/**
+	 * @param SpecialSecurePoll $specialPage
+	 * @param JobQueueGroup $jobQueueGroup
+	 */
+	public function __construct(
+		SpecialSecurePoll $specialPage,
+		JobQueueGroup $jobQueueGroup,
+		UserFactory $userFactory
+	) {
+		parent::__construct( $specialPage );
+		$this->jobQueueGroup = $jobQueueGroup;
+		$this->userFactory = $userFactory;
+	}
 
 	/**
 	 * Execute the subpage.
@@ -60,9 +81,10 @@ class DetailsPage extends ActionPage {
 			$vote_ua = $row->vote_ua;
 		}
 
+		$electionId = $this->election->getId();
 		$this->specialPage->setSubtitle(
 			[
-				$this->specialPage->getPageTitle( 'list/' . $this->election->getId() ),
+				$this->specialPage->getPageTitle( 'list/' . $electionId ),
 				$this->msg( 'securepoll-list-title', $this->election->getMessage( 'title' ) )->text()
 			]
 		);
@@ -72,6 +94,7 @@ class DetailsPage extends ActionPage {
 
 			return;
 		}
+
 		// Show vote properties
 		$out->setPageTitleMsg( $this->msg( 'securepoll-details-title', $this->voteId ) );
 
@@ -171,6 +194,26 @@ class DetailsPage extends ActionPage {
 			$pager->getFullOutput(),
 			$this->context->getParserOptions()
 		);
+
+		// If someone that can see PII is viewing this details page (and the PII), log it
+		$securePollUseLogging = $this->specialPage->getConfig()->get( 'SecurePollUseLogging' );
+		$canViewPii = $this->specialPage->getUser()->isAllowed( 'securepoll-view-voter-pii' );
+		// if ( $isAdmin ) is checked above
+		if ( $securePollUseLogging && $canViewPii ) {
+			$fields = [
+				'spl_election_id' => $electionId,
+				'spl_user' => $this->specialPage->getUser()->getId(),
+				'spl_type' => self::LOG_TYPE_VIEWVOTEDETAILS,
+			];
+			$this->jobQueueGroup->push(
+				new JobSpecification(
+					'securePollLogAdminAction',
+					[ 'fields' => $fields ],
+					[],
+					$this->getTitle()
+				)
+			);
+		}
 	}
 
 	/**

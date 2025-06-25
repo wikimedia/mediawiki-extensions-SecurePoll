@@ -343,6 +343,7 @@
 	"securepoll-log-action-type-0": "Log entry for an admin action in [[Special:SecurePollLog]].\n\nParameters:\n* $1 - formatted timestamp when the action was performed\n* $2 - username of the admin who performed the action\n* $3 - title of the poll\n* $4 - username of the admin who was added to the election",
 	"securepoll-log-action-type-1": "Log entry for an admin action in [[Special:SecurePollLog]].\n\nParameters:\n* $1 - formatted timestamp when the action was performed\n* $2 - username of the admin who performed the action\n* $3 - title of the poll\n* $4 - username of the admin who was removed from the election",
 	"securepoll-log-action-type-2": "Log entry for an admin action in [[Special:SecurePollLog]].\n\nParameters:\n* $1 - formatted timestamp when the action was performed\n* $2 - username of the admin who performed the action\n* $3 - title of the poll",
+	"securepoll-log-action-type-3": "Log entry for an admin action in [[Special:SecurePollLog]].\n\nParameters:\n* $1 - formatted timestamp when the action was performed\n* $2 - username of the admin who performed the action\n* $3 - title of the poll",
 	"securepoll-log-empty": "Used in [[Special:SecurePollLog]] if there are no log entries to display.",
 	"securepoll-stv-droop-default-value": "Default option for a dropdown option on the voting page",
 	"securepoll-stv-droop-choice-rank": "Label for a dropdown option on the voting page",

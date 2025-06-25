@@ -98,7 +98,7 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 
 		switch ( $this->type ) {
 			case 'voter':
-				$type = ActionPage::LOG_TYPE_VIEWVOTES;
+				$type = [ ActionPage::LOG_TYPE_VIEWVOTES, ActionPage::LOG_TYPE_VIEWVOTEDETAILS ];
 				break;
 			case 'admin':
 				$type = $this->actions;
@@ -155,14 +155,14 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 		$message = $this->msg(
 			'securepoll-log-action-type-' . $row->spl_type, $timestamp );
 
-		$message->Rawparams( $userLink );
-		$message->Rawparams( $electionTitle );
+		$message->rawParams( $userLink );
+		$message->rawParams( $electionTitle );
 
 		if ( $row->spl_target ) {
 			$target = $this->userFactory->newFromId( $row->spl_target );
 			$targetLink = Linker::userLink( $target->getId(), $target->getName() );
 
-			$message->RawParams( $targetLink );
+			$message->rawParams( $targetLink );
 		}
 
 		return Html::RawElement( 'li', [], $message->parse() );

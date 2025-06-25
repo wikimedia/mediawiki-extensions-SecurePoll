@@ -61,6 +61,10 @@ class ActionPageFactory {
 		],
 		'details' => [
 			'class' => DetailsPage::class,
+			'services' => [
+				'JobQueueGroup',
+				'UserFactory',
+			],
 		],
 		'dump' => [
 			'class' => DumpPage::class,
