@@ -123,6 +123,28 @@ class DBStore implements Store {
 	}
 
 	/** @inheritDoc */
+	public function getElectionInfoByTally( $ids ) {
+		$ids = (array)$ids;
+		$db = $this->getDB( DB_REPLICA );
+		$res = $db->newSelectQueryBuilder()
+			->select( [ 'el.*', 'ta_id' ] )
+			->from( 'securepoll_tallies' )
+			->join(
+				'securepoll_elections', 'el',
+				'el_entity = ta_entity'
+			)
+			->where( [ 'ta_id' => $ids ] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
+		$infos = [];
+		foreach ( $res as $row ) {
+			$infos[$row->ta_id] = $this->decodeElectionRow( $row );
+		}
+
+		return $infos;
+	}
+
+	/** @inheritDoc */
 	public function decodeElectionRow( $row ) {
 		static $map = [
 			'id' => 'el_entity',

@@ -8,12 +8,13 @@ use MediaWiki\Extension\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Crypt\Crypt;
 use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
-use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
 use MediaWiki\Extension\SecurePoll\User\Auth;
 use MediaWiki\Extension\SecurePoll\User\Voter;
 use MediaWiki\Permissions\Authority;
 use MediaWiki\Status\Status;
+use MediaWiki\Utils\MWTimestamp;
 use MediaWiki\Xml\Xml;
+use RuntimeException;
 use Wikimedia\Rdbms\IDatabase;
 
 /**
@@ -576,52 +577,134 @@ class Election extends Entity {
 	}
 
 	/**
-	 * Get the stored tally results for this election. The caller can use the
-	 * returned tallier to format the results in the desired way.
+	 * Get all stored tally results for the election.
 	 *
 	 * @param IDatabase $dbr
-	 * @return ElectionTallier|bool
+	 * @return array
 	 */
-	public function getTallyFromDb( $dbr ) {
+	public function getTalliesFromDb( $dbr ) {
 		$result = $dbr->newSelectQueryBuilder()
 			->select( 'pr_value' )
 			->from( 'securepoll_properties' )
-			->where( [
+			->where( [ 'pr_entity' => $this->getId(), 'pr_key' => 'tally-result' ] )
+			->caller( __METHOD__ )
+			->fetchField();
+		if ( !$result ) {
+			return [];
+		}
+
+		$tallies = json_decode( $result, true );
+		if ( !array_is_list( $tallies ) ) {
+			throw new RuntimeException(
+				"Expected a list of tallies from 'securepoll_properties.pr_value'"
+			);
+		}
+
+		return $tallies;
+	}
+
+	/**
+	 * Get the stored tally results for the requested tally. The caller can use
+	 * the returned tallier to format the results in the desired way.
+	 *
+	 * @param IDatabase $dbr
+	 * @param int $tallyId
+	 * @return array|bool
+	 */
+	public function getTallyFromDb( $dbr, $tallyId ) {
+		foreach ( $this->getTalliesFromDb( $dbr ) as $tally ) {
+			if ( isset( $tally['tallyId'] ) && $tally['tallyId'] === $tallyId ) {
+				return $tally;
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	 * Saves the result of a tally to the database.
+	 *
+	 * @param IDatabase $dbw
+	 * @param array $result
+	 */
+	public function saveTallyResult( $dbw, $result ) {
+		$tallies = $this->getTalliesFromDb( $dbw );
+
+		$highestTallyId = 0;
+		foreach ( $tallies as $tally ) {
+			$highestTallyId = max( $highestTallyId, $tally['tallyId'] );
+		}
+
+		$tallies[] = [
+			'tallyId' => $highestTallyId + 1,
+			'resultTime' => MWTimestamp::now( TS_MW ),
+			'result' => $result,
+		];
+
+		$dbw->newReplaceQueryBuilder()
+			->replaceInto( 'securepoll_properties' )
+			->uniqueIndexFields( [ 'pr_entity', 'pr_key' ] )
+			->row( [
 				'pr_entity' => $this->getId(),
 				'pr_key' => 'tally-result',
+				'pr_value' => json_encode( $tallies ),
 			] )
+			->caller( __METHOD__ )
+			->execute();
+	}
+
+	/**
+	 * Deletes an election's tally result from the database.
+	 *
+	 * @param IDatabase $dbw
+	 * @param int $tallyId
+	 */
+	public function deleteTallyResult( $dbw, $tallyId ) {
+		$tallies = array_values(
+			array_filter(
+				$this->getTalliesFromDb( $dbw ),
+				static function ( $tally ) use ( $tallyId ) {
+					return $tally['tallyId'] !== $tallyId;
+				}
+			)
+		);
+
+		$dbw->newReplaceQueryBuilder()
+			->replaceInto( 'securepoll_properties' )
+			->uniqueIndexFields( [ 'pr_entity', 'pr_key' ] )
+			->row( [
+				'pr_entity' => $this->getId(),
+				'pr_key' => 'tally-result',
+				'pr_value' => json_encode( $tallies ),
+			] )
+			->caller( __METHOD__ )
+			->execute();
+	}
+
+	/**
+	 * Checks if any tallies have been completed for an election yet. If a
+	 * tally has not been done yet then this function will return 'false'.
+	 *
+	 * @param IDatabase $dbr
+	 * @return bool
+	 */
+	public function isTallied( $dbr ) {
+		$result = $dbr->newSelectQueryBuilder()
+			->select( 'en.en_id' )
+			->from( 'securepoll_elections', 'el' )
+			->join( 'securepoll_properties', 'pr', [
+				'pr.pr_entity = el.en_id',
+				'pr.pr_key' => 'tally-result'
+			] )
+			->where( [ 'en.en_id' => $this->getId() ] )
 			->caller( __METHOD__ )
 			->fetchField();
 		if ( !$result ) {
 			return false;
 		}
 
-		$tallier = $this->context->newElectionTallier( $this );
-		$tallier->loadJSONResult( json_decode( $result, true ) );
-		return $tallier;
-	}
+		$tallies = json_decode( $result, true );
 
-	/**
-	 * Gets the time that the tally completed. If a tally has not been done yet
-	 * then this function will return 'false'.
-	 *
-	 * @param IDatabase $dbr
-	 * @return int|bool
-	 */
-	public function getTallyResultTimeFromDb( $dbr ) {
-		$time = $dbr->newSelectQueryBuilder()
-			->select( 'pr_value' )
-			->from( 'securepoll_properties' )
-			->where( [
-				'pr_entity' => $this->getId(),
-				'pr_key' => 'tally-result-time',
-			] )
-			->caller( __METHOD__ )
-			->fetchField();
-		if ( !$time ) {
-			return false;
-		}
-
-		return (int)$time;
+		return count( $tallies ) > 0;
 	}
 }

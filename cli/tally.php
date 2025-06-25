@@ -75,21 +75,7 @@ class TallyElection extends Maintenance {
 		'@phan-var ElectionTallier $tallier';
 
 		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->getPrimaryDatabase();
-		$dbw->newReplaceQueryBuilder()
-			->replaceInto( 'securepoll_properties' )
-			->uniqueIndexFields( [ 'pr_entity', 'pr_key' ] )
-			->row( [
-				'pr_entity' => $election->getId(),
-				'pr_key' => 'tally-result',
-				'pr_value' => json_encode( $tallier->getJSONResult() ),
-			] )
-			->row( [
-				'pr_entity' => $election->getId(),
-				'pr_key' => 'tally-result-time',
-				'pr_value' => time(),
-			] )
-			->caller( __METHOD__ )
-			->execute();
+		$election->saveTallyResult( $dbw, $tallier->getJSONResult() );
 
 		if ( $this->hasOption( 'html' ) ) {
 			$this->output( $tallier->getHtmlResult() );

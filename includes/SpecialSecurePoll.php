@@ -51,11 +51,10 @@ class SpecialSecurePoll extends SpecialPage {
 		if ( $subPage === null || $subPage === '' ) {
 			$subPage = 'entry';
 		}
-		$params = explode( '/', $subPage );
-		$pageName = array_shift( $params );
-		$page = $this->getSubpage( $pageName );
+
+		$page = $this->getSubpage( $subPage );
 		if ( !$page ) {
-			$out->addWikiMsg( 'securepoll-invalid-page', $pageName );
+			$out->addWikiMsg( 'securepoll-invalid-page', $subPage );
 			return;
 		}
 
@@ -63,16 +62,21 @@ class SpecialSecurePoll extends SpecialPage {
 			$this->setSubtitle();
 		}
 
+		$params = explode( '/', $subPage );
+
+		// Remove the special page name from the params.
+		array_shift( $params );
+
 		$page->execute( $params );
 	}
 
 	/**
 	 * Get a _ActionPage subclass object for the given subpage name
-	 * @param string $name
+	 * @param string $url
 	 * @return null|ActionPage
 	 */
-	public function getSubpage( $name ) {
-		return $this->actionPageFactory->getPage( $name, $this );
+	public function getSubpage( $url ) {
+		return $this->actionPageFactory->getPage( $url, $this );
 	}
 
 	/**

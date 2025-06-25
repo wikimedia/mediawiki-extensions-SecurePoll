@@ -58,7 +58,7 @@ class DumpPage extends ActionPage {
 		}
 
 		$dbr = $this->context->getDB( DB_REPLICA );
-		if ( !$isAdmin && !$this->election->getTallyResultTimeFromDb( $dbr ) ) {
+		if ( !$isAdmin && !$this->election->isTallied( $dbr ) ) {
 			$out->addWikiMsg( 'securepoll-dump-not-tallied' );
 
 			return;

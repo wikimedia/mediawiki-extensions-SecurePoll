@@ -15,6 +15,9 @@ use Wikimedia\Rdbms\IDatabase;
  */
 class TallyElectionJob extends Job {
 
+	/** @var Context */
+	private $context;
+
 	/** @var int */
 	private $electionId;
 
@@ -42,10 +45,10 @@ class TallyElectionJob extends Job {
 	 * @inheritDoc
 	 */
 	public function run(): bool {
-		$context = new Context();
+		$this->context = new Context();
 
 		$this->electionId = (int)$this->params['electionId'];
-		$this->election = $context->getElection( $this->electionId );
+		$this->election = $this->context->getElection( $this->electionId );
 
 		if ( !$this->election ) {
 			$this->setLastError( "Could not get election '$this->electionId'" );
@@ -53,7 +56,7 @@ class TallyElectionJob extends Job {
 			return false;
 		}
 
-		$this->dbw = $context->getDB( DB_PRIMARY );
+		$this->dbw = $this->context->getDB( DB_PRIMARY );
 
 		try {
 			$this->preRun();
@@ -85,24 +88,7 @@ class TallyElectionJob extends Job {
 
 		$tallier = $status->value;
 		'@phan-var ElectionTallier $tallier'; /** @var ElectionTallier $tallier */
-		$result = json_encode( $tallier->getJSONResult() );
-		$time = time();
-
-		$this->dbw->newReplaceQueryBuilder()
-			->replaceInto( 'securepoll_properties' )
-			->uniqueIndexFields( [ 'pr_entity', 'pr_key' ] )
-			->row( [
-				'pr_entity' => $this->electionId,
-				'pr_key' => 'tally-result',
-				'pr_value' => $result,
-			] )
-			->row( [
-				'pr_entity' => $this->electionId,
-				'pr_key' => 'tally-result-time',
-				'pr_value' => $time,
-			] )
-			->caller( __METHOD__ )
-			->execute();
+		$this->election->saveTallyResult( $this->dbw, $tallier->getJSONResult() );
 
 		return true;
 	}
