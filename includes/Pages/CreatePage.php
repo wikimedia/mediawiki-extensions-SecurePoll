@@ -20,6 +20,7 @@ use MediaWiki\Language\LanguageCode;
 use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\Linker\Linker;
 use MediaWiki\Message\Message;
+use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Status\Status;
@@ -317,11 +318,14 @@ class CreatePage extends ActionPage {
 			]
 		];
 
-		$formItems['prompt-active-wiki'] = [
-			'label-message' => 'securepoll-create-label-prompt-active-wiki',
-			'type' => 'check',
-			'disabled' => $isRunning
-		];
+		if ( $securePollEditOtherWikis && $otherWikisExist &&
+			ExtensionRegistry::getInstance()->isLoaded( 'CentralAuth' ) ) {
+			$formItems['prompt-active-wiki'] = [
+				'label-message' => 'securepoll-create-label-prompt-active-wiki',
+				'type' => 'check',
+				'disabled' => $isRunning
+			];
+		}
 
 		$questionFields = [
 			'id' => [
