@@ -11,7 +11,6 @@
 	"securepoll-subpage-translate": "Traducere",
 	"securepoll-subpage-list": "Index",
 	"securepoll-subpage-dump": "Effundite",
-	"securepoll-subpage-tally": "Numera",
 	"securepoll-tally-title": "Numerat: $1",
 	"securepoll-tally-not-finished": "Paenitet, tu ne posse numerare electio quamdiu suffragium non est finis."
 }

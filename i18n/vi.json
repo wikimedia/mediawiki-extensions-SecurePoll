@@ -99,7 +99,6 @@
 	"securepoll-subpage-edit": "Sửa đổi",
 	"securepoll-subpage-votereligibility": "Cử tri hội đủ điều kiện",
 	"securepoll-subpage-dump": "Kết xuất",
-	"securepoll-subpage-tally": "Kiểm phiếu",
 	"securepoll-tally-title": "Kiểm phiếu: $1",
 	"securepoll-tally-not-finished": "Xin lỗi, bạn không thể kiểm phiếu cho đến khi kết thúc bỏ phiếu.",
 	"securepoll-tally-upload-submit": "Tạo cuộc kiểm phiếu",

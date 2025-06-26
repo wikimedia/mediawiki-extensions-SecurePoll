@@ -87,7 +87,6 @@
 	"securepoll-subpage-edit": "دةسکاری",
 	"securepoll-subpage-votereligibility": "واجد شرایط بودن رأی‌دهنده",
 	"securepoll-subpage-dump": "روگرفت",
-	"securepoll-subpage-tally": "چوب‌خط",
 	"securepoll-tally-title": "چوب‌خط: $1",
 	"securepoll-tally-not-finished": "متأسفانه نمی‌توانید رأی‌ها را پیش از تکمیل انتخابات چوب‌خط بزنید.",
 	"securepoll-create-option-wiki-this_wiki": "این ویکی",

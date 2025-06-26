@@ -83,7 +83,6 @@
 	"securepoll-subpage-translate": "Переклад",
 	"securepoll-subpage-list": "Список",
 	"securepoll-subpage-dump": "Дамп",
-	"securepoll-subpage-tally": "Зраховати",
 	"securepoll-tally-title": "Почет голосів: $1",
 	"securepoll-tally-not-finished": "Перебачте, не можете зраховати голосы, кідь голосованя іщі не скінчіло.",
 	"securepoll-tally-upload-submit": "Зробити зрахованя",

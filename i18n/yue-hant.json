@@ -82,7 +82,6 @@
 	"securepoll-subpage-translate": "翻譯",
 	"securepoll-subpage-list": "表",
 	"securepoll-subpage-dump": "傾印",
-	"securepoll-subpage-tally": "記數",
 	"securepoll-tally-title": "記數: $1",
 	"securepoll-tally-not-finished": "對唔住，響投票完成之前，你唔可以將選舉記數。",
 	"securepoll-tally-upload-submit": "整記數",

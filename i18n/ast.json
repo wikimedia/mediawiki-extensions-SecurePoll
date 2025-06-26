@@ -94,7 +94,6 @@
 	"securepoll-subpage-edit": "Editar",
 	"securepoll-subpage-votereligibility": "Requisitos pa los votantes",
 	"securepoll-subpage-dump": "Volcar",
-	"securepoll-subpage-tally": "Recuentu",
 	"securepoll-tally-title": "Recuentu: $1",
 	"securepoll-tally-not-finished": "Perdona, nun pues facer un recuentu de la eleición fasta que termine la votación.",
 	"securepoll-tally-upload-submit": "Crear recuentu",

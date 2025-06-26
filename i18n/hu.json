@@ -99,7 +99,6 @@
 	"securepoll-subpage-list": "Listázás",
 	"securepoll-subpage-edit": "Szerkesztés",
 	"securepoll-subpage-dump": "Dump",
-	"securepoll-subpage-tally": "Összesítés",
 	"securepoll-tally-title": "Összesítés: $1",
 	"securepoll-tally-not-finished": "Sajnos nem tudod összesíteni a választást, amíg a szavazás le nem zárult.",
 	"securepoll-tally-upload-submit": "Összesítés készítése",

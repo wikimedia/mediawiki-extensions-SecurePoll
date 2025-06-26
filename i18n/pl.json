@@ -104,7 +104,6 @@
 	"securepoll-subpage-edit": "Edytuj",
 	"securepoll-subpage-votereligibility": "Prawo do głosowania",
 	"securepoll-subpage-dump": "Zrzut",
-	"securepoll-subpage-tally": "Rejestr",
 	"securepoll-subpage-log": "Rejestr operacji",
 	"securepoll-tally-title": "Rejestr $1",
 	"securepoll-tally-not-finished": "Nie można podliczać głosów dopóki wybory trwają.",

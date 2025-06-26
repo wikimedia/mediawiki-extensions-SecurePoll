@@ -31,7 +31,6 @@
 	"securepoll-subpage-edit": "ပြင်ဆင်",
 	"securepoll-subpage-votereligibility": "မဲဆန္ဒပေးသူ သင့်တော်မှု",
 	"securepoll-subpage-dump": "အမှိုက်ပုံး",
-	"securepoll-subpage-tally": "စုစုပေါင်းရမှတ်",
 	"securepoll-tally-title": "စုစုပေါင်းရမှတ်: $1",
 	"securepoll-create-title": "{{int:securepoll}}: မဲဆန္ဒ ဖန်တီးရန်",
 	"securepoll-create-action": "မဲဆန္ဒ ဖန်တီးရန်",

@@ -89,7 +89,6 @@
 	"securepoll-subpage-translate": "Traducere",
 	"securepoll-subpage-list": "Listă",
 	"securepoll-subpage-dump": "Dump",
-	"securepoll-subpage-tally": "Numărătoare",
 	"securepoll-tally-title": "Numărătoare: $1",
 	"securepoll-tally-not-finished": "Ne pare rău, dar nu puteți efectua numărătoarea voturilor până când procesul de votare nu se va fi finalizat.",
 	"securepoll-tally-upload-submit": "Creează o numărătoare",

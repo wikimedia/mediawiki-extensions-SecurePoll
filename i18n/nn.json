@@ -75,7 +75,6 @@
 	"securepoll-subpage-translate": "Set om",
 	"securepoll-subpage-list": "Utslisting",
 	"securepoll-subpage-dump": "Dump",
-	"securepoll-subpage-tally": "Oppteljing",
 	"securepoll-tally-title": "Oppteljing: $1",
 	"securepoll-tally-not-finished": "Diverre, du kan ikkje telja opp valresultatet før valet er fullført.",
 	"securepoll-tally-upload-submit": "Opprett ei oppteljing",

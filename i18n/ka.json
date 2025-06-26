@@ -93,7 +93,6 @@
 	"securepoll-subpage-edit": "რედაქტირება",
 	"securepoll-subpage-votereligibility": "ხმის მიცემის უფლება",
 	"securepoll-subpage-dump": "დამპი",
-	"securepoll-subpage-tally": "დათვლა",
 	"securepoll-tally-title": "დათვლა: $1",
 	"securepoll-tally-not-finished": "ბოდიში, მაგრამ შედეგი ჩაიწერება მხოლოდ კენჭისყრის დასრულებისას.",
 	"securepoll-tally-upload-submit": "დათვლის წარმოება",

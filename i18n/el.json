@@ -100,7 +100,6 @@
 	"securepoll-subpage-translate": "Μετάφραση",
 	"securepoll-subpage-list": "Λίστα",
 	"securepoll-subpage-dump": "Αποτύπωση",
-	"securepoll-subpage-tally": "Καταμέτρηση",
 	"securepoll-tally-title": "Καταμέτρηση: $1",
 	"securepoll-tally-not-finished": "Λυπούμαστε, δεν είναι δυνατή η καταμέτρηση των ψήφων μέχρι να ολοκληρωθεί η ψηφοφορία.",
 	"securepoll-tally-upload-submit": "Δημιουργία καταμέτρησης",

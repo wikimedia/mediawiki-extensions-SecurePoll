@@ -81,7 +81,6 @@
 	"securepoll-subpage-translate": "ترجم",
 	"securepoll-subpage-list": "قائمة",
 	"securepoll-subpage-dump": "تخزين",
-	"securepoll-subpage-tally": "المحصلة",
 	"securepoll-tally-title": "المحصلة: $1",
 	"securepoll-tally-not-finished": "عذرا، لن تستطيع تحصيل الانتخابات حتى يكتمل التصويت.",
 	"securepoll-tally-upload-submit": "أنشئ محصلة",

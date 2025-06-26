@@ -98,7 +98,6 @@
 	"securepoll-subpage-translate": "Traducció",
 	"securepoll-subpage-list": "Llista",
 	"securepoll-subpage-dump": "Abocament",
-	"securepoll-subpage-tally": "Recompte",
 	"securepoll-tally-title": "Compte: $1",
 	"securepoll-tally-not-finished": "Les dades de la votació no estaran disponibles fins que hagi finalitzat.",
 	"securepoll-tally-upload-submit": "Crea un compte",

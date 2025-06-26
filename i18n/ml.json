@@ -84,7 +84,6 @@
 	"securepoll-subpage-translate": "തർജ്ജമ ചെയ്യുക",
 	"securepoll-subpage-list": "ലിസ്റ്റ്",
 	"securepoll-subpage-dump": "ഡമ്പ്",
-	"securepoll-subpage-tally": "തുലനം ചെയ്യുക",
 	"securepoll-tally-title": "തുലനം ചെയ്യുക: $1",
 	"securepoll-tally-not-finished": "ക്ഷമിക്കുക, വോട്ടിങ് പൂർണ്ണമാകുന്നതുവരെ തിരഞ്ഞെടുപ്പ് തുലനം ചെയ്ത് നോക്കാൻ താങ്കൾക്ക് കഴിയില്ല.",
 	"securepoll-tally-upload-submit": "ഒത്തുനോക്കുക",
