@@ -48,7 +48,7 @@ class STVTallier extends Tallier {
 	 * arithmetic done in this class must use bc math function paired with this
 	 * precision value (T361077).
 	 */
-	private const PRECISION = 10;
+	public const PRECISION = 10;
 
 	/**
 	 * The constant for testing if round iteration should finish
