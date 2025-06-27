@@ -112,6 +112,8 @@
 	"securepoll-subpage-dump": "Испис",
 	"securepoll-subpage-log": "Дневници",
 	"securepoll-subpage-archive": "Архива",
+	"securepoll-subpage-view": "Прикажи",
+	"securepoll-subpage-delete": "Обриши",
 	"securepoll-archive-title": "Архива $1",
 	"securepoll-entry-archived": "Ранији избори",
 	"securepoll-tally-title": "Пребројавање: $1",

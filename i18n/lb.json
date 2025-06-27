@@ -106,6 +106,8 @@
 	"securepoll-subpage-dump": "Dump",
 	"securepoll-subpage-log": "Logbicher",
 	"securepoll-subpage-archive": "Archivéieren",
+	"securepoll-subpage-view": "Weisen",
+	"securepoll-subpage-delete": "Läschen",
 	"securepoll-archive-title": "Archiv ($1)",
 	"securepoll-archive-in-progress": "D'Wale ginn elo archivéiert.",
 	"securepoll-archive-error": "D'Wal konnt net archivéiert ginn. Wgl. probéiert nach eng Kéier.",

@@ -101,6 +101,7 @@
 	"securepoll-subpage-translate": "अनुवाद करें",
 	"securepoll-subpage-list": "सूची देखें",
 	"securepoll-subpage-dump": "ढेर करें",
+	"securepoll-subpage-view": "देखें",
 	"securepoll-tally-title": "मिलान करें: $1",
 	"securepoll-tally-not-finished": "क्षमा कीजिए, आप इस निर्वाचन का मिलान तब नहीं कर सकते जब तक मतदान पूरा नहीं हो जाता है।",
 	"securepoll-tally-upload-submit": "मिलान बनाएँ",
