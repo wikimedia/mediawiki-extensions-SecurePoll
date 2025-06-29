@@ -29,7 +29,6 @@
 		}
 	},
 	"JobClasses": {
-		"securePollPopulateVoterList": "\\MediaWiki\\Extension\\SecurePoll\\Jobs\\PopulateVoterListJob",
 		"securePollTallyElection": "\\MediaWiki\\Extension\\SecurePoll\\Jobs\\TallyElectionJob",
 		"securePollLogAdminAction": "\\MediaWiki\\Extension\\SecurePoll\\Jobs\\LogAdminActionJob",
 		"securePollArchiveElection": "\\MediaWiki\\Extension\\SecurePoll\\Jobs\\ArchiveElectionJob",

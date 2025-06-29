@@ -48,11 +48,6 @@ class SecurePollContentHandler extends JsonContentHandler {
 						$properties[$k] = '<redacted>';
 					}
 				}
-				unset(
-					$properties['list_job-key'],
-					$properties['list_total-count'],
-					$properties['list_complete-count']
-				);
 			}
 			$data = [
 				'id' => $election->getId(),

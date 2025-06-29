@@ -5,10 +5,8 @@ namespace MediaWiki\Extension\SecurePoll\Pages;
 use DateTime;
 use DateTimeZone;
 use Exception;
-use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Exception\MWExceptionHandler;
 use MediaWiki\Extension\SecurePoll\Context;
-use MediaWiki\Extension\SecurePoll\Jobs\PopulateVoterListJob;
 use MediaWiki\Extension\SecurePoll\SecurePollContentHandler;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 use MediaWiki\HTMLForm\HTMLForm;
@@ -620,26 +618,13 @@ class VoterEligibilityPage extends ActionPage {
 		];
 
 		foreach ( self::$lists as $list => $property ) {
-			$use = null;
-			$links = [];
-			if ( $list === 'voter' ) {
-				$complete = $this->election->getProperty( 'list_complete-count', 0 );
-				$total = $this->election->getProperty( 'list_total-count', 0 );
-				if ( $complete !== $total ) {
-					$use = $this->msg( 'securepoll-votereligibility-label-processing' )->numParams(
-							round( $complete * 100.0 / $total, 1 )
-						)->numParams( $complete, $total );
-					$links = [ 'clear' ];
-				}
-			}
-			if ( $use === null && $this->election->getProperty( $property ) ) {
+			if ( $this->election->getProperty( $property ) ) {
 				$use = $this->msg( 'securepoll-votereligibility-label-inuse' );
 				$links = [
 					'edit',
 					'clear'
 				];
-			}
-			if ( $use === null ) {
+			} else {
 				$use = $this->msg( 'securepoll-votereligibility-label-notinuse' );
 				$links = [ 'edit' ];
 			}
@@ -675,238 +660,7 @@ class VoterEligibilityPage extends ActionPage {
 				];
 			}
 
-			if ( $list === 'voter' ) {
-				$formItems['list_populate'] = [
-					'section' => "lists/$list",
-					'label-message' => 'securepoll-votereligibility-label-populate',
-					'type' => 'check',
-					'hidelabel' => true,
-					'default' => $this->election->getProperty( 'list_populate', false ),
-				];
-
-				$formItems['list_edits-before'] = [
-					'section' => "lists/$list",
-					'label-message' => 'securepoll-votereligibility-label-edits_before',
-					'type' => 'check',
-					'default' => $this->election->getProperty( 'list_edits-before', false ),
-					'hide-if' => [
-						'===',
-						'list_populate',
-						''
-					],
-				];
-
-				$formItems['list_edits-before-count'] = [
-					'section' => "lists/$list",
-					'label-message' => 'securepoll-votereligibility-label-edits_before_count',
-					'type' => 'int',
-					'min' => 1,
-					'validation-callback' => fn ( $value, $formData ) =>
-						$formData['list_edits-before'] ? $this->checkRequired( $value ) : true,
-					'hide-if' => [
-						'OR',
-						[
-							'===',
-							'list_populate',
-							''
-						],
-						[
-							'===',
-							'list_edits-before',
-							''
-						],
-					],
-					'default' => $this->election->getProperty( 'list_edits-before-count', '' ),
-					'cssclass' => 'securepoll-narrow-number-input',
-				];
-
-				$date = $this->election->getProperty( 'list_edits-before-date', '' );
-				if ( $date !== '' ) {
-					$date = gmdate( 'Y-m-d', (int)wfTimestamp( TS_UNIX, $date ) );
-				} else {
-					$date = gmdate( 'Y-m-d', strtotime( 'yesterday' ) );
-				}
-				$formItems['list_edits-before-date'] = [
-					'section' => "lists/$list",
-					'label-message' => 'securepoll-votereligibility-label-edits_before_date',
-					'type' => 'date',
-					'max' => gmdate( 'Y-m-d', strtotime( 'yesterday' ) ),
-					'required' => true,
-					'hide-if' => [
-						'OR',
-						[
-							'===',
-							'list_populate',
-							''
-						],
-						[
-							'===',
-							'list_edits-before',
-							''
-						],
-					],
-					'default' => $date,
-				];
-
-				$formItems['list_edits-between'] = [
-					'section' => "lists/$list",
-					'label-message' => 'securepoll-votereligibility-label-edits_between',
-					'type' => 'check',
-					'hide-if' => [
-						'===',
-						'list_populate',
-						''
-					],
-					'default' => $this->election->getProperty( 'list_edits-between', false ),
-				];
-
-				$formItems['list_edits-between-count'] = [
-					'section' => "lists/$list",
-					'label-message' => 'securepoll-votereligibility-label-edits_between_count',
-					'type' => 'int',
-					'min' => 1,
-					'validation-callback' => fn ( $value, $formData ) =>
-						$formData['list_edits-between'] ? $this->checkRequired( $value ) : true,
-					'hide-if' => [
-						'OR',
-						[
-							'===',
-							'list_populate',
-							''
-						],
-						[
-							'===',
-							'list_edits-between',
-							''
-						],
-					],
-					'default' => $this->election->getProperty( 'list_edits-between-count', '' ),
-					'cssclass' => 'securepoll-narrow-number-input',
-				];
-
-				$editCountStartDate = $this->election->getProperty( 'list_edits-startdate', '' );
-				if ( $editCountStartDate !== '' ) {
-					$editCountStartDate = gmdate(
-						'Y-m-d',
-						(int)wfTimestamp( TS_UNIX, $editCountStartDate )
-					);
-				}
-
-				$formItems['list_edits-startdate'] = [
-					'section' => "lists/$list",
-					'label-message' => 'securepoll-votereligibility-label-edits_startdate',
-					'type' => 'date',
-					'max' => gmdate( 'Y-m-d', strtotime( 'yesterday' ) ),
-					'required' => true,
-					'hide-if' => [
-						'OR',
-						[
-							'===',
-							'list_populate',
-							''
-						],
-						[
-							'===',
-							'list_edits-between',
-							''
-						],
-					],
-					'default' => $editCountStartDate,
-				];
-
-				$editCountEndDate = $this->election->getProperty( 'list_edits-enddate', '' );
-				if ( $editCountEndDate === '' ) {
-					$editCountEndDate = gmdate( 'Y-m-d', strtotime( 'yesterday' ) );
-				} else {
-					$editCountEndDate = gmdate(
-						'Y-m-d',
-						(int)wfTimestamp( TS_UNIX, $editCountEndDate )
-					);
-				}
-
-				$formItems['list_edits-enddate'] = [
-					'section' => "lists/$list",
-					'label-message' => 'securepoll-votereligibility-label-edits_enddate',
-					'type' => 'date',
-					'max' => gmdate( 'Y-m-d', strtotime( 'yesterday' ) ),
-					'required' => true,
-					'validation-callback' => [
-						$this,
-						'checkListEditsEndDate'
-					],
-					'hide-if' => [
-						'OR',
-						[
-							'===',
-							'list_populate',
-							''
-						],
-						[
-							'===',
-							'list_edits-between',
-							''
-						],
-					],
-					'default' => $editCountEndDate,
-				];
-
-				$groups = $this->election->getProperty( 'list_exclude-groups', [] );
-				if ( $groups ) {
-					$groups = array_map(
-						static function ( $group ) {
-							return [ 'group' => $group ];
-						},
-						explode( '|', $groups )
-					);
-				}
-				$formItems['list_exclude-groups'] = [
-					'section' => "lists/$list",
-					'label-message' => 'securepoll-votereligibility-label-exclude_groups',
-					'type' => 'cloner',
-					'format' => 'raw',
-					'default' => $groups,
-					'fields' => [
-						'group' => [
-							'type' => 'text',
-							'required' => true,
-						],
-					],
-					'hide-if' => [
-						'===',
-						'list_populate',
-						''
-					],
-				];
-
-				$groups = $this->election->getProperty( 'list_include-groups', [] );
-				if ( $groups ) {
-					$groups = array_map(
-						static function ( $group ) {
-							return [ 'group' => $group ];
-						},
-						explode( '|', $groups )
-					);
-				}
-				$formItems['list_include-groups'] = [
-					'section' => "lists/$list",
-					'label-message' => 'securepoll-votereligibility-label-include_groups',
-					'type' => 'cloner',
-					'format' => 'raw',
-					'default' => $groups,
-					'fields' => [
-						'group' => [
-							'type' => 'text',
-							'required' => true,
-						],
-					],
-					'hide-if' => [
-						'===',
-						'list_populate',
-						''
-					],
-				];
-
-			} elseif ( $list === 'include' ) {
+			if ( $list === 'include' ) {
 				$formItems['allow-usergroups'] = [
 					'section' => "lists/$list",
 					'label-message' => 'securepoll-votereligibility-label-include_groups',
@@ -1021,28 +775,6 @@ class VoterEligibilityPage extends ActionPage {
 	}
 
 	/**
-	 * Check the end date exists and is after the start date
-	 *
-	 * @param string $value
-	 * @param mixed[] $formData
-	 * @return bool|string true on success, string on error
-	 */
-	public function checkListEditsEndDate( $value, $formData ) {
-		if ( !$formData['list_edits-between'] ) {
-			return true;
-		}
-
-		$startDate = $this->parseDate( $formData['list_edits-startdate'] );
-		$endDate = $this->parseDate( $value );
-
-		if ( $startDate >= $endDate ) {
-			return $this->msg( 'securepoll-htmlform-daterange-end-before-start' )->parseAsBlock();
-		}
-
-		return true;
-	}
-
-	/**
 	 * @param array $formData
 	 * @param HtmlForm $form
 	 * @return Status
@@ -1059,24 +791,12 @@ class VoterEligibilityPage extends ActionPage {
 			'edits-before-count',
 			'edits-between',
 			'edits-between-count',
-			'list_populate',
-			'list_edits-before',
-			'list_edits-before-count',
-			'list_edits-between',
-			'list_edits-between-count',
 		];
 		static $dateProps = [
 			'max-registration',
 			'edits-before-date',
 			'edits-between-startdate',
 			'edits-between-enddate',
-			'list_edits-before-date',
-			'list_edits-startdate',
-			'list_edits-enddate',
-		];
-		static $listProps = [
-			'list_exclude-groups',
-			'list_include-groups',
 		];
 		static $multiselectProps = [
 			'allow-usergroups',
@@ -1096,25 +816,7 @@ class VoterEligibilityPage extends ActionPage {
 				'edits-between-startdate',
 				'edits-between-enddate',
 			],
-			'list_edits-before' => [
-				'list_edits-before-count',
-				'list_edits-before-date',
-			],
-			'list_edits-between' => [
-				'list_edits-between-count',
-				'list_edits-startdate',
-				'list_edits-enddate',
-			],
 		];
-
-		if ( $formData['list_populate'] &&
-			!$formData['list_edits-before'] &&
-			!$formData['list_edits-between'] &&
-			!$formData['list_exclude-groups'] &&
-			!$formData['list_include-groups']
-		) {
-			return Status::newFatal( 'securepoll-votereligibility-fail-nothing-to-process' );
-		}
 
 		$properties = [];
 		$deleteProperties = [];
@@ -1157,21 +859,6 @@ class VoterEligibilityPage extends ActionPage {
 			}
 		}
 
-		foreach ( $listProps as $prop ) {
-			if ( $formData[$prop] ) {
-				$names = array_map(
-					static function ( $entry ) {
-						return $entry['group'];
-					},
-					$formData[$prop]
-				);
-				sort( $names );
-				$properties[$prop] = implode( '|', $names );
-			} else {
-				$deleteProperties[] = $prop;
-			}
-		}
-
 		foreach ( $multiselectProps as $prop ) {
 			if ( $formData[$prop] ) {
 				$properties[$prop] = implode( '|', $formData[$prop] );
@@ -1183,26 +870,9 @@ class VoterEligibilityPage extends ActionPage {
 		// De-dupe the $deleteProperties array
 		$deleteProperties = array_unique( $deleteProperties );
 
-		$populate = !empty( $properties['list_populate'] );
-		if ( $populate ) {
-			$properties['need-list'] = 'need-list-' . $this->election->getId();
-		}
-
 		$comment = $formData['comment'] ?? '';
 
 		$this->saveProperties( $properties, $deleteProperties, $comment );
-
-		if ( $populate ) {
-			// Run pushJobsForElection() in a deferred update to give it outer transaction
-			// scope, but keep it presend, so that any errors bubble up to the user.
-			DeferredUpdates::addCallableUpdate(
-				function () {
-					PopulateVoterListJob::pushJobsForElection( $this->election );
-				},
-				DeferredUpdates::PRESEND
-			);
-		}
-
 		return Status::newGood();
 	}
 
@@ -1216,16 +886,6 @@ class VoterEligibilityPage extends ActionPage {
 		}
 		$property = self::$lists[$which];
 		$name = $this->msg( "securepoll-votereligibility-$which" )->text();
-
-		if ( $which === 'voter' ) {
-			$complete = $this->election->getProperty( 'list_complete-count', 0 );
-			$total = $this->election->getProperty( 'list_total-count', 0 );
-			if ( $complete !== $total ) {
-				$out->addWikiMsg( 'securepoll-votereligibility-list-is-processing' );
-
-				return;
-			}
-		}
 
 		$out->addModuleStyles( 'ext.securepoll' );
 		$out->setPageTitleMsg( $this->msg( 'securepoll-votereligibility-edit-title', $name ) );
@@ -1350,26 +1010,6 @@ class VoterEligibilityPage extends ActionPage {
 						->execute();
 					if ( $dbname === $localWiki ) {
 						$localWikiPropertiesDeleted[] = $property;
-					}
-				}
-
-				if ( $which === 'voter' ) {
-					$properties = [
-						'list_populate',
-						'list_job-key',
-						'list_total-count',
-						'list_complete-count',
-					];
-					$dbw->newDeleteQueryBuilder()
-						->deleteFrom( 'securepoll_properties' )
-						->where( [
-							'pr_entity' => $id,
-							'pr_key' => $properties,
-						] )
-						->caller( __METHOD__ )
-						->execute();
-					if ( $dbname === $localWiki ) {
-						$localWikiPropertiesDeleted = array_merge( $localWikiPropertiesDeleted, $properties );
 					}
 				}
 			}
