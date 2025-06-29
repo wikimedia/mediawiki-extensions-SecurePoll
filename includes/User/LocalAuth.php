@@ -75,6 +75,7 @@ class LocalAuth extends Auth {
 			'url' => $user->getUserPage()->getCanonicalURL(),
 			'properties' => [
 				'wiki' => WikiMap::getCurrentWikiId(),
+				'id' => $user->getId(),
 				'blocked' => (bool)$block,
 				'isSitewideBlocked' => $block ? $block->isSitewide() : null,
 				'central-block-count' => $blockCounts['blockCount'],

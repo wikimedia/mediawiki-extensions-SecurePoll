@@ -58,6 +58,8 @@
 	"securepoll-not-in-group": "Sorry, only users in the following groups can vote in this election: $1",
 	"securepoll-not-in-list": "Sorry, you are not in the predetermined list of users authorized to vote in this election.",
 	"securepoll-in-exclude-list": "Sorry, you are not authorized to vote in this election.",
+	"securepoll-too-few-edits-before-date": "Sorry, you cannot vote in this election as you have made fewer than $1 {{PLURAL:$1|edit|edits}} before $2",
+	"securepoll-too-few-edits-between-dates": "Sorry, you cannot vote in this election as you have fewer than $1 {{PLURAL:$1|edit|edits}} between $2 and $3",
 	"securepoll-custom-unqualified": "$1",
 	"securepoll-list-title": "List votes: $1",
 	"securepoll-list-private": "Sorry, viewing the list of voters for this election is restricted to election administrators.",

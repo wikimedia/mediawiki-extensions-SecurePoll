@@ -512,6 +512,113 @@ class VoterEligibilityPage extends ActionPage {
 			'default' => explode( '|', $this->election->getProperty( 'need-group', "" ) )
 		];
 
+		$formItems['edits-before'] = [
+			'section' => 'basic',
+			'label-message' => 'securepoll-votereligibility-label-edits_before',
+			'type' => 'check',
+			'default' => $this->election->getProperty( 'edits-before', false ),
+		];
+
+		$formItems['edits-before-count'] = [
+			'section' => 'basic',
+			'label-message' => 'securepoll-votereligibility-label-edits_before_count',
+			'type' => 'int',
+			'min' => 1,
+			// Querying higher number of edits may not be feasible
+			'max' => 1000,
+			'validation-callback' => fn ( $value, $formData ) =>
+				$formData['edits-before'] ? $this->checkRequired( $value ) : true,
+			'hide-if' => [
+				'===',
+				'edits-before',
+				''
+			],
+			'cssclass' => 'securepoll-medium-number-input',
+			'default' => $this->election->getProperty( 'edits-before-count', '' ),
+		];
+
+		$date = $this->election->getProperty( 'edits-before-date', '' );
+		if ( $date !== '' ) {
+			$date = gmdate( 'Y-m-d', (int)wfTimestamp( TS_UNIX, $date ) );
+		}
+		$formItems['edits-before-date'] = [
+			'section' => 'basic',
+			'label-message' => 'securepoll-votereligibility-label-edits_before_date',
+			'type' => 'date',
+			'required' => true,
+			'hide-if' => [
+				'===',
+				'edits-before',
+				''
+			],
+			'default' => $date,
+		];
+
+		$formItems['edits-between'] = [
+			'section' => 'basic',
+			'label-message' => 'securepoll-votereligibility-label-edits_between',
+			'type' => 'check',
+			'default' => $this->election->getProperty( 'edits-between', false ),
+		];
+
+		$formItems['edits-between-count'] = [
+			'section' => 'basic',
+			'label-message' => 'securepoll-votereligibility-label-edits_between_count',
+			'type' => 'int',
+			'min' => 1,
+			// Querying higher number of edits may not be feasible
+			'max' => 1000,
+			'validation-callback' => fn ( $value, $formData ) =>
+				$formData['edits-between'] ? $this->checkRequired( $value ) : true,
+			'hide-if' => [
+				'===',
+				'edits-between',
+				''
+			],
+			'cssclass' => 'securepoll-medium-number-input',
+			'default' => $this->election->getProperty( 'edits-between-count', '' ),
+		];
+
+		$editCountStartDate = $this->election->getProperty( 'edits-between-startdate', '' );
+		if ( $editCountStartDate !== '' ) {
+			$editCountStartDate = gmdate( 'Y-m-d', (int)wfTimestamp( TS_UNIX, $editCountStartDate ) );
+		}
+
+		$formItems['edits-between-startdate'] = [
+			'section' => 'basic',
+			'label-message' => 'securepoll-votereligibility-label-edits_startdate',
+			'type' => 'date',
+			'required' => true,
+			'hide-if' => [
+				'===',
+				'edits-between',
+				''
+			],
+			'default' => $editCountStartDate,
+		];
+
+		$editCountEndDate = $this->election->getProperty( 'edits-between-enddate', '' );
+		if ( $editCountEndDate !== '' ) {
+			$editCountEndDate = gmdate( 'Y-m-d', (int)wfTimestamp( TS_UNIX, $editCountEndDate ) );
+		}
+
+		$formItems['edits-between-enddate'] = [
+			'section' => 'basic',
+			'label-message' => 'securepoll-votereligibility-label-edits_enddate',
+			'type' => 'date',
+			'required' => true,
+			'validation-callback' => [
+				$this,
+				'checkEditsEndDate'
+			],
+			'hide-if' => [
+				'===',
+				'edits-between',
+				''
+			],
+			'default' => $editCountEndDate,
+		];
+
 		foreach ( self::$lists as $list => $property ) {
 			$use = null;
 			$links = [];
@@ -898,6 +1005,28 @@ class VoterEligibilityPage extends ActionPage {
 	 * @param mixed[] $formData
 	 * @return bool|string true on success, string on error
 	 */
+	public function checkEditsEndDate( $value, $formData ) {
+		if ( !$formData['edits-between'] ) {
+			return true;
+		}
+
+		$startDate = $this->parseDate( $formData['edits-between-startdate'] );
+		$endDate = $this->parseDate( $value );
+
+		if ( $startDate >= $endDate ) {
+			return $this->msg( 'securepoll-htmlform-daterange-end-before-start' )->parseAsBlock();
+		}
+
+		return true;
+	}
+
+	/**
+	 * Check the end date exists and is after the start date
+	 *
+	 * @param string $value
+	 * @param mixed[] $formData
+	 * @return bool|string true on success, string on error
+	 */
 	public function checkListEditsEndDate( $value, $formData ) {
 		if ( !$formData['list_edits-between'] ) {
 			return true;
@@ -926,6 +1055,10 @@ class VoterEligibilityPage extends ActionPage {
 			'not-centrally-blocked',
 			'central-block-threshold',
 			'not-bot',
+			'edits-before',
+			'edits-before-count',
+			'edits-between',
+			'edits-between-count',
 			'list_populate',
 			'list_edits-before',
 			'list_edits-before-count',
@@ -934,6 +1067,9 @@ class VoterEligibilityPage extends ActionPage {
 		];
 		static $dateProps = [
 			'max-registration',
+			'edits-before-date',
+			'edits-between-startdate',
+			'edits-between-enddate',
 			'list_edits-before-date',
 			'list_edits-startdate',
 			'list_edits-enddate',
@@ -951,6 +1087,15 @@ class VoterEligibilityPage extends ActionPage {
 			'not-centrally-blocked' => [
 				'central-block-threshold'
 			],
+			'edits-before' => [
+				'edits-before-count',
+				'edits-before-date',
+			],
+			'edits-between' => [
+				'edits-between-count',
+				'edits-between-startdate',
+				'edits-between-enddate',
+			],
 			'list_edits-before' => [
 				'list_edits-before-count',
 				'list_edits-before-date',
@@ -959,7 +1104,7 @@ class VoterEligibilityPage extends ActionPage {
 				'list_edits-between-count',
 				'list_edits-startdate',
 				'list_edits-enddate',
-			]
+			],
 		];
 
 		if ( $formData['list_populate'] &&

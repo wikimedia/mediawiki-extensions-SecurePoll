@@ -10,6 +10,7 @@ use MediaWiki\Extension\SecurePoll\Crypt\Crypt;
 use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
 use MediaWiki\Extension\SecurePoll\User\Auth;
 use MediaWiki\Extension\SecurePoll\User\Voter;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\Authority;
 use MediaWiki\Status\Status;
 use MediaWiki\Utils\MWTimestamp;
@@ -337,6 +338,31 @@ class Election extends Entity {
 				}
 			}
 
+			// Edits before date
+			if ( $this->getProperty( 'edits-before' ) ) {
+				$requiredEdits = intval( $this->getProperty( 'edits-before-count' ) );
+				$beforeDateStr = $this->getProperty( 'edits-before-date' );
+				$beforeDate = gmdate( 'YmdHis', (int)wfTimestamp( TS_UNIX, $beforeDateStr ) );
+				if ( !$this->hasEditsBeforeDate( $props['id'], $props['wiki'], $requiredEdits, $beforeDate ) ) {
+					$status->fatal( 'securepoll-too-few-edits-before-date', $requiredEdits,
+						$lang->date( $beforeDate ) );
+				}
+			}
+
+			// Edits between two dates
+			if ( $this->getProperty( 'edits-between' ) ) {
+				$requiredEdits = intval( $this->getProperty( 'edits-between-count' ) );
+				$beforeDateStr = $this->getProperty( 'edits-between-enddate' );
+				$beforeDate = gmdate( 'YmdHis', (int)wfTimestamp( TS_UNIX, $beforeDateStr ) );
+				$afterDateStr = $this->getProperty( 'edits-between-startdate' );
+				$afterDate = gmdate( 'YmdHis', (int)wfTimestamp( TS_UNIX, $afterDateStr ) );
+				if ( !$this->hasEditsBetweenDates( $props['id'], $props['wiki'], $requiredEdits,
+					$afterDate, $beforeDate ) ) {
+					$status->fatal( 'securepoll-too-few-edits-between-dates', $requiredEdits,
+						$lang->date( $afterDate ), $lang->date( $beforeDate ) );
+				}
+			}
+
 			// Lists
 			$needList = $this->getProperty( 'need-list' );
 			if ( $needList && !in_array( $needList, $lists ) ) {
@@ -361,6 +387,38 @@ class Election extends Entity {
 		}
 
 		return $status;
+	}
+
+	private function hasEditsBeforeDate( int $userId, string $wiki, int $edits, string $beforeDate ): bool {
+		$dbr = MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->getReplicaDatabase( $wiki );
+		$numEdits = $dbr->newSelectQueryBuilder()
+			->from( 'revision' )
+			->join( 'actor', null, 'actor_id = rev_actor' )
+			->where( [
+				'actor_user' => $userId,
+				$dbr->expr( 'rev_timestamp', '<', $dbr->timestamp( $beforeDate ) ),
+			] )
+			->limit( $edits )
+			->caller( __METHOD__ )
+			->fetchRowCount();
+		return $numEdits === $edits;
+	}
+
+	private function hasEditsBetweenDates( int $userId, string $wiki, int $edits, string $afterDate, string $beforeDate
+	): bool {
+		$dbr = MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->getReplicaDatabase( $wiki );
+		$numEdits = $dbr->newSelectQueryBuilder()
+			->from( 'revision' )
+			->join( 'actor', null, 'actor_id = rev_actor' )
+			->where( [
+				'actor_user' => $userId,
+				$dbr->expr( 'rev_timestamp', '>=', $dbr->timestamp( $afterDate ) ),
+				$dbr->expr( 'rev_timestamp', '<', $dbr->timestamp( $beforeDate ) ),
+			] )
+			->limit( $edits )
+			->caller( __METHOD__ )
+			->fetchRowCount();
+		return $numEdits === $edits;
 	}
 
 	/**
