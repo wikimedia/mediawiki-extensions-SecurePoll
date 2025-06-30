@@ -22,7 +22,8 @@
 			"Mordecool",
 			"Opraco",
 			"Svjatysberega",
-			"Fúlvio"
+			"Fúlvio",
+			"EGobi"
 		]
 	},
 	"securepoll": "Votação segura",
@@ -127,7 +128,7 @@
 	"securepoll-subpage-translate": "Traduzir",
 	"securepoll-subpage-list": "Lista",
 	"securepoll-subpage-edit": "Editar",
-	"securepoll-subpage-votereligibility": "Elegibilidade do eleitor",
+	"securepoll-subpage-votereligibility": "Elegibilidade dos Eleitores",
 	"securepoll-subpage-dump": "Dump",
 	"securepoll-subpage-tally": "Apuração",
 	"securepoll-subpage-log": "Registros",
