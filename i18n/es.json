@@ -286,7 +286,6 @@
 	"action-securepoll-create-poll": "crear encuestas y ver registro de datos",
 	"right-securepoll-view-voter-pii": "Acceder a información privada de los votantes",
 	"action-securepoll-view-voter-pii": "acceder a información privada de los votantes",
-	"securepoll-ns-readonly": "El espacio de nombres {{ns:SecurePoll}} es de solo lectura",
 	"securepoll-voter-stats": "De todos los usuarios con derecho de voto, $1 {{PLURAL:$1|ha|han}} votado.",
 	"securepoll-vote-stats": "Se {{PLURAL:$1|ha|han}} emitido $1 {{PLURAL:$1|voto|votos}}. De estos, se {{PLURAL:$2|ha|han}} rechazado $2 porque el votante ha votado de nuevo, y se {{PLURAL:$3|ha|han}} suprimido $3.",
 	"securepolllog": "Registro de SecurePoll",

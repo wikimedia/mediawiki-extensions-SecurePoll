@@ -283,7 +283,6 @@
 	"action-securepoll-view-voter-pii": "пристап до лично препознатливи информации за гласачи",
 	"right-securepoll-edit-poll": "Уредување на анкети",
 	"action-securepoll-edit-poll": "уредување на анкети",
-	"securepoll-ns-readonly": "Именскиот простор {{ns:SecurePoll}} може само да се чита",
 	"securepoll-voter-stats": "Од сите подобни гласачи, {{PLURAL:$1|гласот го има дадено еден|гласале вкупно $1}}.",
 	"securepoll-vote-stats": "{{PLURAL:$1|Даден е сè на сè еден глас|Дадени се вкупно $1 гласови}}. Од нив, $2 {{PLURAL:$2|е отфрлен|се отфрлени}}  бидејќи лицето гласало повторно, а $3 {{PLURAL:$3|е поништен|се поништени}}.",
 	"securepolllog": "Дневник на SecurePoll",

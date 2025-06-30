@@ -257,7 +257,6 @@
 	"securepoll-votereligibility-cleared-comment": "$1 temizlendi.",
 	"right-securepoll-create-poll": "Anketler oluştur",
 	"action-securepoll-create-poll": "anketler oluşturma ve günlükleri görme",
-	"securepoll-ns-readonly": "{{ns:SecurePoll}} ad alanı salt okunur",
 	"securepoll-voter-stats": "Tüm uygun seçmenlerden $1 {{PLURAL:$1|seçmen|seçmen}} oy verdi.",
 	"securepoll-vote-stats": "Toplam $1 {{PLURAL:$1|oy|oy}} kullanıldı. Bunlardan, seçmen tekrar oy kullandığından $2 ve $3 vurulur.",
 	"securepolllog": "SecurePoll Günlüğü",

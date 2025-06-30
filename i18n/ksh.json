@@ -201,6 +201,5 @@
 	"securepoll-votereligibility-cleared-text": "De Leß „$1“ es jäddesch jemaad un weed en dä Affschtemmong nit jebruch.",
 	"securepoll-votereligibility-cleared-comment": "$1 es läddesch jemaat",
 	"right-securepoll-create-poll": "Affschtemmonge aanlähje",
-	"action-securepoll-create-poll": "Affschtemmonge aanlähje",
-	"securepoll-ns-readonly": "Em Appachtemaang {{ns:SecurePoll}} kam_mer blohß lässe, nit änndere."
+	"action-securepoll-create-poll": "Affschtemmonge aanlähje"
 }

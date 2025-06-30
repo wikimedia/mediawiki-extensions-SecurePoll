@@ -307,7 +307,6 @@
 	"action-securepoll-view-voter-pii": "الوصول إلى معلومات التعريف الشخصية عن الناخبين",
 	"right-securepoll-edit-poll": "تعديل استطلاعات الرأي",
 	"action-securepoll-edit-poll": "تعديل استطلاعات الرأي",
-	"securepoll-ns-readonly": "نطاق {{ns:SecurePoll}} للقراءة فقط",
 	"securepoll-voter-stats": "من بين جميع الناخبين المؤهلين، قد صوت $1 {{PLURAL:$1|ناخب}}.",
 	"securepoll-vote-stats": "تم تحصيل ما مجموعه $1 {{PLURAL:$1|صوت}} من بين هؤلاء،  تم رمي $2 {{PLURAL:$2|هذا|هذه}} لأن الناخب قد صوت مرة أخرى، و$3 {{PLURAL:$3|أُبطِل|أُبطِلت}}.",
 	"securepolllog": "سجل الاستطلاع الآمن",

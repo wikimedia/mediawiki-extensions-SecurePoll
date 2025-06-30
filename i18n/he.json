@@ -287,7 +287,6 @@
 	"action-securepoll-view-voter-pii": "לגשת למידע עם פרטים אישיים על מצביעים",
 	"right-securepoll-edit-poll": "עריכת סקרים",
 	"action-securepoll-edit-poll": "לערוך סקרים",
-	"securepoll-ns-readonly": "מרחב השם {{ns:SecurePoll}} מיועד לקריאה בלבד",
 	"securepoll-voter-stats": "מכל בעלי זכות ההצבעה, {{PLURAL:$1|הצביע אחד|הצביעו $1}}.",
 	"securepoll-vote-stats": "בסך הכול {{PLURAL:$1|היה קול אחד|היו $1 קולות}}. מתוך אלה, {{PLURAL:$2|אחד נזרק|$2 נזרקו}} כי המצביע הצביע שוב {{PLURAL:$3|ואחד נמחק|ו־$3 נמחקו}}.",
 	"securepolllog": "יומן הצבעה מאובטחת",

@@ -286,7 +286,6 @@
 	"action-securepoll-view-voter-pii": "seçicilər haqqında şəxsi məlumatlara daxil olmaq",
 	"right-securepoll-edit-poll": "Seçkiləri redaktə etmək",
 	"action-securepoll-edit-poll": "seçkiləri redaktə etmək",
-	"securepoll-ns-readonly": "{{ns:SecurePoll}} ad fəzası yalnız oxumaq üçündür",
 	"securepoll-voter-stats": "Bütün seçicilər arasından cəmi $1 {{PLURAL:$1|nəfər}} səs verib.",
 	"securepoll-vote-stats": "Ümumilikdə $1 {{PLURAL:$1|səs}} verilib. {{PLURAL:$2|Bunlardan}} $2 ədədi etibarsızdır çünki seçici ikinci dəfə səs verib. $3 ədədi isə seçki inzibatçısı tərəfindən ləğv edilib.",
 	"securepolllog": "SecurePoll Jurnalı",

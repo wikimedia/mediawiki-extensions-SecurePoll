@@ -253,7 +253,6 @@
 	"action-securepoll-create-poll": "opprette avstemninger og vise logger",
 	"right-securepoll-view-voter-pii": "Få tilgang til personlig identifiserbar informasjon om stemmegivere",
 	"action-securepoll-view-voter-pii": "få tilgang til personlig identifiserbar informasjon om stemmegivere",
-	"securepoll-ns-readonly": "{{ns:SecurePoll}}-navnerommet er skrivebeskyttet",
 	"securepoll-voter-stats": "Blant alle stemmeberettigede har $1 {{PLURAL:$1|stemt}}.",
 	"securepoll-vote-stats": "Totalt $1 {{PLURAL:$1|stemme|stemmer}} har blitt avlagt. Av disse har $2 {{PLURAL:$2|blitt}} forkastet fordi den stemmeberettigede har stemt på nytt, og $3 {{PLURAL:$3|har}} blitt strøket.",
 	"securepolllog": "SecurePoll-logg",

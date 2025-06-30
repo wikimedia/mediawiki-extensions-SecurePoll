@@ -253,7 +253,6 @@
 	"action-securepoll-create-poll": "ustvarjanje glasovanj in ogledovanje dnevnikov",
 	"right-securepoll-view-voter-pii": "Dostop do podatkov, ki omogočajo osebno identifikacijo glasovalcev",
 	"action-securepoll-view-voter-pii": "dostop do podatkov, ki omogočajo osebno identifikacijo glasovalcev",
-	"securepoll-ns-readonly": "Imenski prostor {{ns:SecurePoll}} je samo za branje",
 	"securepoll-voter-stats": "Od vseh upravičenih glasovalcev {{PLURAL:$1|je glasoval $1|sta glasovala $1|so glasovali $1|jih je glasovalo $1}}.",
 	"securepoll-vote-stats": "Skupaj {{PLURAL:$1|je bil oddan|sta bila oddana|so bili oddani|je bilo oddanih}} $1 {{PLURAL:$1|glas|glasova|glasovi|glasov}}. Od tega {{PLURAL:$2|je bil|sta bila|so bili|je bilo}} $2 {{PLURAL:$2|zavržen|zavržena|zavrženi|zavrženih}}, ker je glasovalec glasoval znova, $3 {{PLURAL:$3|pa je izključen|pa sta izključena|pa so izključeni|pa je izključenih}}.",
 	"securepolllog": "Dnevnik SecurePoll",

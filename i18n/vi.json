@@ -219,7 +219,6 @@
 	"securepoll-votereligibility-cleared-comment": "Đã xóa sạch $1.",
 	"right-securepoll-create-poll": "Tạo thăm dò",
 	"action-securepoll-create-poll": "tạo thăm dò",
-	"securepoll-ns-readonly": "Chỉ đọc được không gian tên {{ns:SecurePoll}}",
 	"securepoll-voter-stats": "Trong số cử tri đủ tư cách, $1 cử tri đã bỏ phiếu.",
 	"securepoll-vote-stats": "Tổng cộng đã nhận $1 lá phiếu. Trong số này, $2 lá phiếu bị bác bỏ vì cử tri đã bỏ phiếu hơn một lần, và $3 lá phiếu bị gạch bỏ.",
 	"securepoll-stv-droop-choice-rank": "Tùy chọn $1",
