@@ -265,7 +265,6 @@
 	"action-securepoll-create-poll": "criar sondagens e ver registos",
 	"right-securepoll-view-voter-pii": "Aceder a informações dos votantes identificativas da pessoa",
 	"action-securepoll-view-voter-pii": "aceder a informações dos votantes identificativas da pessoa",
-	"securepoll-ns-readonly": "O espaço nominal {{ns:SecurePoll}} é apenas de leitura",
 	"securepoll-voter-stats": "De entre todos os eleitores elegíveis, $1 {{PLURAL:$1|eleitor votou|eleitores votaram}}.",
 	"securepoll-vote-stats": "Foi registado {{PLURAL:$1|$1 voto|um total de $1 votos}}. {{PLURAL:$2|Este foi descartado|Destes, $2 foram descartados}} porque o eleitor votou outra vez e $3 {{PLURAL:$3|foi anulado|foram anulados}}.",
 	"securepolllog": "Registo de votação segura",

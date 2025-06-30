@@ -63,7 +63,7 @@
 	"securepoll-blocked-partial": "Et voi äänestää näissä vaaleissa, jos sinulla on osittainen muokkausesto tällä hetkellä.",
 	"securepoll-blocked-centrally": "Et voi äänestää, koska sinut on estetty ainakin {{PLURAL:$1|$1}} wikissä.",
 	"securepoll-bot": "Käyttäjätilit, joilla on bottimerkintä eivät saa äänestää näissä vaaleissa.",
-	"securepoll-not-in-group": "Vain jäsenet jotka kuuluvat ryhmään $1, voivat äänestää näissä vaaleissa.",
+	"securepoll-not-in-group": "Pahoittelut, vain seuraaviin ryhmiin kuuluvat käyttäjät voivat äänestää näissä vaaleissa: $1",
 	"securepoll-not-in-list": "Et ole etukäteen valitussa listassa käyttäjiä, jotka ovat oikeutettuja äänestämään tässä vaalissa.",
 	"securepoll-in-exclude-list": "Valitettavasti sinulla ei ole oikeutta äänestää tässä vaalissa.",
 	"securepoll-list-title": "Luettelo äänistä: $1",

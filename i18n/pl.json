@@ -213,7 +213,6 @@
 	"securepoll-votereligibility-cleared-text": "$1 zostało wyczyszczone i nie zostanie wykorzystany przez ankietę",
 	"securepoll-votereligibility-cleared-comment": "$1 wyczyszczone.",
 	"right-securepoll-create-poll": "Utwórz ankiety",
-	"securepoll-ns-readonly": "Przestrzeń nazw {{ns:SecurePoll}} jest tylko do odczytu",
 	"securepoll-stv-result-election-eliminated-header": "Wyeliminowany/nie wybrany",
 	"securepoll-stv-result-election-result-table-heading": "Wynik",
 	"securepoll-stv-votes-transferred": "Przenoszone głosy",

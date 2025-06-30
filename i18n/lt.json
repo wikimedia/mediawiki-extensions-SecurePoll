@@ -246,7 +246,6 @@
 	"action-securepoll-create-poll": "kurti apklausas ir peržiūrėti žurnalus",
 	"right-securepoll-view-voter-pii": "Prieiti prie asmens duomenų apie balsuotojus",
 	"action-securepoll-view-voter-pii": "prieiti prie asmens duomenų apie balsuotojus",
-	"securepoll-ns-readonly": "{{ns:SecurePoll}} vardų sritis yra tik skaitymo režime",
 	"securepoll-voter-stats": "Iš visų galimų balsuotojų, balsavo $1 {{PLURAL:$1|balsuotojas|balsuotojai}}.",
 	"securepolllog": "SecurePoll žurnalas",
 	"securepolllog-form-type-option-all": "Visi SecurePoll žurnalai",

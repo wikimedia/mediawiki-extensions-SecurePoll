@@ -305,7 +305,6 @@
 	"right-securepoll-view-voter-pii": "访问投票者的个人可识别信息",
 	"action-securepoll-view-voter-pii": "访问投票者的个人可识别信息",
 	"right-securepoll-edit-poll": "编辑投票",
-	"securepoll-ns-readonly": "{{ns:SecurePoll}}命名空间是只读的",
 	"securepoll-voter-stats": "所有符合资格的投票者中，$1名{{PLURAL:$1|投票者}}已投票。",
 	"securepoll-vote-stats": "共计收到$1次{{PLURAL:$1|投票}}。其中$2{{PLURAL:$2|票}}因属投票者再次投票而不记入，$3{{PLURAL:$3|票}}已作废。",
 	"securepolllog": "安全投票日志",

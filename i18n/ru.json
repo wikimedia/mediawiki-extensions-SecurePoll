@@ -264,7 +264,6 @@
 	"securepoll-votereligibility-cleared-comment": "$1 очищен.",
 	"right-securepoll-create-poll": "Создание опросов",
 	"action-securepoll-create-poll": "создание опросов и просмотр журналов",
-	"securepoll-ns-readonly": "Пространство имён {{ns:SecurePoll}} доступно только для просмотра",
 	"securepoll-voter-stats": "Из всех участников, допущенных к голосованию, {{PLURAL:$1|проголосовал $1 участник|проголосовало $1 участников|проголосовало $1 участника}}.",
 	"securepoll-vote-stats": "Всего {{PLURAL:$1|был отдан $1 голос|было отдано $1 голосов}}. Из них $2 не {{PLURAL:$2|был учтён|было учтено}} из-за того, что голосующие проголосовал повторно, и $3 {{PLURAL:$3|был исключён|было исключено}}.",
 	"securepolllog": "Журнал «SecurePoll»",

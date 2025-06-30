@@ -226,7 +226,6 @@
 	"securepoll-votereligibility-cleared-comment": "Ati pa $1 rẹ́",
 	"right-securepoll-create-poll": "Ṣ'ẹ̀dá àwọn ìbò",
 	"action-securepoll-create-poll": "Ṣ'ẹ̀dá àwọn ìbò àti àkọsílẹ̀",
-	"securepoll-ns-readonly": "{{ns:SecurePoll}} wà fún kíkà nìkan",
 	"securepoll-voter-stats": "Ninu gbogbo awon to ni ase idibo {{PLURAL:$1|oludibo|awon oludibo}} $1 lo ti dibo.",
 	"securepoll-vote-stats": "A total of $1 {{PLURAL:$1|vote has|votes have}} been cast. Of these, $2 {{PLURAL:$2|is|are}} thrown away because the voter has voted again, and $3 {{PLURAL:$3|is|are}} struck.",
 	"securepolllog": "Àkọsílẹ̀ SecurePoll",

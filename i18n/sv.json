@@ -247,7 +247,6 @@
 	"securepoll-votereligibility-cleared-comment": "$1 tömd.",
 	"right-securepoll-create-poll": "Skapa enkäter",
 	"action-securepoll-create-poll": "skapa enkäter och visningsloggar",
-	"securepoll-ns-readonly": "Namnrymden {{ns:SecurePoll}} är i skrivskyddat läge",
 	"securepoll-voter-stats": "Av alla röstberättigade, $1 {{PLURAL:$1|voter has|voters have}} röstat.",
 	"securepoll-vote-stats": "En summa av $1 {{PLURAL:$1|vote has|votes have}} gjutits. Av dessa, $2 {{PLURAL:$2|is|are}} kastas eftersom väljaren har röstat igen, och $3 {{PLURAL:$3|is|are}} slog.",
 	"securepolllog": "SecurePoll-logg",

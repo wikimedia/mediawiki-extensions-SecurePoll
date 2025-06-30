@@ -294,7 +294,6 @@
 	"action-securepoll-create-poll": "建立投票並查看日誌",
 	"right-securepoll-view-voter-pii": "存取關於投票者的個人識別資訊",
 	"action-securepoll-view-voter-pii": "存取關於投票者的個人識別資訊",
-	"securepoll-ns-readonly": "{{ns:SecurePoll}} 命名空間為唯讀",
 	"securepoll-voter-stats": "在所有符合資格的投票者中，已有$1{{PLURAL:$1|位}}投過票。",
 	"securepoll-vote-stats": "共收到 $1 張{{PLURAL:$1|票}}，其中有 $2 {{PLURAL:$2|張}}票因投票者再次投票而作廢，並且有 $3 {{PLURAL:$3|張}}票作廢。",
 	"securepolllog": "安全投票日誌",

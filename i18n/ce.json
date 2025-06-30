@@ -281,7 +281,6 @@
 	"action-securepoll-view-voter-pii": "харжамхойх лаьцна персона йовзийтаран хаамашна тӀекхача",
 	"right-securepoll-edit-poll": "Хаттарш хийца",
 	"action-securepoll-edit-poll": "хийца хаттар",
-	"securepoll-ns-readonly": "ЦӀерийн меттиг {{ns:SecurePoll}} хьажа бен тӀекхочуш йац",
 	"securepoll-voter-stats": "Массо кхажтаса тӀебитинчу  {{PLURAL:$1|кхаж тесна $1 декъашхочо}}.",
 	"securepoll-vote-stats": "Берриг {{PLURAL:$1|$1 кхаж белла}}. Царах $2 {{PLURAL:$2|ларанза бу}} кхаж тосучу йуха тасар бахьана долуш, цунделла $3 {{PLURAL:$3|йукъара дӀабеккхина}}.",
 	"securepolllog": "«SecurePoll» журнал",
