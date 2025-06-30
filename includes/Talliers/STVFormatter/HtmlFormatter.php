@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\SecurePoll\Talliers\STVFormatter;
 
 use MediaWiki\Context\RequestContext;
+use MediaWiki\Extension\SecurePoll\Talliers\STVTallier;
 use MediaWiki\Output\OutputPage;
 use OOUI\HtmlSnippet;
 use OOUI\PanelLayout;
@@ -10,7 +11,11 @@ use OOUI\Tag;
 
 class HtmlFormatter implements STVFormatter {
 
-	protected const DISPLAY_PRECISION = 6;
+	/**
+	 * The displayed precision should always match the actual precision being
+	 * used so misleading results are not displayed.
+	 */
+	protected const DISPLAY_PRECISION = STVTallier::PRECISION;
 
 	/**
 	 * Number of seats to be filled.
