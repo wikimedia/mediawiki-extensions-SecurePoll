@@ -14,7 +14,6 @@ use MediaWiki\Permissions\Authority;
 use MediaWiki\Status\Status;
 use MediaWiki\Utils\MWTimestamp;
 use MediaWiki\Xml\Xml;
-use RuntimeException;
 use Wikimedia\Rdbms\IDatabase;
 
 /**
@@ -602,9 +601,10 @@ class Election extends Entity {
 
 		$tallies = json_decode( $result, true );
 		if ( !array_is_list( $tallies ) ) {
-			throw new RuntimeException(
-				"Expected a list of tallies from 'securepoll_properties.pr_value'"
-			);
+			// Pretend like we didn't find anything as anything hitting this will have been a tally
+			// created pre-migration (see T387701). Creating a new tally through the new workflow will
+			// overwrite this old value and migrate this election to the new system.
+			return [];
 		}
 
 		return $tallies;
