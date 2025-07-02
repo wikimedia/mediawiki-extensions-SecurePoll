@@ -27,33 +27,31 @@ function STVDragAndDropForm( $ ) {
 		$submitButton.setDisabled( !vote );
 	}
 
-	function initComboBoxes() {
-		const $comboLayouts = $( 'body' ).find( '.securepoll-option-stv-combobox' );
-		if ( $comboLayouts.length < 1 ) {
+	function reset() {
+		$submitButton = null;
+		questionLayouts.splice( 0, questionLayouts.length );
+	}
+
+	function initQuestionLayouts() {
+		const $questionOuterPanels = $( 'body' ).find( '.securepoll-option-stv-panel-outer' );
+		if ( $questionOuterPanels.length < 1 ) {
 			return null;
 		}
-		for ( let i = 0; i < $comboLayouts.length; i++ ) {
-			const comboLayout = $comboLayouts[ i ],
-				comboBoxWidget = comboLayout.querySelector( '.oo-ui-comboBoxInputWidget' ),
-				comboBox = OO.ui.infuse( comboBoxWidget );
 
-			comboBox.setDir( 'auto' );
-			comboBox.getMenu().items.forEach( ( item ) => {
-				item.$element.prop( 'dir', 'auto' );
-			} );
+		for ( const questionOuterPanel of $questionOuterPanels ) {
+			const outerPanel = OO.ui.infuse( questionOuterPanel );
 
 			const questionLayout = new STVQuestionLayout( {
-				comboBox: comboBox,
-				classes: [ 'securepoll-question-layout' ],
-				label: 'candidates'
+				outerPanel,
+				classes: [ 'securepoll-question-layout' ]
 			} );
+
 			questionLayout.on( 'voteStatusUpdate', () => {
 				checkVoteSuccess();
 			} );
 			questionLayouts.push( questionLayout );
 
-			const layout = OO.ui.infuse( comboLayout );
-			layout.$element.append( questionLayout.$element );
+			outerPanel.$element.append( questionLayout.$element[ 0 ] );
 		}
 	}
 
@@ -63,7 +61,7 @@ function STVDragAndDropForm( $ ) {
 	 */
 	function initForm() {
 		$( 'form.oo-ui-formLayout' ).on( 'submit', ( e ) => {
-			const $draggableGroup = $( '.stv-ranking-draggable-group' );
+			const $draggableGroup = $( '.securepoll-question-stv-panel-ranked .stv-ranking-draggable-group' );
 
 			// A map of rankings for all questions in the pool (candidate ids)
 			// that will be stored in an object like so:
@@ -73,7 +71,8 @@ function STVDragAndDropForm( $ ) {
 			// }
 			const groupedRankings = {};
 			$draggableGroup.each( ( _idx, el ) => {
-				const rankingData = $( el ).data( 'ranking' ).map( ( item ) => item.data );
+				const rankingData = $( el ).data( 'ranking' )
+					.map( ( draggableItemWidget ) => draggableItemWidget.name );
 				const candidates = $( el ).data( 'candidates' );
 				const questionId = $( el ).data( 'questionId' );
 
@@ -106,12 +105,13 @@ function STVDragAndDropForm( $ ) {
 	}
 
 	function init() {
+		reset();
 		$submitButton = initializeSubmitButton();
 		if ( !$submitButton ) {
 			return;
 		}
 		$submitButton.setDisabled( true );
-		initComboBoxes();
+		initQuestionLayouts();
 		initForm();
 	}
 
@@ -122,10 +122,11 @@ function STVDragAndDropForm( $ ) {
 	}
 
 	return {
+		questionLayouts,
 		init: init,
 		initializeSubmitButton: initializeSubmitButton,
 		getVoteState: getVoteState,
-		initComboBoxes: initComboBoxes
+		initQuestionLayouts
 	};
 }
 

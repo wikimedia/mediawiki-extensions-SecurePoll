@@ -4,10 +4,10 @@ namespace MediaWiki\Extension\SecurePoll\Ballots;
 
 use MediaWiki\Extension\SecurePoll\Entities\Question;
 use MediaWiki\Extension\SecurePoll\Pages\CreatePage;
-use OOUI\ComboBoxInputWidget;
 use OOUI\DropdownInputWidget;
 use OOUI\FieldLayout;
 use OOUI\FieldsetLayout;
+use OOUI\PanelLayout;
 
 /**
  * A STVBallot class,
@@ -89,7 +89,6 @@ class STVBallot extends Ballot {
 				'label' => $this->msg( 'securepoll-stv-droop-default-value' )->text(),
 			]
 		];
-		$dragAndDropComboOptions = [];
 		foreach ( $options as $key => $option ) {
 			$formattedKey = $this->getFixedFormatValue( $key );
 			// Restore rankings from request if available
@@ -112,11 +111,6 @@ class STVBallot extends Ballot {
 			$allOptions[] = [
 				'data' => $option->getId(),
 				'label' => $option->parseMessageInline( 'text' ),
-			];
-			$dragAndDropComboOptions[] = [
-				'data' => $option->parseMessageInline( 'text' ),
-				'disable' => true,
-				'select' => true,
 			];
 		}
 		$data[ 'candidates' ] = $allCandidates;
@@ -144,31 +138,26 @@ class STVBallot extends Ballot {
 					'label' => $this->msg( 'securepoll-stv-droop-choice-rank', $i + 1 ),
 					'errors' => isset( $this->prevErrorIds[$inputId] ) ? [
 						$this->prevStatus->spGetMessageText( $inputId )
-						] : null,
+					] : null,
 					'align' => 'top',
 				]
 			) );
 		}
 
-		$widget = new ComboBoxInputWidget( [
-			'infusable' => true,
-			'tagName' => $name,
-			'options' => $dragAndDropComboOptions,
-			'autocomplete' => false,
-			'data' => $data,
-			'menu' => [
-				'filterFromInput' => true
-			]
-		] );
-
-		$fieldset->appendContent( new FieldLayout(
-			$widget,
+		$fieldset->appendContent( new PanelLayout(
 			[
 				'infusable' => true,
-				'classes' => [ "securepoll-option-preferential", 'securepoll-option-stv-combobox' ],
+				'scrollable' => false,
+				'expanded' => false,
+				'data' => $data,
+				'classes' => [
+					'securepoll-option-preferential',
+					'securepoll-option-stv-panel',
+					'securepoll-option-stv-panel-outer',
+				],
 				'errors' => isset( $this->prevErrorIds[ $name ] ) ? [
 					$this->prevStatus->spGetMessageText( $name )
-					] : null,
+				] : null,
 				'align' => 'top'
 			]
 		) );

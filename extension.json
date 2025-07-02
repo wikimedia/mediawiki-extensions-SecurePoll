@@ -140,7 +140,9 @@
 				"securepoll-translation-select-import-source-page",
 				"securepoll-ballot-show-warnings",
 				"securepoll-ballot-show-all",
-				"securepoll-vote-stv-clear-btn-label"
+				"securepoll-vote-stv-clear-btn-label",
+				"securepoll-stv-unranked-candidates",
+				"securepoll-stv-ranked-candidates"
 			]
 		},
 		"ext.securepoll": {
