@@ -1,5 +1,6 @@
 <?php
-namespace MediaWiki\Extension\SecurePoll\Test\Integration\Cli;
+
+namespace MediaWiki\Extension\SecurePoll\Test\Maintenance;
 
 use ImportElectionConfiguration;
 use MediaWiki\Extension\SecurePoll\Ballots\RadioRangeBallot;
@@ -11,14 +12,14 @@ use MediaWiki\Tests\Maintenance\MaintenanceBaseTestCase;
  * @group Database
  * @covers ImportElectionConfiguration
  */
-class ImportTest extends MaintenanceBaseTestCase {
+class ImportElectionConfigurationTest extends MaintenanceBaseTestCase {
 
 	protected function getMaintenanceClass() {
 		return ImportElectionConfiguration::class;
 	}
 
 	public function testCanImportXmlDataWithoutOwner(): void {
-		$this->maintenance->loadWithArgv( [ __DIR__ . '/../../data/3way-test.xml' ] );
+		$this->maintenance->loadWithArgv( [ __DIR__ . '/../data/3way-test.xml' ] );
 		$this->maintenance->execute();
 
 		$context = new Context();

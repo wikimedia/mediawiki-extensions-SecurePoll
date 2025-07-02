@@ -72,11 +72,12 @@
 		"SecurePollNamespaces": "SecurePoll.namespaces.php"
 	},
 	"AutoloadClasses": {
-		"ConvertVotes": "cli/convertVotes.php",
-		"DeletePoll": "cli/delete.php",
-		"ImportElectionConfiguration": "cli/import.php",
-		"UpdateNotBlockedKey": "cli/updateNotBlockedKey.php",
-		"MigrateTallies": "cli/migrateTallies.php"
+		"ConvertVotes": "maintenance/convertVotes.php",
+		"DeletePoll": "maintenance/deletePoll.php",
+		"ImportElectionConfiguration": "maintenance/importElectionConfiguration.php",
+		"MigrateTallies": "maintenance/migrateTallies.php",
+		"PurgePrivateVoteData": "maintenance/purgePrivateVoteData.php",
+		"UpdateNotBlockedKey": "maintenance/updateNotBlockedKey.php"
 	},
 	"AutoloadNamespaces": {
 		"MediaWiki\\Extension\\SecurePoll\\": "includes/"

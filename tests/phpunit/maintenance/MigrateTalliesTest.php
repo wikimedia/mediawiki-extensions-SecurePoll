@@ -1,7 +1,8 @@
 <?php
 
-namespace MediaWiki\Tests\Maintenance;
+namespace MediaWiki\Extension\SecurePoll\Test\Maintenance;
 
+use MediaWiki\Tests\Maintenance\MaintenanceBaseTestCase;
 use MediaWiki\Utils\MWTimestamp;
 use MigrateTallies;
 use TestSelectQueryBuilder;

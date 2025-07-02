@@ -40,7 +40,7 @@ class PurgePrivateVoteData extends Maintenance {
 
 	public function __construct() {
 		parent::__construct();
-		$this->addDescription( 'Script purge private data (IP, XFF, UA) from SecurePoll Votes' );
+		$this->addDescription( 'Script to purge private data (IP, XFF, UA) from SecurePoll Votes' );
 		$this->setBatchSize( 200 );
 
 		$this->requireExtension( 'SecurePoll' );

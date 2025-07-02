@@ -1,5 +1,6 @@
 <?php
-namespace MediaWiki\Extension\SecurePoll\Test\Integration\Cli;
+
+namespace MediaWiki\Extension\SecurePoll\Test\Maintenance;
 
 use ConvertVotes;
 use DOMDocument;
@@ -21,7 +22,7 @@ class ConvertVotesTest extends MaintenanceBaseTestCase {
 	 * @dataProvider provideOutputOptions
 	 */
 	public function testShouldOutputElectionData( bool $fromXml ): void {
-		$xmlFile = __DIR__ . '/../../data/3way-with-votes-test.xml';
+		$xmlFile = __DIR__ . '/../data/3way-with-votes-test.xml';
 
 		if ( $fromXml ) {
 			$this->maintenance->loadWithArgv( [ $xmlFile ] );
