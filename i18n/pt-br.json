@@ -22,7 +22,8 @@
 			"MetalBrasil",
 			"Mordecool",
 			"Opraco",
-			"Svjatysberega"
+			"Svjatysberega",
+			"EGobi"
 		]
 	},
 	"securepoll": "Votação segura",
@@ -76,7 +77,10 @@
 	"securepoll-header-date": "Data",
 	"securepoll-header-voter-name": "Nome",
 	"securepoll-header-voter-domain": "Domínio",
+	"securepoll-header-ip": "IP",
+	"securepoll-header-xff": "XFF",
 	"securepoll-header-ua": "Agente de usuário",
+	"securepoll-header-token-match": "CSRF",
 	"securepoll-header-cookie-dup": "Duplicado",
 	"securepoll-header-strike": "Riscados",
 	"securepoll-header-details": "Detalhes",
@@ -92,6 +96,7 @@
 	"securepoll-invalid-vote": "\"$1\" não é um ID de voto válido",
 	"securepoll-header-id": "ID",
 	"securepoll-header-voter-type": "Tipo de usuário",
+	"securepoll-header-url": "URL",
 	"securepoll-voter-properties": "Propriedades do votante",
 	"securepoll-strike-log": "Registro de riscados",
 	"securepoll-header-action": "Ação",
@@ -117,6 +122,11 @@
 	"securepoll-header-title": "Nome",
 	"securepoll-header-start-date": "Data de início",
 	"securepoll-header-end-date": "Data de término",
+	"securepoll-header-status": "Status",
+	"securepoll-header-links": "Links",
+	"securepoll-status-not-started": "Não foi iniciado",
+	"securepoll-status-completed": "Completado",
+	"securepoll-status-archived": "Arquivado",
 	"securepoll-subpage-vote": "Votar",
 	"securepoll-subpage-translate": "Traduzir",
 	"securepoll-subpage-list": "Lista",
@@ -316,5 +326,6 @@
 	"securepoll-stv-result-round-quota": "Cota: $1",
 	"securepoll-stv-result-round-elected": "Eleito: $1",
 	"securepoll-stv-result-round-eliminated": "Eliminado: $1",
-	"securepoll-stv-result-round-keep-factor": "(fator mantido: $1)"
+	"securepoll-stv-result-round-keep-factor": "(fator mantido: $1)",
+	"securepoll-translation-result-import-pages-title": "Páginas"
 }
