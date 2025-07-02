@@ -135,6 +135,7 @@
 	"securepoll-subpage-dump": "Дамп",
 	"securepoll-subpage-log": "Журнал",
 	"securepoll-subpage-archive": "Архивировать",
+	"securepoll-subpage-delete": "Удалить",
 	"securepoll-archive-title": "Архив $1",
 	"securepoll-tally-title": "Подсчёт: $1",
 	"securepoll-tally-not-finished": "Извините, вы можете производить подсчёт итогов только после завершения голосования.",
