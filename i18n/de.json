@@ -27,6 +27,8 @@
 	"securepoll-not-qualified": "Du bist für diese Wahl nicht wahlberechtigt: $1",
 	"securepoll-change-disallowed": "Du hast bei dieser Wahl bereits einmal abgestimmt.\nEs tut uns leid, du darfst nicht erneut abstimmen.",
 	"securepoll-change-allowed": "<strong>Hinweis: Du hast bei dieser Wahl bereits abgestimmt.</strong>\nDu kannst deine Stimme ändern, indem du das untere Formular abschickst.\nWenn du dies tust, wird deine ursprüngliche Stimme überschrieben.",
+	"securepoll-stv-unranked-candidates": "Nicht bewertet",
+	"securepoll-stv-ranked-candidates": "Bewertet",
 	"securepoll-header-comments": "Kommentare",
 	"securepoll-submit": "Stimme abgeben",
 	"securepoll-gpg-receipt": "Wenn du möchtest, kannst du die folgende Quittung als Nachweis deiner Stimmabgabe aufbewahren:\n\n<pre>$1</pre>",
