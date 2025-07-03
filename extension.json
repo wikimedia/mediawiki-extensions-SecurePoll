@@ -225,7 +225,7 @@
 		},
 		"SecurePollKeepPrivateInfoDays": {
 			"value": 90,
-			"description": "Maximum number of days for which to store private information about voters."
+			"description": "Maximum number of days after a poll ends to store and show private information about voters. After this number of days, 1) private info is hidden from the user interface, and 2) the private info gets deleted when running the purgePrivateVoteData maintenance script. Set to 0 to hide/delete the data as soon as the poll ends."
 		},
 		"SecurePollCreateWikiGroupDir": {
 			"value": "/../",
