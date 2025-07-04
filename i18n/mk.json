@@ -22,6 +22,8 @@
 	"securepoll-not-qualified": "Не сте квалификувани да гласате на овие избори: $1",
 	"securepoll-change-disallowed": "Веќе имате гласано на овие избори.\nЖалиме, но не ви е дозволено да гласате повторно.",
 	"securepoll-change-allowed": "<strong>Напомена: На овие избори сте гласале претходно.</strong>\nМожете да го промените вашиот глас со тоа што ќе го пополните долунаведениот образец.\nИмајте предвид дека ако го сторите тоа, вашиот првичен глас ќе биде поништен.",
+	"securepoll-stv-unranked-candidates": "Нерангирани",
+	"securepoll-stv-ranked-candidates": "Рангирани",
 	"securepoll-header-comments": "Коментари",
 	"securepoll-submit": "Поднеси глас",
 	"securepoll-gpg-receipt": "Доколку сакате, можете да ја задржите оваа потврда како доказ дека сте гласале:\n\n<pre>$1</pre>",

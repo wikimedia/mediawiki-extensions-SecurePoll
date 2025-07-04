@@ -49,6 +49,8 @@
 	"securepoll-not-qualified": "Vous n’êtes pas qualifié pour voter pour cette élection : $1",
 	"securepoll-change-disallowed": "Vous avez déjà voté pour cette élection.\nDésolé, vous ne pouvez pas voter une nouvelle fois.",
 	"securepoll-change-allowed": "<strong>Note : vous avez déjà voté pour cette élection.</strong>\nVous pouvez changer votre vote en soumettant le formulaire ci-dessous.\nSi vous faites ceci, votre ancien vote sera annulé.",
+	"securepoll-stv-unranked-candidates": "Non classé",
+	"securepoll-stv-ranked-candidates": "Classé",
 	"securepoll-header-comments": "Commentaires",
 	"securepoll-submit": "Soumettre le vote",
 	"securepoll-gpg-receipt": "Si vous le souhaitez, vous pouvez garder le reçu suivant comme preuve de votre vote :\n\n<pre>$1</pre>",

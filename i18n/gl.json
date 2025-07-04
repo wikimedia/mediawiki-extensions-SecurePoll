@@ -22,6 +22,8 @@
 	"securepoll-not-qualified": "Non tes dereito a votar nestas eleccións: $1",
 	"securepoll-change-disallowed": "Xa votaches nestas eleccións.\nSentímolo, non podes votar de novo.",
 	"securepoll-change-allowed": "<strong>Nota: xa votaches nestas eleccións.</strong>\nPodes cambiar o teu voto enviando o formulario de embaixo.\nTen en conta que, se o fas, o teu voto orixinal será descartado.",
+	"securepoll-stv-unranked-candidates": "Sen clasificar",
+	"securepoll-stv-ranked-candidates": "Clasificado",
 	"securepoll-header-comments": "Comentarios",
 	"securepoll-submit": "Enviar o voto",
 	"securepoll-gpg-receipt": "Se queres, podes conservar o seguinte recibo como proba do teu voto:\n\n<pre>$1</pre>",

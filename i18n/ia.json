@@ -19,6 +19,8 @@
 	"securepoll-not-qualified": "Tu non es qualificate pro votar in iste election: $1",
 	"securepoll-change-disallowed": "Tu ha ja votate in iste election.\nNon es possibile votar de novo.",
 	"securepoll-change-allowed": "<strong>Nota: Tu ha ja votate in iste election.</strong>\nTu pote cambiar tu voto per submitter le formulario in basso.\nNota que si tu face isto, le voto original essera cancellate.",
+	"securepoll-stv-unranked-candidates": "Non classificate",
+	"securepoll-stv-ranked-candidates": "Classificate",
 	"securepoll-header-comments": "Commentos",
 	"securepoll-submit": "Submitter voto",
 	"securepoll-gpg-receipt": "Si tu vole, tu pote retener le sequente recepta como prova de tu voto:\n\n<pre>$1</pre>",
