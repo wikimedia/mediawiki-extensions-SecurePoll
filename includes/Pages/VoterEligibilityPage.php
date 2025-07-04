@@ -460,6 +460,7 @@ class VoterEligibilityPage extends ActionPage {
 			'type' => 'int',
 			'min' => 0,
 			'default' => $this->election->getProperty( 'min-edits', '' ),
+			'cssclass' => 'securepoll-narrow-number-input',
 		];
 
 		$date = $this->election->getProperty( 'max-registration', null );
@@ -633,6 +634,7 @@ class VoterEligibilityPage extends ActionPage {
 						],
 					],
 					'default' => $this->election->getProperty( 'list_edits-before-count', '' ),
+					'cssclass' => 'securepoll-narrow-number-input',
 				];
 
 				$date = $this->election->getProperty( 'list_edits-before-date', '' );
@@ -697,6 +699,7 @@ class VoterEligibilityPage extends ActionPage {
 						],
 					],
 					'default' => $this->election->getProperty( 'list_edits-between-count', '' ),
+					'cssclass' => 'securepoll-narrow-number-input',
 				];
 
 				$editCountStartDate = $this->election->getProperty( 'list_edits-startdate', '' );

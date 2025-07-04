@@ -65,6 +65,7 @@ class RadioRangeBallot extends Ballot {
 					'checkRequired',
 				],
 				'SecurePoll_type' => 'property',
+				'cssclass' => 'securepoll-narrow-number-input',
 			],
 			'max-score' => [
 				'label-message' => 'securepoll-create-label-max_score',
@@ -74,11 +75,13 @@ class RadioRangeBallot extends Ballot {
 					'checkRequired',
 				],
 				'SecurePoll_type' => 'property',
+				'cssclass' => 'securepoll-narrow-number-input',
 			],
 			'default-score' => [
 				'label-message' => 'securepoll-create-label-default_score',
 				'type' => 'int',
 				'SecurePoll_type' => 'property',
+				'cssclass' => 'securepoll-narrow-number-input',
 			],
 			'column-order' => [
 				'label-message' => 'securepoll-create-label-column_order',
