@@ -152,7 +152,8 @@ class Context {
 			return true;
 		}
 		if ( $config->get( 'SecurePollUseMediaWikiNamespace' ) && $title->getNamespace() === NS_MEDIAWIKI &&
-			$title->getRootText() === 'SecurePoll' ) {
+			// Not using $title->getRootText() because we want it to work even with subpages disabled
+			str_starts_with( $title->getText(), 'SecurePoll/' ) ) {
 			return true;
 		}
 		return false;
