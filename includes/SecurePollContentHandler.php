@@ -196,7 +196,7 @@ class SecurePollContentHandler extends JsonContentHandler {
 		];
 	}
 
-	private static function getTitleForPage( string $pageName ): Title {
+	public static function getTitleForPage( string $pageName ): Title {
 		$config = MediaWikiServices::getInstance()->getMainConfig();
 		if ( $config->get( 'SecurePollUseNamespace' ) ) {
 			return Title::makeTitle( NS_SECUREPOLL, $pageName );

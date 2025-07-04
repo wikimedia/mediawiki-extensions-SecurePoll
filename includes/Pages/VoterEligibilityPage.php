@@ -427,7 +427,7 @@ class VoterEligibilityPage extends ActionPage {
 				false,
 				FormatJson::ALL_OK
 			);
-			$title = $this->titleFactory->makeTitle( NS_SECUREPOLL, $list );
+			$title = SecurePollContentHandler::getTitleForPage( $list );
 			$wp = $this->wikiPageFactory->newFromTitle( $title );
 			$wp->doUserEditContent(
 				SecurePollContentHandler::makeContent( $json, $title, 'SecurePoll' ),
@@ -1356,7 +1356,7 @@ class VoterEligibilityPage extends ActionPage {
 				$this->msg( 'securepoll-votereligibility-cleared-comment', $name )->text()
 			);
 
-			$title = $this->titleFactory->makeTitle( NS_SECUREPOLL, "{$election->getId()}/list/$property" );
+			$title = SecurePollContentHandler::getTitleForPage( "{$election->getId()}/list/$property" );
 			$wp = $this->wikiPageFactory->newFromTitle( $title );
 			$wp->doUserEditContent(
 				SecurePollContentHandler::makeContent( '[]', $title, 'SecurePoll' ),
