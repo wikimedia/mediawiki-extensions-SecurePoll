@@ -244,7 +244,8 @@ class RadioRangeBallot extends Ballot {
 		$tr = new Tag( 'tr' );
 		$tr->appendContent( new Tag( 'th' ) );
 		foreach ( $labels as $lab ) {
-			$tr->appendContent( ( new Tag( 'th' ) )->appendContent( $lab ) );
+			// @phan-suppress-next-line SecurityCheck-XSS Problematic only if score is NAN, which won't be the case
+			$tr->appendContent( ( new Tag( 'th' ) )->appendContent( new HtmlSnippet( $lab ) ) );
 		}
 		$thead->appendContent( $tr );
 		$tbody = new Tag( 'tbody' );
