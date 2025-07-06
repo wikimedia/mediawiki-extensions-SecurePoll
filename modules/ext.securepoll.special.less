@@ -73,26 +73,26 @@
 
 .securepoll-ballot-table {
 	border-collapse: collapse;
-	border-bottom: thin #999 solid;
+	border-bottom: thin @border-color-base solid;
 }
 
 .securepoll-ballot-table td.securepoll-ballot-optlabel { /* High specificity */
 	text-align: left;
 	border: 0;
-	border-bottom: thin #fff solid;
+	border-bottom: thin @border-color-inverted solid;
 }
 
 .securepoll-ballot-table th {
 	font-weight: bold;
 	text-align: center;
-	border: thin #999 solid;
+	border: thin @border-color-base solid;
 	padding: 0 1.5em;
 }
 
 .securepoll-ballot-table td {
-	border-left: thin #999 solid;
-	border-right: thin #999 solid;
-	border-bottom: thin #bbb dotted;
+	border-left: thin @border-color-base solid;
+	border-right: thin @border-color-base solid;
+	border-bottom: thin @border-color-base dotted;
 	padding: 0 1.5em;
 }
 
@@ -102,7 +102,7 @@
 }
 
 .securepoll-ballot-row:hover {
-	background: #eef;
+	background: @background-color-progressive-subtle--hover;
 }
 
 .securepoll-error-location {
