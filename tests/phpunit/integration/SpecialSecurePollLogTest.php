@@ -11,6 +11,7 @@ use SpecialPageTestBase;
 
 /**
  * @group SpecialPage
+ * @group Database
  * @covers \MediaWiki\Extension\SecurePoll\SpecialSecurePollLog
  */
 class SpecialSecurePollLogTest extends SpecialPageTestBase {

@@ -9,6 +9,9 @@ use MediaWiki\ResourceLoader\OOUIModule;
 use MediaWikiIntegrationTestCase;
 use OOUI\Theme;
 
+/**
+ * @group Database
+ */
 class VoteSummaryTest extends MediaWikiIntegrationTestCase {
 
 	use OOUIModule;

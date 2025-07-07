@@ -15,6 +15,7 @@ use MediaWikiIntegrationTestCase;
 use OOUI\FieldsetLayout;
 
 /**
+ * @group Database
  * @covers \MediaWiki\Extension\SecurePoll\Ballots\STVBallot
  */
 class STVBallotTest extends MediaWikiIntegrationTestCase {
