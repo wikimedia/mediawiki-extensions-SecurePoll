@@ -80,7 +80,8 @@
 		"UpdateNotBlockedKey": "maintenance/updateNotBlockedKey.php"
 	},
 	"AutoloadNamespaces": {
-		"MediaWiki\\Extension\\SecurePoll\\": "includes/"
+		"MediaWiki\\Extension\\SecurePoll\\": "includes/",
+		"MediaWiki\\Extension\\SecurePoll\\Maintenance\\": "maintenance/"
 	},
 	"ResourceModules": {
 		"ext.securepoll.htmlform": {

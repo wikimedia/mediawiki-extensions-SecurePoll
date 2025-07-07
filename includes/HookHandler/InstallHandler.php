@@ -14,7 +14,7 @@ class InstallHandler implements LoadExtensionSchemaUpdatesHook {
 		$base = dirname( dirname( __DIR__ ) );
 		$type = $updater->getDB()->getType();
 
-		$updater->addExtensionTable( 'securepoll_entity', "$base/sql/$type/tables-generated.sql" );
+		$updater->addExtensionTable( 'securepoll_elections', "$base/sql/$type/tables-generated.sql" );
 
 		switch ( $type ) {
 			case 'mysql':
