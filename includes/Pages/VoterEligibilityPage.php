@@ -460,7 +460,7 @@ class VoterEligibilityPage extends ActionPage {
 			'type' => 'int',
 			'min' => 0,
 			'default' => $this->election->getProperty( 'min-edits', '' ),
-			'cssclass' => 'securepoll-narrow-number-input',
+			'cssclass' => 'securepoll-medium-number-input',
 		];
 
 		$date = $this->election->getProperty( 'max-registration', null );
@@ -511,6 +511,7 @@ class VoterEligibilityPage extends ActionPage {
 				''
 			],
 			'default' => $this->election->getProperty( 'central-block-threshold', '' ),
+			'cssclass' => 'securepoll-medium-number-input',
 		];
 
 		$formItems['not-bot'] = [
