@@ -73,6 +73,13 @@ class Entity {
 	}
 
 	/**
+	 * Set the id for a form-backed entity.
+	 */
+	public function setId( int $id ): void {
+		$this->id = $id;
+	}
+
+	/**
 	 * Get the parent election
 	 * @return Election|null
 	 */

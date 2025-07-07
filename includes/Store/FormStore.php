@@ -264,6 +264,59 @@ class FormStore extends MemoryStore {
 	}
 
 	/**
+	 * Replaces a virtual id (a placeholder negative number) in the data structures
+	 * with the real id (the actual id in the database) once the entity has been
+	 * inserted into the database.
+	 * @param int $virtual
+	 * @param int $real
+	 */
+	public function replaceVirtualId( $virtual, $real ): void {
+		if ( isset( $this->entityInfo[$virtual] ) ) {
+			$entity = $this->entityInfo[$virtual];
+
+			$this->entityInfo[$real] = $entity;
+			if ( isset( $this->properties[$virtual] ) ) {
+				$this->properties[$real] = $this->properties[$virtual];
+			}
+			if ( isset( $this->messages[$this->lang][$virtual] ) ) {
+				$this->messages[$this->lang][$real] = $this->messages[$this->lang][$virtual];
+			}
+
+			// If this is an election, replace reference in each of its questions and options.
+			if ( $entity['type'] === 'election' ) {
+				foreach ( $entity['questions'] as &$question ) {
+					$question['election'] = $real;
+					foreach ( $question['options'] as &$option ) {
+						$option['election'] = $real;
+					}
+				}
+			}
+			// If this is a question, replace reference in its parent election, and each option.
+			if ( $entity['type'] === 'question' ) {
+				$electionId = $entity['election'];
+				$this->replaceArrayValue( $this->entityInfo[$electionId]['questions'], $virtual, $real );
+				foreach ( $entity['options'] as &$option ) {
+					$option['question'] = $real;
+				}
+			}
+			// If this is an option, replace reference in its parent question.
+			if ( $entity['type'] === 'option' ) {
+				$questionId = $entity['question'];
+				$this->replaceArrayValue( $this->entityInfo[$questionId]['options'], $virtual, $real );
+			}
+		}
+	}
+
+	/**
+	 * @param array &$arr
+	 * @param mixed $oldValue Value to be replaced
+	 * @param mixed $newValue Value to inserted in place of $oldValue
+	 */
+	private function replaceArrayValue( array &$arr, $oldValue, $newValue ): void {
+		$arr = array_map( static fn ( $v ) => $v === $oldValue ? $newValue : $v, $arr );
+	}
+
+	/**
 	 * Extract the values for the class's properties and messages
 	 *
 	 * @param int $id

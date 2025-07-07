@@ -157,38 +157,17 @@ class SecurePollContentHandler extends JsonContentHandler {
 	 * Create a SecurePollContent for an election
 	 *
 	 * @param Election $election
-	 * @param int|null $electionId Should be passed if id is to be different that the one in the $election
-	 * object (such as when an election is being created). Otherwise, leave this as null.
 	 * @param string $subpage Subpage to get content for
 	 * @return array ( Title, SecurePollContent )
 	 */
 	public static function makeContentFromElection(
 		Election $election,
-		?int $electionId = null,
 		string $subpage = ''
 	): array {
-		$electionId ??= $election->getId();
-
 		$data = self::getDataFromElection( $election, $subpage, true );
-		if ( $data['id'] < 0 ) {
-			// If the id is -1, it means the election is being created, so the ids in form-backed election object
-			// are placeholders. Replace them with the actual ids, which are in increasing and consecutive order,
-			// starting with the election id. They will always be in this order as that's the order in which they are
-			// inserted, and as it's all in a transaction, there couldn't have been any unrelated inserts in between.
-			$newId = $electionId;
-			$data['id'] = $newId++;
-			foreach ( $data['questions'] as &$question ) {
-				$question['id'] = $newId++;
-				'@phan-var array $question';
-				foreach ( $question['options'] as &$option ) {
-					$option['id'] = $newId++;
-				}
-			}
-		}
-
 		$json = FormatJson::encode( $data, false, FormatJson::ALL_OK );
 
-		$title = self::getTitleForPage( $electionId . ( $subpage === '' ? '' : "/$subpage" ) );
+		$title = self::getTitleForPage( $election->getId() . ( $subpage === '' ? '' : "/$subpage" ) );
 
 		return [
 			$title,

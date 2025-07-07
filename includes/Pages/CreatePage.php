@@ -592,7 +592,7 @@ class CreatePage extends ActionPage {
 			$this->logAdminChanges( $originalFormData, $formData, $this->election->getId() );
 		}
 
-		$this->recordElectionToNamespace( $this->election, $this->election->getId(), $formData );
+		$this->recordElectionToNamespace( $this->election, $formData );
 
 		return Status::newGood( $this->election->getId() );
 	}
@@ -718,6 +718,8 @@ class CreatePage extends ActionPage {
 		];
 		if ( $election->getId() < 0 ) {
 			$eId = self::insertEntity( $dbw, 'election' );
+			$store->replaceVirtualId( $election->getId(), $eId );
+			$election->setId( $eId );
 			$qIds = [];
 			$oIds = [];
 			$fields['el_entity'] = $eId;
@@ -800,6 +802,8 @@ class CreatePage extends ActionPage {
 			$qId = $question->getId();
 			if ( !in_array( $qId, $qIds ) ) {
 				$qId = self::insertEntity( $dbw, 'question' );
+				$store->replaceVirtualId( $question->getId(), $qId );
+				$question->setId( $qId );
 			}
 			$dbw->newReplaceQueryBuilder()
 				->replaceInto( 'securepoll_questions' )
@@ -817,6 +821,8 @@ class CreatePage extends ActionPage {
 				$oId = $option->getId();
 				if ( !in_array( $oId, $oIds ) ) {
 					$oId = self::insertEntity( $dbw, 'option' );
+					$store->replaceVirtualId( $option->getId(), $oId );
+					$option->setId( $oId );
 				}
 				$dbw->newReplaceQueryBuilder()
 					->replaceInto( 'securepoll_options' )
@@ -894,7 +900,7 @@ class CreatePage extends ActionPage {
 			}
 		}
 
-		$this->recordElectionToNamespace( $election, $eId, $formData );
+		$this->recordElectionToNamespace( $election, $formData );
 
 		return Status::newGood( $eId );
 	}
@@ -902,12 +908,9 @@ class CreatePage extends ActionPage {
 	/**
 	 * Record this election to the SecurePoll namespace, if so configured.
 	 */
-	private function recordElectionToNamespace( Election $election, int $electionId, array $formData ) {
+	private function recordElectionToNamespace( Election $election, array $formData ) {
 		if ( Context::isNamespacedLoggingEnabled() ) {
-			[ $title, $content ] = SecurePollContentHandler::makeContentFromElection(
-				$election,
-				$electionId
-			);
+			[ $title, $content ] = SecurePollContentHandler::makeContentFromElection( $election );
 
 			$performer = $this->specialPage->getAuthority();
 			$this->pageUpdaterFactory->newPageUpdater( $title, $performer->getUser() )
@@ -916,7 +919,6 @@ class CreatePage extends ActionPage {
 
 			[ $title, $content ] = SecurePollContentHandler::makeContentFromElection(
 				$election,
-				$electionId,
 				'msg/' . $election->getLanguage()
 			);
 
