@@ -12,7 +12,7 @@
 	"securepoll-invalid-page": "A subpáxina \"<nowiki>$1</nowiki>\" non é válida",
 	"securepoll-need-admin": "Cómpre pertencer á administración das eleccións para realizar esta acción.",
 	"securepoll-too-few-params": "Non hai suficientes parámetros de subpáxina (ligazón non válida).",
-	"securepoll-invalid-election": "\"$1\" non é un identificador das eleccións válido.",
+	"securepoll-invalid-election": "\"$1\" non é un identificador de eleccións válido.",
 	"securepoll-finished-no-edit": "Estas eleccións xa remataron e non se poden editar.",
 	"securepoll-welcome": "<strong>{{GENDER:$1|Benvido|Benvida}}, $1!</strong>",
 	"securepoll-not-started": "Estas eleccións aínda non comezaron.\nEstán programadas para empezar o $2 ás $3.",
