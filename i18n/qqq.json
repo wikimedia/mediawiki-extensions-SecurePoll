@@ -405,5 +405,9 @@
 	"securepoll-vote-most-active-wiki-dropdown-option-text": "Text for option in most active wiki dropdown. Parameters:\n* $1: wiki\n* $2: domain\n* $3: edit count",
 	"group-electionadmin": "{{doc-group|electionadmin}}",
 	"group-electionadmin-member": "{{doc-group|electionadmin|member}}",
-	"grouppage-electionadmin": "{{doc-group|electionadmin|page}}"
+	"grouppage-electionadmin": "{{doc-group|electionadmin|page}}",
+	"securepoll-tallymodifiers-question-label": "Display the question on the tally page",
+	"securepoll-tally-stv-candidate-excluded": "Describes the modification being selected on the tally page",
+	"securepoll-stv-result-election-excluded-header": "Header for list of excluded candidates on STV tally result page",
+	"securepoll-stv-excluded-candidates-help-text": "Description of candidates that were manually excluded on the STV tally result page."
 }

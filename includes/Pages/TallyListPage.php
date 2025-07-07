@@ -258,6 +258,7 @@ class TallyListPage extends ActionPage {
 	 */
 	private function createForm(): HTMLForm {
 		$formFields = $this->getCryptDescriptors();
+		$formFields += $this->getTallyModifiersForm();
 
 		if ( $this->isTallyEnqueued() ) {
 			foreach ( $formFields as $fieldname => $field ) {
@@ -292,6 +293,65 @@ class TallyListPage extends ActionPage {
 		}
 
 		return $form;
+	}
+
+	/**
+	 * If the ballot type supports modifications to the tally calculation,
+	 * generate the form fields to allow the user to pass those adjustment requests
+	 * to the tallier.
+	 *
+	 * @return array
+	 */
+	private function getTallyModifiersForm(): array {
+		$tallyModifiers = $this->election->getBallot()->getTallyModifiers();
+
+		// Do nothing if no modifiers for this ballot type are found
+		if ( !count( $tallyModifiers ) ) {
+			return [];
+		}
+
+		// Set up a form that allows the submitter to declare modifcations based on what the
+		// tallier will allow. See Ballot::getTallyModifiers for more information.
+		$modifiers = [];
+		foreach ( $tallyModifiers as $modifierName => $modifier ) {
+			$modifierForm = [];
+			foreach ( $this->election->getQuestions() as $question ) {
+				$questionFields = [];
+				$questionKey = "{$modifierName}-entityId_{$question->getId()}";
+
+				// TODO: support different types on the question. No modifier requires this yet
+				// so for now default to an 'info' type that shows the question name.
+				$questionText = $this->msg(
+					'securepoll-tallymodifiers-question-label',
+					$question->getRawMessage( 'text', $this->election->getLanguage() )
+				)->parse();
+				$questionFields += [
+					$questionKey => [
+						'type' => 'info',
+						'raw' => true,
+						'default' => $questionText,
+						'section' => $modifierName,
+					]
+				];
+
+				$optionFields = [];
+				foreach ( $question->getOptions() as $option ) {
+					$optionKey = "{$modifierName}-entityId_{$option->getId()}";
+					$optionFields += [
+						$optionKey => [
+							'type' => $modifier['field'] ? $modifier['type'] : 'info',
+							'label' => $option->getRawMessage( 'text', $this->election->getLanguage() ),
+							'section' => $modifierName
+						]
+					];
+				}
+				$questionFields += $optionFields;
+				$modifierForm = array_merge( $modifierForm, $questionFields );
+			}
+			$modifiers = array_merge( $modifiers, $modifierForm );
+		}
+
+		return $modifiers;
 	}
 
 	/**
@@ -343,6 +403,21 @@ class TallyListPage extends ActionPage {
 			$election->getCrypt()->updateDbForTallyJob( $electionId, $dbw, $data );
 		}
 
+		// Data only contains informations about requested modifiers to the tally.
+		// Transform the data passed through as an array to be saved to the job:
+		// [ 'modifierName' => [ 'entityId' => 'value' ] ]
+		// As modifiers can only affect questions or options and both will have a unique entity id,
+		// we don't need to save any other information about the option to apply modifications later.
+		$transformedData = [];
+		foreach ( $data as $key => $datum ) {
+			// Key comes in the format $modifierName-entityId_$entityId, pull this data:
+			$identifiers = explode( '-entityId_', $key );
+			if ( !isset( $transformedData[$identifiers[0]] ) ) {
+				$transformedData[$identifiers[0]] = [];
+			}
+			$transformedData[$identifiers[0]][$identifiers[1]] = $datum;
+		}
+
 		// Record that the election is being tallied. The job will
 		// delete this on completion.
 		$dbw->newInsertQueryBuilder()
@@ -350,7 +425,7 @@ class TallyListPage extends ActionPage {
 			->row( [
 				'pr_entity' => $electionId,
 				'pr_key' => 'tally-job-enqueued',
-				'pr_value' => 1,
+				'pr_value' => serialize( $transformedData ),
 			] )
 			->ignore()
 			->caller( __METHOD__ )

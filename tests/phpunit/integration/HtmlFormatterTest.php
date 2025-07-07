@@ -84,7 +84,7 @@ class HtmlFormatterTest extends MediaWikiIntegrationTestCase {
 			101 => 'User2',
 			100 => 'User3'
 		];
-		$this->htmlFormatter = new HtmlFormatter( $resultsLog, $rankedVotes, 3, $candidates );
+		$this->htmlFormatter = new HtmlFormatter( $resultsLog, $rankedVotes, 3, $candidates, [] );
 		$this->elected = [
 			1 => '101',
 			2 => '102',
@@ -115,7 +115,7 @@ class HtmlFormatterTest extends MediaWikiIntegrationTestCase {
 	 * @covers \MediaWiki\Extension\SecurePoll\Talliers\STVFormatter\HtmlFormatter::formatPreamble
 	 */
 	public function testFormatPreamble() {
-		$actualPreamble = $this->htmlFormatter->formatPreamble( $this->elected, $this->eliminated );
+		$actualPreamble = $this->htmlFormatter->formatPreamble( $this->elected, $this->eliminated, [] );
 		$expectedPreamble =
 			"<div class='oo-ui-layout oo-ui-panelLayout'><h2>Elected</h2><p>Election for 3 seats with 3 candidates. "
 			. "Total 2 votes.</p><ol class='election-summary-elected-list'><li><i>This seat could not "
@@ -123,6 +123,21 @@ class HtmlFormatterTest extends MediaWikiIntegrationTestCase {
 			. "</i></li><li>User2</li><li>User1</li></ol><h2>Eliminated/Not elected</h2>"
 			. "<ul><li>User1</li><li>User3</li></ul></div>";
 		$this->assertEquals( $expectedPreamble, $actualPreamble->toString() );
+		$this->assertStringNotContainsString( 'manually excluded from the tally', $actualPreamble );
+	}
+
+	/**
+	 * @covers \MediaWiki\Extension\SecurePoll\Talliers\STVFormatter\HtmlFormatter::formatPreamble
+	 */
+	public function testFormatPreambleWithManuallyExcludedCandidate() {
+		$excludedCandidate = [
+			'excludedCandidates' => [
+				101 => true
+			]
+		];
+		$htmlFormatter = new HtmlFormatter( [ 'rounds' => [] ], [], 1, [ 101 => 'Foo' ], $excludedCandidate );
+		$result = $htmlFormatter->formatPreamble( [], [], $excludedCandidate )->toString();
+		$this->assertStringContainsString( 'manually excluded from the tally', $result );
 	}
 
 	/**

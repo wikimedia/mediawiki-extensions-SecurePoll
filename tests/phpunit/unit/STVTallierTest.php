@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\SecurePoll\Test\Unit;
 use DirectoryIterator;
 use Generator;
 use MediaWiki\Context\RequestContext;
+use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Entities\Option;
 use MediaWiki\Extension\SecurePoll\Entities\Question;
 use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
@@ -32,14 +33,28 @@ class STVTallierTest extends MediaWikiUnitTestCase {
 			$option->method( 'getMessage' )
 				->willReturn( $message );
 			return $option;
-		}, [ 100, 101, 102 ], [ 100, 101, 102 ] );
+		}, [ 100, 101, 102, 103, 104 ], [ 100, 101, 102, 103, 104 ] );
 		$question = $this->createMock( Question::class );
 		$question->method( 'getOptions' )->willReturn( $options );
+
+		// 100-102 used in normal results, 103 used to test exclusion
+		$election = $this->createMock( Election::class );
+		$election->method( 'getProperty' )->willReturn( serialize( [
+			'stv-candidate-excluded' => [
+				100 => false,
+				101 => false,
+				102 => false,
+				103 => true
+			]
+		] ) );
+
+		$electionTallier = $this->createMock( ElectionTallier::class );
+		$electionTallier->election = $election;
 
 		$this->tallier = Tallier::factory(
 			$this->createMock( RequestContext::class ),
 			'droop-quota',
-			$this->createMock( ElectionTallier::class ),
+			$electionTallier,
 			$question
 		);
 		$this->wrappedRevStore = TestingAccessWrapper::newFromObject( $this->tallier );
@@ -95,6 +110,29 @@ class STVTallierTest extends MediaWikiUnitTestCase {
 								1 => 100,
 								2 => 102,
 								3 => 101
+							]
+						]
+					]
+				]
+			],
+			'All candidates were manually eliminated' => [
+				[
+					[ 103 ]
+				],
+				[
+					'rankedVotes' => []
+				]
+				],
+			'Manually eliminated candidate changes winner' => [
+				[
+					[ 103, 104 ]
+				],
+				[
+					'rankedVotes' => [
+						'104' => [
+							'count' => 1,
+							'rank' => [
+								1 => 104
 							]
 						]
 					]

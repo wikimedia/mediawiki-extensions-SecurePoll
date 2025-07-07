@@ -379,5 +379,9 @@
 	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1 ($2, $3 {{PLURAL:$3|edit|edits}})",
 	"group-electionadmin": "Election administrators",
 	"group-electionadmin-member": "{{GENDER:$1|election administrator}}",
-	"grouppage-electionadmin": "{{ns:project}}:Election administrators"
+	"grouppage-electionadmin": "{{ns:project}}:Election administrators",
+	"securepoll-tallymodifiers-question-label": "Question: \"$1\"",
+	"securepoll-tally-stv-candidate-excluded": "Manually exclude candidates",
+	"securepoll-stv-result-election-excluded-header": "Excluded candidates",
+	"securepoll-stv-excluded-candidates-help-text": "The following candidate(s) were manually excluded from the tally."
 }

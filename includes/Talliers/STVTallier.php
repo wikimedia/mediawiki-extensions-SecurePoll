@@ -44,6 +44,14 @@ class STVTallier extends Tallier {
 	];
 
 	/**
+	 * An array noting that modifiers were applied to this caldulation.
+	 * STV supports:
+	 *   1. pre-eliminating candidates
+	 * @var array[]
+	 */
+	public $modifiers = [];
+
+	/**
 	 * The precision for all fixed-point arithmetic done while tallying. All
 	 * arithmetic done in this class must use bc math function paired with this
 	 * precision value (T361077).
@@ -57,10 +65,16 @@ class STVTallier extends Tallier {
 	private $seats;
 
 	/**
-	 * An array of all candidates in the election.
+	 * An array of eligible candidates in the election.
 	 * @var array<int, string>
 	 */
 	private $candidates = [];
+
+	/**
+	 * An array of all candidates in the election (including manually excluded).
+	 * @var array<int, string>
+	 */
+	private $allCandidates = [];
 
 	/**
 	 * @param Context $context
@@ -68,10 +82,35 @@ class STVTallier extends Tallier {
 	 * @param Question $question
 	 */
 	public function __construct( $context, $electionTallier, $question ) {
-		parent::__construct( $context, $electionTallier, $question );
-		foreach ( $question->getOptions() as $option ) {
-			$this->candidates[ $option->getId() ] = $option->getMessage( 'text' );
+		// Pull the modifier data, if any, from the job details saved when the job was queued.
+		// We know the data in 'tally-job-enqueued' belongs to this tally calculation because
+		// 1. tallies occur serially
+		// 2. tallies are controlled by a single pipeline (the jobs queue)
+		// This esures that if one is in progress, no other tally can be started for the election.
+		$modifiers = $electionTallier->election->getProperty( 'tally-job-enqueued', null );
+		if ( $modifiers ) {
+			$modifiers = unserialize( $modifiers );
 		}
+
+		$excludedCandidates = [];
+		if ( isset( $modifiers['stv-candidate-excluded'] ) ) {
+			foreach ( $modifiers['stv-candidate-excluded'] as $optionId => $candidateExcluded ) {
+				if ( $candidateExcluded ) {
+					array_push( $excludedCandidates, $optionId );
+				}
+			}
+		}
+		$this->modifiers[ 'excludedCandidates' ] = $excludedCandidates;
+
+		foreach ( $question->getOptions() as $option ) {
+			if ( !in_array( $option->getId(), $excludedCandidates ) ) {
+				$this->candidates[ $option->getId() ] = $option->getMessage( 'text' );
+			}
+			$this->allCandidates[ $option->getId() ] = $option->getMessage( 'text' );
+		}
+
+		parent::__construct( $context, $electionTallier, $question );
+
 		$this->seats = $question->getProperty( 'min-seats' );
 	}
 
@@ -79,6 +118,21 @@ class STVTallier extends Tallier {
 	 * @inheritDoc
 	 */
 	public function addVote( $scores ) {
+		// Remove votes for pre-eliminated candidates so that they can be
+		// redistributed to other preferred candidates when the tally begins.
+		$candidates = $this->candidates;
+		$scores = array_values(
+			array_filter( $scores, static function ( $optionId ) use ( $candidates ) {
+				return isset( $candidates[$optionId] );
+			} )
+		);
+
+		// In the unlikely case that a vote only contains eliminated options
+		// then it must be discarded.
+		if ( count( $scores ) === 0 ) {
+			return true;
+		}
+
 		$id = implode( '_', $scores );
 		$rank = [];
 		foreach ( $scores as $ranked => $optionId ) {
@@ -101,6 +155,7 @@ class STVTallier extends Tallier {
 	public function loadJSONResult( array $data ) {
 		$this->resultsLog = $data['resultsLog'];
 		$this->rankedVotes = $data['rankedVotes'];
+		$this->modifiers = $data['modifiers'] ?? [];
 	}
 
 	/** @inheritDoc */
@@ -108,6 +163,7 @@ class STVTallier extends Tallier {
 		return [
 			'resultsLog' => $this->resultsLog,
 			'rankedVotes' => $this->rankedVotes,
+			'modifiers' => $this->modifiers,
 		];
 	}
 
@@ -117,11 +173,13 @@ class STVTallier extends Tallier {
 			$this->resultsLog,
 			$this->rankedVotes,
 			$this->seats,
-			$this->candidates
+			$this->allCandidates,
+			$this->modifiers
 		);
 		$htmlPreamble = $htmlFormatter->formatPreamble(
 			$this->resultsLog['elected'],
-			$this->resultsLog['eliminated']
+			$this->resultsLog['eliminated'],
+			$this->modifiers
 		);
 		$htmlRounds = $htmlFormatter->formatRoundsPreamble();
 		$htmlRounds->appendContent( $htmlFormatter->formatRound() );
@@ -142,11 +200,13 @@ class STVTallier extends Tallier {
 			$this->resultsLog,
 			$this->rankedVotes,
 			$this->seats,
-			$this->candidates
+			$this->candidates,
+			$this->modifiers
 		);
 		$wikitext = $wikitextFormatter->formatPreamble(
 			$this->resultsLog['elected'],
-			$this->resultsLog['eliminated']
+			$this->resultsLog['eliminated'],
+			$this->modifiers
 		);
 		$wikitext .= $wikitextFormatter->formatRoundsPreamble();
 		$wikitext .= $wikitextFormatter->formatRound();

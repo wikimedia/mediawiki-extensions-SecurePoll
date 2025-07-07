@@ -61,6 +61,25 @@ abstract class Ballot {
 	}
 
 	/**
+	 * Get a list of names of tally modifiers, which may be used to modify the
+	 * way a tally result is produced. A modifer is an array that describes
+	 * a `type` of indicator (eg. check) that represents a modification to a
+	 * `field` (eg. question). This information is recorded to the tally being
+	 * calculated and talliers are responsible for deciding what the modification
+	 * means in the context of tallying.
+	 *
+	 * No modifiers are provided by default.
+	 *
+	 * See STVBallot for an example of how to declare a modification and STVTallier
+	 * for the applied modification.
+	 *
+	 * @return array
+	 */
+	public static function getTallyModifiers() {
+		return [];
+	}
+
+	/**
 	 * Return descriptors for any properties this type requires for poll
 	 * creation, for the election, questions, and options.
 	 *

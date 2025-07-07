@@ -45,13 +45,20 @@ class HtmlFormatter implements STVFormatter {
 	protected $candidates = [];
 
 	/**
+	 * An array of all modifiers applied to the calculation.
+	 * @var array[]
+	 */
+	protected $modifiers = [];
+
+	/**
 	 *
 	 * @param array $resultLogs
 	 * @param array $rankedVotes
 	 * @param int $seats
 	 * @param array $candidates
+	 * @param array $modifiers
 	 */
-	public function __construct( $resultLogs, $rankedVotes, $seats, $candidates ) {
+	public function __construct( $resultLogs, $rankedVotes, $seats, $candidates, $modifiers ) {
 		$context = RequestContext::getMain();
 		OutputPage::setupOOUI(
 				strtolower( $context->getSkin()->getSkinName() ),
@@ -62,10 +69,11 @@ class HtmlFormatter implements STVFormatter {
 		$this->seats = $seats;
 		$this->rankedVotes = $rankedVotes;
 		$this->candidates = $candidates;
+		$this->modifiers = $modifiers;
 	}
 
 	/** @inheritDoc */
-	public function formatPreamble( array $elected, array $eliminated ) {
+	public function formatPreamble( array $elected, array $eliminated, array $modifiers ) {
 		// Generate overview of elected candidates
 		$electionSummary = new PanelLayout( [
 			'expanded' => false,
@@ -119,6 +127,45 @@ class HtmlFormatter implements STVFormatter {
 			}
 		}
 		$electionSummary->appendContent( $electedList );
+
+		// The modifier data of pre-eliminated candidates is an array of selected options
+		// across all questions so check if any of those options belong to the current
+		// question and output any hits to a list.
+		$excluded = [];
+		if ( isset( $this->modifiers['excludedCandidates'] ) ) {
+			$excluded = $this->modifiers['excludedCandidates'];
+		}
+
+		if ( count( $excluded ) ) {
+			$hasExcludedCandidates = false;
+			$excludedList = ( new Tag( 'ul' ) )->addClasses( [ 'election-summary-excluded-list' ] );
+			foreach ( array_keys( $this->candidates ) as $candidateId ) {
+				if ( in_array( $candidateId, $excluded ) ) {
+					$hasExcludedCandidates = true;
+					$excludedList->appendContent(
+						( new Tag( 'li' ) )->appendContent(
+							$this->getCandidateName( $candidateId )
+						)
+					);
+				}
+			}
+
+			if ( $hasExcludedCandidates ) {
+				$electionSummary->appendContent(
+					( new Tag( 'h2' ) )->appendContent(
+						wfMessage( 'securepoll-stv-result-election-excluded-header' )->text()
+					)
+				);
+
+				// Help text
+				$electionSummary->appendContent(
+					( new Tag( 'p' ) )->appendContent(
+						new HtmlSnippet( wfMessage( 'securepoll-stv-excluded-candidates-help-text' )->parse() )
+					)
+				);
+				$electionSummary->appendContent( $excludedList );
+			}
+		}
 
 		// Generate overview of eliminated candidates
 		$electionSummary->appendContent(
