@@ -5,6 +5,9 @@ namespace MediaWiki\Extension\SecurePoll\Test\Integration;
 use MediaWiki\Extension\SecurePoll\Talliers\STVFormatter\WikitextFormatter;
 use MediaWikiIntegrationTestCase;
 
+/**
+ * @group Database
+ */
 class WikitextFormatterTest extends MediaWikiIntegrationTestCase {
 	private WikitextFormatter $wikitextFormatter;
 	private array $elected;
