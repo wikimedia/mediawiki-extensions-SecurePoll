@@ -51,12 +51,6 @@ class STVTallier extends Tallier {
 	public const PRECISION = 10;
 
 	/**
-	 * The constant for testing if round iteration should finish
-	 * ref: B.2.e in https://prfound.org/resources/reference/reference-meek-rule/
-	 */
-	private const OMEGA = '0.000001';
-
-	/**
 	 * Number of seats to be filled.
 	 * @var int
 	 */
@@ -185,33 +179,9 @@ class STVTallier extends Tallier {
 
 	/**
 	 * @param array $prevRound
-	 *
-	 * Reference: (https://web.archive.org/web/20210225045400/
-	 * https://prfound.org/resources/reference/reference-meek-rule/)
 	 */
 	private function calculateRound( $prevRound ) {
-		$remainingHopefuls = array_diff(
-			array_keys( $this->candidates ),
-			array_merge( $this->resultsLog['elected'], $this->resultsLog['eliminated'] )
-		);
 		if ( count( $this->resultsLog['elected'] ) >= $this->seats ) {
-			// Eliminate remaining hopeful candidates if any
-			if ( $remainingHopefuls ) {
-				$this->resultsLog['eliminated'] = array_merge(
-					$this->resultsLog['eliminated'],
-					$remainingHopefuls
-				);
-			}
-			return;
-		} elseif (
-			count( $this->resultsLog['elected'] ) + count( $remainingHopefuls ) <= $this->seats ) {
-			// Elect remaining hopeful candidates if enough seats
-			if ( $remainingHopefuls ) {
-				$this->resultsLog['elected'] = array_merge(
-					$this->resultsLog['elected'],
-					$remainingHopefuls
-				);
-			}
 			return;
 		}
 
@@ -241,58 +211,23 @@ class STVTallier extends Tallier {
 
 		// Check for unique winners
 		$allWinners = $this->declareWinners( $round['rankings'], $round['quota'] );
-		$roundWinners = array_diff( $allWinners, $this->resultsLog['elected'] );
+		$roundWinners = $round['elected'] = array_diff( $allWinners, $this->resultsLog['elected'] );
 
 		// If no winners, check for eliminated (no distribution happens here)
 		$round['surplus'] = $this->calculateSurplus( $round['rankings'], $allWinners, $round['quota'] );
-		// Step B.2.e in (https://web.archive.org/web/20210225045400/
-		// https://prfound.org/resources/reference/reference-meek-rule/)
-		$shouldEliminate = (
-			count( $roundWinners ) === 0 &&
-			(
-				bccomp( $round['surplus'], $prevRound['surplus'], self::PRECISION ) >= 0 ||
-				bccomp( $round['surplus'], self::OMEGA, self::PRECISION ) < 0
-			)
+		$allEliminated = $this->declareEliminated(
+			$round['rankings'],
+			$round['surplus'],
+			$this->resultsLog['eliminated'],
+			$this->resultsLog['elected'],
+			$prevRound['surplus']
 		);
-		if ( $shouldEliminate ) {
-			$allEliminated = $this->declareEliminated(
-				$round['rankings'],
-				$round['surplus'],
-				$this->resultsLog['eliminated'],
-				$this->resultsLog['elected'],
-				$prevRound['surplus']
-			);
-			$roundEliminated = $round['eliminated'] = array_diff(
-				$allEliminated, $this->resultsLog['eliminated'] );
-		} else {
-			$roundEliminated = $round['eliminated'] = [];
-		}
-
-		// Enforce seat limit: only the top N winners can be elected.
-		$remainingSeats = $this->seats - count( $this->resultsLog['elected'] );
-		if ( count( $roundWinners ) > $remainingSeats ) {
-			// Sort winners by total votes descending to ensure consistent remaining seat assignment
-			usort( $roundWinners, static function ( $a, $b ) use ( $round ) {
-				return bccomp(
-					$round['rankings'][$b]['total'],
-					$round['rankings'][$a]['total'],
-					self::PRECISION
-				);
-			} );
-
-			$actualElected = array_slice( $roundWinners, 0, $remainingSeats );
-			$notElected = array_slice( $roundWinners, $remainingSeats );
-			$round['elected'] = $actualElected;
-			$round['eliminated'] = array_merge( $round['eliminated'], $notElected );
-			$this->resultsLog['elected'] = array_merge( $this->resultsLog['elected'], $actualElected );
-			$this->resultsLog['eliminated'] = array_merge( $this->resultsLog['eliminated'], $notElected );
-		} else {
-			$round['elected'] = $roundWinners;
-			$this->resultsLog['elected'] = array_merge( $this->resultsLog['elected'], $roundWinners );
-			$this->resultsLog['eliminated'] = array_merge( $this->resultsLog['eliminated'], $roundEliminated );
-		}
+		$roundEliminated = $round['eliminated'] = !$roundWinners ?
+			array_diff( $allEliminated, $this->resultsLog['eliminated'] ) : [];
 
 		$this->resultsLog['rounds'][] = $round;
+		$this->resultsLog['elected'] = array_merge( $this->resultsLog['elected'], $roundWinners );
+		$this->resultsLog['eliminated'] = array_merge( $this->resultsLog['eliminated'], $roundEliminated );
 
 		// Recurse?
 		$hopefuls = array_diff(
@@ -392,10 +327,10 @@ class STVTallier extends Tallier {
 	 * @return string
 	 */
 	private function calculateDroopQuota( $votes, $seats ): string {
-		// droopQuota = (votes / (seats + 1)) + 0.000000001
+		// droopQuota = (votes / (seats + 1)) + 0.000001
 		return bcadd(
 			bcdiv( $votes, bcadd( $seats, '1.0', self::PRECISION ), self::PRECISION ),
-			'0.000000001',
+			'0.000001',
 			self::PRECISION
 		);
 	}
@@ -492,8 +427,8 @@ class STVTallier extends Tallier {
 		);
 
 		// Remove anyone who was already eliminated or elected
-		$ranking = array_filter( $ranking, static function ( $key ) use ( $eliminated, $elected ) {
-			return !in_array( $key, $eliminated ) && !in_array( $key, $elected );
+		$ranking = array_filter( $ranking, static function ( $key ) use ( $eliminated ) {
+			return !in_array( $key, $eliminated );
 		}, ARRAY_FILTER_USE_KEY );
 
 		// Manually implement array_unique with higher precision than the default function
@@ -529,18 +464,12 @@ class STVTallier extends Tallier {
 
 		// Check if we can eliminate the lowest candidate
 		// using Hill's surplus-based short circuit elimination
-		$lastPlace = [];
-		foreach ( $ranking as $candidateId => $ranked ) {
-			if (
-				bccomp(
-					$this->bcabs( bcsub( $ranked['total'], $lowest, self::PRECISION ) ),
-					'0.0',
-					self::PRECISION
-				) <= 0
-			) {
-				$lastPlace[] = $candidateId;
-			}
-		}
+		$bcabs = [ $this, 'bcabs' ];
+		$lastPlace = array_keys( array_filter( $ranking, static function ( $ranked ) use ( $bcabs, $lowest, $elected ) {
+			// abs(rankedTotal - lowest) <= 0
+			return bccomp( $bcabs( bcsub( $ranked['total'], $lowest, self::PRECISION ) ), '0.0', self::PRECISION ) <= 0
+				&& !in_array( key( $ranked ), $elected );
+		} ) );
 
 		if (
 			// (lowest * lastPlaceCount) + surplus < secondLowest

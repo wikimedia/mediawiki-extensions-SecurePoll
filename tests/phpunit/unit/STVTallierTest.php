@@ -123,16 +123,14 @@ class STVTallierTest extends MediaWikiUnitTestCase {
 	 */
 	public function testCalculateDroopQuota() {
 		$actual = TestingAccessWrapper::newFromObject( $this->tallier )->calculateDroopQuota( 57, 2 );
-		$this->assertSame( '19.0000000010', $actual );
+		$this->assertSame( '19.0000010000', $actual );
 	}
 
 	public static function provideFinishTallyResults(): Generator {
 		$fixtures = new DirectoryIterator( __DIR__ . '/fixtures' );
 		foreach ( $fixtures as $fixture ) {
 			if ( $fixture->isFile() && $fixture->isReadable() && $fixture->getExtension() === 'json' ) {
-				$name = $fixture->getBasename();
-				$decoded = json_decode( file_get_contents( $fixture->getPathname() ), true );
-				yield $name => [ $decoded[ 0 ], $decoded[ 1 ], $name ];
+				yield json_decode( file_get_contents( $fixture->getPathname() ), true );
 			}
 		}
 	}
@@ -140,7 +138,7 @@ class STVTallierTest extends MediaWikiUnitTestCase {
 	/**
 	 * @dataProvider provideFinishTallyResults
 	 */
-	public function testFinishTally( array $electionResults, array $expected, string $fixtureName = '' ) {
+	public function testFinishTally( array $electionResults, array $expected ) {
 		$this->wrappedRevStore->__set( 'seats', $electionResults['seats'] );
 		$this->wrappedRevStore->__set( 'candidates', $electionResults['candidates'] );
 		$this->tallier->rankedVotes = $electionResults['rankedVotes'];
@@ -148,30 +146,6 @@ class STVTallierTest extends MediaWikiUnitTestCase {
 		$this->assertSame( $expected['elected'], $this->tallier->resultsLog['elected'] );
 		$this->assertSame( $expected['eliminated'], $this->tallier->resultsLog['eliminated'] );
 		$this->assertSameSize( $expected['rounds'], $this->tallier->resultsLog['rounds'] );
-		$this->assertEqualWithPrecisionTolerance(
-			$expected['rounds'],
-			$this->tallier->resultsLog['rounds'],
-			1e-9
-		);
-	}
-
-	private function assertEqualWithPrecisionTolerance( $expected, $actual, $delta = 1e-9, $path = '' ) {
-		foreach ( $expected as $key => $expectedValue ) {
-			$this->assertArrayHasKey( $key, $actual, "Missing key '$key' at path '$path'" );
-			$actualValue = $actual[$key];
-
-			if ( is_array( $expectedValue ) && is_array( $actualValue ) ) {
-				$this->assertEqualWithPrecisionTolerance( $expectedValue, $actualValue, $delta, "$path/$key" );
-			} elseif ( is_numeric( $expectedValue ) || is_numeric( $actualValue ) ) {
-				$this->assertEqualsWithDelta(
-					(float)$expectedValue,
-					(float)$actualValue,
-					$delta,
-					"Mismatch at path '$path/$key'"
-				);
-			} else {
-				$this->assertSame( $expectedValue, $actualValue, "Mismatch at path '$path/$key'" );
-			}
-		}
+		$this->assertEquals( $expected['rounds'], $this->tallier->resultsLog['rounds'] );
 	}
 }
