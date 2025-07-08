@@ -162,7 +162,7 @@ class CreatePageTest extends SpecialPageTestBase {
 			$this->assertStatusGood( $parsedContentStatus );
 
 			$this->assertSame(
-				(int)$election->getId(),
+				$election->getId(),
 				$parsedContent->id,
 				'Election ID in log page should match stored election ID'
 			);
@@ -172,13 +172,13 @@ class CreatePageTest extends SpecialPageTestBase {
 
 			foreach ( $election->getQuestions() as $i => $question ) {
 				$this->assertSame(
-					(int)$question->getId(),
+					$question->getId(),
 					$parsedContent->questions[$i]->id,
 					'Question IDs in log page should match stored question ID'
 				);
 				foreach ( $question->getOptions() as $j => $option ) {
 					$this->assertSame(
-						(int)$option->getId(),
+						$option->getId(),
 						$parsedContent->questions[$i]->options[$j]->id,
 						'Option IDs in log page should match stored option ID'
 					);

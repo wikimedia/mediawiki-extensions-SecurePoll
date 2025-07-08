@@ -26,7 +26,8 @@ class SecurePollContentHandler extends JsonContentHandler {
 	}
 
 	/**
-	 * Load data from an election as a PHP array structure
+	 * Load data from an election as a PHP array structure. This data is safe for
+	 * public posting (it redacts things like encryption keys).
 	 *
 	 * @param Election $election
 	 * @param string $subpage Subpage to get content for
@@ -154,7 +155,11 @@ class SecurePollContentHandler extends JsonContentHandler {
 	}
 
 	/**
-	 * Create a SecurePollContent for an election
+	 * Figure out the title and JSON string content of a SecurePoll log page.
+	 *
+	 * Exactly which title is calculated depends on if $wgSecurePollUseNamespace or
+	 * wgSecurePollUseMediaWikiNamespace is set. Various transformations are made
+	 * to the JSON to try to introduce consistency and prevent dirty diffs.
 	 *
 	 * @param Election $election
 	 * @param string $subpage Subpage to get content for
@@ -165,6 +170,12 @@ class SecurePollContentHandler extends JsonContentHandler {
 		string $subpage = ''
 	): array {
 		$data = self::getDataFromElection( $election, $subpage, true );
+
+		// do some things to prevent dirty diffs
+		$data = self::alphabetizeKeys( $data );
+		$data = self::convertNonStringsToStrings( $data );
+		$data = self::deleteKeysContainingEmptyArrays( $data );
+
 		$json = FormatJson::encode( $data, false, FormatJson::ALL_OK );
 
 		$title = self::getTitleForPage( $election->getId() . ( $subpage === '' ? '' : "/$subpage" ) );
@@ -173,6 +184,52 @@ class SecurePollContentHandler extends JsonContentHandler {
 			$title,
 			ContentHandler::makeContent( $json, $title, 'SecurePoll' )
 		];
+	}
+
+	/**
+	 * Given an array, delete keys containing empty arrays. If a value is a non-empty array,
+	 * recursively delete keys containing empty arrays in that array too.
+	 */
+	public static function deleteKeysContainingEmptyArrays( array $data ): array {
+		foreach ( $data as $key => $value ) {
+			if ( $value === [] ) {
+				unset( $data[$key] );
+			} elseif ( is_array( $value ) ) {
+				$data[$key] = self::deleteKeysContainingEmptyArrays( $value );
+			}
+		}
+		return $data;
+	}
+
+	/**
+	 * Given an array, sort the keys alphabetically. If a value is an array, recursively sort its
+	 * keys too.
+	 */
+	public static function alphabetizeKeys( array $data ): array {
+		ksort( $data );
+		foreach ( $data as &$value ) {
+			if ( is_array( $value ) ) {
+				$value = self::alphabetizeKeys( $value );
+			}
+		}
+		return $data;
+	}
+
+	/**
+	 * Given an array, convert non-string values to strings. If a boolean is encountered, convert
+	 * it to '1' or '0'. If a value is an array, recursively do this to its keys too.
+	 */
+	public static function convertNonStringsToStrings( array $data ): array {
+		foreach ( $data as &$value ) {
+			if ( is_array( $value ) ) {
+				$value = self::convertNonStringsToStrings( $value );
+			} elseif ( is_bool( $value ) ) {
+				$value = $value ? '1' : '0';
+			} elseif ( !is_string( $value ) ) {
+				$value = strval( $value );
+			}
+		}
+		return $data;
 	}
 
 	public static function getTitleForPage( string $pageName ): Title {
