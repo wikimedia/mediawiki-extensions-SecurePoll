@@ -697,13 +697,12 @@ class Election extends Entity {
 	 */
 	public function isTallied( $dbr ) {
 		$result = $dbr->newSelectQueryBuilder()
-			->select( 'en.en_id' )
-			->from( 'securepoll_elections', 'el' )
-			->join( 'securepoll_properties', 'pr', [
-				'pr.pr_entity = el.en_id',
-				'pr.pr_key' => 'tally-result'
+			->select( 'pr_entity' )
+			->from( 'securepoll_properties' )
+			->where( [
+				'pr_key' => 'tally-result',
+				'pr_entity' => $this->getId(),
 			] )
-			->where( [ 'en.en_id' => $this->getId() ] )
 			->caller( __METHOD__ )
 			->fetchField();
 		if ( !$result ) {
