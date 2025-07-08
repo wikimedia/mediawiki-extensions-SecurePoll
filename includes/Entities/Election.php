@@ -697,7 +697,7 @@ class Election extends Entity {
 	 */
 	public function isTallied( $dbr ) {
 		$result = $dbr->newSelectQueryBuilder()
-			->select( 'pr_entity' )
+			->select( 'pr_value' )
 			->from( 'securepoll_properties' )
 			->where( [
 				'pr_key' => 'tally-result',

@@ -9,6 +9,7 @@ use MediaWiki\User\User;
 use MediaWiki\Utils\MWTimestamp;
 use MediaWikiIntegrationTestCase;
 use Wikimedia\IPUtils;
+use Wikimedia\Timestamp\ConvertibleTimestamp;
 
 /**
  * @group Database
@@ -479,5 +480,66 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 
 		$this->assertTrue( $election->hasVoted( $voter1 ) );
 		$this->assertFalse( $election->hasVoted( $voter2 ) );
+	}
+
+	public function testIsTalliedForNoTally() {
+		$election = $this->createElection();
+
+		$this->assertFalse( $election->isTallied( $this->getDb() ) );
+		$this->assertFalse( $election->getTallyFromDb( $this->getDb(), 1 ) );
+		$this->assertArrayEquals( [], $election->getTalliesFromDb( $this->getDb() ) );
+	}
+
+	public function testIsTalliedForOneTally() {
+		ConvertibleTimestamp::setFakeTime( '20240506070809' );
+
+		$election = $this->createElection();
+		$election->saveTallyResult( $this->getDb(), [ 'fake' => 'result' ] );
+
+		$this->assertArrayEquals(
+			[ [ 'tallyId' => 1, 'resultTime' => '20240506070809', 'result' => [ 'fake' => 'result' ] ] ],
+			$election->getTalliesFromDb( $this->getDb() ),
+			false,
+			true
+		);
+		$this->assertTrue( $election->isTallied( $this->getDb() ) );
+	}
+
+	public function testIsTalliedAfterMultipleInsertionsAndDeletions() {
+		$election = $this->createElection();
+
+		ConvertibleTimestamp::setFakeTime( '20240506070809' );
+		$election->saveTallyResult( $this->getDb(), [ 'fake' => 'result 1' ] );
+		ConvertibleTimestamp::setFakeTime( '20240506070810' );
+		$election->saveTallyResult( $this->getDb(), [ 'fake' => 'result 2' ] );
+		ConvertibleTimestamp::setFakeTime( '20240506070811' );
+		$election->saveTallyResult( $this->getDb(), [ 'fake' => 'result 3' ] );
+		$election->deleteTallyResult( $this->getDb(), 2 );
+
+		$this->assertArrayEquals(
+			[
+				[ 'tallyId' => 1, 'resultTime' => '20240506070809', 'result' => [ 'fake' => 'result 1' ] ],
+				[ 'tallyId' => 3, 'resultTime' => '20240506070811', 'result' => [ 'fake' => 'result 3' ] ],
+			],
+			$election->getTalliesFromDb( $this->getDb() ),
+			false,
+			true
+		);
+		$this->assertTrue( $election->isTallied( $this->getDb() ) );
+		$this->assertFalse( $election->getTallyFromDb( $this->getDb(), 123 ) );
+		$this->assertSame(
+			[ 'tallyId' => 1, 'resultTime' => '20240506070809', 'result' => [ 'fake' => 'result 1' ] ],
+			$election->getTallyFromDb( $this->getDb(), 1 )
+		);
+	}
+
+	public function testIsTalliedAfterAllTalliesDeleted() {
+		$election = $this->createElection();
+
+		$election->saveTallyResult( $this->getDb(), [ 'fake' => 'result 1' ] );
+		$election->deleteTallyResult( $this->getDb(), 1 );
+
+		$this->assertSame( [], $election->getTalliesFromDb( $this->getDb() ) );
+		$this->assertFalse( $election->isTallied( $this->getDb() ) );
 	}
 }
