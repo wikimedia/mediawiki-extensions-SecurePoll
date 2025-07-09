@@ -63,7 +63,7 @@ class MigrateTalliesTest extends MaintenanceBaseTestCase {
 			->select( [ 'pr_entity', 'pr_value' ] )
 			->from( 'securepoll_properties' )
 			->where( [
-				$this->db->expr( 'pr_entity', '=', $electionId ),
+				$this->getDb()->expr( 'pr_entity', '=', $electionId ),
 				'pr_key' => 'tally-result',
 			] )
 			->caller( __METHOD__ );
