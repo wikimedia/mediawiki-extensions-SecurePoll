@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\SecurePoll\Talliers;
 
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
 use MediaWiki\Xml\Xml;
 
@@ -94,6 +95,7 @@ class HistogramRangeTallier extends Tallier {
 	 * @throws InvalidDataException
 	 */
 	public function getHtmlResult() {
+		/** @var Ballot */
 		$ballot = $this->election->getBallot();
 		if ( !method_exists( $ballot, 'getColumnLabels' ) ) {
 			throw new InvalidDataException( __METHOD__ . ': ballot type not supported by this tallier' );
@@ -103,6 +105,11 @@ class HistogramRangeTallier extends Tallier {
 			$optionLabels[$option->getId()] = $option->parseMessageInline( 'text' );
 		}
 
+		$ballot->initRequest(
+			RequestContext::getMain()->getRequest(),
+			RequestContext::getMain()->getOutput(),
+			RequestContext::getMain()->getLanguage()
+		);
 		// @phan-suppress-next-line PhanUndeclaredMethod Checked by is_callable
 		$labels = $ballot->getColumnLabels( $this->question );
 		$s = "<table class=\"securepoll-table\">\n" . "<tr>\n" . "<th>&#160;</th>\n";

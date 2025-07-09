@@ -159,6 +159,10 @@ abstract class Ballot {
 	 * @return Language
 	 */
 	protected function getUserLang(): Language {
+		if ( !$this->userLang ) {
+			throw new LogicException(
+				'Ballot::initRequest() must be called before Ballot::getUserLang()' );
+		}
 		return $this->userLang;
 	}
 
