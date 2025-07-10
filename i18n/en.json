@@ -36,7 +36,6 @@
 	"securepoll-invalid-record": "Invalid voting record.",
 	"securepoll-jump": "Go to the voting server",
 	"securepoll-ballot-type-archived": "This ballot type has been archived and can no longer be used for voting.",
-	"securepoll-bad-ballot-submission": "Your vote was invalid: $1",
 	"securepoll-ballot-show-warnings": "Show only warnings",
 	"securepoll-ballot-show-all": "Show all",
 	"securepoll-unanswered-questions": "You must answer all questions.",
