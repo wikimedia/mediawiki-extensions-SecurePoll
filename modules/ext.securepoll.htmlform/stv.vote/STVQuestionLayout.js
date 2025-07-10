@@ -76,8 +76,10 @@ function STVQuestionLayout( config ) {
 			.text( mw.msg( 'securepoll-stv-ranked-candidates' ) )
 	);
 
-	this.unrankedGroup = this.createDraggableGroup( data );
-	this.rankedGroup = this.createDraggableGroup( data );
+	this.unrankedGroup = this.createDraggableGroup( Object.assign( {},
+		data, { showPosition: false } ) );
+	this.rankedGroup = this.createDraggableGroup( Object.assign( {},
+		data, { showPosition: true } ) );
 
 	// We have to add in the items after initialization so that each item can
 	// keep a reference to the group they are currently in, which is important
@@ -122,11 +124,18 @@ OO.inheritClass( STVQuestionLayout, OO.ui.Layout );
 /**
  * Create and configure a DraggableGroupWidget with event handlers.
  *
- * @param {Object} data Configuration data containing candidates and questionId
+ * @param {Object} data Configuration data
+ * @param {Object} data.candidates Candidate names and entity ID numbers. Example:
+ *     { Candidate A: "81", Candidate B: "82" }
+ * @param {number} data.maxSeats The maximum number of candidates that can be ranked
+ * @param {number} data.questionId The entity ID of the question
+ * @param {Array} data.selectedItems
+ * @param {boolean} data.showPosition Whether to show position labels (circles with 1,
+ *     2, 3, etc.) for candidate tiles located in this widget
  * @return {DraggableGroupWidget} The configured draggable group widget
  */
 STVQuestionLayout.prototype.createDraggableGroup = function ( data ) {
-	const group = new DraggableGroupWidget( { items: [] } );
+	const group = new DraggableGroupWidget( { items: [], showPosition: data.showPosition } );
 
 	group.$element.addClass( 'stv-ranking-draggable-group' );
 
@@ -229,6 +238,14 @@ STVQuestionLayout.prototype.transferCandidate = function ( targetItem, targetGro
 	targetItem.parentGroup = targetGroup;
 	targetGroup.addItems( [ targetItem ], targetGroup.getItems().length );
 	targetGroup.emit( 'reorder' );
+
+	// Show or hide the position label based on which DraggableGroupWidget it
+	// gets dragged into ("Not ranked" = hide, "Ranked" = show).
+	if ( targetGroup.showPosition ) {
+		targetItem.position.$element.show();
+	} else {
+		targetItem.position.$element.hide();
+	}
 };
 
 /**

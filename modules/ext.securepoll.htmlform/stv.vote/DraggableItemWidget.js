@@ -49,6 +49,10 @@ function DraggableItemWidget( config ) {
 		classes: [ 'item-position-index-label' ]
 	} );
 
+	// Hide the circles with the numbers in them for now. We don't want these
+	// showing in the "Not ranked" panel.
+	this.position.$element.hide();
+
 	DraggableItemWidget.super.call( this, config );
 	OO.ui.mixin.DraggableElement.call( this, $.extend( { $handle: this.$element } ), config );
 	OO.EventEmitter.call( this );

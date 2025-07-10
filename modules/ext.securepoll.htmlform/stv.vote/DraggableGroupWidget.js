@@ -2,12 +2,16 @@
  * Draggable group widget containing DraggableItemWidgets.
  *
  * @param {Object} [config] Configuration options
+ * @param {boolean} [config.showPosition] Whether to show the candidate's
+ *                                        numerical position
  */
 function DraggableGroupWidget( config ) {
 	this.$element = $( '<div>' );
 	config = config || {};
 
 	this.items = [];
+
+	this.showPosition = config.showPosition;
 
 	DraggableGroupWidget.parent.call( this, config );
 
