@@ -125,6 +125,8 @@
 	"securepoll-subpage-dump": "Дамп",
 	"securepoll-subpage-log": "Журнал",
 	"securepoll-subpage-archive": "Архивйан",
+	"securepoll-subpage-view": "Хьажа",
+	"securepoll-subpage-delete": "ДӀайаккха",
 	"securepoll-archive-title": "Архив $1",
 	"securepoll-archive-private": "Бехк ма билла, харжамийн администраторийн бен йиш йац харжамаш архивехь латто/дӀабаха.",
 	"securepoll-archive-not-finished": "Бехк ма билла, чекхбевлла харжамаш бен архивехь латто йиш йац хьан.",
