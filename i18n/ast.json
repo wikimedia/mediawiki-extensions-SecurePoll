@@ -26,7 +26,6 @@
 	"securepoll-encrypt-error": "Falló cifrar el to rexistru de votu.\n¡El to votu nun se rexistró!\n\n$1",
 	"securepoll-no-decryption-key": "Nun ta configurada denguna clave de descifráu.\nNun se pue descifrar.",
 	"securepoll-jump": "Dir al sirvidor de votaciones",
-	"securepoll-bad-ballot-submission": "El to votu foi inválidu: $1",
 	"securepoll-unanswered-questions": "Has de responder toles entrugues.",
 	"securepoll-invalid-rank": "Rangu inválidu. Has de dar a los candidatos un rangu ente 1 y 999.",
 	"securepoll-unranked-options": "Delles opciones nun se puntuaron.\nHas de dar a toles opciones un rangu ente 1 y 999.",

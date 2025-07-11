@@ -28,7 +28,6 @@
 	"securepoll-encrypt-error": "आपले मत रेकॉर्ड एनक्रीप्ट करण्यात अयश्स्वी.\nतुमचे मत रेकॉर्ड केले गेले नाही\n\n$1",
 	"securepoll-no-decryption-key": "कोणतीही  कूटमुक्तिकरण कुँजी विन्यासित नाहीं .(No decryption key is configured)\nकूटमुक्त  करू शकत नाही",
 	"securepoll-jump": "मतदान सर्वरला जा",
-	"securepoll-bad-ballot-submission": "आपले मत अयोग्य होते : $1",
 	"securepoll-unanswered-questions": "आपणास सर्व प्रश्नांची उत्तरे द्यायची आहेत.",
 	"securepoll-invalid-rank": "चुकीचा क्रमांक. उमेदवारांना १ ते ९९९ मधील क्रमांक देणे अपेक्षीत आहे.",
 	"securepoll-unranked-options": "काही विकल्प गुणानुक्रमित नाहीत.\nआपण सर्व विकल्पांना १ ते ९९९ मधील गुणानुक्रम द्यावयास हवा.",

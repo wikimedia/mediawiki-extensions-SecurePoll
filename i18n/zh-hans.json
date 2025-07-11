@@ -65,7 +65,6 @@
 	"securepoll-invalid-record": "投票记录无效。",
 	"securepoll-jump": "前往投票服务器",
 	"securepoll-ballot-type-archived": "此选票类型已存档，无法再用于投票。",
-	"securepoll-bad-ballot-submission": "您的投票无效：$1",
 	"securepoll-ballot-show-warnings": "仅显示警告",
 	"securepoll-ballot-show-all": "显示全部",
 	"securepoll-unanswered-questions": "您必须回答所有问题。",

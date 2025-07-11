@@ -23,7 +23,6 @@
 	"securepoll-encrypt-error": "No s'ha puesto zifrar o suyo rechistro de voto.\nO tuyo voto no s'ha rechistrau!\n\n$1",
 	"securepoll-no-decryption-key": "No s'ha especificau garra clau de deszifrau.\nNo se puede deszifrar.",
 	"securepoll-jump": "Ir ta o servidor de votación",
-	"securepoll-bad-ballot-submission": "O suyo voto yera invalido: $1",
 	"securepoll-unanswered-questions": "Ha de responder todas as preguntas.",
 	"securepoll-invalid-rank": "Rango invalido. Ha de clasificar a os candidatos con un rango entre 1 y 999.",
 	"securepoll-unranked-options": "No ha clasificau qualques opcions.\nHa de clasificar a todas as opcions con un rango entre 1 y 999.",

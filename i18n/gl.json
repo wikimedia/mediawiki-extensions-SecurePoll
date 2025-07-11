@@ -39,7 +39,6 @@
 	"securepoll-invalid-record": "Rexistro de votación non válido.",
 	"securepoll-jump": "Ir ao servidor de votación",
 	"securepoll-ballot-type-archived": "Este tipo de papeleta foi arquivada e xa non se pode usar para votar.",
-	"securepoll-bad-ballot-submission": "O teu voto non foi válido: $1",
 	"securepoll-ballot-show-warnings": "Amosar só os avisos",
 	"securepoll-ballot-show-all": "Amosar todo",
 	"securepoll-unanswered-questions": "Debes responder a todas as preguntas.",

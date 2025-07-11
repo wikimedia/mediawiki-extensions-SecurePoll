@@ -28,7 +28,6 @@
 	"securepoll-encrypt-error": "şifre biyayişê qeydê reyê şıma serkewte nêbı.\nreyê şıma qeyd nêbı!\n\n$1",
 	"securepoll-no-decryption-key": "çı mefteyê deşifreyi eyar nêbı.\nDeşifre biyayiş nebeno.",
 	"securepoll-jump": "şo pêşkeşwanê reydayişi",
-	"securepoll-bad-ballot-submission": "reyê şima nemeqbulo: $1",
 	"securepoll-unanswered-questions": "gani şıma heme sualan re cewab bıdi.",
 	"securepoll-invalid-rank": "Dereceya nemeqbul. şima gani nazedan re benatê 1 u 999  de yew derece bıdi.",
 	"securepoll-unranked-options": "tayê tercihi derece nêbiyi.\nheme tercihan re gani şıma benateyê 1 u 999  de yew derece bıdi.",

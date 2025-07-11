@@ -11,7 +11,6 @@
 	"securepoll-change-disallowed": "سیز بو سئچکیده آرتیق سس وئرمیسینیز. \nاوزر ایستییریک، یئنی‌دن سس وئره بیلمزسینیز.",
 	"securepoll-submit": "سس وئر",
 	"securepoll-return": "$1 صحیفه‌سینه قاییت.",
-	"securepoll-bad-ballot-submission": "$1: سسینیز کئچرسیزدیر",
 	"securepoll-api-invalid-params": "یانلیش نیزاملاما‌لار.",
 	"securepoll-list-title": "$1: سس‌لرین سیاهی‌سی",
 	"securepoll-header-timestamp": "زامان",

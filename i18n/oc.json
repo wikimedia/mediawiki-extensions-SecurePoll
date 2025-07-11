@@ -26,7 +26,6 @@
 	"securepoll-encrypt-error": "Lo criptatge de vòstre vòte a fracassat.\nVòstre vòte es pas estat enregistrat !\n\n$1",
 	"securepoll-no-decryption-key": "Cap de clau de descriptatge es pas estada configurada.\nImpossible de descriptar.",
 	"securepoll-jump": "Anar al servidor de vòte",
-	"securepoll-bad-ballot-submission": "Vòstre vòte es invalid : $1",
 	"securepoll-unanswered-questions": "Vos cal respondre a totas las questions.",
 	"securepoll-invalid-rank": "Reng invalid. Vos cal balhar als candidats un reng entre 1 e 999.",
 	"securepoll-unranked-options": "D'unas opcions an pas recebut de reng.\nVos cal balhar un reng entre 1 e 999 a totas las opcions.",

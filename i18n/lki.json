@@ -25,7 +25,6 @@
 	"securepoll-encrypt-error": "رمزگذاری ثبت رأی‌ شما ناموفق بود.\nرأی‌ شما ثبت نشده‌است!\n\n$1",
 	"securepoll-no-decryption-key": "کلید رمزگشایی پیکربندی نشده‌است.\nنمی‌توان رمزگشایی کرد.",
 	"securepoll-jump": "برو به سرور انتخابات",
-	"securepoll-bad-ballot-submission": "رأی‌‌تان نامعتبر بود: $1",
 	"securepoll-unanswered-questions": "باید به همهٔ پرسش‌ها پاسخ دهید.",
 	"securepoll-invalid-rank": "رتبهٔ نامعتبر. باید به نامزدها رتبه‌ای بین ۱ و ۹۹۹ بدهید.",
 	"securepoll-unranked-options": "برخی گزینه‌ها رتبه‌بندی نشدند.\nباید به همهٔ گزینه‌ها رتبه‌ای بین ۱ و ۹۹۹ بدهید.",

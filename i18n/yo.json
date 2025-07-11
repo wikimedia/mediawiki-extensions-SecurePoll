@@ -26,7 +26,6 @@
 	"securepoll-encrypt-error": "Ati kùnà láti pàrokò ìgbàsílẹ ìdìbò rẹ.\nA ò tí gba ìbò rẹ sílẹ!\n\n$1",
 	"securepoll-no-decryption-key": "Kó sì bọtìnì àtúntò fún ètò ìtúmọ̀.\nKò le túnmọ̀.",
 	"securepoll-jump": "Lọ sí olùpín-ayélujára ìdìbò",
-	"securepoll-bad-ballot-submission": "Ìdìbò rẹ kò fẹsẹ̀múlẹ̀: $1",
 	"securepoll-unanswered-questions": "O gbọdọ̀ dáhùn gbogbo àwọn ìbéèrè.",
 	"securepoll-invalid-rank": "Ipò tí kò fẹsẹ̀múlẹ̀. O gbọdọ fún àwọn olùdíje ní ipò láàrin 1 àti 999.",
 	"securepoll-unranked-options": "Díẹ̀ nínú àwọn àṣàyàn kò ní ipò.\nO gbọdọ̀ fún gbogbo àwọn àṣàyàn ní ipò láàrin 1 àti 999.",

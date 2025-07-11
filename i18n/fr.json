@@ -66,7 +66,6 @@
 	"securepoll-invalid-record": "Enregistrement de vote non valide.",
 	"securepoll-jump": "Aller au serveur de vote",
 	"securepoll-ballot-type-archived": "Ce type de bulletin de vote a été archivé et ne peut plus être utilisé pour voter.",
-	"securepoll-bad-ballot-submission": "Votre vote n’était pas valide : $1",
 	"securepoll-ballot-show-warnings": "Afficher uniquement les avertissements",
 	"securepoll-ballot-show-all": "Tout afficher",
 	"securepoll-unanswered-questions": "Vous devez répondre à toutes les questions.",

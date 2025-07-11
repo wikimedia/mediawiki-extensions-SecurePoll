@@ -27,7 +27,6 @@
 	"securepoll-encrypt-error": "Klarte ikkje kryptera røysta di.\nHo har ikkje vorte registrert!\n\n$1",
 	"securepoll-no-decryption-key": "Ingen dekrypteringsnøkkel er sett opp.\nKan ikkje dekryptera.",
 	"securepoll-jump": "Gå til stemmetenaren",
-	"securepoll-bad-ballot-submission": "Di stemme var ugyldig: $1",
 	"securepoll-unanswered-questions": "Du må svara på alle spørsmåla.",
 	"securepoll-invalid-rank": "Ugyldig rangering. Du må gje kandidatane ei rangering mellom 1 og 999.",
 	"securepoll-remote-auth-error": "Feil oppstod ved henting av kontoinformasjonen din frå filtenaren.",

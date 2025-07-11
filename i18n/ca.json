@@ -38,7 +38,6 @@
 	"securepoll-encrypt-error": "No s'ha aconseguit encriptar el registre del vostre vot.\nEl vostre vot no s'ha enregistrat!\n\n$1",
 	"securepoll-no-decryption-key": "No està configurada la clau de desxifrat.\nNo es pot desencriptar.",
 	"securepoll-jump": "Anau al servidor de votació",
-	"securepoll-bad-ballot-submission": "El vostre vot no és vàlid: $1",
 	"securepoll-unanswered-questions": "Heu de respondre totes les qüestions.",
 	"securepoll-invalid-rank": "Rang no vàlid.\nHeu d'introduir a cada candidat un valor entre 1 i 999.",
 	"securepoll-unranked-options": "Algunes opcions no han estat qualificades.\nHeu de donar a totes les opcions, un rang entre 1 i 999.",

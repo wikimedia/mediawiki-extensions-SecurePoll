@@ -42,7 +42,6 @@
 	"securepoll-invalid-record": "Etibarsız səsvermə qeydi.",
 	"securepoll-jump": "Seçki serverinə gedin.",
 	"securepoll-ballot-type-archived": "Bu bülleten növü arxivləşdirilib və daha səsvermə üçün istifadə edilə bilməz.",
-	"securepoll-bad-ballot-submission": "$1: Səsiniz keçərsizdir",
 	"securepoll-ballot-show-warnings": "Yalnız xəbərdarlıqları göstərin",
 	"securepoll-ballot-show-all": "Hamısını göstər",
 	"securepoll-unanswered-questions": "Bütün suallara cavab verməlisiniz.",

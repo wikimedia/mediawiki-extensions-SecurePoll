@@ -23,7 +23,6 @@
 	"securepoll-encrypt-error": "加密你嘅投票紀錄失敗。\n你嘅投票無紀錄到！\n\n$1",
 	"securepoll-no-decryption-key": "未設定解密匙。\n唔可以解密。",
 	"securepoll-jump": "去投票伺服器",
-	"securepoll-bad-ballot-submission": "<div class=\"securepoll-error-box\">\n\t你嘅投票無效: $1\n\t</div>",
 	"securepoll-unanswered-questions": "你一定要答全部嘅問題。",
 	"securepoll-invalid-rank": "錯嘅評分。你嘅評分必須要係1-999之間。",
 	"securepoll-unranked-options": "有啲項目未比分。\n所有項目都要比一個介於1-999之間的分。",

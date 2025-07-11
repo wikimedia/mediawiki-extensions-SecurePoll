@@ -26,7 +26,6 @@
 	"securepoll-return": "Bali menyang $1",
 	"securepoll-encrypt-error": "Gagal nyandi cathetan swanten (vote) panjenengan.\nSwanten panjenengan dèrèng kacathet!\n\n$1",
 	"securepoll-jump": "Parani sasana pamilihan",
-	"securepoll-bad-ballot-submission": "Swara panjenengan ora sah: $1",
 	"securepoll-unanswered-questions": "Panjenengan kudu njawab kabèh pitakon.",
 	"securepoll-invalid-score": "Skor kudu arupa angka antara $1 lan $2.",
 	"securepoll-unanswered-options": "Panjenengan kudu ngawèhi wangsulan saka pendhak pitakon.",

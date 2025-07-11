@@ -24,7 +24,6 @@
 	"securepoll-encrypt-error": "Zaklučowanje twojeho wotedaća hłosa je so njeporadźiło.\nTwój hłós njeje so zregistrował!\n\n$1",
 	"securepoll-no-decryption-key": "Žadyn dešifrowanski kluč konfigurowany.\nDešifrowanje njemóžno.",
 	"securepoll-jump": "K serwerej wothłosowanja",
-	"securepoll-bad-ballot-submission": "Twój hłós bě njepłaćiwy: $1",
 	"securepoll-unanswered-questions": "Dyrbiš na wšě prašenja wotmołwić.",
 	"securepoll-invalid-rank": "Njepłaćiwy rjad. Dyrbiš kandidatam rjad mjez 1 a 999 dać.",
 	"securepoll-unranked-options": "Někotre opcije rjad nimaja.\nDyrbiš wšěm opcijam rjad mjez 1 a 999 dać.",

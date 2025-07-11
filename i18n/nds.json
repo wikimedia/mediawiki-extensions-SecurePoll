@@ -24,7 +24,6 @@
 	"securepoll-encrypt-error": "Fehler bi’t Verslöteln vun dien Stimm.\nDien Stimm is nich spiekert worrn!\n\n$1",
 	"securepoll-no-decryption-key": "Keen Opslötel-Slötel instellt.\nOpslöteln geiht nich.",
 	"securepoll-jump": "Na’n Afstimmserver gahn",
-	"securepoll-bad-ballot-submission": "Dien Stimm weer ungüllig: $1",
 	"securepoll-unanswered-questions": "Du musst all Fragen antern.",
 	"securepoll-remote-auth-error": "Fehler bi’t Afropen vun dien Brukerkonteninfos vun’n Server.",
 	"securepoll-remote-parse-error": "Fehler bi’t Interpreteren vun de Antwoord vun’n Server to de Rechten.",

@@ -27,7 +27,6 @@
 	"securepoll-encrypt-error": "No se riesse a cifrar le informassion de voto.\nEl voto no'l xe mia stà rejistrà.\n\n$1",
 	"securepoll-no-decryption-key": "No xe stà configurà nissuna ciave de decritassion.\nNo se pole decritar.",
 	"securepoll-jump": "Và al server de ła votasion",
-	"securepoll-bad-ballot-submission": "El to voto no'l xe mia vàłido: $1",
 	"securepoll-unanswered-questions": "Ti gà da rispóndar a tute le domande.",
 	"securepoll-invalid-rank": "Voto mia valido. Te ghè da dare un voto tra 1 e 999.",
 	"securepoll-unranked-options": "Alcuni voci le xe sensa voto.\nTe devi dare a tute le voci un voto da 1 a 999.",

@@ -12,7 +12,6 @@
 	"securepoll-thanks": "منموندارتونیم،رای شما اماییه کاری بیه.",
 	"securepoll-return": "ورگشت وه $1.",
 	"securepoll-jump": "رئتن وه رسینه جا رای دئن",
-	"securepoll-bad-ballot-submission": "رای شما نامعتور بی:$1",
 	"securepoll-unanswered-questions": "شما واس وه همه پرسایشتا جؤاو بئیت.",
 	"securepoll-unanswered-options": "شما باید سی هر پرسایشتی یه گل جواو بیئت",
 	"securepoll-api-invalid-params": "پارامتریا نادیار",

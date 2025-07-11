@@ -31,7 +31,6 @@
 	"securepoll-encrypt-error": "तपाईंको मत रिकर्ड गर्न असफल।\nतपाईंको मत रिकर्ड भएन!\n\n$1",
 	"securepoll-no-decryption-key": "ड़िक्रिप्शन कुंजी विन्यास नभएको।\nडिक्रिप्ट गर्न सकिंदैन।",
 	"securepoll-jump": "मतदान सर्वरतर्फ जाने",
-	"securepoll-bad-ballot-submission": "तपाईंको मत अमान्य: $1",
 	"securepoll-ballot-show-warnings": "चेतावनी मात्र देखाउनुहोस्",
 	"securepoll-ballot-show-all": "सबै देखाउनुहोस्",
 	"securepoll-unanswered-questions": "तपाईंले सबै प्रश्नहरूको उत्तर दिनुपर्छ।",

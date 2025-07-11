@@ -27,7 +27,6 @@
 	"securepoll-encrypt-error": "Gagal menyulitkan rekod undian anda.\nUndi anda tidak direkodkan!\n\n$1",
 	"securepoll-no-decryption-key": "Tiada kunci penyahsulitan dibentuk.\nTidak dapat menyahsulit.",
 	"securepoll-jump": "Pergi ke pelayan undian",
-	"securepoll-bad-ballot-submission": "Undi anda tak sah: $1",
 	"securepoll-unanswered-questions": "Anda perlu jawab kesemua soalan.",
 	"securepoll-invalid-rank": "Pangkat tidak sah. Anda mesti memberi calon pangkat di antara 1 dan 999.",
 	"securepoll-unranked-options": "Ada pilihan yang tidak diberi pangkat.\nSemua pilihan perlu diberikan pangkat di antara 1 dan 999.",

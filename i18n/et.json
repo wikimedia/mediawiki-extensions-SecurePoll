@@ -25,7 +25,6 @@
 	"securepoll-encrypt-error": "Sinu antud hääle andmeid ei õnnestunud krüptida.\nSinu häält pole talletatud!\n\n$1",
 	"securepoll-no-decryption-key": "Dekrüptimise võtit ei ole valmis seatud.\nEi saa dekrüptida.",
 	"securepoll-jump": "Mine hääletamise serverisse",
-	"securepoll-bad-ballot-submission": "Sinu hääl oli vigane: $1",
 	"securepoll-unanswered-questions": "Vastata tuleb kõigile küsimustele.",
 	"securepoll-invalid-rank": "Vigane järjestus. Kandidaatidele antud järjekorranumbrid peavad jääma 1 ja 999 vahele.",
 	"securepoll-unranked-options": "Mõned valitavad jäid järjestamata.\nPead kõigile valitavatele andma 1 ja 999 vahele jääva järjekorranumbri.",

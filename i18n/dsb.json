@@ -23,7 +23,6 @@
 	"securepoll-encrypt-error": "Twóje wótgłosowańske zapise njejsu se dali koděrowaś.\nTwój głos njejo se składował!\n\n$1",
 	"securepoll-no-decryption-key": "Dešifrěrowański kluc njejo konfigurěrowany.\nNjejo móžno dešifrěrowaś.",
 	"securepoll-jump": "K serweroju wótgłosowanja",
-	"securepoll-bad-ballot-submission": "Twój głos jo njepłaśiwy był: $1",
 	"securepoll-unanswered-questions": "Musyš na wše pšašanja wótegroniś.",
 	"securepoll-invalid-rank": "Njepłaśiwe pódaśe pozicije. Dejš kandidatam poziciju mjazy 1 a 999 daś.",
 	"securepoll-unranked-options": "Někotare opcije njamaju pódaśe pozicije.\nDejš wšyknym opcijam pódaśe pozicije mjazy 1 a 999 daś.",

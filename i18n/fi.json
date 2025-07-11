@@ -43,7 +43,6 @@
 	"securepoll-encrypt-error": "Äänestystietueesi salakirjoitus epäonnistui.\nÄäntäsi ei ole tallennettu!\n\n$1",
 	"securepoll-no-decryption-key": "Salauksen purkuavainta ei ole asetettu.\nSalausta ei voi purkaa.",
 	"securepoll-jump": "Siirry äänestyspalvelimelle.",
-	"securepoll-bad-ballot-submission": "Äänesi oli epäkelpo: $1",
 	"securepoll-ballot-show-warnings": "Näytä vain varoitukset",
 	"securepoll-ballot-show-all": "Näytä kaikki",
 	"securepoll-unanswered-questions": "Sinun täytyy vastata kaikkiin kysymyksiin.",

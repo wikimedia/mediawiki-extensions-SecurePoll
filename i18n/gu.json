@@ -25,7 +25,6 @@
 	"securepoll-encrypt-error": "તમારા મતદાનને એનક્રીપ્ટ કરવા નિષ્ફળતા.\nતમારો મત નોંધાયો નથી.\n\n$1",
 	"securepoll-no-decryption-key": "કોઈ ડિક્રિપ્શન કળ રુપરેખાંકિત કરેલ નથી.\nડિક્રિપ્ટ કરી શકશે નહી.",
 	"securepoll-jump": "ચૂંટણી સર્વર પર જાવ",
-	"securepoll-bad-ballot-submission": "તમારો મત અવૈધ છે : $1",
 	"securepoll-unanswered-questions": "તમારે બધા સવાલના જવાબ આપેલા હોવા જોઇએ.",
 	"securepoll-invalid-rank": "અ વૈધ ક્રમાંક. તમારે ઉમેદવારને ૧ અને ૯૯૯ વચ્ચે ક્રમાંક આપવોજોઈએ.",
 	"securepoll-unranked-options": "અમુક વિકલ્પોને ક્રમ અપાયો નથી.\nતમારે દરેક વિકલ્પને ૧ થી ૯૯૯ સુધીનો ક્રમ આપવો જોઈએ",

@@ -13,7 +13,6 @@
 	"securepoll-gpg-receipt": "Als je wilt, kun je als bewijs van je stem de onderstaande gegevens bewaren:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "Dank je wel. Je stem is ontvangen en opgeslagen.",
 	"securepoll-encrypt-error": "Het coderen van je stem is mislukt.\nJe stem is niet opgeslagen!\n\n$1",
-	"securepoll-bad-ballot-submission": "Je stem is ongeldig: $1",
 	"securepoll-unanswered-questions": "Je moet alle vragen beantwoorden.",
 	"securepoll-invalid-rank": "Ongeldige rang.\nJe moet de kandidaten een rang geven tussen 1 en 999.",
 	"securepoll-unranked-options": "Sommige stemmogelijkheden hebben geen rang.\nJe moet alle mogelijkheden een rang geven tussen 1 en 999.",

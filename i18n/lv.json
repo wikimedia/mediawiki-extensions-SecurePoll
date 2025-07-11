@@ -17,7 +17,6 @@
 	"securepoll-thanks": "Paldies, jūsu balsojums tika reģistrēts.",
 	"securepoll-return": "Atgriezties uz $1",
 	"securepoll-jump": "Doties uz balsošanas serveri",
-	"securepoll-bad-ballot-submission": "Jūsu balsojums bija nederīgs: $1",
 	"securepoll-unanswered-questions": "Tev ir jāatbild uz visiem jautājumiem.",
 	"securepoll-api-invalid-params": "Nederīgi parametri.",
 	"securepoll-list-title": "Uzskaitīt balsis: $1",

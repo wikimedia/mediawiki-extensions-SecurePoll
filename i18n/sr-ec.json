@@ -32,7 +32,6 @@
 	"securepoll-encrypt-error": "Не могу да шифрујем гласачки запис.\nВаш глас није заведен!\n\n$1",
 	"securepoll-no-decryption-key": "Није постављен кључ за дешифровање.\nНе могу да дешифрујем.",
 	"securepoll-jump": "Иди на сервер за гласање",
-	"securepoll-bad-ballot-submission": "Ваш глас је неисправан: $1",
 	"securepoll-ballot-show-warnings": "Прикажи само упозорења",
 	"securepoll-ballot-show-all": "Прикажи све",
 	"securepoll-unanswered-questions": "Морате да одговорите на сва питања.",

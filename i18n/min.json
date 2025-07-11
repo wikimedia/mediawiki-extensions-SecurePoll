@@ -22,6 +22,5 @@
 	"securepoll-return": "Baliak ka $1",
 	"securepoll-encrypt-error": "Gagal mangekskripsi catatan suaro Sanak.\nSuaro Sanak alun tasimpan!\n\n$!",
 	"securepoll-no-decryption-key": "Indak ado kunci dekripsi nan dikonfigurasi.\nIndak bisa dekripsi.",
-	"securepoll-jump": "Pai ka server pamiliahan",
-	"securepoll-bad-ballot-submission": "Suaro Sanak indak sah: $1"
+	"securepoll-jump": "Pai ka server pamiliahan"
 }

@@ -28,7 +28,6 @@
 	"securepoll-encrypt-error": "Malsukcesis enĉifri vian voĉdonan rekordon.\nVia voĉdono ne estis rekordita!\n\n$1",
 	"securepoll-no-decryption-key": "Neniu malĉifra ŝlosilo estas konfigurita.\nNe povas malĉifri.",
 	"securepoll-jump": "Iri al la voĉdona servilo",
-	"securepoll-bad-ballot-submission": "Via voĉdono estis nevalida: $1",
 	"securepoll-unanswered-questions": "Vi devas respondi al ĉiuj demandoj.",
 	"securepoll-invalid-rank": "Nevalida loko. Vi devas doni al kandidatoj lokon inter 1 kaj 999.",
 	"securepoll-unranked-options": "Kelkaj opcioj ne estis ordigitaj. \nVi devas doni al ĉiuj opcioj lokon inter 1 kaj 999.",

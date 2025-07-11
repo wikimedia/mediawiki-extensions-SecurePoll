@@ -41,7 +41,6 @@
 	"securepoll-invalid-record": "רשומת הצבעה בלתי־תקינה.",
 	"securepoll-jump": "מעבר לשרת ההצבעה",
 	"securepoll-ballot-type-archived": "סוג טופס ההצבעה הזה הועבר לארכיון ואינו יכול עוד לשמש להצבעה.",
-	"securepoll-bad-ballot-submission": "הצבעתך הייתה בלתי־תקינה: $1",
 	"securepoll-ballot-show-warnings": "להציג רק אזהרות",
 	"securepoll-ballot-show-all": "להציג הכול",
 	"securepoll-unanswered-questions": "יש לענות על כל השאלות.",

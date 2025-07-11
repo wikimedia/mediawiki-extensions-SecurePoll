@@ -20,7 +20,6 @@
 	"securepoll-return": "Keer terug na $1",
 	"securepoll-no-decryption-key": "Geen dekripsiesleutel is ingestel.\nKan nie decrypt.",
 	"securepoll-jump": "Gaan na die stemming-bediener",
-	"securepoll-bad-ballot-submission": "U stem is ongeldig: $1",
 	"securepoll-unanswered-questions": "U moet alle vrae beantwoord.",
 	"securepoll-unranked-options": "Sommige opsies is nie ingedeel.\nJy moet alle opsies om 'n rang tussen 1 en 999.",
 	"securepoll-invalid-score": "Die telling moet 'n getal tussen $1 en $2 wees.",

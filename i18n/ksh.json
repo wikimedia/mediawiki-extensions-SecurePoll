@@ -24,7 +24,6 @@
 	"securepoll-encrypt-error": "Kunnt Ding Shtemm nit verschlößele.\nDing Shtemm es nit jezallt, un weed nit faßjehallde!\n\n$1",
 	"securepoll-no-decryption-key": "Mer han keine Schlößel för et Äntschlößele, un et es och keine enjeshtallt. Alsu künne mer nix Äntschlößele.",
 	"securepoll-jump": "Jangk op dä ẞööver för de Afschtemmung",
-	"securepoll-bad-ballot-submission": "Ding Shtemm woh nit jöltesch: $1",
 	"securepoll-unanswered-questions": "Do moß op alle Froore en Antwoot jävve.",
 	"securepoll-invalid-rank": "Dat es ene verkeehte Rang. Do moß Dinge Kandidaate ene Rang zwesche 1 un 999 jävve.",
 	"securepoll-unranked-options": "Ene Deil vun dä Müjjeleschkeite hät keine Rang.\nDo moß alle Müjjeleschkeite ene Rang zwesche 1 un 999 jevve.",

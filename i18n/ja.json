@@ -52,7 +52,6 @@
 	"securepoll-invalid-record": "無効投票記録",
 	"securepoll-jump": "投票サーバーに移動",
 	"securepoll-ballot-type-archived": "この投票の種類はアーカイブされており、投票に使用できなくなりました。",
-	"securepoll-bad-ballot-submission": "あなたの投票は無効でした: $1",
 	"securepoll-ballot-show-warnings": "警告のみ表示",
 	"securepoll-ballot-show-all": "すべて表示",
 	"securepoll-unanswered-questions": "すべての質問に答えなくてはなりません。",

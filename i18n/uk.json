@@ -47,7 +47,6 @@
 	"securepoll-invalid-record": "Недійсний запис про голосування.",
 	"securepoll-jump": "Перейти на сервер голосувань",
 	"securepoll-ballot-type-archived": "Цей тип бюлетеня заархівовано, його не можна більше використовувати для голосування.",
-	"securepoll-bad-ballot-submission": "Ваш голос не дійсний: $1",
 	"securepoll-ballot-show-warnings": "Показувати лише попередження",
 	"securepoll-ballot-show-all": "Показати всі",
 	"securepoll-unanswered-questions": "Ви повинні відповісти на всі запитання.",

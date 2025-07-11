@@ -44,7 +44,6 @@
 	"securepoll-invalid-record": "Ungültige Stimmabgabe.",
 	"securepoll-jump": "Gehe zum Abstimmungsserver",
 	"securepoll-ballot-type-archived": "Dieser Stimmzettel-Typ wurde archiviert und kann nicht mehr für die Wahl verwendet werden.",
-	"securepoll-bad-ballot-submission": "Deine Stimme war ungültig: $1",
 	"securepoll-ballot-show-warnings": "Nur Warnungen anzeigen",
 	"securepoll-ballot-show-all": "Alle anzeigen",
 	"securepoll-unanswered-questions": "Du musst alle Fragen beantworten.",

@@ -30,7 +30,6 @@
 	"securepoll-encrypt-error": "ඡන්ද පළකෙරුම් වාර්තාව ගුප්ත-කේතනය කෙරුමට නොහැකි විය.\nඔබේ ඡන්ද පළ කෙරුම වාර්තාගත නොවිනි!\n\n$1",
 	"securepoll-no-decryption-key": "No decryption key is configured.\nCannot decrypt.",
 	"securepoll-jump": "ඡන්දය දෙන සේවාදායකයට යන්න",
-	"securepoll-bad-ballot-submission": "ඔබගේ ඡන්දය අවලංගුයි :$1",
 	"securepoll-unanswered-questions": "ඔබ සියලුම ප්‍රශ්නවලට පිළිතුරු සැපයිය යුතුය.",
 	"securepoll-invalid-rank": "වැරදි තරාතිරමකි. ඔබ අපේක්‍ෂකයන්ට 1 හා 999 අතර තරාතිරමක් ලබාදිය යුතුය.",
 	"securepoll-unranked-options": "ඇතැම් විකල්ප තරාතිරම් කොට නොමැත\nඔබ සියළු විකල්ප වලට 1 හා 999 අතර තරාතිරමක් ලබාදිය යුතුය.",

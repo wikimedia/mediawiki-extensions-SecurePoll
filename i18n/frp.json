@@ -24,7 +24,6 @@
 	"securepoll-encrypt-error": "Lo criptâjo de voutron voto at pas reussi.\nVoutron voto at pas étâ encartâ !\n\n$1",
 	"securepoll-no-decryption-key": "Niona cllâf de dècriptâjo at étâ configurâ.\nEmpossiblo de dècriptar.",
 	"securepoll-jump": "Alar u sèrvor de voto",
-	"securepoll-bad-ballot-submission": "Voutron voto est envalido : $1",
 	"securepoll-unanswered-questions": "Vos dête rèpondre a totes les quèstions.",
 	"securepoll-invalid-rank": "Rang envalido. Vos dête balyér ux candidats un rang entre-mié 1 et 999.",
 	"securepoll-unranked-options": "Quârques chouèx ont pas reçu de rang.\nVos dête balyér un rang entre-mié 1 et 999 a tôs los chouèx.",

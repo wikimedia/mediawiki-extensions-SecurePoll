@@ -34,7 +34,6 @@
 	"securepoll-encrypt-error": "Nem sikerült titkosítani a szavazatodat.\nA szavazat nem lett rögzítve!\n\n$1",
 	"securepoll-no-decryption-key": "Nincs visszafejtő kulcs beállítva.\nNem lehet visszafejteni.",
 	"securepoll-jump": "Irány a szavazószerverre",
-	"securepoll-bad-ballot-submission": "A szavazatod érvénytelen volt: $1",
 	"securepoll-unanswered-questions": "Minden kérdésre válaszolnod kell.",
 	"securepoll-invalid-rank": "Érvénytelen helyezés. A jelölteknek csak 1 és 999 közötti helyezést adhatsz.",
 	"securepoll-unranked-options": "Néhány javaslatra nem adtál helyezést.\nMinden javaslathoz kell egy 1 és 999 közötti helyezést adnod.",

@@ -24,7 +24,6 @@
 	"securepoll-encrypt-error": "قد فشل تشفير سجل تصويتك.\nتصويتك لم يتم تسجيله!\n\n$1",
 	"securepoll-no-decryption-key": "لا توجد مفاتيح فك تعميه مهيئه.\nلا يمكن فك التعميه.",
 	"securepoll-jump": "اذهب إلى خادم التصويت",
-	"securepoll-bad-ballot-submission": "تصويتك ليس صحيحا: $1",
 	"securepoll-unanswered-questions": "يجب أن تجيب على كل الأسئله.",
 	"securepoll-invalid-rank": "رتبه غير مقبوله. يجب أن تعطى المرشحين رتبه بين 1 و 999.",
 	"securepoll-unranked-options": "لم يتم اعطاء رتبه لبعض الخيارات.\nيجب أن تعطى كل الخيارات رتبه ما بين 1 و 999.",

@@ -26,7 +26,6 @@
 	"securepoll-encrypt-error": "Wedi methu amgryptio'r cofnod o'ch pleidlais.\nNi gofnodwyd eich pleidlais!\n\n$1",
 	"securepoll-no-decryption-key": "Nid yw'r allwedd dadgryptio wedi ei ffurfweddu.\nNi ellir dadgryptio.",
 	"securepoll-jump": "Mynd i weinydd y pleidleisio",
-	"securepoll-bad-ballot-submission": "Nid oedd eich pleidlais yn ddilys: $1",
 	"securepoll-unanswered-questions": "Rhaid ateb pob cwestiwn.",
 	"securepoll-invalid-rank": "Gradd annilys yn y drefn restrol. Rhaid ichi roi gradd rhwng 1 a 999 i'r ymgeiswyr.",
 	"securepoll-unranked-options": "Gadawyd rhai dewisiadau heb eu rhestru.\nRhaid ichi roi gradd rhwng 1 a 999 i bob dewis.",

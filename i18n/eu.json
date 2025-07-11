@@ -30,7 +30,6 @@
 	"securepoll-encrypt-error": "Ezin izan da zure boto erregistroa enkriptatu.\nZure botoa ez da erregistratu!\n\n$1",
 	"securepoll-no-decryption-key": "Ez dago dekriptatze giltza konfiguratuta.\nEzin da dekriptatu.",
 	"securepoll-jump": "Joan bozketa zerbitzarira",
-	"securepoll-bad-ballot-submission": "Zure botoa baliogabea da: $1",
 	"securepoll-unanswered-questions": "Galdera guztiak erantzun behar dituzu.",
 	"securepoll-invalid-rank": "Tarte ez baliagarria. Hautagaiei 1etik 999rako balorea eman behar diezu.",
 	"securepoll-unranked-options": "Aukera batzuk ez daude sailkaturik.\nAukera guztiei 1etik 999ra arteko balio bat eman behar diezu.",

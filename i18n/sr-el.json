@@ -27,7 +27,6 @@
 	"securepoll-encrypt-error": "Ne mogu da šifrujem glasački zapis.\nVaš glas nije zaveden!\n\n$1",
 	"securepoll-no-decryption-key": "Nije postavljen ključ za dešifrovanje.\nNe mogu da dešifrujem.",
 	"securepoll-jump": "Idi na server za glasanje",
-	"securepoll-bad-ballot-submission": "Vaš glas je neispravan: $1",
 	"securepoll-ballot-show-warnings": "Prikaži samo upozorenja",
 	"securepoll-ballot-show-all": "Prikaži sve",
 	"securepoll-unanswered-questions": "Morate da odgovorite na sva pitanja.",

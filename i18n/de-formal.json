@@ -16,7 +16,6 @@
 	"securepoll-gpg-receipt": "Vielen Dank.\n\nEs folgt eine Bestätigung als Beweis für Ihre Stimmabgabe:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "Vielen Dank, Ihre Stimme wurde gespeichert.",
 	"securepoll-encrypt-error": "Beim Verschlüsseln Ihrer Stimme ist ein Fehler aufgetreten.\nIhre Stimme wurde nicht gespeichert!\n\n$1",
-	"securepoll-bad-ballot-submission": "Ihre Stimme war ungültig: $1",
 	"securepoll-unanswered-questions": "Sie müssen alle Fragen beantworten.",
 	"securepoll-invalid-rank": "Ungültige Rangfolge. Sie müssen den Kandidaten eine Rangnummer zwischen 1 und 999 geben.",
 	"securepoll-unranked-options": "Einige Optionen wurden nicht mit einer Rangnummer versehen.\nSie müssen allen Optionen eine Rangnummer zwischen 1 und 999 geben.",

@@ -24,7 +24,6 @@
 	"securepoll-encrypt-error": "Nagpalya sa pag-enkripto kan rekord mo sa boto.\nAn saimong boto dae tabi pinagrekord!\n\n$1",
 	"securepoll-no-decryption-key": "Mayong susi nin dekripsyon an pinagsunsay.",
 	"securepoll-jump": "Magduman sa serbidor nin pagboboto",
-	"securepoll-bad-ballot-submission": "An saimong boto imbalido: $1",
 	"securepoll-unanswered-questions": "Ika kaipuhang magsimbag kan gabos na mga kahaputan.",
 	"securepoll-invalid-rank": "Imbalidong ranggo. Ika kaipuhang magtao sa mga kandidato nin sarong ranggo sa katahawan kan 1 asin 999.",
 	"securepoll-unranked-options": "An ibang mga pagpipilian dae pinagranggo.\nIka kaipuhang magtao sa gabos na mga pagpipilian nin sarong ranggo sa katahawan kan 1 asin 999.",

@@ -36,7 +36,6 @@
 	"securepoll-no-decryption-key": "Ingen dekrypteringsnøkkel er konfigurert.\nKan ikke dekryptere.",
 	"securepoll-wrong-decryption-key": "Den konfigurerte dekrypteringsnøkkelen er feil.\nKan ikke dekryptere.",
 	"securepoll-jump": "Gå til stemmetjeneren",
-	"securepoll-bad-ballot-submission": "Din stemme var ugyldig: $1",
 	"securepoll-ballot-show-warnings": "Vis kun advarsler",
 	"securepoll-ballot-show-all": "Vis alle",
 	"securepoll-unanswered-questions": "Du må besvare alle spørsmålene.",

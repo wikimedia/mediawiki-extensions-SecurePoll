@@ -20,7 +20,6 @@
 	"securepoll-return": "$1 sahypasyna gaýdyp bar",
 	"securepoll-no-decryption-key": "Rasşifrowka açary konfigurirlenmändir.\nRasşifrowka edip bolmaýar.",
 	"securepoll-jump": "Ses beriş serwerine git",
-	"securepoll-bad-ballot-submission": "Sesiňiz hasap edilmeýär: $1",
 	"securepoll-unanswered-questions": "Ähli soraglara jogap bermelisiňiz.",
 	"securepoll-invalid-rank": "Nädogry rang. 1 bilen 999 arasynda bir rang bermeli",
 	"securepoll-unranked-options": "Käbir opsiýalar derejelendirilmändir.\nÄhli opsiýalara 1 bilen 999 aralygynda bir dereje bermeli.",

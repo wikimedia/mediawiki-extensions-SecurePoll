@@ -24,7 +24,6 @@
 	"securepoll-encrypt-error": "Bim Verschlissle vu Dyynere Stimm het s e Fähler gee.\nDyy Stimm isch nit gspycheret wore!\n\n$1",
 	"securepoll-no-decryption-key": "S isch kei Entschlisseligsschlissel konfiguriert.\nEntschlisselig nit megli.",
 	"securepoll-jump": "Gang zum Stimm-Server",
-	"securepoll-bad-ballot-submission": "Dyy Stimm isch nit giltig: $1",
 	"securepoll-unanswered-questions": "Du muesch uf alli Froge Antwort gee.",
 	"securepoll-invalid-rank": "Nit giltigi Rangfolg. Du muesch dr Kandidate e Rangnummere zwische 1 un 999 gee.",
 	"securepoll-unranked-options": "E Teil Optione hän kei Rangnummere.\nDu muesch allene Optione e Rangnummere zwische 1 un 999 gee.",

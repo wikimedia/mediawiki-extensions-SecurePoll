@@ -44,7 +44,6 @@
 	"securepoll-encrypt-error": "Oy kaydınızın şifrelenmesi başarısız oldu.\nOyunuz kaydedilmedi!\n\n$1",
 	"securepoll-no-decryption-key": "Hiç deşifre anahtarı ayarlanmamış.\nDeşifrelenemiyor.",
 	"securepoll-jump": "Oylama sunucusuna git",
-	"securepoll-bad-ballot-submission": "Oyunuz geçersiz: $1",
 	"securepoll-unanswered-questions": "Tüm sorulara cevap vermelisiniz.",
 	"securepoll-invalid-rank": "Geçersiz derece. Adaylara 1 ile 999 arasında bir derece vermelisiniz.",
 	"securepoll-unranked-options": "Bazı seçenekler derecelendirilmemiş.\nTüm seçeneklere 1 ile 999 arasında bir derece vermelisiniz.",

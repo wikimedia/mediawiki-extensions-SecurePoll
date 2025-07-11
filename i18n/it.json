@@ -42,7 +42,6 @@
 	"securepoll-encrypt-error": "Impossibile cifrare le informazioni di voto.\nIl voto non è stato registrato.\n\n$1",
 	"securepoll-no-decryption-key": "Nessuna chiave di decrittazione è configurata.\nImpossibile decifrare.",
 	"securepoll-jump": "Vai al server della votazione",
-	"securepoll-bad-ballot-submission": "Il tuo voto non era valido: $1",
 	"securepoll-ballot-show-warnings": "Mostra solo avvisi",
 	"securepoll-ballot-show-all": "Mostra tutto",
 	"securepoll-unanswered-questions": "È necessario rispondere a tutte le domande.",

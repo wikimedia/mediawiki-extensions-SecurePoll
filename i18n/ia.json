@@ -36,7 +36,6 @@
 	"securepoll-invalid-record": "Registro de votation non valide.",
 	"securepoll-jump": "Ir al servitor de votation",
 	"securepoll-ballot-type-archived": "Iste typo de scheda de voto ha essite archivate e non pote plus esser usate pro votar.",
-	"securepoll-bad-ballot-submission": "Tu voto es invalide: $1",
 	"securepoll-ballot-show-warnings": "Monstrar solmente advertimentos",
 	"securepoll-ballot-show-all": "Monstrar totes",
 	"securepoll-unanswered-questions": "Tu debe responder a tote le questiones.",

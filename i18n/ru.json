@@ -54,7 +54,6 @@
 	"securepoll-encrypt-error": "Не удалось зашифровать запись о вашем голосе.\nВаш голос не был записан!\n\n$1",
 	"securepoll-no-decryption-key": "Не настроен ключ расшифровки.\nНевозможно расшифровать.",
 	"securepoll-jump": "Перейти на сервер голосований",
-	"securepoll-bad-ballot-submission": "Ваш голос недействителен: $1",
 	"securepoll-ballot-show-warnings": "Показать только предупреждения",
 	"securepoll-ballot-show-all": "Показать все",
 	"securepoll-unanswered-questions": "Вы должны ответить на все вопросы.",

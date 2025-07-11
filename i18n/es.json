@@ -61,7 +61,6 @@
 	"securepoll-no-decryption-key": "No se ha configurado ninguna clave de descifrado.\nNo se puede descifrar.",
 	"securepoll-invalid-record": "Registro de votación inválido.",
 	"securepoll-jump": "Ir al servidor de votación",
-	"securepoll-bad-ballot-submission": "Tu voto fue inválido: $1",
 	"securepoll-ballot-show-warnings": "Mostrar solo advertencias",
 	"securepoll-ballot-show-all": "Mostrar todo",
 	"securepoll-unanswered-questions": "Debes responder todas las preguntas.",

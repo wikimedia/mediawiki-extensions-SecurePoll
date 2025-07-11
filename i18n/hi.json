@@ -30,7 +30,6 @@
 	"securepoll-encrypt-error": "आपके मत का रिकॉर्ड कूटबद्ध करने में असफल हो गए।\n\nआपका मत दर्ज नहीं किया गया है!\n\n$1",
 	"securepoll-no-decryption-key": "कोई कूटमुक्तिकरण कुँजी विन्यासित नहीं है।\nकूटमुक्त नहीं कर सकते।",
 	"securepoll-jump": "मतदान सर्वर पर जाएँ",
-	"securepoll-bad-ballot-submission": "आपका मत अवैध है: $1",
 	"securepoll-unanswered-questions": "आपको सभी प्रश्नों के उत्तर देने चाहिएँ।",
 	"securepoll-invalid-rank": "अवैध क्रम। आपको प्रत्याशियों को 1 से 999 के बीच में कोई क्रम देना चाहिए।",
 	"securepoll-unranked-options": "कुछ विकल्पों को क्रम नहीं दिया गया था।\n\nआपको सभी विकल्पों को 1 से 999 के बीच में कोई क्रम देना चाहिए।",

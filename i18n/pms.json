@@ -24,7 +24,6 @@
 	"securepoll-encrypt-error": "Eror an cifrand le anformassion dël vot.\nTò vot a l'é pa stàit memorisà!\n\n$1",
 	"securepoll-no-decryption-key": "Pa gnun-e ciav ëd decifrassion a son configurà.\nAs peul pa decifré.",
 	"securepoll-jump": "Va al server ëd la votassion",
-	"securepoll-bad-ballot-submission": "Tò vot a l'era pa vàlid: $1",
 	"securepoll-unanswered-questions": "It deuve arsponde a tute le custion.",
 	"securepoll-invalid-rank": "Vot pa bon. It deuve dé ai candidà un vot tra 1 e 999.",
 	"securepoll-unranked-options": "Cheich opsion a son pa stàite votà.\nIt deuve deje a minca vos un vot tra 1 e 999.",

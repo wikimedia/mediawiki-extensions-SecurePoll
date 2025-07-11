@@ -25,7 +25,6 @@
 	"securepoll-encrypt-error": "'t Codere van dien sjtöm is misluk.\nDien sjtöm is neet opgesjlage!\n\n$1",
 	"securepoll-no-decryption-key": "d'r Is geine decryptiesjleutel ingesjteld.\nDecodere is neet meugelik.",
 	"securepoll-jump": "Gank nao de sjtömserver",
-	"securepoll-bad-ballot-submission": "Dien sjtöm is óngeldig: $1",
 	"securepoll-unanswered-questions": "Doe mós alle vraoge beantjwaorde.",
 	"securepoll-invalid-rank": "Ongeldige rang.\nDoe mós de kandidate n rang gaeve tusse 1 en 999.",
 	"securepoll-unranked-options": "Sommige stummeugelikhede höbbe gein rang.\nDoe mos alle meugelikhede 'n rang gaeve tösse 1 en 999.",

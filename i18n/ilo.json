@@ -23,7 +23,6 @@
 	"securepoll-encrypt-error": "Napaay ti panaka-enkripto ti rehistro ti butosmo.\nTi butosmo ket saan pay a nairehistro!\n\n$1",
 	"securepoll-no-decryption-key": "Awan ti naaramid dekripsion a tulbek.\nSaan a madekripto.",
 	"securepoll-jump": "Mapan iti pagbutosan a server",
-	"securepoll-bad-ballot-submission": "Imbalido ti butosmo: $1",
 	"securepoll-unanswered-questions": "Masapul a sungbatam amin dagiti saludsod.",
 	"securepoll-invalid-rank": "Imbalido a ranggo. Masapul nga ikkam dagiti kandidato iti ranggo a nagbaetan ti 1 ken 999.",
 	"securepoll-unranked-options": "Adda dagiti pagpilian a saan a nairanggo.\nMasapul nga ikkam amin dagiti pagpilian ti ranggo a nagbaetan ti 1 ken 999.",

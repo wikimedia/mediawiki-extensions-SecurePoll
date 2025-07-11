@@ -23,7 +23,6 @@
 	"securepoll-encrypt-error": "Impossibbli li l-voti tiegħek jiġi reġistrat.\nIl-vot ma ġiex reġistrat!\n\n$1",
 	"securepoll-no-decryption-key": "L-ebda ċavetta ta' dekritazzjoni ma ġiet konfigurata.\nImpossibbli li tiġi deċifrata.",
 	"securepoll-jump": "Mur fis-server tal-votazzjoni",
-	"securepoll-bad-ballot-submission": "Il-vot tiegħek kien invalidu: $1",
 	"securepoll-unanswered-questions": "Trid tirrispondi kull mistoqsija.",
 	"securepoll-invalid-rank": "Vot invalidu. Trid tagħti l-kandidati vot bejn 1 u 999.",
 	"securepoll-unranked-options": "Ċerti għażliet huma nieqsa minn vot. Trid tagħti kull għażla vot bejn 1 u 999.",

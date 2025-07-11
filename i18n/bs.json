@@ -28,7 +28,6 @@
 	"securepoll-encrypt-error": "Šifriranje Vašeg zapisa glasanja nije uspjelo.\nVaš glas nije sačuvan!\n\n$1",
 	"securepoll-no-decryption-key": "Nijedan dekripcijski ključ nije podešen.\nNe može se dekriptovati.",
 	"securepoll-jump": "Idi na server za glasanje",
-	"securepoll-bad-ballot-submission": "Vaš glas nije valjan: $1",
 	"securepoll-unanswered-questions": "Morate odgovoriti na sva pitanja.",
 	"securepoll-invalid-rank": "Nevaljan rang. Morate dati kandidatima rang između 1 i 999.",
 	"securepoll-unranked-options": "Neke opcije nisu rangirane.\nMorate dati svim opcijama rang između 1 i 999.",

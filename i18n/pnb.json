@@ -25,7 +25,6 @@
 	"securepoll-encrypt-error": "تواڈے ووٹ رکارڈ نوں پڑھن چ ہار۔\nتواڈا ووٹ گنتی چ نئیں آیا۔\n$1",
 	"securepoll-no-decryption-key": "کوئی ڈیکرٹشن چابی کنفگرڈ نئیں ہوئی۔ ڈیکرپٹ نئیں کرسکدا۔",
 	"securepoll-jump": "چنوتی سرور کول جاؤ",
-	"securepoll-bad-ballot-submission": "تواڈا ووٹ نئیں نئیں منیا گیا: $1",
 	"securepoll-unanswered-questions": "تسیں لازمی سارے سوالاں دے جواب دیو۔",
 	"securepoll-invalid-rank": "ناں منیا جان والا رینک۔  توانوں لازمی 1 تے 999 دے وشکار دینا پویگا۔",
 	"securepoll-unranked-options": "کج چنوتیاں نئیں گنیاں گیاں۔\nتساں نوں 1 توں 999 دے وشکار ساریاں چنوتیاں دینیاں پین گیاں۔",

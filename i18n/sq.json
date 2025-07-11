@@ -28,7 +28,6 @@
 	"securepoll-encrypt-error": "Dështoi regjistrimi i votës suaj.\nvota juaj nuk është regjistruar!\n\n$1",
 	"securepoll-no-decryption-key": "Asnjë çelës nuk është i konfiguruar.\nNuk mund të decrypt.",
 	"securepoll-jump": "Shkoni tek serveri i votimit",
-	"securepoll-bad-ballot-submission": "Vota juaj ishte e pavlefshme: $1",
 	"securepoll-unanswered-questions": "Ju duhet tu përgjigjeni të gjitha pyetjeve.",
 	"securepoll-invalid-rank": "Rank i pavlefshëm. Ju duhet tu jepni kandidatëve një rank ndërmjet 1 dhe 999.",
 	"securepoll-unranked-options": "Disa opsione nuk u renditën.\nJu  duhet tu jepni të gjitha opsioneve një renditej ndërmjet 1 dhe 999.",

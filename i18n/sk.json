@@ -26,7 +26,6 @@
 	"securepoll-encrypt-error": "Nepodarilo sa zašifrovať záznam o vašom hlasovaní.\nVáš hlas nebol zaznamenaný!\n\n$1",
 	"securepoll-no-decryption-key": "Nie je nakonfigurovaný žiadny dešifrovací kľúč.\nNie je možné dešifrovať.",
 	"securepoll-jump": "Prejsť na hlasovací server",
-	"securepoll-bad-ballot-submission": "Váš hlas bol neplatný: $1",
 	"securepoll-unanswered-questions": "Musíte zodpovedať všetky otázky.",
 	"securepoll-invalid-rank": "Neplatné hodnotenie. Musíte zadať kandidátov s hodnotením medzi 1 a 999.",
 	"securepoll-unranked-options": "Niektoré možnosti neboli ohodnotené.\nMusíte dať každej možnosti hodnotenie medzi 1 a 999.",

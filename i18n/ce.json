@@ -35,7 +35,6 @@
 	"securepoll-invalid-record": "Кхаж тасаран нийса доцу дӀайаздар",
 	"securepoll-jump": "Кхажтасаран сервер тӀегӀо",
 	"securepoll-ballot-type-archived": "И тайпа кхаьжнаш таса архивехь латтош ду, кхин кхаж таса йиш йац.",
-	"securepoll-bad-ballot-submission": "Хьан кхаж нийса бац: $1",
 	"securepoll-ballot-show-warnings": "ДӀахьедарш бен ма гайта",
 	"securepoll-ballot-show-all": "Гайта йерриге",
 	"securepoll-unanswered-questions": "Массо а хаттаршна жоп дала деза.",

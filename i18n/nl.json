@@ -47,7 +47,6 @@
 	"securepoll-invalid-record": "Ongeldige stem.",
 	"securepoll-jump": "Naar de stemserver gaan",
 	"securepoll-ballot-type-archived": "Dit type stembriefje is gearchiveerd en kan niet meer worden gebruikt om te stemmen.",
-	"securepoll-bad-ballot-submission": "Uw stem is ongeldig: $1",
 	"securepoll-ballot-show-warnings": "Alleen waarschuwingen weergeven",
 	"securepoll-ballot-show-all": "Alles weergeven",
 	"securepoll-unanswered-questions": "U moet alle vragen beantwoorden.",

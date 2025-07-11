@@ -33,7 +33,6 @@
 	"securepoll-no-decryption-key": "Et ass keen Ëntschlësungsschlëssel agestallt.\nËntschlësselung onméiglech.",
 	"securepoll-jump": "Op den Ofstëmmungs-Server goen",
 	"securepoll-ballot-type-archived": "Dëse Stëmmziedel-Typ gouf archivéiert a  kann net méi benotzt gi fir ofzestëmmen.",
-	"securepoll-bad-ballot-submission": "Är Stëmm ass ongülteg: $1",
 	"securepoll-ballot-show-warnings": "Nëmme Warnunge weisen",
 	"securepoll-ballot-show-all": "Alles weisen",
 	"securepoll-unanswered-questions": "Dir musst all Froe beäntwerten",

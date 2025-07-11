@@ -39,7 +39,6 @@
 	"securepoll-invalid-record": "Неважечки гласачки запис.",
 	"securepoll-jump": "Оди на опслужувачот за гласање",
 	"securepoll-ballot-type-archived": "Овој вид гласачки ливчиња е архивиран и повеќе не може да се користи за гласање.",
-	"securepoll-bad-ballot-submission": "Вашиот глас е неважечки: $1",
 	"securepoll-ballot-show-warnings": "Прикажи само предупредувања",
 	"securepoll-ballot-show-all": "Прикажи сè",
 	"securepoll-unanswered-questions": "Морате да одговорите на сите прашања.",
