@@ -254,12 +254,20 @@ $specialPageAliases['yi'] = [
 	'SecurePoll' => [ 'זיכערע_שטימונג' ],
 ];
 
-/** Simplified Chinese (中文（简体）‎) */
-$specialPageAliases['zh-hans'] = [
-	'SecurePoll' => [ '安全投票' ],
+/** Chinese (中文（简体）) */
+$specialPageAliases['zh'] = [
+	'SecurePoll' => [ 'SecurePoll' ],
+	'SecurePollLog' => [ 'SecurePollLog' ],
 ];
 
-/** Traditional Chinese (中文（繁體）‎) */
+/** Simplified Chinese (中文（简体）) */
+$specialPageAliases['zh-hans'] = [
+	'SecurePoll' => [ '安全投票' ],
+	'SecurePollLog' => [ '安全投票日志' ],
+];
+
+/** Traditional Chinese (中文（繁體）) */
 $specialPageAliases['zh-hant'] = [
 	'SecurePoll' => [ '安全投票' ],
+	'SecurePollLog' => [ '安全投票日誌' ],
 ];
