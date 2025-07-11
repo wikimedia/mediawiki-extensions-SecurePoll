@@ -170,11 +170,7 @@ class SecurePollContentHandler extends JsonContentHandler {
 		string $subpage = ''
 	): array {
 		$data = self::getDataFromElection( $election, $subpage, true );
-
-		// do some things to prevent dirty diffs
-		$data = self::alphabetizeKeys( $data );
-		$data = self::convertNonStringsToStrings( $data );
-		$data = self::deleteKeysContainingEmptyArrays( $data );
+		$data = self::normalizeDataForPage( $data );
 
 		$json = FormatJson::encode( $data, false, FormatJson::ALL_OK );
 
@@ -187,45 +183,19 @@ class SecurePollContentHandler extends JsonContentHandler {
 	}
 
 	/**
-	 * Given an array, delete keys containing empty arrays. If a value is a non-empty array,
-	 * recursively delete keys containing empty arrays in that array too.
+	 * Normalize data to avoid dirty diffs while updating the SecurePoll log page. Alphabetize keys,
+	 * stringify all values, and remove empty arrays. Array values are recursively normalized.
 	 */
-	public static function deleteKeysContainingEmptyArrays( array $data ): array {
-		foreach ( $data as $key => $value ) {
+	public static function normalizeDataForPage( array $data ): array {
+		ksort( $data );
+		foreach ( $data as $key => &$value ) {
 			if ( $value === [] ) {
 				unset( $data[$key] );
 			} elseif ( is_array( $value ) ) {
-				$data[$key] = self::deleteKeysContainingEmptyArrays( $value );
-			}
-		}
-		return $data;
-	}
-
-	/**
-	 * Given an array, sort the keys alphabetically. If a value is an array, recursively sort its
-	 * keys too.
-	 */
-	public static function alphabetizeKeys( array $data ): array {
-		ksort( $data );
-		foreach ( $data as &$value ) {
-			if ( is_array( $value ) ) {
-				$value = self::alphabetizeKeys( $value );
-			}
-		}
-		return $data;
-	}
-
-	/**
-	 * Given an array, convert non-string values to strings. If a boolean is encountered, convert
-	 * it to '1' or '0'. If a value is an array, recursively do this to its keys too.
-	 */
-	public static function convertNonStringsToStrings( array $data ): array {
-		foreach ( $data as &$value ) {
-			if ( is_array( $value ) ) {
-				$value = self::convertNonStringsToStrings( $value );
+				$value = self::normalizeDataForPage( $value );
 			} elseif ( is_bool( $value ) ) {
 				$value = $value ? '1' : '0';
-			} elseif ( !is_string( $value ) ) {
+			} else {
 				$value = strval( $value );
 			}
 		}
