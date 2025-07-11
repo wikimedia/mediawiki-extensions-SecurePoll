@@ -414,7 +414,7 @@ class VotePage extends ActionPage {
 		] );
 
 		$summary .= Html::element( 'h2', [ 'class' => 'securepoll-vote-result-heading' ],
-			$this->msg( 'securepoll-vote-result-intro-label' ) );
+			$this->msg( 'securepoll-vote-result-intro-label' )->text() );
 
 		foreach ( $data as $questionIndex => $votes ) {
 			$questionMsg = $this->getQuestionMessage( $languageCode, $questionIndex );
