@@ -13,6 +13,7 @@ use MediaWiki\Extension\SecurePoll\Entities\Entity;
 use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
 use MediaWiki\Extension\SecurePoll\SecurePollContentHandler;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
+use MediaWiki\Extension\SecurePoll\Store\DBStore;
 use MediaWiki\Extension\SecurePoll\Store\FormStore;
 use MediaWiki\Extension\SecurePoll\Talliers\Tallier;
 use MediaWiki\HTMLForm\HTMLForm;
@@ -608,6 +609,13 @@ class CreatePage extends ActionPage {
 			$userId = $this->specialPage->getUser()->getId();
 			$store = new FormStore;
 			$context->setStore( $store );
+			$eId = (int)$formData['election_id'];
+			if ( $eId > 0 ) {
+				// Load any existing properties up front, to avoid them getting removed from JSON logging
+				$dbStore = new DBStore( $this->lbFactory->getLoadBalancer() );
+				$props = $dbStore->getProperties( [ $eId ] );
+				$store->properties[$eId] = $props[$eId];
+			}
 			$store->setFormData( $context, $formData, $userId );
 			$election = $context->getElection( $store->eId );
 
@@ -739,6 +747,7 @@ class CreatePage extends ActionPage {
 				] )
 				->caller( __METHOD__ )
 				->execute();
+			$store->properties[$eId]['not-sitewide-blocked'] = 1;
 		} else {
 			$eId = $election->getId();
 			$dbw->newUpdateQueryBuilder()
