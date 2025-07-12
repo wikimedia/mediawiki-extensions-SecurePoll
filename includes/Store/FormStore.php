@@ -108,15 +108,15 @@ class FormStore extends MemoryStore {
 			'owner' => $userId,
 			'questions' => [],
 		];
-		$this->properties[$eId] = [
+		$this->properties[$eId] = array_merge( $this->properties[$eId] ?? [], [
 			'encrypt-type' => $crypt,
 			'wikis' => implode( "\n", $wikis ),
 			'wikis-val' => $formData['property_wiki'] ?? WikiMap::getCurrentWikiId(),
 			'return-url' => $formData['return-url'],
 			'disallow-change' => $formData['disallow-change'] ? 1 : 0,
 			'voter-privacy' => $formData['voter-privacy'] ? 1 : 0,
-			'request-comment' => $formData['request-comment'] ? 1 : 0
-		];
+			'request-comment' => $formData['request-comment'] ? 1 : 0,
+		] );
 		$this->messages[$this->lang][$eId] = [
 			'title' => $formData['election_title'],
 			'comment-prompt' => $formData['comment-prompt']
