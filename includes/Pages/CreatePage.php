@@ -593,6 +593,9 @@ class CreatePage extends ActionPage {
 			$this->logAdminChanges( $originalFormData, $formData, $this->election->getId() );
 		}
 
+		// Ensure the latest properties are written to JSON log
+		$this->election->loadProperties();
+		$this->election->properties = array_merge( $this->election->properties, $fields );
 		$this->recordElectionToNamespace( $this->election, $formData );
 
 		return Status::newGood( $this->election->getId() );
