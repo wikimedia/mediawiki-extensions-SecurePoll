@@ -102,6 +102,27 @@ class SecurePollContentHandlerTest extends MediaWikiUnitTestCase {
 	 * @dataProvider provideNormalizeData
 	 */
 	public function testNormalizeData( $input, $expected ) {
-		$this->assertSame( $expected, SecurePollContentHandler::normalizeDataForPage( $input ) );
+		$this->assertSame( $expected, SecurePollContentHandler::normalizeDataForPage( $input, true ) );
+	}
+
+	public function testNormalizeDataNoOuterSort() {
+		$this->assertSame(
+			[
+				'b' => '2',
+				'a' => [
+					'c' => '1',
+					'd' => 'e'
+				]
+			],
+			SecurePollContentHandler::normalizeDataForPage(
+				[
+					'b' => 2,
+					'a' => [
+						'd' => 'e',
+						'c' => 1
+					]
+				]
+			)
+		);
 	}
 }

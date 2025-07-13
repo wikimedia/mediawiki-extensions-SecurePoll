@@ -183,16 +183,18 @@ class SecurePollContentHandler extends JsonContentHandler {
 	}
 
 	/**
-	 * Normalize data to avoid dirty diffs while updating the SecurePoll log page. Alphabetize keys,
+	 * Normalize data to avoid dirty diffs while updating the SecurePoll log page. Sort keys,
 	 * stringify all values, and remove empty arrays. Array values are recursively normalized.
 	 */
-	public static function normalizeDataForPage( array $data ): array {
-		ksort( $data );
+	public static function normalizeDataForPage( array $data, bool $sort = false ): array {
+		if ( $sort ) {
+			ksort( $data );
+		}
 		foreach ( $data as $key => &$value ) {
 			if ( $value === [] ) {
 				unset( $data[$key] );
 			} elseif ( is_array( $value ) ) {
-				$value = self::normalizeDataForPage( $value );
+				$value = self::normalizeDataForPage( $value, true );
 			} elseif ( is_bool( $value ) ) {
 				$value = $value ? '1' : '0';
 			} else {
