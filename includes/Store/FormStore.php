@@ -37,6 +37,7 @@ class FormStore extends MemoryStore {
 	 * @param Context $context
 	 * @param array $formData
 	 * @param int $userId
+	 * @throws StatusException
 	 */
 	public function setFormData( $context, $formData, $userId ) {
 		$config = MediaWikiServices::getInstance()->getMainConfig();

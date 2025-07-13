@@ -105,7 +105,7 @@ class DeduplicateMailingList extends Maintenance {
 			}
 			try {
 				yield MailingListEntry::newFromString( $line );
-			} catch ( InvalidArgumentException $e ) {
+			} catch ( InvalidArgumentException ) {
 				$this->error( "Skipping invalid entry in file $fileName line $lineNum" );
 			}
 		}

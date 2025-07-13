@@ -451,7 +451,7 @@ class Election extends Entity {
 		$type = $this->getProperty( 'encrypt-type', 'none' );
 		try {
 			return $this->context->newCrypt( $type, $this );
-		} catch ( InvalidArgumentException $e ) {
+		} catch ( InvalidArgumentException ) {
 			throw new InvalidDataException( 'Invalid encryption type' );
 		}
 	}

@@ -125,7 +125,7 @@ class TallyElectionJob extends Job {
 			if ( $crypt ) {
 				$crypt->cleanupDbForTallyJob( $this->electionId, $this->dbw );
 			}
-		} catch ( InvalidDataException $e ) {
+		} catch ( InvalidDataException ) {
 			// Election::getCrypt() throws InvalidDataException if an election has the "encrypt-type"
 			// property set but the corresponding class cannot be instantiated.
 			//

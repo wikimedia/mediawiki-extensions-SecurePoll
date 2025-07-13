@@ -14,7 +14,6 @@ use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Crypt\Crypt;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Store\MemoryStore;
-use MediaWiki\Extension\SecurePoll\Store\Store;
 use MediaWiki\Extension\SecurePoll\VoteRecord;
 use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\Status\Status;
@@ -102,7 +101,7 @@ class ConvertVotes extends Maintenance {
 		$this->ballot = $this->election->getBallot();
 
 		$status = $this->context->getStore()->callbackValidVotes(
-			$electionId, fn ( $store, $record ) => $this->convertVote( $store, $record ) );
+			$electionId, fn ( $store, $record ) => $this->convertVote( $record ) );
 
 		if ( $this->crypt ) {
 			// Delete temporary files
@@ -137,11 +136,10 @@ class ConvertVotes extends Maintenance {
 	}
 
 	/**
-	 * @param Store $store
 	 * @param string $record
 	 * @return Status
 	 */
-	private function convertVote( $store, $record ) {
+	private function convertVote( $record ) {
 		if ( $this->crypt ) {
 			$status = $this->crypt->decrypt( $record );
 			if ( !$status->isOK() ) {
