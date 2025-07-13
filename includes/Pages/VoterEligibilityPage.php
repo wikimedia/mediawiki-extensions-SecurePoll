@@ -1245,13 +1245,12 @@ class VoterEligibilityPage extends ActionPage {
 			];
 		}
 
-		$form = new HTMLForm(
-			$formItems, $this->specialPage->getContext(), 'securepoll-votereligibility'
+		$form = HTMLForm::factory(
+			'ooui', $formItems, $this->specialPage->getContext(), 'securepoll-votereligibility'
 		);
 		$form->addHeaderHtml(
 			$this->msg( 'securepoll-votereligibility-edit-header' )->parseAsBlock()
 		);
-		$form->setDisplayFormat( 'div' );
 		$form->setSubmitTextMsg( 'securepoll-votereligibility-edit-action' );
 		$form->setSubmitCallback(
 			function ( $formData, $form ) use ( $property ) {
