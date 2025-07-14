@@ -247,5 +247,6 @@
 	"securepoll-vote-result-intro-label": "Resumé vun Ärem Vott",
 	"securepoll-vote-result-question-label": "Fro: $1",
 	"securepoll-vote-result-comment": "Bemierkung: $1",
-	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1 ($2, $3 {{PLURAL:$3|Ännerung|Ännerungen}})"
+	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1 ($2, $3 {{PLURAL:$3|Ännerung|Ännerungen}})",
+	"securepoll-tallymodifiers-question-label": "Fro: „$1“"
 }

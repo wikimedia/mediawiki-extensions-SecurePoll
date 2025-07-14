@@ -169,5 +169,6 @@
 	"securepoll-vote-result-not-checked-option-label": "$1: непроверено",
 	"securepoll-vote-result-checked-option-label": "$1: проверено",
 	"securepoll-vote-result-comment": "Коментар: $1",
-	"securepoll-vote-stv-clear-btn-label": "Уклони све кандидате"
+	"securepoll-vote-stv-clear-btn-label": "Уклони све кандидате",
+	"securepoll-tallymodifiers-question-label": "Питање: „$1”"
 }

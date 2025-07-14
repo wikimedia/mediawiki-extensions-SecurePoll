@@ -338,7 +338,8 @@
 	"securepolllog-form-date-label": "Depuis la date (et antérieurement) :",
 	"securepoll-log-action-type-0": "$1, $2 a ajouté $4 aux administrateurs du sondage pour l’élection <em>$3</em>.",
 	"securepoll-log-action-type-1": "$1, $2 a supprimé $4 des administrateurs du sondage pour l’élection <em>$3</em>.",
-	"securepoll-log-action-type-2": "$1, $2 a regardé les données de vote pour l’élection <em>$3</em>.",
+	"securepoll-log-action-type-2": "$1, $2 a regardé la liste des électeurs pour l’élection <em>$3</em>.",
+	"securepoll-log-action-type-3": "$1 , $2 ont consulté les détails d'un électeur pour l'élection <em>$3</em> .",
 	"securepoll-log-empty": "Aucune entrée trouvée dans le journal.",
 	"securepoll-stv-droop-default-value": "Sélectionner une option",
 	"securepoll-stv-droop-choice-rank": "Préférence $1",
@@ -399,5 +400,9 @@
 	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1 ($2, $3 modification{{PLURAL:$3||s}})",
 	"group-electionadmin": "Administrateurs des élections",
 	"group-electionadmin-member": "{{GENDER:$1|}}administrateur des élections",
-	"grouppage-electionadmin": "{{ns:project}}:Administrateurs des élections"
+	"grouppage-electionadmin": "{{ns:project}}:Administrateurs des élections",
+	"securepoll-tallymodifiers-question-label": "Question : « $1 »",
+	"securepoll-tally-stv-candidate-excluded": "Exclure manuellement les candidats",
+	"securepoll-stv-result-election-excluded-header": "Candidats exclus",
+	"securepoll-stv-excluded-candidates-help-text": "Le(s) candidat(s) suivant(s) ont été exclus manuellement du décompte."
 }

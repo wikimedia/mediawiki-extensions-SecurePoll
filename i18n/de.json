@@ -316,7 +316,8 @@
 	"securepolllog-form-date-label": "Von Datum (und früher):",
 	"securepoll-log-action-type-0": "$1, $2 fügte $4 als Wahl-Administrator für die Wahl <em>$3<em> hinzu.",
 	"securepoll-log-action-type-1": "$1, $2 entfernte $4 als Wahl-Administrator für die Wahl <em>$3<em>.",
-	"securepoll-log-action-type-2": "$1, $2 zeigte die Wahldaten für die Wahl <em>$3<em> an.",
+	"securepoll-log-action-type-2": "$1, $2 hat die Wählerliste für die Wahl <em>$3<em> angesehen.",
+	"securepoll-log-action-type-3": "$1, $2 hat die Daten eines Wählers zur Wahl angesehen <em>$3</em>.",
 	"securepoll-log-empty": "Keine Logbucheinträge gefunden.",
 	"securepoll-stv-droop-default-value": "Wähle eine Option",
 	"securepoll-stv-droop-choice-rank": "Einstellung $1",
@@ -372,5 +373,9 @@
 	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1 ($2, $3 {{PLURAL:$3|Bearbeitung|Bearbeitungen}})",
 	"group-electionadmin": "Wahlleiter",
 	"group-electionadmin-member": "{{GENDER:$1|Wahlleiter|Wahlleiterin}}",
-	"grouppage-electionadmin": "{{ns:project}}:Wahlleiter"
+	"grouppage-electionadmin": "{{ns:project}}:Wahlleiter",
+	"securepoll-tallymodifiers-question-label": "Frage: „$1“",
+	"securepoll-tally-stv-candidate-excluded": "Kandidaten manuell ausschließen",
+	"securepoll-stv-result-election-excluded-header": "Ausgeschlossene Kandidaten",
+	"securepoll-stv-excluded-candidates-help-text": "Die folgenden Kandidaten wurden manuell von der Zählung ausgeschlossen."
 }

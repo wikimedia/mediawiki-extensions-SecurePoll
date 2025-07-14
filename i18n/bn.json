@@ -203,5 +203,6 @@
 	"securepoll-translation-import-action-done": "সম্পন্ন",
 	"securepoll-vote-result-intro-label": "আপনার ভোটের সারাংশ",
 	"securepoll-vote-result-question-label": "প্রশ্ন: $1",
-	"securepoll-vote-result-comment": "মন্তব্য: $1"
+	"securepoll-vote-result-comment": "মন্তব্য: $1",
+	"securepoll-tallymodifiers-question-label": "প্রশ্ন: \"$1\""
 }

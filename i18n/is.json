@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Bjarki S",
 			"Spacebirdy",
 			"Stefán Örvar Sigmundsson",
 			"Sveinn í Felli"
@@ -57,5 +58,6 @@
 	"securepoll-votereligibility-action": "Vista stillingar",
 	"securepoll-votereligibility-edit-action": "Vista lista",
 	"securepoll-votereligibility-saved-text": "Breytingar þínar hafa verið vistaðar",
-	"securepoll-votereligibility-cleared-comment": "$1 hreinsað."
+	"securepoll-votereligibility-cleared-comment": "$1 hreinsað.",
+	"securepoll-tallymodifiers-question-label": "Spurning: „$1“"
 }

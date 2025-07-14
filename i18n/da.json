@@ -6,6 +6,7 @@
 			"Christian List",
 			"Kaare",
 			"Masz",
+			"Naitsa",
 			"Peter Alberti",
 			"Saederup92",
 			"Sir48"
@@ -126,5 +127,11 @@
 	"securepoll-votereligibility-label-edits_enddate": "Og før:",
 	"securepoll-votereligibility-label-names": "Brugernavne",
 	"securepoll-votereligibility-label-comment": "Årsag",
-	"securepoll-votereligibility-edit-action": "Gem liste"
+	"securepoll-votereligibility-edit-action": "Gem liste",
+	"securepoll-log-action-type-2": "$1, $2 så vælgerlisten for <em>$3</em> valget.",
+	"securepoll-log-action-type-3": "$1, $2 så en vælgers oplysninger for <em>$3</em> valget.",
+	"securepoll-tallymodifiers-question-label": "Spørgsmål: \"$1\"",
+	"securepoll-tally-stv-candidate-excluded": "Manuelt udeluk kandidater",
+	"securepoll-stv-result-election-excluded-header": "Udelukkede kandidater",
+	"securepoll-stv-excluded-candidates-help-text": "De følgende kandidat(er) blev manuelt udelukket fra optællingen."
 }

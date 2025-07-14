@@ -314,7 +314,7 @@
 	"securepolllog-form-date-label": "Bu tarixdən (və əvvəlindən):",
 	"securepoll-log-action-type-0": "$1, $2 $4 istifadəçisini <em>$3</em> seçkisinə seçki inzibatçısı kimi əlavə etdi.",
 	"securepoll-log-action-type-1": "$1, $2 $4 istifadəçisini <em>$3</em> seçkisinin seçki inzibatçılarından çıxartdı.",
-	"securepoll-log-action-type-2": "$1, $2 <em>$3</em> seçkisinin seçici datasına baxdı.",
+	"securepoll-log-action-type-2": "$1, $2 <em>$3</em> seçkisinin seçici siyahısına baxdı.",
 	"securepoll-log-empty": "Heç bir jurnal qeydi tapılmadı.",
 	"securepoll-stv-droop-default-value": "Birini seç",
 	"securepoll-stv-droop-choice-rank": "$1 nizamlaması",

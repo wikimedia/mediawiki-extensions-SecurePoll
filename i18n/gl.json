@@ -293,7 +293,7 @@
 	"action-securepoll-view-voter-pii": "acceder a información persoal identificativa dos votantes",
 	"right-securepoll-edit-poll": "Editar enquisas",
 	"action-securepoll-edit-poll": "editar enquisas",
-	"securepoll-page-readonly": "As páxinas de configuración de enquisa segura son de só lectura",
+	"securepoll-page-readonly": "As páxinas de configuración de enquisa segura son de lectura só",
 	"securepoll-voter-stats": "De todos os votantes con dereito a voto, $1 {{PLURAL:$1|votou|votaron}}.",
 	"securepoll-vote-stats": "Emitiuse un total de $1 {{PLURAL:$1|voto|votos}}. {{PLURAL:$2|Dese|Deses}}, $2 {{PLURAL:$2|foi eliminado|foron eliminados}} porque o votante xa votara e $3 {{PLURAL:$3|está suprimido|están suprimidos}}.",
 	"securepolllog": "Rexistro de enquisa segura",
@@ -311,7 +311,8 @@
 	"securepolllog-form-date-label": "Dende a data (e anteriores):",
 	"securepoll-log-action-type-0": "$1, $2 engadiu a $4 aos administradores da enquisa para as eleccións <em>$3</em>.",
 	"securepoll-log-action-type-1": "$1, $2 eliminou a $4 dos administradores da enquisa para as eleccións <em>$3</em>.",
-	"securepoll-log-action-type-2": "$1, $2 viu os datos dos votantes para as eleccións <em>$3</em>.",
+	"securepoll-log-action-type-2": "$1, $2 viu a lista de votantes para as eleccións <em>$3</em>.",
+	"securepoll-log-action-type-3": "$1, $2 viu os datos dun votante para as eleccións <em>$3</em>.",
 	"securepoll-log-empty": "Non se atoparon entradas no rexistro.",
 	"securepoll-stv-droop-default-value": "Selecciona unha opción",
 	"securepoll-stv-droop-choice-rank": "Preferencia $1",
@@ -367,5 +368,9 @@
 	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1 ($2, $3 {{PLURAL:$3|edición|edicións}})",
 	"group-electionadmin": "Administradores das eleccións",
 	"group-electionadmin-member": "{{GENDER:$1|administrador|administradora}} das eleccións",
-	"grouppage-electionadmin": "{{ns:project}}:Administradores das eleccións"
+	"grouppage-electionadmin": "{{ns:project}}:Administradores das eleccións",
+	"securepoll-tallymodifiers-question-label": "Pregunta: \"$1\"",
+	"securepoll-tally-stv-candidate-excluded": "Excluír candidatos manualmente",
+	"securepoll-stv-result-election-excluded-header": "Candidatos excluídos",
+	"securepoll-stv-excluded-candidates-help-text": "Os seguintes candidatos foron excluídos manualmente da votación."
 }

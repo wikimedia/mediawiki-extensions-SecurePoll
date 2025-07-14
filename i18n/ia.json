@@ -308,7 +308,8 @@
 	"securepolllog-form-date-label": "A partir del data (e anterior):",
 	"securepoll-log-action-type-0": "$1, $2 ha addite $4 al administratores del sondage pro le election <em>$3</em>.",
 	"securepoll-log-action-type-1": "$1, $2 ha removite $4 del administrators de sondage pro le election <em>$3</em>.",
-	"securepoll-log-action-type-2": "$1, $2 ha vidite le datos de votantes pro le election <em>$3</em>.",
+	"securepoll-log-action-type-2": "$1: $2 ha examinate le lista de votantes pro le election <em>$3</em>.",
+	"securepoll-log-action-type-3": "$1: $2 ha examinate le detalios de un votante pro le election <em>$3</em>.",
 	"securepoll-log-empty": "Nulle entratas de registro trovate.",
 	"securepoll-stv-droop-default-value": "Selige un option",
 	"securepoll-stv-droop-choice-rank": "Preferentia $1",
@@ -364,5 +365,9 @@
 	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1 ($2, $3 modification{{PLURAL:$3||es}})",
 	"group-electionadmin": "Administratores electoral",
 	"group-electionadmin-member": "administrat{{GENDER:$1|or|rice}} electoral",
-	"grouppage-electionadmin": "{{ns:project}}:Administratores electoral"
+	"grouppage-electionadmin": "{{ns:project}}:Administratores electoral",
+	"securepoll-tallymodifiers-question-label": "Question: “$1”",
+	"securepoll-tally-stv-candidate-excluded": "Excluder candidatos manualmente",
+	"securepoll-stv-result-election-excluded-header": "Candidatos excludite",
+	"securepoll-stv-excluded-candidates-help-text": "Le sequente candidato(s) ha essite excludite manualmente del contage."
 }

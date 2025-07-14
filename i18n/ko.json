@@ -316,5 +316,6 @@
 	"securepoll-vote-result-comment": "의견: $1",
 	"group-electionadmin": "선거 관리자",
 	"group-electionadmin-member": "{{GENDER:$1|선거 관리자}}",
-	"grouppage-electionadmin": "{{ns:project}}:선거 관리자"
+	"grouppage-electionadmin": "{{ns:project}}:선거 관리자",
+	"securepoll-tallymodifiers-question-label": "질문: \"$1\""
 }
