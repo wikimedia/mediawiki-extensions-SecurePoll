@@ -7,12 +7,14 @@ use MediaWiki\Maintenance\Maintenance;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\IReadableDatabase;
 
+// @codeCoverageIgnoreStart
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
 	$IP = __DIR__ . '/../../../..';
 }
 require_once "$IP/maintenance/Maintenance.php";
+// @codeCoverageIgnoreEnd
 
 class ImportGlobalVoterList extends Maintenance {
 	/** @var IReadableDatabase */
@@ -119,5 +121,7 @@ class ImportGlobalVoterList extends Maintenance {
 	}
 }
 
+// @codeCoverageIgnoreStart
 $maintClass = ImportGlobalVoterList::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
+// @codeCoverageIgnoreEnd

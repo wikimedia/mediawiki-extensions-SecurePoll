@@ -1,11 +1,13 @@
 <?php
 
+// @codeCoverageIgnoreStart
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
 	$IP = __DIR__ . '/../../..';
 }
 require_once "$IP/maintenance/Maintenance.php";
+// @codeCoverageIgnoreEnd
 
 use MediaWiki\Extension\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extension\SecurePoll\Context;
@@ -165,5 +167,7 @@ class ConvertVotes extends Maintenance {
 	}
 }
 
+// @codeCoverageIgnoreStart
 $maintClass = ConvertVotes::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
+// @codeCoverageIgnoreEnd

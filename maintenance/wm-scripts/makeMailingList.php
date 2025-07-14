@@ -21,12 +21,14 @@ use RuntimeException;
 use Wikimedia\Rdbms\ILBFactory;
 use Wikimedia\Rdbms\ILoadBalancer;
 
+// @codeCoverageIgnoreStart
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
 	$IP = __DIR__ . '/../../../..';
 }
 require_once "$IP/maintenance/Maintenance.php";
+// @codeCoverageIgnoreEnd
 require __DIR__ . '/includes/MailingListEntry.php';
 
 class MakeMailingList extends Maintenance {
@@ -347,5 +349,7 @@ class MakeMailingList extends Maintenance {
 	}
 }
 
+// @codeCoverageIgnoreStart
 $maintClass = MakeMailingList::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
+// @codeCoverageIgnoreEnd

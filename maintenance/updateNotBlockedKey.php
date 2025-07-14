@@ -7,12 +7,14 @@
  * Usage: php updateNotBlockedKey.php
  */
 
+// @codeCoverageIgnoreStart
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
 	$IP = __DIR__ . '/../../..';
 }
 require_once "$IP/maintenance/Maintenance.php";
+// @codeCoverageIgnoreEnd
 
 use MediaWiki\Maintenance\LoggedUpdateMaintenance;
 
@@ -69,5 +71,7 @@ class UpdateNotBlockedKey extends LoggedUpdateMaintenance {
 	}
 }
 
+// @codeCoverageIgnoreStart
 $maintClass = UpdateNotBlockedKey::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
+// @codeCoverageIgnoreEnd

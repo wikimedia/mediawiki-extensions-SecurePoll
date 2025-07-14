@@ -6,12 +6,14 @@ use Generator;
 use InvalidArgumentException;
 use MediaWiki\Maintenance\Maintenance;
 
+// @codeCoverageIgnoreStart
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
 	$IP = __DIR__ . '/../../../..';
 }
 require_once "$IP/maintenance/Maintenance.php";
+// @codeCoverageIgnoreEnd
 
 require __DIR__ . '/includes/MailingListEntry.php';
 
@@ -110,5 +112,7 @@ class DeduplicateMailingList extends Maintenance {
 	}
 }
 
+// @codeCoverageIgnoreStart
 $maintClass = DeduplicateMailingList::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
+// @codeCoverageIgnoreEnd

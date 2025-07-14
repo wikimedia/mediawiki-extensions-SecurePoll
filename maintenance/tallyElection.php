@@ -7,12 +7,14 @@
  * not feasible.
  */
 
+// @codeCoverageIgnoreStart
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
 	$IP = __DIR__ . '/../../..';
 }
 require_once "$IP/maintenance/Maintenance.php";
+// @codeCoverageIgnoreEnd
 
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Store\MemoryStore;
@@ -90,5 +92,7 @@ class TallyElection extends Maintenance {
 	}
 }
 
+// @codeCoverageIgnoreStart
 $maintClass = TallyElection::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
+// @codeCoverageIgnoreEnd

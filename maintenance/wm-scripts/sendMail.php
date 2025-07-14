@@ -20,12 +20,14 @@ use MediaWiki\WikiMap\WikiMap;
 use RuntimeException;
 use UserMailer;
 
+// @codeCoverageIgnoreStart
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
 	$IP = __DIR__ . '/../../../..';
 }
 require_once "$IP/maintenance/Maintenance.php";
+// @codeCoverageIgnoreEnd
 require __DIR__ . '/includes/MailingListEntry.php';
 
 /**
@@ -291,5 +293,7 @@ class SendMail extends Maintenance {
 	}
 }
 
+// @codeCoverageIgnoreStart
 $maintClass = SendMail::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
+// @codeCoverageIgnoreEnd

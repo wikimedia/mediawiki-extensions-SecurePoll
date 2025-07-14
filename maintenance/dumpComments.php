@@ -15,12 +15,14 @@ use MediaWiki\Extension\SecurePoll\Store\MemoryStore;
 use MediaWiki\Extension\SecurePoll\Talliers\CommentDumper;
 use MediaWiki\Maintenance\Maintenance;
 
+// @codeCoverageIgnoreStart
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
 	$IP = __DIR__ . '/../../..';
 }
 require_once "$IP/maintenance/Maintenance.php";
+// @codeCoverageIgnoreEnd
 
 class DumpComments extends Maintenance {
 	public function __construct() {
@@ -78,5 +80,7 @@ class DumpComments extends Maintenance {
 	}
 }
 
+// @codeCoverageIgnoreStart
 $maintClass = DumpComments::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
+// @codeCoverageIgnoreEnd

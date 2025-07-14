@@ -9,12 +9,14 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\WikiMap\WikiMap;
 use Wikimedia\Rdbms\IDatabase;
 
+// @codeCoverageIgnoreStart
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
 	$IP = __DIR__ . '/../../../..';
 }
 require_once "$IP/maintenance/Maintenance.php";
+// @codeCoverageIgnoreEnd
 
 class MakeGlobalVoterList extends Maintenance {
 	/** @var int */
@@ -228,5 +230,7 @@ class MakeGlobalVoterList extends Maintenance {
 
 }
 
+// @codeCoverageIgnoreStart
 $maintClass = MakeGlobalVoterList::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
+// @codeCoverageIgnoreEnd

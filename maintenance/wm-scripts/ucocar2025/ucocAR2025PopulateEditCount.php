@@ -11,7 +11,9 @@
  *   - and have made at least 20 edits between 6 September 2024 and 6 March 2025.
  */
 
+// @codeCoverageIgnoreStart
 require_once dirname( __DIR__ ) . '/PopulateEditCount.php';
+// @codeCoverageIgnoreEnd
 
 use MediaWiki\Extension\SecurePoll\PopulateEditCount;
 
@@ -28,5 +30,7 @@ class UcocAR2025PopulateEditCount extends PopulateEditCount {
 	}
 }
 
+// @codeCoverageIgnoreStart
 $maintClass = UcocAR2025PopulateEditCount::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
+// @codeCoverageIgnoreEnd
