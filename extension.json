@@ -74,6 +74,7 @@
 	"AutoloadClasses": {
 		"ConvertVotes": "maintenance/convertVotes.php",
 		"DeletePoll": "maintenance/deletePoll.php",
+		"MediaWiki\\Extension\\SecurePoll\\Maintenance\\DropUnusedTables": "maintenance/dropUnusedTables.php",
 		"ImportElectionConfiguration": "maintenance/importElectionConfiguration.php",
 		"MigrateTallies": "maintenance/migrateTallies.php",
 		"PurgePrivateVoteData": "maintenance/purgePrivateVoteData.php",
