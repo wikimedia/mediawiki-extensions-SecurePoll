@@ -2,13 +2,14 @@
 
 namespace MediaWiki\Extension\SecurePoll\Test\Maintenance;
 
+use MediaWiki\Extension\SecurePoll\Maintenance\MigrateTallies;
 use MediaWiki\Tests\Maintenance\MaintenanceBaseTestCase;
 use MediaWiki\Utils\MWTimestamp;
-use MigrateTallies;
 use TestSelectQueryBuilder;
 
 /**
  * @group Database
+ * @covers \MediaWiki\Extension\SecurePoll\Maintenance\MigrateTallies
  */
 class MigrateTalliesTest extends MaintenanceBaseTestCase {
 
@@ -19,9 +20,6 @@ class MigrateTalliesTest extends MaintenanceBaseTestCase {
 		return MigrateTallies::class;
 	}
 
-	/**
-	 * @covers MigrateTallies::execute
-	 */
 	public function testExecute() {
 		$dbw = $this->getDb();
 

@@ -1,5 +1,13 @@
 <?php
 
+namespace MediaWiki\Extension\SecurePoll\Maintenance;
+
+use DeletePoll;
+use MediaWiki\Extension\SecurePoll\Context;
+use MediaWiki\Extension\SecurePoll\Store\Store;
+use MediaWiki\Extension\SecurePoll\Store\XMLStore;
+use MediaWiki\Maintenance\Maintenance;
+
 // @codeCoverageIgnoreStart
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
@@ -8,11 +16,6 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 }
 require_once "$IP/maintenance/Maintenance.php";
 // @codeCoverageIgnoreEnd
-
-use MediaWiki\Extension\SecurePoll\Context;
-use MediaWiki\Extension\SecurePoll\Store\Store;
-use MediaWiki\Extension\SecurePoll\Store\XMLStore;
-use MediaWiki\Maintenance\Maintenance;
 
 class ImportElectionConfiguration extends Maintenance {
 

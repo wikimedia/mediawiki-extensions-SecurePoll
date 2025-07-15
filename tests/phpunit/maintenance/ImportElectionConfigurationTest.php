@@ -2,15 +2,15 @@
 
 namespace MediaWiki\Extension\SecurePoll\Test\Maintenance;
 
-use ImportElectionConfiguration;
 use MediaWiki\Extension\SecurePoll\Ballots\RadioRangeBallot;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
+use MediaWiki\Extension\SecurePoll\Maintenance\ImportElectionConfiguration;
 use MediaWiki\Tests\Maintenance\MaintenanceBaseTestCase;
 
 /**
  * @group Database
- * @covers ImportElectionConfiguration
+ * @covers \MediaWiki\Extension\SecurePoll\Maintenance\ImportElectionConfiguration
  */
 class ImportElectionConfigurationTest extends MaintenanceBaseTestCase {
 

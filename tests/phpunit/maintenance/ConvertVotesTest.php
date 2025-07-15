@@ -2,14 +2,14 @@
 
 namespace MediaWiki\Extension\SecurePoll\Test\Maintenance;
 
-use ConvertVotes;
 use DOMDocument;
-use ImportElectionConfiguration;
+use MediaWiki\Extension\SecurePoll\Maintenance\ConvertVotes;
+use MediaWiki\Extension\SecurePoll\Maintenance\ImportElectionConfiguration;
 use MediaWiki\Tests\Maintenance\MaintenanceBaseTestCase;
 
 /**
  * @group Database
- * @covers ConvertVotes
+ * @covers \MediaWiki\Extension\SecurePoll\Maintenance\ConvertVotes
  */
 class ConvertVotesTest extends MaintenanceBaseTestCase {
 	private const THREE_WAY_WITH_VOTES_TEST_ID = 50;

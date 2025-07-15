@@ -1,11 +1,8 @@
 <?php
 
-/**
- * Migrates old tallies stored in securepoll_properties store the tallies in a
- * list to support multiple tallies.
- *
- * Usage: php migrateTallies.php
- */
+namespace MediaWiki\Extension\SecurePoll\Maintenance;
+
+use MediaWiki\Maintenance\LoggedUpdateMaintenance;
 
 // @codeCoverageIgnoreStart
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
@@ -16,8 +13,10 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 require_once "$IP/maintenance/Maintenance.php";
 // @codeCoverageIgnoreEnd
 
-use MediaWiki\Maintenance\LoggedUpdateMaintenance;
-
+/**
+ * Migrates old tallies stored in securepoll_properties store the tallies in a
+ * list to support multiple tallies.
+ */
 class MigrateTallies extends LoggedUpdateMaintenance {
 	public function __construct() {
 		parent::__construct();

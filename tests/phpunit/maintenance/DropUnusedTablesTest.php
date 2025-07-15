@@ -7,8 +7,8 @@ use MediaWiki\Tests\Maintenance\MaintenanceBaseTestCase;
 use Wikimedia\Rdbms\IMaintainableDatabase;
 
 /**
- * @covers \MediaWiki\Extension\SecurePoll\Maintenance\DropUnusedTables
  * @group Database
+ * @covers \MediaWiki\Extension\SecurePoll\Maintenance\DropUnusedTables
  */
 class DropUnusedTablesTest extends MaintenanceBaseTestCase {
 

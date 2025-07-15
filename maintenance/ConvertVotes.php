@@ -1,13 +1,6 @@
 <?php
 
-// @codeCoverageIgnoreStart
-if ( getenv( 'MW_INSTALL_PATH' ) ) {
-	$IP = getenv( 'MW_INSTALL_PATH' );
-} else {
-	$IP = __DIR__ . '/../../..';
-}
-require_once "$IP/maintenance/Maintenance.php";
-// @codeCoverageIgnoreEnd
+namespace MediaWiki\Extension\SecurePoll\Maintenance;
 
 use MediaWiki\Extension\SecurePoll\Ballots\Ballot;
 use MediaWiki\Extension\SecurePoll\Context;
@@ -17,6 +10,16 @@ use MediaWiki\Extension\SecurePoll\Store\MemoryStore;
 use MediaWiki\Extension\SecurePoll\VoteRecord;
 use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\Status\Status;
+use RuntimeException;
+
+// @codeCoverageIgnoreStart
+if ( getenv( 'MW_INSTALL_PATH' ) ) {
+	$IP = getenv( 'MW_INSTALL_PATH' );
+} else {
+	$IP = __DIR__ . '/../../..';
+}
+require_once "$IP/maintenance/Maintenance.php";
+// @codeCoverageIgnoreEnd
 
 class ConvertVotes extends Maintenance {
 	/**

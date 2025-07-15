@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\SecurePoll\HookHandler;
 
+use MediaWiki\Extension\SecurePoll\Maintenance\MigrateTallies;
 use MediaWiki\Installer\Hook\LoadExtensionSchemaUpdatesHook;
-use MigrateTallies;
 use UpdateNotBlockedKey;
 
 class InstallHandler implements LoadExtensionSchemaUpdatesHook {
