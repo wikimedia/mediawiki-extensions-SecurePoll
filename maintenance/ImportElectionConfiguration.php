@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\SecurePoll\Maintenance;
 
-use DeletePoll;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Store\Store;
 use MediaWiki\Extension\SecurePoll\Store\XMLStore;

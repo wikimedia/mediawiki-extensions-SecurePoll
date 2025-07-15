@@ -5,7 +5,7 @@
  *
  * Usage: php purgeDecryptionKeys.php
  *
- * This script is based on the purgePrivateVoteData.php script by Chris Steipp.
+ * This script is based on the PurgePrivateVoteData.php script by Chris Steipp.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

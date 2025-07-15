@@ -2,7 +2,7 @@
 /**
  * Purge private data (IP, XFF, UA) from SecurePoll Votes
  *
- * Usage: php purgePrivateVoteData.php
+ * Usage: php PurgePrivateVoteData.php
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,6 +24,10 @@
  * @ingroup Maintenance
  */
 
+namespace MediaWiki\Extension\SecurePoll\Maintenance;
+
+use MediaWiki\Maintenance\Maintenance;
+
 // @codeCoverageIgnoreStart
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
@@ -33,8 +37,9 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 require_once "$IP/maintenance/Maintenance.php";
 // @codeCoverageIgnoreEnd
 
-use MediaWiki\Maintenance\Maintenance;
-
+/**
+ * Purge private data (IP, XFF, UA) from SecurePoll Votes
+ */
 class PurgePrivateVoteData extends Maintenance {
 
 	/** @var int|null */

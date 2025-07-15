@@ -71,11 +71,6 @@
 		"SecurePollAlias": "SecurePoll.alias.php",
 		"SecurePollNamespaces": "SecurePoll.namespaces.php"
 	},
-	"AutoloadClasses": {
-		"DeletePoll": "maintenance/deletePoll.php",
-		"PurgePrivateVoteData": "maintenance/purgePrivateVoteData.php",
-		"UpdateNotBlockedKey": "maintenance/updateNotBlockedKey.php"
-	},
 	"AutoloadNamespaces": {
 		"MediaWiki\\Extension\\SecurePoll\\": "includes/",
 		"MediaWiki\\Extension\\SecurePoll\\Maintenance\\": "maintenance/"
@@ -224,7 +219,7 @@
 		},
 		"SecurePollKeepPrivateInfoDays": {
 			"value": 90,
-			"description": "Maximum number of days after a poll ends to store and show private information about voters. After this number of days, 1) private info is hidden from the user interface, and 2) the private info gets deleted when running the purgePrivateVoteData maintenance script. Set to 0 to hide/delete the data as soon as the poll ends."
+			"description": "Maximum number of days after a poll ends to store and show private information about voters. After this number of days, 1) private info is hidden from the user interface, and 2) the private info gets deleted when running the PurgePrivateVoteData maintenance script. Set to 0 to hide/delete the data as soon as the poll ends."
 		},
 		"SecurePollCreateWikiGroupDir": {
 			"value": "/../",

@@ -1,5 +1,8 @@
 <?php
 
+use MediaWiki\Extension\SecurePoll\Maintenance\PurgePrivateVoteData;
+use MediaWiki\Maintenance\Maintenance;
+
 // @codeCoverageIgnoreStart
 $IP = getenv( 'MW_INSTALL_PATH' );
 if ( $IP === false ) {
@@ -7,8 +10,6 @@ if ( $IP === false ) {
 }
 require_once "$IP/maintenance/Maintenance.php";
 // @codeCoverageIgnoreEnd
-
-use MediaWiki\Maintenance\Maintenance;
 
 /**
  * @deprecated since 1.45. Use maintenance/PurgePrivateVoteData.php instead.

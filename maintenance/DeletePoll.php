@@ -1,5 +1,9 @@
 <?php
 
+namespace MediaWiki\Extension\SecurePoll\Maintenance;
+
+use MediaWiki\Maintenance\Maintenance;
+
 // @codeCoverageIgnoreStart
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
@@ -8,8 +12,6 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 }
 require_once "$IP/maintenance/Maintenance.php";
 // @codeCoverageIgnoreEnd
-
-use MediaWiki\Maintenance\Maintenance;
 
 class DeletePoll extends Maintenance {
 	public function __construct() {

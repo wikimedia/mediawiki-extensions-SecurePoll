@@ -1,11 +1,8 @@
 <?php
 
-/**
- * Update election property with new block keys from SecurePoll Elections
- * This is for the SecurePoll version: "3.0.0"
- *
- * Usage: php updateNotBlockedKey.php
- */
+namespace MediaWiki\Extension\SecurePoll\Maintenance;
+
+use MediaWiki\Maintenance\LoggedUpdateMaintenance;
 
 // @codeCoverageIgnoreStart
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
@@ -16,8 +13,10 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 require_once "$IP/maintenance/Maintenance.php";
 // @codeCoverageIgnoreEnd
 
-use MediaWiki\Maintenance\LoggedUpdateMaintenance;
-
+/**
+ * Update election property with new block keys from SecurePoll Elections.
+ * This is for SecurePoll version 3.0.0
+ */
 class UpdateNotBlockedKey extends LoggedUpdateMaintenance {
 	public function __construct() {
 		parent::__construct();
@@ -67,7 +66,7 @@ class UpdateNotBlockedKey extends LoggedUpdateMaintenance {
 
 	/** @inheritDoc */
 	protected function getUpdateKey() {
-		return __CLASS__;
+		return 'UpdateNotBlockedKey';
 	}
 }
 
