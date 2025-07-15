@@ -274,7 +274,7 @@
 	"securepolllog-form-date-label": "Dal giorno (e precedenti):",
 	"securepoll-log-action-type-0": "$1, $2 aggiunto $4 agli amministratori del sondaggio per l'elezione <em>$3</em> .",
 	"securepoll-log-action-type-1": "$1, $2 rimosso $4 dagli amministratori del sondaggio per l'elezione <em>$3</em> .",
-	"securepoll-log-action-type-2": "$1, $2 visualizzato i dati degli elettori per le elezioni <em>$3</em> .",
+	"securepoll-log-action-type-2": "$1, $2 ha visualizzato l'elenco dei votanti per l'elezione <em>$3</em>.",
 	"securepoll-log-empty": "Nessuna voce di registro trovata.",
 	"securepoll-stv-droop-default-value": "Seleziona un'opzione",
 	"securepoll-stv-droop-choice-rank": "Preferenza $1",
@@ -300,5 +300,8 @@
 	"securepoll-vote-result-comment": "Commento: $1",
 	"group-electionadmin": "Amministratori delle elezioni",
 	"group-electionadmin-member": "{{GENDER:$1|amministratore|amministratrice|amministratore/trice}} delle elezioni",
-	"grouppage-electionadmin": "{{ns:project}}:Amministratori delle elezioni"
+	"grouppage-electionadmin": "{{ns:project}}:Amministratori delle elezioni",
+	"securepoll-tallymodifiers-question-label": "Domanda: \"$1\"",
+	"securepoll-stv-result-election-excluded-header": "Candidati esclusi",
+	"securepoll-stv-excluded-candidates-help-text": "I seguenti candidati sono stati esclusi manualmente dal conteggio."
 }

@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Alexsh",
+			"Allenwang6212",
 			"Anakmalaysia",
 			"Bencmq",
 			"Cwlin0416",
@@ -361,5 +362,6 @@
 	"securepoll-vote-stv-clear-btn-label": "清除所有候選人",
 	"securepoll-vote-most-active-wiki-dropdown-label": "選擇您最活躍的 wiki",
 	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1（$2， $3 {{PLURAL:$3|次編輯}}）",
-	"group-electionadmin": "選舉管理員"
+	"group-electionadmin": "選舉管理員",
+	"securepoll-tallymodifiers-question-label": "問題：$1"
 }

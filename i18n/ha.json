@@ -3,6 +3,7 @@
 		"authors": [
 			"Abbaty",
 			"Em-em",
+			"Gwanki",
 			"Omar Ali",
 			"Salihu aliyu"
 		]
@@ -20,5 +21,11 @@
 	"securepoll-subpage-unarchive": "wanda ba'a ajiye ba",
 	"securepoll-unarchive-title": "Ba'a ajiye ba $1",
 	"securepoll-unarchive-in-progress": "Zabe ayanzu ba'a cimma shi ba.",
-	"securepoll-already-unarchived-error": "Wannan zaben ba'a ajiye shi ba"
+	"securepoll-already-unarchived-error": "Wannan zaben ba'a ajiye shi ba",
+	"securepoll-log-action-type-2": "$1, $2 sun kalli jerin masu jefa ƙuri'a na zaɓe <em>$3</em>.",
+	"securepoll-log-action-type-3": "$1, $2 sun kalli bayanan masu jefa kuri'a na zaben <em>$3</em>.",
+	"securepoll-tallymodifiers-question-label": "Tambaya: \"$1\"",
+	"securepoll-tally-stv-candidate-excluded": "Cire ƴan takara da hannu",
+	"securepoll-stv-result-election-excluded-header": "Ban da ƴan takara",
+	"securepoll-stv-excluded-candidates-help-text": "An cire (s) masu zuwa da hannu daga lissafin."
 }
