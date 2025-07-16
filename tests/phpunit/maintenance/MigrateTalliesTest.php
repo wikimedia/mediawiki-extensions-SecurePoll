@@ -68,6 +68,10 @@ class MigrateTalliesTest extends MaintenanceBaseTestCase {
 			->caller( __METHOD__ );
 	}
 
+	/**
+	 * Make sure this key name doesn't change if we change the class's namespace.
+	 * Else this creates a bug where this gets run twice during updates.
+	 */
 	public function testGetUpdateKey() {
 		/** @var TestingAccessWrapper $maintenance */
 		$maintenance = $this->maintenance;
