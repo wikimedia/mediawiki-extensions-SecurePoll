@@ -287,7 +287,7 @@
 	"securepolllog-form-date-label": "Da data (e anteriores):",
 	"securepoll-log-action-type-0": "$1, $2 adicionou $4 aos administradores da eleição <em>$3</em>.",
 	"securepoll-log-action-type-1": "$1, $2 removeu $4 dos administradores da eleição <em>$3</em>.",
-	"securepoll-log-action-type-2": "$1, $2 viu os dados dos votantes da eleição <em>$3</em>.",
+	"securepoll-log-action-type-2": "$1, $2 viu a lista de eleitores para a eleição <em>$3</em>.",
 	"securepoll-log-empty": "Não foi encontrada nenhuma entrada de registo.",
 	"securepoll-stv-droop-default-value": "Selecionar uma opção",
 	"securepoll-stv-droop-choice-rank": "Preferência $1",
@@ -309,5 +309,8 @@
 	"securepoll-stv-result-round-quota": "Quota: $1",
 	"securepoll-stv-result-round-elected": "Eleitos: $1",
 	"securepoll-stv-result-round-eliminated": "Eliminados: $1",
-	"securepoll-stv-result-round-keep-factor": "(fator de conservação: $1)"
+	"securepoll-stv-result-round-keep-factor": "(fator de conservação: $1)",
+	"securepoll-tallymodifiers-question-label": "Questão: \"$1\"",
+	"securepoll-tally-stv-candidate-excluded": "Excluir candidatos manualmente",
+	"securepoll-stv-result-election-excluded-header": "Candidatos excluídos"
 }
