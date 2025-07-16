@@ -1,12 +1,24 @@
 <?php
 
+namespace MediaWiki\Extension\SecurePoll\Maintenance;
+
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Store\MemoryStore;
 use MediaWiki\Extension\SecurePoll\Talliers\CommentDumper;
 use MediaWiki\Maintenance\Maintenance;
+use RuntimeException;
+
+// @codeCoverageIgnoreStart
+if ( getenv( 'MW_INSTALL_PATH' ) ) {
+	$IP = getenv( 'MW_INSTALL_PATH' );
+} else {
+	$IP = __DIR__ . '/../../..';
+}
+require_once "$IP/maintenance/Maintenance.php";
+// @codeCoverageIgnoreEnd
 
 /**
- * Dump all votes from an election from a dump file or local database.
+ * Dump the comments from an election from a dump file or local database.
  *
  * For the purposes of the Personal Image Filter referendum, this script
  * dumps the answers to all questions in key order.
@@ -14,11 +26,10 @@ use MediaWiki\Maintenance\Maintenance;
  * Can be used to tally very large numbers of votes, when the web interface is
  * not feasible.
  */
-
-class DumpVoteCsv extends Maintenance {
+class DumpComments extends Maintenance {
 	public function __construct() {
 		parent::__construct();
-		$this->addDescription( 'Dump all votes from an election from a dump file or local database' );
+		$this->addDescription( 'Dump the comments from an election from a dump file or local database' );
 
 		$this->addOption( 'name', 'Name of the election', false, true );
 		$this->addArg( 'dump', 'Dump file to process', false );
@@ -56,14 +67,14 @@ class DumpVoteCsv extends Maintenance {
 			$this->fatalError( 'Need to pass either --name or the dump file as an argument' );
 		}
 
-		$tallier = new CommentDumper( $context, $election, false );
+		$tallier = new CommentDumper( $context, $election );
 		$status = $tallier->execute();
 		if ( !$status->isOK() ) {
 			$this->fatalError( "Tally error: " . $status->getWikiText() );
 		}
 
 		// $tallier = $status->value;
-		if ( $this->hasOption( 'html' ) ) {
+		if ( $this->getOption( 'html' ) ) {
 			$this->output( $tallier->getHtmlResult() );
 		} else {
 			$this->output( $tallier->getTextResult() );
@@ -72,6 +83,6 @@ class DumpVoteCsv extends Maintenance {
 }
 
 // @codeCoverageIgnoreStart
-$maintClass = DumpVoteCsv::class;
+$maintClass = DumpComments::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
 // @codeCoverageIgnoreEnd

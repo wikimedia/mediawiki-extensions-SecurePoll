@@ -1,19 +1,12 @@
 <?php
 
-/**
- * Dump the comments from an election from a dump file or local database.
- *
- * For the purposes of the Personal Image Filter referendum, this script
- * dumps the answers to all questions in key order.
- *
- * Can be used to tally very large numbers of votes, when the web interface is
- * not feasible.
- */
+namespace MediaWiki\Extension\SecurePoll\Maintenance;
 
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Store\MemoryStore;
 use MediaWiki\Extension\SecurePoll\Talliers\CommentDumper;
 use MediaWiki\Maintenance\Maintenance;
+use RuntimeException;
 
 // @codeCoverageIgnoreStart
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
@@ -24,10 +17,19 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 require_once "$IP/maintenance/Maintenance.php";
 // @codeCoverageIgnoreEnd
 
-class DumpComments extends Maintenance {
+/**
+ * Dump all votes from an election from a dump file or local database.
+ *
+ * For the purposes of the Personal Image Filter referendum, this script
+ * dumps the answers to all questions in key order.
+ *
+ * Can be used to tally very large numbers of votes, when the web interface is
+ * not feasible.
+ */
+class DumpVoteCsv extends Maintenance {
 	public function __construct() {
 		parent::__construct();
-		$this->addDescription( 'Dump the comments from an election from a dump file or local database' );
+		$this->addDescription( 'Dump all votes from an election from a dump file or local database' );
 
 		$this->addOption( 'name', 'Name of the election', false, true );
 		$this->addArg( 'dump', 'Dump file to process', false );
@@ -65,14 +67,14 @@ class DumpComments extends Maintenance {
 			$this->fatalError( 'Need to pass either --name or the dump file as an argument' );
 		}
 
-		$tallier = new CommentDumper( $context, $election );
+		$tallier = new CommentDumper( $context, $election, false );
 		$status = $tallier->execute();
 		if ( !$status->isOK() ) {
 			$this->fatalError( "Tally error: " . $status->getWikiText() );
 		}
 
 		// $tallier = $status->value;
-		if ( $this->getOption( 'html' ) ) {
+		if ( $this->hasOption( 'html' ) ) {
 			$this->output( $tallier->getHtmlResult() );
 		} else {
 			$this->output( $tallier->getTextResult() );
@@ -81,6 +83,6 @@ class DumpComments extends Maintenance {
 }
 
 // @codeCoverageIgnoreStart
-$maintClass = DumpComments::class;
+$maintClass = DumpVoteCsv::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
 // @codeCoverageIgnoreEnd

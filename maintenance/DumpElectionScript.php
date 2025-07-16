@@ -1,9 +1,5 @@
 <?php
 
-/**
- * Generate an XML dump of an election, including configuration and votes.
- */
-
 // @codeCoverageIgnoreStart
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
@@ -14,10 +10,15 @@ require_once "$IP/maintenance/Maintenance.php";
 // @codeCoverageIgnoreEnd
 
 use MediaWiki\Extension\SecurePoll\Context;
-use MediaWiki\Extension\SecurePoll\DumpElection as DumpElectionHelper;
+use MediaWiki\Extension\SecurePoll\DumpElection;
 use MediaWiki\Maintenance\Maintenance;
 
-class DumpElection extends Maintenance {
+/**
+ * Generate an XML dump of an election, including configuration and votes.
+ *
+ * Including "Script" in the name to differentiate it from includes/DumpElection.php
+ */
+class DumpElectionScript extends Maintenance {
 
 	public function __construct() {
 		parent::__construct();
@@ -72,9 +73,9 @@ class DumpElection extends Maintenance {
 
 		try {
 			if ( $this->hasOption( 'blt' ) ) {
-				$dump = DumpElectionHelper::createBLTDump( $election );
+				$dump = DumpElection::createBLTDump( $election );
 			} else {
-				$dump = DumpElectionHelper::createXMLDump( $election, [
+				$dump = DumpElection::createXMLDump( $election, [
 					'jump' => $this->getOption( 'jump', false ),
 					'langs' => $langs,
 					'private' => $this->hasOption( 'private' )
@@ -89,6 +90,6 @@ class DumpElection extends Maintenance {
 }
 
 // @codeCoverageIgnoreStart
-$maintClass = DumpElection::class;
+$maintClass = DumpElectionScript::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
 // @codeCoverageIgnoreEnd

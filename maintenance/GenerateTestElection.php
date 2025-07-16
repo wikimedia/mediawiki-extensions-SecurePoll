@@ -1,5 +1,8 @@
 <?php
 
+namespace MediaWiki\Extension\SecurePoll\Maintenance;
+
+use DateTime;
 use MediaWiki\Extension\SecurePoll\Ballots\STVBallot;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Pages\CreatePage;

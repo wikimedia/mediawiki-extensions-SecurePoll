@@ -1,11 +1,13 @@
 <?php
 
-/**
- * Tally an election from a dump file or local database.
- *
- * Can be used to tally very large numbers of votes, when the web interface is
- * not feasible.
- */
+namespace MediaWiki\Extension\SecurePoll\Maintenance;
+
+use MediaWiki\Extension\SecurePoll\Context;
+use MediaWiki\Extension\SecurePoll\Store\MemoryStore;
+use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
+use MediaWiki\Maintenance\Maintenance;
+use MediaWiki\MediaWikiServices;
+use RuntimeException;
 
 // @codeCoverageIgnoreStart
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
@@ -16,12 +18,12 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 require_once "$IP/maintenance/Maintenance.php";
 // @codeCoverageIgnoreEnd
 
-use MediaWiki\Extension\SecurePoll\Context;
-use MediaWiki\Extension\SecurePoll\Store\MemoryStore;
-use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
-use MediaWiki\Maintenance\Maintenance;
-use MediaWiki\MediaWikiServices;
-
+/**
+ * Tally an election from a dump file or local database.
+ *
+ * Can be used to tally very large numbers of votes, when the web interface is
+ * not feasible.
+ */
 class TallyElection extends Maintenance {
 
 	public function __construct() {

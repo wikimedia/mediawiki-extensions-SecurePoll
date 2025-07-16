@@ -1,21 +1,10 @@
 <?php
 
+namespace MediaWiki\Extension\SecurePoll\Maintenance;
+
 use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\User\ActorMigration;
 use MediaWiki\User\User;
-
-/**
- * Generate a list of users with some number of edits before some date.
- *
- * Usage: php makeSimpleList.php [OPTIONS] LIST_NAME
- *   --replace          If list exists, delete it and recreate.
- *   --ignore-existing  Leave existing list items in place.
- *   --edits=COUNT      Edit count required for eligibility.
- *   --before=DATE      Consider edits made before DATE (strtotime format).
- *   --mainspace-only   Consider only NS_MAIN edits.
- *   --start-from=UID   Start from user ID UID. Allows crashed invocations
- *                      to be resumed.
- */
 
 // @codeCoverageIgnoreStart
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
@@ -26,6 +15,18 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 require_once "$IP/maintenance/Maintenance.php";
 // @codeCoverageIgnoreEnd
 
+/**
+ * Generate a list of users with some number of edits before some date.
+ *
+ * Usage: php MakeSimpleList.php [OPTIONS] LIST_NAME
+ *   --replace          If list exists, delete it and recreate.
+ *   --ignore-existing  Leave existing list items in place.
+ *   --edits=COUNT      Edit count required for eligibility.
+ *   --before=DATE      Consider edits made before DATE (strtotime format).
+ *   --mainspace-only   Consider only NS_MAIN edits.
+ *   --start-from=UID   Start from user ID UID. Allows crashed invocations
+ *                      to be resumed.
+ */
 class MakeSimpleList extends Maintenance {
 
 	public function __construct() {

@@ -1,6 +1,6 @@
 <?php
 
-namespace MediaWiki\Extension\SecurePoll;
+namespace MediaWiki\Extension\SecurePoll\Maintenance;
 
 use MediaWiki\Extension\CentralAuth\CentralAuthServices;
 use MediaWiki\Extension\CentralAuth\User\CentralAuthUser;

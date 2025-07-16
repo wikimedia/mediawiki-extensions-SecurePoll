@@ -1,12 +1,6 @@
 <?php
 
 /**
- * Purge GPG and SSL decryption keys from SecurePoll elections that have ended.
- *
- * Usage: php purgeDecryptionKeys.php
- *
- * This script is based on the PurgePrivateVoteData.php script by Chris Steipp.
- *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -27,6 +21,10 @@
  * @ingroup Maintenance
  */
 
+namespace MediaWiki\Extension\SecurePoll\Maintenance;
+
+use MediaWiki\Maintenance\Maintenance;
+
 // @codeCoverageIgnoreStart
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
@@ -36,8 +34,11 @@ if ( getenv( 'MW_INSTALL_PATH' ) ) {
 require_once "$IP/maintenance/Maintenance.php";
 // @codeCoverageIgnoreEnd
 
-use MediaWiki\Maintenance\Maintenance;
-
+/**
+ * Purge GPG and SSL decryption keys from SecurePoll elections that have ended.
+ *
+ * This script is based on the PurgePrivateVoteData.php script by Chris Steipp.
+ */
 class PurgeDecryptionKeys extends Maintenance {
 	public function __construct() {
 		parent::__construct();

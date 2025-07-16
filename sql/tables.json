@@ -116,7 +116,7 @@
 	},
 	{
 		"name": "securepoll_lists",
-		"comment": "Local voter qualification lists. Currently manually populated, referenced by Auth.php. FIXME: Make the splists_name index unique, for the convenience of findUsersWithRight.php.",
+		"comment": "Local voter qualification lists. Currently manually populated, referenced by Auth.php. FIXME: Make the splists_name index unique, for the convenience of FindUsersWithRight.php.",
 		"columns": [
 			{
 				"name": "li_name",
