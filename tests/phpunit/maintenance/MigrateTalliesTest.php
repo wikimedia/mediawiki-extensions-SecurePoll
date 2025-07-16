@@ -6,6 +6,7 @@ use MediaWiki\Extension\SecurePoll\Maintenance\MigrateTallies;
 use MediaWiki\Tests\Maintenance\MaintenanceBaseTestCase;
 use MediaWiki\Utils\MWTimestamp;
 use TestSelectQueryBuilder;
+use Wikimedia\TestingAccessWrapper;
 
 /**
  * @group Database
@@ -65,5 +66,11 @@ class MigrateTalliesTest extends MaintenanceBaseTestCase {
 				'pr_key' => 'tally-result',
 			] )
 			->caller( __METHOD__ );
+	}
+
+	public function testGetUpdateKey() {
+		/** @var TestingAccessWrapper $maintenance */
+		$maintenance = $this->maintenance;
+		$this->assertSame( 'MigrateTallies', $maintenance->getUpdateKey() );
 	}
 }

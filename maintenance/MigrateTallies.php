@@ -111,7 +111,7 @@ class MigrateTallies extends LoggedUpdateMaintenance {
 
 	/** @inheritDoc */
 	protected function getUpdateKey() {
-		return __CLASS__;
+		return 'MigrateTallies';
 	}
 }
 
