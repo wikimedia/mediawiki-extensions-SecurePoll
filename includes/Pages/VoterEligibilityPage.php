@@ -869,7 +869,7 @@ class VoterEligibilityPage extends ActionPage {
 			}
 		}
 
-		if ( $this->specialPage->getConfig()->get( 'SecurePollUseNamespace' ) ) {
+		if ( Context::isNamespacedLoggingEnabled() ) {
 			$formItems['comment'] = [
 				'type' => 'text',
 				'label-message' => 'securepoll-votereligibility-label-comment',
