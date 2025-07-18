@@ -200,7 +200,7 @@ class DumpElection {
 		}
 
 		// Check if the string is already enclosed in double quotes
-		if ( strlen( $string ) >= 2 && $string[0] === '"' && $string[strlen( $string ) - 1] === '"' ) {
+		if ( strlen( $string ) >= 2 && $string[0] === '"' && str_ends_with( $string, '"' ) ) {
 			return $string;
 		}
 
