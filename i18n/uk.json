@@ -32,6 +32,8 @@
 	"securepoll-not-qualified": "Ви не уповноважені голосувати на цих виборах: $1",
 	"securepoll-change-disallowed": "Ви вже голосували на цих виборах раніше.\nДаруйте, ви не можете проголосувати ще раз.",
 	"securepoll-change-allowed": "<strong>Примітка: ви вже проголосували на цих виборах.</strong>\nВи можете змінити свій голос, відправивши приведену нижче форму.\nЯкщо ви зробите це, то ваш попередній голос не буде врахований.",
+	"securepoll-stv-unranked-candidates": "Не ранжовано",
+	"securepoll-stv-ranked-candidates": "Ранжовано",
 	"securepoll-header-comments": "Коментарі",
 	"securepoll-submit": "Відправити голос",
 	"securepoll-gpg-receipt": "При бажання ви можете зберегти наступні рядки як підтвердження вашого голосу:\n\n<pre>$1</pre>",
@@ -321,7 +323,8 @@
 	"securepolllog-form-date-label": "З дати (і раніше):",
 	"securepoll-log-action-type-0": "$1, $2 додали $4 до адміністраторів опитування на виборах <em>$3</em>.",
 	"securepoll-log-action-type-1": "$1, $2 видалили $4 з адміністраторів опитування на виборах <em>$3</em>.",
-	"securepoll-log-action-type-2": "$1, $2 переглянули дані виборців на виборах <em>$3</em>.",
+	"securepoll-log-action-type-2": "$1 $2 переглянули список виборців на виборах <em>$3</em>.",
+	"securepoll-log-action-type-3": "$1 $2 переглянули дані виборців на виборах <em>$3</em>.",
 	"securepoll-log-empty": "Не знайдено записів у журналі.",
 	"securepoll-stv-droop-default-value": "Виберіть варіант",
 	"securepoll-stv-droop-choice-rank": "Вибір $1",
@@ -377,5 +380,9 @@
 	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1 ($2, $3 {{PLURAL:$3|редагування|редагування|редагувань}})",
 	"group-electionadmin": "Адміністратори виборів",
 	"group-electionadmin-member": "{{GENDER:$1|адміністратор виборів|адміністраторка виборів}}",
-	"grouppage-electionadmin": "{{ns:project}}:Адміністратори виборів"
+	"grouppage-electionadmin": "{{ns:project}}:Адміністратори виборів",
+	"securepoll-tallymodifiers-question-label": "Запитання: «$1»",
+	"securepoll-tally-stv-candidate-excluded": "Виключити кандидатів вручну",
+	"securepoll-stv-result-election-excluded-header": "Виключені кандидати",
+	"securepoll-stv-excluded-candidates-help-text": "Цих кандидатів було вручну виключено з підрахунку."
 }
