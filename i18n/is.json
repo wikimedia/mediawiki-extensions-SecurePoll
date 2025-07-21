@@ -3,7 +3,8 @@
 		"authors": [
 			"Spacebirdy",
 			"Sveinn í Felli",
-			"Stefán Örvar Sigmundsson"
+			"Stefán Örvar Sigmundsson",
+			"Bjarki S"
 		]
 	},
 	"securepoll-welcome": "<strong>{{GENDER:$1|Velkominn|Velkomin|Velkomin(n)}}, $1!</strong>",
