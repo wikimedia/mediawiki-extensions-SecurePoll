@@ -35,15 +35,13 @@ use Wikimedia\ParamValidator\ParamValidator;
  * @ingroup API
  */
 class ApiSecurePollAuth extends ApiBase {
-	private UserFactory $userFactory;
 
 	public function __construct(
 		ApiMain $mainModule,
 		string $moduleName,
-		UserFactory $userFactory
+		private readonly UserFactory $userFactory
 	) {
 		parent::__construct( $mainModule, $moduleName );
-		$this->userFactory = $userFactory;
 	}
 
 	public function execute() {

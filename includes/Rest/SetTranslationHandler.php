@@ -16,18 +16,10 @@ use Wikimedia\ParamValidator\ParamValidator;
 
 class SetTranslationHandler extends SimpleHandler {
 
-	/** @var TranslationRepo */
-	private $translationRepo;
-
-	/** @var ActionPageFactory */
-	private $actionPageFactory;
-
 	public function __construct(
-		TranslationRepo $translationRepo,
-		ActionPageFactory $actionPageFactory
+		private readonly TranslationRepo $translationRepo,
+		private readonly ActionPageFactory $actionPageFactory,
 	) {
-		$this->translationRepo = $translationRepo;
-		$this->actionPageFactory = $actionPageFactory;
 	}
 
 	public static function factory(

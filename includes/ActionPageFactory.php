@@ -63,7 +63,6 @@ class ActionPageFactory {
 			'class' => DetailsPage::class,
 			'services' => [
 				'JobQueueGroup',
-				'UserFactory',
 			],
 		],
 		'dump' => [
@@ -110,7 +109,6 @@ class ActionPageFactory {
 			'services' => [
 				'LinkRenderer',
 				'JobQueueGroup',
-				'DBLoadBalancer',
 			],
 		],
 		'translate' => [
@@ -138,35 +136,17 @@ class ActionPageFactory {
 			'services' => [
 				'DBLoadBalancerFactory',
 				'LinkRenderer',
-				'TitleFactory',
 				'UserGroupManager',
 				'WikiPageFactory',
 			]
 		],
 	];
 
-	/** @var ObjectFactory */
-	private $objectFactory;
-
-	/** @var UserOptionsLookup */
-	private $userOptionsLookup;
-
-	/** @var LanguageFallback */
-	private $languageFallback;
-
-	/**
-	 * @param ObjectFactory $objectFactory
-	 * @param UserOptionsLookup $userOptionsLookup
-	 * @param LanguageFallback $languageFallback
-	 */
 	public function __construct(
-		ObjectFactory $objectFactory,
-		UserOptionsLookup $userOptionsLookup,
-		LanguageFallback $languageFallback
+		private readonly ObjectFactory $objectFactory,
+		private readonly UserOptionsLookup $userOptionsLookup,
+		private readonly LanguageFallback $languageFallback,
 	) {
-		$this->objectFactory = $objectFactory;
-		$this->userOptionsLookup = $userOptionsLookup;
-		$this->languageFallback = $languageFallback;
 	}
 
 	/**

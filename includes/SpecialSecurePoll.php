@@ -15,20 +15,11 @@ class SpecialSecurePoll extends SpecialPage {
 	/** @var Context */
 	public $sp_context;
 
-	/** @var ActionPageFactory */
-	private $actionPageFactory;
-
-	/**
-	 * Constructor
-	 * @param ActionPageFactory $actionPageFactory
-	 */
 	public function __construct(
-		ActionPageFactory $actionPageFactory
+		private readonly ActionPageFactory $actionPageFactory,
 	) {
 		parent::__construct( 'SecurePoll' );
 		$this->sp_context = new Context;
-
-		$this->actionPageFactory = $actionPageFactory;
 	}
 
 	/** @inheritDoc */

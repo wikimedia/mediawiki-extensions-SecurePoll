@@ -51,25 +51,17 @@ class VotePage extends ActionPage {
 	/** @var Voter|null */
 	public $voter;
 
-	private ILoadBalancer $loadBalancer;
-
 	private HookRunner $hookRunner;
 
 	/** @var string */
 	private $mostActiveWikiFormField;
 
-	/**
-	 * @param SpecialSecurePoll $specialPage
-	 * @param ILoadBalancer $loadBalancer
-	 * @param HookContainer $hookContainer
-	 */
 	public function __construct(
 		SpecialSecurePoll $specialPage,
-		ILoadBalancer $loadBalancer,
-		HookContainer $hookContainer
+		private readonly ILoadBalancer $loadBalancer,
+		HookContainer $hookContainer,
 	) {
 		parent::__construct( $specialPage );
-		$this->loadBalancer = $loadBalancer;
 		$this->hookRunner = new HookRunner( $hookContainer );
 	}
 

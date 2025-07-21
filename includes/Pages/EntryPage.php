@@ -12,24 +12,13 @@ use Wikimedia\Rdbms\ILoadBalancer;
  * The entry page for SecurePoll. Shows a list of elections.
  */
 class EntryPage extends ActionPage {
-	/** @var LinkRenderer */
-	private $linkRenderer;
-	/** @var ILoadBalancer */
-	private $loadBalancer;
 
-	/**
-	 * @param SpecialSecurePoll $specialPage
-	 * @param LinkRenderer $linkRenderer
-	 * @param ILoadBalancer $loadBalancer
-	 */
 	public function __construct(
 		SpecialSecurePoll $specialPage,
-		LinkRenderer $linkRenderer,
-		ILoadBalancer $loadBalancer
+		private readonly LinkRenderer $linkRenderer,
+		private readonly ILoadBalancer $loadBalancer,
 	) {
 		parent::__construct( $specialPage );
-		$this->linkRenderer = $linkRenderer;
-		$this->loadBalancer = $loadBalancer;
 	}
 
 	/**

@@ -28,25 +28,12 @@ class TranslatePage extends ActionPage {
 	/** @var bool|null */
 	public $isAdmin;
 
-	/** @var LanguageNameUtils */
-	private $languageNameUtils;
-
-	/** @var TranslationRepo */
-	private $translationRepo;
-
-	/**
-	 * @param SpecialSecurePoll $specialPage
-	 * @param LanguageNameUtils $languageNameUtils
-	 * @param TranslationRepo $translationRepo
-	 */
 	public function __construct(
 		SpecialSecurePoll $specialPage,
-		LanguageNameUtils $languageNameUtils,
-		TranslationRepo $translationRepo
+		private readonly LanguageNameUtils $languageNameUtils,
+		private readonly TranslationRepo $translationRepo,
 	) {
 		parent::__construct( $specialPage );
-		$this->languageNameUtils = $languageNameUtils;
-		$this->translationRepo = $translationRepo;
 	}
 
 	/**

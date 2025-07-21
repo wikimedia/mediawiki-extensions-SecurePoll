@@ -15,22 +15,10 @@ use Wikimedia\Rdbms\LBFactory;
 
 class TranslationRepo {
 
-	/** @var LBFactory */
-	private $lbFactory;
-
-	/**
-	 * @var WikiPageFactory
-	 */
-	private $wikiPageFactory = null;
-
-	/**
-	 *
-	 * @param LBFactory $lbFactory
-	 * @param WikiPageFactory $wikiPageFactory
-	 */
-	public function __construct( LBFactory $lbFactory, WikiPageFactory $wikiPageFactory ) {
-		$this->lbFactory = $lbFactory;
-		$this->wikiPageFactory = $wikiPageFactory;
+	public function __construct(
+		private readonly LBFactory $lbFactory,
+		private readonly WikiPageFactory $wikiPageFactory,
+	) {
 	}
 
 	/**

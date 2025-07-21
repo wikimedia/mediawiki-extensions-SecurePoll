@@ -11,24 +11,13 @@ use Wikimedia\Rdbms\ILoadBalancer;
  * SecurePoll subpage for archiving past elections
  */
 class ArchivedPage extends ActionPage {
-	/** @var LinkRenderer */
-	private $linkRenderer;
-	/** @var ILoadBalancer */
-	private $loadBalancer;
 
-	/**
-	 * @param SpecialSecurePoll $specialPage
-	 * @param LinkRenderer $linkRenderer
-	 * @param ILoadBalancer $loadBalancer
-	 */
 	public function __construct(
 		SpecialSecurePoll $specialPage,
-		LinkRenderer $linkRenderer,
-		ILoadBalancer $loadBalancer
+		private readonly LinkRenderer $linkRenderer,
+		private readonly ILoadBalancer $loadBalancer,
 	) {
 		parent::__construct( $specialPage );
-		$this->linkRenderer = $linkRenderer;
-		$this->loadBalancer = $loadBalancer;
 	}
 
 	/**

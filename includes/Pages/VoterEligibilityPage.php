@@ -20,7 +20,6 @@ use MediaWiki\Message\Message;
 use MediaWiki\Page\WikiPageFactory;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Status\Status;
-use MediaWiki\Title\TitleFactory;
 use MediaWiki\User\UserGroupManager;
 use MediaWiki\WikiMap\WikiMap;
 use Wikimedia\Rdbms\DBConnectionError;
@@ -39,43 +38,14 @@ class VoterEligibilityPage extends ActionPage {
 		'exclude' => 'exclude-list',
 	];
 
-	/** @var LBFactory */
-	private $lbFactory;
-
-	/** @var LinkRenderer */
-	private $linkRenderer;
-
-	/** @var TitleFactory */
-	private $titleFactory;
-
-	/** @var UserGroupManager */
-	private $userGroupManager;
-
-	/** @var WikiPageFactory */
-	private $wikiPageFactory;
-
-	/**
-	 * @param SpecialSecurePoll $specialPage
-	 * @param LBFactory $lbFactory
-	 * @param LinkRenderer $linkRenderer
-	 * @param TitleFactory $titleFactory
-	 * @param UserGroupManager $userGroupManager
-	 * @param WikiPageFactory $wikiPageFactory
-	 */
 	public function __construct(
 		SpecialSecurePoll $specialPage,
-		LBFactory $lbFactory,
-		LinkRenderer $linkRenderer,
-		TitleFactory $titleFactory,
-		UserGroupManager $userGroupManager,
-		WikiPageFactory $wikiPageFactory
+		private readonly LBFactory $lbFactory,
+		private readonly LinkRenderer $linkRenderer,
+		private readonly UserGroupManager $userGroupManager,
+		private readonly WikiPageFactory $wikiPageFactory,
 	) {
 		parent::__construct( $specialPage );
-		$this->lbFactory = $lbFactory;
-		$this->linkRenderer = $linkRenderer;
-		$this->titleFactory = $titleFactory;
-		$this->userGroupManager = $userGroupManager;
-		$this->wikiPageFactory = $wikiPageFactory;
 	}
 
 	/**

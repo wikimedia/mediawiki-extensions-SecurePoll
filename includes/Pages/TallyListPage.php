@@ -34,31 +34,15 @@ class TallyListPage extends ActionPage {
 		],
 	];
 
-	private LinkRenderer $linkRenderer;
-
-	private ILoadBalancer $loadBalancer;
-
-	private JobQueueGroup $jobQueueGroup;
-
 	private ?bool $tallyEnqueued = null;
 
-	/**
-	 * @param SpecialSecurePoll $specialPage
-	 * @param LinkRenderer $linkRenderer
-	 * @param ILoadBalancer $loadBalancer
-	 * @param JobQueueGroup $jobQueueGroup
-	 */
 	public function __construct(
 		SpecialSecurePoll $specialPage,
-		LinkRenderer $linkRenderer,
-		ILoadBalancer $loadBalancer,
-		JobQueueGroup $jobQueueGroup
+		private readonly LinkRenderer $linkRenderer,
+		private readonly ILoadBalancer $loadBalancer,
+		private readonly JobQueueGroup $jobQueueGroup
 	) {
 		parent::__construct( $specialPage );
-
-		$this->linkRenderer = $linkRenderer;
-		$this->loadBalancer = $loadBalancer;
-		$this->jobQueueGroup = $jobQueueGroup;
 	}
 
 	/**

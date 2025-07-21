@@ -7,7 +7,6 @@ use MediaWiki\Extension\SecurePoll\User\Voter;
 use MediaWiki\JobQueue\JobQueueGroup;
 use MediaWiki\JobQueue\JobSpecification;
 use MediaWiki\Title\Title;
-use MediaWiki\User\UserFactory;
 use MediaWiki\Xml\Xml;
 use Wikimedia\IPUtils;
 
@@ -18,21 +17,11 @@ class DetailsPage extends ActionPage {
 	/** @var int|null */
 	public $voteId;
 
-	private JobQueueGroup $jobQueueGroup;
-	private UserFactory $userFactory;
-
-	/**
-	 * @param SpecialSecurePoll $specialPage
-	 * @param JobQueueGroup $jobQueueGroup
-	 */
 	public function __construct(
 		SpecialSecurePoll $specialPage,
-		JobQueueGroup $jobQueueGroup,
-		UserFactory $userFactory
+		private readonly JobQueueGroup $jobQueueGroup,
 	) {
 		parent::__construct( $specialPage );
-		$this->jobQueueGroup = $jobQueueGroup;
-		$this->userFactory = $userFactory;
 	}
 
 	/**

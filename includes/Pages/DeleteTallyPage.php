@@ -7,33 +7,15 @@ use MediaWiki\JobQueue\JobQueueGroup;
 use MediaWiki\JobQueue\JobSpecification;
 use MediaWiki\Linker\LinkRenderer;
 use OOUI\MessageWidget;
-use Wikimedia\Rdbms\ILoadBalancer;
 
 class DeleteTallyPage extends ActionPage {
 
-	private LinkRenderer $linkRenderer;
-
-	private JobQueueGroup $jobQueueGroup;
-
-	private ILoadBalancer $loadBalancer;
-
-	/**
-	 * @param SpecialSecurePoll $specialPage
-	 * @param LinkRenderer $linkRenderer
-	 * @param JobQueueGroup $jobQueueGroup
-	 * @param ILoadBalancer $loadBalancer
-	 */
 	public function __construct(
 		SpecialSecurePoll $specialPage,
-		LinkRenderer $linkRenderer,
-		JobQueueGroup $jobQueueGroup,
-		ILoadBalancer $loadBalancer
+		private readonly LinkRenderer $linkRenderer,
+		private readonly JobQueueGroup $jobQueueGroup,
 	) {
 		parent::__construct( $specialPage );
-
-		$this->linkRenderer = $linkRenderer;
-		$this->jobQueueGroup = $jobQueueGroup;
-		$this->loadBalancer = $loadBalancer;
 	}
 
 	/**

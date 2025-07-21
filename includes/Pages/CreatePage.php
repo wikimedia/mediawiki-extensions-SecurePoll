@@ -36,29 +36,15 @@ use Wikimedia\Rdbms\LBFactory;
  * Special:SecurePoll subpage for creating or editing a poll
  */
 class CreatePage extends ActionPage {
-	/** @var LBFactory */
-	private $lbFactory;
-
-	/** @var LanguageNameUtils */
-	private $languageNameUtils;
-
-	/** @var UserFactory */
-	private $userFactory;
-
-	private PageUpdaterFactory $pageUpdaterFactory;
 
 	public function __construct(
 		SpecialSecurePoll $specialPage,
-		LBFactory $lbFactory,
-		LanguageNameUtils $languageNameUtils,
-		UserFactory $userFactory,
-		PageUpdaterFactory $pageUpdaterFactory
+		private readonly LBFactory $lbFactory,
+		private readonly LanguageNameUtils $languageNameUtils,
+		private readonly UserFactory $userFactory,
+		private readonly PageUpdaterFactory $pageUpdaterFactory,
 	) {
 		parent::__construct( $specialPage );
-		$this->lbFactory = $lbFactory;
-		$this->languageNameUtils = $languageNameUtils;
-		$this->userFactory = $userFactory;
-		$this->pageUpdaterFactory = $pageUpdaterFactory;
 	}
 
 	/**

@@ -17,19 +17,11 @@ class ListPage extends ActionPage {
 	/** @var Election */
 	public $election;
 
-	/** @var JobQueueGroup */
-	private $jobQueueGroup;
-
-	/**
-	 * @param SpecialSecurePoll $specialPage
-	 * @param JobQueueGroup $jobQueueGroup
-	 */
 	public function __construct(
 		SpecialSecurePoll $specialPage,
-		JobQueueGroup $jobQueueGroup
+		private readonly JobQueueGroup $jobQueueGroup,
 	) {
 		parent::__construct( $specialPage );
-		$this->jobQueueGroup = $jobQueueGroup;
 	}
 
 	/**
