@@ -87,7 +87,7 @@
 	"securepoll-translate-label-comment": "कारण:",
 	"securepoll-invalid-language": "अमान्य भाषा कोड \"$1\"",
 	"securepoll-header-trans-id": "आईडी(ID)",
-	"securepoll-submit-translate": "अद्यतन गर्ने(अपडेट)",
+	"securepoll-submit-translate": "अद्यावधिक गर्ने",
 	"securepoll-language-label": "भाषा छान्ने:",
 	"securepoll-submit-select-lang": "अनुवाद गर्नुहोस्",
 	"securepoll-entry-text": "चुनावको सूची तल दिइएकोछ।",
