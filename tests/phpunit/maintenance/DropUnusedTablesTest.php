@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\SecurePoll\Test\Maintenance;
 
 use MediaWiki\Extension\SecurePoll\Maintenance\DropUnusedTables;
+use MediaWiki\MainConfigNames;
 use MediaWiki\Tests\Maintenance\MaintenanceBaseTestCase;
 use Wikimedia\Rdbms\IMaintainableDatabase;
 
@@ -33,5 +34,19 @@ class DropUnusedTablesTest extends MaintenanceBaseTestCase {
 		$this->assertStringContainsString(
 			'Found user groups having permission to create polls, nothing to do', $actualOutput
 		);
+	}
+
+	public function testExecuteForDryRun() {
+		$this->maintenance->setOption( 'dry-run', 1 );
+		$this->maintenance->execute();
+
+		$actualOutput = $this->getActualOutputForAssertion();
+		$dbName = $this->getConfVar( MainConfigNames::DBname );
+		foreach ( DropUnusedTables::TABLES_TO_DROP as $table ) {
+			$this->assertStringContainsString(
+				"Would have dropped table $dbName.$table, but we are in dry-run mode.",
+				$actualOutput
+			);
+		}
 	}
 }
