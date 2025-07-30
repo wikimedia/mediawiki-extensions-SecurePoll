@@ -1,5 +1,6 @@
 <?php
-namespace MediaWiki\Extension\SecurePoll\Test\Integration;
+
+namespace MediaWiki\Extension\SecurePoll\Test\Integration\Pages;
 
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\SecurePoll\Context;
@@ -12,12 +13,11 @@ use Wikimedia\Timestamp\ConvertibleTimestamp;
 
 /**
  * @group Database
- * @covers \MediaWiki\Extension\SecurePoll\Pages\DetailsPage
+ * @covers \MediaWiki\Extension\SecurePoll\Pages\ListPage
  */
-class DetailsPageTest extends SpecialPageTestBase {
+class ListPageTest extends SpecialPageTestBase {
 	private Election $election;
 	private Context $context;
-	private int $voteId;
 
 	protected function setUp(): void {
 		parent::setUp();
@@ -116,7 +116,6 @@ class DetailsPageTest extends SpecialPageTestBase {
 				'vote_cookie_dup' => 0,
 			] )
 			->caller( __METHOD__ )->execute();
-		$this->voteId = $this->getDb()->insertId();
 	}
 
 	/**
@@ -144,67 +143,55 @@ class DetailsPageTest extends SpecialPageTestBase {
 			->getPage( 'SecurePoll' );
 	}
 
-	private function provideVisitingDetailsPageIsLogged() {
+	private function provideVisitingListPageIsLogged() {
 		return [
 			'logging turned off, not logged in' => [
 				'logConfigVarTurnedOn' => false,
 				'isLoggedInAsAdmin' => false,
-				'detailsPageAccessExpected' => false,
-				'piiOnDetailsPageExpected' => false,
+				'piiOnListPageExpected' => false,
 				'logEntryExpected' => false,
 			],
 			'logging turned off, logged in, election admin for this election, non-scrutineer' => [
 				'logConfigVarTurnedOn' => false,
 				'isLoggedInAsAdmin' => true,
-				'detailsPageAccessExpected' => true,
-				'piiOnDetailsPageExpected' => false,
+				'piiOnListPageExpected' => false,
 				'logEntryExpected' => false,
 			],
 			'logging turned off, logged in, election admin for this election, scrutineer' => [
 				'logConfigVarTurnedOn' => false,
 				'isLoggedInAsAdmin' => true,
-				'detailsPageAccessExpected' => true,
-				'piiOnDetailsPageExpected' => true,
+				'piiOnListPageExpected' => true,
 				'logEntryExpected' => false,
 			],
 			'logging turned on, not logged in' => [
 				'logConfigVarTurnedOn' => true,
 				'isLoggedInAsAdmin' => false,
-				'detailsPageAccessExpected' => false,
-				'piiOnDetailsPageExpected' => false,
+				'piiOnListPageExpected' => false,
 				'logEntryExpected' => false,
 			],
 			'logging turned on, logged in, election admin for this election, non-scrutineer' => [
 				'logConfigVarTurnedOn' => true,
 				'isLoggedInAsAdmin' => true,
-				'detailsPageAccessExpected' => true,
-				'piiOnDetailsPageExpected' => false,
+				'piiOnListPageExpected' => false,
 				'logEntryExpected' => false,
 			],
 			'logging turned on, logged in, election admin for this election, scrutineer' => [
 				'logConfigVarTurnedOn' => true,
 				'isLoggedInAsAdmin' => true,
-				'detailsPageAccessExpected' => true,
-				'piiOnDetailsPageExpected' => true,
+				'piiOnListPageExpected' => true,
 				'logEntryExpected' => true,
 			],
 		];
 	}
 
 	/**
-	 * @dataProvider provideVisitingDetailsPageIsLogged
+	 * @dataProvider provideVisitingListPageIsLogged
 	 */
-	public function testVisitingListPageIsLogged(
-		$logConfigVarTurnedOn,
-		$isLoggedInAsAdmin,
-		$detailsPageAccessExpected,
-		$piiOnDetailsPageExpected,
-		$logEntryExpected
-	) {
+	public function testVisitingListPageIsLogged( $logConfigVarTurnedOn, $isLoggedInAsAdmin, $piiOnListPageExpected, $logEntryExpected ) {
 		$this->setMwGlobals( 'wgSecurePollUseLogging', $logConfigVarTurnedOn );
 
 		// set scrutineer user right
-		$this->setGroupPermissions( 'sysop', 'securepoll-view-voter-pii', $piiOnDetailsPageExpected );
+		$this->setGroupPermissions( 'sysop', 'securepoll-view-voter-pii', $piiOnListPageExpected );
 
 		// Log in as admin using RequestContext. Passing an admin user to executeSpecialPage() is
 		// not sufficient.
@@ -215,27 +202,20 @@ class DetailsPageTest extends SpecialPageTestBase {
 		// the user language.
 		RequestContext::getMain()->setLanguage( 'qqx' );
 
-		// visit details page
+		// visit list page
 		$webRequest = new WebRequest();
 		$authority = $isLoggedInAsAdmin ? $this->getTestSysop()->getAuthority() : null;
 		[ $html ] = $this->executeSpecialPage(
-			'details/' . $this->voteId, $webRequest, null, $authority
+			'list/' . $this->election->getId(), $webRequest, null, $authority
 		);
-
-		if ( $detailsPageAccessExpected ) {
-			$this->assertStringContainsString( 'securepoll-header-id', $html,
-				'details page contains details' );
-		} else {
-			$this->assertStringContainsString( 'securepoll-need-admin', $html,
-				'details page does not contain details' );
-		}
-
-		if ( $piiOnDetailsPageExpected ) {
+		$this->assertStringContainsString( 'securepoll-voter-name-local', $html,
+			'list page contains voters' );
+		if ( $piiOnListPageExpected ) {
 			$this->assertStringContainsString( 'securepoll-header-ip', $html,
-				'details page contains PII' );
+				'list page contains PII' );
 		} else {
 			$this->assertStringNotContainsString( 'securepoll-header-ip', $html,
-				'details page did not contain PII' );
+				'list page did not contain PII' );
 		}
 
 		// check for a Special:SecurePollLog entry
@@ -249,7 +229,7 @@ class DetailsPageTest extends SpecialPageTestBase {
 			->caller( __METHOD__ )->fetchResultSet();
 		if ( $logEntryExpected ) {
 			$this->assertSame( 1, $log->numRows(), 'log entry created' );
-			$this->assertSame( ActionPage::LOG_TYPE_VIEWVOTEDETAILS, (int)$log->current()->spl_type,
+			$this->assertSame( ActionPage::LOG_TYPE_VIEWVOTES, (int)$log->current()->spl_type,
 				'log entry is the correct type' );
 		} else {
 			$this->assertSame( 0, $log->numRows(), 'no log entry created' );

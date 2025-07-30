@@ -1,5 +1,6 @@
 <?php
-namespace MediaWiki\Extension\SecurePoll\Test\Integration;
+
+namespace MediaWiki\Extension\SecurePoll\Test\Integration\Pages;
 
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
@@ -11,9 +12,9 @@ use Wikimedia\Timestamp\ConvertibleTimestamp;
 
 /**
  * @group Database
- * @covers \MediaWiki\Extension\SecurePoll\Pages\UnarchivePage
+ * @covers \MediaWiki\Extension\SecurePoll\Pages\ArchivePage
  */
-class UnarchivePageTest extends SpecialPageTestBase {
+class ArchivePageTest extends SpecialPageTestBase {
 	private Election $election;
 
 	protected function setUp(): void {
@@ -66,27 +67,16 @@ class UnarchivePageTest extends SpecialPageTestBase {
 			->getPage( 'SecurePoll' );
 	}
 
-	public function testUnarchiveElectionNoToken(): void {
-		// Archive the election
-		$webRequest = new WebRequest();
-		$tokenRepo = new CsrfTokenSet( $webRequest );
-		$token = $tokenRepo->getToken()->toString();
-		$webRequest->setVal( 'token', $token );
-		[ $html ] = $this->executeSpecialPage(
-			'archive/' . $this->election->getId(), $webRequest, null, $this->getTestSysop()->getAuthority()
-		);
-		$this->runJobs( [ 'minJobs' => 1 ], [ 'type' => 'securePollArchiveElection' ] );
-
-		// Attempt to unarchive the page without a token and assert that it fails
+	public function testArchiveElectionNoToken(): void {
+		// Attempt to archive the page without a token and assert that it fails
 		$archiveRequest = new WebRequest();
 		[ $html ] = $this->executeSpecialPage(
-			'unarchive/' . $this->election->getId(), $archiveRequest, null, $this->getTestSysop()->getAuthority()
+			'archive/' . $this->election->getId(), $archiveRequest, null, $this->getTestSysop()->getAuthority()
 		);
-		$this->assertStringContainsString( 'securepoll-unarchive-token-error', $html );
+		$this->assertStringContainsString( 'securepoll-archive-token-error', $html );
 	}
 
-	public function testUnarchiveElection(): void {
-		// Archive the election
+	public function testArchiveElection(): void {
 		$webRequest = new WebRequest();
 		$tokenRepo = new CsrfTokenSet( $webRequest );
 		$token = $tokenRepo->getToken()->toString();
@@ -96,24 +86,15 @@ class UnarchivePageTest extends SpecialPageTestBase {
 		);
 		$this->runJobs( [ 'minJobs' => 1 ], [ 'type' => 'securePollArchiveElection' ] );
 
-		// Unarchive the election
-		$webRequest = new WebRequest();
-		$tokenRepo = new CsrfTokenSet( $webRequest );
-		$token = $tokenRepo->getToken()->toString();
+		// Assert that the page was archived
+		$this->assertStringNotContainsString( 'securepoll-archive-token-error', $html );
+		$this->assertStringContainsString( 'securepoll-archive-in-progress', $html );
+
+		// Attempt to re-archive the archived election and assert that this fails
 		$webRequest->setVal( 'token', $token );
 		[ $html ] = $this->executeSpecialPage(
-			'unarchive/' . $this->election->getId(), $webRequest, null, $this->getTestSysop()->getAuthority()
+			'archive/' . $this->election->getId(), $webRequest, null, $this->getTestSysop()->getAuthority()
 		);
-		$this->runJobs( [ 'minJobs' => 1 ], [ 'type' => 'securePollUnarchiveElection' ] );
-
-		// Assert that the page was unarchived
-		$this->assertStringNotContainsString( 'securepoll-unarchive-token-error', $html );
-		$this->assertStringContainsString( 'securepoll-unarchive-in-progress', $html );
-
-		// Attempt to re-unarchive the election and assert that this fails
-		[ $html ] = $this->executeSpecialPage(
-			'unarchive/' . $this->election->getId(), $webRequest, null, $this->getTestSysop()->getAuthority()
-		);
-		$this->assertStringContainsString( 'securepoll-already-unarchived-error', $html );
+		$this->assertStringContainsString( 'securepoll-already-archived-error', $html );
 	}
 }

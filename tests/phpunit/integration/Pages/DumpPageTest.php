@@ -1,5 +1,7 @@
 <?php
 
+namespace MediaWiki\Extension\SecurePoll\Test\Integration\Pages;
+
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
@@ -14,6 +16,8 @@ use MediaWiki\Tests\MockDatabase;
 use MediaWiki\Tests\Unit\Permissions\MockAuthorityTrait;
 use MediaWiki\User\UserIdentityValue;
 use PHPUnit\Framework\MockObject\MockObject;
+use RuntimeException;
+use SpecialPageTestBase;
 
 /**
  * @group SecurePoll
@@ -39,7 +43,7 @@ class DumpPageTest extends SpecialPageTestBase {
 		parent::setUp();
 
 		$this->context = $this->getMockContext();
-		$this->importXmlFile( dirname( __DIR__ ) . '/data/stv-test.xml' );
+		$this->importXmlFile( dirname( __DIR__ ) . '/../data/stv-test.xml' );
 	}
 
 	/**
@@ -328,7 +332,7 @@ class DumpPageTest extends SpecialPageTestBase {
 	 * Read election votes and results from the fixtures directory.
 	 */
 	private function getFixture( string $filename ): array {
-		$path = dirname( __DIR__ ) . '/unit/fixtures/' . $filename;
+		$path = dirname( __DIR__ ) . '/../unit/fixtures/' . $filename;
 
 		$contents = file_get_contents( $path );
 		if ( !$contents ) {

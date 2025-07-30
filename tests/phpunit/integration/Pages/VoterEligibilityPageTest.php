@@ -1,5 +1,6 @@
 <?php
-namespace MediaWiki\Extension\SecurePoll\Test\Integration;
+
+namespace MediaWiki\Extension\SecurePoll\Test\Integration\Pages;
 
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
