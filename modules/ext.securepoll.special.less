@@ -189,11 +189,16 @@ ul.securepoll-vote-result-no-vote {
 	margin-top: -25px;
 }
 
-.client-js .securepoll-option-stv-dropdown {
+// Hide the dropdown in desktop js contexts as it's supplanted by the combobox
+.client-js body:not( .mw-mf ) .securepoll-option-stv-dropdown {
 	display: none;
 }
 
-.client-nojs .securepoll-option-stv-combobox {
+// Disable combobox in nojs and mobile contexts and allow falling back to
+// the dropdown because the combobox needs js support and because drag and drop
+// doesn't work on mobile
+.client-nojs .securepoll-option-stv-combobox,
+body.mw-mf .securepoll-option-stv-combobox {
 	display: none;
 }
 

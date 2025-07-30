@@ -105,6 +105,13 @@ function STVDragAndDropForm( $ ) {
 	}
 
 	function init() {
+		// If body has the mw-mf class, site is using mobile view via MobileFrontend
+		// Abort initialization in order to return the nojs mode instead, as drag and drop
+		// doesn't work on mobile. See T400243.
+		if ( $( 'body.mw-mf' ).length ) {
+			return;
+		}
+
 		reset();
 		$submitButton = initializeSubmitButton();
 		if ( !$submitButton ) {

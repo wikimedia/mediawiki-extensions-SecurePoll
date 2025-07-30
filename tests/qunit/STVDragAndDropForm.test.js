@@ -87,6 +87,16 @@ const STVQuestionLayout = require( 'ext.securepoll.htmlform/stv.vote/STVQuestion
 		}
 	}
 
+	QUnit.test( 'combobox isn\'t initialized in mobile contexts', ( assert ) => {
+		$( 'body' ).addClass( 'mw-mf' );
+		$( '#qunit-fixture' ).append( stvDragAndDropFormTemplate.render() );
+		STVDragAndDropForm.init();
+
+		const layouts = STVDragAndDropForm.questionLayouts;
+		assert.strictEqual( layouts.length, 0, 'Should not load layouts' );
+		$( 'body' ).removeClass( 'mw-mf' );
+	} );
+
 	QUnit.test( 'initializeSubmitButton returns correct button element', ( assert ) => {
 		const data = {
 			_: 'OO.ui.ButtonInputWidget',
