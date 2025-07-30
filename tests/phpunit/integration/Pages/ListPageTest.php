@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\SecurePoll\Test\Integration\Pages;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
+use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
 use MediaWiki\Extension\SecurePoll\Pages\ActionPage;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\Request\WebRequest;
@@ -14,9 +15,9 @@ use Wikimedia\Timestamp\ConvertibleTimestamp;
 /**
  * @group Database
  * @covers \MediaWiki\Extension\SecurePoll\Pages\ListPage
+ * @covers \MediaWiki\Extension\SecurePoll\Pages\ActionPage
  */
 class ListPageTest extends SpecialPageTestBase {
-	private Election $election;
 	private Context $context;
 
 	protected function setUp(): void {
@@ -30,23 +31,9 @@ class ListPageTest extends SpecialPageTestBase {
 		] );
 
 		$this->context = new Context();
-
-		$this->createElection();
-
-		// Set time to after the election has started
-		$twoDaysLater = wfTimestamp( TS_ISO_8601, wfTimestamp() + 2 * 86400 );
-		ConvertibleTimestamp::setFakeTime( $twoDaysLater );
-
-		$this->vote();
-
-		// Set time to after the election ends
-		$fourDaysLater = wfTimestamp( TS_ISO_8601, wfTimestamp() + 4 * 86400 );
-		ConvertibleTimestamp::setFakeTime( $fourDaysLater );
-
-		$this->clearSecurePollLogs();
 	}
 
-	private function createElection() {
+	private function createElection(): Election {
 		$now = wfTimestamp();
 		$tomorrow = wfTimestamp( TS_ISO_8601, $now + 86400 );
 		$threeDaysLater = wfTimestamp( TS_ISO_8601, $now + 3 * 86400 );
@@ -69,24 +56,26 @@ class ListPageTest extends SpecialPageTestBase {
 			'create', $request, null, $this->getTestSysop()->getAuthority()
 		);
 
-		$this->election = $this->context->getElectionByTitle( $params['wpelection_title'] );
-		$questions = $this->election->getQuestions();
+		$election = $this->context->getElectionByTitle( $params['wpelection_title'] );
+		$questions = $election->getQuestions();
 
 		$this->assertStringContainsString( '(securepoll-create-created-text)', $html );
-		$this->assertSame( $params['wpelection_title'], $this->election->title );
+		$this->assertSame( $params['wpelection_title'], $election->title );
 		$this->assertCount( 1, $questions );
-		$this->assertTrue( $this->election->isAdmin( $this->getTestSysop()->getUser() ) );
+		$this->assertTrue( $election->isAdmin( $this->getTestSysop()->getUser() ) );
+
+		return $election;
 	}
 
 	/**
 	 * Put a vote in the database
 	 */
-	private function vote() {
+	private function vote( Election $election ) {
 		$testSysopUsername = $this->getTestSysop()->getUser()->getName();
 		$this->getDb()->newInsertQueryBuilder()
 			->insertInto( 'securepoll_voters' )
 			->row( [
-				'voter_election' => $this->election->getId(),
+				'voter_election' => $election->getId(),
 				'voter_name' => $testSysopUsername,
 				'voter_type' => 'local',
 				'voter_domain' => 'localhost:8080',
@@ -99,7 +88,7 @@ class ListPageTest extends SpecialPageTestBase {
 		$this->getDb()->newInsertQueryBuilder()
 			->insertInto( 'securepoll_votes' )
 			->row( [
-				'vote_election' => $this->election->getId(),
+				'vote_election' => $election->getId(),
 				'vote_voter' => $voterId,
 				'vote_voter_name' => $testSysopUsername,
 				'vote_voter_domain' => '',
@@ -121,7 +110,7 @@ class ListPageTest extends SpecialPageTestBase {
 	/**
 	 * Clear any existing Special:SecurePollLog entries for this election
 	 */
-	private function clearSecurePollLogs() {
+	private function clearSecurePollLogs( Election $election ) {
 		$this->getDb()->newDeleteQueryBuilder()
 			->deleteFrom( 'securepoll_log' )
 			->where( '1=1' )
@@ -131,7 +120,7 @@ class ListPageTest extends SpecialPageTestBase {
 			->select( '*' )
 			->from( 'securepoll_log' )
 			->where( [
-				'spl_election_id' => $this->election->getId(),
+				'spl_election_id' => $election->getId(),
 			] )
 			->caller( __METHOD__ )->fetchResultSet();
 		$this->assertSame( 0, $log->numRows(), 'securepoll_log table is empty' );
@@ -188,6 +177,20 @@ class ListPageTest extends SpecialPageTestBase {
 	 * @dataProvider provideVisitingListPageIsLogged
 	 */
 	public function testVisitingListPageIsLogged( $logConfigVarTurnedOn, $isLoggedInAsAdmin, $piiOnListPageExpected, $logEntryExpected ) {
+		$election = $this->createElection();
+
+		// Set time to after the election has started
+		$twoDaysLater = wfTimestamp( TS_ISO_8601, wfTimestamp() + 2 * 86400 );
+		ConvertibleTimestamp::setFakeTime( $twoDaysLater );
+
+		$this->vote( $election );
+
+		// Set time to after the election ends
+		$fourDaysLater = wfTimestamp( TS_ISO_8601, wfTimestamp() + 4 * 86400 );
+		ConvertibleTimestamp::setFakeTime( $fourDaysLater );
+
+		$this->clearSecurePollLogs( $election );
+
 		$this->setMwGlobals( 'wgSecurePollUseLogging', $logConfigVarTurnedOn );
 
 		// set scrutineer user right
@@ -206,7 +209,7 @@ class ListPageTest extends SpecialPageTestBase {
 		$webRequest = new WebRequest();
 		$authority = $isLoggedInAsAdmin ? $this->getTestSysop()->getAuthority() : null;
 		[ $html ] = $this->executeSpecialPage(
-			'list/' . $this->election->getId(), $webRequest, null, $authority
+			'list/' . $election->getId(), $webRequest, null, $authority
 		);
 		$this->assertStringContainsString( 'securepoll-voter-name-local', $html,
 			'list page contains voters' );
@@ -224,7 +227,7 @@ class ListPageTest extends SpecialPageTestBase {
 			->select( '*' )
 			->from( 'securepoll_log' )
 			->where( [
-				'spl_election_id' => $this->election->getId(),
+				'spl_election_id' => $election->getId(),
 			] )
 			->caller( __METHOD__ )->fetchResultSet();
 		if ( $logEntryExpected ) {
@@ -234,5 +237,50 @@ class ListPageTest extends SpecialPageTestBase {
 		} else {
 			$this->assertSame( 0, $log->numRows(), 'no log entry created' );
 		}
+	}
+
+	public function testVisitingListPageWhenElectionHasJumpUrlSet() {
+		$election = $this->createElection();
+
+		// Make our test election a "redirect poll" by setting a jump URL and ID.
+		$this->getDb()->newInsertQueryBuilder()
+			->insertInto( 'securepoll_properties' )
+			->rows( [
+				[
+					'pr_entity' => $election->getId(), 'pr_key' => 'jump-url',
+					'pr_value' => '//example.com/wiki/Special:SecurePoll',
+				],
+				[ 'pr_entity' => $election->getId(), 'pr_key' => 'jump-id', 'pr_value' => 123 ],
+			] )
+			->caller( __METHOD__ )
+			->execute();
+
+		[ $html ] = $this->executeSpecialPage(
+			'list/' . $election->getId(), null, null, $this->getTestSysop()->getAuthority()
+		);
+
+		$this->assertStringContainsString( '(securepoll-list-redirect', $html );
+		$this->assertStringContainsString( '//example.com/wiki/Special:SecurePoll/list/123', $html );
+		$this->assertStringContainsString( '(securepoll-edit-redirect-otherwiki)', $html );
+	}
+
+	public function testVisitingListPageWhenElectionHasJumpUrlSetButMissingJumpId() {
+		$election = $this->createElection();
+
+		// Make our test election a "redirect poll" by setting a jump URL and ID.
+		$this->getDb()->newInsertQueryBuilder()
+			->insertInto( 'securepoll_properties' )
+			->row( [
+				'pr_entity' => $election->getId(), 'pr_key' => 'jump-url',
+				'pr_value' => '//example.com/wiki/Special:SecurePoll',
+			] )
+			->caller( __METHOD__ )
+			->execute();
+
+		$this->expectException( InvalidDataException::class );
+		$this->expectExceptionMessage( 'Configuration error: no jump-id' );
+		$this->executeSpecialPage(
+			'list/' . $election->getId(), null, null, $this->getTestSysop()->getAuthority()
+		);
 	}
 }
