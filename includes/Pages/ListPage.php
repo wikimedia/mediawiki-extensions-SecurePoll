@@ -57,6 +57,10 @@ class ListPage extends ActionPage {
 
 		$out->setPageTitleMsg( $this->msg( 'securepoll-list-title', $this->election->getMessage( 'title' ) ) );
 
+		if ( $this->showRedirectMessage( 'list', $params ) ) {
+			return;
+		}
+
 		$isAdmin = $this->election->isAdmin( $this->specialPage->getUser() );
 
 		if ( $this->election->getProperty( 'voter-privacy' ) && !$isAdmin ) {

@@ -3,14 +3,10 @@
 namespace MediaWiki\Extension\SecurePoll\Pages;
 
 use MediaWiki\Extension\SecurePoll\Context;
-use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Extension\SecurePoll\TranslationRepo;
 use MediaWiki\Languages\LanguageNameUtils;
-use MediaWiki\Linker\Linker;
-use MediaWiki\Message\Message;
 use MediaWiki\Title\Title;
-use MediaWiki\WikiMap\WikiMap;
 use OOUI\ButtonInputWidget;
 use OOUI\DropdownInputWidget;
 use OOUI\Element;
@@ -79,29 +75,7 @@ class TranslatePage extends ActionPage {
 		$this->initLanguage( $this->specialPage->getUser(), $this->election );
 		$out->setPageTitleMsg( $this->msg( 'securepoll-translate-title', $this->election->getMessage( 'title' ) ) );
 
-		$jumpUrl = $this->election->getProperty( 'jump-url' );
-		if ( $jumpUrl ) {
-			$jumpId = $this->election->getProperty( 'jump-id' );
-			if ( !$jumpId ) {
-				throw new InvalidDataException( 'Configuration error: no jump-id' );
-			}
-			$jumpUrl .= "/edit/$jumpId";
-			if ( count( $params ) > 1 ) {
-				$jumpUrl .= '/' . implode( '/', array_slice( $params, 1 ) );
-			}
-
-			$wiki = $this->election->getProperty( 'main-wiki' );
-			if ( $wiki ) {
-				$wiki = WikiMap::getWikiName( $wiki );
-			} else {
-				$wiki = $this->msg( 'securepoll-edit-redirect-otherwiki' )->text();
-			}
-
-			$out->addWikiMsg(
-				'securepoll-edit-redirect',
-				Message::rawParam( Linker::makeExternalLink( $jumpUrl, $wiki ) )
-			);
-
+		if ( $this->showRedirectMessage( 'edit', $params ) ) {
 			return;
 		}
 
