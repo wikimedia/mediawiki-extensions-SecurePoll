@@ -369,6 +369,7 @@
 	"securepoll-translation-import-action-done": "Done",
 	"securepoll-translation-error-no-page-title": "No page title found",
 	"securepoll-translation-error-invalid-source-api": "Invalid API source",
+	"securepoll-list-redirect": "This list of votes must be viewed on $1",
 	"securepoll-vote-result-intro-label": "Summary of your vote",
 	"securepoll-vote-result-question-label": "Question: $1",
 	"securepoll-vote-result-rated-option-label": "$1: rated $2",
