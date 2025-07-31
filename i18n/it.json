@@ -296,6 +296,7 @@
 	"securepoll-stv-result-round-elected": "Eletto: $1",
 	"securepoll-stv-result-round-eliminated": "Eliminato: $1",
 	"securepoll-stv-result-round-keep-factor": "(fattore di mantenimento: $1 )",
+	"securepoll-list-redirect": "Questo elenco di voti deve essere visualizzato su $1",
 	"securepoll-vote-result-question-label": "Domanda: $1",
 	"securepoll-vote-result-comment": "Commento: $1",
 	"group-electionadmin": "Amministratori delle elezioni",

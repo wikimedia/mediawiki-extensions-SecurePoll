@@ -364,6 +364,7 @@
 	"securepoll-translation-import-action-done": "Fertig",
 	"securepoll-translation-error-no-page-title": "Kein Seitentitel gefunden",
 	"securepoll-translation-error-invalid-source-api": "Ungültige API-Quelle",
+	"securepoll-list-redirect": "Diese Liste der Abstimmungen muss auf $1 eingesehen werden.",
 	"securepoll-vote-result-intro-label": "Zusammenfassung deiner Abstimmung",
 	"securepoll-vote-result-question-label": "Frage: $1",
 	"securepoll-vote-result-rated-option-label": "$1: $2 bewertet",
