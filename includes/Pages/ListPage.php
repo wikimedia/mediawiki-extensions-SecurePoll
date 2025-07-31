@@ -47,6 +47,12 @@ class ListPage extends ActionPage {
 		}
 		$this->initLanguage( $this->specialPage->getUser(), $this->election );
 
+		if ( $this->election->getProperty( 'jump-url' ) ) {
+			// T400907: If a jump poll, init questions to [] to avoid lookup of securepoll_questions
+			// and securepoll_options within Entity::loadMessages(), called from getMessage() below.
+			// These tables may not exist on wikis which only have jump polls (T395928).
+			$this->election->questions = [];
+		}
 		$out->setPageTitleMsg( $this->msg( 'securepoll-list-title', $this->election->getMessage( 'title' ) ) );
 
 		if ( $this->showRedirectMessage( 'list', $params ) ) {
