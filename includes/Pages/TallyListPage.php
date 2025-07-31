@@ -403,15 +403,21 @@ class TallyListPage extends ActionPage {
 			$election->getCrypt()->updateDbForTallyJob( $electionId, $dbw, $data );
 		}
 
-		// Data only contains informations about requested modifiers to the tally.
-		// Transform the data passed through as an array to be saved to the job:
+		// The data array can contain information about requested modifiers to the tally.
+		// Capture and transform modifier data passed through as an array to be saved to the job:
 		// [ 'modifierName' => [ 'entityId' => 'value' ] ]
 		// As modifiers can only affect questions or options and both will have a unique entity id,
 		// we don't need to save any other information about the option to apply modifications later.
 		$transformedData = [];
 		foreach ( $data as $key => $datum ) {
-			// Key comes in the format $modifierName-entityId_$entityId, pull this data:
+			// Keys for modifiers come in the format $modifierName-entityId_$entityId, pull this data:
 			$identifiers = explode( '-entityId_', $key );
+
+			// Ignore the data if what's passed through isn't in the format expected of modifiers
+			// eg. decryption keys
+			if ( count( $identifiers ) !== 2 ) {
+				continue;
+			}
 			if ( !isset( $transformedData[$identifiers[0]] ) ) {
 				$transformedData[$identifiers[0]] = [];
 			}
