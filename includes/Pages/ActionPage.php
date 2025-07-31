@@ -146,7 +146,8 @@ abstract class ActionPage implements MessageLocalizer {
 			}
 
 			$this->specialPage->getOutput()->addWikiMsg(
-				// Messages: securepoll-edit-redirect, securepoll-list-redirect
+				// Messages: securepoll-edit-redirect, securepoll-translate-redirect,
+				// securepoll-list-redirect, securepoll-votereligibility-redirect
 				"securepoll-$action-redirect",
 				Message::rawParam( Linker::makeExternalLink( $jumpUrl, $wiki ) )
 			);

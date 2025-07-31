@@ -8,13 +8,11 @@ use Exception;
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Exception\MWExceptionHandler;
 use MediaWiki\Extension\SecurePoll\Context;
-use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
 use MediaWiki\Extension\SecurePoll\Jobs\PopulateVoterListJob;
 use MediaWiki\Extension\SecurePoll\SecurePollContentHandler;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 use MediaWiki\HTMLForm\HTMLForm;
 use MediaWiki\Json\FormatJson;
-use MediaWiki\Linker\Linker;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Message\Message;
 use MediaWiki\Page\WikiPageFactory;
@@ -74,29 +72,7 @@ class VoterEligibilityPage extends ActionPage {
 			return;
 		}
 
-		$jumpUrl = $this->election->getProperty( 'jump-url' );
-		if ( $jumpUrl ) {
-			$jumpId = $this->election->getProperty( 'jump-id' );
-			if ( !$jumpId ) {
-				throw new InvalidDataException( 'Configuration error: no jump-id' );
-			}
-			$jumpUrl .= "/votereligibility/$jumpId";
-			if ( count( $params ) > 1 ) {
-				$jumpUrl .= '/' . implode( '/', array_slice( $params, 1 ) );
-			}
-
-			$wiki = $this->election->getProperty( 'main-wiki' );
-			if ( $wiki ) {
-				$wiki = WikiMap::getWikiName( $wiki );
-			} else {
-				$wiki = $this->msg( 'securepoll-votereligibility-redirect-otherwiki' )->text();
-			}
-
-			$out->addWikiMsg(
-				'securepoll-votereligibility-redirect',
-				Message::rawParam( Linker::makeExternalLink( $jumpUrl, $wiki ) )
-			);
-
+		if ( $this->showRedirectMessage( 'votereligibility', $params ) ) {
 			return;
 		}
 

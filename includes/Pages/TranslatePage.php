@@ -62,7 +62,7 @@ class TranslatePage extends ActionPage {
 		$this->initLanguage( $this->specialPage->getUser(), $this->election );
 		$out->setPageTitleMsg( $this->msg( 'securepoll-translate-title', $this->election->getMessage( 'title' ) ) );
 
-		if ( $this->showRedirectMessage( 'edit', $params ) ) {
+		if ( $this->showRedirectMessage( 'translate', $params ) ) {
 			return;
 		}
 
