@@ -69,7 +69,6 @@
 	"securepoll-dump-title": "روگرفت: $1",
 	"securepoll-dump-not-finished": "رکوردهای انتخاباتی رمزگذاری‌شده تنها پس از تاریخ پایان $1 در $2 در دسترس خواهند بود.",
 	"securepoll-translate-title": "چاوواشەکِردن زوون:$1",
-	"securepoll-translate-redirect-otherwiki": "ویکی اصلی",
 	"securepoll-translate-label-comment": ":دةلیل",
 	"securepoll-invalid-language": "کد زبانی نامعتبر «$1»",
 	"securepoll-submit-translate": "تازۀسازی",

@@ -98,7 +98,6 @@
 	"securepoll-urandom-not-supported": "Tämä palvelin ei tue satunnaislukujen tuottoa salauksen alla. Jotta äänestäjien yksityisyys säilytetään, vaalien salauksenalaiset tiedostot ovat julkisesti saatavilla ainoastaan, kun niiden järjestys voidaan sekoittaa turvatusta satunnaislukulähteestä.",
 	"securepoll-translate-title": "Käännä: $1",
 	"securepoll-translate-redirect": "Tämän vaalin viestit tulee asettaa $1",
-	"securepoll-translate-redirect-otherwiki": "pääwikissä",
 	"securepoll-translate-label-comment": "Syy:",
 	"securepoll-invalid-language": "Virheellinen kielikoodi ”$1”",
 	"securepoll-submit-translate": "Päivitä",

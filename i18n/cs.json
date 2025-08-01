@@ -79,7 +79,6 @@
 	"securepoll-urandom-not-supported": "Tento server nepodporuje kryptografické generování náhodných čísel.\nKvůli tajnosti hlasování je šifrovaný záznam hlasování veřejně dostupný pouze v případě, že hlasy mohou být zamíchány pomocí bezpečného zdroje náhodných čísel.",
 	"securepoll-translate-title": "Překlad – $1",
 	"securepoll-translate-redirect": "Hlášení pro tyto volby se musí konfigurovat na $1",
-	"securepoll-translate-redirect-otherwiki": "hlavní wiki",
 	"securepoll-invalid-language": "Neplatný kód jazyka „$1“",
 	"securepoll-submit-translate": "Uložit",
 	"securepoll-language-label": "Zvolte jazyk:",

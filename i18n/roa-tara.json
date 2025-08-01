@@ -76,7 +76,6 @@
 	"securepoll-dump-no-urandom": "No se pò aprì /dev/urandom.<br />\nPe mandenè 'a privacy de le eletture, le reggistraziune de le eleziune criptate ponne essere disponibbele pubblecamende quanne ponne essere mesckate cu 'nu flusse secure de numere a uecchie.",
 	"securepoll-urandom-not-supported": "Stu server non ge supporte 'na generazione criptografeche de numere a uecchie.<br />\nPe mandenè 'a privacy de le eletture, le reggistraziune de le eleziune criptate ponne essere disponibbele pubblecamende quanne ponne essere mesckate cu 'nu flusse secure de numere a uecchie.",
 	"securepoll-translate-title": "Traduce: $1",
-	"securepoll-translate-redirect-otherwiki": "'a uicchi prengepàle",
 	"securepoll-translate-label-comment": "Mutive:",
 	"securepoll-invalid-language": "Codece d'a lènghe \"$1\" invalide",
 	"securepoll-header-trans-id": "ID",

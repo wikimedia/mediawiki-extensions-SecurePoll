@@ -85,7 +85,6 @@
 	"securepoll-urandom-not-supported": "ఈ సర్వర్ క్రిప్టోగ్రాఫిక్ రాండమ్ నంబర్ జనరేషన్ కు మద్దతు ఇవ్వదు. ఓటరు గోప్యతను కోసం, ఎన్ క్రిప్ట్ చేయబడిన ఎన్నికల రికార్డులు సురక్షితమైన యాదృచ్ఛిక నంబర్ స్ట్రీమ్ తో కలపగలిగినప్పుడు మాత్రమే బహిరంగంగా అందుబాటులో ఉంటాయి.",
 	"securepoll-translate-title": "అనువదించు: $1",
 	"securepoll-translate-redirect": "ఈ ఎన్నికల కొరకు సందేశాలను $1 మీద కాన్ఫిగర్ చేయాలి.",
-	"securepoll-translate-redirect-otherwiki": "ప్రధాన వికీ",
 	"securepoll-translate-label-comment": "కారణం:",
 	"securepoll-invalid-language": "తప్పుడు భాషా సంకేతం \"$1\"",
 	"securepoll-header-trans-id": "ఐడీ",

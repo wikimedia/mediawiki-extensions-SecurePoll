@@ -96,7 +96,6 @@
 	"securepoll-urandom-not-supported": "এই সার্ভার ক্রিপ্টোগ্রাফিক অজানাক্রমে নম্বর তৈরি সমর্থন করে না।\nভোটারদের গোপনীয়তা বজায় রাখতে, এনক্রিপ্ট করা নির্বাচনী রেকর্ডগুলি কেবল মাত্র তখন সর্বজনীনভাবে উপলব্ধ করা হবে যখন সেগুলি একটি নিরাপদ অজানাক্রমে নম্বর স্ট্রিম দিয়ে পরিবর্তন করা হবে।",
 	"securepoll-translate-title": "অনুবাদ: $1",
 	"securepoll-translate-redirect": "এই নির্বাচনের জন্য বার্তা $1-এ কনফিগার করা আবশ্যক",
-	"securepoll-translate-redirect-otherwiki": "প্রধান উইকি",
 	"securepoll-translate-label-comment": "কারণ:",
 	"securepoll-invalid-language": "অপ্রযোজ্য ভাষা কোড \"$1\"",
 	"securepoll-header-trans-id": "আইডি",
