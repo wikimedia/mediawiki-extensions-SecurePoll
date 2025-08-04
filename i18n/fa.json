@@ -22,7 +22,8 @@
 			"Sunfyre",
 			"Wayiran",
 			"ZxxZxxZ",
-			"Ebrahim"
+			"Ebrahim",
+			"Darafsh"
 		]
 	},
 	"securepoll": "نظرسنجی امن",
@@ -318,6 +319,7 @@
 	"securepoll-stv-invalid-rank-duplicate": "هنگام رتبه‌بندی نمی‌توان گزینه‌ها را چند بار انتخاب کرد. لطفاً گزینهٔ مربوط به $1 را تغییر دهید",
 	"securepoll-stv-invalid-input-empty": "لطفاً این اولویت را پر کنید",
 	"securepoll-stv-invalid-input-duplicate": "لطفاً برای این اولویت یک گزینهٔ متفاوت را انتخاب کنید",
+	"securepoll-stv-help-text": "جدول زیر محاسباتی را توصیف می‌کند که برای دستیابی به نتیجهٔ بالا انجام شده‌اند. در هر دور محاسبه، نامزد(هایی) که بیش از سهمیه رأی به‌دست آورده‌اند، به‌عنوان برنده اعلام می‌شوند. رأی‌های مازاد آن‌ها بالاتر از سهمیه، بین نامزدهای باقی‌مانده بازتوزیع می‌شود. اگر هیچ‌کس به سهمیه نرسد، نامزد با کمترین رتبه حذف می‌شود و رأی‌های او بین نامزدهای باقی‌مانده بازتوزیع می‌شود. برای درک بهتر این موضوع، لطفاً به [https://web.archive.org/web/20210225045400/https://prfound.org/resources/reference/reference-meek-rule/ این پیوند] مراجعه کنید.",
 	"securepoll-stv-result-election-elected-header": "منتخب",
 	"securepoll-stv-election-paramters": "انتخابات برای $1 {{PLURAL:$1|کرسی}} با $2 {{PLURAL:$2|نامزد}}. در مجموع $3 {{PLURAL:$3|رأی}}.",
 	"securepoll-stv-result-elected-list-unfilled-seat": "این کرسی قابل پر شدن نبود؛ زیرا هیچ نامزدی معیار را احراز نکرد. آخرین {{PLURAL:$1|نامزد|نامزدهای}} مغلوب: $1",
