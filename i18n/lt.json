@@ -6,7 +6,8 @@
 			"Manvydasz",
 			"Matasg",
 			"Nokeoo",
-			"Perkunas"
+			"Perkunas",
+			"Tomasdd"
 		]
 	},
 	"securepoll": "Saugus balsavimas",
@@ -204,7 +205,7 @@
 	"securepoll-votereligibility-invalid-list": "Pateiktas balsuotojų tinkamumo sąrašas nėra žinomas.",
 	"securepoll-votereligibility-list-is-processing": "Pateiktas balsuotojų tinkamumo sąrašas pildomas automatiškai ir dabar jo redaguoti negalima.",
 	"securepoll-votereligibility-label-min_edits": "Minimalus keitimų skaičius:",
-	"securepoll-votereligibility-label-max_registration": "Užsiregistravo iki:",
+	"securepoll-votereligibility-label-max_registration": "Būtina užsiregistruoti iki:",
 	"securepoll-votereligibility-label-not_blocked_sitewide": "Neturi būti užblokuotas visoje svetainėje",
 	"securepoll-votereligibility-label-not_blocked_partial": "Neturi būti iš dalies užblokuotas",
 	"securepoll-votereligibility-label-not_centrally_blocked": "Negali būti užblokuotas per daug pridėtiniuose viki",

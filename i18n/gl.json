@@ -357,6 +357,7 @@
 	"securepoll-translation-import-action-done": "Feito",
 	"securepoll-translation-error-no-page-title": "Non se atopou ningún título de páxina",
 	"securepoll-translation-error-invalid-source-api": "Fonte da API non válida",
+	"securepoll-list-redirect": "Esta lista de votos debe consultarse en $1",
 	"securepoll-vote-result-intro-label": "Resumo do teu voto",
 	"securepoll-vote-result-question-label": "Pregunta: $1",
 	"securepoll-vote-result-rated-option-label": "$1: clasificado como $2",
