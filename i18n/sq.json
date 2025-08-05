@@ -6,7 +6,8 @@
 			"Mikullovci11",
 			"Olsi",
 			"Vanished 456321456",
-			"Vinie007"
+			"Vinie007",
+			"Xhulianoo"
 		]
 	},
 	"securepoll": "SondazhiSigurt",
@@ -99,7 +100,7 @@
 	"securepoll-tally-upload-submit": "Krijo grup",
 	"securepoll-tally-error": "Gabim gjatë interpretimit së regjistrimit të votës, nuk mund të prodhojë një grup.",
 	"securepoll-no-upload": "Asnjë skedë nuk u ngarkua, nuk mund të shënohen rezultatet.",
-	"securepoll-dump-corrupt": "Skeda e larguar është e prishur dhe nuk mund të procesohet.",
+	"securepoll-dump-corrupt": "Skedari dump është i dëmtuar dhe nuk mund të përpunohet.",
 	"securepoll-tally-upload-error": "Gabim gjatë shënimit të skedës së larguar: $1",
 	"securepoll-pairwise-victories": "Pairwise victory matrix",
 	"securepoll-strength-matrix": "Path strength matrix",
