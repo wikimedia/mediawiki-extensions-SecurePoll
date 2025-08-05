@@ -203,7 +203,7 @@
 	"securepoll-create-label-prompt-active-wiki": "Aufforderung an den Benutzer, sein aktivstes Wiki auszuwählen",
 	"securepoll-create-label-comment-prompt": "Aufforderung zum Schreiben von Kommentaren",
 	"securepoll-create-label-openssl_encrypt_key": "Verschlüsselungsschlüssel",
-	"securepoll-create-label-openssl_encrypt_key-help": "Um eine Wahl zu verschlüsseln,musst du zwei Schlüsselpaare generieren: einen öffentlichen und einen privaten Schlüssel zur Verschlüsselung sowie einen öffentlichen und einen privaten Schlüssel zur Signatur. Der öffentliche Verschlüsselungsschlüssel wird in dieses Feld eingegeben.",
+	"securepoll-create-label-openssl_encrypt_key-help": "Um eine Wahl zu verschlüsseln, musst du zwei Schlüsselpaare generieren: einen öffentlichen und einen privaten Schlüssel zur Verschlüsselung sowie einen öffentlichen und einen privaten Schlüssel zur Signatur. Der öffentliche Verschlüsselungsschlüssel wird in dieses Feld eingegeben.",
 	"securepoll-create-label-openssl_sign_key": "Signaturschlüssel",
 	"securepoll-create-label-openssl_sign_key-help": "Um eine Wahl zu verschlüsseln, musst du zwei Schlüsselpaare generieren: einen öffentlichen und einen privaten Schlüssel zur Verschlüsselung sowie einen öffentlichen und einen privaten Schlüssel zur Signatur. Der private Schlüssel zur Signatur wird in dieses Feld eingegeben.",
 	"securepoll-create-label-questions": "== Fragen ==",
