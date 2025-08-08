@@ -289,7 +289,7 @@
 	"securepoll-stv-result-election-elected-header": "선출됨",
 	"securepoll-stv-election-paramters": "$2명의 후보자가 있는 $1개의 의석을 선출하기 위한 선거. 총 $3표의 투표.",
 	"securepoll-stv-result-elected-list-unfilled-seat": "기준을 충족하는 후보자가 없기 때문에 이 자리를 채울 수 없습니다. 마지막으로 탈락한 후보자: $1",
-	"securepoll-stv-result-election-eliminated-header": "탈락함",
+	"securepoll-stv-result-election-eliminated-header": "탈락/불선출",
 	"securepoll-stv-result-election-rounds-header": "라운드 테이블",
 	"securepoll-stv-result-election-round-number-table-heading": "라운드 번호",
 	"securepoll-stv-result-election-tally-table-heading": "개표",
