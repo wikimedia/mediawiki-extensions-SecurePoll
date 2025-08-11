@@ -8,9 +8,19 @@ use OOUI\MessageWidget;
 use Wikimedia\Message\MessageParam;
 use Wikimedia\Message\MessageSpecifier;
 
+/**
+ * @template T
+ * @inherits Status<T>
+ */
 class BallotStatus extends Status {
 	/** @var true[] */
 	public $ids = [];
+
+	/**
+	 * @suppress PhanGenericConstructorTypes
+	 */
+	public function __construct() {
+	}
 
 	/**
 	 * @param string|MessageSpecifier $message
