@@ -160,6 +160,7 @@
 	"securepoll-create-label-options-delete": "Usuń opcję",
 	"securepoll-create-label-option-name": "Nazwa opcji:",
 	"securepoll-create-label-seat_count": "Liczba miejsc:",
+	"securepoll-create-option-election_type-radio-range+histogram-range": "Głosowanie ocenowe (z histogramem wartości)",
 	"securepoll-create-option-election_crypt-none": "Bez szyfrowania",
 	"securepoll-create-label-comment": "Powód",
 	"securepoll-create-fail-bad-id": "Przesłany identyfikator wyborów nie pasuje do edytowanych wyborów",
@@ -215,5 +216,8 @@
 	"securepoll-stv-votes-transferred": "Przenoszone głosy",
 	"securepoll-stv-result-round-quota": "Kwota: $1",
 	"securepoll-stv-result-round-elected": "Wybrani: $1",
-	"securepoll-stv-result-round-eliminated": "Wyeliminowani: $1"
+	"securepoll-stv-result-round-eliminated": "Wyeliminowani: $1",
+	"group-electionadmin": "Moderatorzy głosowań",
+	"group-electionadmin-member": "{{GENDER:$1|moderator głosowań|moderatorka głosowań}}",
+	"grouppage-electionadmin": "{{ns:project}}:Moderatorzy głosowań"
 }
