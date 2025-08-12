@@ -410,10 +410,14 @@ class Election extends Entity {
 	 */
 	public function getQuestions() {
 		if ( $this->questions === null ) {
-			$info = $this->context->getStore()->getQuestionInfo( $this->getId() );
 			$this->questions = [];
-			foreach ( $info as $questionInfo ) {
-				$this->questions[] = $this->context->newQuestion( $questionInfo );
+			// T400907: If this is a jump poll, avoid lookup of securepoll_questions and securepoll_options.
+			// These tables may not exist on wikis which only have jump polls (T395928).
+			if ( !$this->getProperty( 'jump-url' ) ) {
+				$info = $this->context->getStore()->getQuestionInfo( $this->getId() );
+				foreach ( $info as $questionInfo ) {
+					$this->questions[] = $this->context->newQuestion( $questionInfo );
+				}
 			}
 		}
 
