@@ -173,6 +173,7 @@
 	"securepoll-create-label-options-delete": "Usuń opcję",
 	"securepoll-create-label-option-name": "Nazwa opcji:",
 	"securepoll-create-label-seat_count": "Liczba miejsc:",
+	"securepoll-create-option-election_type-radio-range+histogram-range": "Głosowanie ocenowe (z histogramem wartości)",
 	"securepoll-create-option-election_crypt-none": "Bez szyfrowania",
 	"securepoll-create-label-comment": "Powód",
 	"securepoll-create-user-not-in-electionadmin-group": "\"$1\" nie jest {{GENDER:$1|członkiem}} grupy electionadmin.",

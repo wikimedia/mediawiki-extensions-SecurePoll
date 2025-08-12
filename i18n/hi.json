@@ -7,7 +7,8 @@
 			"Shyam",
 			"Vsrawat",
 			"आलोक",
-			"राम प्रसाद जोशी"
+			"राम प्रसाद जोशी",
+			"Saurmandal"
 		]
 	},
 	"securepoll": "सुरक्षितनिर्वाचन",
@@ -116,6 +117,10 @@
 	"securepoll-round": "दौर $1",
 	"securepoll-spoilt": "(खराब)",
 	"securepoll-exhausted": "(समाप्त)",
+	"right-securepoll-create-poll": "मतदान बनाना",
+	"action-securepoll-create-poll": "मतदान बनाने और लॉग्स देखने",
+	"right-securepoll-view-voter-pii": "मतदाताओं के बारे में व्यक्तिगत रूप से पहचानने योग्य जानकारी देखना",
+	"action-securepoll-view-voter-pii": "मतदाताओं के बारे में व्यक्तिगत रूप से पहचानने योग्य जानकारी देखने",
 	"securepoll-translation-result-import-pages-title": "पृष्ठ",
 	"securepoll-translation-import-action-import": "आयात करें",
 	"securepoll-translation-import-action-done": "पूर्ण हुआ",
