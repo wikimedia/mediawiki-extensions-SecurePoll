@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Winston Sung"
+			"Winston Sung",
+			"Yueman"
 		]
 	},
 	"securepoll": "安全投票",
@@ -32,10 +33,10 @@
 	"securepoll-remote-parse-error": "由伺服器處理認證回應時出錯。",
 	"securepoll-api-invalid-params": "無效嘅參數。",
 	"securepoll-api-no-user": "呢個ID搵唔到用戶。",
-	"securepoll-api-token-mismatch": "安全幣唔對，唔可以登入。",
-	"securepoll-not-logged-in": "你一定要登入咗先可以響呢次選舉度投票",
+	"securepoll-api-token-mismatch": "安全密匙唔啱，唔可以簽到。",
+	"securepoll-not-logged-in": "你一定要簽到咗先可以響呢次選舉度投票",
 	"securepoll-too-few-edits": "對唔住，你唔可以投票。你需要有最少$1次編輯先可以投票，你而家有$2次。",
-	"securepoll-too-new": "對唔住，你唔投得票。$1之前註冊嘅用戶先有資格喺今次選舉投票，而你註冊嘅時間係$2。",
+	"securepoll-too-new": "對唔住，你唔投得票。$1 $3之前註冊嘅用戶先有資格喺今次選舉投票，而你註冊嘅時間係$2 $4。",
 	"securepoll-blocked": "毋好意思，爾家封鎖咗你，你毋可以響呢次選舉投票。",
 	"securepoll-blocked-centrally": "對唔住啦，你係$1個{{PLURAL:$1|wiki|wikis}}度俾人封咗，所以冇得投票啦。",
 	"securepoll-bot": "對唔住，有機械人旗嘅戶口係唔容許響呢次選舉度投票。",
@@ -77,6 +78,7 @@
 	"securepoll-header-title": "名",
 	"securepoll-header-start-date": "開始日",
 	"securepoll-header-end-date": "結束日",
+	"securepoll-status-not-started": "未開始",
 	"securepoll-subpage-vote": "投票",
 	"securepoll-subpage-translate": "翻譯",
 	"securepoll-subpage-list": "表",

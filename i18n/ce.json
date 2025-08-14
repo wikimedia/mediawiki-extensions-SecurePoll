@@ -20,6 +20,8 @@
 	"securepoll-not-qualified": "Хьан бакъо йац кху харжамашкахь кхажтаса: $1",
 	"securepoll-change-disallowed": "ХӀокху харжамашкахь хьалха а кхажтесна ахьа.\nБехк ма билла, кхин кхажтаса йиш йац хьан.",
 	"securepoll-change-allowed": "<strong>Билгалдаккхар: ХӀокху харжамашкахь хьалха а кхажтесна ахьа</strong>.\nХьайн кхаж хийца йиш йу хьан, лахахь йолу форма дӀайахьийтина.\nАхьа иштта дича, ахьа хьалха тесна кхаж тидаме оьцур бац.",
+	"securepoll-stv-unranked-candidates": "Рейтинг йац",
+	"securepoll-stv-ranked-candidates": "Рейтинг",
 	"securepoll-header-comments": "Комменташ",
 	"securepoll-submit": "ДӀабахьийта кхаж",
 	"securepoll-gpg-receipt": "Хьайна лаахь, хьайн кхажтесна хиларан тоьшалла санна, хӀара могӀанаш лардан мегар ду:\n\n<pre>$1</pre>",
@@ -148,6 +150,7 @@
 	"securepoll-tally-error": "Кхаж дӀайазбаран интерпретацин гӀалат, лара йиш йац.",
 	"securepoll-tally-job-enqueued": "Харжамаш йуха а дагарбеш бу. Дехар до, тӀаьхьо хьажа жамӀаш.",
 	"securepoll-tally-list-title": "Дагардар: $1",
+	"securepoll-delete-tally-title": "ДӀадаккха дагардар",
 	"securepoll-no-upload": "Файл чуйаьккхина йац, жамӀаш дагардан йиш йац.",
 	"securepoll-dump-corrupt": "Дамп файл телхина йу, иза кечйан йиш йац.",
 	"securepoll-tally-upload-error": "Дамп файлан нийса хиларан гӀалат: $1.",
@@ -355,5 +358,6 @@
 	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1 ($2, $3 {{PLURAL:$3|нисдар}})",
 	"group-electionadmin": "Харжамийн администраторш",
 	"group-electionadmin-member": "{{GENDER:$1|харжамийн администратор}}",
-	"grouppage-electionadmin": "{{ns:project}}:Харжамийн администраторш"
+	"grouppage-electionadmin": "{{ns:project}}:Харжамийн администраторш",
+	"securepoll-tallymodifiers-question-label": "Хаттар: \"$1\""
 }
