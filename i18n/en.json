@@ -360,7 +360,7 @@
 	"securepoll-translation-result-description": "Imported translations from",
 	"securepoll-translation-import-start": "Start importing",
 	"securepoll-translation-select-import-source": "Select page from $1",
-	"securepoll-translation-select-import-source-api": "Provide the <a href=\"https://www.mediawiki.org/wiki/API:Main_page\" target=\"_blank\" rel=\"noopener noreferrer\">MediaWiki Action API</a> source:",
+	"securepoll-translation-select-import-source-api": "Provide the [https://www.mediawiki.org/wiki/API:Main_page MediaWiki Action API] source:",
 	"securepoll-translation-select-import-source-page": "Provide the page title from the source above:",
 	"securepoll-translation-import-dialog-title": "Import translations",
 	"securepoll-translation-import-action-import": "Import",

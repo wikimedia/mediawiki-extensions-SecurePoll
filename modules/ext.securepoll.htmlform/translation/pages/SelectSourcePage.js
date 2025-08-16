@@ -9,7 +9,7 @@ function SelectSourcePage( name, cfg ) {
 		label: new OO.ui.HtmlSnippet(
 			mw.message(
 				'securepoll-translation-select-import-source-api'
-			).plain()
+			).parse()
 		)
 	} );
 	this.sourceInput = new OO.ui.TextInputWidget( {
