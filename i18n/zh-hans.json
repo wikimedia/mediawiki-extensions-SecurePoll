@@ -34,7 +34,8 @@
 			"魔琴",
 			"Anterdc99",
 			"SunAfterRain",
-			"Aoum"
+			"Aoum",
+			"ZhaoFJx"
 		]
 	},
 	"securepoll": "安全投票",
@@ -295,7 +296,7 @@
 	"securepoll-votereligibility-cleared-text": "$1已清空并不会用于投票。",
 	"securepoll-votereligibility-cleared-comment": "$1已清除。",
 	"right-securepoll-create-poll": "创建投票",
-	"action-securepoll-create-poll": "创建投票和查看登录",
+	"action-securepoll-create-poll": "创建投票和查看日志",
 	"right-securepoll-view-voter-pii": "访问投票者的个人可识别信息",
 	"action-securepoll-view-voter-pii": "访问投票者的个人可识别信息",
 	"securepoll-ns-readonly": "{{ns:SecurePoll}}命名空间是只读的",

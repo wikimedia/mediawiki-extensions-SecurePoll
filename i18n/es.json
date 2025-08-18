@@ -35,7 +35,9 @@
 			"Eulalio",
 			"Galahad",
 			"No se",
-			"JaimeDes"
+			"JaimeDes",
+			"Laranxa",
+			"Sophocrat"
 		]
 	},
 	"securepoll": "SecurePoll",
@@ -321,6 +323,7 @@
 	"securepoll-stv-invalid-rank-empty": "Al menos una opción debe estar clasificada",
 	"securepoll-stv-invalid-rank-order": "Las preferencias deben seleccionarse en orden secuencial. Elige una opción para: $1",
 	"securepoll-stv-invalid-input-empty": "Rellene esta preferencia",
+	"securepoll-stv-invalid-input-duplicate": "Por favor seleccione una opción diferente para esta preferencia",
 	"securepoll-stv-result-election-elected-header": "Elegidos",
 	"securepoll-stv-election-paramters": "Elección de escaños de $1 con candidatos de $2. Total de $3 votos",
 	"securepoll-stv-result-elected-list-unfilled-seat": "Esta plaza no se ha podido cubrir porque ningún candidato cumple los criterios. {{PLURAL:$1|El último candidato eliminado fue|Los últimos candidatos eliminados fueron}}: $1",
