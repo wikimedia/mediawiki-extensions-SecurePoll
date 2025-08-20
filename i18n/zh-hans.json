@@ -312,7 +312,7 @@
 	"securepoll-votereligibility-cleared-comment": "$1已清除。",
 	"securepoll-votereligibility-token-mismatch": "由于您的会话问题，选民资格清单未能清除。请重试。",
 	"right-securepoll-create-poll": "创建投票",
-	"action-securepoll-create-poll": "创建投票和查看登录",
+	"action-securepoll-create-poll": "创建投票和查看日志",
 	"right-securepoll-view-voter-pii": "访问投票者的个人可识别信息",
 	"action-securepoll-view-voter-pii": "访问投票者的个人可识别信息",
 	"right-securepoll-edit-poll": "编辑投票",
