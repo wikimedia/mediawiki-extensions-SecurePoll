@@ -190,6 +190,7 @@ class ActionPageFactory {
 				'allowClassName' => true,
 				'allowCallable' => true,
 				'extraArgs' => [ $specialPage ],
+				'assertClass' => ActionPage::class,
 			]
 		);
 
