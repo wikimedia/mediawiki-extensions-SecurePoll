@@ -19,7 +19,6 @@ class DropUnusedTables extends Maintenance {
 
 	public const TABLES_TO_DROP = [
 		'securepoll_cookie_match',
-		'securepoll_entity',
 		'securepoll_log',
 		'securepoll_options',
 		'securepoll_questions',
