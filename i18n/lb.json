@@ -4,7 +4,8 @@
 			"Les Meloures",
 			"Robby",
 			"Soued031",
-			"Volvox"
+			"Volvox",
+			"GilPe"
 		]
 	},
 	"securepoll": "Securiséiert Ëmfro",
@@ -25,7 +26,7 @@
 	"securepoll-submit": "Stëmm ofginn",
 	"securepoll-gpg-receipt": "Wann Dir wëllt, kënnt Dir dës Confirmatioun vun Ärem Vott behalen:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "Merci, Är Stëmm gouf gespäichert.",
-	"securepoll-return": "Zréck op $1",
+	"securepoll-return": "Zeréck op $1",
 	"securepoll-encrypt-error": "Bei der Verschlëselung vun Ärer Stëmm ass a Feeler geschitt.\nÄr Stëmm gouf net gespäichert!\n\n$1",
 	"securepoll-no-gpg-home": "De Basis-Repertoire GPG konnt net ugeluecht ginn.",
 	"securepoll-secret-gpg-error": "Feeler beim Ausféiere vun GPG.\nBenotzt $wgSecurePollShowErrorDetail=true; op LocalSettings.php fir méi Detailer ze gesinn.",
@@ -236,7 +237,7 @@
 	"securepoll-translation-import-action-import": "Importéieren",
 	"securepoll-translation-import-action-done": "Fäerdeg",
 	"securepoll-translation-error-no-page-title": "Kee Säitentitel fonnt",
-	"securepoll-vote-result-intro-label": "Resumé vun Ärem Vott",
+	"securepoll-vote-result-intro-label": "Resümmee vun Ärem Vott",
 	"securepoll-vote-result-question-label": "Fro: $1",
 	"securepoll-vote-result-comment": "Bemierkung: $1",
 	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1 ($2, $3 {{PLURAL:$3|Ännerung|Ännerungen}})"
