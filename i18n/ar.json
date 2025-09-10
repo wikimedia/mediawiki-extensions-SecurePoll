@@ -16,7 +16,8 @@
 			"Shipmaster",
 			"XIDME",
 			"أَحمد",
-			"ديفيد"
+			"ديفيد",
+			"Mohammed Qays"
 		]
 	},
 	"securepoll": "استطلاع رأي آمن",
@@ -128,7 +129,7 @@
 	"securepoll-header-end-date": "تاريخ الانتهاء",
 	"securepoll-header-status": "حالة",
 	"securepoll-header-links": "وصلات",
-	"securepoll-status-not-started": "لم يتم البدء",
+	"securepoll-status-not-started": "لم يبدأ",
 	"securepoll-status-in-progress": "في تَقَدم",
 	"securepoll-status-completed": "مكتمل",
 	"securepoll-status-archived": "مؤرشفة",
