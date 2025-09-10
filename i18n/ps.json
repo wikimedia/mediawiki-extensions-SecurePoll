@@ -5,6 +5,7 @@
 			"شاه زمان پټان"
 		]
 	},
+	"securepoll": "خوندي‌ټول‌پوښتنه",
 	"securepoll-invalid-page": "ناسم څېرمه مخ \"<nowiki>$1</nowiki>\"",
 	"securepoll-need-admin": "د دې کړنې د ترسره کولو لپاره تاسې ته پکار ده چې د ټاکنې يو پازوال اوسۍ.",
 	"securepoll-welcome": "<strong> $1 ښه راغلاست!</strong>",
@@ -33,5 +34,6 @@
 	"securepoll-header-end-date": "پای نېټه",
 	"securepoll-subpage-vote": "رايه ورکول",
 	"securepoll-subpage-translate": "ژباړل",
-	"securepoll-subpage-list": "لړليک"
+	"securepoll-subpage-list": "لړليک",
+	"securepoll-subpage-edit": "سمول"
 }
