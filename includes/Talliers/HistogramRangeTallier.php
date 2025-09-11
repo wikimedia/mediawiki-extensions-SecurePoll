@@ -42,7 +42,6 @@ class HistogramRangeTallier extends Tallier {
 
 	/**
 	 * @inheritDoc
-	 *
 	 */
 	public function addVote( $scores ) {
 		foreach ( $scores as $oid => $score ) {
@@ -56,7 +55,6 @@ class HistogramRangeTallier extends Tallier {
 
 	/**
 	 * @inheritDoc
-	 *
 	 */
 	public function finishTally() {
 		$this->averages = [];
@@ -72,7 +70,6 @@ class HistogramRangeTallier extends Tallier {
 
 	/**
 	 * @inheritDoc
-	 *
 	 */
 	public function loadJSONResult( $data ) {
 		$this->averages = $data['averages'];
@@ -81,7 +78,6 @@ class HistogramRangeTallier extends Tallier {
 
 	/**
 	 * @inheritDoc
-	 *
 	 */
 	public function getJSONResult() {
 		return [
@@ -138,7 +134,6 @@ class HistogramRangeTallier extends Tallier {
 
 	/**
 	 * @inheritDoc
-	 *
 	 */
 	public function getTextResult() {
 		return $this->getHtmlResult();

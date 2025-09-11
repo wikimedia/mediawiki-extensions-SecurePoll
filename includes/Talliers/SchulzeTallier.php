@@ -138,7 +138,6 @@ class SchulzeTallier extends PairwiseTallier {
 
 	/**
 	 * @inheritDoc
-	 *
 	 */
 	public function finishTally() {
 		$this->strengths = $this->getPathStrengths( $this->victories );
@@ -154,7 +153,6 @@ class SchulzeTallier extends PairwiseTallier {
 
 	/**
 	 * @inheritDoc
-	 *
 	 */
 	public function loadJSONResult( $data ) {
 		$this->ranks = $data['ranks'];
@@ -164,7 +162,6 @@ class SchulzeTallier extends PairwiseTallier {
 
 	/**
 	 * @inheritDoc
-	 *
 	 */
 	public function getJSONResult() {
 		return [
@@ -176,7 +173,6 @@ class SchulzeTallier extends PairwiseTallier {
 
 	/**
 	 * @inheritDoc
-	 *
 	 */
 	public function getHtmlResult() {
 		$s = '<h2>' . wfMessage( 'securepoll-ranks' )->parse() . "</h2>\n";
@@ -194,7 +190,6 @@ class SchulzeTallier extends PairwiseTallier {
 
 	/**
 	 * @inheritDoc
-	 *
 	 */
 	public function getTextResult() {
 		$rankedIds = array_keys( $this->ranks );

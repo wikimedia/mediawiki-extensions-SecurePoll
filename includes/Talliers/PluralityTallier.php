@@ -42,7 +42,6 @@ class PluralityTallier extends Tallier {
 
 	/**
 	 * @inheritDoc
-	 *
 	 */
 	public function finishTally() {
 		// Sort the scores
@@ -51,7 +50,6 @@ class PluralityTallier extends Tallier {
 
 	/**
 	 * @inheritDoc
-	 *
 	 */
 	public function loadJSONResult( $data ) {
 		$this->tally = $data;
@@ -64,7 +62,6 @@ class PluralityTallier extends Tallier {
 
 	/**
 	 * @inheritDoc
-	 *
 	 */
 	public function getHtmlResult() {
 		// Show the results

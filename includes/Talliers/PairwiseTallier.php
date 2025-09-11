@@ -36,7 +36,6 @@ abstract class PairwiseTallier extends Tallier {
 
 	/**
 	 * @inheritDoc
-	 *
 	 */
 	public function addVote( $ranks ) {
 		foreach ( $this->optionIds as $oid1 ) {

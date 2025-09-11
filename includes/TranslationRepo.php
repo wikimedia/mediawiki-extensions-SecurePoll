@@ -22,7 +22,6 @@ class TranslationRepo {
 	}
 
 	/**
-	 *
 	 * @param Election $election
 	 * @param array $data
 	 * @param string $language

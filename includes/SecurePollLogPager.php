@@ -20,7 +20,7 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 		int $year,
 		int $month,
 		int $day,
-		/** @var int[] $actions */
+		/** @var int[] */
 		private readonly array $actions,
 	) {
 		parent::__construct();

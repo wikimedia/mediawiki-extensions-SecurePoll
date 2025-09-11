@@ -101,7 +101,6 @@ class CommentDumper extends ElectionTallier {
 
 	/**
 	 * @inheritDoc
-	 *
 	 */
 	public function getTextResult() {
 		return stream_get_contents( $this->csvHandle, -1, 0 );

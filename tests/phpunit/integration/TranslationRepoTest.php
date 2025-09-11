@@ -18,7 +18,6 @@ use Wikimedia\Rdbms\SelectQueryBuilder;
 class TranslationRepoTest extends MediaWikiIntegrationTestCase {
 
 	/**
-	 *
 	 * @param array $data
 	 * @param string $language
 	 * @param string $comment

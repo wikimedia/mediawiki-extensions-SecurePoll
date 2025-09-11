@@ -51,7 +51,6 @@ class HtmlFormatter implements STVFormatter {
 	protected $modifiers = [];
 
 	/**
-	 *
 	 * @param array $resultLogs
 	 * @param array $rankedVotes
 	 * @param int $seats

@@ -324,7 +324,6 @@ class STVBallot extends Ballot {
 	}
 
 	/**
-	 *
 	 * @param int $count
 	 * @return bool
 	 */
