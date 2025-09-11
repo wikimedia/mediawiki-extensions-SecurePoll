@@ -6,8 +6,10 @@
 		]
 	},
 	"securepoll": "خوندي‌ټول‌پوښتنه",
+	"securepoll-desc": "د ټولټاکنو او اندغوښتنو لپاره شاتاړی",
 	"securepoll-invalid-page": "ناسم څېرمه مخ \"<nowiki>$1</nowiki>\"",
 	"securepoll-need-admin": "د دې کړنې د ترسره کولو لپاره تاسې ته پکار ده چې د ټاکنې يو پازوال اوسۍ.",
+	"securepoll-too-few-params": "د څېرمه‌مخ بسنې وړ پاراميترونه نشته (ناسم تړونی).",
 	"securepoll-welcome": "<strong> $1 ښه راغلاست!</strong>",
 	"securepoll-submit": "رايه سپارل",
 	"securepoll-thanks": "له تاسې نه مننه، ستاسې رايه ثبته شوه.",
