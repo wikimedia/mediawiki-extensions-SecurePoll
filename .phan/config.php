@@ -4,7 +4,6 @@ $cfg = require __DIR__ . '/../vendor/mediawiki/mediawiki-phan-config/src/config.
 
 $cfg['file_list'] = array_merge(
 	$cfg['file_list'],
-	class_exists( OpenSSLAsymmetricKey::class ) ? [] : [ '.phan/stubs/OpenSSLAsymmetricKey.php' ],
 	[
 		'SecurePoll.constants.php'
 	]
