@@ -7,7 +7,6 @@ use MediaWiki\Content\JsonContent;
 /**
  * SecurePoll Content Model
  *
- * @file
  * @ingroup Extensions
  * @ingroup SecurePoll
  *

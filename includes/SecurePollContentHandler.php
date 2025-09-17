@@ -13,7 +13,6 @@ use MediaWiki\Title\Title;
 /**
  * SecurePoll Content Handler
  *
- * @file
  * @ingroup Extensions
  * @ingroup SecurePoll
  *

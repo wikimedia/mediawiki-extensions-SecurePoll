@@ -30,8 +30,6 @@ class SetupHandler implements
 		}
 	}
 
-	// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
-
 	/**
 	 * @inheritDoc
 	 */

@@ -7,7 +7,6 @@ use MediaWiki\Extension\SecurePoll\User\LocalAuth;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\User\User;
 
-// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
 /**
  * Run hooks provided by SecurePoll.
  *
