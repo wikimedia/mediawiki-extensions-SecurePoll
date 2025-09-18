@@ -355,7 +355,7 @@
 	"securepoll-translation-result-description": "Importierte Übersetzungen aus",
 	"securepoll-translation-import-start": "Importieren starten",
 	"securepoll-translation-select-import-source": "Seite von $1 auswählen",
-	"securepoll-translation-select-import-source-api": "Gib die <a href=\"https://www.mediawiki.org/wiki/API:Main_page\" target=\"_blank\" rel=\"noopener noreferrer\">MediaWiki-Aktions-API</a>-Quelle an:",
+	"securepoll-translation-select-import-source-api": "Gib die [https://www.mediawiki.org/wiki/API:Main_page MediaWiki Action API]-Quelle an:",
 	"securepoll-translation-select-import-source-page": "Gib den Titel der Seite aus der oben genannten Quelle an:",
 	"securepoll-translation-import-dialog-title": "Übersetzungen importieren",
 	"securepoll-translation-import-action-import": "Importieren",
