@@ -361,7 +361,7 @@
 	"securepoll-translation-result-description": "Geïmporteerde vertalingen van",
 	"securepoll-translation-import-start": "Beginnen met importeren",
 	"securepoll-translation-select-import-source": "Selecteer een pagina van $1",
-	"securepoll-translation-select-import-source-api": "Geef de bron van de <a href=\"https://www.mediawiki.org/wiki/API:Main_page\" target=\"_blank\" rel=\"noopener noreferrer\">MediaWiki Action API</a> op:",
+	"securepoll-translation-select-import-source-api": "Geef de bron van de [https://www.mediawiki.org/wiki/API:Action_API/nl MediaWiki Action API] op:",
 	"securepoll-translation-select-import-source-page": "Geef de paginatitel uit de bovenstaande bron op:",
 	"securepoll-translation-import-dialog-title": "Vertalingen importeren",
 	"securepoll-translation-import-action-import": "Importeren",

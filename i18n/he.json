@@ -355,7 +355,7 @@
 	"securepoll-translation-result-description": "תרגומים מיובאים מ־",
 	"securepoll-translation-import-start": "להתחיל לייבא",
 	"securepoll-translation-select-import-source": "בחירת דף מתוך $1",
-	"securepoll-translation-select-import-source-api": "יש לספק את המקור של <a href=\"https://www.mediawiki.org/wiki/API:Main_page\" target=\"_blank\" rel=\"noopener noreferrer\">API הפעולות של מדיה־ויקי</a>:",
+	"securepoll-translation-select-import-source-api": "יש לספק את [https://www.mediawiki.org/wiki/API:Main_page המקור של API הפעולות של מדיה־ויקי]:",
 	"securepoll-translation-select-import-source-page": "יש לספק את כותרת הדף מהמקור למעלה:",
 	"securepoll-translation-import-dialog-title": "יבוא תרגומים",
 	"securepoll-translation-import-action-import": "יבוא",
