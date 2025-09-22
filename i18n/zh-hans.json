@@ -381,7 +381,7 @@
 	"securepoll-translation-result-description": "导入翻译自",
 	"securepoll-translation-import-start": "开始导入",
 	"securepoll-translation-select-import-source": "从$1选择页面",
-	"securepoll-translation-select-import-source-api": "提供<a href=\"https://www.mediawiki.org/wiki/API:Main_page\" target=\"_blank\" rel=\"noopener noreferrer\">MediaWiki操作API</a>源：",
+	"securepoll-translation-select-import-source-api": "提供[https://www.mediawiki.org/wiki/API:Main_page MediaWiki Action API]源：",
 	"securepoll-translation-select-import-source-page": "从上述来源中提供页面标题：",
 	"securepoll-translation-import-dialog-title": "导入翻译",
 	"securepoll-translation-import-action-import": "导入",

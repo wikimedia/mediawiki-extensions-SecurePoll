@@ -350,7 +350,7 @@
 	"securepoll-translation-result-description": "Traducións importadas de",
 	"securepoll-translation-import-start": "Comezar a importación",
 	"securepoll-translation-select-import-source": "Selecciona a páxina desde \"$1\"",
-	"securepoll-translation-select-import-source-api": "Indica a fonte <a href=\"https://www.mediawiki.org/wiki/API:Main_page\" target=\"_blank\" rel=\"noopener noreferrer\">da API de acción de MediaWiki</a>:",
+	"securepoll-translation-select-import-source-api": "Indica a fonte [https://www.mediawiki.org/wiki/API:Main_page da API de acción de MediaWiki]:",
 	"securepoll-translation-select-import-source-page": "Indica o título da páxina da fonte anterior:",
 	"securepoll-translation-import-dialog-title": "Importar as traducións",
 	"securepoll-translation-import-action-import": "Importar",
