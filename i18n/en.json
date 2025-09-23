@@ -335,6 +335,7 @@
 	"securepoll-stv-result-election-eliminated-header": "Eliminated/Not elected",
 	"securepoll-stv-result-election-rounds-header": "Rounds table",
 	"securepoll-stv-result-election-round-number-table-heading": "Round Number",
+	"securepoll-stv-result-election-blt-header": "BLT",
 	"securepoll-stv-result-election-tally-table-heading": "Tally",
 	"securepoll-stv-result-election-result-table-heading": "Result",
 	"securepoll-stv-result-candidate-elected": "<b>$1:</b>",

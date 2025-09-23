@@ -361,6 +361,7 @@
 	"securepoll-stv-result-election-eliminated-header": "Header for list of eliminated candidates in the STV election",
 	"securepoll-stv-result-election-rounds-header": "Header for table of round details in the STV election",
 	"securepoll-stv-result-election-round-number-table-heading": "Header for a single round in the STV election",
+	"securepoll-stv-result-election-blt-header": "Header for a formatted summary of the election votes. BLT refers to the file extension commonly used across platforms that support processing the format, .blt, but the extension itself is not known to refer to anything.",
 	"securepoll-stv-result-election-tally-table-heading": "Header for a single round in the STV election",
 	"securepoll-stv-result-election-result-table-heading": "Header for a single round in the STV election",
 	"securepoll-stv-result-candidate-elected": "{{optional}}\nDenote if candidate is elected using b tags",

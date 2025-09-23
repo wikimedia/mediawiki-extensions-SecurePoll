@@ -84,7 +84,7 @@ class HtmlFormatterTest extends MediaWikiIntegrationTestCase {
 			101 => 'User2',
 			100 => 'User3'
 		];
-		$this->htmlFormatter = new HtmlFormatter( $resultsLog, $rankedVotes, 3, $candidates, [] );
+		$this->htmlFormatter = new HtmlFormatter( $resultsLog, $rankedVotes, 3, $candidates, [], '' );
 		$this->elected = [
 			1 => '101',
 			2 => '102',
@@ -135,7 +135,7 @@ class HtmlFormatterTest extends MediaWikiIntegrationTestCase {
 				101 => true
 			]
 		];
-		$htmlFormatter = new HtmlFormatter( [ 'rounds' => [] ], [], 1, [ 101 => 'Foo' ], $excludedCandidate );
+		$htmlFormatter = new HtmlFormatter( [ 'rounds' => [] ], [], 1, [ 101 => 'Foo' ], $excludedCandidate, '' );
 		$result = $htmlFormatter->formatPreamble( [], [], $excludedCandidate )->toString();
 		$this->assertStringContainsString( 'manually excluded from the tally', $result );
 	}
@@ -162,5 +162,24 @@ class HtmlFormatterTest extends MediaWikiIntegrationTestCase {
 			. "</ol></td><td>Quota: 1<br />Elected: User2<br />Eliminated: User1<br />"
 			. "Transferring votes<br /></td></tr></tbody></table>";
 		$this->assertEquals( $expectedPreamble, $actualPreamble->toString() );
+	}
+
+	/**
+	 * @covers \MediaWiki\Extension\SecurePoll\Talliers\STVFormatter\HtmlFormatter::formatBlt
+	 */
+	public function testFormatBlt() {
+		$htmlFormatter = new HtmlFormatter( [ 'rounds' => [] ], [], 1, [ 101 => 'Foo' ], [], 'BLT' );
+		$actualBlt = $htmlFormatter->formatBlt();
+		$expectedBlt = "<div class='oo-ui-layout oo-ui-panelLayout'><h2>BLT</h2><pre>BLT</pre></div>";
+		$this->assertEquals( $expectedBlt, $actualBlt->toString() );
+	}
+
+	/**
+	 * @covers \MediaWiki\Extension\SecurePoll\Talliers\STVFormatter\HtmlFormatter::formatBlt
+	 */
+	public function testFormatBltNoBltPresent() {
+		$actualBlt = $this->htmlFormatter->formatBlt();
+		$expectedBlt = '';
+		$this->assertEquals( $expectedBlt, $actualBlt );
 	}
 }

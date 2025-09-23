@@ -87,7 +87,7 @@ class WikitextFormatterTest extends MediaWikiIntegrationTestCase {
 			103 => 'User4',
 			104 => 'User5'
 		];
-		$this->wikitextFormatter = new WikitextFormatter( $resultsLog, $rankedVotes, 3, $candidates, [] );
+		$this->wikitextFormatter = new WikitextFormatter( $resultsLog, $rankedVotes, 3, $candidates, [], '' );
 		$this->elected = [
 			1 => '102',
 			2 => '101',
@@ -126,7 +126,7 @@ Election for 3 seats with 5 candidates. Total 2 votes.
 		$excludedCandidate = [
 			101 => true
 		];
-		$wikitextFormatter = new WikitextFormatter( [ 'rounds' => [] ], [], 1, [ 101 => 'Foo' ], $excludedCandidate );
+		$wikitextFormatter = new WikitextFormatter( [ 'rounds' => [] ], [], 1, [ 101 => 'Foo' ], $excludedCandidate, '' );
 		$result = $wikitextFormatter->formatPreamble( [], [], $excludedCandidate );
 		$expectedElimination = "==Eliminated/Not elected==
 * Foo";
@@ -176,5 +176,29 @@ Eliminated: User1
 Transferring votes
 HERE;
 		$this->assertEquals( $expectedPreamble, $actualPreamble );
+	}
+
+	/**
+	 * @covers \MediaWiki\Extension\SecurePoll\Talliers\STVFormatter\WikitextFormatter::formatBlt
+	 */
+	public function testFormatBlt() {
+		$wikitextFormatter = new WikitextFormatter( [ 'rounds' => [] ], [], 1, [ 101 => 'Foo' ], [], 'BLT' );
+		$actualBlt = $wikitextFormatter->formatBlt();
+		$expectedBlt = <<<HERE
+==BLT==
+<pre>
+BLT
+</pre>
+HERE;
+		$this->assertEquals( $expectedBlt, $actualBlt );
+	}
+
+	/**
+	 * @covers \MediaWiki\Extension\SecurePoll\Talliers\STVFormatter\WikitextFormatter::formatBlt
+	 */
+	public function testFormatBltNoBltPresent() {
+		$actualBlt = $this->wikitextFormatter->formatBlt();
+		$expectedBlt = '';
+		$this->assertEquals( $expectedBlt, $actualBlt );
 	}
 }

@@ -18,4 +18,7 @@ interface STVFormatter {
 	/** @return string|\OOUI\Tag */
 	public function formatRound();
 
+	/** @return string|\OOUI\PanelLayout */
+	public function formatBlt();
+
 }

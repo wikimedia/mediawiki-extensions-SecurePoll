@@ -231,4 +231,16 @@ class WikitextFormatter extends HtmlFormatter {
 		}
 		return $tbody;
 	}
+
+	public function formatBlt(): string {
+		// Historical tallies may not have a calculated blt; return nothing in those cases
+		if ( !$this->blt ) {
+			return '';
+		}
+
+		$electionBlt = "==" .
+			wfMessage( 'securepoll-stv-result-election-blt-header' ) . "==\n";
+		$electionBlt .= "<pre>\n" . $this->blt . "\n</pre>";
+		return $electionBlt;
+	}
 }

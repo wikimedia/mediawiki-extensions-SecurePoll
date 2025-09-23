@@ -51,13 +51,20 @@ class HtmlFormatter implements STVFormatter {
 	protected $modifiers = [];
 
 	/**
+	 * blt representation of the votes; see https://svn.apache.org/repos/asf/steve/trunk/stv_background/meekm.pdf
+	 * @var string
+	 */
+	protected $blt = '';
+
+	/**
 	 * @param array $resultLogs
 	 * @param array $rankedVotes
 	 * @param int $seats
 	 * @param array $candidates
 	 * @param array $modifiers
+	 * @param string $blt
 	 */
-	public function __construct( $resultLogs, $rankedVotes, $seats, $candidates, $modifiers ) {
+	public function __construct( $resultLogs, $rankedVotes, $seats, $candidates, $modifiers, $blt ) {
 		$context = RequestContext::getMain();
 		OutputPage::setupOOUI(
 				strtolower( $context->getSkin()->getSkinName() ),
@@ -69,6 +76,7 @@ class HtmlFormatter implements STVFormatter {
 		$this->rankedVotes = $rankedVotes;
 		$this->candidates = $candidates;
 		$this->modifiers = $modifiers;
+		$this->blt = $blt;
 	}
 
 	/** @inheritDoc */
@@ -427,6 +435,31 @@ class HtmlFormatter implements STVFormatter {
 			$table->appendContent( $tbody );
 		}
 		return $table;
+	}
+
+	/** @inheritDoc */
+	public function formatBlt() {
+		// Historical tallies may not have a calculated blt; return nothing in those cases
+		if ( !$this->blt ) {
+			return '';
+		}
+
+		// Generate blt
+		$electionBlt = new PanelLayout( [
+			'expanded' => false,
+			'content' => [],
+		] );
+		$electionBlt->appendContent(
+			( new Tag( 'h2' ) )->appendContent(
+				wfMessage( 'securepoll-stv-result-election-blt-header' )
+			)
+		);
+		$electionBlt->appendContent(
+			( new Tag( 'pre' ) )->appendContent(
+				$this->blt
+			)
+		);
+		return $electionBlt;
 	}
 
 	/**

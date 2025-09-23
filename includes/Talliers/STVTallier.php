@@ -3,10 +3,13 @@
 namespace MediaWiki\Extension\SecurePoll\Talliers;
 
 use MediaWiki\Extension\SecurePoll\Context;
+use MediaWiki\Extension\SecurePoll\DumpElection;
 use MediaWiki\Extension\SecurePoll\Entities\Question;
 use MediaWiki\Extension\SecurePoll\Talliers\STVFormatter\HtmlFormatter;
 use MediaWiki\Extension\SecurePoll\Talliers\STVFormatter\WikitextFormatter;
+use OOUI\PanelLayout;
 use OOUI\StackLayout;
+use RuntimeException;
 
 /**
  * A STVTallier class,
@@ -75,6 +78,12 @@ class STVTallier extends Tallier {
 	 * @var array<int, string>
 	 */
 	private $allCandidates = [];
+
+	/**
+	 * blt representation of the votes; see https://svn.apache.org/repos/asf/steve/trunk/stv_background/meekm.pdf
+	 * @var string
+	 */
+	public $blt = '';
 
 	/**
 	 * @param Context $context
@@ -156,6 +165,7 @@ class STVTallier extends Tallier {
 		$this->resultsLog = $data['resultsLog'];
 		$this->rankedVotes = $data['rankedVotes'];
 		$this->modifiers = $data['modifiers'] ?? [];
+		$this->blt = $data['blt'] ?? '';
 	}
 
 	/** @inheritDoc */
@@ -164,6 +174,7 @@ class STVTallier extends Tallier {
 			'resultsLog' => $this->resultsLog,
 			'rankedVotes' => $this->rankedVotes,
 			'modifiers' => $this->modifiers,
+			'blt' => $this->blt,
 		];
 	}
 
@@ -174,7 +185,8 @@ class STVTallier extends Tallier {
 			$this->rankedVotes,
 			$this->seats,
 			$this->allCandidates,
-			$this->modifiers
+			$this->modifiers,
+			$this->blt
 		);
 		$htmlPreamble = $htmlFormatter->formatPreamble(
 			$this->resultsLog['elected'],
@@ -183,11 +195,21 @@ class STVTallier extends Tallier {
 		);
 		$htmlRounds = $htmlFormatter->formatRoundsPreamble();
 		$htmlRounds->appendContent( $htmlFormatter->formatRound() );
-		return new StackLayout( [
-			'items' => [
+		$htmlBlt = $htmlFormatter->formatBlt();
+
+		$htmlItems = [
 				$htmlPreamble,
 				$htmlRounds,
-			],
+		];
+
+		// Historical tallies won't have a blt calculated;
+		// add it only if it's a PanelLayout
+		if ( $htmlBlt instanceof PanelLayout ) {
+			$htmlItems[] = $htmlBlt;
+		}
+
+		return new StackLayout( [
+			'items' => $htmlItems,
 			'continuous' => true,
 			'expanded' => false,
 			'classes' => [ 'election-tally-results--stv' ]
@@ -201,7 +223,8 @@ class STVTallier extends Tallier {
 			$this->rankedVotes,
 			$this->seats,
 			$this->candidates,
-			$this->modifiers
+			$this->modifiers,
+			$this->blt
 		);
 		$wikitext = $wikitextFormatter->formatPreamble(
 			$this->resultsLog['elected'],
@@ -210,13 +233,52 @@ class STVTallier extends Tallier {
 		);
 		$wikitext .= $wikitextFormatter->formatRoundsPreamble();
 		$wikitext .= $wikitextFormatter->formatRound();
+		$wikitext .= $wikitextFormatter->formatBlt();
 		return $wikitext;
 	}
 
 	/**
 	 * @inheritDoc
+	 * @throws RuntimeException
 	 */
 	public function finishTally() {
+		// Generate the corresponding blt here alongside the tally, as
+		// this is the most convenient access point to the decrypted votes
+		$bltFormattedVotes = [];
+
+		// Convert the votes into a format understood by the blt generator. STVTallier condenses
+		// votes into counts of ballot variants but DumpElection::createBltVoteRows requires each
+		// vote record be a separate entry.
+		foreach ( $this->rankedVotes as $vote ) {
+			for ( $i = 0; $i < $vote['count']; $i++ ) {
+				// Votes start from index 1, reset to index 0 before adding
+				$bltFormattedVotes[] = array_values( $vote['rank'] );
+			}
+		}
+
+		// These votes need to be randomized before conversion similar to how dumps output votes
+		$randomizedVotes = [];
+		$random = $this->context->getRandom();
+		$status = $random->open();
+		if ( !$status->isOK() ) {
+			throw new RuntimeException(
+				"Cannot open randomizer; abort because vote order must be randomized to continue"
+			);
+		}
+		if ( count( $bltFormattedVotes ) ) {
+			$order = $random->shuffle( range( 0, count( $bltFormattedVotes ) - 1 ) );
+			foreach ( $order as $i ) {
+				$randomizedVotes[] = $bltFormattedVotes[$i];
+			}
+		}
+
+		$this->blt = DumpElection::generateBltFromData(
+			$this->election->title,
+			$this->question,
+			$randomizedVotes,
+			$this->modifiers[ 'excludedCandidates' ]
+		);
+
 		// Instantiate first round for the iterator
 		$keepFactors = array_fill_keys( array_keys( $this->candidates ), '1.0' );
 		$voteCount = $this->distributeVotes( $this->rankedVotes, $keepFactors );

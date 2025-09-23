@@ -5,12 +5,15 @@ namespace MediaWiki\Extension\SecurePoll\Test\Unit;
 use DirectoryIterator;
 use Generator;
 use MediaWiki\Context\RequestContext;
+use MediaWiki\Extension\SecurePoll\Context;
+use MediaWiki\Extension\SecurePoll\Crypt\Random;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Entities\Option;
 use MediaWiki\Extension\SecurePoll\Entities\Question;
 use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
 use MediaWiki\Extension\SecurePoll\Talliers\STVTallier;
 use MediaWiki\Extension\SecurePoll\Talliers\Tallier;
+use MediaWiki\Status\Status;
 use MediaWikiUnitTestCase;
 use Wikimedia\TestingAccessWrapper;
 
@@ -47,6 +50,14 @@ class STVTallierTest extends MediaWikiUnitTestCase {
 				103 => true
 			]
 		] ) );
+
+		// BLT handling is static; stub out supporting functions
+		$election->title = 'Foo';
+		$electionContext = $this->createMock( Context::class );
+		$electionContext->method( 'getRandom' )->willReturn(
+			$this->getRandomProvider( [ 0 ] )
+		);
+		$election->context = $electionContext;
 
 		$electionTallier = $this->createMock( ElectionTallier::class );
 		$electionTallier->election = $election;
@@ -180,10 +191,43 @@ class STVTallierTest extends MediaWikiUnitTestCase {
 		$this->wrappedRevStore->__set( 'seats', $electionResults['seats'] );
 		$this->wrappedRevStore->__set( 'candidates', $electionResults['candidates'] );
 		$this->tallier->rankedVotes = $electionResults['rankedVotes'];
+		$this->tallier->blt = '';
+
+		// BLT handling is static; stub out supporting functions
+		$electionContext = $this->createMock( Context::class );
+		$voteCount = 0;
+		foreach ( $electionResults['rankedVotes'] as $vote ) {
+			$voteCount += $vote['count'];
+		}
+		$order = range( 0, $voteCount - 1 );
+		$electionContext->method( 'getRandom' )->willReturn(
+			$this->getRandomProvider( $order )
+		);
+		$this->tallier->context = $electionContext;
+
 		$this->tallier->finishTally();
 		$this->assertSame( $expected['elected'], $this->tallier->resultsLog['elected'] );
 		$this->assertSame( $expected['eliminated'], $this->tallier->resultsLog['eliminated'] );
 		$this->assertSameSize( $expected['rounds'], $this->tallier->resultsLog['rounds'] );
 		$this->assertEquals( $expected['rounds'], $this->tallier->resultsLog['rounds'] );
+	}
+
+	/**
+	 * Convenience function to return a Random class with appropriate stubs to support tallier's BLT function
+	 *
+	 * @param array $return array of indexes in an arbitrary order
+	 * @return Random
+	 */
+	private function getRandomProvider( $return ) {
+		$randomOpenStatus = $this->createMock( Status::class );
+		$randomOpenStatus->method( 'isOK' )->willReturn( true );
+		$random = $this->createMock( Random::class );
+		$random->method( 'open' )->willReturn(
+			$randomOpenStatus
+		);
+		$random->method( 'shuffle' )->willReturn(
+			$return
+		);
+		return $random;
 	}
 }
