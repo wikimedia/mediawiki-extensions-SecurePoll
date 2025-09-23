@@ -220,7 +220,7 @@
 	"securepoll-votereligibility-basic-info": "Основные параметры проверяются, когда пользователь пытается проголосовать.",
 	"securepoll-votereligibility-invalid-list": "Данный список избирателей, с правом голоса, неизвестен.",
 	"securepoll-votereligibility-list-is-processing": "Данный список избирателей, с правом голоса, заполняется автоматически и в настоящее время не может быть отредактирован.",
-	"securepoll-votereligibility-label-min_edits": "Минимальное количество правок:",
+	"securepoll-votereligibility-label-min_edits": "Необходимо иметь минимальное количество правок:",
 	"securepoll-votereligibility-label-max_registration": "Необходимо быть зарегистрированным до:",
 	"securepoll-votereligibility-label-not_blocked_sitewide": "Не должен быть заблокирован по всему сайту",
 	"securepoll-votereligibility-label-not_blocked_partial": "Не должен быть частично заблокирован",

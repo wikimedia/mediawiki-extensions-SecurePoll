@@ -362,7 +362,7 @@
 	"securepoll-translation-result-description": "Імпортовані переклади з",
 	"securepoll-translation-import-start": "Розпочати імпорт",
 	"securepoll-translation-select-import-source": "Виберіть сторінку з $1",
-	"securepoll-translation-select-import-source-api": "Надайте джерело <a href=\"https://www.mediawiki.org/wiki/API:Main_page\" target=\"_blank\" rel=\"noopener noreferrer\">MediaWiki Action API</a>:",
+	"securepoll-translation-select-import-source-api": "Надайте джерело [https://www.mediawiki.org/wiki/API:Main_page MediaWiki Action API]:",
 	"securepoll-translation-select-import-source-page": "Введіть назву сторінки з джерела вище:",
 	"securepoll-translation-import-dialog-title": "Імпортувати переклади",
 	"securepoll-translation-import-action-import": "Імпортувати",
