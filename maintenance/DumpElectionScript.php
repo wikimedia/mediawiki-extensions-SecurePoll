@@ -31,10 +31,6 @@ class DumpElectionScript extends Maintenance {
 		$this->addOption( 'all-langs', 'Include messages for all languages instead of just the primary' );
 		$this->addOption( 'jump', 'Produce a configuration dump suitable for setting up a redirect poll' );
 		$this->addOption( 'private', 'Include encryption keys' );
-		$this->addOption(
-			'blt',
-			'Output in blt format for tallying in third-party applications. This includes vote records.'
-		);
 
 		$this->requireExtension( 'SecurePoll' );
 	}
@@ -72,15 +68,11 @@ class DumpElectionScript extends Maintenance {
 		}
 
 		try {
-			if ( $this->hasOption( 'blt' ) ) {
-				$dump = DumpElection::createBLTDump( $election );
-			} else {
-				$dump = DumpElection::createXMLDump( $election, [
-					'jump' => $this->getOption( 'jump', false ),
-					'langs' => $langs,
-					'private' => $this->hasOption( 'private' )
-				], $this->hasOption( 'votes' ) );
-			}
+			$dump = DumpElection::createXMLDump( $election, [
+				'jump' => $this->getOption( 'jump', false ),
+				'langs' => $langs,
+				'private' => $this->hasOption( 'private' )
+			], $this->hasOption( 'votes' ) );
 		} catch ( Exception $e ) {
 			$this->fatalError( $e->getMessage() );
 		}

@@ -3,7 +3,6 @@
 namespace MediaWiki\Extension\SecurePoll\Talliers;
 
 use MediaWiki\Extension\SecurePoll\Context;
-use MediaWiki\Extension\SecurePoll\DumpElection;
 use MediaWiki\Extension\SecurePoll\Entities\Question;
 use MediaWiki\Extension\SecurePoll\Talliers\STVFormatter\HtmlFormatter;
 use MediaWiki\Extension\SecurePoll\Talliers\STVFormatter\WikitextFormatter;
@@ -84,6 +83,11 @@ class STVTallier extends Tallier {
 	 * @var string
 	 */
 	public $blt = '';
+
+	/**
+	 * When generating the blt, only support candidate names up to this length
+	 */
+	private const MAX_BLT_NAME_LENGTH = 20;
 
 	/**
 	 * @param Context $context
@@ -271,8 +275,7 @@ class STVTallier extends Tallier {
 				$randomizedVotes[] = $bltFormattedVotes[$i];
 			}
 		}
-
-		$this->blt = DumpElection::generateBltFromData(
+		$this->blt = $this->generateBltFromData(
 			$this->election->title,
 			$this->question,
 			$randomizedVotes,
@@ -603,6 +606,117 @@ class STVTallier extends Tallier {
 		}
 
 		return [];
+	}
+
+	/**
+	 * Generate blt
+	 * Reference: https://svn.apache.org/repos/asf/steve/trunk/stv_background/meekm.pdf
+	 *
+	 * @param string $title
+	 * @param Question $question
+	 * @param array $votes array of votes where each vote is formatted as [ id, id, id ]
+	 * @param array $excludedCandidates array of candidate ids that have withdrawn
+	 *
+	 * @return string
+	 */
+	private function generateBltFromData( $title, $question, $votes, $excludedCandidates = [] ) {
+		// Limit title to 20 characters
+		if ( $title && strlen( $title ) > self::MAX_BLT_NAME_LENGTH ) {
+			$title = substr( $title, 0, self::MAX_BLT_NAME_LENGTH );
+		}
+		$title = $this->ensureDoubleQuoted( $title );
+
+		$candidates = [];
+		foreach ( $question->getOptions() as $option ) {
+			$candidates[$option->getId()] = $this->ensureDoubleQuoted( $option->getMessage( 'text' ) );
+
+			// Limit candidate name to 20 characters
+			if ( strlen( $candidates[$option->getId()] ) > self::MAX_BLT_NAME_LENGTH ) {
+				$candidates[$option->getId()] = substr( $candidates[$option->getId()], 0, self::MAX_BLT_NAME_LENGTH );
+			}
+		}
+
+		// Create candidate number mapping list
+		$candidateNumberMapping = [];
+		for ( $i = 0; $i < count( $candidates ); $i++ ) {
+			$candidateNumberMapping[array_keys( $candidates )[$i]] = $i + 1;
+		}
+
+		$availableSeats = (int)$question->getProperty( 'min-seats' );
+		$numberOfCandidates = count( $candidates );
+
+		// If candidates were excluded, generate that representation:
+		// A single line of as many candidates as necessary, each declared as `-{$id}`
+		$candidateExclusions = '';
+		foreach ( $excludedCandidates as $excludedCandidate ) {
+			$candidateExclusions .= '-' . $candidateNumberMapping[$excludedCandidate] . ' ';
+		}
+		$candidateExclusions = trim( $candidateExclusions );
+
+		// Convert ranked votes to BLT format
+		// eg. 2 1 0 representing "2 voters voted for candidate 1" with a 0 end delineator
+		$voteCounts = [];
+		foreach ( $votes as $vote ) {
+			// Votes come in as an ordered array of candidate ids, the blt will map this
+			// so that it's fully self-enclosed. Use $candidateNumberMapping to convert
+			// candidate ids to candidate indexes.
+			$vote = array_map( static function ( $candidateId ) use ( $candidateNumberMapping ) {
+				// Sometimes the vote record is already the candidate number instead of the option ID
+				if ( isset( $candidateNumberMapping[$candidateId] ) ) {
+					return $candidateNumberMapping[$candidateId];
+				}
+				return $candidateId;
+			}, $vote );
+			$vote = implode( " ", $vote );
+
+			// Each row must end with a zero
+			$vote .= " 0";
+
+			// Count the number of times each equal row appears
+			if ( !isset( $voteCounts[$vote] ) ) {
+				$voteCounts[$vote] = 1;
+			} else {
+				$voteCounts[$vote]++;
+			}
+		}
+
+		// Put the number of appearances at the front of each row
+		foreach ( $voteCounts as $voteCount => $count ) {
+			$voteCounts[$voteCount] = "$count $voteCount";
+		}
+
+		$voteCounts = array_values( $voteCounts );
+
+		// Create BLT format
+		$blt = "$numberOfCandidates $availableSeats\n";
+		if ( $candidateExclusions ) {
+			$blt .= "$candidateExclusions\n";
+		}
+		if ( count( $voteCounts ) ) {
+			$blt .= implode( "\n", $voteCounts );
+			$blt .= "\n";
+		}
+		$blt .= "0\n";
+		foreach ( $candidateNumberMapping as $candidateId => $number ) {
+			$blt .= "$candidates[$candidateId]\n";
+		}
+		$blt .= "$title\n";
+
+		return $blt;
+	}
+
+	private function ensureDoubleQuoted( string $string ): string {
+		if ( !$string ) {
+			return "";
+		}
+
+		// Check if the string is already enclosed in double quotes
+		if ( strlen( $string ) >= 2 && $string[0] === '"' && str_ends_with( $string, '"' ) ) {
+			return $string;
+		}
+
+		// If not, add double quotes around the string
+		return '"' . $string . '"';
 	}
 
 	/**

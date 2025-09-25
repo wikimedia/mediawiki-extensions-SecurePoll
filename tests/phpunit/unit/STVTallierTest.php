@@ -213,6 +213,75 @@ class STVTallierTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
+	 * @dataProvider provideTestBltGenerator
+	 */
+	public function testBltGenerator( $votes, $excludedCandidates, $expectedBlt ) {
+		$tallier = TestingAccessWrapper::newFromObject( $this->tallier );
+		$result = $tallier->generateBltFromData(
+			'Foo',
+			$tallier->question,
+			$votes,
+			$excludedCandidates
+		);
+		$this->assertSame( $expectedBlt, $result );
+	}
+
+	public static function provideTestBltGenerator() {
+		return [
+			'votes exist' => [
+				'votes' => [ [ 100 ], [ 100 ] ],
+				'excludedCandidates' => [],
+				'expectedBlt' => <<<HERE
+5 0
+2 1 0
+0
+"100"
+"101"
+"102"
+"103"
+"104"
+"Foo"
+
+HERE
+,
+			],
+			' candidate exclusion' => [
+				'votes' => [],
+				'excludedCandidates' => [ 100, 104 ],
+				'expectedBlt' => <<<HERE
+5 0
+-1 -5
+0
+"100"
+"101"
+"102"
+"103"
+"104"
+"Foo"
+
+HERE
+,
+			],
+			'no votes' => [
+				'votes' => [],
+				'excludedCandidates' => [],
+				'expectedBlt' => <<<HERE
+5 0
+0
+"100"
+"101"
+"102"
+"103"
+"104"
+"Foo"
+
+HERE
+,
+			],
+		];
+	}
+
+	/**
 	 * Convenience function to return a Random class with appropriate stubs to support tallier's BLT function
 	 *
 	 * @param array $return array of indexes in an arbitrary order

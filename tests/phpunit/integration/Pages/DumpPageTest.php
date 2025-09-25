@@ -46,54 +46,6 @@ class DumpPageTest extends SpecialPageTestBase {
 		$this->importXmlFile( dirname( __DIR__ ) . '/../data/stv-test.xml' );
 	}
 
-	/**
-	 * Check that .blt (ballot) files can be downloaded for an election.
-	 */
-	public function testBltDump(): void {
-		// Create an election and inject it into the special page's context.
-		$electionId = 70;
-		$election = $this->getMockElection( $electionId, '5_3_100.blt.json' );
-		$this->context->method( 'getElection' )->willReturn( $election );
-
-		// Return a valid tally time as that's how the special page determines
-		// if an election has been tallied.
-		$election->method( 'isTallied' )->willReturn( true );
-
-		// Generate a BLT (ballot) dump using the dump subpage.
-		[ $output ] = $this->executeSpecialPage(
-			'dump/' . $electionId,
-			new FauxRequest( [ 'uselang' => 'en', 'format' => 'blt' ] ),
-			'en',
-			$this->mockRegisteredNullAuthority()
-		);
-
-		$expected = <<<EOD
-		4 0
-		1 5 2 1 0
-		1 3 2 0
-		1 2 1 0
-		1 5 2 0
-		1 4 1 2 0
-		1 4 2 0
-		1 5 1 0
-		1 4 1 0
-		1 3 0
-		1 1 0
-		1 5 0
-		1 2 0
-		1 4 0
-		0
-		"1"
-		"2"
-		"3"
-		"5"
-		"STV test"
-
-		EOD;
-
-		$this->assertEquals( $expected, $output );
-	}
-
 	public function testXmlDump(): void {
 		// Create an election and inject it into the special page's context.
 		$electionId = 70;
@@ -197,7 +149,6 @@ class DumpPageTest extends SpecialPageTestBase {
 		</SecurePoll>
 
 		EOD;
-
 		$this->assertEquals( $expected, $output );
 	}
 
@@ -210,10 +161,10 @@ class DumpPageTest extends SpecialPageTestBase {
 		// Don't return a tally time from the database.
 		$election->method( 'isTallied' )->willReturn( false );
 
-		// Generate a BLT (ballot) dump using the dump subpage.
+		// Generate a ballot dump using the dump subpage.
 		[ $output ] = $this->executeSpecialPage(
 			'dump/' . $electionId,
-			new FauxRequest( [ 'uselang' => 'en', 'format' => 'blt' ] ),
+			new FauxRequest( [ 'uselang' => 'en' ] ),
 			'en',
 			$this->mockRegisteredNullAuthority()
 		);
@@ -235,35 +186,97 @@ class DumpPageTest extends SpecialPageTestBase {
 		// Don't return a tally time from the database.
 		$election->method( 'isTallied' )->willReturn( false );
 
-		// Generate a BLT (ballot) dump using the dump subpage.
+		// Generate a dump using the dump subpage.
 		[ $output ] = $this->executeSpecialPage(
 			'dump/' . $electionId,
-			new FauxRequest( [ 'uselang' => 'en', 'format' => 'blt' ] ),
+			new FauxRequest( [ 'uselang' => 'en' ] ),
 			'en',
 			$this->mockElectionAuthority()
 		);
 
 		$expected = <<<EOD
-		4 0
-		1 5 2 1 0
-		1 3 2 0
-		1 2 1 0
-		1 5 2 0
-		1 4 1 2 0
-		1 4 2 0
-		1 5 1 0
-		1 4 1 0
-		1 3 0
-		1 1 0
-		1 5 0
-		1 2 0
-		1 4 0
-		0
-		"1"
-		"2"
-		"3"
-		"5"
-		"STV test"
+		<SecurePoll>
+		<election>
+		<configuration>
+		<title>STV test</title>
+		<ballot>stv</ballot>
+		<tally>droop-quota</tally>
+		<primaryLang>en</primaryLang>
+		<startDate>2009-07-19T00:00:00Z</startDate>
+		<endDate>2019-08-10T00:00:00Z</endDate>
+		<id>70</id>
+		<property name="admins">Tim</property>
+		<message name="title" lang="en">STV test</message>
+		<message name="intro" lang="en">STV test intro</message>
+		<message name="jump-text" lang="en">STV test jump text</message>
+		<message name="return-text" lang="en">STV test return text</message>
+		<auth>local</auth>
+		<question>
+		<id>71</id>
+		<message name="text" lang="en">STV test question</message>
+		<option>
+		<id>72</id>
+		<message name="text" lang="en">1</message>
+		</option>
+		<option>
+		<id>73</id>
+		<message name="text" lang="en">2</message>
+		</option>
+		<option>
+		<id>77</id>
+		<message name="text" lang="en">3</message>
+		</option>
+		<option>
+		<id>75</id>
+		<message name="text" lang="en">5</message>
+		</option>
+		<option>
+		<id>75</id>
+		<message name="text" lang="en">5</message>
+		</option>
+		</question>
+		</configuration>
+		<vote>
+		Q00000047-C00000005-R00000000--Q00000047-C00000002-R00000001--Q00000047-C00000001-R00000002--
+		</vote>
+		<vote>
+		Q00000047-C00000003-R00000000--Q00000047-C00000002-R00000001--
+		</vote>
+		<vote>
+		Q00000047-C00000002-R00000000--Q00000047-C00000001-R00000001--
+		</vote>
+		<vote>
+		Q00000047-C00000005-R00000000--Q00000047-C00000002-R00000001--
+		</vote>
+		<vote>
+		Q00000047-C00000004-R00000000--Q00000047-C00000001-R00000001--Q00000047-C00000002-R00000002--
+		</vote>
+		<vote>
+		Q00000047-C00000004-R00000000--Q00000047-C00000002-R00000001--
+		</vote>
+		<vote>
+		Q00000047-C00000005-R00000000--Q00000047-C00000001-R00000001--
+		</vote>
+		<vote>
+		Q00000047-C00000004-R00000000--Q00000047-C00000001-R00000001--
+		</vote>
+		<vote>
+		Q00000047-C00000003-R00000000--
+		</vote>
+		<vote>
+		Q00000047-C00000001-R00000000--
+		</vote>
+		<vote>
+		Q00000047-C00000005-R00000000--
+		</vote>
+		<vote>
+		Q00000047-C00000002-R00000000--
+		</vote>
+		<vote>
+		Q00000047-C00000004-R00000000--
+		</vote>
+		</election>
+		</SecurePoll>
 
 		EOD;
 

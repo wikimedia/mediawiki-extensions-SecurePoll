@@ -46,7 +46,7 @@ class EntryPageTest extends SpecialPageTestBase {
 		$elections = [
 			[ $nextWeek, $nextMonth, '(securepoll-status-not-started)', 4 ],
 			[ $lastWeek, $nextWeek, '(securepoll-status-in-progress)', 5 ],
-			[ $lastMonth, $lastWeek, '(securepoll-status-completed)', 6 ],
+			[ $lastMonth, $lastWeek, '(securepoll-status-completed)', 5 ],
 		];
 
 		$testAdmin = $this->getTestSysop()->getAuthority();

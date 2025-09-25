@@ -65,11 +65,7 @@ class DumpPage extends ActionPage {
 		}
 
 		try {
-			if ( $format === "blt" ) {
-				$dump = DumpElection::createBLTDump( $this->election );
-			} else {
-				$dump = DumpElection::createXMLDump( $this->election );
-			}
+			$dump = DumpElection::createXMLDump( $this->election );
 		} catch ( Exception $e ) {
 			$out->addWikiTextAsInterface( $e->getMessage() );
 

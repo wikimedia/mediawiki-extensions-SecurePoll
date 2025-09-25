@@ -49,12 +49,6 @@ class MainElectionsPager extends ElectionPager {
 			'visible-after-start' => false,
 			'visible-after-close' => true,
 		],
-		'dump-blt' => [
-			'public' => false,
-			'visible-before-start' => false,
-			'visible-after-start' => false,
-			'visible-after-close' => true,
-		],
 		'tallies' => [
 			'public' => false,
 			'visible-before-start' => false,
@@ -137,15 +131,9 @@ class MainElectionsPager extends ElectionPager {
 		foreach ( $this->subpages as $subpage => $props ) {
 			// Message keys used here:
 			// securepoll-subpage-list, securepoll-subpage-dump,
-			// securepoll-subpage-dump-blt securepoll-subpage-votereligibility
+			// securepoll-subpage-votereligibility
 			// securepoll-subpage-log, securepoll-subpage-archive
 			$linkText = $this->msg( "securepoll-subpage-$subpage" )->text();
-			if ( $subpage === "dump" ) {
-				$linkText .= ' (XML)';
-			}
-			if ( $subpage === "dump-blt" ) {
-				$linkText = $this->msg( "securepoll-subpage-dump" )->text() . ' (BLT)';
-			}
 
 			if ( $html !== '' ) {
 				$html .= $separator;
@@ -170,13 +158,8 @@ class MainElectionsPager extends ElectionPager {
 				if ( isset( $props['link'] ) ) {
 					$html .= $this->{$props['link']}( $pollId );
 				} else {
-					if ( $subpage === "dump-blt" ) {
-						$title = $this->page->specialPage->getPageTitle( "dump/$pollId" );
-						$html .= $this->linkRenderer->makeKnownLink( $title, $linkText, [], [ 'format' => 'blt' ] );
-					} else {
-						$title = $this->page->specialPage->getPageTitle( "$subpage/$pollId" );
-						$html .= $this->linkRenderer->makeKnownLink( $title, $linkText, [], $queryParams );
-					}
+					$title = $this->page->specialPage->getPageTitle( "$subpage/$pollId" );
+					$html .= $this->linkRenderer->makeKnownLink( $title, $linkText, [], $queryParams );
 				}
 			} else {
 				$html .= Html::element(
