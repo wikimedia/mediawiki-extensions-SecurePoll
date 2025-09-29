@@ -350,7 +350,7 @@
 	"securepoll-translation-result-description": "Увезени преводи од",
 	"securepoll-translation-import-start": "Почни со увоз",
 	"securepoll-translation-select-import-source": "Избереете страница од $1",
-	"securepoll-translation-select-import-source-api": "Внесете го изворот на <a href=\"https://www.mediawiki.org/wiki/API:Main_page\" target=\"_blank\" rel=\"noopener noreferrer\">приложникот Action за МедијаВики</a>:",
+	"securepoll-translation-select-import-source-api": "Внесете го изворот на [https://www.mediawiki.org/wiki/API:Main_page приложникот Action за МедијаВики]",
 	"securepoll-translation-select-import-source-page": "Внесете наслов на страница од горенаведениот извор:",
 	"securepoll-translation-import-dialog-title": "Увези преводи",
 	"securepoll-translation-import-action-import": "Увези",
