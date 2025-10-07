@@ -27,6 +27,7 @@
 	"securepoll-bad-ballot-submission": "ستاسې رايه سمه نه وه: $1",
 	"securepoll-unanswered-questions": "تاسې بايد ټولې پوښتنې ځواب کړۍ.",
 	"securepoll-api-no-user": "په دې پېژند کوم کارن و نه موندل شو.",
+	"securepoll-not-in-list": "بښنه غواړم، تاسو د هغه کارنانو په مخکې‌ټاکلي لړليک کې نه ياست چې په دې ټاکنو کې رايه ورکولی شي.",
 	"securepoll-list-title": "رايې لړليکول: $1",
 	"securepoll-header-timestamp": "وخت",
 	"securepoll-header-date": "نېټه",
@@ -76,5 +77,9 @@
 	"securepoll-votereligibility-title": "رای‌ورکوونکي وړتيا ترتيب",
 	"securepoll-votereligibility-redirect": "د دې ټاکنو لپاره د رای‌ورکوونکي وړتيا بايد په $1 کې ترتيب شي",
 	"securepoll-votereligibility-invalid-list": "د رای‌ورکوونکي وړتيا لړليک ونه پېژندل شو.",
-	"securepoll-votereligibility-list-is-processing": "د رای‌ورکوونکي وړتيا لړليک په خپلکاري ډول ډکېږي، او اوس نشي سمېدای."
+	"securepoll-votereligibility-list-is-processing": "د رای‌ورکوونکي وړتيا لړليک په خپلکاري ډول ډکېږي، او اوس نشي سمېدای.",
+	"securepoll-votereligibility-edit-action": "لړليک خوندي‌کول",
+	"securepoll-votereligibility-saved": "{{int:securepoll}}: خوندي‌شوی",
+	"securepoll-votereligibility-saved-text": "ستاسو بدلونونه خوندي شول.",
+	"securepoll-votereligibility-clear-title": "رای ورکوونکو لړليک لرې‌کول: $1"
 }
