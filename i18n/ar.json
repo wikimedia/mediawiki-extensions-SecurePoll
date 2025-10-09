@@ -371,7 +371,7 @@
 	"securepoll-translation-select-import-source-page": "قم بتوفير عنوان الصفحة من المصدر أعلاه:",
 	"securepoll-translation-import-dialog-title": "استيراد الترجمات",
 	"securepoll-translation-import-action-import": "استيراد",
-	"securepoll-translation-import-action-done": "تم",
+	"securepoll-translation-import-action-done": "نُفّذ",
 	"securepoll-translation-error-no-page-title": "لم يتم العثور على عنوان الصفحة",
 	"securepoll-translation-error-invalid-source-api": "مصدر API غير صالح",
 	"securepoll-list-redirect": "يجب عرض قائمة الأصوات هذه على $1",

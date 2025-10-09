@@ -17,6 +17,7 @@
 			"Kareyac",
 			"Kv75",
 			"Mehman (WMF)",
+			"Mitte27",
 			"NBS",
 			"Okras",
 			"Pacha Tchernof",
@@ -47,6 +48,8 @@
 	"securepoll-not-qualified": "Вы не правомочны голосовать на этих выборах: $1",
 	"securepoll-change-disallowed": "Вы уже голосовали на этих выборах ранее.\nИзвините, вы не можете проголосовать ещё раз.",
 	"securepoll-change-allowed": "<strong>Примечание. Вы уже голосовали на этих выборах ранее.</strong>\nВы можете изменить свой голос, отправив приведённую ниже форму.\nЕсли вы сделаете это, то ваш предыдущий голос не будет учтён.",
+	"securepoll-stv-unranked-candidates": "Без рейтинга",
+	"securepoll-stv-ranked-candidates": "Рейтинг",
 	"securepoll-submit": "Отправить голос",
 	"securepoll-gpg-receipt": "При желании вы можете сохранить следующие строки в качестве подтверждения вашего голоса:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "Спасибо, ваш голос записан.",
@@ -124,6 +127,7 @@
 	"securepoll-header-title": "Имя",
 	"securepoll-header-start-date": "Дата начала",
 	"securepoll-header-end-date": "Дата окончания",
+	"securepoll-header-status": "Статус",
 	"securepoll-header-links": "Ссылки",
 	"securepoll-subpage-vote": "Голосование",
 	"securepoll-subpage-translate": "Перевод",
@@ -295,7 +299,11 @@
 	"securepoll-stv-result-round-elected": "Избран: $1",
 	"securepoll-stv-result-round-eliminated": "Исключенный: $1",
 	"securepoll-stv-result-round-keep-factor": "(коэффициент сохранения: $1)",
+	"securepoll-vote-result-intro-label": "Итог вашего голосования",
 	"securepoll-vote-result-question-label": "Вопрос: $1",
 	"securepoll-vote-result-comment": "Комментарий: $1",
-	"group-electionadmin": "Администраторы выборов"
+	"securepoll-vote-stv-clear-btn-label": "Очистить список всех кандидатов",
+	"group-electionadmin": "Администраторы выборов",
+	"securepoll-tallymodifiers-question-label": "Вопрос: \"$1\"",
+	"securepoll-stv-result-election-excluded-header": "Исключенные кандидаты"
 }
