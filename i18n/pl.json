@@ -9,7 +9,8 @@
 			"Renessaince",
 			"Saper",
 			"Sp5uhe",
-			"Msz2001"
+			"Msz2001",
+			"Woytecr"
 		]
 	},
 	"securepoll": "Bezpieczne głosowanie",
@@ -112,6 +113,7 @@
 	"securepoll-subpage-dump": "Zrzut",
 	"securepoll-subpage-tally": "Rejestr",
 	"securepoll-subpage-log": "Rejestr operacji",
+	"securepoll-subpage-archive": "Zarchiwizuj",
 	"securepoll-tally-title": "Rejestr $1",
 	"securepoll-tally-not-finished": "Nie można podliczać głosów dopóki wybory trwają.",
 	"securepoll-tally-form-file-help": "Jeśli przesłałeś zaszyfrowany dump, jego zawartość zostanie uwzględniona. W przeciwnym razie wyniki w bazie danych zostaną zliczone. UWAGA: Przesłanie wyborów z więcej niż 100 głosami może nie dać żadnych wyników i prowadzić do przekroczenia limitu czasu (timeout).",
