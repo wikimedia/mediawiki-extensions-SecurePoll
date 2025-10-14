@@ -30,7 +30,8 @@
 			"Александр Сигачёв",
 			"Туллук",
 			"Pavel200071",
-			"Cabadeck"
+			"Cabadeck",
+			"Mitte27"
 		]
 	},
 	"securepoll": "Безопасное голосование",
@@ -47,6 +48,7 @@
 	"securepoll-not-qualified": "Вы не правомочны голосовать на этих выборах: $1",
 	"securepoll-change-disallowed": "Вы уже голосовали на этих выборах ранее.\nИзвините, вы не можете проголосовать ещё раз.",
 	"securepoll-change-allowed": "<strong>Примечание. Вы уже голосовали на этих выборах ранее.</strong>\nВы можете изменить свой голос, отправив приведённую ниже форму.\nЕсли вы сделаете это, то ваш предыдущий голос не будет учтён.",
+	"securepoll-header-comments": "Комментарии",
 	"securepoll-submit": "Отправить голос",
 	"securepoll-gpg-receipt": "При желании вы можете сохранить следующие строки в качестве подтверждения вашего голоса:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "Спасибо, ваш голос записан.",
@@ -140,6 +142,10 @@
 	"securepoll-subpage-log": "Журнал",
 	"securepoll-subpage-archive": "Архивировать",
 	"securepoll-archive-title": "Архив $1",
+	"securepoll-archive-private": "Извините, архивировать/разархивировать голосования могут только администраторы выборов.",
+	"securepoll-archive-not-finished": "Извините, но вы можете архивировать только завершившиеся голосования.",
+	"securepoll-archive-in-progress": "В настоящее время голосование архивируется.",
+	"securepoll-archive-error": "Голосование заархивировать не удалось. Попробуйте ещё раз.",
 	"securepoll-tally-title": "Подсчёт: $1",
 	"securepoll-tally-not-finished": "Извините, вы можете производить подсчёт итогов только после завершения голосования.",
 	"securepoll-tally-form-file-help": "Если вы загрузили зашифрованный дамп, его содержимое будет подсчитано. В ином случае будут подсчитаны результаты в базе данных. ПРИМЕЧАНИЕ: Загрузка выборов с более чем 100 голосами может не вернуть никаких результатов и показать ошибку истечения срока ожидания.",
@@ -308,6 +314,15 @@
 	"securepoll-stv-result-round-elected": "Избран: $1",
 	"securepoll-stv-result-round-eliminated": "Исключенный: $1",
 	"securepoll-stv-result-round-keep-factor": "(коэффициент сохранения: $1)",
+	"securepoll-translate-import-button-label": "Импорт переводов",
+	"securepoll-translation-result-error-title": "Ошибки",
+	"securepoll-translation-result-import-pages-title": "Страницы",
+	"securepoll-translation-import-start": "Начать импорт",
+	"securepoll-translation-import-dialog-title": "Импорт переводов",
+	"securepoll-translation-import-action-import": "Импортировать",
+	"securepoll-translation-import-action-done": "Готово",
+	"securepoll-vote-result-intro-label": "Итог вашего голосования",
 	"securepoll-vote-result-question-label": "Вопрос: $1",
-	"securepoll-vote-result-comment": "Комментарий: $1"
+	"securepoll-vote-result-comment": "Комментарий: $1",
+	"securepoll-vote-stv-clear-btn-label": "Очистить список всех кандидатов"
 }
