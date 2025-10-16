@@ -74,7 +74,7 @@ class DeduplicateMailingList extends Maintenance {
 				yield $entry;
 			}
 		} else {
-			for ( $fileIndex = 0; $fileIndex < count( $args ); $fileIndex++ ) {
+			for ( $fileIndex = 0; $fileIndex < $numArgs; $fileIndex++ ) {
 				$fileName = $this->getArg( $fileIndex );
 				$file = fopen( $fileName, 'r' );
 				if ( !$file ) {
