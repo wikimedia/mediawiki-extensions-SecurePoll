@@ -9,6 +9,7 @@
 			"MF-Warburg",
 			"Metalhead64",
 			"Pill",
+			"SaldırganSincap",
 			"Umherirrender"
 		]
 	},
@@ -318,7 +319,7 @@
 	"securepolllog-form-date-label": "Von Datum (und früher):",
 	"securepoll-log-action-type-0": "$1, $2 fügte $4 als Wahl-Administrator für die Wahl <em>$3<em> hinzu.",
 	"securepoll-log-action-type-1": "$1, $2 entfernte $4 als Wahl-Administrator für die Wahl <em>$3<em>.",
-	"securepoll-log-action-type-2": "$1, $2 hat die Wählerliste für die Wahl <em>$3<em> angesehen.",
+	"securepoll-log-action-type-2": "$1, $2 hat die Wählerliste für die Wahl <em>$3</em> angesehen.",
 	"securepoll-log-action-type-3": "$1, $2 hat die Daten eines Wählers zur Wahl angesehen <em>$3</em>.",
 	"securepoll-log-empty": "Keine Logbucheinträge gefunden.",
 	"securepoll-stv-droop-default-value": "Wähle eine Option",
