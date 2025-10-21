@@ -281,7 +281,7 @@
 	"securepoll-log-empty": "Nessuna voce di registro trovata.",
 	"securepoll-stv-droop-default-value": "Seleziona un'opzione",
 	"securepoll-stv-droop-choice-rank": "Preferenza $1",
-	"securepoll-stv-invalid-rank-empty": "Almeno un'opzione deve essere classificata",
+	"securepoll-stv-invalid-rank-empty": "Almeno una opzione deve essere classificata",
 	"securepoll-stv-invalid-rank-order": "Le preferenze devono essere selezionate in ordine sequenziale. Scegli un'opzione per: $1",
 	"securepoll-stv-invalid-rank-duplicate": "Le opzioni non possono essere selezionate più volte nella classifica. Si prega di modificare l'opzione per: $1",
 	"securepoll-stv-invalid-input-empty": "Si prega di compilare questa preferenza",
