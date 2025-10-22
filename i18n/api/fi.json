@@ -1,14 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Pitke"
+			"Pitke",
+			"Samoasambia"
 		]
 	},
-	"apihelp-strikevote-param-option": "Mitä tehdään: lisää tai poista yliviivaus äänestä.",
-	"apihelp-strikevote-paramvalue-option-strike": "Yliviivaa ääni (ääntä ei lasketa).",
-	"apihelp-strikevote-paramvalue-option-unstrike": "Poista yliviivaus (ääni lasketaan taas).",
-	"apihelp-strikevote-param-voteid": "Tunnus äänelle, joka yliviivataan tai josta poistetaan yliviivaus.",
-	"apihelp-strikevote-param-reason": "Perustely äänen yliviivaukselle tai viivauksen poistamiselle.",
-	"apihelp-strikevote-example-strike": "Yliviivaa ääni <kbd>1</kbd> perustelulla <kbd>duplication</kbd>.",
-	"apihelp-strikevote-example-unstrike": "Poista viivaus äänestä <kbd>1</kbd> perustelulla <kbd>mistake</kbd>."
+	"apihelp-strikevote-summary": "Mahdollistaa ylläpitäjien poistaa tai palauttaa ääniä.",
+	"apihelp-strikevote-param-option": "Mitä tehdään: poista tai palauta ääni.",
+	"apihelp-strikevote-paramvalue-option-strike": "Poista ääni (ääni poistetaan laskennasta).",
+	"apihelp-strikevote-paramvalue-option-unstrike": "Palauta ääni (ääni otetaan takaisin laskentaan).",
+	"apihelp-strikevote-param-voteid": "Poistettavan tai palautettavan äänen tunniste.",
+	"apihelp-strikevote-param-reason": "Perustelu äänen poistamiselle tai palauttamiselle.",
+	"apihelp-strikevote-example-strike": "Poista ääni <kbd>1</kbd> perustelulla <kbd>duplication</kbd>.",
+	"apihelp-strikevote-example-unstrike": "Palauta ääni <kbd>1</kbd> perustelulla <kbd>mistake</kbd>.",
+	"apierror-securepoll-mustbeloggedin-strikevote": "Sinun on kirjauduttava sisään poistaaksesi tai palauttaaksesi äänen.",
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> ei ole kelvollinen äänitunniste."
 }

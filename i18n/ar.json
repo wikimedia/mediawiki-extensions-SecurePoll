@@ -359,7 +359,7 @@
 	"securepoll-translation-select-import-source": "حدد الصفحة من $1",
 	"securepoll-translation-import-dialog-title": "استيراد الترجمات",
 	"securepoll-translation-import-action-import": "استيراد",
-	"securepoll-translation-import-action-done": "تم",
+	"securepoll-translation-import-action-done": "نُفّذ",
 	"securepoll-translation-error-no-page-title": "لم يتم العثور على عنوان الصفحة",
 	"securepoll-vote-result-intro-label": "ملخص تصويتك",
 	"securepoll-vote-result-question-label": "السؤال: $1",
