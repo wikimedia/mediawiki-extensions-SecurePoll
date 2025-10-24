@@ -283,7 +283,7 @@
 	"securepoll-votereligibility-edit-header": "Insire nomes de usuaria(o) para a lista na caixa de texto de abaixo, un por liña. Unha conta nun wiki específico debe identificarse mediante o nome con \"@\" seguido do nome do proxecto; por exemplo, \"User:Exemplo\" na Wikipedia en inglés pode especificarse como \"Exemplo@enwiki\".\n\nOs nomes de usuaria(o) revísanse ao enviar o formulario, e os usuarios que non existen son ignorados. Os nomes de usuaria(o) inválidos tamén son ignorados.",
 	"securepoll-votereligibility-edit-action": "Gardar a lista",
 	"securepoll-votereligibility-saved": "{{int:securepoll}}: Gardada",
-	"securepoll-votereligibility-saved-text": "Gardáronse os teus cambios.",
+	"securepoll-votereligibility-saved-text": "Gardáronse os cambios.",
 	"securepoll-votereligibility-clear-title": "Borrado da lista de votantes: $1",
 	"securepoll-votereligibility-cleared": "{{int:securepoll}}: Eliminada",
 	"securepoll-votereligibility-cleared-text": "Eliminouse a $1 e non será usada na enquisa.",
