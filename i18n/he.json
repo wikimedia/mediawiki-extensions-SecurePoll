@@ -15,7 +15,7 @@
 	"securepoll": "הצבעה מאובטחת",
 	"securepoll-desc": "הרחבה המאפשרת בחירות ומשאלים",
 	"securepoll-invalid-page": "דף־משנה בלתי־תקין: \"<nowiki>$1</nowiki>\"",
-	"securepoll-need-admin": "{{:GENDER|עליך|עלייך}} להיות {{:GENDER|מנהל|מנהלת}} בחירות כדי לבצע את הפעולה הזאת.",
+	"securepoll-need-admin": "{{GENDER:|עליך|עלייך}} להיות {{GENDER:|מנהל|מנהלת}} בחירות כדי לבצע את הפעולה הזאת.",
 	"securepoll-too-few-params": "אין מספיק פרמטרים של דפי־משנה (קישור בלתי־תקין).",
 	"securepoll-invalid-election": "\"$1\" אינו מזהה הצבעה תקין.",
 	"securepoll-finished-no-edit": "הבחירות האלו הסתיימו ואין לך יותר אפשרות לערוך אותן.",
