@@ -336,7 +336,7 @@
 	"securepolllog-form-date-label": "از تاریخ (و زودتر):",
 	"securepoll-log-action-type-0": "$1، $2 نام $4 را به مدیران نظرسنجی برای انتخابات <em>$3</em> اضافه کرد.",
 	"securepoll-log-action-type-1": "$1، $2 نام $4 را از مدیران نظرسنجی برای انتخابات <em>$3</em> حذف کرد.",
-	"securepoll-log-action-type-2": "$1، $2 فهرست رأی‌دهندگان برای انتخابات <em>$3</em> را مشاهده کردند.",
+	"securepoll-log-action-type-2": "$1، $2 فهرست رأی‌دهندگان برای انتخابات <em>$3</em> را مشاهده کرد.",
 	"securepoll-log-action-type-3": "$1، $2 جزئیات یک رأی‌دهنده را برای انتخابات <em>$3</em> مشاهده کردند.",
 	"securepoll-log-empty": "مدخلی در سیاهه یافت نشد.",
 	"securepoll-stv-droop-default-value": "یک گزینه را انتخاب کنید",
