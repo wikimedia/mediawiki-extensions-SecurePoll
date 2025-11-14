@@ -60,6 +60,7 @@ class RadioRangeBallot extends Ballot {
 			'min-score' => [
 				'label-message' => 'securepoll-create-label-min_score',
 				'type' => 'int',
+				'default' => -1,
 				'validation-callback' => [
 					CreatePage::class,
 					'checkRequired',
@@ -70,6 +71,7 @@ class RadioRangeBallot extends Ballot {
 			'max-score' => [
 				'label-message' => 'securepoll-create-label-max_score',
 				'type' => 'int',
+				'default' => 1,
 				'validation-callback' => [
 					CreatePage::class,
 					'checkRequired',
@@ -80,6 +82,7 @@ class RadioRangeBallot extends Ballot {
 			'default-score' => [
 				'label-message' => 'securepoll-create-label-default_score',
 				'type' => 'int',
+				'default' => 0,
 				'SecurePoll_type' => 'property',
 				'cssclass' => 'securepoll-narrow-number-input',
 			],
