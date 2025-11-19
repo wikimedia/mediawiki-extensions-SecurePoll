@@ -489,14 +489,15 @@ class VotePage extends ActionPage {
 					);
 				}
 
-				if ( $notVotedItems !== [] ) {
-					$votedItems[] = Html::rawElement( 'ul', [ 'class' => 'securepoll-vote-result-no-vote' ],
-						implode( "\n", $notVotedItems )
-					);
-				}
 				$html .= Html::rawElement( 'ul', [ 'class' => 'securepoll-vote-result-options' ],
 					implode( "\n", $votedItems )
 				);
+
+				if ( $notVotedItems !== [] ) {
+					$html .= Html::rawElement( 'ul', [ 'class' => 'securepoll-vote-result-no-vote' ],
+						implode( "\n", $notVotedItems )
+					);
+				}
 			}
 			$html .= Html::closeElement( 'div' );
 			$summary .= $html;

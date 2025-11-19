@@ -80,11 +80,11 @@ class VoteSummaryTest extends MediaWikiIntegrationTestCase {
 				"<div class=\"securepoll-vote-result-question-cnt\">" .
 				"<p class=\"securepoll-vote-result-question\">Question: Approval test question</p>" .
 				"<ul class=\"securepoll-vote-result-options\">" .
-				"<li>B: rated 1</li>\n" .
+				"<li>B: rated 1</li></ul>" .
 				"<ul class=\"securepoll-vote-result-no-vote\">" .
 				"<li>AAAA: not checked</li>\n" .
 				"<li>C: not checked</li>\n" .
-				"<li>D: not checked</li></ul></ul></div>" .
+				"<li>D: not checked</li></ul></div>" .
 				"<div class=\"securepoll-vote-result-comment\">Comment: My comment</div>"
 			],
 			'schulze-data' => [
@@ -111,9 +111,9 @@ class VoteSummaryTest extends MediaWikiIntegrationTestCase {
 				"<ul class=\"securepoll-vote-result-options\">" .
 				"<li>A: rated 1</li>\n" .
 				"<li>B: rated 100</li>\n" .
-				"<li>C: rated 5</li>\n" .
-				"<ul class=\"securepoll-vote-result-no-vote\"><li>D: not voted</li></ul></ul>" .
-				"</div><div class=\"securepoll-vote-result-comment\">Comment: My comment</div>"
+				"<li>C: rated 5</li></ul>" .
+				"<ul class=\"securepoll-vote-result-no-vote\"><li>D: not voted</li></ul></div>" .
+				"<div class=\"securepoll-vote-result-comment\">Comment: My comment</div>"
 			],
 			'3way-data' => [
 				[
