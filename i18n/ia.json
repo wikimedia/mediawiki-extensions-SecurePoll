@@ -6,7 +6,7 @@
 	},
 	"securepoll": "Voto secur",
 	"securepoll-desc": "Extension pro electiones e inquestas",
-	"securepoll-invalid-page": "Subpagina  \"<nowiki>$1</nowiki>\" invalide",
+	"securepoll-invalid-page": "Subpagina “<nowiki>$1</nowiki>” non valide",
 	"securepoll-need-admin": "Tu debe esser un administrator de electiones pro poter executar iste action.",
 	"securepoll-too-few-params": "Non satis de parametros del subpagina (ligamine invalide).",
 	"securepoll-invalid-election": "\"$1\" non es un identificator valide de un election.",

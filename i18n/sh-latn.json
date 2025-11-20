@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Winston Sung"
+			"Winston Sung",
+			"Aca"
 		]
 	},
 	"securepoll": "Sigurno glasanje",
@@ -140,8 +141,8 @@
 	"securepoll-votereligibility-lists": "Spisak glasača",
 	"securepoll-votereligibility-include": "Spisak bezuvjetnih",
 	"securepoll-votereligibility-exclude": "Spisak isključenih",
-	"securepoll-votereligibility-label-inuse": "Ovaj spisak je u upotrebi",
-	"securepoll-votereligibility-label-notinuse": "Ovaj spisak nije u upotrebi",
+	"securepoll-votereligibility-label-inuse": "Ova lista je u upotrebi",
+	"securepoll-votereligibility-label-notinuse": "Ova lista nije u upotrebi",
 	"securepoll-votereligibility-label-processing": "Ovaj spisak je u izradi ($1% dovršeno)",
 	"securepoll-votereligibility-label-edit": "Promijeni spisak",
 	"securepoll-votereligibility-label-clear": "Ukloni spisak",

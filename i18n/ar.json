@@ -40,7 +40,7 @@
 	"securepoll-header-comments": "التعليقات",
 	"securepoll-submit": "أرسل صوتك",
 	"securepoll-gpg-receipt": "إذا كنت ترغب في ذلك ، يمكنك الاحتفاظ بالإيصال التالي كدليل على تصويتك:\n\n<pre>$1</pre>",
-	"securepoll-thanks": "شكرا لك، تم تسجيل تصويتك.",
+	"securepoll-thanks": "شكرا لك، سُجل تصويتك.",
 	"securepoll-return": "ارجع إلى $1",
 	"securepoll-encrypt-error": "قد فشل تشفير سجل تصويتك.\nتصويتك لم يتم تسجيله!\n\n$1",
 	"securepoll-secret-openssl-error": "خطأ في تنفيذ عملية تشفير.\nاستخدم $wgSecurePollShowErrorDetail=true; في LocalSettings.php لإظهار المزيد من التفاصيل.",
