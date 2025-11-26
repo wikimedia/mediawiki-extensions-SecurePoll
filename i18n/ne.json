@@ -9,7 +9,8 @@
 			"पर्वत सुबेदी",
 			"बडा काजी",
 			"राम प्रसाद जोशी",
-			"सरोज कुमार ढकाल"
+			"सरोज कुमार ढकाल",
+			"Nirajan pant"
 		]
 	},
 	"securepoll": "सुरक्षित चुनाव",
@@ -72,7 +73,7 @@
 	"securepoll-header-id": "आईडी(ID)",
 	"securepoll-header-voter-type": "मतदाता प्रकार",
 	"securepoll-voter-properties": "मतदाताको विवरणहरु",
-	"securepoll-strike-log": "काटेको लग",
+	"securepoll-strike-log": "काटेको अभिलेख",
 	"securepoll-header-action": "कार्य",
 	"securepoll-header-reason": "कारण",
 	"securepoll-header-admin": "प्रबन्धक",
@@ -82,7 +83,7 @@
 	"securepoll-translate-label-comment": "कारण:",
 	"securepoll-invalid-language": "अमान्य भाषा कोड \"$1\"",
 	"securepoll-header-trans-id": "आईडी(ID)",
-	"securepoll-submit-translate": "अद्यावधिक गर्ने",
+	"securepoll-submit-translate": "अद्यावधिक गर्नुहोस्",
 	"securepoll-language-label": "भाषा छान्ने:",
 	"securepoll-submit-select-lang": "अनुवाद गर्नुहोस्",
 	"securepoll-entry-text": "चुनावको सूची तल दिइएकोछ।",
