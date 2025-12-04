@@ -33,7 +33,7 @@
 	"securepoll-already-started": "Tämä vaali on jo alkanut.\nSe alkoi $2 kello $3",
 	"securepoll-finished": "Äänestys on päättynyt, et voi enää äänestää.",
 	"securepoll-not-qualified": "Et täytä ehtoja näiden vaalien äänestäjäksi: $1",
-	"securepoll-change-disallowed": "Olet jo äänestänyt näissä vaaleissa.\nEt voi äänestää uudestaan.",
+	"securepoll-change-disallowed": "Olet jo äänestänyt näissä vaaleissa.\nEt voi äänestää uudelleen.",
 	"securepoll-change-allowed": "<strong>Huomio: Olet jo äänestänyt näissä vaaleissa.</strong>\nVoit muuttaa ääntäsi tallentamalla alla olevan lomakkeen.\nHuomioi, että siinä tapauksessa edellinen äänesi hylätään.",
 	"securepoll-stv-unranked-candidates": "Ei asetettu mieluisuusjärjestykseen",
 	"securepoll-stv-ranked-candidates": "Asetettu mieluisuusjärjestykseen",
