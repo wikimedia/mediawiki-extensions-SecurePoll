@@ -77,9 +77,14 @@ class TranslationRepo {
 				->execute();
 
 			if ( Context::isNamespacedLoggingEnabled() ) {
-				// Create a new context to bypass caching
 				$context = new Context;
 				$contextElection = $context->getElection( $election->getId() );
+				$contextElection->loadMessages( $language );
+				// Explicitly overwrite the values that have been changed, since the loaded
+				// values could be outdated.
+				foreach ( $replaceBatch as $row ) {
+					$context->messageCache[$language][$row['msg_entity']][$row['msg_key']] = $row['msg_text'];
+				}
 
 				[ $title, $content ] = SecurePollContentHandler::makeContentFromElection(
 					$contextElection,
