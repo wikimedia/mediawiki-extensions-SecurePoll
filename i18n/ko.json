@@ -268,6 +268,8 @@
 	"securepoll-votereligibility-cleared-comment": "$1가 삭제되었습니다.",
 	"right-securepoll-create-poll": "투표 생성하기",
 	"action-securepoll-create-poll": "투표 생성 및 로그 보기",
+	"right-securepoll-edit-poll": "투표 수정하기",
+	"action-securepoll-edit-poll": "투표를 수정할",
 	"securepoll-voter-stats": "모든 적격 유권자 중에서, $1명의 {{PLURAL:$1|유권자가|유권자들이}} 투표했습니다.",
 	"securepoll-vote-stats": "총 $1 표가 투표되었습니다. 이 중 $2 표의 투표는 유권자가 다시 투표했기 때문에 폐기되었으며 $3개의 표가 맞았습니다.",
 	"securepolllog": "SecurePoll 기록",
