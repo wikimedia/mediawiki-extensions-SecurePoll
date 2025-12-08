@@ -12,7 +12,7 @@
 	"securepoll-desc": "Erweiderung fir Walen an Ëmfroen",
 	"securepoll-invalid-page": "Ongülteg Ënnersäit „<nowiki>$1</nowiki>“",
 	"securepoll-need-admin": "Dir musst Admnistrateur vun de Wale si fir dëst kënnen ze maachen.",
-	"securepoll-too-few-params": "Net genuch Ënnersäite-Parameter (net valabele Link).",
+	"securepoll-too-few-params": "Net genuch Ënnersäiteparameter (ongültege Link).",
 	"securepoll-invalid-election": "„$1“ ass keng gülteg Wal-ID.",
 	"securepoll-finished-no-edit": "Dës Wal ass eriwwer an Dir kënnt se net méi änneren.",
 	"securepoll-welcome": "<strong>{{GENDER:$1|Wëllkomm}} $1!</strong>",
