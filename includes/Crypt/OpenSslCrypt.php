@@ -628,10 +628,6 @@ class OpenSslCrypt extends Crypt {
 		return true;
 	}
 
-	public function updateTallyContext( Context $context, array $data ): void {
-		// no-op
-	}
-
 	public function updateDbForTallyJob( int $electionId, IDatabase $dbw, array $data ): void {
 		// Add private key to DB if it was entered in the form
 		if ( isset( $data['openssl-decrypt-key'] ) ) {

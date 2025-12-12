@@ -2,21 +2,16 @@
 
 namespace MediaWiki\Extension\SecurePoll\Pages;
 
-use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
-use MediaWiki\Extension\SecurePoll\Store\MemoryStore;
-use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
 use MediaWiki\Html\Html;
 use MediaWiki\HTMLForm\HTMLForm;
 use MediaWiki\JobQueue\JobQueueGroup;
 use MediaWiki\JobQueue\JobSpecification;
 use MediaWiki\Linker\LinkRenderer;
-use MediaWiki\Request\WebRequestUpload;
 use MediaWiki\Status\Status;
 use MediaWiki\Title\Title;
 use OOUI\MessageWidget;
-use RuntimeException;
 use Wikimedia\Rdbms\ILoadBalancer;
 
 /**
@@ -100,21 +95,14 @@ class TallyListPage extends ActionPage {
 	}
 
 	/**
-	 * Show a tally, either from the database or from an uploaded file.
+	 * Show a tally from the database.
 	 *
 	 * @internal Submit callback for the HTMLForm
 	 * @param array $data Data from the form fields
 	 * @return bool|string|array|Status As documented for HTMLForm::trySubmit
 	 */
 	public function submitForm( array $data ) {
-		$upload = $this->specialPage->getRequest()->getUpload( 'tally_file' );
-		if ( !$upload->exists()
-			|| !is_uploaded_file( $upload->getTempName() )
-			|| !$upload->getSize()
-		) {
-			return $this->submitJob( $this->election, $data );
-		}
-		return $this->submitUpload( $data, $upload );
+		return $this->submitJob( $this->election, $data );
 	}
 
 	/**
@@ -339,42 +327,6 @@ class TallyListPage extends ActionPage {
 	}
 
 	/**
-	 * Show a tally of the results in the uploaded file
-	 *
-	 * @param array $data Data from the form fields
-	 * @param WebRequestUpload $upload
-	 * @return bool|string|array|Status As documented for HTMLForm::trySubmit
-	 */
-	private function submitUpload( array $data, WebRequestUpload $upload ) {
-		$out = $this->specialPage->getOutput();
-
-		$context = Context::newFromXmlFile( $upload->getTempName() );
-		if ( !$context ) {
-			return [ 'securepoll-dump-corrupt' ];
-		}
-		$store = $context->getStore();
-		if ( !$store instanceof MemoryStore ) {
-			$class = get_class( $store );
-			throw new RuntimeException(
-				"Expected instance of MemoryStore, got $class instead"
-			);
-		}
-		$electionIds = $store->getAllElectionIds();
-		$election = $context->getElection( reset( $electionIds ) );
-
-		$this->updateContextForCrypt( $election, $data );
-
-		$status = $election->tally();
-		if ( !$status->isOK() ) {
-			return [ [ 'securepoll-tally-upload-error', $status->getMessage() ] ];
-		}
-		$tallier = $status->value;
-		'@phan-var ElectionTallier $tallier'; /** @var ElectionTallier $tallier */
-		$out->addHTML( $tallier->getHtmlResult() );
-		return true;
-	}
-
-	/**
 	 * Pushes a tally job to the queue and reloads the page.
 	 */
 	private function submitJob( Election $election, array $data ): bool {
@@ -451,20 +403,6 @@ class TallyListPage extends ActionPage {
 	}
 
 	/**
-	 * Update the context of the election to be tallied with any information
-	 * not stored in the database that is needed for decryption.
-	 *
-	 * @param Election $election The election to be tallied
-	 * @param array $data Form data
-	 */
-	private function updateContextForCrypt( Election $election, array $data ): void {
-		$crypt = $election->getCrypt();
-		if ( $crypt ) {
-			$crypt->updateTallyContext( $election->context, $data );
-		}
-	}
-
-	/**
 	 * Get any crypt-specific descriptors for the form.
 	 */
 	private function getCryptDescriptors(): array {
@@ -477,15 +415,6 @@ class TallyListPage extends ActionPage {
 		if ( !$crypt->canDecrypt() ) {
 			$formFields += $crypt->getTallyDescriptors();
 		}
-
-		$formFields += [
-			'tally_file' => [
-				'type' => 'file',
-				'name' => 'tally_file',
-				'help-message' => 'securepoll-tally-form-file-help',
-				'label-message' => 'securepoll-tally-form-file-label',
-			],
-		];
 
 		return $formFields;
 	}

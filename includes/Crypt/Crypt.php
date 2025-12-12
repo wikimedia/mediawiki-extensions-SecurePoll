@@ -106,17 +106,6 @@ abstract class Crypt {
 	abstract public function getTallyDescriptors(): array;
 
 	/**
-	 * Update the given context with any information needed for tallying.
-	 *
-	 * This allows some information, e.g. private keys, to be used for a
-	 * single request and not added to the database.
-	 *
-	 * @param Context $context
-	 * @param array $data
-	 */
-	abstract public function updateTallyContext( Context $context, array $data ): void;
-
-	/**
 	 * Update the database with any information needed for tallying via a job.
 	 *
 	 * This may include adding private keys to the database. While not ideal,
