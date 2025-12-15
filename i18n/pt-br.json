@@ -22,6 +22,7 @@
 			"Mariagarbin",
 			"MetalBrasil",
 			"Mordecool",
+			"MrNinja",
 			"Opraco",
 			"Svjatysberega"
 		]
@@ -322,5 +323,6 @@
 	"securepoll-stv-result-round-elected": "Eleito: $1",
 	"securepoll-stv-result-round-eliminated": "Eliminado: $1",
 	"securepoll-stv-result-round-keep-factor": "(fator mantido: $1)",
-	"securepoll-translation-result-import-pages-title": "Páginas"
+	"securepoll-translation-result-import-pages-title": "Páginas",
+	"securepoll-list-redirect": "Esta lista de votos deve ser visualizada em $1"
 }
