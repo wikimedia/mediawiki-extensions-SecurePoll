@@ -1,9 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Shimmin Beg"
+			"Shimmin Beg",
+			"MacTire02"
 		]
 	},
-	"securepoll-strike-reason": "Fa:",
-	"securepoll-header-reason": "Fa:"
+	"securepoll-strike-reason": "Oyr:",
+	"securepoll-header-reason": "Oyr:"
 }
