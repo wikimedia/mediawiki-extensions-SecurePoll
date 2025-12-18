@@ -15,7 +15,8 @@
 			"SandroHc",
 			"Vitorvicentevalente",
 			"Waldir",
-			"Waldyrious"
+			"Waldyrious",
+			"MrNinja"
 		]
 	},
 	"securepoll": "Votação segura",
@@ -308,6 +309,7 @@
 	"securepoll-stv-result-round-elected": "Eleitos: $1",
 	"securepoll-stv-result-round-eliminated": "Eliminados: $1",
 	"securepoll-stv-result-round-keep-factor": "(fator de conservação: $1)",
+	"securepoll-list-redirect": "Esta lista de votos deve ser visualizada em $1",
 	"securepoll-tallymodifiers-question-label": "Questão: \"$1\"",
 	"securepoll-tally-stv-candidate-excluded": "Excluir candidatos manualmente",
 	"securepoll-stv-result-election-excluded-header": "Candidatos excluídos"
