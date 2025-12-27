@@ -4,9 +4,9 @@ namespace MediaWiki\Extension\SecurePoll\Pages;
 
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\User\Voter;
+use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Pager\TablePager;
-use MediaWiki\Xml\Xml;
 use OOUI\ButtonWidget;
 use Wikimedia\IPUtils;
 
@@ -156,7 +156,7 @@ class ListPager extends TablePager {
 				$voteId = intval( $this->mCurrentRow->vote_id );
 				$title = $this->listPage->specialPage->getPageTitle( "details/$voteId" );
 
-				return Xml::element(
+				return Html::element(
 					'a',
 					[ 'href' => $title->getLocalURL() ],
 					$this->msg( 'securepoll-details-link' )->text()

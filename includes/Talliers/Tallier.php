@@ -6,7 +6,7 @@ use InvalidArgumentException;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Entities\Question;
-use MediaWiki\Xml\Xml;
+use MediaWiki\Html\Html;
 
 /**
  * Base class for objects which tally individual questions.
@@ -143,10 +143,10 @@ abstract class Tallier {
 			}
 
 			$option = $this->optionsById[$oid];
-			$s .= "<tr>" . Xml::element( 'td', [], $rank ) . Xml::openElement(
+			$s .= "<tr>" . Html::element( 'td', [], $rank ) . Html::openElement(
 					'td',
 					[]
-				) . $option->parseMessage( 'text', false ) . Xml::closeElement( 'td' ) . "</tr>\n";
+				) . $option->parseMessage( 'text', false ) . Html::closeElement( 'td' ) . "</tr>\n";
 		}
 		$s .= "</table>";
 

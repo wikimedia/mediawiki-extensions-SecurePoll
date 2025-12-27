@@ -4,10 +4,10 @@ namespace MediaWiki\Extension\SecurePoll\Pages;
 
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Extension\SecurePoll\User\Voter;
+use MediaWiki\Html\Html;
 use MediaWiki\JobQueue\JobQueueGroup;
 use MediaWiki\JobQueue\JobSpecification;
 use MediaWiki\Title\Title;
-use MediaWiki\Xml\Xml;
 use Wikimedia\IPUtils;
 
 /**
@@ -166,7 +166,7 @@ class DetailsPage extends ActionPage {
 				$out->addHTML(
 					'<tr>' . '<td>' . htmlspecialchars(
 						$lang->timeanddate( $row->cm_timestamp )
-					) . '</td>' . '<td>' . Xml::element(
+					) . '</td>' . '<td>' . Html::element(
 						'a',
 						[ 'href' => $voter->getUrl() ],
 						$voter->getName() . '@' . $voter->getDomain()

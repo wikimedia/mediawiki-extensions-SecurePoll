@@ -4,7 +4,7 @@ namespace MediaWiki\Extension\SecurePoll\Talliers;
 
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
-use MediaWiki\Xml\Xml;
+use MediaWiki\Html\Html;
 
 class HistogramRangeTallier extends Tallier {
 	/** @var array */
@@ -110,21 +110,21 @@ class HistogramRangeTallier extends Tallier {
 		$labels = $ballot->getColumnLabels( $this->question );
 		$s = "<table class=\"securepoll-table\">\n" . "<tr>\n" . "<th>&#160;</th>\n";
 		foreach ( $labels as $label ) {
-			$s .= Xml::element( 'th', [], $label ) . "\n";
+			$s .= Html::element( 'th', [], $label ) . "\n";
 		}
-		$s .= Xml::element( 'th', [], wfMessage( 'securepoll-average-score' )->text() );
+		$s .= Html::element( 'th', [], wfMessage( 'securepoll-average-score' )->text() );
 		$s .= "</tr>\n";
 
 		foreach ( $this->averages as $oid => $average ) {
-			$s .= "<tr>\n" . Xml::tags(
+			$s .= "<tr>\n" . Html::rawElement(
 					'td',
 					[ 'class' => 'securepoll-results-row-heading' ],
 					$optionLabels[$oid]
 				) . "\n";
 			foreach ( $labels as $score => $label ) {
-				$s .= Xml::element( 'td', [], $this->histogram[$oid][$score] ) . "\n";
+				$s .= Html::element( 'td', [], $this->histogram[$oid][$score] ) . "\n";
 			}
-			$s .= Xml::element( 'td', [], $average ) . "\n";
+			$s .= Html::element( 'td', [], $average ) . "\n";
 			$s .= "</tr>\n";
 		}
 		$s .= "</table>\n";

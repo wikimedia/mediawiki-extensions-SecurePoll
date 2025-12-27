@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\SecurePoll\Talliers;
 
-use MediaWiki\Xml\Xml;
+use MediaWiki\Html\Html;
 
 /**
  * Generic functionality for Condorcet-style pairwise methods.
@@ -128,14 +128,14 @@ abstract class PairwiseTallier extends Tallier {
 
 		# Header row
 		foreach ( $rankedIds as $oid ) {
-			$s .= Xml::tags( 'th', [], $abbrevs[$oid] ) . "\n";
+			$s .= Html::rawElement( 'th', [], $abbrevs[$oid] ) . "\n";
 		}
 		$s .= "</tr>\n";
 
 		foreach ( $rankedIds as $oid1 ) {
 			# Header column
 			$s .= "<tr>\n";
-			$s .= Xml::tags(
+			$s .= Html::rawElement(
 				'td',
 				[ 'class' => 'securepoll-results-row-heading' ],
 				$rowLabels[$oid1]
@@ -146,7 +146,7 @@ abstract class PairwiseTallier extends Tallier {
 				if ( is_array( $value ) ) {
 					$value = '(' . implode( ', ', $value ) . ')';
 				}
-				$s .= Xml::element( 'td', [], $value ) . "\n";
+				$s .= Html::element( 'td', [], $value ) . "\n";
 			}
 			$s .= "</tr>\n";
 		}
