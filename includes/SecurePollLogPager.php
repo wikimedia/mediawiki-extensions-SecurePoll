@@ -126,7 +126,7 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 			$message->rawParams( $targetLink );
 		}
 
-		return Html::RawElement( 'li', [], $message->parse() );
+		return Html::rawElement( 'li', [], $message->parse() );
 	}
 
 	/**
