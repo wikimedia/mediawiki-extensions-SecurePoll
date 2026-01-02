@@ -85,6 +85,5 @@
 	"securepoll-tally-not-finished": "Jiddispjaċina, ma tisgtħux tgħoddu r-riżultati tal-elezzjoni qabel mal-votazzjoni tispiċċa.",
 	"securepoll-tally-upload-submit": "Oħloq talja",
 	"securepoll-tally-error": "Żball fl-interpretazzjoni tar-reġistrazzjoni tal-vot, ir-riżultati ma jistgħux jingħaddu.",
-	"securepoll-no-upload": "L-ebda fajl ma ġie mtella', ir-riżultati ma jistgħux jingħaddu.",
-	"securepoll-dump-corrupt": "Il-fajl ta' skariku huwa korrott u ma jistax jiġi pproċessat."
+	"securepoll-no-upload": "L-ebda fajl ma ġie mtella', ir-riżultati ma jistgħux jingħaddu."
 }

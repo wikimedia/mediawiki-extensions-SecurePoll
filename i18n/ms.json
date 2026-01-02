@@ -93,8 +93,6 @@
 	"securepoll-tally-upload-submit": "Cipta semakan",
 	"securepoll-tally-error": "Ralat mentafsir rekod undian, tidak dapat menghasilkan semakan.",
 	"securepoll-no-upload": "Tiada fail dimuat naik, tidak dapat menyemak keputusan.",
-	"securepoll-dump-corrupt": "Fail longgokan tercemar dan tidak dapat diproses.",
-	"securepoll-tally-upload-error": "Ralat menyemak fail longgokan: $1",
 	"securepoll-pairwise-victories": "Matriks kemenangan berpasangan",
 	"securepoll-strength-matrix": "Matriks kekuatan laluan",
 	"securepoll-ranks": "Kedudukan akhir",

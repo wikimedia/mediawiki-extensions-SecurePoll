@@ -108,8 +108,6 @@
 	"securepoll-tally-error": "Грешка при интерпретирането на записа с гласовете. Не може да се извърши преброяване.",
 	"securepoll-tally-list-title": "Резултати: $1",
 	"securepoll-no-upload": "Няма качен файл, не може да се пристъпи към преброяване на гласовете.",
-	"securepoll-dump-corrupt": "Дъмп файлът е повреден и не може да бъде обработен.",
-	"securepoll-tally-upload-error": "Грешка при преброяването на дъмп файла: $1",
 	"securepoll-ranks": "Крайно класиране",
 	"securepoll-average-score": "Средна оценка",
 	"securepoll-create-title": "{{int:securepoll}}: Създаване на анкета",

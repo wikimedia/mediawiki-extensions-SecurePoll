@@ -96,8 +96,6 @@
 	"securepoll-tally-upload-submit": "Napravi prikaz rezultata (raspodjelu glasova)",
 	"securepoll-tally-error": "Pogreška pri prijevodu zapisa glasa, nije moguće prikazati raspodjelu glasova.",
 	"securepoll-no-upload": "Datoteka nije učitana, ne mogu prikazati raspodjelu rezultata.",
-	"securepoll-dump-corrupt": "Ispisana datoteka je oštećena i ne može biti obrađena.",
-	"securepoll-tally-upload-error": "Pogreška pri prikazu rezultata iz ispisane datoteke: $1",
 	"securepoll-pairwise-victories": "Udvoji pobjedničku matricu",
 	"securepoll-strength-matrix": "Putanja ojačane matrice",
 	"securepoll-ranks": "Završno rangiranje",

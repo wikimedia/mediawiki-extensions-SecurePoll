@@ -85,8 +85,6 @@
 	"securepoll-tally-upload-submit": "أنشئ محصلة",
 	"securepoll-tally-error": "خطأ فى تفسير سجل التصويت، تعذّر توليد محصله.",
 	"securepoll-no-upload": "لم يرفع ملف، تعذّر تحصيل النتائج.",
-	"securepoll-dump-corrupt": "ملف التفريغ تالف و لا يمكن معالجته.",
-	"securepoll-tally-upload-error": "خطأ أثناء فرز ملف التفريغ: $1",
 	"securepoll-pairwise-victories": "مصفوفه انتصار الثنائيات",
 	"securepoll-strength-matrix": "مصفوفه قوه المسار",
 	"securepoll-ranks": "الترتيب النهائي",

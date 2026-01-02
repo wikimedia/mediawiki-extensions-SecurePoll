@@ -90,8 +90,6 @@
 	"securepoll-tally-upload-submit": "Fà la conta",
 	"securepoll-tally-error": "Eror elaborando le informassion de voto, no se pol far la conta.",
 	"securepoll-no-upload": "Nissun file caricà, no se pol far la conta.",
-	"securepoll-dump-corrupt": "El file de dump el xe roto e no se pole elaborarlo.",
-	"securepoll-tally-upload-error": "Eror fasendo la conta del file de dump: $1",
 	"securepoll-pairwise-victories": "Matrice de vitoria a do a do",
 	"securepoll-strength-matrix": "Matrice de fortezza del percorso",
 	"securepoll-ranks": "Classifica final",

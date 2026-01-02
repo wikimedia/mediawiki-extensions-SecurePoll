@@ -98,8 +98,6 @@
 	"securepoll-tally-upload-submit": "Lohß Jonn!",
 	"securepoll-tally-error": "Beim Ungersöke vun ene Shtemm es jet donevve jejange, dröm künne mer nix ußzälle.",
 	"securepoll-no-upload": "Nix huhjelaade, do künne mer kein Shtemme ußzälle.",
-	"securepoll-dump-corrupt": "De <i lang=\"en\">dump</i>-Dattei es kappoott un kann nit verärbeidt wääde.",
-	"securepoll-tally-upload-error": "Ene Fähler es opjetrodde beim Ußzälle noh dä <i !!FUZZYY!!lang=\"en\" xml:lang=\"en\" dir=\"ltr\">dump</i>-Dattei: $1",
 	"securepoll-pairwise-victories": "Krüztabäll mer de paawiiß Jewenner",
 	"securepoll-strength-matrix": "De Krüztabäll mem Jeweesch fun jedem Pat",
 	"securepoll-ranks": "De Rangfollesch zom Afschloß",

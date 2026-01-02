@@ -83,8 +83,6 @@
 	"securepoll-tally-upload-submit": "Krea konteo",
 	"securepoll-tally-error": "Tabatin un eror  den e interpretashon di e votonan wardá, no por krea un konteo.",
 	"securepoll-no-upload": "Ningun dokumento no a wòrdu di load, no por kalkulá resultadonan.",
-	"securepoll-dump-corrupt": "E \"dump file\" a wòrdu korumpí i no por wòrdu prosesá.",
-	"securepoll-tally-upload-error": "Fout na ora di konta \"dump file\": $1",
 	"securepoll-ranks": "Klasifikashon final",
 	"securepoll-average-score": "Average"
 }

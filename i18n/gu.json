@@ -88,8 +88,6 @@
 	"securepoll-tally-upload-submit": "તાળો નિર્માણ કરો",
 	"securepoll-tally-error": "મતને ઉલેકેલવામાં ત્રુટી, મતદાન નો તાળો  નહીં બનાવી શકાય",
 	"securepoll-no-upload": "કોઈ પણ ફાઈલ ચઢાવી નથી, પરિણામ નો તાળો ન મેળવી શકાયો",
-	"securepoll-dump-corrupt": "કાટમાળ ફાઈલ ખરાબ થઈ ગઈ છે તેન પર પ્રક્રિયા નહીં કરી શકાય",
-	"securepoll-tally-upload-error": "કાટમાળ ફાઈલ નો તાળો મેળવવામાં ત્રુટી: $1",
 	"securepoll-pairwise-victories": "જોડી અનુસાર વિજય જૂથ",
 	"securepoll-strength-matrix": "પાથ સ્ટ્રેંથ મેટ્રીક્સ",
 	"securepoll-ranks": "અંતિમ ક્રમ યાદી",

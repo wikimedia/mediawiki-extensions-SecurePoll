@@ -86,8 +86,6 @@
 	"securepoll-tally-upload-submit": "Agaramid ti tarkasan",
 	"securepoll-tally-error": "Biddut ti panagipatarus ti rehistro ti butos, saan a napataud ti tarkasan.",
 	"securepoll-no-upload": "Awan ti naipan a papeles, saan a matarkasan dagiti resulta.",
-	"securepoll-dump-corrupt": "Ti naipakbo a papeles ket nadadael ken saan a maipatuloy.",
-	"securepoll-tally-upload-error": "Biddut ti panagtarkasan ti pinakbo a papeles: $1",
 	"securepoll-pairwise-victories": "Pairwise victory matrix",
 	"securepoll-strength-matrix": "Matix ti dalan ti kapigsa",
 	"securepoll-ranks": "Kanungpalan a ranggo",

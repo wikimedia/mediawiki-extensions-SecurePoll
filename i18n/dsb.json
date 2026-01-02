@@ -86,8 +86,6 @@
 	"securepoll-tally-upload-submit": "Licenje napóraś",
 	"securepoll-tally-error": "Zmólka pśi interpretěrowanju wótgłosowańskego zapisa, licenje njedajo se napóraś.",
 	"securepoll-no-upload": "Žedna dataja nagrata, wuslědki njedaju se licyś.",
-	"securepoll-dump-corrupt": "Dataja składowańskego wopśimjeśa jo wobškóźona a njedajo se pśeźěłaś.",
-	"securepoll-tally-upload-error": "Zmólka pśi pśelicowanju dataje składowańskego wopśimjeśa: $1",
 	"securepoll-pairwise-victories": "Matriks dobyśa pó dwěma",
 	"securepoll-strength-matrix": "Matriks mócy drogi",
 	"securepoll-ranks": "Kóńcny slědowy pórěd",

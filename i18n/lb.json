@@ -134,8 +134,6 @@
 	"securepoll-tally-list-title": "Auszielungen: $1",
 	"securepoll-delete-tally-title": "Auszielung läschen",
 	"securepoll-no-upload": "Et gouf kee Fichier eropgelueden, d'Resultater kënnen net ausgezielt ginn.",
-	"securepoll-dump-corrupt": "Den Dump-Fichier ass futti a kann net verschafft ginn.",
-	"securepoll-tally-upload-error": "Feeler bei der Auswertung vum Dump-Fichier: $1",
 	"securepoll-tally-result-error": "Auszielung feelgeschloe mam Feeler: $1",
 	"securepoll-tally-result": "<h2>Resultater</h2><p>$1</p><p>(Resultater vum $2)</p>",
 	"securepoll-tally-comments": "Bemierkunge vun de Wieler",

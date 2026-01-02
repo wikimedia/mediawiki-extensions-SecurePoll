@@ -102,8 +102,6 @@
 	"securepoll-tally-upload-submit": "Loe üle",
 	"securepoll-tally-error": "Tõrge hääletuskirje tõlgendamisel, ei saa üle lugeda.",
 	"securepoll-no-upload": "Faili ei laaditud üles, tulemusi ei saa üle lugeda.",
-	"securepoll-dump-corrupt": "Tõmmisfail on rikutud ja seda ei saa kasutada.",
-	"securepoll-tally-upload-error": "Tõrge tõmmisfaili arvestamisel: $1",
 	"securepoll-ranks": "Lõplik pingerida",
 	"securepoll-average-score": "Keskmine punktisumma",
 	"securepoll-round": "$1 voor",

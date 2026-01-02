@@ -104,8 +104,6 @@
 	"securepoll-tally-upload-submit": "Opret optælling",
 	"securepoll-tally-error": "Fejl under læsning af stemmeregisteret, kan ikke oprette en optælling.",
 	"securepoll-no-upload": "Ingen fil blev lagt op; kan ikke tælle resultatet op.",
-	"securepoll-dump-corrupt": "Dumpfilen er korrupt og kan ikke behandles.",
-	"securepoll-tally-upload-error": "Fejl ved optælling af dumpfilen: $1",
 	"securepoll-pairwise-victories": "Matrix over parvise vindere",
 	"securepoll-strength-matrix": "Matrix over stistyrke",
 	"securepoll-ranks": "Endeligt resultat",

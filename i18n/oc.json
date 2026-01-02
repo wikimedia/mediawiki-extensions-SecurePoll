@@ -90,8 +90,6 @@
 	"securepoll-tally-upload-submit": "Crear un comptatge",
 	"securepoll-tally-error": "Error al moment de l'interpretacion dels enregistaments de vòte, impossible de produire un resultat.",
 	"securepoll-no-upload": "Cap de fichièr es pas estat telecargat, impossible de comptar los resultats.",
-	"securepoll-dump-corrupt": "Lo fichièr de salvament es corromput e pòt pas èsser utilizat.",
-	"securepoll-tally-upload-error": "Error al moment del decargament del fichièr de salvament : $1",
 	"securepoll-pairwise-victories": "Matritz de las victòrias per par",
 	"securepoll-strength-matrix": "Matritz de fòrça dels camins",
 	"securepoll-ranks": "Classament final",

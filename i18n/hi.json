@@ -107,8 +107,6 @@
 	"securepoll-tally-upload-submit": "मिलान बनाएँ",
 	"securepoll-tally-error": "मत के रिकॉर्ड को बाँचने में त्रुटि, किसी मिलान का निर्माण नहीं कर सकते।",
 	"securepoll-no-upload": "कोई संचिका अपलोड नहीं की गई, परिणामों का मिलान नहीं कर सकते।",
-	"securepoll-dump-corrupt": "यह निपात संचिका भ्रष्ट है और प्रक्रियाकृत नहीं की जा सकती है।",
-	"securepoll-tally-upload-error": "निपात संचिका का मिलान करने में त्रुटि: $1",
 	"securepoll-pairwise-victories": "जोड़ीबद्ध विजय मैट्रिक्स",
 	"securepoll-strength-matrix": "पथ की शक्ति का मैट्रिक्स",
 	"securepoll-ranks": "अंतिम क्रम",

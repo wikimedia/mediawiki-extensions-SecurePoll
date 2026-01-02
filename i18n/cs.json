@@ -100,8 +100,6 @@
 	"securepoll-tally-upload-submit": "Provést sčítání",
 	"securepoll-tally-error": "Chyba při zpracovávání záznamu hlasování, hlasování nelze sečíst.",
 	"securepoll-no-upload": "Nebyl načten žádný soubor, hlasování nelze sečíst.",
-	"securepoll-dump-corrupt": "Soubor se záznamem je poškozený a nelze ho zpracovat.",
-	"securepoll-tally-upload-error": "Chyba při sčítání záznamu: $1",
 	"securepoll-pairwise-victories": "Matice vzájemných vítězství",
 	"securepoll-strength-matrix": "Matice síly cest",
 	"securepoll-ranks": "Konečné pořadí",

@@ -89,8 +89,6 @@
 	"securepoll-tally-upload-submit": "Vytvoriť vyhodnotenie",
 	"securepoll-tally-error": "Chyba pri interpretácii záznamu o hlasovaní, nemožno vyhodnotiť hlasovanie.",
 	"securepoll-no-upload": "Nebol nahraný súbor, nemožno vyhodnotiť hlasovanie.",
-	"securepoll-dump-corrupt": "Súbor s výpisom je poškodený a nemožno ho spracovať.",
-	"securepoll-tally-upload-error": "Chyba pri kontrole súboru výpisu: $1",
 	"securepoll-pairwise-victories": "Párová matica víťazstiev",
 	"securepoll-strength-matrix": "Párová matica sily",
 	"securepoll-ranks": "Finálne hodnotenie",

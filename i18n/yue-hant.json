@@ -88,8 +88,6 @@
 	"securepoll-tally-upload-submit": "整記數",
 	"securepoll-tally-error": "處理投票紀錄時出錯，整唔到記數。",
 	"securepoll-no-upload": "冇檔案上載到，統計唔到結果。",
-	"securepoll-dump-corrupt": "Dump檔案唔能夠繼續",
-	"securepoll-tally-upload-error": "錯嘅dump檔案：$1",
 	"securepoll-pairwise-victories": "成對勝利矩陣",
 	"securepoll-strength-matrix": "實力矩陣嘅路徑",
 	"securepoll-ranks": "最後評分",

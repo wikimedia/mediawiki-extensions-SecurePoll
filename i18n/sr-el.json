@@ -112,8 +112,6 @@
 	"securepoll-tally-upload-submit": "Prebroj",
 	"securepoll-tally-error": "Greška pri tumačenju glasova. Ne mogu da prebrojim.",
 	"securepoll-no-upload": "Datoteka nije otpremljena. Ne mogu da prebrojim rezultate.",
-	"securepoll-dump-corrupt": "Ispisana datoteka je oštećena i ne može da se obradi.",
-	"securepoll-tally-upload-error": "Greška pri prebrojavanju glasova iz ispisane datoteke: $1",
 	"securepoll-tally-comments": "Komentari glasača",
 	"securepoll-pairwise-victories": "Uparena matrica za izračunavanje pobednika",
 	"securepoll-strength-matrix": "Matrica za jačinu putanje",

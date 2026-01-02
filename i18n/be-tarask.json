@@ -95,8 +95,6 @@
 	"securepoll-tally-upload-submit": "Падлічыць",
 	"securepoll-tally-error": "Памылка інтэрпрэтацыі запісу голасу, немагчыма падлічыць.",
 	"securepoll-no-upload": "Файл не загружаны, немагчыма падлічыць.",
-	"securepoll-dump-corrupt": "Вывадны файл пашкоджаны і ня можа быць апрацаваны.",
-	"securepoll-tally-upload-error": "Памылка цэласнасьці вываднога файла: $1",
 	"securepoll-pairwise-victories": "Матрыца падвойных перамогаў",
 	"securepoll-strength-matrix": "Матрыца моцы шляхоў",
 	"securepoll-ranks": "Канчатковыя вынікі",

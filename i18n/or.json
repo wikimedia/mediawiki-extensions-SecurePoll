@@ -88,8 +88,6 @@
 	"securepoll-tally-upload-submit": "ଗଣିବେ",
 	"securepoll-tally-error": "ମତଦାନ ଅନୁମାନ କରିବାରେ ଭୁଲ ହେଲା, ଏକ ଗଣନା ତିଆରି କରାଯାଇ ପାରିବ ନାହିଁ ।",
 	"securepoll-no-upload": "ଗୋଟିଏ ବି ଫାଇଲ ଅପଲୋଡ଼ ହେଲାନାହିଁ, ଫଳାଫଳ ଗଣି ପାରିବୁଁ‍‍ ନାହିଁ ।",
-	"securepoll-dump-corrupt": "ଡମ୍ପ ଫାଇଲଟି ଖରାପ ଓ ତାହାକୁ ଆଗକୁ ବଢ଼ାଯାଇପାରିବ ନାହିଁ ।",
-	"securepoll-tally-upload-error": "ଫୋପଡ଼ାଯିବା ଫାଇଲର ନକଲ କରିବାରେ ବିଫଳ: $1",
 	"securepoll-pairwise-victories": "ଯୋଡ଼ା ଜିତିବା ମ୍ୟାଟ୍ରିକ୍ସ",
 	"securepoll-strength-matrix": "ପଥ ଶକ୍ତି ମ୍ୟାଟ୍ରିକ୍ସ",
 	"securepoll-ranks": "ଅନ୍ତିମ କ୍ରମାଙ୍କ",

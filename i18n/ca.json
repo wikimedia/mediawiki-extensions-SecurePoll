@@ -102,8 +102,6 @@
 	"securepoll-tally-upload-submit": "Crea un compte",
 	"securepoll-tally-error": "Error en interpretar l'arxiu de votació, no es poden comptar els resultats.",
 	"securepoll-no-upload": "No s'ha carregat cap arxiu, no s'en poden comptar els resultats.",
-	"securepoll-dump-corrupt": "El fitxer bolcat es troba danyat i no pot ser processat.",
-	"securepoll-tally-upload-error": "Error al contar el fitxer bolcat: $1",
 	"securepoll-pairwise-victories": "Matriu de victòries parell a parell",
 	"securepoll-strength-matrix": "Matriu de força del camí",
 	"securepoll-ranks": "Classificació final",

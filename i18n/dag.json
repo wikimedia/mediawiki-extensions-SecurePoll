@@ -10,7 +10,6 @@
 	},
 	"securepoll-blocked-partial": "Gaafara, a ku tooi niŋ piibu piibu maa di yi lee ka bɛ bi ti a soli zaasa malisabi palo.",
 	"securepoll-vote-duplicate": "Labi niŋ",
-	"securepoll-tally-form-file-help": "A  yi bahi satarili din kpari",
 	"securepoll-tally-job-enqueued": "Piibu piibu maa nyɛla bɛ ni labiri maani shɛli laasabu pumpoŋɔ. A ni tooi labi bɔhi di ni nyɛ shɛm sahashɛli.",
 	"securepoll-tally-result-error": "Laasabu malibu zani soli:$1",
 	"securepoll-tally-result": "<h2>shahara din gari</h2><p>$1</p><p>(shahara zaŋ ti $2)</p>",

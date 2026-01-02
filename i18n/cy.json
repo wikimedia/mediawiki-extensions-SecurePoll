@@ -97,8 +97,6 @@
 	"securepoll-tally-upload-submit": "Cadw cyfrif",
 	"securepoll-tally-error": "Cafwyd gwall wrth ddehongli'r cofnod pleidleisio, ni ellir cadw cyfrif.",
 	"securepoll-no-upload": "Ni uwchlwythwyd unrhyw ffeil, ni ellir cyfrif y canlyniadau.",
-	"securepoll-dump-corrupt": "Mae ffeil y dymp yn llygredig ac ni ellir weithredu arno.",
-	"securepoll-tally-upload-error": "Cafwyd gwall wrth gyfrif y ffeil dymp: $1",
 	"securepoll-pairwise-victories": "Matrics cymharu buddugoliaethau fesul dau",
 	"securepoll-strength-matrix": "Matrics cryfder y llwybr",
 	"securepoll-ranks": "Y drefn rhestrol terfynol",

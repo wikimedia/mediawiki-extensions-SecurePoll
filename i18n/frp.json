@@ -89,8 +89,6 @@
 	"securepoll-tally-upload-submit": "Fâre un comptâjo",
 	"securepoll-tally-error": "Èrror pendent l’entèrprètacion des encartâjos de voto, empossiblo de balyér un rèsultat.",
 	"securepoll-no-upload": "Nion fichiér at étâ tèlèchargiê, empossiblo de comptar los rèsultats.",
-	"securepoll-dump-corrupt": "Lo fichiér d’èxtrèt est corrompu et pôt pas étre utilisâ.",
-	"securepoll-tally-upload-error": "Èrror pendent lo dèpolyement du fichiér d’èxtrèt : $1",
 	"securepoll-pairwise-victories": "Matrice de les victouères per cobla",
 	"securepoll-strength-matrix": "Matrice de fôrce des chemins",
 	"securepoll-ranks": "Cllassement final",

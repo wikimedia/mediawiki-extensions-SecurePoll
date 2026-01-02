@@ -96,8 +96,6 @@
 	"securepoll-tally-upload-submit": "დათვლის წარმოება",
 	"securepoll-tally-error": "ხმის ინტერპრიტაციის შეცდომა, კენჭისყრის დათვლა ვერ მოხერხდა.",
 	"securepoll-no-upload": "ფილტრი არ ჩატვირთულა, შეუძლებელია ხმების დათვლა.",
-	"securepoll-dump-corrupt": "დამპ ფაილი დაზიანებულია და ვერ მოხერხდება მისი გაანალიზება.",
-	"securepoll-tally-upload-error": "შეცდომა დამპ ფაილთან სინქრონიზაციისას: $1",
 	"securepoll-pairwise-victories": "მოგებათა ტაბულა",
 	"securepoll-strength-matrix": "გზის სიმძლავრის მატრიცა",
 	"securepoll-ranks": "საბოლოო ადგილები",

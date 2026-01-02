@@ -100,8 +100,6 @@
 	"securepoll-tally-upload-submit": "Sevel ur c'hontadur",
 	"securepoll-tally-error": "Fazi e-ser dielfennañ enrolladennoù votiñ; disobupl ezteuler un disoc'h.",
 	"securepoll-no-upload": "N'eus bet pellgarget restr ebet, dibosupl eo kontañ an disoc'hoù.",
-	"securepoll-dump-corrupt": "Brein eo ar restr savete, n'haller ket ober ganti.",
-	"securepoll-tally-upload-error": "Fazi e-ser kontañ ar restr savete : $1",
 	"securepoll-tally-comments": "Evezhiadennoù ar mouezhier",
 	"securepoll-pairwise-victories": "Matris an trec'hoù dre goubladoù",
 	"securepoll-strength-matrix": "Matris nerzh an hentoù moned",

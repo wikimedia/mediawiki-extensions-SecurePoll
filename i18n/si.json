@@ -93,8 +93,6 @@
 	"securepoll-tally-upload-submit": "සැසඳුම තනන්න",
 	"securepoll-tally-error": "ඡන්ද වාර්තා අර්ථ-පැහැදුමේ දෝෂයකි, සැසඳුමක් තැනිය නොහැක.",
 	"securepoll-no-upload": "ගොනුවක් පටවා නැත, ප්‍රතිඵල සැසඳිය නොහැක.",
-	"securepoll-dump-corrupt": "නික්ෂේප ගොනුව දෝෂ සහගත බැවින් ක්‍රියාවට බඳුන් කළ නොහැක.",
-	"securepoll-tally-upload-error": "නික්ෂේප ගොනුව සැසඳුමේ දෝෂයකි: $1",
 	"securepoll-pairwise-victories": "යුගලානුකූල ජයග්‍රහන න්‍යාසය",
 	"securepoll-strength-matrix": "මාර්ග ශක්ති න්‍යාසය",
 	"securepoll-ranks": "අවසන් ශ්‍රේණිගතකෙරුම",

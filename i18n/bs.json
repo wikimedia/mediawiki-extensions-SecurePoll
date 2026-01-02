@@ -91,8 +91,6 @@
 	"securepoll-tally-upload-submit": "Napravi prebrojavanje",
 	"securepoll-tally-error": "Greška pri interpretaciji zapisa glasanja, ne može se izvršiti prebrojavanje.",
 	"securepoll-no-upload": "Nijedna datoteka nije postavljena, ne mogu se prebrojati rezultati.",
-	"securepoll-dump-corrupt": "Dump datoteka je pokvarena i ne može biti obrađena.",
-	"securepoll-tally-upload-error": "Greška pri ažuriranju dump datoteke: $1",
 	"securepoll-pairwise-victories": "Parna matrica pobjednika",
 	"securepoll-strength-matrix": "Matriks snage putanje",
 	"securepoll-ranks": "Konačni poredak",

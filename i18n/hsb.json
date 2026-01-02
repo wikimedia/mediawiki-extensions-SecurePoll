@@ -87,8 +87,6 @@
 	"securepoll-tally-upload-submit": "Ličenje wutworić",
 	"securepoll-tally-error": "Zmylk při interpretowanju zapisow wothłosowanja, ličenje njeda so wutworić.",
 	"securepoll-no-upload": "Njeje so žana dataja nahrała, wuslědki njehodźa so ličić.",
-	"securepoll-dump-corrupt": "Dataja składowakoweho wobsaha je poškodźeny a njeda so předźěłać.",
-	"securepoll-tally-upload-error": "Zmylk při wuličowanju dataje składowakeho wobsaha: $1",
 	"securepoll-pairwise-victories": "Dobyćerski matriks po porach",
 	"securepoll-strength-matrix": "Šćežka matriksa sylnosće",
 	"securepoll-ranks": "Kónčny porjad",

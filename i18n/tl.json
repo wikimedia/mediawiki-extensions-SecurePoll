@@ -97,8 +97,6 @@
 	"securepoll-tally-upload-submit": "Likhain ang talaan ng mga bilang",
 	"securepoll-tally-error": "Kamalian sa pagpapaliwanag ng talaan ng boto, hindi malikha ang isang talaan ng bilang.",
 	"securepoll-no-upload": "Walang naikargang talaksan, hindi maitatala ang mga kinalabasan.",
-	"securepoll-dump-corrupt": "Sira ang  talaksang tambakan at hindi maaaring isagawa.",
-	"securepoll-tally-upload-error": "Kamalian sa paglalapat ng talaksang tambakan: $1",
 	"securepoll-pairwise-victories": "Pangmatagumpay na matris sa gawi ng tambalan",
 	"securepoll-strength-matrix": "Matris ng lakas ng landas",
 	"securepoll-ranks": "Pinakahuling pag-aantas",

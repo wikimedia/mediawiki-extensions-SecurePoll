@@ -90,8 +90,6 @@
 	"securepoll-tally-upload-submit": "گنتی بناؤ",
 	"securepoll-tally-error": "ووٹ رکارڈ سمجن چ غلطی، گنتی نئيں دتی جاسکدی۔",
 	"securepoll-no-upload": "کوئی فائل نئیں چرھائی کئی، نتارے نئیں گنے جاسکدے",
-	"securepoll-dump-corrupt": "ڈمپ فائل خراب اے تے چلائی نئیں جاسکدی۔",
-	"securepoll-tally-upload-error": "ڈمپ فائل دی کنتی کردیاں ہویاں غلطی: $1",
 	"securepoll-pairwise-victories": "پیروائز وکٹری میٹرکس",
 	"securepoll-strength-matrix": "پاتھ سٹرینگتھ میٹرکس",
 	"securepoll-ranks": "فائینل رینکنگ",

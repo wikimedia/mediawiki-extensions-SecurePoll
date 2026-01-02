@@ -87,8 +87,6 @@
 	"securepoll-tally-upload-submit": "Muknaon an kurit",
 	"securepoll-tally-error": "Kasalaan sa pag-interpretar kan rekord nin boto, dae makapagprodyuser nin sarong kurit.",
 	"securepoll-no-upload": "Mayong sagunson na ipinagkarga, dae makakapagkurit nin mga resulta.",
-	"securepoll-dump-corrupt": "An basurang sagunson nakorap asin dae makakapagproseso.",
-	"securepoll-tally-upload-error": "Kasalaan sa pagkukurit kan basurang sagunson: $1",
 	"securepoll-pairwise-victories": "Madunong na pagpapadis sa matris nin kapangganahan",
 	"securepoll-strength-matrix": "Dalan kan matris nin kakusgan",
 	"securepoll-ranks": "Pinal na ranggo",

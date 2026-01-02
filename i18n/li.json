@@ -88,8 +88,6 @@
 	"securepoll-tally-upload-submit": "Veur telling oet",
 	"securepoll-tally-error": "Fout bie stömmingsresultate-interpretaie. Kèn gein tèlling oetveure.",
 	"securepoll-no-upload": "d'r Is gei besjtandj opgelaje, resultate kinne neet geteld waere.",
-	"securepoll-dump-corrupt": "Dumpbestandj is besjadig en kin neet verwerk waere.",
-	"securepoll-tally-upload-error": "Fout bie tellen oete dump: $1",
 	"securepoll-pairwise-victories": "Paarsgewies euverwinningsmatrix",
 	"securepoll-strength-matrix": "Padgestèrk matrix",
 	"securepoll-ranks": "Definitief ranksjikking",

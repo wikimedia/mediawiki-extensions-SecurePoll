@@ -108,8 +108,6 @@
 	"securepoll-tally-upload-submit": "Napravi prebrojavanje",
 	"securepoll-tally-error": "Pogreška pri prijevodu zapisa glasa, nije moguće prikazati raspodjelu glasova.",
 	"securepoll-no-upload": "Nijedna datoteka nije postavljena, ne mogu se prebrojati rezultati.",
-	"securepoll-dump-corrupt": "Ispisana datoteka je oštećena i ne može biti obrađena.",
-	"securepoll-tally-upload-error": "Pogreška pri prikazu rezultata iz ispisane datoteke: $1",
 	"securepoll-pairwise-victories": "Parna matrica pobjednika",
 	"securepoll-strength-matrix": "Matriks snage putanje",
 	"securepoll-ranks": "Konačni poredak",

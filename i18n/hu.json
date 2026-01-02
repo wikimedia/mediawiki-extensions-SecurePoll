@@ -102,8 +102,6 @@
 	"securepoll-tally-upload-submit": "Összesítés készítése",
 	"securepoll-tally-error": "Hiba a szavazási jegyzőkönyv értelmezésében, nem lehetett összesítést készíteni.",
 	"securepoll-no-upload": "Semmilyen fájlt nem töltöttek fel, az eredményt így nem lehet összesíteni.",
-	"securepoll-dump-corrupt": "A dump fájl hibás, nem sikerült feldolgozni.",
-	"securepoll-tally-upload-error": "Hiba a dump fájl összesítésekor: $1",
 	"securepoll-pairwise-victories": "Páronkénti győzelmi mátrix",
 	"securepoll-strength-matrix": "Útvonalerősség-mátrix",
 	"securepoll-ranks": "Végső rangsor",

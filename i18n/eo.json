@@ -92,8 +92,6 @@
 	"securepoll-tally-upload-submit": "Krei nombradon",
 	"securepoll-tally-error": "Eraro dum interpretado de balotregistraĵo, ne povas krei nombradon.",
 	"securepoll-no-upload": "Neniu dosiero estis elŝutita, ne povas nombri rezulton.",
-	"securepoll-dump-corrupt": "La elŝutdosiero estas difektita kaj ne povas esti traktita.",
-	"securepoll-tally-upload-error": "Eraro dum nombrado de elŝutdosiero: $1",
 	"securepoll-pairwise-victories": "Matrico de paraj venkoj",
 	"securepoll-strength-matrix": "Matrico de vojforteco",
 	"securepoll-ranks": "Fina rangigo",

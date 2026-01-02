@@ -77,8 +77,6 @@
 	"securepoll-tally-not-finished": "Gynansak-da, saýlaw gutarýança sesleri sanap bilmeýärsiňiz.",
 	"securepoll-tally-upload-submit": "Sanama döret",
 	"securepoll-no-upload": "Hiç hili faýl ýüklenmedi, netijeleri sanap bolmaýar.",
-	"securepoll-dump-corrupt": "Damp faýly zeperli we ony işledip bolanok.",
-	"securepoll-tally-upload-error": "Damp faýl sanamakda säwlik: $1",
 	"securepoll-pairwise-victories": "Jübüt ýeňiş matrisasy",
 	"securepoll-strength-matrix": "Ýol güýji matrisasy",
 	"securepoll-ranks": "Ahyrky derejelendirme",

@@ -91,8 +91,6 @@
 	"securepoll-tally-upload-submit": "तोलनव्यवस्था सज्जीक्रियताम्",
 	"securepoll-tally-error": "कृतमतस्य विवरणे दोषः, तोलनव्यवस्थां निर्मातुं न शक्यते ।",
 	"securepoll-no-upload": "न कापि सञ्चिका निवेशिता, फलितांशानां तोलनं कर्तुं न शक्यते ।",
-	"securepoll-dump-corrupt": "निपाता सञ्चिका दोषयुक्ता, प्रक्रियायोजनम् अशक्यम् ।",
-	"securepoll-tally-upload-error": "निपातसञ्चिकायाः तोलने दोषः : $1",
 	"securepoll-pairwise-victories": "युगलविजयसम्पातः",
 	"securepoll-strength-matrix": "मार्गशक्तिसम्पातः",
 	"securepoll-ranks": "अन्तिमः क्रमः",

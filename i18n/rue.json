@@ -87,8 +87,6 @@
 	"securepoll-tally-upload-submit": "Зробити зрахованя",
 	"securepoll-tally-error": "Хыба під час спрацованя запису голосованя, голосованя ся не дасть зраховати.",
 	"securepoll-no-upload": "Не быв начітаный жаден файл, голосованя ся не дасть зраховати.",
-	"securepoll-dump-corrupt": "Файл із записом (дамп) є пошкодженый і не дасть за спрацовати.",
-	"securepoll-tally-upload-error": "Хыба рахованя запису: $1",
 	"securepoll-pairwise-victories": "Матріця взаємных выгер",
 	"securepoll-strength-matrix": "Матріця силы стежок",
 	"securepoll-ranks": "Конечный рейтінґ",

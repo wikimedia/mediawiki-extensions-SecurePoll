@@ -119,8 +119,6 @@
 	"securepoll-tally-upload-submit": "Преброј",
 	"securepoll-tally-error": "Грешка при тумачењу гласова. Не могу да пребројим.",
 	"securepoll-no-upload": "Датотека није отпремљена. Не могу да пребројим резултате.",
-	"securepoll-dump-corrupt": "Исписана датотека је оштећена и не може да се обради.",
-	"securepoll-tally-upload-error": "Грешка при пребројавању гласова из исписане датотеке: $1",
 	"securepoll-tally-comments": "Коментари гласача",
 	"securepoll-pairwise-victories": "Упарена матрица за израчунавање победника",
 	"securepoll-strength-matrix": "Матрица за јачину путање",

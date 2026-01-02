@@ -86,8 +86,6 @@
 	"securepoll-tally-upload-submit": "Creyar recuento",
 	"securepoll-tally-error": "S'ha produciu una error interpretando o rechistro de votos, no se puede creyar un recuento.",
 	"securepoll-no-upload": "No s'ha puyau garra fichero, no se pueden recontar os resultaus.",
-	"securepoll-dump-corrupt": "O fichero de vulcau ye danyau y no se puede procesar.",
-	"securepoll-tally-upload-error": "Error en recontar o fichero de vulcau: $1",
 	"securepoll-pairwise-victories": "Resultaus d'as enqüestas en iste puesto",
 	"securepoll-strength-matrix": "Organizar por cantidat d'enqüestas",
 	"securepoll-ranks": "Rango final",

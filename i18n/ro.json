@@ -93,8 +93,6 @@
 	"securepoll-tally-upload-submit": "Creează o numărătoare",
 	"securepoll-tally-error": "Eroare la interpretarea înregistrării voturilor. Nu se poate efectua o numărătoare.",
 	"securepoll-no-upload": "Niciun fișier nu a fost încărcat. Nu se poate face numărătoarea rezultatelor.",
-	"securepoll-dump-corrupt": "Fișierul dump este corupt și nu poate fi procesat.",
-	"securepoll-tally-upload-error": "Eroare în timpul efectuării numărătorii din fișierul dump: $1",
 	"securepoll-ranks": "Clasament final",
 	"securepoll-average-score": "Scor mediu",
 	"securepoll-round": "Runda $1"

@@ -88,8 +88,6 @@
 	"securepoll-tally-upload-submit": "ഒത്തുനോക്കുക",
 	"securepoll-tally-error": "തിരഞ്ഞെടുപ്പ് വിവരങ്ങൾ മനസ്സിലാക്കുന്നതിൽ പിഴവുണ്ടായിരിക്കുന്നു, ഫലം നൽകാൻ സാധിക്കുകയില്ല.",
 	"securepoll-no-upload": "യാതൊരു പ്രമാണവും അപ്‌‌ലോഡ് ചെയ്തിട്ടില്ല, ഫലങ്ങൾ തുലനം ചെയ്യാൻ കഴിയില്ല.",
-	"securepoll-dump-corrupt": "ഡമ്പ് പ്രമാണം കേടാണ്, അതുകൊണ്ട് മുന്നോട്ടുപോകാൻ കഴിയില്ല.",
-	"securepoll-tally-upload-error": "ഒത്തുനോക്കുന്നതിൽ പിഴവുണ്ടായ ഡമ്പ് പ്രമാണം: $1",
 	"securepoll-pairwise-victories": "ജോഡിയായുള്ള വിജയ മട്രിക്സ്",
 	"securepoll-strength-matrix": "പഥ ശേഷി വൃക്ഷം",
 	"securepoll-ranks": "അന്തിമ റാങ്കിങ്",

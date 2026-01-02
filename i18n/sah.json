@@ -84,8 +84,6 @@
 	"securepoll-tally-upload-submit": "Куолаһы аах",
 	"securepoll-tally-error": "Куолас суруллуута алҕастаах буолан куолас ахсаанын ааҕар табыллыбата.",
 	"securepoll-no-upload": "Билэ хачайдамматах буолан быыбар түмүгүн ааҕар табыллыбата.",
-	"securepoll-dump-corrupt": "Дамп билэтэ буорту буолбут, онон кыайан ааҕыллыбат.",
-	"securepoll-tally-upload-error": "Дамп билэтэ сөпсөспөтө: $1",
 	"securepoll-pairwise-victories": "Пааранан кыайыылар матрицалара",
 	"securepoll-strength-matrix": "Матрица сил путей",
 	"securepoll-ranks": "Раанганан бүтэһиктээх наардааһын",

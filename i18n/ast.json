@@ -97,8 +97,6 @@
 	"securepoll-tally-upload-submit": "Crear recuentu",
 	"securepoll-tally-error": "Fallu d'interpretación del rexistru de votos, nun se pue producir un recuentu.",
 	"securepoll-no-upload": "Nun se xubió dengún ficheru, nun se puen contar los resultaos.",
-	"securepoll-dump-corrupt": "El ficheru de volcáu ta corrompíu y nun se pue procesar.",
-	"securepoll-tally-upload-error": "Fallu al facer el recuentu del ficheru de volcáu: $1",
 	"securepoll-pairwise-victories": "Cuadru de victories por pareyes",
 	"securepoll-strength-matrix": "Cuadru de fuerza del camín",
 	"securepoll-ranks": "Clasificación final",

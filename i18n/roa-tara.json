@@ -101,8 +101,6 @@
 	"securepoll-tally-upload-submit": "Ccreje 'u condegge",
 	"securepoll-tally-error": "Errore inderpretanne 'u vote reggistrate, non ge se pò fà 'nu condegge.",
 	"securepoll-no-upload": "Nisciune file ha state carecate, non ge se ponne cundà le resultate.",
-	"securepoll-dump-corrupt": "'U file de dump è scuasciate o non ge pò essere processate.",
-	"securepoll-tally-upload-error": "Errore cundanne da 'u file de dump: $1",
 	"securepoll-pairwise-victories": "Matrice d'a vittorie a doje a doje",
 	"securepoll-strength-matrix": "Matrice de fortezze d'u percorse",
 	"securepoll-ranks": "Posizione finale",

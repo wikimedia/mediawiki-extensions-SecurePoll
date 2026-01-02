@@ -112,8 +112,6 @@
 	"securepoll-tally-upload-submit": "สร้างผลการนับคะแนน",
 	"securepoll-tally-error": "ผิดพลาดในการแปลบันทึกการลงคะแนน ไม่สามารถนับคะแนนได้",
 	"securepoll-no-upload": "ไม่มีไฟล์ใดๆ ถูกอัพโหลด ไม่สามารถนับคะแนนได้",
-	"securepoll-dump-corrupt": "ไฟล์ข้อมูลถ่ายเทเสียหายและไม่สามารถนำมาประมวลผลได้",
-	"securepoll-tally-upload-error": "ข้อผิดพลาดในการนับคะแนนไฟล์ข้อมูลถ่ายเท: $1",
 	"securepoll-ranks": "อันดับอย่างเป็นทางการ",
 	"securepoll-average-score": "คะแนนเฉลี่ย",
 	"securepoll-round": "รอบ $1",

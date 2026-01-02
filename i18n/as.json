@@ -94,8 +94,6 @@
 	"securepoll-tally-upload-submit": "হিচাপ তৈয়াৰ কৰক",
 	"securepoll-tally-error": "ভোটৰ অথ্য বিশ্লেষণৰ সময় ক্ৰুটি দেখা দিছে, হিচাপ তৈয়াৰ কৰা অসম্ভৱ।",
 	"securepoll-no-upload": "কোনো ফাইল আপলোড কৰা হোৱা নাই, ফলাফল গণনা কৰা অসম্ভৱ।",
-	"securepoll-dump-corrupt": "ডাম্প ফাইলাটোত ত্ৰুটী আছে আৰু তাৰ প্ৰক্ৰিয়াকৰণ সম্ভৱ নহয়।",
-	"securepoll-tally-upload-error": "ডাম্প ফাইল গণনা কৰাত ত্ৰুটী হৈছে: $1",
 	"securepoll-pairwise-victories": "যোৰ অনুসৰি বিজয় মেট্ৰিক্স",
 	"securepoll-strength-matrix": "পথ শক্তি মেট্ৰিক্স",
 	"securepoll-ranks": "চূড়ান্ত স্থানাংক",

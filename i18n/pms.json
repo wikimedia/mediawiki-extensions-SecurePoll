@@ -87,8 +87,6 @@
 	"securepoll-tally-upload-submit": "Crea ël contegi",
 	"securepoll-tally-error": "Eror an antërpretand la registrassion dij vot, a peul pa prodove un contegi.",
 	"securepoll-no-upload": "pa gnun file a l'é stàit carià, as peul pa conté j'arzultà.",
-	"securepoll-dump-corrupt": "Ël dump file a l'é corot e a peul pa esse prossessà.",
-	"securepoll-tally-upload-error": "Eror an contand ël file ëd dump: $1",
 	"securepoll-pairwise-victories": "Matris ëd vìnsita a cobie",
 	"securepoll-strength-matrix": "Matris ëd fòrsa dël path",
 	"securepoll-ranks": "Votassion final",

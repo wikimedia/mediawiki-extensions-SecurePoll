@@ -90,8 +90,6 @@
 	"securepoll-tally-not-finished": "माफकरा, आपण मतदान प्रक्रिया पूर्ण होई पर्यंत निवडणूक मते जुळवू शकत नाहीत",
 	"securepoll-tally-upload-submit": " गिनती तयार करा",
 	"securepoll-tally-error": "मतदान दस्ताऐवजाचा अर्थ लावण्यात त्रुटी आलेली आहे. पडताळा देउ शकत नाही.",
-	"securepoll-dump-corrupt": "राशिपात माहितीची संचिका दुषित झाल्यामुळे पुढील कार्य करता येत नाही",
-	"securepoll-tally-upload-error": "राशीपाताच्या संचिकेस जुळवणी करतांना त्रुटी आलेल्या आहेत : $1",
 	"securepoll-ranks": "अंतिम क्रमवारी",
 	"securepoll-average-score": "सरासरी गुण",
 	"securepoll-round": "फेरी $1",

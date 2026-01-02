@@ -100,8 +100,6 @@
 	"securepoll-tally-upload-submit": "bıamar",
 	"securepoll-tally-error": "qeydê reyi mışpre bene xeta vıraziya,",
 	"securepoll-no-upload": "dosyayi bar nêbeni, neticeyi nêamariyeni",
-	"securepoll-dump-corrupt": "dosyaya kombiyaye xerepnaye yo u pê kar nêbeno.",
-	"securepoll-tally-upload-error": "amartışê dosyaya kombiyayeyan de xeta: $1",
 	"securepoll-pairwise-victories": "matrisê dı zaferın",
 	"securepoll-strength-matrix": "matrisê quwwetê rayi",
 	"securepoll-ranks": "Rêzkerdışo peyên",

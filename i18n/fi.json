@@ -144,8 +144,6 @@
 	"securepoll-tally-upload-submit": "Luo laskenta",
 	"securepoll-tally-error": "Virhe äänestystiedoston tulkinnassa, joten ei voitu tuottaa laskentaa.",
 	"securepoll-no-upload": "Tiedostoa ei lähetettynä, joten laskenta ei onnistunut.",
-	"securepoll-dump-corrupt": "Vedostiedosto on vioittunut eikä sitä voida käsitellä.",
-	"securepoll-tally-upload-error": "Virhe vedostiedoston tarkistamisessa: $1",
 	"securepoll-pairwise-victories": "Parittaisten voittojen matriisi",
 	"securepoll-strength-matrix": "Polun vahvuuden matriisi",
 	"securepoll-ranks": "Lopullinen sijoitus",

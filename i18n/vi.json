@@ -102,8 +102,6 @@
 	"securepoll-tally-upload-submit": "Tạo cuộc kiểm phiếu",
 	"securepoll-tally-error": "Lỗi khi thông dịch bản ghi lá phiếu, không thể tạo cuộc kiểm phiếu.",
 	"securepoll-no-upload": "Không có tập tin nào được tải lên, không thể kiểm phiếu.",
-	"securepoll-dump-corrupt": "Tập tin kết xuất bị hỏng và không thể xử lý được.",
-	"securepoll-tally-upload-error": "Có lỗi khi kiểm tập tin kết xuất: $1",
 	"securepoll-pairwise-victories": "Ma trận chiến thắng theo cặp",
 	"securepoll-strength-matrix": "Ma trận độ mạnh đường đi",
 	"securepoll-ranks": "Xếp hạng sau cùng",

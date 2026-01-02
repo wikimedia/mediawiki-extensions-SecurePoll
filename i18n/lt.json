@@ -126,8 +126,6 @@
 	"securepoll-tally-error": "Klaida interpretuojant balsavimo įrašą, negalima sukurti suvestinių.",
 	"securepoll-tally-job-enqueued": "Šių rinkimų rezultatai yra (per)skaičiuojami. Rezultatus patikrinkite vėliau.",
 	"securepoll-no-upload": "Failas nebuvo įkeltas, negalima skaičiuoti rezultatų.",
-	"securepoll-dump-corrupt": "Iškelties failas nekorektiškas, todėl negali būti apdorotas.",
-	"securepoll-tally-upload-error": "Klaida kuriant iškelties failą: $1",
 	"securepoll-tally-result-error": "Skaičiavimas nepavyko su klaidomis: $1",
 	"securepoll-tally-result": "<h2>Ankstesni rezultatai</h2><p>$1</p><p>(Rezultatai iš $2)</p>",
 	"securepoll-tally-comments": "Balsuotojų komentarai",

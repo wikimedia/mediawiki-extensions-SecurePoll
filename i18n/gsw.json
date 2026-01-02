@@ -87,8 +87,6 @@
 	"securepoll-tally-upload-submit": "Uuszellig aalege",
 	"securepoll-tally-error": "Fähler bim Interpretiere vu dr Abstimmigsufzeichnig, Uuszellig cha nit aagleit wäre.",
 	"securepoll-no-upload": "S isch kei Datei ufeglade wore, cha d Ergebnis nit uuszelle.",
-	"securepoll-dump-corrupt": "D Uusgabe-Datei isch fählerhaft un cha nit verarbeitet wäre.",
-	"securepoll-tally-upload-error": "Fähler in dr gwichtete Uusgabe-Datei: $1",
 	"securepoll-pairwise-victories": "Paarwys Siigmatrix",
 	"securepoll-strength-matrix": "Pfad Sterkimatrix",
 	"securepoll-ranks": "Schlussreihefolg",
