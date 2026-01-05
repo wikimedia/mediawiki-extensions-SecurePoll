@@ -15,7 +15,8 @@
 			"Sabelöga",
 			"StefanB",
 			"Technic2",
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Stefan2255"
 		]
 	},
 	"securepoll": "SäkerOmröstning",
@@ -76,7 +77,7 @@
 	"securepoll-header-cookie-dup": "Dubblett",
 	"securepoll-header-strike": "Stryk",
 	"securepoll-header-details": "Detaljer",
-	"securepoll-vote-duplicate": "Duplicera",
+	"securepoll-vote-duplicate": "Dubb. kakor",
 	"securepoll-strike-button": "Stryk",
 	"securepoll-unstrike-button": "Ta bort strykningen",
 	"securepoll-strike-reason": "Anledning:",

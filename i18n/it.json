@@ -17,7 +17,8 @@
 			"Pietrodn",
 			"Ricordisamoa",
 			"Stefano-c",
-			"Vituzzu"
+			"Vituzzu",
+			"Dream Indigo"
 		]
 	},
 	"securepoll": "SecurePoll",
@@ -68,7 +69,7 @@
 	"securepoll-bot": "Spiacente, le utenze con lo status di bot non sono ammesse a votare in questa elezione.",
 	"securepoll-not-in-group": "Solo i membri del gruppo \"$1\" possono votare in questa elezione.",
 	"securepoll-not-in-list": "Spiacente, non sei nella lista predeterminata degli utenti autorizzati a votare in questa elezione.",
-	"securepoll-in-exclude-list": "Spiacenti, non sei autorizzato a votare in questa elezione.",
+	"securepoll-in-exclude-list": "Spiacenti, non hai l'autorizzazione per votare in questa elezione.",
 	"securepoll-list-title": "Elenco voti: $1",
 	"securepoll-list-private": "Spiacenti, la visualizzazione dell'elenco degli elettori per questa elezione è limitato agli amministratori dell'elezione.",
 	"securepoll-header-timestamp": "Data e ora",
