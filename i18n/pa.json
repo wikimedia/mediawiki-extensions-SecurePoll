@@ -4,6 +4,7 @@
 			"Cabal"
 		]
 	},
+	"securepoll-welcome": "<strong>{{GENDER:$1| ਜੀ ਆਇਆਂ ਨੂੰ}} $1 !</strong>",
 	"securepoll-translate-title": "\"$1\" ਤਰਜਮਾ ਕਰੋ",
 	"securepoll-submit-select-lang": "ਤਰਜਮਾ ਕਰੋ",
 	"securepoll-subpage-translate": "ਤਰਜਮਾ ਕਰੋ",
