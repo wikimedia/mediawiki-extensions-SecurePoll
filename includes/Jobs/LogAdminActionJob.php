@@ -23,6 +23,7 @@ class LogAdminActionJob extends Job {
 		$context = new Context();
 		$dbw = $context->getDB( DB_PRIMARY );
 		$fields = $this->params['fields'];
+		// @phan-suppress-next-line PhanTypeMismatchDimAssignment
 		$fields['spl_timestamp'] = $dbw->timestamp( time() );
 		$dbw->newInsertQueryBuilder()
 			->insertInto( 'securepoll_log' )
