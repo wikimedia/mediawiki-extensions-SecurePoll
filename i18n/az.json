@@ -19,7 +19,7 @@
 	"securepoll-invalid-tally": "\"$1\" etibarlı sayma identifikatoru deyil.",
 	"securepoll-finished-no-edit": "Bu seçki başa çatıb və siz onu daha redaktə edə bilməzsiniz.",
 	"securepoll-welcome": "<strong>Xoş gəlmisiniz, $1!</strong>",
-	"securepoll-not-started": "Bu seçki hələ başlamamışdır.\nOnun $2 $3 başlaması planlaşdırılır.",
+	"securepoll-not-started": "Bu seçki hələ başlamayıb.\nOnun $3, $2 tarixində başlaması planlaşdırılır.",
 	"securepoll-already-started": "Bu seçki artıq başlayıb.\n$2 $3 tarixindən başlayıb",
 	"securepoll-finished": "Bu seçki bitib, artıq səs verə bilməzsiniz.",
 	"securepoll-not-qualified": "Sizin bu seçkidə səs vermək hüququnuz yoxdur: $1",
