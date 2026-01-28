@@ -46,7 +46,7 @@
 	"securepoll-tally-result-error": "شمار چُڪَ سان ناڪام ٿيو: $1",
 	"securepoll-create-label-election_startdate": "چونڊ شروع ٿيڻ جي تاريخ:",
 	"securepoll-create-label-election_jump-text": "متن ڏانھن وڃو:",
-	"securepoll-create-label-questions-question": "سوال جو متن:",
+	"securepoll-create-label-questions-question": "سوال جو متن (بنيادي وڪي ٽيڪسٽ قبول ڪري ٿو):",
 	"securepoll-create-option-election_type-approval+plurality": "منظوري جو ووٽ",
 	"securepoll-votereligibility-title": "ووٽر جي اهليت جي تشڪيل",
 	"securepoll-votereligibility-redirect": "هن چونڊ لاءِ ووٽر جي اهليت کي $1 تي ترتيب ڏيڻ لازمي آهي",
