@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\SecurePoll\Test\Integration\Pages;
 
-use DOMElement;
 use MediaWiki\Config\SiteConfiguration;
 use MediaWiki\Content\JsonContent;
 use MediaWiki\Extension\SecurePoll\Context;
@@ -12,8 +11,9 @@ use MediaWiki\Site\HashSiteStore;
 use MediaWiki\Site\MediaWikiSite;
 use MediaWiki\WikiMap\WikiMap;
 use SpecialPageTestBase;
-use Wikimedia\Parsoid\Utils\DOMCompat;
-use Wikimedia\Parsoid\Utils\DOMUtils;
+use Wikimedia\Parsoid\Core\DOMCompat;
+use Wikimedia\Parsoid\DOM\Element;
+use Wikimedia\Parsoid\Ext\DOMUtils;
 
 /**
  * @group Database
@@ -73,19 +73,19 @@ class CreatePageTest extends SpecialPageTestBase {
 
 		if ( $mayEditOtherWikis ) {
 			$localAndAllOpts = array_map(
-				static fn ( DOMElement $element ) => $element->getAttribute( 'value' ),
-				(array)DOMCompat::querySelectorAll(
+				static fn ( Element $element ) => $element->getAttribute( 'value' ),
+				iterator_to_array( DOMCompat::querySelectorAll(
 					$doc,
 					'select[name=wpproperty_wiki] > option'
-				)
+				) )
 			);
 			$otherWikiOpts = array_map(
-				static fn ( DOMElement $element ) => $element->getAttribute( 'value' ),
-				(array)DOMCompat::querySelectorAll(
+				static fn ( Element $element ) => $element->getAttribute( 'value' ),
+				iterator_to_array( DOMCompat::querySelectorAll(
 					$doc,
 					'select[name=wpproperty_wiki] > optgroup[label="(securepoll-create-option-wiki-other_wiki)"]' .
 					' > option'
-				)
+				) )
 			);
 
 			$this->assertSame(
