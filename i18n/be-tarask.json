@@ -6,7 +6,8 @@
 			"Nieszczarda2",
 			"Renessaince",
 			"Vlad5250",
-			"Wizardist"
+			"Wizardist",
+			"Ucukor"
 		]
 	},
 	"securepoll": "Бясьпечнае галасаваньне",
@@ -28,11 +29,11 @@
 	"securepoll-encrypt-error": "Памылка шыфраваньня Вашага голасу для запісу.\nВаш голас ня быў прыняты!\n\n$1",
 	"securepoll-no-decryption-key": "Няма скафігураваных ключоў для расшыфраваньня.\nНемагчыма расшыфраваць.",
 	"securepoll-jump": "Перайсьці на сэрвэр галасаваньня",
-	"securepoll-unanswered-questions": "Вам неабходна адказаць на ўсе пытаньні.",
+	"securepoll-unanswered-questions": "Патрэбна адказаць на ўсе пытаньні.",
 	"securepoll-invalid-rank": "Няслушны ранг. Вам неабходна даць кандыдатам ранг паміж 1 і 999.",
 	"securepoll-unranked-options": "Некаторыя пункты ня маюць рангу.\nВам неабходна даць усім пунктам ранг паміж 1 і 999.",
 	"securepoll-invalid-score": "Адзнака павінна быць лікай паміж $1 і $2.",
-	"securepoll-unanswered-options": "Вам неабходна даць адказ на кожнае пытаньне.",
+	"securepoll-unanswered-options": "Патрэбна даць адказ на кожнае пытаньне.",
 	"securepoll-remote-auth-error": "Памылка атрыманьня інфармацыі пра Ваш рахунак з сэрвэра.",
 	"securepoll-remote-parse-error": "Памылка інтэрпрэтацыі адказу аўтарызацыі з сэрвэра.",
 	"securepoll-api-invalid-params": "Няслушныя парамэтры.",
