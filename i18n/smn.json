@@ -14,6 +14,7 @@
 	"securepoll-header-voter-name": "Nommâ",
 	"securepoll-vote-csrf": "Ij luhostum",
 	"securepoll-strike-reason": "Suijâ:",
+	"securepoll-strike-token-mismatch": "Kevttimpuudâ tiäđuh lappum",
 	"securepoll-header-reason": "Suijâ",
 	"securepoll-header-admin": "Haldâšeijee",
 	"securepoll-translate-title": "Jurgâl: $1",
