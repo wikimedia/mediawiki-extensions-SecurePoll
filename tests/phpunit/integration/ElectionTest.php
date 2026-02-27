@@ -143,7 +143,7 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 			],
 		];
 		$isQualified = $election->getQualifiedStatus( $params );
-		$this->assertTrue( $isQualified->isOK() );
+		$this->assertStatusOK( $isQualified );
 	}
 
 	public function testDisallowCrossWikiPartiallyBlockedVoters(): void {
@@ -158,8 +158,8 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 			],
 		];
 		$isQualified = $election->getQualifiedStatus( $params );
-		$this->assertFalse( $isQualified->isOK() );
-		$this->assertEquals( 'securepoll-blocked-centrally', $isQualified->getMessages( 'error' )[0]->getKey() );
+		$this->assertStatusNotOK( $isQualified );
+		$this->assertStatusMessage( 'securepoll-blocked-centrally', $isQualified );
 	}
 
 	public function testWithDefaults(): void {
@@ -170,7 +170,7 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 			],
 		];
 		$isQualified = $election->getQualifiedStatus( $params );
-		$this->assertTrue( $isQualified->isOK() );
+		$this->assertStatusOK( $isQualified );
 	}
 
 	public function testExcludeList(): void {
@@ -182,8 +182,8 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 			],
 		];
 		$isQualified = $election->getQualifiedStatus( $params );
-		$this->assertFalse( $isQualified->isOK() );
-		$this->assertEquals( 'securepoll-in-exclude-list', $isQualified->getMessages( 'error' )[0]->getKey() );
+		$this->assertStatusNotOK( $isQualified );
+		$this->assertStatusMessage( 'securepoll-in-exclude-list', $isQualified );
 	}
 
 	public function testIncludeList(): void {
@@ -197,7 +197,7 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 			],
 		];
 		$isQualified = $election->getQualifiedStatus( $params );
-		$this->assertTrue( $isQualified->isOK() );
+		$this->assertStatusOK( $isQualified );
 	}
 
 	public function testAllowAboveEditCount(): void {
@@ -209,7 +209,7 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 			],
 		];
 		$isQualified = $election->getQualifiedStatus( $params );
-		$this->assertTrue( $isQualified->isOK() );
+		$this->assertStatusOK( $isQualified );
 	}
 
 	public function testDisallowBelowEditCount(): void {
@@ -221,8 +221,8 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 			],
 		];
 		$isQualified = $election->getQualifiedStatus( $params );
-		$this->assertFalse( $isQualified->isOK() );
-		$this->assertEquals( 'securepoll-too-few-edits', $isQualified->getMessages( 'error' )[0]->getKey() );
+		$this->assertStatusNotOK( $isQualified );
+		$this->assertStatusMessage( 'securepoll-too-few-edits', $isQualified );
 	}
 
 	public function testAllowBeforeMaxRegistration(): void {
@@ -234,7 +234,7 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 			],
 		];
 		$isQualified = $election->getQualifiedStatus( $params );
-		$this->assertTrue( $isQualified->isOK() );
+		$this->assertStatusOK( $isQualified );
 	}
 
 	public function testDisallowAfterMaxRegistration(): void {
@@ -246,8 +246,8 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 			],
 		];
 		$isQualified = $election->getQualifiedStatus( $params );
-		$this->assertFalse( $isQualified->isOK() );
-		$this->assertEquals( 'securepoll-too-new', $isQualified->getMessages( 'error' )[0]->getKey() );
+		$this->assertStatusNotOK( $isQualified );
+		$this->assertStatusMessage( 'securepoll-too-new', $isQualified );
 	}
 
 	public function testDisallowSitewideBlock(): void {
@@ -260,8 +260,8 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 			],
 		];
 		$isQualified = $election->getQualifiedStatus( $params );
-		$this->assertFalse( $isQualified->isOK() );
-		$this->assertEquals( 'securepoll-blocked', $isQualified->getMessages( 'error' )[0]->getKey() );
+		$this->assertStatusNotOK( $isQualified );
+		$this->assertStatusMessage( 'securepoll-blocked', $isQualified );
 	}
 
 	public function testDisallowPartialBlock(): void {
@@ -274,8 +274,8 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 			],
 		];
 		$isQualified = $election->getQualifiedStatus( $params );
-		$this->assertFalse( $isQualified->isOK() );
-		$this->assertEquals( 'securepoll-blocked-partial', $isQualified->getMessages( 'error' )[0]->getKey() );
+		$this->assertStatusNotOK( $isQualified );
+		$this->assertStatusMessage( 'securepoll-blocked-partial', $isQualified );
 	}
 
 	public function testDisallowBots(): void {
@@ -287,8 +287,8 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 			],
 		];
 		$isQualified = $election->getQualifiedStatus( $params );
-		$this->assertFalse( $isQualified->isOK() );
-		$this->assertEquals( 'securepoll-bot', $isQualified->getMessages( 'error' )[0]->getKey() );
+		$this->assertStatusNotOK( $isQualified );
+		$this->assertStatusMessage( 'securepoll-bot', $isQualified );
 	}
 
 	public function testAllowIfInGroup(): void {
@@ -299,7 +299,7 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 			],
 		];
 		$isQualified = $election->getQualifiedStatus( $params );
-		$this->assertTrue( $isQualified->isOK() );
+		$this->assertStatusOK( $isQualified );
 	}
 
 	public function testDisallowIfNotInGroup(): void {
@@ -310,8 +310,8 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 			],
 		];
 		$isQualified = $election->getQualifiedStatus( $params );
-		$this->assertFalse( $isQualified->isOK() );
-		$this->assertEquals( 'securepoll-not-in-group', $isQualified->getMessages( 'error' )[0]->getKey() );
+		$this->assertStatusNotOK( $isQualified );
+		$this->assertStatusMessage( 'securepoll-not-in-group', $isQualified );
 	}
 
 	public function testAllowIfInEligibilityList(): void {
@@ -323,7 +323,7 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 			],
 		];
 		$isQualified = $election->getQualifiedStatus( $params );
-		$this->assertTrue( $isQualified->isOK() );
+		$this->assertStatusOK( $isQualified );
 	}
 
 	public function testDisallowIfNotInEligibilityList(): void {
@@ -335,8 +335,8 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 			],
 		];
 		$isQualified = $election->getQualifiedStatus( $params );
-		$this->assertFalse( $isQualified->isOK() );
-		$this->assertEquals( 'securepoll-not-in-list', $isQualified->getMessages( 'error' )[0]->getKey() );
+		$this->assertStatusNotOK( $isQualified );
+		$this->assertStatusMessage( 'securepoll-not-in-list', $isQualified );
 	}
 
 	public function testAllowIfInCentralEligibilityList(): void {
@@ -348,7 +348,7 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 			],
 		];
 		$isQualified = $election->getQualifiedStatus( $params );
-		$this->assertTrue( $isQualified->isOK() );
+		$this->assertStatusOK( $isQualified );
 	}
 
 	public function testDisallowIfNotInCentralEligibilityList(): void {
@@ -360,8 +360,8 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 			],
 		];
 		$isQualified = $election->getQualifiedStatus( $params );
-		$this->assertFalse( $isQualified->isOK() );
-		$this->assertEquals( 'securepoll-not-in-list', $isQualified->getMessages( 'error' )[0]->getKey() );
+		$this->assertStatusNotOK( $isQualified );
+		$this->assertStatusMessage( 'securepoll-not-in-list', $isQualified );
 	}
 
 	public function testCustomErrorMessage(): void {
@@ -372,13 +372,11 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 			],
 		];
 		$isQualified = $election->getQualifiedStatus( $params );
-		$this->assertFalse( $isQualified->isOK() );
+		$this->assertStatusNotOK( $isQualified );
+		$this->assertStatusMessage( 'securepoll-not-in-list', $isQualified );
 
-		$unqualifiedError = $isQualified->getMessages( 'error' )[0];
-		$this->assertEquals( 'securepoll-not-in-list', $unqualifiedError->getKey() );
-
+		$this->assertStatusMessage( 'securepoll-custom-unqualified', $isQualified );
 		$customError = $isQualified->getMessages( 'error' )[1];
-		$this->assertEquals( 'securepoll-custom-unqualified', $customError->getKey() );
 		$this->assertEquals( 'This is a custom message.', $customError->getParams()[0] );
 	}
 
