@@ -4,7 +4,6 @@ namespace MediaWiki\Extension\SecurePoll\Test\Unit;
 
 use DirectoryIterator;
 use Generator;
-use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Crypt\Random;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
@@ -63,7 +62,7 @@ class STVTallierTest extends MediaWikiUnitTestCase {
 		$electionTallier->election = $election;
 
 		$this->tallier = Tallier::factory(
-			$this->createMock( RequestContext::class ),
+			$this->createNoOpMock( Context::class ),
 			'droop-quota',
 			$electionTallier,
 			$question
@@ -179,7 +178,7 @@ class STVTallierTest extends MediaWikiUnitTestCase {
 		$fixtures = new DirectoryIterator( __DIR__ . '/fixtures' );
 		foreach ( $fixtures as $fixture ) {
 			if ( $fixture->isFile() && $fixture->isReadable() && $fixture->getExtension() === 'json' ) {
-				yield json_decode( file_get_contents( $fixture->getPathname() ), true );
+				yield $fixture->getBasename() => [ $fixture->getPathname() ];
 			}
 		}
 	}
@@ -187,7 +186,8 @@ class STVTallierTest extends MediaWikiUnitTestCase {
 	/**
 	 * @dataProvider provideFinishTallyResults
 	 */
-	public function testFinishTally( array $electionResults, array $expected ) {
+	public function testFinishTally( string $fixture ) {
+		[ $electionResults, $expected ] = json_decode( file_get_contents( $fixture ), true );
 		$this->wrappedRevStore->__set( 'seats', $electionResults['seats'] );
 		$this->wrappedRevStore->__set( 'candidates', $electionResults['candidates'] );
 		$this->tallier->rankedVotes = $electionResults['rankedVotes'];
