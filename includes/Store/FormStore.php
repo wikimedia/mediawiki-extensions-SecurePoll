@@ -403,7 +403,7 @@ class FormStore extends MemoryStore {
 			}
 
 			$host = self::getWikiName( $dbname );
-			if ( strpos( $host, '.' ) ) {
+			if ( str_contains( $host, '.' ) ) {
 				// e.g. "en.wikipedia.org"
 				$wikiNames[$host] = $dbname;
 			}

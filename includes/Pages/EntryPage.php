@@ -51,9 +51,7 @@ class EntryPage extends ActionPage {
 			);
 		}
 
-		$subtitle = implode( ' | ', array_filter( $links, static function ( $link ) {
-			return (bool)$link;
-		} ) );
+		$subtitle = implode( ' | ', array_filter( $links ) );
 
 		$out->setSubtitle( $subtitle );
 	}

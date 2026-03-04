@@ -37,7 +37,7 @@ class HTMLFormRadioRangeColumnLabels extends HTMLFormField {
 	/** @inheritDoc */
 	public function validate( $value, $alldata ) {
 		// Don't bother to validate the value of HTMLFormCloner template.
-		if ( strpos( $this->mName, 'HTMLFormFieldCloner' ) ) {
+		if ( str_contains( $this->mName, 'HTMLFormFieldCloner' ) ) {
 			return true;
 		}
 
