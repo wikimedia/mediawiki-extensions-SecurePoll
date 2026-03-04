@@ -54,10 +54,9 @@ abstract class PopulateEditCount extends Maintenance {
 	protected string $table;
 
 	public function execute() {
-		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
-		$lb = $lbFactory->getMainLB();
-		$dbr = $lb->getConnection( DB_REPLICA );
-		$dbw = $lb->getConnection( DB_PRIMARY );
+		$dbProvider = MediaWikiServices::getInstance()->getConnectionProvider();
+		$dbr = $dbProvider->getReplicaDatabase();
+		$dbw = $dbProvider->getPrimaryDatabase();
 
 		$maxUser = (int)$dbr->newSelectQueryBuilder()
 			->select( 'MAX(user_id)' )

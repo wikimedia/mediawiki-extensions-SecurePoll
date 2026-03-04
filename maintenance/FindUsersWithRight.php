@@ -164,7 +164,7 @@ class FindUsersWithRight extends Maintenance {
 		}
 
 		if ( $localIds && $this->localList ) {
-			$dbw = $services->getDBLoadBalancer()->getConnection( DB_PRIMARY );
+			$dbw = $services->getConnectionProvider()->getPrimaryDatabase();
 			foreach ( $localIds as $id ) {
 				$this->addToList( $dbw, $this->localList, $id );
 			}

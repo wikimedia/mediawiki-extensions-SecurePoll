@@ -18,8 +18,8 @@ use MediaWiki\User\UserFactory;
 use MediaWiki\WikiMap\WikiMap;
 use Psr\Log\LoggerInterface;
 use RuntimeException;
+use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\Rdbms\ILBFactory;
-use Wikimedia\Rdbms\ILoadBalancer;
 
 // @codeCoverageIgnoreStart
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
@@ -47,8 +47,7 @@ class MakeMailingList extends Maintenance {
 	/** @var resource */
 	private $outFile;
 
-	/** @var ILoadBalancer */
-	private $localLoadBalancer;
+	private IConnectionProvider $dbProvider;
 
 	/** @var ILBFactory */
 	private $loadBalancerFactory;
@@ -173,7 +172,7 @@ class MakeMailingList extends Maintenance {
 	private function initServices() {
 		$services = MediaWikiServices::getInstance();
 		$this->loadBalancerFactory = $services->getDBLoadBalancerFactory();
-		$this->localLoadBalancer = $this->loadBalancerFactory->getMainLB();
+		$this->dbProvider = $services->getConnectionProvider();
 		$this->userFactory = $services->getUserFactory();
 		$this->userOptionsLookup = $services->getUserOptionsLookup();
 		$this->logger = LoggerFactory::getInstance( 'MakeMailingList' );
@@ -205,7 +204,7 @@ class MakeMailingList extends Maintenance {
 			return;
 		}
 		$dbcr = CentralAuthServices::getDatabaseManager()->getCentralReplicaDB();
-		$dbr = $this->localLoadBalancer->getConnection( DB_REPLICA );
+		$dbr = $this->dbProvider->getReplicaDatabase();
 
 		$offsetId = 0;
 		do {
@@ -254,7 +253,7 @@ class MakeMailingList extends Maintenance {
 	 * @return Generator
 	 */
 	private function generateAllUsers() {
-		$dbr = $this->localLoadBalancer->getConnection( DB_REPLICA );
+		$dbr = $this->dbProvider->getReplicaDatabase();
 		$offsetId = 0;
 
 		do {
@@ -311,18 +310,14 @@ class MakeMailingList extends Maintenance {
 
 	public function alreadyVoted( User $user ): bool {
 		if ( $this->votersByName === null ) {
-			$this->votersByName = [];
 			$db = $this->context->getDB();
-			$res = $db->newSelectQueryBuilder()
-				->select( [ 'voter_name' ] )
+			$this->votersByName = array_fill_keys( $db->newSelectQueryBuilder()
+				->select( 'voter_name' )
 				->from( 'securepoll_voters' )
 				->join( 'securepoll_votes', null, 'voter_id=vote_voter' )
 				->where( [ 'vote_election' => $this->election->getId() ] )
 				->caller( __METHOD__ )
-				->fetchResultSet();
-			foreach ( $res as $row ) {
-				$this->votersByName[$row->voter_name] = 1;
-			}
+				->fetchFieldValues(), 1 );
 		}
 		return isset( $this->votersByName[$user->getName()] );
 	}
