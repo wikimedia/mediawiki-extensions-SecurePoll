@@ -367,7 +367,8 @@ class STVTallier extends Tallier {
 		// Recurse?
 		$hopefuls = array_diff(
 			array_keys( $this->candidates ),
-			array_merge( $this->resultsLog['elected'], $this->resultsLog['eliminated'] )
+			$this->resultsLog['elected'],
+			$this->resultsLog['eliminated']
 		);
 		if ( $hopefuls ) {
 			$this->calculateRound( $round );
@@ -388,15 +389,12 @@ class STVTallier extends Tallier {
 	 * @return array
 	 */
 	private function distributeVotes( $ballots, $keepFactors, $prevDistribution = null ): array {
-		$voteTotals = [];
+		$voteTotals = array_fill_keys( array_keys( $keepFactors ), [
+			'votes' => '0',
+			'earned' => '0',
+			'total' => '0',
+		] );
 		$totalVotes = '0.0';
-		foreach ( $keepFactors as $candidate => $kf ) {
-			$voteTotals[$candidate] = [
-				'votes' => '0',
-				'earned' => '0',
-				'total' => '0',
-			];
-		}
 
 		// Apply previous round's votes to the count to get "earned" votes
 		if ( $prevDistribution ) {
@@ -551,20 +549,15 @@ class STVTallier extends Tallier {
 			static function ( $aKey, $bKey ) use ( $ranking ) {
 				$a = $ranking[$aKey];
 				$b = $ranking[$bKey];
-				// $a['total'] === $b['total']
-				if ( bccomp( $a['total'], $b['total'], self::PRECISION ) === 0 ) {
-					// ascending sort ($aKey <=> $bKey)
-					return bccomp( (string)$aKey, (string)$bKey, self::PRECISION );
-				}
 				// descending sort ($b['total'] <=> $a['total'])
-				return bccomp( $b['total'], $a['total'], self::PRECISION );
+				return bccomp( $b['total'], $a['total'], self::PRECISION ) ?:
+					// ascending sort ($aKey <=> $bKey)
+					bccomp( (string)$aKey, (string)$bKey, self::PRECISION );
 			}
 		);
 
 		// Remove anyone who was already eliminated or elected
-		$ranking = array_filter( $ranking, static function ( $key ) use ( $eliminated ) {
-			return !in_array( $key, $eliminated );
-		}, ARRAY_FILTER_USE_KEY );
+		$ranking = array_diff_key( $ranking, array_flip( $eliminated ) );
 
 		// Manually implement array_unique with higher precision than the default function
 		$voteTotals = [];
@@ -667,27 +660,21 @@ class STVTallier extends Tallier {
 		// eg. 2 1 0 representing "2 voters voted for candidate 1" with a 0 end delineator
 		$voteCounts = [];
 		foreach ( $votes as $vote ) {
+			$voteCount = '';
 			// Votes come in as an ordered array of candidate ids, the blt will map this
 			// so that it's fully self-enclosed. Use $candidateNumberMapping to convert
 			// candidate ids to candidate indexes.
-			$vote = array_map( static function ( $candidateId ) use ( $candidateNumberMapping ) {
+			foreach ( $vote as $candidateId ) {
 				// Sometimes the vote record is already the candidate number instead of the option ID
-				if ( isset( $candidateNumberMapping[$candidateId] ) ) {
-					return $candidateNumberMapping[$candidateId];
-				}
-				return $candidateId;
-			}, $vote );
-			$vote = implode( " ", $vote );
+				$voteCount .= ( $candidateNumberMapping[$candidateId] ?? $candidateId ) . ' ';
+			}
 
 			// Each row must end with a zero
-			$vote .= " 0";
+			$voteCount .= '0';
 
 			// Count the number of times each equal row appears
-			if ( !isset( $voteCounts[$vote] ) ) {
-				$voteCounts[$vote] = 1;
-			} else {
-				$voteCounts[$vote]++;
-			}
+			$voteCounts[$voteCount] ??= 0;
+			$voteCounts[$voteCount]++;
 		}
 
 		// Put the number of appearances at the front of each row
