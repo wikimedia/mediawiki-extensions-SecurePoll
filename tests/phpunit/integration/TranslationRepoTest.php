@@ -44,28 +44,16 @@ class TranslationRepoTest extends MediaWikiIntegrationTestCase {
 
 		$translationRepo = new TranslationRepo(
 			$this->getMockLBFactory( $mockDB ),
-			$services->getWikiPageFactory(),
-			$services->getMainConfig()
+			$services->getWikiPageFactory()
 		);
 
 		$mockUser = $this->createMock( User::class );
 
 		$election = $this->createMock( Election::class );
-		$election->method( 'getDescendants' )->willReturnCallback( static function () {
-			return [];
-		} );
-
+		$election->method( 'getDescendants' )->willReturn( [] );
 		$election->method( 'getProperty' )->willReturn( $wikis );
-
-		$election->method( 'getMessageNames' )->willReturnCallback( static function () {
-			return [
-				'intro',
-				'title'
-			];
-		} );
-		$election->method( 'getId' )->willReturnCallback( static function () {
-			return 7894;
-		} );
+		$election->method( 'getMessageNames' )->willReturn( [ 'intro', 'title' ] );
+		$election->method( 'getId' )->willReturn( 7894 );
 
 		$translationRepo->setTranslation( $election, $data, $language, $mockUser, $comment );
 	}

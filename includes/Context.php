@@ -83,18 +83,13 @@ class Context {
 	 * Create a new Context with an XML file as the storage backend.
 	 * Returns false if there was a problem with the file, like a parse error.
 	 * @param string $fileName
-	 * @return bool|self
+	 * @return self|false
 	 */
 	public static function newFromXmlFile( $fileName ) {
 		$context = new self;
 		$store = new XMLStore( $fileName );
 		$context->setStore( $store );
-		$success = $store->readFile();
-		if ( $success ) {
-			return $context;
-		} else {
-			return false;
-		}
+		return $store->readFile() ? $context : false;
 	}
 
 	/**

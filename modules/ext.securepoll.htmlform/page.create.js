@@ -54,7 +54,7 @@ mw.hook( 'htmlform.enhance' ).add( ( $root ) => {
 		for ( let $p = $i.parent(); $p.length > 0; $p = $p.parent() ) {
 			const $min = $p.find( '[name$="[min-score]"]' ).closest( '.oo-ui-numberInputWidget' );
 			const $max = $p.find( '[name$="[max-score]"]' ).closest( '.oo-ui-numberInputWidget' );
-			if ( $min.length > 0 && $max.length > 0 ) {
+			if ( $min.length && $max.length ) {
 				minInputWidget = OO.ui.infuse( $min );
 				maxInputWidget = OO.ui.infuse( $max );
 				minInputWidget.on( 'change', changeHandler );

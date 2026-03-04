@@ -15,13 +15,11 @@ use MediaWikiUnitTestCase;
  */
 class BallotTest extends MediaWikiUnitTestCase {
 	private function getAbstractBallot( $election = null ) {
-		$election = $election ?? $this->createMock( Election::class );
-
 		return $this->getMockForAbstractClass(
 			Ballot::class,
 			[
 				$this->createMock( RequestContext::class ),
-				$election,
+				$election ?? $this->createMock( Election::class ),
 			]
 		);
 	}

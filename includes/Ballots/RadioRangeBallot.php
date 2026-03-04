@@ -140,9 +140,7 @@ class RadioRangeBallot extends Ballot {
 	 */
 	public function getColumnDirection( $question ) {
 		$order = $question->getProperty( 'column-order' );
-		if ( !$order ) {
-			return 1;
-		} elseif ( preg_match( '/^asc/i', $order ) ) {
+		if ( !$order || preg_match( '/^asc/i', $order ) ) {
 			return 1;
 		} elseif ( preg_match( '/^desc/i', $order ) ) {
 			return -1;
@@ -345,11 +343,7 @@ class RadioRangeBallot extends Ballot {
 				$score
 			);
 		}
-		if ( $ok ) {
-			return $record;
-		} else {
-			return '';
-		}
+		return $ok ? $record : '';
 	}
 
 	/**
