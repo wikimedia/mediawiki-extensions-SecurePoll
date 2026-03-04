@@ -500,18 +500,14 @@ class HtmlFormatter implements STVFormatter {
 	/**
 	 * Given the rounds of an election, return the last set
 	 * of eliminated candidates by their candidate name
-	 * @param array $rounds
+	 * @param array[] $rounds
 	 * @return string[]
 	 */
-	protected function getLastEliminated( $rounds ) {
-		$eliminationRounds = array_filter( $rounds, static function ( $round ) {
-			return $round['eliminated'];
-		} );
-		if ( $eliminationRounds ) {
-			$eliminated = array_pop( $eliminationRounds )['eliminated'];
-			return array_map( static function ( $candidateId ) {
-				return $candidateId;
-			}, $eliminated );
+	protected function getLastEliminated( array $rounds ): array {
+		for ( $i = count( $rounds ); $i--; ) {
+			if ( $rounds[$i]['eliminated'] ) {
+				return $rounds[$i]['eliminated'];
+			}
 		}
 		return [];
 	}
