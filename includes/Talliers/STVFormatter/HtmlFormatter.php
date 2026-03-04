@@ -394,7 +394,7 @@ class HtmlFormatter implements STVFormatter {
 
 			// Elected
 			if ( count( $round['elected'] ) ) {
-				$electCandidates = array_map( [ $this, 'getCandidateName' ], $round['elected'] );
+				$electCandidates = array_map( $this->getCandidateName( ... ), $round['elected'] );
 				$formattedElectCandidates = implode(
 					', ',
 					$electCandidates
@@ -411,7 +411,7 @@ class HtmlFormatter implements STVFormatter {
 
 			// Eliminated
 			if ( $round['eliminated'] !== null && count( $round['eliminated'] ) > 0 ) {
-				$eliminatedCandidates = array_map( [ $this, 'getCandidateName' ], $round['eliminated'] );
+				$eliminatedCandidates = array_map( $this->getCandidateName( ... ), $round['eliminated'] );
 				$formattedElimCandidates = implode( ', ', $eliminatedCandidates );
 				$roundResults
 					->appendContent(

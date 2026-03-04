@@ -199,7 +199,7 @@ class TallyListPage extends ActionPage {
 			] ) ),
 		] ) );
 
-		$getTallyLinks = [ $this, 'getTallyLinks' ];
+		$getTallyLinks = $this->getTallyLinks( ... );
 		$language = $this->specialPage->getLanguage();
 		$user = $this->specialPage->getUser();
 
@@ -247,7 +247,7 @@ class TallyListPage extends ActionPage {
 			'securepoll-tally'
 		);
 
-		$form->setSubmitCallback( [ $this, 'submitForm' ] )
+		$form->setSubmitCallback( $this->submitForm( ... ) )
 			->suppressDefaultSubmit();
 
 		$buttonProps = [

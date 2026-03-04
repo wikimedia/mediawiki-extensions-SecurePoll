@@ -599,7 +599,7 @@ class STVTallier extends Tallier {
 
 		// Check if we can eliminate the lowest candidate
 		// using Hill's surplus-based short circuit elimination
-		$bcabs = [ $this, 'bcabs' ];
+		$bcabs = $this->bcabs( ... );
 		$lastPlace = array_keys( array_filter( $ranking, static function ( $ranked ) use ( $bcabs, $lowest, $elected ) {
 			// abs(rankedTotal - lowest) <= 0
 			return bccomp( $bcabs( bcsub( $ranked['total'], $lowest, self::PRECISION ) ), '0.0', self::PRECISION ) <= 0

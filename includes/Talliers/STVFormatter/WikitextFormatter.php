@@ -33,7 +33,7 @@ class WikitextFormatter extends HtmlFormatter {
 							wfMessage( 'securepoll-stv-result-elected-list-unfilled-seat',
 								implode(
 									', ',
-									array_map( [ $this, 'getCandidateName' ], $eliminated )
+									array_map( $this->getCandidateName( ... ), $eliminated )
 								)
 							) . "''";
 			}
@@ -212,14 +212,14 @@ class WikitextFormatter extends HtmlFormatter {
 
 			// Elected
 			if ( count( $round['elected'] ) ) {
-				$candidatesElected  = array_map( [ $this, 'getCandidateName' ], $round['elected'] );
+				$candidatesElected  = array_map( $this->getCandidateName( ... ), $round['elected'] );
 				$formattedElected = implode( ', ', $candidatesElected );
 				$roundResults .= wfMessage( 'securepoll-stv-result-round-elected', $formattedElected ) . "\n";
 			}
 
 			// Eliminated
 			if ( $round['eliminated'] !== null && count( $round['eliminated'] ) > 0 ) {
-				$candidatesEliminated  = array_map( [ $this, 'getCandidateName' ], $round['eliminated'] );
+				$candidatesEliminated  = array_map( $this->getCandidateName( ... ), $round['eliminated'] );
 				$formattedEliminated = implode( ', ', $candidatesEliminated );
 				$roundResults .= wfMessage( 'securepoll-stv-result-round-eliminated', $formattedEliminated );
 			}
