@@ -39,6 +39,8 @@ class STVBallotTest extends MediaWikiIntegrationTestCase {
 			$option = $this->createMock( Option::class );
 			$option->method( 'getId' )
 				->willReturn( $id );
+			$option->method( 'parseMessageInline' )
+				->willReturn( 'Candidate ' . $id );
 			return $option;
 		}, [ 1, 2, 3, 4 ] );
 		$this->question = $this->createMock( Question::class );
