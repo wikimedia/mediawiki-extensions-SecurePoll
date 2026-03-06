@@ -88,7 +88,7 @@ class HtmlFormatter implements STVFormatter {
 		] );
 		$electionSummary->appendContent(
 			( new Tag( 'h2' ) )->appendContent(
-				wfMessage( 'securepoll-stv-result-election-elected-header' )
+				wfMessage( 'securepoll-stv-result-election-elected-header' )->parse()
 			)
 		);
 
@@ -103,6 +103,7 @@ class HtmlFormatter implements STVFormatter {
 						count( $this->candidates ),
 						$totalVotes
 					)
+					->parse()
 			)
 		);
 
@@ -127,7 +128,7 @@ class HtmlFormatter implements STVFormatter {
 							wfMessage(
 								'securepoll-stv-result-elected-list-unfilled-seat',
 								$formattedEliminated
-							)
+							)->parse()
 						)
 					)
 				);
@@ -177,7 +178,7 @@ class HtmlFormatter implements STVFormatter {
 		// Generate overview of eliminated candidates
 		$electionSummary->appendContent(
 			( new Tag( 'h2' ) )->appendContent(
-				wfMessage( 'securepoll-stv-result-election-eliminated-header' )
+				wfMessage( 'securepoll-stv-result-election-eliminated-header' )->parse()
 			)
 		);
 		$eliminatedList = ( new Tag( 'ul' ) );
@@ -216,7 +217,7 @@ class HtmlFormatter implements STVFormatter {
 
 		$electionRounds->appendContent(
 			( new Tag( 'h2' ) )->appendContent(
-				wfMessage( 'securepoll-stv-result-election-rounds-header' )
+				wfMessage( 'securepoll-stv-result-election-rounds-header' )->parse()
 			)
 		);
 
@@ -241,13 +242,13 @@ class HtmlFormatter implements STVFormatter {
 		$table->appendContent(
 			( new Tag( 'thead' ) )->appendContent( ( new Tag( 'tr' ) )->appendContent(
 				( new Tag( 'th' ) )->appendContent(
-					wfMessage( 'securepoll-stv-result-election-round-number-table-heading' )
+					wfMessage( 'securepoll-stv-result-election-round-number-table-heading' )->parse()
 				),
 				( new Tag( 'th' ) )->appendContent(
-					wfMessage( 'securepoll-stv-result-election-tally-table-heading' )
+					wfMessage( 'securepoll-stv-result-election-tally-table-heading' )->parse()
 				),
 				( new Tag( 'th' ) )->appendContent(
-					wfMessage( 'securepoll-stv-result-election-result-table-heading' )
+					wfMessage( 'securepoll-stv-result-election-result-table-heading' )->parse()
 				)
 			) )
 		);
@@ -294,7 +295,7 @@ class HtmlFormatter implements STVFormatter {
 
 				$name = $this->getCandidateName( $currentCandidate );
 				$nameContent = ( new Tag( 'span' ) )
-					->appendContent( wfMessage( 'securepoll-stv-result-candidate', $name ) )
+					->appendContent( wfMessage( 'securepoll-stv-result-candidate', $name )->parse() )
 					->addClasses( [ 'round-summary-candidate-name' ] );
 				$nameContent->appendContent( ' ' );
 
@@ -346,7 +347,7 @@ class HtmlFormatter implements STVFormatter {
 					$votesTransferred = true;
 				} else {
 					$contentRound = wfMessage( 'securepoll-stv-result-votes-no-change' )
-						->numParams( $formattedTotal );
+						->numParams( $formattedTotal )->parse();
 				}
 				$candidateState->appendContent( $contentRound );
 
@@ -362,7 +363,7 @@ class HtmlFormatter implements STVFormatter {
 						->appendContent( ' ' )
 						->appendContent(
 							wfMessage( 'securepoll-stv-result-round-keep-factor' )
-							->numParams( $formattedParams )
+								->numParams( $formattedParams )->parse()
 						);
 				} elseif ( $candidateEliminatedThisRound ) {
 					// Mark the candidate as having been previously eliminated (for display purposes only).
@@ -385,7 +386,7 @@ class HtmlFormatter implements STVFormatter {
 			// Quota
 			$roundResults->appendContent(
 				wfMessage( 'securepoll-stv-result-round-quota' )
-					->numParams( $this->formatForNumParams( $round['quota'] ) )
+					->numParams( $this->formatForNumParams( $round['quota'] ) )->parse()
 			);
 			$roundResults->appendContent( new Tag( 'br' ) );
 
@@ -401,7 +402,7 @@ class HtmlFormatter implements STVFormatter {
 						wfMessage(
 							'securepoll-stv-result-round-elected',
 							$formattedElectCandidates
-						)
+						)->parse()
 					)
 					->appendContent( new Tag( 'br' ) );
 			}
@@ -415,7 +416,7 @@ class HtmlFormatter implements STVFormatter {
 						wfMessage(
 							'securepoll-stv-result-round-eliminated',
 							$formattedElimCandidates
-						)
+						)->parse()
 					)
 					->appendContent( new Tag( 'br' ) );
 			}
@@ -423,7 +424,7 @@ class HtmlFormatter implements STVFormatter {
 			// Votes transferred
 			if ( $votesTransferred ) {
 				$roundResults
-					->appendContent( wfMessage( 'securepoll-stv-votes-transferred' ) )
+					->appendContent( wfMessage( 'securepoll-stv-votes-transferred' )->parse() )
 					->appendContent( new Tag( 'br' ) );
 			}
 
@@ -451,7 +452,7 @@ class HtmlFormatter implements STVFormatter {
 		] );
 		$electionBlt->appendContent(
 			( new Tag( 'h2' ) )->appendContent(
-				wfMessage( 'securepoll-stv-result-election-blt-header' )
+				wfMessage( 'securepoll-stv-result-election-blt-header' )->parse()
 			)
 		);
 		$electionBlt->appendContent(

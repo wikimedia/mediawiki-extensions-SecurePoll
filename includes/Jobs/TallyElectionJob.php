@@ -81,7 +81,7 @@ class TallyElectionJob extends Job {
 		$status = $this->election->tally();
 
 		if ( !$status->isOK() ) {
-			$this->markAsFailed( $status->getMessage(), __METHOD__ );
+			$this->markAsFailed( $status->getMessage()->text(), __METHOD__ );
 
 			return false;
 		}

@@ -119,7 +119,7 @@ class TranslatePage extends ActionPage {
 		$table = new Tag( 'table' );
 		$table->addClasses( [ 'mw-datatable', 'TablePager', 'securepoll-trans-table' ] )->appendContent(
 			( new Tag( 'thead' ) )->appendContent( ( new Tag( 'tr' ) )->appendContent(
-				( new Tag( 'th' ) )->appendContent( $this->msg( 'securepoll-header-trans-id' ) ),
+				( new Tag( 'th' ) )->appendContent( $this->msg( 'securepoll-header-trans-id' )->parse() ),
 				( new Tag( 'th' ) )->appendContent( $primaryName ),
 				( new Tag( 'th' ) )->appendContent( $secondaryName )
 			) )

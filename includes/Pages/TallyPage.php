@@ -83,6 +83,7 @@ class TallyPage extends ActionPage {
 			$out->msg( 'securepoll-tally-result' )
 				->rawParams( $tallier->getHtmlResult() )
 				->dateTimeParams( wfTimestamp( TS_UNIX, $time ) )
+				->parse()
 		);
 	}
 }

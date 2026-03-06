@@ -418,7 +418,7 @@ class VotePage extends ActionPage {
 			$html = Html::openElement( 'div', [ 'class' => 'securepoll-vote-result-question-cnt' ] );
 			$html .= Html::rawElement(
 				'p', [ 'class' => 'securepoll-vote-result-question' ],
-				$this->msg( 'securepoll-vote-result-question-label', $questionText )
+				$this->msg( 'securepoll-vote-result-question-label', $questionText )->parse()
 			);
 
 			$votedItems = [];
@@ -449,7 +449,7 @@ class VotePage extends ActionPage {
 						if ( isset( $questionMsg[$questionIndex]['column' . $count ] ) ) {
 							$columnLabel = $questionMsg[$questionIndex]['column' . $count ];
 							$votedItems[] = Html::rawElement( 'li', [],
-								$this->msg( 'securepoll-vote-result-voted-option-label', $optionText, $columnLabel )
+								$this->msg( 'securepoll-vote-result-voted-option-label', $optionText, $columnLabel )->parse()
 							);
 							continue;
 						}
@@ -458,7 +458,7 @@ class VotePage extends ActionPage {
 							if ( isset( $questionMsg[$questionIndex]['column' . $positiveCount ] ) ) {
 								$columnLabel = $questionMsg[$questionIndex]['column' . $positiveCount ];
 								$votedItems[] = Html::rawElement( 'li', [],
-									$this->msg( 'securepoll-vote-result-voted-option-label', $optionText, $columnLabel )
+									$this->msg( 'securepoll-vote-result-voted-option-label', $optionText, $columnLabel )->parse()
 								);
 								continue;
 							}
@@ -467,25 +467,25 @@ class VotePage extends ActionPage {
 
 					if ( $this->election->getTallyType() === 'schulze' && $count === 1000 ) {
 						$notVotedItems[] = Html::rawElement( 'li', [],
-							$this->msg( 'securepoll-vote-result-not-voted-option-label', $optionText )
+							$this->msg( 'securepoll-vote-result-not-voted-option-label', $optionText )->parse()
 						);
 						continue;
 					}
 
 					if ( $count === 0 ) {
 						$notVotedItems[] = Html::rawElement( 'li', [],
-							$this->msg( 'securepoll-vote-result-not-checked-option-label', $optionText )
+							$this->msg( 'securepoll-vote-result-not-checked-option-label', $optionText )->parse()
 						);
 						continue;
 					}
 					if ( $this->election->getTallyType() === 'plurality' ) {
 						$votedItems[] = Html::rawElement( 'li', [],
-							$this->msg( 'securepoll-vote-result-checked-option-label', $optionText )
+							$this->msg( 'securepoll-vote-result-checked-option-label', $optionText )->parse()
 						);
 						continue;
 					}
 					$votedItems[] = Html::rawElement( 'li', [],
-						$this->msg( 'securepoll-vote-result-rated-option-label', $optionText, $count )
+						$this->msg( 'securepoll-vote-result-rated-option-label', $optionText, $count )->parse()
 					);
 				}
 
