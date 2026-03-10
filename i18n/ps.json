@@ -47,7 +47,7 @@
 	"securepoll-header-cookie-dup": "دوه‌گونی",
 	"securepoll-header-details": "تفصيلات",
 	"securepoll-vote-csrf": "ناکام‌شو",
-	"securepoll-strike-reason": "سبب:",
+	"securepoll-strike-reason": "لامل:",
 	"securepoll-strike-token-mismatch": "ناستې اومتوکي ورک شول",
 	"securepoll-details-link": "تفصيلات",
 	"securepoll-details-title": "رايې سپيناوی: #$1",
