@@ -39,7 +39,7 @@ class DetailsPage extends ActionPage {
 
 		$this->voteId = intval( $params[0] );
 
-		$db = $this->context->getDB();
+		$db = $this->context->getDB( DB_REPLICA );
 		$row = $db->newSelectQueryBuilder()
 			->select( '*' )
 			->from( 'securepoll_votes' )
