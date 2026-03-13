@@ -250,7 +250,7 @@ class PopulateVoterListJob extends Job {
 					->caller( __METHOD__ )
 					->fetchFieldValues();
 
-				// @phan-suppress-next-line PhanSuspiciousValueComparison Same as in next if
+				// @phan-suppress-next-line PhanRedundantValueComparison Same as in next if
 				if ( $users === null ) {
 					$users = $list;
 				} else {

@@ -158,7 +158,6 @@ class SendMail extends Maintenance {
 			$this->getPageText( $title )
 		);
 		return $this->parseWikitext(
-			// @phan-suppress-next-line PhanTypeMismatchArgumentNullable False positive T240141
 			$realLanguage,
 			$wikitext,
 			$title

@@ -182,8 +182,6 @@ class ActionPageFactory {
 		}
 
 		/** @var ActionPage $page */
-		// ObjectFactory::createObject accepts an array, not just a callable (phan bug)
-		// @phan-suppress-next-line PhanTypeInvalidCallableArraySize
 		$page = $this->objectFactory->createObject(
 			self::PAGE_LIST[$pageName],
 			[
