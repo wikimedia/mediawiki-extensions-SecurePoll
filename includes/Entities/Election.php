@@ -330,7 +330,7 @@ class Election extends Entity {
 				$lang = RequestContext::getMain()->getLanguage();
 				if ( !array_intersect( $neededGroups, $groups ) ) {
 					$groupNames = array_map(
-						static fn ( $group ) => wfMessage( 'group-' . $group ),
+						$lang->getGroupName( ... ),
 						$neededGroups
 					);
 					$status->fatal( 'securepoll-not-in-group', $lang->commaList( $groupNames ) );
