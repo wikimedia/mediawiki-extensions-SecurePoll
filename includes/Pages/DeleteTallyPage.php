@@ -56,7 +56,7 @@ class DeleteTallyPage extends ActionPage {
 		);
 
 		if ( !$this->election->isAdmin( $user ) ) {
-			$out->prependHTML( ( new MessageWidget( [
+			$out->prependHTML( (string)( new MessageWidget( [
 				'label' => $this->msg( 'securepoll-need-admin' )->text(),
 				'type' => 'error',
 			] ) ) );
@@ -64,7 +64,7 @@ class DeleteTallyPage extends ActionPage {
 		}
 
 		if ( !$this->election->isFinished() ) {
-			$out->prependHTML( ( new MessageWidget( [
+			$out->prependHTML( (string)( new MessageWidget( [
 				'label' => $this->msg( 'securepoll-tally-not-finished' )->text(),
 				'type' => 'error',
 			] ) ) );
@@ -75,7 +75,7 @@ class DeleteTallyPage extends ActionPage {
 		$request = $this->specialPage->getRequest();
 		$tokenMatch = $token->match( $request->getVal( 'token' ) );
 		if ( !$tokenMatch ) {
-			$out->prependHTML( ( new MessageWidget( [
+			$out->prependHTML( (string)( new MessageWidget( [
 				'label' => $this->msg( 'securepoll-deletetally-token-error' )->text(),
 				'type' => 'error',
 			] ) ) );
@@ -89,7 +89,7 @@ class DeleteTallyPage extends ActionPage {
 				[]
 			)
 		);
-		$out->prependHTML( ( new MessageWidget( [
+		$out->prependHTML( (string)( new MessageWidget( [
 			'label' => $this->msg( 'securepoll-delete-in-progress' )->text(),
 			'type' => 'success',
 		] ) ) );

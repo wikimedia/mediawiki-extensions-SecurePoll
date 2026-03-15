@@ -108,7 +108,7 @@ class HtmlFormatterTest extends MediaWikiIntegrationTestCase {
 			. "To understand this better, please refer to <a rel=\"nofollow\" class=\"external text\" "
 			. "href=\"https://web.archive.org/web/20210225045400/https://prfound.org/resources/reference/"
 			. "reference-meek-rule/\">this link</a>.</p></div>";
-		$this->assertEquals( $expectedPreamble, $actualPreamble->toString() );
+		$this->assertEquals( $expectedPreamble, $actualPreamble );
 	}
 
 	/**
@@ -122,7 +122,7 @@ class HtmlFormatterTest extends MediaWikiIntegrationTestCase {
 			. "be filled because no candidates fulfill the criteria. The last eliminated candidates were: User1"
 			. "</i></li><li>User2</li><li>User1</li></ol><h2>Eliminated/Not elected</h2>"
 			. "<ul><li>User1</li><li>User3</li></ul></div>";
-		$this->assertEquals( $expectedPreamble, $actualPreamble->toString() );
+		$this->assertEquals( $expectedPreamble, $actualPreamble );
 		$this->assertStringNotContainsString( 'manually excluded from the tally', $actualPreamble );
 	}
 
@@ -136,7 +136,7 @@ class HtmlFormatterTest extends MediaWikiIntegrationTestCase {
 			]
 		];
 		$htmlFormatter = new HtmlFormatter( [ 'rounds' => [] ], [], 1, [ 101 => 'Foo' ], $excludedCandidate, '' );
-		$result = $htmlFormatter->formatPreamble( [], [], $excludedCandidate )->toString();
+		$result = $htmlFormatter->formatPreamble( [], [], $excludedCandidate );
 		$this->assertStringContainsString( 'manually excluded from the tally', $result );
 	}
 
@@ -161,7 +161,7 @@ class HtmlFormatterTest extends MediaWikiIntegrationTestCase {
 			. "User1: </span><span class='round-summary-candidate-votes'>1 (keep factor: 3)</span></s></li>"
 			. "</ol></td><td>Quota: 1<br />Elected: User2<br />Eliminated: User1<br />"
 			. "Transferring votes<br /></td></tr></tbody></table>";
-		$this->assertEquals( $expectedPreamble, $actualPreamble->toString() );
+		$this->assertEquals( $expectedPreamble, $actualPreamble );
 	}
 
 	/**
@@ -171,7 +171,7 @@ class HtmlFormatterTest extends MediaWikiIntegrationTestCase {
 		$htmlFormatter = new HtmlFormatter( [ 'rounds' => [] ], [], 1, [ 101 => 'Foo' ], [], 'BLT' );
 		$actualBlt = $htmlFormatter->formatBlt();
 		$expectedBlt = "<div class='oo-ui-layout oo-ui-panelLayout'><h2>BLT</h2><pre>BLT</pre></div>";
-		$this->assertEquals( $expectedBlt, $actualBlt->toString() );
+		$this->assertEquals( $expectedBlt, $actualBlt );
 	}
 
 	/**

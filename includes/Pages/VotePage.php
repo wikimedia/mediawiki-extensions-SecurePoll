@@ -258,7 +258,7 @@ class VotePage extends ActionPage {
 			] )
 		] );
 
-		$out->addHTML( $form );
+		$out->addHTML( (string)$form );
 	}
 
 	/**
@@ -394,7 +394,7 @@ class VotePage extends ActionPage {
 
 		// if record cannot be unpacked correctly, show error
 		if ( !$data ) {
-			return new MessageWidget( [
+			return (string)new MessageWidget( [
 				'type' => 'error',
 				'label' => $this->msg( 'securepoll-vote-result-error-label' )
 			] );

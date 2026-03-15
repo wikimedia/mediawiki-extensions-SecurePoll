@@ -47,7 +47,7 @@ class ArchivePage extends ActionPage {
 		$isAdmin = $this->election->isAdmin( $this->specialPage->getUser() );
 
 		if ( !$isAdmin ) {
-			$out->prependHTML( ( new MessageWidget( [
+			$out->prependHTML( (string)( new MessageWidget( [
 				'label' => $this->msg( 'securepoll-archive-private' )->text(),
 				'type' => 'error',
 			] ) ) );
@@ -55,7 +55,7 @@ class ArchivePage extends ActionPage {
 		}
 
 		if ( !$this->election->isFinished() ) {
-			$out->prependHTML( ( new MessageWidget( [
+			$out->prependHTML( (string)( new MessageWidget( [
 				'label' => $this->msg( 'securepoll-archive-not-finished' )->text(),
 				'type' => 'error',
 			] ) ) );
@@ -66,7 +66,7 @@ class ArchivePage extends ActionPage {
 		$request = $this->specialPage->getRequest();
 		$tokenMatch = $token->match( $request->getVal( 'token' ) );
 		if ( !$tokenMatch ) {
-			$out->prependHTML( ( new MessageWidget( [
+			$out->prependHTML( (string)( new MessageWidget( [
 				'label' => $this->msg( 'securepoll-archive-token-error' )->text(),
 				'type' => 'error',
 			] ) ) );
@@ -94,13 +94,13 @@ class ArchivePage extends ActionPage {
 					[]
 				)
 			);
-			$out->prependHTML( ( new MessageWidget( [
+			$out->prependHTML( (string)( new MessageWidget( [
 				'label' => $this->msg( 'securepoll-archive-in-progress' )->text(),
 				'type' => 'success',
 			] ) ) );
 		} else {
 			// Already archived
-			$out->prependHTML( ( new MessageWidget( [
+			$out->prependHTML( (string)( new MessageWidget( [
 				'label' => $this->msg( 'securepoll-already-archived-error' )->text(),
 				'type' => 'error',
 			] ) ) );

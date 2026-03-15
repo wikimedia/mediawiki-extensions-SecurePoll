@@ -205,7 +205,7 @@ class HtmlFormatter implements STVFormatter {
 		}
 
 		$electionSummary->appendContent( $eliminatedList );
-		return $electionSummary;
+		return (string)$electionSummary;
 	}
 
 	/** @inheritDoc */
@@ -227,7 +227,7 @@ class HtmlFormatter implements STVFormatter {
 				new HtmlSnippet( wfMessage( 'securepoll-stv-help-text' )->parse() )
 			)
 		);
-		return $electionRounds;
+		return (string)$electionRounds;
 	}
 
 	/** @inheritDoc */
@@ -435,7 +435,7 @@ class HtmlFormatter implements STVFormatter {
 			$tbody->appendContent( $tr );
 			$table->appendContent( $tbody );
 		}
-		return $table;
+		return (string)$table;
 	}
 
 	/** @inheritDoc */
@@ -460,7 +460,7 @@ class HtmlFormatter implements STVFormatter {
 				$this->blt
 			)
 		);
-		return $electionBlt;
+		return (string)$electionBlt;
 	}
 
 	/**

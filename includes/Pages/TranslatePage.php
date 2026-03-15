@@ -173,7 +173,7 @@ class TranslatePage extends ActionPage {
 
 		$form->appendContent( $fields );
 
-		$out->addHTML( $form );
+		$out->addHTML( (string)$form );
 	}
 
 	/**
@@ -241,7 +241,7 @@ class TranslatePage extends ActionPage {
 			]
 		] );
 
-		$this->specialPage->getOutput()->addHTML( $form );
+		$this->specialPage->getOutput()->addHTML( (string)$form );
 	}
 
 	/**

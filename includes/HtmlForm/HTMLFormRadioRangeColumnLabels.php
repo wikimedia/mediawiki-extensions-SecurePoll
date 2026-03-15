@@ -90,7 +90,7 @@ class HTMLFormRadioRangeColumnLabels extends HTMLFormField {
 			) )->setAttributes( [ 'data-securepoll-col-num' => $intColNum ] );
 		}
 
-		return ( new OOUI\Widget( [
+		return (string)( new OOUI\Widget( [
 			'content' => new OOUI\HorizontalLayout( [ 'items' => $inputs ] ),
 			'classes' => [ 'securepoll-radiorange-messages' ],
 		] ) )->setAttributes( [ 'data-securepoll-col-name' => $this->mName, ] );

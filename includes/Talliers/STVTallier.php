@@ -6,7 +6,6 @@ use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Question;
 use MediaWiki\Extension\SecurePoll\Talliers\STVFormatter\HtmlFormatter;
 use MediaWiki\Extension\SecurePoll\Talliers\STVFormatter\WikitextFormatter;
-use OOUI\PanelLayout;
 use OOUI\StackLayout;
 use RuntimeException;
 
@@ -198,7 +197,7 @@ class STVTallier extends Tallier {
 			$this->modifiers
 		);
 		$htmlRounds = $htmlFormatter->formatRoundsPreamble();
-		$htmlRounds->appendContent( $htmlFormatter->formatRound() );
+		$htmlRounds .= $htmlFormatter->formatRound();
 		$htmlBlt = $htmlFormatter->formatBlt();
 
 		$htmlItems = [
@@ -207,12 +206,11 @@ class STVTallier extends Tallier {
 		];
 
 		// Historical tallies won't have a blt calculated;
-		// add it only if it's a PanelLayout
-		if ( $htmlBlt instanceof PanelLayout ) {
+		if ( $htmlBlt !== '' ) {
 			$htmlItems[] = $htmlBlt;
 		}
 
-		return new StackLayout( [
+		return (string)new StackLayout( [
 			'items' => $htmlItems,
 			'continuous' => true,
 			'expanded' => false,

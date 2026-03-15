@@ -12,13 +12,13 @@ interface STVFormatter {
 	 */
 	public function formatPreamble( array $elected, array $eliminated, array $modifiers );
 
-	/** @return string|\OOUI\PanelLayout */
+	/** @return string */
 	public function formatRoundsPreamble();
 
-	/** @return string|\OOUI\Tag */
+	/** @return string */
 	public function formatRound();
 
-	/** @return string|\OOUI\PanelLayout */
+	/** @return string */
 	public function formatBlt();
 
 }

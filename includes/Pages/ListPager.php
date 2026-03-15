@@ -172,7 +172,7 @@ class ListPager extends TablePager {
 				}
 				$id = 'securepoll-popup-' . $voteId;
 
-				return ( new ButtonWidget( [
+				return (string)( new ButtonWidget( [
 					'id' => $id,
 					'label' => $label,
 				] ) )->setAttributes( [
