@@ -155,7 +155,8 @@
 		"LoadExtensionSchemaUpdates": "install",
 		"CanonicalNamespaces": "setup",
 		"TitleQuickPermissions": "setup",
-		"SpecialPage_initList": "setup"
+		"SpecialPage_initList": "setup",
+		"CodeMirrorSpecialPage": "codemirror"
 	},
 	"HookHandlers": {
 		"install": {
@@ -169,6 +170,9 @@
 		},
 		"logout": {
 			"class": "\\MediaWiki\\Extension\\SecurePoll\\HookHandler\\LogoutHandler"
+		},
+		"codemirror": {
+			"class": "\\MediaWiki\\Extension\\SecurePoll\\HookHandler\\CodeMirrorHooks"
 		}
 	},
 	"ServiceWiringFiles": [
