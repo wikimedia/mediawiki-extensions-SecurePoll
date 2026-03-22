@@ -11,7 +11,7 @@ use MediaWikiUnitTestCase;
  */
 class SecurePollContentHandlerTest extends MediaWikiUnitTestCase {
 
-	public function provideNormalizeData() {
+	public static function provideNormalizeData() {
 		return [
 			'one layer' =>
 				[

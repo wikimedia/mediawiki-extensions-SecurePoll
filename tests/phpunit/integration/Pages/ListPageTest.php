@@ -132,7 +132,7 @@ class ListPageTest extends SpecialPageTestBase {
 			->getPage( 'SecurePoll' );
 	}
 
-	private function provideVisitingListPageIsLogged() {
+	public static function provideVisitingListPageIsLogged() {
 		return [
 			'logging turned off, not logged in' => [
 				'logConfigVarTurnedOn' => false,
