@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Winston Sung"
+			"Winston Sung",
+			"Aca"
 		]
 	},
 	"apihelp-strikevote-summary": "Administratorima omogućuje precrtavanje ili obnavljanje glasanja.",
@@ -12,6 +13,6 @@
 	"apihelp-strikevote-param-reason": "Razlog za precrtavanje/obnavljanje glasa.",
 	"apihelp-strikevote-example-strike": "Precrtaj glas <kbd>1</kbd>, navodeći razlog <kbd>dupliciranje</kbd>.",
 	"apihelp-strikevote-example-unstrike": "Obnovi glas <kbd>1</kbd>, navodeći razlog <kbd>greška</kbd>.",
-	"apierror-securepoll-mustbeloggedin-strikevote": "Morate biti prijavljeni da biste precrtali ili obnovili glasovanje.",
-	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> ne predstavlja važeću glasačku naznaku."
+	"apierror-securepoll-mustbeloggedin-strikevote": "Morate biti prijavljeni da biste precrtali ili obnovili glasanje.",
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> nije ispravan glasački ID."
 }
