@@ -375,17 +375,6 @@ class Election extends Entity {
 			}
 		}
 
-		// Get custom error message and add it to the status's error messages
-		if ( !$status->isOK() ) {
-			$errorMsgText = $this->getMessage( 'unqualified-error' );
-			if ( $errorMsgText !== '[unqualified-error]' && $errorMsgText !== '' ) {
-				// We create the message as a separate step so that possible wikitext in
-				// $errorMsgText gets parsed.
-				$errorMsg = wfMessage( 'securepoll-custom-unqualified', $errorMsgText );
-				$status->error( $errorMsg );
-			}
-		}
-
 		return $status;
 	}
 
@@ -419,6 +408,23 @@ class Election extends Entity {
 			->caller( __METHOD__ )
 			->fetchRowCount();
 		return $numEdits === $edits;
+	}
+
+	/**
+	 * Get the custom unqualified-error message for this election, if set.
+	 *
+	 * This message is displayed separately from the Status object returned
+	 * by getQualifiedStatus(), so that it appears outside the bulleted list
+	 * of specific qualification failure reasons. See T397835.
+	 *
+	 * @return string|null The custom error message text, or null if not set.
+	 */
+	public function getCustomUnqualifiedError(): ?string {
+		$text = $this->getMessage( 'unqualified-error' );
+		if ( $text !== '[unqualified-error]' && $text !== '' ) {
+			return $text;
+		}
+		return null;
 	}
 
 	/**

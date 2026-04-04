@@ -111,6 +111,11 @@ class VotePage extends ActionPage {
 			} else {
 				$out->addWikiTextAsInterface( $status->getWikiText() );
 
+				$customError = $this->election->getCustomUnqualifiedError();
+				if ( $customError !== null ) {
+					$out->addWikiTextAsInterface( $customError );
+				}
+
 				return;
 			}
 		}

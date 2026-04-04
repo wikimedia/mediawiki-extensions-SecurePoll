@@ -31,6 +31,12 @@ class LoginPage extends ActionPage {
 		$status = $auth->newRequestedSession( $this->election );
 		if ( !$status->isOK() ) {
 			$out->addWikiTextAsInterface( $status->getWikiText() );
+
+			$customError = $this->election->getCustomUnqualifiedError();
+			if ( $customError !== null ) {
+				$out->addWikiTextAsInterface( $customError );
+			}
+
 			return;
 		}
 		$votePage = SpecialPage::getTitleFor( 'SecurePoll', 'vote/' . $this->election->getId() );

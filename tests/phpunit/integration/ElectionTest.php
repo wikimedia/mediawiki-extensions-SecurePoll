@@ -377,9 +377,8 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 		$this->assertStatusNotOK( $isQualified );
 		$this->assertStatusMessage( 'securepoll-not-in-list', $isQualified );
 
-		$this->assertStatusMessage( 'securepoll-custom-unqualified', $isQualified );
-		$customError = $isQualified->getMessages( 'error' )[1];
-		$this->assertEquals( 'This is a custom message.', $customError->getParams()[0] );
+		$customError = $election->getCustomUnqualifiedError();
+		$this->assertEquals( 'This is a custom message.', $customError );
 	}
 
 	/**

@@ -86,7 +86,6 @@
 	"securepoll-in-exclude-list": "Used as error message.",
 	"securepoll-too-few-edits-before-date": "Used as error message. Parameters:\n* $1 - number of edits\n* $2 - date",
 	"securepoll-too-few-edits-between-dates": "Used as error message. Parameters:\n* $1 - number of edits\n* $2 - start date\n* $3 end date",
-	"securepoll-custom-unqualified": "{{notranslate}}\nUsed as fatal error message. Parameters:\n* $1 - error message",
 	"securepoll-list-title": "Used as page title and as page subtitle. Parameters:\n* $1 - title of the election, or the string \"[title]\"",
 	"securepoll-list-private": "Used as an error message.",
 	"securepoll-header-timestamp": "{{Identical|Time}}",
