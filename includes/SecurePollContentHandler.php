@@ -112,9 +112,7 @@ class SecurePollContentHandler extends JsonContentHandler {
 			];
 			foreach ( $election->getMessageNames() as $name ) {
 				$value = $election->getRawMessage( $name, $lang );
-				if ( $value !== false ) {
-					$data['messages'][$name] = $value;
-				}
+				$data['messages'][$name] = $value !== false ? $value : '';
 			}
 
 			foreach ( $election->getQuestions() as $question ) {
@@ -125,9 +123,7 @@ class SecurePollContentHandler extends JsonContentHandler {
 				];
 				foreach ( $question->getMessageNames() as $name ) {
 					$value = $question->getRawMessage( $name, $lang );
-					if ( $value !== false ) {
-						$q['messages'][$name] = $value;
-					}
+					$q['messages'][$name] = $value !== false ? $value : '';
 				}
 
 				foreach ( $question->getOptions() as $option ) {
@@ -137,9 +133,7 @@ class SecurePollContentHandler extends JsonContentHandler {
 					];
 					foreach ( $option->getMessageNames() as $name ) {
 						$value = $option->getRawMessage( $name, $lang );
-						if ( $value !== false ) {
-							$o['messages'][$name] = $value;
-						}
+						$o['messages'][$name] = $value !== false ? $value : '';
 					}
 					$q['options'][] = $o;
 				}
