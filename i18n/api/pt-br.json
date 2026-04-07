@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Chicocvenancio",
-			"Felipe L. Ewald"
+			"Felipe L. Ewald",
+			"Eduardoaddad"
 		]
 	},
 	"apihelp-strikevote-summary": "Permitir aos administradores invalidar ou validar um voto.",
@@ -14,5 +15,8 @@
 	"apihelp-strikevote-example-strike": "Invalidar o voto <kbd>1</kbd>, dando o motivo <kbd>duplicação</kbd>.",
 	"apihelp-strikevote-example-unstrike": "Validar o voto <kbd>1</kbd>, dando o motivo <kbd>erro</kbd>.",
 	"apierror-securepoll-mustbeloggedin-strikevote": "Deves estar logado para invalidar ou validar um voto.",
-	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> não é um id válido de voto."
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> não é um id válido de voto.",
+	"apihelp-securepollauth-summary": "Permite que um wiki remoto autentique os usuários antes de conceder acesso para votar na eleição.",
+	"apihelp-securepollauth-param-token": "Um token baseado no token de entrada do usuário.",
+	"apihelp-securepollauth-param-id": "O ID do usuário que pretende votar."
 }
