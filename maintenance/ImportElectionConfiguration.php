@@ -106,7 +106,7 @@ EOT
 			}
 			if ( !$success ) {
 				$this->rollbackTransaction( $dbw, __METHOD__ );
-				$this->fatalError( "Faied!\n" );
+				$this->fatalError( "Failed!\n" );
 			}
 		}
 		$this->commitTransaction( $dbw, __METHOD__ );
