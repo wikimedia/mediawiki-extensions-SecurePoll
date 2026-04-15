@@ -225,6 +225,7 @@
 	"securepolllog-election-does-not-exist": "Walen net fonnt",
 	"securepoll-stv-droop-default-value": "Sicht eng Optioun eraus",
 	"securepoll-stv-droop-choice-rank": "Astellung $1",
+	"securepoll-stv-invalid-input-empty": "Fëllt wgl. dës Astellung aus",
 	"securepoll-stv-result-election-elected-header": "Gewielt",
 	"securepoll-stv-result-election-tally-table-heading": "Auszielung",
 	"securepoll-stv-result-election-result-table-heading": "Resultat",
