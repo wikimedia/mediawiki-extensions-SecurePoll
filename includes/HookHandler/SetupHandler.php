@@ -5,9 +5,9 @@ namespace MediaWiki\Extension\SecurePoll\HookHandler;
 use MediaWiki\Config\Config;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePollLog;
-use MediaWiki\Hook\CanonicalNamespacesHook;
 use MediaWiki\Permissions\Hook\TitleQuickPermissionsHook;
 use MediaWiki\SpecialPage\Hook\SpecialPage_initListHook;
+use MediaWiki\Title\Hook\CanonicalNamespacesHook;
 
 class SetupHandler implements
 	CanonicalNamespacesHook,

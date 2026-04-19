@@ -18,7 +18,7 @@ use MediaWiki\Extension\SecurePoll\Store\FormStore;
 use MediaWiki\Extension\SecurePoll\Talliers\Tallier;
 use MediaWiki\HTMLForm\HTMLForm;
 use MediaWiki\Language\LanguageCode;
-use MediaWiki\Languages\LanguageNameUtils;
+use MediaWiki\Language\LanguageNameUtils;
 use MediaWiki\Message\Message;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Revision\SlotRecord;

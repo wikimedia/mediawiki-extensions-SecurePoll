@@ -6,7 +6,7 @@ use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\Session\CsrfTokenSet;
-use SpecialPageTestBase;
+use MediaWiki\Tests\Specials\SpecialPageTestBase;
 
 /**
  * @group Database

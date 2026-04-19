@@ -5,7 +5,7 @@ namespace MediaWiki\Extension\SecurePoll\Pages;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Extension\SecurePoll\TranslationRepo;
-use MediaWiki\Languages\LanguageNameUtils;
+use MediaWiki\Language\LanguageNameUtils;
 use MediaWiki\Title\Title;
 use OOUI\ButtonInputWidget;
 use OOUI\DropdownInputWidget;

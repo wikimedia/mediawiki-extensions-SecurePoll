@@ -12,7 +12,7 @@ use MediaWiki\Rest\LocalizedHttpException;
 use MediaWiki\Rest\RequestData;
 use MediaWiki\Rest\ResponseInterface;
 use MediaWiki\Tests\Rest\Handler\HandlerTestTrait;
-use SpecialPageTestBase;
+use MediaWiki\Tests\Specials\SpecialPageTestBase;
 use Wikimedia\Message\MessageValue;
 
 /**

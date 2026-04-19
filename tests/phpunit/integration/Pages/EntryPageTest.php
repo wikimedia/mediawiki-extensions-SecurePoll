@@ -6,7 +6,7 @@ use MediaWiki\Context\DerivativeContext;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\SecurePoll\Pages\CreatePage;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
-use SpecialPageTestBase;
+use MediaWiki\Tests\Specials\SpecialPageTestBase;
 use Wikimedia\Parsoid\Core\DOMCompat;
 use Wikimedia\Parsoid\Ext\DOMUtils;
 

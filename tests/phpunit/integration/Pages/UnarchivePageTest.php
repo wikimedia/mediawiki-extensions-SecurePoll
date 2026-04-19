@@ -7,7 +7,7 @@ use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\Request\WebRequest;
 use MediaWiki\Session\CsrfTokenSet;
-use SpecialPageTestBase;
+use MediaWiki\Tests\Specials\SpecialPageTestBase;
 use Wikimedia\Timestamp\ConvertibleTimestamp;
 
 /**

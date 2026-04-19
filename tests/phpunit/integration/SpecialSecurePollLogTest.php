@@ -4,10 +4,10 @@ namespace MediaWiki\Extension\SecurePoll\Test\Integration;
 
 use MediaWiki\Exception\PermissionsError;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePollLog;
+use MediaWiki\Tests\Specials\SpecialPageTestBase;
 use MediaWiki\Tests\Unit\Permissions\MockAuthorityTrait;
 use MediaWiki\User\UserFactory;
 use MediaWiki\User\UserGroupManager;
-use SpecialPageTestBase;
 
 /**
  * @group SpecialPage

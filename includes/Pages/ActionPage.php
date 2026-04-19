@@ -9,14 +9,14 @@ use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Extension\SecurePoll\User\Auth;
 use MediaWiki\Extension\SecurePoll\User\Voter;
 use MediaWiki\Language\Language;
-use MediaWiki\Languages\LanguageFallback;
+use MediaWiki\Language\LanguageFallback;
+use MediaWiki\Language\MessageLocalizer;
 use MediaWiki\Linker\Linker;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
 use MediaWiki\User\Options\UserOptionsLookup;
 use MediaWiki\User\User;
 use MediaWiki\WikiMap\WikiMap;
-use MessageLocalizer;
 use Wikimedia\Message\MessageSpecifier;
 
 /**

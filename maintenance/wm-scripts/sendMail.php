@@ -4,11 +4,12 @@ namespace MediaWiki\Extension\SecurePoll;
 
 use Generator;
 use InvalidArgumentException;
-use MailAddress;
 use MediaWiki\Content\TextContent;
 use MediaWiki\Html\Html;
-use MediaWiki\Languages\LanguageFactory;
-use MediaWiki\Languages\LanguageFallback;
+use MediaWiki\Language\LanguageFactory;
+use MediaWiki\Language\LanguageFallback;
+use MediaWiki\Mail\MailAddress;
+use MediaWiki\Mail\UserMailer;
 use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\Parser;
@@ -18,7 +19,6 @@ use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Title\Title;
 use MediaWiki\WikiMap\WikiMap;
 use RuntimeException;
-use UserMailer;
 
 // @codeCoverageIgnoreStart
 if ( getenv( 'MW_INSTALL_PATH' ) ) {

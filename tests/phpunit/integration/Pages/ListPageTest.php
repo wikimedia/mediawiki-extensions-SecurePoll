@@ -9,7 +9,7 @@ use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
 use MediaWiki\Extension\SecurePoll\Pages\ActionPage;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\Request\WebRequest;
-use SpecialPageTestBase;
+use MediaWiki\Tests\Specials\SpecialPageTestBase;
 use Wikimedia\Timestamp\ConvertibleTimestamp;
 
 /**
