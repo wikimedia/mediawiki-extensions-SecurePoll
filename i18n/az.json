@@ -5,6 +5,7 @@
 			"NMW03",
 			"Nemoralis",
 			"Serkanland",
+			"Toghrul Rahimli",
 			"Vago",
 			"Vugar 1981",
 			"Wertuose"
@@ -38,7 +39,7 @@
 	"securepoll-openssl-invalid-key": "Təqdim olunan açarlardan biri etibarsız idi. Şifrələmə açarı ən azı 2048 bitlik RSA ictimai açarı, şifrə açma və ya imzalama açarı isə ən azı 2048 bitlik RSA özəl açarı olmalıdır.",
 	"securepoll-no-decryption-key": "Şifrə açma açarı konfiqurasiya edilməyib.\nŞifrəni açmaq mümkün deyil.",
 	"securepoll-wrong-decryption-key": "Konfiqurasiya edilmiş deşifrə açarı yanlışdır.\nŞifrəni açmaq mümkün deyil.",
-	"securepoll-no-verification-key": "Doğrulama açarı konfiqurasiya edilməyib.\nSəsvermə qeydlərini doğrulamaq mümkün deyil.",
+	"securepoll-no-verification-key": "Təsdiqləmə açarı konfiqurasiya edilməyib.\nSəsvermə qeydlərini təsdiqləmək mümkün deyil.",
 	"securepoll-invalid-record": "Etibarsız səsvermə qeydi.",
 	"securepoll-jump": "Seçki serverinə get",
 	"securepoll-ballot-type-archived": "Bu bülleten növü arxivləşdirilib və daha səsvermə üçün istifadə edilə bilməz.",
