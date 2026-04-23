@@ -17,8 +17,13 @@ class SpecialSecurePollLog extends FormSpecialPage {
 	public function __construct(
 		private readonly UserFactory $userFactory,
 	) {
-		parent::__construct( 'SecurePollLog', 'securepoll-create-poll' );
+		parent::__construct( 'SecurePollLog' );
 		$this->context = new Context();
+	}
+
+	/** @inheritDoc */
+	public function getRestriction(): string {
+		return 'securepoll-create-poll';
 	}
 
 	/**
