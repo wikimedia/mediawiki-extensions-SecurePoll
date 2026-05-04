@@ -15,6 +15,7 @@ use Wikimedia\Timestamp\ConvertibleTimestamp;
 /**
  * @group Database
  * @covers \MediaWiki\Extension\SecurePoll\Pages\ListPage
+ * @covers \MediaWiki\Extension\SecurePoll\Pages\ListPager
  * @covers \MediaWiki\Extension\SecurePoll\Pages\ActionPage
  */
 class ListPageTest extends SpecialPageTestBase {
@@ -237,6 +238,35 @@ class ListPageTest extends SpecialPageTestBase {
 		} else {
 			$this->assertSame( 0, $log->numRows(), 'no log entry created' );
 		}
+	}
+
+	public function testStrikeColumnIsSortableForAdmins() {
+		$election = $this->createElection();
+
+		// Set time to after the election has started
+		$twoDaysLater = wfTimestamp( TS_ISO_8601, wfTimestamp() + 2 * 86400 );
+		ConvertibleTimestamp::setFakeTime( $twoDaysLater );
+
+		$this->vote( $election );
+
+		// Set time to after the election ends
+		$fourDaysLater = wfTimestamp( TS_ISO_8601, wfTimestamp() + 4 * 86400 );
+		ConvertibleTimestamp::setFakeTime( $fourDaysLater );
+
+		// Visit list page sorted by 'strike' column
+		$request = new FauxRequest( [ 'sort' => 'strike' ] );
+		RequestContext::getMain()->setUser( $this->getTestSysop()->getUser() );
+		RequestContext::getMain()->setLanguage( 'qqx' );
+
+		[ $html ] = $this->executeSpecialPage(
+			'list/' . $election->getId(), $request, null,
+			$this->getTestSysop()->getAuthority()
+		);
+
+		// The page should render without errors and contain the strike header
+		$this->assertStringContainsString( 'securepoll-header-strike', $html );
+		// The page should still show voter data
+		$this->assertStringContainsString( 'securepoll-voter-name-local', $html );
 	}
 
 	public function testVisitingListPageWhenElectionHasJumpUrlSet() {

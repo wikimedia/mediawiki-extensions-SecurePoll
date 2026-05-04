@@ -95,7 +95,8 @@ class ListPager extends TablePager {
 				'vote_voter_name',
 				'vote_voter_domain',
 				'vote_id',
-				'vote_ip'
+				'vote_ip',
+				'strike',
 			]
 		);
 	}
@@ -202,6 +203,19 @@ class ListPager extends TablePager {
 	public function getDefaultSort() {
 		// See T298434
 		return 'vote_id';
+	}
+
+	/** @inheritDoc */
+	public function getIndexField() {
+		$field = parent::getIndexField();
+		// Map virtual 'strike' field to actual DB column.
+		// Use a nested array so that IndexPager keeps both columns
+		// as a composite index field: vote_struck for sorting and
+		// vote_id as a tiebreaker for correct pagination.
+		if ( $field === 'strike' ) {
+			return [ [ 'vote_struck', 'vote_id' ] ];
+		}
+		return $field;
 	}
 
 	/** @inheritDoc */
