@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Kallmemel",
 			"Sdm1985"
 		]
 	},
@@ -31,19 +32,19 @@
 	"securepoll-remote-auth-error": "Tabatin problema na ora di buska informashonnan tokante di bo kuenta riba e server.",
 	"securepoll-remote-parse-error": "Tabatin problema na ora di interpretá e derechinan for di riba e server.",
 	"securepoll-api-invalid-params": "Parámetronan no ta balido",
-	"securepoll-api-no-user": "Nos no por a haña un usuario bo di e ID aki.",
+	"securepoll-api-no-user": "Nos no por a haña un usadó bou di e ID aki.",
 	"securepoll-api-token-mismatch": "Tabating un problema di seguridad, no por hasi e log in.",
 	"securepoll-not-logged-in": "Bo mester hasi e log in pa vota den e elekshon aki",
 	"securepoll-too-few-edits": "Despensa, pero bo no por vota. Bo mester a hasi por lo menos $1 {{PLURAL:$1|kambio|kambionan}} pa vota den e elekshon aki, abo a hasi $2.",
 	"securepoll-blocked": "Despensa, pero bo no por vota den e elekshon aki si bo derechi pa hasi kambionan ta blòkia.",
 	"securepoll-bot": "Despensa, kuentanan ku marká ku e `bot flag´ no por vota den e elekshon aki.",
 	"securepoll-not-in-group": "Solamente miembronan di e grupo \"$1\" por vota den e elekshon aki.",
-	"securepoll-not-in-list": "Despensa, pero abo no ta den e lista di usuarionan ku ta outorisá pa vota den e elekshon aki.",
+	"securepoll-not-in-list": "Despensa, pero bo no ta den lista di usadó ku ta outorisá pa vota den e elekshon aki.",
 	"securepoll-list-title": "Lista di votonan: $1",
 	"securepoll-header-timestamp": "Tempu",
 	"securepoll-header-voter-name": "Nòmber",
 	"securepoll-header-voter-domain": "Dominio/Domain",
-	"securepoll-header-ua": "Usuario",
+	"securepoll-header-ua": "Usadó",
 	"securepoll-header-cookie-dup": "Dupliká",
 	"securepoll-header-strike": "Pone",
 	"securepoll-header-details": "Detaye",
@@ -61,7 +62,7 @@
 	"securepoll-header-action": "Akshon",
 	"securepoll-header-reason": "Motibu",
 	"securepoll-header-admin": "Administrashon",
-	"securepoll-cookie-dup-list": "Kantidat di usuarionan ku a bai vota un di dos biaha",
+	"securepoll-cookie-dup-list": "Kantidat di usadó ku a bai vota un di dos biaha",
 	"securepoll-dump-title": "Laga numa: $1",
 	"securepoll-dump-not-finished": "Resultadonan encrypt di elekshon no ta aksesibel promé ku e fecha di klousura ku ta $2 riba $1",
 	"securepoll-dump-no-urandom": "No por habri /dev/urandom.\nPa mantené e privasidat di kada votadó, elekshonnan encrypt por wòrdu mirá dor di publiko solamente ora ku nan por wòrdu di shòbel dor di otro ku un stream di numbernan bruá dor di otro.",
