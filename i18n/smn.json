@@ -38,5 +38,6 @@
 	"securepoll-votereligibility-label-comment": "Suijâ",
 	"securepoll-votereligibility-edit-action": "Vuorkkii listo",
 	"securepoll-votereligibility-saved": "{{int:securepoll}}: Vyerkkejum",
-	"securepoll-voter-stats": "Puoh jienâvuoigâdvuođâlijn $1 {{PLURAL:$1|lii|láá}} jienâstâm."
+	"securepoll-voter-stats": "Puoh jienâvuoigâdvuođâlijn $1 {{PLURAL:$1|lii|láá}} jienâstâm.",
+	"securepoll-translation-import-action-done": "Vaalmâš"
 }
