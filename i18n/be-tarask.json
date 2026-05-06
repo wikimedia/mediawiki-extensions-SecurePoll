@@ -106,5 +106,7 @@
 	"securepoll-average-score": "Сярэдні вынік",
 	"securepoll-round": "$1 тур",
 	"securepoll-spoilt": "(забракаваныя)",
-	"securepoll-exhausted": "(вычарпаныя)"
+	"securepoll-exhausted": "(вычарпаныя)",
+	"securepoll-create-option-column_order-asc": "Водле ўзросту",
+	"securepoll-create-option-column_order-desc": "Водле спаду"
 }
