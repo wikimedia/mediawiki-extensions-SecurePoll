@@ -37,7 +37,7 @@
 	"securepoll-not-logged-in": "Bo mester hasi e log in pa vota den e elekshon aki",
 	"securepoll-too-few-edits": "Despensa, pero bo no por vota. Bo mester a hasi por lo menos $1 {{PLURAL:$1|kambio|kambionan}} pa vota den e elekshon aki, abo a hasi $2.",
 	"securepoll-blocked": "Despensa, pero bo no por vota den e elekshon aki si bo derechi pa hasi kambionan ta blòkia.",
-	"securepoll-bot": "Despensa, kuentanan ku marká ku e `bot flag´ no por vota den e elekshon aki.",
+	"securepoll-bot": "Despensa, kuentanan ku bòt status no por vota den e elekshon aki.",
 	"securepoll-not-in-group": "Solamente miembronan di e grupo \"$1\" por vota den e elekshon aki.",
 	"securepoll-not-in-list": "Despensa, pero bo no ta den lista di usadó ku ta outorisá pa vota den e elekshon aki.",
 	"securepoll-list-title": "Lista di votonan: $1",
