@@ -172,7 +172,7 @@ class GenerateTestElection extends Maintenance {
 					'vote_ip' => 'AC120001',
 					'vote_xff' => "",
 					'vote_ua' => 'Mozilla/5.0 (X11; Linux ppc64le; rv:78.0) Gecko/20100101 Firefox/78.0',
-					'vote_timestamp' => date( 'YmdHis' ),
+					'vote_timestamp' => $dbw->timestamp(),
 					'vote_current' => 1,
 					'vote_token_match' => 1,
 					'vote_cookie_dup' => 0

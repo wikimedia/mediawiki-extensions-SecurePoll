@@ -11,6 +11,7 @@ use MediaWiki\Request\FauxRequest;
 use MediaWiki\Request\WebRequest;
 use MediaWiki\Tests\Specials\SpecialPageTestBase;
 use Wikimedia\Timestamp\ConvertibleTimestamp;
+use Wikimedia\Timestamp\TimestampFormat;
 
 /**
  * @group Database
@@ -36,8 +37,8 @@ class ListPageTest extends SpecialPageTestBase {
 
 	private function createElection(): Election {
 		$now = wfTimestamp();
-		$tomorrow = wfTimestamp( TS_ISO_8601, $now + 86400 );
-		$threeDaysLater = wfTimestamp( TS_ISO_8601, $now + 3 * 86400 );
+		$tomorrow = wfTimestamp( TimestampFormat::ISO_8601, $now + 86400 );
+		$threeDaysLater = wfTimestamp( TimestampFormat::ISO_8601, $now + 3 * 86400 );
 		$params = [
 			'wpelection_title' => 'Test Election',
 			'wpquestions' => [
@@ -86,7 +87,8 @@ class ListPageTest extends SpecialPageTestBase {
 			] )
 			->caller( __METHOD__ )->execute();
 		$voterId = $this->getDb()->insertId();
-		$this->getDb()->newInsertQueryBuilder()
+		$dbw = $this->getDb();
+		$dbw->newInsertQueryBuilder()
 			->insertInto( 'securepoll_votes' )
 			->row( [
 				'vote_election' => $election->getId(),
@@ -100,7 +102,7 @@ class ListPageTest extends SpecialPageTestBase {
 				'vote_ip' => 'AC120001',
 				'vote_xff' => '',
 				'vote_ua' => '',
-				'vote_timestamp' => wfTimestampNow(),
+				'vote_timestamp' => $dbw->timestamp(),
 				'vote_current' => 1,
 				'vote_token_match' => 1,
 				'vote_cookie_dup' => 0,
@@ -181,13 +183,13 @@ class ListPageTest extends SpecialPageTestBase {
 		$election = $this->createElection();
 
 		// Set time to after the election has started
-		$twoDaysLater = wfTimestamp( TS_ISO_8601, wfTimestamp() + 2 * 86400 );
+		$twoDaysLater = wfTimestamp( TimestampFormat::ISO_8601, wfTimestamp() + 2 * 86400 );
 		ConvertibleTimestamp::setFakeTime( $twoDaysLater );
 
 		$this->vote( $election );
 
 		// Set time to after the election ends
-		$fourDaysLater = wfTimestamp( TS_ISO_8601, wfTimestamp() + 4 * 86400 );
+		$fourDaysLater = wfTimestamp( TimestampFormat::ISO_8601, wfTimestamp() + 4 * 86400 );
 		ConvertibleTimestamp::setFakeTime( $fourDaysLater );
 
 		$this->clearSecurePollLogs( $election );
@@ -244,13 +246,13 @@ class ListPageTest extends SpecialPageTestBase {
 		$election = $this->createElection();
 
 		// Set time to after the election has started
-		$twoDaysLater = wfTimestamp( TS_ISO_8601, wfTimestamp() + 2 * 86400 );
+		$twoDaysLater = wfTimestamp( TimestampFormat::ISO_8601, wfTimestamp() + 2 * 86400 );
 		ConvertibleTimestamp::setFakeTime( $twoDaysLater );
 
 		$this->vote( $election );
 
 		// Set time to after the election ends
-		$fourDaysLater = wfTimestamp( TS_ISO_8601, wfTimestamp() + 4 * 86400 );
+		$fourDaysLater = wfTimestamp( TimestampFormat::ISO_8601, wfTimestamp() + 4 * 86400 );
 		ConvertibleTimestamp::setFakeTime( $fourDaysLater );
 
 		// Visit list page sorted by 'strike' column

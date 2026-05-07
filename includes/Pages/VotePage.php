@@ -301,8 +301,6 @@ class VotePage extends ActionPage {
 		$out = $this->specialPage->getOutput();
 		$request = $this->specialPage->getRequest();
 
-		$now = wfTimestampNow();
-
 		$crypt = $this->election->getCrypt();
 		if ( !$crypt ) {
 			$encrypted = $record;
@@ -350,7 +348,7 @@ class VotePage extends ActionPage {
 				'vote_ip' => IPUtils::toHex( $request->getIP() ),
 				'vote_xff' => $xff,
 				'vote_ua' => $_SERVER['HTTP_USER_AGENT'],
-				'vote_timestamp' => $now,
+				'vote_timestamp' => $dbw->timestamp(),
 				'vote_current' => 1,
 				'vote_token_match' => $tokenMatch ? 1 : 0,
 				'vote_struck' => 0,

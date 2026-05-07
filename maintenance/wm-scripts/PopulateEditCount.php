@@ -124,7 +124,7 @@ abstract class PopulateEditCount extends Maintenance {
 				->from( 'revision' )
 				->where( [
 					'rev_actor' => $actorId,
-					$dbr->expr( 'rev_timestamp', '<', $beforeTime ),
+					$dbr->expr( 'rev_timestamp', '<', $dbr->timestamp( $beforeTime ) ),
 				] )
 				->limit( $this->beforeEditsToCount )
 				->caller( __METHOD__ )
@@ -135,8 +135,8 @@ abstract class PopulateEditCount extends Maintenance {
 				->from( 'revision' )
 				->where( [
 					'rev_actor' => $actorId,
-					$dbr->expr( 'rev_timestamp', '>=', $betweenStartTime ),
-					$dbr->expr( 'rev_timestamp', '<', $betweenEndTime ),
+					$dbr->expr( 'rev_timestamp', '>=', $dbr->timestamp( $betweenStartTime ) ),
+					$dbr->expr( 'rev_timestamp', '<', $dbr->timestamp( $betweenEndTime ) ),
 				] )
 				->limit( $this->betweenEditsToCount )
 				->caller( __METHOD__ )

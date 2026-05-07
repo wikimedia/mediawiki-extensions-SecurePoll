@@ -62,12 +62,13 @@ OUTPUT
 	private function importVotesForTest( string $xmlFile ): void {
 		$testUserId = 4;
 		$voteRecords = [];
-		$now = wfTimestampNow();
 
 		$doc = new DOMDocument();
 		$doc->loadXML( file_get_contents( $xmlFile ) );
 
 		$votes = $doc->getElementsByTagName( 'vote' );
+
+		$dbw = $this->getDb();
 
 		foreach ( $votes as $vote ) {
 			$voteRecords[] = [
@@ -79,7 +80,7 @@ OUTPUT
 				'vote_ip' => '',
 				'vote_xff' => '',
 				'vote_ua' => '',
-				'vote_timestamp' => $now,
+				'vote_timestamp' => $dbw->timestamp(),
 				'vote_current' => 1,
 				'vote_token_match' => 1,
 				'vote_struck' => 0,
@@ -87,7 +88,7 @@ OUTPUT
 			];
 		}
 
-		$this->getDb()->newInsertQueryBuilder()
+		$dbw->newInsertQueryBuilder()
 			->insertInto( 'securepoll_votes' )
 			->rows( $voteRecords )
 			->caller( __METHOD__ )

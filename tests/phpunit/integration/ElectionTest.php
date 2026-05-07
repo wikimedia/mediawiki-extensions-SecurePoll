@@ -10,6 +10,7 @@ use MediaWiki\Utils\MWTimestamp;
 use MediaWikiIntegrationTestCase;
 use Wikimedia\IPUtils;
 use Wikimedia\Timestamp\ConvertibleTimestamp;
+use Wikimedia\Timestamp\TimestampFormat;
 
 /**
  * @group Database
@@ -57,7 +58,7 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 			->execute();
 		$electionId = $dbw->insertId();
 
-		$now = MWTimestamp::now( TS_MW );
+		$now = MWTimestamp::now( TimestampFormat::MW );
 
 		$dbw->newInsertQueryBuilder()
 			->insertInto( 'securepoll_elections' )
@@ -68,8 +69,8 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 				'el_ballot' => $options['ballot'] ?? 'stv',
 				'el_tally' => $options['tally'] ?? 'droop-quota',
 				'el_primary_lang' => 'en',
-				'el_start_date' => $options['startDate'] ?? $now,
-				'el_end_date' => $options['endDate'] ?? $now,
+				'el_start_date' => $dbw->timestamp( $options['startDate'] ?? $now ),
+				'el_end_date' => $dbw->timestamp( $options['endDate'] ?? $now ),
 				'el_auth_type' => 'local',
 			] )
 			->caller( __METHOD__ )
@@ -110,7 +111,8 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 	private function addVote( int $electionId, int $voterId, bool $current, bool $struck ): void {
 		$context = new Context();
 
-		$this->getDb()->newInsertQueryBuilder()
+		$dbw = $this->getDb();
+		$dbw->newInsertQueryBuilder()
 			->insertInto( 'securepoll_votes' )
 			->row( [
 				'vote_election' => $electionId,
@@ -121,7 +123,7 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 				'vote_ip' => IPUtils::toHex( '127.0.0.1' ),
 				'vote_xff' => '',
 				'vote_ua' => 'TestUserAgent',
-				'vote_timestamp' => MWTimestamp::now( TS_MW ),
+				'vote_timestamp' => $dbw->timestamp( MWTimestamp::now( TimestampFormat::MW ) ),
 				'vote_current' => $current ? 1 : 0,
 				'vote_token_match' => 1,
 				'vote_struck' => $struck ? 1 : 0,
@@ -387,8 +389,8 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 	public function testIsStartedAndNotFinished(): void {
 		$election = $this->context->getElection( 100 );
 
-		$yesterday = MWTimestamp::getInstance( strtotime( '-1 day' ) )->getTimestamp( TS_MW );
-		$tomorrow = MWTimestamp::getInstance( strtotime( '+1 day' ) )->getTimestamp( TS_MW );
+		$yesterday = MWTimestamp::getInstance( strtotime( '-1 day' ) )->getTimestamp( TimestampFormat::MW );
+		$tomorrow = MWTimestamp::getInstance( strtotime( '+1 day' ) )->getTimestamp( TimestampFormat::MW );
 
 		$election->startDate = $yesterday;
 		$election->endDate = $tomorrow;
@@ -404,8 +406,8 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 	public function testIsStartedAndFinished(): void {
 		$election = $this->context->getElection( 100 );
 
-		$yesterday = MWTimestamp::getInstance( strtotime( '-1 day' ) )->getTimestamp( TS_MW );
-		$dayBeforeYesterday = MWTimestamp::getInstance( strtotime( '-2 day' ) )->getTimestamp( TS_MW );
+		$yesterday = MWTimestamp::getInstance( strtotime( '-1 day' ) )->getTimestamp( TimestampFormat::MW );
+		$dayBeforeYesterday = MWTimestamp::getInstance( strtotime( '-2 day' ) )->getTimestamp( TimestampFormat::MW );
 
 		$election->startDate = $dayBeforeYesterday;
 		$election->endDate = $yesterday;
@@ -421,8 +423,8 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 	public function testIsNotStartedAndNotFinished(): void {
 		$election = $this->context->getElection( 100 );
 
-		$tomorrow = MWTimestamp::getInstance( strtotime( '+1 day' ) )->getTimestamp( TS_MW );
-		$dayAfterTomorrow = MWTimestamp::getInstance( strtotime( '+2 days' ) )->getTimestamp( TS_MW );
+		$tomorrow = MWTimestamp::getInstance( strtotime( '+1 day' ) )->getTimestamp( TimestampFormat::MW );
+		$dayAfterTomorrow = MWTimestamp::getInstance( strtotime( '+2 days' ) )->getTimestamp( TimestampFormat::MW );
 
 		$election->startDate = $tomorrow;
 		$election->endDate = $dayAfterTomorrow;

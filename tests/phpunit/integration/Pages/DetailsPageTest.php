@@ -97,7 +97,8 @@ class DetailsPageTest extends SpecialPageTestBase {
 			] )
 			->caller( __METHOD__ )->execute();
 		$voterId = $this->getDb()->insertId();
-		$this->getDb()->newInsertQueryBuilder()
+		$dbw = $this->getDb();
+		$dbw->newInsertQueryBuilder()
 			->insertInto( 'securepoll_votes' )
 			->row( [
 				'vote_election' => $this->election->getId(),
@@ -111,7 +112,7 @@ class DetailsPageTest extends SpecialPageTestBase {
 				'vote_ip' => 'AC120001',
 				'vote_xff' => '',
 				'vote_ua' => '',
-				'vote_timestamp' => wfTimestampNow(),
+				'vote_timestamp' => $dbw->timestamp(),
 				'vote_current' => 1,
 				'vote_token_match' => 1,
 				'vote_cookie_dup' => 0,

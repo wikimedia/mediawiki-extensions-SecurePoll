@@ -175,7 +175,7 @@ class ListPage extends ActionPage {
 			->insertInto( 'securepoll_strike' )
 			->row( [
 				'st_vote' => $voteId,
-				'st_timestamp' => wfTimestampNow(),
+				'st_timestamp' => $dbw->timestamp(),
 				'st_action' => $action,
 				'st_reason' => $reason,
 				'st_user' => $this->specialPage->getUser()->getId()
