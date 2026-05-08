@@ -61,6 +61,8 @@
 	"securepoll-not-in-group": "Sentímolo, unicamente poden votar nestas eleccións os membros pertencentes aos seguintes grupos: $1",
 	"securepoll-not-in-list": "Sentímolo, non estás na lista predeterminada de usuarios autorizados a votar nestas eleccións.",
 	"securepoll-in-exclude-list": "Sentímolo, non tes autorización para votar nestas eleccións.",
+	"securepoll-too-few-edits-before-date": "Sentímolo, non podes votar nestas eleccións porque fixeches menos {{PLURAL:$1|dunha edición|de $1 edicións}} antes do $2",
+	"securepoll-too-few-edits-between-dates": "Sentímolo, non podes votar nestas eleccións porque fixeches menos {{PLURAL:$1|dunha edición|de $1 edicións}} entre o $2 e o $3",
 	"securepoll-list-title": "Lista de votos: $1",
 	"securepoll-list-private": "Sentímolo, a vista da lista de votantes para estas eleccións está restrinxida ós administradores das eleccións.",
 	"securepoll-header-timestamp": "Hora",

@@ -58,6 +58,8 @@
 	"securepoll-not-in-group": "Solmente le membros del sequente gruppos pote votar in iste election: $1",
 	"securepoll-not-in-list": "Pardono, tu non es in le lista predeterminate del usatores autorisate a votar in iste election.",
 	"securepoll-in-exclude-list": "Regrettabilemente, tu non es autorisate a votar in iste election.",
+	"securepoll-too-few-edits-before-date": "Tu non pote votar in iste election perque tu ha apportate minus de $1 modification{{PLURAL:$1||es}} ante le $2",
+	"securepoll-too-few-edits-between-dates": "Tu non pote votar in iste election perque tu ha apportate minus de $1 modification{{PLURAL:$1||es}} inter le $2 e le $3",
 	"securepoll-list-title": "Lista del votos: $1",
 	"securepoll-list-private": "Solo le administratores del election es autorisate a vider le lista de votantes.",
 	"securepoll-header-timestamp": "Tempore",

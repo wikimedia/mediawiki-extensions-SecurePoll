@@ -67,6 +67,8 @@
 	"securepoll-not-in-group": "Leider können nur Benutzer der folgenden Gruppen an dieser Wahl teilnehmen: $1",
 	"securepoll-not-in-list": "{{#FORMAL:Du befindest dich|Sie befinden sich}} leider nicht auf der Liste der Benutzerinnen und Benutzer, die bei dieser Wahl abstimmen dürfen.",
 	"securepoll-in-exclude-list": "Leider bist du nicht berechtigt, bei dieser Wahl abzustimmen.",
+	"securepoll-too-few-edits-before-date": "Leider kannst du an dieser Wahl nicht teilnehmen, da du weniger als {{PLURAL:$1|1 Bearbeitung|$1 Bearbeitungen}} vor dem $2 getätigt hast.",
+	"securepoll-too-few-edits-between-dates": "Leider kannst du an dieser Wahl nicht teilnehmen, da du weniger als {{PLURAL:$1|1 Bearbeitung|$1 Bearbeitungen}} zwischen dem $2 und dem $3 getätigt hast.",
 	"securepoll-list-title": "Stimmen auflisten: $1",
 	"securepoll-list-private": "Leider ist die Betrachtung der Wählerliste für diese Abstimmung auf Wahl-Administratoren beschränkt.",
 	"securepoll-header-timestamp": "Zeit",

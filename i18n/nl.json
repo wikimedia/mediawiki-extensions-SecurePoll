@@ -72,6 +72,8 @@
 	"securepoll-not-in-group": "Alleen gebruikers in de volgende groepen mogen stemmen bij deze verkiezing: $1",
 	"securepoll-not-in-list": "U staat helaas niet op de vooraf vastgestelde lijst van stemgerechtigden voor deze verkiezing.",
 	"securepoll-in-exclude-list": "Sorry, u mag niet stemmen in deze verkiezing.",
+	"securepoll-too-few-edits-before-date": "U kunt niet stemmen in deze verkiezing omdat u minder dan $1 {{PLURAL:$1|bewerking|bewerkingen}} hebt gemaakt vóór $2",
+	"securepoll-too-few-edits-between-dates": "U kunt niet stemmen in deze verkiezing omdat u minder dan $1 {{PLURAL:$1|bewerking|bewerkingen}} tussen $2 en $3 hebt",
 	"securepoll-list-title": "Stemmen weergeven: $1",
 	"securepoll-list-private": "Sorry, enkel verkiezingsbeheerders mogen de kiezerslijst voor deze verkiezing bekijken.",
 	"securepoll-header-timestamp": "Tijd",
