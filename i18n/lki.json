@@ -100,6 +100,5 @@
 	"securepoll-create-label-questions-option": "=== گزینه‌ها ===",
 	"securepoll-create-label-options-option": "متن گزینه:",
 	"securepoll-create-label-options-add": "افزودن گزینهٔ دیگر",
-	"securepoll-votereligibility-label-processing": "این فهرست در دست ساخت است ( $1 ٪ کامل شده)",
 	"action-securepoll-create-poll": "نظرسنجی ایجاد کنید"
 }

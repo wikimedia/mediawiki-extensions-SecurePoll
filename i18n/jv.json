@@ -119,7 +119,6 @@
 	"securepoll-votereligibility-exclude": "Kajabakaké pratélan",
 	"securepoll-votereligibility-label-inuse": "Pratélan iki kanggo",
 	"securepoll-votereligibility-label-notinuse": "Pratélan iki ora kanggo",
-	"securepoll-votereligibility-label-processing": "Pratélan iki lagi diyasa ($1% rampung)",
 	"securepoll-votereligibility-label-edit": "Besut pratélan",
 	"securepoll-votereligibility-label-clear": "Busak pratélan",
 	"securepoll-votereligibility-label-edits_before_count": "Cacah besutan minimum",

@@ -141,7 +141,6 @@
 	"securepoll-votereligibility-exclude": "Lista isključenih",
 	"securepoll-votereligibility-label-inuse": "Ova lista je u upotrebi",
 	"securepoll-votereligibility-label-notinuse": "Ova lista nije u upotrebi",
-	"securepoll-votereligibility-label-processing": "Ova lista je u izradi ($1% dovršeno)",
 	"securepoll-votereligibility-label-edit": "Promijeni listu",
 	"securepoll-votereligibility-label-clear": "Ukloni listu",
 	"securepoll-votereligibility-label-edits_before": "Zahtijevaj minimalni broj izmjena prije datuma",

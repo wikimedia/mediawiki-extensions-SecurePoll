@@ -134,7 +134,6 @@
 	"securepoll-votereligibility-redirect": "A szavazási feltételeket ehhez a szavazáshoz a(z) $1 helyen kell beállítani",
 	"securepoll-votereligibility-label-edit": "Lista szerkesztése",
 	"securepoll-votereligibility-label-clear": "Lista eltávolítása",
-	"securepoll-votereligibility-label-populate": "Lista automatikus feltöltése",
 	"securepoll-votereligibility-label-names": "Felhasználónevek",
 	"securepolllog-form-date-label": "Ettől a dátumtól (és korábbról):",
 	"securepoll-translate-import-button-label": "Fordítások importálása",

@@ -17,6 +17,7 @@
 			"Str4nd",
 			"Valtlai",
 			"Valtlait",
+			"Wikipeedikko",
 			"Yupik",
 			"ZeiP"
 		]
@@ -68,6 +69,8 @@
 	"securepoll-not-in-group": "Pahoittelut, vain seuraaviin ryhmiin kuuluvat käyttäjät voivat äänestää näissä vaaleissa: $1",
 	"securepoll-not-in-list": "Et ole etukäteen valitussa listassa käyttäjiä, jotka ovat oikeutettuja äänestämään tässä vaalissa.",
 	"securepoll-in-exclude-list": "Valitettavasti sinulla ei ole oikeutta äänestää tässä vaalissa.",
+	"securepoll-too-few-edits-before-date": "Et valitettavasti voi osallistua tähän äänestykseen, sillä olet tehnyt alle $1 {{PLURAL:$1|muokkauksen|muokkausta}} ennen $2",
+	"securepoll-too-few-edits-between-dates": "Et valitettavasti voi osallistua tähän äänestykseen, sillä olet tehnyt alle $1 {{PLURAL:$1|muokkauksen|muokkausta}} $2–$3",
 	"securepoll-list-title": "Luettelo äänistä: $1",
 	"securepoll-list-private": "Valitettavasti tämän vaalin äänestäjäluettelon katsominen on rajoitettu vaalin ylläpitäjille.",
 	"securepoll-header-timestamp": "Aika",

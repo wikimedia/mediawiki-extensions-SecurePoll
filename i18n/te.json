@@ -188,7 +188,6 @@
 	"securepoll-votereligibility-label-edits_between_count": "కనీస సవరణ సంఖ్య",
 	"securepoll-votereligibility-label-edits_startdate": "తరువాత సవరణలు:",
 	"securepoll-votereligibility-label-edits_enddate": "ముందు:",
-	"securepoll-votereligibility-label-exclude_groups": "ఈ సమూహాలలో వినియోగదారులను మినహాయించండి",
 	"securepoll-votereligibility-label-include_groups": "సవరణలు లేదా ఇతర సమూహాలతో సంబంధం లేకుండా ఈ సమూహాలలో వినియోగదారులను చేర్చండి",
 	"securepoll-votereligibility-label-names": "వినియోగదారు పేర్లు",
 	"securepoll-votereligibility-label-comment": "కారణం",
