@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Aquasen",
 			"Bananax47",
 			"Crochet.david",
 			"Derugon",
@@ -278,7 +279,7 @@
 	"securepoll-votereligibility-label-not_bot": "Ne doit pas être marqué comme robot",
 	"securepoll-votereligibility-label-need_group": "Il doit être dans l'un de ces groupes:",
 	"securepoll-votereligibility-lists": "Listes des électeurs inscrits",
-	"securepoll-votereligibility-lists-info": "Les votants éligibles peuvent aussi être listés explicitement. Il y a trois listes :\n* la ''{{int:securepoll-votereligibility-voter}}'' est une liste des votants autorisés à voter, s’ils correspondent aussi aux exigences de base définies ci-dessous. Cette liste est souvent automatiquement remplie ;\n* la ''{{int:securepoll-votereligibility-include}}'' est une liste de votants qui ont le droit de voter indépendamment des exigences de base ou de la liste d’éligibilité ;\n* la ''{{int:securepoll-votereligibility-exclude}}'' est une liste de votants qui n’ont pas le droit de voter, indépendamment de toutes les autres listes.",
+	"securepoll-votereligibility-lists-info": "Les votants éligibles peuvent aussi être listés explicitement. Il y a trois listes :\n* la ''{{int:securepoll-votereligibility-voter}}'' est une liste des votants autorisés à voter, s’ils correspondent aussi aux exigences de base définies ci-dessous. Cette liste est souvent remplie automatiquement ;\n* la ''{{int:securepoll-votereligibility-include}}'' est une liste de votants qui ont le droit de voter indépendamment des exigences de base ou de la liste d’éligibilité ;\n* la ''{{int:securepoll-votereligibility-exclude}}'' est une liste de votants qui n’ont pas le droit de voter, indépendamment de toutes les autres listes.",
 	"securepoll-votereligibility-voter": "Liste d’éligibilité",
 	"securepoll-votereligibility-include": "Liste des admis par avance",
 	"securepoll-votereligibility-exclude": "Liste des exclus par avance",
