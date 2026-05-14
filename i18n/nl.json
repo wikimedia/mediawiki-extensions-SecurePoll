@@ -244,7 +244,7 @@
 	"securepoll-create-user-missing-edit-right": "“$1” heeft niet de toestemming om {{int:action-securepoll-edit-poll}}.",
 	"securepoll-create-fail-bad-id": "De ingediende verkiezings-ID komt niet overeen met de verkiezing die wordt bewerkt",
 	"securepoll-create-fail-id-missing": "De verkiezing die wordt bewerkt bestaat niet meer",
-	"securepoll-create-fail-bad-dblist": "De opgegeven wiki- of wikilijst is ongeldig",
+	"securepoll-create-fail-bad-dblist": "De opgegeven wiki- of wikilijst is onjuist",
 	"securepoll-create-duplicate-title": "De opgegeven peilingstitel is al gebruikt voor $1",
 	"securepoll-edit-title": "{{int:securepoll}}: Peiling bewerken",
 	"securepoll-edit-redirect": "De verkiezing moet worden ingesteld op $1",
