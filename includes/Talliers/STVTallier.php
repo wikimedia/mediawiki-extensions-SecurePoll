@@ -6,6 +6,8 @@ use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Question;
 use MediaWiki\Extension\SecurePoll\Talliers\STVFormatter\HtmlFormatter;
 use MediaWiki\Extension\SecurePoll\Talliers\STVFormatter\WikitextFormatter;
+use OOUI\HtmlSnippet;
+use OOUI\PanelLayout;
 use OOUI\StackLayout;
 use RuntimeException;
 
@@ -210,8 +212,16 @@ class STVTallier extends Tallier {
 			$htmlItems[] = $htmlBlt;
 		}
 
+		// T426423 Wrap strings to PanelLayout objects
+		$panelItems = array_map( static function ( $html ) {
+			return new PanelLayout( [
+				'expanded' => false,
+				'content' => [ new HtmlSnippet( $html ) ],
+			] );
+		}, $htmlItems );
+
 		return (string)new StackLayout( [
-			'items' => $htmlItems,
+			'items' => $panelItems,
 			'continuous' => true,
 			'expanded' => false,
 			'classes' => [ 'election-tally-results--stv' ]
