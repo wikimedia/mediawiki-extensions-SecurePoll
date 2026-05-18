@@ -214,7 +214,7 @@ class TranslatePage extends ActionPage {
 						'id' => 'import-trans-btn',
 						'infusable' => true,
 						'label' => $this->msg( 'securepoll-translate-import-button-label' )->text(),
-						'flags' => [ 'primary', 'progressive' ],
+						'flags' => [ 'primary' ],
 						'disabled' => !$this->isAdmin
 					] )
 				),
