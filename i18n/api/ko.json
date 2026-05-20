@@ -8,7 +8,7 @@
 		]
 	},
 	"apihelp-strikevote-summary": "관리자가 투표를 제거하거나 제거를 취소할 수 있게 합니다.",
-	"apihelp-strikevote-param-option": "수행할 동작: 투표를 제거하거나 제거를 취소합니다.",
+	"apihelp-strikevote-param-option": "수행할 작업: 투표를 제거하거나 제거를 취소합니다.",
 	"apihelp-strikevote-paramvalue-option-strike": "투표를 제거합니다. (개수에서 제거)",
 	"apihelp-strikevote-paramvalue-option-unstrike": "투표 제거를 취소합니다. (개수에서 복구)",
 	"apihelp-strikevote-param-voteid": "제거하거나 제거를 취소할 투표 ID입니다.",
