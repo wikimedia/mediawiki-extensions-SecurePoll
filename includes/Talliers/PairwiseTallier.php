@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\SecurePoll\Talliers;
 
 use MediaWiki\Html\Html;
@@ -205,7 +207,7 @@ abstract class PairwiseTallier extends Tallier {
 				if ( is_array( $value ) ) {
 					$value = '(' . implode( ', ', $value ) . ')';
 				}
-				$s .= str_pad( $value, $colWidths[$oid2] ) . ' | ';
+				$s .= str_pad( (string)$value, $colWidths[$oid2] ) . ' | ';
 			}
 			$s .= "\n";
 		}

@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\SecurePoll\Entities;
 
 use MediaWiki\Extension\SecurePoll\Context;
@@ -66,10 +68,9 @@ class Entity {
 
 	/**
 	 * Get the entity ID.
-	 * @return int
 	 */
-	public function getId() {
-		return $this->id;
+	public function getId(): int {
+		return (int)$this->id;
 	}
 
 	/**

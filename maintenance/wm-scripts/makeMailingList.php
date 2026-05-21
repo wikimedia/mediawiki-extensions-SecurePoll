@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\SecurePoll;
 
 use Generator;
@@ -92,7 +94,7 @@ class MakeMailingList extends Maintenance {
 
 	public function execute() {
 		$this->initServices();
-		$this->context = new Context;
+		$this->context = new Context();
 
 		if ( $this->hasOption( 'election-wiki' ) ) {
 			$electionWiki = $this->getOption( 'election-wiki' );
@@ -328,7 +330,7 @@ class MakeMailingList extends Maintenance {
 	 * @param User $user
 	 */
 	private function writeUser( $user ) {
-		$entry = new MailingListEntry;
+		$entry = new MailingListEntry();
 		$entry->wiki = WikiMap::getCurrentWikiId();
 		$entry->siteName = $this->getConfig()->get( MainConfigNames::Sitename );
 		$entry->userName = $user->getName();

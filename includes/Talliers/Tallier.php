@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\SecurePoll\Talliers;
 
 use InvalidArgumentException;
@@ -167,10 +169,10 @@ abstract class Tallier {
 		}
 
 		foreach ( $ids as $i => $oid ) {
-			$rank = $ranks[$oid];
+			$rank = (string)$ranks[$oid];
 			$prevRank = isset( $ids[$i - 1] ) ? $ranks[$ids[$i - 1]] : false;
 			$nextRank = isset( $ids[$i + 1] ) ? $ranks[$ids[$i + 1]] : false;
-			if ( $rank === $prevRank || $rank === $nextRank ) {
+			if ( $rank === (string)$prevRank || $rank === (string)$nextRank ) {
 				$rank .= '*';
 			}
 

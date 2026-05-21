@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 use MediaWiki\Extension\SecurePoll\Maintenance\PurgePrivateVoteData;
 use MediaWiki\Maintenance\Maintenance;
 

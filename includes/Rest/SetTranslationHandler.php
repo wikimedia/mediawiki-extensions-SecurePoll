@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\SecurePoll\Rest;
 
 use MediaWiki\Context\RequestContext;
@@ -61,7 +63,7 @@ class SetTranslationHandler extends SimpleHandler {
 
 		$context = RequestContext::getMain();
 		$user = $context->getUser();
-		$sp_context = new Context;
+		$sp_context = new Context();
 		$election = $sp_context->getElection( $electionId );
 		if ( !$election ) {
 			throw new HttpException( 'No valid election' );

@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\SecurePoll\Pages;
 
 class MessageDumpPage extends ActionPage {

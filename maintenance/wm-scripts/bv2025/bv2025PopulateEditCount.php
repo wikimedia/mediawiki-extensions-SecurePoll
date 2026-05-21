@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 /**
  * Rules: https://w.wiki/EHkR
  * You may vote from any one registered account you own on a Wikimedia wiki.

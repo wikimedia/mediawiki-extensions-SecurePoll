@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\SecurePoll\Store;
 
 use MediaWiki\Status\Status;
@@ -72,7 +74,7 @@ class XMLStore extends MemoryStore {
 	 * @return bool
 	 */
 	public function readFile() {
-		$this->xmlReader = new XMLReader;
+		$this->xmlReader = new XMLReader();
 		$xr = $this->xmlReader;
 		$fileName = realpath( $this->fileName );
 		$uri = 'file://' . str_replace( '%2F', '/', rawurlencode( $fileName ) );

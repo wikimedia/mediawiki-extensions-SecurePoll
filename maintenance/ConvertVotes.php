@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\SecurePoll\Maintenance;
 
 use MediaWiki\Extension\SecurePoll\Ballots\Ballot;
@@ -84,13 +86,13 @@ class ConvertVotes extends Maintenance {
 		if ( !count( $electionIds ) ) {
 			$this->fatalError( "No elections found in XML file \"$fileName\"" );
 		}
-		$electionId = reset( $electionIds );
-		$this->election = $this->context->getElection( reset( $electionIds ) );
+		$electionId = (int)reset( $electionIds );
+		$this->election = $this->context->getElection( $electionId );
 		$this->convert( $electionId );
 	}
 
 	private function convertLocalElection( string $name ) {
-		$this->context = new Context;
+		$this->context = new Context();
 		$this->election = $this->context->getElectionByTitle( $name );
 		if ( !$this->election ) {
 			$this->fatalError( "The specified election does not exist." );

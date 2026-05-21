@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\SecurePoll\Maintenance;
 
 use MediaWiki\Extension\SecurePoll\Context;
@@ -67,7 +69,7 @@ EOT
 			$this->fatalError( "No elections found to import.\n" );
 		}
 
-		$xc = new Context;
+		$xc = new Context();
 		$xc->setStore( $store );
 		$dbw = $this->getDB( DB_PRIMARY );
 

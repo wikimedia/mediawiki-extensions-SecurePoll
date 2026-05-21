@@ -1,4 +1,7 @@
 <?php
+
+declare( strict_types=1 );
+
 // This file is not loaded by MediaWiki, and exists purely
 // for static analysis purposes
 

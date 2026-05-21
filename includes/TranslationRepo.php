@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\SecurePoll;
 
 use MediaWiki\CommentStore\CommentStoreComment;
@@ -101,7 +103,7 @@ class TranslationRepo {
 			}
 
 			if ( Context::isNamespacedLoggingEnabled() ) {
-				$context = new Context;
+				$context = new Context();
 				$contextElection = $context->getElection( $election->getId() );
 				$contextElection->loadMessages( $language );
 				// Explicitly overwrite the values that have been changed, since the loaded

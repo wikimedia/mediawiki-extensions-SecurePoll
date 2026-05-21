@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\SecurePoll\Test\Integration;
 
 use MediaWiki\Context\RequestContext;
@@ -110,7 +112,7 @@ class PreferentialBallotTest extends MediaWikiIntegrationTestCase {
 	public function testSubmitQuestion( $votes, $expected ) {
 		$this->ballot->initRequest(
 			new FauxRequest( $votes ),
-			new RequestContext,
+			new RequestContext(),
 			$this->getServiceContainer()->getLanguageFactory()->getLanguage( 'en' )
 		);
 

@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\SecurePoll\Maintenance;
 
 use Exception;
@@ -39,7 +41,7 @@ class DumpElectionScript extends Maintenance {
 	}
 
 	public function execute() {
-		$context = new Context;
+		$context = new Context();
 
 		$name = $this->getArg( 0 );
 		if ( $this->hasOption( 'by-id' ) ) {

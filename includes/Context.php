@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\SecurePoll;
 
 use MediaWiki\Context\RequestContext;
@@ -86,7 +88,7 @@ class Context {
 	 * @return self|false
 	 */
 	public static function newFromXmlFile( $fileName ) {
-		$context = new self;
+		$context = new self();
 		$store = new XMLStore( $fileName );
 		$context->setStore( $store );
 		return $store->readFile() ? $context : false;
@@ -257,7 +259,7 @@ class Context {
 	 */
 	public function getRandom() {
 		if ( !$this->random ) {
-			$this->random = new Random;
+			$this->random = new Random();
 		}
 
 		return $this->random;

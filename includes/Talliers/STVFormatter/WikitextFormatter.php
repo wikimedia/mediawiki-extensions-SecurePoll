@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\SecurePoll\Talliers\STVFormatter;
 
 class WikitextFormatter extends HtmlFormatter {

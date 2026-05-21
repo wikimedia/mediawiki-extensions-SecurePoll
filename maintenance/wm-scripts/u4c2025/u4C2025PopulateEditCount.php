@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 /**
  * Rules from https://w.wiki/EJij
  * You may vote from any one registered account you own on a Wikimedia wiki.

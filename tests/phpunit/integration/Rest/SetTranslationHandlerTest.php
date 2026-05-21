@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\SecurePoll\Test\Integration\Rest;
 
 use MediaWiki\Extension\SecurePoll\Context;
@@ -80,16 +82,17 @@ class SetTranslationHandlerTest extends SpecialPageTestBase {
 
 	/**
 	 * Convenience function to create a test request.
-	 * @param string $entityid Id of the entity to translate
+	 * @param int|string $entityid Id of the entity to translate
 	 * @param string $language language of the translation
 	 * @param array $body translation strings
 	 * @return RequestData
 	 */
 	private static function getRequestData(
-		string $entityid,
+		int|string $entityid,
 		string $language = 'qqx',
 		array $body = []
 	): RequestData {
+		$entityid = (string)$entityid;
 		return new RequestData( [
 			'method' => 'POST',
 			'pathParams' => [

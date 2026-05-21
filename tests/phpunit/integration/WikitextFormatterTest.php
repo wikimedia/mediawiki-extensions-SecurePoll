@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\SecurePoll\Test\Integration;
 
 use MediaWiki\Extension\SecurePoll\Talliers\STVFormatter\WikitextFormatter;

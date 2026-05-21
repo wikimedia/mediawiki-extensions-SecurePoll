@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 /**
  * Rules from U4C directly.
  * You may vote from any one registered account you own on a Wikimedia wiki.

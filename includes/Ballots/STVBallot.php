@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\SecurePoll\Ballots;
 
 use MediaWiki\Extension\SecurePoll\Entities\Question;
@@ -81,7 +83,7 @@ class STVBallot extends Ballot {
 		$this->numberOfSeats = $question->getProperty( 'min-seats' );
 
 		$data = [
-			'questionId' => (int)$question->getId(),
+			'questionId' => $question->getId(),
 			'maxSeats' => $this->seatsLimit ? $this->numberOfSeats : count( $options ),
 			'selectedItems' => []
 		];

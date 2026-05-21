@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\SecurePoll\Test\Integration;
 
 use MediaWiki\Context\RequestContext;
@@ -31,6 +33,7 @@ class ApprovalBallotTest extends MediaWikiIntegrationTestCase {
 			return $option;
 		}, [ 1, 2 ] );
 		$this->question = $this->createMock( Question::class );
+		$this->question->method( 'getId' )->willReturn( 0 );
 		$this->question->method( 'getOptions' )->willReturn( $options );
 
 		$this->ballot = Ballot::factory(
@@ -48,22 +51,22 @@ class ApprovalBallotTest extends MediaWikiIntegrationTestCase {
 		return [
 			'Request with all valid options' => [
 				[
-					'securepoll_q_opt1' => 'checked',
-					'securepoll_q_opt2' => 'checked',
+					'securepoll_q0_opt1' => 'checked',
+					'securepoll_q0_opt2' => 'checked',
 				],
 				'Q00000000-A00000001-y--Q00000000-A00000002-y--'
 			],
 			'Request with only some options filled' => [
 				[
-					'securepoll_q_opt2' => 'checked',
+					'securepoll_q0_opt2' => 'checked',
 				],
 				'Q00000000-A00000001-n--Q00000000-A00000002-y--'
 			],
 			'Request with an invalid option' => [
 				[
-					'securepoll_q_opt1' => 'checked',
-					'securepoll_q_opt2' => 'checked',
-					'securepoll_q_optINVALID' => 'checked',
+					'securepoll_q0_opt1' => 'checked',
+					'securepoll_q0_opt2' => 'checked',
+					'securepoll_q0_optINVALID' => 'checked',
 				],
 				'Q00000000-A00000001-y--Q00000000-A00000002-y--'
 			]
@@ -77,7 +80,7 @@ class ApprovalBallotTest extends MediaWikiIntegrationTestCase {
 	public function testSubmitQuestion( $votes, $expected ) {
 		$this->ballot->initRequest(
 			new FauxRequest( $votes ),
-			new RequestContext,
+			new RequestContext(),
 			$this->getServiceContainer()->getLanguageFactory()->getLanguage( 'en' )
 		);
 

@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\SecurePoll\Crypt;
 
 use MediaWiki\Status\Status;
@@ -46,12 +48,12 @@ class Random {
 	 * @return int
 	 */
 	public function getInt( $maxp1 ) {
-		$numBytes = ceil( strlen( base_convert( (string)$maxp1, 10, 16 ) ) / 2 );
-		if ( $numBytes == 0 ) {
+		$numBytes = (int)ceil( strlen( base_convert( (string)$maxp1, 10, 16 ) ) / 2 );
+		if ( $numBytes === 0 ) {
 			return 0;
 		}
 		$data = fread( $this->urandom, $numBytes );
-		if ( strlen( $data ) != $numBytes ) {
+		if ( strlen( $data ) !== $numBytes ) {
 			throw new RuntimeException( __METHOD__ . ': not enough bytes' );
 		}
 		$x = 0;

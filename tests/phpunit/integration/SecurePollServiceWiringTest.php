@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 /**
  * Copy of CentralAuth's CentralAuthServiceWiringTest.php
  * used to test the ServiceWiring.php file.

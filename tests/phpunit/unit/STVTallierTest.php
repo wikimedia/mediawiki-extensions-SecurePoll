@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\SecurePoll\Test\Unit;
 
 use DirectoryIterator;
@@ -35,7 +37,7 @@ class STVTallierTest extends MediaWikiUnitTestCase {
 			$option->method( 'getMessage' )
 				->willReturn( $message );
 			return $option;
-		}, [ 100, 101, 102, 103, 104 ], [ 100, 101, 102, 103, 104 ] );
+		}, [ 100, 101, 102, 103, 104 ], [ '100', '101', '102', '103', '104' ] );
 		$question = $this->createMock( Question::class );
 		$question->method( 'getOptions' )->willReturn( $options );
 
@@ -170,7 +172,7 @@ class STVTallierTest extends MediaWikiUnitTestCase {
 	 * @covers \MediaWiki\Extension\SecurePoll\Talliers\STVTallier::calculateDroopQuota
 	 */
 	public function testCalculateDroopQuota() {
-		$actual = TestingAccessWrapper::newFromObject( $this->tallier )->calculateDroopQuota( 57, 2 );
+		$actual = TestingAccessWrapper::newFromObject( $this->tallier )->calculateDroopQuota( '57', '2' );
 		$this->assertSame( '19.0000010000', $actual );
 	}
 

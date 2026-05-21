@@ -1,4 +1,7 @@
 <?php
+
+declare( strict_types=1 );
+
 /**
  * Purge private data (IP, XFF, UA) from SecurePoll Votes
  *

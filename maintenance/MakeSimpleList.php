@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\SecurePoll\Maintenance;
 
 use MediaWiki\Maintenance\Maintenance;

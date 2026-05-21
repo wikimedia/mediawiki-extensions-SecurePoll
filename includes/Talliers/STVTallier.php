@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\SecurePoll\Talliers;
 
 use MediaWiki\Extension\SecurePoll\Context;
@@ -439,7 +441,7 @@ class STVTallier extends Tallier {
 					// totalVotes = totalVotes + (voteValue + ballotCount)
 					$totalVotes = bcadd(
 						$totalVotes,
-						bcmul( $voteValue, $ballot['count'], self::PRECISION ),
+						bcmul( $voteValue, (string)$ballot['count'], self::PRECISION ),
 						self::PRECISION
 					);
 				} else {
@@ -552,7 +554,7 @@ class STVTallier extends Tallier {
 				// $a['total'] === $b['total']
 				if ( bccomp( $a['total'], $b['total'], self::PRECISION ) === 0 ) {
 					// ascending sort ($aKey <=> $bKey)
-					return bccomp( $aKey, $bKey, self::PRECISION );
+					return bccomp( (string)$aKey, (string)$bKey, self::PRECISION );
 				}
 				// descending sort ($b['total'] <=> $a['total'])
 				return bccomp( $b['total'], $a['total'], self::PRECISION );

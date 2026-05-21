@@ -9,4 +9,6 @@
 	<file>.</file>
 	<arg name="extensions" value="php"/>
 	<arg name="encoding" value="UTF-8"/>
+	<rule ref="Generic.PHP.RequireStrictTypes"/>
+	<rule ref="PSR12.Classes.ClassInstantiation.MissingParentheses"/>
 </ruleset>

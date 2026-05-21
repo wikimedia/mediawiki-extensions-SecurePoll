@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\SecurePoll;
 
 use MediaWiki\Extension\SecurePoll\Pages\ActionPage;
@@ -19,7 +21,7 @@ class SpecialSecurePoll extends SpecialPage {
 		private readonly ActionPageFactory $actionPageFactory,
 	) {
 		parent::__construct( 'SecurePoll' );
-		$this->sp_context = new Context;
+		$this->sp_context = new Context();
 	}
 
 	/** @inheritDoc */

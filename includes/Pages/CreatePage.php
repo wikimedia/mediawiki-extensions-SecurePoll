@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\SecurePoll\Pages;
 
 use DateTime;
@@ -571,9 +573,9 @@ class CreatePage extends ActionPage {
 	 */
 	public function processInput( $formData, $form ) {
 		try {
-			$context = new Context;
+			$context = new Context();
 			$userId = $this->specialPage->getUser()->getId();
-			$store = new FormStore;
+			$store = new FormStore();
 			$context->setStore( $store );
 			$eId = (int)$formData['election_id'];
 			if ( $eId > 0 ) {
@@ -585,7 +587,7 @@ class CreatePage extends ActionPage {
 			$store->setFormData( $context, $formData, $userId );
 			$election = $context->getElection( $store->eId );
 
-			if ( $this->election && $store->eId !== (int)$this->election->getId() ) {
+			if ( $this->election && $store->eId !== $this->election->getId() ) {
 				return Status::newFatal( 'securepoll-create-fail-bad-id' );
 			}
 

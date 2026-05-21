@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\SecurePoll;
 
 use MediaWiki\Status\Status;
@@ -55,7 +57,7 @@ class VoteRecord {
 	 * @return VoteRecord|null
 	 */
 	private static function newFromJson( $json ) {
-		$record = new self;
+		$record = new self();
 		$data = json_decode( $json, true );
 		if ( !is_array( $data ) ) {
 			wfDebug( __METHOD__ . ': not array' );
@@ -85,7 +87,7 @@ class VoteRecord {
 	 * @return VoteRecord
 	 */
 	private static function newFromOldBlob( $blob ) {
-		$record = new self;
+		$record = new self();
 		$record->ballotData = rtrim( $blob );
 		return $record;
 	}
@@ -98,7 +100,7 @@ class VoteRecord {
 	 * @return VoteRecord
 	 */
 	public static function newFromBallotData( string $ballotData, string $comment ) {
-		$record = new self;
+		$record = new self();
 		$record->ballotData = $ballotData;
 		$record->comment = $comment;
 		return $record;

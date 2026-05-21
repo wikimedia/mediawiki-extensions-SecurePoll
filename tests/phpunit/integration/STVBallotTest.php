@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\SecurePoll\Test\Integration;
 
 use MediaWiki\Context\RequestContext;
@@ -47,7 +49,7 @@ class STVBallotTest extends MediaWikiIntegrationTestCase {
 		$this->question->method( 'getId' )->willReturn( 101 );
 		$this->question->method( 'getOptions' )->willReturn( $this->options );
 
-		$this->context = new Context;
+		$this->context = new Context();
 
 		$this->status = new BallotStatus();
 
@@ -150,7 +152,7 @@ class STVBallotTest extends MediaWikiIntegrationTestCase {
 	public function testSubmitQuestion( $votes, $expected ) {
 		$this->ballot->initRequest(
 			new FauxRequest( $votes ),
-			new RequestContext,
+			new RequestContext(),
 			$this->getServiceContainer()->getLanguageFactory()->getLanguage( 'en' )
 		);
 
@@ -178,7 +180,7 @@ class STVBallotTest extends MediaWikiIntegrationTestCase {
 		$stvBallot = new STVBallot( $this->context, $this->createMock( Election::class ) );
 		$stvBallot->initRequest(
 			new FauxRequest( $votes ),
-			new RequestContext,
+			new RequestContext(),
 			$this->getServiceContainer()->getLanguageFactory()->getLanguage( 'en' )
 		);
 		$questionForm = $stvBallot->getQuestionForm( $this->question, $this->options );

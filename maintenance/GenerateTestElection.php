@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\SecurePoll\Maintenance;
 
 use DateTime;
@@ -211,8 +213,8 @@ class GenerateTestElection extends Maintenance {
 			'election_id' => '-1',
 			'election_title' => $name,
 			'election_primaryLang' => 'en',
-			'election_startdate' => ( new DateTime )->modify( '-1 days' )->format( 'Y-m-d' ),
-			'election_enddate' => ( new DateTime )->format( 'Y-m-d' ),
+			'election_startdate' => ( new DateTime() )->modify( '-1 days' )->format( 'Y-m-d' ),
+			'election_enddate' => ( new DateTime() )->format( 'Y-m-d' ),
 			'return-url' => '',
 			'election_type' => 'stv+droop-quota',
 			'election_crypt' => 'none',
@@ -263,7 +265,7 @@ class GenerateTestElection extends Maintenance {
 	 */
 	private function generateSTVBallots( $dbw, $electionId, $stvParameters, $ballots ) {
 		// Make sure the parameters match the election
-		$context = new Context;
+		$context = new Context();
 		$election = $context->getElection( $electionId );
 
 		// STV expects only one question

@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types=1 );
+
 namespace MediaWiki\Extension\SecurePoll\Maintenance;
 
 use MediaWiki\Extension\SecurePoll\Context;
@@ -39,7 +41,7 @@ class DumpComments extends Maintenance {
 	}
 
 	public function execute() {
-		$context = new Context;
+		$context = new Context();
 		if ( !$this->hasOption( 'name' ) && $this->hasArg( 0 ) ) {
 			$dump = $this->getArg( 0 );
 			$context = Context::newFromXmlFile( $dump );
