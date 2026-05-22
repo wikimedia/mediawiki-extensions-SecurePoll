@@ -268,7 +268,7 @@
 	"securepoll-votereligibility-label-not_bot": "يجب ألا يحمل وسم بوت",
 	"securepoll-votereligibility-label-need_group": "يجب أن يكون في أي من هذه المجموعات:",
 	"securepoll-votereligibility-lists": "قوائم الناخبين",
-	"securepoll-votereligibility-lists-info": "يمكن تحديد جدارة المقترعين صراحةً أيضاً. هناك ثلاث قوائم:\n* قائمة «{{int:securepoll-votereligibility-voter}}»، وتشمل المقترعين الذين يسمح لهم بالتصويت إذا حققوا المتطلبات الأساسية المحددة أعلاه. غالباً ما يتم تشكيل هذه القائمة آلياً.\n* قائمة «{{int:securepoll-votereligibility-include}}»، وتشمل المقترعين الذين يسمح لهم بالتصويت بصرف النظر عن المتطلبات الأساسية لقائمة الجدارة.\n* قائمة «int:securepoll-votereligibility-exclude{{}}»، وتشمل المقترعين الذين لا يسمح لهم بالتصويت مهما كان وضعهم وفق القوائم الأخرى.",
+	"securepoll-votereligibility-lists-info": "يمكن أيضًا إدراج الناخبين المؤهلين بشكل صريح. توجد ثلاث قوائم:\n\n* قائمة الناخبين المؤهلين للتصويت ({{int:securepoll-votereligibility-voter}}): قائمة بالناخبين المسموح لهم بالتصويت، إذا استوفوا الشروط الأساسية المحددة أعلاه.\n\n* قائمة الناخبين غير المؤهلين للتصويت ({{int:securepoll-votereligibility-include}}): قائمة بالناخبين المسموح لهم بالتصويت بغض النظر عن الشروط الأساسية أو قائمة الأهلية.\n\n* قائمة الناخبين غير المؤهلين للتصويت، بغض النظر عن أي قوائم أخرى.",
 	"securepoll-votereligibility-voter": "قائمة الجدارة",
 	"securepoll-votereligibility-include": "تجاوز القائمة",
 	"securepoll-votereligibility-exclude": "استبعد القائمة",
