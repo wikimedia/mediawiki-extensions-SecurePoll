@@ -260,7 +260,7 @@
 	"securepoll-votereligibility-label-not_blocked_sitewide": "Mag niet voor de hele site geblokkeerd zijn",
 	"securepoll-votereligibility-label-not_blocked_partial": "Mag niet gedeeltelijk geblokkeerd zijn",
 	"securepoll-votereligibility-label-not_centrally_blocked": "Mag niet op te veel gekoppelde wiki’s geblokkeerd zijn",
-	"securepoll-votereligibility-label-central_block_threshold": "Drempel centrale blokkering",
+	"securepoll-votereligibility-label-central_block_threshold": "Drempel centrale blokkade",
 	"securepoll-votereligibility-label-not_bot": "Mag niet als robot gemarkeerd zijn",
 	"securepoll-votereligibility-label-need_group": "Moet zich in een van deze groepen bevinden:",
 	"securepoll-votereligibility-lists": "Kiezerslijsten",
