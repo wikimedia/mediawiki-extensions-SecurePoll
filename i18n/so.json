@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Abshirdheere"
+			"Abshirdheere",
+			"AhmedG612"
 		]
 	},
+	"securepoll-welcome": "<strong>{{GENDER:$1|Soo dhawoow}} $1!</strong>",
 	"securepoll-subpage-translate": "Turjum"
 }
