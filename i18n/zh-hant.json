@@ -30,7 +30,8 @@
 			"Yuyu",
 			"捍粵者",
 			"飞舞回堂前",
-			"魔琴"
+			"魔琴",
+			"ZhaoFJx"
 		]
 	},
 	"securepoll": "安全投票",
@@ -244,7 +245,7 @@
 	"securepoll-create-label-options-add": "新增其他選項",
 	"securepoll-create-label-options-delete": "刪除選項",
 	"securepoll-create-label-option-name": "選項名稱：",
-	"securepoll-create-label-seat_count": "席次數目：",
+	"securepoll-create-label-seat_count": "應選席次：",
 	"securepoll-create-label-limit-seats_input": "限制席位數輸入",
 	"securepoll-create-option-election_type-approval+plurality": "認可制",
 	"securepoll-create-option-election_type-preferential+schulze": "舒爾茨制",
