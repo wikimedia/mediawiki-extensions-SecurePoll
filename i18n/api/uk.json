@@ -17,5 +17,7 @@
 	"apierror-securepoll-mustbeloggedin-strikevote": "Ви маєте перебувати в системі, щоб голосувати чи скасовувати свої голоси.",
 	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> не є дійсним ідентифікатором голосування.",
 	"apihelp-securepollauth-summary": "Дозволяє віддаленій вікі аутентифікувати користувачів до надання доступу до голосування на виборах.",
+	"apihelp-securepollauth-param-token": "Токен, що базується на токені входу користувача.",
+	"apihelp-securepollauth-param-id": "Ідентифікатор користувача, який має намір проголосувати.",
 	"apihelp-securepollauth-example-auth": "Аутентифікувати користувача з ID <kbd>1</kbd> та токеном входу <kbd>123ABC</kbd>."
 }
