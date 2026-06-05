@@ -227,7 +227,7 @@ class ListPageTest extends SpecialPageTestBase {
 		}
 
 		// check for a Special:SecurePollLog entry
-		$this->runJobs( [ 'minJobs' => 0 ] );
+		$this->runJobs( [ 'minJobs' => 0 ], [ 'type' => 'securePollLogAdminAction' ] );
 		$log = $this->getDb()->newSelectQueryBuilder()
 			->select( '*' )
 			->from( 'securepoll_log' )
