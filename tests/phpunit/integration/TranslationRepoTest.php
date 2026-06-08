@@ -34,9 +34,13 @@ class TranslationRepoTest extends MediaWikiIntegrationTestCase {
 
 		$services = $this->getServiceContainer();
 		$rqb = $this->createMock( ReplaceQueryBuilder::class );
-		$rqb->method( $this->logicalOr( 'replaceInto', 'uniqueIndexFields', 'rows', 'caller' ) )->willReturnSelf();
+		foreach ( [ 'replaceInto', 'uniqueIndexFields', 'rows', 'caller' ] as $method ) {
+			$rqb->method( $method )->willReturnSelf();
+		}
 		$sqb = $this->createMock( SelectQueryBuilder::class );
-		$sqb->method( $this->logicalOr( 'select', 'from', 'where', 'caller' ) )->willReturnSelf();
+		foreach ( [ 'select', 'from', 'where', 'caller' ] as $method ) {
+			$sqb->method( $method )->willReturnSelf();
+		}
 		$sqb->method( 'fetchField' )->willReturn( 7894 );
 		$mockDB = $this->createMock( IDatabase::class );
 		$mockDB->method( 'newSelectQueryBuilder' )->willReturn( $sqb );
