@@ -380,7 +380,12 @@ class Election extends Entity {
 		return $status;
 	}
 
-	private function hasEditsBeforeDate( int $userId, string $wiki, int $edits, string $beforeDate ): bool {
+	protected function hasEditsBeforeDate(
+		int $userId,
+		string $wiki,
+		int $edits,
+		string $beforeDate
+	): bool {
 		$dbr = MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->getReplicaDatabase( $wiki );
 		$numEdits = $dbr->newSelectQueryBuilder()
 			->from( 'revision' )
@@ -395,7 +400,12 @@ class Election extends Entity {
 		return $numEdits === $edits;
 	}
 
-	private function hasEditsBetweenDates( int $userId, string $wiki, int $edits, string $afterDate, string $beforeDate
+	protected function hasEditsBetweenDates(
+		int $userId,
+		string $wiki,
+		int $edits,
+		string $afterDate,
+		string $beforeDate
 	): bool {
 		$dbr = MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->getReplicaDatabase( $wiki );
 		$numEdits = $dbr->newSelectQueryBuilder()

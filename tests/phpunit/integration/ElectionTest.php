@@ -108,6 +108,41 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
+	 * Create an election object in which external db lookup methods are mocked
+	 * to return pre-configured data.
+	 */
+	private function createMockElection(
+		array $properties,
+		string $lookupMethod,
+		array $expectedLookupArgs,
+		bool $lookupResult
+	): Election {
+		$election = $this->getMockBuilder( Election::class )
+			->setConstructorArgs( [
+				new Context(),
+				[
+					'id' => 999,
+					'title' => 'Test Election',
+					'ballot' => 'stv',
+					'tally' => 'droop-quota',
+					'primaryLang' => 'en',
+					'startDate' => '',
+					'endDate' => '',
+					'auth' => 'local',
+				],
+			] )
+			->onlyMethods( [ $lookupMethod ] )
+			->getMock();
+		$election->properties = $properties;
+		$election->expects( $this->once() )
+			->method( $lookupMethod )
+			->with( ...$expectedLookupArgs )
+			->willReturn( $lookupResult );
+
+		return $election;
+	}
+
+	/**
 	 * Inserts a vote into the database (only works with DB elections).
 	 */
 	private function addVote( int $electionId, int $voterId, bool $current, bool $struck ): void {
@@ -366,6 +401,93 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 		$isQualified = $election->getQualifiedStatus( $params );
 		$this->assertStatusNotOK( $isQualified );
 		$this->assertStatusMessage( 'securepoll-not-in-list', $isQualified );
+	}
+
+	/**
+	 * Test for eligibility requirements that involve db lookup.
+	 * @dataProvider provideLookupBasedEligibilityRequirements
+	 */
+	public function testLookupBasedEligibilityRequirements(
+		array $electionProperties,
+		string $lookupMethod,
+		array $expectedLookupArgs,
+		bool $lookupResult,
+		?string $expectedStatusMessage
+	): void {
+		$election = $this->createMockElection(
+			$electionProperties,
+			$lookupMethod,
+			$expectedLookupArgs,
+			$lookupResult
+		);
+		$params = [
+			'properties' => [
+				'groups' => [],
+				'id' => 123,
+				'wiki' => 'enwiki',
+			],
+		];
+
+		$isQualified = $election->getQualifiedStatus( $params );
+
+		if ( $expectedStatusMessage === null ) {
+			$this->assertStatusOK( $isQualified );
+		} else {
+			$this->assertStatusNotOK( $isQualified );
+			$this->assertStatusMessage( $expectedStatusMessage, $isQualified );
+		}
+	}
+
+	public static function provideLookupBasedEligibilityRequirements(): iterable {
+		yield 'edits-before allows voter when lookup meets requirement' => [
+			[
+				'edits-before' => '1',
+				'edits-before-count' => '10',
+				'edits-before-date' => '20250101000000',
+			],
+			'hasEditsBeforeDate',
+			[ 123, 'enwiki', 10, '20250101000000' ],
+			true,
+			null,
+		];
+
+		yield 'edits-before rejects voter when lookup misses requirement' => [
+			[
+				'edits-before' => '1',
+				'edits-before-count' => '10',
+				'edits-before-date' => '20250101000000',
+			],
+			'hasEditsBeforeDate',
+			[ 123, 'enwiki', 10, '20250101000000' ],
+			false,
+			'securepoll-too-few-edits-before-date',
+		];
+
+		yield 'edits-between allows voter when lookup meets requirement' => [
+			[
+				'edits-between' => '1',
+				'edits-between-count' => '10',
+				'edits-between-startdate' => '20250101000000',
+				'edits-between-enddate' => '20250201000000',
+			],
+			'hasEditsBetweenDates',
+			[ 123, 'enwiki', 10, '20250101000000', '20250201000000' ],
+			true,
+			null,
+		];
+
+		yield 'edits-between rejects voter when lookup misses requirement' => [
+			[
+				'edits-between' => '1',
+				'edits-between-count' => '10',
+				'edits-between-startdate' => '20250101000000',
+				'edits-between-enddate' => '20250201000000',
+			],
+			'hasEditsBetweenDates',
+			[ 123, 'enwiki', 10, '20250101000000', '20250201000000' ],
+			false,
+			'securepoll-too-few-edits-between-dates',
+		];
 	}
 
 	public function testCustomErrorMessage(): void {
