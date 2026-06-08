@@ -20,14 +20,14 @@ class HTMLFormRadioRangeColumnLabels extends HTMLFormField {
 
 		$neg = false;
 		foreach ( $values as $k => $v ) {
-			if ( preg_match( '/^-\d+$/', $k ) ) {
+			if ( preg_match( '/^-\d+$/', (string)$k ) ) {
 				$neg = true;
 			}
 		}
 
 		$ret = [];
 		foreach ( $values as $k => $v ) {
-			if ( preg_match( '/^-?\d+$/', $k ) ) {
+			if ( preg_match( '/^-?\d+$/', (string)$k ) ) {
 				$key = ( $neg && $k > 0 ) ? "+$k" : $k;
 				$ret["column$key"] = $v;
 			}
