@@ -321,8 +321,6 @@ class OpenSslCrypt extends Crypt {
 	 * Load our keys from the election store.
 	 * Keys that do not exist in the store will remain null, however if a private key is supplied
 	 * but not its corresponding public key, we will derive it.
-	 *
-	 * @return Status
 	 */
 	private function setupKeys(): Status {
 		if ( $this->decryptKey === null ) {
@@ -434,8 +432,6 @@ class OpenSslCrypt extends Crypt {
 	 * Clears the openssl error string queue.
 	 * Some successful openssl operations still append to this queue, so it must be
 	 * cleared before running operations which may fail and which we want failure details for.
-	 *
-	 * @return void
 	 */
 	private function clearErrors(): void {
 		while ( true ) {
@@ -657,8 +653,6 @@ class OpenSslCrypt extends Crypt {
 
 	/**
 	 * Retrieve the URL of Special:SecurePoll, for validating JWTs.
-	 *
-	 * @return string
 	 */
 	private static function getIssuer(): string {
 		return SpecialPage::getTitleFor( 'SecurePoll' )->getCanonicalURL();

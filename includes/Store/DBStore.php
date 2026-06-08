@@ -19,7 +19,6 @@ class DBStore implements Store {
 	private $wiki;
 
 	/**
-	 * DBStore constructor.
 	 * @param ILoadBalancer $loadBalancer The load balancer used to get connection objects
 	 * @param string|bool $wiki The wiki ID or false to use the local wiki
 	 */

@@ -76,9 +76,6 @@ class TallyElectionJob extends Job {
 		}
 	}
 
-	/**
-	 * @return bool
-	 */
 	private function doRun(): bool {
 		$status = $this->election->tally();
 
@@ -142,10 +139,6 @@ class TallyElectionJob extends Job {
 		}
 	}
 
-	/**
-	 * @param string $message
-	 * @param string $fname
-	 */
 	private function markAsFailed( string $message, string $fname ) {
 		$this->setLastError( $message );
 

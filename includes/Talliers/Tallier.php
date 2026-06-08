@@ -37,8 +37,6 @@ abstract class Tallier {
 
 	/**
 	 * Restores results from getJSONResult
-	 *
-	 * @param array $data
 	 */
 	abstract public function loadJSONResult( array $data );
 

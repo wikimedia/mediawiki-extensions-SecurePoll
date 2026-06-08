@@ -108,8 +108,6 @@ class VoteRecord {
 
 	/**
 	 * Get the ballot data
-	 *
-	 * @return string
 	 */
 	public function getBallotData(): string {
 		return $this->ballotData;
@@ -117,8 +115,6 @@ class VoteRecord {
 
 	/**
 	 * Get the comment. It may be an empty string.
-	 *
-	 * @return string
 	 */
 	public function getComment(): string {
 		return $this->comment;
@@ -126,8 +122,6 @@ class VoteRecord {
 
 	/**
 	 * Serialize the vote record
-	 *
-	 * @return string
 	 */
 	public function getBlob(): string {
 		$voteData = [ 'vote' => $this->ballotData ];

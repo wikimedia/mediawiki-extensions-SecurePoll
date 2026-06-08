@@ -156,8 +156,8 @@ class ListPage extends ActionPage {
 	/**
 	 * The strike/unstrike backend.
 	 * @param string $action strike or unstrike
-	 * @param int $voteId The vote ID
-	 * @param string $reason The reason
+	 * @param int $voteId
+	 * @param string $reason
 	 * @return Status
 	 */
 	public function strike( $action, $voteId, $reason ) {

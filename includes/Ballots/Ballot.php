@@ -135,8 +135,6 @@ abstract class Ballot {
 
 	/**
 	 * Get the request if it has been set, otherwise throw an exception.
-	 *
-	 * @return WebRequest
 	 */
 	protected function getRequest(): WebRequest {
 		if ( !$this->request ) {
@@ -148,8 +146,6 @@ abstract class Ballot {
 
 	/**
 	 * Get the MessageLocalizer if it has been set, otherwise throw an exception
-	 *
-	 * @return MessageLocalizer
 	 */
 	private function getMessageLocalizer(): MessageLocalizer {
 		if ( !$this->messageLocalizer ) {
@@ -177,7 +173,6 @@ abstract class Ballot {
 
 	/**
 	 * Get the user language, or throw an exception if it has not been set.
-	 * @return Language
 	 */
 	protected function getUserLang(): Language {
 		if ( !$this->userLang ) {

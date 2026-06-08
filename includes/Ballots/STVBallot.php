@@ -26,7 +26,6 @@ class STVBallot extends Ballot {
 	/**
 	 * Get a list of names of tallying methods, which may be used to produce a
 	 * result from this ballot type.
-	 * @return array
 	 */
 	public static function getTallyTypes(): array {
 		return [
