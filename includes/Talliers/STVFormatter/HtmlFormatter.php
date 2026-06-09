@@ -360,7 +360,7 @@ class HtmlFormatter implements STVFormatter {
 					$previouslyElected[] = $currentCandidate;
 				} elseif ( in_array( $currentCandidate, $previouslyElected ) ) {
 					$content->addClasses( [ 'previously-elected' ] );
-					$formattedParams = $this->formatForNumParams( $round['keepFactors'][$currentCandidate] );
+					$formattedParams = $this->formatForNumParams( (float)$round['keepFactors'][$currentCandidate] );
 					$candidateState
 						->appendContent( ' ' )
 						->appendContent(
@@ -388,7 +388,7 @@ class HtmlFormatter implements STVFormatter {
 			// Quota
 			$roundResults->appendContent(
 				wfMessage( 'securepoll-stv-result-round-quota' )
-					->numParams( $this->formatForNumParams( $round['quota'] ) )->parse()
+					->numParams( $this->formatForNumParams( (float)$round['quota'] ) )->parse()
 			);
 			$roundResults->appendContent( new Tag( 'br' ) );
 
