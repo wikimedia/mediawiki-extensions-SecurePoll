@@ -310,8 +310,8 @@ class HtmlFormatter implements STVFormatter {
 					continue;
 				}
 
-				$roundedVotes = round( $rank['votes'], self::DISPLAY_PRECISION );
-				$roundedTotal = round( $rank['total'], self::DISPLAY_PRECISION );
+				$roundedVotes = round( (float)$rank['votes'], self::DISPLAY_PRECISION );
+				$roundedTotal = round( (float)$rank['total'], self::DISPLAY_PRECISION );
 
 				// Rounding doesn't guarantee accurate display. One value may be rounded up/down and another one
 				// left as-is, resulting in a discrepency of 1E-6
