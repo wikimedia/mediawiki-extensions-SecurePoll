@@ -141,8 +141,8 @@ class WikitextFormatter extends HtmlFormatter {
 				if ( in_array( $currentCandidate, $previouslyEliminated ) ) {
 					continue;
 				}
-				$roundedVotes = round( $rank['votes'], self::DISPLAY_PRECISION );
-				$roundedTotal = round( $rank['total'], self::DISPLAY_PRECISION );
+				$roundedVotes = round( (float)$rank['votes'], self::DISPLAY_PRECISION );
+				$roundedTotal = round( (float)$rank['total'], self::DISPLAY_PRECISION );
 
 				// Rounding doesn't guarantee accurate display. One value may be rounded up/down and another one
 				// left as-is, resulting in a discrepency of 1E-6
@@ -185,7 +185,7 @@ class WikitextFormatter extends HtmlFormatter {
 					// Mark the candidate as having been previously elected (for display purposes only).
 					$previouslyElected[] = $currentCandidate;
 				} elseif ( in_array( $currentCandidate, $previouslyElected ) ) {
-					$formattedParams = $this->formatForNumParams( $round['keepFactors'][$currentCandidate] );
+					$formattedParams = $this->formatForNumParams( (float)$round['keepFactors'][$currentCandidate] );
 					$candidateState .= ' ' . wfMessage( 'securepoll-stv-result-round-keep-factor' )
 							->numParams( $formattedParams );
 				} elseif ( $candidateEliminatedThisRound ) {
@@ -208,7 +208,7 @@ class WikitextFormatter extends HtmlFormatter {
 
 			// Quota
 			$roundResults .= wfMessage( 'securepoll-stv-result-round-quota' )
-				->numParams( $this->formatForNumParams( $round['quota'] ) ) . "\n";
+				->numParams( $this->formatForNumParams( (float)$round['quota'] ) ) . "\n";
 
 			// Elected
 			if ( count( $round['elected'] ) ) {
