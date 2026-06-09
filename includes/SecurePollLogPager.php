@@ -108,7 +108,7 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 			true
 		);
 
-		$user = $this->userFactory->newFromId( $row->spl_user );
+		$user = $this->userFactory->newFromId( (int)$row->spl_user );
 		$userLink = Linker::userLink( $user->getId(), $user->getName() );
 
 		$election = $this->context->getElection( $row->spl_election_id );
@@ -122,7 +122,7 @@ class SecurePollLogPager extends ReverseChronologicalPager {
 		$message->rawParams( $electionTitle );
 
 		if ( $row->spl_target ) {
-			$target = $this->userFactory->newFromId( $row->spl_target );
+			$target = $this->userFactory->newFromId( (int)$row->spl_target );
 			$targetLink = Linker::userLink( $target->getId(), $target->getName() );
 
 			$message->rawParams( $targetLink );
