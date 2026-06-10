@@ -20,7 +20,8 @@
 			"Suelnur",
 			"Vito Genovese",
 			"Wooze",
-			"Leo"
+			"Leo",
+			"HakanIST"
 		]
 	},
 	"securepoll": "SecurePoll",
@@ -260,6 +261,9 @@
 	"securepoll-votereligibility-cleared-comment": "$1 temizlendi.",
 	"right-securepoll-create-poll": "Anketler oluştur",
 	"action-securepoll-create-poll": "anketler oluşturma ve günlükleri görme",
+	"action-securepoll-view-voter-pii": "seçmenler hakkındaki kişisel tanımlayıcı bilgilere erişme",
+	"right-securepoll-edit-poll": "Düzenleme: polls",
+	"action-securepoll-edit-poll": "düzenle polls",
 	"securepoll-ns-readonly": "{{ns:SecurePoll}} ad alanı salt okunur",
 	"securepoll-voter-stats": "Tüm uygun seçmenlerden $1 {{PLURAL:$1|seçmen|seçmen}} oy verdi.",
 	"securepoll-vote-stats": "Toplam $1 {{PLURAL:$1|oy|oy}} kullanıldı. Bunlardan, seçmen tekrar oy kullandığından $2 ve $3 vurulur.",
@@ -301,6 +305,7 @@
 	"securepoll-stv-result-round-elected": "Seçilen: $1",
 	"securepoll-stv-result-round-eliminated": "Elenen: $1",
 	"securepoll-stv-result-round-keep-factor": "(tutuş faktörü: $1)",
+	"securepoll-translation-import-action-import": "İçe aktar",
 	"securepoll-vote-result-intro-label": "Oyununuzun özeti",
 	"securepoll-vote-result-question-label": "Soru: $1",
 	"securepoll-vote-result-not-voted-option-label": "$1 : oylanmadı",
