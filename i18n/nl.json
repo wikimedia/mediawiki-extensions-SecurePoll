@@ -193,7 +193,7 @@
 	"securepoll-create-label-election_enddate": "Einddatum verkiezing:",
 	"securepoll-create-label-election_duration": "Duur van de verkiezing (dagen):",
 	"securepoll-create-label-election_disallow-change": "Kiezers niet toelaten hun stemmen aan te passen",
-	"securepoll-create-label-election_return-url": "Terugstuur-URL:",
+	"securepoll-create-label-election_return-url": "Terugstuur-url:",
 	"securepoll-create-label-election_jump-text": "Doorstuurtekst:",
 	"securepoll-create-label-election_type": "Type stemming:",
 	"securepoll-create-label-election_crypt": "Encryptie:",
