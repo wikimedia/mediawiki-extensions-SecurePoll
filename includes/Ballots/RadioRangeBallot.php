@@ -272,7 +272,7 @@ class RadioRangeBallot extends Ballot {
 					new RadioInputWidget( [
 						'name' => $inputId,
 						'value' => $score,
-						'selected' => !strcmp( $oldValue, $score ),
+						'selected' => !strcmp( $oldValue, (string)$score ),
 						'title' => Sanitizer::stripAllTags( $label ),
 					] )
 				) );
