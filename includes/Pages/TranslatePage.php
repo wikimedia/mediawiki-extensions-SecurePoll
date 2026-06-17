@@ -137,7 +137,7 @@ class TranslatePage extends ActionPage {
 					( new Tag( 'td' ) )->addClasses( [ 'trans-id' ] )
 							->appendContent( "$entityName/$messageName" ),
 					( new Tag( 'td' ) )->addClasses( [ 'trans-origin' ] )->appendContent( new HtmlSnippet(
-						nl2br( htmlspecialchars( $entity->getRawMessage( $messageName, $primary ) ) )
+						nl2br( htmlspecialchars( (string)$entity->getRawMessage( $messageName, $primary ) ) )
 					) ),
 					( new Tag( 'td' ) )->addClasses( [ 'trans-lang' ] )->appendContent(
 						new MultilineTextInputWidget( [
