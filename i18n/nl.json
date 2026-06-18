@@ -59,7 +59,7 @@
 	"securepoll-unanswered-options": "U moet iedere vraag beantwoorden.",
 	"securepoll-remote-auth-error": "Er is een fout opgetreden bij het ophalen van uw gebruikersinformatie van de server.",
 	"securepoll-remote-parse-error": "Er is een fout opgetreden bij het interpreteren van het autorisatie-antwoord van de server.",
-	"securepoll-api-invalid-params": "Ongeldige parameters.",
+	"securepoll-api-invalid-params": "Incorrecte parameters.",
 	"securepoll-api-no-user": "Er is geen gebruiker gevonden met de opgegeven ID.",
 	"securepoll-api-token-mismatch": "Het beveiligingstoken kwam niet overeen met wat verwacht werd.\nAanmelden is niet mogelijk.",
 	"securepoll-not-logged-in": "U moet zich aanmelden om bij deze verkiezing te stemmen",
