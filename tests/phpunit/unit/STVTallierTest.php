@@ -228,6 +228,26 @@ class STVTallierTest extends MediaWikiUnitTestCase {
 		$this->assertSame( $expectedBlt, $result );
 	}
 
+	/**
+	 * A title longer than the 20-character BLT limit must be truncated by
+	 * character, not by byte, so a multibyte name is never split into invalid
+	 * UTF-8 (which broke json_encode() of the tally result; T427104).
+	 */
+	public function testBltGeneratorTruncatesMultibyteTitleSafely() {
+		$tallier = TestingAccessWrapper::newFromObject( $this->tallier );
+		// 25 CJK characters (75 bytes): over the 20-character limit, and over
+		// 20 bytes, so byte truncation would have split the 7th character.
+		$blt = $tallier->generateBltFromData(
+			str_repeat( '中', 25 ),
+			$tallier->question,
+			[ [ 100 ] ],
+			[]
+		);
+
+		$this->assertTrue( mb_check_encoding( $blt, 'UTF-8' ), 'BLT must be valid UTF-8' );
+		$this->assertStringContainsString( '"' . str_repeat( '中', 20 ) . '"', $blt );
+	}
+
 	public static function provideTestBltGenerator() {
 		return [
 			'votes exist' => [

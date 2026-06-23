@@ -728,13 +728,23 @@ class Election extends Entity {
 			'result' => $result,
 		];
 
+		$json = json_encode( $tallies );
+		if ( $json === false ) {
+			// Refuse to store an unencodable result. Otherwise json_encode()
+			// returns false, which the DB layer coerces to "0", and the tally
+			// reads back as "no result" with no indication of failure (T427104).
+			throw new InvalidDataException(
+				'Unable to JSON-encode the tally result: ' . json_last_error_msg()
+			);
+		}
+
 		$dbw->newReplaceQueryBuilder()
 			->replaceInto( 'securepoll_properties' )
 			->uniqueIndexFields( [ 'pr_entity', 'pr_key' ] )
 			->row( [
 				'pr_entity' => $this->getId(),
 				'pr_key' => 'tally-result',
-				'pr_value' => json_encode( $tallies ),
+				'pr_value' => $json,
 			] )
 			->caller( __METHOD__ )
 			->execute();
