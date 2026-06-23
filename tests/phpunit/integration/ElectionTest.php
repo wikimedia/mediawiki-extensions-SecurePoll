@@ -146,7 +146,7 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 	/**
 	 * Inserts a vote into the database (only works with DB elections).
 	 */
-	private function addVote( int $electionId, int $voterId, bool $current, bool $struck ): void {
+	private function addVote( int $electionId, int $voterId, bool $current, bool $struck ): int {
 		$context = new Context();
 
 		$dbw = $this->getDb();
@@ -169,6 +169,7 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 			] )
 			->caller( __METHOD__ )
 			->execute();
+		return $dbw->insertId();
 	}
 
 	public function testAllowCrossWikiPartiallyBlockedVoters(): void {
@@ -678,5 +679,45 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 
 		$this->assertSame( [], $election->getTalliesFromDb( $this->getDb() ) );
 		$this->assertFalse( $election->isTallied( $this->getDb() ) );
+	}
+
+	public function testDumpVotesToCallback(): void {
+		$election = $this->createElection();
+		$electionId = $election->getId();
+
+		// Add 2 non-current votes (should not be counted).
+		$this->addVote( $electionId, 1, false, false );
+		$this->addVote( $electionId, 2, false, false );
+
+		// Add 2 current, non-struck votes (should be counted).
+		$firstVoteId = $this->addVote( $electionId, 1, true, false );
+		$secondVoteId = $this->addVote( $electionId, 2, true, false );
+
+		// Add 1 struck vote (should not be counted).
+		$this->addVote( $electionId, 3, true, true );
+
+		$seenVoteRows = [];
+		$election->dumpVotesToCallback( function ( $actualElection, $vote ) use ( &$seenVoteRows, $election ) {
+			$this->assertSame( $actualElection, $election );
+			$seenVoteRows[] = $vote;
+		} );
+
+		$this->assertArrayEquals(
+			[
+				$this->getDb()->newSelectQueryBuilder()
+					->select( '*' )
+					->from( 'securepoll_votes' )
+					->where( [ 'vote_id' => $firstVoteId ] )
+					->caller( __METHOD__ )
+					->fetchRow(),
+				$this->getDb()->newSelectQueryBuilder()
+					->select( '*' )
+					->from( 'securepoll_votes' )
+					->where( [ 'vote_id' => $secondVoteId ] )
+					->caller( __METHOD__ )
+					->fetchRow(),
+			],
+			$seenVoteRows
+		);
 	}
 }

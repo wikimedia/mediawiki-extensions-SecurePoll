@@ -555,7 +555,7 @@ class Election extends Entity {
 		if ( !$status->isOK() ) {
 			return $status;
 		}
-		$db = $this->context->getDB();
+		$db = $this->context->getDB( DB_REPLICA );
 		$res = $db->newSelectQueryBuilder()
 			->select( '*' )
 			->from( 'securepoll_votes' )
