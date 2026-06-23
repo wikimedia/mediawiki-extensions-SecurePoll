@@ -623,20 +623,24 @@ class STVTallier extends Tallier {
 	 * @return string
 	 */
 	private function generateBltFromData( $title, $question, $votes, $excludedCandidates = [] ) {
-		// Limit title to 20 characters
-		if ( $title && strlen( $title ) > self::MAX_BLT_NAME_LENGTH ) {
-			$title = substr( $title, 0, self::MAX_BLT_NAME_LENGTH );
+		// Limit title to 20 characters. Use mb_* so a multibyte character is
+		// never split: a byte-truncated name corrupts the BLT into invalid
+		// UTF-8, which then makes json_encode() of the tally result fail (T427104).
+		if ( $title && mb_strlen( $title ) > self::MAX_BLT_NAME_LENGTH ) {
+			$title = mb_substr( $title, 0, self::MAX_BLT_NAME_LENGTH );
 		}
 		$title = $this->ensureDoubleQuoted( $title );
 
 		$candidates = [];
 		foreach ( $question->getOptions() as $option ) {
-			$candidates[$option->getId()] = $this->ensureDoubleQuoted( $option->getMessage( 'text' ) );
+			$name = $this->ensureDoubleQuoted( $option->getMessage( 'text' ) );
 
-			// Limit candidate name to 20 characters
-			if ( strlen( $candidates[$option->getId()] ) > self::MAX_BLT_NAME_LENGTH ) {
-				$candidates[$option->getId()] = substr( $candidates[$option->getId()], 0, self::MAX_BLT_NAME_LENGTH );
+			// Limit candidate name to 20 characters (mb_* so a multibyte
+			// character is never split; see the title note above, T427104).
+			if ( mb_strlen( $name ) > self::MAX_BLT_NAME_LENGTH ) {
+				$name = mb_substr( $name, 0, self::MAX_BLT_NAME_LENGTH );
 			}
+			$candidates[$option->getId()] = $name;
 		}
 
 		// Create candidate number mapping list

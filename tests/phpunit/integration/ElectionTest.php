@@ -6,6 +6,7 @@ namespace MediaWiki\Extension\SecurePoll\Test\Unit;
 
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
+use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
 use MediaWiki\Extension\SecurePoll\User\Voter;
 use MediaWiki\User\User;
 use MediaWiki\Utils\MWTimestamp;
@@ -611,6 +612,19 @@ class ElectionTest extends MediaWikiIntegrationTestCase {
 		$this->assertFalse( $election->isTallied( $this->getDb() ) );
 		$this->assertFalse( $election->getTallyFromDb( $this->getDb(), 1 ) );
 		$this->assertArrayEquals( [], $election->getTalliesFromDb( $this->getDb() ) );
+	}
+
+	/**
+	 * saveTallyResult() must refuse to store a result it cannot JSON-encode
+	 * (e.g. one containing invalid UTF-8) rather than silently writing a value
+	 * that the DB coerces to "0" and reads back as "no tally" (T427104).
+	 */
+	public function testSaveTallyResultRejectsUnencodableResult() {
+		$election = $this->createElection();
+
+		$this->expectException( InvalidDataException::class );
+		// "\xB1" is an invalid UTF-8 byte, so json_encode() returns false on it.
+		$election->saveTallyResult( $this->getDb(), [ 'blt' => "\xB1" ] );
 	}
 
 	public function testIsTalliedForOneTally() {
