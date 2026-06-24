@@ -12,6 +12,10 @@ use MediaWiki\Extension\SecurePoll\Pages\ActionPage;
 use MediaWiki\Request\FauxRequest;
 use MediaWiki\Request\WebRequest;
 use MediaWiki\Tests\Specials\SpecialPageTestBase;
+use MediaWiki\User\UserIdentity;
+use MediaWiki\User\UserIdentityValue;
+use Wikimedia\Parsoid\Core\DOMCompat;
+use Wikimedia\Parsoid\Ext\DOMUtils;
 use Wikimedia\Timestamp\ConvertibleTimestamp;
 use Wikimedia\Timestamp\TimestampFormat;
 
@@ -74,30 +78,38 @@ class ListPageTest extends SpecialPageTestBase {
 	/**
 	 * Put a vote in the database
 	 */
-	private function vote( Election $election ) {
-		$testSysopUsername = $this->getTestSysop()->getUser()->getName();
-		$this->getDb()->newInsertQueryBuilder()
-			->insertInto( 'securepoll_voters' )
-			->row( [
-				'voter_election' => $election->getId(),
-				'voter_name' => $testSysopUsername,
-				'voter_type' => 'local',
-				'voter_domain' => 'localhost:8080',
-				'voter_url' => 'http://localhost:8080/wiki/User' . $testSysopUsername,
-				// blank since this is complicated to generate and not needed for these tests
-				'voter_properties' => '',
-			] )
-			->caller( __METHOD__ )->execute();
-		$voterId = $this->getDb()->insertId();
+	private function vote( Election $election, ?UserIdentity $voter = null, bool $current = true, bool $struck = false ): int {
+		$voter ??= $this->getTestSysop()->getUserIdentity();
+		$voterId = $this->newSelectQueryBuilder()
+			->select( 'voter_id' )
+			->from( 'securepoll_voters' )
+			->where( [ 'voter_name' => $voter->getName() ] )
+			->caller( __METHOD__ )
+			->fetchField();
+		if ( $voterId === false ) {
+			$this->getDb()->newInsertQueryBuilder()
+				->insertInto( 'securepoll_voters' )
+				->row( [
+					'voter_election' => $election->getId(),
+					'voter_name' => $voter->getName(),
+					'voter_type' => 'local',
+					'voter_domain' => 'localhost:8080',
+					'voter_url' => 'http://localhost:8080/wiki/User' . $voter->getName(),
+					// blank since this is complicated to generate and not needed for these tests
+					'voter_properties' => '',
+				] )
+				->caller( __METHOD__ )->execute();
+			$voterId = $this->getDb()->insertId();
+		}
 		$dbw = $this->getDb();
 		$dbw->newInsertQueryBuilder()
 			->insertInto( 'securepoll_votes' )
 			->row( [
 				'vote_election' => $election->getId(),
 				'vote_voter' => $voterId,
-				'vote_voter_name' => $testSysopUsername,
+				'vote_voter_name' => $voter->getName(),
 				'vote_voter_domain' => '',
-				'vote_struck' => 0,
+				'vote_struck' => $struck ? 1 : 0,
 				// blank since this is complicated to generate and not needed for these tests
 				'vote_record' => '',
 				// AC120001 is hex for 172.18.0.1
@@ -105,11 +117,12 @@ class ListPageTest extends SpecialPageTestBase {
 				'vote_xff' => '',
 				'vote_ua' => '',
 				'vote_timestamp' => $dbw->timestamp(),
-				'vote_current' => 1,
+				'vote_current' => $current ? 1 : 0,
 				'vote_token_match' => 1,
 				'vote_cookie_dup' => 0,
 			] )
 			->caller( __METHOD__ )->execute();
+		return $dbw->insertId();
 	}
 
 	/**
@@ -271,6 +284,36 @@ class ListPageTest extends SpecialPageTestBase {
 		$this->assertStringContainsString( 'securepoll-header-strike', $html );
 		// The page should still show voter data
 		$this->assertStringContainsString( 'securepoll-voter-name-local', $html );
+	}
+
+	public function testVoteStatsAreAsExpected(): void {
+		$election = $this->createElection();
+
+		$this->vote( $election, new UserIdentityValue( 12, 'TestUser' ) );
+		$this->vote( $election, new UserIdentityValue( 13, 'TestUser2' ) );
+		$this->vote( $election, new UserIdentityValue( 14, 'TestUser3' ), false );
+		$this->vote( $election, new UserIdentityValue( 14, 'TestUser3' ) );
+		$this->vote( $election, new UserIdentityValue( 15, 'TestUser4' ), true, true );
+
+		[ $html ] = $this->executeSpecialPage(
+			'list/' . $election->getId(),
+			null,
+			null,
+			$this->getTestSysop()->getAuthority()
+		);
+
+		// The page should render with the vote stats
+		$specialPageDocument = DOMUtils::parseHTML( $html );
+		$element = DOMCompat::querySelector( $specialPageDocument, '#mw-poll-stats' );
+		$this->assertNotNull( $element );
+
+		$voteStatsHtml = DOMCompat::getInnerHTML( $element );
+
+		// 5 total votes, 1 not current, 1 struck
+		$this->assertStringContainsString( '(securepoll-vote-stats: 5, 1, 1)', $voteStatsHtml );
+
+		// Three voters have made non-struck current votes
+		$this->assertStringContainsString( '(securepoll-voter-stats: 3)', $voteStatsHtml );
 	}
 
 	public function testVisitingListPageWhenElectionHasJumpUrlSet() {
