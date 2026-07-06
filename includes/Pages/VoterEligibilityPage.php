@@ -887,6 +887,9 @@ class VoterEligibilityPage extends ActionPage {
 			return;
 		}
 		$property = self::$lists[$which];
+		// Messages: securepoll-votereligibility-voter,
+		// securepoll-votereligibility-include,
+		// securepoll-votereligibility-exclude
 		$name = $this->msg( "securepoll-votereligibility-$which" )->text();
 
 		$out->addModuleStyles( 'ext.securepoll' );
