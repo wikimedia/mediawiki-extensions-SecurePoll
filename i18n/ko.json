@@ -275,7 +275,7 @@
 	"securepoll-votereligibility-label-inuse": "이 목록은 사용중입니다",
 	"securepoll-votereligibility-label-notinuse": "이 목록은 사용중이 아닙니다",
 	"securepoll-votereligibility-label-edit": "목록 수정",
-	"securepoll-votereligibility-label-clear": "목록 삭제",
+	"securepoll-votereligibility-label-clear": "목록 제거",
 	"securepoll-votereligibility-label-edits_before": "날짜 이전에 최소한의 수정이 필요합니다.",
 	"securepoll-votereligibility-label-edits_before_count": "최소 편집 횟수",
 	"securepoll-votereligibility-label-edits_before_date": "이전에",
