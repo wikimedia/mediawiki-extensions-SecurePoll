@@ -155,7 +155,7 @@ class CreatePageTest extends SpecialPageTestBase {
 		if ( $useNamespace ) {
 			$content = $this->getServiceContainer()
 				->getRevisionLookup()
-				->getKnownCurrentRevision( $logPage, $logPage->getLatest() )
+				->getKnownLatestRevision( $logPage, $logPage->getLatest() )
 				->getContentOrThrow( SlotRecord::MAIN );
 
 			$parsedContentStatus = $content->getData();
