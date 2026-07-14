@@ -168,7 +168,10 @@ class VotePage extends ActionPage {
 
 		// Show change notice
 		if ( $this->election->hasVoted( $this->voter ) && !$this->election->allowChange() ) {
-			$out->addWikiMsg( 'securepoll-change-disallowed' );
+			$out->addHTML( (string)new MessageWidget( [
+				'type' => 'error',
+				'label' => new HtmlSnippet( $this->msg( 'securepoll-change-disallowed' )->parse() ),
+			] ) );
 
 			return;
 		}
@@ -201,7 +204,10 @@ class VotePage extends ActionPage {
 
 		// Show the introduction
 		if ( $this->election->hasVoted( $this->voter ) && $this->election->allowChange() ) {
-			$out->addWikiMsg( 'securepoll-change-allowed' );
+			$out->addHTML( (string)new MessageWidget( [
+				'type' => 'warning',
+				'label' => new HtmlSnippet( $this->msg( 'securepoll-change-allowed' )->parse() ),
+			] ) );
 		}
 		$out->addWikiTextAsInterface( $this->election->getMessage( 'intro' ) );
 
