@@ -650,6 +650,7 @@ class VoterEligibilityPage extends ActionPage {
 
 				$link = $this->linkRenderer->makeLink(
 					$title,
+					// Messages: securepoll-votereligibility-label-edit, securepoll-votereligibility-label-clear
 					$this->msg( "securepoll-votereligibility-label-$action" )->text(),
 					[],
 					$queryParams
