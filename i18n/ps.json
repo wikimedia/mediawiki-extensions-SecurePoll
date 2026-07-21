@@ -63,7 +63,7 @@
 	"securepoll-translate-title": "ژباړل: $1",
 	"securepoll-translate-redirect": "د دې ټاکنو لپاره پيغامونه بايد په $1 کې ترتيب شي",
 	"securepoll-invalid-language": "د ژبې ناسم کوډ \"$1\"",
-	"securepoll-submit-translate": "اوسمهالول",
+	"securepoll-submit-translate": "هم‌مهالول",
 	"securepoll-language-label": "ژبه ټاکل:",
 	"securepoll-submit-select-lang": "ژباړل",
 	"securepoll-entry-text": "لاندې د اندغوښتنو لړليک دی.",
