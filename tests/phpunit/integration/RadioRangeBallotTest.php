@@ -13,18 +13,19 @@ use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Entities\Option;
 use MediaWiki\Extension\SecurePoll\Entities\Question;
 use MediaWiki\Request\FauxRequest;
+use MediaWiki\Tests\Unit\HtmlAssertionHelperTrait;
 use MediaWikiIntegrationTestCase;
 use OOUI\BlankTheme;
 use OOUI\FieldsetLayout;
 use OOUI\Theme;
-use Wikimedia\Parsoid\Core\DOMCompat;
-use Wikimedia\Parsoid\Ext\DOMUtils;
 
 /**
  * @group Database
  * @covers \MediaWiki\Extension\SecurePoll\Ballots\RadioRangeBallot
  */
 class RadioRangeBallotTest extends MediaWikiIntegrationTestCase {
+	use HtmlAssertionHelperTrait;
+
 	/** @var Question */
 	private $question;
 
@@ -157,36 +158,18 @@ class RadioRangeBallotTest extends MediaWikiIntegrationTestCase {
 		$this->assertInstanceOf( FieldsetLayout::class, $questionForm );
 
 		$actualHtml = $questionForm->toString();
-		$fieldsetHtml = $this->assertAndGetByElementClass( $actualHtml, 'securepoll_q101' );
+		$fieldsetHtml = $this->assertSelectorMatchesOneElement( $actualHtml, '.securepoll_q101' );
 
-		$questionHtml = $this->assertAndGetByElementClass( $fieldsetHtml, 'securepoll_q101_opt123' );
-		$questionHtmlDocument = DOMUtils::parseHTML( $questionHtml );
+		$questionHtml = $this->assertSelectorMatchesOneElement( $fieldsetHtml, '.securepoll_q101_opt123' );
 
-		$checkedOption = DOMCompat::querySelectorAll(
-			$questionHtmlDocument,
+		$this->assertSelectorMatchesOneElement(
+			$questionHtml,
 			'input[checked][name=securepoll_q101_opt123][value=1]'
 		);
-		$this->assertCount( 1, $checkedOption, 'Could not find pre-checked question' );
 
-		$notCheckedOption = DOMCompat::querySelectorAll(
-			$questionHtmlDocument,
+		$this->assertSelectorMatchesOneElement(
+			$questionHtml,
 			'input[name=securepoll_q101_opt123][value=0]'
 		);
-		$this->assertCount( 1, $notCheckedOption, 'Could not find not checked question' );
-	}
-
-	/**
-	 * Calls DOMCompat::querySelectorAll, expects that it returns one valid Element object and then returns
-	 * the HTML inside that Element.
-	 *
-	 * @param string $html The HTML to search through
-	 * @param string $class The CSS class to search for, excluding the "." character
-	 * @return string The HTML inside the given class
-	 */
-	private function assertAndGetByElementClass( string $html, string $class ): string {
-		$specialPageDocument = DOMUtils::parseHTML( $html );
-		$element = DOMCompat::querySelectorAll( $specialPageDocument, '.' . $class );
-		$this->assertCount( 1, $element, "Could not find only one element with CSS class $class in $html" );
-		return DOMCompat::getInnerHTML( $element[0] );
 	}
 }
