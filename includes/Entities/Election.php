@@ -18,6 +18,7 @@ use MediaWiki\Status\Status;
 use MediaWiki\Utils\MWTimestamp;
 use MediaWiki\Xml\Xml;
 use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\IReadableDatabase;
 
 /**
  * Class representing an *election*. The term is intended to include straw polls,
@@ -386,7 +387,7 @@ class Election extends Entity {
 		int $edits,
 		string $beforeDate
 	): bool {
-		$dbr = MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->getReplicaDatabase( $wiki );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase( $wiki );
 		$numEdits = $dbr->newSelectQueryBuilder()
 			->from( 'revision' )
 			->join( 'actor', null, 'actor_id = rev_actor' )
@@ -407,7 +408,7 @@ class Election extends Entity {
 		string $afterDate,
 		string $beforeDate
 	): bool {
-		$dbr = MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->getReplicaDatabase( $wiki );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase( $wiki );
 		$numEdits = $dbr->newSelectQueryBuilder()
 			->from( 'revision' )
 			->join( 'actor', null, 'actor_id = rev_actor' )
@@ -665,7 +666,7 @@ class Election extends Entity {
 	/**
 	 * Get all stored tally results for the election.
 	 *
-	 * @param IDatabase $dbr
+	 * @param IReadableDatabase $dbr
 	 * @return array
 	 */
 	public function getTalliesFromDb( $dbr ) {
@@ -694,7 +695,7 @@ class Election extends Entity {
 	 * Get the stored tally results for the requested tally. The caller can use
 	 * the returned tallier to format the results in the desired way.
 	 *
-	 * @param IDatabase $dbr
+	 * @param IReadableDatabase $dbr
 	 * @param int $tallyId
 	 * @return array|bool
 	 */

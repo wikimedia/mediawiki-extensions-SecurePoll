@@ -80,7 +80,7 @@ class TallyElection extends Maintenance {
 		$tallier = $status->value;
 		'@phan-var ElectionTallier $tallier';
 
-		$dbw = MediaWikiServices::getInstance()->getDBLoadBalancerFactory()->getPrimaryDatabase();
+		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
 		$election->saveTallyResult( $dbw, $tallier->getJSONResult() );
 
 		if ( $this->hasOption( 'html' ) ) {

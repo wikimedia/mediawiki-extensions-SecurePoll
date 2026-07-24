@@ -40,7 +40,7 @@ class ActionPageFactory {
 			'class' => ArchivedPage::class,
 			'services' => [
 				'LinkRenderer',
-				'DBLoadBalancer',
+				'ConnectionProvider',
 			],
 		],
 		'create' => [
@@ -74,7 +74,7 @@ class ActionPageFactory {
 			'class' => EntryPage::class,
 			'services' => [
 				'LinkRenderer',
-				'DBLoadBalancer',
+				'ConnectionProvider',
 			],
 		],
 		'list' => [
@@ -93,7 +93,7 @@ class ActionPageFactory {
 			'class' => TallyListPage::class,
 			'services' => [
 				'LinkRenderer',
-				'DBLoadBalancer',
+				'ConnectionProvider',
 				'JobQueueGroup',
 			],
 		],
@@ -102,7 +102,7 @@ class ActionPageFactory {
 			'pattern' => '/^tallies\/\d+\/result\/\d+$/',
 			'services' => [
 				'LinkRenderer',
-				'DBLoadBalancer',
+				'ConnectionProvider',
 			],
 		],
 		'deletetally' => [
@@ -129,7 +129,7 @@ class ActionPageFactory {
 		'vote' => [
 			'class' => VotePage::class,
 			'services' => [
-				'DBLoadBalancer',
+				'ConnectionProvider',
 				'HookContainer',
 			],
 		],

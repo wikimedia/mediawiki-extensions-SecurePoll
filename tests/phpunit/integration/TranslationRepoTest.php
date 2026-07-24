@@ -8,9 +8,8 @@ use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\TranslationRepo;
 use MediaWiki\User\User;
 use MediaWikiIntegrationTestCase;
+use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\Rdbms\IDatabase;
-use Wikimedia\Rdbms\LBFactory;
-use Wikimedia\Rdbms\LoadBalancer;
 use Wikimedia\Rdbms\ReplaceQueryBuilder;
 use Wikimedia\Rdbms\SelectQueryBuilder;
 
@@ -49,7 +48,7 @@ class TranslationRepoTest extends MediaWikiIntegrationTestCase {
 			->willReturn( $rqb );
 
 		$translationRepo = new TranslationRepo(
-			$this->getMockLBFactory( $mockDB ),
+			$this->getMockConnectionProvider( $mockDB ),
 			$services->getWikiPageFactory()
 		);
 
@@ -96,14 +95,9 @@ class TranslationRepoTest extends MediaWikiIntegrationTestCase {
 			];
 	}
 
-	private function getMockLBFactory( IDatabase $mockDB ): LBFactory {
-		$loadBalancer = $this->createMock( LoadBalancer::class );
-		$loadBalancer->method( 'getConnection' )
-			->willReturn( $mockDB );
-
-		$mock = $this->createMock( LBFactory::class );
-		$mock->method( 'getMainLB' )
-			->willReturn( $loadBalancer );
-		return $mock;
+	private function getMockConnectionProvider( IDatabase $mockDB ): IConnectionProvider {
+		$connectionProvider = $this->createMock( IConnectionProvider::class );
+		$connectionProvider->method( 'getPrimaryDatabase' )->willReturn( $mockDB );
+		return $connectionProvider;
 	}
 }

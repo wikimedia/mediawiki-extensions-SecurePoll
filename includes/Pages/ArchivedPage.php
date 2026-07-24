@@ -7,7 +7,7 @@ namespace MediaWiki\Extension\SecurePoll\Pages;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Title\Title;
-use Wikimedia\Rdbms\ILoadBalancer;
+use Wikimedia\Rdbms\IConnectionProvider;
 
 /**
  * SecurePoll subpage for archiving past elections
@@ -17,7 +17,7 @@ class ArchivedPage extends ActionPage {
 	public function __construct(
 		SpecialSecurePoll $specialPage,
 		private readonly LinkRenderer $linkRenderer,
-		private readonly ILoadBalancer $loadBalancer,
+		private readonly IConnectionProvider $connectionProvider,
 	) {
 		parent::__construct( $specialPage );
 	}
@@ -32,7 +32,7 @@ class ArchivedPage extends ActionPage {
 
 		$out->setPageTitleMsg( $this->msg( 'securepoll-archived-title' ) );
 
-		$pager = new ArchivedPager( $this, $this->linkRenderer, $this->loadBalancer );
+		$pager = new ArchivedPager( $this, $this->linkRenderer, $this->connectionProvider );
 		$out->addWikiMsg( 'securepoll-entry-text' );
 		$out->addParserOutputContent(
 			$pager->getBodyOutput(),

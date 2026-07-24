@@ -35,7 +35,7 @@ use OOUI\HtmlSnippet;
 use OOUI\MessageWidget;
 use OOUI\MultilineTextInputWidget;
 use Wikimedia\IPUtils;
-use Wikimedia\Rdbms\ILoadBalancer;
+use Wikimedia\Rdbms\IConnectionProvider;
 
 /**
  * The subpage for casting votes.
@@ -60,7 +60,7 @@ class VotePage extends ActionPage {
 
 	public function __construct(
 		SpecialSecurePoll $specialPage,
-		private readonly ILoadBalancer $loadBalancer,
+		private readonly IConnectionProvider $connectionProvider,
 		HookContainer $hookContainer,
 	) {
 		parent::__construct( $specialPage );
@@ -321,7 +321,7 @@ class VotePage extends ActionPage {
 			$encrypted = $status->value;
 		}
 
-		$dbw = $this->loadBalancer->getConnection( ILoadBalancer::DB_PRIMARY );
+		$dbw = $this->connectionProvider->getPrimaryDatabase();
 		$dbw->startAtomic( __METHOD__ );
 
 		// Mark previous votes as old

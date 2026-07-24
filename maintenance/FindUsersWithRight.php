@@ -89,8 +89,7 @@ class FindUsersWithRight extends Maintenance {
 			return;
 		}
 
-		$lb = $services->getDBLoadBalancer();
-		$dbr = $lb->getConnection( DB_REPLICA );
+		$dbr = $services->getConnectionProvider()->getReplicaDatabase();
 		$res = $dbr->newSelectQueryBuilder()
 			->select( [ 'user_id', 'user_name' ] )
 			->from( 'user_groups' )
@@ -123,7 +122,7 @@ class FindUsersWithRight extends Maintenance {
 		}
 
 		if ( $this->localList ) {
-			$dbw = $lb->getConnection( DB_PRIMARY );
+			$dbw = $services->getConnectionProvider()->getPrimaryDatabase();
 			foreach ( $res as $row ) {
 				$this->addToList( $dbw, $this->localList, $row->user_id );
 			}

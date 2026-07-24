@@ -12,13 +12,12 @@ use MediaWiki\Revision\SlotRecord;
 use MediaWiki\User\User;
 use MediaWiki\WikiMap\WikiMap;
 use Wikimedia\Rdbms\DBError;
-use Wikimedia\Rdbms\ILoadBalancer;
-use Wikimedia\Rdbms\LBFactory;
+use Wikimedia\Rdbms\IConnectionProvider;
 
 class TranslationRepo {
 
 	public function __construct(
-		private readonly LBFactory $lbFactory,
+		private readonly IConnectionProvider $connectionProvider,
 		private readonly WikiPageFactory $wikiPageFactory,
 	) {
 	}
@@ -82,7 +81,7 @@ class TranslationRepo {
 			}
 
 			// First, the main wiki
-			$dbw = $this->lbFactory->getMainLB()->getConnection( ILoadBalancer::DB_PRIMARY );
+			$dbw = $this->connectionProvider->getPrimaryDatabase();
 
 			if ( $replaceBatch ) {
 				$dbw->newReplaceQueryBuilder()
@@ -134,8 +133,7 @@ class TranslationRepo {
 					continue;
 				}
 
-				$lb = $this->lbFactory->getMainLB( $dbname );
-				$dbw = $lb->getConnection( ILoadBalancer::DB_PRIMARY, [], $dbname );
+				$dbw = $this->connectionProvider->getPrimaryDatabase( $dbname );
 				try {
 					$id = $dbw->newSelectQueryBuilder()
 						->select( 'el_entity' )

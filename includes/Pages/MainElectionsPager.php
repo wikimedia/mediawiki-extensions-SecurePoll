@@ -8,7 +8,7 @@ use MediaWiki\Html\Html;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Pager\IndexPager;
 use MediaWiki\SpecialPage\SpecialPage;
-use Wikimedia\Rdbms\ILoadBalancer;
+use Wikimedia\Rdbms\IConnectionProvider;
 
 /**
  * Pager for an election list. See TablePager documentation.
@@ -73,23 +73,23 @@ class MainElectionsPager extends ElectionPager {
 		]
 	];
 	private LinkRenderer $linkRenderer;
-	private ILoadBalancer $loadBalancer;
+	private IConnectionProvider $connectionProvider;
 
 	public function __construct(
 		EntryPage $specialPage,
 		LinkRenderer $linkRenderer,
-		ILoadBalancer $loadBalancer
+		IConnectionProvider $connectionProvider
 	) {
 		$this->mDefaultDirection = IndexPager::DIR_DESCENDING;
 		parent::__construct();
 		$this->page = $specialPage;
 		$this->linkRenderer = $linkRenderer;
-		$this->loadBalancer = $loadBalancer;
+		$this->connectionProvider = $connectionProvider;
 	}
 
 	/** @inheritDoc */
 	public function getQueryInfo() {
-		$subquery = $this->loadBalancer->getConnection( ILoadBalancer::DB_REPLICA )->newSelectQueryBuilder()
+		$subquery = $this->connectionProvider->getReplicaDatabase()->newSelectQueryBuilder()
 			->select( 'pr_entity' )
 			->from( 'securepoll_properties' )
 			->where( [ 'pr_key' => 'is-archived' ] )

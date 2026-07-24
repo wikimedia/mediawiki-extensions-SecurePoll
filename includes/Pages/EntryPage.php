@@ -8,7 +8,7 @@ use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
-use Wikimedia\Rdbms\ILoadBalancer;
+use Wikimedia\Rdbms\IConnectionProvider;
 
 /**
  * The entry page for SecurePoll. Shows a list of elections.
@@ -18,7 +18,7 @@ class EntryPage extends ActionPage {
 	public function __construct(
 		SpecialSecurePoll $specialPage,
 		private readonly LinkRenderer $linkRenderer,
-		private readonly ILoadBalancer $loadBalancer,
+		private readonly IConnectionProvider $connectionProvider,
 	) {
 		parent::__construct( $specialPage );
 	}
@@ -28,7 +28,7 @@ class EntryPage extends ActionPage {
 	 * @param array $params Array of subpage parameters.
 	 */
 	public function execute( $params ) {
-		$pager = new MainElectionsPager( $this, $this->linkRenderer, $this->loadBalancer );
+		$pager = new MainElectionsPager( $this, $this->linkRenderer, $this->connectionProvider );
 		$pager->setContext( $this->specialPage->getContext() );
 
 		$out = $this->specialPage->getOutput();

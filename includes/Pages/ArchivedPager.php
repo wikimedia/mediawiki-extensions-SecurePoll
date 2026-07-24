@@ -7,7 +7,7 @@ namespace MediaWiki\Extension\SecurePoll\Pages;
 use MediaWiki\Html\Html;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Pager\IndexPager;
-use Wikimedia\Rdbms\ILoadBalancer;
+use Wikimedia\Rdbms\IConnectionProvider;
 
 /**
  * Pager for an archived election list. See TablePager documentation.
@@ -22,25 +22,25 @@ class ArchivedPager extends ElectionPager {
 		]
 	];
 	private LinkRenderer $linkRenderer;
-	private ILoadBalancer $loadBalancer;
+	private IConnectionProvider $connectionProvider;
 
 	public function __construct(
 		ArchivedPage $specialPage,
 		LinkRenderer $linkRenderer,
-		ILoadBalancer $loadBalancer
+		IConnectionProvider $connectionProvider
 	) {
 		$this->mDefaultDirection = IndexPager::DIR_DESCENDING;
 		parent::__construct();
 		$this->page = $specialPage;
 		$this->linkRenderer = $linkRenderer;
-		$this->loadBalancer = $loadBalancer;
+		$this->connectionProvider = $connectionProvider;
 	}
 
 	/**
 	 * Return query paramters in array form to get archived elections
 	 */
 	public function getQueryInfo(): array {
-		$subquery = $this->loadBalancer->getConnection( ILoadBalancer::DB_REPLICA )->newSelectQueryBuilder()
+		$subquery = $this->connectionProvider->getReplicaDatabase()->newSelectQueryBuilder()
 			->select( 'pr_entity' )
 			->from( 'securepoll_properties' )
 			->where( [ 'pr_key' => 'is-archived' ] )

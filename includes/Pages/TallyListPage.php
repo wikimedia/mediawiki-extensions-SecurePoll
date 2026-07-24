@@ -14,7 +14,7 @@ use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Status\Status;
 use MediaWiki\Title\Title;
 use OOUI\MessageWidget;
-use Wikimedia\Rdbms\ILoadBalancer;
+use Wikimedia\Rdbms\IConnectionProvider;
 
 /**
  * A subpage for listing all tallies for an election.
@@ -36,7 +36,7 @@ class TallyListPage extends ActionPage {
 	public function __construct(
 		SpecialSecurePoll $specialPage,
 		private readonly LinkRenderer $linkRenderer,
-		private readonly ILoadBalancer $loadBalancer,
+		private readonly IConnectionProvider $connectionProvider,
 		private readonly JobQueueGroup $jobQueueGroup
 	) {
 		parent::__construct( $specialPage );
@@ -85,7 +85,7 @@ class TallyListPage extends ActionPage {
 		$form = $this->createForm();
 		$form->show();
 
-		$dbr = $this->loadBalancer->getConnection( ILoadBalancer::DB_REPLICA );
+		$dbr = $this->connectionProvider->getReplicaDatabase();
 		$tallies = $this->election->getTalliesFromDb( $dbr );
 		if ( count( $tallies ) > 0 ) {
 			$table = $this->createTallyTable( $tallies );
@@ -111,7 +111,7 @@ class TallyListPage extends ActionPage {
 	 * Show any errors from the most recent tally attempt
 	 */
 	private function showTallyError(): void {
-		$dbr = $this->loadBalancer->getConnection( ILoadBalancer::DB_REPLICA );
+		$dbr = $this->connectionProvider->getReplicaDatabase();
 		$out = $this->specialPage->getOutput();
 
 		$result = $dbr->newSelectQueryBuilder()
@@ -137,7 +137,7 @@ class TallyListPage extends ActionPage {
 	 * Show messages indicating the status of tallying if relevant
 	 */
 	private function showTallyStatus(): void {
-		$dbr = $this->loadBalancer->getConnection( ILoadBalancer::DB_REPLICA );
+		$dbr = $this->connectionProvider->getReplicaDatabase();
 		$out = $this->specialPage->getOutput();
 
 		$result = $dbr->newSelectQueryBuilder()
@@ -169,7 +169,7 @@ class TallyListPage extends ActionPage {
 			return $this->tallyEnqueued;
 		}
 
-		$dbr = $this->loadBalancer->getConnection( ILoadBalancer::DB_REPLICA );
+		$dbr = $this->connectionProvider->getReplicaDatabase();
 		$result = $dbr->newSelectQueryBuilder()
 			->select( 'pr_value' )
 			->from( 'securepoll_properties' )
@@ -333,7 +333,7 @@ class TallyListPage extends ActionPage {
 	 */
 	private function submitJob( Election $election, array $data ): bool {
 		$electionId = $election->getId();
-		$dbw = $this->loadBalancer->getConnection( ILoadBalancer::DB_PRIMARY );
+		$dbw = $this->connectionProvider->getPrimaryDatabase();
 
 		$crypt = $election->getCrypt();
 		if ( $crypt ) {

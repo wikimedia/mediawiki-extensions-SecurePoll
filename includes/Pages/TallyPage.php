@@ -6,7 +6,7 @@ namespace MediaWiki\Extension\SecurePoll\Pages;
 
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Linker\LinkRenderer;
-use Wikimedia\Rdbms\ILoadBalancer;
+use Wikimedia\Rdbms\IConnectionProvider;
 
 /**
  * A subpage for tallying votes and producing results
@@ -19,7 +19,7 @@ class TallyPage extends ActionPage {
 	public function __construct(
 		SpecialSecurePoll $specialPage,
 		private readonly LinkRenderer $linkRenderer,
-		private readonly ILoadBalancer $loadBalancer,
+		private readonly IConnectionProvider $connectionProvider,
 	) {
 		parent::__construct( $specialPage );
 	}
@@ -68,7 +68,7 @@ class TallyPage extends ActionPage {
 	 * Show the tally result if one has previously been calculated
 	 */
 	private function showTallyResult(): void {
-		$dbr = $this->loadBalancer->getConnection( ILoadBalancer::DB_REPLICA );
+		$dbr = $this->connectionProvider->getReplicaDatabase();
 		$out = $this->specialPage->getOutput();
 
 		$tally = $this->election->getTallyFromDb( $dbr, $this->tallyId );
