@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"AhmedG612"
+		]
+	},
+	"apihelp-strikevote-summary": "Waxay u oggolaanaysaa maamulayaasha inay tirtiraan ama soo celiyaan cod.",
+	"apihelp-strikevote-param-option": "Dooro tallaabada la qaadayo: ka saar ama soo celi cod.",
+	"apihelp-strikevote-paramvalue-option-strike": "Cod ku dhufo (ka saar tirinta).",
+	"apihelp-strikevote-paramvalue-option-unstrike": "Soo celi cod (dib ugu dar tirinta).",
+	"apihelp-strikevote-param-voteid": "Aqoonsiga codka la tirtirayo ama la soo celinayo.",
+	"apihelp-strikevote-param-reason": "Sababta loo saarayo  ama loo soo celinayo codka.",
+	"apihelp-strikevote-example-strike": "Ka saar codka <kbd>1</kbd>, adigoo bixinaya sababta <kbd>ku celcelin</kbd>.",
+	"apihelp-strikevote-example-unstrike": "Soo celi codka <kbd>1</kbd>, adigoo bixinaya sababta <kbd>khalad</kbd>.",
+	"apierror-securepoll-mustbeloggedin-strikevote": "Waa inaad gasho akoonkaaga si aad uga saarto ama u soo celiso cod.",
+	"apierror-securepoll-badvoteid": "<kbd>$1</kbd> ma aha aqoonsi cod oo sax ah.",
+	"apihelp-securepollauth-summary": "Waxay u oggolaanaysaa wiki fog inuu xaqiijiyo isticmaalayaasha ka hor inta aan loo oggolaan inay ka codeeyaan doorashada.",
+	"apihelp-securepollauth-param-token": "Calaamad ku salaysan calaamadda gelitaanka isticmaalaha.",
+	"apihelp-securepollauth-param-id": "Aqoonsiga isticmaalaha doonaya inuu codeeyo.",
+	"apihelp-securepollauth-example-auth": "Xaqiiji isticmaalaha leh aqoonsiga <kbd>1</kbd>, iyo calaamadda gelitaanka <kbd>123ABC</kbd>."
+}
