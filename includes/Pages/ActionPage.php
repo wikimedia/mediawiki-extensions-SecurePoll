@@ -13,7 +13,6 @@ use MediaWiki\Extension\SecurePoll\User\Voter;
 use MediaWiki\Language\Language;
 use MediaWiki\Language\LanguageFallback;
 use MediaWiki\Language\MessageLocalizer;
-use MediaWiki\Linker\Linker;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
 use MediaWiki\User\Options\UserOptionsLookup;
@@ -151,7 +150,9 @@ abstract class ActionPage implements MessageLocalizer {
 				// Messages: securepoll-edit-redirect, securepoll-translate-redirect,
 				// securepoll-list-redirect, securepoll-votereligibility-redirect
 				"securepoll-$action-redirect",
-				Message::rawParam( Linker::makeExternalLink( $jumpUrl, $wiki ) )
+				Message::rawParam( $this->specialPage->getLinkRenderer()->makeExternalLink(
+					$jumpUrl, $wiki, $this->specialPage->getPageTitle()
+				) )
 			);
 			return true;
 		}
