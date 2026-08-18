@@ -189,6 +189,7 @@
 	"securepoll-votereligibility-basic": "Basisoptiounen",
 	"securepoll-votereligibility-label-min_edits": "Mindest Zuel vun Ännerungen:",
 	"securepoll-votereligibility-label-max_registration": "Ugemellt virum:",
+	"securepoll-votereligibility-label-not_blocked_sitewide": "Däerf net um ganze Site gespaart sinn",
 	"securepoll-votereligibility-label-not_bot": "Däerf net las Bot markéiert ginn",
 	"securepoll-votereligibility-lists": "Wielerlëschten",
 	"securepoll-votereligibility-label-inuse": "Dës Lëscht gëtt benotzt",
