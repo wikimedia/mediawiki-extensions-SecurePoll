@@ -192,6 +192,7 @@
 	"securepoll-votereligibility-basic": "Basisoptiounen",
 	"securepoll-votereligibility-label-min_edits": "Muss eng Mindestzuel vun Ännerungen hunn:",
 	"securepoll-votereligibility-label-max_registration": "Muss ugemellt si virum:",
+	"securepoll-votereligibility-label-not_blocked_sitewide": "Däerf net um ganze Site gespaart sinn",
 	"securepoll-votereligibility-label-not_bot": "Däerf net las Bot markéiert ginn",
 	"securepoll-votereligibility-label-need_group": "Muss an enger vun dëse Gruppe sinn:",
 	"securepoll-votereligibility-lists": "Wielerlëschten",
