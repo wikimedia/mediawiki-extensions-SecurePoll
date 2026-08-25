@@ -10,7 +10,6 @@ use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Pages\CreatePage;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Maintenance\Maintenance;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\SpecialPage\SpecialPage;
 use Wikimedia\Rdbms\IDatabase;
 
@@ -194,7 +193,7 @@ class GenerateTestElection extends Maintenance {
 	private function generateSTVElection( $name, $admins, $candidateCount, $seatCount ) {
 		// To avoid re-writing the insertion logic,
 		// get the processInput() function from the CreatePage
-		$services = MediaWikiServices::getInstance();
+		$services = $this->getServiceContainer();
 		$createPage = new CreatePage(
 			new SpecialSecurePoll(
 				$services->getService( 'SecurePoll.ActionPageFactory' )

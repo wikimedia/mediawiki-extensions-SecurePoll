@@ -7,7 +7,6 @@ namespace MediaWiki\Extension\SecurePoll\Maintenance;
 use MediaWiki\Extension\CentralAuth\CentralAuthServices;
 use MediaWiki\Extension\CentralAuth\User\CentralAuthUser;
 use MediaWiki\Maintenance\Maintenance;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\User\UserIdentityValue;
 use MediaWiki\WikiMap\WikiMap;
@@ -81,7 +80,7 @@ class FindUsersWithRight extends Maintenance {
 	}
 
 	private function doLocalGroups() {
-		$services = MediaWikiServices::getInstance();
+		$services = $this->getServiceContainer();
 		$groups = $services->getGroupPermissionsLookup()
 			->getGroupsWithPermission( $this->right );
 		if ( !$groups ) {
@@ -133,7 +132,7 @@ class FindUsersWithRight extends Maintenance {
 		if ( !$this->centralAuthLoaded ) {
 			return;
 		}
-		$services = MediaWikiServices::getInstance();
+		$services = $this->getServiceContainer();
 		$caDbManager = CentralAuthServices::getDatabaseManager();
 		$dbcr = $caDbManager->getCentralReplicaDB();
 

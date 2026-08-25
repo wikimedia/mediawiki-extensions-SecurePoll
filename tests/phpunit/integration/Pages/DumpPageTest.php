@@ -8,7 +8,6 @@ use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Extension\SecurePoll\Store\XMLStore;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\Authority;
 use MediaWiki\Permissions\SimpleAuthority;
 use MediaWiki\Request\FauxRequest;
@@ -289,7 +288,7 @@ class DumpPageTest extends SpecialPageTestBase {
 	 * @inheritDoc
 	 */
 	protected function newSpecialPage(): SpecialPage {
-		$factory = MediaWikiServices::getInstance()->getService( 'SecurePoll.ActionPageFactory' );
+		$factory = $this->getServiceContainer()->getService( 'SecurePoll.ActionPageFactory' );
 		$page = new SpecialSecurePoll( $factory );
 		$page->sp_context = $this->context;
 		return $page;

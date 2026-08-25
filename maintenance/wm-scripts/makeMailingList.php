@@ -12,7 +12,6 @@ use MediaWiki\Extension\SecurePoll\User\LocalAuth;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Maintenance\Maintenance;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\User\Options\UserOptionsLookup;
 use MediaWiki\User\User;
@@ -172,7 +171,7 @@ class MakeMailingList extends Maintenance {
 	}
 
 	private function initServices() {
-		$services = MediaWikiServices::getInstance();
+		$services = $this->getServiceContainer();
 		$this->loadBalancerFactory = $services->getDBLoadBalancerFactory();
 		$this->dbProvider = $services->getConnectionProvider();
 		$this->userFactory = $services->getUserFactory();
@@ -280,7 +279,7 @@ class MakeMailingList extends Maintenance {
 	 */
 	private function isInNomailList( $user ) {
 		if ( $this->nomailUsers === null ) {
-			$services = MediaWikiServices::getInstance();
+			$services = $this->getServiceContainer();
 			$raw = $services->getHttpRequestFactory()->get(
 				'https://meta.wikimedia.org/wiki/Wikimedia_Foundation_nomail_list?action=raw',
 				[],

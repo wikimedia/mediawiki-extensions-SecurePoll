@@ -7,7 +7,6 @@ namespace MediaWiki\Extension\SecurePoll;
 use MediaWiki\Extension\CentralAuth\CentralAuthServices;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Maintenance\Maintenance;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\WikiMap\WikiMap;
 use Wikimedia\Rdbms\IDatabase;
 
@@ -140,7 +139,7 @@ class MakeGlobalVoterList extends Maintenance {
 			$editCounts[$row->lu_name] = [ 0, 0 ];
 		}
 
-		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+		$lbFactory = $this->getServiceContainer()->getDBLoadBalancerFactory();
 		$localDatabases = $this->getConfig()->get( MainConfigNames::LocalDatabases );
 		foreach ( $foreignUsers as $wiki => $wikiUsers ) {
 			if ( !in_array( $wiki, $localDatabases ) ) {
@@ -221,7 +220,7 @@ class MakeGlobalVoterList extends Maintenance {
 			return;
 		}
 		$this->lastReportTime = $now;
-		$lang = MediaWikiServices::getInstance()->getLanguageFactory()->getLanguage( 'en' );
+		$lang = $this->getServiceContainer()->getLanguageFactory()->getLanguage( 'en' );
 		$estTotalDuration = ( $now - $this->startTime ) * $total / $current;
 		$estRemaining = $estTotalDuration - ( $now - $this->startTime );
 

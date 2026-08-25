@@ -8,7 +8,6 @@ use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Store\MemoryStore;
 use MediaWiki\Extension\SecurePoll\Talliers\ElectionTallier;
 use MediaWiki\Maintenance\Maintenance;
-use MediaWiki\MediaWikiServices;
 use RuntimeException;
 
 // @codeCoverageIgnoreStart
@@ -80,7 +79,7 @@ class TallyElection extends Maintenance {
 		$tallier = $status->value;
 		'@phan-var ElectionTallier $tallier';
 
-		$dbw = MediaWikiServices::getInstance()->getConnectionProvider()->getPrimaryDatabase();
+		$dbw = $this->getServiceContainer()->getConnectionProvider()->getPrimaryDatabase();
 		$election->saveTallyResult( $dbw, $tallier->getJSONResult() );
 
 		if ( $this->hasOption( 'html' ) ) {

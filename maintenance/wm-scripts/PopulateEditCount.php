@@ -8,7 +8,6 @@ use Flow\Container;
 use Flow\DbFactory;
 use Flow\Model\UUID;
 use MediaWiki\Maintenance\Maintenance;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\WikiMap\WikiMap;
 
@@ -56,7 +55,7 @@ abstract class PopulateEditCount extends Maintenance {
 	protected string $table;
 
 	public function execute() {
-		$dbProvider = MediaWikiServices::getInstance()->getConnectionProvider();
+		$dbProvider = $this->getServiceContainer()->getConnectionProvider();
 		$dbr = $dbProvider->getReplicaDatabase();
 		$dbw = $dbProvider->getPrimaryDatabase();
 

@@ -13,7 +13,6 @@ use MediaWiki\Language\LanguageFallback;
 use MediaWiki\Mail\MailAddress;
 use MediaWiki\Mail\UserMailer;
 use MediaWiki\Maintenance\Maintenance;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\ParserOptions;
 use MediaWiki\Revision\RevisionLookup;
@@ -68,7 +67,7 @@ class SendMail extends Maintenance {
 	}
 
 	private function initServices() {
-		$services = MediaWikiServices::getInstance();
+		$services = $this->getServiceContainer();
 		$this->parser = $services->getParser();
 		$this->languageFactory = $services->getLanguageFactory();
 		$this->languageFallback = $services->getLanguageFallback();
