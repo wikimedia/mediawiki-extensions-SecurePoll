@@ -105,7 +105,7 @@ class STVTallier extends Tallier {
 		// This esures that if one is in progress, no other tally can be started for the election.
 		$modifiers = $electionTallier->election->getProperty( 'tally-job-enqueued', null );
 		if ( $modifiers ) {
-			$modifiers = unserialize( $modifiers );
+			$modifiers = unserialize( $modifiers, [ 'allowed_classes' => false ] );
 		}
 
 		$excludedCandidates = [];

@@ -219,7 +219,7 @@ class Voter {
 			return FormatJson::decode( $blob, true );
 		} else {
 			// If field was serialized through the legacy PHP serialization
-			return unserialize( $blob );
+			return unserialize( $blob, [ 'allowed_classes' => false ] );
 		}
 	}
 
