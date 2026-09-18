@@ -214,9 +214,6 @@
 		]
 	},
 	"config": {
-		"SecurePollTempDir": {
-			"value": "/tmp"
-		},
 		"SecurePollShowErrorDetail": {
 			"value": false
 		},
