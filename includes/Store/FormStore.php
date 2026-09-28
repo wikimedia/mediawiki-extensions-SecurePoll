@@ -120,10 +120,10 @@ class FormStore extends MemoryStore {
 			'request-comment' => $formData['request-comment'] ? 1 : 0,
 			'prompt-active-wiki' => (int)( $formData['prompt-active-wiki'] ?? false ),
 		] );
-		$this->messages[$this->lang][$eId] = [
+		$this->messages[$this->lang][$eId] = array_merge( $this->messages[$this->lang][$eId] ?? [], [
 			'title' => $formData['election_title'],
 			'comment-prompt' => $formData['comment-prompt']
-		];
+		] );
 
 		$admins = $this->getAdminsList( $formData['property_admins'] );
 		$this->properties[$eId]['admins'] = $admins;
