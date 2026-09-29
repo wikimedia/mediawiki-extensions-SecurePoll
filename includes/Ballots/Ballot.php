@@ -56,7 +56,7 @@ abstract class Ballot {
 	/**
 	 * Get a list of names of tallying methods, which may be used to produce a
 	 * result from this ballot type.
-	 * @return array
+	 * @return string[]
 	 */
 	public static function getTallyTypes() {
 		throw new LogicException( "Subclass must override ::getTallyTypes()" );
@@ -75,7 +75,7 @@ abstract class Ballot {
 	 * See STVBallot for an example of how to declare a modification and STVTallier
 	 * for the applied modification.
 	 *
-	 * @return array
+	 * @return array<string, array>
 	 */
 	public static function getTallyModifiers() {
 		return [];
@@ -91,7 +91,7 @@ abstract class Ballot {
 	 * The descriptors should have an additional key, "SecurePoll_type", with
 	 * the value being "property" or "message".
 	 *
-	 * @return array
+	 * @return array{election: array<string,array>, question: array<string,array>, option: array<string,array>}
 	 */
 	public static function getCreateDescriptors() {
 		return [
@@ -126,7 +126,7 @@ abstract class Ballot {
 	 * Get any extra messages that this ballot type uses to render questions.
 	 * Used to get the list of translatable messages for TranslatePage.
 	 * @param Entity|null $entity
-	 * @return array
+	 * @return string[]
 	 * @see Election::getMessageNames()
 	 */
 	public function getMessageNames( ?Entity $entity = null ) {

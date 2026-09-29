@@ -33,14 +33,14 @@ class STVTallier extends Tallier {
 	 * An array of vote combinations keyed by underscore-delimited
 	 * and ranked options. Each vote has a rank array (which allows
 	 * index-1 access to each ranked option) and a count
-	 * @var array
+	 * @var array<string, array{count: int, rank: array<int, int>}>
 	 */
 	public $rankedVotes = [];
 
 	/**
 	 * An array of results, gets populated per round
 	 * holds current round, both elected and eliminated candidate and the total votes per round.
-	 * @var array[]
+	 * @var array{elected: int[], eliminated: int[], rounds: array[]}
 	 */
 	public $resultsLog = [
 		'elected' => [],
@@ -383,9 +383,9 @@ class STVTallier extends Tallier {
 	 * add $weight multiplied by the keep factor ($voteValue)  of the candidate ($keepFactors[$candidate])
 	 * to that candidate’s vote $voteTotals[$candidate]['total'], and reduce $weight by $voteValue,
 	 * until no further candidate remains on the ballot.
-	 * @param array $ballots
-	 * @param array $keepFactors
-	 * @param null $prevDistribution
+	 * @param array<string, array{count: int, rank: array<int, int>}> $ballots
+	 * @param array<int, string> $keepFactors
+	 * @param array<int, array{total: string, votes: string}>|null $prevDistribution
 	 * @return array
 	 */
 	private function distributeVotes( $ballots, $keepFactors, $prevDistribution = null ): array {
@@ -471,13 +471,13 @@ class STVTallier extends Tallier {
 	/**
 	 * Calculates keep factors of all elected candidate at every round
 	 * calculated as: current keepfactor multiplied by current quota divided by candidates current vote($voteTotals)
-	 * @param array $candidates
+	 * @param array<int, string> $candidates
 	 * @param string $quota
 	 * @param array $currentFactors
-	 * @param array $winners
-	 * @param array $eliminated
-	 * @param array $voteTotals
-	 * @return array
+	 * @param int[] $winners
+	 * @param int[] $eliminated
+	 * @param array<int, array{total: string, votes: string}> $voteTotals
+	 * @return array<int, string>
 	 */
 	private function calculateKeepFactors( $candidates, $quota, $currentFactors, $winners, $eliminated, $voteTotals ) {
 		$keepFactors = [];
@@ -502,8 +502,8 @@ class STVTallier extends Tallier {
 	}
 
 	/**
-	 * @param array $ranking
-	 * @param array $winners
+	 * @param array<int, array{total: string, votes: string}> $ranking
+	 * @param int[] $winners
 	 * @param string $quota
 	 * @return string
 	 */
@@ -519,9 +519,9 @@ class STVTallier extends Tallier {
 	}
 
 	/**
-	 * @param array $ranking
+	 * @param array<int, array{total: string, votes: string}> $ranking
 	 * @param string $quota
-	 * @return array
+	 * @return int[]
 	 */
 	private function declareWinners( $ranking, $quota ) {
 		$winners = [];
@@ -535,12 +535,12 @@ class STVTallier extends Tallier {
 	}
 
 	/**
-	 * @param array $ranking
+	 * @param array<int, array{total: string, votes: string}> $ranking
 	 * @param string $surplus
-	 * @param array $eliminated
-	 * @param array $elected
+	 * @param int[] $eliminated
+	 * @param int[] $elected
 	 * @param string $prevSurplus
-	 * @return array
+	 * @return int[]
 	 */
 	private function declareEliminated( $ranking, $surplus, $eliminated, $elected, $prevSurplus ) {
 		// Make sure it's ordered by vote totals
@@ -618,7 +618,7 @@ class STVTallier extends Tallier {
 	 * @param string $title
 	 * @param Question $question
 	 * @param array $votes array of votes where each vote is formatted as [ id, id, id ]
-	 * @param array $excludedCandidates array of candidate ids that have withdrawn
+	 * @param int[] $excludedCandidates array of candidate ids that have withdrawn
 	 *
 	 * @return string
 	 */

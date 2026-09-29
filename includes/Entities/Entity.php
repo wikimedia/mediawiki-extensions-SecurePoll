@@ -27,7 +27,7 @@ class Entity {
 	public $electionId;
 	/** @var Context */
 	public $context;
-	/** @var array */
+	/** @var array<string, true> */
 	public $messagesLoaded = [];
 	/** @var array|null */
 	public $properties;
@@ -59,7 +59,7 @@ class Entity {
 	/**
 	 * Get a list of localisable message names. This is used to provide the
 	 * translate subpage with a list of messages to localise.
-	 * @return array
+	 * @return string[]
 	 */
 	public function getMessageNames() {
 		# STUB
@@ -93,7 +93,7 @@ class Entity {
 	 * the messages of the children are loaded automatically, to reduce the
 	 * query count.
 	 *
-	 * @return array
+	 * @return Entity[]
 	 */
 	public function getChildren() {
 		return [];
@@ -102,7 +102,7 @@ class Entity {
 	/**
 	 * Get all children, grandchildren, etc. in a single flat array of entity
 	 * objects.
-	 * @return array
+	 * @return Entity[]
 	 */
 	public function getDescendants() {
 		$descendants = [];
@@ -309,7 +309,7 @@ class Entity {
 	 * Get property names which aren't included in an XML dump.
 	 * Overloaded by Election.
 	 * @param array $params
-	 * @return array
+	 * @return string[]
 	 */
 	public function getPropertyDumpExclusion( $params = [] ) {
 		return [];

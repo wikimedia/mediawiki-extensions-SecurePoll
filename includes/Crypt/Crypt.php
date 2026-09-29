@@ -89,7 +89,7 @@ abstract class Crypt {
 	 * The descriptors should have an additional key, "SecurePoll_type", with
 	 * the value being "property" or "message".
 	 *
-	 * @return array
+	 * @return array{election: array<string,array>, question: array<string,array>, option: array<string,array>}
 	 */
 	public static function getCreateDescriptors() {
 		return [
@@ -103,7 +103,7 @@ abstract class Crypt {
 	 * Return descriptors for any properties this type requires for poll
 	 * tallying.
 	 *
-	 * @return array
+	 * @return array<string,array>
 	 */
 	abstract public function getTallyDescriptors(): array;
 

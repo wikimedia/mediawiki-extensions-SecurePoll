@@ -15,11 +15,8 @@ use OOUI\RadioInputWidget;
  * given options, for each question.
  */
 class ChooseBallot extends Ballot {
-	/**
-	 * Get a list of names of tallying methods, which may be used to produce a
-	 * result from this ballot type.
-	 * @return array
-	 */
+
+	/** @inheritDoc */
 	public static function getTallyTypes() {
 		return [ 'plurality' ];
 	}

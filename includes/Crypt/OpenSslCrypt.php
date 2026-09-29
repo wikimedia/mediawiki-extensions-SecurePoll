@@ -488,18 +488,7 @@ class OpenSslCrypt extends Crypt {
 		return $decryptKey !== '';
 	}
 
-	/**
-	 * Return descriptors for any properties this type requires for poll
-	 * creation, for the election, questions, and options.
-	 *
-	 * The returned array should have three keys, "election", "question", and
-	 * "option", each mapping to an array of HTMLForm descriptors.
-	 *
-	 * The descriptors should have an additional key, "SecurePoll_type", with
-	 * the value being "property" or "message".
-	 *
-	 * @return array
-	 */
+	/** @inheritDoc */
 	public static function getCreateDescriptors() {
 		$config = MediaWikiServices::getInstance()->getMainConfig();
 		$openSslSignKey = $config->has( 'SecurePollOpenSslSignKey' )

@@ -101,7 +101,7 @@ abstract class Tallier {
 	 * The descriptors should have an additional key, "SecurePoll_type", with
 	 * the value being "property" or "message".
 	 *
-	 * @return array
+	 * @return array{election: array<string,array>, question: array<string,array>, option: array<string,array>}
 	 */
 	public static function getCreateDescriptors() {
 		return [

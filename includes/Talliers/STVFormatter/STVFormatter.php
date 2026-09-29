@@ -7,9 +7,9 @@ namespace MediaWiki\Extension\SecurePoll\Talliers\STVFormatter;
 interface STVFormatter {
 
 	/**
-	 * @param array $elected
-	 * @param array $eliminated
-	 * @param array $modifiers
+	 * @param int[] $elected
+	 * @param int[] $eliminated
+	 * @param array[] $modifiers
 	 * @return string
 	 */
 	public function formatPreamble( array $elected, array $eliminated, array $modifiers );

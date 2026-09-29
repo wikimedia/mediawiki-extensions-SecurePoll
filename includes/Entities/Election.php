@@ -141,10 +141,7 @@ class Election extends Entity {
 		}
 	}
 
-	/**
-	 * Get a list of localisable message names. See Entity.
-	 * @return array
-	 */
+	/** @inheritDoc */
 	public function getMessageNames() {
 		return [
 			'title',
@@ -164,10 +161,7 @@ class Election extends Entity {
 		return $this;
 	}
 
-	/**
-	 * Get a list of child entity objects. See Entity.
-	 * @return array
-	 */
+	/** @inheritDoc */
 	public function getChildren() {
 		return $this->getQuestions();
 	}
@@ -627,11 +621,7 @@ class Election extends Entity {
 		return $s;
 	}
 
-	/**
-	 * Get property names which aren't included in an XML dump
-	 * @param array $params
-	 * @return array
-	 */
+	/** @inheritDoc */
 	public function getPropertyDumpExclusion( $params = [] ) {
 		if ( empty( $params['private'] ) ) {
 			return [

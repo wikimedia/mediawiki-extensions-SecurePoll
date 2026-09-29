@@ -29,20 +29,14 @@ class Question extends Entity {
 		}
 	}
 
-	/**
-	 * Get a list of localisable message names.
-	 * @return array
-	 */
+	/** @inheritDoc */
 	public function getMessageNames() {
 		$ballot = $this->getElection()->getBallot();
 
 		return array_merge( $ballot->getMessageNames( $this ), [ 'text' ] );
 	}
 
-	/**
-	 * Get the child entity objects.
-	 * @return array
-	 */
+	/** @inheritDoc */
 	public function getChildren() {
 		return $this->options;
 	}

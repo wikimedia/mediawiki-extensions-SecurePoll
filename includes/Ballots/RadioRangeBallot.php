@@ -119,7 +119,7 @@ class RadioRangeBallot extends Ballot {
 
 	/**
 	 * @param Question $question
-	 * @return array
+	 * @return int[]
 	 * @throws InvalidDataException
 	 */
 	public function getMinMax( $question ) {
@@ -153,7 +153,7 @@ class RadioRangeBallot extends Ballot {
 
 	/**
 	 * @param Question $question
-	 * @return array
+	 * @return int[]
 	 */
 	public function getScoresLeftToRight( $question ) {
 		$incr = $this->getColumnDirection( $question );
@@ -171,7 +171,7 @@ class RadioRangeBallot extends Ballot {
 
 	/**
 	 * @param Question $question
-	 * @return array
+	 * @return array<int, string>
 	 */
 	public function getColumnLabels( $question ) {
 		// list( $min, $max ) = $this->getMinMax( $question );

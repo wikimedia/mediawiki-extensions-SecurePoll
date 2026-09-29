@@ -48,7 +48,7 @@ class Auth {
 	 * The descriptors should have an additional key, "SecurePoll_type", with
 	 * the value being "property" or "message".
 	 *
-	 * @return array
+	 * @return array{script-path?: array}
 	 */
 	public static function getCreateDescriptors() {
 		return [];

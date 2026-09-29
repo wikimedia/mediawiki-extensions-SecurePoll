@@ -20,11 +20,7 @@ class Option extends Entity {
 		parent::__construct( $context, 'option', $info );
 	}
 
-	/**
-	 * Get a list of localisable message names. This is used to provide the
-	 * translate subpage with a list of messages to localise.
-	 * @return array
-	 */
+	/** @inheritDoc */
 	public function getMessageNames() {
 		return [ 'text' ];
 	}

@@ -23,10 +23,7 @@ class STVBallot extends Ballot {
 	/** @var int */
 	private $numberOfSeats = 1;
 
-	/**
-	 * Get a list of names of tallying methods, which may be used to produce a
-	 * result from this ballot type.
-	 */
+	/** @inheritDoc */
 	public static function getTallyTypes(): array {
 		return [
 			'droop-quota'

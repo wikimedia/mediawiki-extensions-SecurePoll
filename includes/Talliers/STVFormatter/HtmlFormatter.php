@@ -28,7 +28,7 @@ class HtmlFormatter implements STVFormatter {
 	/**
 	 * An array of results, gets populated per round
 	 * holds current round, both elected and eliminated candidate and the total votes per round.
-	 * @var array[]
+	 * @var array{elected: int[], eliminated: int[], rounds: array[]}
 	 */
 	protected $resultsLog;
 
@@ -36,7 +36,7 @@ class HtmlFormatter implements STVFormatter {
 	 * An array of vote combinations keyed by underscore-delimited
 	 * and ranked options. Each vote has a rank array (which allows
 	 * index-1 access to each ranked option) and a count
-	 * @var array
+	 * @var array<string, array{count: int, rank: array<int, int>}>
 	 */
 	protected $rankedVotes;
 
@@ -60,10 +60,10 @@ class HtmlFormatter implements STVFormatter {
 
 	/**
 	 * @param array $resultLogs
-	 * @param array $rankedVotes
+	 * @param array<string, array{count: int, rank: array<int, int>}> $rankedVotes
 	 * @param int $seats
-	 * @param array $candidates
-	 * @param array $modifiers
+	 * @param array<int, string> $candidates
+	 * @param array[] $modifiers
 	 * @param string $blt
 	 */
 	public function __construct( $resultLogs, $rankedVotes, $seats, $candidates, $modifiers, $blt ) {
@@ -501,7 +501,7 @@ class HtmlFormatter implements STVFormatter {
 	 * Given the rounds of an election, return the last set
 	 * of eliminated candidates by their candidate name
 	 * @param array[] $rounds
-	 * @return string[]
+	 * @return int[]
 	 */
 	protected function getLastEliminated( array $rounds ): array {
 		for ( $i = count( $rounds ); $i--; ) {
