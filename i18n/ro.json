@@ -8,7 +8,8 @@
 			"KlaudiuMihaila",
 			"Mihai",
 			"Minisarm",
-			"Stelistcristi"
+			"Stelistcristi",
+			"Vellion Eagle"
 		]
 	},
 	"securepoll": "SondajSecurizat",
@@ -97,5 +98,6 @@
 	"securepoll-tally-upload-error": "Eroare în timpul efectuării numărătorii din fișierul dump: $1",
 	"securepoll-ranks": "Clasament final",
 	"securepoll-average-score": "Scor mediu",
-	"securepoll-round": "Runda $1"
+	"securepoll-round": "Runda $1",
+	"securepoll-votereligibility-saved": "{{int:securepoll}}: Salvat"
 }
