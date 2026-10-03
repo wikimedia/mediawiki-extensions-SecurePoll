@@ -213,7 +213,7 @@ class Election extends Entity {
 	 * @return string
 	 */
 	public function getVotesCount() {
-		$dbr = $this->context->getDB( DB_REPLICA );
+		$dbr = $this->context->getReplicaDB();
 
 		return $dbr->newSelectQueryBuilder()
 			->select( 'COUNT(*)' )
@@ -452,7 +452,7 @@ class Election extends Entity {
 	 * @return bool
 	 */
 	public function hasVoted( $voter ) {
-		$db = $this->context->getDB();
+		$db = $this->context->getPrimaryDB();
 		$row = $db->newSelectQueryBuilder()
 			->select( '1' )
 			->from( 'securepoll_votes' )
@@ -550,7 +550,7 @@ class Election extends Entity {
 		if ( !$status->isOK() ) {
 			return $status;
 		}
-		$db = $this->context->getDB( DB_REPLICA );
+		$db = $this->context->getReplicaDB();
 		$res = $db->newSelectQueryBuilder()
 			->select( '*' )
 			->from( 'securepoll_votes' )
@@ -773,7 +773,7 @@ class Election extends Entity {
 	 * Checks if any tallies have been completed for an election yet. If a
 	 * tally has not been done yet then this function will return 'false'.
 	 *
-	 * @param IDatabase $dbr
+	 * @param IReadableDatabase $dbr
 	 * @return bool
 	 */
 	public function isTallied( $dbr ) {

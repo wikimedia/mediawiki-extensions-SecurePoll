@@ -186,7 +186,7 @@ class ListPager extends TablePager {
 				$msg = Voter::newFromId(
 					$this->listPage->context,
 					$this->mCurrentRow->vote_voter,
-					DB_REPLICA
+					false
 				)->isRemote()
 					? 'securepoll-voter-name-remote'
 					: 'securepoll-voter-name-local';

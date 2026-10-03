@@ -27,6 +27,7 @@ use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
 use stdClass;
 use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\IReadableDatabase;
 
 /**
  * This object contains caches and various items of processing context for
@@ -115,7 +116,7 @@ class Context {
 	public function getStore() {
 		if ( $this->store === null ) {
 			$this->store = new DBStore(
-				MediaWikiServices::getInstance()->getDBLoadBalancer(),
+				MediaWikiServices::getInstance()->getConnectionProvider(),
 				false
 			);
 		}
@@ -245,11 +246,11 @@ class Context {
 	/**
 	 * Create a voter object from the database
 	 * @param int $id
-	 * @param int $index DB_PRIMARY or DB_REPLICA
+	 * @param bool $fromPrimary Whether to read from the primary database instead of a replica
 	 * @return Voter|false false if the ID is not valid
 	 */
-	public function getVoter( $id, $index = DB_PRIMARY ) {
-		return Voter::newFromId( $this, $id, $index );
+	public function getVoter( $id, bool $fromPrimary = true ) {
+		return Voter::newFromId( $this, $id, $fromPrimary );
 	}
 
 	/**
@@ -328,13 +329,19 @@ class Context {
 	}
 
 	/**
-	 * Get a database object, or throw an exception if the current store object
+	 * Get a replica database object, or throw an exception if the current store object
 	 * does not support database operations.
-	 * @param int $index DB_PRIMARY or DB_REPLICA
-	 * @return IDatabase
 	 */
-	public function getDB( $index = DB_PRIMARY ) {
-		return $this->getStore()->getDB( $index );
+	public function getReplicaDB(): IReadableDatabase {
+		return $this->getStore()->getReplicaDB();
+	}
+
+	/**
+	 * Get a primary database object, or throw an exception if the current store object
+	 * does not support database operations.
+	 */
+	public function getPrimaryDB(): IDatabase {
+		return $this->getStore()->getPrimaryDB();
 	}
 
 	/**

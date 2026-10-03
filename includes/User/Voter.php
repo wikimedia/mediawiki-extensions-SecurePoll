@@ -62,11 +62,11 @@ class Voter {
 	 * Create a voter object from the database
 	 * @param Context $context
 	 * @param int $id
-	 * @param int $index DB_PRIMARY or DB_REPLICA
+	 * @param bool $fromPrimary Whether to read from the primary database instead of a replica
 	 * @return Voter|bool false if the ID is not valid
 	 */
-	public static function newFromId( $context, $id, $index = DB_PRIMARY ) {
-		$db = $context->getDB( $index );
+	public static function newFromId( $context, $id, bool $fromPrimary = true ) {
+		$db = $fromPrimary ? $context->getPrimaryDB() : $context->getReplicaDB();
 		$row = $db->newSelectQueryBuilder()
 			->select( '*' )
 			->from( 'securepoll_voters' )
@@ -111,7 +111,7 @@ class Voter {
 	 * @return self
 	 */
 	public static function createVoter( $context, $params ) {
-		$db = $context->getDB();
+		$db = $context->getPrimaryDB();
 		$row = [
 			'voter_election' => $params['electionId'],
 			'voter_name' => $params['name'],
@@ -249,7 +249,7 @@ class Voter {
 	 * @param int $voterId
 	 */
 	public function addCookieDup( $voterId ) {
-		$dbw = $this->context->getDB();
+		$dbw = $this->context->getPrimaryDB();
 		# Insert the log record
 		$dbw->newInsertQueryBuilder()
 			->insertInto( 'securepoll_cookie_match' )

@@ -73,7 +73,7 @@ class ApiStrikeVote extends ApiBase {
 		// (using SpecialPageFactory gets us bad type hints for phan here)
 		$page = new SpecialSecurePoll( $this->actionPageFactory );
 		$context = $page->sp_context;
-		$db = $context->getDB();
+		$db = $context->getPrimaryDB();
 		$row = $db->newSelectQueryBuilder()
 			->select( 'elections.*' )
 			->from( 'securepoll_votes' )

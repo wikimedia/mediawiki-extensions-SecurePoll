@@ -5,34 +5,36 @@ declare( strict_types=1 );
 namespace MediaWiki\Extension\SecurePoll\Store;
 
 use MediaWiki\Status\Status;
-use Wikimedia\Rdbms\ILoadBalancer;
+use Wikimedia\Rdbms\IConnectionProvider;
+use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\IReadableDatabase;
 
 /**
  * Storage class for a DB backend. This is the one that's most often used.
  */
 class DBStore implements Store {
 
-	/** @var ILoadBalancer */
-	private $loadBalancer;
+	/** @var IConnectionProvider */
+	private $dbProvider;
 
 	/** @var string|bool */
 	private $wiki;
 
 	/**
-	 * @param ILoadBalancer $loadBalancer The load balancer used to get connection objects
+	 * @param IConnectionProvider $dbProvider The provider used to get connection objects
 	 * @param string|bool $wiki The wiki ID or false to use the local wiki
 	 */
 	public function __construct(
-		ILoadBalancer $loadBalancer,
+		IConnectionProvider $dbProvider,
 		$wiki = false
 	) {
-		$this->loadBalancer = $loadBalancer;
+		$this->dbProvider = $dbProvider;
 		$this->wiki = $wiki;
 	}
 
 	/** @inheritDoc */
 	public function getMessages( $lang, $ids ) {
-		$db = $this->getDB( DB_REPLICA );
+		$db = $this->getReplicaDB();
 		$res = $db->newSelectQueryBuilder()
 			->select( '*' )
 			->from( 'securepoll_msgs' )
@@ -52,7 +54,7 @@ class DBStore implements Store {
 
 	/** @inheritDoc */
 	public function getLangList( $ids ) {
-		$db = $this->getDB( DB_REPLICA );
+		$db = $this->getReplicaDB();
 		$res = $db->newSelectQueryBuilder()
 			->select( 'msg_lang' )
 			->distinct()
@@ -72,7 +74,7 @@ class DBStore implements Store {
 
 	/** @inheritDoc */
 	public function getProperties( $ids ) {
-		$db = $this->getDB( DB_REPLICA );
+		$db = $this->getReplicaDB();
 		$res = $db->newSelectQueryBuilder()
 			->select( '*' )
 			->from( 'securepoll_properties' )
@@ -90,7 +92,7 @@ class DBStore implements Store {
 	/** @inheritDoc */
 	public function getElectionInfo( $ids ) {
 		$ids = (array)$ids;
-		$db = $this->getDB( DB_REPLICA );
+		$db = $this->getReplicaDB();
 		$res = $db->newSelectQueryBuilder()
 			->select( '*' )
 			->from( 'securepoll_elections' )
@@ -108,7 +110,7 @@ class DBStore implements Store {
 	/** @inheritDoc */
 	public function getElectionInfoByTitle( $names ) {
 		$names = (array)$names;
-		$db = $this->getDB( DB_REPLICA );
+		$db = $this->getReplicaDB();
 		$res = $db->newSelectQueryBuilder()
 			->select( '*' )
 			->from( 'securepoll_elections' )
@@ -126,7 +128,7 @@ class DBStore implements Store {
 	/** @inheritDoc */
 	public function getElectionInfoByTally( $ids ) {
 		$ids = (array)$ids;
-		$db = $this->getDB( DB_REPLICA );
+		$db = $this->getReplicaDB();
 		$res = $db->newSelectQueryBuilder()
 			->select( [ 'el.*', 'ta_id' ] )
 			->from( 'securepoll_tallies' )
@@ -172,17 +174,18 @@ class DBStore implements Store {
 	}
 
 	/** @inheritDoc */
-	public function getDB( $index = DB_PRIMARY ) {
-		return $this->loadBalancer->getConnection(
-			$index,
-			[],
-			$this->wiki
-		);
+	public function getReplicaDB(): IReadableDatabase {
+		return $this->dbProvider->getReplicaDatabase( $this->wiki );
+	}
+
+	/** @inheritDoc */
+	public function getPrimaryDB(): IDatabase {
+		return $this->dbProvider->getPrimaryDatabase( $this->wiki );
 	}
 
 	/** @inheritDoc */
 	public function getQuestionInfo( $electionId ) {
-		$db = $this->getDB( DB_REPLICA );
+		$db = $this->getReplicaDB();
 		$res = $db->newSelectQueryBuilder()
 			->select( '*' )
 			->from( 'securepoll_questions' )
@@ -227,7 +230,7 @@ class DBStore implements Store {
 
 	/** @inheritDoc */
 	public function callbackValidVotes( $electionId, $callback, $voterId = null ) {
-		$dbr = $this->getDB( DB_REPLICA );
+		$dbr = $this->getReplicaDB();
 		$queryBuilder = $dbr->newSelectQueryBuilder()
 			->select( '*' )
 			->from( 'securepoll_votes' )
@@ -254,7 +257,7 @@ class DBStore implements Store {
 
 	/** @inheritDoc */
 	public function getEntityType( $id ) {
-		$db = $this->getDB( DB_REPLICA );
+		$db = $this->getReplicaDB();
 		$res = $db->newSelectQueryBuilder()
 			->select( '*' )
 			->from( 'securepoll_entity' )

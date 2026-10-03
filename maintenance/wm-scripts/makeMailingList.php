@@ -99,7 +99,7 @@ class MakeMailingList extends Maintenance {
 			$electionWiki = $this->getOption( 'election-wiki' );
 			$this->context->setStore(
 				new DBStore(
-					$this->loadBalancerFactory->getMainLB( $electionWiki ),
+					$this->loadBalancerFactory,
 					$electionWiki
 				)
 			);
@@ -311,7 +311,7 @@ class MakeMailingList extends Maintenance {
 
 	public function alreadyVoted( User $user ): bool {
 		if ( $this->votersByName === null ) {
-			$db = $this->context->getDB();
+			$db = $this->context->getPrimaryDB();
 			$this->votersByName = array_fill_keys( $db->newSelectQueryBuilder()
 				->select( 'voter_name' )
 				->from( 'securepoll_voters' )

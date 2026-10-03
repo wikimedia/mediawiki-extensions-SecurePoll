@@ -58,7 +58,7 @@ class TallyElectionJob extends Job {
 			return false;
 		}
 
-		$this->dbw = $this->context->getDB( DB_PRIMARY );
+		$this->dbw = $this->context->getPrimaryDB();
 
 		try {
 			$this->preRun();

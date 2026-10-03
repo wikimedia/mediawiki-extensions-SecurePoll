@@ -43,7 +43,7 @@ class DeleteTallyJob extends Job {
 			return false;
 		}
 
-		$dbw = $this->context->getDB( DB_PRIMARY );
+		$dbw = $this->context->getPrimaryDB();
 		$election->deleteTallyResult( $dbw, $tallyId );
 
 		return true;

@@ -580,7 +580,7 @@ class CreatePage extends ActionPage {
 			$eId = (int)$formData['election_id'];
 			if ( $eId > 0 ) {
 				// Load any existing properties up front, to avoid them getting removed from JSON logging
-				$dbStore = new DBStore( $this->lbFactory->getLoadBalancer() );
+				$dbStore = new DBStore( $this->lbFactory );
 				$props = $dbStore->getProperties( [ $eId ] );
 				$lang = $formData['election_primaryLang'];
 				$messages = $dbStore->getMessages( $lang, [ $eId ] );

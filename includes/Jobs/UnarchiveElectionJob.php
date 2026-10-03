@@ -24,7 +24,7 @@ class UnarchiveElectionJob extends Job {
 	public function run() {
 		$electionId = $this->params['electionId'];
 		$context = new Context();
-		$dbw = $context->getDB( DB_PRIMARY );
+		$dbw = $context->getPrimaryDB();
 
 		$isArchived = $dbw->newSelectQueryBuilder()
 			->select( 'pr_value' )

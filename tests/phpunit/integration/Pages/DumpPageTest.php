@@ -301,10 +301,10 @@ class DumpPageTest extends SpecialPageTestBase {
 	 */
 	private function getMockContext() {
 		$context = $this->getMockBuilder( Context::class )
-			->onlyMethods( [ 'getDB', 'getElection' ] )
+			->onlyMethods( [ 'getReplicaDB', 'getElection' ] )
 			->getMock();
 
-		$context->method( 'getDB' )->willReturn( new MockDatabase() );
+		$context->method( 'getReplicaDB' )->willReturn( new MockDatabase() );
 
 		return $context;
 	}

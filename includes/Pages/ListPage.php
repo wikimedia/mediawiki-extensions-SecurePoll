@@ -63,7 +63,7 @@ class ListPage extends ActionPage {
 			return;
 		}
 
-		$dbr = $this->election->context->getDB( DB_REPLICA );
+		$dbr = $this->election->context->getReplicaDB();
 
 		$res = $dbr->newSelectQueryBuilder()
 			->select( [
@@ -136,7 +136,7 @@ class ListPage extends ActionPage {
 	 * @return Status
 	 */
 	public function strike( $action, $voteId, $reason ) {
-		$dbw = $this->context->getDB();
+		$dbw = $this->context->getPrimaryDB();
 		// this still gives the securepoll-need-admin error when an admin tries to
 		// delete a nonexistent vote.
 		if ( !$this->election->isAdmin( $this->specialPage->getUser() ) ) {

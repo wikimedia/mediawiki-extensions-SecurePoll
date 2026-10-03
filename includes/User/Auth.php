@@ -106,7 +106,7 @@ class Auth {
 			}
 
 			# Check election ID explicitly on DB_PRIMARY
-			$voter = $this->context->getVoter( $voterId, DB_PRIMARY );
+			$voter = $this->context->getVoter( $voterId );
 			if ( !$voter || $voter->getElectionId() != $election->getId() ) {
 				return false;
 			} else {
@@ -125,7 +125,7 @@ class Auth {
 	 * @return Voter
 	 */
 	public function getVoter( $params ) {
-		$dbw = $this->context->getDB();
+		$dbw = $this->context->getPrimaryDB();
 
 		# This needs to be protected by FOR UPDATE
 		# Otherwise a race condition could lead to duplicate users for a single remote user,

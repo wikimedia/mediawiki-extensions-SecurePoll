@@ -7,6 +7,8 @@ namespace MediaWiki\Extension\SecurePoll\Store;
 use LogicException;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Status\Status;
+use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\IReadableDatabase;
 
 /**
  * Storage class that stores all data in local memory. The memory must be
@@ -111,10 +113,18 @@ class MemoryStore implements Store {
 	}
 
 	/** @inheritDoc */
-	public function getDB( $index = DB_PRIMARY ) {
+	public function getReplicaDB(): IReadableDatabase {
 		// @phan-suppress-previous-line PhanPluginNeverReturnMethod LSP violation
 		throw new LogicException(
-			'Internal error: attempt to use getDB() when the database is disabled.'
+			'Internal error: attempt to use getReplicaDB() when the database is disabled.'
+		);
+	}
+
+	/** @inheritDoc */
+	public function getPrimaryDB(): IDatabase {
+		// @phan-suppress-previous-line PhanPluginNeverReturnMethod LSP violation
+		throw new LogicException(
+			'Internal error: attempt to use getPrimaryDB() when the database is disabled.'
 		);
 	}
 

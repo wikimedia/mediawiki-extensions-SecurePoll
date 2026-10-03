@@ -7,14 +7,15 @@ namespace MediaWiki\Extension\SecurePoll\Store;
 use MediaWiki\Status\Status;
 use stdClass;
 use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\IReadableDatabase;
 
 /**
  * This is an abstraction of the persistence layer, to allow XML dumps to be
  * operated on and tallied, like elections in the local DB.
  *
  * Most of the UI layer has no need for this abstraction, and so we provide
- * direct database access via getDB() to ease development of those components.
- * The XML store will throw an exception if getDB() is called on it.
+ * direct database access via getReplicaDB() and getPrimaryDB() to ease development of those components.
+ * The XML store will throw an exception if getReplicaDB() or getPrimaryDB() is called on it.
  *
  * Most of the functions here are internal interfaces for the use of
  * the entity classes (election, question and option). The entity classes
@@ -87,11 +88,16 @@ interface Store {
 	public function decodeElectionRow( $row );
 
 	/**
-	 * Get a database connection object.
-	 * @param int $index DB_PRIMARY or DB_REPLICA
+	 * Get a replica database connection object.
+	 * @return IReadableDatabase
+	 */
+	public function getReplicaDB(): IReadableDatabase;
+
+	/**
+	 * Get a primary database connection object.
 	 * @return IDatabase
 	 */
-	public function getDB( $index = DB_PRIMARY );
+	public function getPrimaryDB(): IDatabase;
 
 	/**
 	 * Get an associative array of information about all questions in a given

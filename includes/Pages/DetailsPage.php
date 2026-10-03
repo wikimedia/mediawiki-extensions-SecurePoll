@@ -41,7 +41,7 @@ class DetailsPage extends ActionPage {
 
 		$this->voteId = intval( $params[0] );
 
-		$db = $this->context->getDB( DB_REPLICA );
+		$db = $this->context->getReplicaDB();
 		$row = $db->newSelectQueryBuilder()
 			->select( '*' )
 			->from( 'securepoll_votes' )
@@ -164,7 +164,7 @@ class DetailsPage extends ActionPage {
 			);
 			$out->addHTML( '<table class="mw-datatable TablePager">' );
 			foreach ( $res as $row ) {
-				$voter = $this->context->getVoter( $row->voter, DB_REPLICA );
+				$voter = $this->context->getVoter( $row->voter, false );
 				$out->addHTML(
 					'<tr>' . '<td>' . htmlspecialchars(
 						$lang->timeanddate( $row->cm_timestamp )

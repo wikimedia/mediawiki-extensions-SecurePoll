@@ -30,7 +30,7 @@ class MessageDumpPage extends ActionPage {
 		header( 'Content-Type: application/x-sql; charset=utf-8' );
 		$filename = urlencode( "sp-msgs-$electionId-" . wfTimestampNow() . '.sql' );
 		header( "Content-Disposition: attachment; filename=$filename" );
-		$dbr = $this->context->getDB();
+		$dbr = $this->context->getPrimaryDB();
 
 		$entities = array_merge( [ $this->election ], $this->election->getDescendants() );
 		$ids = [];

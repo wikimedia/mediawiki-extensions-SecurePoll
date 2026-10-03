@@ -76,7 +76,7 @@ class ArchivePage extends ActionPage {
 		}
 
 		// Already archived?
-		$dbr = $this->election->context->getDB( DB_REPLICA );
+		$dbr = $this->election->context->getReplicaDB();
 		$isArchived = $dbr->newSelectQueryBuilder()
 			->select( 'pr_value' )
 			->from( 'securepoll_properties' )

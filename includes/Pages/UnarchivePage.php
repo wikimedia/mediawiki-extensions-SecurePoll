@@ -81,7 +81,7 @@ class UnarchivePage extends ActionPage {
 			return;
 		}
 
-		$dbr = $this->election->context->getDB( DB_REPLICA );
+		$dbr = $this->election->context->getReplicaDB();
 		$isArchived = $dbr->newSelectQueryBuilder()
 			->select( 'pr_value' )
 			->from( 'securepoll_properties' )

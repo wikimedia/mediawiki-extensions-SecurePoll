@@ -142,7 +142,7 @@ class LocalAuth extends Auth {
 	 * @return array
 	 */
 	public function getLists( $user ) {
-		$dbr = $this->context->getDB();
+		$dbr = $this->context->getPrimaryDB();
 		return $dbr->newSelectQueryBuilder()
 			->select( 'li_name' )
 			->from( 'securepoll_lists' )

@@ -23,7 +23,7 @@ class LogAdminActionJob extends Job {
 	 */
 	public function run() {
 		$context = new Context();
-		$dbw = $context->getDB( DB_PRIMARY );
+		$dbw = $context->getPrimaryDB();
 		$fields = $this->params['fields'];
 		$fields['spl_timestamp'] = $dbw->timestamp( time() );
 		$dbw->newInsertQueryBuilder()

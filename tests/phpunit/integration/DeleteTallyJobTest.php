@@ -82,7 +82,7 @@ class DeleteTallyJobTest extends MediaWikiIntegrationTestCase {
 	private function mockContext( Election $election ) {
 		$context = $this->createMock( Context::class );
 		$context->method( 'getElection' )->willReturn( $election );
-		$context->method( 'getDB' )->willReturn( $this->getDb() );
+		$context->method( 'getPrimaryDB' )->willReturn( $this->getDb() );
 
 		return $context;
 	}
