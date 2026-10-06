@@ -8,7 +8,8 @@
 			"KlaudiuMihaila",
 			"Mihai",
 			"Minisarm",
-			"Stelistcristi"
+			"Stelistcristi",
+			"Vellion Eagle"
 		]
 	},
 	"securepoll": "SondajSecurizat",
@@ -106,5 +107,6 @@
 	"securepoll-average-score": "Scor mediu",
 	"securepoll-round": "Runda $1",
 	"securepoll-spoilt": "(Anulate)",
-	"securepoll-exhausted": "(Epuizate)"
+	"securepoll-exhausted": "(Epuizate)",
+	"securepoll-votereligibility-saved": "{{int:securepoll}}: Salvat"
 }
