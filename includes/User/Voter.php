@@ -6,6 +6,7 @@ namespace MediaWiki\Extension\SecurePoll\User;
 
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\SecurePoll\Context;
+use MediaWiki\Json\FormatJson;
 use MediaWiki\WikiMap\WikiMap;
 use stdClass;
 
@@ -215,7 +216,10 @@ class Voter {
 	public static function decodeProperties( $blob ) {
 		if ( strval( $blob ) == '' ) {
 			return [];
+		} elseif ( str_starts_with( $blob, '{' ) ) {
+			return FormatJson::decode( $blob, true );
 		} else {
+			// If field was serialized through the legacy PHP serialization
 			return unserialize( $blob );
 		}
 	}
@@ -227,7 +231,7 @@ class Voter {
 	 * @return string
 	 */
 	public static function encodeProperties( $props ) {
-		return serialize( $props );
+		return FormatJson::encode( $props );
 	}
 
 	public function doCookieCheck() {
