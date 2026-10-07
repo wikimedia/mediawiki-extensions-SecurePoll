@@ -144,7 +144,7 @@ class TranslatePage extends ActionPage {
 							'name' => 'trans_' . $entity->getId() . '_' . $messageName,
 							'value' => $entity->getRawMessage( $messageName, $secondary ),
 							'classes' => [ 'securepoll-translate-box' ],
-							'readonly' => !$this->isAdmin,
+							'readOnly' => !$this->isAdmin,
 							'autosize' => true
 						] )
 					) )
