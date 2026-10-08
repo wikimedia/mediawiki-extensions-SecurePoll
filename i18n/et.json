@@ -34,7 +34,7 @@
 	"securepoll-remote-parse-error": "Tõrge serverist saadud volitusvastuse tõlgendamisel.",
 	"securepoll-api-invalid-params": "Vigased parameetrid.",
 	"securepoll-api-no-user": "Etteantud ID-ga kasutajat ei leidu.",
-	"securepoll-api-token-mismatch": "Turvatunnus ei klapi, ei saa sisse logida.",
+	"securepoll-api-token-mismatch": "Turbetunnus ei klapi, ei saa sisse logida.",
 	"securepoll-not-logged-in": "Pead sisse logima, et sellel valimisel osaleda.",
 	"securepoll-too-few-edits": "Sa ei saa hääletada. Hääletamiseks pead olema teinud vähemalt $1 {{PLURAL:$1|muudatuse|muudatust}}. Oled teinud $2.",
 	"securepoll-too-new": "Kahjuks ei saa sa hääletada. Sellel hääletusel osalemiseks oleks sinu konto pidanud olema registreeritud enne järgmist tähtaega: $1, kell $3. Sinu registreerumisaeg oli $2, kell $4.",
@@ -72,6 +72,7 @@
 	"securepoll-dump-no-urandom": "Faili /dev/urandom ei saa avada. Hääletaja privaatsuse säilitamiseks on krüptitud valimiskirjed avalikult saadaval vaid siis, kui neid on võimalik turvalise juhusliku numbrivooga segi ajada.",
 	"securepoll-urandom-not-supported": "See server ei toeta juhusliku krüptograafilise numbri tekitamist. Hääletaja privaatsuse säilitamiseks on krüptitud valimiskirjed avalikult saadaval vaid siis, kui neid on võimalik turvalise juhusliku numbrivooga segi ajada.",
 	"securepoll-translate-title": "Tõlkimine: $1",
+	"securepoll-translate-redirect": "Nende valimiste sõnumeid tuleb häälestada asukohas $1.",
 	"securepoll-translate-label-comment": "Põhjus:",
 	"securepoll-invalid-language": "Vigane keelekood  \"$1\"",
 	"securepoll-submit-translate": "Uuenda",
@@ -128,5 +129,6 @@
 	"securepoll-voter-stats": "Kõigist hääleõiguslikest kasutajatest $1 on {{PLURAL:$1|hääle}} andnud.",
 	"securepoll-vote-stats": "Kokku on antud $1 {{PLURAL:$1|hääl|häält}}. Neist $2 {{PLURAL:$2|on}} kõrvale jäetud, kuna kasutaja hääletas uuesti, ja $3 {{PLURAL:$3|on}} kehtetuks loetud.",
 	"securepoll-stv-droop-default-value": "Tee valik",
-	"securepoll-stv-droop-choice-rank": "$1. eelistus"
+	"securepoll-stv-droop-choice-rank": "$1. eelistus",
+	"securepoll-list-redirect": "Seda häälte loendit tuleb vaadata asukohas $1."
 }
