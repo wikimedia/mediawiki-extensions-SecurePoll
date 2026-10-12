@@ -35,6 +35,7 @@
 			"Zhang8569",
 			"ZhaoFJx",
 			"沈澄心",
+			"范",
 			"飞舞回堂前",
 			"魔琴"
 		]
@@ -285,7 +286,7 @@
 	"securepoll-votereligibility-label-not_bot": "不得是机器人",
 	"securepoll-votereligibility-label-need_group": "包含在以下任一用户组中：",
 	"securepoll-votereligibility-lists": "投票者列表",
-	"securepoll-votereligibility-lists-info": "合资格的投票者也可被明确列出。有三个列表：\n* “{{int:securepoll-votereligibility-voter}}”是允许投票的投票者列表，如果它们也符合上述基本要求。\n* “{{int:securepoll-votereligibility-include}}”是无论基本要求或合格列表的允许投票的投票者列表。\n* “{{int:securepoll-votereligibility-exclude}}”是不被允许投票的投票者列表，不论其他列表如何记载。",
+	"securepoll-votereligibility-lists-info": "合资格的投票者也可被明确列出。有三个列表：\n* 在“{{int:securepoll-votereligibility-voter}}”内的投票者，如果符合上述基本要求则可以投票。\n* 在“{{int:securepoll-votereligibility-include}}”内的投票者，不论是否符合基本要求，也不论是否在{{int:securepoll-votereligibility-voter}}内，均可以投票。\n* 在“{{int:securepoll-votereligibility-exclude}}”内的投票者，无论如何均不能投票。",
 	"securepoll-votereligibility-voter": "合资格列表",
 	"securepoll-votereligibility-include": "覆盖列表",
 	"securepoll-votereligibility-exclude": "排除列表",
