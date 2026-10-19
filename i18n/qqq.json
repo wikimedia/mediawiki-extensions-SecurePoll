@@ -405,5 +405,6 @@
 	"securepoll-tallymodifiers-question-label": "Display the question on the tally page",
 	"securepoll-tally-stv-candidate-excluded": "Describes the modification being selected on the tally page",
 	"securepoll-stv-result-election-excluded-header": "Header for list of excluded candidates on STV tally result page",
-	"securepoll-stv-excluded-candidates-help-text": "Description of candidates that were manually excluded on the STV tally result page."
+	"securepoll-stv-excluded-candidates-help-text": "Description of candidates that were manually excluded on the STV tally result page.",
+	"securepoll-csrf-error-during-voting": "Error message shown when CSRF token does not match when submitting a vote. Text is similar to {{msg-mw|Session_fail_preview}}."
 }
