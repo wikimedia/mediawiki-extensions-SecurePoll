@@ -383,5 +383,6 @@
 	"securepoll-tallymodifiers-question-label": "Question: \"$1\"",
 	"securepoll-tally-stv-candidate-excluded": "Manually exclude candidates",
 	"securepoll-stv-result-election-excluded-header": "Excluded candidates",
-	"securepoll-stv-excluded-candidates-help-text": "The following candidate(s) were manually excluded from the tally."
+	"securepoll-stv-excluded-candidates-help-text": "The following candidate(s) were manually excluded from the tally.",
+	"securepoll-csrf-error-during-voting": "Sorry! We could not process your vote due to a loss of session data. You might have been logged out. Please verify that you're still logged in and try again. If it still does not work, try logging out and logging back in, and check that your browser allows cookies from this site."
 }
