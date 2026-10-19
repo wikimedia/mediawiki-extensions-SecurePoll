@@ -361,5 +361,6 @@
 	"securepoll-vote-result-error-label": "Your votes could not be unpacked correctly. Please contact an election administrator",
 	"securepoll-vote-stv-clear-btn-label": "Clear all candidates",
 	"securepoll-vote-most-active-wiki-dropdown-label": "Choose your most active wiki",
-	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1 ($2, $3 {{PLURAL:$3|edit|edits}})"
+	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1 ($2, $3 {{PLURAL:$3|edit|edits}})",
+	"securepoll-csrf-error-during-voting": "Sorry! We could not process your vote due to a loss of session data. You might have been logged out. Please verify that you're still logged in and try again. If it still does not work, try logging out and logging back in, and check that your browser allows cookies from this site."
 }

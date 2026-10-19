@@ -45,7 +45,7 @@ class BallotStatus extends Status {
 				} elseif ( !isset( $error['securepoll-id'] ) ) {
 					$s .= new MessageWidget( [
 						'type' => 'error',
-						'label' => htmlspecialchars( $text )
+						'label' => $text
 					] ) . "\n";
 				}
 			}
@@ -54,7 +54,7 @@ class BallotStatus extends Status {
 		if ( count( $usedIds ) > 0 ) {
 			$error = new MessageWidget( [
 				'type' => 'error',
-				'label' => htmlspecialchars( $text )
+				'label' => $text
 			] );
 			$buttonWidget = new ButtonInputWidget( [
 				'label' => wfMessage( 'securepoll-ballot-show-warnings' )->text(),

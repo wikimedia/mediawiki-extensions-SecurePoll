@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\SecurePoll\Pages;
 
 use MediaWiki\Extension\CentralAuth\User\CentralAuthUser;
 use MediaWiki\Extension\SecurePoll\Ballots\Ballot;
+use MediaWiki\Extension\SecurePoll\Ballots\BallotStatus;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
 use MediaWiki\Extension\SecurePoll\Hooks\HookRunner;
@@ -280,6 +281,17 @@ class VotePage extends ActionPage {
 	 */
 	public function doSubmit() {
 		$ballot = $this->getBallot();
+
+		// Fail form validation and display error message if CSRF token doesn't match
+		$request = $this->specialPage->getRequest();
+		$token = $request->getSession()->getToken();
+		if ( !$token->match( $request->getVal( 'edit_token' ) ) ) {
+			$status = new BallotStatus();
+			$status->fatal( 'securepoll-csrf-error-during-voting' );
+			$this->showForm( $status );
+			return;
+		}
+
 		$status = $ballot->submitForm();
 		if ( !$status->isOK() ) {
 			$this->showForm( $status );
