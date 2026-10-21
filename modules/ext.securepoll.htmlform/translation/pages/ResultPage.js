@@ -51,7 +51,7 @@ ResultPage.prototype.getPagesTab = function ( pages ) {
 		const language = mw.html.escape( page.language );
 		const url = this.sourceId + '/' + language;
 		listEntry += '<span>' + page.language + '</span> ';
-		listEntry += ' <a href=' + url + '> ' +
+		listEntry += ' <a href="' + url + '"> ' +
 			url + ' </a>';
 		listEntry += '</li>';
 		$list.append( listEntry );
