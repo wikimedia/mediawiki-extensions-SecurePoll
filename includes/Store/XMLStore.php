@@ -52,13 +52,6 @@ class XMLStore extends MemoryStore {
 		'option' => []
 	];
 
-	/** @var string[] All entity types */
-	private static $entityTypes = [
-		'election',
-		'question',
-		'option'
-	];
-
 	/**
 	 * Constructor. Note that readFile() must be called before any information
 	 * can be accessed. Context::newFromXmlFile() is a shortcut
