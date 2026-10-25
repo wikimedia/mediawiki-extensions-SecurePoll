@@ -15,8 +15,6 @@ use stdClass;
  * - archived elections
  */
 abstract class ElectionPager extends TablePager {
-	/** @var array[] */
-	private $subpages = [];
 	/** @var bool|null */
 	public $isAdmin;
 	/** @var Election|null */
