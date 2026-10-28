@@ -48,6 +48,7 @@
 	"securepoll-stv-unranked-candidates": "Used as a header",
 	"securepoll-stv-ranked-candidates": "Used as a header",
 	"securepoll-header-comments": "Fieldset header for the comments text area on the vote page.",
+	"securepoll-comment-too-long": "Error shown on the vote page when the comment exceeds the maximum length.\n\nParameters:\n* $1 - Maximum number of characters allowed",
 	"securepoll-submit": "{{Identical|Submit}}",
 	"securepoll-gpg-receipt": "Parameters:\n* $1 - the receipt. Format: \n<pre>\nSPID: (10-digit vote ID)\n(encrypted vote record)\n</pre>\nIf the election doesn't use encryption, the following message is used:\n* {{msg-mw|securepoll-thanks}}",
 	"securepoll-thanks": "If the election use encryption, the following message is used:\n* {{msg-mw|Securepoll-gpg-receipt}}",

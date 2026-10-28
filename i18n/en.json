@@ -22,6 +22,7 @@
 	"securepoll-stv-unranked-candidates": "Not ranked",
 	"securepoll-stv-ranked-candidates": "Ranked",
 	"securepoll-header-comments": "Comments",
+	"securepoll-comment-too-long": "Your comment is too long. Please shorten it to $1 {{PLURAL:$1|character|characters}} or fewer.",
 	"securepoll-submit": "Submit vote",
 	"securepoll-gpg-receipt": "If you wish, you may retain the following receipt as evidence of your vote:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "Thank you, your vote has been recorded.",
