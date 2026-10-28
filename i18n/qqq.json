@@ -86,6 +86,7 @@
 	"securepoll-in-exclude-list": "Used as error message.",
 	"securepoll-custom-unqualified": "{{notranslate}}\nUsed as fatal error message. Parameters:\n* $1 - error message",
 	"securepoll-list-title": "Used as page title and as page subtitle. Parameters:\n* $1 - title of the election, or the string \"[title]\"",
+	"securepoll-list-title-hidden": "Used as page subtitle on the vote details page when the election title is hidden because the election has voter privacy and the viewer is not an election administrator.",
 	"securepoll-list-private": "Used as an error message.",
 	"securepoll-header-timestamp": "{{Identical|Time}}",
 	"securepoll-header-date": "Column header used instead of \"Time\" when only the date is shown\n{{identical|Date}}",
