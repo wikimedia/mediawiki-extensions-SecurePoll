@@ -220,4 +220,42 @@ class CreatePageTest extends SpecialPageTestBase {
 		];
 		yield 'simple election with logging to namespace enabled' => [ true, $validParams ];
 	}
+
+	public function testCreateIgnoresSubmittedElectionId(): void {
+		$params = iterator_to_array( self::provideValidParams() )['simple election'][1];
+		$victim = $this->getTestSysop()->getAuthority();
+		$attacker = $this->getTestUser( [ 'sysop' ] )->getAuthority();
+
+		$this->executeSpecialPage( 'create', new FauxRequest( array_merge( $params, [
+			'wpelection_title' => 'Victim Election',
+			'wpproperty_admins' => $victim->getUser()->getName(),
+		] ), true ), null, $victim );
+		$victimId = ( new Context() )->getElectionByTitle( 'Victim Election' )->getId();
+
+		$this->executeSpecialPage( 'create', new FauxRequest( array_merge( $params, [
+			'wpelection_title' => 'Attacker Election',
+			'wpproperty_admins' => $attacker->getUser()->getName(),
+			'wpelection_id' => (string)$victimId,
+		] ), true ), null, $attacker );
+
+		$victimElection = ( new Context() )->getElection( $victimId );
+		$this->assertSame(
+			'Victim Election',
+			$victimElection->title,
+			'A forged election ID on the create form should not rename the existing election'
+		);
+		$this->assertTrue(
+			$victimElection->isAdmin( $victim ),
+			'The existing election should keep its admin after a create submission with a forged election ID'
+		);
+		$this->assertFalse(
+			$victimElection->isAdmin( $attacker ),
+			'A create submission with a forged election ID should not make the submitter an admin of that election'
+		);
+		$this->assertNotSame(
+			$victimId,
+			( new Context() )->getElectionByTitle( 'Attacker Election' )->getId(),
+			'A create submission with a forged election ID should create a new election'
+		);
+	}
 }
