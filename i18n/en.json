@@ -63,6 +63,7 @@
 	"securepoll-in-exclude-list": "Sorry, you are not authorized to vote in this election.",
 	"securepoll-custom-unqualified": "$1",
 	"securepoll-list-title": "List votes: $1",
+	"securepoll-list-title-hidden": "List votes",
 	"securepoll-list-private": "Sorry, viewing the list of voters for this election is restricted to election administrators.",
 	"securepoll-header-timestamp": "Time",
 	"securepoll-header-date": "Date",
