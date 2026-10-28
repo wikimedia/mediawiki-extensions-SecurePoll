@@ -42,6 +42,10 @@ use Wikimedia\Rdbms\IConnectionProvider;
  * The subpage for casting votes.
  */
 class VotePage extends ActionPage {
+	// vote_record is a BLOB, so this can't be infinity. 5000 characters is about 20,000
+	// bytes, which is well under the 65,535 byte limit of a MariaDB BLOB.
+	private const MAX_COMMENT_LENGTH = 5000;
+
 	/** @var Election|null */
 	public $election;
 
@@ -229,8 +233,9 @@ class VotePage extends ActionPage {
 							new MultilineTextInputWidget( [
 								'name' => 'securepoll_comment',
 								'rows' => 3,
+								'value' => $this->specialPage->getRequest()->getText( 'securepoll_comment' ),
 								// vote_record is a BLOB, so this can't be infinity
-								'maxLength' => 10000,
+								'maxLength' => self::MAX_COMMENT_LENGTH,
 							] ),
 							[
 								'label' => new HtmlSnippet(
@@ -307,13 +312,19 @@ class VotePage extends ActionPage {
 		}
 
 		$status = $ballot->submitForm();
+		$request = $this->specialPage->getRequest();
+		$comment = $request->getText( 'securepoll_comment' );
+		if ( !$this->election->getProperty( 'request-comment' ) ) {
+			$comment = '';
+		}
+		if ( $status->isOK() && mb_strlen( $comment ) > self::MAX_COMMENT_LENGTH ) {
+			$status = new BallotStatus();
+			$status->fatal( 'securepoll-comment-too-long', self::MAX_COMMENT_LENGTH );
+		}
 		if ( !$status->isOK() ) {
 			$this->showForm( $status );
 		} else {
-			$voteRecord = VoteRecord::newFromBallotData(
-				$status->value,
-				$this->specialPage->getRequest()->getText( 'securepoll_comment' )
-			);
+			$voteRecord = VoteRecord::newFromBallotData( $status->value, $comment );
 			$this->logVote( $voteRecord->getBlob() );
 		}
 	}
