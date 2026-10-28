@@ -73,14 +73,18 @@ class DetailsPage extends ActionPage {
 		}
 
 		$electionId = $this->election->getId();
+		$isAdmin = $this->election->isAdmin( $this->specialPage->getUser() );
+		$hideTitle = $this->election->getProperty( 'voter-privacy' ) && !$isAdmin;
 		$this->specialPage->setSubtitle(
 			[
 				$this->specialPage->getPageTitle( 'list/' . $electionId ),
-				$this->msg( 'securepoll-list-title', $this->election->getMessage( 'title' ) )->text()
+				$hideTitle
+					? $this->msg( 'securepoll-list-title-hidden' )->text()
+					: $this->msg( 'securepoll-list-title', $this->election->getMessage( 'title' ) )->text()
 			]
 		);
 
-		if ( !$this->election->isAdmin( $this->specialPage->getUser() ) ) {
+		if ( !$isAdmin ) {
 			$out->addWikiMsg( 'securepoll-need-admin' );
 
 			return;

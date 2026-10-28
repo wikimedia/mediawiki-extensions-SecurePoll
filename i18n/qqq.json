@@ -87,6 +87,7 @@
 	"securepoll-too-few-edits-before-date": "Used as error message. Parameters:\n* $1 - number of edits\n* $2 - date",
 	"securepoll-too-few-edits-between-dates": "Used as error message. Parameters:\n* $1 - number of edits\n* $2 - start date\n* $3 end date",
 	"securepoll-list-title": "Used as page title and as page subtitle. Parameters:\n* $1 - title of the election, or the string \"[title]\"",
+	"securepoll-list-title-hidden": "Used as page subtitle on the vote details page when the election title is hidden because the election has voter privacy and the viewer is not an election administrator.",
 	"securepoll-list-private": "Used as an error message.",
 	"securepoll-header-timestamp": "{{Identical|Time}}",
 	"securepoll-header-date": "Column header used instead of \"Time\" when only the date is shown\n{{identical|Date}}",
