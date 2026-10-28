@@ -32,7 +32,8 @@
 			"ZhaoFJx",
 			"捍粵者",
 			"飞舞回堂前",
-			"魔琴"
+			"魔琴",
+			"Anterdc99"
 		]
 	},
 	"securepoll": "安全投票",
@@ -49,7 +50,7 @@
 	"securepoll-finished": "此選舉已結束，您無法投票。",
 	"securepoll-not-qualified": "您於此選舉沒有投票資格︰$1",
 	"securepoll-change-disallowed": "您於此選舉已投過票，\n抱歉，您無法再次投票。",
-	"securepoll-change-allowed": "<strong>注意：您於此選舉已投過票。</strong>\n您可以使用以下表單變更您的選票。\n注意，若您變更選票，您原來的選票將會作廢。",
+	"securepoll-change-allowed": "<strong>注意：您於此選舉已投過票。</strong>您可以使用以下表單變更您的選票。注意，若您變更選票，您原來的選票將會作廢。",
 	"securepoll-stv-unranked-candidates": "未排名",
 	"securepoll-stv-ranked-candidates": "已排名",
 	"securepoll-header-comments": "評論",
