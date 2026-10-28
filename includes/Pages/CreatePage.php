@@ -604,6 +604,11 @@ class CreatePage extends ActionPage {
 			$userId = $this->specialPage->getUser()->getId();
 			$store = new FormStore;
 			$context->setStore( $store );
+			// T440330: When creating a new poll, ignore client-supplied election ID.
+			// We need to stay in "create" mode and not get switched to "edit" mode.
+			if ( !$this->election ) {
+				$formData['election_id'] = -1;
+			}
 			$eId = (int)$formData['election_id'];
 			if ( $eId > 0 ) {
 				// Load any existing properties up front, to avoid them getting removed from JSON logging
