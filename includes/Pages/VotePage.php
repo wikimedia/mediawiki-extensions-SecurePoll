@@ -422,15 +422,16 @@ class VotePage extends ActionPage {
 		foreach ( $data as $questionIndex => $votes ) {
 			$questionMsg = $this->getQuestionMessage( $languageCode, $questionIndex );
 			$optionsMsgs = $this->getOptionMessages( $languageCode, $votes );
-			if ( !isset( $questionMsg[$questionIndex]['text'] ) ) {
-				continue;
-			}
-			$questionText = $questionMsg[$questionIndex]['text'];
 			$html = Html::openElement( 'div', [ 'class' => 'securepoll-vote-result-question-cnt' ] );
-			$html .= Html::rawElement(
-				'p', [ 'class' => 'securepoll-vote-result-question' ],
-				$this->msg( 'securepoll-vote-result-question-label', $questionText )->parse()
-			);
+			// The question may have no text, e.g. if it was blanked on the translate page.
+			// Still list the options, otherwise the voter gets an empty summary.
+			if ( isset( $questionMsg[$questionIndex]['text'] ) ) {
+				$html .= Html::rawElement(
+					'p', [ 'class' => 'securepoll-vote-result-question' ],
+					$this->msg( 'securepoll-vote-result-question-label',
+						$questionMsg[$questionIndex]['text'] )->parse()
+				);
+			}
 
 			$votedItems = [];
 			if ( $this->election->getTallyType() === 'droop-quota' ) {

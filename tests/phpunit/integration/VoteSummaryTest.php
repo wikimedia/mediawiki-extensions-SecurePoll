@@ -147,6 +147,36 @@ class VoteSummaryTest extends MediaWikiIntegrationTestCase {
 		];
 	}
 
+	/**
+	 * @covers \MediaWiki\Extension\SecurePoll\Pages\VotePage::getSummaryOfVotes
+	 */
+	public function testSummaryOfVotesWithoutQuestionText() {
+		$this->context = Context::newFromXmlFile( dirname( __DIR__ ) . '/data/approval-test.xml' );
+		$store = $this->context->getStore();
+		// The question text can be removed from the translate page
+		unset( $store->messages['en'][41]['text'] );
+
+		$electionIds = $store->getAllElectionIds();
+		$this->election = $this->context->getElection( reset( $electionIds ) );
+
+		$factory = $this->getFactory();
+		$specialPage = $this->getSpecialPage();
+		$specialPage->sp_context = $this->context;
+		$votePage = $factory->getPage( 'vote', $specialPage );
+		$votePage->election = $this->election;
+
+		$summary = $votePage->getSummaryOfVotes(
+			[ 'votes' => [ 41 => [ 42 => 0, 43 => 1, 44 => 0, 45 => 0 ] ], 'comment' => '' ],
+			'en'
+		);
+		$this->assertStringNotContainsString( 'securepoll-vote-result-question"', $summary );
+		$this->assertStringContainsString(
+			'<ul class="securepoll-vote-result-options"><li>B: rated 1</li></ul>',
+			$summary
+		);
+		$this->assertStringContainsString( '<li>AAAA: not checked</li>', $summary );
+	}
+
 	protected function getFactory() {
 		return $this->getServiceContainer()->getService( 'SecurePoll.ActionPageFactory' );
 	}
