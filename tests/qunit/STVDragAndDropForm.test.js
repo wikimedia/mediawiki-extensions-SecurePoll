@@ -364,6 +364,18 @@ const STVQuestionLayout = require( 'ext.securepoll.htmlform/stv.vote/STVQuestion
 		);
 	} );
 
+	QUnit.test( 'Seat limit counter is shown inside the ranked panel', ( assert ) => {
+		const layout = generateSTVQuestionLayout();
+
+		// The panels can wrap onto separate rows, so the counter has to stay
+		// attached to the ranked panel rather than to the corner of the layout.
+		assert.strictEqual(
+			layout.limitsLayout.$element.parent()[ 0 ],
+			layout.rankedPanel.$element[ 0 ],
+			'The seat limit counter should be inside the ranked panel'
+		);
+	} );
+
 	QUnit.test( 'Clearing votes allows new additions after reaching seat limit', ( assert ) => {
 		const layout = generateSTVQuestionLayout( {
 			candidates: {

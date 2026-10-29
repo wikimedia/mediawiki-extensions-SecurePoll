@@ -196,7 +196,9 @@ body.mw-mf .securepoll-option-stv-combobox {
 .securepoll-question-layout {
 	position: relative;
 	margin: 7px;
-	max-width: 80em;
+	// Never grow past the content area, so that the panels wrap instead of
+	// overflowing the page or running under the pinned page tools in Vector 2022
+	max-width: calc( 100% - 14px );
 	width: fit-content;
 }
 
@@ -214,13 +216,16 @@ body.mw-mf .securepoll-option-stv-combobox {
 
 .securepoll-question-layout .stv-ranking-panel-container {
 	display: flex;
-	gap: 16px;
+	flex-wrap: wrap;
+	// Leave room for the panel headers when the panels wrap onto two rows
+	gap: 4em 16px;
 }
 
 .securepoll-question-layout .securepoll-question-stv-panel {
 	position: relative;
-	min-width: 400px;
-	flex: 1;
+	box-sizing: border-box;
+	width: 400px;
+	flex: 1 1 auto;
 }
 
 .securepoll-question-layout .stv-panel-header {
@@ -274,13 +279,13 @@ body.mw-mf .securepoll-option-stv-combobox {
 }
 
 /** Limits layout */
-.securepoll-question-layout > .limits-layout {
+.securepoll-question-stv-panel-ranked > .limits-layout {
 	position: absolute;
-	top: 16px;
-	right: 12px;
+	top: 3px;
+	right: 11px;
 }
 
-.securepoll-question-layout > .limits-layout > .limit-label {
+.securepoll-question-stv-panel-ranked > .limits-layout > .limit-label {
 	margin-top: 2px;
 }
 

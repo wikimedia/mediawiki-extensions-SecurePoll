@@ -110,13 +110,13 @@ function STVQuestionLayout( config ) {
 	this.updateLimitsLayout();
 
 	this.unrankedPanel.$element.append( this.unrankedGroup.$element );
-	this.rankedPanel.$element.append( this.rankedGroup.$element );
+	this.rankedPanel.$element.append( this.limitsLayout.$element, this.rankedGroup.$element );
 
 	const $panelContainer = $( '<div>' ).addClass( 'stv-ranking-panel-container' );
 	$panelContainer.append( this.unrankedPanel.$element, this.rankedPanel.$element );
 
 	this.unrankedGroup.emit( 'reorder' );
-	this.$element.append( this.limitsLayout.$element, $panelContainer, this.clearButton.$element );
+	this.$element.append( $panelContainer, this.clearButton.$element );
 }
 
 OO.inheritClass( STVQuestionLayout, OO.ui.Layout );
@@ -185,7 +185,7 @@ STVQuestionLayout.prototype.clearVotes = function () {
 };
 
 /**
- * Initialize the max seat limit counter at the top right corner of the layout.
+ * Initialize the max seat limit counter at the top right corner of the ranked panel.
  */
 STVQuestionLayout.prototype.createLimitsLayout = function () {
 	this.limitsLabel = new OO.ui.LabelWidget( {
