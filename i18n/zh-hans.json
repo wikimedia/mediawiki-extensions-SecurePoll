@@ -54,7 +54,7 @@
 	"securepoll-finished": "此选举已结束，您无法再投票。",
 	"securepoll-not-qualified": "您不具有投票的资格：$1",
 	"securepoll-change-disallowed": "此选举中您已投票。\n对不起，您不能再次投票。",
-	"securepoll-change-allowed": "<strong>注意：您曾在此选举中投过票。</strong>\n您可以使用下面的表单更改您的投票。\n请注意，如您更改投票，原先的选票将作废。",
+	"securepoll-change-allowed": "<strong>注意：您曾在此选举中投过票。</strong>您可以使用下面的表单更改您的投票。请注意，如您更改投票，原先的选票将作废。",
 	"securepoll-stv-unranked-candidates": "未排序",
 	"securepoll-stv-ranked-candidates": "已排序",
 	"securepoll-header-comments": "意见",
