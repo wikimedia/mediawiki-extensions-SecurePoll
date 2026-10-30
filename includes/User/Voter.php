@@ -34,7 +34,7 @@ class Voter {
 	public $context;
 
 	/** @var string[] */
-	private static $paramNames = [
+	private const PARAM_NAMES = [
 		'id',
 		'electionId',
 		'name',
@@ -52,7 +52,7 @@ class Voter {
 	 */
 	public function __construct( $context, $params ) {
 		$this->context = $context;
-		foreach ( self::$paramNames as $name ) {
+		foreach ( self::PARAM_NAMES as $name ) {
 			if ( isset( $params[$name] ) ) {
 				$this->$name = $params[$name];
 			}

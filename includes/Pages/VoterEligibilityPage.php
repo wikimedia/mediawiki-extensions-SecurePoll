@@ -29,8 +29,7 @@ use Wikimedia\RequestTimeout\TimeoutException;
  * Special:SecurePoll subpage for managing the voter list for a poll
  */
 class VoterEligibilityPage extends ActionPage {
-	/** @var string[] */
-	private static $lists = [
+	private const LISTS = [
 		'voter' => 'need-list',
 		'include' => 'include-list',
 		'exclude' => 'exclude-list',
@@ -619,7 +618,7 @@ class VoterEligibilityPage extends ActionPage {
 			'default' => $editCountEndDate,
 		];
 
-		foreach ( self::$lists as $list => $property ) {
+		foreach ( self::LISTS as $list => $property ) {
 			if ( $this->election->getProperty( $property ) ) {
 				$use = $this->msg( 'securepoll-votereligibility-label-inuse' );
 				$links = [
@@ -882,12 +881,12 @@ class VoterEligibilityPage extends ActionPage {
 	private function executeEdit( string $which ) {
 		$out = $this->specialPage->getOutput();
 
-		if ( !isset( self::$lists[$which] ) ) {
+		if ( !isset( self::LISTS[$which] ) ) {
 			$out->addWikiMsg( 'securepoll-votereligibility-invalid-list' );
 
 			return;
 		}
-		$property = self::$lists[$which];
+		$property = self::LISTS[$which];
 		// Messages: securepoll-votereligibility-voter,
 		// securepoll-votereligibility-include,
 		// securepoll-votereligibility-exclude
@@ -954,12 +953,12 @@ class VoterEligibilityPage extends ActionPage {
 			return;
 		}
 
-		if ( !isset( self::$lists[$which] ) ) {
+		if ( !isset( self::LISTS[$which] ) ) {
 			$out->addWikiMsg( 'securepoll-votereligibility-invalid-list' );
 
 			return;
 		}
-		$property = self::$lists[$which];
+		$property = self::LISTS[$which];
 		$name = $this->msg( "securepoll-votereligibility-$which" )->text();
 
 		$out = $this->specialPage->getOutput();

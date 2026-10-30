@@ -14,7 +14,7 @@ use Wikimedia\Rdbms\IConnectionProvider;
  * Pager for an election list. See TablePager documentation.
  */
 class MainElectionsPager extends ElectionPager {
-	private array $subpages = [
+	private const array SUBPAGES = [
 		'vote' => [
 			'public' => true,
 			'visible-before-start' => true,
@@ -125,12 +125,11 @@ class MainElectionsPager extends ElectionPager {
 		$html = '';
 		$separator = $this->msg( 'pipe-separator' )->escaped();
 
-		// Only show "Logs" link if the page Special:SecurePollLog is enabled
-		if ( !$this->getConfig()->get( 'SecurePollUseLogging' ) ) {
-			unset( $this->subpages['log'] );
-		}
-
-		foreach ( $this->subpages as $subpage => $props ) {
+		foreach ( self::SUBPAGES as $subpage => $props ) {
+			// Only show "Logs" link if the page Special:SecurePollLog is enabled
+			if ( $subpage === 'log' && !$this->getConfig()->get( 'SecurePollUseLogging' ) ) {
+				continue;
+			}
 			// Message keys used here:
 			// securepoll-subpage-list, securepoll-subpage-dump,
 			// securepoll-subpage-votereligibility

@@ -20,7 +20,7 @@ class Auth {
 	/**
 	 * @var string[] List of available authorization modules (subclasses)
 	 */
-	private static $authTypes = [
+	private const AUTH_TYPES = [
 		'local' => LocalAuth::class,
 		'remote-mw' => RemoteMWAuth::class,
 	];
@@ -33,10 +33,10 @@ class Auth {
 	 * @throws InvalidArgumentException
 	 */
 	public static function factory( $context, $type ) {
-		if ( !isset( self::$authTypes[$type] ) ) {
+		if ( !isset( self::AUTH_TYPES[$type] ) ) {
 			throw new InvalidArgumentException( "Invalid authentication type: $type" );
 		}
-		$class = self::$authTypes[$type];
+		$class = self::AUTH_TYPES[$type];
 
 		return new $class( $context );
 	}

@@ -13,7 +13,7 @@ use Wikimedia\Rdbms\IConnectionProvider;
  * Pager for an archived election list. See TablePager documentation.
  */
 class ArchivedPager extends ElectionPager {
-	private array $subpages = [
+	private const array SUBPAGES = [
 		'unarchive' => [
 			'public' => false,
 			'visible-after-start' => false,
@@ -69,7 +69,7 @@ class ArchivedPager extends ElectionPager {
 		$pollId = $this->mCurrentRow->el_entity;
 		$html = '';
 		$separator = $this->msg( 'pipe-separator' )->escaped();
-		foreach ( $this->subpages as $subpage => $props ) {
+		foreach ( self::SUBPAGES as $subpage => $props ) {
 			// Message keys used here:
 			// securepoll-subpage-unarchive
 			$linkText = $this->msg( "securepoll-subpage-$subpage" )->text();

@@ -24,7 +24,7 @@ class XMLStore extends MemoryStore {
 	public $voteCallbackStatus;
 
 	/** @var string[][] Valid entity info keys by entity type. */
-	private static $entityInfoKeys = [
+	private const ENTITY_INFO_KEYS = [
 		'election' => [
 			'id',
 			'title',
@@ -46,7 +46,7 @@ class XMLStore extends MemoryStore {
 	];
 
 	/** @var string[][] The type of each entity child and its corresponding (plural) info element */
-	private static $childTypes = [
+	private const CHILD_TYPES = [
 		'election' => [ 'question' => 'questions' ],
 		'question' => [ 'option' => 'options' ],
 		'option' => []
@@ -224,7 +224,7 @@ class XMLStore extends MemoryStore {
 			}
 
 			# Info elements
-			if ( in_array( $xr->name, self::$entityInfoKeys[$entityType] ) ) {
+			if ( in_array( $xr->name, self::ENTITY_INFO_KEYS[$entityType] ) ) {
 				$name = $xr->name;
 				$value = $this->readStringElement();
 				# Fix date format
@@ -236,8 +236,8 @@ class XMLStore extends MemoryStore {
 			}
 
 			# Child elements
-			if ( isset( self::$childTypes[$entityType][$xr->name] ) ) {
-				$infoKey = self::$childTypes[$entityType][$xr->name];
+			if ( isset( self::CHILD_TYPES[$entityType][$xr->name] ) ) {
+				$infoKey = self::CHILD_TYPES[$entityType][$xr->name];
 				$childInfo = $this->readEntity( $xr->name );
 				if ( !$childInfo ) {
 					return false;
@@ -280,7 +280,7 @@ class XMLStore extends MemoryStore {
 	 * @param int $id
 	 */
 	public function addParentIds( &$info, $key, $id ) {
-		foreach ( self::$childTypes[$info['type']] as $childType ) {
+		foreach ( self::CHILD_TYPES[$info['type']] as $childType ) {
 			if ( isset( $info[$childType] ) ) {
 				foreach ( $info[$childType] as &$child ) {
 					$child[$key] = $id;
