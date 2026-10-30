@@ -6,6 +6,7 @@ use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\SpecialSecurePoll;
 use MediaWiki\Extension\SecurePoll\TranslationRepo;
 use MediaWiki\Languages\LanguageNameUtils;
+use MediaWiki\Session\CsrfTokenSet;
 use MediaWiki\Title\Title;
 use OOUI\ButtonInputWidget;
 use OOUI\DropdownInputWidget;
@@ -13,9 +14,11 @@ use OOUI\Element;
 use OOUI\FieldLayout;
 use OOUI\FieldsetLayout;
 use OOUI\FormLayout;
+use OOUI\HiddenInputWidget;
 use OOUI\HorizontalLayout;
 use OOUI\HtmlSnippet;
 use OOUI\LabelWidget;
+use OOUI\MessageWidget;
 use OOUI\MultilineTextInputWidget;
 use OOUI\Tag;
 use OOUI\TextInputWidget;
@@ -172,6 +175,10 @@ class TranslatePage extends ActionPage {
 		] ) ) ] );
 
 		$form->appendContent( $fields );
+		$form->appendContent( new HiddenInputWidget( [
+			'name' => CsrfTokenSet::DEFAULT_FIELD_NAME,
+			'value' => $this->specialPage->getContext()->getCsrfTokenSet()->getToken()->toString(),
+		] ) );
 
 		$out->addHTML( $form );
 	}
@@ -257,6 +264,14 @@ class TranslatePage extends ActionPage {
 		}
 
 		$request = $this->specialPage->getRequest();
+		if ( !$this->specialPage->getContext()->getCsrfTokenSet()->matchTokenField() ) {
+			$out->addHTML( (string)new MessageWidget( [
+				'type' => 'error',
+				'label' => new HtmlSnippet( $this->msg( 'sessionfailure' )->parse() ),
+			] ) );
+			return;
+		}
+
 		$data = $request->getValues();
 
 		$this->translationRepo->setTranslation(
