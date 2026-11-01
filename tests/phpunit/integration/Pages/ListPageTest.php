@@ -78,7 +78,9 @@ class ListPageTest extends SpecialPageTestBase {
 	/**
 	 * Put a vote in the database
 	 */
-	private function vote( Election $election, ?UserIdentity $voter = null, bool $current = true, bool $struck = false ): int {
+	private function vote(
+		Election $election, ?UserIdentity $voter = null, bool $current = true, bool $struck = false
+	): int {
 		$voter ??= $this->getTestSysop()->getUserIdentity();
 		$voterId = $this->newSelectQueryBuilder()
 			->select( 'voter_id' )
@@ -194,7 +196,9 @@ class ListPageTest extends SpecialPageTestBase {
 	/**
 	 * @dataProvider provideVisitingListPageIsLogged
 	 */
-	public function testVisitingListPageIsLogged( $logConfigVarTurnedOn, $isLoggedInAsAdmin, $piiOnListPageExpected, $logEntryExpected ) {
+	public function testVisitingListPageIsLogged(
+		$logConfigVarTurnedOn, $isLoggedInAsAdmin, $piiOnListPageExpected, $logEntryExpected
+	) {
 		$election = $this->createElection();
 
 		// Set time to after the election has started

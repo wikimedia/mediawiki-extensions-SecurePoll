@@ -22,7 +22,9 @@ use MediaWiki\Extension\SecurePoll\PopulateEditCount;
 class Ucoc2026PopulateEditCount extends PopulateEditCount {
 	public function __construct() {
 		parent::__construct();
-		$this->addDescription( 'Populates the securepoll_ucoc2026_edits table for the UCoC annual review and U4C elections' );
+		$this->addDescription(
+			'Populates the securepoll_ucoc2026_edits table for the UCoC annual review and U4C elections'
+		);
 		$this->table = 'securepoll_ucoc2026_edits';
 		$this->beforeTime = '20260424000000';
 		$this->beforeEditsToCount = 300;

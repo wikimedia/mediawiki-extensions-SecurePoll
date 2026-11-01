@@ -460,7 +460,8 @@ class VotePage extends ActionPage {
 						if ( isset( $questionMsg[$questionIndex]['column' . $count ] ) ) {
 							$columnLabel = $questionMsg[$questionIndex]['column' . $count ];
 							$votedItems[] = Html::rawElement( 'li', [],
-								$this->msg( 'securepoll-vote-result-voted-option-label', $optionText, $columnLabel )->parse()
+								$this->msg( 'securepoll-vote-result-voted-option-label', $optionText, $columnLabel )
+									->parse()
 							);
 							continue;
 						}
@@ -469,7 +470,8 @@ class VotePage extends ActionPage {
 							if ( isset( $questionMsg[$questionIndex]['column' . $positiveCount ] ) ) {
 								$columnLabel = $questionMsg[$questionIndex]['column' . $positiveCount ];
 								$votedItems[] = Html::rawElement( 'li', [],
-									$this->msg( 'securepoll-vote-result-voted-option-label', $optionText, $columnLabel )->parse()
+									$this->msg( 'securepoll-vote-result-voted-option-label', $optionText, $columnLabel )
+										->parse()
 								);
 								continue;
 							}

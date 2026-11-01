@@ -198,7 +198,8 @@ class SchulzeTallier extends PairwiseTallier {
 
 		return wfMessage( 'securepoll-ranks' )->text() . "\n" .
 			$this->convertRanksToText( $this->ranks ) . "\n\n" .
-			wfMessage( 'securepoll-pairwise-victories' )->text() . "\n" . $this->convertMatrixToText( $this->victories, $rankedIds ) . "\n\n" .
+			wfMessage( 'securepoll-pairwise-victories' )->text() . "\n" .
+			$this->convertMatrixToText( $this->victories, $rankedIds ) . "\n\n" .
 			wfMessage( 'securepoll-strength-matrix' )->text() . "\n" .
 			$this->convertMatrixToText( $this->strengths, $rankedIds );
 	}

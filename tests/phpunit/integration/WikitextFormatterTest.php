@@ -128,7 +128,9 @@ Election for 3 seats with 5 candidates. Total 2 votes.
 		$excludedCandidate = [
 			101 => true
 		];
-		$wikitextFormatter = new WikitextFormatter( [ 'rounds' => [] ], [], 1, [ 101 => 'Foo' ], $excludedCandidate, '' );
+		$wikitextFormatter = new WikitextFormatter(
+			[ 'rounds' => [] ], [], 1, [ 101 => 'Foo' ], $excludedCandidate, ''
+		);
 		$result = $wikitextFormatter->formatPreamble( [], [], $excludedCandidate );
 		$expectedElimination = "==Eliminated/Not elected==
 * Foo";
