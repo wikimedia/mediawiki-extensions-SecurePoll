@@ -42,7 +42,7 @@ class Question extends Entity {
 	}
 
 	/**
-	 * @return array
+	 * @return Option[]
 	 */
 	public function getOptions() {
 		return $this->options;

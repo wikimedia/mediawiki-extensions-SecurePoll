@@ -42,7 +42,7 @@ class PreferentialBallot extends Ballot {
 
 	/**
 	 * @param Question $question
-	 * @param array $options
+	 * @param Option[] $options
 	 * @return FieldsetLayout
 	 */
 	public function getQuestionForm( $question, $options ) {

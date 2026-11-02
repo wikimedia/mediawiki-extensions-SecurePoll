@@ -5,6 +5,8 @@ declare( strict_types=1 );
 namespace MediaWiki\Extension\SecurePoll\Talliers;
 
 use MediaWiki\Context\RequestContext;
+use MediaWiki\Extension\SecurePoll\Context;
+use MediaWiki\Extension\SecurePoll\Entities\Question;
 use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
 use MediaWiki\Html\Html;
 
@@ -22,7 +24,11 @@ class HistogramRangeTallier extends Tallier {
 	/** @var int */
 	public $maxScore;
 
-	/** @inheritDoc */
+	/**
+	 * @param Context $context
+	 * @param ElectionTallier $electionTallier
+	 * @param Question $question
+	 */
 	public function __construct( $context, $electionTallier, $question ) {
 		parent::__construct( $context, $electionTallier, $question );
 		$this->minScore = intval( $question->getProperty( 'min-score' ) );

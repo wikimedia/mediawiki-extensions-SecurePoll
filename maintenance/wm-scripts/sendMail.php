@@ -100,7 +100,7 @@ class SendMail extends Maintenance {
 	/**
 	 * Get all mailing list entries as an iterator.
 	 *
-	 * @return Generator
+	 * @return Generator<MailingListEntry>
 	 */
 	private function getEntries() {
 		foreach ( $this->getArgs() as $fileName ) {

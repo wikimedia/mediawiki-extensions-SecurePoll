@@ -6,6 +6,7 @@ namespace MediaWiki\Extension\SecurePoll\Ballots;
 
 use InvalidArgumentException;
 use MediaWiki\Extension\SecurePoll\Entities\Entity;
+use MediaWiki\Extension\SecurePoll\Entities\Option;
 use MediaWiki\Extension\SecurePoll\Entities\Question;
 use MediaWiki\Extension\SecurePoll\Exceptions\InvalidDataException;
 use MediaWiki\Extension\SecurePoll\HtmlForm\HTMLFormRadioRangeColumnLabels;
@@ -232,7 +233,7 @@ class RadioRangeBallot extends Ballot {
 
 	/**
 	 * @param Question $question
-	 * @param array $options
+	 * @param Option[] $options
 	 * @return FieldsetLayout
 	 */
 	public function getQuestionForm( $question, $options ) {

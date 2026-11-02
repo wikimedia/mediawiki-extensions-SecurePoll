@@ -182,7 +182,7 @@ class MakeMailingList extends Maintenance {
 	/**
 	 * Get an iterator over User objects for users that may be able to vote.
 	 *
-	 * @return Generator
+	 * @return Generator<User>
 	 */
 	private function generateUsers() {
 		$centralList = $this->election->getProperty( 'need-central-list' );
@@ -198,7 +198,7 @@ class MakeMailingList extends Maintenance {
 	 * list (centralauth.securepoll_lists).
 	 *
 	 * @param string $centralList
-	 * @return Generator
+	 * @return Generator<User>
 	 */
 	private function generateCentralListUsers( $centralList ) {
 		if ( !ExtensionRegistry::getInstance()->isLoaded( 'CentralAuth' ) ) {
@@ -251,7 +251,7 @@ class MakeMailingList extends Maintenance {
 	/**
 	 * Get an iterator for all local users
 	 *
-	 * @return Generator
+	 * @return Generator<User>
 	 */
 	private function generateAllUsers() {
 		$dbr = $this->dbProvider->getReplicaDatabase();

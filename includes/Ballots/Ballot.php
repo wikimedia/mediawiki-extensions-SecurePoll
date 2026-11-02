@@ -9,6 +9,7 @@ use LogicException;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\Extension\SecurePoll\Entities\Election;
 use MediaWiki\Extension\SecurePoll\Entities\Entity;
+use MediaWiki\Extension\SecurePoll\Entities\Option;
 use MediaWiki\Extension\SecurePoll\Entities\Question;
 use MediaWiki\Language\Language;
 use MediaWiki\Language\MessageLocalizer;
@@ -117,7 +118,7 @@ abstract class Ballot {
 	/**
 	 * Get the HTML form segment for a single question
 	 * @param Question $question
-	 * @param array $options Array of options, in the order they should be displayed
+	 * @param Option[] $options Array of options, in the order they should be displayed
 	 * @return FieldsetLayout
 	 */
 	abstract public function getQuestionForm( $question, $options );

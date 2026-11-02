@@ -4,6 +4,7 @@ declare( strict_types=1 );
 
 namespace MediaWiki\Extension\SecurePoll\Ballots;
 
+use MediaWiki\Extension\SecurePoll\Entities\Option;
 use MediaWiki\Extension\SecurePoll\Entities\Question;
 use OOUI\FieldLayout;
 use OOUI\FieldsetLayout;
@@ -38,7 +39,7 @@ class ChooseBallot extends Ballot {
 	/**
 	 * Get the HTML form segment for a single question
 	 * @param Question $question
-	 * @param array $options Array of options, in the order they should be displayed
+	 * @param Option[] $options Array of options, in the order they should be displayed
 	 * @return FieldsetLayout
 	 */
 	public function getQuestionForm( $question, $options ) {

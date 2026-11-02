@@ -4,6 +4,8 @@ declare( strict_types=1 );
 
 namespace MediaWiki\Extension\SecurePoll\Talliers;
 
+use MediaWiki\Extension\SecurePoll\Context;
+use MediaWiki\Extension\SecurePoll\Entities\Question;
 use MediaWiki\Html\Html;
 
 /**
@@ -11,7 +13,7 @@ use MediaWiki\Html\Html;
  * Tested via SchulzeTallier.
  */
 abstract class PairwiseTallier extends Tallier {
-	/** @var array */
+	/** @var int[] */
 	public $optionIds = [];
 	/** @var array */
 	public $victories = [];
@@ -20,7 +22,11 @@ abstract class PairwiseTallier extends Tallier {
 	/** @var array */
 	public $rowLabels = [];
 
-	/** @inheritDoc */
+	/**
+	 * @param Context $context
+	 * @param ElectionTallier $electionTallier
+	 * @param Question $question
+	 */
 	public function __construct( $context, $electionTallier, $question ) {
 		parent::__construct( $context, $electionTallier, $question );
 		$this->optionIds = [];
