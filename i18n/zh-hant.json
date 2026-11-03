@@ -32,7 +32,8 @@
 			"魔琴",
 			"Allenwang6212",
 			"ZhaoFJx",
-			"LowensteinYang"
+			"LowensteinYang",
+			"Anterdc99"
 		]
 	},
 	"securepoll": "安全投票",
@@ -48,7 +49,7 @@
 	"securepoll-finished": "此選舉已結束，您無法投票。",
 	"securepoll-not-qualified": "您於此選舉沒有投票資格︰$1",
 	"securepoll-change-disallowed": "您於此選舉已投過票，\n抱歉，您無法再次投票。",
-	"securepoll-change-allowed": "<strong>注意：您於此選舉已投過票。</strong>\n您可以使用以下表單變更您的選票。\n注意，若您變更選票，您原來的選票將會作廢。",
+	"securepoll-change-allowed": "<strong>注意：您於此選舉已投過票。</strong>您可以使用以下表單變更您的選票。注意，若您變更選票，您原來的選票將會作廢。",
 	"securepoll-header-comments": "評論",
 	"securepoll-submit": "遞交選票",
 	"securepoll-gpg-receipt": "您可以保留以下收據作為您的投票證明：\n\n<pre>$1</pre>",
