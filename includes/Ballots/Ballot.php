@@ -320,7 +320,7 @@ abstract class Ballot {
 		}
 		if ( $prevStatus ) {
 			$formStatus = new Element( [
-				'content' => new HTMLSnippet(
+				'content' => new HtmlSnippet(
 					$this->formatStatus( $prevStatus )
 				),
 			] );
