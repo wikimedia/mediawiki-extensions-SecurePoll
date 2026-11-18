@@ -7,6 +7,7 @@ namespace MediaWiki\Extension\SecurePoll\Pages;
 use Exception;
 use InvalidArgumentException;
 use MediaWiki\Extension\SecurePoll\DumpElection;
+use Wikimedia\Http\HttpHeader;
 
 /**
  * Special:SecurePoll subpage for exporting encrypted election records.
@@ -80,10 +81,10 @@ class DumpPage extends ActionPage {
 
 	public function sendHeaders() {
 		$this->specialPage->getOutput()->disable();
-		header( 'Content-Type: application/vnd.mediawiki.securepoll' );
+		HttpHeader::send( 'Content-Type: application/vnd.mediawiki.securepoll' );
 		$electionId = $this->election->getId();
 		$filename = urlencode( "$electionId-" . wfTimestampNow() . '.securepoll' );
-		header( "Content-Disposition: attachment; filename=$filename" );
+		HttpHeader::send( "Content-Disposition: attachment; filename=$filename" );
 		$this->context->setLanguages( [ $this->election->getLanguage() ] );
 	}
 
