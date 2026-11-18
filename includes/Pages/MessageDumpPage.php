@@ -4,6 +4,8 @@ declare( strict_types=1 );
 
 namespace MediaWiki\Extension\SecurePoll\Pages;
 
+use Wikimedia\Http\HttpHeader;
+
 class MessageDumpPage extends ActionPage {
 	/**
 	 * @param array $params
@@ -27,9 +29,9 @@ class MessageDumpPage extends ActionPage {
 		}
 
 		$out->disable();
-		header( 'Content-Type: application/x-sql; charset=utf-8' );
+		HttpHeader::send( 'Content-Type: application/x-sql; charset=utf-8' );
 		$filename = urlencode( "sp-msgs-$electionId-" . wfTimestampNow() . '.sql' );
-		header( "Content-Disposition: attachment; filename=$filename" );
+		HttpHeader::send( "Content-Disposition: attachment; filename=$filename" );
 		$dbr = $this->context->getPrimaryDB();
 
 		$entities = array_merge( [ $this->election ], $this->election->getDescendants() );
