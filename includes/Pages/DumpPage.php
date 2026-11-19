@@ -10,7 +10,7 @@ use MediaWiki\Extension\SecurePoll\DumpElection;
 use Wikimedia\Http\HttpHeader;
 
 /**
- * Special:SecurePoll subpage for exporting encrypted election records.
+ * Special:SecurePoll subpage for exporting election records.
  */
 class DumpPage extends ActionPage {
 

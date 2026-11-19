@@ -13,7 +13,7 @@ use Throwable;
 use Wikimedia\Rdbms\IDatabase;
 
 /**
- * Job for tallying an encrypted election.
+ * Job for tallying an election.
  */
 class TallyElectionJob extends Job {
 
