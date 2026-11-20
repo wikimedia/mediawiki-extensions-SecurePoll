@@ -37,7 +37,7 @@ class SetTranslationHandler extends SimpleHandler {
 	/**
 	 * @inheritDoc
 	 */
-	public function run( $params ): Response {
+	public function run(): Response {
 		$request = $this->getRequest();
 		$electionId = (int)$request->getPathParam( 'entityid' );
 		$language = $request->getPathParam( 'language' );
