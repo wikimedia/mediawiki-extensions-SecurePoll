@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\SecurePoll\User;
 
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\SecurePoll\Context;
 use MediaWiki\WikiMap\WikiMap;
 use stdClass;
@@ -228,9 +229,11 @@ class Voter {
 	}
 
 	public function doCookieCheck() {
+		$request = RequestContext::getMain()->getRequest();
 		$cookieName = WikiMap::getCurrentWikiId() . '_securepoll_check';
-		if ( isset( $_COOKIE[$cookieName] ) ) {
-			$otherVoterId = intval( $_COOKIE[$cookieName] );
+		$otherVoterId = $request->getCookie( $cookieName, '' );
+		if ( $otherVoterId !== null ) {
+			$otherVoterId = intval( $otherVoterId );
 			if ( $otherVoterId != $this->getId() ) {
 				$otherVoter = self::newFromId( $this->context, $otherVoterId );
 				if ( $otherVoter && $otherVoter->getElectionId() == $this->getElectionId() ) {
@@ -238,7 +241,18 @@ class Voter {
 				}
 			}
 		} else {
-			setcookie( $cookieName, (string)$this->getId(), time() + 86400 * 30 );
+			$request->response()->setCookie(
+				$cookieName,
+				(string)$this->getId(),
+				time() + 86400 * 30,
+				[
+					'prefix' => '',
+					'path' => '',
+					'domain' => '',
+					'secure' => false,
+					'httpOnly' => false,
+				]
+			);
 		}
 	}
 
