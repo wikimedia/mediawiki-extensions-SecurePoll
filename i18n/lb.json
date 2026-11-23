@@ -24,6 +24,7 @@
 	"securepoll-change-disallowed": "Dir hutt bei dëse Wale virdru schonn ofgestëmmt.\nPardon, mä Dir däerft net nach eng Kéier ofstëmmen.",
 	"securepoll-change-allowed": "<strong>Hiweis: Dir hutt bei dëse Wale schonn ofgestëmmt</strong>\nDir kënnt Är Stëmm änneren, andeems Dir de Formulaire heiënnendrënner fortschéckt.\nWann Dir dat maacht, gëtt Är vireg Stëmm iwwerschriwwen.",
 	"securepoll-header-comments": "Bemierkungen",
+	"securepoll-comment-too-long": "Äre Kommentar ass ze laang. Kierzt e wgl. op $1 oder manner {{PLURAL:$1|Zeechen}}.",
 	"securepoll-submit": "Stëmm ofginn",
 	"securepoll-gpg-receipt": "Wann Dir wëllt, kënnt Dir dës Confirmatioun vun Ärem Vott behalen:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "Merci, Är Stëmm gouf gespäichert.",
