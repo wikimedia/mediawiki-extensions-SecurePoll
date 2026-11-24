@@ -20,6 +20,7 @@
 	"securepoll-change-disallowed": "Na teh volitvah ste že glasovali.\nŽal ne morete znova glasovati.",
 	"securepoll-change-allowed": "<strong>Opomba: V teh volitvah ste že volili.</strong>\nSvoj glas lahko spremenite s potrditvijo spodnjega obrazca.\nČe boste to storili, bo vaš prvotni glas zavržen.",
 	"securepoll-header-comments": "Komentarji",
+	"securepoll-comment-too-long": "Vaš komentar je predolg. Prosimo, skrajšajte ga na $1 {{PLURAL:$1|znak|znaka|znake|znakov}} ali manj.",
 	"securepoll-submit": "Pošlji glas",
 	"securepoll-gpg-receipt": "Če želite, lahko kot dokaz svojega glasu obdržite naslednje potrdilo:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "Hvala, vaš glas je zabeležen.",

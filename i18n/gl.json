@@ -22,6 +22,7 @@
 	"securepoll-change-disallowed": "Xa votaches nestas eleccións.\nSentímolo, non podes votar de novo.",
 	"securepoll-change-allowed": "<strong>Nota: xa votaches nestas eleccións.</strong>\nPodes cambiar o teu voto enviando o formulario de embaixo.\nTen en conta que, se o fas, o teu voto orixinal será descartado.",
 	"securepoll-header-comments": "Comentarios",
+	"securepoll-comment-too-long": "O teu comentario é demasiado longo. Acúrtao a {{PLURAL:$1|un carácter|$1 caracteres}} ou menos.",
 	"securepoll-submit": "Enviar o voto",
 	"securepoll-gpg-receipt": "Se queres, podes conservar o seguinte recibo como proba do teu voto:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "Grazas, o teu voto foi rexistrado.",
@@ -65,6 +66,7 @@
 	"securepoll-not-in-list": "Sentímolo, non estás na lista predeterminada de usuarios autorizados a votar nestas eleccións.",
 	"securepoll-in-exclude-list": "Sentímolo, non tes autorización para votar nestas eleccións.",
 	"securepoll-list-title": "Lista de votos: $1",
+	"securepoll-list-title-hidden": "Lista de votos",
 	"securepoll-list-private": "Sentímolo, a vista da lista de votantes para estas eleccións está restrinxida ós administradores das eleccións.",
 	"securepoll-header-timestamp": "Hora",
 	"securepoll-header-date": "Data",
@@ -345,5 +347,6 @@
 	"securepoll-vote-result-error-label": "Non se puideron descomprimir correctamente os teus votos. Ponte en contacto cun administrador das eleccións.",
 	"securepoll-vote-stv-clear-btn-label": "Borrar todos os candidatos",
 	"securepoll-vote-most-active-wiki-dropdown-label": "Escolle o wiki no que tes máis actividade",
-	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1 ($2, $3 {{PLURAL:$3|edición|edicións}})"
+	"securepoll-vote-most-active-wiki-dropdown-option-text": "$1 ($2, $3 {{PLURAL:$3|edición|edicións}})",
+	"securepoll-csrf-error-during-voting": "Sentímolo! Non puidemos procesar o teu voto porque se perderon os datos de inicio da sesión. Poida que se che pechase a sesión. Por favor, comproba que tes a sesión aberta e proba de novo. En caso de que siga sen funcionar, tenta saír e volver entrar na túa conta e verifica que o teu navegador permite o uso de cookies deste sitio."
 }
