@@ -29,6 +29,7 @@
 	"securepoll-stv-unranked-candidates": "Sıralanmamış",
 	"securepoll-stv-ranked-candidates": "Sıralanmış",
 	"securepoll-header-comments": "Şərhlər",
+	"securepoll-comment-too-long": "Şərhiniz çox uzundur. Onu $1 {{PLURAL:$1|simvol}} və ya daha az uzunluqda qısaldın.",
 	"securepoll-submit": "Səs ver",
 	"securepoll-gpg-receipt": "İstəyirsinizsə, səsinizin sübutu kimi aşağıdakı qəbzi özündə saxlaya bilərsiniz:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "Təşəkkürlər, səsiniz qeydə alındı.",
@@ -68,6 +69,7 @@
 	"securepoll-too-few-edits-before-date": "Bağışlayın, bu seçkidə səs verə bilməzsiniz, çünki $2 tarixindən əvvəl $1-dən az {{PLURAL:$1|redaktə}} etmisiniz.",
 	"securepoll-too-few-edits-between-dates": "Bağışlayın, bu seçkidə səs verə bilməzsiniz, çünki $2 və $3 tarixləri arasında $1-dən az {{PLURAL:$1|redaktə}} etmisiniz.",
 	"securepoll-list-title": "$1: Səslərin siyahısı",
+	"securepoll-list-title-hidden": "Səslərin siyahısı",
 	"securepoll-list-private": "Təəssüf ki, bu seçki üçün seçicilərin siyahısına baxmaq icazəsi yalnız seçki administratorlarındadır.",
 	"securepoll-header-timestamp": "Zaman",
 	"securepoll-header-date": "Tarix",
@@ -372,5 +374,6 @@
 	"securepoll-tallymodifiers-question-label": "Sual: \"$1\"",
 	"securepoll-tally-stv-candidate-excluded": "Namizədləri manual xaric et",
 	"securepoll-stv-result-election-excluded-header": "Xaric edilmiş namizədlər",
-	"securepoll-stv-excluded-candidates-help-text": "Aşağıdakı namizəd(lər) manual olaraq səsvermədən xaric edilib."
+	"securepoll-stv-excluded-candidates-help-text": "Aşağıdakı namizəd(lər) manual olaraq səsvermədən xaric edilib.",
+	"securepoll-csrf-error-during-voting": "Təəssüf ki, sessiya məlumatlarının itirilməsi səbəbindən səsinizi qeydə ala bilmədik. Hesabınızdan çıxış etmiş ola bilərsiniz. Hələ də hesabınıza daxil olub-olmadığınızı yoxlayın və yenidən cəhd edin. Problem davam edərsə, hesabınızdan çıxış edib yenidən daxil olun və brauzerinizin bu saytdan kukilərin qəbul edilməsinə icazə verdiyini yoxlayın."
 }
