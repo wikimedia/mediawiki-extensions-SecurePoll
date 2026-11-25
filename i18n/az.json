@@ -25,7 +25,7 @@
 	"securepoll-finished": "Bu seçki bitib, artıq səs verə bilməzsiniz.",
 	"securepoll-not-qualified": "Sizin bu seçkidə səs vermək hüququnuz yoxdur: $1",
 	"securepoll-change-disallowed": "Siz bu seçkidə artıq səs vermisiniz. \nÜzr istəyirik, yenidən səs verə bilməzsiniz.",
-	"securepoll-change-allowed": "<strong>Qeyd: Siz əvvəllər bu seçkidə səs vermisiniz.</strong> \nAşağıdakı formanı təqdim etməklə səsinizi dəyişə bilərsiniz.\nQeyd edək ki, bunu etsəniz, birinci səsiniz silinəcək.",
+	"securepoll-change-allowed": "<strong>Qeyd: Siz əvvəllər bu seçkidə səs vermisiniz.</strong> \nAşağıdakı formanı təqdim etməklə səsinizi dəyişə bilərsiniz.\nQeyd edək ki, bunu etsəniz, bundan əvvəlki səsiniz silinəcək.",
 	"securepoll-stv-unranked-candidates": "Sıralanmamış",
 	"securepoll-stv-ranked-candidates": "Sıralanmış",
 	"securepoll-header-comments": "Şərhlər",
