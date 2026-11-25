@@ -97,6 +97,7 @@
 	"securepoll-too-few-edits-before-date": "很抱歉，您无法在该选举中投票，因为在$2前，您的{{PLURAL:$1|编辑数}}少于$1",
 	"securepoll-too-few-edits-between-dates": "很抱歉，您无法在该选举中投票，因为在$2至$3期间，您的{{PLURAL:$1|编辑数}}少于$1",
 	"securepoll-list-title": "投票列表：$1",
+	"securepoll-list-title-hidden": "列出投票",
 	"securepoll-list-private": "对不起，只有选举管理员可以查看此选举的投票者列表。",
 	"securepoll-header-timestamp": "时间",
 	"securepoll-header-date": "日期",
@@ -401,5 +402,6 @@
 	"securepoll-tallymodifiers-question-label": "问题：“ $1 ”",
 	"securepoll-tally-stv-candidate-excluded": "手动排除候选人",
 	"securepoll-stv-result-election-excluded-header": "被排除的候选人",
-	"securepoll-stv-excluded-candidates-help-text": "以下候选人已被从点票中手动移除。"
+	"securepoll-stv-excluded-candidates-help-text": "以下候选人已被从点票中手动移除。",
+	"securepoll-csrf-error-during-voting": "对不起！由于会话数据丢失，我们无法处理您的编辑。您可能已经退出。请核实您是否仍在登录，并重试。如果仍然不能工作，尝试退出并重新登录，并检查您的浏览器是否允许来自该网站的cookie。"
 }
