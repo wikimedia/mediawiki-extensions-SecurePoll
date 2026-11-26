@@ -36,6 +36,7 @@
 	"securepoll-stv-unranked-candidates": "Не ранжовано",
 	"securepoll-stv-ranked-candidates": "Ранжовано",
 	"securepoll-header-comments": "Коментарі",
+	"securepoll-comment-too-long": "Ваш коментар задовгий. Будь ласка, скоротіть його до $1 {{PLURAL:$1| символа|символів}} або менше.",
 	"securepoll-submit": "Відправити голос",
 	"securepoll-gpg-receipt": "При бажання ви можете зберегти наступні рядки як підтвердження вашого голосу:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "Дякую, ваш голос записаний.",
@@ -73,6 +74,7 @@
 	"securepoll-not-in-list": "Вибачте, ви не входите в список користувачів, допущених до голосування на цих виборах.",
 	"securepoll-in-exclude-list": "Вибачте, Ви не можете голосувати на цих виборах.",
 	"securepoll-list-title": "Список голосів: $1",
+	"securepoll-list-title-hidden": "Список голосів",
 	"securepoll-list-private": "На жаль, перегляд списку виборців, що беруть участь у цих виборах, дозволений лише для адміністраторів виборів.",
 	"securepoll-header-timestamp": "Час",
 	"securepoll-header-date": "Дата",
@@ -388,5 +390,6 @@
 	"securepoll-tallymodifiers-question-label": "Запитання: «$1»",
 	"securepoll-tally-stv-candidate-excluded": "Виключити кандидатів вручну",
 	"securepoll-stv-result-election-excluded-header": "Виключені кандидати",
-	"securepoll-stv-excluded-candidates-help-text": "Цих кандидатів було вручну виключено з підрахунку."
+	"securepoll-stv-excluded-candidates-help-text": "Цих кандидатів було вручну виключено з підрахунку.",
+	"securepoll-csrf-error-during-voting": "Вибачте! Ваш голос не вдалося зберегти, оскільки втрачені дані сеансу. Ви могли вийти з системи. <strong>Будь ласка, переконайтеся, що досі в системі, і спробуйте ще раз</strong>. Якщо це не спрацює, спробуйте вийти з системи й увійти знову, та перевірте, чи Ваш браузер дозволяє куки з цього сайту."
 }
