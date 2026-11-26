@@ -31,7 +31,7 @@
 	"securepoll-stv-unranked-candidates": "Nicht bewertet",
 	"securepoll-stv-ranked-candidates": "Bewertet",
 	"securepoll-header-comments": "Kommentare",
-	"securepoll-comment-too-long": "Deine Kommentar ist zu lang. Bitte kürze ihn auf maximal $1 {{PLURAL:$1|Zeichen}}.",
+	"securepoll-comment-too-long": "Dein Kommentar ist zu lang. Bitte kürze ihn auf maximal $1 {{PLURAL:$1|Zeichen}}.",
 	"securepoll-submit": "Stimme abgeben",
 	"securepoll-gpg-receipt": "Wenn {{#FORMAL:du möchtest|Sie möchten}}, {{#FORMAL:kannst du|können Sie}} die folgende Quittung als Nachweis deiner Stimmabgabe aufbewahren:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "Vielen Dank, {{#FORMAL:deine|Ihre}} Stimme wurde gespeichert.",
