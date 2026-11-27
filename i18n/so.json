@@ -23,6 +23,7 @@
 	"securepoll-stv-unranked-candidates": "Aan la kala sarreyn",
 	"securepoll-stv-ranked-candidates": "Kala sarreyn",
 	"securepoll-header-comments": "Faallooyin",
+	"securepoll-comment-too-long": "Faalladaadu aad bay u dheer tahay. Fadlan ka soo gaabi ilaa $1 {{PLURAL:$1|xaraf|xarafo}} ama ka yar.",
 	"securepoll-submit": "Gudbi codeynta",
 	"securepoll-gpg-receipt": "Haddii aad rabto, waxaad kaydsan kartaa rasiidka soo socda si uu u noqdo caddayn codkaaga:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "Mahadsanid, codkaaga waa la diiwaangeliyey.",
@@ -60,6 +61,7 @@
 	"securepoll-not-in-list": "Waan ka xunnahay, kuma jirto liiska hore loo go'aamiyay ee isticmaalayaasha loo oggolaaday inay ka codeeyaan doorashadan.",
 	"securepoll-in-exclude-list": "Waan ka xunnahay, looma oggola inaad ka codeyso doorashadan.",
 	"securepoll-list-title": "Liisaska codadka: $1",
+	"securepoll-list-title-hidden": "Liiska codadka",
 	"securepoll-list-private": "Waan ka xunnahay, daawashada liiska codbixiyayaasha doorashadan waa mid ku xaddidan oo keliya maamulayaasha doorashada.",
 	"securepoll-header-timestamp": "Waqtiga",
 	"securepoll-header-date": "Taariikhda",
@@ -363,5 +365,6 @@
 	"securepoll-tallymodifiers-question-label": "Su'aal: \"$1\"",
 	"securepoll-tally-stv-candidate-excluded": "Si gacanta ah uga saar musharrixiinta",
 	"securepoll-stv-result-election-excluded-header": "Musharrixiinta la saaray",
-	"securepoll-stv-excluded-candidates-help-text": "Musharrixiinta soo socda ayaa gacanta looga saaray tirinta codadka."
+	"securepoll-stv-excluded-candidates-help-text": "Musharrixiinta soo socda ayaa gacanta looga saaray tirinta codadka.",
+	"securepoll-csrf-error-during-voting": "Waan ka xunnahay! Ma awoodin inaan codkaaga farsamayno sababtoo ah xogtii kalfadhiga ayaa luntay. Waxaa laga yaabaa in lagaa saaray akoonkaaga. Fadlan hubi inaad weli ku jirto akoonkaaga oo mar kale isku day. Haddii ay weli shaqayn weydo, isku day inaad ka baxdo akoonkaaga dabadeedna dib u soo gasho, sidoo kale hubi in biraawsarkaagu oggol yahay kukiyada boggan."
 }

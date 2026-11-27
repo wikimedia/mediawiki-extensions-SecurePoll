@@ -31,6 +31,7 @@
 	"securepoll-stv-unranked-candidates": "Nicht bewertet",
 	"securepoll-stv-ranked-candidates": "Bewertet",
 	"securepoll-header-comments": "Kommentare",
+	"securepoll-comment-too-long": "Dein Kommentar ist zu lang. Bitte kürze ihn auf maximal $1 {{PLURAL:$1|Zeichen}}.",
 	"securepoll-submit": "Stimme abgeben",
 	"securepoll-gpg-receipt": "Wenn {{#FORMAL:du möchtest|Sie möchten}}, {{#FORMAL:kannst du|können Sie}} die folgende Quittung als Nachweis deiner Stimmabgabe aufbewahren:\n\n<pre>$1</pre>",
 	"securepoll-thanks": "Vielen Dank, {{#FORMAL:deine|Ihre}} Stimme wurde gespeichert.",
@@ -68,6 +69,7 @@
 	"securepoll-not-in-list": "{{#FORMAL:Du befindest dich|Sie befinden sich}} leider nicht auf der Liste der Benutzerinnen und Benutzer, die bei dieser Wahl abstimmen dürfen.",
 	"securepoll-in-exclude-list": "Leider bist du nicht berechtigt, bei dieser Wahl abzustimmen.",
 	"securepoll-list-title": "Stimmen auflisten: $1",
+	"securepoll-list-title-hidden": "Stimmen auflisten",
 	"securepoll-list-private": "Leider ist die Betrachtung der Wählerliste für diese Abstimmung auf Wahl-Administratoren beschränkt.",
 	"securepoll-header-timestamp": "Zeit",
 	"securepoll-header-date": "Datum",
@@ -377,5 +379,6 @@
 	"securepoll-tallymodifiers-question-label": "Frage: „$1“",
 	"securepoll-tally-stv-candidate-excluded": "Kandidaten manuell ausschließen",
 	"securepoll-stv-result-election-excluded-header": "Ausgeschlossene Kandidaten",
-	"securepoll-stv-excluded-candidates-help-text": "Die folgenden Kandidaten wurden manuell von der Zählung ausgeschlossen."
+	"securepoll-stv-excluded-candidates-help-text": "Die folgenden Kandidaten wurden manuell von der Zählung ausgeschlossen.",
+	"securepoll-csrf-error-during-voting": "Entschuldigung! Wir konnten deine Stimme aufgrund eines Verlusts der Sitzungsdaten nicht verarbeiten. Möglicherweise wurdest du abgemeldet. Bitte überprüfe, ob du noch angemeldet bist, und versuche es erneut. Sollte es weiterhin nicht funktionieren, melde dich bitte ab und wieder an und stelle sicher, dass dein Browser Cookies von dieser Website zulässt."
 }
